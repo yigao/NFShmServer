@@ -23,12 +23,12 @@ ${PROTOCGEN_FILE_PATH}/module_encyclopedia_bin:${PROTOCGEN_FILE_PATH}/encycloped
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/EncyclopediaBeastDesc.h ${PROTOCGEN_FILE_PATH}/EncyclopediaBeastDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_EncyclopediaEquipexpvalue.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/EncyclopediaEquipexpvalueDesc.h ${PROTOCGEN_FILE_PATH}/EncyclopediaEquipexpvalueDesc.cpp" --dst=${DESC_STORE_PATH}/
-	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_EncyclopediaBeastexp.bin" --dst=${GAME_DATA_PATH}/
-	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/EncyclopediaBeastexpDesc.h ${PROTOCGEN_FILE_PATH}/EncyclopediaBeastexpDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_EncyclopediaBeastexpand.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/EncyclopediaBeastexpandDesc.h ${PROTOCGEN_FILE_PATH}/EncyclopediaBeastexpandDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_EncyclopediaBeastprivilege.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/EncyclopediaBeastprivilegeDesc.h ${PROTOCGEN_FILE_PATH}/EncyclopediaBeastprivilegeDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_EncyclopediaBeastexp.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/EncyclopediaBeastexpDesc.h ${PROTOCGEN_FILE_PATH}/EncyclopediaBeastexpDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_EncyclopediaEmploy.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/EncyclopediaEmployDesc.h ${PROTOCGEN_FILE_PATH}/EncyclopediaEmployDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_EncyclopediaTable.bin" --dst=${GAME_DATA_PATH}/

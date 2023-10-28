@@ -505,6 +505,7 @@ namespace proto_ff_s {
 		int32_t m_itemnum;//道具数量
 		int32_t m_buylv;//购买等级
 		int32_t m_rechargeid;//充值id
+		NFShmString<64> m_bookmodel;//书模型
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenGftypes & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenGftypes & msg);

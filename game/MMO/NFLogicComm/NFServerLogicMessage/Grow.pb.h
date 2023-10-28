@@ -122,6 +122,13 @@ class GrowStarInfo : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 state() const;
   inline void set_state(::google::protobuf::int32 value);
 
+  // optional int64 time = 4;
+  inline bool has_time() const;
+  inline void clear_time();
+  static const int kTimeFieldNumber = 4;
+  inline ::google::protobuf::int64 time() const;
+  inline void set_time(::google::protobuf::int64 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.GrowStarInfo)
  private:
   inline void set_has_id();
@@ -130,15 +137,18 @@ class GrowStarInfo : public ::google::protobuf::Message {
   inline void clear_has_lv();
   inline void set_has_state();
   inline void clear_has_state();
+  inline void set_has_time();
+  inline void clear_has_time();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int64 id_;
   ::google::protobuf::int32 lv_;
   ::google::protobuf::int32 state_;
+  ::google::protobuf::int64 time_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
 
   friend void  protobuf_AddDesc_Grow_2eproto();
   friend void protobuf_AssignDesc_Grow_2eproto();
@@ -827,20 +837,30 @@ class GrowFacadeUnDressRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 ret() const;
   inline void set_ret(::google::protobuf::int32 value);
 
+  // optional int32 code = 3;
+  inline bool has_code() const;
+  inline void clear_code();
+  static const int kCodeFieldNumber = 3;
+  inline ::google::protobuf::int32 code() const;
+  inline void set_code(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.GrowFacadeUnDressRsp)
  private:
   inline void set_has_id();
   inline void clear_has_id();
   inline void set_has_ret();
   inline void clear_has_ret();
+  inline void set_has_code();
+  inline void clear_has_code();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int64 id_;
   ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 code_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_Grow_2eproto();
   friend void protobuf_AssignDesc_Grow_2eproto();
@@ -920,6 +940,28 @@ inline ::google::protobuf::int32 GrowStarInfo::state() const {
 inline void GrowStarInfo::set_state(::google::protobuf::int32 value) {
   set_has_state();
   state_ = value;
+}
+
+// optional int64 time = 4;
+inline bool GrowStarInfo::has_time() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void GrowStarInfo::set_has_time() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void GrowStarInfo::clear_has_time() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void GrowStarInfo::clear_time() {
+  time_ = GOOGLE_LONGLONG(0);
+  clear_has_time();
+}
+inline ::google::protobuf::int64 GrowStarInfo::time() const {
+  return time_;
+}
+inline void GrowStarInfo::set_time(::google::protobuf::int64 value) {
+  set_has_time();
+  time_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -1222,6 +1264,28 @@ inline ::google::protobuf::int32 GrowFacadeUnDressRsp::ret() const {
 inline void GrowFacadeUnDressRsp::set_ret(::google::protobuf::int32 value) {
   set_has_ret();
   ret_ = value;
+}
+
+// optional int32 code = 3;
+inline bool GrowFacadeUnDressRsp::has_code() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GrowFacadeUnDressRsp::set_has_code() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GrowFacadeUnDressRsp::clear_has_code() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GrowFacadeUnDressRsp::clear_code() {
+  code_ = 0;
+  clear_has_code();
+}
+inline ::google::protobuf::int32 GrowFacadeUnDressRsp::code() const {
+  return code_;
+}
+inline void GrowFacadeUnDressRsp::set_code(::google::protobuf::int32 value) {
+  set_has_code();
+  code_ = value;
 }
 
 

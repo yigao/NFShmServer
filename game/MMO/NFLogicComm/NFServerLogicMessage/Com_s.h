@@ -15,6 +15,9 @@
 #define DEFINE_MARRYBRIEF_RECVED_GEARS_MAX_NUM 1
 #define DEFINE_PETINFO_EXCLUSIVESKILLLVVEC_MAX_NUM 1
 #define DEFINE_PETINFO_PASSIVESKILLLVVEC_MAX_NUM 1
+#define DEFINE_PETYAOHUNENTRY_INFOS_MAX_NUM 1
+#define DEFINE_PETYAOHUNENTRY_SUITIDS_MAX_NUM 1
+#define DEFINE_PETYAOHUNMODULE_ENTRYS_MAX_NUM 1
 #define DEFINE_TURNATTR_COM_POS_MAX_NUM 1
 #define DEFINE_TURNATTR_STAR_POS_MAX_NUM 1
 #define DEFINE_ITEMPROTOINFO_BASE_MAX_NUM 1
@@ -25,6 +28,7 @@
 #define DEFINE_ITEMPROTOINFO_GOLD_STAR_MAX_NUM 1
 #define DEFINE_ITEMPROTOINFO_SILVER_STAR_MAX_NUM 1
 #define DEFINE_ITEMPROTOINFO_SKILL_MAX_NUM 1
+#define DEFINE_ITEMPROTOINFO_UNLOCK_ATTR_INDEX_MAX_NUM 1
 #define DEFINE_REFINESLOTINFO_UNLOCKS_MAX_NUM 1
 #define DEFINE_REFINESLOTINFO_LOCK_POS_MAX_NUM 1
 #define DEFINE_EQUIPSLOTINFO_STONES_MAX_NUM 1
@@ -52,9 +56,11 @@
 #define DEFINE_GODEVILPROTO_EQUIP_MAX_NUM 1
 #define DEFINE_RECHARGEPROTO_PRODUCT_MAX_NUM 1
 #define DEFINE_MOUNTKUNEQUIPDATA_INFOS_MAX_NUM 1
-#define DEFINE_MOUNTKUNEQUIPDATA_LV_ATTR_MAX_NUM 1
+#define DEFINE_MOUNTKUNEQUIPDATA_SLOT_STATUS_MAX_NUM 1
 #define DEFINE_MOUNTKUNDATA_EQUIP_SUIT_DATA_MAX_NUM 1
 #define DEFINE_MOUNTFAIRYLAND_TOUR_MAX_NUM 1
+#define DEFINE_MOUNTFAIRYSLOT_REWARD_ITEM_MAX_NUM 1
+#define DEFINE_MOUNTFAIRYSLOT_RECORD_MAX_NUM 1
 #define DEFINE_GODRELICSTASKGROUPENTRY_ENTRYS_MAX_NUM 1
 #define DEFINE_DAILYTASKBACKENTRY_DAY_DATA_MAX_NUM 1
 #define DEFINE_DAILYTASKALLDATA_TASK_DATA_MAX_NUM 1
@@ -671,6 +677,59 @@ namespace proto_ff_s {
 	};
 	typedef struct PetGrow_s PetGrow_t;
 
+	struct PetYaoHunSlot_s : public NFDescStoreSeqOP {
+		PetYaoHunSlot_s();
+		virtual ~PetYaoHunSlot_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t slot_pos;//
+		int32_t lv;//
+		int32_t exp;//
+		int32_t step;//
+		struct ItemProtoInfo_s equip;//
+
+		virtual void write_to_pbmsg(::proto_ff::PetYaoHunSlot & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::PetYaoHunSlot & msg);
+		static ::proto_ff::PetYaoHunSlot* new_pbmsg(){ return new ::proto_ff::PetYaoHunSlot(); }
+		static ::proto_ff::PetYaoHunSlot make_pbmsg(){ return ::proto_ff::PetYaoHunSlot(); }
+	};
+	typedef struct PetYaoHunSlot_s PetYaoHunSlot_t;
+
+	struct PetYaoHunEntry_s : public NFDescStoreSeqOP {
+		PetYaoHunEntry_s();
+		virtual ~PetYaoHunEntry_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t fight_pos;//
+		int32_t is_unlock;//
+		NFShmVector<struct PetYaoHunSlot_s, DEFINE_PETYAOHUNENTRY_INFOS_MAX_NUM> infos;//
+		NFShmVector<int32_t, DEFINE_PETYAOHUNENTRY_SUITIDS_MAX_NUM> suitids;//
+
+		virtual void write_to_pbmsg(::proto_ff::PetYaoHunEntry & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::PetYaoHunEntry & msg);
+		static ::proto_ff::PetYaoHunEntry* new_pbmsg(){ return new ::proto_ff::PetYaoHunEntry(); }
+		static ::proto_ff::PetYaoHunEntry make_pbmsg(){ return ::proto_ff::PetYaoHunEntry(); }
+	};
+	typedef struct PetYaoHunEntry_s PetYaoHunEntry_t;
+
+	struct PetYaoHunModule_s : public NFDescStoreSeqOP {
+		PetYaoHunModule_s();
+		virtual ~PetYaoHunModule_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct PetYaoHunEntry_s, DEFINE_PETYAOHUNMODULE_ENTRYS_MAX_NUM> entrys;//
+		int32_t lianyao_tq_flag;//
+		int32_t yaolu_lv;//
+		int32_t yaolu_exp;//
+		int32_t yaoqi;//
+
+		virtual void write_to_pbmsg(::proto_ff::PetYaoHunModule & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::PetYaoHunModule & msg);
+		static ::proto_ff::PetYaoHunModule* new_pbmsg(){ return new ::proto_ff::PetYaoHunModule(); }
+		static ::proto_ff::PetYaoHunModule make_pbmsg(){ return ::proto_ff::PetYaoHunModule(); }
+	};
+	typedef struct PetYaoHunModule_s PetYaoHunModule_t;
+
 	struct TurnAttr_s : public NFDescStoreSeqOP {
 		TurnAttr_s();
 		virtual ~TurnAttr_s(){}
@@ -719,6 +778,7 @@ namespace proto_ff_s {
 		int32_t awaken_lv;//
 		struct TurnAttr_s turn_attr;//
 		int64_t item_chg_count;//
+		NFShmVector<int32_t, DEFINE_ITEMPROTOINFO_UNLOCK_ATTR_INDEX_MAX_NUM> unlock_attr_index;//
 
 		virtual void write_to_pbmsg(::proto_ff::ItemProtoInfo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::ItemProtoInfo & msg);
@@ -1488,7 +1548,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		NFShmVector<struct EquipInfo_s, DEFINE_MOUNTKUNEQUIPDATA_INFOS_MAX_NUM> infos;//
-		NFShmVector<struct EquipLvAttrInfo_s, DEFINE_MOUNTKUNEQUIPDATA_LV_ATTR_MAX_NUM> lv_attr;//
+		NFShmVector<uint32_t, DEFINE_MOUNTKUNEQUIPDATA_SLOT_STATUS_MAX_NUM> slot_status;//
 
 		virtual void write_to_pbmsg(::proto_ff::MountKunEquipData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::MountKunEquipData & msg);
@@ -1617,6 +1677,24 @@ namespace proto_ff_s {
 	};
 	typedef struct MountFairyLand_s MountFairyLand_t;
 
+	struct MountFairySlotRecord_s : public NFDescStoreSeqOP {
+		MountFairySlotRecord_s();
+		virtual ~MountFairySlotRecord_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int64_t cur_fairy_id;//
+		int64_t event_id;//
+		int64_t create_time;//
+		bool finish;//
+		struct ComItem_s reward_item;//
+
+		virtual void write_to_pbmsg(::proto_ff::MountFairySlotRecord & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::MountFairySlotRecord & msg);
+		static ::proto_ff::MountFairySlotRecord* new_pbmsg(){ return new ::proto_ff::MountFairySlotRecord(); }
+		static ::proto_ff::MountFairySlotRecord make_pbmsg(){ return ::proto_ff::MountFairySlotRecord(); }
+	};
+	typedef struct MountFairySlotRecord_s MountFairySlotRecord_t;
+
 	struct MountFairySlot_s : public NFDescStoreSeqOP {
 		MountFairySlot_s();
 		virtual ~MountFairySlot_s(){}
@@ -1629,6 +1707,11 @@ namespace proto_ff_s {
 		uint32_t cur_end_time;//
 		uint32_t status;//
 		bool can_get_reward;//
+		NFShmVector<struct ComItem_s, DEFINE_MOUNTFAIRYSLOT_REWARD_ITEM_MAX_NUM> reward_item;//
+		uint64_t reward_gold;//
+		uint64_t reward_dia;//
+		uint64_t reward_bdia;//
+		NFShmVector<struct MountFairySlotRecord_s, DEFINE_MOUNTFAIRYSLOT_RECORD_MAX_NUM> record;//
 
 		virtual void write_to_pbmsg(::proto_ff::MountFairySlot & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::MountFairySlot & msg);
@@ -1720,6 +1803,7 @@ namespace proto_ff_s {
 		bool ready_add;//
 		bool is_open;//
 		uint64_t ready_add_time;//
+		bool is_fest_open;//
 
 		virtual void write_to_pbmsg(::proto_ff::DailyTaskLimitEntry & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::DailyTaskLimitEntry & msg);
@@ -4945,6 +5029,37 @@ namespace proto_ff_s {
 		static ::proto_ff::FMarryTask make_pbmsg(){ return ::proto_ff::FMarryTask(); }
 	};
 	typedef struct FMarryTask_s FMarryTask_t;
+
+	struct SoulEntry_s : public NFDescStoreSeqOP {
+		SoulEntry_s();
+		virtual ~SoulEntry_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t id;//
+		int32_t lv;//
+		int32_t steplv;//
+
+		virtual void write_to_pbmsg(::proto_ff::SoulEntry & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::SoulEntry & msg);
+		static ::proto_ff::SoulEntry* new_pbmsg(){ return new ::proto_ff::SoulEntry(); }
+		static ::proto_ff::SoulEntry make_pbmsg(){ return ::proto_ff::SoulEntry(); }
+	};
+	typedef struct SoulEntry_s SoulEntry_t;
+
+	struct SoulPool_s : public NFDescStoreSeqOP {
+		SoulPool_s();
+		virtual ~SoulPool_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t poolBlessLv;//
+		int32_t poolPgLv;//
+
+		virtual void write_to_pbmsg(::proto_ff::SoulPool & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::SoulPool & msg);
+		static ::proto_ff::SoulPool* new_pbmsg(){ return new ::proto_ff::SoulPool(); }
+		static ::proto_ff::SoulPool make_pbmsg(){ return ::proto_ff::SoulPool(); }
+	};
+	typedef struct SoulPool_s SoulPool_t;
 
 }
 

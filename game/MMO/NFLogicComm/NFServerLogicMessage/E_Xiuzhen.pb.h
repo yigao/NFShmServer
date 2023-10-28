@@ -3186,6 +3186,18 @@ class E_XiuzhenGftypes : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_rechargeid() const;
   inline void set_m_rechargeid(::google::protobuf::int32 value);
 
+  // optional string m_bookmodel = 9;
+  inline bool has_m_bookmodel() const;
+  inline void clear_m_bookmodel();
+  static const int kMBookmodelFieldNumber = 9;
+  inline const ::std::string& m_bookmodel() const;
+  inline void set_m_bookmodel(const ::std::string& value);
+  inline void set_m_bookmodel(const char* value);
+  inline void set_m_bookmodel(const char* value, size_t size);
+  inline ::std::string* mutable_m_bookmodel();
+  inline ::std::string* release_m_bookmodel();
+  inline void set_allocated_m_bookmodel(::std::string* m_bookmodel);
+
   // @@protoc_insertion_point(class_scope:proto_ff.E_XiuzhenGftypes)
  private:
   inline void set_has_m_id();
@@ -3204,6 +3216,8 @@ class E_XiuzhenGftypes : public ::google::protobuf::Message {
   inline void clear_has_m_buylv();
   inline void set_has_m_rechargeid();
   inline void clear_has_m_rechargeid();
+  inline void set_has_m_bookmodel();
+  inline void clear_has_m_bookmodel();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -3215,9 +3229,10 @@ class E_XiuzhenGftypes : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_itemnum_;
   ::google::protobuf::int32 m_buylv_;
   ::google::protobuf::int32 m_rechargeid_;
+  ::std::string* m_bookmodel_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fXiuzhen_2eproto();
   friend void protobuf_AssignDesc_E_5fXiuzhen_2eproto();
@@ -8974,6 +8989,76 @@ inline ::google::protobuf::int32 E_XiuzhenGftypes::m_rechargeid() const {
 inline void E_XiuzhenGftypes::set_m_rechargeid(::google::protobuf::int32 value) {
   set_has_m_rechargeid();
   m_rechargeid_ = value;
+}
+
+// optional string m_bookmodel = 9;
+inline bool E_XiuzhenGftypes::has_m_bookmodel() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void E_XiuzhenGftypes::set_has_m_bookmodel() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void E_XiuzhenGftypes::clear_has_m_bookmodel() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void E_XiuzhenGftypes::clear_m_bookmodel() {
+  if (m_bookmodel_ != &::google::protobuf::internal::kEmptyString) {
+    m_bookmodel_->clear();
+  }
+  clear_has_m_bookmodel();
+}
+inline const ::std::string& E_XiuzhenGftypes::m_bookmodel() const {
+  return *m_bookmodel_;
+}
+inline void E_XiuzhenGftypes::set_m_bookmodel(const ::std::string& value) {
+  set_has_m_bookmodel();
+  if (m_bookmodel_ == &::google::protobuf::internal::kEmptyString) {
+    m_bookmodel_ = new ::std::string;
+  }
+  m_bookmodel_->assign(value);
+}
+inline void E_XiuzhenGftypes::set_m_bookmodel(const char* value) {
+  set_has_m_bookmodel();
+  if (m_bookmodel_ == &::google::protobuf::internal::kEmptyString) {
+    m_bookmodel_ = new ::std::string;
+  }
+  m_bookmodel_->assign(value);
+}
+inline void E_XiuzhenGftypes::set_m_bookmodel(const char* value, size_t size) {
+  set_has_m_bookmodel();
+  if (m_bookmodel_ == &::google::protobuf::internal::kEmptyString) {
+    m_bookmodel_ = new ::std::string;
+  }
+  m_bookmodel_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_XiuzhenGftypes::mutable_m_bookmodel() {
+  set_has_m_bookmodel();
+  if (m_bookmodel_ == &::google::protobuf::internal::kEmptyString) {
+    m_bookmodel_ = new ::std::string;
+  }
+  return m_bookmodel_;
+}
+inline ::std::string* E_XiuzhenGftypes::release_m_bookmodel() {
+  clear_has_m_bookmodel();
+  if (m_bookmodel_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_bookmodel_;
+    m_bookmodel_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_XiuzhenGftypes::set_allocated_m_bookmodel(::std::string* m_bookmodel) {
+  if (m_bookmodel_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_bookmodel_;
+  }
+  if (m_bookmodel) {
+    set_has_m_bookmodel();
+    m_bookmodel_ = m_bookmodel;
+  } else {
+    clear_has_m_bookmodel();
+    m_bookmodel_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
 }
 
 // -------------------------------------------------------------------

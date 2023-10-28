@@ -36,6 +36,8 @@ void protobuf_ShutdownFile_E_5fLink_2eproto();
 
 class E_LinkLink;
 class Sheet_LinkLink;
+class E_LinkImagelink;
+class Sheet_LinkImagelink;
 
 // ===================================================================
 
@@ -273,6 +275,193 @@ class Sheet_LinkLink : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static Sheet_LinkLink* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_LinkImagelink : public ::google::protobuf::Message {
+ public:
+  E_LinkImagelink();
+  virtual ~E_LinkImagelink();
+
+  E_LinkImagelink(const E_LinkImagelink& from);
+
+  inline E_LinkImagelink& operator=(const E_LinkImagelink& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_LinkImagelink& default_instance();
+
+  void Swap(E_LinkImagelink* other);
+
+  // implements Message ----------------------------------------------
+
+  E_LinkImagelink* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_LinkImagelink& from);
+  void MergeFrom(const E_LinkImagelink& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_closetype = 2;
+  inline bool has_m_closetype() const;
+  inline void clear_m_closetype();
+  static const int kMClosetypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_closetype() const;
+  inline void set_m_closetype(::google::protobuf::int32 value);
+
+  // optional int32 m_closearg = 3;
+  inline bool has_m_closearg() const;
+  inline void clear_m_closearg();
+  static const int kMCloseargFieldNumber = 3;
+  inline ::google::protobuf::int32 m_closearg() const;
+  inline void set_m_closearg(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_LinkImagelink)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_closetype();
+  inline void clear_has_m_closetype();
+  inline void set_has_m_closearg();
+  inline void clear_has_m_closearg();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_closetype_;
+  ::google::protobuf::int32 m_closearg_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fLink_2eproto();
+  friend void protobuf_AssignDesc_E_5fLink_2eproto();
+  friend void protobuf_ShutdownFile_E_5fLink_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_LinkImagelink* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_LinkImagelink : public ::google::protobuf::Message {
+ public:
+  Sheet_LinkImagelink();
+  virtual ~Sheet_LinkImagelink();
+
+  Sheet_LinkImagelink(const Sheet_LinkImagelink& from);
+
+  inline Sheet_LinkImagelink& operator=(const Sheet_LinkImagelink& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_LinkImagelink& default_instance();
+
+  void Swap(Sheet_LinkImagelink* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_LinkImagelink* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_LinkImagelink& from);
+  void MergeFrom(const Sheet_LinkImagelink& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_LinkImagelink E_LinkImagelink_List = 1;
+  inline int e_linkimagelink_list_size() const;
+  inline void clear_e_linkimagelink_list();
+  static const int kELinkImagelinkListFieldNumber = 1;
+  inline const ::proto_ff::E_LinkImagelink& e_linkimagelink_list(int index) const;
+  inline ::proto_ff::E_LinkImagelink* mutable_e_linkimagelink_list(int index);
+  inline ::proto_ff::E_LinkImagelink* add_e_linkimagelink_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_LinkImagelink >&
+      e_linkimagelink_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_LinkImagelink >*
+      mutable_e_linkimagelink_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_LinkImagelink)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_LinkImagelink > e_linkimagelink_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fLink_2eproto();
+  friend void protobuf_AssignDesc_E_5fLink_2eproto();
+  friend void protobuf_ShutdownFile_E_5fLink_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_LinkImagelink* default_instance_;
 };
 // ===================================================================
 
@@ -632,6 +821,105 @@ Sheet_LinkLink::e_linklink_list() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_LinkLink >*
 Sheet_LinkLink::mutable_e_linklink_list() {
   return &e_linklink_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_LinkImagelink
+
+// optional int32 m_id = 1;
+inline bool E_LinkImagelink::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_LinkImagelink::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_LinkImagelink::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_LinkImagelink::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_LinkImagelink::m_id() const {
+  return m_id_;
+}
+inline void E_LinkImagelink::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_closetype = 2;
+inline bool E_LinkImagelink::has_m_closetype() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_LinkImagelink::set_has_m_closetype() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_LinkImagelink::clear_has_m_closetype() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_LinkImagelink::clear_m_closetype() {
+  m_closetype_ = 0;
+  clear_has_m_closetype();
+}
+inline ::google::protobuf::int32 E_LinkImagelink::m_closetype() const {
+  return m_closetype_;
+}
+inline void E_LinkImagelink::set_m_closetype(::google::protobuf::int32 value) {
+  set_has_m_closetype();
+  m_closetype_ = value;
+}
+
+// optional int32 m_closearg = 3;
+inline bool E_LinkImagelink::has_m_closearg() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_LinkImagelink::set_has_m_closearg() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_LinkImagelink::clear_has_m_closearg() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_LinkImagelink::clear_m_closearg() {
+  m_closearg_ = 0;
+  clear_has_m_closearg();
+}
+inline ::google::protobuf::int32 E_LinkImagelink::m_closearg() const {
+  return m_closearg_;
+}
+inline void E_LinkImagelink::set_m_closearg(::google::protobuf::int32 value) {
+  set_has_m_closearg();
+  m_closearg_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_LinkImagelink
+
+// repeated .proto_ff.E_LinkImagelink E_LinkImagelink_List = 1;
+inline int Sheet_LinkImagelink::e_linkimagelink_list_size() const {
+  return e_linkimagelink_list_.size();
+}
+inline void Sheet_LinkImagelink::clear_e_linkimagelink_list() {
+  e_linkimagelink_list_.Clear();
+}
+inline const ::proto_ff::E_LinkImagelink& Sheet_LinkImagelink::e_linkimagelink_list(int index) const {
+  return e_linkimagelink_list_.Get(index);
+}
+inline ::proto_ff::E_LinkImagelink* Sheet_LinkImagelink::mutable_e_linkimagelink_list(int index) {
+  return e_linkimagelink_list_.Mutable(index);
+}
+inline ::proto_ff::E_LinkImagelink* Sheet_LinkImagelink::add_e_linkimagelink_list() {
+  return e_linkimagelink_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_LinkImagelink >&
+Sheet_LinkImagelink::e_linkimagelink_list() const {
+  return e_linkimagelink_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_LinkImagelink >*
+Sheet_LinkImagelink::mutable_e_linkimagelink_list() {
+  return &e_linkimagelink_list_;
 }
 
 

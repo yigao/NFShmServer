@@ -1102,10 +1102,17 @@ class E_DailyHelper : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_helperid() const;
   inline void set_m_helperid(::google::protobuf::int32 value);
 
-  // optional string m_playid = 2;
+  // optional int32 m_helpertype = 2;
+  inline bool has_m_helpertype() const;
+  inline void clear_m_helpertype();
+  static const int kMHelpertypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_helpertype() const;
+  inline void set_m_helpertype(::google::protobuf::int32 value);
+
+  // optional string m_playid = 3;
   inline bool has_m_playid() const;
   inline void clear_m_playid();
-  static const int kMPlayidFieldNumber = 2;
+  static const int kMPlayidFieldNumber = 3;
   inline const ::std::string& m_playid() const;
   inline void set_m_playid(const ::std::string& value);
   inline void set_m_playid(const char* value);
@@ -1113,13 +1120,6 @@ class E_DailyHelper : public ::google::protobuf::Message {
   inline ::std::string* mutable_m_playid();
   inline ::std::string* release_m_playid();
   inline void set_allocated_m_playid(::std::string* m_playid);
-
-  // optional int32 m_helpertype = 3;
-  inline bool has_m_helpertype() const;
-  inline void clear_m_helpertype();
-  static const int kMHelpertypeFieldNumber = 3;
-  inline ::google::protobuf::int32 m_helpertype() const;
-  inline void set_m_helpertype(::google::protobuf::int32 value);
 
   // optional int32 m_linkid = 4;
   inline bool has_m_linkid() const;
@@ -1156,10 +1156,10 @@ class E_DailyHelper : public ::google::protobuf::Message {
  private:
   inline void set_has_m_helperid();
   inline void clear_has_m_helperid();
-  inline void set_has_m_playid();
-  inline void clear_has_m_playid();
   inline void set_has_m_helpertype();
   inline void clear_has_m_helpertype();
+  inline void set_has_m_playid();
+  inline void clear_has_m_playid();
   inline void set_has_m_linkid();
   inline void clear_has_m_linkid();
   inline void set_has_m_name();
@@ -1169,9 +1169,9 @@ class E_DailyHelper : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::std::string* m_playid_;
   ::google::protobuf::int32 m_helperid_;
   ::google::protobuf::int32 m_helpertype_;
+  ::std::string* m_playid_;
   ::std::string* m_name_;
   ::std::string* m_condition_;
   ::google::protobuf::int32 m_linkid_;
@@ -2151,15 +2151,37 @@ inline void E_DailyHelper::set_m_helperid(::google::protobuf::int32 value) {
   m_helperid_ = value;
 }
 
-// optional string m_playid = 2;
-inline bool E_DailyHelper::has_m_playid() const {
+// optional int32 m_helpertype = 2;
+inline bool E_DailyHelper::has_m_helpertype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void E_DailyHelper::set_has_m_playid() {
+inline void E_DailyHelper::set_has_m_helpertype() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void E_DailyHelper::clear_has_m_playid() {
+inline void E_DailyHelper::clear_has_m_helpertype() {
   _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_DailyHelper::clear_m_helpertype() {
+  m_helpertype_ = 0;
+  clear_has_m_helpertype();
+}
+inline ::google::protobuf::int32 E_DailyHelper::m_helpertype() const {
+  return m_helpertype_;
+}
+inline void E_DailyHelper::set_m_helpertype(::google::protobuf::int32 value) {
+  set_has_m_helpertype();
+  m_helpertype_ = value;
+}
+
+// optional string m_playid = 3;
+inline bool E_DailyHelper::has_m_playid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_DailyHelper::set_has_m_playid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_DailyHelper::clear_has_m_playid() {
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void E_DailyHelper::clear_m_playid() {
   if (m_playid_ != &::google::protobuf::internal::kEmptyString) {
@@ -2219,28 +2241,6 @@ inline void E_DailyHelper::set_allocated_m_playid(::std::string* m_playid) {
     clear_has_m_playid();
     m_playid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
-}
-
-// optional int32 m_helpertype = 3;
-inline bool E_DailyHelper::has_m_helpertype() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void E_DailyHelper::set_has_m_helpertype() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void E_DailyHelper::clear_has_m_helpertype() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void E_DailyHelper::clear_m_helpertype() {
-  m_helpertype_ = 0;
-  clear_has_m_helpertype();
-}
-inline ::google::protobuf::int32 E_DailyHelper::m_helpertype() const {
-  return m_helpertype_;
-}
-inline void E_DailyHelper::set_m_helpertype(::google::protobuf::int32 value) {
-  set_has_m_helpertype();
-  m_helpertype_ = value;
 }
 
 // optional int32 m_linkid = 4;

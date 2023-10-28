@@ -9,6 +9,7 @@
 #include "E_Link_s.h"
 
 #define DEFINE_SHEET_LINKLINK_E_LINKLINK_LIST_MAX_NUM 512
+#define DEFINE_SHEET_LINKIMAGELINK_E_LINKIMAGELINK_LIST_MAX_NUM 64
 
 
 namespace proto_ff_s {
@@ -45,6 +46,36 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_LinkLink make_pbmsg(){ return ::proto_ff::Sheet_LinkLink(); }
 	};
 	typedef struct Sheet_LinkLink_s Sheet_LinkLink_t;
+
+	struct E_LinkImagelink_s : public NFDescStoreSeqOP {
+		E_LinkImagelink_s();
+		virtual ~E_LinkImagelink_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_closetype;//关闭条件类型
+		int32_t m_closearg;//关闭条件
+
+		virtual void write_to_pbmsg(::proto_ff::E_LinkImagelink & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_LinkImagelink & msg);
+		static ::proto_ff::E_LinkImagelink* new_pbmsg(){ return new ::proto_ff::E_LinkImagelink(); }
+		static ::proto_ff::E_LinkImagelink make_pbmsg(){ return ::proto_ff::E_LinkImagelink(); }
+	};
+	typedef struct E_LinkImagelink_s E_LinkImagelink_t;
+
+	struct Sheet_LinkImagelink_s : public NFDescStoreSeqOP {
+		Sheet_LinkImagelink_s();
+		virtual ~Sheet_LinkImagelink_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_LinkImagelink_s, DEFINE_SHEET_LINKIMAGELINK_E_LINKIMAGELINK_LIST_MAX_NUM> E_LinkImagelink_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_LinkImagelink & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_LinkImagelink & msg);
+		static ::proto_ff::Sheet_LinkImagelink* new_pbmsg(){ return new ::proto_ff::Sheet_LinkImagelink(); }
+		static ::proto_ff::Sheet_LinkImagelink make_pbmsg(){ return ::proto_ff::Sheet_LinkImagelink(); }
+	};
+	typedef struct Sheet_LinkImagelink_s Sheet_LinkImagelink_t;
 
 }
 

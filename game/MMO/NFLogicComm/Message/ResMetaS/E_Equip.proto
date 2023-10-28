@@ -66,7 +66,6 @@ message E_EquipAttribute
 	optional string m_godevilskill = 21[(yd_fieldoptions.field_cname) = "神魔技能", (yd_fieldoptions.field_bufsize) = 64];
 	repeated E_EquipAttributeAttributeDesc m_attribute = 22[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 11];
 	repeated string m_star_library = 23[(yd_fieldoptions.field_cname) = "星级属性库", (yd_fieldoptions.field_arysize) = 7, (yd_fieldoptions.field_bufsize) = 64];
-	repeated string m_beaststarlib = 24[(yd_fieldoptions.field_cname) = "神兽蓝星技能属性库", (yd_fieldoptions.field_arysize) = 2, (yd_fieldoptions.field_bufsize) = 64];
 }
 
 
@@ -114,7 +113,7 @@ message E_EquipStrong
 
 message Sheet_EquipStrong
 {
-	repeated E_EquipStrong E_EquipStrong_List = 1[(yd_fieldoptions.field_arysize)=512];
+	repeated E_EquipStrong E_EquipStrong_List = 1[(yd_fieldoptions.field_arysize)=2048];
 }
 
 message E_EquipStrongexpCostDesc

@@ -112,7 +112,7 @@ message E_MarryChild
 	optional int64 m_starid = 8[(yd_fieldoptions.field_cname) = "升星道具id"];
 	optional string m_starnum = 9[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 64];
 	repeated E_MarryChildAttributeDesc m_attribute = 10[(yd_fieldoptions.field_cname) = "激活属性", (yd_fieldoptions.field_arysize) = 6];
-	repeated E_MarryChildStariattributeDesc m_stariattribute = 11[(yd_fieldoptions.field_cname) = "升星属性", (yd_fieldoptions.field_arysize) = 4];
+	repeated E_MarryChildStariattributeDesc m_stariattribute = 11[(yd_fieldoptions.field_cname) = "升星属性", (yd_fieldoptions.field_arysize) = 5];
 }
 
 
@@ -189,6 +189,7 @@ message E_MarryExpressshop
 	optional int32 m_exp = 3[(yd_fieldoptions.field_cname) = "增加表白值"];
 	optional int32 m_expto = 4[(yd_fieldoptions.field_cname) = "被表白经验值"];
 	optional int32 m_broadcastid = 5[(yd_fieldoptions.field_cname) = "广播id"];
+	optional int32 m_effectid = 6[(yd_fieldoptions.field_cname) = "表白特效ID"];
 }
 
 
@@ -244,13 +245,15 @@ message E_MarryConstant
 	optional int32 m_sendrednum = 37[(yd_fieldoptions.field_cname) = "发红包奖励价格"];
 	optional int32 m_redcollect = 38[(yd_fieldoptions.field_cname) = "红包采集物"];
 	optional int32 m_redcollectnum = 39[(yd_fieldoptions.field_cname) = "红包采集物数量"];
-	repeated E_MarryConstantTourmonsterDesc m_tourmonster = 40[(yd_fieldoptions.field_cname) = "巡游怪物", (yd_fieldoptions.field_arysize) = 8];
+	optional int32 m_cakemonster = 40[(yd_fieldoptions.field_cname) = "婚宴蛋糕模型"];
+	optional int32 m_hymonster = 41[(yd_fieldoptions.field_cname) = "宴席模型"];
+	repeated E_MarryConstantTourmonsterDesc m_tourmonster = 42[(yd_fieldoptions.field_cname) = "巡游怪物", (yd_fieldoptions.field_arysize) = 8];
 }
 
 
 message Sheet_MarryConstant
 {
-	repeated E_MarryConstant E_MarryConstant_List = 1[(yd_fieldoptions.field_arysize)=2];
+	repeated E_MarryConstant E_MarryConstant_List = 1[(yd_fieldoptions.field_arysize)=4];
 }
 
 message E_MarryCommon

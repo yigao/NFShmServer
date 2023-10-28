@@ -1156,10 +1156,17 @@ class PackageSellReq : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.ItemSellProto sell = 1;
+  // optional int32 package_type = 1;
+  inline bool has_package_type() const;
+  inline void clear_package_type();
+  static const int kPackageTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 package_type() const;
+  inline void set_package_type(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.ItemSellProto sell = 2;
   inline int sell_size() const;
   inline void clear_sell();
-  static const int kSellFieldNumber = 1;
+  static const int kSellFieldNumber = 2;
   inline const ::proto_ff::ItemSellProto& sell(int index) const;
   inline ::proto_ff::ItemSellProto* mutable_sell(int index);
   inline ::proto_ff::ItemSellProto* add_sell();
@@ -1170,13 +1177,16 @@ class PackageSellReq : public ::google::protobuf::Message {
 
   // @@protoc_insertion_point(class_scope:proto_ff.PackageSellReq)
  private:
+  inline void set_has_package_type();
+  inline void clear_has_package_type();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::RepeatedPtrField< ::proto_ff::ItemSellProto > sell_;
+  ::google::protobuf::int32 package_type_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_Package_2eproto();
   friend void protobuf_AssignDesc_Package_2eproto();
@@ -2071,7 +2081,29 @@ inline void PackageUseRet::set_retcode(::google::protobuf::int32 value) {
 
 // PackageSellReq
 
-// repeated .proto_ff.ItemSellProto sell = 1;
+// optional int32 package_type = 1;
+inline bool PackageSellReq::has_package_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PackageSellReq::set_has_package_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PackageSellReq::clear_has_package_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PackageSellReq::clear_package_type() {
+  package_type_ = 0;
+  clear_has_package_type();
+}
+inline ::google::protobuf::int32 PackageSellReq::package_type() const {
+  return package_type_;
+}
+inline void PackageSellReq::set_package_type(::google::protobuf::int32 value) {
+  set_has_package_type();
+  package_type_ = value;
+}
+
+// repeated .proto_ff.ItemSellProto sell = 2;
 inline int PackageSellReq::sell_size() const {
   return sell_.size();
 }

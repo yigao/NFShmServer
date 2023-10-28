@@ -572,6 +572,62 @@ void Sheet_EncyclopediaBeast_s::read_from_pbmsg(const ::proto_ff::Sheet_Encyclop
 	}
 }
 
+E_EncyclopediaEquipexpvalueBeaststarDesc_s::E_EncyclopediaEquipexpvalueBeaststarDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_EncyclopediaEquipexpvalueBeaststarDesc_s::CreateInit() {
+	m_num = (int32_t)0;
+	m_att = (int32_t)0;
+	return 0;
+}
+
+int E_EncyclopediaEquipexpvalueBeaststarDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_EncyclopediaEquipexpvalueBeaststarDesc_s::write_to_pbmsg(::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc & msg) const {
+	msg.set_m_num((int32_t)m_num);
+	msg.set_m_att((int32_t)m_att);
+}
+
+void E_EncyclopediaEquipexpvalueBeaststarDesc_s::read_from_pbmsg(const ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc & msg) {
+	m_num = msg.m_num();
+	m_att = msg.m_att();
+}
+
+E_EncyclopediaEquipexpvalueGoldstarDesc_s::E_EncyclopediaEquipexpvalueGoldstarDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_EncyclopediaEquipexpvalueGoldstarDesc_s::CreateInit() {
+	m_num = (int32_t)0;
+	m_att = (int32_t)0;
+	return 0;
+}
+
+int E_EncyclopediaEquipexpvalueGoldstarDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_EncyclopediaEquipexpvalueGoldstarDesc_s::write_to_pbmsg(::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc & msg) const {
+	msg.set_m_num((int32_t)m_num);
+	msg.set_m_att((int32_t)m_att);
+}
+
+void E_EncyclopediaEquipexpvalueGoldstarDesc_s::read_from_pbmsg(const ::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc & msg) {
+	m_num = msg.m_num();
+	m_att = msg.m_att();
+}
+
 E_EncyclopediaEquipexpvalue_s::E_EncyclopediaEquipexpvalue_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -585,6 +641,8 @@ int E_EncyclopediaEquipexpvalue_s::CreateInit() {
 	m_type = (int64_t)0;
 	m_exp = (int32_t)0;
 	m_link = (int64_t)0;
+	m_goldattall = (int32_t)0;
+	m_goldatt = (int32_t)0;
 	return 0;
 }
 
@@ -598,6 +656,16 @@ void E_EncyclopediaEquipexpvalue_s::write_to_pbmsg(::proto_ff::E_EncyclopediaEqu
 	msg.set_m_name(m_name.data());
 	msg.set_m_exp((int32_t)m_exp);
 	msg.set_m_link((int64_t)m_link);
+	msg.set_m_goldattall((int32_t)m_goldattall);
+	msg.set_m_goldatt((int32_t)m_goldatt);
+	for(int32_t i = 0; i < (int32_t)m_beaststar.size(); ++i) {
+		::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc* temp_m_beaststar = msg.add_m_beaststar();
+		m_beaststar[i].write_to_pbmsg(*temp_m_beaststar);
+	}
+	for(int32_t i = 0; i < (int32_t)m_goldstar.size(); ++i) {
+		::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc* temp_m_goldstar = msg.add_m_goldstar();
+		m_goldstar[i].write_to_pbmsg(*temp_m_goldstar);
+	}
 }
 
 void E_EncyclopediaEquipexpvalue_s::read_from_pbmsg(const ::proto_ff::E_EncyclopediaEquipexpvalue & msg) {
@@ -606,6 +674,18 @@ void E_EncyclopediaEquipexpvalue_s::read_from_pbmsg(const ::proto_ff::E_Encyclop
 	m_name = msg.m_name();
 	m_exp = msg.m_exp();
 	m_link = msg.m_link();
+	m_goldattall = msg.m_goldattall();
+	m_goldatt = msg.m_goldatt();
+	m_beaststar.resize((int)msg.m_beaststar_size() > (int)m_beaststar.max_size() ? m_beaststar.max_size() : msg.m_beaststar_size());
+	for(int32_t i = 0; i < (int32_t)m_beaststar.size(); ++i) {
+		const ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc & temp_m_beaststar = msg.m_beaststar(i);
+		m_beaststar[i].read_from_pbmsg(temp_m_beaststar);
+	}
+	m_goldstar.resize((int)msg.m_goldstar_size() > (int)m_goldstar.max_size() ? m_goldstar.max_size() : msg.m_goldstar_size());
+	for(int32_t i = 0; i < (int32_t)m_goldstar.size(); ++i) {
+		const ::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc & temp_m_goldstar = msg.m_goldstar(i);
+		m_goldstar[i].read_from_pbmsg(temp_m_goldstar);
+	}
 }
 
 Sheet_EncyclopediaEquipexpvalue_s::Sheet_EncyclopediaEquipexpvalue_s() {
@@ -636,65 +716,6 @@ void Sheet_EncyclopediaEquipexpvalue_s::read_from_pbmsg(const ::proto_ff::Sheet_
 	for(int32_t i = 0; i < (int32_t)E_EncyclopediaEquipexpvalue_List.size(); ++i) {
 		const ::proto_ff::E_EncyclopediaEquipexpvalue & temp_e_encyclopediaequipexpvalue_list = msg.e_encyclopediaequipexpvalue_list(i);
 		E_EncyclopediaEquipexpvalue_List[i].read_from_pbmsg(temp_e_encyclopediaequipexpvalue_list);
-	}
-}
-
-E_EncyclopediaBeastexp_s::E_EncyclopediaBeastexp_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int E_EncyclopediaBeastexp_s::CreateInit() {
-	m_lv = (int32_t)0;
-	m_exp = (int32_t)0;
-	return 0;
-}
-
-int E_EncyclopediaBeastexp_s::ResumeInit() {
-	return 0;
-}
-
-void E_EncyclopediaBeastexp_s::write_to_pbmsg(::proto_ff::E_EncyclopediaBeastexp & msg) const {
-	msg.set_m_lv((int32_t)m_lv);
-	msg.set_m_exp((int32_t)m_exp);
-}
-
-void E_EncyclopediaBeastexp_s::read_from_pbmsg(const ::proto_ff::E_EncyclopediaBeastexp & msg) {
-	m_lv = msg.m_lv();
-	m_exp = msg.m_exp();
-}
-
-Sheet_EncyclopediaBeastexp_s::Sheet_EncyclopediaBeastexp_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int Sheet_EncyclopediaBeastexp_s::CreateInit() {
-	return 0;
-}
-
-int Sheet_EncyclopediaBeastexp_s::ResumeInit() {
-	return 0;
-}
-
-void Sheet_EncyclopediaBeastexp_s::write_to_pbmsg(::proto_ff::Sheet_EncyclopediaBeastexp & msg) const {
-	for(int32_t i = 0; i < (int32_t)E_EncyclopediaBeastexp_List.size(); ++i) {
-		::proto_ff::E_EncyclopediaBeastexp* temp_e_encyclopediabeastexp_list = msg.add_e_encyclopediabeastexp_list();
-		E_EncyclopediaBeastexp_List[i].write_to_pbmsg(*temp_e_encyclopediabeastexp_list);
-	}
-}
-
-void Sheet_EncyclopediaBeastexp_s::read_from_pbmsg(const ::proto_ff::Sheet_EncyclopediaBeastexp & msg) {
-	E_EncyclopediaBeastexp_List.resize((int)msg.e_encyclopediabeastexp_list_size() > (int)E_EncyclopediaBeastexp_List.max_size() ? E_EncyclopediaBeastexp_List.max_size() : msg.e_encyclopediabeastexp_list_size());
-	for(int32_t i = 0; i < (int32_t)E_EncyclopediaBeastexp_List.size(); ++i) {
-		const ::proto_ff::E_EncyclopediaBeastexp & temp_e_encyclopediabeastexp_list = msg.e_encyclopediabeastexp_list(i);
-		E_EncyclopediaBeastexp_List[i].read_from_pbmsg(temp_e_encyclopediabeastexp_list);
 	}
 }
 
@@ -861,6 +882,65 @@ void Sheet_EncyclopediaBeastprivilege_s::read_from_pbmsg(const ::proto_ff::Sheet
 	for(int32_t i = 0; i < (int32_t)E_EncyclopediaBeastprivilege_List.size(); ++i) {
 		const ::proto_ff::E_EncyclopediaBeastprivilege & temp_e_encyclopediabeastprivilege_list = msg.e_encyclopediabeastprivilege_list(i);
 		E_EncyclopediaBeastprivilege_List[i].read_from_pbmsg(temp_e_encyclopediabeastprivilege_list);
+	}
+}
+
+E_EncyclopediaBeastexp_s::E_EncyclopediaBeastexp_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_EncyclopediaBeastexp_s::CreateInit() {
+	m_lv = (int32_t)0;
+	m_exp = (int32_t)0;
+	return 0;
+}
+
+int E_EncyclopediaBeastexp_s::ResumeInit() {
+	return 0;
+}
+
+void E_EncyclopediaBeastexp_s::write_to_pbmsg(::proto_ff::E_EncyclopediaBeastexp & msg) const {
+	msg.set_m_lv((int32_t)m_lv);
+	msg.set_m_exp((int32_t)m_exp);
+}
+
+void E_EncyclopediaBeastexp_s::read_from_pbmsg(const ::proto_ff::E_EncyclopediaBeastexp & msg) {
+	m_lv = msg.m_lv();
+	m_exp = msg.m_exp();
+}
+
+Sheet_EncyclopediaBeastexp_s::Sheet_EncyclopediaBeastexp_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_EncyclopediaBeastexp_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_EncyclopediaBeastexp_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_EncyclopediaBeastexp_s::write_to_pbmsg(::proto_ff::Sheet_EncyclopediaBeastexp & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_EncyclopediaBeastexp_List.size(); ++i) {
+		::proto_ff::E_EncyclopediaBeastexp* temp_e_encyclopediabeastexp_list = msg.add_e_encyclopediabeastexp_list();
+		E_EncyclopediaBeastexp_List[i].write_to_pbmsg(*temp_e_encyclopediabeastexp_list);
+	}
+}
+
+void Sheet_EncyclopediaBeastexp_s::read_from_pbmsg(const ::proto_ff::Sheet_EncyclopediaBeastexp & msg) {
+	E_EncyclopediaBeastexp_List.resize((int)msg.e_encyclopediabeastexp_list_size() > (int)E_EncyclopediaBeastexp_List.max_size() ? E_EncyclopediaBeastexp_List.max_size() : msg.e_encyclopediabeastexp_list_size());
+	for(int32_t i = 0; i < (int32_t)E_EncyclopediaBeastexp_List.size(); ++i) {
+		const ::proto_ff::E_EncyclopediaBeastexp & temp_e_encyclopediabeastexp_list = msg.e_encyclopediabeastexp_list(i);
+		E_EncyclopediaBeastexp_List[i].read_from_pbmsg(temp_e_encyclopediabeastexp_list);
 	}
 }
 

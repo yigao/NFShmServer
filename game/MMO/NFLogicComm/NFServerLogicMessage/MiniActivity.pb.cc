@@ -82,8 +82,9 @@ void protobuf_AssignDesc_MiniActivity_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GetGodRelicsInfoRsp));
   UpdateGodRelecsNotify_descriptor_ = file->message_type(2);
-  static const int UpdateGodRelecsNotify_offsets_[1] = {
+  static const int UpdateGodRelecsNotify_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UpdateGodRelecsNotify, group_data_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UpdateGodRelecsNotify, cur_id_),
   };
   UpdateGodRelecsNotify_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -221,19 +222,20 @@ void protobuf_AddDesc_MiniActivity_2eproto() {
     "o\032\017ComDefine.proto\"\025\n\023GetGodRelicsInfoRe"
     "q\"b\n\023GetGodRelicsInfoRsp\0225\n\ngroup_data\030\001"
     " \003(\0132!.proto_ff.GodRelicsTaskGroupEntry\022"
-    "\024\n\014cur_group_id\030\002 \001(\003\"N\n\025UpdateGodRelecs"
+    "\024\n\014cur_group_id\030\002 \001(\003\"^\n\025UpdateGodRelecs"
     "Notify\0225\n\ngroup_data\030\001 \001(\0132!.proto_ff.Go"
-    "dRelicsTaskGroupEntry\">\n\031GetGodRelicsTas"
-    "kRewardReq\022\020\n\010group_id\030\001 \001(\003\022\017\n\007task_id\030"
-    "\002 \001(\003\"u\n\031GetGodRelicsTaskRewardRsp\022\020\n\010re"
-    "t_code\030\001 \001(\003\022\017\n\007task_id\030\002 \001(\003\0225\n\ngroup_d"
-    "ata\030\003 \001(\0132!.proto_ff.GodRelicsTaskGroupE"
-    "ntry\"2\n\036GetGodRelecsGroupTaskRewardReq\022\020"
-    "\n\010group_id\030\001 \001(\003\"\250\001\n\036GetGodRelecsGroupTa"
-    "skRewardRsp\022\020\n\010ret_code\030\001 \001(\003\0229\n\016old_gro"
-    "up_data\030\002 \001(\0132!.proto_ff.GodRelicsTaskGr"
-    "oupEntry\0229\n\016new_group_data\030\003 \001(\0132!.proto"
-    "_ff.GodRelicsTaskGroupEntry", 667);
+    "dRelicsTaskGroupEntry\022\016\n\006cur_id\030\002 \001(\r\">\n"
+    "\031GetGodRelicsTaskRewardReq\022\020\n\010group_id\030\001"
+    " \001(\003\022\017\n\007task_id\030\002 \001(\003\"u\n\031GetGodRelicsTas"
+    "kRewardRsp\022\020\n\010ret_code\030\001 \001(\003\022\017\n\007task_id\030"
+    "\002 \001(\003\0225\n\ngroup_data\030\003 \001(\0132!.proto_ff.God"
+    "RelicsTaskGroupEntry\"2\n\036GetGodRelecsGrou"
+    "pTaskRewardReq\022\020\n\010group_id\030\001 \001(\003\"\250\001\n\036Get"
+    "GodRelecsGroupTaskRewardRsp\022\020\n\010ret_code\030"
+    "\001 \001(\003\0229\n\016old_group_data\030\002 \001(\0132!.proto_ff"
+    ".GodRelicsTaskGroupEntry\0229\n\016new_group_da"
+    "ta\030\003 \001(\0132!.proto_ff.GodRelicsTaskGroupEn"
+    "try", 683);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "MiniActivity.proto", &protobuf_RegisterTypes);
   GetGodRelicsInfoReq::default_instance_ = new GetGodRelicsInfoReq();
@@ -669,6 +671,7 @@ void GetGodRelicsInfoRsp::Swap(GetGodRelicsInfoRsp* other) {
 
 #ifndef _MSC_VER
 const int UpdateGodRelecsNotify::kGroupDataFieldNumber;
+const int UpdateGodRelecsNotify::kCurIdFieldNumber;
 #endif  // !_MSC_VER
 
 UpdateGodRelecsNotify::UpdateGodRelecsNotify()
@@ -689,6 +692,7 @@ UpdateGodRelecsNotify::UpdateGodRelecsNotify(const UpdateGodRelecsNotify& from)
 void UpdateGodRelecsNotify::SharedCtor() {
   _cached_size_ = 0;
   group_data_ = NULL;
+  cur_id_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -728,6 +732,7 @@ void UpdateGodRelecsNotify::Clear() {
     if (has_group_data()) {
       if (group_data_ != NULL) group_data_->::proto_ff::GodRelicsTaskGroupEntry::Clear();
     }
+    cur_id_ = 0u;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -745,6 +750,22 @@ bool UpdateGodRelecsNotify::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_group_data()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_cur_id;
+        break;
+      }
+
+      // optional uint32 cur_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_cur_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &cur_id_)));
+          set_has_cur_id();
         } else {
           goto handle_uninterpreted;
         }
@@ -776,6 +797,11 @@ void UpdateGodRelecsNotify::SerializeWithCachedSizes(
       1, this->group_data(), output);
   }
 
+  // optional uint32 cur_id = 2;
+  if (has_cur_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->cur_id(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -789,6 +815,11 @@ void UpdateGodRelecsNotify::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         1, this->group_data(), target);
+  }
+
+  // optional uint32 cur_id = 2;
+  if (has_cur_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->cur_id(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -807,6 +838,13 @@ int UpdateGodRelecsNotify::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->group_data());
+    }
+
+    // optional uint32 cur_id = 2;
+    if (has_cur_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->cur_id());
     }
 
   }
@@ -839,6 +877,9 @@ void UpdateGodRelecsNotify::MergeFrom(const UpdateGodRelecsNotify& from) {
     if (from.has_group_data()) {
       mutable_group_data()->::proto_ff::GodRelicsTaskGroupEntry::MergeFrom(from.group_data());
     }
+    if (from.has_cur_id()) {
+      set_cur_id(from.cur_id());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -863,6 +904,7 @@ bool UpdateGodRelecsNotify::IsInitialized() const {
 void UpdateGodRelecsNotify::Swap(UpdateGodRelecsNotify* other) {
   if (other != this) {
     std::swap(group_data_, other->group_data_);
+    std::swap(cur_id_, other->cur_id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

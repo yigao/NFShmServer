@@ -8,17 +8,21 @@
 #include "E_Festival.pb.h"
 #include "E_Festival_s.h"
 
+#define DEFINE_E_FESTIVALPERIODINDEX_M_PERIOD_MAX_NUM 15
+#define DEFINE_SHEET_FESTIVALPERIODINDEX_E_FESTIVALPERIODINDEX_LIST_MAX_NUM 64
 #define DEFINE_SHEET_FESTIVALFESTIVAL_E_FESTIVALFESTIVAL_LIST_MAX_NUM 16
 #define DEFINE_E_FESTIVALTEMPLATE_M_TIMEARG_MAX_NUM 3
 #define DEFINE_SHEET_FESTIVALTEMPLATE_E_FESTIVALTEMPLATE_LIST_MAX_NUM 64
+#define DEFINE_SHEET_FESTIVALMUBAN_LOGIN_E_FESTIVALMUBAN_LOGIN_LIST_MAX_NUM 8
+#define DEFINE_SHEET_FESTIVALMUBAN_FIRSTRECHARGE_E_FESTIVALMUBAN_FIRSTRECHARGE_LIST_MAX_NUM 16
 #define DEFINE_SHEET_FESTIVALMUBAN_LOVE_E_FESTIVALMUBAN_LOVE_LIST_MAX_NUM 8
 #define DEFINE_SHEET_FESTIVALMUBAN_LOVE_RANK_E_FESTIVALMUBAN_LOVE_RANK_LIST_MAX_NUM 2
 #define DEFINE_SHEET_FESTIVALMUBAN_LOVE_RANK_DATA_E_FESTIVALMUBAN_LOVE_RANK_DATA_LIST_MAX_NUM 8
 #define DEFINE_E_FESTIVALMUBAN_LOVE_TASK_M_PARAM_MAX_NUM 2
 #define DEFINE_SHEET_FESTIVALMUBAN_LOVE_TASK_E_FESTIVALMUBAN_LOVE_TASK_LIST_MAX_NUM 16
 #define DEFINE_SHEET_FESTIVALMUBAN_LOVE_TASKREWARD_E_FESTIVALMUBAN_LOVE_TASKREWARD_LIST_MAX_NUM 8
-#define DEFINE_E_FESTIVALPERIODINDEX_M_PERIOD_MAX_NUM 15
-#define DEFINE_SHEET_FESTIVALPERIODINDEX_E_FESTIVALPERIODINDEX_LIST_MAX_NUM 64
+#define DEFINE_SHEET_FESTIVALMUBAN_ADDBOX_E_FESTIVALMUBAN_ADDBOX_LIST_MAX_NUM 32
+#define DEFINE_SHEET_FESTIVALMUBAN_DOUBLEBOX_E_FESTIVALMUBAN_DOUBLEBOX_LIST_MAX_NUM 32
 #define DEFINE_SHEET_FESTIVALMUBAN_BOSSFRISTKILL_E_FESTIVALMUBAN_BOSSFRISTKILL_LIST_MAX_NUM 64
 #define DEFINE_SHEET_FESTIVALMUBAN_SEVERRANK_E_FESTIVALMUBAN_SEVERRANK_LIST_MAX_NUM 128
 #define DEFINE_SHEET_FESTIVALMUBAN_SEVERRANK_DATA_E_FESTIVALMUBAN_SEVERRANK_DATA_LIST_MAX_NUM 64
@@ -57,6 +61,35 @@
 
 
 namespace proto_ff_s {
+
+	struct E_FestivalPeriodindex_s : public NFDescStoreSeqOP {
+		E_FestivalPeriodindex_s();
+		virtual ~E_FestivalPeriodindex_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_minorigalday;//最小原始开服时间
+		NFShmVector<int32_t, DEFINE_E_FESTIVALPERIODINDEX_M_PERIOD_MAX_NUM> m_period;//期数类型
+
+		virtual void write_to_pbmsg(::proto_ff::E_FestivalPeriodindex & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalPeriodindex & msg);
+		static ::proto_ff::E_FestivalPeriodindex* new_pbmsg(){ return new ::proto_ff::E_FestivalPeriodindex(); }
+		static ::proto_ff::E_FestivalPeriodindex make_pbmsg(){ return ::proto_ff::E_FestivalPeriodindex(); }
+	};
+	typedef struct E_FestivalPeriodindex_s E_FestivalPeriodindex_t;
+
+	struct Sheet_FestivalPeriodindex_s : public NFDescStoreSeqOP {
+		Sheet_FestivalPeriodindex_s();
+		virtual ~Sheet_FestivalPeriodindex_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_FestivalPeriodindex_s, DEFINE_SHEET_FESTIVALPERIODINDEX_E_FESTIVALPERIODINDEX_LIST_MAX_NUM> E_FestivalPeriodindex_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FestivalPeriodindex & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FestivalPeriodindex & msg);
+		static ::proto_ff::Sheet_FestivalPeriodindex* new_pbmsg(){ return new ::proto_ff::Sheet_FestivalPeriodindex(); }
+		static ::proto_ff::Sheet_FestivalPeriodindex make_pbmsg(){ return ::proto_ff::Sheet_FestivalPeriodindex(); }
+	};
+	typedef struct Sheet_FestivalPeriodindex_s Sheet_FestivalPeriodindex_t;
 
 	struct E_FestivalFestival_s : public NFDescStoreSeqOP {
 		E_FestivalFestival_s();
@@ -104,6 +137,7 @@ namespace proto_ff_s {
 		int32_t m_periodtype;//期数类型
 		int32_t m_period;//期数参数
 		int32_t m_ifopen;//活动开关
+		int32_t m_activeid;//激活活动ID
 		NFShmVector<NFShmString<64>, DEFINE_E_FESTIVALTEMPLATE_M_TIMEARG_MAX_NUM> m_timearg;//时间参数
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalTemplate & msg) const;
@@ -126,6 +160,70 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_FestivalTemplate make_pbmsg(){ return ::proto_ff::Sheet_FestivalTemplate(); }
 	};
 	typedef struct Sheet_FestivalTemplate_s Sheet_FestivalTemplate_t;
+
+	struct E_FestivalMuban_login_s : public NFDescStoreSeqOP {
+		E_FestivalMuban_login_s();
+		virtual ~E_FestivalMuban_login_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_period;//期数
+		int32_t m_loginday;//天数要求
+		int32_t m_boxid;//奖励
+
+		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_login & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_login & msg);
+		static ::proto_ff::E_FestivalMuban_login* new_pbmsg(){ return new ::proto_ff::E_FestivalMuban_login(); }
+		static ::proto_ff::E_FestivalMuban_login make_pbmsg(){ return ::proto_ff::E_FestivalMuban_login(); }
+	};
+	typedef struct E_FestivalMuban_login_s E_FestivalMuban_login_t;
+
+	struct Sheet_FestivalMuban_login_s : public NFDescStoreSeqOP {
+		Sheet_FestivalMuban_login_s();
+		virtual ~Sheet_FestivalMuban_login_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_FestivalMuban_login_s, DEFINE_SHEET_FESTIVALMUBAN_LOGIN_E_FESTIVALMUBAN_LOGIN_LIST_MAX_NUM> E_FestivalMuban_login_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_login & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_login & msg);
+		static ::proto_ff::Sheet_FestivalMuban_login* new_pbmsg(){ return new ::proto_ff::Sheet_FestivalMuban_login(); }
+		static ::proto_ff::Sheet_FestivalMuban_login make_pbmsg(){ return ::proto_ff::Sheet_FestivalMuban_login(); }
+	};
+	typedef struct Sheet_FestivalMuban_login_s Sheet_FestivalMuban_login_t;
+
+	struct E_FestivalMuban_firstrecharge_s : public NFDescStoreSeqOP {
+		E_FestivalMuban_firstrecharge_s();
+		virtual ~E_FestivalMuban_firstrecharge_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_period;//期数
+		int32_t m_day;//天数
+		int32_t m_gear;//档位
+		int32_t m_recharge;//充值金额
+		int32_t m_boxid;//奖励
+
+		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_firstrecharge & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_firstrecharge & msg);
+		static ::proto_ff::E_FestivalMuban_firstrecharge* new_pbmsg(){ return new ::proto_ff::E_FestivalMuban_firstrecharge(); }
+		static ::proto_ff::E_FestivalMuban_firstrecharge make_pbmsg(){ return ::proto_ff::E_FestivalMuban_firstrecharge(); }
+	};
+	typedef struct E_FestivalMuban_firstrecharge_s E_FestivalMuban_firstrecharge_t;
+
+	struct Sheet_FestivalMuban_firstrecharge_s : public NFDescStoreSeqOP {
+		Sheet_FestivalMuban_firstrecharge_s();
+		virtual ~Sheet_FestivalMuban_firstrecharge_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_FestivalMuban_firstrecharge_s, DEFINE_SHEET_FESTIVALMUBAN_FIRSTRECHARGE_E_FESTIVALMUBAN_FIRSTRECHARGE_LIST_MAX_NUM> E_FestivalMuban_firstrecharge_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_firstrecharge & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_firstrecharge & msg);
+		static ::proto_ff::Sheet_FestivalMuban_firstrecharge* new_pbmsg(){ return new ::proto_ff::Sheet_FestivalMuban_firstrecharge(); }
+		static ::proto_ff::Sheet_FestivalMuban_firstrecharge make_pbmsg(){ return ::proto_ff::Sheet_FestivalMuban_firstrecharge(); }
+	};
+	typedef struct Sheet_FestivalMuban_firstrecharge_s Sheet_FestivalMuban_firstrecharge_t;
 
 	struct E_FestivalMuban_love_s : public NFDescStoreSeqOP {
 		E_FestivalMuban_love_s();
@@ -291,34 +389,70 @@ namespace proto_ff_s {
 	};
 	typedef struct Sheet_FestivalMuban_love_taskreward_s Sheet_FestivalMuban_love_taskreward_t;
 
-	struct E_FestivalPeriodindex_s : public NFDescStoreSeqOP {
-		E_FestivalPeriodindex_s();
-		virtual ~E_FestivalPeriodindex_s(){}
+	struct E_FestivalMuban_addbox_s : public NFDescStoreSeqOP {
+		E_FestivalMuban_addbox_s();
+		virtual ~E_FestivalMuban_addbox_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_minorigalday;//最小原始开服时间
-		NFShmVector<int32_t, DEFINE_E_FESTIVALPERIODINDEX_M_PERIOD_MAX_NUM> m_period;//期数类型
+		int32_t m_id;//序号
+		int32_t m_period;//期数
+		int32_t m_lvlimit;//最低的怪物等级
+		int32_t m_type;//类型
+		NFShmString<64> m_arg;//参数
+		int32_t m_addboxid;//附加的boxid
 
-		virtual void write_to_pbmsg(::proto_ff::E_FestivalPeriodindex & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalPeriodindex & msg);
-		static ::proto_ff::E_FestivalPeriodindex* new_pbmsg(){ return new ::proto_ff::E_FestivalPeriodindex(); }
-		static ::proto_ff::E_FestivalPeriodindex make_pbmsg(){ return ::proto_ff::E_FestivalPeriodindex(); }
+		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_addbox & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_addbox & msg);
+		static ::proto_ff::E_FestivalMuban_addbox* new_pbmsg(){ return new ::proto_ff::E_FestivalMuban_addbox(); }
+		static ::proto_ff::E_FestivalMuban_addbox make_pbmsg(){ return ::proto_ff::E_FestivalMuban_addbox(); }
 	};
-	typedef struct E_FestivalPeriodindex_s E_FestivalPeriodindex_t;
+	typedef struct E_FestivalMuban_addbox_s E_FestivalMuban_addbox_t;
 
-	struct Sheet_FestivalPeriodindex_s : public NFDescStoreSeqOP {
-		Sheet_FestivalPeriodindex_s();
-		virtual ~Sheet_FestivalPeriodindex_s(){}
+	struct Sheet_FestivalMuban_addbox_s : public NFDescStoreSeqOP {
+		Sheet_FestivalMuban_addbox_s();
+		virtual ~Sheet_FestivalMuban_addbox_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_FestivalPeriodindex_s, DEFINE_SHEET_FESTIVALPERIODINDEX_E_FESTIVALPERIODINDEX_LIST_MAX_NUM> E_FestivalPeriodindex_List;//
+		NFShmVector<struct E_FestivalMuban_addbox_s, DEFINE_SHEET_FESTIVALMUBAN_ADDBOX_E_FESTIVALMUBAN_ADDBOX_LIST_MAX_NUM> E_FestivalMuban_addbox_List;//
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_FestivalPeriodindex & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FestivalPeriodindex & msg);
-		static ::proto_ff::Sheet_FestivalPeriodindex* new_pbmsg(){ return new ::proto_ff::Sheet_FestivalPeriodindex(); }
-		static ::proto_ff::Sheet_FestivalPeriodindex make_pbmsg(){ return ::proto_ff::Sheet_FestivalPeriodindex(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_addbox & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_addbox & msg);
+		static ::proto_ff::Sheet_FestivalMuban_addbox* new_pbmsg(){ return new ::proto_ff::Sheet_FestivalMuban_addbox(); }
+		static ::proto_ff::Sheet_FestivalMuban_addbox make_pbmsg(){ return ::proto_ff::Sheet_FestivalMuban_addbox(); }
 	};
-	typedef struct Sheet_FestivalPeriodindex_s Sheet_FestivalPeriodindex_t;
+	typedef struct Sheet_FestivalMuban_addbox_s Sheet_FestivalMuban_addbox_t;
+
+	struct E_FestivalMuban_doublebox_s : public NFDescStoreSeqOP {
+		E_FestivalMuban_doublebox_s();
+		virtual ~E_FestivalMuban_doublebox_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//序号
+		int32_t m_period;//期数
+		int32_t m_type;//类型
+		NFShmString<64> m_arg;//类型参数
+		int32_t m_multiply;//倍率
+
+		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_doublebox & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_doublebox & msg);
+		static ::proto_ff::E_FestivalMuban_doublebox* new_pbmsg(){ return new ::proto_ff::E_FestivalMuban_doublebox(); }
+		static ::proto_ff::E_FestivalMuban_doublebox make_pbmsg(){ return ::proto_ff::E_FestivalMuban_doublebox(); }
+	};
+	typedef struct E_FestivalMuban_doublebox_s E_FestivalMuban_doublebox_t;
+
+	struct Sheet_FestivalMuban_doublebox_s : public NFDescStoreSeqOP {
+		Sheet_FestivalMuban_doublebox_s();
+		virtual ~Sheet_FestivalMuban_doublebox_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_FestivalMuban_doublebox_s, DEFINE_SHEET_FESTIVALMUBAN_DOUBLEBOX_E_FESTIVALMUBAN_DOUBLEBOX_LIST_MAX_NUM> E_FestivalMuban_doublebox_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_doublebox & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_doublebox & msg);
+		static ::proto_ff::Sheet_FestivalMuban_doublebox* new_pbmsg(){ return new ::proto_ff::Sheet_FestivalMuban_doublebox(); }
+		static ::proto_ff::Sheet_FestivalMuban_doublebox make_pbmsg(){ return ::proto_ff::Sheet_FestivalMuban_doublebox(); }
+	};
+	typedef struct Sheet_FestivalMuban_doublebox_s Sheet_FestivalMuban_doublebox_t;
 
 	struct E_FestivalMuban_bossfristkill_s : public NFDescStoreSeqOP {
 		E_FestivalMuban_bossfristkill_s();
@@ -408,6 +542,7 @@ namespace proto_ff_s {
 		int32_t m_maxrank;//排名上限
 		int32_t m_minrank;//排名下限
 		int32_t m_rankvalue;//最低排行值数值要求
+		NFShmString<64> m_unachievedisplay;//未满足的排行显示
 		int32_t m_boxid;//奖励内容
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_severrank_data & msg) const;
@@ -1142,7 +1277,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_a;//期数
+		int32_t m_period;//期数
 		int32_t m_value;//充值额度
 		int32_t m_boxid;//奖励内容
 

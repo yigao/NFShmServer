@@ -88,6 +88,7 @@ class Sheet_ShentiStar_up;
 class E_ShentiStrengtitelAttributeDesc;
 class E_ShentiStrengtitel;
 class Sheet_ShentiStrengtitel;
+class E_ShentiStartitelAttributeDesc;
 class E_ShentiStartitel;
 class Sheet_ShentiStartitel;
 
@@ -5886,6 +5887,98 @@ class Sheet_ShentiStrengtitel : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class E_ShentiStartitelAttributeDesc : public ::google::protobuf::Message {
+ public:
+  E_ShentiStartitelAttributeDesc();
+  virtual ~E_ShentiStartitelAttributeDesc();
+
+  E_ShentiStartitelAttributeDesc(const E_ShentiStartitelAttributeDesc& from);
+
+  inline E_ShentiStartitelAttributeDesc& operator=(const E_ShentiStartitelAttributeDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_ShentiStartitelAttributeDesc& default_instance();
+
+  void Swap(E_ShentiStartitelAttributeDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_ShentiStartitelAttributeDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_ShentiStartitelAttributeDesc& from);
+  void MergeFrom(const E_ShentiStartitelAttributeDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_value = 1;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 1;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
+
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_ShentiStartitelAttributeDesc)
+ private:
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_value_;
+  ::google::protobuf::int32 m_type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fShenti_2eproto();
+  friend void protobuf_AssignDesc_E_5fShenti_2eproto();
+  friend void protobuf_ShutdownFile_E_5fShenti_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_ShentiStartitelAttributeDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class E_ShentiStartitel : public ::google::protobuf::Message {
  public:
   E_ShentiStartitel();
@@ -5954,19 +6047,17 @@ class E_ShentiStartitel : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int32 m_attribute_type = 3;
-  inline bool has_m_attribute_type() const;
-  inline void clear_m_attribute_type();
-  static const int kMAttributeTypeFieldNumber = 3;
-  inline ::google::protobuf::int32 m_attribute_type() const;
-  inline void set_m_attribute_type(::google::protobuf::int32 value);
-
-  // optional int32 m_attribute_value = 4;
-  inline bool has_m_attribute_value() const;
-  inline void clear_m_attribute_value();
-  static const int kMAttributeValueFieldNumber = 4;
-  inline ::google::protobuf::int32 m_attribute_value() const;
-  inline void set_m_attribute_value(::google::protobuf::int32 value);
+  // repeated .proto_ff.E_ShentiStartitelAttributeDesc m_attribute = 3;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 3;
+  inline const ::proto_ff::E_ShentiStartitelAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_ShentiStartitelAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_ShentiStartitelAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ShentiStartitelAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ShentiStartitelAttributeDesc >*
+      mutable_m_attribute();
 
   // @@protoc_insertion_point(class_scope:proto_ff.E_ShentiStartitel)
  private:
@@ -5974,20 +6065,15 @@ class E_ShentiStartitel : public ::google::protobuf::Message {
   inline void clear_has_m_id();
   inline void set_has_m_num();
   inline void clear_has_m_num();
-  inline void set_has_m_attribute_type();
-  inline void clear_has_m_attribute_type();
-  inline void set_has_m_attribute_value();
-  inline void clear_has_m_attribute_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int32 m_id_;
   ::google::protobuf::int32 m_num_;
-  ::google::protobuf::int32 m_attribute_type_;
-  ::google::protobuf::int32 m_attribute_value_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ShentiStartitelAttributeDesc > m_attribute_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fShenti_2eproto();
   friend void protobuf_AssignDesc_E_5fShenti_2eproto();
@@ -10682,6 +10768,54 @@ Sheet_ShentiStrengtitel::mutable_e_shentistrengtitel_list() {
 
 // -------------------------------------------------------------------
 
+// E_ShentiStartitelAttributeDesc
+
+// optional int32 m_value = 1;
+inline bool E_ShentiStartitelAttributeDesc::has_m_value() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_ShentiStartitelAttributeDesc::set_has_m_value() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_ShentiStartitelAttributeDesc::clear_has_m_value() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_ShentiStartitelAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
+}
+inline ::google::protobuf::int32 E_ShentiStartitelAttributeDesc::m_value() const {
+  return m_value_;
+}
+inline void E_ShentiStartitelAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
+}
+
+// optional int32 m_type = 2;
+inline bool E_ShentiStartitelAttributeDesc::has_m_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_ShentiStartitelAttributeDesc::set_has_m_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_ShentiStartitelAttributeDesc::clear_has_m_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_ShentiStartitelAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
+}
+inline ::google::protobuf::int32 E_ShentiStartitelAttributeDesc::m_type() const {
+  return m_type_;
+}
+inline void E_ShentiStartitelAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // E_ShentiStartitel
 
 // optional int32 m_id = 1;
@@ -10728,48 +10862,29 @@ inline void E_ShentiStartitel::set_m_num(::google::protobuf::int32 value) {
   m_num_ = value;
 }
 
-// optional int32 m_attribute_type = 3;
-inline bool E_ShentiStartitel::has_m_attribute_type() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+// repeated .proto_ff.E_ShentiStartitelAttributeDesc m_attribute = 3;
+inline int E_ShentiStartitel::m_attribute_size() const {
+  return m_attribute_.size();
 }
-inline void E_ShentiStartitel::set_has_m_attribute_type() {
-  _has_bits_[0] |= 0x00000004u;
+inline void E_ShentiStartitel::clear_m_attribute() {
+  m_attribute_.Clear();
 }
-inline void E_ShentiStartitel::clear_has_m_attribute_type() {
-  _has_bits_[0] &= ~0x00000004u;
+inline const ::proto_ff::E_ShentiStartitelAttributeDesc& E_ShentiStartitel::m_attribute(int index) const {
+  return m_attribute_.Get(index);
 }
-inline void E_ShentiStartitel::clear_m_attribute_type() {
-  m_attribute_type_ = 0;
-  clear_has_m_attribute_type();
+inline ::proto_ff::E_ShentiStartitelAttributeDesc* E_ShentiStartitel::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
 }
-inline ::google::protobuf::int32 E_ShentiStartitel::m_attribute_type() const {
-  return m_attribute_type_;
+inline ::proto_ff::E_ShentiStartitelAttributeDesc* E_ShentiStartitel::add_m_attribute() {
+  return m_attribute_.Add();
 }
-inline void E_ShentiStartitel::set_m_attribute_type(::google::protobuf::int32 value) {
-  set_has_m_attribute_type();
-  m_attribute_type_ = value;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ShentiStartitelAttributeDesc >&
+E_ShentiStartitel::m_attribute() const {
+  return m_attribute_;
 }
-
-// optional int32 m_attribute_value = 4;
-inline bool E_ShentiStartitel::has_m_attribute_value() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void E_ShentiStartitel::set_has_m_attribute_value() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void E_ShentiStartitel::clear_has_m_attribute_value() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void E_ShentiStartitel::clear_m_attribute_value() {
-  m_attribute_value_ = 0;
-  clear_has_m_attribute_value();
-}
-inline ::google::protobuf::int32 E_ShentiStartitel::m_attribute_value() const {
-  return m_attribute_value_;
-}
-inline void E_ShentiStartitel::set_m_attribute_value(::google::protobuf::int32 value) {
-  set_has_m_attribute_value();
-  m_attribute_value_ = value;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_ShentiStartitelAttributeDesc >*
+E_ShentiStartitel::mutable_m_attribute() {
+  return &m_attribute_;
 }
 
 // -------------------------------------------------------------------

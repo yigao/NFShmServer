@@ -58,10 +58,11 @@ void protobuf_AssignDesc_Grow_2eproto() {
       "Grow.proto");
   GOOGLE_CHECK(file != NULL);
   GrowStarInfo_descriptor_ = file->message_type(0);
-  static const int GrowStarInfo_offsets_[3] = {
+  static const int GrowStarInfo_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GrowStarInfo, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GrowStarInfo, lv_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GrowStarInfo, state_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GrowStarInfo, time_),
   };
   GrowStarInfo_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -183,9 +184,10 @@ void protobuf_AssignDesc_Grow_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GrowFacadeUnDressReq));
   GrowFacadeUnDressRsp_descriptor_ = file->message_type(8);
-  static const int GrowFacadeUnDressRsp_offsets_[2] = {
+  static const int GrowFacadeUnDressRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GrowFacadeUnDressRsp, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GrowFacadeUnDressRsp, ret_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GrowFacadeUnDressRsp, code_),
   };
   GrowFacadeUnDressRsp_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -263,17 +265,18 @@ void protobuf_AddDesc_Grow_2eproto() {
   ::proto_ff::protobuf_AddDesc_ComDefine_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\nGrow.proto\022\010proto_ff\032\tCom.proto\032\017ComDe"
-    "fine.proto\"5\n\014GrowStarInfo\022\n\n\002id\030\001 \001(\003\022\n"
-    "\n\002lv\030\002 \001(\005\022\r\n\005state\030\003 \001(\005\"A\n\013GrowSubInfo"
-    "\022\014\n\004type\030\001 \001(\005\022$\n\004subs\030\002 \003(\0132\026.proto_ff."
-    "GrowStarInfo\"4\n\rNotifyGrowRsp\022#\n\004subs\030\001 "
-    "\003(\0132\025.proto_ff.GrowSubInfo\"\031\n\013GrowLvUpRe"
-    "q\022\n\n\002id\030\001 \001(\003\"&\n\013GrowLvUpRsp\022\n\n\002id\030\001 \001(\003"
-    "\022\013\n\003ret\030\002 \001(\005\" \n\022GrowFacadeDressReq\022\n\n\002i"
-    "d\030\001 \001(\003\"-\n\022GrowFacadeDressRsp\022\n\n\002id\030\001 \001("
-    "\003\022\013\n\003ret\030\002 \001(\005\"\"\n\024GrowFacadeUnDressReq\022\n"
-    "\n\002id\030\001 \001(\003\"/\n\024GrowFacadeUnDressRsp\022\n\n\002id"
-    "\030\001 \001(\003\022\013\n\003ret\030\002 \001(\005", 459);
+    "fine.proto\"C\n\014GrowStarInfo\022\n\n\002id\030\001 \001(\003\022\n"
+    "\n\002lv\030\002 \001(\005\022\r\n\005state\030\003 \001(\005\022\014\n\004time\030\004 \001(\003\""
+    "A\n\013GrowSubInfo\022\014\n\004type\030\001 \001(\005\022$\n\004subs\030\002 \003"
+    "(\0132\026.proto_ff.GrowStarInfo\"4\n\rNotifyGrow"
+    "Rsp\022#\n\004subs\030\001 \003(\0132\025.proto_ff.GrowSubInfo"
+    "\"\031\n\013GrowLvUpReq\022\n\n\002id\030\001 \001(\003\"&\n\013GrowLvUpR"
+    "sp\022\n\n\002id\030\001 \001(\003\022\013\n\003ret\030\002 \001(\005\" \n\022GrowFacad"
+    "eDressReq\022\n\n\002id\030\001 \001(\003\"-\n\022GrowFacadeDress"
+    "Rsp\022\n\n\002id\030\001 \001(\003\022\013\n\003ret\030\002 \001(\005\"\"\n\024GrowFaca"
+    "deUnDressReq\022\n\n\002id\030\001 \001(\003\"=\n\024GrowFacadeUn"
+    "DressRsp\022\n\n\002id\030\001 \001(\003\022\013\n\003ret\030\002 \001(\005\022\014\n\004cod"
+    "e\030\003 \001(\005", 487);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Grow.proto", &protobuf_RegisterTypes);
   GrowStarInfo::default_instance_ = new GrowStarInfo();
@@ -310,6 +313,7 @@ struct StaticDescriptorInitializer_Grow_2eproto {
 const int GrowStarInfo::kIdFieldNumber;
 const int GrowStarInfo::kLvFieldNumber;
 const int GrowStarInfo::kStateFieldNumber;
+const int GrowStarInfo::kTimeFieldNumber;
 #endif  // !_MSC_VER
 
 GrowStarInfo::GrowStarInfo()
@@ -331,6 +335,7 @@ void GrowStarInfo::SharedCtor() {
   id_ = GOOGLE_LONGLONG(0);
   lv_ = 0;
   state_ = 0;
+  time_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -369,6 +374,7 @@ void GrowStarInfo::Clear() {
     id_ = GOOGLE_LONGLONG(0);
     lv_ = 0;
     state_ = 0;
+    time_ = GOOGLE_LONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -423,6 +429,22 @@ bool GrowStarInfo::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(32)) goto parse_time;
+        break;
+      }
+
+      // optional int64 time = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_time:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &time_)));
+          set_has_time();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -460,6 +482,11 @@ void GrowStarInfo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->state(), output);
   }
 
+  // optional int64 time = 4;
+  if (has_time()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->time(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -481,6 +508,11 @@ void GrowStarInfo::SerializeWithCachedSizes(
   // optional int32 state = 3;
   if (has_state()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->state(), target);
+  }
+
+  // optional int64 time = 4;
+  if (has_time()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->time(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -513,6 +545,13 @@ int GrowStarInfo::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->state());
+    }
+
+    // optional int64 time = 4;
+    if (has_time()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->time());
     }
 
   }
@@ -551,6 +590,9 @@ void GrowStarInfo::MergeFrom(const GrowStarInfo& from) {
     if (from.has_state()) {
       set_state(from.state());
     }
+    if (from.has_time()) {
+      set_time(from.time());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -577,6 +619,7 @@ void GrowStarInfo::Swap(GrowStarInfo* other) {
     std::swap(id_, other->id_);
     std::swap(lv_, other->lv_);
     std::swap(state_, other->state_);
+    std::swap(time_, other->time_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -2168,6 +2211,7 @@ void GrowFacadeUnDressReq::Swap(GrowFacadeUnDressReq* other) {
 #ifndef _MSC_VER
 const int GrowFacadeUnDressRsp::kIdFieldNumber;
 const int GrowFacadeUnDressRsp::kRetFieldNumber;
+const int GrowFacadeUnDressRsp::kCodeFieldNumber;
 #endif  // !_MSC_VER
 
 GrowFacadeUnDressRsp::GrowFacadeUnDressRsp()
@@ -2188,6 +2232,7 @@ void GrowFacadeUnDressRsp::SharedCtor() {
   _cached_size_ = 0;
   id_ = GOOGLE_LONGLONG(0);
   ret_ = 0;
+  code_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -2225,6 +2270,7 @@ void GrowFacadeUnDressRsp::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     id_ = GOOGLE_LONGLONG(0);
     ret_ = 0;
+    code_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -2263,6 +2309,22 @@ bool GrowFacadeUnDressRsp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(24)) goto parse_code;
+        break;
+      }
+
+      // optional int32 code = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_code:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &code_)));
+          set_has_code();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2295,6 +2357,11 @@ void GrowFacadeUnDressRsp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->ret(), output);
   }
 
+  // optional int32 code = 3;
+  if (has_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->code(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -2311,6 +2378,11 @@ void GrowFacadeUnDressRsp::SerializeWithCachedSizes(
   // optional int32 ret = 2;
   if (has_ret()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->ret(), target);
+  }
+
+  // optional int32 code = 3;
+  if (has_code()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->code(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2336,6 +2408,13 @@ int GrowFacadeUnDressRsp::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->ret());
+    }
+
+    // optional int32 code = 3;
+    if (has_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->code());
     }
 
   }
@@ -2371,6 +2450,9 @@ void GrowFacadeUnDressRsp::MergeFrom(const GrowFacadeUnDressRsp& from) {
     if (from.has_ret()) {
       set_ret(from.ret());
     }
+    if (from.has_code()) {
+      set_code(from.code());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -2396,6 +2478,7 @@ void GrowFacadeUnDressRsp::Swap(GrowFacadeUnDressRsp* other) {
   if (other != this) {
     std::swap(id_, other->id_);
     std::swap(ret_, other->ret_);
+    std::swap(code_, other->code_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

@@ -568,12 +568,13 @@ void protobuf_AssignDesc_E_5fMarry_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_MarryExpresslanguage));
   E_MarryExpressshop_descriptor_ = file->message_type(25);
-  static const int E_MarryExpressshop_offsets_[5] = {
+  static const int E_MarryExpressshop_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MarryExpressshop, m_exitem_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MarryExpressshop, m_mallid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MarryExpressshop, m_exp_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MarryExpressshop, m_expto_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MarryExpressshop, m_broadcastid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MarryExpressshop, m_effectid_),
   };
   E_MarryExpressshop_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -618,7 +619,7 @@ void protobuf_AssignDesc_E_5fMarry_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_MarryConstantTourmonsterDesc));
   E_MarryConstant_descriptor_ = file->message_type(28);
-  static const int E_MarryConstant_offsets_[40] = {
+  static const int E_MarryConstant_offsets_[42] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MarryConstant, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MarryConstant, m_money_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MarryConstant, m_price_),
@@ -658,6 +659,8 @@ void protobuf_AssignDesc_E_5fMarry_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MarryConstant, m_sendrednum_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MarryConstant, m_redcollect_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MarryConstant, m_redcollectnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MarryConstant, m_cakemonster_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MarryConstant, m_hymonster_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MarryConstant, m_tourmonster_),
   };
   E_MarryConstant_reflection_ =
@@ -1094,7 +1097,7 @@ void protobuf_AddDesc_E_5fMarry_2eproto() {
     "te\030\n \003(\0132#.proto_ff.E_MarryChildAttribut"
     "eDescB\024\302\377\024\014\346\277\200\346\264\273\345\261\236\346\200\247\210\301\024\006\022X\n\020m_stariat"
     "tribute\030\013 \003(\0132(.proto_ff.E_MarryChildSta"
-    "riattributeDescB\024\302\377\024\014\345\215\207\346\230\237\345\261\236\346\200\247\210\301\024\004\"K\n"
+    "riattributeDescB\024\302\377\024\014\345\215\207\346\230\237\345\261\236\346\200\247\210\301\024\005\"K\n"
     "\020Sheet_MarryChild\0227\n\021E_MarryChild_List\030\001"
     " \003(\0132\026.proto_ff.E_MarryChildB\004\210\301\024\020\"X\n\021E_"
     "MarryChildvalue\022\035\n\004m_id\030\001 \001(\003B\017\302\377\024\013\345\261\236\346\200"
@@ -1121,17 +1124,18 @@ void protobuf_AddDesc_E_5fMarry_2eproto() {
     "age\030\002 \001(\tB\025\302\377\024\014\350\241\250\347\231\275\346\226\207\345\255\227\220\301\024\200\002\"i\n\032Shee"
     "t_MarryExpresslanguage\022K\n\033E_MarryExpress"
     "language_List\030\001 \003(\0132 .proto_ff.E_MarryEx"
-    "presslanguageB\004\210\301\024 \"\312\001\n\022E_MarryExpresssh"
+    "presslanguageB\004\210\301\024 \"\362\001\n\022E_MarryExpresssh"
     "op\022\"\n\010m_exitem\030\001 \001(\005B\020\302\377\024\014\350\241\250\347\231\275\351\201\223\345\205\267\022\036"
     "\n\010m_mallid\030\002 \001(\005B\014\302\377\024\010\345\225\206\345\237\216id\022\"\n\005m_exp\030"
     "\003 \001(\005B\023\302\377\024\017\345\242\236\345\212\240\350\241\250\347\231\275\345\200\274\022\'\n\007m_expto\030\004 "
     "\001(\005B\026\302\377\024\022\350\242\253\350\241\250\347\231\275\347\273\217\351\252\214\345\200\274\022#\n\rm_broadca"
-    "stid\030\005 \001(\005B\014\302\377\024\010\345\271\277\346\222\255id\"]\n\026Sheet_MarryE"
+    "stid\030\005 \001(\005B\014\302\377\024\010\345\271\277\346\222\255id\022&\n\nm_effectid\030\006"
+    " \001(\005B\022\302\377\024\016\350\241\250\347\231\275\347\211\271\346\225\210ID\"]\n\026Sheet_MarryE"
     "xpressshop\022C\n\027E_MarryExpressshop_List\030\001 "
     "\003(\0132\034.proto_ff.E_MarryExpressshopB\004\210\301\024\004\""
     "T\n\036E_MarryConstantTourmonsterDesc\022\034\n\010m_p"
     "athid\030\001 \001(\005B\n\302\377\024\006pathid\022\024\n\004m_id\030\002 \001(\005B\006\302"
-    "\377\024\002id\"\204\016\n\017E_MarryConstant\022\024\n\004m_id\030\001 \001(\005B"
+    "\377\024\002id\"\332\016\n\017E_MarryConstant\022\024\n\004m_id\030\001 \001(\005B"
     "\006\302\377\024\002id\022\'\n\007m_money\030\002 \001(\005B\026\302\377\024\022\345\256\235\345\214\243\350\264\255\344"
     "\271\260\350\264\247\345\270\201\022\'\n\007m_price\030\003 \001(\005B\026\302\377\024\022\345\256\235\345\214\243\350\264\255"
     "\344\271\260\344\273\267\346\240\274\022/\n\tm_buyitem\030\004 \001(\005B\034\302\377\024\030\345\256\235\345\214\243"
@@ -1173,57 +1177,59 @@ void protobuf_AddDesc_E_5fMarry_2eproto() {
     "\205\345\245\226\345\212\261\350\264\247\345\270\201\022/\n\014m_sendrednum\030% \001(\005B\031\302\377\024"
     "\025\345\217\221\347\272\242\345\214\205\345\245\226\345\212\261\344\273\267\346\240\274\022)\n\014m_redcollect\030&"
     " \001(\005B\023\302\377\024\017\347\272\242\345\214\205\351\207\207\351\233\206\347\211\251\0222\n\017m_redcollec"
-    "tnum\030\' \001(\005B\031\302\377\024\025\347\272\242\345\214\205\351\207\207\351\233\206\347\211\251\346\225\260\351\207\217\022U\n"
-    "\rm_tourmonster\030( \003(\0132(.proto_ff.E_MarryC"
-    "onstantTourmonsterDescB\024\302\377\024\014\345\267\241\346\270\270\346\200\252\347\211\251"
-    "\210\301\024\010\"T\n\023Sheet_MarryConstant\022=\n\024E_MarryCo"
-    "nstant_List\030\001 \003(\0132\031.proto_ff.E_MarryCons"
-    "tantB\004\210\301\024\002\")\n\rE_MarryCommon\022\030\n\004m_lv\030\001 \001("
-    "\005B\n\302\377\024\006\351\230\266\351\230\266\"O\n\021Sheet_MarryCommon\022:\n\022E_"
-    "MarryCommon_List\030\001 \003(\0132\027.proto_ff.E_Marr"
-    "yCommonB\005\210\301\024\200\004\"4\n\027E_MarryWeddingStageDes"
-    "c\022\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006\351\230\266\346\256\265\"T\n\026E_MarryW"
-    "eddingFireDesc\022!\n\007m_value\030\001 \001(\005B\020\302\377\024\014\345\217\267"
-    "\346\260\233\345\233\264\345\200\274\022\027\n\006m_type\030\002 \001(\005B\007\302\377\024\003\345\217\267\"S\n\026E_"
-    "MarryWeddingMoodDesc\022\034\n\010m_reward\030\001 \001(\005B\n"
-    "\302\377\024\006\345\245\226\345\212\261\022\033\n\007m_value\030\002 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\""
-    "\212\t\n\016E_MarryWedding\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id"
-    "\022&\n\014m_signreward\030\002 \001(\005B\020\302\377\024\014\347\255\276\345\210\260\345\245\226\345\212\261"
-    "\0222\n\014m_signdaynum\030\003 \001(\005B\034\302\377\024\030\346\257\217\346\227\245\347\255\276\345\210\260"
-    "\345\245\226\345\212\261\346\254\241\346\225\260\022*\n\rm_cakereftime\030\004 \001(\005B\023\302\377\024"
-    "\017\350\233\213\347\263\225\351\207\207\351\233\206\347\211\251\022#\n\tm_cakenum\030\005 \001(\005B\020\302\377\024"
-    "\014\350\233\213\347\263\225\346\225\260\351\207\217\022&\n\006m_cake\030\006 \001(\005B\026\302\377\024\022\350\233\213\347\263"
-    "\225\345\210\267\346\226\260\346\227\266\351\227\264\022%\n\007m_model\030\007 \001(\tB\024\302\377\024\014\345\217\230\350"
-    "\272\253\346\250\241\345\236\213\220\301\024@\022+\n\013m_modeltime\030\010 \001(\005B\026\302\377\024\022\345"
-    "\217\230\350\272\253\346\214\201\347\273\255\346\227\266\351\227\264\022&\n\014m_cakereward\030\t \001(\005B"
-    "\020\302\377\024\014\351\207\207\351\233\206\345\245\226\345\212\261\0229\n\rm_signcakenum\030\n \001(\005"
-    "B\"\302\377\024\036\346\257\217\346\227\245\351\207\207\351\233\206\350\233\213\347\263\225\345\245\226\345\212\261\346\254\241\346\225\260\022%\n\t"
-    "m_monster\030\013 \001(\005B\022\302\377\024\016\344\272\262\345\217\213\346\200\252\347\211\251id\022,\n\014m"
-    "_monsternum\030\014 \001(\005B\026\302\377\024\022\344\272\262\345\217\213\346\200\252\347\211\251\346\225\260\351\207"
-    "\217\022-\n\rm_monstertime\030\r \001(\005B\026\302\377\024\022\346\200\252\347\211\251\345\207\273\346"
-    "\235\200\346\227\266\351\227\264\022 \n\007m_npcid\030\016 \001(\005B\017\302\377\024\013\344\272\262\345\217\213npc"
-    "id\022%\n\010m_npcnum\030\017 \001(\005B\023\302\377\024\017\344\272\262\345\217\213npc\346\225\260\351\207"
-    "\217\022)\n\017m_monsterreward\030\020 \001(\005B\020\302\377\024\014\344\272\262\345\217\213\345\245"
-    "\226\345\212\261\0225\n\017m_monsterdaynum\030\021 \001(\005B\034\302\377\024\030\346\257\217\346\227"
-    "\245\344\272\262\345\217\213\345\245\226\345\212\261\346\254\241\346\225\260\022(\n\tm_feastid\030\022 \001(\005B\025"
-    "\302\377\024\021\345\256\264\345\270\255\351\207\207\351\233\206\347\211\251id\022-\n\rm_feastreward\030\023"
-    " \001(\005B\026\302\377\024\022\345\256\264\345\270\255\351\207\207\351\233\206\345\245\226\345\212\261\0220\n\nm_feastn"
-    "um\030\024 \001(\005B\034\302\377\024\030\345\215\225\345\234\272\345\256\264\345\270\255\351\207\207\351\233\206\346\254\241\346\225\260\022*"
-    "\n\nm_interval\030\025 \001(\005B\026\302\377\024\022\350\216\267\345\276\227\347\273\217\351\252\214\351\227\264\351"
-    "\232\224\022(\n\tm_skillid\030\026 \001(\005B\025\302\377\024\021\344\270\242\350\233\213\347\263\225\346\212\200\350"
-    "\203\275id\022\?\n\007m_stage\030\027 \003(\0132!.proto_ff.E_Marry"
-    "WeddingStageDescB\013\302\377\024\003\347\254\254\210\301\024\006\022@\n\006m_fire\030"
-    "\030 \003(\0132 .proto_ff.E_MarryWeddingFireDescB"
-    "\016\302\377\024\006\347\203\237\350\212\261\210\301\024\002\022C\n\006m_mood\030\031 \003(\0132 .proto_"
-    "ff.E_MarryWeddingMoodDescB\021\302\377\024\t\346\260\233\345\233\264\345\200\274"
-    "\210\301\024\005\"Q\n\022Sheet_MarryWedding\022;\n\023E_MarryWed"
-    "ding_List\030\001 \003(\0132\030.proto_ff.E_MarryWeddin"
-    "gB\004\210\301\024\002\"~\n\nE_MarryExp\022\030\n\004m_lv\030\001 \001(\005B\n\302\377\024"
-    "\006\347\255\211\347\272\247\022&\n\014m_weddingexp\030\002 \001(\005B\020\302\377\024\014\345\251\232\345\256"
-    "\264\347\273\217\351\252\214\022.\n\013m_dayexpmax\030\003 \001(\005B\031\302\377\024\025\346\257\217\346\227\245"
-    "\346\234\200\345\244\247\347\273\217\351\252\214\345\200\274\"F\n\016Sheet_MarryExp\0224\n\017E_M"
-    "arryExp_List\030\001 \003(\0132\024.proto_ff.E_MarryExp"
-    "B\005\210\301\024\200\004", 7647);
+    "tnum\030\' \001(\005B\031\302\377\024\025\347\272\242\345\214\205\351\207\207\351\233\206\347\211\251\346\225\260\351\207\217\022-\n"
+    "\rm_cakemonster\030( \001(\005B\026\302\377\024\022\345\251\232\345\256\264\350\233\213\347\263\225\346\250"
+    "\241\345\236\213\022%\n\013m_hymonster\030) \001(\005B\020\302\377\024\014\345\256\264\345\270\255\346\250\241"
+    "\345\236\213\022U\n\rm_tourmonster\030* \003(\0132(.proto_ff.E_"
+    "MarryConstantTourmonsterDescB\024\302\377\024\014\345\267\241\346\270\270"
+    "\346\200\252\347\211\251\210\301\024\010\"T\n\023Sheet_MarryConstant\022=\n\024E_M"
+    "arryConstant_List\030\001 \003(\0132\031.proto_ff.E_Mar"
+    "ryConstantB\004\210\301\024\004\")\n\rE_MarryCommon\022\030\n\004m_l"
+    "v\030\001 \001(\005B\n\302\377\024\006\351\230\266\351\230\266\"O\n\021Sheet_MarryCommon"
+    "\022:\n\022E_MarryCommon_List\030\001 \003(\0132\027.proto_ff."
+    "E_MarryCommonB\005\210\301\024\200\004\"4\n\027E_MarryWeddingSt"
+    "ageDesc\022\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006\351\230\266\346\256\265\"T\n\026E_"
+    "MarryWeddingFireDesc\022!\n\007m_value\030\001 \001(\005B\020\302"
+    "\377\024\014\345\217\267\346\260\233\345\233\264\345\200\274\022\027\n\006m_type\030\002 \001(\005B\007\302\377\024\003\345\217\267"
+    "\"S\n\026E_MarryWeddingMoodDesc\022\034\n\010m_reward\030\001"
+    " \001(\005B\n\302\377\024\006\345\245\226\345\212\261\022\033\n\007m_value\030\002 \001(\005B\n\302\377\024\006\346"
+    "\225\260\351\207\217\"\212\t\n\016E_MarryWedding\022\024\n\004m_id\030\001 \001(\005B\006"
+    "\302\377\024\002id\022&\n\014m_signreward\030\002 \001(\005B\020\302\377\024\014\347\255\276\345\210\260"
+    "\345\245\226\345\212\261\0222\n\014m_signdaynum\030\003 \001(\005B\034\302\377\024\030\346\257\217\346\227\245"
+    "\347\255\276\345\210\260\345\245\226\345\212\261\346\254\241\346\225\260\022*\n\rm_cakereftime\030\004 \001("
+    "\005B\023\302\377\024\017\350\233\213\347\263\225\351\207\207\351\233\206\347\211\251\022#\n\tm_cakenum\030\005 \001("
+    "\005B\020\302\377\024\014\350\233\213\347\263\225\346\225\260\351\207\217\022&\n\006m_cake\030\006 \001(\005B\026\302\377\024"
+    "\022\350\233\213\347\263\225\345\210\267\346\226\260\346\227\266\351\227\264\022%\n\007m_model\030\007 \001(\tB\024\302\377"
+    "\024\014\345\217\230\350\272\253\346\250\241\345\236\213\220\301\024@\022+\n\013m_modeltime\030\010 \001(\005B"
+    "\026\302\377\024\022\345\217\230\350\272\253\346\214\201\347\273\255\346\227\266\351\227\264\022&\n\014m_cakereward\030"
+    "\t \001(\005B\020\302\377\024\014\351\207\207\351\233\206\345\245\226\345\212\261\0229\n\rm_signcakenum"
+    "\030\n \001(\005B\"\302\377\024\036\346\257\217\346\227\245\351\207\207\351\233\206\350\233\213\347\263\225\345\245\226\345\212\261\346\254\241\346"
+    "\225\260\022%\n\tm_monster\030\013 \001(\005B\022\302\377\024\016\344\272\262\345\217\213\346\200\252\347\211\251i"
+    "d\022,\n\014m_monsternum\030\014 \001(\005B\026\302\377\024\022\344\272\262\345\217\213\346\200\252\347\211"
+    "\251\346\225\260\351\207\217\022-\n\rm_monstertime\030\r \001(\005B\026\302\377\024\022\346\200\252\347"
+    "\211\251\345\207\273\346\235\200\346\227\266\351\227\264\022 \n\007m_npcid\030\016 \001(\005B\017\302\377\024\013\344\272\262"
+    "\345\217\213npcid\022%\n\010m_npcnum\030\017 \001(\005B\023\302\377\024\017\344\272\262\345\217\213np"
+    "c\346\225\260\351\207\217\022)\n\017m_monsterreward\030\020 \001(\005B\020\302\377\024\014\344\272"
+    "\262\345\217\213\345\245\226\345\212\261\0225\n\017m_monsterdaynum\030\021 \001(\005B\034\302\377\024"
+    "\030\346\257\217\346\227\245\344\272\262\345\217\213\345\245\226\345\212\261\346\254\241\346\225\260\022(\n\tm_feastid\030\022"
+    " \001(\005B\025\302\377\024\021\345\256\264\345\270\255\351\207\207\351\233\206\347\211\251id\022-\n\rm_feastre"
+    "ward\030\023 \001(\005B\026\302\377\024\022\345\256\264\345\270\255\351\207\207\351\233\206\345\245\226\345\212\261\0220\n\nm_"
+    "feastnum\030\024 \001(\005B\034\302\377\024\030\345\215\225\345\234\272\345\256\264\345\270\255\351\207\207\351\233\206\346\254"
+    "\241\346\225\260\022*\n\nm_interval\030\025 \001(\005B\026\302\377\024\022\350\216\267\345\276\227\347\273\217\351"
+    "\252\214\351\227\264\351\232\224\022(\n\tm_skillid\030\026 \001(\005B\025\302\377\024\021\344\270\242\350\233\213\347"
+    "\263\225\346\212\200\350\203\275id\022\?\n\007m_stage\030\027 \003(\0132!.proto_ff.E"
+    "_MarryWeddingStageDescB\013\302\377\024\003\347\254\254\210\301\024\006\022@\n\006m"
+    "_fire\030\030 \003(\0132 .proto_ff.E_MarryWeddingFir"
+    "eDescB\016\302\377\024\006\347\203\237\350\212\261\210\301\024\002\022C\n\006m_mood\030\031 \003(\0132 ."
+    "proto_ff.E_MarryWeddingMoodDescB\021\302\377\024\t\346\260\233"
+    "\345\233\264\345\200\274\210\301\024\005\"Q\n\022Sheet_MarryWedding\022;\n\023E_Ma"
+    "rryWedding_List\030\001 \003(\0132\030.proto_ff.E_Marry"
+    "WeddingB\004\210\301\024\002\"~\n\nE_MarryExp\022\030\n\004m_lv\030\001 \001("
+    "\005B\n\302\377\024\006\347\255\211\347\272\247\022&\n\014m_weddingexp\030\002 \001(\005B\020\302\377\024"
+    "\014\345\251\232\345\256\264\347\273\217\351\252\214\022.\n\013m_dayexpmax\030\003 \001(\005B\031\302\377\024\025"
+    "\346\257\217\346\227\245\346\234\200\345\244\247\347\273\217\351\252\214\345\200\274\"F\n\016Sheet_MarryExp\022"
+    "4\n\017E_MarryExp_List\030\001 \003(\0132\024.proto_ff.E_Ma"
+    "rryExpB\005\210\301\024\200\004", 7773);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Marry.proto", &protobuf_RegisterTypes);
   E_MarryMarriage::default_instance_ = new E_MarryMarriage();
@@ -8433,6 +8439,7 @@ const int E_MarryExpressshop::kMMallidFieldNumber;
 const int E_MarryExpressshop::kMExpFieldNumber;
 const int E_MarryExpressshop::kMExptoFieldNumber;
 const int E_MarryExpressshop::kMBroadcastidFieldNumber;
+const int E_MarryExpressshop::kMEffectidFieldNumber;
 #endif  // !_MSC_VER
 
 E_MarryExpressshop::E_MarryExpressshop()
@@ -8456,6 +8463,7 @@ void E_MarryExpressshop::SharedCtor() {
   m_exp_ = 0;
   m_expto_ = 0;
   m_broadcastid_ = 0;
+  m_effectid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -8496,6 +8504,7 @@ void E_MarryExpressshop::Clear() {
     m_exp_ = 0;
     m_expto_ = 0;
     m_broadcastid_ = 0;
+    m_effectid_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -8582,6 +8591,22 @@ bool E_MarryExpressshop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(48)) goto parse_m_effectid;
+        break;
+      }
+
+      // optional int32 m_effectid = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_effectid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_effectid_)));
+          set_has_m_effectid();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -8629,6 +8654,11 @@ void E_MarryExpressshop::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_broadcastid(), output);
   }
 
+  // optional int32 m_effectid = 6;
+  if (has_m_effectid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_effectid(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -8660,6 +8690,11 @@ void E_MarryExpressshop::SerializeWithCachedSizes(
   // optional int32 m_broadcastid = 5;
   if (has_m_broadcastid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_broadcastid(), target);
+  }
+
+  // optional int32 m_effectid = 6;
+  if (has_m_effectid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_effectid(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -8708,6 +8743,13 @@ int E_MarryExpressshop::ByteSize() const {
           this->m_broadcastid());
     }
 
+    // optional int32 m_effectid = 6;
+    if (has_m_effectid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_effectid());
+    }
+
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -8750,6 +8792,9 @@ void E_MarryExpressshop::MergeFrom(const E_MarryExpressshop& from) {
     if (from.has_m_broadcastid()) {
       set_m_broadcastid(from.m_broadcastid());
     }
+    if (from.has_m_effectid()) {
+      set_m_effectid(from.m_effectid());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -8778,6 +8823,7 @@ void E_MarryExpressshop::Swap(E_MarryExpressshop* other) {
     std::swap(m_exp_, other->m_exp_);
     std::swap(m_expto_, other->m_expto_);
     std::swap(m_broadcastid_, other->m_broadcastid_);
+    std::swap(m_effectid_, other->m_effectid_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -9286,6 +9332,8 @@ const int E_MarryConstant::kMSendredrewardFieldNumber;
 const int E_MarryConstant::kMSendrednumFieldNumber;
 const int E_MarryConstant::kMRedcollectFieldNumber;
 const int E_MarryConstant::kMRedcollectnumFieldNumber;
+const int E_MarryConstant::kMCakemonsterFieldNumber;
+const int E_MarryConstant::kMHymonsterFieldNumber;
 const int E_MarryConstant::kMTourmonsterFieldNumber;
 #endif  // !_MSC_VER
 
@@ -9344,6 +9392,8 @@ void E_MarryConstant::SharedCtor() {
   m_sendrednum_ = 0;
   m_redcollect_ = 0;
   m_redcollectnum_ = 0;
+  m_cakemonster_ = 0;
+  m_hymonster_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -9454,6 +9504,10 @@ void E_MarryConstant::Clear() {
     m_sendrednum_ = 0;
     m_redcollect_ = 0;
     m_redcollectnum_ = 0;
+    m_cakemonster_ = 0;
+  }
+  if (_has_bits_[40 / 32] & (0xffu << (40 % 32))) {
+    m_hymonster_ = 0;
   }
   m_tourmonster_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -10089,12 +10143,44 @@ bool E_MarryConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(322)) goto parse_m_tourmonster;
+        if (input->ExpectTag(320)) goto parse_m_cakemonster;
         break;
       }
 
-      // repeated .proto_ff.E_MarryConstantTourmonsterDesc m_tourmonster = 40;
+      // optional int32 m_cakemonster = 40;
       case 40: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_cakemonster:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_cakemonster_)));
+          set_has_m_cakemonster();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(328)) goto parse_m_hymonster;
+        break;
+      }
+
+      // optional int32 m_hymonster = 41;
+      case 41: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_hymonster:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_hymonster_)));
+          set_has_m_hymonster();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(338)) goto parse_m_tourmonster;
+        break;
+      }
+
+      // repeated .proto_ff.E_MarryConstantTourmonsterDesc m_tourmonster = 42;
+      case 42: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_tourmonster:
@@ -10103,7 +10189,7 @@ bool E_MarryConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(322)) goto parse_m_tourmonster;
+        if (input->ExpectTag(338)) goto parse_m_tourmonster;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -10337,10 +10423,20 @@ void E_MarryConstant::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(39, this->m_redcollectnum(), output);
   }
 
-  // repeated .proto_ff.E_MarryConstantTourmonsterDesc m_tourmonster = 40;
+  // optional int32 m_cakemonster = 40;
+  if (has_m_cakemonster()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(40, this->m_cakemonster(), output);
+  }
+
+  // optional int32 m_hymonster = 41;
+  if (has_m_hymonster()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(41, this->m_hymonster(), output);
+  }
+
+  // repeated .proto_ff.E_MarryConstantTourmonsterDesc m_tourmonster = 42;
   for (int i = 0; i < this->m_tourmonster_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      40, this->m_tourmonster(i), output);
+      42, this->m_tourmonster(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -10566,11 +10662,21 @@ void E_MarryConstant::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(39, this->m_redcollectnum(), target);
   }
 
-  // repeated .proto_ff.E_MarryConstantTourmonsterDesc m_tourmonster = 40;
+  // optional int32 m_cakemonster = 40;
+  if (has_m_cakemonster()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(40, this->m_cakemonster(), target);
+  }
+
+  // optional int32 m_hymonster = 41;
+  if (has_m_hymonster()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(41, this->m_hymonster(), target);
+  }
+
+  // repeated .proto_ff.E_MarryConstantTourmonsterDesc m_tourmonster = 42;
   for (int i = 0; i < this->m_tourmonster_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        40, this->m_tourmonster(i), target);
+        42, this->m_tourmonster(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -10865,8 +10971,24 @@ int E_MarryConstant::ByteSize() const {
           this->m_redcollectnum());
     }
 
+    // optional int32 m_cakemonster = 40;
+    if (has_m_cakemonster()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_cakemonster());
+    }
+
   }
-  // repeated .proto_ff.E_MarryConstantTourmonsterDesc m_tourmonster = 40;
+  if (_has_bits_[40 / 32] & (0xffu << (40 % 32))) {
+    // optional int32 m_hymonster = 41;
+    if (has_m_hymonster()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_hymonster());
+    }
+
+  }
+  // repeated .proto_ff.E_MarryConstantTourmonsterDesc m_tourmonster = 42;
   total_size += 2 * this->m_tourmonster_size();
   for (int i = 0; i < this->m_tourmonster_size(); i++) {
     total_size +=
@@ -11026,6 +11148,14 @@ void E_MarryConstant::MergeFrom(const E_MarryConstant& from) {
     if (from.has_m_redcollectnum()) {
       set_m_redcollectnum(from.m_redcollectnum());
     }
+    if (from.has_m_cakemonster()) {
+      set_m_cakemonster(from.m_cakemonster());
+    }
+  }
+  if (from._has_bits_[40 / 32] & (0xffu << (40 % 32))) {
+    if (from.has_m_hymonster()) {
+      set_m_hymonster(from.m_hymonster());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -11088,6 +11218,8 @@ void E_MarryConstant::Swap(E_MarryConstant* other) {
     std::swap(m_sendrednum_, other->m_sendrednum_);
     std::swap(m_redcollect_, other->m_redcollect_);
     std::swap(m_redcollectnum_, other->m_redcollectnum_);
+    std::swap(m_cakemonster_, other->m_cakemonster_);
+    std::swap(m_hymonster_, other->m_hymonster_);
     m_tourmonster_.Swap(&other->m_tourmonster_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     std::swap(_has_bits_[1], other->_has_bits_[1]);

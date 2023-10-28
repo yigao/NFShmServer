@@ -92,7 +92,8 @@ message PackageUseRet
 //CLIENT_TO_LOGIC_PACKAGE_SELL = 209;		//出售物品
 message PackageSellReq
 {
-	repeated ItemSellProto sell = 1;		//出售物品信息，出售单个物品才会有数量，一键出售只需要列表中的格子索引
+	optional int32 package_type = 1;//背包类型
+	repeated ItemSellProto sell = 2;		//出售物品信息，出售单个物品才会有数量，一键出售只需要列表中的格子索引
 }
 
 //LOGIC_TO_CLIENT_PACKAGE_SELL = 210;		//出售

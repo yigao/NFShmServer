@@ -27,7 +27,7 @@
 #include "Player.pb.h"
 #include "NFGameCommon/NFComTypeDefine.h"
 #include "NFLogicCommon/NFLogDefine.h"
-#include "NFLogicCommon/NFAttr.h"
+#include "NFLogicCommon/Attr/NFAttr.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 
 class NFPart;

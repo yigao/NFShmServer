@@ -91,7 +91,7 @@ void protobuf_AssignDesc_E_5fDup_2eproto() {
       "E_Dup.proto");
   GOOGLE_CHECK(file != NULL);
   E_DupDup_descriptor_ = file->message_type(0);
-  static const int E_DupDup_offsets_[28] = {
+  static const int E_DupDup_offsets_[29] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DupDup, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DupDup, m_scripid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DupDup, m_scriptype_),
@@ -101,6 +101,7 @@ void protobuf_AssignDesc_E_5fDup_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DupDup, m_groupid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DupDup, m_subtype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DupDup, m_layer_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DupDup, m_recommendpower_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DupDup, m_duplicatetype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DupDup, m_mapid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DupDup, m_levellimit_),
@@ -586,7 +587,7 @@ void protobuf_AddDesc_E_5fDup_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\013E_Dup.proto\022\010proto_ff\032\025yd_fieldoptions"
-    ".proto\"\323\t\n\010E_DupDup\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\345"
+    ".proto\"\377\t\n\010E_DupDup\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\345"
     "\211\257\346\234\254ID\022%\n\tm_scripid\030\002 \001(\005B\022\302\377\024\016\345\210\267\346\200\252\350\204"
     "\232\346\234\254ID\022+\n\013m_scriptype\030\003 \001(\005B\026\302\377\024\022\345\210\267\346\200\252\350"
     "\204\232\346\234\254\347\261\273\345\236\213\022$\n\nm_duplevel\030\004 \001(\005B\020\302\377\024\014\345\211\257"
@@ -595,122 +596,123 @@ void protobuf_AddDesc_E_5fDup_2eproto() {
     "\026\302\377\024\016\350\204\232\346\234\254\346\200\252\347\211\251id\220\301\024@\022(\n\tm_groupid\030\007 \001"
     "(\005B\025\302\377\024\021\346\211\200\345\261\236\345\211\257\346\234\254\347\273\204ID\022 \n\tm_subtype\030\010"
     " \001(\005B\r\302\377\024\t\345\255\220\347\261\273\345\236\213\022\033\n\007m_layer\030\t \001(\005B\n\302\377"
-    "\024\006\345\261\202\347\272\247\022/\n\017m_duplicatetype\030\n \001(\005B\026\302\377\024\022\345"
-    "\211\257\346\234\254\345\206\205\345\256\271\347\261\273\345\236\213\022\035\n\007m_mapid\030\013 \001(\003B\014\302\377\024\010"
-    "\345\234\272\346\231\257ID\022,\n\014m_levellimit\030\014 \001(\005B\026\302\377\024\022\347\255\211\347"
-    "\272\247\350\246\201\346\261\202\344\270\213\351\231\220\0222\n\014m_functionid\030\r \001(\005B\034\302\377"
-    "\024\030\351\242\235\345\244\226\345\212\237\350\203\275\345\274\200\346\224\276\350\246\201\346\261\202\022%\n\005m_pre\030\016 \001("
-    "\005B\026\302\377\024\022\345\211\215\347\275\256\345\211\257\346\234\254\350\246\201\346\261\202\0223\n\rm_isautofig"
-    "ht\030\017 \001(\005B\034\302\377\024\030\346\230\257\345\220\246\345\205\201\350\256\270\350\207\252\345\212\250\346\210\230\346\226\227\0225"
-    "\n\013m_condition\030\020 \001(\tB \302\377\024\030\345\211\257\346\234\254\350\203\234\345\210\251\346\235\241"
-    "\344\273\266\347\261\273\345\236\213\220\301\024@\0220\n\020m_revivemaxtimes\030\021 \001(\005B"
-    "\026\302\377\024\022\345\244\215\346\264\273\346\254\241\346\225\260\344\270\212\351\231\220\022*\n\016m_teamobjecti"
-    "d\030\022 \001(\005B\022\302\377\024\016\347\273\204\351\230\237\347\233\256\346\240\207ID\022.\n\020m_gradeco"
-    "ndition\030\023 \001(\tB\024\302\377\024\014\346\230\237\347\272\247\346\227\266\351\227\264\220\301\024@\0221\n\022m"
-    "_sweeprewardboxid\030\024 \001(\003B\025\302\377\024\021\346\211\253\350\215\241\345\245\226\345\212"
-    "\261BOXID\0220\n\020m_sweeprewardexp\030\025 \001(\005B\026\302\377\024\022\346\211"
-    "\253\350\215\241\347\273\217\351\252\214\345\245\226\345\212\261\022.\n\016m_sweepexptype\030\026 \001(\005"
-    "B\026\302\377\024\022\346\211\253\350\215\241\347\273\217\351\252\214\347\261\273\345\236\213\022-\n\014m_trackpoint"
-    "\030\027 \001(\tB\027\302\377\024\017\345\211\257\346\234\254\345\257\273\350\267\257\347\202\271\220\301\024@\022<\n\017m_pat"
-    "hofmonster\030\030 \001(\tB#\302\377\024\033\345\211\257\346\234\254\345\257\273\350\267\257\347\202\271\345\257\271"
-    "\345\272\224\346\200\252\347\211\251\220\301\024@\022-\n\nm_ispatrol\030\031 \001(\005B\031\302\377\024\025\345"
-    "\257\273\350\267\257\345\211\215\346\230\257\345\220\246\345\267\241\346\225\214\022&\n\014m_failurebox\030\032 \001"
-    "(\005B\020\302\377\024\014\345\244\261\350\264\245\345\245\226\345\212\261\022\034\n\010m_planes\030\033 \001(\005B\n"
-    "\302\377\024\006\344\275\215\351\235\242\022 \n\005m_box\030\034 \003(\005B\021\302\377\024\t\345\245\226\345\212\261\347\273\204"
-    "\210\301\024\003\"@\n\014Sheet_DupDup\0220\n\rE_DupDup_List\030\001 "
-    "\003(\0132\022.proto_ff.E_DupDupB\005\210\301\024\200\020\"u\n\014E_DupB"
-    "plevel\022\030\n\004m_lv\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022\"\n\007m_bg"
-    "dup\030\002 \003(\003B\021\302\377\024\t\345\205\253\345\215\246\346\234\254\210\301\024\005\022\'\n\014m_bgdups"
-    "weep\030\003 \003(\003B\021\302\377\024\t\345\205\253\345\215\246\346\234\254\210\301\024\005\"L\n\020Sheet_D"
-    "upBplevel\0228\n\021E_DupBplevel_List\030\001 \003(\0132\026.p"
-    "roto_ff.E_DupBplevelB\005\210\301\024\200\010\"W\n\030E_DupTtow"
-    "erwaveClearDesc\022\037\n\005m_add\030\001 \001(\005B\020\302\377\024\014\345\242\236\345"
-    "\212\240\345\205\263\346\225\260\022\032\n\006m_time\030\002 \001(\005B\n\302\377\024\006\346\227\266\351\227\264\"\216\004\n"
-    "\017E_DupTtowerwave\022\027\n\004m_id\030\001 \001(\005B\t\302\377\024\005\346\263\242i"
-    "d\022%\n\tm_scripid\030\002 \001(\005B\022\302\377\024\016\345\210\267\346\200\252\350\204\232\346\234\254ID"
-    "\022.\n\nm_scripgid\030\003 \001(\tB\032\302\377\024\022\345\210\267\346\200\252\350\204\232\346\234\254\347\261"
-    "\273\345\236\213\220\301\024@\022+\n\013m_scriptype\030\004 \001(\005B\026\302\377\024\022\345\210\267\346\200"
-    "\252\350\204\232\346\234\254\347\261\273\345\236\213\022$\n\nm_duplevel\030\005 \001(\005B\020\302\377\024\014\345"
-    "\211\257\346\234\254\347\255\211\347\272\247\022.\n\016m_scripmontype\030\006 \001(\005B\026\302\377\024"
-    "\022\350\204\232\346\234\254\346\200\252\347\211\251\347\261\273\345\236\213\022,\n\014m_scripmonid\030\007 \001("
-    "\tB\026\302\377\024\016\350\204\232\346\234\254\346\200\252\347\211\251id\220\301\024@\022*\n\020m_recommend"
-    "power\030\010 \001(\005B\020\302\377\024\014\346\216\250\350\215\220\346\210\230\345\212\233\022\"\n\010m_rewar"
-    "d\030\t \001(\005B\020\302\377\024\014\347\273\223\347\256\227\345\245\226\345\212\261\022%\n\013m_firstpass"
-    "\030\n \001(\005B\020\302\377\024\014\351\246\226\351\200\232\345\245\226\345\212\261\022\036\n\004m_bp\030\013 \001(\005B\020"
-    "\302\377\024\014\345\271\263\345\235\207\346\210\230\345\212\233\022C\n\007m_clear\030\014 \003(\0132\".prot"
-    "o_ff.E_DupTtowerwaveClearDescB\016\302\377\024\006\351\200\232\345\205"
-    "\263\210\301\024\004\"U\n\023Sheet_DupTtowerwave\022>\n\024E_DupTto"
-    "werwave_List\030\001 \003(\0132\031.proto_ff.E_DupTtowe"
-    "rwaveB\005\210\301\024\200\010\"\200\001\n\020E_DupTowerreward\022\024\n\004m_i"
-    "d\030\001 \001(\005B\006\302\377\024\002id\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006\347\261\273"
-    "\345\236\213\022 \n\006m_cond\030\003 \001(\005B\020\302\377\024\014\351\242\206\345\217\226\346\235\241\344\273\266\022\030\n"
-    "\007m_boxid\030\004 \001(\005B\007\302\377\024\003box\"X\n\024Sheet_DupTowe"
-    "rreward\022@\n\025E_DupTowerreward_List\030\001 \003(\0132\032"
-    ".proto_ff.E_DupTowerrewardB\005\210\301\024\200\002\"\307\007\n\nE_"
-    "DupGroup\022\035\n\004m_id\030\001 \001(\005B\017\302\377\024\013\345\211\257\346\234\254\347\273\204ID\022"
-    "$\n\006m_name\030\002 \001(\tB\024\302\377\024\014\345\211\257\346\234\254\347\273\204\345\220\215\220\301\024@\022)\n"
-    "\017m_privilegetype\030\003 \001(\005B\020\302\377\024\014\347\211\271\346\235\203\347\261\273\345\236\213"
-    "\022.\n\016m_dynamiclevel\030\004 \001(\005B\026\302\377\024\022\346\230\257\345\220\246\345\212\250\346"
-    "\200\201\347\255\211\347\272\247\022-\n\020m_grouptimestype\030\005 \001(\005B\023\302\377\024\017"
-    "\347\273\204\346\254\241\346\225\260\347\261\273\345\236\213\022&\n\014m_resetcycle\030\006 \001(\005B\020\302"
-    "\377\024\014\351\207\215\347\275\256\345\221\250\346\234\237\022)\n\014m_grouptimes\030\007 \001(\005B\023\302"
-    "\377\024\017\346\254\241\346\225\260\344\270\212\351\231\220\345\200\274\022-\n\rm_enteritemid\030\010 \001("
-    "\005B\026\302\377\024\022\345\211\257\346\234\254\350\277\233\345\205\245\351\201\223\345\205\267\022%\n\013m_sweeptype"
-    "\030\t \001(\005B\020\302\377\024\014\346\211\253\350\215\241\347\261\273\345\236\213\022*\n\020m_sweepcondi"
-    "tion\030\n \001(\005B\020\302\377\024\014\346\211\253\350\215\241\346\235\241\344\273\266\022*\n\020m_mergec"
-    "ondition\030\013 \001(\005B\020\302\377\024\014\345\220\210\345\271\266\346\235\241\344\273\266\022-\n\013m_ad"
-    "ditemid\030\014 \001(\005B\030\302\377\024\024\345\242\236\345\212\240\346\254\241\346\225\260\347\211\251\345\223\201ID\022"
-    "/\n\tm_buytype\030\r \001(\005B\034\302\377\024\030\350\264\255\344\271\260\346\254\241\346\225\260\346\266\210\350"
-    "\200\227\350\264\247\345\270\201\0221\n\013m_buyitemid\030\016 \001(\005B\034\302\377\024\030\350\264\255\344\271"
-    "\260\346\254\241\346\225\260\346\266\210\350\200\227\347\211\251\345\223\201\0223\n\tm_buycost\030\017 \001(\tB "
-    "\302\377\024\030\350\264\255\344\271\260\350\277\233\345\205\245\346\254\241\346\225\260\346\266\210\350\200\227\220\301\024@\022(\n\013m_co"
-    "untdown\030\020 \001(\005B\023\302\377\024\017\345\200\222\350\256\241\346\227\266\346\227\266\351\227\264\022&\n\tm_"
-    "enddown\030\021 \001(\005B\023\302\377\024\017\347\273\223\346\235\237\345\200\222\350\256\241\346\227\266\022*\n\rm_"
-    "accountdown\030\022 \001(\005B\023\302\377\024\017\347\273\223\347\256\227\345\200\222\350\256\241\346\227\266\022!"
-    "\n\013m_funcionid\030\023 \001(\005B\014\302\377\024\010\345\212\237\350\203\275ID\022,\n\020m_c"
-    "losefuncionid\030\024 \001(\005B\022\302\377\024\016\345\205\263\351\227\255\345\212\237\350\203\275ID\022"
-    ",\n\006m_link\030\025 \001(\003B\034\302\377\024\030\345\211\257\346\234\254\347\273\223\346\235\237\346\211\223\345\274\200\347"
-    "\225\214\351\235\242\022$\n\016m_festvialtype\030\026 \001(\005B\014\302\377\024\010\346\264\273\345\212"
-    "\250id\"E\n\016Sheet_DupGroup\0223\n\017E_DupGroup_List"
-    "\030\001 \003(\0132\024.proto_ff.E_DupGroupB\004\210\301\024@\"\220\002\n\024E"
-    "_DupSweepmonsternum\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002I"
-    "D\022(\n\016m_sweepexptype\030\002 \001(\005B\020\302\377\024\014\346\211\253\350\215\241\347\261\273"
-    "\345\236\213\022*\n\nm_minlevel\030\003 \001(\005B\026\302\377\024\022\347\216\251\345\256\266\347\255\211\346\236"
-    "\201\344\270\213\351\231\220\022*\n\nm_maxlevel\030\004 \001(\005B\026\302\377\024\022\347\216\251\345\256\266\347"
-    "\255\211\346\236\201\344\270\212\351\231\220\022,\n\014m_killnumber\030\005 \001(\005B\026\302\377\024\022\346"
-    "\235\200\346\200\252\346\240\207\345\207\206\346\225\260\351\207\217\0222\n\022m_monstervaluetype\030"
-    "\006 \001(\005B\026\302\377\024\022\346\200\252\347\211\251\346\225\260\345\200\274\347\261\273\345\236\213\"c\n\030Sheet_D"
-    "upSweepmonsternum\022G\n\031E_DupSweepmonsternu"
-    "m_List\030\001 \003(\0132\036.proto_ff.E_DupSweepmonste"
-    "rnumB\004\210\301\024@\"\353\001\n\022E_DupWorldlvreward\022\024\n\004m_i"
-    "d\030\001 \001(\005B\006\302\377\024\002id\022\"\n\tm_groupid\030\002 \001(\005B\017\302\377\024\013"
-    "\345\211\257\346\234\254\347\273\204id\022(\n\010m_lvtype\030\003 \001(\005B\026\302\377\024\022\344\270\226\347\225"
-    "\214\347\255\211\347\272\247\347\261\273\345\236\213\022\'\n\007m_lvmin\030\004 \001(\005B\026\302\377\024\022\344\270\226\347"
-    "\225\214\347\255\211\347\272\247\344\270\213\351\231\220\022&\n\014m_failurebox\030\005 \001(\005B\020\302\377"
-    "\024\014\345\244\261\350\264\245\345\245\226\345\212\261\022 \n\005m_box\030\006 \003(\005B\021\302\377\024\t\346\230\237\345\245"
-    "\226\345\212\261\210\301\024\003\"]\n\026Sheet_DupWorldlvreward\022C\n\027E_"
-    "DupWorldlvreward_List\030\001 \003(\0132\034.proto_ff.E"
-    "_DupWorldlvrewardB\004\210\301\024 \"\233\001\n\013E_DupPlanes\022"
-    "\032\n\004m_id\030\001 \001(\003B\014\302\377\024\010\344\275\215\351\235\242id\022&\n\014m_planest"
-    "ype\030\002 \001(\005B\020\302\377\024\014\344\275\215\351\235\242\347\261\273\345\236\213\022(\n\nm_typearg"
-    "s\030\003 \001(\tB\024\302\377\024\014\347\261\273\345\236\213\345\217\202\346\225\260\220\301\024@\022\036\n\010m_areai"
-    "d\030\004 \001(\005B\014\302\377\024\010\345\214\272\345\237\237id\"H\n\017Sheet_DupPlanes"
-    "\0225\n\020E_DupPlanes_List\030\001 \003(\0132\025.proto_ff.E_"
-    "DupPlanesB\004\210\301\024@\"S\n\024E_DupYt_dupClearDesc\022"
-    "\037\n\005m_add\030\001 \001(\005B\020\302\377\024\014\345\242\236\345\212\240\345\205\263\346\225\260\022\032\n\006m_ti"
-    "me\030\002 \001(\005B\n\302\377\024\006\346\227\266\351\227\264\"\240\003\n\013E_DupYt_dup\022\032\n\004"
-    "m_id\030\001 \001(\005B\014\302\377\024\010\345\211\257\346\234\254id\022!\n\007m_layer\030\002 \001("
-    "\005B\020\302\377\024\014\346\211\200\345\261\236\345\261\202\347\272\247\022!\n\007m_stage\030\003 \001(\005B\020\302\377"
-    "\024\014\345\205\263\345\215\241\347\255\211\347\272\247\022\'\n\rm_recommendlv\030\004 \001(\005B\020\302"
-    "\377\024\014\346\216\250\350\215\220\347\255\211\347\272\247\022\'\n\rm_recommendyk\030\005 \001(\005B\020"
-    "\302\377\024\014\346\216\250\350\215\220\345\246\226\346\212\227\022\"\n\010m_reward\030\006 \001(\005B\020\302\377\024\014"
-    "\347\273\223\347\256\227\345\245\226\345\212\261\022%\n\013m_firstpass\030\007 \001(\005B\020\302\377\024\014\351"
-    "\246\226\351\200\232\345\245\226\345\212\261\022\'\n\rm_overlordbox\030\010 \001(\005B\020\302\377\024\014"
-    "\351\234\270\344\270\273\345\245\226\345\212\261\022(\n\016m_overlordtime\030\t \001(\005B\020\302\377"
-    "\024\014\351\234\270\344\270\273\346\227\266\351\227\264\022\?\n\007m_clear\030\n \003(\0132\036.proto_"
-    "ff.E_DupYt_dupClearDescB\016\302\377\024\006\351\200\232\345\205\263\210\301\024\004\""
-    "I\n\017Sheet_DupYt_dup\0226\n\020E_DupYt_dup_List\030\001"
-    " \003(\0132\025.proto_ff.E_DupYt_dupB\005\210\301\024\200\010", 5034);
+    "\024\006\345\261\202\347\272\247\022*\n\020m_recommendpower\030\n \001(\005B\020\302\377\024\014"
+    "\346\216\250\350\215\220\346\210\230\345\212\233\022/\n\017m_duplicatetype\030\013 \001(\005B\026\302"
+    "\377\024\022\345\211\257\346\234\254\345\206\205\345\256\271\347\261\273\345\236\213\022\035\n\007m_mapid\030\014 \001(\003B\014"
+    "\302\377\024\010\345\234\272\346\231\257ID\022,\n\014m_levellimit\030\r \001(\005B\026\302\377\024\022"
+    "\347\255\211\347\272\247\350\246\201\346\261\202\344\270\213\351\231\220\0222\n\014m_functionid\030\016 \001(\005"
+    "B\034\302\377\024\030\351\242\235\345\244\226\345\212\237\350\203\275\345\274\200\346\224\276\350\246\201\346\261\202\022%\n\005m_pre\030"
+    "\017 \001(\005B\026\302\377\024\022\345\211\215\347\275\256\345\211\257\346\234\254\350\246\201\346\261\202\0223\n\rm_isaut"
+    "ofight\030\020 \001(\005B\034\302\377\024\030\346\230\257\345\220\246\345\205\201\350\256\270\350\207\252\345\212\250\346\210\230\346"
+    "\226\227\0225\n\013m_condition\030\021 \001(\tB \302\377\024\030\345\211\257\346\234\254\350\203\234\345\210"
+    "\251\346\235\241\344\273\266\347\261\273\345\236\213\220\301\024@\0220\n\020m_revivemaxtimes\030\022 "
+    "\001(\005B\026\302\377\024\022\345\244\215\346\264\273\346\254\241\346\225\260\344\270\212\351\231\220\022*\n\016m_teamobj"
+    "ectid\030\023 \001(\005B\022\302\377\024\016\347\273\204\351\230\237\347\233\256\346\240\207ID\022.\n\020m_gra"
+    "decondition\030\024 \001(\tB\024\302\377\024\014\346\230\237\347\272\247\346\227\266\351\227\264\220\301\024@\022"
+    "1\n\022m_sweeprewardboxid\030\025 \001(\003B\025\302\377\024\021\346\211\253\350\215\241\345"
+    "\245\226\345\212\261BOXID\0220\n\020m_sweeprewardexp\030\026 \001(\005B\026\302\377"
+    "\024\022\346\211\253\350\215\241\347\273\217\351\252\214\345\245\226\345\212\261\022.\n\016m_sweepexptype\030\027"
+    " \001(\005B\026\302\377\024\022\346\211\253\350\215\241\347\273\217\351\252\214\347\261\273\345\236\213\022-\n\014m_trackp"
+    "oint\030\030 \001(\tB\027\302\377\024\017\345\211\257\346\234\254\345\257\273\350\267\257\347\202\271\220\301\024@\022<\n\017m"
+    "_pathofmonster\030\031 \001(\tB#\302\377\024\033\345\211\257\346\234\254\345\257\273\350\267\257\347\202"
+    "\271\345\257\271\345\272\224\346\200\252\347\211\251\220\301\024@\022-\n\nm_ispatrol\030\032 \001(\005B\031\302"
+    "\377\024\025\345\257\273\350\267\257\345\211\215\346\230\257\345\220\246\345\267\241\346\225\214\022&\n\014m_failurebox"
+    "\030\033 \001(\005B\020\302\377\024\014\345\244\261\350\264\245\345\245\226\345\212\261\022\034\n\010m_planes\030\034 \001"
+    "(\005B\n\302\377\024\006\344\275\215\351\235\242\022 \n\005m_box\030\035 \003(\005B\021\302\377\024\t\345\245\226\345\212"
+    "\261\347\273\204\210\301\024\003\"@\n\014Sheet_DupDup\0220\n\rE_DupDup_Lis"
+    "t\030\001 \003(\0132\022.proto_ff.E_DupDupB\005\210\301\024\200\020\"u\n\014E_"
+    "DupBplevel\022\030\n\004m_lv\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022\"\n\007"
+    "m_bgdup\030\002 \003(\003B\021\302\377\024\t\345\205\253\345\215\246\346\234\254\210\301\024\005\022\'\n\014m_bg"
+    "dupsweep\030\003 \003(\003B\021\302\377\024\t\345\205\253\345\215\246\346\234\254\210\301\024\005\"L\n\020She"
+    "et_DupBplevel\0228\n\021E_DupBplevel_List\030\001 \003(\013"
+    "2\026.proto_ff.E_DupBplevelB\005\210\301\024\200\010\"W\n\030E_Dup"
+    "TtowerwaveClearDesc\022\037\n\005m_add\030\001 \001(\005B\020\302\377\024\014"
+    "\345\242\236\345\212\240\345\205\263\346\225\260\022\032\n\006m_time\030\002 \001(\005B\n\302\377\024\006\346\227\266\351\227\264"
+    "\"\216\004\n\017E_DupTtowerwave\022\027\n\004m_id\030\001 \001(\005B\t\302\377\024\005"
+    "\346\263\242id\022%\n\tm_scripid\030\002 \001(\005B\022\302\377\024\016\345\210\267\346\200\252\350\204\232\346"
+    "\234\254ID\022.\n\nm_scripgid\030\003 \001(\tB\032\302\377\024\022\345\210\267\346\200\252\350\204\232\346"
+    "\234\254\347\261\273\345\236\213\220\301\024@\022+\n\013m_scriptype\030\004 \001(\005B\026\302\377\024\022\345"
+    "\210\267\346\200\252\350\204\232\346\234\254\347\261\273\345\236\213\022$\n\nm_duplevel\030\005 \001(\005B\020\302"
+    "\377\024\014\345\211\257\346\234\254\347\255\211\347\272\247\022.\n\016m_scripmontype\030\006 \001(\005B"
+    "\026\302\377\024\022\350\204\232\346\234\254\346\200\252\347\211\251\347\261\273\345\236\213\022,\n\014m_scripmonid\030"
+    "\007 \001(\tB\026\302\377\024\016\350\204\232\346\234\254\346\200\252\347\211\251id\220\301\024@\022*\n\020m_recom"
+    "mendpower\030\010 \001(\005B\020\302\377\024\014\346\216\250\350\215\220\346\210\230\345\212\233\022\"\n\010m_r"
+    "eward\030\t \001(\005B\020\302\377\024\014\347\273\223\347\256\227\345\245\226\345\212\261\022%\n\013m_first"
+    "pass\030\n \001(\005B\020\302\377\024\014\351\246\226\351\200\232\345\245\226\345\212\261\022\036\n\004m_bp\030\013 \001"
+    "(\005B\020\302\377\024\014\345\271\263\345\235\207\346\210\230\345\212\233\022C\n\007m_clear\030\014 \003(\0132\"."
+    "proto_ff.E_DupTtowerwaveClearDescB\016\302\377\024\006\351"
+    "\200\232\345\205\263\210\301\024\004\"U\n\023Sheet_DupTtowerwave\022>\n\024E_Du"
+    "pTtowerwave_List\030\001 \003(\0132\031.proto_ff.E_DupT"
+    "towerwaveB\005\210\301\024\200\010\"\200\001\n\020E_DupTowerreward\022\024\n"
+    "\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024"
+    "\006\347\261\273\345\236\213\022 \n\006m_cond\030\003 \001(\005B\020\302\377\024\014\351\242\206\345\217\226\346\235\241\344\273"
+    "\266\022\030\n\007m_boxid\030\004 \001(\005B\007\302\377\024\003box\"X\n\024Sheet_Dup"
+    "Towerreward\022@\n\025E_DupTowerreward_List\030\001 \003"
+    "(\0132\032.proto_ff.E_DupTowerrewardB\005\210\301\024\200\002\"\307\007"
+    "\n\nE_DupGroup\022\035\n\004m_id\030\001 \001(\005B\017\302\377\024\013\345\211\257\346\234\254\347\273"
+    "\204ID\022$\n\006m_name\030\002 \001(\tB\024\302\377\024\014\345\211\257\346\234\254\347\273\204\345\220\215\220\301\024"
+    "@\022)\n\017m_privilegetype\030\003 \001(\005B\020\302\377\024\014\347\211\271\346\235\203\347\261"
+    "\273\345\236\213\022.\n\016m_dynamiclevel\030\004 \001(\005B\026\302\377\024\022\346\230\257\345\220\246"
+    "\345\212\250\346\200\201\347\255\211\347\272\247\022-\n\020m_grouptimestype\030\005 \001(\005B\023"
+    "\302\377\024\017\347\273\204\346\254\241\346\225\260\347\261\273\345\236\213\022&\n\014m_resetcycle\030\006 \001("
+    "\005B\020\302\377\024\014\351\207\215\347\275\256\345\221\250\346\234\237\022)\n\014m_grouptimes\030\007 \001("
+    "\005B\023\302\377\024\017\346\254\241\346\225\260\344\270\212\351\231\220\345\200\274\022-\n\rm_enteritemid\030"
+    "\010 \001(\005B\026\302\377\024\022\345\211\257\346\234\254\350\277\233\345\205\245\351\201\223\345\205\267\022%\n\013m_sweep"
+    "type\030\t \001(\005B\020\302\377\024\014\346\211\253\350\215\241\347\261\273\345\236\213\022*\n\020m_sweepc"
+    "ondition\030\n \001(\005B\020\302\377\024\014\346\211\253\350\215\241\346\235\241\344\273\266\022*\n\020m_me"
+    "rgecondition\030\013 \001(\005B\020\302\377\024\014\345\220\210\345\271\266\346\235\241\344\273\266\022-\n\013"
+    "m_additemid\030\014 \001(\005B\030\302\377\024\024\345\242\236\345\212\240\346\254\241\346\225\260\347\211\251\345\223"
+    "\201ID\022/\n\tm_buytype\030\r \001(\005B\034\302\377\024\030\350\264\255\344\271\260\346\254\241\346\225\260"
+    "\346\266\210\350\200\227\350\264\247\345\270\201\0221\n\013m_buyitemid\030\016 \001(\005B\034\302\377\024\030\350"
+    "\264\255\344\271\260\346\254\241\346\225\260\346\266\210\350\200\227\347\211\251\345\223\201\0223\n\tm_buycost\030\017 \001"
+    "(\tB \302\377\024\030\350\264\255\344\271\260\350\277\233\345\205\245\346\254\241\346\225\260\346\266\210\350\200\227\220\301\024@\022(\n\013"
+    "m_countdown\030\020 \001(\005B\023\302\377\024\017\345\200\222\350\256\241\346\227\266\346\227\266\351\227\264\022&"
+    "\n\tm_enddown\030\021 \001(\005B\023\302\377\024\017\347\273\223\346\235\237\345\200\222\350\256\241\346\227\266\022*"
+    "\n\rm_accountdown\030\022 \001(\005B\023\302\377\024\017\347\273\223\347\256\227\345\200\222\350\256\241\346"
+    "\227\266\022!\n\013m_funcionid\030\023 \001(\005B\014\302\377\024\010\345\212\237\350\203\275ID\022,\n"
+    "\020m_closefuncionid\030\024 \001(\005B\022\302\377\024\016\345\205\263\351\227\255\345\212\237\350\203"
+    "\275ID\022,\n\006m_link\030\025 \001(\003B\034\302\377\024\030\345\211\257\346\234\254\347\273\223\346\235\237\346\211\223"
+    "\345\274\200\347\225\214\351\235\242\022$\n\016m_festvialtype\030\026 \001(\005B\014\302\377\024\010\346"
+    "\264\273\345\212\250id\"E\n\016Sheet_DupGroup\0223\n\017E_DupGroup_"
+    "List\030\001 \003(\0132\024.proto_ff.E_DupGroupB\004\210\301\024@\"\220"
+    "\002\n\024E_DupSweepmonsternum\022\024\n\004m_id\030\001 \001(\005B\006\302"
+    "\377\024\002ID\022(\n\016m_sweepexptype\030\002 \001(\005B\020\302\377\024\014\346\211\253\350\215"
+    "\241\347\261\273\345\236\213\022*\n\nm_minlevel\030\003 \001(\005B\026\302\377\024\022\347\216\251\345\256\266\347"
+    "\255\211\346\236\201\344\270\213\351\231\220\022*\n\nm_maxlevel\030\004 \001(\005B\026\302\377\024\022\347\216\251"
+    "\345\256\266\347\255\211\346\236\201\344\270\212\351\231\220\022,\n\014m_killnumber\030\005 \001(\005B\026\302"
+    "\377\024\022\346\235\200\346\200\252\346\240\207\345\207\206\346\225\260\351\207\217\0222\n\022m_monstervaluet"
+    "ype\030\006 \001(\005B\026\302\377\024\022\346\200\252\347\211\251\346\225\260\345\200\274\347\261\273\345\236\213\"c\n\030She"
+    "et_DupSweepmonsternum\022G\n\031E_DupSweepmonst"
+    "ernum_List\030\001 \003(\0132\036.proto_ff.E_DupSweepmo"
+    "nsternumB\004\210\301\024@\"\353\001\n\022E_DupWorldlvreward\022\024\n"
+    "\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\"\n\tm_groupid\030\002 \001(\005B\017"
+    "\302\377\024\013\345\211\257\346\234\254\347\273\204id\022(\n\010m_lvtype\030\003 \001(\005B\026\302\377\024\022\344"
+    "\270\226\347\225\214\347\255\211\347\272\247\347\261\273\345\236\213\022\'\n\007m_lvmin\030\004 \001(\005B\026\302\377\024\022"
+    "\344\270\226\347\225\214\347\255\211\347\272\247\344\270\213\351\231\220\022&\n\014m_failurebox\030\005 \001(\005"
+    "B\020\302\377\024\014\345\244\261\350\264\245\345\245\226\345\212\261\022 \n\005m_box\030\006 \003(\005B\021\302\377\024\t\346"
+    "\230\237\345\245\226\345\212\261\210\301\024\003\"]\n\026Sheet_DupWorldlvreward\022C"
+    "\n\027E_DupWorldlvreward_List\030\001 \003(\0132\034.proto_"
+    "ff.E_DupWorldlvrewardB\004\210\301\024 \"\233\001\n\013E_DupPla"
+    "nes\022\032\n\004m_id\030\001 \001(\003B\014\302\377\024\010\344\275\215\351\235\242id\022&\n\014m_pla"
+    "nestype\030\002 \001(\005B\020\302\377\024\014\344\275\215\351\235\242\347\261\273\345\236\213\022(\n\nm_typ"
+    "eargs\030\003 \001(\tB\024\302\377\024\014\347\261\273\345\236\213\345\217\202\346\225\260\220\301\024@\022\036\n\010m_a"
+    "reaid\030\004 \001(\005B\014\302\377\024\010\345\214\272\345\237\237id\"H\n\017Sheet_DupPl"
+    "anes\0225\n\020E_DupPlanes_List\030\001 \003(\0132\025.proto_f"
+    "f.E_DupPlanesB\004\210\301\024@\"S\n\024E_DupYt_dupClearD"
+    "esc\022\037\n\005m_add\030\001 \001(\005B\020\302\377\024\014\345\242\236\345\212\240\345\205\263\346\225\260\022\032\n\006"
+    "m_time\030\002 \001(\005B\n\302\377\024\006\346\227\266\351\227\264\"\240\003\n\013E_DupYt_dup"
+    "\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\345\211\257\346\234\254id\022!\n\007m_layer\030"
+    "\002 \001(\005B\020\302\377\024\014\346\211\200\345\261\236\345\261\202\347\272\247\022!\n\007m_stage\030\003 \001(\005"
+    "B\020\302\377\024\014\345\205\263\345\215\241\347\255\211\347\272\247\022\'\n\rm_recommendlv\030\004 \001("
+    "\005B\020\302\377\024\014\346\216\250\350\215\220\347\255\211\347\272\247\022\'\n\rm_recommendyk\030\005 \001"
+    "(\005B\020\302\377\024\014\346\216\250\350\215\220\345\246\226\346\212\227\022\"\n\010m_reward\030\006 \001(\005B\020"
+    "\302\377\024\014\347\273\223\347\256\227\345\245\226\345\212\261\022%\n\013m_firstpass\030\007 \001(\005B\020\302"
+    "\377\024\014\351\246\226\351\200\232\345\245\226\345\212\261\022\'\n\rm_overlordbox\030\010 \001(\005B\020"
+    "\302\377\024\014\351\234\270\344\270\273\345\245\226\345\212\261\022(\n\016m_overlordtime\030\t \001(\005"
+    "B\020\302\377\024\014\351\234\270\344\270\273\346\227\266\351\227\264\022\?\n\007m_clear\030\n \003(\0132\036.pr"
+    "oto_ff.E_DupYt_dupClearDescB\016\302\377\024\006\351\200\232\345\205\263\210"
+    "\301\024\004\"I\n\017Sheet_DupYt_dup\0226\n\020E_DupYt_dup_Li"
+    "st\030\001 \003(\0132\025.proto_ff.E_DupYt_dupB\005\210\301\024\200\010", 5078);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Dup.proto", &protobuf_RegisterTypes);
   E_DupDup::default_instance_ = new E_DupDup();
@@ -775,6 +777,7 @@ const int E_DupDup::kMScripmonidFieldNumber;
 const int E_DupDup::kMGroupidFieldNumber;
 const int E_DupDup::kMSubtypeFieldNumber;
 const int E_DupDup::kMLayerFieldNumber;
+const int E_DupDup::kMRecommendpowerFieldNumber;
 const int E_DupDup::kMDuplicatetypeFieldNumber;
 const int E_DupDup::kMMapidFieldNumber;
 const int E_DupDup::kMLevellimitFieldNumber;
@@ -821,6 +824,7 @@ void E_DupDup::SharedCtor() {
   m_groupid_ = 0;
   m_subtype_ = 0;
   m_layer_ = 0;
+  m_recommendpower_ = 0;
   m_duplicatetype_ = 0;
   m_mapid_ = GOOGLE_LONGLONG(0);
   m_levellimit_ = 0;
@@ -904,19 +908,20 @@ void E_DupDup::Clear() {
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     m_layer_ = 0;
+    m_recommendpower_ = 0;
     m_duplicatetype_ = 0;
     m_mapid_ = GOOGLE_LONGLONG(0);
     m_levellimit_ = 0;
     m_functionid_ = 0;
     m_pre_ = 0;
     m_isautofight_ = 0;
+  }
+  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     if (has_m_condition()) {
       if (m_condition_ != &::google::protobuf::internal::kEmptyString) {
         m_condition_->clear();
       }
     }
-  }
-  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     m_revivemaxtimes_ = 0;
     m_teamobjectid_ = 0;
     if (has_m_gradecondition()) {
@@ -932,13 +937,13 @@ void E_DupDup::Clear() {
         m_trackpoint_->clear();
       }
     }
+  }
+  if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
     if (has_m_pathofmonster()) {
       if (m_pathofmonster_ != &::google::protobuf::internal::kEmptyString) {
         m_pathofmonster_->clear();
       }
     }
-  }
-  if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
     m_ispatrol_ = 0;
     m_failurebox_ = 0;
     m_planes_ = 0;
@@ -1094,12 +1099,28 @@ bool E_DupDup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_duplicatetype;
+        if (input->ExpectTag(80)) goto parse_m_recommendpower;
         break;
       }
 
-      // optional int32 m_duplicatetype = 10;
+      // optional int32 m_recommendpower = 10;
       case 10: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_recommendpower:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_recommendpower_)));
+          set_has_m_recommendpower();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(88)) goto parse_m_duplicatetype;
+        break;
+      }
+
+      // optional int32 m_duplicatetype = 11;
+      case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_duplicatetype:
@@ -1110,12 +1131,12 @@ bool E_DupDup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_mapid;
+        if (input->ExpectTag(96)) goto parse_m_mapid;
         break;
       }
 
-      // optional int64 m_mapid = 11;
-      case 11: {
+      // optional int64 m_mapid = 12;
+      case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_mapid:
@@ -1126,12 +1147,12 @@ bool E_DupDup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_levellimit;
+        if (input->ExpectTag(104)) goto parse_m_levellimit;
         break;
       }
 
-      // optional int32 m_levellimit = 12;
-      case 12: {
+      // optional int32 m_levellimit = 13;
+      case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_levellimit:
@@ -1142,12 +1163,12 @@ bool E_DupDup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_m_functionid;
+        if (input->ExpectTag(112)) goto parse_m_functionid;
         break;
       }
 
-      // optional int32 m_functionid = 13;
-      case 13: {
+      // optional int32 m_functionid = 14;
+      case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_functionid:
@@ -1158,12 +1179,12 @@ bool E_DupDup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(112)) goto parse_m_pre;
+        if (input->ExpectTag(120)) goto parse_m_pre;
         break;
       }
 
-      // optional int32 m_pre = 14;
-      case 14: {
+      // optional int32 m_pre = 15;
+      case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_pre:
@@ -1174,12 +1195,12 @@ bool E_DupDup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(120)) goto parse_m_isautofight;
+        if (input->ExpectTag(128)) goto parse_m_isautofight;
         break;
       }
 
-      // optional int32 m_isautofight = 15;
-      case 15: {
+      // optional int32 m_isautofight = 16;
+      case 16: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_isautofight:
@@ -1190,12 +1211,12 @@ bool E_DupDup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(130)) goto parse_m_condition;
+        if (input->ExpectTag(138)) goto parse_m_condition;
         break;
       }
 
-      // optional string m_condition = 16;
-      case 16: {
+      // optional string m_condition = 17;
+      case 17: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_condition:
@@ -1207,12 +1228,12 @@ bool E_DupDup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(136)) goto parse_m_revivemaxtimes;
+        if (input->ExpectTag(144)) goto parse_m_revivemaxtimes;
         break;
       }
 
-      // optional int32 m_revivemaxtimes = 17;
-      case 17: {
+      // optional int32 m_revivemaxtimes = 18;
+      case 18: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_revivemaxtimes:
@@ -1223,12 +1244,12 @@ bool E_DupDup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(144)) goto parse_m_teamobjectid;
+        if (input->ExpectTag(152)) goto parse_m_teamobjectid;
         break;
       }
 
-      // optional int32 m_teamobjectid = 18;
-      case 18: {
+      // optional int32 m_teamobjectid = 19;
+      case 19: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_teamobjectid:
@@ -1239,12 +1260,12 @@ bool E_DupDup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(154)) goto parse_m_gradecondition;
+        if (input->ExpectTag(162)) goto parse_m_gradecondition;
         break;
       }
 
-      // optional string m_gradecondition = 19;
-      case 19: {
+      // optional string m_gradecondition = 20;
+      case 20: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_gradecondition:
@@ -1256,12 +1277,12 @@ bool E_DupDup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(160)) goto parse_m_sweeprewardboxid;
+        if (input->ExpectTag(168)) goto parse_m_sweeprewardboxid;
         break;
       }
 
-      // optional int64 m_sweeprewardboxid = 20;
-      case 20: {
+      // optional int64 m_sweeprewardboxid = 21;
+      case 21: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_sweeprewardboxid:
@@ -1272,12 +1293,12 @@ bool E_DupDup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(168)) goto parse_m_sweeprewardexp;
+        if (input->ExpectTag(176)) goto parse_m_sweeprewardexp;
         break;
       }
 
-      // optional int32 m_sweeprewardexp = 21;
-      case 21: {
+      // optional int32 m_sweeprewardexp = 22;
+      case 22: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_sweeprewardexp:
@@ -1288,12 +1309,12 @@ bool E_DupDup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(176)) goto parse_m_sweepexptype;
+        if (input->ExpectTag(184)) goto parse_m_sweepexptype;
         break;
       }
 
-      // optional int32 m_sweepexptype = 22;
-      case 22: {
+      // optional int32 m_sweepexptype = 23;
+      case 23: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_sweepexptype:
@@ -1304,12 +1325,12 @@ bool E_DupDup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(186)) goto parse_m_trackpoint;
+        if (input->ExpectTag(194)) goto parse_m_trackpoint;
         break;
       }
 
-      // optional string m_trackpoint = 23;
-      case 23: {
+      // optional string m_trackpoint = 24;
+      case 24: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_trackpoint:
@@ -1321,12 +1342,12 @@ bool E_DupDup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(194)) goto parse_m_pathofmonster;
+        if (input->ExpectTag(202)) goto parse_m_pathofmonster;
         break;
       }
 
-      // optional string m_pathofmonster = 24;
-      case 24: {
+      // optional string m_pathofmonster = 25;
+      case 25: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_pathofmonster:
@@ -1338,12 +1359,12 @@ bool E_DupDup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(200)) goto parse_m_ispatrol;
+        if (input->ExpectTag(208)) goto parse_m_ispatrol;
         break;
       }
 
-      // optional int32 m_ispatrol = 25;
-      case 25: {
+      // optional int32 m_ispatrol = 26;
+      case 26: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_ispatrol:
@@ -1354,12 +1375,12 @@ bool E_DupDup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(208)) goto parse_m_failurebox;
+        if (input->ExpectTag(216)) goto parse_m_failurebox;
         break;
       }
 
-      // optional int32 m_failurebox = 26;
-      case 26: {
+      // optional int32 m_failurebox = 27;
+      case 27: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_failurebox:
@@ -1370,12 +1391,12 @@ bool E_DupDup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(216)) goto parse_m_planes;
+        if (input->ExpectTag(224)) goto parse_m_planes;
         break;
       }
 
-      // optional int32 m_planes = 27;
-      case 27: {
+      // optional int32 m_planes = 28;
+      case 28: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_planes:
@@ -1386,18 +1407,18 @@ bool E_DupDup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(224)) goto parse_m_box;
+        if (input->ExpectTag(232)) goto parse_m_box;
         break;
       }
 
-      // repeated int32 m_box = 28;
-      case 28: {
+      // repeated int32 m_box = 29;
+      case 29: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_box:
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 2, 224, input, this->mutable_m_box())));
+                 2, 232, input, this->mutable_m_box())));
         } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
                    == ::google::protobuf::internal::WireFormatLite::
                       WIRETYPE_LENGTH_DELIMITED) {
@@ -1407,7 +1428,7 @@ bool E_DupDup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(224)) goto parse_m_box;
+        if (input->ExpectTag(232)) goto parse_m_box;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1479,116 +1500,121 @@ void E_DupDup::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_layer(), output);
   }
 
-  // optional int32 m_duplicatetype = 10;
+  // optional int32 m_recommendpower = 10;
+  if (has_m_recommendpower()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_recommendpower(), output);
+  }
+
+  // optional int32 m_duplicatetype = 11;
   if (has_m_duplicatetype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_duplicatetype(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_duplicatetype(), output);
   }
 
-  // optional int64 m_mapid = 11;
+  // optional int64 m_mapid = 12;
   if (has_m_mapid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(11, this->m_mapid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(12, this->m_mapid(), output);
   }
 
-  // optional int32 m_levellimit = 12;
+  // optional int32 m_levellimit = 13;
   if (has_m_levellimit()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_levellimit(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_levellimit(), output);
   }
 
-  // optional int32 m_functionid = 13;
+  // optional int32 m_functionid = 14;
   if (has_m_functionid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_functionid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_functionid(), output);
   }
 
-  // optional int32 m_pre = 14;
+  // optional int32 m_pre = 15;
   if (has_m_pre()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_pre(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_pre(), output);
   }
 
-  // optional int32 m_isautofight = 15;
+  // optional int32 m_isautofight = 16;
   if (has_m_isautofight()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_isautofight(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->m_isautofight(), output);
   }
 
-  // optional string m_condition = 16;
+  // optional string m_condition = 17;
   if (has_m_condition()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_condition().data(), this->m_condition().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      16, this->m_condition(), output);
+      17, this->m_condition(), output);
   }
 
-  // optional int32 m_revivemaxtimes = 17;
+  // optional int32 m_revivemaxtimes = 18;
   if (has_m_revivemaxtimes()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(17, this->m_revivemaxtimes(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(18, this->m_revivemaxtimes(), output);
   }
 
-  // optional int32 m_teamobjectid = 18;
+  // optional int32 m_teamobjectid = 19;
   if (has_m_teamobjectid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(18, this->m_teamobjectid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(19, this->m_teamobjectid(), output);
   }
 
-  // optional string m_gradecondition = 19;
+  // optional string m_gradecondition = 20;
   if (has_m_gradecondition()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_gradecondition().data(), this->m_gradecondition().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      19, this->m_gradecondition(), output);
+      20, this->m_gradecondition(), output);
   }
 
-  // optional int64 m_sweeprewardboxid = 20;
+  // optional int64 m_sweeprewardboxid = 21;
   if (has_m_sweeprewardboxid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(20, this->m_sweeprewardboxid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(21, this->m_sweeprewardboxid(), output);
   }
 
-  // optional int32 m_sweeprewardexp = 21;
+  // optional int32 m_sweeprewardexp = 22;
   if (has_m_sweeprewardexp()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(21, this->m_sweeprewardexp(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(22, this->m_sweeprewardexp(), output);
   }
 
-  // optional int32 m_sweepexptype = 22;
+  // optional int32 m_sweepexptype = 23;
   if (has_m_sweepexptype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(22, this->m_sweepexptype(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(23, this->m_sweepexptype(), output);
   }
 
-  // optional string m_trackpoint = 23;
+  // optional string m_trackpoint = 24;
   if (has_m_trackpoint()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_trackpoint().data(), this->m_trackpoint().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      23, this->m_trackpoint(), output);
+      24, this->m_trackpoint(), output);
   }
 
-  // optional string m_pathofmonster = 24;
+  // optional string m_pathofmonster = 25;
   if (has_m_pathofmonster()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_pathofmonster().data(), this->m_pathofmonster().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      24, this->m_pathofmonster(), output);
+      25, this->m_pathofmonster(), output);
   }
 
-  // optional int32 m_ispatrol = 25;
+  // optional int32 m_ispatrol = 26;
   if (has_m_ispatrol()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(25, this->m_ispatrol(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(26, this->m_ispatrol(), output);
   }
 
-  // optional int32 m_failurebox = 26;
+  // optional int32 m_failurebox = 27;
   if (has_m_failurebox()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(26, this->m_failurebox(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(27, this->m_failurebox(), output);
   }
 
-  // optional int32 m_planes = 27;
+  // optional int32 m_planes = 28;
   if (has_m_planes()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(27, this->m_planes(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(28, this->m_planes(), output);
   }
 
-  // repeated int32 m_box = 28;
+  // repeated int32 m_box = 29;
   for (int i = 0; i < this->m_box_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      28, this->m_box(i), output);
+      29, this->m_box(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1649,120 +1675,125 @@ void E_DupDup::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_layer(), target);
   }
 
-  // optional int32 m_duplicatetype = 10;
+  // optional int32 m_recommendpower = 10;
+  if (has_m_recommendpower()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_recommendpower(), target);
+  }
+
+  // optional int32 m_duplicatetype = 11;
   if (has_m_duplicatetype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_duplicatetype(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_duplicatetype(), target);
   }
 
-  // optional int64 m_mapid = 11;
+  // optional int64 m_mapid = 12;
   if (has_m_mapid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(11, this->m_mapid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(12, this->m_mapid(), target);
   }
 
-  // optional int32 m_levellimit = 12;
+  // optional int32 m_levellimit = 13;
   if (has_m_levellimit()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_levellimit(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_levellimit(), target);
   }
 
-  // optional int32 m_functionid = 13;
+  // optional int32 m_functionid = 14;
   if (has_m_functionid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_functionid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_functionid(), target);
   }
 
-  // optional int32 m_pre = 14;
+  // optional int32 m_pre = 15;
   if (has_m_pre()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_pre(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_pre(), target);
   }
 
-  // optional int32 m_isautofight = 15;
+  // optional int32 m_isautofight = 16;
   if (has_m_isautofight()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_isautofight(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->m_isautofight(), target);
   }
 
-  // optional string m_condition = 16;
+  // optional string m_condition = 17;
   if (has_m_condition()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_condition().data(), this->m_condition().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        16, this->m_condition(), target);
+        17, this->m_condition(), target);
   }
 
-  // optional int32 m_revivemaxtimes = 17;
+  // optional int32 m_revivemaxtimes = 18;
   if (has_m_revivemaxtimes()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(17, this->m_revivemaxtimes(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(18, this->m_revivemaxtimes(), target);
   }
 
-  // optional int32 m_teamobjectid = 18;
+  // optional int32 m_teamobjectid = 19;
   if (has_m_teamobjectid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(18, this->m_teamobjectid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(19, this->m_teamobjectid(), target);
   }
 
-  // optional string m_gradecondition = 19;
+  // optional string m_gradecondition = 20;
   if (has_m_gradecondition()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_gradecondition().data(), this->m_gradecondition().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        19, this->m_gradecondition(), target);
+        20, this->m_gradecondition(), target);
   }
 
-  // optional int64 m_sweeprewardboxid = 20;
+  // optional int64 m_sweeprewardboxid = 21;
   if (has_m_sweeprewardboxid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(20, this->m_sweeprewardboxid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(21, this->m_sweeprewardboxid(), target);
   }
 
-  // optional int32 m_sweeprewardexp = 21;
+  // optional int32 m_sweeprewardexp = 22;
   if (has_m_sweeprewardexp()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(21, this->m_sweeprewardexp(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(22, this->m_sweeprewardexp(), target);
   }
 
-  // optional int32 m_sweepexptype = 22;
+  // optional int32 m_sweepexptype = 23;
   if (has_m_sweepexptype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(22, this->m_sweepexptype(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(23, this->m_sweepexptype(), target);
   }
 
-  // optional string m_trackpoint = 23;
+  // optional string m_trackpoint = 24;
   if (has_m_trackpoint()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_trackpoint().data(), this->m_trackpoint().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        23, this->m_trackpoint(), target);
+        24, this->m_trackpoint(), target);
   }
 
-  // optional string m_pathofmonster = 24;
+  // optional string m_pathofmonster = 25;
   if (has_m_pathofmonster()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_pathofmonster().data(), this->m_pathofmonster().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        24, this->m_pathofmonster(), target);
+        25, this->m_pathofmonster(), target);
   }
 
-  // optional int32 m_ispatrol = 25;
+  // optional int32 m_ispatrol = 26;
   if (has_m_ispatrol()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(25, this->m_ispatrol(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(26, this->m_ispatrol(), target);
   }
 
-  // optional int32 m_failurebox = 26;
+  // optional int32 m_failurebox = 27;
   if (has_m_failurebox()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(26, this->m_failurebox(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(27, this->m_failurebox(), target);
   }
 
-  // optional int32 m_planes = 27;
+  // optional int32 m_planes = 28;
   if (has_m_planes()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(27, this->m_planes(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(28, this->m_planes(), target);
   }
 
-  // repeated int32 m_box = 28;
+  // repeated int32 m_box = 29;
   for (int i = 0; i < this->m_box_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(28, this->m_box(i), target);
+      WriteInt32ToArray(29, this->m_box(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1841,130 +1872,137 @@ int E_DupDup::ByteSize() const {
           this->m_layer());
     }
 
-    // optional int32 m_duplicatetype = 10;
+    // optional int32 m_recommendpower = 10;
+    if (has_m_recommendpower()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_recommendpower());
+    }
+
+    // optional int32 m_duplicatetype = 11;
     if (has_m_duplicatetype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_duplicatetype());
     }
 
-    // optional int64 m_mapid = 11;
+    // optional int64 m_mapid = 12;
     if (has_m_mapid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_mapid());
     }
 
-    // optional int32 m_levellimit = 12;
+    // optional int32 m_levellimit = 13;
     if (has_m_levellimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_levellimit());
     }
 
-    // optional int32 m_functionid = 13;
+    // optional int32 m_functionid = 14;
     if (has_m_functionid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_functionid());
     }
 
-    // optional int32 m_pre = 14;
+    // optional int32 m_pre = 15;
     if (has_m_pre()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_pre());
     }
 
-    // optional int32 m_isautofight = 15;
+    // optional int32 m_isautofight = 16;
     if (has_m_isautofight()) {
-      total_size += 1 +
+      total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_isautofight());
     }
 
-    // optional string m_condition = 16;
+  }
+  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
+    // optional string m_condition = 17;
     if (has_m_condition()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_condition());
     }
 
-  }
-  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    // optional int32 m_revivemaxtimes = 17;
+    // optional int32 m_revivemaxtimes = 18;
     if (has_m_revivemaxtimes()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_revivemaxtimes());
     }
 
-    // optional int32 m_teamobjectid = 18;
+    // optional int32 m_teamobjectid = 19;
     if (has_m_teamobjectid()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_teamobjectid());
     }
 
-    // optional string m_gradecondition = 19;
+    // optional string m_gradecondition = 20;
     if (has_m_gradecondition()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_gradecondition());
     }
 
-    // optional int64 m_sweeprewardboxid = 20;
+    // optional int64 m_sweeprewardboxid = 21;
     if (has_m_sweeprewardboxid()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_sweeprewardboxid());
     }
 
-    // optional int32 m_sweeprewardexp = 21;
+    // optional int32 m_sweeprewardexp = 22;
     if (has_m_sweeprewardexp()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_sweeprewardexp());
     }
 
-    // optional int32 m_sweepexptype = 22;
+    // optional int32 m_sweepexptype = 23;
     if (has_m_sweepexptype()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_sweepexptype());
     }
 
-    // optional string m_trackpoint = 23;
+    // optional string m_trackpoint = 24;
     if (has_m_trackpoint()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_trackpoint());
     }
 
-    // optional string m_pathofmonster = 24;
+  }
+  if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
+    // optional string m_pathofmonster = 25;
     if (has_m_pathofmonster()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_pathofmonster());
     }
 
-  }
-  if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
-    // optional int32 m_ispatrol = 25;
+    // optional int32 m_ispatrol = 26;
     if (has_m_ispatrol()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_ispatrol());
     }
 
-    // optional int32 m_failurebox = 26;
+    // optional int32 m_failurebox = 27;
     if (has_m_failurebox()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_failurebox());
     }
 
-    // optional int32 m_planes = 27;
+    // optional int32 m_planes = 28;
     if (has_m_planes()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1972,7 +2010,7 @@ int E_DupDup::ByteSize() const {
     }
 
   }
-  // repeated int32 m_box = 28;
+  // repeated int32 m_box = 29;
   {
     int data_size = 0;
     for (int i = 0; i < this->m_box_size(); i++) {
@@ -2038,6 +2076,9 @@ void E_DupDup::MergeFrom(const E_DupDup& from) {
     if (from.has_m_layer()) {
       set_m_layer(from.m_layer());
     }
+    if (from.has_m_recommendpower()) {
+      set_m_recommendpower(from.m_recommendpower());
+    }
     if (from.has_m_duplicatetype()) {
       set_m_duplicatetype(from.m_duplicatetype());
     }
@@ -2056,11 +2097,11 @@ void E_DupDup::MergeFrom(const E_DupDup& from) {
     if (from.has_m_isautofight()) {
       set_m_isautofight(from.m_isautofight());
     }
+  }
+  if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     if (from.has_m_condition()) {
       set_m_condition(from.m_condition());
     }
-  }
-  if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     if (from.has_m_revivemaxtimes()) {
       set_m_revivemaxtimes(from.m_revivemaxtimes());
     }
@@ -2082,11 +2123,11 @@ void E_DupDup::MergeFrom(const E_DupDup& from) {
     if (from.has_m_trackpoint()) {
       set_m_trackpoint(from.m_trackpoint());
     }
+  }
+  if (from._has_bits_[24 / 32] & (0xffu << (24 % 32))) {
     if (from.has_m_pathofmonster()) {
       set_m_pathofmonster(from.m_pathofmonster());
     }
-  }
-  if (from._has_bits_[24 / 32] & (0xffu << (24 % 32))) {
     if (from.has_m_ispatrol()) {
       set_m_ispatrol(from.m_ispatrol());
     }
@@ -2128,6 +2169,7 @@ void E_DupDup::Swap(E_DupDup* other) {
     std::swap(m_groupid_, other->m_groupid_);
     std::swap(m_subtype_, other->m_subtype_);
     std::swap(m_layer_, other->m_layer_);
+    std::swap(m_recommendpower_, other->m_recommendpower_);
     std::swap(m_duplicatetype_, other->m_duplicatetype_);
     std::swap(m_mapid_, other->m_mapid_);
     std::swap(m_levellimit_, other->m_levellimit_);

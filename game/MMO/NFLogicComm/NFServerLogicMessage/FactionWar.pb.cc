@@ -722,11 +722,12 @@ void protobuf_AssignDesc_FactionWar_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PullFactionProto));
   FactionWarProto_descriptor_ = file->message_type(34);
-  static const int FactionWarProto_offsets_[4] = {
+  static const int FactionWarProto_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionWarProto, faction_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionWarProto, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionWarProto, zid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionWarProto, fight_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionWarProto, cid_lst_),
   };
   FactionWarProto_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -1245,39 +1246,39 @@ void protobuf_AddDesc_FactionWar_2eproto() {
     "tionWar_WinFetchRsp\022\013\n\003ret\030\001 \002(\005\"*\n\025Fact"
     "ionWar_IsFetchRsp\022\021\n\tfetch_war\030\001 \001(\005\"C\n\020"
     "PullFactionProto\022\022\n\nfaction_id\030\001 \001(\r\022\014\n\004"
-    "name\030\002 \001(\014\022\r\n\005fight\030\003 \001(\004\"O\n\017FactionWarP"
+    "name\030\002 \001(\014\022\r\n\005fight\030\003 \001(\004\"`\n\017FactionWarP"
     "roto\022\022\n\nfaction_id\030\001 \001(\r\022\014\n\004name\030\002 \001(\014\022\013"
-    "\n\003zid\030\003 \001(\r\022\r\n\005fight\030\004 \001(\004\"7\n\023FactionWar"
-    "RankProto\022\022\n\nfaction_id\030\001 \001(\r\022\014\n\004rank\030\002 "
-    "\001(\005\"3\n\026FactionWar_S2C_PullReq\022\013\n\003num\030\001 \001"
-    "(\005\022\014\n\004type\030\002 \001(\005\"]\n\026FactionWar_C2S_PullR"
-    "sp\022\013\n\003zid\030\001 \001(\r\022(\n\004info\030\002 \003(\0132\032.proto_ff"
-    ".PullFactionProto\022\014\n\004type\030\003 \001(\005\"\237\001\n\026Fact"
-    "ionWar_S2L_InfoRsp\022\017\n\007sceneid\030\001 \001(\004\022\'\n\004i"
-    "nfo\030\002 \003(\0132\031.proto_ff.FactionWarProto\022\r\n\005"
-    "state\030\003 \001(\005\022\014\n\004race\030\004 \001(\005\022\r\n\005index\030\005 \001(\005"
-    "\022\016\n\006win_id\030\006 \001(\r\022\017\n\007win_num\030\007 \001(\r\"\253\001\n\033Fa"
-    "ctionWar_S2L_WarResultRsp\022\r\n\005index\030\001 \001(\005"
-    "\022\014\n\004race\030\002 \001(\005\022\r\n\005state\030\003 \001(\005\022\023\n\013faction"
-    "_id1\030\004 \001(\r\022\023\n\013faction_id2\030\005 \001(\r\022\022\n\nsucce"
-    "ss_id\030\006 \001(\r\022\020\n\010cid_lst1\030\007 \003(\004\022\020\n\010cid_lst"
-    "2\030\010 \003(\004\"\\\n\034FactionWar_S2C_RankRewardRsp\022"
-    "\022\n\nfaction_id\030\001 \001(\r\022\014\n\004rank\030\002 \001(\005\022\014\n\004cid"
-    "s\030\003 \003(\004\022\014\n\004type\030\004 \001(\005\"s\n\036FactionWar_S2C_"
-    "EndWinRewardRsp\022\022\n\nfaction_id\030\001 \001(\r\022\017\n\007w"
-    "in_num\030\002 \001(\005\022\017\n\007win_zid\030\003 \001(\r\022\r\n\005fa_id\030\004"
-    " \001(\r\022\014\n\004cids\030\005 \003(\004\"^\n\031FactionWar_S2C_Win"
-    "InfoRsp\022\022\n\nfaction_id\030\001 \001(\r\022\017\n\007win_num\030\002"
-    " \001(\005\022\016\n\006reward\030\003 \001(\010\022\014\n\004cids\030\004 \003(\004\"\032\n\030Fa"
-    "ctionWar_S2C_DelWinRsp\"A\n\034FactionWar_S2C"
-    "_LeaderInfoReq\022\r\n\005index\030\001 \001(\r\022\022\n\nfaction"
-    "_id\030\002 \001(\r\"}\n\034FactionWar_S2C_LeaderInfoRs"
-    "p\022\r\n\005index\030\001 \001(\r\022\'\n\006leader\030\002 \001(\0132\027.proto"
-    "_ff.WarLeaderInfo\022%\n\004wife\030\003 \001(\0132\027.proto_"
-    "ff.WarLeaderInfo\"/\n FactionWar_C2L_Fetch"
-    "WinRewardReq\022\013\n\003cid\030\001 \001(\004\"\?\n\034FactionWar_"
-    "C2S_WinDismissRsp\022\022\n\nfaction_id\030\001 \001(\r\022\013\n"
-    "\003zid\030\002 \001(\r", 3730);
+    "\n\003zid\030\003 \001(\r\022\r\n\005fight\030\004 \001(\004\022\017\n\007cid_lst\030\005 "
+    "\003(\004\"7\n\023FactionWarRankProto\022\022\n\nfaction_id"
+    "\030\001 \001(\r\022\014\n\004rank\030\002 \001(\005\"3\n\026FactionWar_S2C_P"
+    "ullReq\022\013\n\003num\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\"]\n\026Fac"
+    "tionWar_C2S_PullRsp\022\013\n\003zid\030\001 \001(\r\022(\n\004info"
+    "\030\002 \003(\0132\032.proto_ff.PullFactionProto\022\014\n\004ty"
+    "pe\030\003 \001(\005\"\237\001\n\026FactionWar_S2L_InfoRsp\022\017\n\007s"
+    "ceneid\030\001 \001(\004\022\'\n\004info\030\002 \003(\0132\031.proto_ff.Fa"
+    "ctionWarProto\022\r\n\005state\030\003 \001(\005\022\014\n\004race\030\004 \001"
+    "(\005\022\r\n\005index\030\005 \001(\005\022\016\n\006win_id\030\006 \001(\r\022\017\n\007win"
+    "_num\030\007 \001(\r\"\253\001\n\033FactionWar_S2L_WarResultR"
+    "sp\022\r\n\005index\030\001 \001(\005\022\014\n\004race\030\002 \001(\005\022\r\n\005state"
+    "\030\003 \001(\005\022\023\n\013faction_id1\030\004 \001(\r\022\023\n\013faction_i"
+    "d2\030\005 \001(\r\022\022\n\nsuccess_id\030\006 \001(\r\022\020\n\010cid_lst1"
+    "\030\007 \003(\004\022\020\n\010cid_lst2\030\010 \003(\004\"\\\n\034FactionWar_S"
+    "2C_RankRewardRsp\022\022\n\nfaction_id\030\001 \001(\r\022\014\n\004"
+    "rank\030\002 \001(\005\022\014\n\004cids\030\003 \003(\004\022\014\n\004type\030\004 \001(\005\"s"
+    "\n\036FactionWar_S2C_EndWinRewardRsp\022\022\n\nfact"
+    "ion_id\030\001 \001(\r\022\017\n\007win_num\030\002 \001(\005\022\017\n\007win_zid"
+    "\030\003 \001(\r\022\r\n\005fa_id\030\004 \001(\r\022\014\n\004cids\030\005 \003(\004\"^\n\031F"
+    "actionWar_S2C_WinInfoRsp\022\022\n\nfaction_id\030\001"
+    " \001(\r\022\017\n\007win_num\030\002 \001(\005\022\016\n\006reward\030\003 \001(\010\022\014\n"
+    "\004cids\030\004 \003(\004\"\032\n\030FactionWar_S2C_DelWinRsp\""
+    "A\n\034FactionWar_S2C_LeaderInfoReq\022\r\n\005index"
+    "\030\001 \001(\r\022\022\n\nfaction_id\030\002 \001(\r\"}\n\034FactionWar"
+    "_S2C_LeaderInfoRsp\022\r\n\005index\030\001 \001(\r\022\'\n\006lea"
+    "der\030\002 \001(\0132\027.proto_ff.WarLeaderInfo\022%\n\004wi"
+    "fe\030\003 \001(\0132\027.proto_ff.WarLeaderInfo\"/\n Fac"
+    "tionWar_C2L_FetchWinRewardReq\022\013\n\003cid\030\001 \001"
+    "(\004\"\?\n\034FactionWar_C2S_WinDismissRsp\022\022\n\nfa"
+    "ction_id\030\001 \001(\r\022\013\n\003zid\030\002 \001(\r", 3747);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "FactionWar.proto", &protobuf_RegisterTypes);
   RaceFactionProto::default_instance_ = new RaceFactionProto();
@@ -9989,6 +9990,7 @@ const int FactionWarProto::kFactionIdFieldNumber;
 const int FactionWarProto::kNameFieldNumber;
 const int FactionWarProto::kZidFieldNumber;
 const int FactionWarProto::kFightFieldNumber;
+const int FactionWarProto::kCidLstFieldNumber;
 #endif  // !_MSC_VER
 
 FactionWarProto::FactionWarProto()
@@ -10058,6 +10060,7 @@ void FactionWarProto::Clear() {
     zid_ = 0u;
     fight_ = GOOGLE_ULONGLONG(0);
   }
+  cid_lst_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -10125,6 +10128,28 @@ bool FactionWarProto::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(40)) goto parse_cid_lst;
+        break;
+      }
+
+      // repeated uint64 cid_lst = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_cid_lst:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 1, 40, input, this->mutable_cid_lst())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, this->mutable_cid_lst())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_cid_lst;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -10168,6 +10193,12 @@ void FactionWarProto::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(4, this->fight(), output);
   }
 
+  // repeated uint64 cid_lst = 5;
+  for (int i = 0; i < this->cid_lst_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(
+      5, this->cid_lst(i), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -10196,6 +10227,12 @@ void FactionWarProto::SerializeWithCachedSizes(
   // optional uint64 fight = 4;
   if (has_fight()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(4, this->fight(), target);
+  }
+
+  // repeated uint64 cid_lst = 5;
+  for (int i = 0; i < this->cid_lst_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteUInt64ToArray(5, this->cid_lst(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -10238,6 +10275,16 @@ int FactionWarProto::ByteSize() const {
     }
 
   }
+  // repeated uint64 cid_lst = 5;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->cid_lst_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        UInt64Size(this->cid_lst(i));
+    }
+    total_size += 1 * this->cid_lst_size() + data_size;
+  }
+
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -10263,6 +10310,7 @@ void FactionWarProto::MergeFrom(const ::google::protobuf::Message& from) {
 
 void FactionWarProto::MergeFrom(const FactionWarProto& from) {
   GOOGLE_CHECK_NE(&from, this);
+  cid_lst_.MergeFrom(from.cid_lst_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_faction_id()) {
       set_faction_id(from.faction_id());
@@ -10303,6 +10351,7 @@ void FactionWarProto::Swap(FactionWarProto* other) {
     std::swap(name_, other->name_);
     std::swap(zid_, other->zid_);
     std::swap(fight_, other->fight_);
+    cid_lst_.Swap(&other->cid_lst_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

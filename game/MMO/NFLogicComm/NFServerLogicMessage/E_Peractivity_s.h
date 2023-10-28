@@ -32,6 +32,7 @@ namespace proto_ff_s {
 		int32_t m_advancetime;//提前广播时间
 		int32_t m_intervaltime;//广播间隔
 		int32_t m_iscross;//是否跨服
+		int32_t m_isfestvial;//是否限时活动
 
 		virtual void write_to_pbmsg(::proto_ff::E_PeractivityPeractivity & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PeractivityPeractivity & msg);

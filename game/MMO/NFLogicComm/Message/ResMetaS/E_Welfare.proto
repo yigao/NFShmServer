@@ -343,7 +343,7 @@ message E_WelfareGoaltask
 	optional int32 m_reachprice = 4[(yd_fieldoptions.field_cname) = "达成值"];
 	optional int32 m_itemid = 5[(yd_fieldoptions.field_cname) = "奖励道具"];
 	optional int32 m_itemnum = 6[(yd_fieldoptions.field_cname) = "道具数量"];
-	repeated int32 m_param = 7[(yd_fieldoptions.field_cname) = "事件完成参数", (yd_fieldoptions.field_arysize) = 2];
+	repeated int32 m_param = 7[(yd_fieldoptions.field_cname) = "事件完成参数", (yd_fieldoptions.field_arysize) = 3];
 }
 
 

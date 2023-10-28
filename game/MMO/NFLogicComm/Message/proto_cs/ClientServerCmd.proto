@@ -488,6 +488,8 @@ enum ClientServerCmd
 	NOTIFY_GHOST_CHG_STEP = 1027;		//启动波数倒计时
 	GHOST_RECV_PASS_REQ = 1028;			//领取幽冥古殿首通奖励
 	GHOST_RECV_PASS_RSP = 1029;			//领取幽冥古殿首通奖励
+	TOWER_FLASH_REQ = 1030;				//凡人修仙秒杀
+	TOWER_FLASH_RSP = 1031;				//凡人修仙秒杀
 	//活动 1201 - 1300
 	ACT_LIST_REQ = 1201;			//请求活动列表
 	ACT_LIST_RSP = 1202;			//返回活动列表
@@ -697,6 +699,9 @@ enum ClientServerCmd
 	LOGIC_TO_CLIENT_MOUNT_ACTIVE_FAIRY_TOUR_RSP = 1528; //坐骑历练激活游记
 	CLIENT_TO_LOGIC_MOUNT_UNLOCK_FAIRY_SLOT_REQ = 1512; //坐骑历练解锁槽位
 	LOGIC_TO_CLIENT_MOUNT_UNLOCK_FAIRY_SLOT_RSP = 1513; //坐骑历练解锁槽位
+	LOGIC_TO_CLIENT_MOUNT_MODEL_CHANGE = 1514; //坐骑模型修改
+	CLIENT_TO_LOGIC_MOUNT_KUN_EQUIP_SLOT_UNLOCK_REQ = 1490; //坐骑鲲装备槽位解锁
+	LOGIC_TO_CLIENT_MOUNT_KUN_EQUIP_SLOT_UNLOCK_REQ = 1491; //坐骑鲲装备槽位解锁
 
 	//天神系统 1600 - 1699
 	/////////////////////////////////////////////////////////////////
@@ -782,7 +787,26 @@ enum ClientServerCmd
 	NOTIFY_PET_GROW					= 1732;	//更新宠物专属列表信息
 	PET_GROW_OPT_REQ				= 1733;	//宠物专属操作
 	PET_GROW_OPT_RSP				= 1734;	//宠物专属操作返回
-	
+	NOTIFY_PET_YAOHUN				= 1735;	//更新宠物妖魂
+	NOTIFY_PET_YAOHUN_SIMPLE		= 1736; //更新妖魂简单数据数据
+	PET_YAOHUN_UNLOCK_REQ			= 1737;	//妖魂解锁战位
+	PET_YAOHUN_UNLOCK_RSP			= 1738;	//妖魂解锁战位返回
+	PET_YAOHUN_DRESS_REQ			= 1739;	//妖魂穿戴
+	PET_YAOHUN_DRESS_RSP			= 1740;	//妖魂穿戴
+	PET_LIANYAO_REQ					= 1741;	//炼妖请求
+	PET_LIANYAO_RSP					= 1742;	//炼妖返回
+	PET_YAOHUN_EXCHANGE_REQ			= 1743;	//妖魂兑换
+	PET_YAOHUN_EXCHANGE_RSP			= 1744;	//妖魂兑换返回
+	PET_YAOHUN_LV_REQ				= 1745;	//妖魂升级
+	PET_YAOHUN_LV_RSP				= 1746;	//妖魂升级返回
+	PET_YAOHUN_BREAK_REQ			= 1747;	//妖魂突破
+	PET_YAOHUN_BREAK_RSP			= 1748;	//妖魂突破
+	PET_LIANYAO_TQ_BUY_REQ			= 1749;	//炼妖特权购买
+	PET_LIANYAO_TQ_BUY_RSP			= 1750;	//炼妖特权购买
+	PET_YAOHUN_SUIT_REQ				= 1751;	//妖魂套装激活
+	PET_YAOHUN_SUIT_RSP				= 1752;	//妖魂套装激活
+	PET_YAOHUN_RESET_REQ			= 1753;	//妖魂拆解
+	PET_YAOHUN_RESET_RSP			= 1754;	//妖魂拆解
 	
 	//商城 2050-2100
 	MALL_INFO_REQ					= 2050;	//请求商城信息
@@ -1295,6 +1319,7 @@ enum ClientServerCmd
 	WEDDING_APPLY_RSP = 2878;				//索要请帖返回
 	NOTIFY_WEDDING_TOUR_FOLLOW = 2879;		//通知巡游玩家跟随怪物
 	NOTIFY_WEDDING_APPLY = 2880;			//通知主办方有人申请
+	NOTIFY_BROAD_EXPRESS = 2881;			//全服广播表白特效
 	//婚宴副本
 	WEDDING_SIGN_REQ = 2885;				//婚宴签到
 	WEDDING_SIGN_RSP = 2886;				//婚宴签到
@@ -1746,11 +1771,24 @@ enum ClientServerCmd
 	FEST_CANDLE_RANK_INFO_REQ = 4057;	//请求 烛龙挑战排行榜(天天养龙)
 	FEST_CANDLE_RANK_INFO_RSP = 4058;	//返回 烛龙挑战排行榜(天天养龙)
 	FEST_CANDLE_FETCH_LST_RSP = 4059;	//返回 烛龙挑战(天天养龙) 所有已领取奖励列表
+
+	FEST_DAY_TOTAL_RECHARGE_FETCH_REQ = 4060;	//请求领取 每日累充奖励
+	FEST_DAY_TOTAL_RECHARGE_FETCH_RSP = 4061;	//返回领取 每日累充奖励 结果
+	FEST_DAY_TOTAL_RECHARGE_UPDATE_RSP = 4062;	//更新 每日累充 信息
+
+	FEST_LOGIN_REWARD_FETCH_REQ	= 4063;			//请求领取 登录奖励
+	FEST_LOGIN_REWARD_FETCH_RSP	= 4064;			//返回领取 登录奖励 结果
+	FEST_LOGIN_REWARD_UPDATE_RSP = 4065;		//更新 登录奖励 信息
+
+	FEST_TOTAL_RECHARGE_FETCH_REQ = 4066;		//请求领取 累计充值奖励
+	FEST_TOTAL_RECHARGE_FETCH_RSP = 4067;		//返回领取 累计充值奖励 结果
+	FEST_TOTAL_RECHARGE_UPDATE_RSP = 4068;		//更新 累计充值 信息
 	
 	FEST_BOSS_FIRST_OPT_REQ = 4070;	//boss 操作请求
 	FEST_BOSS_FIRST_OPT_RSP = 4071;	//boss 操作返回
 	FEST_BOSS_INFO_REQ = 4072;		//boss 数据请求
 	FEST_BOSS_INFO_RSP = 4073;		//boss 数据返回
+
 
 
 	//开服比拼 4100-4120
@@ -1764,6 +1802,8 @@ enum ClientServerCmd
 	FEST_SERVERRANK_GET_REDPOINT_REWARD_REQ = 4107; //获得红点礼包
 	FEST_SERVERRANK_GET_REDPOINT_REWARD_RSP = 4108; //获得红点礼包
 	FEST_SERVERRANK_RANK_STATUS_CHANGE = 4109; //排行榜开启状态改变
+	FEST_SERVERRANK_GET_ALL_RANK_REQ = 4110; //获取排行榜数据
+	FEST_SERVERRANK_GET_ALL_RANK_RSP = 4111; //获取排行榜数据
 	//回梦西游 4120-4150
 	FEST_HUIMENGXIYOU_GET_REWARD_REQ = 4120; //回梦西游 获取奖励
 	FEST_HUIMENGXIYOU_GET_REWARD_RSP = 4121; //回梦西游 获取奖励
@@ -1913,11 +1953,14 @@ enum ClientServerCmd
 	GMA_EnterReq = 4559;
 	GMA_GotoFloorReq = 4560; //去其它层
 	GMA_GotoFloorRsp = 4561;
-	GMA_TimeRechargeReq=4562;//用道具总换时间
+	GMA_TimeRechargeReq=4562;//用道具换时间
 	GMA_TimeRechargeRsp=4563;
 	GMA_ExitReq=4564;//退出
 	GMA_ResultReq=4565;//请求结算数据并暂停
 	GMA_ResultRsp=4566;
+	GMA_DatasReq=4567;//提前请求数据
+	GMA_Error=4568;//错误码
+	GMA_TimeReq=4569;//请求时间
 	
 	//镇魂魔域
 	FACTION_MOYU_RANK_REQ = 4580;	//镇魂魔域排行榜
@@ -1939,6 +1982,19 @@ enum ClientServerCmd
 	YAOTA_RECV_RSP = 4605;					//妖塔领取奖励返回
 	NOTIFY_YAOTA_DUP_RES = 4606;			//通知九层妖塔副本结果
 	
+	//
+	NOTIFY_EQUIP_EXPIRE = 4610;				//装备过期
+	//战魂
+	NOTIFY_SOUL_MODULE = 4611;				//上线更新战魂模块信息
+	NOTIFY_SOUL_ENTRY = 4612;				//更新战魂
+	NOTIFY_SOUL_POOL = 4613;				//更新聚灵池
+	NOTIFY_SOUL_TASK = 4614;				//更新前置任务
+	SOUL_RECV_TASK_REQ = 4615;				//领取前置任务
+	SOUL_RECV_TASK_RSP = 4616;				//领取前置任务返回
+	SOUL_ENTRY_OPT_REQ = 4617;				//战魂操作
+	SOUL_ENTRY_OPT_RSP = 4618;				//战魂操作返回
+	SOUL_POOL_OPT_REQ = 4619;				//战魂聚灵池操作
+	SOUL_POOL_OPT_RSP = 4620;				//战魂聚灵池操作返回
 	
 	CLIENT_SERVER_MAX_CMD = 5000;	//最大协议ID
 };

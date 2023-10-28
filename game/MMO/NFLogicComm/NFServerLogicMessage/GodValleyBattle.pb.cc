@@ -260,6 +260,15 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* GMAResultRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   GMAResultRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* GMADatasReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  GMADatasReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* GMAError_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  GMAError_reflection_ = NULL;
+const ::google::protobuf::Descriptor* GMATimeReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  GMATimeReq_reflection_ = NULL;
 
 }  // namespace
 
@@ -1598,6 +1607,50 @@ void protobuf_AssignDesc_GodValleyBattle_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GMAResultRsp));
+  GMADatasReq_descriptor_ = file->message_type(80);
+  static const int GMADatasReq_offsets_[1] = {
+  };
+  GMADatasReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      GMADatasReq_descriptor_,
+      GMADatasReq::default_instance_,
+      GMADatasReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GMADatasReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GMADatasReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(GMADatasReq));
+  GMAError_descriptor_ = file->message_type(81);
+  static const int GMAError_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GMAError, errcode_),
+  };
+  GMAError_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      GMAError_descriptor_,
+      GMAError::default_instance_,
+      GMAError_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GMAError, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GMAError, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(GMAError));
+  GMATimeReq_descriptor_ = file->message_type(82);
+  static const int GMATimeReq_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GMATimeReq, op_),
+  };
+  GMATimeReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      GMATimeReq_descriptor_,
+      GMATimeReq::default_instance_,
+      GMATimeReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GMATimeReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GMATimeReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(GMATimeReq));
 }
 
 namespace {
@@ -1770,6 +1823,12 @@ void protobuf_RegisterTypes(const ::std::string&) {
     GMAResultReq_descriptor_, &GMAResultReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     GMAResultRsp_descriptor_, &GMAResultRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    GMADatasReq_descriptor_, &GMADatasReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    GMAError_descriptor_, &GMAError::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    GMATimeReq_descriptor_, &GMATimeReq::default_instance());
 }
 
 }  // namespace
@@ -1935,6 +1994,12 @@ void protobuf_ShutdownFile_GodValleyBattle_2eproto() {
   delete GMAResultReq_reflection_;
   delete GMAResultRsp::default_instance_;
   delete GMAResultRsp_reflection_;
+  delete GMADatasReq::default_instance_;
+  delete GMADatasReq_reflection_;
+  delete GMAError::default_instance_;
+  delete GMAError_reflection_;
+  delete GMATimeReq::default_instance_;
+  delete GMATimeReq_reflection_;
 }
 
 void protobuf_AddDesc_GodValleyBattle_2eproto() {
@@ -2096,7 +2161,9 @@ void protobuf_AddDesc_GodValleyBattle_2eproto() {
     "\n\005count\030\002 \002(\r\"#\n\022GMATimeRechargeRsp\022\r\n\005e"
     "rror\030\001 \002(\r\"\014\n\nGMAExitReq\"\016\n\014GMAResultReq"
     "\"E\n\014GMAResultRsp\022\017\n\007itemIds\030\001 \003(\004\022\022\n\nite"
-    "mCounts\030\002 \003(\004\022\020\n\010timeUsed\030\003 \002(\004", 5991);
+    "mCounts\030\002 \003(\004\022\020\n\010timeUsed\030\003 \002(\004\"\r\n\013GMADa"
+    "tasReq\"\033\n\010GMAError\022\017\n\007errcode\030\001 \002(\r\"\030\n\nG"
+    "MATimeReq\022\n\n\002op\030\001 \002(\r", 6061);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "GodValleyBattle.proto", &protobuf_RegisterTypes);
   GVBEnterReq::default_instance_ = new GVBEnterReq();
@@ -2179,6 +2246,9 @@ void protobuf_AddDesc_GodValleyBattle_2eproto() {
   GMAExitReq::default_instance_ = new GMAExitReq();
   GMAResultReq::default_instance_ = new GMAResultReq();
   GMAResultRsp::default_instance_ = new GMAResultRsp();
+  GMADatasReq::default_instance_ = new GMADatasReq();
+  GMAError::default_instance_ = new GMAError();
+  GMATimeReq::default_instance_ = new GMATimeReq();
   GVBEnterReq::default_instance_->InitAsDefaultInstance();
   GVBEnterRsp::default_instance_->InitAsDefaultInstance();
   GVBSCrystalCollectReq::default_instance_->InitAsDefaultInstance();
@@ -2259,6 +2329,9 @@ void protobuf_AddDesc_GodValleyBattle_2eproto() {
   GMAExitReq::default_instance_->InitAsDefaultInstance();
   GMAResultReq::default_instance_->InitAsDefaultInstance();
   GMAResultRsp::default_instance_->InitAsDefaultInstance();
+  GMADatasReq::default_instance_->InitAsDefaultInstance();
+  GMAError::default_instance_->InitAsDefaultInstance();
+  GMATimeReq::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_GodValleyBattle_2eproto);
 }
 
@@ -24278,6 +24351,580 @@ void GMAResultRsp::Swap(GMAResultRsp* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = GMAResultRsp_descriptor_;
   metadata.reflection = GMAResultRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+#endif  // !_MSC_VER
+
+GMADatasReq::GMADatasReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void GMADatasReq::InitAsDefaultInstance() {
+}
+
+GMADatasReq::GMADatasReq(const GMADatasReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void GMADatasReq::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+GMADatasReq::~GMADatasReq() {
+  SharedDtor();
+}
+
+void GMADatasReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void GMADatasReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* GMADatasReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return GMADatasReq_descriptor_;
+}
+
+const GMADatasReq& GMADatasReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_GodValleyBattle_2eproto();
+  return *default_instance_;
+}
+
+GMADatasReq* GMADatasReq::default_instance_ = NULL;
+
+GMADatasReq* GMADatasReq::New() const {
+  return new GMADatasReq;
+}
+
+void GMADatasReq::Clear() {
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool GMADatasReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+      return true;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, mutable_unknown_fields()));
+  }
+  return true;
+#undef DO_
+}
+
+void GMADatasReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* GMADatasReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int GMADatasReq::ByteSize() const {
+  int total_size = 0;
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void GMADatasReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const GMADatasReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const GMADatasReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void GMADatasReq::MergeFrom(const GMADatasReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void GMADatasReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GMADatasReq::CopyFrom(const GMADatasReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GMADatasReq::IsInitialized() const {
+
+  return true;
+}
+
+void GMADatasReq::Swap(GMADatasReq* other) {
+  if (other != this) {
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata GMADatasReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = GMADatasReq_descriptor_;
+  metadata.reflection = GMADatasReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int GMAError::kErrcodeFieldNumber;
+#endif  // !_MSC_VER
+
+GMAError::GMAError()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void GMAError::InitAsDefaultInstance() {
+}
+
+GMAError::GMAError(const GMAError& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void GMAError::SharedCtor() {
+  _cached_size_ = 0;
+  errcode_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+GMAError::~GMAError() {
+  SharedDtor();
+}
+
+void GMAError::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void GMAError::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* GMAError::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return GMAError_descriptor_;
+}
+
+const GMAError& GMAError::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_GodValleyBattle_2eproto();
+  return *default_instance_;
+}
+
+GMAError* GMAError::default_instance_ = NULL;
+
+GMAError* GMAError::New() const {
+  return new GMAError;
+}
+
+void GMAError::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    errcode_ = 0u;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool GMAError::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 errcode = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &errcode_)));
+          set_has_errcode();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void GMAError::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required uint32 errcode = 1;
+  if (has_errcode()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->errcode(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* GMAError::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required uint32 errcode = 1;
+  if (has_errcode()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->errcode(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int GMAError::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 errcode = 1;
+    if (has_errcode()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->errcode());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void GMAError::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const GMAError* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const GMAError*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void GMAError::MergeFrom(const GMAError& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_errcode()) {
+      set_errcode(from.errcode());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void GMAError::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GMAError::CopyFrom(const GMAError& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GMAError::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void GMAError::Swap(GMAError* other) {
+  if (other != this) {
+    std::swap(errcode_, other->errcode_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata GMAError::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = GMAError_descriptor_;
+  metadata.reflection = GMAError_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int GMATimeReq::kOpFieldNumber;
+#endif  // !_MSC_VER
+
+GMATimeReq::GMATimeReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void GMATimeReq::InitAsDefaultInstance() {
+}
+
+GMATimeReq::GMATimeReq(const GMATimeReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void GMATimeReq::SharedCtor() {
+  _cached_size_ = 0;
+  op_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+GMATimeReq::~GMATimeReq() {
+  SharedDtor();
+}
+
+void GMATimeReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void GMATimeReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* GMATimeReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return GMATimeReq_descriptor_;
+}
+
+const GMATimeReq& GMATimeReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_GodValleyBattle_2eproto();
+  return *default_instance_;
+}
+
+GMATimeReq* GMATimeReq::default_instance_ = NULL;
+
+GMATimeReq* GMATimeReq::New() const {
+  return new GMATimeReq;
+}
+
+void GMATimeReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    op_ = 0u;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool GMATimeReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 op = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &op_)));
+          set_has_op();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void GMATimeReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required uint32 op = 1;
+  if (has_op()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->op(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* GMATimeReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required uint32 op = 1;
+  if (has_op()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->op(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int GMATimeReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 op = 1;
+    if (has_op()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->op());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void GMATimeReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const GMATimeReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const GMATimeReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void GMATimeReq::MergeFrom(const GMATimeReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_op()) {
+      set_op(from.op());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void GMATimeReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GMATimeReq::CopyFrom(const GMATimeReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GMATimeReq::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void GMATimeReq::Swap(GMATimeReq* other) {
+  if (other != this) {
+    std::swap(op_, other->op_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata GMATimeReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = GMATimeReq_descriptor_;
+  metadata.reflection = GMATimeReq_reflection_;
   return metadata;
 }
 

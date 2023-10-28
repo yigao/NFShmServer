@@ -16,7 +16,7 @@
 #define DEFINE_E_MARRYLOCKSKILL_M_SKILL_MAX_NUM 3
 #define DEFINE_SHEET_MARRYLOCKSKILL_E_MARRYLOCKSKILL_LIST_MAX_NUM 8
 #define DEFINE_E_MARRYCHILD_M_ATTRIBUTE_MAX_NUM 6
-#define DEFINE_E_MARRYCHILD_M_STARIATTRIBUTE_MAX_NUM 4
+#define DEFINE_E_MARRYCHILD_M_STARIATTRIBUTE_MAX_NUM 5
 #define DEFINE_SHEET_MARRYCHILD_E_MARRYCHILD_LIST_MAX_NUM 16
 #define DEFINE_E_MARRYCHILDVALUE_M_LVVALUE_MAX_NUM 31
 #define DEFINE_SHEET_MARRYCHILDVALUE_E_MARRYCHILDVALUE_LIST_MAX_NUM 128
@@ -27,7 +27,7 @@
 #define DEFINE_SHEET_MARRYEXPRESSLANGUAGE_E_MARRYEXPRESSLANGUAGE_LIST_MAX_NUM 32
 #define DEFINE_SHEET_MARRYEXPRESSSHOP_E_MARRYEXPRESSSHOP_LIST_MAX_NUM 4
 #define DEFINE_E_MARRYCONSTANT_M_TOURMONSTER_MAX_NUM 8
-#define DEFINE_SHEET_MARRYCONSTANT_E_MARRYCONSTANT_LIST_MAX_NUM 2
+#define DEFINE_SHEET_MARRYCONSTANT_E_MARRYCONSTANT_LIST_MAX_NUM 4
 #define DEFINE_SHEET_MARRYCOMMON_E_MARRYCOMMON_LIST_MAX_NUM 512
 #define DEFINE_E_MARRYWEDDING_M_STAGE_MAX_NUM 6
 #define DEFINE_E_MARRYWEDDING_M_FIRE_MAX_NUM 2
@@ -443,6 +443,7 @@ namespace proto_ff_s {
 		int32_t m_exp;//增加表白值
 		int32_t m_expto;//被表白经验值
 		int32_t m_broadcastid;//广播id
+		int32_t m_effectid;//表白特效ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_MarryExpressshop & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MarryExpressshop & msg);
@@ -524,6 +525,8 @@ namespace proto_ff_s {
 		int32_t m_sendrednum;//发红包奖励价格
 		int32_t m_redcollect;//红包采集物
 		int32_t m_redcollectnum;//红包采集物数量
+		int32_t m_cakemonster;//婚宴蛋糕模型
+		int32_t m_hymonster;//宴席模型
 		NFShmVector<struct E_MarryConstantTourmonsterDesc_s, DEFINE_E_MARRYCONSTANT_M_TOURMONSTER_MAX_NUM> m_tourmonster;//巡游怪物
 
 		virtual void write_to_pbmsg(::proto_ff::E_MarryConstant & msg) const;

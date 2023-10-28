@@ -1031,6 +1031,131 @@ void PetGrow_s::read_from_pbmsg(const ::proto_ff::PetGrow & msg) {
 	starindex = msg.starindex();
 }
 
+PetYaoHunSlot_s::PetYaoHunSlot_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int PetYaoHunSlot_s::CreateInit() {
+	slot_pos = (int32_t)0;
+	lv = (int32_t)0;
+	exp = (int32_t)0;
+	step = (int32_t)0;
+	return 0;
+}
+
+int PetYaoHunSlot_s::ResumeInit() {
+	return 0;
+}
+
+void PetYaoHunSlot_s::write_to_pbmsg(::proto_ff::PetYaoHunSlot & msg) const {
+	msg.set_slot_pos((int32_t)slot_pos);
+	msg.set_lv((int32_t)lv);
+	msg.set_exp((int32_t)exp);
+	msg.set_step((int32_t)step);
+	::proto_ff::ItemProtoInfo* temp_equip = msg.mutable_equip();
+	equip.write_to_pbmsg(*temp_equip);
+}
+
+void PetYaoHunSlot_s::read_from_pbmsg(const ::proto_ff::PetYaoHunSlot & msg) {
+	slot_pos = msg.slot_pos();
+	lv = msg.lv();
+	exp = msg.exp();
+	step = msg.step();
+	const ::proto_ff::ItemProtoInfo & temp_equip = msg.equip();
+	equip.read_from_pbmsg(temp_equip);
+}
+
+PetYaoHunEntry_s::PetYaoHunEntry_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int PetYaoHunEntry_s::CreateInit() {
+	fight_pos = (int32_t)0;
+	is_unlock = (int32_t)0;
+	return 0;
+}
+
+int PetYaoHunEntry_s::ResumeInit() {
+	return 0;
+}
+
+void PetYaoHunEntry_s::write_to_pbmsg(::proto_ff::PetYaoHunEntry & msg) const {
+	msg.set_fight_pos((int32_t)fight_pos);
+	msg.set_is_unlock((int32_t)is_unlock);
+	for(int32_t i = 0; i < (int32_t)infos.size(); ++i) {
+		::proto_ff::PetYaoHunSlot* temp_infos = msg.add_infos();
+		infos[i].write_to_pbmsg(*temp_infos);
+	}
+	for(int32_t i = 0; i < (int32_t)suitids.size(); ++i) {
+		msg.add_suitids((int32_t)suitids[i]);
+	}
+}
+
+void PetYaoHunEntry_s::read_from_pbmsg(const ::proto_ff::PetYaoHunEntry & msg) {
+	fight_pos = msg.fight_pos();
+	is_unlock = msg.is_unlock();
+	infos.resize((int)msg.infos_size() > (int)infos.max_size() ? infos.max_size() : msg.infos_size());
+	for(int32_t i = 0; i < (int32_t)infos.size(); ++i) {
+		const ::proto_ff::PetYaoHunSlot & temp_infos = msg.infos(i);
+		infos[i].read_from_pbmsg(temp_infos);
+	}
+	suitids.resize((int)msg.suitids_size() > (int)suitids.max_size() ? suitids.max_size() : msg.suitids_size());
+	for(int32_t i = 0; i < (int32_t)suitids.size(); ++i) {
+		suitids[i] = msg.suitids(i);
+	}
+}
+
+PetYaoHunModule_s::PetYaoHunModule_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int PetYaoHunModule_s::CreateInit() {
+	lianyao_tq_flag = (int32_t)0;
+	yaolu_lv = (int32_t)0;
+	yaolu_exp = (int32_t)0;
+	yaoqi = (int32_t)0;
+	return 0;
+}
+
+int PetYaoHunModule_s::ResumeInit() {
+	return 0;
+}
+
+void PetYaoHunModule_s::write_to_pbmsg(::proto_ff::PetYaoHunModule & msg) const {
+	for(int32_t i = 0; i < (int32_t)entrys.size(); ++i) {
+		::proto_ff::PetYaoHunEntry* temp_entrys = msg.add_entrys();
+		entrys[i].write_to_pbmsg(*temp_entrys);
+	}
+	msg.set_lianyao_tq_flag((int32_t)lianyao_tq_flag);
+	msg.set_yaolu_lv((int32_t)yaolu_lv);
+	msg.set_yaolu_exp((int32_t)yaolu_exp);
+	msg.set_yaoqi((int32_t)yaoqi);
+}
+
+void PetYaoHunModule_s::read_from_pbmsg(const ::proto_ff::PetYaoHunModule & msg) {
+	entrys.resize((int)msg.entrys_size() > (int)entrys.max_size() ? entrys.max_size() : msg.entrys_size());
+	for(int32_t i = 0; i < (int32_t)entrys.size(); ++i) {
+		const ::proto_ff::PetYaoHunEntry & temp_entrys = msg.entrys(i);
+		entrys[i].read_from_pbmsg(temp_entrys);
+	}
+	lianyao_tq_flag = msg.lianyao_tq_flag();
+	yaolu_lv = msg.yaolu_lv();
+	yaolu_exp = msg.yaolu_exp();
+	yaoqi = msg.yaoqi();
+}
+
 TurnAttr_s::TurnAttr_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -1153,6 +1278,9 @@ void ItemProtoInfo_s::write_to_pbmsg(::proto_ff::ItemProtoInfo & msg) const {
 	::proto_ff::TurnAttr* temp_turn_attr = msg.mutable_turn_attr();
 	turn_attr.write_to_pbmsg(*temp_turn_attr);
 	msg.set_item_chg_count((int64_t)item_chg_count);
+	for(int32_t i = 0; i < (int32_t)unlock_attr_index.size(); ++i) {
+		msg.add_unlock_attr_index((int32_t)unlock_attr_index[i]);
+	}
 }
 
 void ItemProtoInfo_s::read_from_pbmsg(const ::proto_ff::ItemProtoInfo & msg) {
@@ -1215,6 +1343,10 @@ void ItemProtoInfo_s::read_from_pbmsg(const ::proto_ff::ItemProtoInfo & msg) {
 	const ::proto_ff::TurnAttr & temp_turn_attr = msg.turn_attr();
 	turn_attr.read_from_pbmsg(temp_turn_attr);
 	item_chg_count = msg.item_chg_count();
+	unlock_attr_index.resize((int)msg.unlock_attr_index_size() > (int)unlock_attr_index.max_size() ? unlock_attr_index.max_size() : msg.unlock_attr_index_size());
+	for(int32_t i = 0; i < (int32_t)unlock_attr_index.size(); ++i) {
+		unlock_attr_index[i] = msg.unlock_attr_index(i);
+	}
 }
 
 StoneSlotInfo_s::StoneSlotInfo_s() {
@@ -2904,9 +3036,8 @@ void MountKunEquipData_s::write_to_pbmsg(::proto_ff::MountKunEquipData & msg) co
 		::proto_ff::EquipInfo* temp_infos = msg.add_infos();
 		infos[i].write_to_pbmsg(*temp_infos);
 	}
-	for(int32_t i = 0; i < (int32_t)lv_attr.size(); ++i) {
-		::proto_ff::EquipLvAttrInfo* temp_lv_attr = msg.add_lv_attr();
-		lv_attr[i].write_to_pbmsg(*temp_lv_attr);
+	for(int32_t i = 0; i < (int32_t)slot_status.size(); ++i) {
+		msg.add_slot_status((uint32_t)slot_status[i]);
 	}
 }
 
@@ -2916,10 +3047,9 @@ void MountKunEquipData_s::read_from_pbmsg(const ::proto_ff::MountKunEquipData & 
 		const ::proto_ff::EquipInfo & temp_infos = msg.infos(i);
 		infos[i].read_from_pbmsg(temp_infos);
 	}
-	lv_attr.resize((int)msg.lv_attr_size() > (int)lv_attr.max_size() ? lv_attr.max_size() : msg.lv_attr_size());
-	for(int32_t i = 0; i < (int32_t)lv_attr.size(); ++i) {
-		const ::proto_ff::EquipLvAttrInfo & temp_lv_attr = msg.lv_attr(i);
-		lv_attr[i].read_from_pbmsg(temp_lv_attr);
+	slot_status.resize((int)msg.slot_status_size() > (int)slot_status.max_size() ? slot_status.max_size() : msg.slot_status_size());
+	for(int32_t i = 0; i < (int32_t)slot_status.size(); ++i) {
+		slot_status[i] = msg.slot_status(i);
 	}
 }
 
@@ -3178,6 +3308,44 @@ void MountFairyLand_s::read_from_pbmsg(const ::proto_ff::MountFairyLand & msg) {
 	cur_active_tour_id = msg.cur_active_tour_id();
 }
 
+MountFairySlotRecord_s::MountFairySlotRecord_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int MountFairySlotRecord_s::CreateInit() {
+	cur_fairy_id = (int64_t)0;
+	event_id = (int64_t)0;
+	create_time = (int64_t)0;
+	finish = (bool)0;
+	return 0;
+}
+
+int MountFairySlotRecord_s::ResumeInit() {
+	return 0;
+}
+
+void MountFairySlotRecord_s::write_to_pbmsg(::proto_ff::MountFairySlotRecord & msg) const {
+	msg.set_cur_fairy_id((int64_t)cur_fairy_id);
+	msg.set_event_id((int64_t)event_id);
+	msg.set_create_time((int64_t)create_time);
+	msg.set_finish((bool)finish);
+	::proto_ff::ComItem* temp_reward_item = msg.mutable_reward_item();
+	reward_item.write_to_pbmsg(*temp_reward_item);
+}
+
+void MountFairySlotRecord_s::read_from_pbmsg(const ::proto_ff::MountFairySlotRecord & msg) {
+	cur_fairy_id = msg.cur_fairy_id();
+	event_id = msg.event_id();
+	create_time = msg.create_time();
+	finish = msg.finish();
+	const ::proto_ff::ComItem & temp_reward_item = msg.reward_item();
+	reward_item.read_from_pbmsg(temp_reward_item);
+}
+
 MountFairySlot_s::MountFairySlot_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -3194,6 +3362,9 @@ int MountFairySlot_s::CreateInit() {
 	cur_end_time = (uint32_t)0;
 	status = (uint32_t)0;
 	can_get_reward = (bool)0;
+	reward_gold = (uint64_t)0;
+	reward_dia = (uint64_t)0;
+	reward_bdia = (uint64_t)0;
 	return 0;
 }
 
@@ -3209,6 +3380,17 @@ void MountFairySlot_s::write_to_pbmsg(::proto_ff::MountFairySlot & msg) const {
 	msg.set_cur_end_time((uint32_t)cur_end_time);
 	msg.set_status((uint32_t)status);
 	msg.set_can_get_reward((bool)can_get_reward);
+	for(int32_t i = 0; i < (int32_t)reward_item.size(); ++i) {
+		::proto_ff::ComItem* temp_reward_item = msg.add_reward_item();
+		reward_item[i].write_to_pbmsg(*temp_reward_item);
+	}
+	msg.set_reward_gold((uint64_t)reward_gold);
+	msg.set_reward_dia((uint64_t)reward_dia);
+	msg.set_reward_bdia((uint64_t)reward_bdia);
+	for(int32_t i = 0; i < (int32_t)record.size(); ++i) {
+		::proto_ff::MountFairySlotRecord* temp_record = msg.add_record();
+		record[i].write_to_pbmsg(*temp_record);
+	}
 }
 
 void MountFairySlot_s::read_from_pbmsg(const ::proto_ff::MountFairySlot & msg) {
@@ -3219,6 +3401,19 @@ void MountFairySlot_s::read_from_pbmsg(const ::proto_ff::MountFairySlot & msg) {
 	cur_end_time = msg.cur_end_time();
 	status = msg.status();
 	can_get_reward = msg.can_get_reward();
+	reward_item.resize((int)msg.reward_item_size() > (int)reward_item.max_size() ? reward_item.max_size() : msg.reward_item_size());
+	for(int32_t i = 0; i < (int32_t)reward_item.size(); ++i) {
+		const ::proto_ff::ComItem & temp_reward_item = msg.reward_item(i);
+		reward_item[i].read_from_pbmsg(temp_reward_item);
+	}
+	reward_gold = msg.reward_gold();
+	reward_dia = msg.reward_dia();
+	reward_bdia = msg.reward_bdia();
+	record.resize((int)msg.record_size() > (int)record.max_size() ? record.max_size() : msg.record_size());
+	for(int32_t i = 0; i < (int32_t)record.size(); ++i) {
+		const ::proto_ff::MountFairySlotRecord & temp_record = msg.record(i);
+		record[i].read_from_pbmsg(temp_record);
+	}
 }
 
 StatisticDataProto_s::StatisticDataProto_s() {
@@ -3386,6 +3581,7 @@ int DailyTaskLimitEntry_s::CreateInit() {
 	ready_add = (bool)0;
 	is_open = (bool)0;
 	ready_add_time = (uint64_t)0;
+	is_fest_open = (bool)0;
 	return 0;
 }
 
@@ -3402,6 +3598,7 @@ void DailyTaskLimitEntry_s::write_to_pbmsg(::proto_ff::DailyTaskLimitEntry & msg
 	msg.set_ready_add((bool)ready_add);
 	msg.set_is_open((bool)is_open);
 	msg.set_ready_add_time((uint64_t)ready_add_time);
+	msg.set_is_fest_open((bool)is_fest_open);
 }
 
 void DailyTaskLimitEntry_s::read_from_pbmsg(const ::proto_ff::DailyTaskLimitEntry & msg) {
@@ -3413,6 +3610,7 @@ void DailyTaskLimitEntry_s::read_from_pbmsg(const ::proto_ff::DailyTaskLimitEntr
 	ready_add = msg.ready_add();
 	is_open = msg.is_open();
 	ready_add_time = msg.ready_add_time();
+	is_fest_open = msg.is_fest_open();
 }
 
 DailyTaskBackDayEntry_s::DailyTaskBackDayEntry_s() {
@@ -10540,6 +10738,65 @@ void FMarryTask_s::read_from_pbmsg(const ::proto_ff::FMarryTask & msg) {
 	id = msg.id();
 	val = msg.val();
 	state = msg.state();
+}
+
+SoulEntry_s::SoulEntry_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int SoulEntry_s::CreateInit() {
+	id = (int32_t)0;
+	lv = (int32_t)0;
+	steplv = (int32_t)0;
+	return 0;
+}
+
+int SoulEntry_s::ResumeInit() {
+	return 0;
+}
+
+void SoulEntry_s::write_to_pbmsg(::proto_ff::SoulEntry & msg) const {
+	msg.set_id((int32_t)id);
+	msg.set_lv((int32_t)lv);
+	msg.set_steplv((int32_t)steplv);
+}
+
+void SoulEntry_s::read_from_pbmsg(const ::proto_ff::SoulEntry & msg) {
+	id = msg.id();
+	lv = msg.lv();
+	steplv = msg.steplv();
+}
+
+SoulPool_s::SoulPool_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int SoulPool_s::CreateInit() {
+	poolBlessLv = (int32_t)0;
+	poolPgLv = (int32_t)0;
+	return 0;
+}
+
+int SoulPool_s::ResumeInit() {
+	return 0;
+}
+
+void SoulPool_s::write_to_pbmsg(::proto_ff::SoulPool & msg) const {
+	msg.set_poolblesslv((int32_t)poolBlessLv);
+	msg.set_poolpglv((int32_t)poolPgLv);
+}
+
+void SoulPool_s::read_from_pbmsg(const ::proto_ff::SoulPool & msg) {
+	poolBlessLv = msg.poolblesslv();
+	poolPgLv = msg.poolpglv();
 }
 
 }

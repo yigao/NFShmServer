@@ -40,6 +40,8 @@ class NotifyPetRsp;
 class NotifyPetFetterRsp;
 class NotifyPetHatchRsp;
 class NotifyPetGetedListRsp;
+class NotifyPetYaoHun;
+class NotifyPetYaoHunSimple;
 class PetLvUpReq;
 class PetLvUpRsp;
 class PetStepLvReq;
@@ -69,6 +71,25 @@ class PetRestReViewRsp;
 class NotifyPetGrow;
 class PetGrowOptReq;
 class PetGrowOptRsp;
+class PetYaoHunUnlockReq;
+class PetYaoHunUnlockRsp;
+class PetYaoHunDressReq;
+class PetYaoHunDressRsp;
+class PetLianYaoReq;
+class PetLianYaoReward;
+class PetLianYaoRsp;
+class PetYaoHunExchangeReq;
+class PetYaoHunExchangeRsp;
+class PetYaoHunLvReq;
+class PetYaoHunLvRsp;
+class PetYaoHunBreakReq;
+class PetYaoHunBreakRsp;
+class PetLianYaoTqBuyReq;
+class PetLianYaoTqBuyRsp;
+class PetYaoHunSuitReq;
+class PetYaoHunSuitRsp;
+class PetYaoHunResetReq;
+class PetYaoHunResetRsp;
 
 // ===================================================================
 
@@ -186,8 +207,19 @@ class NotifyPetModuleRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::PetGrow >*
       mutable_grows();
 
+  // optional .proto_ff.PetYaoHunModule yaohun = 6;
+  inline bool has_yaohun() const;
+  inline void clear_yaohun();
+  static const int kYaohunFieldNumber = 6;
+  inline const ::proto_ff::PetYaoHunModule& yaohun() const;
+  inline ::proto_ff::PetYaoHunModule* mutable_yaohun();
+  inline ::proto_ff::PetYaoHunModule* release_yaohun();
+  inline void set_allocated_yaohun(::proto_ff::PetYaoHunModule* yaohun);
+
   // @@protoc_insertion_point(class_scope:proto_ff.NotifyPetModuleRsp)
  private:
+  inline void set_has_yaohun();
+  inline void clear_has_yaohun();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -196,9 +228,10 @@ class NotifyPetModuleRsp : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::proto_ff::PetHatchInfo > hatchs_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int64 > cfgids_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::PetGrow > grows_;
+  ::proto_ff::PetYaoHunModule* yaohun_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
   friend void  protobuf_AddDesc_Pet_2eproto();
   friend void protobuf_AssignDesc_Pet_2eproto();
@@ -556,6 +589,202 @@ class NotifyPetGetedListRsp : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static NotifyPetGetedListRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NotifyPetYaoHun : public ::google::protobuf::Message {
+ public:
+  NotifyPetYaoHun();
+  virtual ~NotifyPetYaoHun();
+
+  NotifyPetYaoHun(const NotifyPetYaoHun& from);
+
+  inline NotifyPetYaoHun& operator=(const NotifyPetYaoHun& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NotifyPetYaoHun& default_instance();
+
+  void Swap(NotifyPetYaoHun* other);
+
+  // implements Message ----------------------------------------------
+
+  NotifyPetYaoHun* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NotifyPetYaoHun& from);
+  void MergeFrom(const NotifyPetYaoHun& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .proto_ff.PetYaoHunEntry info = 1;
+  inline bool has_info() const;
+  inline void clear_info();
+  static const int kInfoFieldNumber = 1;
+  inline const ::proto_ff::PetYaoHunEntry& info() const;
+  inline ::proto_ff::PetYaoHunEntry* mutable_info();
+  inline ::proto_ff::PetYaoHunEntry* release_info();
+  inline void set_allocated_info(::proto_ff::PetYaoHunEntry* info);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NotifyPetYaoHun)
+ private:
+  inline void set_has_info();
+  inline void clear_has_info();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::proto_ff::PetYaoHunEntry* info_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static NotifyPetYaoHun* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NotifyPetYaoHunSimple : public ::google::protobuf::Message {
+ public:
+  NotifyPetYaoHunSimple();
+  virtual ~NotifyPetYaoHunSimple();
+
+  NotifyPetYaoHunSimple(const NotifyPetYaoHunSimple& from);
+
+  inline NotifyPetYaoHunSimple& operator=(const NotifyPetYaoHunSimple& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NotifyPetYaoHunSimple& default_instance();
+
+  void Swap(NotifyPetYaoHunSimple* other);
+
+  // implements Message ----------------------------------------------
+
+  NotifyPetYaoHunSimple* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NotifyPetYaoHunSimple& from);
+  void MergeFrom(const NotifyPetYaoHunSimple& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 lianyao_tq_flag = 2;
+  inline bool has_lianyao_tq_flag() const;
+  inline void clear_lianyao_tq_flag();
+  static const int kLianyaoTqFlagFieldNumber = 2;
+  inline ::google::protobuf::int32 lianyao_tq_flag() const;
+  inline void set_lianyao_tq_flag(::google::protobuf::int32 value);
+
+  // optional int32 yaolu_lv = 3;
+  inline bool has_yaolu_lv() const;
+  inline void clear_yaolu_lv();
+  static const int kYaoluLvFieldNumber = 3;
+  inline ::google::protobuf::int32 yaolu_lv() const;
+  inline void set_yaolu_lv(::google::protobuf::int32 value);
+
+  // optional int32 yaolu_exp = 4;
+  inline bool has_yaolu_exp() const;
+  inline void clear_yaolu_exp();
+  static const int kYaoluExpFieldNumber = 4;
+  inline ::google::protobuf::int32 yaolu_exp() const;
+  inline void set_yaolu_exp(::google::protobuf::int32 value);
+
+  // optional int32 yaoqi = 5;
+  inline bool has_yaoqi() const;
+  inline void clear_yaoqi();
+  static const int kYaoqiFieldNumber = 5;
+  inline ::google::protobuf::int32 yaoqi() const;
+  inline void set_yaoqi(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NotifyPetYaoHunSimple)
+ private:
+  inline void set_has_lianyao_tq_flag();
+  inline void clear_has_lianyao_tq_flag();
+  inline void set_has_yaolu_lv();
+  inline void clear_has_yaolu_lv();
+  inline void set_has_yaolu_exp();
+  inline void clear_has_yaolu_exp();
+  inline void set_has_yaoqi();
+  inline void clear_has_yaoqi();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 lianyao_tq_flag_;
+  ::google::protobuf::int32 yaolu_lv_;
+  ::google::protobuf::int32 yaolu_exp_;
+  ::google::protobuf::int32 yaoqi_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static NotifyPetYaoHunSimple* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -3321,6 +3550,1840 @@ class PetGrowOptRsp : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static PetGrowOptRsp* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class PetYaoHunUnlockReq : public ::google::protobuf::Message {
+ public:
+  PetYaoHunUnlockReq();
+  virtual ~PetYaoHunUnlockReq();
+
+  PetYaoHunUnlockReq(const PetYaoHunUnlockReq& from);
+
+  inline PetYaoHunUnlockReq& operator=(const PetYaoHunUnlockReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetYaoHunUnlockReq& default_instance();
+
+  void Swap(PetYaoHunUnlockReq* other);
+
+  // implements Message ----------------------------------------------
+
+  PetYaoHunUnlockReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetYaoHunUnlockReq& from);
+  void MergeFrom(const PetYaoHunUnlockReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 fight_pos = 1;
+  inline bool has_fight_pos() const;
+  inline void clear_fight_pos();
+  static const int kFightPosFieldNumber = 1;
+  inline ::google::protobuf::int32 fight_pos() const;
+  inline void set_fight_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetYaoHunUnlockReq)
+ private:
+  inline void set_has_fight_pos();
+  inline void clear_has_fight_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 fight_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetYaoHunUnlockReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PetYaoHunUnlockRsp : public ::google::protobuf::Message {
+ public:
+  PetYaoHunUnlockRsp();
+  virtual ~PetYaoHunUnlockRsp();
+
+  PetYaoHunUnlockRsp(const PetYaoHunUnlockRsp& from);
+
+  inline PetYaoHunUnlockRsp& operator=(const PetYaoHunUnlockRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetYaoHunUnlockRsp& default_instance();
+
+  void Swap(PetYaoHunUnlockRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  PetYaoHunUnlockRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetYaoHunUnlockRsp& from);
+  void MergeFrom(const PetYaoHunUnlockRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 fight_pos = 2;
+  inline bool has_fight_pos() const;
+  inline void clear_fight_pos();
+  static const int kFightPosFieldNumber = 2;
+  inline ::google::protobuf::int32 fight_pos() const;
+  inline void set_fight_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetYaoHunUnlockRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_fight_pos();
+  inline void clear_has_fight_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 fight_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetYaoHunUnlockRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PetYaoHunDressReq : public ::google::protobuf::Message {
+ public:
+  PetYaoHunDressReq();
+  virtual ~PetYaoHunDressReq();
+
+  PetYaoHunDressReq(const PetYaoHunDressReq& from);
+
+  inline PetYaoHunDressReq& operator=(const PetYaoHunDressReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetYaoHunDressReq& default_instance();
+
+  void Swap(PetYaoHunDressReq* other);
+
+  // implements Message ----------------------------------------------
+
+  PetYaoHunDressReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetYaoHunDressReq& from);
+  void MergeFrom(const PetYaoHunDressReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 fight_pos = 1;
+  inline bool has_fight_pos() const;
+  inline void clear_fight_pos();
+  static const int kFightPosFieldNumber = 1;
+  inline ::google::protobuf::int32 fight_pos() const;
+  inline void set_fight_pos(::google::protobuf::int32 value);
+
+  // optional int32 bag_pos = 2;
+  inline bool has_bag_pos() const;
+  inline void clear_bag_pos();
+  static const int kBagPosFieldNumber = 2;
+  inline ::google::protobuf::int32 bag_pos() const;
+  inline void set_bag_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetYaoHunDressReq)
+ private:
+  inline void set_has_fight_pos();
+  inline void clear_has_fight_pos();
+  inline void set_has_bag_pos();
+  inline void clear_has_bag_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 fight_pos_;
+  ::google::protobuf::int32 bag_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetYaoHunDressReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PetYaoHunDressRsp : public ::google::protobuf::Message {
+ public:
+  PetYaoHunDressRsp();
+  virtual ~PetYaoHunDressRsp();
+
+  PetYaoHunDressRsp(const PetYaoHunDressRsp& from);
+
+  inline PetYaoHunDressRsp& operator=(const PetYaoHunDressRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetYaoHunDressRsp& default_instance();
+
+  void Swap(PetYaoHunDressRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  PetYaoHunDressRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetYaoHunDressRsp& from);
+  void MergeFrom(const PetYaoHunDressRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 fight_pos = 2;
+  inline bool has_fight_pos() const;
+  inline void clear_fight_pos();
+  static const int kFightPosFieldNumber = 2;
+  inline ::google::protobuf::int32 fight_pos() const;
+  inline void set_fight_pos(::google::protobuf::int32 value);
+
+  // optional int32 bag_pos = 3;
+  inline bool has_bag_pos() const;
+  inline void clear_bag_pos();
+  static const int kBagPosFieldNumber = 3;
+  inline ::google::protobuf::int32 bag_pos() const;
+  inline void set_bag_pos(::google::protobuf::int32 value);
+
+  // optional int32 code = 4;
+  inline bool has_code() const;
+  inline void clear_code();
+  static const int kCodeFieldNumber = 4;
+  inline ::google::protobuf::int32 code() const;
+  inline void set_code(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetYaoHunDressRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_fight_pos();
+  inline void clear_has_fight_pos();
+  inline void set_has_bag_pos();
+  inline void clear_has_bag_pos();
+  inline void set_has_code();
+  inline void clear_has_code();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 fight_pos_;
+  ::google::protobuf::int32 bag_pos_;
+  ::google::protobuf::int32 code_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetYaoHunDressRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PetLianYaoReq : public ::google::protobuf::Message {
+ public:
+  PetLianYaoReq();
+  virtual ~PetLianYaoReq();
+
+  PetLianYaoReq(const PetLianYaoReq& from);
+
+  inline PetLianYaoReq& operator=(const PetLianYaoReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetLianYaoReq& default_instance();
+
+  void Swap(PetLianYaoReq* other);
+
+  // implements Message ----------------------------------------------
+
+  PetLianYaoReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetLianYaoReq& from);
+  void MergeFrom(const PetLianYaoReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 lian_num = 1;
+  inline bool has_lian_num() const;
+  inline void clear_lian_num();
+  static const int kLianNumFieldNumber = 1;
+  inline ::google::protobuf::int32 lian_num() const;
+  inline void set_lian_num(::google::protobuf::int32 value);
+
+  // optional int32 quality = 2;
+  inline bool has_quality() const;
+  inline void clear_quality();
+  static const int kQualityFieldNumber = 2;
+  inline ::google::protobuf::int32 quality() const;
+  inline void set_quality(::google::protobuf::int32 value);
+
+  // optional int32 star = 3;
+  inline bool has_star() const;
+  inline void clear_star();
+  static const int kStarFieldNumber = 3;
+  inline ::google::protobuf::int32 star() const;
+  inline void set_star(::google::protobuf::int32 value);
+
+  // optional int32 quick = 4;
+  inline bool has_quick() const;
+  inline void clear_quick();
+  static const int kQuickFieldNumber = 4;
+  inline ::google::protobuf::int32 quick() const;
+  inline void set_quick(::google::protobuf::int32 value);
+
+  // repeated int32 bag_pos = 5;
+  inline int bag_pos_size() const;
+  inline void clear_bag_pos();
+  static const int kBagPosFieldNumber = 5;
+  inline ::google::protobuf::int32 bag_pos(int index) const;
+  inline void set_bag_pos(int index, ::google::protobuf::int32 value);
+  inline void add_bag_pos(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      bag_pos() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_bag_pos();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetLianYaoReq)
+ private:
+  inline void set_has_lian_num();
+  inline void clear_has_lian_num();
+  inline void set_has_quality();
+  inline void clear_has_quality();
+  inline void set_has_star();
+  inline void clear_has_star();
+  inline void set_has_quick();
+  inline void clear_has_quick();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 lian_num_;
+  ::google::protobuf::int32 quality_;
+  ::google::protobuf::int32 star_;
+  ::google::protobuf::int32 quick_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > bag_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetLianYaoReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PetLianYaoReward : public ::google::protobuf::Message {
+ public:
+  PetLianYaoReward();
+  virtual ~PetLianYaoReward();
+
+  PetLianYaoReward(const PetLianYaoReward& from);
+
+  inline PetLianYaoReward& operator=(const PetLianYaoReward& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetLianYaoReward& default_instance();
+
+  void Swap(PetLianYaoReward* other);
+
+  // implements Message ----------------------------------------------
+
+  PetLianYaoReward* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetLianYaoReward& from);
+  void MergeFrom(const PetLianYaoReward& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 itemid = 1;
+  inline bool has_itemid() const;
+  inline void clear_itemid();
+  static const int kItemidFieldNumber = 1;
+  inline ::google::protobuf::int32 itemid() const;
+  inline void set_itemid(::google::protobuf::int32 value);
+
+  // optional int32 num = 2;
+  inline bool has_num() const;
+  inline void clear_num();
+  static const int kNumFieldNumber = 2;
+  inline ::google::protobuf::int32 num() const;
+  inline void set_num(::google::protobuf::int32 value);
+
+  // optional int32 tq_add_flag = 3;
+  inline bool has_tq_add_flag() const;
+  inline void clear_tq_add_flag();
+  static const int kTqAddFlagFieldNumber = 3;
+  inline ::google::protobuf::int32 tq_add_flag() const;
+  inline void set_tq_add_flag(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetLianYaoReward)
+ private:
+  inline void set_has_itemid();
+  inline void clear_has_itemid();
+  inline void set_has_num();
+  inline void clear_has_num();
+  inline void set_has_tq_add_flag();
+  inline void clear_has_tq_add_flag();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 itemid_;
+  ::google::protobuf::int32 num_;
+  ::google::protobuf::int32 tq_add_flag_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetLianYaoReward* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PetLianYaoRsp : public ::google::protobuf::Message {
+ public:
+  PetLianYaoRsp();
+  virtual ~PetLianYaoRsp();
+
+  PetLianYaoRsp(const PetLianYaoRsp& from);
+
+  inline PetLianYaoRsp& operator=(const PetLianYaoRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetLianYaoRsp& default_instance();
+
+  void Swap(PetLianYaoRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  PetLianYaoRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetLianYaoRsp& from);
+  void MergeFrom(const PetLianYaoRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.PetLianYaoReward rewards = 2;
+  inline int rewards_size() const;
+  inline void clear_rewards();
+  static const int kRewardsFieldNumber = 2;
+  inline const ::proto_ff::PetLianYaoReward& rewards(int index) const;
+  inline ::proto_ff::PetLianYaoReward* mutable_rewards(int index);
+  inline ::proto_ff::PetLianYaoReward* add_rewards();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::PetLianYaoReward >&
+      rewards() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::PetLianYaoReward >*
+      mutable_rewards();
+
+  // optional int32 yaolu_add_exp = 3;
+  inline bool has_yaolu_add_exp() const;
+  inline void clear_yaolu_add_exp();
+  static const int kYaoluAddExpFieldNumber = 3;
+  inline ::google::protobuf::int32 yaolu_add_exp() const;
+  inline void set_yaolu_add_exp(::google::protobuf::int32 value);
+
+  // optional int32 yaolu_exp_flag = 4;
+  inline bool has_yaolu_exp_flag() const;
+  inline void clear_yaolu_exp_flag();
+  static const int kYaoluExpFlagFieldNumber = 4;
+  inline ::google::protobuf::int32 yaolu_exp_flag() const;
+  inline void set_yaolu_exp_flag(::google::protobuf::int32 value);
+
+  // optional int32 yaohun_add = 5;
+  inline bool has_yaohun_add() const;
+  inline void clear_yaohun_add();
+  static const int kYaohunAddFieldNumber = 5;
+  inline ::google::protobuf::int32 yaohun_add() const;
+  inline void set_yaohun_add(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetLianYaoRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_yaolu_add_exp();
+  inline void clear_has_yaolu_add_exp();
+  inline void set_has_yaolu_exp_flag();
+  inline void clear_has_yaolu_exp_flag();
+  inline void set_has_yaohun_add();
+  inline void clear_has_yaohun_add();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::PetLianYaoReward > rewards_;
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 yaolu_add_exp_;
+  ::google::protobuf::int32 yaolu_exp_flag_;
+  ::google::protobuf::int32 yaohun_add_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetLianYaoRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PetYaoHunExchangeReq : public ::google::protobuf::Message {
+ public:
+  PetYaoHunExchangeReq();
+  virtual ~PetYaoHunExchangeReq();
+
+  PetYaoHunExchangeReq(const PetYaoHunExchangeReq& from);
+
+  inline PetYaoHunExchangeReq& operator=(const PetYaoHunExchangeReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetYaoHunExchangeReq& default_instance();
+
+  void Swap(PetYaoHunExchangeReq* other);
+
+  // implements Message ----------------------------------------------
+
+  PetYaoHunExchangeReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetYaoHunExchangeReq& from);
+  void MergeFrom(const PetYaoHunExchangeReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 target_id = 1;
+  inline bool has_target_id() const;
+  inline void clear_target_id();
+  static const int kTargetIdFieldNumber = 1;
+  inline ::google::protobuf::int32 target_id() const;
+  inline void set_target_id(::google::protobuf::int32 value);
+
+  // optional int32 num = 2;
+  inline bool has_num() const;
+  inline void clear_num();
+  static const int kNumFieldNumber = 2;
+  inline ::google::protobuf::int32 num() const;
+  inline void set_num(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetYaoHunExchangeReq)
+ private:
+  inline void set_has_target_id();
+  inline void clear_has_target_id();
+  inline void set_has_num();
+  inline void clear_has_num();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 target_id_;
+  ::google::protobuf::int32 num_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetYaoHunExchangeReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PetYaoHunExchangeRsp : public ::google::protobuf::Message {
+ public:
+  PetYaoHunExchangeRsp();
+  virtual ~PetYaoHunExchangeRsp();
+
+  PetYaoHunExchangeRsp(const PetYaoHunExchangeRsp& from);
+
+  inline PetYaoHunExchangeRsp& operator=(const PetYaoHunExchangeRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetYaoHunExchangeRsp& default_instance();
+
+  void Swap(PetYaoHunExchangeRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  PetYaoHunExchangeRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetYaoHunExchangeRsp& from);
+  void MergeFrom(const PetYaoHunExchangeRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 target_id = 2;
+  inline bool has_target_id() const;
+  inline void clear_target_id();
+  static const int kTargetIdFieldNumber = 2;
+  inline ::google::protobuf::int32 target_id() const;
+  inline void set_target_id(::google::protobuf::int32 value);
+
+  // optional int32 num = 3;
+  inline bool has_num() const;
+  inline void clear_num();
+  static const int kNumFieldNumber = 3;
+  inline ::google::protobuf::int32 num() const;
+  inline void set_num(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetYaoHunExchangeRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_target_id();
+  inline void clear_has_target_id();
+  inline void set_has_num();
+  inline void clear_has_num();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 target_id_;
+  ::google::protobuf::int32 num_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetYaoHunExchangeRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PetYaoHunLvReq : public ::google::protobuf::Message {
+ public:
+  PetYaoHunLvReq();
+  virtual ~PetYaoHunLvReq();
+
+  PetYaoHunLvReq(const PetYaoHunLvReq& from);
+
+  inline PetYaoHunLvReq& operator=(const PetYaoHunLvReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetYaoHunLvReq& default_instance();
+
+  void Swap(PetYaoHunLvReq* other);
+
+  // implements Message ----------------------------------------------
+
+  PetYaoHunLvReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetYaoHunLvReq& from);
+  void MergeFrom(const PetYaoHunLvReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 fight_pos = 1;
+  inline bool has_fight_pos() const;
+  inline void clear_fight_pos();
+  static const int kFightPosFieldNumber = 1;
+  inline ::google::protobuf::int32 fight_pos() const;
+  inline void set_fight_pos(::google::protobuf::int32 value);
+
+  // optional int32 slot_pos = 2;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 2;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetYaoHunLvReq)
+ private:
+  inline void set_has_fight_pos();
+  inline void clear_has_fight_pos();
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 fight_pos_;
+  ::google::protobuf::int32 slot_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetYaoHunLvReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PetYaoHunLvRsp : public ::google::protobuf::Message {
+ public:
+  PetYaoHunLvRsp();
+  virtual ~PetYaoHunLvRsp();
+
+  PetYaoHunLvRsp(const PetYaoHunLvRsp& from);
+
+  inline PetYaoHunLvRsp& operator=(const PetYaoHunLvRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetYaoHunLvRsp& default_instance();
+
+  void Swap(PetYaoHunLvRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  PetYaoHunLvRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetYaoHunLvRsp& from);
+  void MergeFrom(const PetYaoHunLvRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 fight_pos = 2;
+  inline bool has_fight_pos() const;
+  inline void clear_fight_pos();
+  static const int kFightPosFieldNumber = 2;
+  inline ::google::protobuf::int32 fight_pos() const;
+  inline void set_fight_pos(::google::protobuf::int32 value);
+
+  // optional int32 slot_pos = 3;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 3;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetYaoHunLvRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_fight_pos();
+  inline void clear_has_fight_pos();
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 fight_pos_;
+  ::google::protobuf::int32 slot_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetYaoHunLvRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PetYaoHunBreakReq : public ::google::protobuf::Message {
+ public:
+  PetYaoHunBreakReq();
+  virtual ~PetYaoHunBreakReq();
+
+  PetYaoHunBreakReq(const PetYaoHunBreakReq& from);
+
+  inline PetYaoHunBreakReq& operator=(const PetYaoHunBreakReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetYaoHunBreakReq& default_instance();
+
+  void Swap(PetYaoHunBreakReq* other);
+
+  // implements Message ----------------------------------------------
+
+  PetYaoHunBreakReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetYaoHunBreakReq& from);
+  void MergeFrom(const PetYaoHunBreakReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 fight_pos = 1;
+  inline bool has_fight_pos() const;
+  inline void clear_fight_pos();
+  static const int kFightPosFieldNumber = 1;
+  inline ::google::protobuf::int32 fight_pos() const;
+  inline void set_fight_pos(::google::protobuf::int32 value);
+
+  // optional int32 slot_pos = 2;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 2;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetYaoHunBreakReq)
+ private:
+  inline void set_has_fight_pos();
+  inline void clear_has_fight_pos();
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 fight_pos_;
+  ::google::protobuf::int32 slot_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetYaoHunBreakReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PetYaoHunBreakRsp : public ::google::protobuf::Message {
+ public:
+  PetYaoHunBreakRsp();
+  virtual ~PetYaoHunBreakRsp();
+
+  PetYaoHunBreakRsp(const PetYaoHunBreakRsp& from);
+
+  inline PetYaoHunBreakRsp& operator=(const PetYaoHunBreakRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetYaoHunBreakRsp& default_instance();
+
+  void Swap(PetYaoHunBreakRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  PetYaoHunBreakRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetYaoHunBreakRsp& from);
+  void MergeFrom(const PetYaoHunBreakRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 fight_pos = 2;
+  inline bool has_fight_pos() const;
+  inline void clear_fight_pos();
+  static const int kFightPosFieldNumber = 2;
+  inline ::google::protobuf::int32 fight_pos() const;
+  inline void set_fight_pos(::google::protobuf::int32 value);
+
+  // optional int32 slot_pos = 3;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 3;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetYaoHunBreakRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_fight_pos();
+  inline void clear_has_fight_pos();
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 fight_pos_;
+  ::google::protobuf::int32 slot_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetYaoHunBreakRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PetLianYaoTqBuyReq : public ::google::protobuf::Message {
+ public:
+  PetLianYaoTqBuyReq();
+  virtual ~PetLianYaoTqBuyReq();
+
+  PetLianYaoTqBuyReq(const PetLianYaoTqBuyReq& from);
+
+  inline PetLianYaoTqBuyReq& operator=(const PetLianYaoTqBuyReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetLianYaoTqBuyReq& default_instance();
+
+  void Swap(PetLianYaoTqBuyReq* other);
+
+  // implements Message ----------------------------------------------
+
+  PetLianYaoTqBuyReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetLianYaoTqBuyReq& from);
+  void MergeFrom(const PetLianYaoTqBuyReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetLianYaoTqBuyReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetLianYaoTqBuyReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PetLianYaoTqBuyRsp : public ::google::protobuf::Message {
+ public:
+  PetLianYaoTqBuyRsp();
+  virtual ~PetLianYaoTqBuyRsp();
+
+  PetLianYaoTqBuyRsp(const PetLianYaoTqBuyRsp& from);
+
+  inline PetLianYaoTqBuyRsp& operator=(const PetLianYaoTqBuyRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetLianYaoTqBuyRsp& default_instance();
+
+  void Swap(PetLianYaoTqBuyRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  PetLianYaoTqBuyRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetLianYaoTqBuyRsp& from);
+  void MergeFrom(const PetLianYaoTqBuyRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetLianYaoTqBuyRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetLianYaoTqBuyRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PetYaoHunSuitReq : public ::google::protobuf::Message {
+ public:
+  PetYaoHunSuitReq();
+  virtual ~PetYaoHunSuitReq();
+
+  PetYaoHunSuitReq(const PetYaoHunSuitReq& from);
+
+  inline PetYaoHunSuitReq& operator=(const PetYaoHunSuitReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetYaoHunSuitReq& default_instance();
+
+  void Swap(PetYaoHunSuitReq* other);
+
+  // implements Message ----------------------------------------------
+
+  PetYaoHunSuitReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetYaoHunSuitReq& from);
+  void MergeFrom(const PetYaoHunSuitReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 fight_pos = 1;
+  inline bool has_fight_pos() const;
+  inline void clear_fight_pos();
+  static const int kFightPosFieldNumber = 1;
+  inline ::google::protobuf::int32 fight_pos() const;
+  inline void set_fight_pos(::google::protobuf::int32 value);
+
+  // optional int32 suit_id = 2;
+  inline bool has_suit_id() const;
+  inline void clear_suit_id();
+  static const int kSuitIdFieldNumber = 2;
+  inline ::google::protobuf::int32 suit_id() const;
+  inline void set_suit_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetYaoHunSuitReq)
+ private:
+  inline void set_has_fight_pos();
+  inline void clear_has_fight_pos();
+  inline void set_has_suit_id();
+  inline void clear_has_suit_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 fight_pos_;
+  ::google::protobuf::int32 suit_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetYaoHunSuitReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PetYaoHunSuitRsp : public ::google::protobuf::Message {
+ public:
+  PetYaoHunSuitRsp();
+  virtual ~PetYaoHunSuitRsp();
+
+  PetYaoHunSuitRsp(const PetYaoHunSuitRsp& from);
+
+  inline PetYaoHunSuitRsp& operator=(const PetYaoHunSuitRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetYaoHunSuitRsp& default_instance();
+
+  void Swap(PetYaoHunSuitRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  PetYaoHunSuitRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetYaoHunSuitRsp& from);
+  void MergeFrom(const PetYaoHunSuitRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 fight_pos = 2;
+  inline bool has_fight_pos() const;
+  inline void clear_fight_pos();
+  static const int kFightPosFieldNumber = 2;
+  inline ::google::protobuf::int32 fight_pos() const;
+  inline void set_fight_pos(::google::protobuf::int32 value);
+
+  // optional int32 suit_id = 3;
+  inline bool has_suit_id() const;
+  inline void clear_suit_id();
+  static const int kSuitIdFieldNumber = 3;
+  inline ::google::protobuf::int32 suit_id() const;
+  inline void set_suit_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetYaoHunSuitRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_fight_pos();
+  inline void clear_has_fight_pos();
+  inline void set_has_suit_id();
+  inline void clear_has_suit_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 fight_pos_;
+  ::google::protobuf::int32 suit_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetYaoHunSuitRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PetYaoHunResetReq : public ::google::protobuf::Message {
+ public:
+  PetYaoHunResetReq();
+  virtual ~PetYaoHunResetReq();
+
+  PetYaoHunResetReq(const PetYaoHunResetReq& from);
+
+  inline PetYaoHunResetReq& operator=(const PetYaoHunResetReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetYaoHunResetReq& default_instance();
+
+  void Swap(PetYaoHunResetReq* other);
+
+  // implements Message ----------------------------------------------
+
+  PetYaoHunResetReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetYaoHunResetReq& from);
+  void MergeFrom(const PetYaoHunResetReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 bag_pos = 1;
+  inline bool has_bag_pos() const;
+  inline void clear_bag_pos();
+  static const int kBagPosFieldNumber = 1;
+  inline ::google::protobuf::int32 bag_pos() const;
+  inline void set_bag_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetYaoHunResetReq)
+ private:
+  inline void set_has_bag_pos();
+  inline void clear_has_bag_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 bag_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetYaoHunResetReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PetYaoHunResetRsp : public ::google::protobuf::Message {
+ public:
+  PetYaoHunResetRsp();
+  virtual ~PetYaoHunResetRsp();
+
+  PetYaoHunResetRsp(const PetYaoHunResetRsp& from);
+
+  inline PetYaoHunResetRsp& operator=(const PetYaoHunResetRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetYaoHunResetRsp& default_instance();
+
+  void Swap(PetYaoHunResetRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  PetYaoHunResetRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetYaoHunResetRsp& from);
+  void MergeFrom(const PetYaoHunResetRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 bag_pos = 2;
+  inline bool has_bag_pos() const;
+  inline void clear_bag_pos();
+  static const int kBagPosFieldNumber = 2;
+  inline ::google::protobuf::int32 bag_pos() const;
+  inline void set_bag_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetYaoHunResetRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_bag_pos();
+  inline void clear_has_bag_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 bag_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetYaoHunResetRsp* default_instance_;
+};
 // ===================================================================
 
 
@@ -3451,6 +5514,44 @@ NotifyPetModuleRsp::grows() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::PetGrow >*
 NotifyPetModuleRsp::mutable_grows() {
   return &grows_;
+}
+
+// optional .proto_ff.PetYaoHunModule yaohun = 6;
+inline bool NotifyPetModuleRsp::has_yaohun() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void NotifyPetModuleRsp::set_has_yaohun() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void NotifyPetModuleRsp::clear_has_yaohun() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void NotifyPetModuleRsp::clear_yaohun() {
+  if (yaohun_ != NULL) yaohun_->::proto_ff::PetYaoHunModule::Clear();
+  clear_has_yaohun();
+}
+inline const ::proto_ff::PetYaoHunModule& NotifyPetModuleRsp::yaohun() const {
+  return yaohun_ != NULL ? *yaohun_ : *default_instance_->yaohun_;
+}
+inline ::proto_ff::PetYaoHunModule* NotifyPetModuleRsp::mutable_yaohun() {
+  set_has_yaohun();
+  if (yaohun_ == NULL) yaohun_ = new ::proto_ff::PetYaoHunModule;
+  return yaohun_;
+}
+inline ::proto_ff::PetYaoHunModule* NotifyPetModuleRsp::release_yaohun() {
+  clear_has_yaohun();
+  ::proto_ff::PetYaoHunModule* temp = yaohun_;
+  yaohun_ = NULL;
+  return temp;
+}
+inline void NotifyPetModuleRsp::set_allocated_yaohun(::proto_ff::PetYaoHunModule* yaohun) {
+  delete yaohun_;
+  yaohun_ = yaohun;
+  if (yaohun) {
+    set_has_yaohun();
+  } else {
+    clear_has_yaohun();
+  }
 }
 
 // -------------------------------------------------------------------
@@ -3589,6 +5690,140 @@ NotifyPetGetedListRsp::cfgids() const {
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
 NotifyPetGetedListRsp::mutable_cfgids() {
   return &cfgids_;
+}
+
+// -------------------------------------------------------------------
+
+// NotifyPetYaoHun
+
+// optional .proto_ff.PetYaoHunEntry info = 1;
+inline bool NotifyPetYaoHun::has_info() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NotifyPetYaoHun::set_has_info() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NotifyPetYaoHun::clear_has_info() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NotifyPetYaoHun::clear_info() {
+  if (info_ != NULL) info_->::proto_ff::PetYaoHunEntry::Clear();
+  clear_has_info();
+}
+inline const ::proto_ff::PetYaoHunEntry& NotifyPetYaoHun::info() const {
+  return info_ != NULL ? *info_ : *default_instance_->info_;
+}
+inline ::proto_ff::PetYaoHunEntry* NotifyPetYaoHun::mutable_info() {
+  set_has_info();
+  if (info_ == NULL) info_ = new ::proto_ff::PetYaoHunEntry;
+  return info_;
+}
+inline ::proto_ff::PetYaoHunEntry* NotifyPetYaoHun::release_info() {
+  clear_has_info();
+  ::proto_ff::PetYaoHunEntry* temp = info_;
+  info_ = NULL;
+  return temp;
+}
+inline void NotifyPetYaoHun::set_allocated_info(::proto_ff::PetYaoHunEntry* info) {
+  delete info_;
+  info_ = info;
+  if (info) {
+    set_has_info();
+  } else {
+    clear_has_info();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// NotifyPetYaoHunSimple
+
+// optional int32 lianyao_tq_flag = 2;
+inline bool NotifyPetYaoHunSimple::has_lianyao_tq_flag() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NotifyPetYaoHunSimple::set_has_lianyao_tq_flag() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NotifyPetYaoHunSimple::clear_has_lianyao_tq_flag() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NotifyPetYaoHunSimple::clear_lianyao_tq_flag() {
+  lianyao_tq_flag_ = 0;
+  clear_has_lianyao_tq_flag();
+}
+inline ::google::protobuf::int32 NotifyPetYaoHunSimple::lianyao_tq_flag() const {
+  return lianyao_tq_flag_;
+}
+inline void NotifyPetYaoHunSimple::set_lianyao_tq_flag(::google::protobuf::int32 value) {
+  set_has_lianyao_tq_flag();
+  lianyao_tq_flag_ = value;
+}
+
+// optional int32 yaolu_lv = 3;
+inline bool NotifyPetYaoHunSimple::has_yaolu_lv() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NotifyPetYaoHunSimple::set_has_yaolu_lv() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NotifyPetYaoHunSimple::clear_has_yaolu_lv() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NotifyPetYaoHunSimple::clear_yaolu_lv() {
+  yaolu_lv_ = 0;
+  clear_has_yaolu_lv();
+}
+inline ::google::protobuf::int32 NotifyPetYaoHunSimple::yaolu_lv() const {
+  return yaolu_lv_;
+}
+inline void NotifyPetYaoHunSimple::set_yaolu_lv(::google::protobuf::int32 value) {
+  set_has_yaolu_lv();
+  yaolu_lv_ = value;
+}
+
+// optional int32 yaolu_exp = 4;
+inline bool NotifyPetYaoHunSimple::has_yaolu_exp() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NotifyPetYaoHunSimple::set_has_yaolu_exp() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NotifyPetYaoHunSimple::clear_has_yaolu_exp() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NotifyPetYaoHunSimple::clear_yaolu_exp() {
+  yaolu_exp_ = 0;
+  clear_has_yaolu_exp();
+}
+inline ::google::protobuf::int32 NotifyPetYaoHunSimple::yaolu_exp() const {
+  return yaolu_exp_;
+}
+inline void NotifyPetYaoHunSimple::set_yaolu_exp(::google::protobuf::int32 value) {
+  set_has_yaolu_exp();
+  yaolu_exp_ = value;
+}
+
+// optional int32 yaoqi = 5;
+inline bool NotifyPetYaoHunSimple::has_yaoqi() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void NotifyPetYaoHunSimple::set_has_yaoqi() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void NotifyPetYaoHunSimple::clear_has_yaoqi() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void NotifyPetYaoHunSimple::clear_yaoqi() {
+  yaoqi_ = 0;
+  clear_has_yaoqi();
+}
+inline ::google::protobuf::int32 NotifyPetYaoHunSimple::yaoqi() const {
+  return yaoqi_;
+}
+inline void NotifyPetYaoHunSimple::set_yaoqi(::google::protobuf::int32 value) {
+  set_has_yaoqi();
+  yaoqi_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -5149,6 +7384,1100 @@ inline ::google::protobuf::int32 PetGrowOptRsp::code() const {
 inline void PetGrowOptRsp::set_code(::google::protobuf::int32 value) {
   set_has_code();
   code_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PetYaoHunUnlockReq
+
+// optional int32 fight_pos = 1;
+inline bool PetYaoHunUnlockReq::has_fight_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PetYaoHunUnlockReq::set_has_fight_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PetYaoHunUnlockReq::clear_has_fight_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PetYaoHunUnlockReq::clear_fight_pos() {
+  fight_pos_ = 0;
+  clear_has_fight_pos();
+}
+inline ::google::protobuf::int32 PetYaoHunUnlockReq::fight_pos() const {
+  return fight_pos_;
+}
+inline void PetYaoHunUnlockReq::set_fight_pos(::google::protobuf::int32 value) {
+  set_has_fight_pos();
+  fight_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PetYaoHunUnlockRsp
+
+// optional int32 ret = 1;
+inline bool PetYaoHunUnlockRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PetYaoHunUnlockRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PetYaoHunUnlockRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PetYaoHunUnlockRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 PetYaoHunUnlockRsp::ret() const {
+  return ret_;
+}
+inline void PetYaoHunUnlockRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 fight_pos = 2;
+inline bool PetYaoHunUnlockRsp::has_fight_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PetYaoHunUnlockRsp::set_has_fight_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PetYaoHunUnlockRsp::clear_has_fight_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PetYaoHunUnlockRsp::clear_fight_pos() {
+  fight_pos_ = 0;
+  clear_has_fight_pos();
+}
+inline ::google::protobuf::int32 PetYaoHunUnlockRsp::fight_pos() const {
+  return fight_pos_;
+}
+inline void PetYaoHunUnlockRsp::set_fight_pos(::google::protobuf::int32 value) {
+  set_has_fight_pos();
+  fight_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PetYaoHunDressReq
+
+// optional int32 fight_pos = 1;
+inline bool PetYaoHunDressReq::has_fight_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PetYaoHunDressReq::set_has_fight_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PetYaoHunDressReq::clear_has_fight_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PetYaoHunDressReq::clear_fight_pos() {
+  fight_pos_ = 0;
+  clear_has_fight_pos();
+}
+inline ::google::protobuf::int32 PetYaoHunDressReq::fight_pos() const {
+  return fight_pos_;
+}
+inline void PetYaoHunDressReq::set_fight_pos(::google::protobuf::int32 value) {
+  set_has_fight_pos();
+  fight_pos_ = value;
+}
+
+// optional int32 bag_pos = 2;
+inline bool PetYaoHunDressReq::has_bag_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PetYaoHunDressReq::set_has_bag_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PetYaoHunDressReq::clear_has_bag_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PetYaoHunDressReq::clear_bag_pos() {
+  bag_pos_ = 0;
+  clear_has_bag_pos();
+}
+inline ::google::protobuf::int32 PetYaoHunDressReq::bag_pos() const {
+  return bag_pos_;
+}
+inline void PetYaoHunDressReq::set_bag_pos(::google::protobuf::int32 value) {
+  set_has_bag_pos();
+  bag_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PetYaoHunDressRsp
+
+// optional int32 ret = 1;
+inline bool PetYaoHunDressRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PetYaoHunDressRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PetYaoHunDressRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PetYaoHunDressRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 PetYaoHunDressRsp::ret() const {
+  return ret_;
+}
+inline void PetYaoHunDressRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 fight_pos = 2;
+inline bool PetYaoHunDressRsp::has_fight_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PetYaoHunDressRsp::set_has_fight_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PetYaoHunDressRsp::clear_has_fight_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PetYaoHunDressRsp::clear_fight_pos() {
+  fight_pos_ = 0;
+  clear_has_fight_pos();
+}
+inline ::google::protobuf::int32 PetYaoHunDressRsp::fight_pos() const {
+  return fight_pos_;
+}
+inline void PetYaoHunDressRsp::set_fight_pos(::google::protobuf::int32 value) {
+  set_has_fight_pos();
+  fight_pos_ = value;
+}
+
+// optional int32 bag_pos = 3;
+inline bool PetYaoHunDressRsp::has_bag_pos() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void PetYaoHunDressRsp::set_has_bag_pos() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void PetYaoHunDressRsp::clear_has_bag_pos() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void PetYaoHunDressRsp::clear_bag_pos() {
+  bag_pos_ = 0;
+  clear_has_bag_pos();
+}
+inline ::google::protobuf::int32 PetYaoHunDressRsp::bag_pos() const {
+  return bag_pos_;
+}
+inline void PetYaoHunDressRsp::set_bag_pos(::google::protobuf::int32 value) {
+  set_has_bag_pos();
+  bag_pos_ = value;
+}
+
+// optional int32 code = 4;
+inline bool PetYaoHunDressRsp::has_code() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void PetYaoHunDressRsp::set_has_code() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void PetYaoHunDressRsp::clear_has_code() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void PetYaoHunDressRsp::clear_code() {
+  code_ = 0;
+  clear_has_code();
+}
+inline ::google::protobuf::int32 PetYaoHunDressRsp::code() const {
+  return code_;
+}
+inline void PetYaoHunDressRsp::set_code(::google::protobuf::int32 value) {
+  set_has_code();
+  code_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PetLianYaoReq
+
+// optional int32 lian_num = 1;
+inline bool PetLianYaoReq::has_lian_num() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PetLianYaoReq::set_has_lian_num() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PetLianYaoReq::clear_has_lian_num() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PetLianYaoReq::clear_lian_num() {
+  lian_num_ = 0;
+  clear_has_lian_num();
+}
+inline ::google::protobuf::int32 PetLianYaoReq::lian_num() const {
+  return lian_num_;
+}
+inline void PetLianYaoReq::set_lian_num(::google::protobuf::int32 value) {
+  set_has_lian_num();
+  lian_num_ = value;
+}
+
+// optional int32 quality = 2;
+inline bool PetLianYaoReq::has_quality() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PetLianYaoReq::set_has_quality() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PetLianYaoReq::clear_has_quality() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PetLianYaoReq::clear_quality() {
+  quality_ = 0;
+  clear_has_quality();
+}
+inline ::google::protobuf::int32 PetLianYaoReq::quality() const {
+  return quality_;
+}
+inline void PetLianYaoReq::set_quality(::google::protobuf::int32 value) {
+  set_has_quality();
+  quality_ = value;
+}
+
+// optional int32 star = 3;
+inline bool PetLianYaoReq::has_star() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void PetLianYaoReq::set_has_star() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void PetLianYaoReq::clear_has_star() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void PetLianYaoReq::clear_star() {
+  star_ = 0;
+  clear_has_star();
+}
+inline ::google::protobuf::int32 PetLianYaoReq::star() const {
+  return star_;
+}
+inline void PetLianYaoReq::set_star(::google::protobuf::int32 value) {
+  set_has_star();
+  star_ = value;
+}
+
+// optional int32 quick = 4;
+inline bool PetLianYaoReq::has_quick() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void PetLianYaoReq::set_has_quick() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void PetLianYaoReq::clear_has_quick() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void PetLianYaoReq::clear_quick() {
+  quick_ = 0;
+  clear_has_quick();
+}
+inline ::google::protobuf::int32 PetLianYaoReq::quick() const {
+  return quick_;
+}
+inline void PetLianYaoReq::set_quick(::google::protobuf::int32 value) {
+  set_has_quick();
+  quick_ = value;
+}
+
+// repeated int32 bag_pos = 5;
+inline int PetLianYaoReq::bag_pos_size() const {
+  return bag_pos_.size();
+}
+inline void PetLianYaoReq::clear_bag_pos() {
+  bag_pos_.Clear();
+}
+inline ::google::protobuf::int32 PetLianYaoReq::bag_pos(int index) const {
+  return bag_pos_.Get(index);
+}
+inline void PetLianYaoReq::set_bag_pos(int index, ::google::protobuf::int32 value) {
+  bag_pos_.Set(index, value);
+}
+inline void PetLianYaoReq::add_bag_pos(::google::protobuf::int32 value) {
+  bag_pos_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+PetLianYaoReq::bag_pos() const {
+  return bag_pos_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+PetLianYaoReq::mutable_bag_pos() {
+  return &bag_pos_;
+}
+
+// -------------------------------------------------------------------
+
+// PetLianYaoReward
+
+// optional int32 itemid = 1;
+inline bool PetLianYaoReward::has_itemid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PetLianYaoReward::set_has_itemid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PetLianYaoReward::clear_has_itemid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PetLianYaoReward::clear_itemid() {
+  itemid_ = 0;
+  clear_has_itemid();
+}
+inline ::google::protobuf::int32 PetLianYaoReward::itemid() const {
+  return itemid_;
+}
+inline void PetLianYaoReward::set_itemid(::google::protobuf::int32 value) {
+  set_has_itemid();
+  itemid_ = value;
+}
+
+// optional int32 num = 2;
+inline bool PetLianYaoReward::has_num() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PetLianYaoReward::set_has_num() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PetLianYaoReward::clear_has_num() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PetLianYaoReward::clear_num() {
+  num_ = 0;
+  clear_has_num();
+}
+inline ::google::protobuf::int32 PetLianYaoReward::num() const {
+  return num_;
+}
+inline void PetLianYaoReward::set_num(::google::protobuf::int32 value) {
+  set_has_num();
+  num_ = value;
+}
+
+// optional int32 tq_add_flag = 3;
+inline bool PetLianYaoReward::has_tq_add_flag() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void PetLianYaoReward::set_has_tq_add_flag() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void PetLianYaoReward::clear_has_tq_add_flag() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void PetLianYaoReward::clear_tq_add_flag() {
+  tq_add_flag_ = 0;
+  clear_has_tq_add_flag();
+}
+inline ::google::protobuf::int32 PetLianYaoReward::tq_add_flag() const {
+  return tq_add_flag_;
+}
+inline void PetLianYaoReward::set_tq_add_flag(::google::protobuf::int32 value) {
+  set_has_tq_add_flag();
+  tq_add_flag_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PetLianYaoRsp
+
+// optional int32 ret = 1;
+inline bool PetLianYaoRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PetLianYaoRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PetLianYaoRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PetLianYaoRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 PetLianYaoRsp::ret() const {
+  return ret_;
+}
+inline void PetLianYaoRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// repeated .proto_ff.PetLianYaoReward rewards = 2;
+inline int PetLianYaoRsp::rewards_size() const {
+  return rewards_.size();
+}
+inline void PetLianYaoRsp::clear_rewards() {
+  rewards_.Clear();
+}
+inline const ::proto_ff::PetLianYaoReward& PetLianYaoRsp::rewards(int index) const {
+  return rewards_.Get(index);
+}
+inline ::proto_ff::PetLianYaoReward* PetLianYaoRsp::mutable_rewards(int index) {
+  return rewards_.Mutable(index);
+}
+inline ::proto_ff::PetLianYaoReward* PetLianYaoRsp::add_rewards() {
+  return rewards_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::PetLianYaoReward >&
+PetLianYaoRsp::rewards() const {
+  return rewards_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::PetLianYaoReward >*
+PetLianYaoRsp::mutable_rewards() {
+  return &rewards_;
+}
+
+// optional int32 yaolu_add_exp = 3;
+inline bool PetLianYaoRsp::has_yaolu_add_exp() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void PetLianYaoRsp::set_has_yaolu_add_exp() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void PetLianYaoRsp::clear_has_yaolu_add_exp() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void PetLianYaoRsp::clear_yaolu_add_exp() {
+  yaolu_add_exp_ = 0;
+  clear_has_yaolu_add_exp();
+}
+inline ::google::protobuf::int32 PetLianYaoRsp::yaolu_add_exp() const {
+  return yaolu_add_exp_;
+}
+inline void PetLianYaoRsp::set_yaolu_add_exp(::google::protobuf::int32 value) {
+  set_has_yaolu_add_exp();
+  yaolu_add_exp_ = value;
+}
+
+// optional int32 yaolu_exp_flag = 4;
+inline bool PetLianYaoRsp::has_yaolu_exp_flag() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void PetLianYaoRsp::set_has_yaolu_exp_flag() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void PetLianYaoRsp::clear_has_yaolu_exp_flag() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void PetLianYaoRsp::clear_yaolu_exp_flag() {
+  yaolu_exp_flag_ = 0;
+  clear_has_yaolu_exp_flag();
+}
+inline ::google::protobuf::int32 PetLianYaoRsp::yaolu_exp_flag() const {
+  return yaolu_exp_flag_;
+}
+inline void PetLianYaoRsp::set_yaolu_exp_flag(::google::protobuf::int32 value) {
+  set_has_yaolu_exp_flag();
+  yaolu_exp_flag_ = value;
+}
+
+// optional int32 yaohun_add = 5;
+inline bool PetLianYaoRsp::has_yaohun_add() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void PetLianYaoRsp::set_has_yaohun_add() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void PetLianYaoRsp::clear_has_yaohun_add() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void PetLianYaoRsp::clear_yaohun_add() {
+  yaohun_add_ = 0;
+  clear_has_yaohun_add();
+}
+inline ::google::protobuf::int32 PetLianYaoRsp::yaohun_add() const {
+  return yaohun_add_;
+}
+inline void PetLianYaoRsp::set_yaohun_add(::google::protobuf::int32 value) {
+  set_has_yaohun_add();
+  yaohun_add_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PetYaoHunExchangeReq
+
+// optional int32 target_id = 1;
+inline bool PetYaoHunExchangeReq::has_target_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PetYaoHunExchangeReq::set_has_target_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PetYaoHunExchangeReq::clear_has_target_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PetYaoHunExchangeReq::clear_target_id() {
+  target_id_ = 0;
+  clear_has_target_id();
+}
+inline ::google::protobuf::int32 PetYaoHunExchangeReq::target_id() const {
+  return target_id_;
+}
+inline void PetYaoHunExchangeReq::set_target_id(::google::protobuf::int32 value) {
+  set_has_target_id();
+  target_id_ = value;
+}
+
+// optional int32 num = 2;
+inline bool PetYaoHunExchangeReq::has_num() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PetYaoHunExchangeReq::set_has_num() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PetYaoHunExchangeReq::clear_has_num() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PetYaoHunExchangeReq::clear_num() {
+  num_ = 0;
+  clear_has_num();
+}
+inline ::google::protobuf::int32 PetYaoHunExchangeReq::num() const {
+  return num_;
+}
+inline void PetYaoHunExchangeReq::set_num(::google::protobuf::int32 value) {
+  set_has_num();
+  num_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PetYaoHunExchangeRsp
+
+// optional int32 ret = 1;
+inline bool PetYaoHunExchangeRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PetYaoHunExchangeRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PetYaoHunExchangeRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PetYaoHunExchangeRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 PetYaoHunExchangeRsp::ret() const {
+  return ret_;
+}
+inline void PetYaoHunExchangeRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 target_id = 2;
+inline bool PetYaoHunExchangeRsp::has_target_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PetYaoHunExchangeRsp::set_has_target_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PetYaoHunExchangeRsp::clear_has_target_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PetYaoHunExchangeRsp::clear_target_id() {
+  target_id_ = 0;
+  clear_has_target_id();
+}
+inline ::google::protobuf::int32 PetYaoHunExchangeRsp::target_id() const {
+  return target_id_;
+}
+inline void PetYaoHunExchangeRsp::set_target_id(::google::protobuf::int32 value) {
+  set_has_target_id();
+  target_id_ = value;
+}
+
+// optional int32 num = 3;
+inline bool PetYaoHunExchangeRsp::has_num() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void PetYaoHunExchangeRsp::set_has_num() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void PetYaoHunExchangeRsp::clear_has_num() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void PetYaoHunExchangeRsp::clear_num() {
+  num_ = 0;
+  clear_has_num();
+}
+inline ::google::protobuf::int32 PetYaoHunExchangeRsp::num() const {
+  return num_;
+}
+inline void PetYaoHunExchangeRsp::set_num(::google::protobuf::int32 value) {
+  set_has_num();
+  num_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PetYaoHunLvReq
+
+// optional int32 fight_pos = 1;
+inline bool PetYaoHunLvReq::has_fight_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PetYaoHunLvReq::set_has_fight_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PetYaoHunLvReq::clear_has_fight_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PetYaoHunLvReq::clear_fight_pos() {
+  fight_pos_ = 0;
+  clear_has_fight_pos();
+}
+inline ::google::protobuf::int32 PetYaoHunLvReq::fight_pos() const {
+  return fight_pos_;
+}
+inline void PetYaoHunLvReq::set_fight_pos(::google::protobuf::int32 value) {
+  set_has_fight_pos();
+  fight_pos_ = value;
+}
+
+// optional int32 slot_pos = 2;
+inline bool PetYaoHunLvReq::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PetYaoHunLvReq::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PetYaoHunLvReq::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PetYaoHunLvReq::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 PetYaoHunLvReq::slot_pos() const {
+  return slot_pos_;
+}
+inline void PetYaoHunLvReq::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PetYaoHunLvRsp
+
+// optional int32 ret = 1;
+inline bool PetYaoHunLvRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PetYaoHunLvRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PetYaoHunLvRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PetYaoHunLvRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 PetYaoHunLvRsp::ret() const {
+  return ret_;
+}
+inline void PetYaoHunLvRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 fight_pos = 2;
+inline bool PetYaoHunLvRsp::has_fight_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PetYaoHunLvRsp::set_has_fight_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PetYaoHunLvRsp::clear_has_fight_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PetYaoHunLvRsp::clear_fight_pos() {
+  fight_pos_ = 0;
+  clear_has_fight_pos();
+}
+inline ::google::protobuf::int32 PetYaoHunLvRsp::fight_pos() const {
+  return fight_pos_;
+}
+inline void PetYaoHunLvRsp::set_fight_pos(::google::protobuf::int32 value) {
+  set_has_fight_pos();
+  fight_pos_ = value;
+}
+
+// optional int32 slot_pos = 3;
+inline bool PetYaoHunLvRsp::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void PetYaoHunLvRsp::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void PetYaoHunLvRsp::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void PetYaoHunLvRsp::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 PetYaoHunLvRsp::slot_pos() const {
+  return slot_pos_;
+}
+inline void PetYaoHunLvRsp::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PetYaoHunBreakReq
+
+// optional int32 fight_pos = 1;
+inline bool PetYaoHunBreakReq::has_fight_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PetYaoHunBreakReq::set_has_fight_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PetYaoHunBreakReq::clear_has_fight_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PetYaoHunBreakReq::clear_fight_pos() {
+  fight_pos_ = 0;
+  clear_has_fight_pos();
+}
+inline ::google::protobuf::int32 PetYaoHunBreakReq::fight_pos() const {
+  return fight_pos_;
+}
+inline void PetYaoHunBreakReq::set_fight_pos(::google::protobuf::int32 value) {
+  set_has_fight_pos();
+  fight_pos_ = value;
+}
+
+// optional int32 slot_pos = 2;
+inline bool PetYaoHunBreakReq::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PetYaoHunBreakReq::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PetYaoHunBreakReq::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PetYaoHunBreakReq::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 PetYaoHunBreakReq::slot_pos() const {
+  return slot_pos_;
+}
+inline void PetYaoHunBreakReq::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PetYaoHunBreakRsp
+
+// optional int32 ret = 1;
+inline bool PetYaoHunBreakRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PetYaoHunBreakRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PetYaoHunBreakRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PetYaoHunBreakRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 PetYaoHunBreakRsp::ret() const {
+  return ret_;
+}
+inline void PetYaoHunBreakRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 fight_pos = 2;
+inline bool PetYaoHunBreakRsp::has_fight_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PetYaoHunBreakRsp::set_has_fight_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PetYaoHunBreakRsp::clear_has_fight_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PetYaoHunBreakRsp::clear_fight_pos() {
+  fight_pos_ = 0;
+  clear_has_fight_pos();
+}
+inline ::google::protobuf::int32 PetYaoHunBreakRsp::fight_pos() const {
+  return fight_pos_;
+}
+inline void PetYaoHunBreakRsp::set_fight_pos(::google::protobuf::int32 value) {
+  set_has_fight_pos();
+  fight_pos_ = value;
+}
+
+// optional int32 slot_pos = 3;
+inline bool PetYaoHunBreakRsp::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void PetYaoHunBreakRsp::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void PetYaoHunBreakRsp::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void PetYaoHunBreakRsp::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 PetYaoHunBreakRsp::slot_pos() const {
+  return slot_pos_;
+}
+inline void PetYaoHunBreakRsp::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PetLianYaoTqBuyReq
+
+// -------------------------------------------------------------------
+
+// PetLianYaoTqBuyRsp
+
+// optional int32 ret = 1;
+inline bool PetLianYaoTqBuyRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PetLianYaoTqBuyRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PetLianYaoTqBuyRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PetLianYaoTqBuyRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 PetLianYaoTqBuyRsp::ret() const {
+  return ret_;
+}
+inline void PetLianYaoTqBuyRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PetYaoHunSuitReq
+
+// optional int32 fight_pos = 1;
+inline bool PetYaoHunSuitReq::has_fight_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PetYaoHunSuitReq::set_has_fight_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PetYaoHunSuitReq::clear_has_fight_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PetYaoHunSuitReq::clear_fight_pos() {
+  fight_pos_ = 0;
+  clear_has_fight_pos();
+}
+inline ::google::protobuf::int32 PetYaoHunSuitReq::fight_pos() const {
+  return fight_pos_;
+}
+inline void PetYaoHunSuitReq::set_fight_pos(::google::protobuf::int32 value) {
+  set_has_fight_pos();
+  fight_pos_ = value;
+}
+
+// optional int32 suit_id = 2;
+inline bool PetYaoHunSuitReq::has_suit_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PetYaoHunSuitReq::set_has_suit_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PetYaoHunSuitReq::clear_has_suit_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PetYaoHunSuitReq::clear_suit_id() {
+  suit_id_ = 0;
+  clear_has_suit_id();
+}
+inline ::google::protobuf::int32 PetYaoHunSuitReq::suit_id() const {
+  return suit_id_;
+}
+inline void PetYaoHunSuitReq::set_suit_id(::google::protobuf::int32 value) {
+  set_has_suit_id();
+  suit_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PetYaoHunSuitRsp
+
+// optional int32 ret = 1;
+inline bool PetYaoHunSuitRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PetYaoHunSuitRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PetYaoHunSuitRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PetYaoHunSuitRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 PetYaoHunSuitRsp::ret() const {
+  return ret_;
+}
+inline void PetYaoHunSuitRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 fight_pos = 2;
+inline bool PetYaoHunSuitRsp::has_fight_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PetYaoHunSuitRsp::set_has_fight_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PetYaoHunSuitRsp::clear_has_fight_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PetYaoHunSuitRsp::clear_fight_pos() {
+  fight_pos_ = 0;
+  clear_has_fight_pos();
+}
+inline ::google::protobuf::int32 PetYaoHunSuitRsp::fight_pos() const {
+  return fight_pos_;
+}
+inline void PetYaoHunSuitRsp::set_fight_pos(::google::protobuf::int32 value) {
+  set_has_fight_pos();
+  fight_pos_ = value;
+}
+
+// optional int32 suit_id = 3;
+inline bool PetYaoHunSuitRsp::has_suit_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void PetYaoHunSuitRsp::set_has_suit_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void PetYaoHunSuitRsp::clear_has_suit_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void PetYaoHunSuitRsp::clear_suit_id() {
+  suit_id_ = 0;
+  clear_has_suit_id();
+}
+inline ::google::protobuf::int32 PetYaoHunSuitRsp::suit_id() const {
+  return suit_id_;
+}
+inline void PetYaoHunSuitRsp::set_suit_id(::google::protobuf::int32 value) {
+  set_has_suit_id();
+  suit_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PetYaoHunResetReq
+
+// optional int32 bag_pos = 1;
+inline bool PetYaoHunResetReq::has_bag_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PetYaoHunResetReq::set_has_bag_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PetYaoHunResetReq::clear_has_bag_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PetYaoHunResetReq::clear_bag_pos() {
+  bag_pos_ = 0;
+  clear_has_bag_pos();
+}
+inline ::google::protobuf::int32 PetYaoHunResetReq::bag_pos() const {
+  return bag_pos_;
+}
+inline void PetYaoHunResetReq::set_bag_pos(::google::protobuf::int32 value) {
+  set_has_bag_pos();
+  bag_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PetYaoHunResetRsp
+
+// optional int32 ret = 1;
+inline bool PetYaoHunResetRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PetYaoHunResetRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PetYaoHunResetRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PetYaoHunResetRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 PetYaoHunResetRsp::ret() const {
+  return ret_;
+}
+inline void PetYaoHunResetRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 bag_pos = 2;
+inline bool PetYaoHunResetRsp::has_bag_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PetYaoHunResetRsp::set_has_bag_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PetYaoHunResetRsp::clear_has_bag_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PetYaoHunResetRsp::clear_bag_pos() {
+  bag_pos_ = 0;
+  clear_has_bag_pos();
+}
+inline ::google::protobuf::int32 PetYaoHunResetRsp::bag_pos() const {
+  return bag_pos_;
+}
+inline void PetYaoHunResetRsp::set_bag_pos(::google::protobuf::int32 value) {
+  set_has_bag_pos();
+  bag_pos_ = value;
 }
 
 

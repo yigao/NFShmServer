@@ -658,6 +658,20 @@ class E_GuildConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_tweekclosetime() const;
   inline void set_m_tweekclosetime(::google::protobuf::int32 value);
 
+  // optional int32 m_cyclicreward = 75;
+  inline bool has_m_cyclicreward() const;
+  inline void clear_m_cyclicreward();
+  static const int kMCyclicrewardFieldNumber = 75;
+  inline ::google::protobuf::int32 m_cyclicreward() const;
+  inline void set_m_cyclicreward(::google::protobuf::int32 value);
+
+  // optional int32 m_tencyclicreward = 76;
+  inline bool has_m_tencyclicreward() const;
+  inline void clear_m_tencyclicreward();
+  static const int kMTencyclicrewardFieldNumber = 76;
+  inline ::google::protobuf::int32 m_tencyclicreward() const;
+  inline void set_m_tencyclicreward(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.E_GuildConstant)
  private:
   inline void set_has_m_constantid();
@@ -808,6 +822,10 @@ class E_GuildConstant : public ::google::protobuf::Message {
   inline void clear_has_m_tteamdamageadd();
   inline void set_has_m_tweekclosetime();
   inline void clear_has_m_tweekclosetime();
+  inline void set_has_m_cyclicreward();
+  inline void clear_has_m_cyclicreward();
+  inline void set_has_m_tencyclicreward();
+  inline void clear_has_m_tencyclicreward();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -885,9 +903,11 @@ class E_GuildConstant : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_assistradio_;
   ::google::protobuf::int32 m_tteamdamageadd_;
   ::google::protobuf::int32 m_tweekclosetime_;
+  ::google::protobuf::int32 m_cyclicreward_;
+  ::google::protobuf::int32 m_tencyclicreward_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(74 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(76 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fGuild_2eproto();
   friend void protobuf_AssignDesc_E_5fGuild_2eproto();
@@ -2446,24 +2466,38 @@ class E_GuildPrestigetask : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_level() const;
   inline void set_m_level(::google::protobuf::int32 value);
 
-  // optional int32 m_weight = 3;
+  // optional int32 m_lvmin = 3;
+  inline bool has_m_lvmin() const;
+  inline void clear_m_lvmin();
+  static const int kMLvminFieldNumber = 3;
+  inline ::google::protobuf::int32 m_lvmin() const;
+  inline void set_m_lvmin(::google::protobuf::int32 value);
+
+  // optional int32 m_lvmax = 4;
+  inline bool has_m_lvmax() const;
+  inline void clear_m_lvmax();
+  static const int kMLvmaxFieldNumber = 4;
+  inline ::google::protobuf::int32 m_lvmax() const;
+  inline void set_m_lvmax(::google::protobuf::int32 value);
+
+  // optional int32 m_weight = 5;
   inline bool has_m_weight() const;
   inline void clear_m_weight();
-  static const int kMWeightFieldNumber = 3;
+  static const int kMWeightFieldNumber = 5;
   inline ::google::protobuf::int32 m_weight() const;
   inline void set_m_weight(::google::protobuf::int32 value);
 
-  // optional int32 m_taskpool = 4;
+  // optional int32 m_taskpool = 6;
   inline bool has_m_taskpool() const;
   inline void clear_m_taskpool();
-  static const int kMTaskpoolFieldNumber = 4;
+  static const int kMTaskpoolFieldNumber = 6;
   inline ::google::protobuf::int32 m_taskpool() const;
   inline void set_m_taskpool(::google::protobuf::int32 value);
 
-  // optional int32 m_reward = 5;
+  // optional int32 m_reward = 7;
   inline bool has_m_reward() const;
   inline void clear_m_reward();
-  static const int kMRewardFieldNumber = 5;
+  static const int kMRewardFieldNumber = 7;
   inline ::google::protobuf::int32 m_reward() const;
   inline void set_m_reward(::google::protobuf::int32 value);
 
@@ -2473,6 +2507,10 @@ class E_GuildPrestigetask : public ::google::protobuf::Message {
   inline void clear_has_m_id();
   inline void set_has_m_level();
   inline void clear_has_m_level();
+  inline void set_has_m_lvmin();
+  inline void clear_has_m_lvmin();
+  inline void set_has_m_lvmax();
+  inline void clear_has_m_lvmax();
   inline void set_has_m_weight();
   inline void clear_has_m_weight();
   inline void set_has_m_taskpool();
@@ -2484,12 +2522,14 @@ class E_GuildPrestigetask : public ::google::protobuf::Message {
 
   ::google::protobuf::int32 m_id_;
   ::google::protobuf::int32 m_level_;
+  ::google::protobuf::int32 m_lvmin_;
+  ::google::protobuf::int32 m_lvmax_;
   ::google::protobuf::int32 m_weight_;
   ::google::protobuf::int32 m_taskpool_;
   ::google::protobuf::int32 m_reward_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fGuild_2eproto();
   friend void protobuf_AssignDesc_E_5fGuild_2eproto();
@@ -6266,6 +6306,50 @@ inline void E_GuildConstant::set_m_tweekclosetime(::google::protobuf::int32 valu
   m_tweekclosetime_ = value;
 }
 
+// optional int32 m_cyclicreward = 75;
+inline bool E_GuildConstant::has_m_cyclicreward() const {
+  return (_has_bits_[2] & 0x00000400u) != 0;
+}
+inline void E_GuildConstant::set_has_m_cyclicreward() {
+  _has_bits_[2] |= 0x00000400u;
+}
+inline void E_GuildConstant::clear_has_m_cyclicreward() {
+  _has_bits_[2] &= ~0x00000400u;
+}
+inline void E_GuildConstant::clear_m_cyclicreward() {
+  m_cyclicreward_ = 0;
+  clear_has_m_cyclicreward();
+}
+inline ::google::protobuf::int32 E_GuildConstant::m_cyclicreward() const {
+  return m_cyclicreward_;
+}
+inline void E_GuildConstant::set_m_cyclicreward(::google::protobuf::int32 value) {
+  set_has_m_cyclicreward();
+  m_cyclicreward_ = value;
+}
+
+// optional int32 m_tencyclicreward = 76;
+inline bool E_GuildConstant::has_m_tencyclicreward() const {
+  return (_has_bits_[2] & 0x00000800u) != 0;
+}
+inline void E_GuildConstant::set_has_m_tencyclicreward() {
+  _has_bits_[2] |= 0x00000800u;
+}
+inline void E_GuildConstant::clear_has_m_tencyclicreward() {
+  _has_bits_[2] &= ~0x00000800u;
+}
+inline void E_GuildConstant::clear_m_tencyclicreward() {
+  m_tencyclicreward_ = 0;
+  clear_has_m_tencyclicreward();
+}
+inline ::google::protobuf::int32 E_GuildConstant::m_tencyclicreward() const {
+  return m_tencyclicreward_;
+}
+inline void E_GuildConstant::set_m_tencyclicreward(::google::protobuf::int32 value) {
+  set_has_m_tencyclicreward();
+  m_tencyclicreward_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // Sheet_GuildConstant
@@ -7534,15 +7618,59 @@ inline void E_GuildPrestigetask::set_m_level(::google::protobuf::int32 value) {
   m_level_ = value;
 }
 
-// optional int32 m_weight = 3;
-inline bool E_GuildPrestigetask::has_m_weight() const {
+// optional int32 m_lvmin = 3;
+inline bool E_GuildPrestigetask::has_m_lvmin() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void E_GuildPrestigetask::set_has_m_weight() {
+inline void E_GuildPrestigetask::set_has_m_lvmin() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void E_GuildPrestigetask::clear_has_m_weight() {
+inline void E_GuildPrestigetask::clear_has_m_lvmin() {
   _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_GuildPrestigetask::clear_m_lvmin() {
+  m_lvmin_ = 0;
+  clear_has_m_lvmin();
+}
+inline ::google::protobuf::int32 E_GuildPrestigetask::m_lvmin() const {
+  return m_lvmin_;
+}
+inline void E_GuildPrestigetask::set_m_lvmin(::google::protobuf::int32 value) {
+  set_has_m_lvmin();
+  m_lvmin_ = value;
+}
+
+// optional int32 m_lvmax = 4;
+inline bool E_GuildPrestigetask::has_m_lvmax() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_GuildPrestigetask::set_has_m_lvmax() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_GuildPrestigetask::clear_has_m_lvmax() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_GuildPrestigetask::clear_m_lvmax() {
+  m_lvmax_ = 0;
+  clear_has_m_lvmax();
+}
+inline ::google::protobuf::int32 E_GuildPrestigetask::m_lvmax() const {
+  return m_lvmax_;
+}
+inline void E_GuildPrestigetask::set_m_lvmax(::google::protobuf::int32 value) {
+  set_has_m_lvmax();
+  m_lvmax_ = value;
+}
+
+// optional int32 m_weight = 5;
+inline bool E_GuildPrestigetask::has_m_weight() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void E_GuildPrestigetask::set_has_m_weight() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void E_GuildPrestigetask::clear_has_m_weight() {
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void E_GuildPrestigetask::clear_m_weight() {
   m_weight_ = 0;
@@ -7556,15 +7684,15 @@ inline void E_GuildPrestigetask::set_m_weight(::google::protobuf::int32 value) {
   m_weight_ = value;
 }
 
-// optional int32 m_taskpool = 4;
+// optional int32 m_taskpool = 6;
 inline bool E_GuildPrestigetask::has_m_taskpool() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void E_GuildPrestigetask::set_has_m_taskpool() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void E_GuildPrestigetask::clear_has_m_taskpool() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void E_GuildPrestigetask::clear_m_taskpool() {
   m_taskpool_ = 0;
@@ -7578,15 +7706,15 @@ inline void E_GuildPrestigetask::set_m_taskpool(::google::protobuf::int32 value)
   m_taskpool_ = value;
 }
 
-// optional int32 m_reward = 5;
+// optional int32 m_reward = 7;
 inline bool E_GuildPrestigetask::has_m_reward() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void E_GuildPrestigetask::set_has_m_reward() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void E_GuildPrestigetask::clear_has_m_reward() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void E_GuildPrestigetask::clear_m_reward() {
   m_reward_ = 0;

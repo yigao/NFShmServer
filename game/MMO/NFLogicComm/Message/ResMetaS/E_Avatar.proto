@@ -36,7 +36,7 @@ message E_AvatarValue
 	optional int32 m_lv = 3[(yd_fieldoptions.field_cname) = "等级"];
 	optional int32 m_cost = 4[(yd_fieldoptions.field_cname) = "升星消耗数量"];
 	optional int32 m_exp = 5[(yd_fieldoptions.field_cname) = "升级需要经验"];
-	repeated E_AvatarValueAttributeDesc m_attribute = 6[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 9];
+	repeated E_AvatarValueAttributeDesc m_attribute = 6[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 13];
 }
 
 

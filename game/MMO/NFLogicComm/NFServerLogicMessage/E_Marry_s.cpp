@@ -868,6 +868,7 @@ int E_MarryExpressshop_s::CreateInit() {
 	m_exp = (int32_t)0;
 	m_expto = (int32_t)0;
 	m_broadcastid = (int32_t)0;
+	m_effectid = (int32_t)0;
 	return 0;
 }
 
@@ -881,6 +882,7 @@ void E_MarryExpressshop_s::write_to_pbmsg(::proto_ff::E_MarryExpressshop & msg) 
 	msg.set_m_exp((int32_t)m_exp);
 	msg.set_m_expto((int32_t)m_expto);
 	msg.set_m_broadcastid((int32_t)m_broadcastid);
+	msg.set_m_effectid((int32_t)m_effectid);
 }
 
 void E_MarryExpressshop_s::read_from_pbmsg(const ::proto_ff::E_MarryExpressshop & msg) {
@@ -889,6 +891,7 @@ void E_MarryExpressshop_s::read_from_pbmsg(const ::proto_ff::E_MarryExpressshop 
 	m_exp = msg.m_exp();
 	m_expto = msg.m_expto();
 	m_broadcastid = msg.m_broadcastid();
+	m_effectid = msg.m_effectid();
 }
 
 Sheet_MarryExpressshop_s::Sheet_MarryExpressshop_s() {
@@ -994,6 +997,8 @@ int E_MarryConstant_s::CreateInit() {
 	m_sendrednum = (int32_t)0;
 	m_redcollect = (int32_t)0;
 	m_redcollectnum = (int32_t)0;
+	m_cakemonster = (int32_t)0;
+	m_hymonster = (int32_t)0;
 	return 0;
 }
 
@@ -1041,6 +1046,8 @@ void E_MarryConstant_s::write_to_pbmsg(::proto_ff::E_MarryConstant & msg) const 
 	msg.set_m_sendrednum((int32_t)m_sendrednum);
 	msg.set_m_redcollect((int32_t)m_redcollect);
 	msg.set_m_redcollectnum((int32_t)m_redcollectnum);
+	msg.set_m_cakemonster((int32_t)m_cakemonster);
+	msg.set_m_hymonster((int32_t)m_hymonster);
 	for(int32_t i = 0; i < (int32_t)m_tourmonster.size(); ++i) {
 		::proto_ff::E_MarryConstantTourmonsterDesc* temp_m_tourmonster = msg.add_m_tourmonster();
 		m_tourmonster[i].write_to_pbmsg(*temp_m_tourmonster);
@@ -1087,6 +1094,8 @@ void E_MarryConstant_s::read_from_pbmsg(const ::proto_ff::E_MarryConstant & msg)
 	m_sendrednum = msg.m_sendrednum();
 	m_redcollect = msg.m_redcollect();
 	m_redcollectnum = msg.m_redcollectnum();
+	m_cakemonster = msg.m_cakemonster();
+	m_hymonster = msg.m_hymonster();
 	m_tourmonster.resize((int)msg.m_tourmonster_size() > (int)m_tourmonster.max_size() ? m_tourmonster.max_size() : msg.m_tourmonster_size());
 	for(int32_t i = 0; i < (int32_t)m_tourmonster.size(); ++i) {
 		const ::proto_ff::E_MarryConstantTourmonsterDesc & temp_m_tourmonster = msg.m_tourmonster(i);

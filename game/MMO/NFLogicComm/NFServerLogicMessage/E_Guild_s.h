@@ -16,7 +16,7 @@
 #define DEFINE_E_GUILDDONATE_M_REWARD_MAX_NUM 3
 #define DEFINE_SHEET_GUILDDONATE_E_GUILDDONATE_LIST_MAX_NUM 4
 #define DEFINE_SHEET_GUILDPACKET_E_GUILDPACKET_LIST_MAX_NUM 128
-#define DEFINE_SHEET_GUILDPRESTIGETASK_E_GUILDPRESTIGETASK_LIST_MAX_NUM 8
+#define DEFINE_SHEET_GUILDPRESTIGETASK_E_GUILDPRESTIGETASK_LIST_MAX_NUM 16
 #define DEFINE_SHEET_GUILDLVREWARD_E_GUILDLVREWARD_LIST_MAX_NUM 512
 #define DEFINE_E_GUILDCOLLEGE_M_ATTRIBUTE_MAX_NUM 2
 #define DEFINE_SHEET_GUILDCOLLEGE_E_GUILDCOLLEGE_LIST_MAX_NUM 16384
@@ -111,6 +111,8 @@ namespace proto_ff_s {
 		int32_t m_assistradio;//助攻的积分系数
 		int32_t m_tteamdamageadd;//组队增加伤害
 		int32_t m_tweekclosetime;//周结算前关闭时间
+		int32_t m_cyclicreward;//周环任务普通奖励
+		int32_t m_tencyclicreward;//周环任务十环奖励
 
 		virtual void write_to_pbmsg(::proto_ff::E_GuildConstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GuildConstant & msg);
@@ -347,6 +349,8 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_level;//任务分级
+		int32_t m_lvmin;//等级下限
+		int32_t m_lvmax;//等级上限
 		int32_t m_weight;//权重
 		int32_t m_taskpool;//随机的任务池id
 		int32_t m_reward;//任务奖励类型id

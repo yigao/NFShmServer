@@ -24,7 +24,7 @@ message E_MarketMarket
 
 message Sheet_MarketMarket
 {
-	repeated E_MarketMarket E_MarketMarket_List = 1[(yd_fieldoptions.field_arysize)=16384];
+	repeated E_MarketMarket E_MarketMarket_List = 1[(yd_fieldoptions.field_arysize)=1024];
 }
 
 message E_MarketBig

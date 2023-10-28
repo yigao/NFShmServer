@@ -70,6 +70,7 @@ int E_FashionFashion_s::CreateInit() {
 	m_id = (int64_t)0;
 	m_type = (int32_t)0;
 	m_quality = (int32_t)0;
+	m_timelimit = (int32_t)0;
 	m_activationitem = (int64_t)0;
 	m_activationnum = (int32_t)0;
 	m_starid = (int64_t)0;
@@ -88,6 +89,7 @@ void E_FashionFashion_s::write_to_pbmsg(::proto_ff::E_FashionFashion & msg) cons
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_quality((int32_t)m_quality);
 	msg.set_m_professionlimit(m_professionlimit.data());
+	msg.set_m_timelimit((int32_t)m_timelimit);
 	msg.set_m_activationitem((int64_t)m_activationitem);
 	msg.set_m_activationnum((int32_t)m_activationnum);
 	msg.set_m_starid((int64_t)m_starid);
@@ -110,6 +112,7 @@ void E_FashionFashion_s::read_from_pbmsg(const ::proto_ff::E_FashionFashion & ms
 	m_type = msg.m_type();
 	m_quality = msg.m_quality();
 	m_professionlimit = msg.m_professionlimit();
+	m_timelimit = msg.m_timelimit();
 	m_activationitem = msg.m_activationitem();
 	m_activationnum = msg.m_activationnum();
 	m_starid = msg.m_starid();

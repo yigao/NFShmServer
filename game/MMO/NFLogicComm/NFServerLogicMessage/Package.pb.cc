@@ -254,7 +254,8 @@ void protobuf_AssignDesc_Package_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PackageUseRet));
   PackageSellReq_descriptor_ = file->message_type(11);
-  static const int PackageSellReq_offsets_[1] = {
+  static const int PackageSellReq_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackageSellReq, package_type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PackageSellReq, sell_),
   };
   PackageSellReq_reflection_ =
@@ -425,12 +426,13 @@ void protobuf_AddDesc_Package_2eproto() {
     "\003 \001(\0132\031.proto_ff.MutItemTipProto\"=\n\rPack"
     "ageUseReq\022\r\n\005index\030\001 \002(\005\022\013\n\003num\030\002 \001(\005\022\020\n"
     "\010item_lst\030\003 \003(\004\" \n\rPackageUseRet\022\017\n\007retc"
-    "ode\030\001 \002(\005\"7\n\016PackageSellReq\022%\n\004sell\030\001 \003("
-    "\0132\027.proto_ff.ItemSellProto\"!\n\016PackageSel"
-    "lRet\022\017\n\007retcode\030\001 \002(\005\"=\n\020PackageExpandRe"
-    "q\022\024\n\014package_type\030\001 \001(\005\022\023\n\013expand_grid\030\002"
-    " \001(\005\"J\n\020PackageExpandRsp\022\013\n\003ret\030\001 \001(\005\022\024\n"
-    "\014package_type\030\002 \001(\005\022\023\n\013expand_grid\030\003 \001(\005", 1080);
+    "ode\030\001 \002(\005\"M\n\016PackageSellReq\022\024\n\014package_t"
+    "ype\030\001 \001(\005\022%\n\004sell\030\002 \003(\0132\027.proto_ff.ItemS"
+    "ellProto\"!\n\016PackageSellRet\022\017\n\007retcode\030\001 "
+    "\002(\005\"=\n\020PackageExpandReq\022\024\n\014package_type\030"
+    "\001 \001(\005\022\023\n\013expand_grid\030\002 \001(\005\"J\n\020PackageExp"
+    "andRsp\022\013\n\003ret\030\001 \001(\005\022\024\n\014package_type\030\002 \001("
+    "\005\022\023\n\013expand_grid\030\003 \001(\005", 1102);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Package.proto", &protobuf_RegisterTypes);
   ItemTipProto::default_instance_ = new ItemTipProto();
@@ -3310,6 +3312,7 @@ void PackageUseRet::Swap(PackageUseRet* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int PackageSellReq::kPackageTypeFieldNumber;
 const int PackageSellReq::kSellFieldNumber;
 #endif  // !_MSC_VER
 
@@ -3329,6 +3332,7 @@ PackageSellReq::PackageSellReq(const PackageSellReq& from)
 
 void PackageSellReq::SharedCtor() {
   _cached_size_ = 0;
+  package_type_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -3363,6 +3367,9 @@ PackageSellReq* PackageSellReq::New() const {
 }
 
 void PackageSellReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    package_type_ = 0;
+  }
   sell_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -3374,8 +3381,23 @@ bool PackageSellReq::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.ItemSellProto sell = 1;
+      // optional int32 package_type = 1;
       case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &package_type_)));
+          set_has_package_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_sell;
+        break;
+      }
+
+      // repeated .proto_ff.ItemSellProto sell = 2;
+      case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_sell:
@@ -3384,7 +3406,7 @@ bool PackageSellReq::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_sell;
+        if (input->ExpectTag(18)) goto parse_sell;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -3407,10 +3429,15 @@ bool PackageSellReq::MergePartialFromCodedStream(
 
 void PackageSellReq::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.ItemSellProto sell = 1;
+  // optional int32 package_type = 1;
+  if (has_package_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->package_type(), output);
+  }
+
+  // repeated .proto_ff.ItemSellProto sell = 2;
   for (int i = 0; i < this->sell_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->sell(i), output);
+      2, this->sell(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -3421,11 +3448,16 @@ void PackageSellReq::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* PackageSellReq::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.ItemSellProto sell = 1;
+  // optional int32 package_type = 1;
+  if (has_package_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->package_type(), target);
+  }
+
+  // repeated .proto_ff.ItemSellProto sell = 2;
   for (int i = 0; i < this->sell_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        1, this->sell(i), target);
+        2, this->sell(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3438,7 +3470,16 @@ void PackageSellReq::SerializeWithCachedSizes(
 int PackageSellReq::ByteSize() const {
   int total_size = 0;
 
-  // repeated .proto_ff.ItemSellProto sell = 1;
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 package_type = 1;
+    if (has_package_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->package_type());
+    }
+
+  }
+  // repeated .proto_ff.ItemSellProto sell = 2;
   total_size += 1 * this->sell_size();
   for (int i = 0; i < this->sell_size(); i++) {
     total_size +=
@@ -3472,6 +3513,11 @@ void PackageSellReq::MergeFrom(const ::google::protobuf::Message& from) {
 void PackageSellReq::MergeFrom(const PackageSellReq& from) {
   GOOGLE_CHECK_NE(&from, this);
   sell_.MergeFrom(from.sell_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_package_type()) {
+      set_package_type(from.package_type());
+    }
+  }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
@@ -3497,6 +3543,7 @@ bool PackageSellReq::IsInitialized() const {
 
 void PackageSellReq::Swap(PackageSellReq* other) {
   if (other != this) {
+    std::swap(package_type_, other->package_type_);
     sell_.Swap(&other->sell_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);

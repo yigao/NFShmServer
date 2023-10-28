@@ -35,6 +35,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* NotifyPetGetedListRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   NotifyPetGetedListRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* NotifyPetYaoHun_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  NotifyPetYaoHun_reflection_ = NULL;
+const ::google::protobuf::Descriptor* NotifyPetYaoHunSimple_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  NotifyPetYaoHunSimple_reflection_ = NULL;
 const ::google::protobuf::Descriptor* PetLvUpReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   PetLvUpReq_reflection_ = NULL;
@@ -122,6 +128,63 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* PetGrowOptRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   PetGrowOptRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PetYaoHunUnlockReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PetYaoHunUnlockReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PetYaoHunUnlockRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PetYaoHunUnlockRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PetYaoHunDressReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PetYaoHunDressReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PetYaoHunDressRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PetYaoHunDressRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PetLianYaoReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PetLianYaoReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PetLianYaoReward_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PetLianYaoReward_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PetLianYaoRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PetLianYaoRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PetYaoHunExchangeReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PetYaoHunExchangeReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PetYaoHunExchangeRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PetYaoHunExchangeRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PetYaoHunLvReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PetYaoHunLvReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PetYaoHunLvRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PetYaoHunLvRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PetYaoHunBreakReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PetYaoHunBreakReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PetYaoHunBreakRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PetYaoHunBreakRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PetLianYaoTqBuyReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PetLianYaoTqBuyReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PetLianYaoTqBuyRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PetLianYaoTqBuyRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PetYaoHunSuitReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PetYaoHunSuitReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PetYaoHunSuitRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PetYaoHunSuitRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PetYaoHunResetReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PetYaoHunResetReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PetYaoHunResetRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PetYaoHunResetRsp_reflection_ = NULL;
 
 }  // namespace
 
@@ -133,12 +196,13 @@ void protobuf_AssignDesc_Pet_2eproto() {
       "Pet.proto");
   GOOGLE_CHECK(file != NULL);
   NotifyPetModuleRsp_descriptor_ = file->message_type(0);
-  static const int NotifyPetModuleRsp_offsets_[5] = {
+  static const int NotifyPetModuleRsp_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyPetModuleRsp, fetter_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyPetModuleRsp, pets_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyPetModuleRsp, hatchs_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyPetModuleRsp, cfgids_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyPetModuleRsp, grows_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyPetModuleRsp, yaohun_),
   };
   NotifyPetModuleRsp_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -212,7 +276,40 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyPetGetedListRsp));
-  PetLvUpReq_descriptor_ = file->message_type(5);
+  NotifyPetYaoHun_descriptor_ = file->message_type(5);
+  static const int NotifyPetYaoHun_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyPetYaoHun, info_),
+  };
+  NotifyPetYaoHun_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      NotifyPetYaoHun_descriptor_,
+      NotifyPetYaoHun::default_instance_,
+      NotifyPetYaoHun_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyPetYaoHun, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyPetYaoHun, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(NotifyPetYaoHun));
+  NotifyPetYaoHunSimple_descriptor_ = file->message_type(6);
+  static const int NotifyPetYaoHunSimple_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyPetYaoHunSimple, lianyao_tq_flag_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyPetYaoHunSimple, yaolu_lv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyPetYaoHunSimple, yaolu_exp_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyPetYaoHunSimple, yaoqi_),
+  };
+  NotifyPetYaoHunSimple_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      NotifyPetYaoHunSimple_descriptor_,
+      NotifyPetYaoHunSimple::default_instance_,
+      NotifyPetYaoHunSimple_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyPetYaoHunSimple, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyPetYaoHunSimple, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(NotifyPetYaoHunSimple));
+  PetLvUpReq_descriptor_ = file->message_type(7);
   static const int PetLvUpReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLvUpReq, instid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLvUpReq, itemid_),
@@ -228,7 +325,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetLvUpReq));
-  PetLvUpRsp_descriptor_ = file->message_type(6);
+  PetLvUpRsp_descriptor_ = file->message_type(8);
   static const int PetLvUpRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLvUpRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLvUpRsp, instid_),
@@ -244,7 +341,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetLvUpRsp));
-  PetStepLvReq_descriptor_ = file->message_type(7);
+  PetStepLvReq_descriptor_ = file->message_type(9);
   static const int PetStepLvReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetStepLvReq, instid_),
   };
@@ -259,7 +356,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetStepLvReq));
-  PetStepLvRsp_descriptor_ = file->message_type(8);
+  PetStepLvRsp_descriptor_ = file->message_type(10);
   static const int PetStepLvRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetStepLvRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetStepLvRsp, instid_),
@@ -275,7 +372,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetStepLvRsp));
-  PetStarLvReq_descriptor_ = file->message_type(9);
+  PetStarLvReq_descriptor_ = file->message_type(11);
   static const int PetStarLvReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetStarLvReq, instid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetStarLvReq, costpetids_),
@@ -292,7 +389,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetStarLvReq));
-  PetStarLvRsp_descriptor_ = file->message_type(10);
+  PetStarLvRsp_descriptor_ = file->message_type(12);
   static const int PetStarLvRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetStarLvRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetStarLvRsp, instid_),
@@ -308,7 +405,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetStarLvRsp));
-  PetFormationReq_descriptor_ = file->message_type(11);
+  PetFormationReq_descriptor_ = file->message_type(13);
   static const int PetFormationReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetFormationReq, opt_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetFormationReq, instid_),
@@ -325,7 +422,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetFormationReq));
-  PetFormationRsp_descriptor_ = file->message_type(12);
+  PetFormationRsp_descriptor_ = file->message_type(14);
   static const int PetFormationRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetFormationRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetFormationRsp, opt_),
@@ -343,7 +440,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetFormationRsp));
-  PetAddHatchReq_descriptor_ = file->message_type(13);
+  PetAddHatchReq_descriptor_ = file->message_type(15);
   static const int PetAddHatchReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetAddHatchReq, pair_),
   };
@@ -358,7 +455,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetAddHatchReq));
-  PetAddHatchRsp_descriptor_ = file->message_type(14);
+  PetAddHatchRsp_descriptor_ = file->message_type(16);
   static const int PetAddHatchRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetAddHatchRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetAddHatchRsp, pair_),
@@ -374,7 +471,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetAddHatchRsp));
-  PetHatchUnlockReq_descriptor_ = file->message_type(15);
+  PetHatchUnlockReq_descriptor_ = file->message_type(17);
   static const int PetHatchUnlockReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetHatchUnlockReq, slot_),
   };
@@ -389,7 +486,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetHatchUnlockReq));
-  PetHatchUnlockRsp_descriptor_ = file->message_type(16);
+  PetHatchUnlockRsp_descriptor_ = file->message_type(18);
   static const int PetHatchUnlockRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetHatchUnlockRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetHatchUnlockRsp, slot_),
@@ -405,7 +502,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetHatchUnlockRsp));
-  PetHatchEggReq_descriptor_ = file->message_type(17);
+  PetHatchEggReq_descriptor_ = file->message_type(19);
   static const int PetHatchEggReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetHatchEggReq, slots_),
   };
@@ -420,7 +517,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetHatchEggReq));
-  PetHatchEggRsp_descriptor_ = file->message_type(18);
+  PetHatchEggRsp_descriptor_ = file->message_type(20);
   static const int PetHatchEggRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetHatchEggRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetHatchEggRsp, opt_),
@@ -438,7 +535,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetHatchEggRsp));
-  PetActiveFetterReq_descriptor_ = file->message_type(19);
+  PetActiveFetterReq_descriptor_ = file->message_type(21);
   static const int PetActiveFetterReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetActiveFetterReq, id_),
   };
@@ -453,7 +550,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetActiveFetterReq));
-  PetActiveFetterRsp_descriptor_ = file->message_type(20);
+  PetActiveFetterRsp_descriptor_ = file->message_type(22);
   static const int PetActiveFetterRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetActiveFetterRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetActiveFetterRsp, id_),
@@ -469,7 +566,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetActiveFetterRsp));
-  PetSkillLvReq_descriptor_ = file->message_type(21);
+  PetSkillLvReq_descriptor_ = file->message_type(23);
   static const int PetSkillLvReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetSkillLvReq, opt_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetSkillLvReq, instid_),
@@ -486,7 +583,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetSkillLvReq));
-  PetSkillLvRsp_descriptor_ = file->message_type(22);
+  PetSkillLvRsp_descriptor_ = file->message_type(24);
   static const int PetSkillLvRsp_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetSkillLvRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetSkillLvRsp, opt_),
@@ -505,7 +602,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetSkillLvRsp));
-  PetRestReq_descriptor_ = file->message_type(23);
+  PetRestReq_descriptor_ = file->message_type(25);
   static const int PetRestReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetRestReq, instid_),
   };
@@ -520,7 +617,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetRestReq));
-  PetRestRsp_descriptor_ = file->message_type(24);
+  PetRestRsp_descriptor_ = file->message_type(26);
   static const int PetRestRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetRestRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetRestRsp, instid_),
@@ -538,7 +635,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetRestRsp));
-  PetDecomposeReq_descriptor_ = file->message_type(25);
+  PetDecomposeReq_descriptor_ = file->message_type(27);
   static const int PetDecomposeReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetDecomposeReq, instids_),
   };
@@ -553,7 +650,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetDecomposeReq));
-  PetDecomposeRsp_descriptor_ = file->message_type(26);
+  PetDecomposeRsp_descriptor_ = file->message_type(28);
   static const int PetDecomposeRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetDecomposeRsp, ret_),
   };
@@ -568,7 +665,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetDecomposeRsp));
-  PetQuickHatchEggReq_descriptor_ = file->message_type(27);
+  PetQuickHatchEggReq_descriptor_ = file->message_type(29);
   static const int PetQuickHatchEggReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetQuickHatchEggReq, slot_),
   };
@@ -583,7 +680,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetQuickHatchEggReq));
-  PetQuickHatchEggRsp_descriptor_ = file->message_type(28);
+  PetQuickHatchEggRsp_descriptor_ = file->message_type(30);
   static const int PetQuickHatchEggRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetQuickHatchEggRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetQuickHatchEggRsp, slot_),
@@ -599,7 +696,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetQuickHatchEggRsp));
-  PetRestReViewReq_descriptor_ = file->message_type(29);
+  PetRestReViewReq_descriptor_ = file->message_type(31);
   static const int PetRestReViewReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetRestReViewReq, instid_),
   };
@@ -614,7 +711,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetRestReViewReq));
-  PetRestReViewRsp_descriptor_ = file->message_type(30);
+  PetRestReViewRsp_descriptor_ = file->message_type(32);
   static const int PetRestReViewRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetRestReViewRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetRestReViewRsp, instid_),
@@ -632,7 +729,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetRestReViewRsp));
-  NotifyPetGrow_descriptor_ = file->message_type(31);
+  NotifyPetGrow_descriptor_ = file->message_type(33);
   static const int NotifyPetGrow_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyPetGrow, grows_),
   };
@@ -647,7 +744,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyPetGrow));
-  PetGrowOptReq_descriptor_ = file->message_type(32);
+  PetGrowOptReq_descriptor_ = file->message_type(34);
   static const int PetGrowOptReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetGrowOptReq, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetGrowOptReq, cfgid_),
@@ -664,7 +761,7 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetGrowOptReq));
-  PetGrowOptRsp_descriptor_ = file->message_type(33);
+  PetGrowOptRsp_descriptor_ = file->message_type(35);
   static const int PetGrowOptRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetGrowOptRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetGrowOptRsp, type_),
@@ -682,6 +779,318 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetGrowOptRsp));
+  PetYaoHunUnlockReq_descriptor_ = file->message_type(36);
+  static const int PetYaoHunUnlockReq_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunUnlockReq, fight_pos_),
+  };
+  PetYaoHunUnlockReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      PetYaoHunUnlockReq_descriptor_,
+      PetYaoHunUnlockReq::default_instance_,
+      PetYaoHunUnlockReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunUnlockReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunUnlockReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(PetYaoHunUnlockReq));
+  PetYaoHunUnlockRsp_descriptor_ = file->message_type(37);
+  static const int PetYaoHunUnlockRsp_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunUnlockRsp, ret_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunUnlockRsp, fight_pos_),
+  };
+  PetYaoHunUnlockRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      PetYaoHunUnlockRsp_descriptor_,
+      PetYaoHunUnlockRsp::default_instance_,
+      PetYaoHunUnlockRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunUnlockRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunUnlockRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(PetYaoHunUnlockRsp));
+  PetYaoHunDressReq_descriptor_ = file->message_type(38);
+  static const int PetYaoHunDressReq_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunDressReq, fight_pos_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunDressReq, bag_pos_),
+  };
+  PetYaoHunDressReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      PetYaoHunDressReq_descriptor_,
+      PetYaoHunDressReq::default_instance_,
+      PetYaoHunDressReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunDressReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunDressReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(PetYaoHunDressReq));
+  PetYaoHunDressRsp_descriptor_ = file->message_type(39);
+  static const int PetYaoHunDressRsp_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunDressRsp, ret_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunDressRsp, fight_pos_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunDressRsp, bag_pos_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunDressRsp, code_),
+  };
+  PetYaoHunDressRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      PetYaoHunDressRsp_descriptor_,
+      PetYaoHunDressRsp::default_instance_,
+      PetYaoHunDressRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunDressRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunDressRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(PetYaoHunDressRsp));
+  PetLianYaoReq_descriptor_ = file->message_type(40);
+  static const int PetLianYaoReq_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoReq, lian_num_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoReq, quality_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoReq, star_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoReq, quick_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoReq, bag_pos_),
+  };
+  PetLianYaoReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      PetLianYaoReq_descriptor_,
+      PetLianYaoReq::default_instance_,
+      PetLianYaoReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(PetLianYaoReq));
+  PetLianYaoReward_descriptor_ = file->message_type(41);
+  static const int PetLianYaoReward_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoReward, itemid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoReward, num_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoReward, tq_add_flag_),
+  };
+  PetLianYaoReward_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      PetLianYaoReward_descriptor_,
+      PetLianYaoReward::default_instance_,
+      PetLianYaoReward_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoReward, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoReward, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(PetLianYaoReward));
+  PetLianYaoRsp_descriptor_ = file->message_type(42);
+  static const int PetLianYaoRsp_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoRsp, ret_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoRsp, rewards_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoRsp, yaolu_add_exp_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoRsp, yaolu_exp_flag_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoRsp, yaohun_add_),
+  };
+  PetLianYaoRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      PetLianYaoRsp_descriptor_,
+      PetLianYaoRsp::default_instance_,
+      PetLianYaoRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(PetLianYaoRsp));
+  PetYaoHunExchangeReq_descriptor_ = file->message_type(43);
+  static const int PetYaoHunExchangeReq_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunExchangeReq, target_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunExchangeReq, num_),
+  };
+  PetYaoHunExchangeReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      PetYaoHunExchangeReq_descriptor_,
+      PetYaoHunExchangeReq::default_instance_,
+      PetYaoHunExchangeReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunExchangeReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunExchangeReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(PetYaoHunExchangeReq));
+  PetYaoHunExchangeRsp_descriptor_ = file->message_type(44);
+  static const int PetYaoHunExchangeRsp_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunExchangeRsp, ret_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunExchangeRsp, target_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunExchangeRsp, num_),
+  };
+  PetYaoHunExchangeRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      PetYaoHunExchangeRsp_descriptor_,
+      PetYaoHunExchangeRsp::default_instance_,
+      PetYaoHunExchangeRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunExchangeRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunExchangeRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(PetYaoHunExchangeRsp));
+  PetYaoHunLvReq_descriptor_ = file->message_type(45);
+  static const int PetYaoHunLvReq_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunLvReq, fight_pos_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunLvReq, slot_pos_),
+  };
+  PetYaoHunLvReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      PetYaoHunLvReq_descriptor_,
+      PetYaoHunLvReq::default_instance_,
+      PetYaoHunLvReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunLvReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunLvReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(PetYaoHunLvReq));
+  PetYaoHunLvRsp_descriptor_ = file->message_type(46);
+  static const int PetYaoHunLvRsp_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunLvRsp, ret_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunLvRsp, fight_pos_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunLvRsp, slot_pos_),
+  };
+  PetYaoHunLvRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      PetYaoHunLvRsp_descriptor_,
+      PetYaoHunLvRsp::default_instance_,
+      PetYaoHunLvRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunLvRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunLvRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(PetYaoHunLvRsp));
+  PetYaoHunBreakReq_descriptor_ = file->message_type(47);
+  static const int PetYaoHunBreakReq_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunBreakReq, fight_pos_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunBreakReq, slot_pos_),
+  };
+  PetYaoHunBreakReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      PetYaoHunBreakReq_descriptor_,
+      PetYaoHunBreakReq::default_instance_,
+      PetYaoHunBreakReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunBreakReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunBreakReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(PetYaoHunBreakReq));
+  PetYaoHunBreakRsp_descriptor_ = file->message_type(48);
+  static const int PetYaoHunBreakRsp_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunBreakRsp, ret_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunBreakRsp, fight_pos_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunBreakRsp, slot_pos_),
+  };
+  PetYaoHunBreakRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      PetYaoHunBreakRsp_descriptor_,
+      PetYaoHunBreakRsp::default_instance_,
+      PetYaoHunBreakRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunBreakRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunBreakRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(PetYaoHunBreakRsp));
+  PetLianYaoTqBuyReq_descriptor_ = file->message_type(49);
+  static const int PetLianYaoTqBuyReq_offsets_[1] = {
+  };
+  PetLianYaoTqBuyReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      PetLianYaoTqBuyReq_descriptor_,
+      PetLianYaoTqBuyReq::default_instance_,
+      PetLianYaoTqBuyReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoTqBuyReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoTqBuyReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(PetLianYaoTqBuyReq));
+  PetLianYaoTqBuyRsp_descriptor_ = file->message_type(50);
+  static const int PetLianYaoTqBuyRsp_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoTqBuyRsp, ret_),
+  };
+  PetLianYaoTqBuyRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      PetLianYaoTqBuyRsp_descriptor_,
+      PetLianYaoTqBuyRsp::default_instance_,
+      PetLianYaoTqBuyRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoTqBuyRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoTqBuyRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(PetLianYaoTqBuyRsp));
+  PetYaoHunSuitReq_descriptor_ = file->message_type(51);
+  static const int PetYaoHunSuitReq_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunSuitReq, fight_pos_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunSuitReq, suit_id_),
+  };
+  PetYaoHunSuitReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      PetYaoHunSuitReq_descriptor_,
+      PetYaoHunSuitReq::default_instance_,
+      PetYaoHunSuitReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunSuitReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunSuitReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(PetYaoHunSuitReq));
+  PetYaoHunSuitRsp_descriptor_ = file->message_type(52);
+  static const int PetYaoHunSuitRsp_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunSuitRsp, ret_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunSuitRsp, fight_pos_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunSuitRsp, suit_id_),
+  };
+  PetYaoHunSuitRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      PetYaoHunSuitRsp_descriptor_,
+      PetYaoHunSuitRsp::default_instance_,
+      PetYaoHunSuitRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunSuitRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunSuitRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(PetYaoHunSuitRsp));
+  PetYaoHunResetReq_descriptor_ = file->message_type(53);
+  static const int PetYaoHunResetReq_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunResetReq, bag_pos_),
+  };
+  PetYaoHunResetReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      PetYaoHunResetReq_descriptor_,
+      PetYaoHunResetReq::default_instance_,
+      PetYaoHunResetReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunResetReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunResetReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(PetYaoHunResetReq));
+  PetYaoHunResetRsp_descriptor_ = file->message_type(54);
+  static const int PetYaoHunResetRsp_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunResetRsp, ret_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunResetRsp, bag_pos_),
+  };
+  PetYaoHunResetRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      PetYaoHunResetRsp_descriptor_,
+      PetYaoHunResetRsp::default_instance_,
+      PetYaoHunResetRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunResetRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetYaoHunResetRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(PetYaoHunResetRsp));
 }
 
 namespace {
@@ -704,6 +1113,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     NotifyPetHatchRsp_descriptor_, &NotifyPetHatchRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     NotifyPetGetedListRsp_descriptor_, &NotifyPetGetedListRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    NotifyPetYaoHun_descriptor_, &NotifyPetYaoHun::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    NotifyPetYaoHunSimple_descriptor_, &NotifyPetYaoHunSimple::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     PetLvUpReq_descriptor_, &PetLvUpReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -762,6 +1175,44 @@ void protobuf_RegisterTypes(const ::std::string&) {
     PetGrowOptReq_descriptor_, &PetGrowOptReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     PetGrowOptRsp_descriptor_, &PetGrowOptRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PetYaoHunUnlockReq_descriptor_, &PetYaoHunUnlockReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PetYaoHunUnlockRsp_descriptor_, &PetYaoHunUnlockRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PetYaoHunDressReq_descriptor_, &PetYaoHunDressReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PetYaoHunDressRsp_descriptor_, &PetYaoHunDressRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PetLianYaoReq_descriptor_, &PetLianYaoReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PetLianYaoReward_descriptor_, &PetLianYaoReward::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PetLianYaoRsp_descriptor_, &PetLianYaoRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PetYaoHunExchangeReq_descriptor_, &PetYaoHunExchangeReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PetYaoHunExchangeRsp_descriptor_, &PetYaoHunExchangeRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PetYaoHunLvReq_descriptor_, &PetYaoHunLvReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PetYaoHunLvRsp_descriptor_, &PetYaoHunLvRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PetYaoHunBreakReq_descriptor_, &PetYaoHunBreakReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PetYaoHunBreakRsp_descriptor_, &PetYaoHunBreakRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PetLianYaoTqBuyReq_descriptor_, &PetLianYaoTqBuyReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PetLianYaoTqBuyRsp_descriptor_, &PetLianYaoTqBuyRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PetYaoHunSuitReq_descriptor_, &PetYaoHunSuitReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PetYaoHunSuitRsp_descriptor_, &PetYaoHunSuitRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PetYaoHunResetReq_descriptor_, &PetYaoHunResetReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PetYaoHunResetRsp_descriptor_, &PetYaoHunResetRsp::default_instance());
 }
 
 }  // namespace
@@ -777,6 +1228,10 @@ void protobuf_ShutdownFile_Pet_2eproto() {
   delete NotifyPetHatchRsp_reflection_;
   delete NotifyPetGetedListRsp::default_instance_;
   delete NotifyPetGetedListRsp_reflection_;
+  delete NotifyPetYaoHun::default_instance_;
+  delete NotifyPetYaoHun_reflection_;
+  delete NotifyPetYaoHunSimple::default_instance_;
+  delete NotifyPetYaoHunSimple_reflection_;
   delete PetLvUpReq::default_instance_;
   delete PetLvUpReq_reflection_;
   delete PetLvUpRsp::default_instance_;
@@ -835,6 +1290,44 @@ void protobuf_ShutdownFile_Pet_2eproto() {
   delete PetGrowOptReq_reflection_;
   delete PetGrowOptRsp::default_instance_;
   delete PetGrowOptRsp_reflection_;
+  delete PetYaoHunUnlockReq::default_instance_;
+  delete PetYaoHunUnlockReq_reflection_;
+  delete PetYaoHunUnlockRsp::default_instance_;
+  delete PetYaoHunUnlockRsp_reflection_;
+  delete PetYaoHunDressReq::default_instance_;
+  delete PetYaoHunDressReq_reflection_;
+  delete PetYaoHunDressRsp::default_instance_;
+  delete PetYaoHunDressRsp_reflection_;
+  delete PetLianYaoReq::default_instance_;
+  delete PetLianYaoReq_reflection_;
+  delete PetLianYaoReward::default_instance_;
+  delete PetLianYaoReward_reflection_;
+  delete PetLianYaoRsp::default_instance_;
+  delete PetLianYaoRsp_reflection_;
+  delete PetYaoHunExchangeReq::default_instance_;
+  delete PetYaoHunExchangeReq_reflection_;
+  delete PetYaoHunExchangeRsp::default_instance_;
+  delete PetYaoHunExchangeRsp_reflection_;
+  delete PetYaoHunLvReq::default_instance_;
+  delete PetYaoHunLvReq_reflection_;
+  delete PetYaoHunLvRsp::default_instance_;
+  delete PetYaoHunLvRsp_reflection_;
+  delete PetYaoHunBreakReq::default_instance_;
+  delete PetYaoHunBreakReq_reflection_;
+  delete PetYaoHunBreakRsp::default_instance_;
+  delete PetYaoHunBreakRsp_reflection_;
+  delete PetLianYaoTqBuyReq::default_instance_;
+  delete PetLianYaoTqBuyReq_reflection_;
+  delete PetLianYaoTqBuyRsp::default_instance_;
+  delete PetLianYaoTqBuyRsp_reflection_;
+  delete PetYaoHunSuitReq::default_instance_;
+  delete PetYaoHunSuitReq_reflection_;
+  delete PetYaoHunSuitRsp::default_instance_;
+  delete PetYaoHunSuitRsp_reflection_;
+  delete PetYaoHunResetReq::default_instance_;
+  delete PetYaoHunResetReq_reflection_;
+  delete PetYaoHunResetRsp::default_instance_;
+  delete PetYaoHunResetRsp_reflection_;
 }
 
 void protobuf_AddDesc_Pet_2eproto() {
@@ -847,56 +1340,91 @@ void protobuf_AddDesc_Pet_2eproto() {
   ::proto_ff::protobuf_AddDesc_ComDefine_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\tPet.proto\022\010proto_ff\032\tCom.proto\032\017ComDef"
-    "ine.proto\"\237\001\n\022NotifyPetModuleRsp\022\016\n\006fett"
+    "ine.proto\"\312\001\n\022NotifyPetModuleRsp\022\016\n\006fett"
     "er\030\001 \003(\005\022\037\n\004pets\030\002 \003(\0132\021.proto_ff.PetInf"
     "o\022&\n\006hatchs\030\003 \003(\0132\026.proto_ff.PetHatchInf"
     "o\022\016\n\006cfgids\030\004 \003(\003\022 \n\005grows\030\005 \003(\0132\021.proto"
-    "_ff.PetGrow\"<\n\014NotifyPetRsp\022\013\n\003opt\030\001 \001(\005"
-    "\022\037\n\004pets\030\002 \003(\0132\021.proto_ff.PetInfo\"$\n\022Not"
-    "ifyPetFetterRsp\022\016\n\006fetter\030\001 \003(\005\";\n\021Notif"
-    "yPetHatchRsp\022&\n\006hatchs\030\001 \003(\0132\026.proto_ff."
-    "PetHatchInfo\"\'\n\025NotifyPetGetedListRsp\022\016\n"
-    "\006cfgids\030\001 \003(\003\",\n\nPetLvUpReq\022\016\n\006instId\030\001 "
-    "\001(\005\022\016\n\006itemid\030\002 \001(\003\")\n\nPetLvUpRsp\022\013\n\003ret"
-    "\030\001 \001(\005\022\016\n\006instId\030\002 \001(\005\"\036\n\014PetStepLvReq\022\016"
-    "\n\006instId\030\001 \001(\005\"+\n\014PetStepLvRsp\022\013\n\003ret\030\001 "
-    "\001(\005\022\016\n\006instId\030\002 \001(\005\"F\n\014PetStarLvReq\022\016\n\006i"
-    "nstId\030\001 \001(\005\022\022\n\ncostPetIds\030\002 \003(\005\022\022\n\nisCos"
-    "tItem\030\003 \001(\005\"+\n\014PetStarLvRsp\022\013\n\003ret\030\001 \001(\005"
-    "\022\016\n\006instId\030\002 \001(\005\"<\n\017PetFormationReq\022\013\n\003o"
-    "pt\030\001 \001(\005\022\016\n\006instId\030\002 \001(\005\022\014\n\004slot\030\003 \001(\005\"I"
-    "\n\017PetFormationRsp\022\013\n\003ret\030\001 \001(\005\022\013\n\003opt\030\002 "
-    "\001(\005\022\016\n\006instId\030\003 \001(\005\022\014\n\004slot\030\004 \001(\005\"1\n\016Pet"
-    "AddHatchReq\022\037\n\004pair\030\001 \003(\0132\021.proto_ff.Com"
-    "Pair\">\n\016PetAddHatchRsp\022\013\n\003ret\030\001 \001(\005\022\037\n\004p"
-    "air\030\002 \003(\0132\021.proto_ff.ComPair\"!\n\021PetHatch"
-    "UnlockReq\022\014\n\004slot\030\001 \001(\005\".\n\021PetHatchUnloc"
-    "kRsp\022\013\n\003ret\030\001 \001(\005\022\014\n\004slot\030\002 \001(\005\"\037\n\016PetHa"
-    "tchEggReq\022\r\n\005slots\030\001 \003(\005\"L\n\016PetHatchEggR"
-    "sp\022\013\n\003ret\030\001 \001(\005\022\013\n\003opt\030\002 \001(\005\022\014\n\004slot\030\003 \003"
-    "(\005\022\022\n\npetInstIds\030\004 \003(\005\" \n\022PetActiveFette"
-    "rReq\022\n\n\002id\030\001 \001(\005\"-\n\022PetActiveFetterRsp\022\013"
-    "\n\003ret\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\">\n\rPetSkillLvReq"
-    "\022\013\n\003opt\030\001 \001(\005\022\016\n\006instId\030\002 \001(\005\022\020\n\010skill_i"
-    "d\030\003 \001(\005\"W\n\rPetSkillLvRsp\022\013\n\003ret\030\001 \001(\005\022\013\n"
-    "\003opt\030\002 \001(\005\022\016\n\006instId\030\003 \001(\005\022\020\n\010skill_id\030\004"
-    " \001(\005\022\n\n\002lv\030\005 \001(\005\"\034\n\nPetRestReq\022\016\n\006instId"
-    "\030\001 \001(\005\"p\n\nPetRestRsp\022\013\n\003ret\030\001 \001(\005\022\016\n\006ins"
-    "tId\030\002 \001(\005\022\"\n\005items\030\003 \003(\0132\023.proto_ff.ComP"
-    "air64\022!\n\004pets\030\004 \003(\0132\023.proto_ff.ComPair64"
-    "\"\"\n\017PetDecomposeReq\022\017\n\007instIds\030\001 \003(\005\"\036\n\017"
-    "PetDecomposeRsp\022\013\n\003ret\030\001 \001(\005\"#\n\023PetQuick"
-    "HatchEggReq\022\014\n\004slot\030\001 \001(\005\"0\n\023PetQuickHat"
-    "chEggRsp\022\013\n\003ret\030\001 \001(\005\022\014\n\004slot\030\002 \001(\005\"\"\n\020P"
-    "etRestReViewReq\022\016\n\006instId\030\001 \001(\005\"v\n\020PetRe"
-    "stReViewRsp\022\013\n\003ret\030\001 \001(\005\022\016\n\006instId\030\002 \001(\005"
-    "\022\"\n\005items\030\003 \003(\0132\023.proto_ff.ComPair64\022!\n\004"
-    "pets\030\004 \003(\0132\023.proto_ff.ComPair64\"1\n\rNotif"
-    "yPetGrow\022 \n\005grows\030\001 \003(\0132\021.proto_ff.PetGr"
-    "ow\"\?\n\rPetGrowOptReq\022\014\n\004type\030\001 \001(\005\022\r\n\005cfg"
-    "id\030\002 \001(\005\022\021\n\tstarindex\030\003 \001(\005\"G\n\rPetGrowOp"
-    "tRsp\022\013\n\003ret\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\022\r\n\005cfgid"
-    "\030\003 \001(\005\022\014\n\004code\030\004 \001(\005", 2020);
+    "_ff.PetGrow\022)\n\006yaohun\030\006 \001(\0132\031.proto_ff.P"
+    "etYaoHunModule\"<\n\014NotifyPetRsp\022\013\n\003opt\030\001 "
+    "\001(\005\022\037\n\004pets\030\002 \003(\0132\021.proto_ff.PetInfo\"$\n\022"
+    "NotifyPetFetterRsp\022\016\n\006fetter\030\001 \003(\005\";\n\021No"
+    "tifyPetHatchRsp\022&\n\006hatchs\030\001 \003(\0132\026.proto_"
+    "ff.PetHatchInfo\"\'\n\025NotifyPetGetedListRsp"
+    "\022\016\n\006cfgids\030\001 \003(\003\"9\n\017NotifyPetYaoHun\022&\n\004i"
+    "nfo\030\001 \001(\0132\030.proto_ff.PetYaoHunEntry\"d\n\025N"
+    "otifyPetYaoHunSimple\022\027\n\017lianyao_tq_flag\030"
+    "\002 \001(\005\022\020\n\010yaolu_lv\030\003 \001(\005\022\021\n\tyaolu_exp\030\004 \001"
+    "(\005\022\r\n\005yaoqi\030\005 \001(\005\",\n\nPetLvUpReq\022\016\n\006instI"
+    "d\030\001 \001(\005\022\016\n\006itemid\030\002 \001(\003\")\n\nPetLvUpRsp\022\013\n"
+    "\003ret\030\001 \001(\005\022\016\n\006instId\030\002 \001(\005\"\036\n\014PetStepLvR"
+    "eq\022\016\n\006instId\030\001 \001(\005\"+\n\014PetStepLvRsp\022\013\n\003re"
+    "t\030\001 \001(\005\022\016\n\006instId\030\002 \001(\005\"F\n\014PetStarLvReq\022"
+    "\016\n\006instId\030\001 \001(\005\022\022\n\ncostPetIds\030\002 \003(\005\022\022\n\ni"
+    "sCostItem\030\003 \001(\005\"+\n\014PetStarLvRsp\022\013\n\003ret\030\001"
+    " \001(\005\022\016\n\006instId\030\002 \001(\005\"<\n\017PetFormationReq\022"
+    "\013\n\003opt\030\001 \001(\005\022\016\n\006instId\030\002 \001(\005\022\014\n\004slot\030\003 \001"
+    "(\005\"I\n\017PetFormationRsp\022\013\n\003ret\030\001 \001(\005\022\013\n\003op"
+    "t\030\002 \001(\005\022\016\n\006instId\030\003 \001(\005\022\014\n\004slot\030\004 \001(\005\"1\n"
+    "\016PetAddHatchReq\022\037\n\004pair\030\001 \003(\0132\021.proto_ff"
+    ".ComPair\">\n\016PetAddHatchRsp\022\013\n\003ret\030\001 \001(\005\022"
+    "\037\n\004pair\030\002 \003(\0132\021.proto_ff.ComPair\"!\n\021PetH"
+    "atchUnlockReq\022\014\n\004slot\030\001 \001(\005\".\n\021PetHatchU"
+    "nlockRsp\022\013\n\003ret\030\001 \001(\005\022\014\n\004slot\030\002 \001(\005\"\037\n\016P"
+    "etHatchEggReq\022\r\n\005slots\030\001 \003(\005\"L\n\016PetHatch"
+    "EggRsp\022\013\n\003ret\030\001 \001(\005\022\013\n\003opt\030\002 \001(\005\022\014\n\004slot"
+    "\030\003 \003(\005\022\022\n\npetInstIds\030\004 \003(\005\" \n\022PetActiveF"
+    "etterReq\022\n\n\002id\030\001 \001(\005\"-\n\022PetActiveFetterR"
+    "sp\022\013\n\003ret\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\">\n\rPetSkillL"
+    "vReq\022\013\n\003opt\030\001 \001(\005\022\016\n\006instId\030\002 \001(\005\022\020\n\010ski"
+    "ll_id\030\003 \001(\005\"W\n\rPetSkillLvRsp\022\013\n\003ret\030\001 \001("
+    "\005\022\013\n\003opt\030\002 \001(\005\022\016\n\006instId\030\003 \001(\005\022\020\n\010skill_"
+    "id\030\004 \001(\005\022\n\n\002lv\030\005 \001(\005\"\034\n\nPetRestReq\022\016\n\006in"
+    "stId\030\001 \001(\005\"p\n\nPetRestRsp\022\013\n\003ret\030\001 \001(\005\022\016\n"
+    "\006instId\030\002 \001(\005\022\"\n\005items\030\003 \003(\0132\023.proto_ff."
+    "ComPair64\022!\n\004pets\030\004 \003(\0132\023.proto_ff.ComPa"
+    "ir64\"\"\n\017PetDecomposeReq\022\017\n\007instIds\030\001 \003(\005"
+    "\"\036\n\017PetDecomposeRsp\022\013\n\003ret\030\001 \001(\005\"#\n\023PetQ"
+    "uickHatchEggReq\022\014\n\004slot\030\001 \001(\005\"0\n\023PetQuic"
+    "kHatchEggRsp\022\013\n\003ret\030\001 \001(\005\022\014\n\004slot\030\002 \001(\005\""
+    "\"\n\020PetRestReViewReq\022\016\n\006instId\030\001 \001(\005\"v\n\020P"
+    "etRestReViewRsp\022\013\n\003ret\030\001 \001(\005\022\016\n\006instId\030\002"
+    " \001(\005\022\"\n\005items\030\003 \003(\0132\023.proto_ff.ComPair64"
+    "\022!\n\004pets\030\004 \003(\0132\023.proto_ff.ComPair64\"1\n\rN"
+    "otifyPetGrow\022 \n\005grows\030\001 \003(\0132\021.proto_ff.P"
+    "etGrow\"\?\n\rPetGrowOptReq\022\014\n\004type\030\001 \001(\005\022\r\n"
+    "\005cfgid\030\002 \001(\005\022\021\n\tstarindex\030\003 \001(\005\"G\n\rPetGr"
+    "owOptRsp\022\013\n\003ret\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\022\r\n\005c"
+    "fgid\030\003 \001(\005\022\014\n\004code\030\004 \001(\005\"\'\n\022PetYaoHunUnl"
+    "ockReq\022\021\n\tfight_pos\030\001 \001(\005\"4\n\022PetYaoHunUn"
+    "lockRsp\022\013\n\003ret\030\001 \001(\005\022\021\n\tfight_pos\030\002 \001(\005\""
+    "7\n\021PetYaoHunDressReq\022\021\n\tfight_pos\030\001 \001(\005\022"
+    "\017\n\007bag_pos\030\002 \001(\005\"R\n\021PetYaoHunDressRsp\022\013\n"
+    "\003ret\030\001 \001(\005\022\021\n\tfight_pos\030\002 \001(\005\022\017\n\007bag_pos"
+    "\030\003 \001(\005\022\014\n\004code\030\004 \001(\005\"`\n\rPetLianYaoReq\022\020\n"
+    "\010lian_num\030\001 \001(\005\022\017\n\007quality\030\002 \001(\005\022\014\n\004star"
+    "\030\003 \001(\005\022\r\n\005quick\030\004 \001(\005\022\017\n\007bag_pos\030\005 \003(\005\"D"
+    "\n\020PetLianYaoReward\022\016\n\006itemid\030\001 \001(\005\022\013\n\003nu"
+    "m\030\002 \001(\005\022\023\n\013tq_add_flag\030\003 \001(\005\"\214\001\n\rPetLian"
+    "YaoRsp\022\013\n\003ret\030\001 \001(\005\022+\n\007rewards\030\002 \003(\0132\032.p"
+    "roto_ff.PetLianYaoReward\022\025\n\ryaolu_add_ex"
+    "p\030\003 \001(\005\022\026\n\016yaolu_exp_flag\030\004 \001(\005\022\022\n\nyaohu"
+    "n_add\030\005 \001(\005\"6\n\024PetYaoHunExchangeReq\022\021\n\tt"
+    "arget_id\030\001 \001(\005\022\013\n\003num\030\002 \001(\005\"C\n\024PetYaoHun"
+    "ExchangeRsp\022\013\n\003ret\030\001 \001(\005\022\021\n\ttarget_id\030\002 "
+    "\001(\005\022\013\n\003num\030\003 \001(\005\"5\n\016PetYaoHunLvReq\022\021\n\tfi"
+    "ght_pos\030\001 \001(\005\022\020\n\010slot_pos\030\002 \001(\005\"B\n\016PetYa"
+    "oHunLvRsp\022\013\n\003ret\030\001 \001(\005\022\021\n\tfight_pos\030\002 \001("
+    "\005\022\020\n\010slot_pos\030\003 \001(\005\"8\n\021PetYaoHunBreakReq"
+    "\022\021\n\tfight_pos\030\001 \001(\005\022\020\n\010slot_pos\030\002 \001(\005\"E\n"
+    "\021PetYaoHunBreakRsp\022\013\n\003ret\030\001 \001(\005\022\021\n\tfight"
+    "_pos\030\002 \001(\005\022\020\n\010slot_pos\030\003 \001(\005\"\024\n\022PetLianY"
+    "aoTqBuyReq\"!\n\022PetLianYaoTqBuyRsp\022\013\n\003ret\030"
+    "\001 \001(\005\"6\n\020PetYaoHunSuitReq\022\021\n\tfight_pos\030\001"
+    " \001(\005\022\017\n\007suit_id\030\002 \001(\005\"C\n\020PetYaoHunSuitRs"
+    "p\022\013\n\003ret\030\001 \001(\005\022\021\n\tfight_pos\030\002 \001(\005\022\017\n\007sui"
+    "t_id\030\003 \001(\005\"$\n\021PetYaoHunResetReq\022\017\n\007bag_p"
+    "os\030\001 \001(\005\"1\n\021PetYaoHunResetRsp\022\013\n\003ret\030\001 \001"
+    "(\005\022\017\n\007bag_pos\030\002 \001(\005", 3419);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Pet.proto", &protobuf_RegisterTypes);
   NotifyPetModuleRsp::default_instance_ = new NotifyPetModuleRsp();
@@ -904,6 +1432,8 @@ void protobuf_AddDesc_Pet_2eproto() {
   NotifyPetFetterRsp::default_instance_ = new NotifyPetFetterRsp();
   NotifyPetHatchRsp::default_instance_ = new NotifyPetHatchRsp();
   NotifyPetGetedListRsp::default_instance_ = new NotifyPetGetedListRsp();
+  NotifyPetYaoHun::default_instance_ = new NotifyPetYaoHun();
+  NotifyPetYaoHunSimple::default_instance_ = new NotifyPetYaoHunSimple();
   PetLvUpReq::default_instance_ = new PetLvUpReq();
   PetLvUpRsp::default_instance_ = new PetLvUpRsp();
   PetStepLvReq::default_instance_ = new PetStepLvReq();
@@ -933,11 +1463,32 @@ void protobuf_AddDesc_Pet_2eproto() {
   NotifyPetGrow::default_instance_ = new NotifyPetGrow();
   PetGrowOptReq::default_instance_ = new PetGrowOptReq();
   PetGrowOptRsp::default_instance_ = new PetGrowOptRsp();
+  PetYaoHunUnlockReq::default_instance_ = new PetYaoHunUnlockReq();
+  PetYaoHunUnlockRsp::default_instance_ = new PetYaoHunUnlockRsp();
+  PetYaoHunDressReq::default_instance_ = new PetYaoHunDressReq();
+  PetYaoHunDressRsp::default_instance_ = new PetYaoHunDressRsp();
+  PetLianYaoReq::default_instance_ = new PetLianYaoReq();
+  PetLianYaoReward::default_instance_ = new PetLianYaoReward();
+  PetLianYaoRsp::default_instance_ = new PetLianYaoRsp();
+  PetYaoHunExchangeReq::default_instance_ = new PetYaoHunExchangeReq();
+  PetYaoHunExchangeRsp::default_instance_ = new PetYaoHunExchangeRsp();
+  PetYaoHunLvReq::default_instance_ = new PetYaoHunLvReq();
+  PetYaoHunLvRsp::default_instance_ = new PetYaoHunLvRsp();
+  PetYaoHunBreakReq::default_instance_ = new PetYaoHunBreakReq();
+  PetYaoHunBreakRsp::default_instance_ = new PetYaoHunBreakRsp();
+  PetLianYaoTqBuyReq::default_instance_ = new PetLianYaoTqBuyReq();
+  PetLianYaoTqBuyRsp::default_instance_ = new PetLianYaoTqBuyRsp();
+  PetYaoHunSuitReq::default_instance_ = new PetYaoHunSuitReq();
+  PetYaoHunSuitRsp::default_instance_ = new PetYaoHunSuitRsp();
+  PetYaoHunResetReq::default_instance_ = new PetYaoHunResetReq();
+  PetYaoHunResetRsp::default_instance_ = new PetYaoHunResetRsp();
   NotifyPetModuleRsp::default_instance_->InitAsDefaultInstance();
   NotifyPetRsp::default_instance_->InitAsDefaultInstance();
   NotifyPetFetterRsp::default_instance_->InitAsDefaultInstance();
   NotifyPetHatchRsp::default_instance_->InitAsDefaultInstance();
   NotifyPetGetedListRsp::default_instance_->InitAsDefaultInstance();
+  NotifyPetYaoHun::default_instance_->InitAsDefaultInstance();
+  NotifyPetYaoHunSimple::default_instance_->InitAsDefaultInstance();
   PetLvUpReq::default_instance_->InitAsDefaultInstance();
   PetLvUpRsp::default_instance_->InitAsDefaultInstance();
   PetStepLvReq::default_instance_->InitAsDefaultInstance();
@@ -967,6 +1518,25 @@ void protobuf_AddDesc_Pet_2eproto() {
   NotifyPetGrow::default_instance_->InitAsDefaultInstance();
   PetGrowOptReq::default_instance_->InitAsDefaultInstance();
   PetGrowOptRsp::default_instance_->InitAsDefaultInstance();
+  PetYaoHunUnlockReq::default_instance_->InitAsDefaultInstance();
+  PetYaoHunUnlockRsp::default_instance_->InitAsDefaultInstance();
+  PetYaoHunDressReq::default_instance_->InitAsDefaultInstance();
+  PetYaoHunDressRsp::default_instance_->InitAsDefaultInstance();
+  PetLianYaoReq::default_instance_->InitAsDefaultInstance();
+  PetLianYaoReward::default_instance_->InitAsDefaultInstance();
+  PetLianYaoRsp::default_instance_->InitAsDefaultInstance();
+  PetYaoHunExchangeReq::default_instance_->InitAsDefaultInstance();
+  PetYaoHunExchangeRsp::default_instance_->InitAsDefaultInstance();
+  PetYaoHunLvReq::default_instance_->InitAsDefaultInstance();
+  PetYaoHunLvRsp::default_instance_->InitAsDefaultInstance();
+  PetYaoHunBreakReq::default_instance_->InitAsDefaultInstance();
+  PetYaoHunBreakRsp::default_instance_->InitAsDefaultInstance();
+  PetLianYaoTqBuyReq::default_instance_->InitAsDefaultInstance();
+  PetLianYaoTqBuyRsp::default_instance_->InitAsDefaultInstance();
+  PetYaoHunSuitReq::default_instance_->InitAsDefaultInstance();
+  PetYaoHunSuitRsp::default_instance_->InitAsDefaultInstance();
+  PetYaoHunResetReq::default_instance_->InitAsDefaultInstance();
+  PetYaoHunResetRsp::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Pet_2eproto);
 }
 
@@ -985,6 +1555,7 @@ const int NotifyPetModuleRsp::kPetsFieldNumber;
 const int NotifyPetModuleRsp::kHatchsFieldNumber;
 const int NotifyPetModuleRsp::kCfgidsFieldNumber;
 const int NotifyPetModuleRsp::kGrowsFieldNumber;
+const int NotifyPetModuleRsp::kYaohunFieldNumber;
 #endif  // !_MSC_VER
 
 NotifyPetModuleRsp::NotifyPetModuleRsp()
@@ -993,6 +1564,7 @@ NotifyPetModuleRsp::NotifyPetModuleRsp()
 }
 
 void NotifyPetModuleRsp::InitAsDefaultInstance() {
+  yaohun_ = const_cast< ::proto_ff::PetYaoHunModule*>(&::proto_ff::PetYaoHunModule::default_instance());
 }
 
 NotifyPetModuleRsp::NotifyPetModuleRsp(const NotifyPetModuleRsp& from)
@@ -1003,6 +1575,7 @@ NotifyPetModuleRsp::NotifyPetModuleRsp(const NotifyPetModuleRsp& from)
 
 void NotifyPetModuleRsp::SharedCtor() {
   _cached_size_ = 0;
+  yaohun_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1012,6 +1585,7 @@ NotifyPetModuleRsp::~NotifyPetModuleRsp() {
 
 void NotifyPetModuleRsp::SharedDtor() {
   if (this != default_instance_) {
+    delete yaohun_;
   }
 }
 
@@ -1037,6 +1611,11 @@ NotifyPetModuleRsp* NotifyPetModuleRsp::New() const {
 }
 
 void NotifyPetModuleRsp::Clear() {
+  if (_has_bits_[5 / 32] & (0xffu << (5 % 32))) {
+    if (has_yaohun()) {
+      if (yaohun_ != NULL) yaohun_->::proto_ff::PetYaoHunModule::Clear();
+    }
+  }
   fetter_.Clear();
   pets_.Clear();
   hatchs_.Clear();
@@ -1137,6 +1716,20 @@ bool NotifyPetModuleRsp::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(42)) goto parse_grows;
+        if (input->ExpectTag(50)) goto parse_yaohun;
+        break;
+      }
+
+      // optional .proto_ff.PetYaoHunModule yaohun = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_yaohun:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_yaohun()));
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1189,6 +1782,12 @@ void NotifyPetModuleRsp::SerializeWithCachedSizes(
       5, this->grows(i), output);
   }
 
+  // optional .proto_ff.PetYaoHunModule yaohun = 6;
+  if (has_yaohun()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      6, this->yaohun(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1230,6 +1829,13 @@ void NotifyPetModuleRsp::SerializeWithCachedSizes(
         5, this->grows(i), target);
   }
 
+  // optional .proto_ff.PetYaoHunModule yaohun = 6;
+  if (has_yaohun()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        6, this->yaohun(), target);
+  }
+
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -1240,6 +1846,15 @@ void NotifyPetModuleRsp::SerializeWithCachedSizes(
 int NotifyPetModuleRsp::ByteSize() const {
   int total_size = 0;
 
+  if (_has_bits_[5 / 32] & (0xffu << (5 % 32))) {
+    // optional .proto_ff.PetYaoHunModule yaohun = 6;
+    if (has_yaohun()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->yaohun());
+    }
+
+  }
   // repeated int32 fetter = 1;
   {
     int data_size = 0;
@@ -1314,6 +1929,11 @@ void NotifyPetModuleRsp::MergeFrom(const NotifyPetModuleRsp& from) {
   hatchs_.MergeFrom(from.hatchs_);
   cfgids_.MergeFrom(from.cfgids_);
   grows_.MergeFrom(from.grows_);
+  if (from._has_bits_[5 / 32] & (0xffu << (5 % 32))) {
+    if (from.has_yaohun()) {
+      mutable_yaohun()->::proto_ff::PetYaoHunModule::MergeFrom(from.yaohun());
+    }
+  }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
@@ -1331,6 +1951,9 @@ void NotifyPetModuleRsp::CopyFrom(const NotifyPetModuleRsp& from) {
 
 bool NotifyPetModuleRsp::IsInitialized() const {
 
+  if (has_yaohun()) {
+    if (!this->yaohun().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -1341,6 +1964,7 @@ void NotifyPetModuleRsp::Swap(NotifyPetModuleRsp* other) {
     hatchs_.Swap(&other->hatchs_);
     cfgids_.Swap(&other->cfgids_);
     grows_.Swap(&other->grows_);
+    std::swap(yaohun_, other->yaohun_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -2225,6 +2849,550 @@ void NotifyPetGetedListRsp::Swap(NotifyPetGetedListRsp* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = NotifyPetGetedListRsp_descriptor_;
   metadata.reflection = NotifyPetGetedListRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int NotifyPetYaoHun::kInfoFieldNumber;
+#endif  // !_MSC_VER
+
+NotifyPetYaoHun::NotifyPetYaoHun()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void NotifyPetYaoHun::InitAsDefaultInstance() {
+  info_ = const_cast< ::proto_ff::PetYaoHunEntry*>(&::proto_ff::PetYaoHunEntry::default_instance());
+}
+
+NotifyPetYaoHun::NotifyPetYaoHun(const NotifyPetYaoHun& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void NotifyPetYaoHun::SharedCtor() {
+  _cached_size_ = 0;
+  info_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+NotifyPetYaoHun::~NotifyPetYaoHun() {
+  SharedDtor();
+}
+
+void NotifyPetYaoHun::SharedDtor() {
+  if (this != default_instance_) {
+    delete info_;
+  }
+}
+
+void NotifyPetYaoHun::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* NotifyPetYaoHun::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return NotifyPetYaoHun_descriptor_;
+}
+
+const NotifyPetYaoHun& NotifyPetYaoHun::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Pet_2eproto();
+  return *default_instance_;
+}
+
+NotifyPetYaoHun* NotifyPetYaoHun::default_instance_ = NULL;
+
+NotifyPetYaoHun* NotifyPetYaoHun::New() const {
+  return new NotifyPetYaoHun;
+}
+
+void NotifyPetYaoHun::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_info()) {
+      if (info_ != NULL) info_->::proto_ff::PetYaoHunEntry::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool NotifyPetYaoHun::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional .proto_ff.PetYaoHunEntry info = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_info()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void NotifyPetYaoHun::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional .proto_ff.PetYaoHunEntry info = 1;
+  if (has_info()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->info(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* NotifyPetYaoHun::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional .proto_ff.PetYaoHunEntry info = 1;
+  if (has_info()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->info(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int NotifyPetYaoHun::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional .proto_ff.PetYaoHunEntry info = 1;
+    if (has_info()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->info());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void NotifyPetYaoHun::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const NotifyPetYaoHun* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const NotifyPetYaoHun*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void NotifyPetYaoHun::MergeFrom(const NotifyPetYaoHun& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_info()) {
+      mutable_info()->::proto_ff::PetYaoHunEntry::MergeFrom(from.info());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void NotifyPetYaoHun::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void NotifyPetYaoHun::CopyFrom(const NotifyPetYaoHun& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NotifyPetYaoHun::IsInitialized() const {
+
+  if (has_info()) {
+    if (!this->info().IsInitialized()) return false;
+  }
+  return true;
+}
+
+void NotifyPetYaoHun::Swap(NotifyPetYaoHun* other) {
+  if (other != this) {
+    std::swap(info_, other->info_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata NotifyPetYaoHun::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = NotifyPetYaoHun_descriptor_;
+  metadata.reflection = NotifyPetYaoHun_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int NotifyPetYaoHunSimple::kLianyaoTqFlagFieldNumber;
+const int NotifyPetYaoHunSimple::kYaoluLvFieldNumber;
+const int NotifyPetYaoHunSimple::kYaoluExpFieldNumber;
+const int NotifyPetYaoHunSimple::kYaoqiFieldNumber;
+#endif  // !_MSC_VER
+
+NotifyPetYaoHunSimple::NotifyPetYaoHunSimple()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void NotifyPetYaoHunSimple::InitAsDefaultInstance() {
+}
+
+NotifyPetYaoHunSimple::NotifyPetYaoHunSimple(const NotifyPetYaoHunSimple& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void NotifyPetYaoHunSimple::SharedCtor() {
+  _cached_size_ = 0;
+  lianyao_tq_flag_ = 0;
+  yaolu_lv_ = 0;
+  yaolu_exp_ = 0;
+  yaoqi_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+NotifyPetYaoHunSimple::~NotifyPetYaoHunSimple() {
+  SharedDtor();
+}
+
+void NotifyPetYaoHunSimple::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void NotifyPetYaoHunSimple::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* NotifyPetYaoHunSimple::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return NotifyPetYaoHunSimple_descriptor_;
+}
+
+const NotifyPetYaoHunSimple& NotifyPetYaoHunSimple::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Pet_2eproto();
+  return *default_instance_;
+}
+
+NotifyPetYaoHunSimple* NotifyPetYaoHunSimple::default_instance_ = NULL;
+
+NotifyPetYaoHunSimple* NotifyPetYaoHunSimple::New() const {
+  return new NotifyPetYaoHunSimple;
+}
+
+void NotifyPetYaoHunSimple::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    lianyao_tq_flag_ = 0;
+    yaolu_lv_ = 0;
+    yaolu_exp_ = 0;
+    yaoqi_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool NotifyPetYaoHunSimple::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 lianyao_tq_flag = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &lianyao_tq_flag_)));
+          set_has_lianyao_tq_flag();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_yaolu_lv;
+        break;
+      }
+
+      // optional int32 yaolu_lv = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_yaolu_lv:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &yaolu_lv_)));
+          set_has_yaolu_lv();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_yaolu_exp;
+        break;
+      }
+
+      // optional int32 yaolu_exp = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_yaolu_exp:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &yaolu_exp_)));
+          set_has_yaolu_exp();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_yaoqi;
+        break;
+      }
+
+      // optional int32 yaoqi = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_yaoqi:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &yaoqi_)));
+          set_has_yaoqi();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void NotifyPetYaoHunSimple::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 lianyao_tq_flag = 2;
+  if (has_lianyao_tq_flag()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->lianyao_tq_flag(), output);
+  }
+
+  // optional int32 yaolu_lv = 3;
+  if (has_yaolu_lv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->yaolu_lv(), output);
+  }
+
+  // optional int32 yaolu_exp = 4;
+  if (has_yaolu_exp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->yaolu_exp(), output);
+  }
+
+  // optional int32 yaoqi = 5;
+  if (has_yaoqi()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->yaoqi(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* NotifyPetYaoHunSimple::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 lianyao_tq_flag = 2;
+  if (has_lianyao_tq_flag()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->lianyao_tq_flag(), target);
+  }
+
+  // optional int32 yaolu_lv = 3;
+  if (has_yaolu_lv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->yaolu_lv(), target);
+  }
+
+  // optional int32 yaolu_exp = 4;
+  if (has_yaolu_exp()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->yaolu_exp(), target);
+  }
+
+  // optional int32 yaoqi = 5;
+  if (has_yaoqi()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->yaoqi(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int NotifyPetYaoHunSimple::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 lianyao_tq_flag = 2;
+    if (has_lianyao_tq_flag()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->lianyao_tq_flag());
+    }
+
+    // optional int32 yaolu_lv = 3;
+    if (has_yaolu_lv()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->yaolu_lv());
+    }
+
+    // optional int32 yaolu_exp = 4;
+    if (has_yaolu_exp()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->yaolu_exp());
+    }
+
+    // optional int32 yaoqi = 5;
+    if (has_yaoqi()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->yaoqi());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void NotifyPetYaoHunSimple::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const NotifyPetYaoHunSimple* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const NotifyPetYaoHunSimple*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void NotifyPetYaoHunSimple::MergeFrom(const NotifyPetYaoHunSimple& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_lianyao_tq_flag()) {
+      set_lianyao_tq_flag(from.lianyao_tq_flag());
+    }
+    if (from.has_yaolu_lv()) {
+      set_yaolu_lv(from.yaolu_lv());
+    }
+    if (from.has_yaolu_exp()) {
+      set_yaolu_exp(from.yaolu_exp());
+    }
+    if (from.has_yaoqi()) {
+      set_yaoqi(from.yaoqi());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void NotifyPetYaoHunSimple::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void NotifyPetYaoHunSimple::CopyFrom(const NotifyPetYaoHunSimple& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NotifyPetYaoHunSimple::IsInitialized() const {
+
+  return true;
+}
+
+void NotifyPetYaoHunSimple::Swap(NotifyPetYaoHunSimple* other) {
+  if (other != this) {
+    std::swap(lianyao_tq_flag_, other->lianyao_tq_flag_);
+    std::swap(yaolu_lv_, other->yaolu_lv_);
+    std::swap(yaolu_exp_, other->yaolu_exp_);
+    std::swap(yaoqi_, other->yaoqi_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata NotifyPetYaoHunSimple::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = NotifyPetYaoHunSimple_descriptor_;
+  metadata.reflection = NotifyPetYaoHunSimple_reflection_;
   return metadata;
 }
 
@@ -9677,6 +10845,5034 @@ void PetGrowOptRsp::Swap(PetGrowOptRsp* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = PetGrowOptRsp_descriptor_;
   metadata.reflection = PetGrowOptRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PetYaoHunUnlockReq::kFightPosFieldNumber;
+#endif  // !_MSC_VER
+
+PetYaoHunUnlockReq::PetYaoHunUnlockReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void PetYaoHunUnlockReq::InitAsDefaultInstance() {
+}
+
+PetYaoHunUnlockReq::PetYaoHunUnlockReq(const PetYaoHunUnlockReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void PetYaoHunUnlockReq::SharedCtor() {
+  _cached_size_ = 0;
+  fight_pos_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PetYaoHunUnlockReq::~PetYaoHunUnlockReq() {
+  SharedDtor();
+}
+
+void PetYaoHunUnlockReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PetYaoHunUnlockReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PetYaoHunUnlockReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PetYaoHunUnlockReq_descriptor_;
+}
+
+const PetYaoHunUnlockReq& PetYaoHunUnlockReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Pet_2eproto();
+  return *default_instance_;
+}
+
+PetYaoHunUnlockReq* PetYaoHunUnlockReq::default_instance_ = NULL;
+
+PetYaoHunUnlockReq* PetYaoHunUnlockReq::New() const {
+  return new PetYaoHunUnlockReq;
+}
+
+void PetYaoHunUnlockReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    fight_pos_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool PetYaoHunUnlockReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 fight_pos = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &fight_pos_)));
+          set_has_fight_pos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void PetYaoHunUnlockReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 fight_pos = 1;
+  if (has_fight_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->fight_pos(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* PetYaoHunUnlockReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 fight_pos = 1;
+  if (has_fight_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->fight_pos(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int PetYaoHunUnlockReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 fight_pos = 1;
+    if (has_fight_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->fight_pos());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PetYaoHunUnlockReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PetYaoHunUnlockReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PetYaoHunUnlockReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PetYaoHunUnlockReq::MergeFrom(const PetYaoHunUnlockReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_fight_pos()) {
+      set_fight_pos(from.fight_pos());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PetYaoHunUnlockReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PetYaoHunUnlockReq::CopyFrom(const PetYaoHunUnlockReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PetYaoHunUnlockReq::IsInitialized() const {
+
+  return true;
+}
+
+void PetYaoHunUnlockReq::Swap(PetYaoHunUnlockReq* other) {
+  if (other != this) {
+    std::swap(fight_pos_, other->fight_pos_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata PetYaoHunUnlockReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PetYaoHunUnlockReq_descriptor_;
+  metadata.reflection = PetYaoHunUnlockReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PetYaoHunUnlockRsp::kRetFieldNumber;
+const int PetYaoHunUnlockRsp::kFightPosFieldNumber;
+#endif  // !_MSC_VER
+
+PetYaoHunUnlockRsp::PetYaoHunUnlockRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void PetYaoHunUnlockRsp::InitAsDefaultInstance() {
+}
+
+PetYaoHunUnlockRsp::PetYaoHunUnlockRsp(const PetYaoHunUnlockRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void PetYaoHunUnlockRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_ = 0;
+  fight_pos_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PetYaoHunUnlockRsp::~PetYaoHunUnlockRsp() {
+  SharedDtor();
+}
+
+void PetYaoHunUnlockRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PetYaoHunUnlockRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PetYaoHunUnlockRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PetYaoHunUnlockRsp_descriptor_;
+}
+
+const PetYaoHunUnlockRsp& PetYaoHunUnlockRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Pet_2eproto();
+  return *default_instance_;
+}
+
+PetYaoHunUnlockRsp* PetYaoHunUnlockRsp::default_instance_ = NULL;
+
+PetYaoHunUnlockRsp* PetYaoHunUnlockRsp::New() const {
+  return new PetYaoHunUnlockRsp;
+}
+
+void PetYaoHunUnlockRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_ = 0;
+    fight_pos_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool PetYaoHunUnlockRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 ret = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_)));
+          set_has_ret();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_fight_pos;
+        break;
+      }
+
+      // optional int32 fight_pos = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_fight_pos:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &fight_pos_)));
+          set_has_fight_pos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void PetYaoHunUnlockRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 ret = 1;
+  if (has_ret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret(), output);
+  }
+
+  // optional int32 fight_pos = 2;
+  if (has_fight_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->fight_pos(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* PetYaoHunUnlockRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 ret = 1;
+  if (has_ret()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret(), target);
+  }
+
+  // optional int32 fight_pos = 2;
+  if (has_fight_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->fight_pos(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int PetYaoHunUnlockRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 ret = 1;
+    if (has_ret()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret());
+    }
+
+    // optional int32 fight_pos = 2;
+    if (has_fight_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->fight_pos());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PetYaoHunUnlockRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PetYaoHunUnlockRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PetYaoHunUnlockRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PetYaoHunUnlockRsp::MergeFrom(const PetYaoHunUnlockRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret()) {
+      set_ret(from.ret());
+    }
+    if (from.has_fight_pos()) {
+      set_fight_pos(from.fight_pos());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PetYaoHunUnlockRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PetYaoHunUnlockRsp::CopyFrom(const PetYaoHunUnlockRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PetYaoHunUnlockRsp::IsInitialized() const {
+
+  return true;
+}
+
+void PetYaoHunUnlockRsp::Swap(PetYaoHunUnlockRsp* other) {
+  if (other != this) {
+    std::swap(ret_, other->ret_);
+    std::swap(fight_pos_, other->fight_pos_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata PetYaoHunUnlockRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PetYaoHunUnlockRsp_descriptor_;
+  metadata.reflection = PetYaoHunUnlockRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PetYaoHunDressReq::kFightPosFieldNumber;
+const int PetYaoHunDressReq::kBagPosFieldNumber;
+#endif  // !_MSC_VER
+
+PetYaoHunDressReq::PetYaoHunDressReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void PetYaoHunDressReq::InitAsDefaultInstance() {
+}
+
+PetYaoHunDressReq::PetYaoHunDressReq(const PetYaoHunDressReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void PetYaoHunDressReq::SharedCtor() {
+  _cached_size_ = 0;
+  fight_pos_ = 0;
+  bag_pos_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PetYaoHunDressReq::~PetYaoHunDressReq() {
+  SharedDtor();
+}
+
+void PetYaoHunDressReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PetYaoHunDressReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PetYaoHunDressReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PetYaoHunDressReq_descriptor_;
+}
+
+const PetYaoHunDressReq& PetYaoHunDressReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Pet_2eproto();
+  return *default_instance_;
+}
+
+PetYaoHunDressReq* PetYaoHunDressReq::default_instance_ = NULL;
+
+PetYaoHunDressReq* PetYaoHunDressReq::New() const {
+  return new PetYaoHunDressReq;
+}
+
+void PetYaoHunDressReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    fight_pos_ = 0;
+    bag_pos_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool PetYaoHunDressReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 fight_pos = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &fight_pos_)));
+          set_has_fight_pos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_bag_pos;
+        break;
+      }
+
+      // optional int32 bag_pos = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_bag_pos:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &bag_pos_)));
+          set_has_bag_pos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void PetYaoHunDressReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 fight_pos = 1;
+  if (has_fight_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->fight_pos(), output);
+  }
+
+  // optional int32 bag_pos = 2;
+  if (has_bag_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->bag_pos(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* PetYaoHunDressReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 fight_pos = 1;
+  if (has_fight_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->fight_pos(), target);
+  }
+
+  // optional int32 bag_pos = 2;
+  if (has_bag_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->bag_pos(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int PetYaoHunDressReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 fight_pos = 1;
+    if (has_fight_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->fight_pos());
+    }
+
+    // optional int32 bag_pos = 2;
+    if (has_bag_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->bag_pos());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PetYaoHunDressReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PetYaoHunDressReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PetYaoHunDressReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PetYaoHunDressReq::MergeFrom(const PetYaoHunDressReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_fight_pos()) {
+      set_fight_pos(from.fight_pos());
+    }
+    if (from.has_bag_pos()) {
+      set_bag_pos(from.bag_pos());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PetYaoHunDressReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PetYaoHunDressReq::CopyFrom(const PetYaoHunDressReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PetYaoHunDressReq::IsInitialized() const {
+
+  return true;
+}
+
+void PetYaoHunDressReq::Swap(PetYaoHunDressReq* other) {
+  if (other != this) {
+    std::swap(fight_pos_, other->fight_pos_);
+    std::swap(bag_pos_, other->bag_pos_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata PetYaoHunDressReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PetYaoHunDressReq_descriptor_;
+  metadata.reflection = PetYaoHunDressReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PetYaoHunDressRsp::kRetFieldNumber;
+const int PetYaoHunDressRsp::kFightPosFieldNumber;
+const int PetYaoHunDressRsp::kBagPosFieldNumber;
+const int PetYaoHunDressRsp::kCodeFieldNumber;
+#endif  // !_MSC_VER
+
+PetYaoHunDressRsp::PetYaoHunDressRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void PetYaoHunDressRsp::InitAsDefaultInstance() {
+}
+
+PetYaoHunDressRsp::PetYaoHunDressRsp(const PetYaoHunDressRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void PetYaoHunDressRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_ = 0;
+  fight_pos_ = 0;
+  bag_pos_ = 0;
+  code_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PetYaoHunDressRsp::~PetYaoHunDressRsp() {
+  SharedDtor();
+}
+
+void PetYaoHunDressRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PetYaoHunDressRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PetYaoHunDressRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PetYaoHunDressRsp_descriptor_;
+}
+
+const PetYaoHunDressRsp& PetYaoHunDressRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Pet_2eproto();
+  return *default_instance_;
+}
+
+PetYaoHunDressRsp* PetYaoHunDressRsp::default_instance_ = NULL;
+
+PetYaoHunDressRsp* PetYaoHunDressRsp::New() const {
+  return new PetYaoHunDressRsp;
+}
+
+void PetYaoHunDressRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_ = 0;
+    fight_pos_ = 0;
+    bag_pos_ = 0;
+    code_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool PetYaoHunDressRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 ret = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_)));
+          set_has_ret();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_fight_pos;
+        break;
+      }
+
+      // optional int32 fight_pos = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_fight_pos:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &fight_pos_)));
+          set_has_fight_pos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_bag_pos;
+        break;
+      }
+
+      // optional int32 bag_pos = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_bag_pos:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &bag_pos_)));
+          set_has_bag_pos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_code;
+        break;
+      }
+
+      // optional int32 code = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_code:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &code_)));
+          set_has_code();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void PetYaoHunDressRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 ret = 1;
+  if (has_ret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret(), output);
+  }
+
+  // optional int32 fight_pos = 2;
+  if (has_fight_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->fight_pos(), output);
+  }
+
+  // optional int32 bag_pos = 3;
+  if (has_bag_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->bag_pos(), output);
+  }
+
+  // optional int32 code = 4;
+  if (has_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->code(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* PetYaoHunDressRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 ret = 1;
+  if (has_ret()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret(), target);
+  }
+
+  // optional int32 fight_pos = 2;
+  if (has_fight_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->fight_pos(), target);
+  }
+
+  // optional int32 bag_pos = 3;
+  if (has_bag_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->bag_pos(), target);
+  }
+
+  // optional int32 code = 4;
+  if (has_code()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->code(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int PetYaoHunDressRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 ret = 1;
+    if (has_ret()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret());
+    }
+
+    // optional int32 fight_pos = 2;
+    if (has_fight_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->fight_pos());
+    }
+
+    // optional int32 bag_pos = 3;
+    if (has_bag_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->bag_pos());
+    }
+
+    // optional int32 code = 4;
+    if (has_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->code());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PetYaoHunDressRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PetYaoHunDressRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PetYaoHunDressRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PetYaoHunDressRsp::MergeFrom(const PetYaoHunDressRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret()) {
+      set_ret(from.ret());
+    }
+    if (from.has_fight_pos()) {
+      set_fight_pos(from.fight_pos());
+    }
+    if (from.has_bag_pos()) {
+      set_bag_pos(from.bag_pos());
+    }
+    if (from.has_code()) {
+      set_code(from.code());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PetYaoHunDressRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PetYaoHunDressRsp::CopyFrom(const PetYaoHunDressRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PetYaoHunDressRsp::IsInitialized() const {
+
+  return true;
+}
+
+void PetYaoHunDressRsp::Swap(PetYaoHunDressRsp* other) {
+  if (other != this) {
+    std::swap(ret_, other->ret_);
+    std::swap(fight_pos_, other->fight_pos_);
+    std::swap(bag_pos_, other->bag_pos_);
+    std::swap(code_, other->code_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata PetYaoHunDressRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PetYaoHunDressRsp_descriptor_;
+  metadata.reflection = PetYaoHunDressRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PetLianYaoReq::kLianNumFieldNumber;
+const int PetLianYaoReq::kQualityFieldNumber;
+const int PetLianYaoReq::kStarFieldNumber;
+const int PetLianYaoReq::kQuickFieldNumber;
+const int PetLianYaoReq::kBagPosFieldNumber;
+#endif  // !_MSC_VER
+
+PetLianYaoReq::PetLianYaoReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void PetLianYaoReq::InitAsDefaultInstance() {
+}
+
+PetLianYaoReq::PetLianYaoReq(const PetLianYaoReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void PetLianYaoReq::SharedCtor() {
+  _cached_size_ = 0;
+  lian_num_ = 0;
+  quality_ = 0;
+  star_ = 0;
+  quick_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PetLianYaoReq::~PetLianYaoReq() {
+  SharedDtor();
+}
+
+void PetLianYaoReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PetLianYaoReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PetLianYaoReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PetLianYaoReq_descriptor_;
+}
+
+const PetLianYaoReq& PetLianYaoReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Pet_2eproto();
+  return *default_instance_;
+}
+
+PetLianYaoReq* PetLianYaoReq::default_instance_ = NULL;
+
+PetLianYaoReq* PetLianYaoReq::New() const {
+  return new PetLianYaoReq;
+}
+
+void PetLianYaoReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    lian_num_ = 0;
+    quality_ = 0;
+    star_ = 0;
+    quick_ = 0;
+  }
+  bag_pos_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool PetLianYaoReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 lian_num = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &lian_num_)));
+          set_has_lian_num();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_quality;
+        break;
+      }
+
+      // optional int32 quality = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_quality:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &quality_)));
+          set_has_quality();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_star;
+        break;
+      }
+
+      // optional int32 star = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_star:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &star_)));
+          set_has_star();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_quick;
+        break;
+      }
+
+      // optional int32 quick = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_quick:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &quick_)));
+          set_has_quick();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_bag_pos;
+        break;
+      }
+
+      // repeated int32 bag_pos = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_bag_pos:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 40, input, this->mutable_bag_pos())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_bag_pos())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_bag_pos;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void PetLianYaoReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 lian_num = 1;
+  if (has_lian_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->lian_num(), output);
+  }
+
+  // optional int32 quality = 2;
+  if (has_quality()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->quality(), output);
+  }
+
+  // optional int32 star = 3;
+  if (has_star()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->star(), output);
+  }
+
+  // optional int32 quick = 4;
+  if (has_quick()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->quick(), output);
+  }
+
+  // repeated int32 bag_pos = 5;
+  for (int i = 0; i < this->bag_pos_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      5, this->bag_pos(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* PetLianYaoReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 lian_num = 1;
+  if (has_lian_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->lian_num(), target);
+  }
+
+  // optional int32 quality = 2;
+  if (has_quality()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->quality(), target);
+  }
+
+  // optional int32 star = 3;
+  if (has_star()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->star(), target);
+  }
+
+  // optional int32 quick = 4;
+  if (has_quick()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->quick(), target);
+  }
+
+  // repeated int32 bag_pos = 5;
+  for (int i = 0; i < this->bag_pos_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32ToArray(5, this->bag_pos(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int PetLianYaoReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 lian_num = 1;
+    if (has_lian_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->lian_num());
+    }
+
+    // optional int32 quality = 2;
+    if (has_quality()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->quality());
+    }
+
+    // optional int32 star = 3;
+    if (has_star()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->star());
+    }
+
+    // optional int32 quick = 4;
+    if (has_quick()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->quick());
+    }
+
+  }
+  // repeated int32 bag_pos = 5;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->bag_pos_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->bag_pos(i));
+    }
+    total_size += 1 * this->bag_pos_size() + data_size;
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PetLianYaoReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PetLianYaoReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PetLianYaoReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PetLianYaoReq::MergeFrom(const PetLianYaoReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  bag_pos_.MergeFrom(from.bag_pos_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_lian_num()) {
+      set_lian_num(from.lian_num());
+    }
+    if (from.has_quality()) {
+      set_quality(from.quality());
+    }
+    if (from.has_star()) {
+      set_star(from.star());
+    }
+    if (from.has_quick()) {
+      set_quick(from.quick());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PetLianYaoReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PetLianYaoReq::CopyFrom(const PetLianYaoReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PetLianYaoReq::IsInitialized() const {
+
+  return true;
+}
+
+void PetLianYaoReq::Swap(PetLianYaoReq* other) {
+  if (other != this) {
+    std::swap(lian_num_, other->lian_num_);
+    std::swap(quality_, other->quality_);
+    std::swap(star_, other->star_);
+    std::swap(quick_, other->quick_);
+    bag_pos_.Swap(&other->bag_pos_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata PetLianYaoReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PetLianYaoReq_descriptor_;
+  metadata.reflection = PetLianYaoReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PetLianYaoReward::kItemidFieldNumber;
+const int PetLianYaoReward::kNumFieldNumber;
+const int PetLianYaoReward::kTqAddFlagFieldNumber;
+#endif  // !_MSC_VER
+
+PetLianYaoReward::PetLianYaoReward()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void PetLianYaoReward::InitAsDefaultInstance() {
+}
+
+PetLianYaoReward::PetLianYaoReward(const PetLianYaoReward& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void PetLianYaoReward::SharedCtor() {
+  _cached_size_ = 0;
+  itemid_ = 0;
+  num_ = 0;
+  tq_add_flag_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PetLianYaoReward::~PetLianYaoReward() {
+  SharedDtor();
+}
+
+void PetLianYaoReward::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PetLianYaoReward::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PetLianYaoReward::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PetLianYaoReward_descriptor_;
+}
+
+const PetLianYaoReward& PetLianYaoReward::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Pet_2eproto();
+  return *default_instance_;
+}
+
+PetLianYaoReward* PetLianYaoReward::default_instance_ = NULL;
+
+PetLianYaoReward* PetLianYaoReward::New() const {
+  return new PetLianYaoReward;
+}
+
+void PetLianYaoReward::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    itemid_ = 0;
+    num_ = 0;
+    tq_add_flag_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool PetLianYaoReward::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 itemid = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &itemid_)));
+          set_has_itemid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_num;
+        break;
+      }
+
+      // optional int32 num = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_num:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &num_)));
+          set_has_num();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_tq_add_flag;
+        break;
+      }
+
+      // optional int32 tq_add_flag = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_tq_add_flag:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &tq_add_flag_)));
+          set_has_tq_add_flag();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void PetLianYaoReward::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 itemid = 1;
+  if (has_itemid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->itemid(), output);
+  }
+
+  // optional int32 num = 2;
+  if (has_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->num(), output);
+  }
+
+  // optional int32 tq_add_flag = 3;
+  if (has_tq_add_flag()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->tq_add_flag(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* PetLianYaoReward::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 itemid = 1;
+  if (has_itemid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->itemid(), target);
+  }
+
+  // optional int32 num = 2;
+  if (has_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->num(), target);
+  }
+
+  // optional int32 tq_add_flag = 3;
+  if (has_tq_add_flag()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->tq_add_flag(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int PetLianYaoReward::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 itemid = 1;
+    if (has_itemid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->itemid());
+    }
+
+    // optional int32 num = 2;
+    if (has_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->num());
+    }
+
+    // optional int32 tq_add_flag = 3;
+    if (has_tq_add_flag()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->tq_add_flag());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PetLianYaoReward::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PetLianYaoReward* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PetLianYaoReward*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PetLianYaoReward::MergeFrom(const PetLianYaoReward& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_itemid()) {
+      set_itemid(from.itemid());
+    }
+    if (from.has_num()) {
+      set_num(from.num());
+    }
+    if (from.has_tq_add_flag()) {
+      set_tq_add_flag(from.tq_add_flag());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PetLianYaoReward::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PetLianYaoReward::CopyFrom(const PetLianYaoReward& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PetLianYaoReward::IsInitialized() const {
+
+  return true;
+}
+
+void PetLianYaoReward::Swap(PetLianYaoReward* other) {
+  if (other != this) {
+    std::swap(itemid_, other->itemid_);
+    std::swap(num_, other->num_);
+    std::swap(tq_add_flag_, other->tq_add_flag_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata PetLianYaoReward::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PetLianYaoReward_descriptor_;
+  metadata.reflection = PetLianYaoReward_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PetLianYaoRsp::kRetFieldNumber;
+const int PetLianYaoRsp::kRewardsFieldNumber;
+const int PetLianYaoRsp::kYaoluAddExpFieldNumber;
+const int PetLianYaoRsp::kYaoluExpFlagFieldNumber;
+const int PetLianYaoRsp::kYaohunAddFieldNumber;
+#endif  // !_MSC_VER
+
+PetLianYaoRsp::PetLianYaoRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void PetLianYaoRsp::InitAsDefaultInstance() {
+}
+
+PetLianYaoRsp::PetLianYaoRsp(const PetLianYaoRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void PetLianYaoRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_ = 0;
+  yaolu_add_exp_ = 0;
+  yaolu_exp_flag_ = 0;
+  yaohun_add_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PetLianYaoRsp::~PetLianYaoRsp() {
+  SharedDtor();
+}
+
+void PetLianYaoRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PetLianYaoRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PetLianYaoRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PetLianYaoRsp_descriptor_;
+}
+
+const PetLianYaoRsp& PetLianYaoRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Pet_2eproto();
+  return *default_instance_;
+}
+
+PetLianYaoRsp* PetLianYaoRsp::default_instance_ = NULL;
+
+PetLianYaoRsp* PetLianYaoRsp::New() const {
+  return new PetLianYaoRsp;
+}
+
+void PetLianYaoRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_ = 0;
+    yaolu_add_exp_ = 0;
+    yaolu_exp_flag_ = 0;
+    yaohun_add_ = 0;
+  }
+  rewards_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool PetLianYaoRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 ret = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_)));
+          set_has_ret();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_rewards;
+        break;
+      }
+
+      // repeated .proto_ff.PetLianYaoReward rewards = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_rewards:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_rewards()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_rewards;
+        if (input->ExpectTag(24)) goto parse_yaolu_add_exp;
+        break;
+      }
+
+      // optional int32 yaolu_add_exp = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_yaolu_add_exp:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &yaolu_add_exp_)));
+          set_has_yaolu_add_exp();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_yaolu_exp_flag;
+        break;
+      }
+
+      // optional int32 yaolu_exp_flag = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_yaolu_exp_flag:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &yaolu_exp_flag_)));
+          set_has_yaolu_exp_flag();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_yaohun_add;
+        break;
+      }
+
+      // optional int32 yaohun_add = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_yaohun_add:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &yaohun_add_)));
+          set_has_yaohun_add();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void PetLianYaoRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 ret = 1;
+  if (has_ret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret(), output);
+  }
+
+  // repeated .proto_ff.PetLianYaoReward rewards = 2;
+  for (int i = 0; i < this->rewards_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->rewards(i), output);
+  }
+
+  // optional int32 yaolu_add_exp = 3;
+  if (has_yaolu_add_exp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->yaolu_add_exp(), output);
+  }
+
+  // optional int32 yaolu_exp_flag = 4;
+  if (has_yaolu_exp_flag()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->yaolu_exp_flag(), output);
+  }
+
+  // optional int32 yaohun_add = 5;
+  if (has_yaohun_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->yaohun_add(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* PetLianYaoRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 ret = 1;
+  if (has_ret()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret(), target);
+  }
+
+  // repeated .proto_ff.PetLianYaoReward rewards = 2;
+  for (int i = 0; i < this->rewards_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->rewards(i), target);
+  }
+
+  // optional int32 yaolu_add_exp = 3;
+  if (has_yaolu_add_exp()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->yaolu_add_exp(), target);
+  }
+
+  // optional int32 yaolu_exp_flag = 4;
+  if (has_yaolu_exp_flag()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->yaolu_exp_flag(), target);
+  }
+
+  // optional int32 yaohun_add = 5;
+  if (has_yaohun_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->yaohun_add(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int PetLianYaoRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 ret = 1;
+    if (has_ret()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret());
+    }
+
+    // optional int32 yaolu_add_exp = 3;
+    if (has_yaolu_add_exp()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->yaolu_add_exp());
+    }
+
+    // optional int32 yaolu_exp_flag = 4;
+    if (has_yaolu_exp_flag()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->yaolu_exp_flag());
+    }
+
+    // optional int32 yaohun_add = 5;
+    if (has_yaohun_add()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->yaohun_add());
+    }
+
+  }
+  // repeated .proto_ff.PetLianYaoReward rewards = 2;
+  total_size += 1 * this->rewards_size();
+  for (int i = 0; i < this->rewards_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->rewards(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PetLianYaoRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PetLianYaoRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PetLianYaoRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PetLianYaoRsp::MergeFrom(const PetLianYaoRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  rewards_.MergeFrom(from.rewards_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret()) {
+      set_ret(from.ret());
+    }
+    if (from.has_yaolu_add_exp()) {
+      set_yaolu_add_exp(from.yaolu_add_exp());
+    }
+    if (from.has_yaolu_exp_flag()) {
+      set_yaolu_exp_flag(from.yaolu_exp_flag());
+    }
+    if (from.has_yaohun_add()) {
+      set_yaohun_add(from.yaohun_add());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PetLianYaoRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PetLianYaoRsp::CopyFrom(const PetLianYaoRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PetLianYaoRsp::IsInitialized() const {
+
+  return true;
+}
+
+void PetLianYaoRsp::Swap(PetLianYaoRsp* other) {
+  if (other != this) {
+    std::swap(ret_, other->ret_);
+    rewards_.Swap(&other->rewards_);
+    std::swap(yaolu_add_exp_, other->yaolu_add_exp_);
+    std::swap(yaolu_exp_flag_, other->yaolu_exp_flag_);
+    std::swap(yaohun_add_, other->yaohun_add_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata PetLianYaoRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PetLianYaoRsp_descriptor_;
+  metadata.reflection = PetLianYaoRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PetYaoHunExchangeReq::kTargetIdFieldNumber;
+const int PetYaoHunExchangeReq::kNumFieldNumber;
+#endif  // !_MSC_VER
+
+PetYaoHunExchangeReq::PetYaoHunExchangeReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void PetYaoHunExchangeReq::InitAsDefaultInstance() {
+}
+
+PetYaoHunExchangeReq::PetYaoHunExchangeReq(const PetYaoHunExchangeReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void PetYaoHunExchangeReq::SharedCtor() {
+  _cached_size_ = 0;
+  target_id_ = 0;
+  num_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PetYaoHunExchangeReq::~PetYaoHunExchangeReq() {
+  SharedDtor();
+}
+
+void PetYaoHunExchangeReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PetYaoHunExchangeReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PetYaoHunExchangeReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PetYaoHunExchangeReq_descriptor_;
+}
+
+const PetYaoHunExchangeReq& PetYaoHunExchangeReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Pet_2eproto();
+  return *default_instance_;
+}
+
+PetYaoHunExchangeReq* PetYaoHunExchangeReq::default_instance_ = NULL;
+
+PetYaoHunExchangeReq* PetYaoHunExchangeReq::New() const {
+  return new PetYaoHunExchangeReq;
+}
+
+void PetYaoHunExchangeReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    target_id_ = 0;
+    num_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool PetYaoHunExchangeReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 target_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &target_id_)));
+          set_has_target_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_num;
+        break;
+      }
+
+      // optional int32 num = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_num:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &num_)));
+          set_has_num();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void PetYaoHunExchangeReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 target_id = 1;
+  if (has_target_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->target_id(), output);
+  }
+
+  // optional int32 num = 2;
+  if (has_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->num(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* PetYaoHunExchangeReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 target_id = 1;
+  if (has_target_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->target_id(), target);
+  }
+
+  // optional int32 num = 2;
+  if (has_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->num(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int PetYaoHunExchangeReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 target_id = 1;
+    if (has_target_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->target_id());
+    }
+
+    // optional int32 num = 2;
+    if (has_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->num());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PetYaoHunExchangeReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PetYaoHunExchangeReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PetYaoHunExchangeReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PetYaoHunExchangeReq::MergeFrom(const PetYaoHunExchangeReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_target_id()) {
+      set_target_id(from.target_id());
+    }
+    if (from.has_num()) {
+      set_num(from.num());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PetYaoHunExchangeReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PetYaoHunExchangeReq::CopyFrom(const PetYaoHunExchangeReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PetYaoHunExchangeReq::IsInitialized() const {
+
+  return true;
+}
+
+void PetYaoHunExchangeReq::Swap(PetYaoHunExchangeReq* other) {
+  if (other != this) {
+    std::swap(target_id_, other->target_id_);
+    std::swap(num_, other->num_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata PetYaoHunExchangeReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PetYaoHunExchangeReq_descriptor_;
+  metadata.reflection = PetYaoHunExchangeReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PetYaoHunExchangeRsp::kRetFieldNumber;
+const int PetYaoHunExchangeRsp::kTargetIdFieldNumber;
+const int PetYaoHunExchangeRsp::kNumFieldNumber;
+#endif  // !_MSC_VER
+
+PetYaoHunExchangeRsp::PetYaoHunExchangeRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void PetYaoHunExchangeRsp::InitAsDefaultInstance() {
+}
+
+PetYaoHunExchangeRsp::PetYaoHunExchangeRsp(const PetYaoHunExchangeRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void PetYaoHunExchangeRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_ = 0;
+  target_id_ = 0;
+  num_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PetYaoHunExchangeRsp::~PetYaoHunExchangeRsp() {
+  SharedDtor();
+}
+
+void PetYaoHunExchangeRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PetYaoHunExchangeRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PetYaoHunExchangeRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PetYaoHunExchangeRsp_descriptor_;
+}
+
+const PetYaoHunExchangeRsp& PetYaoHunExchangeRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Pet_2eproto();
+  return *default_instance_;
+}
+
+PetYaoHunExchangeRsp* PetYaoHunExchangeRsp::default_instance_ = NULL;
+
+PetYaoHunExchangeRsp* PetYaoHunExchangeRsp::New() const {
+  return new PetYaoHunExchangeRsp;
+}
+
+void PetYaoHunExchangeRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_ = 0;
+    target_id_ = 0;
+    num_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool PetYaoHunExchangeRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 ret = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_)));
+          set_has_ret();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_target_id;
+        break;
+      }
+
+      // optional int32 target_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_target_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &target_id_)));
+          set_has_target_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_num;
+        break;
+      }
+
+      // optional int32 num = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_num:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &num_)));
+          set_has_num();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void PetYaoHunExchangeRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 ret = 1;
+  if (has_ret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret(), output);
+  }
+
+  // optional int32 target_id = 2;
+  if (has_target_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->target_id(), output);
+  }
+
+  // optional int32 num = 3;
+  if (has_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->num(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* PetYaoHunExchangeRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 ret = 1;
+  if (has_ret()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret(), target);
+  }
+
+  // optional int32 target_id = 2;
+  if (has_target_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->target_id(), target);
+  }
+
+  // optional int32 num = 3;
+  if (has_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->num(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int PetYaoHunExchangeRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 ret = 1;
+    if (has_ret()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret());
+    }
+
+    // optional int32 target_id = 2;
+    if (has_target_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->target_id());
+    }
+
+    // optional int32 num = 3;
+    if (has_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->num());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PetYaoHunExchangeRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PetYaoHunExchangeRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PetYaoHunExchangeRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PetYaoHunExchangeRsp::MergeFrom(const PetYaoHunExchangeRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret()) {
+      set_ret(from.ret());
+    }
+    if (from.has_target_id()) {
+      set_target_id(from.target_id());
+    }
+    if (from.has_num()) {
+      set_num(from.num());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PetYaoHunExchangeRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PetYaoHunExchangeRsp::CopyFrom(const PetYaoHunExchangeRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PetYaoHunExchangeRsp::IsInitialized() const {
+
+  return true;
+}
+
+void PetYaoHunExchangeRsp::Swap(PetYaoHunExchangeRsp* other) {
+  if (other != this) {
+    std::swap(ret_, other->ret_);
+    std::swap(target_id_, other->target_id_);
+    std::swap(num_, other->num_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata PetYaoHunExchangeRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PetYaoHunExchangeRsp_descriptor_;
+  metadata.reflection = PetYaoHunExchangeRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PetYaoHunLvReq::kFightPosFieldNumber;
+const int PetYaoHunLvReq::kSlotPosFieldNumber;
+#endif  // !_MSC_VER
+
+PetYaoHunLvReq::PetYaoHunLvReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void PetYaoHunLvReq::InitAsDefaultInstance() {
+}
+
+PetYaoHunLvReq::PetYaoHunLvReq(const PetYaoHunLvReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void PetYaoHunLvReq::SharedCtor() {
+  _cached_size_ = 0;
+  fight_pos_ = 0;
+  slot_pos_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PetYaoHunLvReq::~PetYaoHunLvReq() {
+  SharedDtor();
+}
+
+void PetYaoHunLvReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PetYaoHunLvReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PetYaoHunLvReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PetYaoHunLvReq_descriptor_;
+}
+
+const PetYaoHunLvReq& PetYaoHunLvReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Pet_2eproto();
+  return *default_instance_;
+}
+
+PetYaoHunLvReq* PetYaoHunLvReq::default_instance_ = NULL;
+
+PetYaoHunLvReq* PetYaoHunLvReq::New() const {
+  return new PetYaoHunLvReq;
+}
+
+void PetYaoHunLvReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    fight_pos_ = 0;
+    slot_pos_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool PetYaoHunLvReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 fight_pos = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &fight_pos_)));
+          set_has_fight_pos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_slot_pos;
+        break;
+      }
+
+      // optional int32 slot_pos = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_slot_pos:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &slot_pos_)));
+          set_has_slot_pos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void PetYaoHunLvReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 fight_pos = 1;
+  if (has_fight_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->fight_pos(), output);
+  }
+
+  // optional int32 slot_pos = 2;
+  if (has_slot_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->slot_pos(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* PetYaoHunLvReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 fight_pos = 1;
+  if (has_fight_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->fight_pos(), target);
+  }
+
+  // optional int32 slot_pos = 2;
+  if (has_slot_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->slot_pos(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int PetYaoHunLvReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 fight_pos = 1;
+    if (has_fight_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->fight_pos());
+    }
+
+    // optional int32 slot_pos = 2;
+    if (has_slot_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->slot_pos());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PetYaoHunLvReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PetYaoHunLvReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PetYaoHunLvReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PetYaoHunLvReq::MergeFrom(const PetYaoHunLvReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_fight_pos()) {
+      set_fight_pos(from.fight_pos());
+    }
+    if (from.has_slot_pos()) {
+      set_slot_pos(from.slot_pos());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PetYaoHunLvReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PetYaoHunLvReq::CopyFrom(const PetYaoHunLvReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PetYaoHunLvReq::IsInitialized() const {
+
+  return true;
+}
+
+void PetYaoHunLvReq::Swap(PetYaoHunLvReq* other) {
+  if (other != this) {
+    std::swap(fight_pos_, other->fight_pos_);
+    std::swap(slot_pos_, other->slot_pos_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata PetYaoHunLvReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PetYaoHunLvReq_descriptor_;
+  metadata.reflection = PetYaoHunLvReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PetYaoHunLvRsp::kRetFieldNumber;
+const int PetYaoHunLvRsp::kFightPosFieldNumber;
+const int PetYaoHunLvRsp::kSlotPosFieldNumber;
+#endif  // !_MSC_VER
+
+PetYaoHunLvRsp::PetYaoHunLvRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void PetYaoHunLvRsp::InitAsDefaultInstance() {
+}
+
+PetYaoHunLvRsp::PetYaoHunLvRsp(const PetYaoHunLvRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void PetYaoHunLvRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_ = 0;
+  fight_pos_ = 0;
+  slot_pos_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PetYaoHunLvRsp::~PetYaoHunLvRsp() {
+  SharedDtor();
+}
+
+void PetYaoHunLvRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PetYaoHunLvRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PetYaoHunLvRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PetYaoHunLvRsp_descriptor_;
+}
+
+const PetYaoHunLvRsp& PetYaoHunLvRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Pet_2eproto();
+  return *default_instance_;
+}
+
+PetYaoHunLvRsp* PetYaoHunLvRsp::default_instance_ = NULL;
+
+PetYaoHunLvRsp* PetYaoHunLvRsp::New() const {
+  return new PetYaoHunLvRsp;
+}
+
+void PetYaoHunLvRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_ = 0;
+    fight_pos_ = 0;
+    slot_pos_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool PetYaoHunLvRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 ret = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_)));
+          set_has_ret();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_fight_pos;
+        break;
+      }
+
+      // optional int32 fight_pos = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_fight_pos:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &fight_pos_)));
+          set_has_fight_pos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_slot_pos;
+        break;
+      }
+
+      // optional int32 slot_pos = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_slot_pos:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &slot_pos_)));
+          set_has_slot_pos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void PetYaoHunLvRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 ret = 1;
+  if (has_ret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret(), output);
+  }
+
+  // optional int32 fight_pos = 2;
+  if (has_fight_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->fight_pos(), output);
+  }
+
+  // optional int32 slot_pos = 3;
+  if (has_slot_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->slot_pos(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* PetYaoHunLvRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 ret = 1;
+  if (has_ret()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret(), target);
+  }
+
+  // optional int32 fight_pos = 2;
+  if (has_fight_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->fight_pos(), target);
+  }
+
+  // optional int32 slot_pos = 3;
+  if (has_slot_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->slot_pos(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int PetYaoHunLvRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 ret = 1;
+    if (has_ret()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret());
+    }
+
+    // optional int32 fight_pos = 2;
+    if (has_fight_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->fight_pos());
+    }
+
+    // optional int32 slot_pos = 3;
+    if (has_slot_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->slot_pos());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PetYaoHunLvRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PetYaoHunLvRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PetYaoHunLvRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PetYaoHunLvRsp::MergeFrom(const PetYaoHunLvRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret()) {
+      set_ret(from.ret());
+    }
+    if (from.has_fight_pos()) {
+      set_fight_pos(from.fight_pos());
+    }
+    if (from.has_slot_pos()) {
+      set_slot_pos(from.slot_pos());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PetYaoHunLvRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PetYaoHunLvRsp::CopyFrom(const PetYaoHunLvRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PetYaoHunLvRsp::IsInitialized() const {
+
+  return true;
+}
+
+void PetYaoHunLvRsp::Swap(PetYaoHunLvRsp* other) {
+  if (other != this) {
+    std::swap(ret_, other->ret_);
+    std::swap(fight_pos_, other->fight_pos_);
+    std::swap(slot_pos_, other->slot_pos_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata PetYaoHunLvRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PetYaoHunLvRsp_descriptor_;
+  metadata.reflection = PetYaoHunLvRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PetYaoHunBreakReq::kFightPosFieldNumber;
+const int PetYaoHunBreakReq::kSlotPosFieldNumber;
+#endif  // !_MSC_VER
+
+PetYaoHunBreakReq::PetYaoHunBreakReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void PetYaoHunBreakReq::InitAsDefaultInstance() {
+}
+
+PetYaoHunBreakReq::PetYaoHunBreakReq(const PetYaoHunBreakReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void PetYaoHunBreakReq::SharedCtor() {
+  _cached_size_ = 0;
+  fight_pos_ = 0;
+  slot_pos_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PetYaoHunBreakReq::~PetYaoHunBreakReq() {
+  SharedDtor();
+}
+
+void PetYaoHunBreakReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PetYaoHunBreakReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PetYaoHunBreakReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PetYaoHunBreakReq_descriptor_;
+}
+
+const PetYaoHunBreakReq& PetYaoHunBreakReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Pet_2eproto();
+  return *default_instance_;
+}
+
+PetYaoHunBreakReq* PetYaoHunBreakReq::default_instance_ = NULL;
+
+PetYaoHunBreakReq* PetYaoHunBreakReq::New() const {
+  return new PetYaoHunBreakReq;
+}
+
+void PetYaoHunBreakReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    fight_pos_ = 0;
+    slot_pos_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool PetYaoHunBreakReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 fight_pos = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &fight_pos_)));
+          set_has_fight_pos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_slot_pos;
+        break;
+      }
+
+      // optional int32 slot_pos = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_slot_pos:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &slot_pos_)));
+          set_has_slot_pos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void PetYaoHunBreakReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 fight_pos = 1;
+  if (has_fight_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->fight_pos(), output);
+  }
+
+  // optional int32 slot_pos = 2;
+  if (has_slot_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->slot_pos(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* PetYaoHunBreakReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 fight_pos = 1;
+  if (has_fight_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->fight_pos(), target);
+  }
+
+  // optional int32 slot_pos = 2;
+  if (has_slot_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->slot_pos(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int PetYaoHunBreakReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 fight_pos = 1;
+    if (has_fight_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->fight_pos());
+    }
+
+    // optional int32 slot_pos = 2;
+    if (has_slot_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->slot_pos());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PetYaoHunBreakReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PetYaoHunBreakReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PetYaoHunBreakReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PetYaoHunBreakReq::MergeFrom(const PetYaoHunBreakReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_fight_pos()) {
+      set_fight_pos(from.fight_pos());
+    }
+    if (from.has_slot_pos()) {
+      set_slot_pos(from.slot_pos());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PetYaoHunBreakReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PetYaoHunBreakReq::CopyFrom(const PetYaoHunBreakReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PetYaoHunBreakReq::IsInitialized() const {
+
+  return true;
+}
+
+void PetYaoHunBreakReq::Swap(PetYaoHunBreakReq* other) {
+  if (other != this) {
+    std::swap(fight_pos_, other->fight_pos_);
+    std::swap(slot_pos_, other->slot_pos_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata PetYaoHunBreakReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PetYaoHunBreakReq_descriptor_;
+  metadata.reflection = PetYaoHunBreakReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PetYaoHunBreakRsp::kRetFieldNumber;
+const int PetYaoHunBreakRsp::kFightPosFieldNumber;
+const int PetYaoHunBreakRsp::kSlotPosFieldNumber;
+#endif  // !_MSC_VER
+
+PetYaoHunBreakRsp::PetYaoHunBreakRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void PetYaoHunBreakRsp::InitAsDefaultInstance() {
+}
+
+PetYaoHunBreakRsp::PetYaoHunBreakRsp(const PetYaoHunBreakRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void PetYaoHunBreakRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_ = 0;
+  fight_pos_ = 0;
+  slot_pos_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PetYaoHunBreakRsp::~PetYaoHunBreakRsp() {
+  SharedDtor();
+}
+
+void PetYaoHunBreakRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PetYaoHunBreakRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PetYaoHunBreakRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PetYaoHunBreakRsp_descriptor_;
+}
+
+const PetYaoHunBreakRsp& PetYaoHunBreakRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Pet_2eproto();
+  return *default_instance_;
+}
+
+PetYaoHunBreakRsp* PetYaoHunBreakRsp::default_instance_ = NULL;
+
+PetYaoHunBreakRsp* PetYaoHunBreakRsp::New() const {
+  return new PetYaoHunBreakRsp;
+}
+
+void PetYaoHunBreakRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_ = 0;
+    fight_pos_ = 0;
+    slot_pos_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool PetYaoHunBreakRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 ret = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_)));
+          set_has_ret();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_fight_pos;
+        break;
+      }
+
+      // optional int32 fight_pos = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_fight_pos:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &fight_pos_)));
+          set_has_fight_pos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_slot_pos;
+        break;
+      }
+
+      // optional int32 slot_pos = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_slot_pos:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &slot_pos_)));
+          set_has_slot_pos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void PetYaoHunBreakRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 ret = 1;
+  if (has_ret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret(), output);
+  }
+
+  // optional int32 fight_pos = 2;
+  if (has_fight_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->fight_pos(), output);
+  }
+
+  // optional int32 slot_pos = 3;
+  if (has_slot_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->slot_pos(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* PetYaoHunBreakRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 ret = 1;
+  if (has_ret()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret(), target);
+  }
+
+  // optional int32 fight_pos = 2;
+  if (has_fight_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->fight_pos(), target);
+  }
+
+  // optional int32 slot_pos = 3;
+  if (has_slot_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->slot_pos(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int PetYaoHunBreakRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 ret = 1;
+    if (has_ret()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret());
+    }
+
+    // optional int32 fight_pos = 2;
+    if (has_fight_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->fight_pos());
+    }
+
+    // optional int32 slot_pos = 3;
+    if (has_slot_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->slot_pos());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PetYaoHunBreakRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PetYaoHunBreakRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PetYaoHunBreakRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PetYaoHunBreakRsp::MergeFrom(const PetYaoHunBreakRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret()) {
+      set_ret(from.ret());
+    }
+    if (from.has_fight_pos()) {
+      set_fight_pos(from.fight_pos());
+    }
+    if (from.has_slot_pos()) {
+      set_slot_pos(from.slot_pos());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PetYaoHunBreakRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PetYaoHunBreakRsp::CopyFrom(const PetYaoHunBreakRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PetYaoHunBreakRsp::IsInitialized() const {
+
+  return true;
+}
+
+void PetYaoHunBreakRsp::Swap(PetYaoHunBreakRsp* other) {
+  if (other != this) {
+    std::swap(ret_, other->ret_);
+    std::swap(fight_pos_, other->fight_pos_);
+    std::swap(slot_pos_, other->slot_pos_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata PetYaoHunBreakRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PetYaoHunBreakRsp_descriptor_;
+  metadata.reflection = PetYaoHunBreakRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+#endif  // !_MSC_VER
+
+PetLianYaoTqBuyReq::PetLianYaoTqBuyReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void PetLianYaoTqBuyReq::InitAsDefaultInstance() {
+}
+
+PetLianYaoTqBuyReq::PetLianYaoTqBuyReq(const PetLianYaoTqBuyReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void PetLianYaoTqBuyReq::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PetLianYaoTqBuyReq::~PetLianYaoTqBuyReq() {
+  SharedDtor();
+}
+
+void PetLianYaoTqBuyReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PetLianYaoTqBuyReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PetLianYaoTqBuyReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PetLianYaoTqBuyReq_descriptor_;
+}
+
+const PetLianYaoTqBuyReq& PetLianYaoTqBuyReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Pet_2eproto();
+  return *default_instance_;
+}
+
+PetLianYaoTqBuyReq* PetLianYaoTqBuyReq::default_instance_ = NULL;
+
+PetLianYaoTqBuyReq* PetLianYaoTqBuyReq::New() const {
+  return new PetLianYaoTqBuyReq;
+}
+
+void PetLianYaoTqBuyReq::Clear() {
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool PetLianYaoTqBuyReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+      return true;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, mutable_unknown_fields()));
+  }
+  return true;
+#undef DO_
+}
+
+void PetLianYaoTqBuyReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* PetLianYaoTqBuyReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int PetLianYaoTqBuyReq::ByteSize() const {
+  int total_size = 0;
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PetLianYaoTqBuyReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PetLianYaoTqBuyReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PetLianYaoTqBuyReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PetLianYaoTqBuyReq::MergeFrom(const PetLianYaoTqBuyReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PetLianYaoTqBuyReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PetLianYaoTqBuyReq::CopyFrom(const PetLianYaoTqBuyReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PetLianYaoTqBuyReq::IsInitialized() const {
+
+  return true;
+}
+
+void PetLianYaoTqBuyReq::Swap(PetLianYaoTqBuyReq* other) {
+  if (other != this) {
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata PetLianYaoTqBuyReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PetLianYaoTqBuyReq_descriptor_;
+  metadata.reflection = PetLianYaoTqBuyReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PetLianYaoTqBuyRsp::kRetFieldNumber;
+#endif  // !_MSC_VER
+
+PetLianYaoTqBuyRsp::PetLianYaoTqBuyRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void PetLianYaoTqBuyRsp::InitAsDefaultInstance() {
+}
+
+PetLianYaoTqBuyRsp::PetLianYaoTqBuyRsp(const PetLianYaoTqBuyRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void PetLianYaoTqBuyRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PetLianYaoTqBuyRsp::~PetLianYaoTqBuyRsp() {
+  SharedDtor();
+}
+
+void PetLianYaoTqBuyRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PetLianYaoTqBuyRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PetLianYaoTqBuyRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PetLianYaoTqBuyRsp_descriptor_;
+}
+
+const PetLianYaoTqBuyRsp& PetLianYaoTqBuyRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Pet_2eproto();
+  return *default_instance_;
+}
+
+PetLianYaoTqBuyRsp* PetLianYaoTqBuyRsp::default_instance_ = NULL;
+
+PetLianYaoTqBuyRsp* PetLianYaoTqBuyRsp::New() const {
+  return new PetLianYaoTqBuyRsp;
+}
+
+void PetLianYaoTqBuyRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool PetLianYaoTqBuyRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 ret = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_)));
+          set_has_ret();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void PetLianYaoTqBuyRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 ret = 1;
+  if (has_ret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* PetLianYaoTqBuyRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 ret = 1;
+  if (has_ret()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int PetLianYaoTqBuyRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 ret = 1;
+    if (has_ret()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PetLianYaoTqBuyRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PetLianYaoTqBuyRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PetLianYaoTqBuyRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PetLianYaoTqBuyRsp::MergeFrom(const PetLianYaoTqBuyRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret()) {
+      set_ret(from.ret());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PetLianYaoTqBuyRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PetLianYaoTqBuyRsp::CopyFrom(const PetLianYaoTqBuyRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PetLianYaoTqBuyRsp::IsInitialized() const {
+
+  return true;
+}
+
+void PetLianYaoTqBuyRsp::Swap(PetLianYaoTqBuyRsp* other) {
+  if (other != this) {
+    std::swap(ret_, other->ret_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata PetLianYaoTqBuyRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PetLianYaoTqBuyRsp_descriptor_;
+  metadata.reflection = PetLianYaoTqBuyRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PetYaoHunSuitReq::kFightPosFieldNumber;
+const int PetYaoHunSuitReq::kSuitIdFieldNumber;
+#endif  // !_MSC_VER
+
+PetYaoHunSuitReq::PetYaoHunSuitReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void PetYaoHunSuitReq::InitAsDefaultInstance() {
+}
+
+PetYaoHunSuitReq::PetYaoHunSuitReq(const PetYaoHunSuitReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void PetYaoHunSuitReq::SharedCtor() {
+  _cached_size_ = 0;
+  fight_pos_ = 0;
+  suit_id_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PetYaoHunSuitReq::~PetYaoHunSuitReq() {
+  SharedDtor();
+}
+
+void PetYaoHunSuitReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PetYaoHunSuitReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PetYaoHunSuitReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PetYaoHunSuitReq_descriptor_;
+}
+
+const PetYaoHunSuitReq& PetYaoHunSuitReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Pet_2eproto();
+  return *default_instance_;
+}
+
+PetYaoHunSuitReq* PetYaoHunSuitReq::default_instance_ = NULL;
+
+PetYaoHunSuitReq* PetYaoHunSuitReq::New() const {
+  return new PetYaoHunSuitReq;
+}
+
+void PetYaoHunSuitReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    fight_pos_ = 0;
+    suit_id_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool PetYaoHunSuitReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 fight_pos = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &fight_pos_)));
+          set_has_fight_pos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_suit_id;
+        break;
+      }
+
+      // optional int32 suit_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_suit_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &suit_id_)));
+          set_has_suit_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void PetYaoHunSuitReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 fight_pos = 1;
+  if (has_fight_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->fight_pos(), output);
+  }
+
+  // optional int32 suit_id = 2;
+  if (has_suit_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->suit_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* PetYaoHunSuitReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 fight_pos = 1;
+  if (has_fight_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->fight_pos(), target);
+  }
+
+  // optional int32 suit_id = 2;
+  if (has_suit_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->suit_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int PetYaoHunSuitReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 fight_pos = 1;
+    if (has_fight_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->fight_pos());
+    }
+
+    // optional int32 suit_id = 2;
+    if (has_suit_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->suit_id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PetYaoHunSuitReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PetYaoHunSuitReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PetYaoHunSuitReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PetYaoHunSuitReq::MergeFrom(const PetYaoHunSuitReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_fight_pos()) {
+      set_fight_pos(from.fight_pos());
+    }
+    if (from.has_suit_id()) {
+      set_suit_id(from.suit_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PetYaoHunSuitReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PetYaoHunSuitReq::CopyFrom(const PetYaoHunSuitReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PetYaoHunSuitReq::IsInitialized() const {
+
+  return true;
+}
+
+void PetYaoHunSuitReq::Swap(PetYaoHunSuitReq* other) {
+  if (other != this) {
+    std::swap(fight_pos_, other->fight_pos_);
+    std::swap(suit_id_, other->suit_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata PetYaoHunSuitReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PetYaoHunSuitReq_descriptor_;
+  metadata.reflection = PetYaoHunSuitReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PetYaoHunSuitRsp::kRetFieldNumber;
+const int PetYaoHunSuitRsp::kFightPosFieldNumber;
+const int PetYaoHunSuitRsp::kSuitIdFieldNumber;
+#endif  // !_MSC_VER
+
+PetYaoHunSuitRsp::PetYaoHunSuitRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void PetYaoHunSuitRsp::InitAsDefaultInstance() {
+}
+
+PetYaoHunSuitRsp::PetYaoHunSuitRsp(const PetYaoHunSuitRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void PetYaoHunSuitRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_ = 0;
+  fight_pos_ = 0;
+  suit_id_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PetYaoHunSuitRsp::~PetYaoHunSuitRsp() {
+  SharedDtor();
+}
+
+void PetYaoHunSuitRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PetYaoHunSuitRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PetYaoHunSuitRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PetYaoHunSuitRsp_descriptor_;
+}
+
+const PetYaoHunSuitRsp& PetYaoHunSuitRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Pet_2eproto();
+  return *default_instance_;
+}
+
+PetYaoHunSuitRsp* PetYaoHunSuitRsp::default_instance_ = NULL;
+
+PetYaoHunSuitRsp* PetYaoHunSuitRsp::New() const {
+  return new PetYaoHunSuitRsp;
+}
+
+void PetYaoHunSuitRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_ = 0;
+    fight_pos_ = 0;
+    suit_id_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool PetYaoHunSuitRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 ret = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_)));
+          set_has_ret();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_fight_pos;
+        break;
+      }
+
+      // optional int32 fight_pos = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_fight_pos:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &fight_pos_)));
+          set_has_fight_pos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_suit_id;
+        break;
+      }
+
+      // optional int32 suit_id = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_suit_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &suit_id_)));
+          set_has_suit_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void PetYaoHunSuitRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 ret = 1;
+  if (has_ret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret(), output);
+  }
+
+  // optional int32 fight_pos = 2;
+  if (has_fight_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->fight_pos(), output);
+  }
+
+  // optional int32 suit_id = 3;
+  if (has_suit_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->suit_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* PetYaoHunSuitRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 ret = 1;
+  if (has_ret()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret(), target);
+  }
+
+  // optional int32 fight_pos = 2;
+  if (has_fight_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->fight_pos(), target);
+  }
+
+  // optional int32 suit_id = 3;
+  if (has_suit_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->suit_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int PetYaoHunSuitRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 ret = 1;
+    if (has_ret()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret());
+    }
+
+    // optional int32 fight_pos = 2;
+    if (has_fight_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->fight_pos());
+    }
+
+    // optional int32 suit_id = 3;
+    if (has_suit_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->suit_id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PetYaoHunSuitRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PetYaoHunSuitRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PetYaoHunSuitRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PetYaoHunSuitRsp::MergeFrom(const PetYaoHunSuitRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret()) {
+      set_ret(from.ret());
+    }
+    if (from.has_fight_pos()) {
+      set_fight_pos(from.fight_pos());
+    }
+    if (from.has_suit_id()) {
+      set_suit_id(from.suit_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PetYaoHunSuitRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PetYaoHunSuitRsp::CopyFrom(const PetYaoHunSuitRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PetYaoHunSuitRsp::IsInitialized() const {
+
+  return true;
+}
+
+void PetYaoHunSuitRsp::Swap(PetYaoHunSuitRsp* other) {
+  if (other != this) {
+    std::swap(ret_, other->ret_);
+    std::swap(fight_pos_, other->fight_pos_);
+    std::swap(suit_id_, other->suit_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata PetYaoHunSuitRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PetYaoHunSuitRsp_descriptor_;
+  metadata.reflection = PetYaoHunSuitRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PetYaoHunResetReq::kBagPosFieldNumber;
+#endif  // !_MSC_VER
+
+PetYaoHunResetReq::PetYaoHunResetReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void PetYaoHunResetReq::InitAsDefaultInstance() {
+}
+
+PetYaoHunResetReq::PetYaoHunResetReq(const PetYaoHunResetReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void PetYaoHunResetReq::SharedCtor() {
+  _cached_size_ = 0;
+  bag_pos_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PetYaoHunResetReq::~PetYaoHunResetReq() {
+  SharedDtor();
+}
+
+void PetYaoHunResetReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PetYaoHunResetReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PetYaoHunResetReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PetYaoHunResetReq_descriptor_;
+}
+
+const PetYaoHunResetReq& PetYaoHunResetReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Pet_2eproto();
+  return *default_instance_;
+}
+
+PetYaoHunResetReq* PetYaoHunResetReq::default_instance_ = NULL;
+
+PetYaoHunResetReq* PetYaoHunResetReq::New() const {
+  return new PetYaoHunResetReq;
+}
+
+void PetYaoHunResetReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    bag_pos_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool PetYaoHunResetReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 bag_pos = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &bag_pos_)));
+          set_has_bag_pos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void PetYaoHunResetReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 bag_pos = 1;
+  if (has_bag_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->bag_pos(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* PetYaoHunResetReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 bag_pos = 1;
+  if (has_bag_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->bag_pos(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int PetYaoHunResetReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 bag_pos = 1;
+    if (has_bag_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->bag_pos());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PetYaoHunResetReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PetYaoHunResetReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PetYaoHunResetReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PetYaoHunResetReq::MergeFrom(const PetYaoHunResetReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_bag_pos()) {
+      set_bag_pos(from.bag_pos());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PetYaoHunResetReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PetYaoHunResetReq::CopyFrom(const PetYaoHunResetReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PetYaoHunResetReq::IsInitialized() const {
+
+  return true;
+}
+
+void PetYaoHunResetReq::Swap(PetYaoHunResetReq* other) {
+  if (other != this) {
+    std::swap(bag_pos_, other->bag_pos_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata PetYaoHunResetReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PetYaoHunResetReq_descriptor_;
+  metadata.reflection = PetYaoHunResetReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PetYaoHunResetRsp::kRetFieldNumber;
+const int PetYaoHunResetRsp::kBagPosFieldNumber;
+#endif  // !_MSC_VER
+
+PetYaoHunResetRsp::PetYaoHunResetRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void PetYaoHunResetRsp::InitAsDefaultInstance() {
+}
+
+PetYaoHunResetRsp::PetYaoHunResetRsp(const PetYaoHunResetRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void PetYaoHunResetRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_ = 0;
+  bag_pos_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PetYaoHunResetRsp::~PetYaoHunResetRsp() {
+  SharedDtor();
+}
+
+void PetYaoHunResetRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PetYaoHunResetRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* PetYaoHunResetRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PetYaoHunResetRsp_descriptor_;
+}
+
+const PetYaoHunResetRsp& PetYaoHunResetRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Pet_2eproto();
+  return *default_instance_;
+}
+
+PetYaoHunResetRsp* PetYaoHunResetRsp::default_instance_ = NULL;
+
+PetYaoHunResetRsp* PetYaoHunResetRsp::New() const {
+  return new PetYaoHunResetRsp;
+}
+
+void PetYaoHunResetRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_ = 0;
+    bag_pos_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool PetYaoHunResetRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 ret = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_)));
+          set_has_ret();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_bag_pos;
+        break;
+      }
+
+      // optional int32 bag_pos = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_bag_pos:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &bag_pos_)));
+          set_has_bag_pos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void PetYaoHunResetRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 ret = 1;
+  if (has_ret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret(), output);
+  }
+
+  // optional int32 bag_pos = 2;
+  if (has_bag_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->bag_pos(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* PetYaoHunResetRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 ret = 1;
+  if (has_ret()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret(), target);
+  }
+
+  // optional int32 bag_pos = 2;
+  if (has_bag_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->bag_pos(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int PetYaoHunResetRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 ret = 1;
+    if (has_ret()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret());
+    }
+
+    // optional int32 bag_pos = 2;
+    if (has_bag_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->bag_pos());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PetYaoHunResetRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PetYaoHunResetRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PetYaoHunResetRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PetYaoHunResetRsp::MergeFrom(const PetYaoHunResetRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret()) {
+      set_ret(from.ret());
+    }
+    if (from.has_bag_pos()) {
+      set_bag_pos(from.bag_pos());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PetYaoHunResetRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PetYaoHunResetRsp::CopyFrom(const PetYaoHunResetRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PetYaoHunResetRsp::IsInitialized() const {
+
+  return true;
+}
+
+void PetYaoHunResetRsp::Swap(PetYaoHunResetRsp* other) {
+  if (other != this) {
+    std::swap(ret_, other->ret_);
+    std::swap(bag_pos_, other->bag_pos_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata PetYaoHunResetRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PetYaoHunResetRsp_descriptor_;
+  metadata.reflection = PetYaoHunResetRsp_reflection_;
   return metadata;
 }
 

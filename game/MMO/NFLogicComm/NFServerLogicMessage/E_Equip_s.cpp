@@ -194,9 +194,6 @@ void E_EquipAttribute_s::write_to_pbmsg(::proto_ff::E_EquipAttribute & msg) cons
 	for(int32_t i = 0; i < (int32_t)m_star_library.size(); ++i) {
 		msg.add_m_star_library(m_star_library[i].data());
 	}
-	for(int32_t i = 0; i < (int32_t)m_beaststarlib.size(); ++i) {
-		msg.add_m_beaststarlib(m_beaststarlib[i].data());
-	}
 }
 
 void E_EquipAttribute_s::read_from_pbmsg(const ::proto_ff::E_EquipAttribute & msg) {
@@ -229,10 +226,6 @@ void E_EquipAttribute_s::read_from_pbmsg(const ::proto_ff::E_EquipAttribute & ms
 	m_star_library.resize((int)msg.m_star_library_size() > (int)m_star_library.max_size() ? m_star_library.max_size() : msg.m_star_library_size());
 	for(int32_t i = 0; i < (int32_t)m_star_library.size(); ++i) {
 		m_star_library[i] = msg.m_star_library(i);
-	}
-	m_beaststarlib.resize((int)msg.m_beaststarlib_size() > (int)m_beaststarlib.max_size() ? m_beaststarlib.max_size() : msg.m_beaststarlib_size());
-	for(int32_t i = 0; i < (int32_t)m_beaststarlib.size(); ++i) {
-		m_beaststarlib[i] = msg.m_beaststarlib(i);
 	}
 }
 

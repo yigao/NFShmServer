@@ -83,6 +83,8 @@ class YaotaFirstPassInfoRsp;
 class YaotaRecvReq;
 class YaotaRecvRsp;
 class NotifyYaotaDupRes;
+class TowerFlashReq;
+class TowerFlashRsp;
 class L2CEnterDupReq;
 class L2CCreateDupRsp;
 class L2CDupStateChgNotify;
@@ -4709,6 +4711,202 @@ class NotifyYaotaDupRes : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class TowerFlashReq : public ::google::protobuf::Message {
+ public:
+  TowerFlashReq();
+  virtual ~TowerFlashReq();
+
+  TowerFlashReq(const TowerFlashReq& from);
+
+  inline TowerFlashReq& operator=(const TowerFlashReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const TowerFlashReq& default_instance();
+
+  void Swap(TowerFlashReq* other);
+
+  // implements Message ----------------------------------------------
+
+  TowerFlashReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const TowerFlashReq& from);
+  void MergeFrom(const TowerFlashReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.TowerFlashReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_Dup_2eproto();
+  friend void protobuf_AssignDesc_Dup_2eproto();
+  friend void protobuf_ShutdownFile_Dup_2eproto();
+
+  void InitAsDefaultInstance();
+  static TowerFlashReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class TowerFlashRsp : public ::google::protobuf::Message {
+ public:
+  TowerFlashRsp();
+  virtual ~TowerFlashRsp();
+
+  TowerFlashRsp(const TowerFlashRsp& from);
+
+  inline TowerFlashRsp& operator=(const TowerFlashRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const TowerFlashRsp& default_instance();
+
+  void Swap(TowerFlashRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  TowerFlashRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const TowerFlashRsp& from);
+  void MergeFrom(const TowerFlashRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 result = 1;
+  inline bool has_result() const;
+  inline void clear_result();
+  static const int kResultFieldNumber = 1;
+  inline ::google::protobuf::int32 result() const;
+  inline void set_result(::google::protobuf::int32 value);
+
+  // optional uint64 dupId = 2;
+  inline bool has_dupid() const;
+  inline void clear_dupid();
+  static const int kDupIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 dupid() const;
+  inline void set_dupid(::google::protobuf::uint64 value);
+
+  // optional int32 star = 3;
+  inline bool has_star() const;
+  inline void clear_star();
+  static const int kStarFieldNumber = 3;
+  inline ::google::protobuf::int32 star() const;
+  inline void set_star(::google::protobuf::int32 value);
+
+  // optional int32 cost_sec = 4;
+  inline bool has_cost_sec() const;
+  inline void clear_cost_sec();
+  static const int kCostSecFieldNumber = 4;
+  inline ::google::protobuf::int32 cost_sec() const;
+  inline void set_cost_sec(::google::protobuf::int32 value);
+
+  // optional .proto_ff.DupDropProto info = 5;
+  inline bool has_info() const;
+  inline void clear_info();
+  static const int kInfoFieldNumber = 5;
+  inline const ::proto_ff::DupDropProto& info() const;
+  inline ::proto_ff::DupDropProto* mutable_info();
+  inline ::proto_ff::DupDropProto* release_info();
+  inline void set_allocated_info(::proto_ff::DupDropProto* info);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.TowerFlashRsp)
+ private:
+  inline void set_has_result();
+  inline void clear_has_result();
+  inline void set_has_dupid();
+  inline void clear_has_dupid();
+  inline void set_has_star();
+  inline void clear_has_star();
+  inline void set_has_cost_sec();
+  inline void clear_has_cost_sec();
+  inline void set_has_info();
+  inline void clear_has_info();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 dupid_;
+  ::google::protobuf::int32 result_;
+  ::google::protobuf::int32 star_;
+  ::proto_ff::DupDropProto* info_;
+  ::google::protobuf::int32 cost_sec_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Dup_2eproto();
+  friend void protobuf_AssignDesc_Dup_2eproto();
+  friend void protobuf_ShutdownFile_Dup_2eproto();
+
+  void InitAsDefaultInstance();
+  static TowerFlashRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class L2CEnterDupReq : public ::google::protobuf::Message {
  public:
   L2CEnterDupReq();
@@ -6619,6 +6817,25 @@ class L2CDupResultRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 result() const;
   inline void set_result(::google::protobuf::int32 value);
 
+  // optional int64 int_param = 4;
+  inline bool has_int_param() const;
+  inline void clear_int_param();
+  static const int kIntParamFieldNumber = 4;
+  inline ::google::protobuf::int64 int_param() const;
+  inline void set_int_param(::google::protobuf::int64 value);
+
+  // optional bytes str_param = 5;
+  inline bool has_str_param() const;
+  inline void clear_str_param();
+  static const int kStrParamFieldNumber = 5;
+  inline const ::std::string& str_param() const;
+  inline void set_str_param(const ::std::string& value);
+  inline void set_str_param(const char* value);
+  inline void set_str_param(const void* value, size_t size);
+  inline ::std::string* mutable_str_param();
+  inline ::std::string* release_str_param();
+  inline void set_allocated_str_param(::std::string* str_param);
+
   // @@protoc_insertion_point(class_scope:proto_ff.L2CDupResultRsp)
  private:
   inline void set_has_sceneid();
@@ -6627,15 +6844,21 @@ class L2CDupResultRsp : public ::google::protobuf::Message {
   inline void clear_has_dupid();
   inline void set_has_result();
   inline void clear_has_result();
+  inline void set_has_int_param();
+  inline void clear_has_int_param();
+  inline void set_has_str_param();
+  inline void clear_has_str_param();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint64 sceneid_;
   ::google::protobuf::uint64 dupid_;
+  ::google::protobuf::int64 int_param_;
+  ::std::string* str_param_;
   ::google::protobuf::int32 result_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
 
   friend void  protobuf_AddDesc_Dup_2eproto();
   friend void protobuf_AssignDesc_Dup_2eproto();
@@ -11061,6 +11284,140 @@ inline void NotifyYaotaDupRes::set_time(::google::protobuf::int32 value) {
 
 // -------------------------------------------------------------------
 
+// TowerFlashReq
+
+// -------------------------------------------------------------------
+
+// TowerFlashRsp
+
+// optional int32 result = 1;
+inline bool TowerFlashRsp::has_result() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void TowerFlashRsp::set_has_result() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void TowerFlashRsp::clear_has_result() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void TowerFlashRsp::clear_result() {
+  result_ = 0;
+  clear_has_result();
+}
+inline ::google::protobuf::int32 TowerFlashRsp::result() const {
+  return result_;
+}
+inline void TowerFlashRsp::set_result(::google::protobuf::int32 value) {
+  set_has_result();
+  result_ = value;
+}
+
+// optional uint64 dupId = 2;
+inline bool TowerFlashRsp::has_dupid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void TowerFlashRsp::set_has_dupid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void TowerFlashRsp::clear_has_dupid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void TowerFlashRsp::clear_dupid() {
+  dupid_ = GOOGLE_ULONGLONG(0);
+  clear_has_dupid();
+}
+inline ::google::protobuf::uint64 TowerFlashRsp::dupid() const {
+  return dupid_;
+}
+inline void TowerFlashRsp::set_dupid(::google::protobuf::uint64 value) {
+  set_has_dupid();
+  dupid_ = value;
+}
+
+// optional int32 star = 3;
+inline bool TowerFlashRsp::has_star() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void TowerFlashRsp::set_has_star() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void TowerFlashRsp::clear_has_star() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void TowerFlashRsp::clear_star() {
+  star_ = 0;
+  clear_has_star();
+}
+inline ::google::protobuf::int32 TowerFlashRsp::star() const {
+  return star_;
+}
+inline void TowerFlashRsp::set_star(::google::protobuf::int32 value) {
+  set_has_star();
+  star_ = value;
+}
+
+// optional int32 cost_sec = 4;
+inline bool TowerFlashRsp::has_cost_sec() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void TowerFlashRsp::set_has_cost_sec() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void TowerFlashRsp::clear_has_cost_sec() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void TowerFlashRsp::clear_cost_sec() {
+  cost_sec_ = 0;
+  clear_has_cost_sec();
+}
+inline ::google::protobuf::int32 TowerFlashRsp::cost_sec() const {
+  return cost_sec_;
+}
+inline void TowerFlashRsp::set_cost_sec(::google::protobuf::int32 value) {
+  set_has_cost_sec();
+  cost_sec_ = value;
+}
+
+// optional .proto_ff.DupDropProto info = 5;
+inline bool TowerFlashRsp::has_info() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void TowerFlashRsp::set_has_info() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void TowerFlashRsp::clear_has_info() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void TowerFlashRsp::clear_info() {
+  if (info_ != NULL) info_->::proto_ff::DupDropProto::Clear();
+  clear_has_info();
+}
+inline const ::proto_ff::DupDropProto& TowerFlashRsp::info() const {
+  return info_ != NULL ? *info_ : *default_instance_->info_;
+}
+inline ::proto_ff::DupDropProto* TowerFlashRsp::mutable_info() {
+  set_has_info();
+  if (info_ == NULL) info_ = new ::proto_ff::DupDropProto;
+  return info_;
+}
+inline ::proto_ff::DupDropProto* TowerFlashRsp::release_info() {
+  clear_has_info();
+  ::proto_ff::DupDropProto* temp = info_;
+  info_ = NULL;
+  return temp;
+}
+inline void TowerFlashRsp::set_allocated_info(::proto_ff::DupDropProto* info) {
+  delete info_;
+  info_ = info;
+  if (info) {
+    set_has_info();
+  } else {
+    clear_has_info();
+  }
+}
+
+// -------------------------------------------------------------------
+
 // L2CEnterDupReq
 
 // optional .proto_ff.CreateSceneParamProto params = 1;
@@ -12822,6 +13179,98 @@ inline ::google::protobuf::int32 L2CDupResultRsp::result() const {
 inline void L2CDupResultRsp::set_result(::google::protobuf::int32 value) {
   set_has_result();
   result_ = value;
+}
+
+// optional int64 int_param = 4;
+inline bool L2CDupResultRsp::has_int_param() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void L2CDupResultRsp::set_has_int_param() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void L2CDupResultRsp::clear_has_int_param() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void L2CDupResultRsp::clear_int_param() {
+  int_param_ = GOOGLE_LONGLONG(0);
+  clear_has_int_param();
+}
+inline ::google::protobuf::int64 L2CDupResultRsp::int_param() const {
+  return int_param_;
+}
+inline void L2CDupResultRsp::set_int_param(::google::protobuf::int64 value) {
+  set_has_int_param();
+  int_param_ = value;
+}
+
+// optional bytes str_param = 5;
+inline bool L2CDupResultRsp::has_str_param() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void L2CDupResultRsp::set_has_str_param() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void L2CDupResultRsp::clear_has_str_param() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void L2CDupResultRsp::clear_str_param() {
+  if (str_param_ != &::google::protobuf::internal::kEmptyString) {
+    str_param_->clear();
+  }
+  clear_has_str_param();
+}
+inline const ::std::string& L2CDupResultRsp::str_param() const {
+  return *str_param_;
+}
+inline void L2CDupResultRsp::set_str_param(const ::std::string& value) {
+  set_has_str_param();
+  if (str_param_ == &::google::protobuf::internal::kEmptyString) {
+    str_param_ = new ::std::string;
+  }
+  str_param_->assign(value);
+}
+inline void L2CDupResultRsp::set_str_param(const char* value) {
+  set_has_str_param();
+  if (str_param_ == &::google::protobuf::internal::kEmptyString) {
+    str_param_ = new ::std::string;
+  }
+  str_param_->assign(value);
+}
+inline void L2CDupResultRsp::set_str_param(const void* value, size_t size) {
+  set_has_str_param();
+  if (str_param_ == &::google::protobuf::internal::kEmptyString) {
+    str_param_ = new ::std::string;
+  }
+  str_param_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* L2CDupResultRsp::mutable_str_param() {
+  set_has_str_param();
+  if (str_param_ == &::google::protobuf::internal::kEmptyString) {
+    str_param_ = new ::std::string;
+  }
+  return str_param_;
+}
+inline ::std::string* L2CDupResultRsp::release_str_param() {
+  clear_has_str_param();
+  if (str_param_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = str_param_;
+    str_param_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void L2CDupResultRsp::set_allocated_str_param(::std::string* str_param) {
+  if (str_param_ != &::google::protobuf::internal::kEmptyString) {
+    delete str_param_;
+  }
+  if (str_param) {
+    set_has_str_param();
+    str_param_ = str_param;
+  } else {
+    clear_has_str_param();
+    str_param_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
 }
 
 // -------------------------------------------------------------------

@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Daily_s.h"
 
-#define MAX_DAILY_HELPER_NUM 8
+#define MAX_DAILY_HELPER_NUM 16
 
 class DailyHelperDesc : public NFIDescTemplate<DailyHelperDesc, proto_ff_s::E_DailyHelper_s, EOT_CONST_DAILY_HELPER_DESC_ID, MAX_DAILY_HELPER_NUM>
 {

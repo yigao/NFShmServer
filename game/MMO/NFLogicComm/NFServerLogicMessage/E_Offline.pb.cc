@@ -190,7 +190,7 @@ void protobuf_AddDesc_E_5fOffline_2eproto() {
     "oto_ff.E_OfflineItemlistItemDescB\016\302\377\024\006\351\201"
     "\223\345\205\267\210\301\024\026\"Z\n\025Sheet_OfflineItemlist\022A\n\026E_O"
     "fflineItemlist_List\030\001 \003(\0132\033.proto_ff.E_O"
-    "fflineItemlistB\004\210\301\024 ", 660);
+    "fflineItemlistB\004\210\301\024@", 660);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Offline.proto", &protobuf_RegisterTypes);
   E_OfflineOffline::default_instance_ = new E_OfflineOffline();

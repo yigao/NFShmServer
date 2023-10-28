@@ -206,6 +206,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* NotifyWeddingApply_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   NotifyWeddingApply_reflection_ = NULL;
+const ::google::protobuf::Descriptor* NotifyBroadExpress_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  NotifyBroadExpress_reflection_ = NULL;
 const ::google::protobuf::Descriptor* WeddingSignReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   WeddingSignReq_reflection_ = NULL;
@@ -1266,7 +1269,26 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyWeddingApply));
-  WeddingSignReq_descriptor_ = file->message_type(62);
+  NotifyBroadExpress_descriptor_ = file->message_type(62);
+  static const int NotifyBroadExpress_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyBroadExpress, itemid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyBroadExpress, num_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyBroadExpress, src_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyBroadExpress, src_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyBroadExpress, dst_name_),
+  };
+  NotifyBroadExpress_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      NotifyBroadExpress_descriptor_,
+      NotifyBroadExpress::default_instance_,
+      NotifyBroadExpress_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyBroadExpress, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyBroadExpress, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(NotifyBroadExpress));
+  WeddingSignReq_descriptor_ = file->message_type(63);
   static const int WeddingSignReq_offsets_[1] = {
   };
   WeddingSignReq_reflection_ =
@@ -1280,7 +1302,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(WeddingSignReq));
-  WeddingSignRsp_descriptor_ = file->message_type(63);
+  WeddingSignRsp_descriptor_ = file->message_type(64);
   static const int WeddingSignRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WeddingSignRsp, ret_),
   };
@@ -1295,7 +1317,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(WeddingSignRsp));
-  WeddingFireReq_descriptor_ = file->message_type(64);
+  WeddingFireReq_descriptor_ = file->message_type(65);
   static const int WeddingFireReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WeddingFireReq, itemid_),
   };
@@ -1310,7 +1332,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(WeddingFireReq));
-  WeddingFireRsp_descriptor_ = file->message_type(65);
+  WeddingFireRsp_descriptor_ = file->message_type(66);
   static const int WeddingFireRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WeddingFireRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WeddingFireRsp, itemid_),
@@ -1326,7 +1348,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(WeddingFireRsp));
-  NotifyBroadFire_descriptor_ = file->message_type(66);
+  NotifyBroadFire_descriptor_ = file->message_type(67);
   static const int NotifyBroadFire_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyBroadFire, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyBroadFire, itemid_),
@@ -1342,7 +1364,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyBroadFire));
-  NotifyWeddingDupData_descriptor_ = file->message_type(67);
+  NotifyWeddingDupData_descriptor_ = file->message_type(68);
   static const int NotifyWeddingDupData_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyWeddingDupData, step_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyWeddingDupData, enter_),
@@ -1363,7 +1385,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyWeddingDupData));
-  NotifyWeddingDupRole_descriptor_ = file->message_type(68);
+  NotifyWeddingDupRole_descriptor_ = file->message_type(69);
   static const int NotifyWeddingDupRole_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyWeddingDupRole, sign_num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyWeddingDupRole, exp_),
@@ -1382,7 +1404,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyWeddingDupRole));
-  throwCakeReq_descriptor_ = file->message_type(69);
+  throwCakeReq_descriptor_ = file->message_type(70);
   static const int throwCakeReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(throwCakeReq, target_cid_),
   };
@@ -1397,7 +1419,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(throwCakeReq));
-  throwCakeRsp_descriptor_ = file->message_type(70);
+  throwCakeRsp_descriptor_ = file->message_type(71);
   static const int throwCakeRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(throwCakeRsp, ret_),
   };
@@ -1412,7 +1434,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(throwCakeRsp));
-  NotifyMarryRedNum_descriptor_ = file->message_type(71);
+  NotifyMarryRedNum_descriptor_ = file->message_type(72);
   static const int NotifyMarryRedNum_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyMarryRedNum, num_),
   };
@@ -1427,7 +1449,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyMarryRedNum));
-  SendMarryRedReq_descriptor_ = file->message_type(72);
+  SendMarryRedReq_descriptor_ = file->message_type(73);
   static const int SendMarryRedReq_offsets_[1] = {
   };
   SendMarryRedReq_reflection_ =
@@ -1441,7 +1463,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SendMarryRedReq));
-  SendMarryRedRsp_descriptor_ = file->message_type(73);
+  SendMarryRedRsp_descriptor_ = file->message_type(74);
   static const int SendMarryRedRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SendMarryRedRsp, ret_),
   };
@@ -1456,7 +1478,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SendMarryRedRsp));
-  C2LMarryReq_descriptor_ = file->message_type(74);
+  C2LMarryReq_descriptor_ = file->message_type(75);
   static const int C2LMarryReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LMarryReq, src_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LMarryReq, dst_cid_),
@@ -1473,7 +1495,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2LMarryReq));
-  L2CMarryRsp_descriptor_ = file->message_type(75);
+  L2CMarryRsp_descriptor_ = file->message_type(76);
   static const int L2CMarryRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CMarryRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CMarryRsp, src_id_),
@@ -1491,7 +1513,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(L2CMarryRsp));
-  C2LNotifyMarryCmpt_descriptor_ = file->message_type(76);
+  C2LNotifyMarryCmpt_descriptor_ = file->message_type(77);
   static const int C2LNotifyMarryCmpt_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LNotifyMarryCmpt, dst_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LNotifyMarryCmpt, gear_),
@@ -1510,7 +1532,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2LNotifyMarryCmpt));
-  L2CUpdateMarryBrief_descriptor_ = file->message_type(77);
+  L2CUpdateMarryBrief_descriptor_ = file->message_type(78);
   static const int L2CUpdateMarryBrief_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CUpdateMarryBrief, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CUpdateMarryBrief, brief_),
@@ -1526,7 +1548,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(L2CUpdateMarryBrief));
-  C2LNotifyDivorce_descriptor_ = file->message_type(78);
+  C2LNotifyDivorce_descriptor_ = file->message_type(79);
   static const int C2LNotifyDivorce_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LNotifyDivorce, cid_),
   };
@@ -1541,7 +1563,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2LNotifyDivorce));
-  C2LExpressReq_descriptor_ = file->message_type(79);
+  C2LExpressReq_descriptor_ = file->message_type(80);
   static const int C2LExpressReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LExpressReq, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LExpressReq, name_),
@@ -1558,7 +1580,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2LExpressReq));
-  L2CNotifyExpressSuccess_descriptor_ = file->message_type(80);
+  L2CNotifyExpressSuccess_descriptor_ = file->message_type(81);
   static const int L2CNotifyExpressSuccess_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CNotifyExpressSuccess, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CNotifyExpressSuccess, req_),
@@ -1574,7 +1596,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(L2CNotifyExpressSuccess));
-  C2LNotifyExpressToDst_descriptor_ = file->message_type(81);
+  C2LNotifyExpressToDst_descriptor_ = file->message_type(82);
   static const int C2LNotifyExpressToDst_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LNotifyExpressToDst, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LNotifyExpressToDst, req_),
@@ -1590,7 +1612,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2LNotifyExpressToDst));
-  C2LNotifyMarryDst_descriptor_ = file->message_type(82);
+  C2LNotifyMarryDst_descriptor_ = file->message_type(83);
   static const int C2LNotifyMarryDst_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LNotifyMarryDst, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LNotifyMarryDst, cid_),
@@ -1612,7 +1634,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2LNotifyMarryDst));
-  C2LGlobalExpressReq_descriptor_ = file->message_type(83);
+  C2LGlobalExpressReq_descriptor_ = file->message_type(84);
   static const int C2LGlobalExpressReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LGlobalExpressReq, cid_),
   };
@@ -1627,7 +1649,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2LGlobalExpressReq));
-  C2LNotifyMarryBuySuccess_descriptor_ = file->message_type(84);
+  C2LNotifyMarryBuySuccess_descriptor_ = file->message_type(85);
   static const int C2LNotifyMarryBuySuccess_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LNotifyMarryBuySuccess, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LNotifyMarryBuySuccess, ret_),
@@ -1644,7 +1666,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2LNotifyMarryBuySuccess));
-  C2LMarryRecvDstCard_descriptor_ = file->message_type(85);
+  C2LMarryRecvDstCard_descriptor_ = file->message_type(86);
   static const int C2LMarryRecvDstCard_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LMarryRecvDstCard, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LMarryRecvDstCard, days_),
@@ -1660,7 +1682,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2LMarryRecvDstCard));
-  C2LWeddingBuySeatReq_descriptor_ = file->message_type(86);
+  C2LWeddingBuySeatReq_descriptor_ = file->message_type(87);
   static const int C2LWeddingBuySeatReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LWeddingBuySeatReq, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LWeddingBuySeatReq, wedding_id_),
@@ -1676,7 +1698,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2LWeddingBuySeatReq));
-  L2CWeddingBuySeatRsp_descriptor_ = file->message_type(87);
+  L2CWeddingBuySeatRsp_descriptor_ = file->message_type(88);
   static const int L2CWeddingBuySeatRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CWeddingBuySeatRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CWeddingBuySeatRsp, cid_),
@@ -1693,7 +1715,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(L2CWeddingBuySeatRsp));
-  C2LNotifyWeddingTour_descriptor_ = file->message_type(88);
+  C2LNotifyWeddingTour_descriptor_ = file->message_type(89);
   static const int C2LNotifyWeddingTour_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LNotifyWeddingTour, wedding_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LNotifyWeddingTour, scene_id_),
@@ -1712,7 +1734,7 @@ void protobuf_AssignDesc_marry_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2LNotifyWeddingTour));
-  C2LWeddingTourOver_descriptor_ = file->message_type(89);
+  C2LWeddingTourOver_descriptor_ = file->message_type(90);
   static const int C2LWeddingTourOver_offsets_[1] = {
   };
   C2LWeddingTourOver_reflection_ =
@@ -1862,6 +1884,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     NotifyWeddingTourFollow_descriptor_, &NotifyWeddingTourFollow::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     NotifyWeddingApply_descriptor_, &NotifyWeddingApply::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    NotifyBroadExpress_descriptor_, &NotifyBroadExpress::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     WeddingSignReq_descriptor_, &WeddingSignReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -2047,6 +2071,8 @@ void protobuf_ShutdownFile_marry_2eproto() {
   delete NotifyWeddingTourFollow_reflection_;
   delete NotifyWeddingApply::default_instance_;
   delete NotifyWeddingApply_reflection_;
+  delete NotifyBroadExpress::default_instance_;
+  delete NotifyBroadExpress_reflection_;
   delete WeddingSignReq::default_instance_;
   delete WeddingSignReq_reflection_;
   delete WeddingSignRsp::default_instance_;
@@ -2194,53 +2220,56 @@ void protobuf_AddDesc_marry_2eproto() {
     "id\030\001 \001(\005\"2\n\017WeddingApplyRsp\022\013\n\003ret\030\001 \001(\005"
     "\022\022\n\nwedding_id\030\002 \001(\005\".\n\027NotifyWeddingTou"
     "rFollow\022\023\n\013monster_cid\030\001 \001(\004\"(\n\022NotifyWe"
-    "ddingApply\022\022\n\nwedding_id\030\001 \001(\005\"\020\n\016Weddin"
-    "gSignReq\"\035\n\016WeddingSignRsp\022\013\n\003ret\030\001 \001(\005\""
-    " \n\016WeddingFireReq\022\016\n\006itemid\030\001 \001(\005\"-\n\016Wed"
-    "dingFireRsp\022\013\n\003ret\030\001 \001(\005\022\016\n\006itemid\030\002 \001(\005"
-    "\".\n\017NotifyBroadFire\022\013\n\003cid\030\001 \001(\004\022\016\n\006item"
-    "id\030\002 \001(\005\"\272\001\n\024NotifyWeddingDupData\022\014\n\004ste"
-    "p\030\001 \001(\005\022\r\n\005enter\030\002 \001(\005\022\025\n\rstep_end_time\030"
-    "\003 \001(\004\022\026\n\016qinyou_npc_cid\030\004 \001(\004\022\025\n\rqinyou_"
-    "result\030\005 \001(\005\022\022\n\nwarm_value\030\006 \001(\005\022+\n\005info"
-    "s\030\007 \003(\0132\034.proto_ff.RolePlayerMiniInfo\"s\n"
-    "\024NotifyWeddingDupRole\022\020\n\010sign_num\030\001 \001(\005\022"
-    "\013\n\003exp\030\002 \001(\004\022\025\n\rcakeRewardNum\030\003 \001(\005\022\022\n\nc"
-    "urCakeNum\030\004 \001(\005\022\021\n\tyanxi_cid\030\005 \003(\004\"\"\n\014th"
-    "rowCakeReq\022\022\n\ntarget_cid\030\001 \001(\004\"\033\n\014throwC"
-    "akeRsp\022\013\n\003ret\030\001 \001(\005\" \n\021NotifyMarryRedNum"
-    "\022\013\n\003num\030\001 \001(\005\"\021\n\017SendMarryRedReq\"\036\n\017Send"
-    "MarryRedRsp\022\013\n\003ret\030\001 \001(\005\"<\n\013C2LMarryReq\022"
-    "\016\n\006src_id\030\001 \001(\004\022\017\n\007dst_cid\030\002 \001(\004\022\014\n\004gear"
-    "\030\003 \001(\005\"I\n\013L2CMarryRsp\022\013\n\003ret\030\001 \001(\005\022\016\n\006sr"
-    "c_id\030\002 \001(\004\022\017\n\007dst_cid\030\003 \001(\004\022\014\n\004gear\030\004 \001("
-    "\005\"}\n\022C2LNotifyMarryCmpt\022)\n\003dst\030\001 \001(\0132\034.p"
-    "roto_ff.RolePlayerMiniInfo\022\014\n\004gear\030\002 \001(\005"
-    "\022\017\n\007applyer\030\003 \001(\004\022\020\n\010marry_id\030\004 \001(\005\022\013\n\003c"
-    "id\030\005 \001(\004\"G\n\023L2CUpdateMarryBrief\022\013\n\003cid\030\001"
-    " \001(\004\022#\n\005brief\030\002 \001(\0132\024.proto_ff.MarryBrie"
-    "f\"\037\n\020C2LNotifyDivorce\022\013\n\003cid\030\001 \001(\004\"M\n\rC2"
-    "LExpressReq\022\013\n\003cid\030\001 \001(\004\022\014\n\004name\030\002 \001(\014\022!"
-    "\n\003req\030\003 \001(\0132\024.proto_ff.ExpressReq\"I\n\027L2C"
-    "NotifyExpressSuccess\022\013\n\003cid\030\001 \001(\004\022!\n\003req"
-    "\030\002 \001(\0132\024.proto_ff.ExpressReq\"O\n\025C2LNotif"
-    "yExpressToDst\022\013\n\003cid\030\001 \001(\004\022)\n\003req\030\002 \001(\0132"
-    "\034.proto_ff.NotifyExpressToDst\"\270\001\n\021C2LNot"
-    "ifyMarryDst\022\014\n\004type\030\001 \001(\005\022\013\n\003cid\030\002 \001(\004\022\027"
-    "\n\017my_dst_recv_day\030\003 \001(\005\022\030\n\020dst_give_dup_"
-    "num\030\004 \001(\005\022\020\n\010marry_id\030\005 \001(\005\022#\n\005brief\030\006 \001"
-    "(\0132\024.proto_ff.MarryBrief\022\020\n\010dst_name\030\007 \001"
-    "(\014\022\014\n\004gear\030\010 \003(\005\"\"\n\023C2LGlobalExpressReq\022"
-    "\013\n\003cid\030\001 \001(\004\"B\n\030C2LNotifyMarryBuySuccess"
-    "\022\013\n\003cid\030\001 \001(\004\022\013\n\003ret\030\002 \001(\005\022\014\n\004type\030\003 \001(\005"
-    "\"0\n\023C2LMarryRecvDstCard\022\013\n\003cid\030\001 \001(\004\022\014\n\004"
-    "days\030\002 \001(\005\"7\n\024C2LWeddingBuySeatReq\022\013\n\003ci"
-    "d\030\001 \001(\004\022\022\n\nwedding_id\030\002 \001(\005\"D\n\024L2CWeddin"
-    "gBuySeatRsp\022\013\n\003ret\030\001 \001(\005\022\013\n\003cid\030\002 \001(\004\022\022\n"
-    "\nwedding_id\030\003 \001(\005\"u\n\024C2LNotifyWeddingTou"
-    "r\022\022\n\nwedding_id\030\001 \001(\r\022\020\n\010scene_id\030\002 \001(\004\022"
-    "\025\n\rtour_end_time\030\003 \001(\004\022\017\n\007src_cid\030\004 \001(\004\022"
-    "\017\n\007dst_cid\030\005 \001(\004\"\024\n\022C2LWeddingTourOver", 5078);
+    "ddingApply\022\022\n\nwedding_id\030\001 \001(\005\"e\n\022Notify"
+    "BroadExpress\022\016\n\006itemid\030\001 \001(\005\022\013\n\003num\030\002 \001("
+    "\005\022\016\n\006src_id\030\003 \001(\004\022\020\n\010src_name\030\004 \001(\014\022\020\n\010d"
+    "st_name\030\005 \001(\014\"\020\n\016WeddingSignReq\"\035\n\016Weddi"
+    "ngSignRsp\022\013\n\003ret\030\001 \001(\005\" \n\016WeddingFireReq"
+    "\022\016\n\006itemid\030\001 \001(\005\"-\n\016WeddingFireRsp\022\013\n\003re"
+    "t\030\001 \001(\005\022\016\n\006itemid\030\002 \001(\005\".\n\017NotifyBroadFi"
+    "re\022\013\n\003cid\030\001 \001(\004\022\016\n\006itemid\030\002 \001(\005\"\272\001\n\024Noti"
+    "fyWeddingDupData\022\014\n\004step\030\001 \001(\005\022\r\n\005enter\030"
+    "\002 \001(\005\022\025\n\rstep_end_time\030\003 \001(\004\022\026\n\016qinyou_n"
+    "pc_cid\030\004 \001(\004\022\025\n\rqinyou_result\030\005 \001(\005\022\022\n\nw"
+    "arm_value\030\006 \001(\005\022+\n\005infos\030\007 \003(\0132\034.proto_f"
+    "f.RolePlayerMiniInfo\"s\n\024NotifyWeddingDup"
+    "Role\022\020\n\010sign_num\030\001 \001(\005\022\013\n\003exp\030\002 \001(\004\022\025\n\rc"
+    "akeRewardNum\030\003 \001(\005\022\022\n\ncurCakeNum\030\004 \001(\005\022\021"
+    "\n\tyanxi_cid\030\005 \003(\004\"\"\n\014throwCakeReq\022\022\n\ntar"
+    "get_cid\030\001 \001(\004\"\033\n\014throwCakeRsp\022\013\n\003ret\030\001 \001"
+    "(\005\" \n\021NotifyMarryRedNum\022\013\n\003num\030\001 \001(\005\"\021\n\017"
+    "SendMarryRedReq\"\036\n\017SendMarryRedRsp\022\013\n\003re"
+    "t\030\001 \001(\005\"<\n\013C2LMarryReq\022\016\n\006src_id\030\001 \001(\004\022\017"
+    "\n\007dst_cid\030\002 \001(\004\022\014\n\004gear\030\003 \001(\005\"I\n\013L2CMarr"
+    "yRsp\022\013\n\003ret\030\001 \001(\005\022\016\n\006src_id\030\002 \001(\004\022\017\n\007dst"
+    "_cid\030\003 \001(\004\022\014\n\004gear\030\004 \001(\005\"}\n\022C2LNotifyMar"
+    "ryCmpt\022)\n\003dst\030\001 \001(\0132\034.proto_ff.RolePlaye"
+    "rMiniInfo\022\014\n\004gear\030\002 \001(\005\022\017\n\007applyer\030\003 \001(\004"
+    "\022\020\n\010marry_id\030\004 \001(\005\022\013\n\003cid\030\005 \001(\004\"G\n\023L2CUp"
+    "dateMarryBrief\022\013\n\003cid\030\001 \001(\004\022#\n\005brief\030\002 \001"
+    "(\0132\024.proto_ff.MarryBrief\"\037\n\020C2LNotifyDiv"
+    "orce\022\013\n\003cid\030\001 \001(\004\"M\n\rC2LExpressReq\022\013\n\003ci"
+    "d\030\001 \001(\004\022\014\n\004name\030\002 \001(\014\022!\n\003req\030\003 \001(\0132\024.pro"
+    "to_ff.ExpressReq\"I\n\027L2CNotifyExpressSucc"
+    "ess\022\013\n\003cid\030\001 \001(\004\022!\n\003req\030\002 \001(\0132\024.proto_ff"
+    ".ExpressReq\"O\n\025C2LNotifyExpressToDst\022\013\n\003"
+    "cid\030\001 \001(\004\022)\n\003req\030\002 \001(\0132\034.proto_ff.Notify"
+    "ExpressToDst\"\270\001\n\021C2LNotifyMarryDst\022\014\n\004ty"
+    "pe\030\001 \001(\005\022\013\n\003cid\030\002 \001(\004\022\027\n\017my_dst_recv_day"
+    "\030\003 \001(\005\022\030\n\020dst_give_dup_num\030\004 \001(\005\022\020\n\010marr"
+    "y_id\030\005 \001(\005\022#\n\005brief\030\006 \001(\0132\024.proto_ff.Mar"
+    "ryBrief\022\020\n\010dst_name\030\007 \001(\014\022\014\n\004gear\030\010 \003(\005\""
+    "\"\n\023C2LGlobalExpressReq\022\013\n\003cid\030\001 \001(\004\"B\n\030C"
+    "2LNotifyMarryBuySuccess\022\013\n\003cid\030\001 \001(\004\022\013\n\003"
+    "ret\030\002 \001(\005\022\014\n\004type\030\003 \001(\005\"0\n\023C2LMarryRecvD"
+    "stCard\022\013\n\003cid\030\001 \001(\004\022\014\n\004days\030\002 \001(\005\"7\n\024C2L"
+    "WeddingBuySeatReq\022\013\n\003cid\030\001 \001(\004\022\022\n\nweddin"
+    "g_id\030\002 \001(\005\"D\n\024L2CWeddingBuySeatRsp\022\013\n\003re"
+    "t\030\001 \001(\005\022\013\n\003cid\030\002 \001(\004\022\022\n\nwedding_id\030\003 \001(\005"
+    "\"u\n\024C2LNotifyWeddingTour\022\022\n\nwedding_id\030\001"
+    " \001(\r\022\020\n\010scene_id\030\002 \001(\004\022\025\n\rtour_end_time\030"
+    "\003 \001(\004\022\017\n\007src_cid\030\004 \001(\004\022\017\n\007dst_cid\030\005 \001(\004\""
+    "\024\n\022C2LWeddingTourOver", 5181);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "marry.proto", &protobuf_RegisterTypes);
   NotifyMarrySelf::default_instance_ = new NotifyMarrySelf();
@@ -2305,6 +2334,7 @@ void protobuf_AddDesc_marry_2eproto() {
   WeddingApplyRsp::default_instance_ = new WeddingApplyRsp();
   NotifyWeddingTourFollow::default_instance_ = new NotifyWeddingTourFollow();
   NotifyWeddingApply::default_instance_ = new NotifyWeddingApply();
+  NotifyBroadExpress::default_instance_ = new NotifyBroadExpress();
   WeddingSignReq::default_instance_ = new WeddingSignReq();
   WeddingSignRsp::default_instance_ = new WeddingSignRsp();
   WeddingFireReq::default_instance_ = new WeddingFireReq();
@@ -2395,6 +2425,7 @@ void protobuf_AddDesc_marry_2eproto() {
   WeddingApplyRsp::default_instance_->InitAsDefaultInstance();
   NotifyWeddingTourFollow::default_instance_->InitAsDefaultInstance();
   NotifyWeddingApply::default_instance_->InitAsDefaultInstance();
+  NotifyBroadExpress::default_instance_->InitAsDefaultInstance();
   WeddingSignReq::default_instance_->InitAsDefaultInstance();
   WeddingSignRsp::default_instance_->InitAsDefaultInstance();
   WeddingFireReq::default_instance_->InitAsDefaultInstance();
@@ -16728,6 +16759,390 @@ void NotifyWeddingApply::Swap(NotifyWeddingApply* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = NotifyWeddingApply_descriptor_;
   metadata.reflection = NotifyWeddingApply_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int NotifyBroadExpress::kItemidFieldNumber;
+const int NotifyBroadExpress::kNumFieldNumber;
+const int NotifyBroadExpress::kSrcIdFieldNumber;
+const int NotifyBroadExpress::kSrcNameFieldNumber;
+const int NotifyBroadExpress::kDstNameFieldNumber;
+#endif  // !_MSC_VER
+
+NotifyBroadExpress::NotifyBroadExpress()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void NotifyBroadExpress::InitAsDefaultInstance() {
+}
+
+NotifyBroadExpress::NotifyBroadExpress(const NotifyBroadExpress& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void NotifyBroadExpress::SharedCtor() {
+  _cached_size_ = 0;
+  itemid_ = 0;
+  num_ = 0;
+  src_id_ = GOOGLE_ULONGLONG(0);
+  src_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  dst_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+NotifyBroadExpress::~NotifyBroadExpress() {
+  SharedDtor();
+}
+
+void NotifyBroadExpress::SharedDtor() {
+  if (src_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete src_name_;
+  }
+  if (dst_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete dst_name_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void NotifyBroadExpress::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* NotifyBroadExpress::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return NotifyBroadExpress_descriptor_;
+}
+
+const NotifyBroadExpress& NotifyBroadExpress::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_marry_2eproto();
+  return *default_instance_;
+}
+
+NotifyBroadExpress* NotifyBroadExpress::default_instance_ = NULL;
+
+NotifyBroadExpress* NotifyBroadExpress::New() const {
+  return new NotifyBroadExpress;
+}
+
+void NotifyBroadExpress::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    itemid_ = 0;
+    num_ = 0;
+    src_id_ = GOOGLE_ULONGLONG(0);
+    if (has_src_name()) {
+      if (src_name_ != &::google::protobuf::internal::kEmptyString) {
+        src_name_->clear();
+      }
+    }
+    if (has_dst_name()) {
+      if (dst_name_ != &::google::protobuf::internal::kEmptyString) {
+        dst_name_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool NotifyBroadExpress::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 itemid = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &itemid_)));
+          set_has_itemid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_num;
+        break;
+      }
+
+      // optional int32 num = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_num:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &num_)));
+          set_has_num();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_src_id;
+        break;
+      }
+
+      // optional uint64 src_id = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_src_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &src_id_)));
+          set_has_src_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_src_name;
+        break;
+      }
+
+      // optional bytes src_name = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_src_name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_src_name()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_dst_name;
+        break;
+      }
+
+      // optional bytes dst_name = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_dst_name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_dst_name()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void NotifyBroadExpress::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 itemid = 1;
+  if (has_itemid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->itemid(), output);
+  }
+
+  // optional int32 num = 2;
+  if (has_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->num(), output);
+  }
+
+  // optional uint64 src_id = 3;
+  if (has_src_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->src_id(), output);
+  }
+
+  // optional bytes src_name = 4;
+  if (has_src_name()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytes(
+      4, this->src_name(), output);
+  }
+
+  // optional bytes dst_name = 5;
+  if (has_dst_name()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytes(
+      5, this->dst_name(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* NotifyBroadExpress::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 itemid = 1;
+  if (has_itemid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->itemid(), target);
+  }
+
+  // optional int32 num = 2;
+  if (has_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->num(), target);
+  }
+
+  // optional uint64 src_id = 3;
+  if (has_src_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->src_id(), target);
+  }
+
+  // optional bytes src_name = 4;
+  if (has_src_name()) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        4, this->src_name(), target);
+  }
+
+  // optional bytes dst_name = 5;
+  if (has_dst_name()) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        5, this->dst_name(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int NotifyBroadExpress::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 itemid = 1;
+    if (has_itemid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->itemid());
+    }
+
+    // optional int32 num = 2;
+    if (has_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->num());
+    }
+
+    // optional uint64 src_id = 3;
+    if (has_src_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->src_id());
+    }
+
+    // optional bytes src_name = 4;
+    if (has_src_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->src_name());
+    }
+
+    // optional bytes dst_name = 5;
+    if (has_dst_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->dst_name());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void NotifyBroadExpress::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const NotifyBroadExpress* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const NotifyBroadExpress*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void NotifyBroadExpress::MergeFrom(const NotifyBroadExpress& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_itemid()) {
+      set_itemid(from.itemid());
+    }
+    if (from.has_num()) {
+      set_num(from.num());
+    }
+    if (from.has_src_id()) {
+      set_src_id(from.src_id());
+    }
+    if (from.has_src_name()) {
+      set_src_name(from.src_name());
+    }
+    if (from.has_dst_name()) {
+      set_dst_name(from.dst_name());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void NotifyBroadExpress::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void NotifyBroadExpress::CopyFrom(const NotifyBroadExpress& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NotifyBroadExpress::IsInitialized() const {
+
+  return true;
+}
+
+void NotifyBroadExpress::Swap(NotifyBroadExpress* other) {
+  if (other != this) {
+    std::swap(itemid_, other->itemid_);
+    std::swap(num_, other->num_);
+    std::swap(src_id_, other->src_id_);
+    std::swap(src_name_, other->src_name_);
+    std::swap(dst_name_, other->dst_name_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata NotifyBroadExpress::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = NotifyBroadExpress_descriptor_;
+  metadata.reflection = NotifyBroadExpress_reflection_;
   return metadata;
 }
 

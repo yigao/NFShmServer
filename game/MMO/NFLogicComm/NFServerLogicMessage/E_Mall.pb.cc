@@ -55,12 +55,13 @@ void protobuf_AssignDesc_E_5fMall_2eproto() {
       "E_Mall.proto");
   GOOGLE_CHECK(file != NULL);
   E_MallMall_descriptor_ = file->message_type(0);
-  static const int E_MallMall_offsets_[16] = {
+  static const int E_MallMall_offsets_[17] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MallMall, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MallMall, m_itemid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MallMall, m_malltype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MallMall, m_priority_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MallMall, m_moneytype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MallMall, m_moneyitem_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MallMall, m_price_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MallMall, m_secondarymoneytype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MallMall, m_discount_),
@@ -100,9 +101,10 @@ void protobuf_AssignDesc_E_5fMall_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_MallMall));
   E_MallMalltype_tab_descriptor_ = file->message_type(2);
-  static const int E_MallMalltype_tab_offsets_[2] = {
+  static const int E_MallMalltype_tab_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MallMalltype_tab, m_priority_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MallMalltype_tab, m_functionunlock_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MallMalltype_tab, m_entrance_),
   };
   E_MallMalltype_tab_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -131,12 +133,13 @@ void protobuf_AssignDesc_E_5fMall_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_MallMalltype_tab));
   E_MallMalltype_descriptor_ = file->message_type(4);
-  static const int E_MallMalltype_offsets_[5] = {
+  static const int E_MallMalltype_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MallMalltype, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MallMalltype, m_title_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MallMalltype, m_grouptype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MallMalltype, m_priority_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MallMalltype, m_functionunlock_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MallMalltype, m_profession_),
   };
   E_MallMalltype_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -258,43 +261,46 @@ void protobuf_AddDesc_E_5fMall_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\014E_Mall.proto\022\010proto_ff\032\025yd_fieldoption"
-    "s.proto\"\207\005\n\nE_MallMall\022\032\n\004m_id\030\001 \001(\005B\014\302\377"
+    "s.proto\"\260\005\n\nE_MallMall\022\032\n\004m_id\030\001 \001(\005B\014\302\377"
     "\024\010\345\225\206\345\223\201ID\022\036\n\010m_itemid\030\002 \001(\005B\014\302\377\024\010\347\211\251\345\223\201"
     "ID\022$\n\nm_malltype\030\003 \001(\005B\020\302\377\024\014\345\225\206\345\237\216\345\210\206\347\261\273"
     "\022!\n\nm_priority\030\004 \001(\005B\r\302\377\024\t\344\274\230\345\205\210\347\272\247\022%\n\013m"
-    "_moneytype\030\005 \001(\005B\020\302\377\024\014\350\264\247\345\270\201\347\261\273\345\236\213\022\033\n\007m_"
-    "price\030\006 \001(\005B\n\302\377\024\006\344\273\267\346\240\274\022.\n\024m_secondarymo"
-    "neytype\030\007 \001(\005B\020\302\377\024\014\346\254\241\347\272\247\350\264\247\345\270\201\022\036\n\nm_dis"
-    "count\030\010 \001(\005B\n\302\377\024\006\346\212\230\346\211\243\022.\n\016m_buylimittyp"
-    "e\030\t \001(\005B\026\302\377\024\022\351\231\220\345\210\266\350\264\255\344\271\260\347\261\273\345\236\213\022%\n\013m_buy"
-    "amount\030\n \001(\005B\020\302\377\024\014\350\264\255\344\271\260\346\225\260\351\207\217\022\'\n\nm_vipl"
-    "imit\030\013 \001(\005B\023\302\377\024\017VIP\347\255\211\347\272\247\350\247\243\351\224\201\022#\n\tm_lvl"
-    "imit\030\014 \001(\005B\020\302\377\024\014\347\255\211\347\272\247\351\231\220\345\210\266\022+\n\013m_vipunl"
-    "ock\030\r \001(\005B\026\302\377\024\022vip\346\210\226\347\255\211\347\272\247\350\247\243\351\224\201\022#\n\tm_i"
-    "sclose\030\016 \001(\005B\020\302\377\024\014\346\230\257\345\220\246\344\270\213\346\236\266\0225\n\tm_cant"
-    "buy\030\017 \001(\005B\"\302\377\024\036\344\270\213\346\236\266\346\203\205\345\206\265\344\270\213\346\230\257\345\220\246\350\203\275\350"
-    "\264\255\344\271\260\0222\n\014m_ismarkbind\030\020 \001(\005B\034\302\377\024\030\346\230\257\345\220\246\346"
-    "\240\207\350\256\260\344\270\272\345\267\262\347\273\221\345\256\232\"F\n\016Sheet_MallMall\0224\n\017E"
-    "_MallMall_List\030\001 \003(\0132\024.proto_ff.E_MallMa"
-    "llB\005\210\301\024\200\004\"c\n\022E_MallMalltype_tab\022!\n\nm_pri"
-    "ority\030\001 \001(\005B\r\302\377\024\t\344\274\230\345\205\210\347\272\247\022*\n\020m_function"
-    "unlock\030\002 \001(\005B\020\302\377\024\014\345\274\200\345\220\257\346\235\241\344\273\266\"]\n\026Sheet_"
+    "_moneytype\030\005 \001(\005B\020\302\377\024\014\350\264\247\345\270\201\347\261\273\345\236\213\022\'\n\013m_"
+    "moneyitem\030\006 \001(\005B\022\302\377\024\016\350\264\247\345\270\201\351\201\223\345\205\267id\022\033\n\007m"
+    "_price\030\007 \001(\005B\n\302\377\024\006\344\273\267\346\240\274\022.\n\024m_secondarym"
+    "oneytype\030\010 \001(\005B\020\302\377\024\014\346\254\241\347\272\247\350\264\247\345\270\201\022\036\n\nm_di"
+    "scount\030\t \001(\005B\n\302\377\024\006\346\212\230\346\211\243\022.\n\016m_buylimitty"
+    "pe\030\n \001(\005B\026\302\377\024\022\351\231\220\345\210\266\350\264\255\344\271\260\347\261\273\345\236\213\022%\n\013m_bu"
+    "yamount\030\013 \001(\005B\020\302\377\024\014\350\264\255\344\271\260\346\225\260\351\207\217\022\'\n\nm_vip"
+    "limit\030\014 \001(\005B\023\302\377\024\017VIP\347\255\211\347\272\247\350\247\243\351\224\201\022#\n\tm_lv"
+    "limit\030\r \001(\005B\020\302\377\024\014\347\255\211\347\272\247\351\231\220\345\210\266\022+\n\013m_vipun"
+    "lock\030\016 \001(\005B\026\302\377\024\022vip\346\210\226\347\255\211\347\272\247\350\247\243\351\224\201\022#\n\tm_"
+    "isclose\030\017 \001(\005B\020\302\377\024\014\346\230\257\345\220\246\344\270\213\346\236\266\0225\n\tm_can"
+    "tbuy\030\020 \001(\005B\"\302\377\024\036\344\270\213\346\236\266\346\203\205\345\206\265\344\270\213\346\230\257\345\220\246\350\203\275"
+    "\350\264\255\344\271\260\0222\n\014m_ismarkbind\030\021 \001(\005B\034\302\377\024\030\346\230\257\345\220\246"
+    "\346\240\207\350\256\260\344\270\272\345\267\262\347\273\221\345\256\232\"F\n\016Sheet_MallMall\0224\n\017"
+    "E_MallMall_List\030\001 \003(\0132\024.proto_ff.E_MallM"
+    "allB\005\210\301\024\200\004\"\211\001\n\022E_MallMalltype_tab\022!\n\nm_p"
+    "riority\030\001 \001(\005B\r\302\377\024\t\344\274\230\345\205\210\347\272\247\022*\n\020m_functi"
+    "onunlock\030\002 \001(\005B\020\302\377\024\014\345\274\200\345\220\257\346\235\241\344\273\266\022$\n\nm_en"
+    "trance\030\003 \001(\005B\020\302\377\024\014\345\205\245\345\217\243\344\275\215\347\275\256\"]\n\026Sheet_"
     "MallMalltype_tab\022C\n\027E_MallMalltype_tab_L"
     "ist\030\001 \003(\0132\034.proto_ff.E_MallMalltype_tabB"
-    "\004\210\301\024\020\"\300\001\n\016E_MallMalltype\022\027\n\004m_id\030\001 \001(\003B\t"
+    "\004\210\301\024\020\"\354\001\n\016E_MallMalltype\022\027\n\004m_id\030\001 \001(\003B\t"
     "\302\377\024\005\347\273\204ID\022\"\n\007m_title\030\002 \001(\tB\021\302\377\024\t\345\225\206\345\272\227\345\220"
     "\215\220\301\024@\022\"\n\013m_grouptype\030\003 \001(\005B\r\302\377\024\t\347\273\204\347\261\273\345\236"
     "\213\022!\n\nm_priority\030\004 \001(\005B\r\302\377\024\t\344\274\230\345\205\210\347\272\247\022*\n\020"
     "m_functionunlock\030\005 \001(\005B\020\302\377\024\014\345\274\200\345\220\257\346\235\241\344\273\266"
-    "\"Q\n\022Sheet_MallMalltype\022;\n\023E_MallMalltype"
-    "_List\030\001 \003(\0132\030.proto_ff.E_MallMalltypeB\004\210"
-    "\301\024\020\"\261\001\n\017E_MallHolybeast\022\024\n\004m_id\030\001 \001(\005B\006\302"
-    "\377\024\002id\022\037\n\tm_mountid\030\002 \001(\005B\014\302\377\024\010\345\235\220\351\252\221id\022\036"
-    "\n\010m_itemid\030\003 \001(\005B\014\302\377\024\010\345\225\206\345\223\201id\022\"\n\010m_cost"
-    "id\030\004 \001(\005B\020\302\377\024\014\345\205\221\346\215\242\351\201\223\345\205\267\022#\n\tm_costnum\030"
-    "\005 \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346\225\260\351\207\217\"T\n\023Sheet_MallHol"
-    "ybeast\022=\n\024E_MallHolybeast_List\030\001 \003(\0132\031.p"
-    "roto_ff.E_MallHolybeastB\004\210\301\024 ", 1509);
+    "\022*\n\014m_profession\030\006 \001(\tB\024\302\377\024\014\350\201\214\344\270\232\347\261\273\345\236\213"
+    "\220\301\024@\"Q\n\022Sheet_MallMalltype\022;\n\023E_MallMall"
+    "type_List\030\001 \003(\0132\030.proto_ff.E_MallMalltyp"
+    "eB\004\210\301\024@\"\261\001\n\017E_MallHolybeast\022\024\n\004m_id\030\001 \001("
+    "\005B\006\302\377\024\002id\022\037\n\tm_mountid\030\002 \001(\005B\014\302\377\024\010\345\235\220\351\252\221"
+    "id\022\036\n\010m_itemid\030\003 \001(\005B\014\302\377\024\010\345\225\206\345\223\201id\022\"\n\010m_"
+    "costid\030\004 \001(\005B\020\302\377\024\014\345\205\221\346\215\242\351\201\223\345\205\267\022#\n\tm_cost"
+    "num\030\005 \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346\225\260\351\207\217\"T\n\023Sheet_Mal"
+    "lHolybeast\022=\n\024E_MallHolybeast_List\030\001 \003(\013"
+    "2\031.proto_ff.E_MallHolybeastB\004\210\301\024 ", 1633);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Mall.proto", &protobuf_RegisterTypes);
   E_MallMall::default_instance_ = new E_MallMall();
@@ -331,6 +337,7 @@ const int E_MallMall::kMItemidFieldNumber;
 const int E_MallMall::kMMalltypeFieldNumber;
 const int E_MallMall::kMPriorityFieldNumber;
 const int E_MallMall::kMMoneytypeFieldNumber;
+const int E_MallMall::kMMoneyitemFieldNumber;
 const int E_MallMall::kMPriceFieldNumber;
 const int E_MallMall::kMSecondarymoneytypeFieldNumber;
 const int E_MallMall::kMDiscountFieldNumber;
@@ -365,6 +372,7 @@ void E_MallMall::SharedCtor() {
   m_malltype_ = 0;
   m_priority_ = 0;
   m_moneytype_ = 0;
+  m_moneyitem_ = 0;
   m_price_ = 0;
   m_secondarymoneytype_ = 0;
   m_discount_ = 0;
@@ -416,11 +424,12 @@ void E_MallMall::Clear() {
     m_malltype_ = 0;
     m_priority_ = 0;
     m_moneytype_ = 0;
+    m_moneyitem_ = 0;
     m_price_ = 0;
     m_secondarymoneytype_ = 0;
-    m_discount_ = 0;
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    m_discount_ = 0;
     m_buylimittype_ = 0;
     m_buyamount_ = 0;
     m_viplimit_ = 0;
@@ -428,6 +437,8 @@ void E_MallMall::Clear() {
     m_vipunlock_ = 0;
     m_isclose_ = 0;
     m_cantbuy_ = 0;
+  }
+  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     m_ismarkbind_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -515,12 +526,28 @@ bool E_MallMall::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_price;
+        if (input->ExpectTag(48)) goto parse_m_moneyitem;
         break;
       }
 
-      // optional int32 m_price = 6;
+      // optional int32 m_moneyitem = 6;
       case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_moneyitem:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_moneyitem_)));
+          set_has_m_moneyitem();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_m_price;
+        break;
+      }
+
+      // optional int32 m_price = 7;
+      case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_price:
@@ -531,12 +558,12 @@ bool E_MallMall::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_secondarymoneytype;
+        if (input->ExpectTag(64)) goto parse_m_secondarymoneytype;
         break;
       }
 
-      // optional int32 m_secondarymoneytype = 7;
-      case 7: {
+      // optional int32 m_secondarymoneytype = 8;
+      case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_secondarymoneytype:
@@ -547,12 +574,12 @@ bool E_MallMall::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_discount;
+        if (input->ExpectTag(72)) goto parse_m_discount;
         break;
       }
 
-      // optional int32 m_discount = 8;
-      case 8: {
+      // optional int32 m_discount = 9;
+      case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_discount:
@@ -563,12 +590,12 @@ bool E_MallMall::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_buylimittype;
+        if (input->ExpectTag(80)) goto parse_m_buylimittype;
         break;
       }
 
-      // optional int32 m_buylimittype = 9;
-      case 9: {
+      // optional int32 m_buylimittype = 10;
+      case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_buylimittype:
@@ -579,12 +606,12 @@ bool E_MallMall::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_buyamount;
+        if (input->ExpectTag(88)) goto parse_m_buyamount;
         break;
       }
 
-      // optional int32 m_buyamount = 10;
-      case 10: {
+      // optional int32 m_buyamount = 11;
+      case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_buyamount:
@@ -595,12 +622,12 @@ bool E_MallMall::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_viplimit;
+        if (input->ExpectTag(96)) goto parse_m_viplimit;
         break;
       }
 
-      // optional int32 m_viplimit = 11;
-      case 11: {
+      // optional int32 m_viplimit = 12;
+      case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_viplimit:
@@ -611,12 +638,12 @@ bool E_MallMall::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_lvlimit;
+        if (input->ExpectTag(104)) goto parse_m_lvlimit;
         break;
       }
 
-      // optional int32 m_lvlimit = 12;
-      case 12: {
+      // optional int32 m_lvlimit = 13;
+      case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_lvlimit:
@@ -627,12 +654,12 @@ bool E_MallMall::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_m_vipunlock;
+        if (input->ExpectTag(112)) goto parse_m_vipunlock;
         break;
       }
 
-      // optional int32 m_vipunlock = 13;
-      case 13: {
+      // optional int32 m_vipunlock = 14;
+      case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_vipunlock:
@@ -643,12 +670,12 @@ bool E_MallMall::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(112)) goto parse_m_isclose;
+        if (input->ExpectTag(120)) goto parse_m_isclose;
         break;
       }
 
-      // optional int32 m_isclose = 14;
-      case 14: {
+      // optional int32 m_isclose = 15;
+      case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_isclose:
@@ -659,12 +686,12 @@ bool E_MallMall::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(120)) goto parse_m_cantbuy;
+        if (input->ExpectTag(128)) goto parse_m_cantbuy;
         break;
       }
 
-      // optional int32 m_cantbuy = 15;
-      case 15: {
+      // optional int32 m_cantbuy = 16;
+      case 16: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_cantbuy:
@@ -675,12 +702,12 @@ bool E_MallMall::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(128)) goto parse_m_ismarkbind;
+        if (input->ExpectTag(136)) goto parse_m_ismarkbind;
         break;
       }
 
-      // optional int32 m_ismarkbind = 16;
-      case 16: {
+      // optional int32 m_ismarkbind = 17;
+      case 17: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_ismarkbind:
@@ -738,59 +765,64 @@ void E_MallMall::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_moneytype(), output);
   }
 
-  // optional int32 m_price = 6;
+  // optional int32 m_moneyitem = 6;
+  if (has_m_moneyitem()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_moneyitem(), output);
+  }
+
+  // optional int32 m_price = 7;
   if (has_m_price()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_price(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_price(), output);
   }
 
-  // optional int32 m_secondarymoneytype = 7;
+  // optional int32 m_secondarymoneytype = 8;
   if (has_m_secondarymoneytype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_secondarymoneytype(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_secondarymoneytype(), output);
   }
 
-  // optional int32 m_discount = 8;
+  // optional int32 m_discount = 9;
   if (has_m_discount()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_discount(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_discount(), output);
   }
 
-  // optional int32 m_buylimittype = 9;
+  // optional int32 m_buylimittype = 10;
   if (has_m_buylimittype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_buylimittype(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_buylimittype(), output);
   }
 
-  // optional int32 m_buyamount = 10;
+  // optional int32 m_buyamount = 11;
   if (has_m_buyamount()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_buyamount(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_buyamount(), output);
   }
 
-  // optional int32 m_viplimit = 11;
+  // optional int32 m_viplimit = 12;
   if (has_m_viplimit()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_viplimit(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_viplimit(), output);
   }
 
-  // optional int32 m_lvlimit = 12;
+  // optional int32 m_lvlimit = 13;
   if (has_m_lvlimit()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_lvlimit(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_lvlimit(), output);
   }
 
-  // optional int32 m_vipunlock = 13;
+  // optional int32 m_vipunlock = 14;
   if (has_m_vipunlock()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_vipunlock(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_vipunlock(), output);
   }
 
-  // optional int32 m_isclose = 14;
+  // optional int32 m_isclose = 15;
   if (has_m_isclose()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_isclose(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_isclose(), output);
   }
 
-  // optional int32 m_cantbuy = 15;
+  // optional int32 m_cantbuy = 16;
   if (has_m_cantbuy()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_cantbuy(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->m_cantbuy(), output);
   }
 
-  // optional int32 m_ismarkbind = 16;
+  // optional int32 m_ismarkbind = 17;
   if (has_m_ismarkbind()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->m_ismarkbind(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(17, this->m_ismarkbind(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -826,59 +858,64 @@ void E_MallMall::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_moneytype(), target);
   }
 
-  // optional int32 m_price = 6;
+  // optional int32 m_moneyitem = 6;
+  if (has_m_moneyitem()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_moneyitem(), target);
+  }
+
+  // optional int32 m_price = 7;
   if (has_m_price()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_price(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_price(), target);
   }
 
-  // optional int32 m_secondarymoneytype = 7;
+  // optional int32 m_secondarymoneytype = 8;
   if (has_m_secondarymoneytype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_secondarymoneytype(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_secondarymoneytype(), target);
   }
 
-  // optional int32 m_discount = 8;
+  // optional int32 m_discount = 9;
   if (has_m_discount()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_discount(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_discount(), target);
   }
 
-  // optional int32 m_buylimittype = 9;
+  // optional int32 m_buylimittype = 10;
   if (has_m_buylimittype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_buylimittype(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_buylimittype(), target);
   }
 
-  // optional int32 m_buyamount = 10;
+  // optional int32 m_buyamount = 11;
   if (has_m_buyamount()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_buyamount(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_buyamount(), target);
   }
 
-  // optional int32 m_viplimit = 11;
+  // optional int32 m_viplimit = 12;
   if (has_m_viplimit()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_viplimit(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_viplimit(), target);
   }
 
-  // optional int32 m_lvlimit = 12;
+  // optional int32 m_lvlimit = 13;
   if (has_m_lvlimit()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_lvlimit(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_lvlimit(), target);
   }
 
-  // optional int32 m_vipunlock = 13;
+  // optional int32 m_vipunlock = 14;
   if (has_m_vipunlock()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_vipunlock(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_vipunlock(), target);
   }
 
-  // optional int32 m_isclose = 14;
+  // optional int32 m_isclose = 15;
   if (has_m_isclose()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_isclose(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_isclose(), target);
   }
 
-  // optional int32 m_cantbuy = 15;
+  // optional int32 m_cantbuy = 16;
   if (has_m_cantbuy()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_cantbuy(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->m_cantbuy(), target);
   }
 
-  // optional int32 m_ismarkbind = 16;
+  // optional int32 m_ismarkbind = 17;
   if (has_m_ismarkbind()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->m_ismarkbind(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(17, this->m_ismarkbind(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -927,79 +964,88 @@ int E_MallMall::ByteSize() const {
           this->m_moneytype());
     }
 
-    // optional int32 m_price = 6;
+    // optional int32 m_moneyitem = 6;
+    if (has_m_moneyitem()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_moneyitem());
+    }
+
+    // optional int32 m_price = 7;
     if (has_m_price()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_price());
     }
 
-    // optional int32 m_secondarymoneytype = 7;
+    // optional int32 m_secondarymoneytype = 8;
     if (has_m_secondarymoneytype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_secondarymoneytype());
     }
 
-    // optional int32 m_discount = 8;
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional int32 m_discount = 9;
     if (has_m_discount()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_discount());
     }
 
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_buylimittype = 9;
+    // optional int32 m_buylimittype = 10;
     if (has_m_buylimittype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_buylimittype());
     }
 
-    // optional int32 m_buyamount = 10;
+    // optional int32 m_buyamount = 11;
     if (has_m_buyamount()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_buyamount());
     }
 
-    // optional int32 m_viplimit = 11;
+    // optional int32 m_viplimit = 12;
     if (has_m_viplimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_viplimit());
     }
 
-    // optional int32 m_lvlimit = 12;
+    // optional int32 m_lvlimit = 13;
     if (has_m_lvlimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_lvlimit());
     }
 
-    // optional int32 m_vipunlock = 13;
+    // optional int32 m_vipunlock = 14;
     if (has_m_vipunlock()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_vipunlock());
     }
 
-    // optional int32 m_isclose = 14;
+    // optional int32 m_isclose = 15;
     if (has_m_isclose()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_isclose());
     }
 
-    // optional int32 m_cantbuy = 15;
+    // optional int32 m_cantbuy = 16;
     if (has_m_cantbuy()) {
-      total_size += 1 +
+      total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_cantbuy());
     }
 
-    // optional int32 m_ismarkbind = 16;
+  }
+  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
+    // optional int32 m_ismarkbind = 17;
     if (has_m_ismarkbind()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1048,17 +1094,20 @@ void E_MallMall::MergeFrom(const E_MallMall& from) {
     if (from.has_m_moneytype()) {
       set_m_moneytype(from.m_moneytype());
     }
+    if (from.has_m_moneyitem()) {
+      set_m_moneyitem(from.m_moneyitem());
+    }
     if (from.has_m_price()) {
       set_m_price(from.m_price());
     }
     if (from.has_m_secondarymoneytype()) {
       set_m_secondarymoneytype(from.m_secondarymoneytype());
     }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_m_discount()) {
       set_m_discount(from.m_discount());
     }
-  }
-  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_m_buylimittype()) {
       set_m_buylimittype(from.m_buylimittype());
     }
@@ -1080,6 +1129,8 @@ void E_MallMall::MergeFrom(const E_MallMall& from) {
     if (from.has_m_cantbuy()) {
       set_m_cantbuy(from.m_cantbuy());
     }
+  }
+  if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     if (from.has_m_ismarkbind()) {
       set_m_ismarkbind(from.m_ismarkbind());
     }
@@ -1111,6 +1162,7 @@ void E_MallMall::Swap(E_MallMall* other) {
     std::swap(m_malltype_, other->m_malltype_);
     std::swap(m_priority_, other->m_priority_);
     std::swap(m_moneytype_, other->m_moneytype_);
+    std::swap(m_moneyitem_, other->m_moneyitem_);
     std::swap(m_price_, other->m_price_);
     std::swap(m_secondarymoneytype_, other->m_secondarymoneytype_);
     std::swap(m_discount_, other->m_discount_);
@@ -1345,6 +1397,7 @@ void Sheet_MallMall::Swap(Sheet_MallMall* other) {
 #ifndef _MSC_VER
 const int E_MallMalltype_tab::kMPriorityFieldNumber;
 const int E_MallMalltype_tab::kMFunctionunlockFieldNumber;
+const int E_MallMalltype_tab::kMEntranceFieldNumber;
 #endif  // !_MSC_VER
 
 E_MallMalltype_tab::E_MallMalltype_tab()
@@ -1365,6 +1418,7 @@ void E_MallMalltype_tab::SharedCtor() {
   _cached_size_ = 0;
   m_priority_ = 0;
   m_functionunlock_ = 0;
+  m_entrance_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1402,6 +1456,7 @@ void E_MallMalltype_tab::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     m_priority_ = 0;
     m_functionunlock_ = 0;
+    m_entrance_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -1440,6 +1495,22 @@ bool E_MallMalltype_tab::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(24)) goto parse_m_entrance;
+        break;
+      }
+
+      // optional int32 m_entrance = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_entrance:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_entrance_)));
+          set_has_m_entrance();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1472,6 +1543,11 @@ void E_MallMalltype_tab::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_functionunlock(), output);
   }
 
+  // optional int32 m_entrance = 3;
+  if (has_m_entrance()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_entrance(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1488,6 +1564,11 @@ void E_MallMalltype_tab::SerializeWithCachedSizes(
   // optional int32 m_functionunlock = 2;
   if (has_m_functionunlock()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_functionunlock(), target);
+  }
+
+  // optional int32 m_entrance = 3;
+  if (has_m_entrance()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_entrance(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1513,6 +1594,13 @@ int E_MallMalltype_tab::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_functionunlock());
+    }
+
+    // optional int32 m_entrance = 3;
+    if (has_m_entrance()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_entrance());
     }
 
   }
@@ -1548,6 +1636,9 @@ void E_MallMalltype_tab::MergeFrom(const E_MallMalltype_tab& from) {
     if (from.has_m_functionunlock()) {
       set_m_functionunlock(from.m_functionunlock());
     }
+    if (from.has_m_entrance()) {
+      set_m_entrance(from.m_entrance());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -1573,6 +1664,7 @@ void E_MallMalltype_tab::Swap(E_MallMalltype_tab* other) {
   if (other != this) {
     std::swap(m_priority_, other->m_priority_);
     std::swap(m_functionunlock_, other->m_functionunlock_);
+    std::swap(m_entrance_, other->m_entrance_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -1799,6 +1891,7 @@ const int E_MallMalltype::kMTitleFieldNumber;
 const int E_MallMalltype::kMGrouptypeFieldNumber;
 const int E_MallMalltype::kMPriorityFieldNumber;
 const int E_MallMalltype::kMFunctionunlockFieldNumber;
+const int E_MallMalltype::kMProfessionFieldNumber;
 #endif  // !_MSC_VER
 
 E_MallMalltype::E_MallMalltype()
@@ -1822,6 +1915,7 @@ void E_MallMalltype::SharedCtor() {
   m_grouptype_ = 0;
   m_priority_ = 0;
   m_functionunlock_ = 0;
+  m_profession_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1832,6 +1926,9 @@ E_MallMalltype::~E_MallMalltype() {
 void E_MallMalltype::SharedDtor() {
   if (m_title_ != &::google::protobuf::internal::kEmptyString) {
     delete m_title_;
+  }
+  if (m_profession_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_profession_;
   }
   if (this != default_instance_) {
   }
@@ -1869,6 +1966,11 @@ void E_MallMalltype::Clear() {
     m_grouptype_ = 0;
     m_priority_ = 0;
     m_functionunlock_ = 0;
+    if (has_m_profession()) {
+      if (m_profession_ != &::google::protobuf::internal::kEmptyString) {
+        m_profession_->clear();
+      }
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -1956,6 +2058,23 @@ bool E_MallMalltype::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(50)) goto parse_m_profession;
+        break;
+      }
+
+      // optional string m_profession = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_profession:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_profession()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_profession().data(), this->m_profession().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2007,6 +2126,15 @@ void E_MallMalltype::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_functionunlock(), output);
   }
 
+  // optional string m_profession = 6;
+  if (has_m_profession()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_profession().data(), this->m_profession().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      6, this->m_profession(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -2043,6 +2171,16 @@ void E_MallMalltype::SerializeWithCachedSizes(
   // optional int32 m_functionunlock = 5;
   if (has_m_functionunlock()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_functionunlock(), target);
+  }
+
+  // optional string m_profession = 6;
+  if (has_m_profession()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_profession().data(), this->m_profession().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        6, this->m_profession(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2091,6 +2229,13 @@ int E_MallMalltype::ByteSize() const {
           this->m_functionunlock());
     }
 
+    // optional string m_profession = 6;
+    if (has_m_profession()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_profession());
+    }
+
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -2133,6 +2278,9 @@ void E_MallMalltype::MergeFrom(const E_MallMalltype& from) {
     if (from.has_m_functionunlock()) {
       set_m_functionunlock(from.m_functionunlock());
     }
+    if (from.has_m_profession()) {
+      set_m_profession(from.m_profession());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -2161,6 +2309,7 @@ void E_MallMalltype::Swap(E_MallMalltype* other) {
     std::swap(m_grouptype_, other->m_grouptype_);
     std::swap(m_priority_, other->m_priority_);
     std::swap(m_functionunlock_, other->m_functionunlock_);
+    std::swap(m_profession_, other->m_profession_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

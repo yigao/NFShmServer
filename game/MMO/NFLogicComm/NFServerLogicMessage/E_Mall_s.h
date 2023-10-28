@@ -10,7 +10,7 @@
 
 #define DEFINE_SHEET_MALLMALL_E_MALLMALL_LIST_MAX_NUM 512
 #define DEFINE_SHEET_MALLMALLTYPE_TAB_E_MALLMALLTYPE_TAB_LIST_MAX_NUM 16
-#define DEFINE_SHEET_MALLMALLTYPE_E_MALLMALLTYPE_LIST_MAX_NUM 16
+#define DEFINE_SHEET_MALLMALLTYPE_E_MALLMALLTYPE_LIST_MAX_NUM 64
 #define DEFINE_SHEET_MALLHOLYBEAST_E_MALLHOLYBEAST_LIST_MAX_NUM 32
 
 
@@ -26,6 +26,7 @@ namespace proto_ff_s {
 		int32_t m_malltype;//商城分类
 		int32_t m_priority;//优先级
 		int32_t m_moneytype;//货币类型
+		int32_t m_moneyitem;//货币道具id
 		int32_t m_price;//价格
 		int32_t m_secondarymoneytype;//次级货币
 		int32_t m_discount;//折扣
@@ -66,6 +67,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_priority;//优先级
 		int32_t m_functionunlock;//开启条件
+		int32_t m_entrance;//入口位置
 
 		virtual void write_to_pbmsg(::proto_ff::E_MallMalltype_tab & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MallMalltype_tab & msg);
@@ -98,6 +100,7 @@ namespace proto_ff_s {
 		int32_t m_grouptype;//组类型
 		int32_t m_priority;//优先级
 		int32_t m_functionunlock;//开启条件
+		NFShmString<64> m_profession;//职业类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_MallMalltype & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MallMalltype & msg);

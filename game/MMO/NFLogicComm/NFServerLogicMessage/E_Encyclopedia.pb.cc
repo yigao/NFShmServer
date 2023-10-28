@@ -68,18 +68,18 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Sheet_EncyclopediaBeast_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_EncyclopediaBeast_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_EncyclopediaEquipexpvalueBeaststarDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_EncyclopediaEquipexpvalueBeaststarDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_EncyclopediaEquipexpvalueGoldstarDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_EncyclopediaEquipexpvalueGoldstarDesc_reflection_ = NULL;
 const ::google::protobuf::Descriptor* E_EncyclopediaEquipexpvalue_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   E_EncyclopediaEquipexpvalue_reflection_ = NULL;
 const ::google::protobuf::Descriptor* Sheet_EncyclopediaEquipexpvalue_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_EncyclopediaEquipexpvalue_reflection_ = NULL;
-const ::google::protobuf::Descriptor* E_EncyclopediaBeastexp_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  E_EncyclopediaBeastexp_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_EncyclopediaBeastexp_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_EncyclopediaBeastexp_reflection_ = NULL;
 const ::google::protobuf::Descriptor* E_EncyclopediaBeastexpand_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   E_EncyclopediaBeastexpand_reflection_ = NULL;
@@ -95,6 +95,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Sheet_EncyclopediaBeastprivilege_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_EncyclopediaBeastprivilege_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_EncyclopediaBeastexp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_EncyclopediaBeastexp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_EncyclopediaBeastexp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_EncyclopediaBeastexp_reflection_ = NULL;
 const ::google::protobuf::Descriptor* E_EncyclopediaEmployLviattributeDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   E_EncyclopediaEmployLviattributeDesc_reflection_ = NULL;
@@ -394,13 +400,49 @@ void protobuf_AssignDesc_E_5fEncyclopedia_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_EncyclopediaBeast));
-  E_EncyclopediaEquipexpvalue_descriptor_ = file->message_type(16);
-  static const int E_EncyclopediaEquipexpvalue_offsets_[5] = {
+  E_EncyclopediaEquipexpvalueBeaststarDesc_descriptor_ = file->message_type(16);
+  static const int E_EncyclopediaEquipexpvalueBeaststarDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaEquipexpvalueBeaststarDesc, m_num_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaEquipexpvalueBeaststarDesc, m_att_),
+  };
+  E_EncyclopediaEquipexpvalueBeaststarDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_EncyclopediaEquipexpvalueBeaststarDesc_descriptor_,
+      E_EncyclopediaEquipexpvalueBeaststarDesc::default_instance_,
+      E_EncyclopediaEquipexpvalueBeaststarDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaEquipexpvalueBeaststarDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaEquipexpvalueBeaststarDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_EncyclopediaEquipexpvalueBeaststarDesc));
+  E_EncyclopediaEquipexpvalueGoldstarDesc_descriptor_ = file->message_type(17);
+  static const int E_EncyclopediaEquipexpvalueGoldstarDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaEquipexpvalueGoldstarDesc, m_num_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaEquipexpvalueGoldstarDesc, m_att_),
+  };
+  E_EncyclopediaEquipexpvalueGoldstarDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_EncyclopediaEquipexpvalueGoldstarDesc_descriptor_,
+      E_EncyclopediaEquipexpvalueGoldstarDesc::default_instance_,
+      E_EncyclopediaEquipexpvalueGoldstarDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaEquipexpvalueGoldstarDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaEquipexpvalueGoldstarDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_EncyclopediaEquipexpvalueGoldstarDesc));
+  E_EncyclopediaEquipexpvalue_descriptor_ = file->message_type(18);
+  static const int E_EncyclopediaEquipexpvalue_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaEquipexpvalue, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaEquipexpvalue, m_type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaEquipexpvalue, m_name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaEquipexpvalue, m_exp_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaEquipexpvalue, m_link_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaEquipexpvalue, m_goldattall_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaEquipexpvalue, m_goldatt_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaEquipexpvalue, m_beaststar_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaEquipexpvalue, m_goldstar_),
   };
   E_EncyclopediaEquipexpvalue_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -413,7 +455,7 @@ void protobuf_AssignDesc_E_5fEncyclopedia_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_EncyclopediaEquipexpvalue));
-  Sheet_EncyclopediaEquipexpvalue_descriptor_ = file->message_type(17);
+  Sheet_EncyclopediaEquipexpvalue_descriptor_ = file->message_type(19);
   static const int Sheet_EncyclopediaEquipexpvalue_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_EncyclopediaEquipexpvalue, e_encyclopediaequipexpvalue_list_),
   };
@@ -428,37 +470,6 @@ void protobuf_AssignDesc_E_5fEncyclopedia_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_EncyclopediaEquipexpvalue));
-  E_EncyclopediaBeastexp_descriptor_ = file->message_type(18);
-  static const int E_EncyclopediaBeastexp_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaBeastexp, m_lv_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaBeastexp, m_exp_),
-  };
-  E_EncyclopediaBeastexp_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      E_EncyclopediaBeastexp_descriptor_,
-      E_EncyclopediaBeastexp::default_instance_,
-      E_EncyclopediaBeastexp_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaBeastexp, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaBeastexp, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(E_EncyclopediaBeastexp));
-  Sheet_EncyclopediaBeastexp_descriptor_ = file->message_type(19);
-  static const int Sheet_EncyclopediaBeastexp_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_EncyclopediaBeastexp, e_encyclopediabeastexp_list_),
-  };
-  Sheet_EncyclopediaBeastexp_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_EncyclopediaBeastexp_descriptor_,
-      Sheet_EncyclopediaBeastexp::default_instance_,
-      Sheet_EncyclopediaBeastexp_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_EncyclopediaBeastexp, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_EncyclopediaBeastexp, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_EncyclopediaBeastexp));
   E_EncyclopediaBeastexpand_descriptor_ = file->message_type(20);
   static const int E_EncyclopediaBeastexpand_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaBeastexpand, m_number_),
@@ -542,7 +553,38 @@ void protobuf_AssignDesc_E_5fEncyclopedia_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_EncyclopediaBeastprivilege));
-  E_EncyclopediaEmployLviattributeDesc_descriptor_ = file->message_type(25);
+  E_EncyclopediaBeastexp_descriptor_ = file->message_type(25);
+  static const int E_EncyclopediaBeastexp_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaBeastexp, m_lv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaBeastexp, m_exp_),
+  };
+  E_EncyclopediaBeastexp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_EncyclopediaBeastexp_descriptor_,
+      E_EncyclopediaBeastexp::default_instance_,
+      E_EncyclopediaBeastexp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaBeastexp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaBeastexp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_EncyclopediaBeastexp));
+  Sheet_EncyclopediaBeastexp_descriptor_ = file->message_type(26);
+  static const int Sheet_EncyclopediaBeastexp_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_EncyclopediaBeastexp, e_encyclopediabeastexp_list_),
+  };
+  Sheet_EncyclopediaBeastexp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_EncyclopediaBeastexp_descriptor_,
+      Sheet_EncyclopediaBeastexp::default_instance_,
+      Sheet_EncyclopediaBeastexp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_EncyclopediaBeastexp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_EncyclopediaBeastexp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_EncyclopediaBeastexp));
+  E_EncyclopediaEmployLviattributeDesc_descriptor_ = file->message_type(27);
   static const int E_EncyclopediaEmployLviattributeDesc_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaEmployLviattributeDesc, m_value_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaEmployLviattributeDesc, m_type_),
@@ -558,7 +600,7 @@ void protobuf_AssignDesc_E_5fEncyclopedia_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_EncyclopediaEmployLviattributeDesc));
-  E_EncyclopediaEmploy_descriptor_ = file->message_type(26);
+  E_EncyclopediaEmploy_descriptor_ = file->message_type(28);
   static const int E_EncyclopediaEmploy_offsets_[10] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaEmploy, m_employid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaEmploy, m_type_),
@@ -582,7 +624,7 @@ void protobuf_AssignDesc_E_5fEncyclopedia_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_EncyclopediaEmploy));
-  Sheet_EncyclopediaEmploy_descriptor_ = file->message_type(27);
+  Sheet_EncyclopediaEmploy_descriptor_ = file->message_type(29);
   static const int Sheet_EncyclopediaEmploy_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_EncyclopediaEmploy, e_encyclopediaemploy_list_),
   };
@@ -597,7 +639,7 @@ void protobuf_AssignDesc_E_5fEncyclopedia_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_EncyclopediaEmploy));
-  E_EncyclopediaTableLviattributeDesc_descriptor_ = file->message_type(28);
+  E_EncyclopediaTableLviattributeDesc_descriptor_ = file->message_type(30);
   static const int E_EncyclopediaTableLviattributeDesc_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaTableLviattributeDesc, m_value_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaTableLviattributeDesc, m_type_),
@@ -613,7 +655,7 @@ void protobuf_AssignDesc_E_5fEncyclopedia_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_EncyclopediaTableLviattributeDesc));
-  E_EncyclopediaTable_descriptor_ = file->message_type(29);
+  E_EncyclopediaTable_descriptor_ = file->message_type(31);
   static const int E_EncyclopediaTable_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaTable, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_EncyclopediaTable, m_tableid_),
@@ -631,7 +673,7 @@ void protobuf_AssignDesc_E_5fEncyclopedia_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_EncyclopediaTable));
-  Sheet_EncyclopediaTable_descriptor_ = file->message_type(30);
+  Sheet_EncyclopediaTable_descriptor_ = file->message_type(32);
   static const int Sheet_EncyclopediaTable_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_EncyclopediaTable, e_encyclopediatable_list_),
   };
@@ -691,13 +733,13 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_EncyclopediaBeast_descriptor_, &Sheet_EncyclopediaBeast::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_EncyclopediaEquipexpvalueBeaststarDesc_descriptor_, &E_EncyclopediaEquipexpvalueBeaststarDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_EncyclopediaEquipexpvalueGoldstarDesc_descriptor_, &E_EncyclopediaEquipexpvalueGoldstarDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     E_EncyclopediaEquipexpvalue_descriptor_, &E_EncyclopediaEquipexpvalue::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_EncyclopediaEquipexpvalue_descriptor_, &Sheet_EncyclopediaEquipexpvalue::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    E_EncyclopediaBeastexp_descriptor_, &E_EncyclopediaBeastexp::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_EncyclopediaBeastexp_descriptor_, &Sheet_EncyclopediaBeastexp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     E_EncyclopediaBeastexpand_descriptor_, &E_EncyclopediaBeastexpand::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -708,6 +750,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     E_EncyclopediaBeastprivilege_descriptor_, &E_EncyclopediaBeastprivilege::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_EncyclopediaBeastprivilege_descriptor_, &Sheet_EncyclopediaBeastprivilege::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_EncyclopediaBeastexp_descriptor_, &E_EncyclopediaBeastexp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_EncyclopediaBeastexp_descriptor_, &Sheet_EncyclopediaBeastexp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     E_EncyclopediaEmployLviattributeDesc_descriptor_, &E_EncyclopediaEmployLviattributeDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -757,14 +803,14 @@ void protobuf_ShutdownFile_E_5fEncyclopedia_2eproto() {
   delete E_EncyclopediaBeast_reflection_;
   delete Sheet_EncyclopediaBeast::default_instance_;
   delete Sheet_EncyclopediaBeast_reflection_;
+  delete E_EncyclopediaEquipexpvalueBeaststarDesc::default_instance_;
+  delete E_EncyclopediaEquipexpvalueBeaststarDesc_reflection_;
+  delete E_EncyclopediaEquipexpvalueGoldstarDesc::default_instance_;
+  delete E_EncyclopediaEquipexpvalueGoldstarDesc_reflection_;
   delete E_EncyclopediaEquipexpvalue::default_instance_;
   delete E_EncyclopediaEquipexpvalue_reflection_;
   delete Sheet_EncyclopediaEquipexpvalue::default_instance_;
   delete Sheet_EncyclopediaEquipexpvalue_reflection_;
-  delete E_EncyclopediaBeastexp::default_instance_;
-  delete E_EncyclopediaBeastexp_reflection_;
-  delete Sheet_EncyclopediaBeastexp::default_instance_;
-  delete Sheet_EncyclopediaBeastexp_reflection_;
   delete E_EncyclopediaBeastexpand::default_instance_;
   delete E_EncyclopediaBeastexpand_reflection_;
   delete Sheet_EncyclopediaBeastexpand::default_instance_;
@@ -775,6 +821,10 @@ void protobuf_ShutdownFile_E_5fEncyclopedia_2eproto() {
   delete E_EncyclopediaBeastprivilege_reflection_;
   delete Sheet_EncyclopediaBeastprivilege::default_instance_;
   delete Sheet_EncyclopediaBeastprivilege_reflection_;
+  delete E_EncyclopediaBeastexp::default_instance_;
+  delete E_EncyclopediaBeastexp_reflection_;
+  delete Sheet_EncyclopediaBeastexp::default_instance_;
+  delete Sheet_EncyclopediaBeastexp_reflection_;
   delete E_EncyclopediaEmployLviattributeDesc::default_instance_;
   delete E_EncyclopediaEmployLviattributeDesc_reflection_;
   delete E_EncyclopediaEmploy::default_instance_;
@@ -868,66 +918,77 @@ void protobuf_AddDesc_E_5fEncyclopedia_2eproto() {
     "\024\302\377\024\014\347\245\236\345\205\275\346\212\200\350\203\275\210\301\024\003\"`\n\027Sheet_Encyclope"
     "diaBeast\022E\n\030E_EncyclopediaBeast_List\030\001 \003"
     "(\0132\035.proto_ff.E_EncyclopediaBeastB\004\210\301\024 \""
-    "\276\001\n\033E_EncyclopediaEquipexpvalue\022\032\n\004m_id\030"
-    "\001 \001(\003B\014\302\377\024\010\346\235\220\346\226\231ID\022 \n\006m_type\030\002 \001(\003B\020\302\377\024"
-    "\014\346\235\220\346\226\231\347\261\273\345\236\213\022$\n\006m_name\030\003 \001(\tB\024\302\377\024\014\346\235\220\346\226"
-    "\231\345\220\215\347\247\260\220\301\024@\022\037\n\005m_exp\030\004 \001(\005B\020\302\377\024\014\345\210\235\345\247\213\347\273"
-    "\217\351\252\214\022\032\n\006m_link\030\005 \001(\003B\n\302\377\024\006\346\235\245\346\272\220\"x\n\037Shee"
-    "t_EncyclopediaEquipexpvalue\022U\n E_Encyclo"
-    "pediaEquipexpvalue_List\030\001 \003(\0132%.proto_ff"
-    ".E_EncyclopediaEquipexpvalueB\004\210\301\024@\"Y\n\026E_"
-    "EncyclopediaBeastexp\022\030\n\004m_lv\030\001 \001(\005B\n\302\377\024\006"
-    "\347\255\211\347\272\247\022%\n\005m_exp\030\002 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\346\211\200\351\234\200\347"
-    "\273\217\351\252\214\"j\n\032Sheet_EncyclopediaBeastexp\022L\n\033E"
-    "_EncyclopediaBeastexp_List\030\001 \003(\0132 .proto"
-    "_ff.E_EncyclopediaBeastexpB\005\210\301\024\200\002\"\250\001\n\031E_"
-    "EncyclopediaBeastexpand\022\"\n\010m_number\030\001 \001("
-    "\005B\020\302\377\024\014\346\277\200\346\264\273\344\270\252\346\225\260\022\036\n\004m_lv\030\002 \001(\005B\020\302\377\024\014\346"
-    "\277\200\346\264\273\347\255\211\347\272\247\022 \n\004m_id\030\003 \001(\003B\022\302\377\024\016\346\277\200\346\264\273\351\201\223"
-    "\345\205\267id\022%\n\005m_num\030\004 \001(\005B\026\302\377\024\022\346\277\200\346\264\273\351\201\223\345\205\267\346\225"
-    "\260\351\207\217\"r\n\035Sheet_EncyclopediaBeastexpand\022Q\n"
-    "\036E_EncyclopediaBeastexpand_List\030\001 \003(\0132#."
-    "proto_ff.E_EncyclopediaBeastexpandB\004\210\301\024\010"
-    "\"a\n)E_EncyclopediaBeastprivilegeAttribut"
-    "eDesc\022\030\n\007m_value\030\001 \001(\003B\007\302\377\024\003\345\200\274\022\032\n\006m_typ"
-    "e\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"\222\002\n\034E_EncyclopediaBe"
-    "astprivilege\022)\n\017m_privilegetype\030\001 \001(\005B\020\302"
-    "\377\024\014\347\211\271\346\235\203\347\261\273\345\236\213\022\036\n\006m_name\030\002 \001(\tB\016\302\377\024\006\345\220\215"
-    "\345\255\227\220\301\024@\022!\n\007m_price\030\003 \001(\005B\020\302\377\024\014\344\273\267\346\240\274\351\223\276\346"
-    "\216\245\022*\n\rm_expaddition\030\004 \001(\003B\023\302\377\024\017\347\273\217\351\252\214\345\200\274"
-    "\345\212\240\346\210\220\022X\n\013m_attribute\030\005 \003(\01323.proto_ff.E"
-    "_EncyclopediaBeastprivilegeAttributeDesc"
-    "B\016\302\377\024\006\345\261\236\346\200\247\210\301\024\004\"{\n Sheet_EncyclopediaBe"
-    "astprivilege\022W\n!E_EncyclopediaBeastprivi"
-    "lege_List\030\001 \003(\0132&.proto_ff.E_Encyclopedi"
-    "aBeastprivilegeB\004\210\301\024\004\"\\\n$E_EncyclopediaE"
-    "mployLviattributeDesc\022\030\n\007m_value\030\001 \001(\003B\007"
-    "\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"\336\003\n\024"
-    "E_EncyclopediaEmploy\022 \n\nm_employid\030\001 \001(\003"
-    "B\014\302\377\024\010\346\224\266\345\275\225id\022 \n\006m_type\030\002 \001(\003B\020\302\377\024\014\346\277\200\346"
-    "\264\273\347\261\273\345\236\213\022\"\n\010m_itemid\030\003 \001(\003B\020\302\377\024\014\346\277\200\346\264\273\346\235"
-    "\241\344\273\266\022*\n\014m_employname\030\004 \001(\tB\024\302\377\024\014\346\224\266\345\275\225\345\220"
-    "\215\347\247\260\220\301\024@\022)\n\017m_employquality\030\005 \001(\005B\020\302\377\024\014\346"
-    "\224\266\345\275\225\345\223\201\350\264\250\022&\n\014m_employtype\030\006 \001(\005B\020\302\377\024\014\346"
-    "\224\266\345\275\225\347\261\273\345\236\213\0225\n\021m_employtype_name\030\007 \001(\tB\032"
-    "\302\377\024\022\346\224\266\345\275\225\347\261\273\345\236\213\345\220\215\347\247\260\220\301\024@\022 \n\tm_employz\030"
-    "\010 \001(\005B\r\302\377\024\t\346\224\266\345\275\225\347\273\204\022.\n\rm_employzname\030\t "
-    "\001(\tB\027\302\377\024\017\346\224\266\345\275\225\347\273\204\345\220\215\347\247\260\220\301\024@\022V\n\016m_lviatt"
-    "ribute\030\n \003(\0132..proto_ff.E_EncyclopediaEm"
-    "ployLviattributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\004\"d\n\030"
-    "Sheet_EncyclopediaEmploy\022H\n\031E_Encycloped"
-    "iaEmploy_List\030\001 \003(\0132\036.proto_ff.E_Encyclo"
-    "pediaEmployB\005\210\301\024\200\001\"[\n#E_EncyclopediaTabl"
-    "eLviattributeDesc\022\030\n\007m_value\030\001 \001(\003B\007\302\377\024\003"
-    "\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"\324\001\n\023E_En"
-    "cyclopediaTable\022\024\n\004m_id\030\001 \001(\003B\006\302\377\024\002id\022\"\n"
-    "\tm_tableid\030\002 \001(\003B\017\302\377\024\013\345\244\251\346\234\272\350\260\261id\022,\n\013m_t"
-    "ablename\030\003 \001(\tB\027\302\377\024\017\345\244\251\346\234\272\350\260\261\345\220\215\347\247\260\220\301\024@\022"
-    "U\n\016m_lviattribute\030\004 \003(\0132-.proto_ff.E_Enc"
-    "yclopediaTableLviattributeDescB\016\302\377\024\006\345\261\236\346"
-    "\200\247\210\301\024\004\"`\n\027Sheet_EncyclopediaTable\022E\n\030E_E"
-    "ncyclopediaTable_List\030\001 \003(\0132\035.proto_ff.E"
-    "_EncyclopediaTableB\004\210\301\024\020", 5224);
+    "W\n(E_EncyclopediaEquipexpvalueBeaststarD"
+    "esc\022\026\n\005m_num\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\023\n\005m_att\030\002 \001"
+    "(\005B\004\302\377\024\000\"V\n\'E_EncyclopediaEquipexpvalueG"
+    "oldstarDesc\022\026\n\005m_num\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\023\n\005m"
+    "_att\030\002 \001(\005B\004\302\377\024\000\"\320\003\n\033E_EncyclopediaEquip"
+    "expvalue\022\032\n\004m_id\030\001 \001(\003B\014\302\377\024\010\346\235\220\346\226\231ID\022 \n\006"
+    "m_type\030\002 \001(\003B\020\302\377\024\014\346\235\220\346\226\231\347\261\273\345\236\213\022$\n\006m_name"
+    "\030\003 \001(\tB\024\302\377\024\014\346\235\220\346\226\231\345\220\215\347\247\260\220\301\024@\022\037\n\005m_exp\030\004 "
+    "\001(\005B\020\302\377\024\014\345\210\235\345\247\213\347\273\217\351\252\214\022\032\n\006m_link\030\005 \001(\003B\n\302"
+    "\377\024\006\346\235\245\346\272\220\022)\n\014m_goldattall\030\006 \001(\005B\023\302\377\024\017\344\273\231"
+    "\345\223\201\345\205\261\346\235\241\346\225\260\022)\n\tm_goldatt\030\007 \001(\005B\026\302\377\024\022\351\273\204"
+    "\346\230\237\345\261\236\346\200\247\346\235\241\346\225\260\022]\n\013m_beaststar\030\010 \003(\01322.p"
+    "roto_ff.E_EncyclopediaEquipexpvalueBeast"
+    "starDescB\024\302\377\024\014\350\223\235\346\230\237\345\261\236\346\200\247\210\301\024\002\022[\n\nm_gold"
+    "star\030\t \003(\01321.proto_ff.E_EncyclopediaEqui"
+    "pexpvalueGoldstarDescB\024\302\377\024\014\351\273\204\346\230\237\345\261\236\346\200\247\210"
+    "\301\024\005\"x\n\037Sheet_EncyclopediaEquipexpvalue\022U"
+    "\n E_EncyclopediaEquipexpvalue_List\030\001 \003(\013"
+    "2%.proto_ff.E_EncyclopediaEquipexpvalueB"
+    "\004\210\301\024@\"\250\001\n\031E_EncyclopediaBeastexpand\022\"\n\010m"
+    "_number\030\001 \001(\005B\020\302\377\024\014\346\277\200\346\264\273\344\270\252\346\225\260\022\036\n\004m_lv\030"
+    "\002 \001(\005B\020\302\377\024\014\346\277\200\346\264\273\347\255\211\347\272\247\022 \n\004m_id\030\003 \001(\003B\022\302"
+    "\377\024\016\346\277\200\346\264\273\351\201\223\345\205\267id\022%\n\005m_num\030\004 \001(\005B\026\302\377\024\022\346\277"
+    "\200\346\264\273\351\201\223\345\205\267\346\225\260\351\207\217\"r\n\035Sheet_EncyclopediaBe"
+    "astexpand\022Q\n\036E_EncyclopediaBeastexpand_L"
+    "ist\030\001 \003(\0132#.proto_ff.E_EncyclopediaBeast"
+    "expandB\004\210\301\024\010\"a\n)E_EncyclopediaBeastprivi"
+    "legeAttributeDesc\022\030\n\007m_value\030\001 \001(\003B\007\302\377\024\003"
+    "\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"\222\002\n\034E_En"
+    "cyclopediaBeastprivilege\022)\n\017m_privileget"
+    "ype\030\001 \001(\005B\020\302\377\024\014\347\211\271\346\235\203\347\261\273\345\236\213\022\036\n\006m_name\030\002 "
+    "\001(\tB\016\302\377\024\006\345\220\215\345\255\227\220\301\024@\022!\n\007m_price\030\003 \001(\005B\020\302\377"
+    "\024\014\344\273\267\346\240\274\351\223\276\346\216\245\022*\n\rm_expaddition\030\004 \001(\003B\023\302"
+    "\377\024\017\347\273\217\351\252\214\345\200\274\345\212\240\346\210\220\022X\n\013m_attribute\030\005 \003(\0132"
+    "3.proto_ff.E_EncyclopediaBeastprivilegeA"
+    "ttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\004\"{\n Sheet_En"
+    "cyclopediaBeastprivilege\022W\n!E_Encycloped"
+    "iaBeastprivilege_List\030\001 \003(\0132&.proto_ff.E"
+    "_EncyclopediaBeastprivilegeB\004\210\301\024\004\"Y\n\026E_E"
+    "ncyclopediaBeastexp\022\030\n\004m_lv\030\001 \001(\005B\n\302\377\024\006\347"
+    "\255\211\347\272\247\022%\n\005m_exp\030\002 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\346\211\200\351\234\200\347\273"
+    "\217\351\252\214\"j\n\032Sheet_EncyclopediaBeastexp\022L\n\033E_"
+    "EncyclopediaBeastexp_List\030\001 \003(\0132 .proto_"
+    "ff.E_EncyclopediaBeastexpB\005\210\301\024\200\002\"\\\n$E_En"
+    "cyclopediaEmployLviattributeDesc\022\030\n\007m_va"
+    "lue\030\001 \001(\003B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006"
+    "\347\261\273\345\236\213\"\336\003\n\024E_EncyclopediaEmploy\022 \n\nm_emp"
+    "loyid\030\001 \001(\003B\014\302\377\024\010\346\224\266\345\275\225id\022 \n\006m_type\030\002 \001("
+    "\003B\020\302\377\024\014\346\277\200\346\264\273\347\261\273\345\236\213\022\"\n\010m_itemid\030\003 \001(\003B\020\302"
+    "\377\024\014\346\277\200\346\264\273\346\235\241\344\273\266\022*\n\014m_employname\030\004 \001(\tB\024\302"
+    "\377\024\014\346\224\266\345\275\225\345\220\215\347\247\260\220\301\024@\022)\n\017m_employquality\030\005"
+    " \001(\005B\020\302\377\024\014\346\224\266\345\275\225\345\223\201\350\264\250\022&\n\014m_employtype\030\006"
+    " \001(\005B\020\302\377\024\014\346\224\266\345\275\225\347\261\273\345\236\213\0225\n\021m_employtype_n"
+    "ame\030\007 \001(\tB\032\302\377\024\022\346\224\266\345\275\225\347\261\273\345\236\213\345\220\215\347\247\260\220\301\024@\022 \n"
+    "\tm_employz\030\010 \001(\005B\r\302\377\024\t\346\224\266\345\275\225\347\273\204\022.\n\rm_emp"
+    "loyzname\030\t \001(\tB\027\302\377\024\017\346\224\266\345\275\225\347\273\204\345\220\215\347\247\260\220\301\024@\022"
+    "V\n\016m_lviattribute\030\n \003(\0132..proto_ff.E_Enc"
+    "yclopediaEmployLviattributeDescB\016\302\377\024\006\345\261\236"
+    "\346\200\247\210\301\024\004\"d\n\030Sheet_EncyclopediaEmploy\022H\n\031E"
+    "_EncyclopediaEmploy_List\030\001 \003(\0132\036.proto_f"
+    "f.E_EncyclopediaEmployB\005\210\301\024\200\001\"[\n#E_Encyc"
+    "lopediaTableLviattributeDesc\022\030\n\007m_value\030"
+    "\001 \001(\003B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006\347\261\273\345"
+    "\236\213\"\324\001\n\023E_EncyclopediaTable\022\024\n\004m_id\030\001 \001(\003"
+    "B\006\302\377\024\002id\022\"\n\tm_tableid\030\002 \001(\003B\017\302\377\024\013\345\244\251\346\234\272\350"
+    "\260\261id\022,\n\013m_tablename\030\003 \001(\tB\027\302\377\024\017\345\244\251\346\234\272\350\260\261"
+    "\345\220\215\347\247\260\220\301\024@\022U\n\016m_lviattribute\030\004 \003(\0132-.pro"
+    "to_ff.E_EncyclopediaTableLviattributeDes"
+    "cB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\004\"`\n\027Sheet_EncyclopediaT"
+    "able\022E\n\030E_EncyclopediaTable_List\030\001 \003(\0132\035"
+    ".proto_ff.E_EncyclopediaTableB\004\210\301\024\020", 5675);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Encyclopedia.proto", &protobuf_RegisterTypes);
   E_EncyclopediaHandbookLviattributeDesc::default_instance_ = new E_EncyclopediaHandbookLviattributeDesc();
@@ -946,15 +1007,17 @@ void protobuf_AddDesc_E_5fEncyclopedia_2eproto() {
   E_EncyclopediaBeastBeastDesc::default_instance_ = new E_EncyclopediaBeastBeastDesc();
   E_EncyclopediaBeast::default_instance_ = new E_EncyclopediaBeast();
   Sheet_EncyclopediaBeast::default_instance_ = new Sheet_EncyclopediaBeast();
+  E_EncyclopediaEquipexpvalueBeaststarDesc::default_instance_ = new E_EncyclopediaEquipexpvalueBeaststarDesc();
+  E_EncyclopediaEquipexpvalueGoldstarDesc::default_instance_ = new E_EncyclopediaEquipexpvalueGoldstarDesc();
   E_EncyclopediaEquipexpvalue::default_instance_ = new E_EncyclopediaEquipexpvalue();
   Sheet_EncyclopediaEquipexpvalue::default_instance_ = new Sheet_EncyclopediaEquipexpvalue();
-  E_EncyclopediaBeastexp::default_instance_ = new E_EncyclopediaBeastexp();
-  Sheet_EncyclopediaBeastexp::default_instance_ = new Sheet_EncyclopediaBeastexp();
   E_EncyclopediaBeastexpand::default_instance_ = new E_EncyclopediaBeastexpand();
   Sheet_EncyclopediaBeastexpand::default_instance_ = new Sheet_EncyclopediaBeastexpand();
   E_EncyclopediaBeastprivilegeAttributeDesc::default_instance_ = new E_EncyclopediaBeastprivilegeAttributeDesc();
   E_EncyclopediaBeastprivilege::default_instance_ = new E_EncyclopediaBeastprivilege();
   Sheet_EncyclopediaBeastprivilege::default_instance_ = new Sheet_EncyclopediaBeastprivilege();
+  E_EncyclopediaBeastexp::default_instance_ = new E_EncyclopediaBeastexp();
+  Sheet_EncyclopediaBeastexp::default_instance_ = new Sheet_EncyclopediaBeastexp();
   E_EncyclopediaEmployLviattributeDesc::default_instance_ = new E_EncyclopediaEmployLviattributeDesc();
   E_EncyclopediaEmploy::default_instance_ = new E_EncyclopediaEmploy();
   Sheet_EncyclopediaEmploy::default_instance_ = new Sheet_EncyclopediaEmploy();
@@ -977,15 +1040,17 @@ void protobuf_AddDesc_E_5fEncyclopedia_2eproto() {
   E_EncyclopediaBeastBeastDesc::default_instance_->InitAsDefaultInstance();
   E_EncyclopediaBeast::default_instance_->InitAsDefaultInstance();
   Sheet_EncyclopediaBeast::default_instance_->InitAsDefaultInstance();
+  E_EncyclopediaEquipexpvalueBeaststarDesc::default_instance_->InitAsDefaultInstance();
+  E_EncyclopediaEquipexpvalueGoldstarDesc::default_instance_->InitAsDefaultInstance();
   E_EncyclopediaEquipexpvalue::default_instance_->InitAsDefaultInstance();
   Sheet_EncyclopediaEquipexpvalue::default_instance_->InitAsDefaultInstance();
-  E_EncyclopediaBeastexp::default_instance_->InitAsDefaultInstance();
-  Sheet_EncyclopediaBeastexp::default_instance_->InitAsDefaultInstance();
   E_EncyclopediaBeastexpand::default_instance_->InitAsDefaultInstance();
   Sheet_EncyclopediaBeastexpand::default_instance_->InitAsDefaultInstance();
   E_EncyclopediaBeastprivilegeAttributeDesc::default_instance_->InitAsDefaultInstance();
   E_EncyclopediaBeastprivilege::default_instance_->InitAsDefaultInstance();
   Sheet_EncyclopediaBeastprivilege::default_instance_->InitAsDefaultInstance();
+  E_EncyclopediaBeastexp::default_instance_->InitAsDefaultInstance();
+  Sheet_EncyclopediaBeastexp::default_instance_->InitAsDefaultInstance();
   E_EncyclopediaEmployLviattributeDesc::default_instance_->InitAsDefaultInstance();
   E_EncyclopediaEmploy::default_instance_->InitAsDefaultInstance();
   Sheet_EncyclopediaEmploy::default_instance_->InitAsDefaultInstance();
@@ -5716,11 +5781,511 @@ void Sheet_EncyclopediaBeast::Swap(Sheet_EncyclopediaBeast* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int E_EncyclopediaEquipexpvalueBeaststarDesc::kMNumFieldNumber;
+const int E_EncyclopediaEquipexpvalueBeaststarDesc::kMAttFieldNumber;
+#endif  // !_MSC_VER
+
+E_EncyclopediaEquipexpvalueBeaststarDesc::E_EncyclopediaEquipexpvalueBeaststarDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_EncyclopediaEquipexpvalueBeaststarDesc::InitAsDefaultInstance() {
+}
+
+E_EncyclopediaEquipexpvalueBeaststarDesc::E_EncyclopediaEquipexpvalueBeaststarDesc(const E_EncyclopediaEquipexpvalueBeaststarDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_EncyclopediaEquipexpvalueBeaststarDesc::SharedCtor() {
+  _cached_size_ = 0;
+  m_num_ = 0;
+  m_att_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_EncyclopediaEquipexpvalueBeaststarDesc::~E_EncyclopediaEquipexpvalueBeaststarDesc() {
+  SharedDtor();
+}
+
+void E_EncyclopediaEquipexpvalueBeaststarDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_EncyclopediaEquipexpvalueBeaststarDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_EncyclopediaEquipexpvalueBeaststarDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_EncyclopediaEquipexpvalueBeaststarDesc_descriptor_;
+}
+
+const E_EncyclopediaEquipexpvalueBeaststarDesc& E_EncyclopediaEquipexpvalueBeaststarDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fEncyclopedia_2eproto();
+  return *default_instance_;
+}
+
+E_EncyclopediaEquipexpvalueBeaststarDesc* E_EncyclopediaEquipexpvalueBeaststarDesc::default_instance_ = NULL;
+
+E_EncyclopediaEquipexpvalueBeaststarDesc* E_EncyclopediaEquipexpvalueBeaststarDesc::New() const {
+  return new E_EncyclopediaEquipexpvalueBeaststarDesc;
+}
+
+void E_EncyclopediaEquipexpvalueBeaststarDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_num_ = 0;
+    m_att_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_EncyclopediaEquipexpvalueBeaststarDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_num = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_num_)));
+          set_has_m_num();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_att;
+        break;
+      }
+
+      // optional int32 m_att = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_att:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_att_)));
+          set_has_m_att();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_EncyclopediaEquipexpvalueBeaststarDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_num = 1;
+  if (has_m_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_num(), output);
+  }
+
+  // optional int32 m_att = 2;
+  if (has_m_att()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_att(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_EncyclopediaEquipexpvalueBeaststarDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_num = 1;
+  if (has_m_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_num(), target);
+  }
+
+  // optional int32 m_att = 2;
+  if (has_m_att()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_att(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_EncyclopediaEquipexpvalueBeaststarDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_num = 1;
+    if (has_m_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_num());
+    }
+
+    // optional int32 m_att = 2;
+    if (has_m_att()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_att());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_EncyclopediaEquipexpvalueBeaststarDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_EncyclopediaEquipexpvalueBeaststarDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_EncyclopediaEquipexpvalueBeaststarDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_EncyclopediaEquipexpvalueBeaststarDesc::MergeFrom(const E_EncyclopediaEquipexpvalueBeaststarDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_num()) {
+      set_m_num(from.m_num());
+    }
+    if (from.has_m_att()) {
+      set_m_att(from.m_att());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_EncyclopediaEquipexpvalueBeaststarDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_EncyclopediaEquipexpvalueBeaststarDesc::CopyFrom(const E_EncyclopediaEquipexpvalueBeaststarDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_EncyclopediaEquipexpvalueBeaststarDesc::IsInitialized() const {
+
+  return true;
+}
+
+void E_EncyclopediaEquipexpvalueBeaststarDesc::Swap(E_EncyclopediaEquipexpvalueBeaststarDesc* other) {
+  if (other != this) {
+    std::swap(m_num_, other->m_num_);
+    std::swap(m_att_, other->m_att_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_EncyclopediaEquipexpvalueBeaststarDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_EncyclopediaEquipexpvalueBeaststarDesc_descriptor_;
+  metadata.reflection = E_EncyclopediaEquipexpvalueBeaststarDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_EncyclopediaEquipexpvalueGoldstarDesc::kMNumFieldNumber;
+const int E_EncyclopediaEquipexpvalueGoldstarDesc::kMAttFieldNumber;
+#endif  // !_MSC_VER
+
+E_EncyclopediaEquipexpvalueGoldstarDesc::E_EncyclopediaEquipexpvalueGoldstarDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_EncyclopediaEquipexpvalueGoldstarDesc::InitAsDefaultInstance() {
+}
+
+E_EncyclopediaEquipexpvalueGoldstarDesc::E_EncyclopediaEquipexpvalueGoldstarDesc(const E_EncyclopediaEquipexpvalueGoldstarDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_EncyclopediaEquipexpvalueGoldstarDesc::SharedCtor() {
+  _cached_size_ = 0;
+  m_num_ = 0;
+  m_att_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_EncyclopediaEquipexpvalueGoldstarDesc::~E_EncyclopediaEquipexpvalueGoldstarDesc() {
+  SharedDtor();
+}
+
+void E_EncyclopediaEquipexpvalueGoldstarDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_EncyclopediaEquipexpvalueGoldstarDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_EncyclopediaEquipexpvalueGoldstarDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_EncyclopediaEquipexpvalueGoldstarDesc_descriptor_;
+}
+
+const E_EncyclopediaEquipexpvalueGoldstarDesc& E_EncyclopediaEquipexpvalueGoldstarDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fEncyclopedia_2eproto();
+  return *default_instance_;
+}
+
+E_EncyclopediaEquipexpvalueGoldstarDesc* E_EncyclopediaEquipexpvalueGoldstarDesc::default_instance_ = NULL;
+
+E_EncyclopediaEquipexpvalueGoldstarDesc* E_EncyclopediaEquipexpvalueGoldstarDesc::New() const {
+  return new E_EncyclopediaEquipexpvalueGoldstarDesc;
+}
+
+void E_EncyclopediaEquipexpvalueGoldstarDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_num_ = 0;
+    m_att_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_EncyclopediaEquipexpvalueGoldstarDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_num = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_num_)));
+          set_has_m_num();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_att;
+        break;
+      }
+
+      // optional int32 m_att = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_att:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_att_)));
+          set_has_m_att();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_EncyclopediaEquipexpvalueGoldstarDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_num = 1;
+  if (has_m_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_num(), output);
+  }
+
+  // optional int32 m_att = 2;
+  if (has_m_att()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_att(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_EncyclopediaEquipexpvalueGoldstarDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_num = 1;
+  if (has_m_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_num(), target);
+  }
+
+  // optional int32 m_att = 2;
+  if (has_m_att()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_att(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_EncyclopediaEquipexpvalueGoldstarDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_num = 1;
+    if (has_m_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_num());
+    }
+
+    // optional int32 m_att = 2;
+    if (has_m_att()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_att());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_EncyclopediaEquipexpvalueGoldstarDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_EncyclopediaEquipexpvalueGoldstarDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_EncyclopediaEquipexpvalueGoldstarDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_EncyclopediaEquipexpvalueGoldstarDesc::MergeFrom(const E_EncyclopediaEquipexpvalueGoldstarDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_num()) {
+      set_m_num(from.m_num());
+    }
+    if (from.has_m_att()) {
+      set_m_att(from.m_att());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_EncyclopediaEquipexpvalueGoldstarDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_EncyclopediaEquipexpvalueGoldstarDesc::CopyFrom(const E_EncyclopediaEquipexpvalueGoldstarDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_EncyclopediaEquipexpvalueGoldstarDesc::IsInitialized() const {
+
+  return true;
+}
+
+void E_EncyclopediaEquipexpvalueGoldstarDesc::Swap(E_EncyclopediaEquipexpvalueGoldstarDesc* other) {
+  if (other != this) {
+    std::swap(m_num_, other->m_num_);
+    std::swap(m_att_, other->m_att_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_EncyclopediaEquipexpvalueGoldstarDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_EncyclopediaEquipexpvalueGoldstarDesc_descriptor_;
+  metadata.reflection = E_EncyclopediaEquipexpvalueGoldstarDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int E_EncyclopediaEquipexpvalue::kMIdFieldNumber;
 const int E_EncyclopediaEquipexpvalue::kMTypeFieldNumber;
 const int E_EncyclopediaEquipexpvalue::kMNameFieldNumber;
 const int E_EncyclopediaEquipexpvalue::kMExpFieldNumber;
 const int E_EncyclopediaEquipexpvalue::kMLinkFieldNumber;
+const int E_EncyclopediaEquipexpvalue::kMGoldattallFieldNumber;
+const int E_EncyclopediaEquipexpvalue::kMGoldattFieldNumber;
+const int E_EncyclopediaEquipexpvalue::kMBeaststarFieldNumber;
+const int E_EncyclopediaEquipexpvalue::kMGoldstarFieldNumber;
 #endif  // !_MSC_VER
 
 E_EncyclopediaEquipexpvalue::E_EncyclopediaEquipexpvalue()
@@ -5744,6 +6309,8 @@ void E_EncyclopediaEquipexpvalue::SharedCtor() {
   m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_exp_ = 0;
   m_link_ = GOOGLE_LONGLONG(0);
+  m_goldattall_ = 0;
+  m_goldatt_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -5791,7 +6358,11 @@ void E_EncyclopediaEquipexpvalue::Clear() {
     }
     m_exp_ = 0;
     m_link_ = GOOGLE_LONGLONG(0);
+    m_goldattall_ = 0;
+    m_goldatt_ = 0;
   }
+  m_beaststar_.Clear();
+  m_goldstar_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -5878,6 +6449,68 @@ bool E_EncyclopediaEquipexpvalue::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(48)) goto parse_m_goldattall;
+        break;
+      }
+
+      // optional int32 m_goldattall = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_goldattall:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_goldattall_)));
+          set_has_m_goldattall();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_m_goldatt;
+        break;
+      }
+
+      // optional int32 m_goldatt = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_goldatt:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_goldatt_)));
+          set_has_m_goldatt();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(66)) goto parse_m_beaststar;
+        break;
+      }
+
+      // repeated .proto_ff.E_EncyclopediaEquipexpvalueBeaststarDesc m_beaststar = 8;
+      case 8: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_beaststar:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_m_beaststar()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(66)) goto parse_m_beaststar;
+        if (input->ExpectTag(74)) goto parse_m_goldstar;
+        break;
+      }
+
+      // repeated .proto_ff.E_EncyclopediaEquipexpvalueGoldstarDesc m_goldstar = 9;
+      case 9: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_goldstar:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_m_goldstar()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(74)) goto parse_m_goldstar;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -5929,6 +6562,28 @@ void E_EncyclopediaEquipexpvalue::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(5, this->m_link(), output);
   }
 
+  // optional int32 m_goldattall = 6;
+  if (has_m_goldattall()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_goldattall(), output);
+  }
+
+  // optional int32 m_goldatt = 7;
+  if (has_m_goldatt()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_goldatt(), output);
+  }
+
+  // repeated .proto_ff.E_EncyclopediaEquipexpvalueBeaststarDesc m_beaststar = 8;
+  for (int i = 0; i < this->m_beaststar_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      8, this->m_beaststar(i), output);
+  }
+
+  // repeated .proto_ff.E_EncyclopediaEquipexpvalueGoldstarDesc m_goldstar = 9;
+  for (int i = 0; i < this->m_goldstar_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      9, this->m_goldstar(i), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -5965,6 +6620,30 @@ void E_EncyclopediaEquipexpvalue::SerializeWithCachedSizes(
   // optional int64 m_link = 5;
   if (has_m_link()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(5, this->m_link(), target);
+  }
+
+  // optional int32 m_goldattall = 6;
+  if (has_m_goldattall()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_goldattall(), target);
+  }
+
+  // optional int32 m_goldatt = 7;
+  if (has_m_goldatt()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_goldatt(), target);
+  }
+
+  // repeated .proto_ff.E_EncyclopediaEquipexpvalueBeaststarDesc m_beaststar = 8;
+  for (int i = 0; i < this->m_beaststar_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        8, this->m_beaststar(i), target);
+  }
+
+  // repeated .proto_ff.E_EncyclopediaEquipexpvalueGoldstarDesc m_goldstar = 9;
+  for (int i = 0; i < this->m_goldstar_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        9, this->m_goldstar(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -6013,7 +6692,37 @@ int E_EncyclopediaEquipexpvalue::ByteSize() const {
           this->m_link());
     }
 
+    // optional int32 m_goldattall = 6;
+    if (has_m_goldattall()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_goldattall());
+    }
+
+    // optional int32 m_goldatt = 7;
+    if (has_m_goldatt()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_goldatt());
+    }
+
   }
+  // repeated .proto_ff.E_EncyclopediaEquipexpvalueBeaststarDesc m_beaststar = 8;
+  total_size += 1 * this->m_beaststar_size();
+  for (int i = 0; i < this->m_beaststar_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->m_beaststar(i));
+  }
+
+  // repeated .proto_ff.E_EncyclopediaEquipexpvalueGoldstarDesc m_goldstar = 9;
+  total_size += 1 * this->m_goldstar_size();
+  for (int i = 0; i < this->m_goldstar_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->m_goldstar(i));
+  }
+
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -6039,6 +6748,8 @@ void E_EncyclopediaEquipexpvalue::MergeFrom(const ::google::protobuf::Message& f
 
 void E_EncyclopediaEquipexpvalue::MergeFrom(const E_EncyclopediaEquipexpvalue& from) {
   GOOGLE_CHECK_NE(&from, this);
+  m_beaststar_.MergeFrom(from.m_beaststar_);
+  m_goldstar_.MergeFrom(from.m_goldstar_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_m_id()) {
       set_m_id(from.m_id());
@@ -6054,6 +6765,12 @@ void E_EncyclopediaEquipexpvalue::MergeFrom(const E_EncyclopediaEquipexpvalue& f
     }
     if (from.has_m_link()) {
       set_m_link(from.m_link());
+    }
+    if (from.has_m_goldattall()) {
+      set_m_goldattall(from.m_goldattall());
+    }
+    if (from.has_m_goldatt()) {
+      set_m_goldatt(from.m_goldatt());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -6083,6 +6800,10 @@ void E_EncyclopediaEquipexpvalue::Swap(E_EncyclopediaEquipexpvalue* other) {
     std::swap(m_name_, other->m_name_);
     std::swap(m_exp_, other->m_exp_);
     std::swap(m_link_, other->m_link_);
+    std::swap(m_goldattall_, other->m_goldattall_);
+    std::swap(m_goldatt_, other->m_goldatt_);
+    m_beaststar_.Swap(&other->m_beaststar_);
+    m_goldstar_.Swap(&other->m_goldstar_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -6297,457 +7018,6 @@ void Sheet_EncyclopediaEquipexpvalue::Swap(Sheet_EncyclopediaEquipexpvalue* othe
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Sheet_EncyclopediaEquipexpvalue_descriptor_;
   metadata.reflection = Sheet_EncyclopediaEquipexpvalue_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int E_EncyclopediaBeastexp::kMLvFieldNumber;
-const int E_EncyclopediaBeastexp::kMExpFieldNumber;
-#endif  // !_MSC_VER
-
-E_EncyclopediaBeastexp::E_EncyclopediaBeastexp()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void E_EncyclopediaBeastexp::InitAsDefaultInstance() {
-}
-
-E_EncyclopediaBeastexp::E_EncyclopediaBeastexp(const E_EncyclopediaBeastexp& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void E_EncyclopediaBeastexp::SharedCtor() {
-  _cached_size_ = 0;
-  m_lv_ = 0;
-  m_exp_ = 0;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-E_EncyclopediaBeastexp::~E_EncyclopediaBeastexp() {
-  SharedDtor();
-}
-
-void E_EncyclopediaBeastexp::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void E_EncyclopediaBeastexp::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* E_EncyclopediaBeastexp::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return E_EncyclopediaBeastexp_descriptor_;
-}
-
-const E_EncyclopediaBeastexp& E_EncyclopediaBeastexp::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_E_5fEncyclopedia_2eproto();
-  return *default_instance_;
-}
-
-E_EncyclopediaBeastexp* E_EncyclopediaBeastexp::default_instance_ = NULL;
-
-E_EncyclopediaBeastexp* E_EncyclopediaBeastexp::New() const {
-  return new E_EncyclopediaBeastexp;
-}
-
-void E_EncyclopediaBeastexp::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    m_lv_ = 0;
-    m_exp_ = 0;
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool E_EncyclopediaBeastexp::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_lv = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_lv_)));
-          set_has_m_lv();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_m_exp;
-        break;
-      }
-
-      // optional int32 m_exp = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_exp:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_exp_)));
-          set_has_m_exp();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void E_EncyclopediaBeastexp::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_lv = 1;
-  if (has_m_lv()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
-  }
-
-  // optional int32 m_exp = 2;
-  if (has_m_exp()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_exp(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* E_EncyclopediaBeastexp::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // optional int32 m_lv = 1;
-  if (has_m_lv()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
-  }
-
-  // optional int32 m_exp = 2;
-  if (has_m_exp()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_exp(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int E_EncyclopediaBeastexp::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_lv = 1;
-    if (has_m_lv()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_lv());
-    }
-
-    // optional int32 m_exp = 2;
-    if (has_m_exp()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_exp());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void E_EncyclopediaBeastexp::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const E_EncyclopediaBeastexp* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const E_EncyclopediaBeastexp*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void E_EncyclopediaBeastexp::MergeFrom(const E_EncyclopediaBeastexp& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_m_lv()) {
-      set_m_lv(from.m_lv());
-    }
-    if (from.has_m_exp()) {
-      set_m_exp(from.m_exp());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void E_EncyclopediaBeastexp::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void E_EncyclopediaBeastexp::CopyFrom(const E_EncyclopediaBeastexp& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool E_EncyclopediaBeastexp::IsInitialized() const {
-
-  return true;
-}
-
-void E_EncyclopediaBeastexp::Swap(E_EncyclopediaBeastexp* other) {
-  if (other != this) {
-    std::swap(m_lv_, other->m_lv_);
-    std::swap(m_exp_, other->m_exp_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata E_EncyclopediaBeastexp::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = E_EncyclopediaBeastexp_descriptor_;
-  metadata.reflection = E_EncyclopediaBeastexp_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int Sheet_EncyclopediaBeastexp::kEEncyclopediaBeastexpListFieldNumber;
-#endif  // !_MSC_VER
-
-Sheet_EncyclopediaBeastexp::Sheet_EncyclopediaBeastexp()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void Sheet_EncyclopediaBeastexp::InitAsDefaultInstance() {
-}
-
-Sheet_EncyclopediaBeastexp::Sheet_EncyclopediaBeastexp(const Sheet_EncyclopediaBeastexp& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void Sheet_EncyclopediaBeastexp::SharedCtor() {
-  _cached_size_ = 0;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-Sheet_EncyclopediaBeastexp::~Sheet_EncyclopediaBeastexp() {
-  SharedDtor();
-}
-
-void Sheet_EncyclopediaBeastexp::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void Sheet_EncyclopediaBeastexp::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* Sheet_EncyclopediaBeastexp::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return Sheet_EncyclopediaBeastexp_descriptor_;
-}
-
-const Sheet_EncyclopediaBeastexp& Sheet_EncyclopediaBeastexp::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_E_5fEncyclopedia_2eproto();
-  return *default_instance_;
-}
-
-Sheet_EncyclopediaBeastexp* Sheet_EncyclopediaBeastexp::default_instance_ = NULL;
-
-Sheet_EncyclopediaBeastexp* Sheet_EncyclopediaBeastexp::New() const {
-  return new Sheet_EncyclopediaBeastexp;
-}
-
-void Sheet_EncyclopediaBeastexp::Clear() {
-  e_encyclopediabeastexp_list_.Clear();
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool Sheet_EncyclopediaBeastexp::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.E_EncyclopediaBeastexp E_EncyclopediaBeastexp_List = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_E_EncyclopediaBeastexp_List:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_e_encyclopediabeastexp_list()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(10)) goto parse_E_EncyclopediaBeastexp_List;
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void Sheet_EncyclopediaBeastexp::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.E_EncyclopediaBeastexp E_EncyclopediaBeastexp_List = 1;
-  for (int i = 0; i < this->e_encyclopediabeastexp_list_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->e_encyclopediabeastexp_list(i), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* Sheet_EncyclopediaBeastexp::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.E_EncyclopediaBeastexp E_EncyclopediaBeastexp_List = 1;
-  for (int i = 0; i < this->e_encyclopediabeastexp_list_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        1, this->e_encyclopediabeastexp_list(i), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int Sheet_EncyclopediaBeastexp::ByteSize() const {
-  int total_size = 0;
-
-  // repeated .proto_ff.E_EncyclopediaBeastexp E_EncyclopediaBeastexp_List = 1;
-  total_size += 1 * this->e_encyclopediabeastexp_list_size();
-  for (int i = 0; i < this->e_encyclopediabeastexp_list_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->e_encyclopediabeastexp_list(i));
-  }
-
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void Sheet_EncyclopediaBeastexp::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const Sheet_EncyclopediaBeastexp* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_EncyclopediaBeastexp*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void Sheet_EncyclopediaBeastexp::MergeFrom(const Sheet_EncyclopediaBeastexp& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  e_encyclopediabeastexp_list_.MergeFrom(from.e_encyclopediabeastexp_list_);
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void Sheet_EncyclopediaBeastexp::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Sheet_EncyclopediaBeastexp::CopyFrom(const Sheet_EncyclopediaBeastexp& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Sheet_EncyclopediaBeastexp::IsInitialized() const {
-
-  return true;
-}
-
-void Sheet_EncyclopediaBeastexp::Swap(Sheet_EncyclopediaBeastexp* other) {
-  if (other != this) {
-    e_encyclopediabeastexp_list_.Swap(&other->e_encyclopediabeastexp_list_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata Sheet_EncyclopediaBeastexp::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_EncyclopediaBeastexp_descriptor_;
-  metadata.reflection = Sheet_EncyclopediaBeastexp_reflection_;
   return metadata;
 }
 
@@ -8115,6 +8385,457 @@ void Sheet_EncyclopediaBeastprivilege::Swap(Sheet_EncyclopediaBeastprivilege* ot
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Sheet_EncyclopediaBeastprivilege_descriptor_;
   metadata.reflection = Sheet_EncyclopediaBeastprivilege_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_EncyclopediaBeastexp::kMLvFieldNumber;
+const int E_EncyclopediaBeastexp::kMExpFieldNumber;
+#endif  // !_MSC_VER
+
+E_EncyclopediaBeastexp::E_EncyclopediaBeastexp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_EncyclopediaBeastexp::InitAsDefaultInstance() {
+}
+
+E_EncyclopediaBeastexp::E_EncyclopediaBeastexp(const E_EncyclopediaBeastexp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_EncyclopediaBeastexp::SharedCtor() {
+  _cached_size_ = 0;
+  m_lv_ = 0;
+  m_exp_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_EncyclopediaBeastexp::~E_EncyclopediaBeastexp() {
+  SharedDtor();
+}
+
+void E_EncyclopediaBeastexp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_EncyclopediaBeastexp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_EncyclopediaBeastexp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_EncyclopediaBeastexp_descriptor_;
+}
+
+const E_EncyclopediaBeastexp& E_EncyclopediaBeastexp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fEncyclopedia_2eproto();
+  return *default_instance_;
+}
+
+E_EncyclopediaBeastexp* E_EncyclopediaBeastexp::default_instance_ = NULL;
+
+E_EncyclopediaBeastexp* E_EncyclopediaBeastexp::New() const {
+  return new E_EncyclopediaBeastexp;
+}
+
+void E_EncyclopediaBeastexp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_lv_ = 0;
+    m_exp_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_EncyclopediaBeastexp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_lv = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_lv_)));
+          set_has_m_lv();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_exp;
+        break;
+      }
+
+      // optional int32 m_exp = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_exp:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_exp_)));
+          set_has_m_exp();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_EncyclopediaBeastexp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
+  }
+
+  // optional int32 m_exp = 2;
+  if (has_m_exp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_exp(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_EncyclopediaBeastexp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_lv = 1;
+  if (has_m_lv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
+  }
+
+  // optional int32 m_exp = 2;
+  if (has_m_exp()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_exp(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_EncyclopediaBeastexp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_lv = 1;
+    if (has_m_lv()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_lv());
+    }
+
+    // optional int32 m_exp = 2;
+    if (has_m_exp()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_exp());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_EncyclopediaBeastexp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_EncyclopediaBeastexp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_EncyclopediaBeastexp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_EncyclopediaBeastexp::MergeFrom(const E_EncyclopediaBeastexp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_lv()) {
+      set_m_lv(from.m_lv());
+    }
+    if (from.has_m_exp()) {
+      set_m_exp(from.m_exp());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_EncyclopediaBeastexp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_EncyclopediaBeastexp::CopyFrom(const E_EncyclopediaBeastexp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_EncyclopediaBeastexp::IsInitialized() const {
+
+  return true;
+}
+
+void E_EncyclopediaBeastexp::Swap(E_EncyclopediaBeastexp* other) {
+  if (other != this) {
+    std::swap(m_lv_, other->m_lv_);
+    std::swap(m_exp_, other->m_exp_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_EncyclopediaBeastexp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_EncyclopediaBeastexp_descriptor_;
+  metadata.reflection = E_EncyclopediaBeastexp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_EncyclopediaBeastexp::kEEncyclopediaBeastexpListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_EncyclopediaBeastexp::Sheet_EncyclopediaBeastexp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_EncyclopediaBeastexp::InitAsDefaultInstance() {
+}
+
+Sheet_EncyclopediaBeastexp::Sheet_EncyclopediaBeastexp(const Sheet_EncyclopediaBeastexp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_EncyclopediaBeastexp::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_EncyclopediaBeastexp::~Sheet_EncyclopediaBeastexp() {
+  SharedDtor();
+}
+
+void Sheet_EncyclopediaBeastexp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_EncyclopediaBeastexp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_EncyclopediaBeastexp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_EncyclopediaBeastexp_descriptor_;
+}
+
+const Sheet_EncyclopediaBeastexp& Sheet_EncyclopediaBeastexp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fEncyclopedia_2eproto();
+  return *default_instance_;
+}
+
+Sheet_EncyclopediaBeastexp* Sheet_EncyclopediaBeastexp::default_instance_ = NULL;
+
+Sheet_EncyclopediaBeastexp* Sheet_EncyclopediaBeastexp::New() const {
+  return new Sheet_EncyclopediaBeastexp;
+}
+
+void Sheet_EncyclopediaBeastexp::Clear() {
+  e_encyclopediabeastexp_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_EncyclopediaBeastexp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_EncyclopediaBeastexp E_EncyclopediaBeastexp_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_EncyclopediaBeastexp_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_encyclopediabeastexp_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_EncyclopediaBeastexp_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_EncyclopediaBeastexp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_EncyclopediaBeastexp E_EncyclopediaBeastexp_List = 1;
+  for (int i = 0; i < this->e_encyclopediabeastexp_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_encyclopediabeastexp_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_EncyclopediaBeastexp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_EncyclopediaBeastexp E_EncyclopediaBeastexp_List = 1;
+  for (int i = 0; i < this->e_encyclopediabeastexp_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_encyclopediabeastexp_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_EncyclopediaBeastexp::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_EncyclopediaBeastexp E_EncyclopediaBeastexp_List = 1;
+  total_size += 1 * this->e_encyclopediabeastexp_list_size();
+  for (int i = 0; i < this->e_encyclopediabeastexp_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_encyclopediabeastexp_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_EncyclopediaBeastexp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_EncyclopediaBeastexp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_EncyclopediaBeastexp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_EncyclopediaBeastexp::MergeFrom(const Sheet_EncyclopediaBeastexp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_encyclopediabeastexp_list_.MergeFrom(from.e_encyclopediabeastexp_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_EncyclopediaBeastexp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_EncyclopediaBeastexp::CopyFrom(const Sheet_EncyclopediaBeastexp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_EncyclopediaBeastexp::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_EncyclopediaBeastexp::Swap(Sheet_EncyclopediaBeastexp* other) {
+  if (other != this) {
+    e_encyclopediabeastexp_list_.Swap(&other->e_encyclopediabeastexp_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_EncyclopediaBeastexp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_EncyclopediaBeastexp_descriptor_;
+  metadata.reflection = Sheet_EncyclopediaBeastexp_reflection_;
   return metadata;
 }
 

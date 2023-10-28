@@ -56,6 +56,9 @@ class FestOnlineProto;
 class FestCollectWordProto;
 class FestBossDetailProto;
 class FestMarryDetail;
+class FestDayTotalRechargeProto;
+class FestLoginProto;
+class FestTotalRechargeProto;
 class FestDetailProto;
 class Fest_SimpleListRsp;
 class Fest_SimpleInfoNotify;
@@ -117,6 +120,8 @@ class FestServerRankGetRewardRsp;
 class FestServerRankRewardStatusChange;
 class FestServerRankGetMyRankReq;
 class FestServerRankGetMyRankRsp;
+class FestServerRankGetAllRankReq;
+class FestServerRankGetAllRankRsp;
 class FestServerRankBuyGiftReq;
 class FestServerRankBuyGiftRsp;
 class FestServerRankGetRedPointRewardReq;
@@ -199,6 +204,15 @@ class Fest_XiYouSyncNotify;
 class Fest_XiYouSyncLogic;
 class Fest_XiYouSyncFinish;
 class Fest_XiYouSyncForceClose;
+class Fest_DayTotalRechargeFetchReq;
+class Fest_DayTotalRechargeFetchRsp;
+class Fest_DayTotalRechargeNotify;
+class Fest_LoginRewardFetchReq;
+class Fest_LoginRewardFetchRsp;
+class Fest_LoginRewardNotify;
+class Fest_TotalRechargeFetchReq;
+class Fest_TotalRechargeFetchRsp;
+class Fest_TotalRechargeNotify;
 
 // ===================================================================
 
@@ -2280,6 +2294,281 @@ class FestMarryDetail : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class FestDayTotalRechargeProto : public ::google::protobuf::Message {
+ public:
+  FestDayTotalRechargeProto();
+  virtual ~FestDayTotalRechargeProto();
+
+  FestDayTotalRechargeProto(const FestDayTotalRechargeProto& from);
+
+  inline FestDayTotalRechargeProto& operator=(const FestDayTotalRechargeProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestDayTotalRechargeProto& default_instance();
+
+  void Swap(FestDayTotalRechargeProto* other);
+
+  // implements Message ----------------------------------------------
+
+  FestDayTotalRechargeProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestDayTotalRechargeProto& from);
+  void MergeFrom(const FestDayTotalRechargeProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated int32 fetch_lst = 1;
+  inline int fetch_lst_size() const;
+  inline void clear_fetch_lst();
+  static const int kFetchLstFieldNumber = 1;
+  inline ::google::protobuf::int32 fetch_lst(int index) const;
+  inline void set_fetch_lst(int index, ::google::protobuf::int32 value);
+  inline void add_fetch_lst(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      fetch_lst() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_fetch_lst();
+
+  // optional uint32 recharge = 2;
+  inline bool has_recharge() const;
+  inline void clear_recharge();
+  static const int kRechargeFieldNumber = 2;
+  inline ::google::protobuf::uint32 recharge() const;
+  inline void set_recharge(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestDayTotalRechargeProto)
+ private:
+  inline void set_has_recharge();
+  inline void clear_has_recharge();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > fetch_lst_;
+  ::google::protobuf::uint32 recharge_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestDayTotalRechargeProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FestLoginProto : public ::google::protobuf::Message {
+ public:
+  FestLoginProto();
+  virtual ~FestLoginProto();
+
+  FestLoginProto(const FestLoginProto& from);
+
+  inline FestLoginProto& operator=(const FestLoginProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestLoginProto& default_instance();
+
+  void Swap(FestLoginProto* other);
+
+  // implements Message ----------------------------------------------
+
+  FestLoginProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestLoginProto& from);
+  void MergeFrom(const FestLoginProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.ComPair fetch = 1;
+  inline int fetch_size() const;
+  inline void clear_fetch();
+  static const int kFetchFieldNumber = 1;
+  inline const ::proto_ff::ComPair& fetch(int index) const;
+  inline ::proto_ff::ComPair* mutable_fetch(int index);
+  inline ::proto_ff::ComPair* add_fetch();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+      fetch() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+      mutable_fetch();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestLoginProto)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair > fetch_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestLoginProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FestTotalRechargeProto : public ::google::protobuf::Message {
+ public:
+  FestTotalRechargeProto();
+  virtual ~FestTotalRechargeProto();
+
+  FestTotalRechargeProto(const FestTotalRechargeProto& from);
+
+  inline FestTotalRechargeProto& operator=(const FestTotalRechargeProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestTotalRechargeProto& default_instance();
+
+  void Swap(FestTotalRechargeProto* other);
+
+  // implements Message ----------------------------------------------
+
+  FestTotalRechargeProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestTotalRechargeProto& from);
+  void MergeFrom(const FestTotalRechargeProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated int32 fetch_lst = 1;
+  inline int fetch_lst_size() const;
+  inline void clear_fetch_lst();
+  static const int kFetchLstFieldNumber = 1;
+  inline ::google::protobuf::int32 fetch_lst(int index) const;
+  inline void set_fetch_lst(int index, ::google::protobuf::int32 value);
+  inline void add_fetch_lst(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      fetch_lst() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_fetch_lst();
+
+  // optional uint32 total_recharge = 2;
+  inline bool has_total_recharge() const;
+  inline void clear_total_recharge();
+  static const int kTotalRechargeFieldNumber = 2;
+  inline ::google::protobuf::uint32 total_recharge() const;
+  inline void set_total_recharge(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestTotalRechargeProto)
+ private:
+  inline void set_has_total_recharge();
+  inline void clear_has_total_recharge();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > fetch_lst_;
+  ::google::protobuf::uint32 total_recharge_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestTotalRechargeProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class FestDetailProto : public ::google::protobuf::Message {
  public:
   FestDetailProto();
@@ -2485,6 +2774,33 @@ class FestDetailProto : public ::google::protobuf::Message {
   inline ::proto_ff::FestCandleProto* release_candle();
   inline void set_allocated_candle(::proto_ff::FestCandleProto* candle);
 
+  // optional .proto_ff.FestDayTotalRechargeProto day_total_recharge = 18;
+  inline bool has_day_total_recharge() const;
+  inline void clear_day_total_recharge();
+  static const int kDayTotalRechargeFieldNumber = 18;
+  inline const ::proto_ff::FestDayTotalRechargeProto& day_total_recharge() const;
+  inline ::proto_ff::FestDayTotalRechargeProto* mutable_day_total_recharge();
+  inline ::proto_ff::FestDayTotalRechargeProto* release_day_total_recharge();
+  inline void set_allocated_day_total_recharge(::proto_ff::FestDayTotalRechargeProto* day_total_recharge);
+
+  // optional .proto_ff.FestTotalRechargeProto total_recharge = 19;
+  inline bool has_total_recharge() const;
+  inline void clear_total_recharge();
+  static const int kTotalRechargeFieldNumber = 19;
+  inline const ::proto_ff::FestTotalRechargeProto& total_recharge() const;
+  inline ::proto_ff::FestTotalRechargeProto* mutable_total_recharge();
+  inline ::proto_ff::FestTotalRechargeProto* release_total_recharge();
+  inline void set_allocated_total_recharge(::proto_ff::FestTotalRechargeProto* total_recharge);
+
+  // optional .proto_ff.FestLoginProto login = 20;
+  inline bool has_login() const;
+  inline void clear_login();
+  static const int kLoginFieldNumber = 20;
+  inline const ::proto_ff::FestLoginProto& login() const;
+  inline ::proto_ff::FestLoginProto* mutable_login();
+  inline ::proto_ff::FestLoginProto* release_login();
+  inline void set_allocated_login(::proto_ff::FestLoginProto* login);
+
   // @@protoc_insertion_point(class_scope:proto_ff.FestDetailProto)
  private:
   inline void set_has_template_id();
@@ -2521,6 +2837,12 @@ class FestDetailProto : public ::google::protobuf::Message {
   inline void clear_has_marry();
   inline void set_has_candle();
   inline void clear_has_candle();
+  inline void set_has_day_total_recharge();
+  inline void clear_has_day_total_recharge();
+  inline void set_has_total_recharge();
+  inline void clear_has_total_recharge();
+  inline void set_has_login();
+  inline void clear_has_login();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -2540,10 +2862,13 @@ class FestDetailProto : public ::google::protobuf::Message {
   ::proto_ff::FestHuiMengXiYouData* hui_meng_xi_you_;
   ::proto_ff::FestMarryDetail* marry_;
   ::proto_ff::FestCandleProto* candle_;
+  ::proto_ff::FestDayTotalRechargeProto* day_total_recharge_;
+  ::proto_ff::FestTotalRechargeProto* total_recharge_;
+  ::proto_ff::FestLoginProto* login_;
   ::google::protobuf::int32 template_id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(17 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(20 + 31) / 32];
 
   friend void  protobuf_AddDesc_Fest_2eproto();
   friend void protobuf_AssignDesc_Fest_2eproto();
@@ -8332,6 +8657,233 @@ class FestServerRankGetMyRankRsp : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static FestServerRankGetMyRankRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FestServerRankGetAllRankReq : public ::google::protobuf::Message {
+ public:
+  FestServerRankGetAllRankReq();
+  virtual ~FestServerRankGetAllRankReq();
+
+  FestServerRankGetAllRankReq(const FestServerRankGetAllRankReq& from);
+
+  inline FestServerRankGetAllRankReq& operator=(const FestServerRankGetAllRankReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestServerRankGetAllRankReq& default_instance();
+
+  void Swap(FestServerRankGetAllRankReq* other);
+
+  // implements Message ----------------------------------------------
+
+  FestServerRankGetAllRankReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestServerRankGetAllRankReq& from);
+  void MergeFrom(const FestServerRankGetAllRankReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 template_id = 1;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 1;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // optional int32 rank_id = 2;
+  inline bool has_rank_id() const;
+  inline void clear_rank_id();
+  static const int kRankIdFieldNumber = 2;
+  inline ::google::protobuf::int32 rank_id() const;
+  inline void set_rank_id(::google::protobuf::int32 value);
+
+  // optional uint64 cid = 3;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 3;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional uint32 rank_type = 4;
+  inline bool has_rank_type() const;
+  inline void clear_rank_type();
+  static const int kRankTypeFieldNumber = 4;
+  inline ::google::protobuf::uint32 rank_type() const;
+  inline void set_rank_type(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestServerRankGetAllRankReq)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+  inline void set_has_rank_id();
+  inline void clear_has_rank_id();
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_rank_type();
+  inline void clear_has_rank_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 template_id_;
+  ::google::protobuf::int32 rank_id_;
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint32 rank_type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestServerRankGetAllRankReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FestServerRankGetAllRankRsp : public ::google::protobuf::Message {
+ public:
+  FestServerRankGetAllRankRsp();
+  virtual ~FestServerRankGetAllRankRsp();
+
+  FestServerRankGetAllRankRsp(const FestServerRankGetAllRankRsp& from);
+
+  inline FestServerRankGetAllRankRsp& operator=(const FestServerRankGetAllRankRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestServerRankGetAllRankRsp& default_instance();
+
+  void Swap(FestServerRankGetAllRankRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  FestServerRankGetAllRankRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestServerRankGetAllRankRsp& from);
+  void MergeFrom(const FestServerRankGetAllRankRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 template_id = 2;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 2;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // optional int32 rank_id = 3;
+  inline bool has_rank_id() const;
+  inline void clear_rank_id();
+  static const int kRankIdFieldNumber = 3;
+  inline ::google::protobuf::int32 rank_id() const;
+  inline void set_rank_id(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.RankNodeData rankList = 4;
+  inline int ranklist_size() const;
+  inline void clear_ranklist();
+  static const int kRankListFieldNumber = 4;
+  inline const ::proto_ff::RankNodeData& ranklist(int index) const;
+  inline ::proto_ff::RankNodeData* mutable_ranklist(int index);
+  inline ::proto_ff::RankNodeData* add_ranklist();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RankNodeData >&
+      ranklist() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RankNodeData >*
+      mutable_ranklist();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestServerRankGetAllRankRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+  inline void set_has_rank_id();
+  inline void clear_has_rank_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 template_id_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::RankNodeData > ranklist_;
+  ::google::protobuf::int32 rank_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestServerRankGetAllRankRsp* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -16776,6 +17328,863 @@ class Fest_XiYouSyncForceClose : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static Fest_XiYouSyncForceClose* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class Fest_DayTotalRechargeFetchReq : public ::google::protobuf::Message {
+ public:
+  Fest_DayTotalRechargeFetchReq();
+  virtual ~Fest_DayTotalRechargeFetchReq();
+
+  Fest_DayTotalRechargeFetchReq(const Fest_DayTotalRechargeFetchReq& from);
+
+  inline Fest_DayTotalRechargeFetchReq& operator=(const Fest_DayTotalRechargeFetchReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Fest_DayTotalRechargeFetchReq& default_instance();
+
+  void Swap(Fest_DayTotalRechargeFetchReq* other);
+
+  // implements Message ----------------------------------------------
+
+  Fest_DayTotalRechargeFetchReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Fest_DayTotalRechargeFetchReq& from);
+  void MergeFrom(const Fest_DayTotalRechargeFetchReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 template_id = 1;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 1;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // optional int32 id = 2;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 2;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Fest_DayTotalRechargeFetchReq)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+  inline void set_has_id();
+  inline void clear_has_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 template_id_;
+  ::google::protobuf::int32 id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static Fest_DayTotalRechargeFetchReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Fest_DayTotalRechargeFetchRsp : public ::google::protobuf::Message {
+ public:
+  Fest_DayTotalRechargeFetchRsp();
+  virtual ~Fest_DayTotalRechargeFetchRsp();
+
+  Fest_DayTotalRechargeFetchRsp(const Fest_DayTotalRechargeFetchRsp& from);
+
+  inline Fest_DayTotalRechargeFetchRsp& operator=(const Fest_DayTotalRechargeFetchRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Fest_DayTotalRechargeFetchRsp& default_instance();
+
+  void Swap(Fest_DayTotalRechargeFetchRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Fest_DayTotalRechargeFetchRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Fest_DayTotalRechargeFetchRsp& from);
+  void MergeFrom(const Fest_DayTotalRechargeFetchRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 template_id = 1;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 1;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // optional int32 ret = 2;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 2;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Fest_DayTotalRechargeFetchRsp)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+  inline void set_has_ret();
+  inline void clear_has_ret();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 template_id_;
+  ::google::protobuf::int32 ret_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static Fest_DayTotalRechargeFetchRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Fest_DayTotalRechargeNotify : public ::google::protobuf::Message {
+ public:
+  Fest_DayTotalRechargeNotify();
+  virtual ~Fest_DayTotalRechargeNotify();
+
+  Fest_DayTotalRechargeNotify(const Fest_DayTotalRechargeNotify& from);
+
+  inline Fest_DayTotalRechargeNotify& operator=(const Fest_DayTotalRechargeNotify& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Fest_DayTotalRechargeNotify& default_instance();
+
+  void Swap(Fest_DayTotalRechargeNotify* other);
+
+  // implements Message ----------------------------------------------
+
+  Fest_DayTotalRechargeNotify* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Fest_DayTotalRechargeNotify& from);
+  void MergeFrom(const Fest_DayTotalRechargeNotify& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 template_id = 1;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 1;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // optional uint32 recharge = 2;
+  inline bool has_recharge() const;
+  inline void clear_recharge();
+  static const int kRechargeFieldNumber = 2;
+  inline ::google::protobuf::uint32 recharge() const;
+  inline void set_recharge(::google::protobuf::uint32 value);
+
+  // repeated int32 fetch_lst = 3;
+  inline int fetch_lst_size() const;
+  inline void clear_fetch_lst();
+  static const int kFetchLstFieldNumber = 3;
+  inline ::google::protobuf::int32 fetch_lst(int index) const;
+  inline void set_fetch_lst(int index, ::google::protobuf::int32 value);
+  inline void add_fetch_lst(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      fetch_lst() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_fetch_lst();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Fest_DayTotalRechargeNotify)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+  inline void set_has_recharge();
+  inline void clear_has_recharge();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 template_id_;
+  ::google::protobuf::uint32 recharge_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > fetch_lst_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static Fest_DayTotalRechargeNotify* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Fest_LoginRewardFetchReq : public ::google::protobuf::Message {
+ public:
+  Fest_LoginRewardFetchReq();
+  virtual ~Fest_LoginRewardFetchReq();
+
+  Fest_LoginRewardFetchReq(const Fest_LoginRewardFetchReq& from);
+
+  inline Fest_LoginRewardFetchReq& operator=(const Fest_LoginRewardFetchReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Fest_LoginRewardFetchReq& default_instance();
+
+  void Swap(Fest_LoginRewardFetchReq* other);
+
+  // implements Message ----------------------------------------------
+
+  Fest_LoginRewardFetchReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Fest_LoginRewardFetchReq& from);
+  void MergeFrom(const Fest_LoginRewardFetchReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 template_id = 1;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 1;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // optional int32 day = 2;
+  inline bool has_day() const;
+  inline void clear_day();
+  static const int kDayFieldNumber = 2;
+  inline ::google::protobuf::int32 day() const;
+  inline void set_day(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Fest_LoginRewardFetchReq)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+  inline void set_has_day();
+  inline void clear_has_day();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 template_id_;
+  ::google::protobuf::int32 day_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static Fest_LoginRewardFetchReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Fest_LoginRewardFetchRsp : public ::google::protobuf::Message {
+ public:
+  Fest_LoginRewardFetchRsp();
+  virtual ~Fest_LoginRewardFetchRsp();
+
+  Fest_LoginRewardFetchRsp(const Fest_LoginRewardFetchRsp& from);
+
+  inline Fest_LoginRewardFetchRsp& operator=(const Fest_LoginRewardFetchRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Fest_LoginRewardFetchRsp& default_instance();
+
+  void Swap(Fest_LoginRewardFetchRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Fest_LoginRewardFetchRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Fest_LoginRewardFetchRsp& from);
+  void MergeFrom(const Fest_LoginRewardFetchRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 template_id = 1;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 1;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // optional int32 ret = 2;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 2;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Fest_LoginRewardFetchRsp)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+  inline void set_has_ret();
+  inline void clear_has_ret();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 template_id_;
+  ::google::protobuf::int32 ret_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static Fest_LoginRewardFetchRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Fest_LoginRewardNotify : public ::google::protobuf::Message {
+ public:
+  Fest_LoginRewardNotify();
+  virtual ~Fest_LoginRewardNotify();
+
+  Fest_LoginRewardNotify(const Fest_LoginRewardNotify& from);
+
+  inline Fest_LoginRewardNotify& operator=(const Fest_LoginRewardNotify& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Fest_LoginRewardNotify& default_instance();
+
+  void Swap(Fest_LoginRewardNotify* other);
+
+  // implements Message ----------------------------------------------
+
+  Fest_LoginRewardNotify* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Fest_LoginRewardNotify& from);
+  void MergeFrom(const Fest_LoginRewardNotify& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 template_id = 1;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 1;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.ComPair fetch = 2;
+  inline int fetch_size() const;
+  inline void clear_fetch();
+  static const int kFetchFieldNumber = 2;
+  inline const ::proto_ff::ComPair& fetch(int index) const;
+  inline ::proto_ff::ComPair* mutable_fetch(int index);
+  inline ::proto_ff::ComPair* add_fetch();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+      fetch() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+      mutable_fetch();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Fest_LoginRewardNotify)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair > fetch_;
+  ::google::protobuf::int32 template_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static Fest_LoginRewardNotify* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Fest_TotalRechargeFetchReq : public ::google::protobuf::Message {
+ public:
+  Fest_TotalRechargeFetchReq();
+  virtual ~Fest_TotalRechargeFetchReq();
+
+  Fest_TotalRechargeFetchReq(const Fest_TotalRechargeFetchReq& from);
+
+  inline Fest_TotalRechargeFetchReq& operator=(const Fest_TotalRechargeFetchReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Fest_TotalRechargeFetchReq& default_instance();
+
+  void Swap(Fest_TotalRechargeFetchReq* other);
+
+  // implements Message ----------------------------------------------
+
+  Fest_TotalRechargeFetchReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Fest_TotalRechargeFetchReq& from);
+  void MergeFrom(const Fest_TotalRechargeFetchReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 template_id = 1;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 1;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // optional int32 id = 2;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 2;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Fest_TotalRechargeFetchReq)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+  inline void set_has_id();
+  inline void clear_has_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 template_id_;
+  ::google::protobuf::int32 id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static Fest_TotalRechargeFetchReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Fest_TotalRechargeFetchRsp : public ::google::protobuf::Message {
+ public:
+  Fest_TotalRechargeFetchRsp();
+  virtual ~Fest_TotalRechargeFetchRsp();
+
+  Fest_TotalRechargeFetchRsp(const Fest_TotalRechargeFetchRsp& from);
+
+  inline Fest_TotalRechargeFetchRsp& operator=(const Fest_TotalRechargeFetchRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Fest_TotalRechargeFetchRsp& default_instance();
+
+  void Swap(Fest_TotalRechargeFetchRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Fest_TotalRechargeFetchRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Fest_TotalRechargeFetchRsp& from);
+  void MergeFrom(const Fest_TotalRechargeFetchRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 template_id = 1;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 1;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // optional int32 ret = 2;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 2;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Fest_TotalRechargeFetchRsp)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+  inline void set_has_ret();
+  inline void clear_has_ret();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 template_id_;
+  ::google::protobuf::int32 ret_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static Fest_TotalRechargeFetchRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Fest_TotalRechargeNotify : public ::google::protobuf::Message {
+ public:
+  Fest_TotalRechargeNotify();
+  virtual ~Fest_TotalRechargeNotify();
+
+  Fest_TotalRechargeNotify(const Fest_TotalRechargeNotify& from);
+
+  inline Fest_TotalRechargeNotify& operator=(const Fest_TotalRechargeNotify& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Fest_TotalRechargeNotify& default_instance();
+
+  void Swap(Fest_TotalRechargeNotify* other);
+
+  // implements Message ----------------------------------------------
+
+  Fest_TotalRechargeNotify* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Fest_TotalRechargeNotify& from);
+  void MergeFrom(const Fest_TotalRechargeNotify& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 template_id = 1;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 1;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // repeated int32 fetch_lst = 2;
+  inline int fetch_lst_size() const;
+  inline void clear_fetch_lst();
+  static const int kFetchLstFieldNumber = 2;
+  inline ::google::protobuf::int32 fetch_lst(int index) const;
+  inline void set_fetch_lst(int index, ::google::protobuf::int32 value);
+  inline void add_fetch_lst(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      fetch_lst() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_fetch_lst();
+
+  // optional uint32 total_recharge = 3;
+  inline bool has_total_recharge() const;
+  inline void clear_total_recharge();
+  static const int kTotalRechargeFieldNumber = 3;
+  inline ::google::protobuf::uint32 total_recharge() const;
+  inline void set_total_recharge(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Fest_TotalRechargeNotify)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+  inline void set_has_total_recharge();
+  inline void clear_has_total_recharge();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > fetch_lst_;
+  ::google::protobuf::int32 template_id_;
+  ::google::protobuf::uint32 total_recharge_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static Fest_TotalRechargeNotify* default_instance_;
+};
 // ===================================================================
 
 
@@ -18105,6 +19514,137 @@ inline void FestMarryDetail::set_score(::google::protobuf::int32 value) {
 
 // -------------------------------------------------------------------
 
+// FestDayTotalRechargeProto
+
+// repeated int32 fetch_lst = 1;
+inline int FestDayTotalRechargeProto::fetch_lst_size() const {
+  return fetch_lst_.size();
+}
+inline void FestDayTotalRechargeProto::clear_fetch_lst() {
+  fetch_lst_.Clear();
+}
+inline ::google::protobuf::int32 FestDayTotalRechargeProto::fetch_lst(int index) const {
+  return fetch_lst_.Get(index);
+}
+inline void FestDayTotalRechargeProto::set_fetch_lst(int index, ::google::protobuf::int32 value) {
+  fetch_lst_.Set(index, value);
+}
+inline void FestDayTotalRechargeProto::add_fetch_lst(::google::protobuf::int32 value) {
+  fetch_lst_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+FestDayTotalRechargeProto::fetch_lst() const {
+  return fetch_lst_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+FestDayTotalRechargeProto::mutable_fetch_lst() {
+  return &fetch_lst_;
+}
+
+// optional uint32 recharge = 2;
+inline bool FestDayTotalRechargeProto::has_recharge() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FestDayTotalRechargeProto::set_has_recharge() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FestDayTotalRechargeProto::clear_has_recharge() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FestDayTotalRechargeProto::clear_recharge() {
+  recharge_ = 0u;
+  clear_has_recharge();
+}
+inline ::google::protobuf::uint32 FestDayTotalRechargeProto::recharge() const {
+  return recharge_;
+}
+inline void FestDayTotalRechargeProto::set_recharge(::google::protobuf::uint32 value) {
+  set_has_recharge();
+  recharge_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FestLoginProto
+
+// repeated .proto_ff.ComPair fetch = 1;
+inline int FestLoginProto::fetch_size() const {
+  return fetch_.size();
+}
+inline void FestLoginProto::clear_fetch() {
+  fetch_.Clear();
+}
+inline const ::proto_ff::ComPair& FestLoginProto::fetch(int index) const {
+  return fetch_.Get(index);
+}
+inline ::proto_ff::ComPair* FestLoginProto::mutable_fetch(int index) {
+  return fetch_.Mutable(index);
+}
+inline ::proto_ff::ComPair* FestLoginProto::add_fetch() {
+  return fetch_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+FestLoginProto::fetch() const {
+  return fetch_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+FestLoginProto::mutable_fetch() {
+  return &fetch_;
+}
+
+// -------------------------------------------------------------------
+
+// FestTotalRechargeProto
+
+// repeated int32 fetch_lst = 1;
+inline int FestTotalRechargeProto::fetch_lst_size() const {
+  return fetch_lst_.size();
+}
+inline void FestTotalRechargeProto::clear_fetch_lst() {
+  fetch_lst_.Clear();
+}
+inline ::google::protobuf::int32 FestTotalRechargeProto::fetch_lst(int index) const {
+  return fetch_lst_.Get(index);
+}
+inline void FestTotalRechargeProto::set_fetch_lst(int index, ::google::protobuf::int32 value) {
+  fetch_lst_.Set(index, value);
+}
+inline void FestTotalRechargeProto::add_fetch_lst(::google::protobuf::int32 value) {
+  fetch_lst_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+FestTotalRechargeProto::fetch_lst() const {
+  return fetch_lst_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+FestTotalRechargeProto::mutable_fetch_lst() {
+  return &fetch_lst_;
+}
+
+// optional uint32 total_recharge = 2;
+inline bool FestTotalRechargeProto::has_total_recharge() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FestTotalRechargeProto::set_has_total_recharge() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FestTotalRechargeProto::clear_has_total_recharge() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FestTotalRechargeProto::clear_total_recharge() {
+  total_recharge_ = 0u;
+  clear_has_total_recharge();
+}
+inline ::google::protobuf::uint32 FestTotalRechargeProto::total_recharge() const {
+  return total_recharge_;
+}
+inline void FestTotalRechargeProto::set_total_recharge(::google::protobuf::uint32 value) {
+  set_has_total_recharge();
+  total_recharge_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // FestDetailProto
 
 // optional int32 template_id = 1;
@@ -18734,6 +20274,120 @@ inline void FestDetailProto::set_allocated_candle(::proto_ff::FestCandleProto* c
     set_has_candle();
   } else {
     clear_has_candle();
+  }
+}
+
+// optional .proto_ff.FestDayTotalRechargeProto day_total_recharge = 18;
+inline bool FestDetailProto::has_day_total_recharge() const {
+  return (_has_bits_[0] & 0x00020000u) != 0;
+}
+inline void FestDetailProto::set_has_day_total_recharge() {
+  _has_bits_[0] |= 0x00020000u;
+}
+inline void FestDetailProto::clear_has_day_total_recharge() {
+  _has_bits_[0] &= ~0x00020000u;
+}
+inline void FestDetailProto::clear_day_total_recharge() {
+  if (day_total_recharge_ != NULL) day_total_recharge_->::proto_ff::FestDayTotalRechargeProto::Clear();
+  clear_has_day_total_recharge();
+}
+inline const ::proto_ff::FestDayTotalRechargeProto& FestDetailProto::day_total_recharge() const {
+  return day_total_recharge_ != NULL ? *day_total_recharge_ : *default_instance_->day_total_recharge_;
+}
+inline ::proto_ff::FestDayTotalRechargeProto* FestDetailProto::mutable_day_total_recharge() {
+  set_has_day_total_recharge();
+  if (day_total_recharge_ == NULL) day_total_recharge_ = new ::proto_ff::FestDayTotalRechargeProto;
+  return day_total_recharge_;
+}
+inline ::proto_ff::FestDayTotalRechargeProto* FestDetailProto::release_day_total_recharge() {
+  clear_has_day_total_recharge();
+  ::proto_ff::FestDayTotalRechargeProto* temp = day_total_recharge_;
+  day_total_recharge_ = NULL;
+  return temp;
+}
+inline void FestDetailProto::set_allocated_day_total_recharge(::proto_ff::FestDayTotalRechargeProto* day_total_recharge) {
+  delete day_total_recharge_;
+  day_total_recharge_ = day_total_recharge;
+  if (day_total_recharge) {
+    set_has_day_total_recharge();
+  } else {
+    clear_has_day_total_recharge();
+  }
+}
+
+// optional .proto_ff.FestTotalRechargeProto total_recharge = 19;
+inline bool FestDetailProto::has_total_recharge() const {
+  return (_has_bits_[0] & 0x00040000u) != 0;
+}
+inline void FestDetailProto::set_has_total_recharge() {
+  _has_bits_[0] |= 0x00040000u;
+}
+inline void FestDetailProto::clear_has_total_recharge() {
+  _has_bits_[0] &= ~0x00040000u;
+}
+inline void FestDetailProto::clear_total_recharge() {
+  if (total_recharge_ != NULL) total_recharge_->::proto_ff::FestTotalRechargeProto::Clear();
+  clear_has_total_recharge();
+}
+inline const ::proto_ff::FestTotalRechargeProto& FestDetailProto::total_recharge() const {
+  return total_recharge_ != NULL ? *total_recharge_ : *default_instance_->total_recharge_;
+}
+inline ::proto_ff::FestTotalRechargeProto* FestDetailProto::mutable_total_recharge() {
+  set_has_total_recharge();
+  if (total_recharge_ == NULL) total_recharge_ = new ::proto_ff::FestTotalRechargeProto;
+  return total_recharge_;
+}
+inline ::proto_ff::FestTotalRechargeProto* FestDetailProto::release_total_recharge() {
+  clear_has_total_recharge();
+  ::proto_ff::FestTotalRechargeProto* temp = total_recharge_;
+  total_recharge_ = NULL;
+  return temp;
+}
+inline void FestDetailProto::set_allocated_total_recharge(::proto_ff::FestTotalRechargeProto* total_recharge) {
+  delete total_recharge_;
+  total_recharge_ = total_recharge;
+  if (total_recharge) {
+    set_has_total_recharge();
+  } else {
+    clear_has_total_recharge();
+  }
+}
+
+// optional .proto_ff.FestLoginProto login = 20;
+inline bool FestDetailProto::has_login() const {
+  return (_has_bits_[0] & 0x00080000u) != 0;
+}
+inline void FestDetailProto::set_has_login() {
+  _has_bits_[0] |= 0x00080000u;
+}
+inline void FestDetailProto::clear_has_login() {
+  _has_bits_[0] &= ~0x00080000u;
+}
+inline void FestDetailProto::clear_login() {
+  if (login_ != NULL) login_->::proto_ff::FestLoginProto::Clear();
+  clear_has_login();
+}
+inline const ::proto_ff::FestLoginProto& FestDetailProto::login() const {
+  return login_ != NULL ? *login_ : *default_instance_->login_;
+}
+inline ::proto_ff::FestLoginProto* FestDetailProto::mutable_login() {
+  set_has_login();
+  if (login_ == NULL) login_ = new ::proto_ff::FestLoginProto;
+  return login_;
+}
+inline ::proto_ff::FestLoginProto* FestDetailProto::release_login() {
+  clear_has_login();
+  ::proto_ff::FestLoginProto* temp = login_;
+  login_ = NULL;
+  return temp;
+}
+inline void FestDetailProto::set_allocated_login(::proto_ff::FestLoginProto* login) {
+  delete login_;
+  login_ = login;
+  if (login) {
+    set_has_login();
+  } else {
+    clear_has_login();
   }
 }
 
@@ -22270,6 +23924,193 @@ inline ::google::protobuf::uint64 FestServerRankGetMyRankRsp::param() const {
 inline void FestServerRankGetMyRankRsp::set_param(::google::protobuf::uint64 value) {
   set_has_param();
   param_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FestServerRankGetAllRankReq
+
+// optional int32 template_id = 1;
+inline bool FestServerRankGetAllRankReq::has_template_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FestServerRankGetAllRankReq::set_has_template_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FestServerRankGetAllRankReq::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FestServerRankGetAllRankReq::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 FestServerRankGetAllRankReq::template_id() const {
+  return template_id_;
+}
+inline void FestServerRankGetAllRankReq::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// optional int32 rank_id = 2;
+inline bool FestServerRankGetAllRankReq::has_rank_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FestServerRankGetAllRankReq::set_has_rank_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FestServerRankGetAllRankReq::clear_has_rank_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FestServerRankGetAllRankReq::clear_rank_id() {
+  rank_id_ = 0;
+  clear_has_rank_id();
+}
+inline ::google::protobuf::int32 FestServerRankGetAllRankReq::rank_id() const {
+  return rank_id_;
+}
+inline void FestServerRankGetAllRankReq::set_rank_id(::google::protobuf::int32 value) {
+  set_has_rank_id();
+  rank_id_ = value;
+}
+
+// optional uint64 cid = 3;
+inline bool FestServerRankGetAllRankReq::has_cid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void FestServerRankGetAllRankReq::set_has_cid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void FestServerRankGetAllRankReq::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void FestServerRankGetAllRankReq::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 FestServerRankGetAllRankReq::cid() const {
+  return cid_;
+}
+inline void FestServerRankGetAllRankReq::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional uint32 rank_type = 4;
+inline bool FestServerRankGetAllRankReq::has_rank_type() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void FestServerRankGetAllRankReq::set_has_rank_type() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void FestServerRankGetAllRankReq::clear_has_rank_type() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void FestServerRankGetAllRankReq::clear_rank_type() {
+  rank_type_ = 0u;
+  clear_has_rank_type();
+}
+inline ::google::protobuf::uint32 FestServerRankGetAllRankReq::rank_type() const {
+  return rank_type_;
+}
+inline void FestServerRankGetAllRankReq::set_rank_type(::google::protobuf::uint32 value) {
+  set_has_rank_type();
+  rank_type_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FestServerRankGetAllRankRsp
+
+// optional int32 ret = 1;
+inline bool FestServerRankGetAllRankRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FestServerRankGetAllRankRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FestServerRankGetAllRankRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FestServerRankGetAllRankRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 FestServerRankGetAllRankRsp::ret() const {
+  return ret_;
+}
+inline void FestServerRankGetAllRankRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 template_id = 2;
+inline bool FestServerRankGetAllRankRsp::has_template_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FestServerRankGetAllRankRsp::set_has_template_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FestServerRankGetAllRankRsp::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FestServerRankGetAllRankRsp::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 FestServerRankGetAllRankRsp::template_id() const {
+  return template_id_;
+}
+inline void FestServerRankGetAllRankRsp::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// optional int32 rank_id = 3;
+inline bool FestServerRankGetAllRankRsp::has_rank_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void FestServerRankGetAllRankRsp::set_has_rank_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void FestServerRankGetAllRankRsp::clear_has_rank_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void FestServerRankGetAllRankRsp::clear_rank_id() {
+  rank_id_ = 0;
+  clear_has_rank_id();
+}
+inline ::google::protobuf::int32 FestServerRankGetAllRankRsp::rank_id() const {
+  return rank_id_;
+}
+inline void FestServerRankGetAllRankRsp::set_rank_id(::google::protobuf::int32 value) {
+  set_has_rank_id();
+  rank_id_ = value;
+}
+
+// repeated .proto_ff.RankNodeData rankList = 4;
+inline int FestServerRankGetAllRankRsp::ranklist_size() const {
+  return ranklist_.size();
+}
+inline void FestServerRankGetAllRankRsp::clear_ranklist() {
+  ranklist_.Clear();
+}
+inline const ::proto_ff::RankNodeData& FestServerRankGetAllRankRsp::ranklist(int index) const {
+  return ranklist_.Get(index);
+}
+inline ::proto_ff::RankNodeData* FestServerRankGetAllRankRsp::mutable_ranklist(int index) {
+  return ranklist_.Mutable(index);
+}
+inline ::proto_ff::RankNodeData* FestServerRankGetAllRankRsp::add_ranklist() {
+  return ranklist_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RankNodeData >&
+FestServerRankGetAllRankRsp::ranklist() const {
+  return ranklist_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RankNodeData >*
+FestServerRankGetAllRankRsp::mutable_ranklist() {
+  return &ranklist_;
 }
 
 // -------------------------------------------------------------------
@@ -28313,6 +30154,491 @@ inline ::google::protobuf::int32 Fest_XiYouSyncForceClose::cur_state() const {
 inline void Fest_XiYouSyncForceClose::set_cur_state(::google::protobuf::int32 value) {
   set_has_cur_state();
   cur_state_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Fest_DayTotalRechargeFetchReq
+
+// optional int32 template_id = 1;
+inline bool Fest_DayTotalRechargeFetchReq::has_template_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Fest_DayTotalRechargeFetchReq::set_has_template_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Fest_DayTotalRechargeFetchReq::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Fest_DayTotalRechargeFetchReq::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 Fest_DayTotalRechargeFetchReq::template_id() const {
+  return template_id_;
+}
+inline void Fest_DayTotalRechargeFetchReq::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// optional int32 id = 2;
+inline bool Fest_DayTotalRechargeFetchReq::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Fest_DayTotalRechargeFetchReq::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Fest_DayTotalRechargeFetchReq::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Fest_DayTotalRechargeFetchReq::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 Fest_DayTotalRechargeFetchReq::id() const {
+  return id_;
+}
+inline void Fest_DayTotalRechargeFetchReq::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Fest_DayTotalRechargeFetchRsp
+
+// optional int32 template_id = 1;
+inline bool Fest_DayTotalRechargeFetchRsp::has_template_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Fest_DayTotalRechargeFetchRsp::set_has_template_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Fest_DayTotalRechargeFetchRsp::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Fest_DayTotalRechargeFetchRsp::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 Fest_DayTotalRechargeFetchRsp::template_id() const {
+  return template_id_;
+}
+inline void Fest_DayTotalRechargeFetchRsp::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// optional int32 ret = 2;
+inline bool Fest_DayTotalRechargeFetchRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Fest_DayTotalRechargeFetchRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Fest_DayTotalRechargeFetchRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Fest_DayTotalRechargeFetchRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 Fest_DayTotalRechargeFetchRsp::ret() const {
+  return ret_;
+}
+inline void Fest_DayTotalRechargeFetchRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Fest_DayTotalRechargeNotify
+
+// optional int32 template_id = 1;
+inline bool Fest_DayTotalRechargeNotify::has_template_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Fest_DayTotalRechargeNotify::set_has_template_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Fest_DayTotalRechargeNotify::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Fest_DayTotalRechargeNotify::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 Fest_DayTotalRechargeNotify::template_id() const {
+  return template_id_;
+}
+inline void Fest_DayTotalRechargeNotify::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// optional uint32 recharge = 2;
+inline bool Fest_DayTotalRechargeNotify::has_recharge() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Fest_DayTotalRechargeNotify::set_has_recharge() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Fest_DayTotalRechargeNotify::clear_has_recharge() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Fest_DayTotalRechargeNotify::clear_recharge() {
+  recharge_ = 0u;
+  clear_has_recharge();
+}
+inline ::google::protobuf::uint32 Fest_DayTotalRechargeNotify::recharge() const {
+  return recharge_;
+}
+inline void Fest_DayTotalRechargeNotify::set_recharge(::google::protobuf::uint32 value) {
+  set_has_recharge();
+  recharge_ = value;
+}
+
+// repeated int32 fetch_lst = 3;
+inline int Fest_DayTotalRechargeNotify::fetch_lst_size() const {
+  return fetch_lst_.size();
+}
+inline void Fest_DayTotalRechargeNotify::clear_fetch_lst() {
+  fetch_lst_.Clear();
+}
+inline ::google::protobuf::int32 Fest_DayTotalRechargeNotify::fetch_lst(int index) const {
+  return fetch_lst_.Get(index);
+}
+inline void Fest_DayTotalRechargeNotify::set_fetch_lst(int index, ::google::protobuf::int32 value) {
+  fetch_lst_.Set(index, value);
+}
+inline void Fest_DayTotalRechargeNotify::add_fetch_lst(::google::protobuf::int32 value) {
+  fetch_lst_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+Fest_DayTotalRechargeNotify::fetch_lst() const {
+  return fetch_lst_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+Fest_DayTotalRechargeNotify::mutable_fetch_lst() {
+  return &fetch_lst_;
+}
+
+// -------------------------------------------------------------------
+
+// Fest_LoginRewardFetchReq
+
+// optional int32 template_id = 1;
+inline bool Fest_LoginRewardFetchReq::has_template_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Fest_LoginRewardFetchReq::set_has_template_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Fest_LoginRewardFetchReq::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Fest_LoginRewardFetchReq::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 Fest_LoginRewardFetchReq::template_id() const {
+  return template_id_;
+}
+inline void Fest_LoginRewardFetchReq::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// optional int32 day = 2;
+inline bool Fest_LoginRewardFetchReq::has_day() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Fest_LoginRewardFetchReq::set_has_day() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Fest_LoginRewardFetchReq::clear_has_day() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Fest_LoginRewardFetchReq::clear_day() {
+  day_ = 0;
+  clear_has_day();
+}
+inline ::google::protobuf::int32 Fest_LoginRewardFetchReq::day() const {
+  return day_;
+}
+inline void Fest_LoginRewardFetchReq::set_day(::google::protobuf::int32 value) {
+  set_has_day();
+  day_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Fest_LoginRewardFetchRsp
+
+// optional int32 template_id = 1;
+inline bool Fest_LoginRewardFetchRsp::has_template_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Fest_LoginRewardFetchRsp::set_has_template_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Fest_LoginRewardFetchRsp::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Fest_LoginRewardFetchRsp::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 Fest_LoginRewardFetchRsp::template_id() const {
+  return template_id_;
+}
+inline void Fest_LoginRewardFetchRsp::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// optional int32 ret = 2;
+inline bool Fest_LoginRewardFetchRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Fest_LoginRewardFetchRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Fest_LoginRewardFetchRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Fest_LoginRewardFetchRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 Fest_LoginRewardFetchRsp::ret() const {
+  return ret_;
+}
+inline void Fest_LoginRewardFetchRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Fest_LoginRewardNotify
+
+// optional int32 template_id = 1;
+inline bool Fest_LoginRewardNotify::has_template_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Fest_LoginRewardNotify::set_has_template_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Fest_LoginRewardNotify::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Fest_LoginRewardNotify::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 Fest_LoginRewardNotify::template_id() const {
+  return template_id_;
+}
+inline void Fest_LoginRewardNotify::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// repeated .proto_ff.ComPair fetch = 2;
+inline int Fest_LoginRewardNotify::fetch_size() const {
+  return fetch_.size();
+}
+inline void Fest_LoginRewardNotify::clear_fetch() {
+  fetch_.Clear();
+}
+inline const ::proto_ff::ComPair& Fest_LoginRewardNotify::fetch(int index) const {
+  return fetch_.Get(index);
+}
+inline ::proto_ff::ComPair* Fest_LoginRewardNotify::mutable_fetch(int index) {
+  return fetch_.Mutable(index);
+}
+inline ::proto_ff::ComPair* Fest_LoginRewardNotify::add_fetch() {
+  return fetch_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+Fest_LoginRewardNotify::fetch() const {
+  return fetch_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+Fest_LoginRewardNotify::mutable_fetch() {
+  return &fetch_;
+}
+
+// -------------------------------------------------------------------
+
+// Fest_TotalRechargeFetchReq
+
+// optional int32 template_id = 1;
+inline bool Fest_TotalRechargeFetchReq::has_template_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Fest_TotalRechargeFetchReq::set_has_template_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Fest_TotalRechargeFetchReq::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Fest_TotalRechargeFetchReq::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 Fest_TotalRechargeFetchReq::template_id() const {
+  return template_id_;
+}
+inline void Fest_TotalRechargeFetchReq::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// optional int32 id = 2;
+inline bool Fest_TotalRechargeFetchReq::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Fest_TotalRechargeFetchReq::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Fest_TotalRechargeFetchReq::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Fest_TotalRechargeFetchReq::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 Fest_TotalRechargeFetchReq::id() const {
+  return id_;
+}
+inline void Fest_TotalRechargeFetchReq::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Fest_TotalRechargeFetchRsp
+
+// optional int32 template_id = 1;
+inline bool Fest_TotalRechargeFetchRsp::has_template_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Fest_TotalRechargeFetchRsp::set_has_template_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Fest_TotalRechargeFetchRsp::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Fest_TotalRechargeFetchRsp::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 Fest_TotalRechargeFetchRsp::template_id() const {
+  return template_id_;
+}
+inline void Fest_TotalRechargeFetchRsp::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// optional int32 ret = 2;
+inline bool Fest_TotalRechargeFetchRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Fest_TotalRechargeFetchRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Fest_TotalRechargeFetchRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Fest_TotalRechargeFetchRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 Fest_TotalRechargeFetchRsp::ret() const {
+  return ret_;
+}
+inline void Fest_TotalRechargeFetchRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Fest_TotalRechargeNotify
+
+// optional int32 template_id = 1;
+inline bool Fest_TotalRechargeNotify::has_template_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Fest_TotalRechargeNotify::set_has_template_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Fest_TotalRechargeNotify::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Fest_TotalRechargeNotify::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 Fest_TotalRechargeNotify::template_id() const {
+  return template_id_;
+}
+inline void Fest_TotalRechargeNotify::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// repeated int32 fetch_lst = 2;
+inline int Fest_TotalRechargeNotify::fetch_lst_size() const {
+  return fetch_lst_.size();
+}
+inline void Fest_TotalRechargeNotify::clear_fetch_lst() {
+  fetch_lst_.Clear();
+}
+inline ::google::protobuf::int32 Fest_TotalRechargeNotify::fetch_lst(int index) const {
+  return fetch_lst_.Get(index);
+}
+inline void Fest_TotalRechargeNotify::set_fetch_lst(int index, ::google::protobuf::int32 value) {
+  fetch_lst_.Set(index, value);
+}
+inline void Fest_TotalRechargeNotify::add_fetch_lst(::google::protobuf::int32 value) {
+  fetch_lst_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+Fest_TotalRechargeNotify::fetch_lst() const {
+  return fetch_lst_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+Fest_TotalRechargeNotify::mutable_fetch_lst() {
+  return &fetch_lst_;
+}
+
+// optional uint32 total_recharge = 3;
+inline bool Fest_TotalRechargeNotify::has_total_recharge() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Fest_TotalRechargeNotify::set_has_total_recharge() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Fest_TotalRechargeNotify::clear_has_total_recharge() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Fest_TotalRechargeNotify::clear_total_recharge() {
+  total_recharge_ = 0u;
+  clear_has_total_recharge();
+}
+inline ::google::protobuf::uint32 Fest_TotalRechargeNotify::total_recharge() const {
+  return total_recharge_;
+}
+inline void Fest_TotalRechargeNotify::set_total_recharge(::google::protobuf::uint32 value) {
+  set_has_total_recharge();
+  total_recharge_ = value;
 }
 
 

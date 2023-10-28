@@ -2464,6 +2464,13 @@ class GWArenaChallReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 can_miaosha() const;
   inline void set_can_miaosha(::google::protobuf::uint32 value);
 
+  // optional int32 mult = 7;
+  inline bool has_mult() const;
+  inline void clear_mult();
+  static const int kMultFieldNumber = 7;
+  inline ::google::protobuf::int32 mult() const;
+  inline void set_mult(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.GWArenaChallReq)
  private:
   inline void set_has_srcid();
@@ -2478,6 +2485,8 @@ class GWArenaChallReq : public ::google::protobuf::Message {
   inline void clear_has_chall_type();
   inline void set_has_can_miaosha();
   inline void clear_has_can_miaosha();
+  inline void set_has_mult();
+  inline void clear_has_mult();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -2487,9 +2496,10 @@ class GWArenaChallReq : public ::google::protobuf::Message {
   ::google::protobuf::uint32 type_;
   ::google::protobuf::uint32 chall_type_;
   ::google::protobuf::uint32 can_miaosha_;
+  ::google::protobuf::int32 mult_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_Arena_2eproto();
   friend void protobuf_AssignDesc_Arena_2eproto();
@@ -5273,6 +5283,28 @@ inline ::google::protobuf::uint32 GWArenaChallReq::can_miaosha() const {
 inline void GWArenaChallReq::set_can_miaosha(::google::protobuf::uint32 value) {
   set_has_can_miaosha();
   can_miaosha_ = value;
+}
+
+// optional int32 mult = 7;
+inline bool GWArenaChallReq::has_mult() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void GWArenaChallReq::set_has_mult() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void GWArenaChallReq::clear_has_mult() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void GWArenaChallReq::clear_mult() {
+  mult_ = 0;
+  clear_has_mult();
+}
+inline ::google::protobuf::int32 GWArenaChallReq::mult() const {
+  return mult_;
+}
+inline void GWArenaChallReq::set_mult(::google::protobuf::int32 value) {
+  set_has_mult();
+  mult_ = value;
 }
 
 // -------------------------------------------------------------------

@@ -116,6 +116,9 @@ class GMATimeRechargeRsp;
 class GMAExitReq;
 class GMAResultReq;
 class GMAResultRsp;
+class GMADatasReq;
+class GMAError;
+class GMATimeReq;
 
 // ===================================================================
 
@@ -8059,6 +8062,242 @@ class GMAResultRsp : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static GMAResultRsp* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class GMADatasReq : public ::google::protobuf::Message {
+ public:
+  GMADatasReq();
+  virtual ~GMADatasReq();
+
+  GMADatasReq(const GMADatasReq& from);
+
+  inline GMADatasReq& operator=(const GMADatasReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GMADatasReq& default_instance();
+
+  void Swap(GMADatasReq* other);
+
+  // implements Message ----------------------------------------------
+
+  GMADatasReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GMADatasReq& from);
+  void MergeFrom(const GMADatasReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GMADatasReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static GMADatasReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GMAError : public ::google::protobuf::Message {
+ public:
+  GMAError();
+  virtual ~GMAError();
+
+  GMAError(const GMAError& from);
+
+  inline GMAError& operator=(const GMAError& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GMAError& default_instance();
+
+  void Swap(GMAError* other);
+
+  // implements Message ----------------------------------------------
+
+  GMAError* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GMAError& from);
+  void MergeFrom(const GMAError& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 errcode = 1;
+  inline bool has_errcode() const;
+  inline void clear_errcode();
+  static const int kErrcodeFieldNumber = 1;
+  inline ::google::protobuf::uint32 errcode() const;
+  inline void set_errcode(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GMAError)
+ private:
+  inline void set_has_errcode();
+  inline void clear_has_errcode();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 errcode_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static GMAError* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GMATimeReq : public ::google::protobuf::Message {
+ public:
+  GMATimeReq();
+  virtual ~GMATimeReq();
+
+  GMATimeReq(const GMATimeReq& from);
+
+  inline GMATimeReq& operator=(const GMATimeReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GMATimeReq& default_instance();
+
+  void Swap(GMATimeReq* other);
+
+  // implements Message ----------------------------------------------
+
+  GMATimeReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GMATimeReq& from);
+  void MergeFrom(const GMATimeReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 op = 1;
+  inline bool has_op() const;
+  inline void clear_op();
+  static const int kOpFieldNumber = 1;
+  inline ::google::protobuf::uint32 op() const;
+  inline void set_op(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GMATimeReq)
+ private:
+  inline void set_has_op();
+  inline void clear_has_op();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 op_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static GMATimeReq* default_instance_;
+};
 // ===================================================================
 
 
@@ -13581,6 +13820,62 @@ inline ::google::protobuf::uint64 GMAResultRsp::timeused() const {
 inline void GMAResultRsp::set_timeused(::google::protobuf::uint64 value) {
   set_has_timeused();
   timeused_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GMADatasReq
+
+// -------------------------------------------------------------------
+
+// GMAError
+
+// required uint32 errcode = 1;
+inline bool GMAError::has_errcode() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GMAError::set_has_errcode() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GMAError::clear_has_errcode() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GMAError::clear_errcode() {
+  errcode_ = 0u;
+  clear_has_errcode();
+}
+inline ::google::protobuf::uint32 GMAError::errcode() const {
+  return errcode_;
+}
+inline void GMAError::set_errcode(::google::protobuf::uint32 value) {
+  set_has_errcode();
+  errcode_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GMATimeReq
+
+// required uint32 op = 1;
+inline bool GMATimeReq::has_op() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GMATimeReq::set_has_op() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GMATimeReq::clear_has_op() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GMATimeReq::clear_op() {
+  op_ = 0u;
+  clear_has_op();
+}
+inline ::google::protobuf::uint32 GMATimeReq::op() const {
+  return op_;
+}
+inline void GMATimeReq::set_op(::google::protobuf::uint32 value) {
+  set_has_op();
+  op_ = value;
 }
 
 

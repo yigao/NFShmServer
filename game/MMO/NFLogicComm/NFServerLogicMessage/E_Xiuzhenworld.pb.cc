@@ -81,8 +81,9 @@ void protobuf_AssignDesc_E_5fXiuzhenworld_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_XiuzhenworldConstantTypeDesc));
   E_XiuzhenworldConstant_descriptor_ = file->message_type(2);
-  static const int E_XiuzhenworldConstant_offsets_[15] = {
+  static const int E_XiuzhenworldConstant_offsets_[16] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_XiuzhenworldConstant, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_XiuzhenworldConstant, m_starfreetime_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_XiuzhenworldConstant, m_freetimemoment_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_XiuzhenworldConstant, m_freetime_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_XiuzhenworldConstant, m_freetimemax_),
@@ -212,34 +213,36 @@ void protobuf_AddDesc_E_5fXiuzhenworld_2eproto() {
     "tTimeitemDesc\022\032\n\006m_time\030\001 \001(\005B\n\302\377\024\006\346\227\266\351\227"
     "\264\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002id\"R\n\036E_Xiuzhenworl"
     "dConstantTypeDesc\022\032\n\005m_num\030\001 \001(\tB\013\302\377\024\003\345\200"
-    "\274\220\301\024@\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002ID\"\362\005\n\026E_Xiuzhe"
-    "nworldConstant\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022@\n\020"
-    "m_freetimemoment\030\002 \001(\tB&\302\377\024\036\350\216\267\345\276\227\345\205\215\350\264\271"
-    "\346\227\266\351\227\264\347\232\204\346\227\266\351\227\264\347\202\271\220\301\024@\022-\n\nm_freetime\030\003 \001"
-    "(\005B\031\302\377\024\025\346\257\217\346\254\241\350\216\267\345\276\227\347\232\204\346\227\266\351\227\264\022-\n\rm_freet"
-    "imemax\030\004 \001(\005B\026\302\377\024\022\345\205\215\350\264\271\346\227\266\351\227\264\344\270\212\351\231\220\022\"\n\010"
-    "m_helpid\030\005 \001(\005B\020\302\377\024\014\345\270\256\345\212\251\344\277\241\346\201\257\022,\n\014m_ad"
-    "dgexpmax\030\006 \001(\005B\026\302\377\024\022\347\245\236\345\205\203\347\273\217\351\252\214\344\270\212\351\231\220\022."
-    "\n\016m_pripricetype\030\007 \001(\005B\026\302\377\024\022\347\211\271\346\235\203\344\273\267\346\240\274"
-    "\347\261\273\345\236\213\022&\n\014m_pricevalue\030\010 \001(\005B\020\302\377\024\014\347\211\271\346\235\203"
-    "\344\273\267\346\240\274\0224\n\016m_gexppribonus\030\t \001(\005B\034\302\377\024\030\347\211\271\346"
-    "\235\203\347\245\236\345\205\203\347\273\217\351\252\214\345\212\240\346\210\220\022*\n\020m_gexpgroupbonus"
-    "\030\n \001(\005B\020\302\377\024\014\347\273\204\351\230\237\345\212\240\346\210\220\022$\n\nm_mapstart\030\013"
-    " \001(\005B\020\302\377\024\014\345\234\260\345\233\276\345\274\200\345\247\213\022\"\n\010m_mapend\030\014 \001(\005"
-    "B\020\302\377\024\014\345\234\260\345\233\276\347\273\223\346\235\237\022*\n\013m_expitemid\030\r \001(\005B"
-    "\025\302\377\024\021\347\273\217\351\252\214\347\232\204\347\211\251\345\223\201ID\022V\n\nm_timeitem\030\016 \003"
-    "(\0132,.proto_ff.E_XiuzhenworldConstantTime"
-    "itemDescB\024\302\377\024\014\346\227\266\351\227\264\351\201\223\345\205\267\210\301\024\003\022H\n\006m_type"
-    "\030\017 \003(\0132(.proto_ff.E_XiuzhenworldConstant"
-    "TypeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\005\"i\n\032Sheet_Xiuzhe"
-    "nworldConstant\022K\n\033E_XiuzhenworldConstant"
-    "_List\030\001 \003(\0132 .proto_ff.E_XiuzhenworldCon"
-    "stantB\004\210\301\024\004\"{\n\024E_XiuzhenworldExpmap\022\024\n\004m"
-    "_id\030\001 \001(\005B\006\302\377\024\002id\022.\n\016m_conditionglv\030\002 \001("
-    "\005B\026\302\377\024\022\350\277\233\345\205\245\350\275\254\347\224\237\350\246\201\346\261\202\022\035\n\007m_mapid\030\003 \001"
-    "(\005B\014\302\377\024\010\345\234\260\345\233\276id\"c\n\030Sheet_XiuzhenworldEx"
-    "pmap\022G\n\031E_XiuzhenworldExpmap_List\030\001 \003(\0132"
-    "\036.proto_ff.E_XiuzhenworldExpmapB\004\210\301\024\020", 1317);
+    "\274\220\301\024@\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002ID\"\242\006\n\026E_Xiuzhe"
+    "nworldConstant\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022.\n\016"
+    "m_starfreetime\030\002 \001(\005B\026\302\377\024\022\345\210\235\345\247\213\345\205\215\350\264\271\346\227"
+    "\266\351\227\264\022@\n\020m_freetimemoment\030\003 \001(\tB&\302\377\024\036\350\216\267\345"
+    "\276\227\345\205\215\350\264\271\346\227\266\351\227\264\347\232\204\346\227\266\351\227\264\347\202\271\220\301\024@\022-\n\nm_free"
+    "time\030\004 \001(\005B\031\302\377\024\025\346\257\217\346\254\241\350\216\267\345\276\227\347\232\204\346\227\266\351\227\264\022-\n"
+    "\rm_freetimemax\030\005 \001(\005B\026\302\377\024\022\345\205\215\350\264\271\346\227\266\351\227\264\344\270"
+    "\212\351\231\220\022\"\n\010m_helpid\030\006 \001(\005B\020\302\377\024\014\345\270\256\345\212\251\344\277\241\346\201\257"
+    "\022,\n\014m_addgexpmax\030\007 \001(\005B\026\302\377\024\022\347\245\236\345\205\203\347\273\217\351\252\214"
+    "\344\270\212\351\231\220\022.\n\016m_pripricetype\030\010 \001(\005B\026\302\377\024\022\347\211\271\346"
+    "\235\203\344\273\267\346\240\274\347\261\273\345\236\213\022&\n\014m_pricevalue\030\t \001(\005B\020\302\377"
+    "\024\014\347\211\271\346\235\203\344\273\267\346\240\274\0224\n\016m_gexppribonus\030\n \001(\005B\034"
+    "\302\377\024\030\347\211\271\346\235\203\347\245\236\345\205\203\347\273\217\351\252\214\345\212\240\346\210\220\022*\n\020m_gexpgr"
+    "oupbonus\030\013 \001(\005B\020\302\377\024\014\347\273\204\351\230\237\345\212\240\346\210\220\022$\n\nm_ma"
+    "pstart\030\014 \001(\005B\020\302\377\024\014\345\234\260\345\233\276\345\274\200\345\247\213\022\"\n\010m_mape"
+    "nd\030\r \001(\005B\020\302\377\024\014\345\234\260\345\233\276\347\273\223\346\235\237\022*\n\013m_expitemi"
+    "d\030\016 \001(\005B\025\302\377\024\021\347\273\217\351\252\214\347\232\204\347\211\251\345\223\201ID\022V\n\nm_time"
+    "item\030\017 \003(\0132,.proto_ff.E_XiuzhenworldCons"
+    "tantTimeitemDescB\024\302\377\024\014\346\227\266\351\227\264\351\201\223\345\205\267\210\301\024\003\022H"
+    "\n\006m_type\030\020 \003(\0132(.proto_ff.E_Xiuzhenworld"
+    "ConstantTypeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\005\"i\n\032Shee"
+    "t_XiuzhenworldConstant\022K\n\033E_Xiuzhenworld"
+    "Constant_List\030\001 \003(\0132 .proto_ff.E_Xiuzhen"
+    "worldConstantB\004\210\301\024\020\"{\n\024E_XiuzhenworldExp"
+    "map\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022.\n\016m_condition"
+    "glv\030\002 \001(\005B\026\302\377\024\022\350\277\233\345\205\245\350\275\254\347\224\237\350\246\201\346\261\202\022\035\n\007m_m"
+    "apid\030\003 \001(\005B\014\302\377\024\010\345\234\260\345\233\276id\"c\n\030Sheet_Xiuzhe"
+    "nworldExpmap\022G\n\031E_XiuzhenworldExpmap_Lis"
+    "t\030\001 \003(\0132\036.proto_ff.E_XiuzhenworldExpmapB"
+    "\004\210\301\024\010", 1365);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Xiuzhenworld.proto", &protobuf_RegisterTypes);
   E_XiuzhenworldConstantTimeitemDesc::default_instance_ = new E_XiuzhenworldConstantTimeitemDesc();
@@ -781,6 +784,7 @@ void E_XiuzhenworldConstantTypeDesc::Swap(E_XiuzhenworldConstantTypeDesc* other)
 
 #ifndef _MSC_VER
 const int E_XiuzhenworldConstant::kMIdFieldNumber;
+const int E_XiuzhenworldConstant::kMStarfreetimeFieldNumber;
 const int E_XiuzhenworldConstant::kMFreetimemomentFieldNumber;
 const int E_XiuzhenworldConstant::kMFreetimeFieldNumber;
 const int E_XiuzhenworldConstant::kMFreetimemaxFieldNumber;
@@ -814,6 +818,7 @@ E_XiuzhenworldConstant::E_XiuzhenworldConstant(const E_XiuzhenworldConstant& fro
 void E_XiuzhenworldConstant::SharedCtor() {
   _cached_size_ = 0;
   m_id_ = 0;
+  m_starfreetime_ = 0;
   m_freetimemoment_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_freetime_ = 0;
   m_freetimemax_ = 0;
@@ -865,6 +870,7 @@ E_XiuzhenworldConstant* E_XiuzhenworldConstant::New() const {
 void E_XiuzhenworldConstant::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     m_id_ = 0;
+    m_starfreetime_ = 0;
     if (has_m_freetimemoment()) {
       if (m_freetimemoment_ != &::google::protobuf::internal::kEmptyString) {
         m_freetimemoment_->clear();
@@ -875,9 +881,9 @@ void E_XiuzhenworldConstant::Clear() {
     m_helpid_ = 0;
     m_addgexpmax_ = 0;
     m_pripricetype_ = 0;
-    m_pricevalue_ = 0;
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    m_pricevalue_ = 0;
     m_gexppribonus_ = 0;
     m_gexpgroupbonus_ = 0;
     m_mapstart_ = 0;
@@ -907,12 +913,28 @@ bool E_XiuzhenworldConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_m_freetimemoment;
+        if (input->ExpectTag(16)) goto parse_m_starfreetime;
         break;
       }
 
-      // optional string m_freetimemoment = 2;
+      // optional int32 m_starfreetime = 2;
       case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_starfreetime:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_starfreetime_)));
+          set_has_m_starfreetime();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_m_freetimemoment;
+        break;
+      }
+
+      // optional string m_freetimemoment = 3;
+      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_freetimemoment:
@@ -924,12 +946,12 @@ bool E_XiuzhenworldConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_freetime;
+        if (input->ExpectTag(32)) goto parse_m_freetime;
         break;
       }
 
-      // optional int32 m_freetime = 3;
-      case 3: {
+      // optional int32 m_freetime = 4;
+      case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_freetime:
@@ -940,12 +962,12 @@ bool E_XiuzhenworldConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_freetimemax;
+        if (input->ExpectTag(40)) goto parse_m_freetimemax;
         break;
       }
 
-      // optional int32 m_freetimemax = 4;
-      case 4: {
+      // optional int32 m_freetimemax = 5;
+      case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_freetimemax:
@@ -956,12 +978,12 @@ bool E_XiuzhenworldConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_helpid;
+        if (input->ExpectTag(48)) goto parse_m_helpid;
         break;
       }
 
-      // optional int32 m_helpid = 5;
-      case 5: {
+      // optional int32 m_helpid = 6;
+      case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_helpid:
@@ -972,12 +994,12 @@ bool E_XiuzhenworldConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_addgexpmax;
+        if (input->ExpectTag(56)) goto parse_m_addgexpmax;
         break;
       }
 
-      // optional int32 m_addgexpmax = 6;
-      case 6: {
+      // optional int32 m_addgexpmax = 7;
+      case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_addgexpmax:
@@ -988,12 +1010,12 @@ bool E_XiuzhenworldConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_pripricetype;
+        if (input->ExpectTag(64)) goto parse_m_pripricetype;
         break;
       }
 
-      // optional int32 m_pripricetype = 7;
-      case 7: {
+      // optional int32 m_pripricetype = 8;
+      case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_pripricetype:
@@ -1004,12 +1026,12 @@ bool E_XiuzhenworldConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_pricevalue;
+        if (input->ExpectTag(72)) goto parse_m_pricevalue;
         break;
       }
 
-      // optional int32 m_pricevalue = 8;
-      case 8: {
+      // optional int32 m_pricevalue = 9;
+      case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_pricevalue:
@@ -1020,12 +1042,12 @@ bool E_XiuzhenworldConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_gexppribonus;
+        if (input->ExpectTag(80)) goto parse_m_gexppribonus;
         break;
       }
 
-      // optional int32 m_gexppribonus = 9;
-      case 9: {
+      // optional int32 m_gexppribonus = 10;
+      case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_gexppribonus:
@@ -1036,12 +1058,12 @@ bool E_XiuzhenworldConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_gexpgroupbonus;
+        if (input->ExpectTag(88)) goto parse_m_gexpgroupbonus;
         break;
       }
 
-      // optional int32 m_gexpgroupbonus = 10;
-      case 10: {
+      // optional int32 m_gexpgroupbonus = 11;
+      case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_gexpgroupbonus:
@@ -1052,12 +1074,12 @@ bool E_XiuzhenworldConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_mapstart;
+        if (input->ExpectTag(96)) goto parse_m_mapstart;
         break;
       }
 
-      // optional int32 m_mapstart = 11;
-      case 11: {
+      // optional int32 m_mapstart = 12;
+      case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_mapstart:
@@ -1068,12 +1090,12 @@ bool E_XiuzhenworldConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_mapend;
+        if (input->ExpectTag(104)) goto parse_m_mapend;
         break;
       }
 
-      // optional int32 m_mapend = 12;
-      case 12: {
+      // optional int32 m_mapend = 13;
+      case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_mapend:
@@ -1084,12 +1106,12 @@ bool E_XiuzhenworldConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_m_expitemid;
+        if (input->ExpectTag(112)) goto parse_m_expitemid;
         break;
       }
 
-      // optional int32 m_expitemid = 13;
-      case 13: {
+      // optional int32 m_expitemid = 14;
+      case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_expitemid:
@@ -1100,12 +1122,12 @@ bool E_XiuzhenworldConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(114)) goto parse_m_timeitem;
+        if (input->ExpectTag(122)) goto parse_m_timeitem;
         break;
       }
 
-      // repeated .proto_ff.E_XiuzhenworldConstantTimeitemDesc m_timeitem = 14;
-      case 14: {
+      // repeated .proto_ff.E_XiuzhenworldConstantTimeitemDesc m_timeitem = 15;
+      case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_timeitem:
@@ -1114,13 +1136,13 @@ bool E_XiuzhenworldConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(114)) goto parse_m_timeitem;
-        if (input->ExpectTag(122)) goto parse_m_type;
+        if (input->ExpectTag(122)) goto parse_m_timeitem;
+        if (input->ExpectTag(130)) goto parse_m_type;
         break;
       }
 
-      // repeated .proto_ff.E_XiuzhenworldConstantTypeDesc m_type = 15;
-      case 15: {
+      // repeated .proto_ff.E_XiuzhenworldConstantTypeDesc m_type = 16;
+      case 16: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_type:
@@ -1129,7 +1151,7 @@ bool E_XiuzhenworldConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(122)) goto parse_m_type;
+        if (input->ExpectTag(130)) goto parse_m_type;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1157,80 +1179,85 @@ void E_XiuzhenworldConstant::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional string m_freetimemoment = 2;
+  // optional int32 m_starfreetime = 2;
+  if (has_m_starfreetime()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_starfreetime(), output);
+  }
+
+  // optional string m_freetimemoment = 3;
   if (has_m_freetimemoment()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_freetimemoment().data(), this->m_freetimemoment().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->m_freetimemoment(), output);
+      3, this->m_freetimemoment(), output);
   }
 
-  // optional int32 m_freetime = 3;
+  // optional int32 m_freetime = 4;
   if (has_m_freetime()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_freetime(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_freetime(), output);
   }
 
-  // optional int32 m_freetimemax = 4;
+  // optional int32 m_freetimemax = 5;
   if (has_m_freetimemax()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_freetimemax(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_freetimemax(), output);
   }
 
-  // optional int32 m_helpid = 5;
+  // optional int32 m_helpid = 6;
   if (has_m_helpid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_helpid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_helpid(), output);
   }
 
-  // optional int32 m_addgexpmax = 6;
+  // optional int32 m_addgexpmax = 7;
   if (has_m_addgexpmax()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_addgexpmax(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_addgexpmax(), output);
   }
 
-  // optional int32 m_pripricetype = 7;
+  // optional int32 m_pripricetype = 8;
   if (has_m_pripricetype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_pripricetype(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_pripricetype(), output);
   }
 
-  // optional int32 m_pricevalue = 8;
+  // optional int32 m_pricevalue = 9;
   if (has_m_pricevalue()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_pricevalue(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_pricevalue(), output);
   }
 
-  // optional int32 m_gexppribonus = 9;
+  // optional int32 m_gexppribonus = 10;
   if (has_m_gexppribonus()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_gexppribonus(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_gexppribonus(), output);
   }
 
-  // optional int32 m_gexpgroupbonus = 10;
+  // optional int32 m_gexpgroupbonus = 11;
   if (has_m_gexpgroupbonus()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_gexpgroupbonus(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_gexpgroupbonus(), output);
   }
 
-  // optional int32 m_mapstart = 11;
+  // optional int32 m_mapstart = 12;
   if (has_m_mapstart()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_mapstart(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_mapstart(), output);
   }
 
-  // optional int32 m_mapend = 12;
+  // optional int32 m_mapend = 13;
   if (has_m_mapend()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_mapend(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_mapend(), output);
   }
 
-  // optional int32 m_expitemid = 13;
+  // optional int32 m_expitemid = 14;
   if (has_m_expitemid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_expitemid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_expitemid(), output);
   }
 
-  // repeated .proto_ff.E_XiuzhenworldConstantTimeitemDesc m_timeitem = 14;
+  // repeated .proto_ff.E_XiuzhenworldConstantTimeitemDesc m_timeitem = 15;
   for (int i = 0; i < this->m_timeitem_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      14, this->m_timeitem(i), output);
+      15, this->m_timeitem(i), output);
   }
 
-  // repeated .proto_ff.E_XiuzhenworldConstantTypeDesc m_type = 15;
+  // repeated .proto_ff.E_XiuzhenworldConstantTypeDesc m_type = 16;
   for (int i = 0; i < this->m_type_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      15, this->m_type(i), output);
+      16, this->m_type(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1246,83 +1273,88 @@ void E_XiuzhenworldConstant::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional string m_freetimemoment = 2;
+  // optional int32 m_starfreetime = 2;
+  if (has_m_starfreetime()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_starfreetime(), target);
+  }
+
+  // optional string m_freetimemoment = 3;
   if (has_m_freetimemoment()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_freetimemoment().data(), this->m_freetimemoment().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->m_freetimemoment(), target);
+        3, this->m_freetimemoment(), target);
   }
 
-  // optional int32 m_freetime = 3;
+  // optional int32 m_freetime = 4;
   if (has_m_freetime()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_freetime(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_freetime(), target);
   }
 
-  // optional int32 m_freetimemax = 4;
+  // optional int32 m_freetimemax = 5;
   if (has_m_freetimemax()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_freetimemax(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_freetimemax(), target);
   }
 
-  // optional int32 m_helpid = 5;
+  // optional int32 m_helpid = 6;
   if (has_m_helpid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_helpid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_helpid(), target);
   }
 
-  // optional int32 m_addgexpmax = 6;
+  // optional int32 m_addgexpmax = 7;
   if (has_m_addgexpmax()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_addgexpmax(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_addgexpmax(), target);
   }
 
-  // optional int32 m_pripricetype = 7;
+  // optional int32 m_pripricetype = 8;
   if (has_m_pripricetype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_pripricetype(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_pripricetype(), target);
   }
 
-  // optional int32 m_pricevalue = 8;
+  // optional int32 m_pricevalue = 9;
   if (has_m_pricevalue()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_pricevalue(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_pricevalue(), target);
   }
 
-  // optional int32 m_gexppribonus = 9;
+  // optional int32 m_gexppribonus = 10;
   if (has_m_gexppribonus()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_gexppribonus(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_gexppribonus(), target);
   }
 
-  // optional int32 m_gexpgroupbonus = 10;
+  // optional int32 m_gexpgroupbonus = 11;
   if (has_m_gexpgroupbonus()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_gexpgroupbonus(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_gexpgroupbonus(), target);
   }
 
-  // optional int32 m_mapstart = 11;
+  // optional int32 m_mapstart = 12;
   if (has_m_mapstart()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_mapstart(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_mapstart(), target);
   }
 
-  // optional int32 m_mapend = 12;
+  // optional int32 m_mapend = 13;
   if (has_m_mapend()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_mapend(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_mapend(), target);
   }
 
-  // optional int32 m_expitemid = 13;
+  // optional int32 m_expitemid = 14;
   if (has_m_expitemid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_expitemid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_expitemid(), target);
   }
 
-  // repeated .proto_ff.E_XiuzhenworldConstantTimeitemDesc m_timeitem = 14;
+  // repeated .proto_ff.E_XiuzhenworldConstantTimeitemDesc m_timeitem = 15;
   for (int i = 0; i < this->m_timeitem_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        14, this->m_timeitem(i), target);
+        15, this->m_timeitem(i), target);
   }
 
-  // repeated .proto_ff.E_XiuzhenworldConstantTypeDesc m_type = 15;
+  // repeated .proto_ff.E_XiuzhenworldConstantTypeDesc m_type = 16;
   for (int i = 0; i < this->m_type_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        15, this->m_type(i), target);
+        16, this->m_type(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1343,86 +1375,93 @@ int E_XiuzhenworldConstant::ByteSize() const {
           this->m_id());
     }
 
-    // optional string m_freetimemoment = 2;
+    // optional int32 m_starfreetime = 2;
+    if (has_m_starfreetime()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_starfreetime());
+    }
+
+    // optional string m_freetimemoment = 3;
     if (has_m_freetimemoment()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_freetimemoment());
     }
 
-    // optional int32 m_freetime = 3;
+    // optional int32 m_freetime = 4;
     if (has_m_freetime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_freetime());
     }
 
-    // optional int32 m_freetimemax = 4;
+    // optional int32 m_freetimemax = 5;
     if (has_m_freetimemax()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_freetimemax());
     }
 
-    // optional int32 m_helpid = 5;
+    // optional int32 m_helpid = 6;
     if (has_m_helpid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_helpid());
     }
 
-    // optional int32 m_addgexpmax = 6;
+    // optional int32 m_addgexpmax = 7;
     if (has_m_addgexpmax()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_addgexpmax());
     }
 
-    // optional int32 m_pripricetype = 7;
+    // optional int32 m_pripricetype = 8;
     if (has_m_pripricetype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_pripricetype());
     }
 
-    // optional int32 m_pricevalue = 8;
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional int32 m_pricevalue = 9;
     if (has_m_pricevalue()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_pricevalue());
     }
 
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_gexppribonus = 9;
+    // optional int32 m_gexppribonus = 10;
     if (has_m_gexppribonus()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_gexppribonus());
     }
 
-    // optional int32 m_gexpgroupbonus = 10;
+    // optional int32 m_gexpgroupbonus = 11;
     if (has_m_gexpgroupbonus()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_gexpgroupbonus());
     }
 
-    // optional int32 m_mapstart = 11;
+    // optional int32 m_mapstart = 12;
     if (has_m_mapstart()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_mapstart());
     }
 
-    // optional int32 m_mapend = 12;
+    // optional int32 m_mapend = 13;
     if (has_m_mapend()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_mapend());
     }
 
-    // optional int32 m_expitemid = 13;
+    // optional int32 m_expitemid = 14;
     if (has_m_expitemid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1430,7 +1469,7 @@ int E_XiuzhenworldConstant::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.E_XiuzhenworldConstantTimeitemDesc m_timeitem = 14;
+  // repeated .proto_ff.E_XiuzhenworldConstantTimeitemDesc m_timeitem = 15;
   total_size += 1 * this->m_timeitem_size();
   for (int i = 0; i < this->m_timeitem_size(); i++) {
     total_size +=
@@ -1438,8 +1477,8 @@ int E_XiuzhenworldConstant::ByteSize() const {
         this->m_timeitem(i));
   }
 
-  // repeated .proto_ff.E_XiuzhenworldConstantTypeDesc m_type = 15;
-  total_size += 1 * this->m_type_size();
+  // repeated .proto_ff.E_XiuzhenworldConstantTypeDesc m_type = 16;
+  total_size += 2 * this->m_type_size();
   for (int i = 0; i < this->m_type_size(); i++) {
     total_size +=
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -1477,6 +1516,9 @@ void E_XiuzhenworldConstant::MergeFrom(const E_XiuzhenworldConstant& from) {
     if (from.has_m_id()) {
       set_m_id(from.m_id());
     }
+    if (from.has_m_starfreetime()) {
+      set_m_starfreetime(from.m_starfreetime());
+    }
     if (from.has_m_freetimemoment()) {
       set_m_freetimemoment(from.m_freetimemoment());
     }
@@ -1495,11 +1537,11 @@ void E_XiuzhenworldConstant::MergeFrom(const E_XiuzhenworldConstant& from) {
     if (from.has_m_pripricetype()) {
       set_m_pripricetype(from.m_pripricetype());
     }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_m_pricevalue()) {
       set_m_pricevalue(from.m_pricevalue());
     }
-  }
-  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_m_gexppribonus()) {
       set_m_gexppribonus(from.m_gexppribonus());
     }
@@ -1539,6 +1581,7 @@ bool E_XiuzhenworldConstant::IsInitialized() const {
 void E_XiuzhenworldConstant::Swap(E_XiuzhenworldConstant* other) {
   if (other != this) {
     std::swap(m_id_, other->m_id_);
+    std::swap(m_starfreetime_, other->m_starfreetime_);
     std::swap(m_freetimemoment_, other->m_freetimemoment_);
     std::swap(m_freetime_, other->m_freetime_);
     std::swap(m_freetimemax_, other->m_freetimemax_);

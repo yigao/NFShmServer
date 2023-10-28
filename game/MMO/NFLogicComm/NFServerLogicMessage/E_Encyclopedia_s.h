@@ -24,11 +24,13 @@
 #define DEFINE_E_ENCYCLOPEDIABEAST_M_BEAST_MAX_NUM 6
 #define DEFINE_E_ENCYCLOPEDIABEAST_M_SKILL_MAX_NUM 3
 #define DEFINE_SHEET_ENCYCLOPEDIABEAST_E_ENCYCLOPEDIABEAST_LIST_MAX_NUM 32
+#define DEFINE_E_ENCYCLOPEDIAEQUIPEXPVALUE_M_BEASTSTAR_MAX_NUM 2
+#define DEFINE_E_ENCYCLOPEDIAEQUIPEXPVALUE_M_GOLDSTAR_MAX_NUM 5
 #define DEFINE_SHEET_ENCYCLOPEDIAEQUIPEXPVALUE_E_ENCYCLOPEDIAEQUIPEXPVALUE_LIST_MAX_NUM 64
-#define DEFINE_SHEET_ENCYCLOPEDIABEASTEXP_E_ENCYCLOPEDIABEASTEXP_LIST_MAX_NUM 256
 #define DEFINE_SHEET_ENCYCLOPEDIABEASTEXPAND_E_ENCYCLOPEDIABEASTEXPAND_LIST_MAX_NUM 8
 #define DEFINE_E_ENCYCLOPEDIABEASTPRIVILEGE_M_ATTRIBUTE_MAX_NUM 4
 #define DEFINE_SHEET_ENCYCLOPEDIABEASTPRIVILEGE_E_ENCYCLOPEDIABEASTPRIVILEGE_LIST_MAX_NUM 4
+#define DEFINE_SHEET_ENCYCLOPEDIABEASTEXP_E_ENCYCLOPEDIABEASTEXP_LIST_MAX_NUM 256
 #define DEFINE_E_ENCYCLOPEDIAEMPLOY_M_LVIATTRIBUTE_MAX_NUM 4
 #define DEFINE_SHEET_ENCYCLOPEDIAEMPLOY_E_ENCYCLOPEDIAEMPLOY_LIST_MAX_NUM 128
 #define DEFINE_E_ENCYCLOPEDIATABLE_M_LVIATTRIBUTE_MAX_NUM 4
@@ -292,6 +294,36 @@ namespace proto_ff_s {
 	};
 	typedef struct Sheet_EncyclopediaBeast_s Sheet_EncyclopediaBeast_t;
 
+	struct E_EncyclopediaEquipexpvalueBeaststarDesc_s : public NFDescStoreSeqOP {
+		E_EncyclopediaEquipexpvalueBeaststarDesc_s();
+		virtual ~E_EncyclopediaEquipexpvalueBeaststarDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_num;//值
+		int32_t m_att;//
+
+		virtual void write_to_pbmsg(::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc & msg);
+		static ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc* new_pbmsg(){ return new ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc(); }
+		static ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc make_pbmsg(){ return ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc(); }
+	};
+	typedef struct E_EncyclopediaEquipexpvalueBeaststarDesc_s E_EncyclopediaEquipexpvalueBeaststarDesc_t;
+
+	struct E_EncyclopediaEquipexpvalueGoldstarDesc_s : public NFDescStoreSeqOP {
+		E_EncyclopediaEquipexpvalueGoldstarDesc_s();
+		virtual ~E_EncyclopediaEquipexpvalueGoldstarDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_num;//值
+		int32_t m_att;//
+
+		virtual void write_to_pbmsg(::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc & msg);
+		static ::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc* new_pbmsg(){ return new ::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc(); }
+		static ::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc make_pbmsg(){ return ::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc(); }
+	};
+	typedef struct E_EncyclopediaEquipexpvalueGoldstarDesc_s E_EncyclopediaEquipexpvalueGoldstarDesc_t;
+
 	struct E_EncyclopediaEquipexpvalue_s : public NFDescStoreSeqOP {
 		E_EncyclopediaEquipexpvalue_s();
 		virtual ~E_EncyclopediaEquipexpvalue_s(){}
@@ -302,6 +334,10 @@ namespace proto_ff_s {
 		NFShmString<64> m_name;//材料名称
 		int32_t m_exp;//初始经验
 		int64_t m_link;//来源
+		int32_t m_goldattall;//仙品共条数
+		int32_t m_goldatt;//黄星属性条数
+		NFShmVector<struct E_EncyclopediaEquipexpvalueBeaststarDesc_s, DEFINE_E_ENCYCLOPEDIAEQUIPEXPVALUE_M_BEASTSTAR_MAX_NUM> m_beaststar;//蓝星属性
+		NFShmVector<struct E_EncyclopediaEquipexpvalueGoldstarDesc_s, DEFINE_E_ENCYCLOPEDIAEQUIPEXPVALUE_M_GOLDSTAR_MAX_NUM> m_goldstar;//黄星属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_EncyclopediaEquipexpvalue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EncyclopediaEquipexpvalue & msg);
@@ -323,35 +359,6 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_EncyclopediaEquipexpvalue make_pbmsg(){ return ::proto_ff::Sheet_EncyclopediaEquipexpvalue(); }
 	};
 	typedef struct Sheet_EncyclopediaEquipexpvalue_s Sheet_EncyclopediaEquipexpvalue_t;
-
-	struct E_EncyclopediaBeastexp_s : public NFDescStoreSeqOP {
-		E_EncyclopediaBeastexp_s();
-		virtual ~E_EncyclopediaBeastexp_s(){}
-		int CreateInit();
-		int ResumeInit();
-		int32_t m_lv;//等级
-		int32_t m_exp;//升级所需经验
-
-		virtual void write_to_pbmsg(::proto_ff::E_EncyclopediaBeastexp & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::E_EncyclopediaBeastexp & msg);
-		static ::proto_ff::E_EncyclopediaBeastexp* new_pbmsg(){ return new ::proto_ff::E_EncyclopediaBeastexp(); }
-		static ::proto_ff::E_EncyclopediaBeastexp make_pbmsg(){ return ::proto_ff::E_EncyclopediaBeastexp(); }
-	};
-	typedef struct E_EncyclopediaBeastexp_s E_EncyclopediaBeastexp_t;
-
-	struct Sheet_EncyclopediaBeastexp_s : public NFDescStoreSeqOP {
-		Sheet_EncyclopediaBeastexp_s();
-		virtual ~Sheet_EncyclopediaBeastexp_s(){}
-		int CreateInit();
-		int ResumeInit();
-		NFShmVector<struct E_EncyclopediaBeastexp_s, DEFINE_SHEET_ENCYCLOPEDIABEASTEXP_E_ENCYCLOPEDIABEASTEXP_LIST_MAX_NUM> E_EncyclopediaBeastexp_List;//
-
-		virtual void write_to_pbmsg(::proto_ff::Sheet_EncyclopediaBeastexp & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EncyclopediaBeastexp & msg);
-		static ::proto_ff::Sheet_EncyclopediaBeastexp* new_pbmsg(){ return new ::proto_ff::Sheet_EncyclopediaBeastexp(); }
-		static ::proto_ff::Sheet_EncyclopediaBeastexp make_pbmsg(){ return ::proto_ff::Sheet_EncyclopediaBeastexp(); }
-	};
-	typedef struct Sheet_EncyclopediaBeastexp_s Sheet_EncyclopediaBeastexp_t;
 
 	struct E_EncyclopediaBeastexpand_s : public NFDescStoreSeqOP {
 		E_EncyclopediaBeastexpand_s();
@@ -430,6 +437,35 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_EncyclopediaBeastprivilege make_pbmsg(){ return ::proto_ff::Sheet_EncyclopediaBeastprivilege(); }
 	};
 	typedef struct Sheet_EncyclopediaBeastprivilege_s Sheet_EncyclopediaBeastprivilege_t;
+
+	struct E_EncyclopediaBeastexp_s : public NFDescStoreSeqOP {
+		E_EncyclopediaBeastexp_s();
+		virtual ~E_EncyclopediaBeastexp_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_lv;//等级
+		int32_t m_exp;//升级所需经验
+
+		virtual void write_to_pbmsg(::proto_ff::E_EncyclopediaBeastexp & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_EncyclopediaBeastexp & msg);
+		static ::proto_ff::E_EncyclopediaBeastexp* new_pbmsg(){ return new ::proto_ff::E_EncyclopediaBeastexp(); }
+		static ::proto_ff::E_EncyclopediaBeastexp make_pbmsg(){ return ::proto_ff::E_EncyclopediaBeastexp(); }
+	};
+	typedef struct E_EncyclopediaBeastexp_s E_EncyclopediaBeastexp_t;
+
+	struct Sheet_EncyclopediaBeastexp_s : public NFDescStoreSeqOP {
+		Sheet_EncyclopediaBeastexp_s();
+		virtual ~Sheet_EncyclopediaBeastexp_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_EncyclopediaBeastexp_s, DEFINE_SHEET_ENCYCLOPEDIABEASTEXP_E_ENCYCLOPEDIABEASTEXP_LIST_MAX_NUM> E_EncyclopediaBeastexp_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_EncyclopediaBeastexp & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_EncyclopediaBeastexp & msg);
+		static ::proto_ff::Sheet_EncyclopediaBeastexp* new_pbmsg(){ return new ::proto_ff::Sheet_EncyclopediaBeastexp(); }
+		static ::proto_ff::Sheet_EncyclopediaBeastexp make_pbmsg(){ return ::proto_ff::Sheet_EncyclopediaBeastexp(); }
+	};
+	typedef struct Sheet_EncyclopediaBeastexp_s Sheet_EncyclopediaBeastexp_t;
 
 	struct E_EncyclopediaEmployLviattributeDesc_s : public NFDescStoreSeqOP {
 		E_EncyclopediaEmployLviattributeDesc_s();

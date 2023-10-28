@@ -50,15 +50,17 @@ class Sheet_EncyclopediaHandbookstar_attr;
 class E_EncyclopediaBeastBeastDesc;
 class E_EncyclopediaBeast;
 class Sheet_EncyclopediaBeast;
+class E_EncyclopediaEquipexpvalueBeaststarDesc;
+class E_EncyclopediaEquipexpvalueGoldstarDesc;
 class E_EncyclopediaEquipexpvalue;
 class Sheet_EncyclopediaEquipexpvalue;
-class E_EncyclopediaBeastexp;
-class Sheet_EncyclopediaBeastexp;
 class E_EncyclopediaBeastexpand;
 class Sheet_EncyclopediaBeastexpand;
 class E_EncyclopediaBeastprivilegeAttributeDesc;
 class E_EncyclopediaBeastprivilege;
 class Sheet_EncyclopediaBeastprivilege;
+class E_EncyclopediaBeastexp;
+class Sheet_EncyclopediaBeastexp;
 class E_EncyclopediaEmployLviattributeDesc;
 class E_EncyclopediaEmploy;
 class Sheet_EncyclopediaEmploy;
@@ -1773,6 +1775,190 @@ class Sheet_EncyclopediaBeast : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class E_EncyclopediaEquipexpvalueBeaststarDesc : public ::google::protobuf::Message {
+ public:
+  E_EncyclopediaEquipexpvalueBeaststarDesc();
+  virtual ~E_EncyclopediaEquipexpvalueBeaststarDesc();
+
+  E_EncyclopediaEquipexpvalueBeaststarDesc(const E_EncyclopediaEquipexpvalueBeaststarDesc& from);
+
+  inline E_EncyclopediaEquipexpvalueBeaststarDesc& operator=(const E_EncyclopediaEquipexpvalueBeaststarDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_EncyclopediaEquipexpvalueBeaststarDesc& default_instance();
+
+  void Swap(E_EncyclopediaEquipexpvalueBeaststarDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_EncyclopediaEquipexpvalueBeaststarDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_EncyclopediaEquipexpvalueBeaststarDesc& from);
+  void MergeFrom(const E_EncyclopediaEquipexpvalueBeaststarDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_num = 1;
+  inline bool has_m_num() const;
+  inline void clear_m_num();
+  static const int kMNumFieldNumber = 1;
+  inline ::google::protobuf::int32 m_num() const;
+  inline void set_m_num(::google::protobuf::int32 value);
+
+  // optional int32 m_att = 2;
+  inline bool has_m_att() const;
+  inline void clear_m_att();
+  static const int kMAttFieldNumber = 2;
+  inline ::google::protobuf::int32 m_att() const;
+  inline void set_m_att(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_EncyclopediaEquipexpvalueBeaststarDesc)
+ private:
+  inline void set_has_m_num();
+  inline void clear_has_m_num();
+  inline void set_has_m_att();
+  inline void clear_has_m_att();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_num_;
+  ::google::protobuf::int32 m_att_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fEncyclopedia_2eproto();
+  friend void protobuf_AssignDesc_E_5fEncyclopedia_2eproto();
+  friend void protobuf_ShutdownFile_E_5fEncyclopedia_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_EncyclopediaEquipexpvalueBeaststarDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_EncyclopediaEquipexpvalueGoldstarDesc : public ::google::protobuf::Message {
+ public:
+  E_EncyclopediaEquipexpvalueGoldstarDesc();
+  virtual ~E_EncyclopediaEquipexpvalueGoldstarDesc();
+
+  E_EncyclopediaEquipexpvalueGoldstarDesc(const E_EncyclopediaEquipexpvalueGoldstarDesc& from);
+
+  inline E_EncyclopediaEquipexpvalueGoldstarDesc& operator=(const E_EncyclopediaEquipexpvalueGoldstarDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_EncyclopediaEquipexpvalueGoldstarDesc& default_instance();
+
+  void Swap(E_EncyclopediaEquipexpvalueGoldstarDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_EncyclopediaEquipexpvalueGoldstarDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_EncyclopediaEquipexpvalueGoldstarDesc& from);
+  void MergeFrom(const E_EncyclopediaEquipexpvalueGoldstarDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_num = 1;
+  inline bool has_m_num() const;
+  inline void clear_m_num();
+  static const int kMNumFieldNumber = 1;
+  inline ::google::protobuf::int32 m_num() const;
+  inline void set_m_num(::google::protobuf::int32 value);
+
+  // optional int32 m_att = 2;
+  inline bool has_m_att() const;
+  inline void clear_m_att();
+  static const int kMAttFieldNumber = 2;
+  inline ::google::protobuf::int32 m_att() const;
+  inline void set_m_att(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_EncyclopediaEquipexpvalueGoldstarDesc)
+ private:
+  inline void set_has_m_num();
+  inline void clear_has_m_num();
+  inline void set_has_m_att();
+  inline void clear_has_m_att();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_num_;
+  ::google::protobuf::int32 m_att_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fEncyclopedia_2eproto();
+  friend void protobuf_AssignDesc_E_5fEncyclopedia_2eproto();
+  friend void protobuf_ShutdownFile_E_5fEncyclopedia_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_EncyclopediaEquipexpvalueGoldstarDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class E_EncyclopediaEquipexpvalue : public ::google::protobuf::Message {
  public:
   E_EncyclopediaEquipexpvalue();
@@ -1867,6 +2053,44 @@ class E_EncyclopediaEquipexpvalue : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_link() const;
   inline void set_m_link(::google::protobuf::int64 value);
 
+  // optional int32 m_goldattall = 6;
+  inline bool has_m_goldattall() const;
+  inline void clear_m_goldattall();
+  static const int kMGoldattallFieldNumber = 6;
+  inline ::google::protobuf::int32 m_goldattall() const;
+  inline void set_m_goldattall(::google::protobuf::int32 value);
+
+  // optional int32 m_goldatt = 7;
+  inline bool has_m_goldatt() const;
+  inline void clear_m_goldatt();
+  static const int kMGoldattFieldNumber = 7;
+  inline ::google::protobuf::int32 m_goldatt() const;
+  inline void set_m_goldatt(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.E_EncyclopediaEquipexpvalueBeaststarDesc m_beaststar = 8;
+  inline int m_beaststar_size() const;
+  inline void clear_m_beaststar();
+  static const int kMBeaststarFieldNumber = 8;
+  inline const ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc& m_beaststar(int index) const;
+  inline ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc* mutable_m_beaststar(int index);
+  inline ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc* add_m_beaststar();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc >&
+      m_beaststar() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc >*
+      mutable_m_beaststar();
+
+  // repeated .proto_ff.E_EncyclopediaEquipexpvalueGoldstarDesc m_goldstar = 9;
+  inline int m_goldstar_size() const;
+  inline void clear_m_goldstar();
+  static const int kMGoldstarFieldNumber = 9;
+  inline const ::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc& m_goldstar(int index) const;
+  inline ::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc* mutable_m_goldstar(int index);
+  inline ::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc* add_m_goldstar();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc >&
+      m_goldstar() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc >*
+      mutable_m_goldstar();
+
   // @@protoc_insertion_point(class_scope:proto_ff.E_EncyclopediaEquipexpvalue)
  private:
   inline void set_has_m_id();
@@ -1879,6 +2103,10 @@ class E_EncyclopediaEquipexpvalue : public ::google::protobuf::Message {
   inline void clear_has_m_exp();
   inline void set_has_m_link();
   inline void clear_has_m_link();
+  inline void set_has_m_goldattall();
+  inline void clear_has_m_goldattall();
+  inline void set_has_m_goldatt();
+  inline void clear_has_m_goldatt();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -1887,9 +2115,13 @@ class E_EncyclopediaEquipexpvalue : public ::google::protobuf::Message {
   ::std::string* m_name_;
   ::google::protobuf::int64 m_link_;
   ::google::protobuf::int32 m_exp_;
+  ::google::protobuf::int32 m_goldattall_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc > m_beaststar_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc > m_goldstar_;
+  ::google::protobuf::int32 m_goldatt_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fEncyclopedia_2eproto();
   friend void protobuf_AssignDesc_E_5fEncyclopedia_2eproto();
@@ -1982,183 +2214,6 @@ class Sheet_EncyclopediaEquipexpvalue : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static Sheet_EncyclopediaEquipexpvalue* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class E_EncyclopediaBeastexp : public ::google::protobuf::Message {
- public:
-  E_EncyclopediaBeastexp();
-  virtual ~E_EncyclopediaBeastexp();
-
-  E_EncyclopediaBeastexp(const E_EncyclopediaBeastexp& from);
-
-  inline E_EncyclopediaBeastexp& operator=(const E_EncyclopediaBeastexp& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const E_EncyclopediaBeastexp& default_instance();
-
-  void Swap(E_EncyclopediaBeastexp* other);
-
-  // implements Message ----------------------------------------------
-
-  E_EncyclopediaBeastexp* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const E_EncyclopediaBeastexp& from);
-  void MergeFrom(const E_EncyclopediaBeastexp& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional int32 m_lv = 1;
-  inline bool has_m_lv() const;
-  inline void clear_m_lv();
-  static const int kMLvFieldNumber = 1;
-  inline ::google::protobuf::int32 m_lv() const;
-  inline void set_m_lv(::google::protobuf::int32 value);
-
-  // optional int32 m_exp = 2;
-  inline bool has_m_exp() const;
-  inline void clear_m_exp();
-  static const int kMExpFieldNumber = 2;
-  inline ::google::protobuf::int32 m_exp() const;
-  inline void set_m_exp(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.E_EncyclopediaBeastexp)
- private:
-  inline void set_has_m_lv();
-  inline void clear_has_m_lv();
-  inline void set_has_m_exp();
-  inline void clear_has_m_exp();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::int32 m_lv_;
-  ::google::protobuf::int32 m_exp_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
-
-  friend void  protobuf_AddDesc_E_5fEncyclopedia_2eproto();
-  friend void protobuf_AssignDesc_E_5fEncyclopedia_2eproto();
-  friend void protobuf_ShutdownFile_E_5fEncyclopedia_2eproto();
-
-  void InitAsDefaultInstance();
-  static E_EncyclopediaBeastexp* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class Sheet_EncyclopediaBeastexp : public ::google::protobuf::Message {
- public:
-  Sheet_EncyclopediaBeastexp();
-  virtual ~Sheet_EncyclopediaBeastexp();
-
-  Sheet_EncyclopediaBeastexp(const Sheet_EncyclopediaBeastexp& from);
-
-  inline Sheet_EncyclopediaBeastexp& operator=(const Sheet_EncyclopediaBeastexp& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_EncyclopediaBeastexp& default_instance();
-
-  void Swap(Sheet_EncyclopediaBeastexp* other);
-
-  // implements Message ----------------------------------------------
-
-  Sheet_EncyclopediaBeastexp* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_EncyclopediaBeastexp& from);
-  void MergeFrom(const Sheet_EncyclopediaBeastexp& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // repeated .proto_ff.E_EncyclopediaBeastexp E_EncyclopediaBeastexp_List = 1;
-  inline int e_encyclopediabeastexp_list_size() const;
-  inline void clear_e_encyclopediabeastexp_list();
-  static const int kEEncyclopediaBeastexpListFieldNumber = 1;
-  inline const ::proto_ff::E_EncyclopediaBeastexp& e_encyclopediabeastexp_list(int index) const;
-  inline ::proto_ff::E_EncyclopediaBeastexp* mutable_e_encyclopediabeastexp_list(int index);
-  inline ::proto_ff::E_EncyclopediaBeastexp* add_e_encyclopediabeastexp_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaBeastexp >&
-      e_encyclopediabeastexp_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaBeastexp >*
-      mutable_e_encyclopediabeastexp_list();
-
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_EncyclopediaBeastexp)
- private:
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaBeastexp > e_encyclopediabeastexp_list_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
-
-  friend void  protobuf_AddDesc_E_5fEncyclopedia_2eproto();
-  friend void protobuf_AssignDesc_E_5fEncyclopedia_2eproto();
-  friend void protobuf_ShutdownFile_E_5fEncyclopedia_2eproto();
-
-  void InitAsDefaultInstance();
-  static Sheet_EncyclopediaBeastexp* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -2663,6 +2718,183 @@ class Sheet_EncyclopediaBeastprivilege : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static Sheet_EncyclopediaBeastprivilege* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_EncyclopediaBeastexp : public ::google::protobuf::Message {
+ public:
+  E_EncyclopediaBeastexp();
+  virtual ~E_EncyclopediaBeastexp();
+
+  E_EncyclopediaBeastexp(const E_EncyclopediaBeastexp& from);
+
+  inline E_EncyclopediaBeastexp& operator=(const E_EncyclopediaBeastexp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_EncyclopediaBeastexp& default_instance();
+
+  void Swap(E_EncyclopediaBeastexp* other);
+
+  // implements Message ----------------------------------------------
+
+  E_EncyclopediaBeastexp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_EncyclopediaBeastexp& from);
+  void MergeFrom(const E_EncyclopediaBeastexp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_lv = 1;
+  inline bool has_m_lv() const;
+  inline void clear_m_lv();
+  static const int kMLvFieldNumber = 1;
+  inline ::google::protobuf::int32 m_lv() const;
+  inline void set_m_lv(::google::protobuf::int32 value);
+
+  // optional int32 m_exp = 2;
+  inline bool has_m_exp() const;
+  inline void clear_m_exp();
+  static const int kMExpFieldNumber = 2;
+  inline ::google::protobuf::int32 m_exp() const;
+  inline void set_m_exp(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_EncyclopediaBeastexp)
+ private:
+  inline void set_has_m_lv();
+  inline void clear_has_m_lv();
+  inline void set_has_m_exp();
+  inline void clear_has_m_exp();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_lv_;
+  ::google::protobuf::int32 m_exp_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fEncyclopedia_2eproto();
+  friend void protobuf_AssignDesc_E_5fEncyclopedia_2eproto();
+  friend void protobuf_ShutdownFile_E_5fEncyclopedia_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_EncyclopediaBeastexp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_EncyclopediaBeastexp : public ::google::protobuf::Message {
+ public:
+  Sheet_EncyclopediaBeastexp();
+  virtual ~Sheet_EncyclopediaBeastexp();
+
+  Sheet_EncyclopediaBeastexp(const Sheet_EncyclopediaBeastexp& from);
+
+  inline Sheet_EncyclopediaBeastexp& operator=(const Sheet_EncyclopediaBeastexp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_EncyclopediaBeastexp& default_instance();
+
+  void Swap(Sheet_EncyclopediaBeastexp* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_EncyclopediaBeastexp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_EncyclopediaBeastexp& from);
+  void MergeFrom(const Sheet_EncyclopediaBeastexp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_EncyclopediaBeastexp E_EncyclopediaBeastexp_List = 1;
+  inline int e_encyclopediabeastexp_list_size() const;
+  inline void clear_e_encyclopediabeastexp_list();
+  static const int kEEncyclopediaBeastexpListFieldNumber = 1;
+  inline const ::proto_ff::E_EncyclopediaBeastexp& e_encyclopediabeastexp_list(int index) const;
+  inline ::proto_ff::E_EncyclopediaBeastexp* mutable_e_encyclopediabeastexp_list(int index);
+  inline ::proto_ff::E_EncyclopediaBeastexp* add_e_encyclopediabeastexp_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaBeastexp >&
+      e_encyclopediabeastexp_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaBeastexp >*
+      mutable_e_encyclopediabeastexp_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_EncyclopediaBeastexp)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaBeastexp > e_encyclopediabeastexp_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fEncyclopedia_2eproto();
+  friend void protobuf_AssignDesc_E_5fEncyclopedia_2eproto();
+  friend void protobuf_ShutdownFile_E_5fEncyclopedia_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_EncyclopediaBeastexp* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -4815,6 +5047,102 @@ Sheet_EncyclopediaBeast::mutable_e_encyclopediabeast_list() {
 
 // -------------------------------------------------------------------
 
+// E_EncyclopediaEquipexpvalueBeaststarDesc
+
+// optional int32 m_num = 1;
+inline bool E_EncyclopediaEquipexpvalueBeaststarDesc::has_m_num() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_EncyclopediaEquipexpvalueBeaststarDesc::set_has_m_num() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_EncyclopediaEquipexpvalueBeaststarDesc::clear_has_m_num() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_EncyclopediaEquipexpvalueBeaststarDesc::clear_m_num() {
+  m_num_ = 0;
+  clear_has_m_num();
+}
+inline ::google::protobuf::int32 E_EncyclopediaEquipexpvalueBeaststarDesc::m_num() const {
+  return m_num_;
+}
+inline void E_EncyclopediaEquipexpvalueBeaststarDesc::set_m_num(::google::protobuf::int32 value) {
+  set_has_m_num();
+  m_num_ = value;
+}
+
+// optional int32 m_att = 2;
+inline bool E_EncyclopediaEquipexpvalueBeaststarDesc::has_m_att() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_EncyclopediaEquipexpvalueBeaststarDesc::set_has_m_att() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_EncyclopediaEquipexpvalueBeaststarDesc::clear_has_m_att() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_EncyclopediaEquipexpvalueBeaststarDesc::clear_m_att() {
+  m_att_ = 0;
+  clear_has_m_att();
+}
+inline ::google::protobuf::int32 E_EncyclopediaEquipexpvalueBeaststarDesc::m_att() const {
+  return m_att_;
+}
+inline void E_EncyclopediaEquipexpvalueBeaststarDesc::set_m_att(::google::protobuf::int32 value) {
+  set_has_m_att();
+  m_att_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// E_EncyclopediaEquipexpvalueGoldstarDesc
+
+// optional int32 m_num = 1;
+inline bool E_EncyclopediaEquipexpvalueGoldstarDesc::has_m_num() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_EncyclopediaEquipexpvalueGoldstarDesc::set_has_m_num() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_EncyclopediaEquipexpvalueGoldstarDesc::clear_has_m_num() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_EncyclopediaEquipexpvalueGoldstarDesc::clear_m_num() {
+  m_num_ = 0;
+  clear_has_m_num();
+}
+inline ::google::protobuf::int32 E_EncyclopediaEquipexpvalueGoldstarDesc::m_num() const {
+  return m_num_;
+}
+inline void E_EncyclopediaEquipexpvalueGoldstarDesc::set_m_num(::google::protobuf::int32 value) {
+  set_has_m_num();
+  m_num_ = value;
+}
+
+// optional int32 m_att = 2;
+inline bool E_EncyclopediaEquipexpvalueGoldstarDesc::has_m_att() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_EncyclopediaEquipexpvalueGoldstarDesc::set_has_m_att() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_EncyclopediaEquipexpvalueGoldstarDesc::clear_has_m_att() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_EncyclopediaEquipexpvalueGoldstarDesc::clear_m_att() {
+  m_att_ = 0;
+  clear_has_m_att();
+}
+inline ::google::protobuf::int32 E_EncyclopediaEquipexpvalueGoldstarDesc::m_att() const {
+  return m_att_;
+}
+inline void E_EncyclopediaEquipexpvalueGoldstarDesc::set_m_att(::google::protobuf::int32 value) {
+  set_has_m_att();
+  m_att_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // E_EncyclopediaEquipexpvalue
 
 // optional int64 m_id = 1;
@@ -4975,6 +5303,100 @@ inline void E_EncyclopediaEquipexpvalue::set_m_link(::google::protobuf::int64 va
   m_link_ = value;
 }
 
+// optional int32 m_goldattall = 6;
+inline bool E_EncyclopediaEquipexpvalue::has_m_goldattall() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void E_EncyclopediaEquipexpvalue::set_has_m_goldattall() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void E_EncyclopediaEquipexpvalue::clear_has_m_goldattall() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void E_EncyclopediaEquipexpvalue::clear_m_goldattall() {
+  m_goldattall_ = 0;
+  clear_has_m_goldattall();
+}
+inline ::google::protobuf::int32 E_EncyclopediaEquipexpvalue::m_goldattall() const {
+  return m_goldattall_;
+}
+inline void E_EncyclopediaEquipexpvalue::set_m_goldattall(::google::protobuf::int32 value) {
+  set_has_m_goldattall();
+  m_goldattall_ = value;
+}
+
+// optional int32 m_goldatt = 7;
+inline bool E_EncyclopediaEquipexpvalue::has_m_goldatt() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void E_EncyclopediaEquipexpvalue::set_has_m_goldatt() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void E_EncyclopediaEquipexpvalue::clear_has_m_goldatt() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void E_EncyclopediaEquipexpvalue::clear_m_goldatt() {
+  m_goldatt_ = 0;
+  clear_has_m_goldatt();
+}
+inline ::google::protobuf::int32 E_EncyclopediaEquipexpvalue::m_goldatt() const {
+  return m_goldatt_;
+}
+inline void E_EncyclopediaEquipexpvalue::set_m_goldatt(::google::protobuf::int32 value) {
+  set_has_m_goldatt();
+  m_goldatt_ = value;
+}
+
+// repeated .proto_ff.E_EncyclopediaEquipexpvalueBeaststarDesc m_beaststar = 8;
+inline int E_EncyclopediaEquipexpvalue::m_beaststar_size() const {
+  return m_beaststar_.size();
+}
+inline void E_EncyclopediaEquipexpvalue::clear_m_beaststar() {
+  m_beaststar_.Clear();
+}
+inline const ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc& E_EncyclopediaEquipexpvalue::m_beaststar(int index) const {
+  return m_beaststar_.Get(index);
+}
+inline ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc* E_EncyclopediaEquipexpvalue::mutable_m_beaststar(int index) {
+  return m_beaststar_.Mutable(index);
+}
+inline ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc* E_EncyclopediaEquipexpvalue::add_m_beaststar() {
+  return m_beaststar_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc >&
+E_EncyclopediaEquipexpvalue::m_beaststar() const {
+  return m_beaststar_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc >*
+E_EncyclopediaEquipexpvalue::mutable_m_beaststar() {
+  return &m_beaststar_;
+}
+
+// repeated .proto_ff.E_EncyclopediaEquipexpvalueGoldstarDesc m_goldstar = 9;
+inline int E_EncyclopediaEquipexpvalue::m_goldstar_size() const {
+  return m_goldstar_.size();
+}
+inline void E_EncyclopediaEquipexpvalue::clear_m_goldstar() {
+  m_goldstar_.Clear();
+}
+inline const ::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc& E_EncyclopediaEquipexpvalue::m_goldstar(int index) const {
+  return m_goldstar_.Get(index);
+}
+inline ::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc* E_EncyclopediaEquipexpvalue::mutable_m_goldstar(int index) {
+  return m_goldstar_.Mutable(index);
+}
+inline ::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc* E_EncyclopediaEquipexpvalue::add_m_goldstar() {
+  return m_goldstar_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc >&
+E_EncyclopediaEquipexpvalue::m_goldstar() const {
+  return m_goldstar_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc >*
+E_EncyclopediaEquipexpvalue::mutable_m_goldstar() {
+  return &m_goldstar_;
+}
+
 // -------------------------------------------------------------------
 
 // Sheet_EncyclopediaEquipexpvalue
@@ -5002,83 +5424,6 @@ Sheet_EncyclopediaEquipexpvalue::e_encyclopediaequipexpvalue_list() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaEquipexpvalue >*
 Sheet_EncyclopediaEquipexpvalue::mutable_e_encyclopediaequipexpvalue_list() {
   return &e_encyclopediaequipexpvalue_list_;
-}
-
-// -------------------------------------------------------------------
-
-// E_EncyclopediaBeastexp
-
-// optional int32 m_lv = 1;
-inline bool E_EncyclopediaBeastexp::has_m_lv() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void E_EncyclopediaBeastexp::set_has_m_lv() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void E_EncyclopediaBeastexp::clear_has_m_lv() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void E_EncyclopediaBeastexp::clear_m_lv() {
-  m_lv_ = 0;
-  clear_has_m_lv();
-}
-inline ::google::protobuf::int32 E_EncyclopediaBeastexp::m_lv() const {
-  return m_lv_;
-}
-inline void E_EncyclopediaBeastexp::set_m_lv(::google::protobuf::int32 value) {
-  set_has_m_lv();
-  m_lv_ = value;
-}
-
-// optional int32 m_exp = 2;
-inline bool E_EncyclopediaBeastexp::has_m_exp() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void E_EncyclopediaBeastexp::set_has_m_exp() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void E_EncyclopediaBeastexp::clear_has_m_exp() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void E_EncyclopediaBeastexp::clear_m_exp() {
-  m_exp_ = 0;
-  clear_has_m_exp();
-}
-inline ::google::protobuf::int32 E_EncyclopediaBeastexp::m_exp() const {
-  return m_exp_;
-}
-inline void E_EncyclopediaBeastexp::set_m_exp(::google::protobuf::int32 value) {
-  set_has_m_exp();
-  m_exp_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// Sheet_EncyclopediaBeastexp
-
-// repeated .proto_ff.E_EncyclopediaBeastexp E_EncyclopediaBeastexp_List = 1;
-inline int Sheet_EncyclopediaBeastexp::e_encyclopediabeastexp_list_size() const {
-  return e_encyclopediabeastexp_list_.size();
-}
-inline void Sheet_EncyclopediaBeastexp::clear_e_encyclopediabeastexp_list() {
-  e_encyclopediabeastexp_list_.Clear();
-}
-inline const ::proto_ff::E_EncyclopediaBeastexp& Sheet_EncyclopediaBeastexp::e_encyclopediabeastexp_list(int index) const {
-  return e_encyclopediabeastexp_list_.Get(index);
-}
-inline ::proto_ff::E_EncyclopediaBeastexp* Sheet_EncyclopediaBeastexp::mutable_e_encyclopediabeastexp_list(int index) {
-  return e_encyclopediabeastexp_list_.Mutable(index);
-}
-inline ::proto_ff::E_EncyclopediaBeastexp* Sheet_EncyclopediaBeastexp::add_e_encyclopediabeastexp_list() {
-  return e_encyclopediabeastexp_list_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaBeastexp >&
-Sheet_EncyclopediaBeastexp::e_encyclopediabeastexp_list() const {
-  return e_encyclopediabeastexp_list_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaBeastexp >*
-Sheet_EncyclopediaBeastexp::mutable_e_encyclopediabeastexp_list() {
-  return &e_encyclopediabeastexp_list_;
 }
 
 // -------------------------------------------------------------------
@@ -5442,6 +5787,83 @@ Sheet_EncyclopediaBeastprivilege::e_encyclopediabeastprivilege_list() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaBeastprivilege >*
 Sheet_EncyclopediaBeastprivilege::mutable_e_encyclopediabeastprivilege_list() {
   return &e_encyclopediabeastprivilege_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_EncyclopediaBeastexp
+
+// optional int32 m_lv = 1;
+inline bool E_EncyclopediaBeastexp::has_m_lv() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_EncyclopediaBeastexp::set_has_m_lv() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_EncyclopediaBeastexp::clear_has_m_lv() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_EncyclopediaBeastexp::clear_m_lv() {
+  m_lv_ = 0;
+  clear_has_m_lv();
+}
+inline ::google::protobuf::int32 E_EncyclopediaBeastexp::m_lv() const {
+  return m_lv_;
+}
+inline void E_EncyclopediaBeastexp::set_m_lv(::google::protobuf::int32 value) {
+  set_has_m_lv();
+  m_lv_ = value;
+}
+
+// optional int32 m_exp = 2;
+inline bool E_EncyclopediaBeastexp::has_m_exp() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_EncyclopediaBeastexp::set_has_m_exp() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_EncyclopediaBeastexp::clear_has_m_exp() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_EncyclopediaBeastexp::clear_m_exp() {
+  m_exp_ = 0;
+  clear_has_m_exp();
+}
+inline ::google::protobuf::int32 E_EncyclopediaBeastexp::m_exp() const {
+  return m_exp_;
+}
+inline void E_EncyclopediaBeastexp::set_m_exp(::google::protobuf::int32 value) {
+  set_has_m_exp();
+  m_exp_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_EncyclopediaBeastexp
+
+// repeated .proto_ff.E_EncyclopediaBeastexp E_EncyclopediaBeastexp_List = 1;
+inline int Sheet_EncyclopediaBeastexp::e_encyclopediabeastexp_list_size() const {
+  return e_encyclopediabeastexp_list_.size();
+}
+inline void Sheet_EncyclopediaBeastexp::clear_e_encyclopediabeastexp_list() {
+  e_encyclopediabeastexp_list_.Clear();
+}
+inline const ::proto_ff::E_EncyclopediaBeastexp& Sheet_EncyclopediaBeastexp::e_encyclopediabeastexp_list(int index) const {
+  return e_encyclopediabeastexp_list_.Get(index);
+}
+inline ::proto_ff::E_EncyclopediaBeastexp* Sheet_EncyclopediaBeastexp::mutable_e_encyclopediabeastexp_list(int index) {
+  return e_encyclopediabeastexp_list_.Mutable(index);
+}
+inline ::proto_ff::E_EncyclopediaBeastexp* Sheet_EncyclopediaBeastexp::add_e_encyclopediabeastexp_list() {
+  return e_encyclopediabeastexp_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaBeastexp >&
+Sheet_EncyclopediaBeastexp::e_encyclopediabeastexp_list() const {
+  return e_encyclopediabeastexp_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaBeastexp >*
+Sheet_EncyclopediaBeastexp::mutable_e_encyclopediabeastexp_list() {
+  return &e_encyclopediabeastexp_list_;
 }
 
 // -------------------------------------------------------------------

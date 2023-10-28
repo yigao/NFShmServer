@@ -28,7 +28,7 @@ message E_AchievementAchievement
 
 message Sheet_AchievementAchievement
 {
-	repeated E_AchievementAchievement E_AchievementAchievement_List = 1[(yd_fieldoptions.field_arysize)=256];
+	repeated E_AchievementAchievement E_AchievementAchievement_List = 1[(yd_fieldoptions.field_arysize)=1024];
 }
 
 message E_AchievementTotalachievements
@@ -43,5 +43,5 @@ message E_AchievementTotalachievements
 
 message Sheet_AchievementTotalachievements
 {
-	repeated E_AchievementTotalachievements E_AchievementTotalachievements_List = 1[(yd_fieldoptions.field_arysize)=16];
+	repeated E_AchievementTotalachievements E_AchievementTotalachievements_List = 1[(yd_fieldoptions.field_arysize)=64];
 }

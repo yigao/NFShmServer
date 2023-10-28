@@ -51,6 +51,7 @@ int E_MonsterMonster_s::ResumeInit() {
 void E_MonsterMonster_s::write_to_pbmsg(::proto_ff::E_MonsterMonster & msg) const {
 	msg.set_m_monsterid((int64_t)m_monsterid);
 	msg.set_m_monstername(m_monstername.data());
+	msg.set_m_mask(m_mask.data());
 	msg.set_m_functiontype((int32_t)m_functiontype);
 	msg.set_m_functionvalue((int64_t)m_functionvalue);
 	msg.set_m_tasktype((int32_t)m_tasktype);
@@ -86,6 +87,7 @@ void E_MonsterMonster_s::write_to_pbmsg(::proto_ff::E_MonsterMonster & msg) cons
 void E_MonsterMonster_s::read_from_pbmsg(const ::proto_ff::E_MonsterMonster & msg) {
 	m_monsterid = msg.m_monsterid();
 	m_monstername = msg.m_monstername();
+	m_mask = msg.m_mask();
 	m_functiontype = msg.m_functiontype();
 	m_functionvalue = msg.m_functionvalue();
 	m_tasktype = msg.m_tasktype();

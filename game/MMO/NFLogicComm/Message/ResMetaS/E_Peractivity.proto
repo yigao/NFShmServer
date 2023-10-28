@@ -17,6 +17,7 @@ message E_PeractivityPeractivity
 	optional int32 m_advancetime = 10[(yd_fieldoptions.field_cname) = "提前广播时间"];
 	optional int32 m_intervaltime = 11[(yd_fieldoptions.field_cname) = "广播间隔"];
 	optional int32 m_iscross = 12[(yd_fieldoptions.field_cname) = "是否跨服"];
+	optional int32 m_isfestvial = 13[(yd_fieldoptions.field_cname) = "是否限时活动"];
 }
 
 

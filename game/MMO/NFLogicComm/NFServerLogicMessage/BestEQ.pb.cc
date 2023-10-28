@@ -77,6 +77,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* BestEQAwakenRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   BestEQAwakenRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* BestEQStrongEntry_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  BestEQStrongEntry_reflection_ = NULL;
 const ::google::protobuf::Descriptor* BestEQStrongReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   BestEQStrongReq_reflection_ = NULL;
@@ -401,11 +404,26 @@ void protobuf_AssignDesc_BestEQ_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(BestEQAwakenRsp));
-  BestEQStrongReq_descriptor_ = file->message_type(19);
-  static const int BestEQStrongReq_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BestEQStrongReq, bagtype_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BestEQStrongReq, pos_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BestEQStrongReq, costpos_),
+  BestEQStrongEntry_descriptor_ = file->message_type(19);
+  static const int BestEQStrongEntry_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BestEQStrongEntry, bagtype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BestEQStrongEntry, pos_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BestEQStrongEntry, costpos_),
+  };
+  BestEQStrongEntry_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      BestEQStrongEntry_descriptor_,
+      BestEQStrongEntry::default_instance_,
+      BestEQStrongEntry_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BestEQStrongEntry, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BestEQStrongEntry, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(BestEQStrongEntry));
+  BestEQStrongReq_descriptor_ = file->message_type(20);
+  static const int BestEQStrongReq_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BestEQStrongReq, entrys_),
   };
   BestEQStrongReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -418,7 +436,7 @@ void protobuf_AssignDesc_BestEQ_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(BestEQStrongReq));
-  BestEQStrongRsp_descriptor_ = file->message_type(20);
+  BestEQStrongRsp_descriptor_ = file->message_type(21);
   static const int BestEQStrongRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BestEQStrongRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BestEQStrongRsp, bagtype_),
@@ -436,7 +454,7 @@ void protobuf_AssignDesc_BestEQ_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(BestEQStrongRsp));
-  BestEQBreakConfirmReq_descriptor_ = file->message_type(21);
+  BestEQBreakConfirmReq_descriptor_ = file->message_type(22);
   static const int BestEQBreakConfirmReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BestEQBreakConfirmReq, slot_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BestEQBreakConfirmReq, type_),
@@ -452,7 +470,7 @@ void protobuf_AssignDesc_BestEQ_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(BestEQBreakConfirmReq));
-  BestEQBreakConfirmRsp_descriptor_ = file->message_type(22);
+  BestEQBreakConfirmRsp_descriptor_ = file->message_type(23);
   static const int BestEQBreakConfirmRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BestEQBreakConfirmRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BestEQBreakConfirmRsp, slot_),
@@ -520,6 +538,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     BestEQAwakenRsp_descriptor_, &BestEQAwakenRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    BestEQStrongEntry_descriptor_, &BestEQStrongEntry::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     BestEQStrongReq_descriptor_, &BestEQStrongReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     BestEQStrongRsp_descriptor_, &BestEQStrongRsp::default_instance());
@@ -570,6 +590,8 @@ void protobuf_ShutdownFile_BestEQ_2eproto() {
   delete BestEQAwakenReq_reflection_;
   delete BestEQAwakenRsp::default_instance_;
   delete BestEQAwakenRsp_reflection_;
+  delete BestEQStrongEntry::default_instance_;
+  delete BestEQStrongEntry_reflection_;
   delete BestEQStrongReq::default_instance_;
   delete BestEQStrongReq_reflection_;
   delete BestEQStrongRsp::default_instance_;
@@ -615,13 +637,15 @@ void protobuf_AddDesc_BestEQ_2eproto() {
     "estEQBreakRsp\022\013\n\003ret\030\001 \001(\005\022\014\n\004slot\030\002 \001(\005"
     "\"\037\n\017BestEQAwakenReq\022\014\n\004slot\030\001 \001(\005\",\n\017Bes"
     "tEQAwakenRsp\022\013\n\003ret\030\001 \001(\005\022\014\n\004slot\030\002 \001(\005\""
-    "@\n\017BestEQStrongReq\022\017\n\007bagtype\030\001 \001(\005\022\013\n\003p"
-    "os\030\002 \001(\005\022\017\n\007costpos\030\003 \003(\005\"M\n\017BestEQStron"
-    "gRsp\022\013\n\003ret\030\001 \001(\005\022\017\n\007bagtype\030\002 \001(\005\022\013\n\003po"
-    "s\030\003 \001(\005\022\017\n\007costpos\030\004 \003(\005\"3\n\025BestEQBreakC"
-    "onfirmReq\022\014\n\004slot\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\"@\n"
-    "\025BestEQBreakConfirmRsp\022\013\n\003ret\030\001 \001(\005\022\014\n\004s"
-    "lot\030\002 \001(\005\022\014\n\004type\030\003 \001(\005", 1303);
+    "B\n\021BestEQStrongEntry\022\017\n\007bagtype\030\001 \001(\005\022\013\n"
+    "\003pos\030\002 \001(\005\022\017\n\007costpos\030\003 \003(\005\">\n\017BestEQStr"
+    "ongReq\022+\n\006entrys\030\001 \003(\0132\033.proto_ff.BestEQ"
+    "StrongEntry\"M\n\017BestEQStrongRsp\022\013\n\003ret\030\001 "
+    "\001(\005\022\017\n\007bagtype\030\002 \001(\005\022\013\n\003pos\030\003 \001(\005\022\017\n\007cos"
+    "tpos\030\004 \003(\005\"3\n\025BestEQBreakConfirmReq\022\014\n\004s"
+    "lot\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\"@\n\025BestEQBreakCo"
+    "nfirmRsp\022\013\n\003ret\030\001 \001(\005\022\014\n\004slot\030\002 \001(\005\022\014\n\004t"
+    "ype\030\003 \001(\005", 1369);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "BestEQ.proto", &protobuf_RegisterTypes);
   NotifyBestEQData::default_instance_ = new NotifyBestEQData();
@@ -643,6 +667,7 @@ void protobuf_AddDesc_BestEQ_2eproto() {
   BestEQBreakRsp::default_instance_ = new BestEQBreakRsp();
   BestEQAwakenReq::default_instance_ = new BestEQAwakenReq();
   BestEQAwakenRsp::default_instance_ = new BestEQAwakenRsp();
+  BestEQStrongEntry::default_instance_ = new BestEQStrongEntry();
   BestEQStrongReq::default_instance_ = new BestEQStrongReq();
   BestEQStrongRsp::default_instance_ = new BestEQStrongRsp();
   BestEQBreakConfirmReq::default_instance_ = new BestEQBreakConfirmReq();
@@ -666,6 +691,7 @@ void protobuf_AddDesc_BestEQ_2eproto() {
   BestEQBreakRsp::default_instance_->InitAsDefaultInstance();
   BestEQAwakenReq::default_instance_->InitAsDefaultInstance();
   BestEQAwakenRsp::default_instance_->InitAsDefaultInstance();
+  BestEQStrongEntry::default_instance_->InitAsDefaultInstance();
   BestEQStrongReq::default_instance_->InitAsDefaultInstance();
   BestEQStrongRsp::default_instance_->InitAsDefaultInstance();
   BestEQBreakConfirmReq::default_instance_->InitAsDefaultInstance();
@@ -5316,63 +5342,63 @@ void BestEQAwakenRsp::Swap(BestEQAwakenRsp* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int BestEQStrongReq::kBagtypeFieldNumber;
-const int BestEQStrongReq::kPosFieldNumber;
-const int BestEQStrongReq::kCostposFieldNumber;
+const int BestEQStrongEntry::kBagtypeFieldNumber;
+const int BestEQStrongEntry::kPosFieldNumber;
+const int BestEQStrongEntry::kCostposFieldNumber;
 #endif  // !_MSC_VER
 
-BestEQStrongReq::BestEQStrongReq()
+BestEQStrongEntry::BestEQStrongEntry()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void BestEQStrongReq::InitAsDefaultInstance() {
+void BestEQStrongEntry::InitAsDefaultInstance() {
 }
 
-BestEQStrongReq::BestEQStrongReq(const BestEQStrongReq& from)
+BestEQStrongEntry::BestEQStrongEntry(const BestEQStrongEntry& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void BestEQStrongReq::SharedCtor() {
+void BestEQStrongEntry::SharedCtor() {
   _cached_size_ = 0;
   bagtype_ = 0;
   pos_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-BestEQStrongReq::~BestEQStrongReq() {
+BestEQStrongEntry::~BestEQStrongEntry() {
   SharedDtor();
 }
 
-void BestEQStrongReq::SharedDtor() {
+void BestEQStrongEntry::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void BestEQStrongReq::SetCachedSize(int size) const {
+void BestEQStrongEntry::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* BestEQStrongReq::descriptor() {
+const ::google::protobuf::Descriptor* BestEQStrongEntry::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return BestEQStrongReq_descriptor_;
+  return BestEQStrongEntry_descriptor_;
 }
 
-const BestEQStrongReq& BestEQStrongReq::default_instance() {
+const BestEQStrongEntry& BestEQStrongEntry::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_BestEQ_2eproto();
   return *default_instance_;
 }
 
-BestEQStrongReq* BestEQStrongReq::default_instance_ = NULL;
+BestEQStrongEntry* BestEQStrongEntry::default_instance_ = NULL;
 
-BestEQStrongReq* BestEQStrongReq::New() const {
-  return new BestEQStrongReq;
+BestEQStrongEntry* BestEQStrongEntry::New() const {
+  return new BestEQStrongEntry;
 }
 
-void BestEQStrongReq::Clear() {
+void BestEQStrongEntry::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     bagtype_ = 0;
     pos_ = 0;
@@ -5382,7 +5408,7 @@ void BestEQStrongReq::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool BestEQStrongReq::MergePartialFromCodedStream(
+bool BestEQStrongEntry::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -5457,7 +5483,7 @@ bool BestEQStrongReq::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void BestEQStrongReq::SerializeWithCachedSizes(
+void BestEQStrongEntry::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional int32 bagtype = 1;
   if (has_bagtype()) {
@@ -5481,7 +5507,7 @@ void BestEQStrongReq::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* BestEQStrongReq::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* BestEQStrongEntry::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // optional int32 bagtype = 1;
   if (has_bagtype()) {
@@ -5506,7 +5532,7 @@ void BestEQStrongReq::SerializeWithCachedSizes(
   return target;
 }
 
-int BestEQStrongReq::ByteSize() const {
+int BestEQStrongEntry::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -5546,6 +5572,219 @@ int BestEQStrongReq::ByteSize() const {
   return total_size;
 }
 
+void BestEQStrongEntry::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const BestEQStrongEntry* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const BestEQStrongEntry*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void BestEQStrongEntry::MergeFrom(const BestEQStrongEntry& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  costpos_.MergeFrom(from.costpos_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_bagtype()) {
+      set_bagtype(from.bagtype());
+    }
+    if (from.has_pos()) {
+      set_pos(from.pos());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void BestEQStrongEntry::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void BestEQStrongEntry::CopyFrom(const BestEQStrongEntry& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BestEQStrongEntry::IsInitialized() const {
+
+  return true;
+}
+
+void BestEQStrongEntry::Swap(BestEQStrongEntry* other) {
+  if (other != this) {
+    std::swap(bagtype_, other->bagtype_);
+    std::swap(pos_, other->pos_);
+    costpos_.Swap(&other->costpos_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata BestEQStrongEntry::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = BestEQStrongEntry_descriptor_;
+  metadata.reflection = BestEQStrongEntry_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int BestEQStrongReq::kEntrysFieldNumber;
+#endif  // !_MSC_VER
+
+BestEQStrongReq::BestEQStrongReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void BestEQStrongReq::InitAsDefaultInstance() {
+}
+
+BestEQStrongReq::BestEQStrongReq(const BestEQStrongReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void BestEQStrongReq::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+BestEQStrongReq::~BestEQStrongReq() {
+  SharedDtor();
+}
+
+void BestEQStrongReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void BestEQStrongReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* BestEQStrongReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return BestEQStrongReq_descriptor_;
+}
+
+const BestEQStrongReq& BestEQStrongReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_BestEQ_2eproto();
+  return *default_instance_;
+}
+
+BestEQStrongReq* BestEQStrongReq::default_instance_ = NULL;
+
+BestEQStrongReq* BestEQStrongReq::New() const {
+  return new BestEQStrongReq;
+}
+
+void BestEQStrongReq::Clear() {
+  entrys_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool BestEQStrongReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.BestEQStrongEntry entrys = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_entrys:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_entrys()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_entrys;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void BestEQStrongReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.BestEQStrongEntry entrys = 1;
+  for (int i = 0; i < this->entrys_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->entrys(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* BestEQStrongReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.BestEQStrongEntry entrys = 1;
+  for (int i = 0; i < this->entrys_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->entrys(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int BestEQStrongReq::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.BestEQStrongEntry entrys = 1;
+  total_size += 1 * this->entrys_size();
+  for (int i = 0; i < this->entrys_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->entrys(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
 void BestEQStrongReq::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
   const BestEQStrongReq* source =
@@ -5560,15 +5799,7 @@ void BestEQStrongReq::MergeFrom(const ::google::protobuf::Message& from) {
 
 void BestEQStrongReq::MergeFrom(const BestEQStrongReq& from) {
   GOOGLE_CHECK_NE(&from, this);
-  costpos_.MergeFrom(from.costpos_);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_bagtype()) {
-      set_bagtype(from.bagtype());
-    }
-    if (from.has_pos()) {
-      set_pos(from.pos());
-    }
-  }
+  entrys_.MergeFrom(from.entrys_);
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
@@ -5591,9 +5822,7 @@ bool BestEQStrongReq::IsInitialized() const {
 
 void BestEQStrongReq::Swap(BestEQStrongReq* other) {
   if (other != this) {
-    std::swap(bagtype_, other->bagtype_);
-    std::swap(pos_, other->pos_);
-    costpos_.Swap(&other->costpos_);
+    entrys_.Swap(&other->entrys_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

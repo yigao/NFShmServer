@@ -15,50 +15,50 @@
   <component name="CMakeRunConfigurationManager">
     <generated>
       <config projectName="ShmNFrame" targetName="NFLuaScriptPlugin" />
-      <config projectName="ShmNFrame" targetName="evpp" />
       <config projectName="ShmNFrame" targetName="NFMMOCommonPlugin" />
       <config projectName="ShmNFrame" targetName="NFMMOProxyPlayerPlugin" />
-      <config projectName="ShmNFrame" targetName="NFMMOLogicCommon" />
-      <config projectName="ShmNFrame" targetName="NFServerMessage" />
-      <config projectName="ShmNFrame" targetName="NFKernelPlugin" />
       <config projectName="ShmNFrame" targetName="NFGameCommon" />
       <config projectName="ShmNFrame" targetName="NFLogicServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFSnsServerPlugin" />
-      <config projectName="ShmNFrame" targetName="NFMMOWorldPlayerPlugin" />
-      <config projectName="ShmNFrame" targetName="NFPluginLoader" />
-      <config projectName="ShmNFrame" targetName="RecastNavigation" />
       <config projectName="ShmNFrame" targetName="NFRouteAgentServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFGameServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFProxyServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFShmPlugin" />
       <config projectName="ShmNFrame" targetName="NFShmCore" />
-      <config projectName="ShmNFrame" targetName="NFWorldServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFNetPlugin" />
       <config projectName="ShmNFrame" targetName="NFFishLoginPlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFCore" />
       <config projectName="ShmNFrame" targetName="NFCenterServerPlugin" />
-      <config projectName="ShmNFrame" targetName="NFProxyClientPlugin" />
-      <config projectName="ShmNFrame" targetName="NFMMODescStore" />
       <config projectName="ShmNFrame" targetName="NFMMOLogicPlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFMMOCenterPlayerPlugin" />
-      <config projectName="ShmNFrame" targetName="NFPluginModule" />
-      <config projectName="ShmNFrame" targetName="NFRouteServerPlugin" />
-      <config projectName="ShmNFrame" targetName="NFMMOLogicMessage" />
-      <config projectName="ShmNFrame" targetName="NFServerCommon" />
-      <config projectName="ShmNFrame" targetName="NFDBPlugin" />
       <config projectName="ShmNFrame" targetName="NFExcelProcess" />
       <config projectName="ShmNFrame" targetName="NFProxyAgentServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFMasterServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFStoreServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFKernelMessage" />
       <config projectName="ShmNFrame" targetName="NFDescStorePlugin" />
-      <config projectName="ShmNFrame" targetName="NFMMOSnsPlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFTestPlugin" />
       <config projectName="ShmNFrame" targetName="Sqlite3" />
-      <config projectName="ShmNFrame" targetName="NFMMOGamePlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFLoginServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFServerCommonPlugin" />
       <config projectName="ShmNFrame" targetName="mysqlpp" />
+      <config projectName="ShmNFrame" targetName="evpp" />
+      <config projectName="ShmNFrame" targetName="NFMMOLogicCommon" />
+      <config projectName="ShmNFrame" targetName="NFServerMessage" />
+      <config projectName="ShmNFrame" targetName="NFKernelPlugin" />
+      <config projectName="ShmNFrame" targetName="NFMMOWorldPlayerPlugin" />
+      <config projectName="ShmNFrame" targetName="NFPluginLoader" />
+      <config projectName="ShmNFrame" targetName="RecastNavigation" />
+      <config projectName="ShmNFrame" targetName="NFWorldServerPlugin" />
+      <config projectName="ShmNFrame" targetName="NFProxyClientPlugin" />
+      <config projectName="ShmNFrame" targetName="NFMMODescStore" />
+      <config projectName="ShmNFrame" targetName="NFPluginModule" />
+      <config projectName="ShmNFrame" targetName="NFRouteServerPlugin" />
+      <config projectName="ShmNFrame" targetName="NFMMOLogicMessage" />
+      <config projectName="ShmNFrame" targetName="NFServerCommon" />
+      <config projectName="ShmNFrame" targetName="NFDBPlugin" />
+      <config projectName="ShmNFrame" targetName="NFMMOSnsPlayerPlugin" />
+      <config projectName="ShmNFrame" targetName="NFMMOGamePlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFWebServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFPluginManager" />
     </generated>
@@ -71,10 +71,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="MMO shm obj global desc store">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Map/NFMapMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Map/NFMapMgr.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFDynamicHead.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFDynamicHead.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmObjTemplate.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmObjTemplate.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFAchievementPart.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFAchievementPart.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +124,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;,
     &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -420,8 +419,8 @@
       <item itemvalue="CMake 应用程序.NFProxyServerPlugin" />
       <item itemvalue="CMake 应用程序.NFRouteAgentServerPlugin" />
       <item itemvalue="CMake 应用程序.NFRouteServerPlugin" />
-      <item itemvalue="CMake 应用程序.NFServerCommon" />
       <item itemvalue="CMake 应用程序.NFServerCommonPlugin" />
+      <item itemvalue="CMake 应用程序.NFServerCommon" />
       <item itemvalue="CMake 应用程序.NFServerMessage" />
       <item itemvalue="CMake 应用程序.NFShmCore" />
       <item itemvalue="CMake 应用程序.NFShmPlugin" />
@@ -531,7 +530,12 @@
       <workItem from="1698386048362" duration="87000" />
       <workItem from="1698386146809" duration="47000" />
       <workItem from="1698386203320" duration="153000" />
-      <workItem from="1698386366159" duration="1566000" />
+      <workItem from="1698386366159" duration="17277000" />
+      <workItem from="1698464036129" duration="162000" />
+      <workItem from="1698464235704" duration="1258000" />
+      <workItem from="1698465524232" duration="194000" />
+      <workItem from="1698465728554" duration="202000" />
+      <workItem from="1698465943835" duration="128000" />
     </task>
     <task id="LOCAL-00172" summary="fish">
       <created>1695432186860</created>
@@ -876,7 +880,7 @@
       <option name="project" value="LOCAL" />
       <updated>1697881884722</updated>
     </task>
-    <option name="localTasksCounter" value="238" />
+    <option name="localTasksCounter" value="240" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1194,11 +1198,6 @@
           <url>file://$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFCDescStoreModule.cpp</url>
           <line>520</line>
           <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Map/NFMapMgr.cpp</url>
-          <line>67</line>
-          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

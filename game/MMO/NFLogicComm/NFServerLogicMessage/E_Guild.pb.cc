@@ -133,7 +133,7 @@ void protobuf_AssignDesc_E_5fGuild_2eproto() {
       "E_Guild.proto");
   GOOGLE_CHECK(file != NULL);
   E_GuildConstant_descriptor_ = file->message_type(0);
-  static const int E_GuildConstant_offsets_[74] = {
+  static const int E_GuildConstant_offsets_[76] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildConstant, m_constantid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildConstant, m_setitem_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildConstant, m_nameitem_),
@@ -208,6 +208,8 @@ void protobuf_AssignDesc_E_5fGuild_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildConstant, m_assistradio_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildConstant, m_tteamdamageadd_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildConstant, m_tweekclosetime_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildConstant, m_cyclicreward_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildConstant, m_tencyclicreward_),
   };
   E_GuildConstant_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -455,9 +457,11 @@ void protobuf_AssignDesc_E_5fGuild_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_GuildPacket));
   E_GuildPrestigetask_descriptor_ = file->message_type(14);
-  static const int E_GuildPrestigetask_offsets_[5] = {
+  static const int E_GuildPrestigetask_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildPrestigetask, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildPrestigetask, m_level_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildPrestigetask, m_lvmin_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildPrestigetask, m_lvmax_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildPrestigetask, m_weight_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildPrestigetask, m_taskpool_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildPrestigetask, m_reward_),
@@ -959,7 +963,7 @@ void protobuf_AddDesc_E_5fGuild_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\rE_Guild.proto\022\010proto_ff\032\025yd_fieldoptio"
-    "ns.proto\"\247\035\n\017E_GuildConstant\022\"\n\014m_consta"
+    "ns.proto\"\226\036\n\017E_GuildConstant\022\"\n\014m_consta"
     "ntid\030\001 \001(\005B\014\302\377\024\010\351\205\215\347\275\256id\0221\n\tm_setitem\030\002 "
     "\001(\005B\036\302\377\024\032\345\210\233\345\273\272\345\205\254\344\274\232\351\234\200\350\246\201\351\201\223\345\205\267ID\0222\n\nm"
     "_nameitem\030\003 \001(\005B\036\302\377\024\032\345\205\254\344\274\232\346\224\271\345\220\215\351\234\200\350\246\201\351"
@@ -1053,145 +1057,150 @@ void protobuf_AddDesc_E_5fGuild_2eproto() {
     "\273\347\232\204\347\247\257\345\210\206\347\263\273\346\225\260\0220\n\020m_tteamdamageadd\030I \001"
     "(\005B\026\302\377\024\022\347\273\204\351\230\237\345\242\236\345\212\240\344\274\244\345\256\263\0226\n\020m_tweekclo"
     "setime\030J \001(\005B\034\302\377\024\030\345\221\250\347\273\223\347\256\227\345\211\215\345\205\263\351\227\255\346\227\266\351"
-    "\227\264\"U\n\023Sheet_GuildConstant\022>\n\024E_GuildCons"
-    "tant_List\030\001 \003(\0132\031.proto_ff.E_GuildConsta"
-    "ntB\005\210\301\024\200\001\"\254\002\n\014E_GuildLevel\022&\n\014m_guildlev"
-    "el\030\001 \001(\005B\020\302\377\024\014\345\205\254\344\274\232\347\255\211\347\272\247\0220\n\020m_guildlev"
-    "el_exp\030\002 \001(\005B\026\302\377\024\022\345\205\254\344\274\232\345\215\207\347\272\247\347\273\217\351\252\214\0226\n\023"
-    "m_guildlevel_member\030\003 \001(\005B\031\302\377\024\025\345\205\254\344\274\232\346\210\220"
-    "\345\221\230\346\200\273\344\272\272\346\225\260\0222\n\017m_guildlevel_vp\030\004 \001(\005B\031\302"
-    "\377\024\025\345\205\254\344\274\232\345\211\257\344\274\232\351\225\277\344\272\272\346\225\260\022,\n\017m_guildlevel"
-    "_np\030\005 \001(\005B\023\302\377\024\017\345\205\254\344\274\232\351\225\277\350\200\201\346\225\260\022(\n\016m_guil"
-    "dlevel_g\030\006 \001(\005B\020\302\377\024\014\346\212\244\346\263\225\344\272\272\346\225\260\"K\n\020Shee"
-    "t_GuildLevel\0227\n\021E_GuildLevel_List\030\001 \003(\0132"
-    "\026.proto_ff.E_GuildLevelB\004\210\301\024\020\"\342\006\n\017E_Guil"
-    "dPosition\022\"\n\014m_positionid\030\001 \001(\005B\014\302\377\024\010\350\201\214"
-    "\344\275\215ID\022,\n\017m_admitnewcomer\030\002 \001(\005B\023\302\377\024\017\346\216\245\346"
-    "\224\266\346\226\260\346\210\220\345\221\230\0228\n\024m_appointandremovevp\030\003 \001("
-    "\005B\032\302\377\024\026\344\273\273\345\221\275/\350\247\243\351\231\244\345\211\257\344\274\232\351\225\277\0228\n\027m_appoi"
-    "ntandremoveelder\030\004 \001(\005B\027\302\377\024\023\344\273\273\345\221\275/\350\247\243\351\231"
-    "\244\351\225\277\350\200\201\0224\n\023m_appointandremoveg\030\005 \001(\005B\027\302\377"
-    "\024\023\344\273\273\345\221\275/\350\247\243\351\231\244\346\212\244\346\263\225\0228\n\027m_appointandrem"
-    "oveelite\030\006 \001(\005B\027\302\377\024\023\344\273\273\345\221\275/\350\247\243\351\231\244\347\262\276\350\213\261\022"
-    "&\n\tm_expelvp\030\007 \001(\005B\023\302\377\024\017\350\270\242\345\207\272\345\211\257\344\274\232\351\225\277\022"
-    "&\n\014m_expelelder\030\010 \001(\005B\020\302\377\024\014\350\270\242\345\207\272\351\225\277\350\200\201\022"
-    "\"\n\010m_expelg\030\t \001(\005B\020\302\377\024\014\350\270\242\345\207\272\346\212\244\346\263\225\022+\n\013m"
-    "_expelmass\030\n \001(\005B\026\302\377\024\022\350\270\242\345\207\272\346\231\256\351\200\232\346\210\220\345\221\230"
-    "\022/\n\025m_announcementediting\030\013 \001(\005B\020\302\377\024\014\347\274\226"
-    "\350\276\221\345\205\254\345\221\212\022!\n\007m_rname\030\014 \001(\005B\020\302\377\024\014\344\277\256\346\224\271\345\220"
-    "\215\345\255\227\022/\n\017m_joincondition\030\r \001(\005B\026\302\377\024\022\350\256\276\347\275"
-    "\256\345\212\240\345\205\245\346\226\271\345\274\217\022/\n\017m_guildactivity\030\016 \001(\005B\026"
-    "\302\377\024\022\345\274\200\345\220\257\345\205\254\344\274\232\347\216\251\346\263\225\0226\n\025m_dissolveassi"
-    "gnguild\030\017 \001(\005B\027\302\377\024\023\350\247\243\346\225\243/\350\275\254\350\256\251\345\205\254\344\274\232\022&"
-    "\n\014m_changename\030\020 \001(\005B\020\302\377\024\014\346\224\271\345\220\215\346\235\203\351\231\220\022-"
-    "\n\rm_recruitchat\030\021 \001(\005B\026\302\377\024\022\345\217\221\345\270\203\346\213\233\350\264\244\347"
-    "\272\263\345\243\253\0223\n\rm_guildpacket\030\022 \001(\005B\034\302\377\024\030\345\217\221\351\200\201"
-    "\345\205\254\344\274\232\347\216\251\346\263\225\347\272\242\345\214\205\"T\n\023Sheet_GuildPositio"
-    "n\022=\n\024E_GuildPosition_List\030\001 \003(\0132\031.proto_"
-    "ff.E_GuildPositionB\004\210\301\024\010\"P\n\027E_GuildSalar"
-    "yRewardDesc\022\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\032"
-    "\n\006m_item\030\002 \001(\005B\n\302\377\024\006\347\211\251\345\223\201\"\324\001\n\rE_GuildSa"
-    "lary\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002ID\022 \n\006m_type\030\002 \001"
-    "(\005B\020\302\377\024\014\344\273\273\345\212\241\347\261\273\345\236\213\022#\n\tm_typearg\030\003 \001(\005B"
-    "\020\302\377\024\014\347\261\273\345\236\213\345\217\202\346\225\260\022!\n\007m_times\030\004 \001(\005B\020\302\377\024\014"
-    "\346\254\241\346\225\260\345\217\202\346\225\260\022C\n\010m_reward\030\005 \003(\0132!.proto_f"
-    "f.E_GuildSalaryRewardDescB\016\302\377\024\006\345\245\226\345\212\261\210\301\024"
-    "\003\"N\n\021Sheet_GuildSalary\0229\n\022E_GuildSalary_"
-    "List\030\001 \003(\0132\027.proto_ff.E_GuildSalaryB\004\210\301\024"
-    "\010\"P\n\027E_GuildDonateRewardDesc\022\031\n\005m_num\030\001 "
-    "\001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\032\n\006m_item\030\002 \001(\005B\n\302\377\024\006\347\211\251"
-    "\345\223\201\"\275\001\n\rE_GuildDonate\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024"
-    "\002ID\022&\n\nm_costitem\030\002 \001(\005B\022\302\377\024\016\350\212\261\350\264\271\347\211\251\345\223"
-    "\201id\022)\n\tm_costnum\030\003 \001(\005B\026\302\377\024\022\350\212\261\350\264\271\347\211\251\345\223\201"
-    "\346\225\260\351\207\217\022C\n\010m_reward\030\004 \003(\0132!.proto_ff.E_Gu"
-    "ildDonateRewardDescB\016\302\377\024\006\345\245\226\345\212\261\210\301\024\003\"N\n\021S"
-    "heet_GuildDonate\0229\n\022E_GuildDonate_List\030\001"
-    " \003(\0132\027.proto_ff.E_GuildDonateB\004\210\301\024\004\"\346\002\n\r"
-    "E_GuildPacket\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\347\272\242\345\214\205I"
-    "D\022,\n\014m_belongtype\030\002 \001(\005B\026\302\377\024\022\347\272\242\345\214\205\345\275\222\345\261"
-    "\236\347\261\273\345\236\213\022&\n\006m_type\030\003 \001(\005B\026\302\377\024\022\347\272\242\345\214\205\350\247\246\345\217"
-    "\221\347\261\273\345\236\213\022#\n\tm_typearg\030\004 \001(\005B\020\302\377\024\014\347\261\273\345\236\213\345\217"
-    "\202\346\225\260\022(\n\010m_itemid\030\005 \001(\005B\026\302\377\024\022\347\272\242\345\214\205\351\242\206\345\217\226"
-    "\347\261\273\345\236\213\022#\n\tm_itemnum\030\006 \001(\005B\020\302\377\024\014\347\272\242\345\214\205\351\207\221"
-    "\351\242\235\022\037\n\005m_num\030\007 \001(\005B\020\302\377\024\014\347\272\242\345\214\205\344\273\275\346\225\260\022\037\n\005"
-    "m_pre\030\010 \001(\005B\020\302\377\024\014\345\211\215\347\275\256\347\272\242\345\214\205\022-\n\007m_daily"
-    "\030\t \001(\005B\034\302\377\024\030\346\257\217\346\227\245\351\231\220\345\210\266\350\247\246\345\217\221\346\254\241\346\225\260\"O\n\021"
-    "Sheet_GuildPacket\022:\n\022E_GuildPacket_List\030"
-    "\001 \003(\0132\027.proto_ff.E_GuildPacketB\005\210\301\024\200\001\"\306\001"
-    "\n\023E_GuildPrestigetask\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024"
-    "\002id\022!\n\007m_level\030\002 \001(\005B\020\302\377\024\014\344\273\273\345\212\241\345\210\206\347\272\247\022\034"
-    "\n\010m_weight\030\003 \001(\005B\n\302\377\024\006\346\235\203\351\207\215\022,\n\nm_taskpo"
-    "ol\030\004 \001(\005B\030\302\377\024\024\351\232\217\346\234\272\347\232\204\344\273\273\345\212\241\346\261\240id\022*\n\010m_"
-    "reward\030\005 \001(\005B\030\302\377\024\024\344\273\273\345\212\241\345\245\226\345\212\261\347\261\273\345\236\213id\"`"
-    "\n\027Sheet_GuildPrestigetask\022E\n\030E_GuildPres"
-    "tigetask_List\030\001 \003(\0132\035.proto_ff.E_GuildPr"
-    "estigetaskB\004\210\301\024\010\"\245\001\n\017E_GuildLvreward\022\030\n\004"
-    "m_lv\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022$\n\nm_partyexp\030\002 \001"
-    "(\005B\020\302\377\024\014\346\231\232\345\256\264\347\273\217\351\252\214\022-\n\023m_partyeontribut"
-    "ion\030\003 \001(\005B\020\302\377\024\014\346\231\232\345\256\264\350\264\241\347\214\256\022#\n\tm_linkexp"
-    "\030\004 \001(\005B\020\302\377\024\014\351\223\276\346\216\245\347\273\217\351\252\214\"U\n\023Sheet_GuildL"
-    "vreward\022>\n\024E_GuildLvreward_List\030\001 \003(\0132\031."
-    "proto_ff.E_GuildLvrewardB\005\210\301\024\200\004\"O\n\033E_Gui"
-    "ldCollegeAttributeDesc\022\030\n\007m_value\030\001 \001(\005B"
-    "\007\302\377\024\003\345\200\274\022\026\n\006m_type\030\002 \001(\005B\006\302\377\024\002ID\"\303\003\n\016E_G"
-    "uildCollege\022\033\n\005m_uid\030\001 \001(\005B\014\302\377\024\010\345\224\257\344\270\200id"
-    "\022\037\n\tm_skillid\030\002 \001(\005B\014\302\377\024\010\346\212\200\350\203\275id\022#\n\tm_s"
-    "killlv\030\003 \001(\005B\020\302\377\024\014\345\277\203\346\263\225\347\255\211\347\272\247\0225\n\tm_guil"
-    "dlv\030\004 \001(\005B\"\302\377\024\036\345\274\200\346\224\276\345\255\246\344\271\240\351\234\200\346\261\202\345\205\254\344\274\232\347"
-    "\255\211\347\272\247\022/\n\017m_playerlvlimit\030\005 \001(\005B\026\302\377\024\022\350\246\201\346"
-    "\261\202\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\014m_preskillid\030\006 \001(\005B\030\302\377"
-    "\024\024\350\246\201\346\261\202\345\211\215\347\275\256\346\212\200\350\203\275ID\0222\n\014m_preskilllv\030\007"
-    " \001(\005B\034\302\377\024\030\350\246\201\346\261\202\345\211\215\347\275\256\346\212\200\350\203\275\347\255\211\347\272\247\0220\n\020m_"
-    "costcontribute\030\010 \001(\005B\026\302\377\024\022\345\277\203\346\263\225\346\266\210\350\200\227\350\264"
-    "\241\347\214\256\022P\n\013m_attribute\030\t \003(\0132%.proto_ff.E_G"
-    "uildCollegeAttributeDescB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346"
-    "\200\247\210\301\024\002\"S\n\022Sheet_GuildCollege\022=\n\023E_GuildC"
-    "ollege_List\030\001 \003(\0132\030.proto_ff.E_GuildColl"
-    "egeB\006\210\301\024\200\200\001\"G\n\rE_GuildAnswer\022\024\n\004m_id\030\001 \001"
-    "(\005B\006\302\377\024\002ID\022 \n\010m_answer\030\002 \001(\tB\016\302\377\024\006\347\255\224\346\241\210"
-    "\220\301\024@\"N\n\021Sheet_GuildAnswer\0229\n\022E_GuildAnsw"
-    "er_List\030\001 \003(\0132\027.proto_ff.E_GuildAnswerB\004"
-    "\210\301\024@\"\207\002\n\022E_GuildRank_reward\022\024\n\004m_id\030\001 \001("
-    "\005B\006\302\377\024\002id\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\036\n"
-    "\006m_note\030\003 \001(\tB\016\302\377\024\006\345\244\207\346\263\250\220\301\024@\022#\n\tm_rankm"
-    "in\030\004 \001(\005B\020\302\377\024\014\346\216\222\345\220\215\344\270\213\351\231\220\022#\n\tm_rankmax\030"
-    "\005 \001(\005B\020\302\377\024\014\346\216\222\345\220\215\344\270\212\351\231\220\022-\n\007m_lvmin\030\006 \001(\005"
-    "B\034\302\377\024\030\350\267\250\346\234\215\344\270\226\347\225\214\347\255\211\347\272\247\344\270\213\351\231\220\022&\n\tm_rewa"
-    "rds\030\007 \001(\005B\023\302\377\024\017\346\234\215\345\212\241\345\231\250\345\245\226\345\212\261\"^\n\026Sheet_"
-    "GuildRank_reward\022D\n\027E_GuildRank_reward_L"
-    "ist\030\001 \003(\0132\034.proto_ff.E_GuildRank_rewardB"
-    "\005\210\301\024\200\002\"N\n\033E_GuildShouhskillRewardDesc\022\031\n"
-    "\005m_num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_id\030\002 \001(\005B\006"
-    "\302\377\024\002id\"\225\002\n\021E_GuildShouhskill\022\024\n\004m_id\030\001 \001"
-    "(\005B\006\302\377\024\002id\022\036\n\006m_name\030\002 \001(\tB\016\302\377\024\006\345\220\215\347\247\260\220\301"
-    "\024@\022\036\n\010m_costid\030\003 \001(\005B\014\302\377\024\010\350\212\261\350\264\271id\022#\n\tm_"
-    "costnum\030\004 \001(\005B\020\302\377\024\014\350\212\261\350\264\271\346\225\260\351\207\217\022\037\n\tm_ski"
-    "llid\030\005 \001(\005B\014\302\377\024\010\346\212\200\350\203\275id\022\033\n\007m_times\030\006 \001("
-    "\005B\n\302\377\024\006\346\254\241\346\225\260\022G\n\010m_reward\030\007 \003(\0132%.proto_"
-    "ff.E_GuildShouhskillRewardDescB\016\302\377\024\006\345\245\226\345"
-    "\212\261\210\301\024\002\"Z\n\025Sheet_GuildShouhskill\022A\n\026E_Gui"
-    "ldShouhskill_List\030\001 \003(\0132\033.proto_ff.E_Gui"
-    "ldShouhskillB\004\210\301\024\010\"\271\001\n\017E_GuildGwreward\022\024"
-    "\n\004m_id\030\001 \001(\005B\006\302\377\024\002ID\022\032\n\006m_type\030\002 \001(\005B\n\302\377"
-    "\024\006\347\261\273\345\236\213\022\'\n\010m_reward\030\003 \001(\tB\025\302\377\024\014\346\234\254\346\234\215\345\245"
-    "\226\345\212\261\220\301\024\200\002\022,\n\rm_crossreward\030\004 \001(\tB\025\302\377\024\014\350\267"
-    "\250\346\234\215\345\245\226\345\212\261\220\301\024\200\002\022\035\n\005m_arg\030\005 \003(\005B\016\302\377\024\006\345\217\202\346"
-    "\225\260\210\301\024\003\"U\n\023Sheet_GuildGwreward\022>\n\024E_Guild"
-    "Gwreward_List\030\001 \003(\0132\031.proto_ff.E_GuildGw"
-    "rewardB\005\210\301\024\200\001\"\310\001\n\022E_GuildGwwinstreak\022\024\n\004"
-    "m_id\030\001 \001(\005B\006\302\377\024\002id\022\"\n\013m_winstreak\030\002 \001(\005B"
-    "\r\302\377\024\t\350\277\236\350\203\234\346\225\260\022%\n\013m_winreward\030\003 \001(\005B\020\302\377\024"
-    "\014\350\277\236\350\203\234\345\245\226\345\212\261\022%\n\013m_endreward\030\004 \001(\005B\020\302\377\024\014"
-    "\347\273\210\347\273\223\345\245\226\345\212\261\022*\n\020m_challengeskill\030\005 \001(\005B\020"
-    "\302\377\024\014\345\243\253\346\260\224\346\212\200\350\203\275\"]\n\026Sheet_GuildGwwinstre"
-    "ak\022C\n\027E_GuildGwwinstreak_List\030\001 \003(\0132\034.pr"
-    "oto_ff.E_GuildGwwinstreakB\004\210\301\024 \"\226\001\n\rE_Gu"
-    "ildTtower\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\035\n\007m_dup"
-    "id\030\002 \001(\005B\014\302\377\024\010\345\211\257\346\234\254id\022$\n\nm_breakbox\030\003 \001"
-    "(\005B\020\302\377\024\014\351\200\232\345\205\263\345\245\226\345\212\261\022*\n\nm_clearbox\030\004 \001(\005"
-    "B\026\302\377\024\022\345\215\225\346\254\241\347\273\223\347\256\227\345\245\226\345\212\261\"O\n\021Sheet_GuildT"
-    "tower\022:\n\022E_GuildTtower_List\030\001 \003(\0132\027.prot"
-    "o_ff.E_GuildTtowerB\005\210\301\024\200\001", 9345);
+    "\227\264\0224\n\016m_cyclicreward\030K \001(\005B\034\302\377\024\030\345\221\250\347\216\257\344\273"
+    "\273\345\212\241\346\231\256\351\200\232\345\245\226\345\212\261\0227\n\021m_tencyclicreward\030L "
+    "\001(\005B\034\302\377\024\030\345\221\250\347\216\257\344\273\273\345\212\241\345\215\201\347\216\257\345\245\226\345\212\261\"U\n\023She"
+    "et_GuildConstant\022>\n\024E_GuildConstant_List"
+    "\030\001 \003(\0132\031.proto_ff.E_GuildConstantB\005\210\301\024\200\001"
+    "\"\254\002\n\014E_GuildLevel\022&\n\014m_guildlevel\030\001 \001(\005B"
+    "\020\302\377\024\014\345\205\254\344\274\232\347\255\211\347\272\247\0220\n\020m_guildlevel_exp\030\002 "
+    "\001(\005B\026\302\377\024\022\345\205\254\344\274\232\345\215\207\347\272\247\347\273\217\351\252\214\0226\n\023m_guildle"
+    "vel_member\030\003 \001(\005B\031\302\377\024\025\345\205\254\344\274\232\346\210\220\345\221\230\346\200\273\344\272\272"
+    "\346\225\260\0222\n\017m_guildlevel_vp\030\004 \001(\005B\031\302\377\024\025\345\205\254\344\274\232"
+    "\345\211\257\344\274\232\351\225\277\344\272\272\346\225\260\022,\n\017m_guildlevel_np\030\005 \001(\005"
+    "B\023\302\377\024\017\345\205\254\344\274\232\351\225\277\350\200\201\346\225\260\022(\n\016m_guildlevel_g\030"
+    "\006 \001(\005B\020\302\377\024\014\346\212\244\346\263\225\344\272\272\346\225\260\"K\n\020Sheet_GuildLe"
+    "vel\0227\n\021E_GuildLevel_List\030\001 \003(\0132\026.proto_f"
+    "f.E_GuildLevelB\004\210\301\024\020\"\342\006\n\017E_GuildPosition"
+    "\022\"\n\014m_positionid\030\001 \001(\005B\014\302\377\024\010\350\201\214\344\275\215ID\022,\n\017"
+    "m_admitnewcomer\030\002 \001(\005B\023\302\377\024\017\346\216\245\346\224\266\346\226\260\346\210\220\345"
+    "\221\230\0228\n\024m_appointandremovevp\030\003 \001(\005B\032\302\377\024\026\344\273"
+    "\273\345\221\275/\350\247\243\351\231\244\345\211\257\344\274\232\351\225\277\0228\n\027m_appointandremo"
+    "veelder\030\004 \001(\005B\027\302\377\024\023\344\273\273\345\221\275/\350\247\243\351\231\244\351\225\277\350\200\201\0224"
+    "\n\023m_appointandremoveg\030\005 \001(\005B\027\302\377\024\023\344\273\273\345\221\275/"
+    "\350\247\243\351\231\244\346\212\244\346\263\225\0228\n\027m_appointandremoveelite\030"
+    "\006 \001(\005B\027\302\377\024\023\344\273\273\345\221\275/\350\247\243\351\231\244\347\262\276\350\213\261\022&\n\tm_expe"
+    "lvp\030\007 \001(\005B\023\302\377\024\017\350\270\242\345\207\272\345\211\257\344\274\232\351\225\277\022&\n\014m_expe"
+    "lelder\030\010 \001(\005B\020\302\377\024\014\350\270\242\345\207\272\351\225\277\350\200\201\022\"\n\010m_expe"
+    "lg\030\t \001(\005B\020\302\377\024\014\350\270\242\345\207\272\346\212\244\346\263\225\022+\n\013m_expelmas"
+    "s\030\n \001(\005B\026\302\377\024\022\350\270\242\345\207\272\346\231\256\351\200\232\346\210\220\345\221\230\022/\n\025m_ann"
+    "ouncementediting\030\013 \001(\005B\020\302\377\024\014\347\274\226\350\276\221\345\205\254\345\221\212"
+    "\022!\n\007m_rname\030\014 \001(\005B\020\302\377\024\014\344\277\256\346\224\271\345\220\215\345\255\227\022/\n\017m"
+    "_joincondition\030\r \001(\005B\026\302\377\024\022\350\256\276\347\275\256\345\212\240\345\205\245\346\226"
+    "\271\345\274\217\022/\n\017m_guildactivity\030\016 \001(\005B\026\302\377\024\022\345\274\200\345\220"
+    "\257\345\205\254\344\274\232\347\216\251\346\263\225\0226\n\025m_dissolveassignguild\030\017"
+    " \001(\005B\027\302\377\024\023\350\247\243\346\225\243/\350\275\254\350\256\251\345\205\254\344\274\232\022&\n\014m_chang"
+    "ename\030\020 \001(\005B\020\302\377\024\014\346\224\271\345\220\215\346\235\203\351\231\220\022-\n\rm_recru"
+    "itchat\030\021 \001(\005B\026\302\377\024\022\345\217\221\345\270\203\346\213\233\350\264\244\347\272\263\345\243\253\0223\n\r"
+    "m_guildpacket\030\022 \001(\005B\034\302\377\024\030\345\217\221\351\200\201\345\205\254\344\274\232\347\216\251"
+    "\346\263\225\347\272\242\345\214\205\"T\n\023Sheet_GuildPosition\022=\n\024E_Gu"
+    "ildPosition_List\030\001 \003(\0132\031.proto_ff.E_Guil"
+    "dPositionB\004\210\301\024\010\"P\n\027E_GuildSalaryRewardDe"
+    "sc\022\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\032\n\006m_item\030"
+    "\002 \001(\005B\n\302\377\024\006\347\211\251\345\223\201\"\324\001\n\rE_GuildSalary\022\024\n\004m"
+    "_id\030\001 \001(\005B\006\302\377\024\002ID\022 \n\006m_type\030\002 \001(\005B\020\302\377\024\014\344"
+    "\273\273\345\212\241\347\261\273\345\236\213\022#\n\tm_typearg\030\003 \001(\005B\020\302\377\024\014\347\261\273\345"
+    "\236\213\345\217\202\346\225\260\022!\n\007m_times\030\004 \001(\005B\020\302\377\024\014\346\254\241\346\225\260\345\217\202"
+    "\346\225\260\022C\n\010m_reward\030\005 \003(\0132!.proto_ff.E_Guild"
+    "SalaryRewardDescB\016\302\377\024\006\345\245\226\345\212\261\210\301\024\003\"N\n\021Shee"
+    "t_GuildSalary\0229\n\022E_GuildSalary_List\030\001 \003("
+    "\0132\027.proto_ff.E_GuildSalaryB\004\210\301\024\010\"P\n\027E_Gu"
+    "ildDonateRewardDesc\022\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006"
+    "\346\225\260\351\207\217\022\032\n\006m_item\030\002 \001(\005B\n\302\377\024\006\347\211\251\345\223\201\"\275\001\n\rE"
+    "_GuildDonate\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002ID\022&\n\nm_"
+    "costitem\030\002 \001(\005B\022\302\377\024\016\350\212\261\350\264\271\347\211\251\345\223\201id\022)\n\tm_"
+    "costnum\030\003 \001(\005B\026\302\377\024\022\350\212\261\350\264\271\347\211\251\345\223\201\346\225\260\351\207\217\022C\n"
+    "\010m_reward\030\004 \003(\0132!.proto_ff.E_GuildDonate"
+    "RewardDescB\016\302\377\024\006\345\245\226\345\212\261\210\301\024\003\"N\n\021Sheet_Guil"
+    "dDonate\0229\n\022E_GuildDonate_List\030\001 \003(\0132\027.pr"
+    "oto_ff.E_GuildDonateB\004\210\301\024\004\"\346\002\n\rE_GuildPa"
+    "cket\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\347\272\242\345\214\205ID\022,\n\014m_be"
+    "longtype\030\002 \001(\005B\026\302\377\024\022\347\272\242\345\214\205\345\275\222\345\261\236\347\261\273\345\236\213\022&"
+    "\n\006m_type\030\003 \001(\005B\026\302\377\024\022\347\272\242\345\214\205\350\247\246\345\217\221\347\261\273\345\236\213\022#"
+    "\n\tm_typearg\030\004 \001(\005B\020\302\377\024\014\347\261\273\345\236\213\345\217\202\346\225\260\022(\n\010m"
+    "_itemid\030\005 \001(\005B\026\302\377\024\022\347\272\242\345\214\205\351\242\206\345\217\226\347\261\273\345\236\213\022#\n"
+    "\tm_itemnum\030\006 \001(\005B\020\302\377\024\014\347\272\242\345\214\205\351\207\221\351\242\235\022\037\n\005m_"
+    "num\030\007 \001(\005B\020\302\377\024\014\347\272\242\345\214\205\344\273\275\346\225\260\022\037\n\005m_pre\030\010 \001"
+    "(\005B\020\302\377\024\014\345\211\215\347\275\256\347\272\242\345\214\205\022-\n\007m_daily\030\t \001(\005B\034\302"
+    "\377\024\030\346\257\217\346\227\245\351\231\220\345\210\266\350\247\246\345\217\221\346\254\241\346\225\260\"O\n\021Sheet_Gui"
+    "ldPacket\022:\n\022E_GuildPacket_List\030\001 \003(\0132\027.p"
+    "roto_ff.E_GuildPacketB\005\210\301\024\200\001\"\214\002\n\023E_Guild"
+    "Prestigetask\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022!\n\007m_"
+    "level\030\002 \001(\005B\020\302\377\024\014\344\273\273\345\212\241\345\210\206\347\272\247\022!\n\007m_lvmin"
+    "\030\003 \001(\005B\020\302\377\024\014\347\255\211\347\272\247\344\270\213\351\231\220\022!\n\007m_lvmax\030\004 \001("
+    "\005B\020\302\377\024\014\347\255\211\347\272\247\344\270\212\351\231\220\022\034\n\010m_weight\030\005 \001(\005B\n\302"
+    "\377\024\006\346\235\203\351\207\215\022,\n\nm_taskpool\030\006 \001(\005B\030\302\377\024\024\351\232\217\346\234"
+    "\272\347\232\204\344\273\273\345\212\241\346\261\240id\022*\n\010m_reward\030\007 \001(\005B\030\302\377\024\024\344"
+    "\273\273\345\212\241\345\245\226\345\212\261\347\261\273\345\236\213id\"`\n\027Sheet_GuildPresti"
+    "getask\022E\n\030E_GuildPrestigetask_List\030\001 \003(\013"
+    "2\035.proto_ff.E_GuildPrestigetaskB\004\210\301\024\020\"\245\001"
+    "\n\017E_GuildLvreward\022\030\n\004m_lv\030\001 \001(\005B\n\302\377\024\006\347\255\211"
+    "\347\272\247\022$\n\nm_partyexp\030\002 \001(\005B\020\302\377\024\014\346\231\232\345\256\264\347\273\217\351\252"
+    "\214\022-\n\023m_partyeontribution\030\003 \001(\005B\020\302\377\024\014\346\231\232\345"
+    "\256\264\350\264\241\347\214\256\022#\n\tm_linkexp\030\004 \001(\005B\020\302\377\024\014\351\223\276\346\216\245\347"
+    "\273\217\351\252\214\"U\n\023Sheet_GuildLvreward\022>\n\024E_GuildL"
+    "vreward_List\030\001 \003(\0132\031.proto_ff.E_GuildLvr"
+    "ewardB\005\210\301\024\200\004\"O\n\033E_GuildCollegeAttributeD"
+    "esc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\026\n\006m_type\030"
+    "\002 \001(\005B\006\302\377\024\002ID\"\303\003\n\016E_GuildCollege\022\033\n\005m_ui"
+    "d\030\001 \001(\005B\014\302\377\024\010\345\224\257\344\270\200id\022\037\n\tm_skillid\030\002 \001(\005"
+    "B\014\302\377\024\010\346\212\200\350\203\275id\022#\n\tm_skilllv\030\003 \001(\005B\020\302\377\024\014\345"
+    "\277\203\346\263\225\347\255\211\347\272\247\0225\n\tm_guildlv\030\004 \001(\005B\"\302\377\024\036\345\274\200\346"
+    "\224\276\345\255\246\344\271\240\351\234\200\346\261\202\345\205\254\344\274\232\347\255\211\347\272\247\022/\n\017m_playerlv"
+    "limit\030\005 \001(\005B\026\302\377\024\022\350\246\201\346\261\202\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\014m"
+    "_preskillid\030\006 \001(\005B\030\302\377\024\024\350\246\201\346\261\202\345\211\215\347\275\256\346\212\200\350\203"
+    "\275ID\0222\n\014m_preskilllv\030\007 \001(\005B\034\302\377\024\030\350\246\201\346\261\202\345\211\215"
+    "\347\275\256\346\212\200\350\203\275\347\255\211\347\272\247\0220\n\020m_costcontribute\030\010 \001("
+    "\005B\026\302\377\024\022\345\277\203\346\263\225\346\266\210\350\200\227\350\264\241\347\214\256\022P\n\013m_attribute"
+    "\030\t \003(\0132%.proto_ff.E_GuildCollegeAttribut"
+    "eDescB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\002\"S\n\022Sheet_Gui"
+    "ldCollege\022=\n\023E_GuildCollege_List\030\001 \003(\0132\030"
+    ".proto_ff.E_GuildCollegeB\006\210\301\024\200\200\001\"G\n\rE_Gu"
+    "ildAnswer\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002ID\022 \n\010m_ans"
+    "wer\030\002 \001(\tB\016\302\377\024\006\347\255\224\346\241\210\220\301\024@\"N\n\021Sheet_Guild"
+    "Answer\0229\n\022E_GuildAnswer_List\030\001 \003(\0132\027.pro"
+    "to_ff.E_GuildAnswerB\004\210\301\024@\"\207\002\n\022E_GuildRan"
+    "k_reward\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\032\n\006m_type"
+    "\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\036\n\006m_note\030\003 \001(\tB\016\302\377\024\006"
+    "\345\244\207\346\263\250\220\301\024@\022#\n\tm_rankmin\030\004 \001(\005B\020\302\377\024\014\346\216\222\345\220"
+    "\215\344\270\213\351\231\220\022#\n\tm_rankmax\030\005 \001(\005B\020\302\377\024\014\346\216\222\345\220\215\344\270"
+    "\212\351\231\220\022-\n\007m_lvmin\030\006 \001(\005B\034\302\377\024\030\350\267\250\346\234\215\344\270\226\347\225\214\347"
+    "\255\211\347\272\247\344\270\213\351\231\220\022&\n\tm_rewards\030\007 \001(\005B\023\302\377\024\017\346\234\215\345"
+    "\212\241\345\231\250\345\245\226\345\212\261\"^\n\026Sheet_GuildRank_reward\022D\n"
+    "\027E_GuildRank_reward_List\030\001 \003(\0132\034.proto_f"
+    "f.E_GuildRank_rewardB\005\210\301\024\200\002\"N\n\033E_GuildSh"
+    "ouhskillRewardDesc\022\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006\346"
+    "\225\260\351\207\217\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002id\"\225\002\n\021E_GuildS"
+    "houhskill\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\036\n\006m_nam"
+    "e\030\002 \001(\tB\016\302\377\024\006\345\220\215\347\247\260\220\301\024@\022\036\n\010m_costid\030\003 \001("
+    "\005B\014\302\377\024\010\350\212\261\350\264\271id\022#\n\tm_costnum\030\004 \001(\005B\020\302\377\024\014"
+    "\350\212\261\350\264\271\346\225\260\351\207\217\022\037\n\tm_skillid\030\005 \001(\005B\014\302\377\024\010\346\212\200"
+    "\350\203\275id\022\033\n\007m_times\030\006 \001(\005B\n\302\377\024\006\346\254\241\346\225\260\022G\n\010m_"
+    "reward\030\007 \003(\0132%.proto_ff.E_GuildShouhskil"
+    "lRewardDescB\016\302\377\024\006\345\245\226\345\212\261\210\301\024\002\"Z\n\025Sheet_Gui"
+    "ldShouhskill\022A\n\026E_GuildShouhskill_List\030\001"
+    " \003(\0132\033.proto_ff.E_GuildShouhskillB\004\210\301\024\010\""
+    "\271\001\n\017E_GuildGwreward\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002I"
+    "D\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\'\n\010m_rewar"
+    "d\030\003 \001(\tB\025\302\377\024\014\346\234\254\346\234\215\345\245\226\345\212\261\220\301\024\200\002\022,\n\rm_cros"
+    "sreward\030\004 \001(\tB\025\302\377\024\014\350\267\250\346\234\215\345\245\226\345\212\261\220\301\024\200\002\022\035\n\005"
+    "m_arg\030\005 \003(\005B\016\302\377\024\006\345\217\202\346\225\260\210\301\024\003\"U\n\023Sheet_Gui"
+    "ldGwreward\022>\n\024E_GuildGwreward_List\030\001 \003(\013"
+    "2\031.proto_ff.E_GuildGwrewardB\005\210\301\024\200\001\"\310\001\n\022E"
+    "_GuildGwwinstreak\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022"
+    "\"\n\013m_winstreak\030\002 \001(\005B\r\302\377\024\t\350\277\236\350\203\234\346\225\260\022%\n\013m"
+    "_winreward\030\003 \001(\005B\020\302\377\024\014\350\277\236\350\203\234\345\245\226\345\212\261\022%\n\013m_"
+    "endreward\030\004 \001(\005B\020\302\377\024\014\347\273\210\347\273\223\345\245\226\345\212\261\022*\n\020m_c"
+    "hallengeskill\030\005 \001(\005B\020\302\377\024\014\345\243\253\346\260\224\346\212\200\350\203\275\"]\n"
+    "\026Sheet_GuildGwwinstreak\022C\n\027E_GuildGwwins"
+    "treak_List\030\001 \003(\0132\034.proto_ff.E_GuildGwwin"
+    "streakB\004\210\301\024 \"\226\001\n\rE_GuildTtower\022\024\n\004m_id\030\001"
+    " \001(\005B\006\302\377\024\002id\022\035\n\007m_dupid\030\002 \001(\005B\014\302\377\024\010\345\211\257\346\234"
+    "\254id\022$\n\nm_breakbox\030\003 \001(\005B\020\302\377\024\014\351\200\232\345\205\263\345\245\226\345\212"
+    "\261\022*\n\nm_clearbox\030\004 \001(\005B\026\302\377\024\022\345\215\225\346\254\241\347\273\223\347\256\227\345"
+    "\245\226\345\212\261\"O\n\021Sheet_GuildTtower\022:\n\022E_GuildTto"
+    "wer_List\030\001 \003(\0132\027.proto_ff.E_GuildTtowerB"
+    "\005\210\301\024\200\001", 9526);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Guild.proto", &protobuf_RegisterTypes);
   E_GuildConstant::default_instance_ = new E_GuildConstant();
@@ -1349,6 +1358,8 @@ const int E_GuildConstant::kMCenterpointFieldNumber;
 const int E_GuildConstant::kMAssistradioFieldNumber;
 const int E_GuildConstant::kMTteamdamageaddFieldNumber;
 const int E_GuildConstant::kMTweekclosetimeFieldNumber;
+const int E_GuildConstant::kMCyclicrewardFieldNumber;
+const int E_GuildConstant::kMTencyclicrewardFieldNumber;
 #endif  // !_MSC_VER
 
 E_GuildConstant::E_GuildConstant()
@@ -1441,6 +1452,8 @@ void E_GuildConstant::SharedCtor() {
   m_assistradio_ = 0;
   m_tteamdamageadd_ = 0;
   m_tweekclosetime_ = 0;
+  m_cyclicreward_ = 0;
+  m_tencyclicreward_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1589,6 +1602,8 @@ void E_GuildConstant::Clear() {
   if (_has_bits_[72 / 32] & (0xffu << (72 % 32))) {
     m_tteamdamageadd_ = 0;
     m_tweekclosetime_ = 0;
+    m_cyclicreward_ = 0;
+    m_tencyclicreward_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -2782,6 +2797,38 @@ bool E_GuildConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(600)) goto parse_m_cyclicreward;
+        break;
+      }
+
+      // optional int32 m_cyclicreward = 75;
+      case 75: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_cyclicreward:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_cyclicreward_)));
+          set_has_m_cyclicreward();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(608)) goto parse_m_tencyclicreward;
+        break;
+      }
+
+      // optional int32 m_tencyclicreward = 76;
+      case 76: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_tencyclicreward:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_tencyclicreward_)));
+          set_has_m_tencyclicreward();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -3186,6 +3233,16 @@ void E_GuildConstant::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(74, this->m_tweekclosetime(), output);
   }
 
+  // optional int32 m_cyclicreward = 75;
+  if (has_m_cyclicreward()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(75, this->m_cyclicreward(), output);
+  }
+
+  // optional int32 m_tencyclicreward = 76;
+  if (has_m_tencyclicreward()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(76, this->m_tencyclicreward(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -3577,6 +3634,16 @@ void E_GuildConstant::SerializeWithCachedSizes(
   // optional int32 m_tweekclosetime = 74;
   if (has_m_tweekclosetime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(74, this->m_tweekclosetime(), target);
+  }
+
+  // optional int32 m_cyclicreward = 75;
+  if (has_m_cyclicreward()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(75, this->m_cyclicreward(), target);
+  }
+
+  // optional int32 m_tencyclicreward = 76;
+  if (has_m_tencyclicreward()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(76, this->m_tencyclicreward(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4126,6 +4193,20 @@ int E_GuildConstant::ByteSize() const {
           this->m_tweekclosetime());
     }
 
+    // optional int32 m_cyclicreward = 75;
+    if (has_m_cyclicreward()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_cyclicreward());
+    }
+
+    // optional int32 m_tencyclicreward = 76;
+    if (has_m_tencyclicreward()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_tencyclicreward());
+    }
+
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -4393,6 +4474,12 @@ void E_GuildConstant::MergeFrom(const E_GuildConstant& from) {
     if (from.has_m_tweekclosetime()) {
       set_m_tweekclosetime(from.m_tweekclosetime());
     }
+    if (from.has_m_cyclicreward()) {
+      set_m_cyclicreward(from.m_cyclicreward());
+    }
+    if (from.has_m_tencyclicreward()) {
+      set_m_tencyclicreward(from.m_tencyclicreward());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -4490,6 +4577,8 @@ void E_GuildConstant::Swap(E_GuildConstant* other) {
     std::swap(m_assistradio_, other->m_assistradio_);
     std::swap(m_tteamdamageadd_, other->m_tteamdamageadd_);
     std::swap(m_tweekclosetime_, other->m_tweekclosetime_);
+    std::swap(m_cyclicreward_, other->m_cyclicreward_);
+    std::swap(m_tencyclicreward_, other->m_tencyclicreward_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     std::swap(_has_bits_[1], other->_has_bits_[1]);
     std::swap(_has_bits_[2], other->_has_bits_[2]);
@@ -8764,6 +8853,8 @@ void Sheet_GuildPacket::Swap(Sheet_GuildPacket* other) {
 #ifndef _MSC_VER
 const int E_GuildPrestigetask::kMIdFieldNumber;
 const int E_GuildPrestigetask::kMLevelFieldNumber;
+const int E_GuildPrestigetask::kMLvminFieldNumber;
+const int E_GuildPrestigetask::kMLvmaxFieldNumber;
 const int E_GuildPrestigetask::kMWeightFieldNumber;
 const int E_GuildPrestigetask::kMTaskpoolFieldNumber;
 const int E_GuildPrestigetask::kMRewardFieldNumber;
@@ -8787,6 +8878,8 @@ void E_GuildPrestigetask::SharedCtor() {
   _cached_size_ = 0;
   m_id_ = 0;
   m_level_ = 0;
+  m_lvmin_ = 0;
+  m_lvmax_ = 0;
   m_weight_ = 0;
   m_taskpool_ = 0;
   m_reward_ = 0;
@@ -8827,6 +8920,8 @@ void E_GuildPrestigetask::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     m_id_ = 0;
     m_level_ = 0;
+    m_lvmin_ = 0;
+    m_lvmax_ = 0;
     m_weight_ = 0;
     m_taskpool_ = 0;
     m_reward_ = 0;
@@ -8868,12 +8963,44 @@ bool E_GuildPrestigetask::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_weight;
+        if (input->ExpectTag(24)) goto parse_m_lvmin;
         break;
       }
 
-      // optional int32 m_weight = 3;
+      // optional int32 m_lvmin = 3;
       case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_lvmin:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_lvmin_)));
+          set_has_m_lvmin();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_m_lvmax;
+        break;
+      }
+
+      // optional int32 m_lvmax = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_lvmax:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_lvmax_)));
+          set_has_m_lvmax();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_m_weight;
+        break;
+      }
+
+      // optional int32 m_weight = 5;
+      case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_weight:
@@ -8884,12 +9011,12 @@ bool E_GuildPrestigetask::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_taskpool;
+        if (input->ExpectTag(48)) goto parse_m_taskpool;
         break;
       }
 
-      // optional int32 m_taskpool = 4;
-      case 4: {
+      // optional int32 m_taskpool = 6;
+      case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_taskpool:
@@ -8900,12 +9027,12 @@ bool E_GuildPrestigetask::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_reward;
+        if (input->ExpectTag(56)) goto parse_m_reward;
         break;
       }
 
-      // optional int32 m_reward = 5;
-      case 5: {
+      // optional int32 m_reward = 7;
+      case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_reward:
@@ -8948,19 +9075,29 @@ void E_GuildPrestigetask::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_level(), output);
   }
 
-  // optional int32 m_weight = 3;
+  // optional int32 m_lvmin = 3;
+  if (has_m_lvmin()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_lvmin(), output);
+  }
+
+  // optional int32 m_lvmax = 4;
+  if (has_m_lvmax()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_lvmax(), output);
+  }
+
+  // optional int32 m_weight = 5;
   if (has_m_weight()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_weight(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_weight(), output);
   }
 
-  // optional int32 m_taskpool = 4;
+  // optional int32 m_taskpool = 6;
   if (has_m_taskpool()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_taskpool(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_taskpool(), output);
   }
 
-  // optional int32 m_reward = 5;
+  // optional int32 m_reward = 7;
   if (has_m_reward()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_reward(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_reward(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -8981,19 +9118,29 @@ void E_GuildPrestigetask::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_level(), target);
   }
 
-  // optional int32 m_weight = 3;
+  // optional int32 m_lvmin = 3;
+  if (has_m_lvmin()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_lvmin(), target);
+  }
+
+  // optional int32 m_lvmax = 4;
+  if (has_m_lvmax()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_lvmax(), target);
+  }
+
+  // optional int32 m_weight = 5;
   if (has_m_weight()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_weight(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_weight(), target);
   }
 
-  // optional int32 m_taskpool = 4;
+  // optional int32 m_taskpool = 6;
   if (has_m_taskpool()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_taskpool(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_taskpool(), target);
   }
 
-  // optional int32 m_reward = 5;
+  // optional int32 m_reward = 7;
   if (has_m_reward()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_reward(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_reward(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -9021,21 +9168,35 @@ int E_GuildPrestigetask::ByteSize() const {
           this->m_level());
     }
 
-    // optional int32 m_weight = 3;
+    // optional int32 m_lvmin = 3;
+    if (has_m_lvmin()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_lvmin());
+    }
+
+    // optional int32 m_lvmax = 4;
+    if (has_m_lvmax()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_lvmax());
+    }
+
+    // optional int32 m_weight = 5;
     if (has_m_weight()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_weight());
     }
 
-    // optional int32 m_taskpool = 4;
+    // optional int32 m_taskpool = 6;
     if (has_m_taskpool()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_taskpool());
     }
 
-    // optional int32 m_reward = 5;
+    // optional int32 m_reward = 7;
     if (has_m_reward()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -9075,6 +9236,12 @@ void E_GuildPrestigetask::MergeFrom(const E_GuildPrestigetask& from) {
     if (from.has_m_level()) {
       set_m_level(from.m_level());
     }
+    if (from.has_m_lvmin()) {
+      set_m_lvmin(from.m_lvmin());
+    }
+    if (from.has_m_lvmax()) {
+      set_m_lvmax(from.m_lvmax());
+    }
     if (from.has_m_weight()) {
       set_m_weight(from.m_weight());
     }
@@ -9109,6 +9276,8 @@ void E_GuildPrestigetask::Swap(E_GuildPrestigetask* other) {
   if (other != this) {
     std::swap(m_id_, other->m_id_);
     std::swap(m_level_, other->m_level_);
+    std::swap(m_lvmin_, other->m_lvmin_);
+    std::swap(m_lvmax_, other->m_lvmax_);
     std::swap(m_weight_, other->m_weight_);
     std::swap(m_taskpool_, other->m_taskpool_);
     std::swap(m_reward_, other->m_reward_);

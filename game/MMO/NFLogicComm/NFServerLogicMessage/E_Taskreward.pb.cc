@@ -216,14 +216,14 @@ void protobuf_AddDesc_E_5fTaskreward_2eproto() {
     "(.proto_ff.E_TaskrewardTaskrewardAttrDes"
     "cB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\005\022H\n\006m_item\030\010 \003(\0132(.prot"
     "o_ff.E_TaskrewardTaskrewardItemDescB\016\302\377\024"
-    "\006\347\211\251\345\223\201\210\301\024\005\"k\n\032Sheet_TaskrewardTaskrewar"
-    "d\022M\n\033E_TaskrewardTaskreward_List\030\001 \003(\0132 "
-    ".proto_ff.E_TaskrewardTaskrewardB\006\210\301\024\200\200\001"
-    "\"<\n\024E_TaskrewardTasktype\022$\n\nm_tasktype\030\001"
-    " \001(\005B\020\302\377\024\014\344\273\273\345\212\241\347\261\273\345\236\213\"c\n\030Sheet_Taskrewa"
-    "rdTasktype\022G\n\031E_TaskrewardTasktype_List\030"
-    "\001 \003(\0132\036.proto_ff.E_TaskrewardTasktypeB\004\210"
-    "\301\024\004", 923);
+    "\006\347\211\251\345\223\201\210\301\024\005\"j\n\032Sheet_TaskrewardTaskrewar"
+    "d\022L\n\033E_TaskrewardTaskreward_List\030\001 \003(\0132 "
+    ".proto_ff.E_TaskrewardTaskrewardB\005\210\301\024\200@\""
+    "<\n\024E_TaskrewardTasktype\022$\n\nm_tasktype\030\001 "
+    "\001(\005B\020\302\377\024\014\344\273\273\345\212\241\347\261\273\345\236\213\"c\n\030Sheet_Taskrewar"
+    "dTasktype\022G\n\031E_TaskrewardTasktype_List\030\001"
+    " \003(\0132\036.proto_ff.E_TaskrewardTasktypeB\004\210\301"
+    "\024\004", 922);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Taskreward.proto", &protobuf_RegisterTypes);
   E_TaskrewardTaskrewardAttrDesc::default_instance_ = new E_TaskrewardTaskrewardAttrDesc();

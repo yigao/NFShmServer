@@ -660,7 +660,7 @@ void protobuf_AssignDesc_E_5fXiuzhen_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_XiuzhenLgpotions));
   E_XiuzhenGftypes_descriptor_ = file->message_type(27);
-  static const int E_XiuzhenGftypes_offsets_[8] = {
+  static const int E_XiuzhenGftypes_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_XiuzhenGftypes, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_XiuzhenGftypes, m_type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_XiuzhenGftypes, m_name_),
@@ -669,6 +669,7 @@ void protobuf_AssignDesc_E_5fXiuzhen_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_XiuzhenGftypes, m_itemnum_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_XiuzhenGftypes, m_buylv_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_XiuzhenGftypes, m_rechargeid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_XiuzhenGftypes, m_bookmodel_),
   };
   E_XiuzhenGftypes_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -1475,7 +1476,7 @@ void protobuf_AddDesc_E_5fXiuzhen_2eproto() {
     "oto_ff.E_XiuzhenLgpotionsLgDescB\016\302\377\024\006\345\212\240"
     "\347\202\271\210\301\024\005\"]\n\026Sheet_XiuzhenLgpotions\022C\n\027E_X"
     "iuzhenLgpotions_List\030\001 \003(\0132\034.proto_ff.E_"
-    "XiuzhenLgpotionsB\004\210\301\024 \"\264\002\n\020E_XiuzhenGfty"
+    "XiuzhenLgpotionsB\004\210\301\024 \"\334\002\n\020E_XiuzhenGfty"
     "pes\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022 \n\006m_type\030\002 \001("
     "\005B\020\302\377\024\014\345\212\237\346\263\225\347\261\273\345\236\213\022$\n\006m_name\030\003 \001(\tB\024\302\377\024"
     "\014\345\212\237\346\263\225\345\220\215\347\247\260\220\301\024@\022$\n\006m_icon\030\004 \001(\tB\024\302\377\024\014\345"
@@ -1483,7 +1484,8 @@ void protobuf_AddDesc_E_5fXiuzhen_2eproto() {
     "\005B\026\302\377\024\022\346\277\200\346\264\273\346\266\210\350\200\227\351\201\223\345\205\267\022#\n\tm_itemnum\030\006"
     " \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346\225\260\351\207\217\022!\n\007m_buylv\030\007 \001(\005B"
     "\020\302\377\024\014\350\264\255\344\271\260\347\255\211\347\272\247\022\"\n\014m_rechargeid\030\010 \001(\005B"
-    "\014\302\377\024\010\345\205\205\345\200\274id\"W\n\024Sheet_XiuzhenGftypes\022\?\n"
+    "\014\302\377\024\010\345\205\205\345\200\274id\022&\n\013m_bookmodel\030\t \001(\tB\021\302\377\024\t"
+    "\344\271\246\346\250\241\345\236\213\220\301\024@\"W\n\024Sheet_XiuzhenGftypes\022\?\n"
     "\025E_XiuzhenGftypes_List\030\001 \003(\0132\032.proto_ff."
     "E_XiuzhenGftypesB\004\210\301\024 \"O\n\035E_XiuzhenGflvl"
     "upAttributeDesc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200"
@@ -1591,7 +1593,7 @@ void protobuf_AddDesc_E_5fXiuzhen_2eproto() {
     ".proto_ff.E_XiuzhenPrivilegeAttriDescB\016\302"
     "\377\024\006\345\261\236\346\200\247\210\301\024\005\"]\n\026Sheet_XiuzhenPrivilege\022"
     "C\n\027E_XiuzhenPrivilege_List\030\001 \003(\0132\034.proto"
-    "_ff.E_XiuzhenPrivilegeB\004\210\301\024\010", 9348);
+    "_ff.E_XiuzhenPrivilegeB\004\210\301\024\010", 9388);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Xiuzhen.proto", &protobuf_RegisterTypes);
   E_XiuzhenStagesItemDesc::default_instance_ = new E_XiuzhenStagesItemDesc();
@@ -10102,6 +10104,7 @@ const int E_XiuzhenGftypes::kMActivationitemFieldNumber;
 const int E_XiuzhenGftypes::kMItemnumFieldNumber;
 const int E_XiuzhenGftypes::kMBuylvFieldNumber;
 const int E_XiuzhenGftypes::kMRechargeidFieldNumber;
+const int E_XiuzhenGftypes::kMBookmodelFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenGftypes::E_XiuzhenGftypes()
@@ -10128,6 +10131,7 @@ void E_XiuzhenGftypes::SharedCtor() {
   m_itemnum_ = 0;
   m_buylv_ = 0;
   m_rechargeid_ = 0;
+  m_bookmodel_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -10141,6 +10145,9 @@ void E_XiuzhenGftypes::SharedDtor() {
   }
   if (m_icon_ != &::google::protobuf::internal::kEmptyString) {
     delete m_icon_;
+  }
+  if (m_bookmodel_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_bookmodel_;
   }
   if (this != default_instance_) {
   }
@@ -10185,6 +10192,13 @@ void E_XiuzhenGftypes::Clear() {
     m_itemnum_ = 0;
     m_buylv_ = 0;
     m_rechargeid_ = 0;
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (has_m_bookmodel()) {
+      if (m_bookmodel_ != &::google::protobuf::internal::kEmptyString) {
+        m_bookmodel_->clear();
+      }
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -10321,6 +10335,23 @@ bool E_XiuzhenGftypes::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(74)) goto parse_m_bookmodel;
+        break;
+      }
+
+      // optional string m_bookmodel = 9;
+      case 9: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_bookmodel:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_bookmodel()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_bookmodel().data(), this->m_bookmodel().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -10391,6 +10422,15 @@ void E_XiuzhenGftypes::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_rechargeid(), output);
   }
 
+  // optional string m_bookmodel = 9;
+  if (has_m_bookmodel()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_bookmodel().data(), this->m_bookmodel().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      9, this->m_bookmodel(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -10447,6 +10487,16 @@ void E_XiuzhenGftypes::SerializeWithCachedSizes(
   // optional int32 m_rechargeid = 8;
   if (has_m_rechargeid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_rechargeid(), target);
+  }
+
+  // optional string m_bookmodel = 9;
+  if (has_m_bookmodel()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_bookmodel().data(), this->m_bookmodel().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        9, this->m_bookmodel(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -10517,6 +10567,15 @@ int E_XiuzhenGftypes::ByteSize() const {
     }
 
   }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional string m_bookmodel = 9;
+    if (has_m_bookmodel()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_bookmodel());
+    }
+
+  }
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -10568,6 +10627,11 @@ void E_XiuzhenGftypes::MergeFrom(const E_XiuzhenGftypes& from) {
       set_m_rechargeid(from.m_rechargeid());
     }
   }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_m_bookmodel()) {
+      set_m_bookmodel(from.m_bookmodel());
+    }
+  }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
@@ -10598,6 +10662,7 @@ void E_XiuzhenGftypes::Swap(E_XiuzhenGftypes* other) {
     std::swap(m_itemnum_, other->m_itemnum_);
     std::swap(m_buylv_, other->m_buylv_);
     std::swap(m_rechargeid_, other->m_rechargeid_);
+    std::swap(m_bookmodel_, other->m_bookmodel_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

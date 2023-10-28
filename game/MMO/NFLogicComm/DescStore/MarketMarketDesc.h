@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Market_s.h"
 
-#define MAX_MARKET_MARKET_NUM 16384
+#define MAX_MARKET_MARKET_NUM 1024
 
 class MarketMarketDesc : public NFIDescTemplate<MarketMarketDesc, proto_ff_s::E_MarketMarket_s, EOT_CONST_MARKET_MARKET_DESC_ID, MAX_MARKET_MARKET_NUM>
 {

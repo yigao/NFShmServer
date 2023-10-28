@@ -67,6 +67,7 @@ E_XiuzhenworldConstant_s::E_XiuzhenworldConstant_s() {
 
 int E_XiuzhenworldConstant_s::CreateInit() {
 	m_id = (int32_t)0;
+	m_starfreetime = (int32_t)0;
 	m_freetime = (int32_t)0;
 	m_freetimemax = (int32_t)0;
 	m_helpid = (int32_t)0;
@@ -87,6 +88,7 @@ int E_XiuzhenworldConstant_s::ResumeInit() {
 
 void E_XiuzhenworldConstant_s::write_to_pbmsg(::proto_ff::E_XiuzhenworldConstant & msg) const {
 	msg.set_m_id((int32_t)m_id);
+	msg.set_m_starfreetime((int32_t)m_starfreetime);
 	msg.set_m_freetimemoment(m_freetimemoment.data());
 	msg.set_m_freetime((int32_t)m_freetime);
 	msg.set_m_freetimemax((int32_t)m_freetimemax);
@@ -111,6 +113,7 @@ void E_XiuzhenworldConstant_s::write_to_pbmsg(::proto_ff::E_XiuzhenworldConstant
 
 void E_XiuzhenworldConstant_s::read_from_pbmsg(const ::proto_ff::E_XiuzhenworldConstant & msg) {
 	m_id = msg.m_id();
+	m_starfreetime = msg.m_starfreetime();
 	m_freetimemoment = msg.m_freetimemoment();
 	m_freetime = msg.m_freetime();
 	m_freetimemax = msg.m_freetimemax();

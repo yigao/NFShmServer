@@ -881,22 +881,6 @@ class E_EquipAttribute : public ::google::protobuf::Message {
   inline const ::google::protobuf::RepeatedPtrField< ::std::string>& m_star_library() const;
   inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_m_star_library();
 
-  // repeated string m_beaststarlib = 24;
-  inline int m_beaststarlib_size() const;
-  inline void clear_m_beaststarlib();
-  static const int kMBeaststarlibFieldNumber = 24;
-  inline const ::std::string& m_beaststarlib(int index) const;
-  inline ::std::string* mutable_m_beaststarlib(int index);
-  inline void set_m_beaststarlib(int index, const ::std::string& value);
-  inline void set_m_beaststarlib(int index, const char* value);
-  inline void set_m_beaststarlib(int index, const char* value, size_t size);
-  inline ::std::string* add_m_beaststarlib();
-  inline void add_m_beaststarlib(const ::std::string& value);
-  inline void add_m_beaststarlib(const char* value);
-  inline void add_m_beaststarlib(const char* value, size_t size);
-  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& m_beaststarlib() const;
-  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_m_beaststarlib();
-
   // @@protoc_insertion_point(class_scope:proto_ff.E_EquipAttribute)
  private:
   inline void set_has_m_id();
@@ -966,11 +950,10 @@ class E_EquipAttribute : public ::google::protobuf::Message {
   ::std::string* m_godevilskill_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EquipAttributeAttributeDesc > m_attribute_;
   ::google::protobuf::RepeatedPtrField< ::std::string> m_star_library_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> m_beaststarlib_;
   ::google::protobuf::int32 m_specialattributeup_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(24 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(23 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fEquip_2eproto();
   friend void protobuf_AssignDesc_E_5fEquip_2eproto();
@@ -7028,50 +7011,6 @@ E_EquipAttribute::m_star_library() const {
 inline ::google::protobuf::RepeatedPtrField< ::std::string>*
 E_EquipAttribute::mutable_m_star_library() {
   return &m_star_library_;
-}
-
-// repeated string m_beaststarlib = 24;
-inline int E_EquipAttribute::m_beaststarlib_size() const {
-  return m_beaststarlib_.size();
-}
-inline void E_EquipAttribute::clear_m_beaststarlib() {
-  m_beaststarlib_.Clear();
-}
-inline const ::std::string& E_EquipAttribute::m_beaststarlib(int index) const {
-  return m_beaststarlib_.Get(index);
-}
-inline ::std::string* E_EquipAttribute::mutable_m_beaststarlib(int index) {
-  return m_beaststarlib_.Mutable(index);
-}
-inline void E_EquipAttribute::set_m_beaststarlib(int index, const ::std::string& value) {
-  m_beaststarlib_.Mutable(index)->assign(value);
-}
-inline void E_EquipAttribute::set_m_beaststarlib(int index, const char* value) {
-  m_beaststarlib_.Mutable(index)->assign(value);
-}
-inline void E_EquipAttribute::set_m_beaststarlib(int index, const char* value, size_t size) {
-  m_beaststarlib_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* E_EquipAttribute::add_m_beaststarlib() {
-  return m_beaststarlib_.Add();
-}
-inline void E_EquipAttribute::add_m_beaststarlib(const ::std::string& value) {
-  m_beaststarlib_.Add()->assign(value);
-}
-inline void E_EquipAttribute::add_m_beaststarlib(const char* value) {
-  m_beaststarlib_.Add()->assign(value);
-}
-inline void E_EquipAttribute::add_m_beaststarlib(const char* value, size_t size) {
-  m_beaststarlib_.Add()->assign(reinterpret_cast<const char*>(value), size);
-}
-inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-E_EquipAttribute::m_beaststarlib() const {
-  return m_beaststarlib_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-E_EquipAttribute::mutable_m_beaststarlib() {
-  return &m_beaststarlib_;
 }
 
 // -------------------------------------------------------------------

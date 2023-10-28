@@ -33,8 +33,6 @@ ${PROTOCGEN_FILE_PATH}/module_pet_bin:${PROTOCGEN_FILE_PATH}/pet.proto.ds ${RESD
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/PetStarvalueDesc.h ${PROTOCGEN_FILE_PATH}/PetStarvalueDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_PetWraiths.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/PetWraithsDesc.h ${PROTOCGEN_FILE_PATH}/PetWraithsDesc.cpp" --dst=${DESC_STORE_PATH}/
-	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_PetWraithsvalue.bin" --dst=${GAME_DATA_PATH}/
-	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/PetWraithsvalueDesc.h ${PROTOCGEN_FILE_PATH}/PetWraithsvalueDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_PetWraithslv.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/PetWraithslvDesc.h ${PROTOCGEN_FILE_PATH}/PetWraithslvDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_PetSmelt.bin" --dst=${GAME_DATA_PATH}/
@@ -45,4 +43,12 @@ ${PROTOCGEN_FILE_PATH}/module_pet_bin:${PROTOCGEN_FILE_PATH}/pet.proto.ds ${RESD
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/PetStoveDesc.h ${PROTOCGEN_FILE_PATH}/PetStoveDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_PetSuit.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/PetSuitDesc.h ${PROTOCGEN_FILE_PATH}/PetSuitDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_PetConst.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/PetConstDesc.h ${PROTOCGEN_FILE_PATH}/PetConstDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_PetTop.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/PetTopDesc.h ${PROTOCGEN_FILE_PATH}/PetTopDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_PetTopitem.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/PetTopitemDesc.h ${PROTOCGEN_FILE_PATH}/PetTopitemDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_PetPrivilege.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/PetPrivilegeDesc.h ${PROTOCGEN_FILE_PATH}/PetPrivilegeDesc.cpp" --dst=${DESC_STORE_PATH}/
 	touch ${PROTOCGEN_FILE_PATH}/module_pet_bin

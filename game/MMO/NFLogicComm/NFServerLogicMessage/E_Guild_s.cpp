@@ -82,6 +82,8 @@ int E_GuildConstant_s::CreateInit() {
 	m_assistradio = (int32_t)0;
 	m_tteamdamageadd = (int32_t)0;
 	m_tweekclosetime = (int32_t)0;
+	m_cyclicreward = (int32_t)0;
+	m_tencyclicreward = (int32_t)0;
 	return 0;
 }
 
@@ -164,6 +166,8 @@ void E_GuildConstant_s::write_to_pbmsg(::proto_ff::E_GuildConstant & msg) const 
 	msg.set_m_assistradio((int32_t)m_assistradio);
 	msg.set_m_tteamdamageadd((int32_t)m_tteamdamageadd);
 	msg.set_m_tweekclosetime((int32_t)m_tweekclosetime);
+	msg.set_m_cyclicreward((int32_t)m_cyclicreward);
+	msg.set_m_tencyclicreward((int32_t)m_tencyclicreward);
 }
 
 void E_GuildConstant_s::read_from_pbmsg(const ::proto_ff::E_GuildConstant & msg) {
@@ -241,6 +245,8 @@ void E_GuildConstant_s::read_from_pbmsg(const ::proto_ff::E_GuildConstant & msg)
 	m_assistradio = msg.m_assistradio();
 	m_tteamdamageadd = msg.m_tteamdamageadd();
 	m_tweekclosetime = msg.m_tweekclosetime();
+	m_cyclicreward = msg.m_cyclicreward();
+	m_tencyclicreward = msg.m_tencyclicreward();
 }
 
 Sheet_GuildConstant_s::Sheet_GuildConstant_s() {
@@ -744,6 +750,8 @@ E_GuildPrestigetask_s::E_GuildPrestigetask_s() {
 int E_GuildPrestigetask_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_level = (int32_t)0;
+	m_lvmin = (int32_t)0;
+	m_lvmax = (int32_t)0;
 	m_weight = (int32_t)0;
 	m_taskpool = (int32_t)0;
 	m_reward = (int32_t)0;
@@ -757,6 +765,8 @@ int E_GuildPrestigetask_s::ResumeInit() {
 void E_GuildPrestigetask_s::write_to_pbmsg(::proto_ff::E_GuildPrestigetask & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_level((int32_t)m_level);
+	msg.set_m_lvmin((int32_t)m_lvmin);
+	msg.set_m_lvmax((int32_t)m_lvmax);
 	msg.set_m_weight((int32_t)m_weight);
 	msg.set_m_taskpool((int32_t)m_taskpool);
 	msg.set_m_reward((int32_t)m_reward);
@@ -765,6 +775,8 @@ void E_GuildPrestigetask_s::write_to_pbmsg(::proto_ff::E_GuildPrestigetask & msg
 void E_GuildPrestigetask_s::read_from_pbmsg(const ::proto_ff::E_GuildPrestigetask & msg) {
 	m_id = msg.m_id();
 	m_level = msg.m_level();
+	m_lvmin = msg.m_lvmin();
+	m_lvmax = msg.m_lvmax();
 	m_weight = msg.m_weight();
 	m_taskpool = msg.m_taskpool();
 	m_reward = msg.m_reward();

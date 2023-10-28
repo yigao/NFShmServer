@@ -56,6 +56,7 @@ class EquipStoveInfoReq;
 class EquipStoveInfoRsp;
 class EquipStoveSmeltReq;
 class EquipStoveSmeltRsp;
+class NotifyEquipExpire;
 class EquipWashUnlockReq;
 class EquipWashUnlockRsp;
 class EquipWashReq;
@@ -2032,6 +2033,88 @@ class EquipStoveSmeltRsp : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static EquipStoveSmeltRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NotifyEquipExpire : public ::google::protobuf::Message {
+ public:
+  NotifyEquipExpire();
+  virtual ~NotifyEquipExpire();
+
+  NotifyEquipExpire(const NotifyEquipExpire& from);
+
+  inline NotifyEquipExpire& operator=(const NotifyEquipExpire& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NotifyEquipExpire& default_instance();
+
+  void Swap(NotifyEquipExpire* other);
+
+  // implements Message ----------------------------------------------
+
+  NotifyEquipExpire* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NotifyEquipExpire& from);
+  void MergeFrom(const NotifyEquipExpire& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 pos = 1;
+  inline bool has_pos() const;
+  inline void clear_pos();
+  static const int kPosFieldNumber = 1;
+  inline ::google::protobuf::int32 pos() const;
+  inline void set_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NotifyEquipExpire)
+ private:
+  inline void set_has_pos();
+  inline void clear_has_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_equip_2eproto();
+  friend void protobuf_AssignDesc_equip_2eproto();
+  friend void protobuf_ShutdownFile_equip_2eproto();
+
+  void InitAsDefaultInstance();
+  static NotifyEquipExpire* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -5558,6 +5641,32 @@ inline ::google::protobuf::uint32 EquipStoveSmeltRsp::all_num() const {
 inline void EquipStoveSmeltRsp::set_all_num(::google::protobuf::uint32 value) {
   set_has_all_num();
   all_num_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NotifyEquipExpire
+
+// optional int32 pos = 1;
+inline bool NotifyEquipExpire::has_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NotifyEquipExpire::set_has_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NotifyEquipExpire::clear_has_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NotifyEquipExpire::clear_pos() {
+  pos_ = 0;
+  clear_has_pos();
+}
+inline ::google::protobuf::int32 NotifyEquipExpire::pos() const {
+  return pos_;
+}
+inline void NotifyEquipExpire::set_pos(::google::protobuf::int32 value) {
+  set_has_pos();
+  pos_ = value;
 }
 
 // -------------------------------------------------------------------

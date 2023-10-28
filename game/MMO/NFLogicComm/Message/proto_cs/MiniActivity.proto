@@ -19,6 +19,7 @@ message GetGodRelicsInfoRsp
 message UpdateGodRelecsNotify
 {
   optional GodRelicsTaskGroupEntry group_data = 1;
+  optional uint32 cur_id = 2;
 }
 
 //CLIENT_TO_LOGIC_GET_GOD_RELICS_TASK_REWARD_REQ = 955; //领取小任务奖励

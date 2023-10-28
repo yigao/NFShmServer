@@ -134,6 +134,9 @@ class FestOnlineDBProto;
 class FestCollectWordDBProto;
 class FestBossFirstDB;
 class FMarryRoleDB;
+class DayTotalRechargeDBProto;
+class TotalRechargeDBProto;
+class LoginRewardDBProto;
 class FestDetailDBProto;
 class FestDBData;
 class ShadowDBProto;
@@ -141,6 +144,7 @@ class HaloDBProto;
 class DragonDBData;
 class RoleDBTurnData;
 class GMADbData;
+class SoulDBData;
 class RoleDBData;
 class RedWaitDBProto;
 class RedTriggerDBProto;
@@ -824,6 +828,13 @@ class RoleDBBaseData : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 subpack_fetch() const;
   inline void set_subpack_fetch(::google::protobuf::int32 value);
 
+  // optional uint64 hunling = 50;
+  inline bool has_hunling() const;
+  inline void clear_hunling();
+  static const int kHunlingFieldNumber = 50;
+  inline ::google::protobuf::uint64 hunling() const;
+  inline void set_hunling(::google::protobuf::uint64 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.RoleDBBaseData)
  private:
   inline void set_has_name();
@@ -924,6 +935,8 @@ class RoleDBBaseData : public ::google::protobuf::Message {
   inline void clear_has_subpack_type();
   inline void set_has_subpack_fetch();
   inline void clear_has_subpack_fetch();
+  inline void set_has_hunling();
+  inline void clear_has_hunling();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -975,10 +988,11 @@ class RoleDBBaseData : public ::google::protobuf::Message {
   ::google::protobuf::int64 findtreasure_battlesoul_;
   ::google::protobuf::int64 holybeast_build_;
   ::google::protobuf::int64 magic_sum_;
+  ::google::protobuf::uint64 hunling_;
   ::google::protobuf::int32 subpack_fetch_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(49 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(50 + 31) / 32];
 
   friend void  protobuf_AddDesc_DBProxy_2eproto();
   friend void protobuf_AssignDesc_DBProxy_2eproto();
@@ -1631,20 +1645,30 @@ class GrowPartEntryDBInfo : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 lv() const;
   inline void set_lv(::google::protobuf::int32 value);
 
+  // optional int64 time = 3;
+  inline bool has_time() const;
+  inline void clear_time();
+  static const int kTimeFieldNumber = 3;
+  inline ::google::protobuf::int64 time() const;
+  inline void set_time(::google::protobuf::int64 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.GrowPartEntryDBInfo)
  private:
   inline void set_has_id();
   inline void clear_has_id();
   inline void set_has_lv();
   inline void clear_has_lv();
+  inline void set_has_time();
+  inline void clear_has_time();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int64 id_;
+  ::google::protobuf::int64 time_;
   ::google::protobuf::int32 lv_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_DBProxy_2eproto();
   friend void protobuf_AssignDesc_DBProxy_2eproto();
@@ -6648,8 +6672,19 @@ class PetDBData : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::PetGrowDB >*
       mutable_grows();
 
+  // optional .proto_ff.PetYaoHunModule yaohun = 7;
+  inline bool has_yaohun() const;
+  inline void clear_yaohun();
+  static const int kYaohunFieldNumber = 7;
+  inline const ::proto_ff::PetYaoHunModule& yaohun() const;
+  inline ::proto_ff::PetYaoHunModule* mutable_yaohun();
+  inline ::proto_ff::PetYaoHunModule* release_yaohun();
+  inline void set_allocated_yaohun(::proto_ff::PetYaoHunModule* yaohun);
+
   // @@protoc_insertion_point(class_scope:proto_ff.PetDBData)
  private:
+  inline void set_has_yaohun();
+  inline void clear_has_yaohun();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -6659,9 +6694,10 @@ class PetDBData : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::proto_ff::PetDBRecord > records_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int64 > cfgids_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::PetGrowDB > grows_;
+  ::proto_ff::PetYaoHunModule* yaohun_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_DBProxy_2eproto();
   friend void protobuf_AssignDesc_DBProxy_2eproto();
@@ -11525,20 +11561,30 @@ class FestDonateDBProto : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestDonateTaskProto >*
       mutable_task();
 
+  // optional uint64 flush_time = 5;
+  inline bool has_flush_time() const;
+  inline void clear_flush_time();
+  static const int kFlushTimeFieldNumber = 5;
+  inline ::google::protobuf::uint64 flush_time() const;
+  inline void set_flush_time(::google::protobuf::uint64 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.FestDonateDBProto)
  private:
   inline void set_has_single_num();
   inline void clear_has_single_num();
+  inline void set_has_flush_time();
+  inline void clear_has_flush_time();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::RepeatedPtrField< ::proto_ff::FestDonateSingleProto > single_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::FestDonateServerProto > server_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::FestDonateTaskProto > task_;
+  ::google::protobuf::uint64 flush_time_;
   ::google::protobuf::uint32 single_num_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
 
   friend void  protobuf_AddDesc_DBProxy_2eproto();
   friend void protobuf_AssignDesc_DBProxy_2eproto();
@@ -11710,15 +11756,25 @@ class FestCollectWordDBProto : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestCollectWordOneProto >*
       mutable_data();
 
+  // optional uint64 flush_time = 2;
+  inline bool has_flush_time() const;
+  inline void clear_flush_time();
+  static const int kFlushTimeFieldNumber = 2;
+  inline ::google::protobuf::uint64 flush_time() const;
+  inline void set_flush_time(::google::protobuf::uint64 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.FestCollectWordDBProto)
  private:
+  inline void set_has_flush_time();
+  inline void clear_has_flush_time();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::RepeatedPtrField< ::proto_ff::FestCollectWordOneProto > data_;
+  ::google::protobuf::uint64 flush_time_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_DBProxy_2eproto();
   friend void protobuf_AssignDesc_DBProxy_2eproto();
@@ -11945,6 +12001,301 @@ class FMarryRoleDB : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static FMarryRoleDB* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DayTotalRechargeDBProto : public ::google::protobuf::Message {
+ public:
+  DayTotalRechargeDBProto();
+  virtual ~DayTotalRechargeDBProto();
+
+  DayTotalRechargeDBProto(const DayTotalRechargeDBProto& from);
+
+  inline DayTotalRechargeDBProto& operator=(const DayTotalRechargeDBProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DayTotalRechargeDBProto& default_instance();
+
+  void Swap(DayTotalRechargeDBProto* other);
+
+  // implements Message ----------------------------------------------
+
+  DayTotalRechargeDBProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DayTotalRechargeDBProto& from);
+  void MergeFrom(const DayTotalRechargeDBProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated int32 fetch_lst = 1;
+  inline int fetch_lst_size() const;
+  inline void clear_fetch_lst();
+  static const int kFetchLstFieldNumber = 1;
+  inline ::google::protobuf::int32 fetch_lst(int index) const;
+  inline void set_fetch_lst(int index, ::google::protobuf::int32 value);
+  inline void add_fetch_lst(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      fetch_lst() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_fetch_lst();
+
+  // optional uint32 recharge = 2;
+  inline bool has_recharge() const;
+  inline void clear_recharge();
+  static const int kRechargeFieldNumber = 2;
+  inline ::google::protobuf::uint32 recharge() const;
+  inline void set_recharge(::google::protobuf::uint32 value);
+
+  // optional uint64 time = 3;
+  inline bool has_time() const;
+  inline void clear_time();
+  static const int kTimeFieldNumber = 3;
+  inline ::google::protobuf::uint64 time() const;
+  inline void set_time(::google::protobuf::uint64 value);
+
+  // optional uint64 reset_time = 4;
+  inline bool has_reset_time() const;
+  inline void clear_reset_time();
+  static const int kResetTimeFieldNumber = 4;
+  inline ::google::protobuf::uint64 reset_time() const;
+  inline void set_reset_time(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DayTotalRechargeDBProto)
+ private:
+  inline void set_has_recharge();
+  inline void clear_has_recharge();
+  inline void set_has_time();
+  inline void clear_has_time();
+  inline void set_has_reset_time();
+  inline void clear_has_reset_time();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > fetch_lst_;
+  ::google::protobuf::uint64 time_;
+  ::google::protobuf::uint64 reset_time_;
+  ::google::protobuf::uint32 recharge_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProxy_2eproto();
+  friend void protobuf_AssignDesc_DBProxy_2eproto();
+  friend void protobuf_ShutdownFile_DBProxy_2eproto();
+
+  void InitAsDefaultInstance();
+  static DayTotalRechargeDBProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class TotalRechargeDBProto : public ::google::protobuf::Message {
+ public:
+  TotalRechargeDBProto();
+  virtual ~TotalRechargeDBProto();
+
+  TotalRechargeDBProto(const TotalRechargeDBProto& from);
+
+  inline TotalRechargeDBProto& operator=(const TotalRechargeDBProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const TotalRechargeDBProto& default_instance();
+
+  void Swap(TotalRechargeDBProto* other);
+
+  // implements Message ----------------------------------------------
+
+  TotalRechargeDBProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const TotalRechargeDBProto& from);
+  void MergeFrom(const TotalRechargeDBProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated int32 fetch_lst = 1;
+  inline int fetch_lst_size() const;
+  inline void clear_fetch_lst();
+  static const int kFetchLstFieldNumber = 1;
+  inline ::google::protobuf::int32 fetch_lst(int index) const;
+  inline void set_fetch_lst(int index, ::google::protobuf::int32 value);
+  inline void add_fetch_lst(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      fetch_lst() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_fetch_lst();
+
+  // optional uint32 recharge = 2;
+  inline bool has_recharge() const;
+  inline void clear_recharge();
+  static const int kRechargeFieldNumber = 2;
+  inline ::google::protobuf::uint32 recharge() const;
+  inline void set_recharge(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.TotalRechargeDBProto)
+ private:
+  inline void set_has_recharge();
+  inline void clear_has_recharge();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > fetch_lst_;
+  ::google::protobuf::uint32 recharge_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProxy_2eproto();
+  friend void protobuf_AssignDesc_DBProxy_2eproto();
+  friend void protobuf_ShutdownFile_DBProxy_2eproto();
+
+  void InitAsDefaultInstance();
+  static TotalRechargeDBProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LoginRewardDBProto : public ::google::protobuf::Message {
+ public:
+  LoginRewardDBProto();
+  virtual ~LoginRewardDBProto();
+
+  LoginRewardDBProto(const LoginRewardDBProto& from);
+
+  inline LoginRewardDBProto& operator=(const LoginRewardDBProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LoginRewardDBProto& default_instance();
+
+  void Swap(LoginRewardDBProto* other);
+
+  // implements Message ----------------------------------------------
+
+  LoginRewardDBProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const LoginRewardDBProto& from);
+  void MergeFrom(const LoginRewardDBProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.ComPair fetch = 1;
+  inline int fetch_size() const;
+  inline void clear_fetch();
+  static const int kFetchFieldNumber = 1;
+  inline const ::proto_ff::ComPair& fetch(int index) const;
+  inline ::proto_ff::ComPair* mutable_fetch(int index);
+  inline ::proto_ff::ComPair* add_fetch();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+      fetch() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+      mutable_fetch();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.LoginRewardDBProto)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair > fetch_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProxy_2eproto();
+  friend void protobuf_AssignDesc_DBProxy_2eproto();
+  friend void protobuf_ShutdownFile_DBProxy_2eproto();
+
+  void InitAsDefaultInstance();
+  static LoginRewardDBProto* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -12176,6 +12527,33 @@ class FestDetailDBProto : public ::google::protobuf::Message {
   inline ::proto_ff::FMarryRoleDB* release_marry();
   inline void set_allocated_marry(::proto_ff::FMarryRoleDB* marry);
 
+  // optional .proto_ff.DayTotalRechargeDBProto day_total_recharge = 21;
+  inline bool has_day_total_recharge() const;
+  inline void clear_day_total_recharge();
+  static const int kDayTotalRechargeFieldNumber = 21;
+  inline const ::proto_ff::DayTotalRechargeDBProto& day_total_recharge() const;
+  inline ::proto_ff::DayTotalRechargeDBProto* mutable_day_total_recharge();
+  inline ::proto_ff::DayTotalRechargeDBProto* release_day_total_recharge();
+  inline void set_allocated_day_total_recharge(::proto_ff::DayTotalRechargeDBProto* day_total_recharge);
+
+  // optional .proto_ff.TotalRechargeDBProto total_recharge = 22;
+  inline bool has_total_recharge() const;
+  inline void clear_total_recharge();
+  static const int kTotalRechargeFieldNumber = 22;
+  inline const ::proto_ff::TotalRechargeDBProto& total_recharge() const;
+  inline ::proto_ff::TotalRechargeDBProto* mutable_total_recharge();
+  inline ::proto_ff::TotalRechargeDBProto* release_total_recharge();
+  inline void set_allocated_total_recharge(::proto_ff::TotalRechargeDBProto* total_recharge);
+
+  // optional .proto_ff.LoginRewardDBProto login = 23;
+  inline bool has_login() const;
+  inline void clear_login();
+  static const int kLoginFieldNumber = 23;
+  inline const ::proto_ff::LoginRewardDBProto& login() const;
+  inline ::proto_ff::LoginRewardDBProto* mutable_login();
+  inline ::proto_ff::LoginRewardDBProto* release_login();
+  inline void set_allocated_login(::proto_ff::LoginRewardDBProto* login);
+
   // @@protoc_insertion_point(class_scope:proto_ff.FestDetailDBProto)
  private:
   inline void set_has_template_id();
@@ -12218,6 +12596,12 @@ class FestDetailDBProto : public ::google::protobuf::Message {
   inline void clear_has_candle();
   inline void set_has_marry();
   inline void clear_has_marry();
+  inline void set_has_day_total_recharge();
+  inline void clear_has_day_total_recharge();
+  inline void set_has_total_recharge();
+  inline void clear_has_total_recharge();
+  inline void set_has_login();
+  inline void clear_has_login();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -12241,9 +12625,12 @@ class FestDetailDBProto : public ::google::protobuf::Message {
   ::proto_ff::FestBtDragonDBProto* bt_dragon_;
   ::proto_ff::FestCandleDBProto* candle_;
   ::proto_ff::FMarryRoleDB* marry_;
+  ::proto_ff::DayTotalRechargeDBProto* day_total_recharge_;
+  ::proto_ff::TotalRechargeDBProto* total_recharge_;
+  ::proto_ff::LoginRewardDBProto* login_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(20 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(23 + 31) / 32];
 
   friend void  protobuf_AddDesc_DBProxy_2eproto();
   friend void protobuf_AssignDesc_DBProxy_2eproto();
@@ -12963,6 +13350,115 @@ class GMADbData : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class SoulDBData : public ::google::protobuf::Message {
+ public:
+  SoulDBData();
+  virtual ~SoulDBData();
+
+  SoulDBData(const SoulDBData& from);
+
+  inline SoulDBData& operator=(const SoulDBData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulDBData& default_instance();
+
+  void Swap(SoulDBData* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulDBData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulDBData& from);
+  void MergeFrom(const SoulDBData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .proto_ff.SoulEntry entry = 1;
+  inline bool has_entry() const;
+  inline void clear_entry();
+  static const int kEntryFieldNumber = 1;
+  inline const ::proto_ff::SoulEntry& entry() const;
+  inline ::proto_ff::SoulEntry* mutable_entry();
+  inline ::proto_ff::SoulEntry* release_entry();
+  inline void set_allocated_entry(::proto_ff::SoulEntry* entry);
+
+  // optional .proto_ff.SoulPool pool = 2;
+  inline bool has_pool() const;
+  inline void clear_pool();
+  static const int kPoolFieldNumber = 2;
+  inline const ::proto_ff::SoulPool& pool() const;
+  inline ::proto_ff::SoulPool* mutable_pool();
+  inline ::proto_ff::SoulPool* release_pool();
+  inline void set_allocated_pool(::proto_ff::SoulPool* pool);
+
+  // repeated .proto_ff.ComPair tasks = 3;
+  inline int tasks_size() const;
+  inline void clear_tasks();
+  static const int kTasksFieldNumber = 3;
+  inline const ::proto_ff::ComPair& tasks(int index) const;
+  inline ::proto_ff::ComPair* mutable_tasks(int index);
+  inline ::proto_ff::ComPair* add_tasks();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+      tasks() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+      mutable_tasks();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulDBData)
+ private:
+  inline void set_has_entry();
+  inline void clear_has_entry();
+  inline void set_has_pool();
+  inline void clear_has_pool();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::proto_ff::SoulEntry* entry_;
+  ::proto_ff::SoulPool* pool_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair > tasks_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProxy_2eproto();
+  friend void protobuf_AssignDesc_DBProxy_2eproto();
+  friend void protobuf_ShutdownFile_DBProxy_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulDBData* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class RoleDBData : public ::google::protobuf::Message {
  public:
   RoleDBData();
@@ -13468,6 +13964,15 @@ class RoleDBData : public ::google::protobuf::Message {
   inline ::proto_ff::GMADbData* release_gma_datas();
   inline void set_allocated_gma_datas(::proto_ff::GMADbData* gma_datas);
 
+  // optional .proto_ff.SoulDBData soul = 52;
+  inline bool has_soul() const;
+  inline void clear_soul();
+  static const int kSoulFieldNumber = 52;
+  inline const ::proto_ff::SoulDBData& soul() const;
+  inline ::proto_ff::SoulDBData* mutable_soul();
+  inline ::proto_ff::SoulDBData* release_soul();
+  inline void set_allocated_soul(::proto_ff::SoulDBData* soul);
+
   // @@protoc_insertion_point(class_scope:proto_ff.RoleDBData)
  private:
   inline void set_has_cid();
@@ -13572,6 +14077,8 @@ class RoleDBData : public ::google::protobuf::Message {
   inline void clear_has_turn();
   inline void set_has_gma_datas();
   inline void clear_has_gma_datas();
+  inline void set_has_soul();
+  inline void clear_has_soul();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -13625,10 +14132,11 @@ class RoleDBData : public ::google::protobuf::Message {
   ::proto_ff::StarData* star_;
   ::proto_ff::RoleDBTurnData* turn_;
   ::proto_ff::GMADbData* gma_datas_;
+  ::proto_ff::SoulDBData* soul_;
   ::google::protobuf::int32 change_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(51 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(52 + 31) / 32];
 
   friend void  protobuf_AddDesc_DBProxy_2eproto();
   friend void protobuf_AssignDesc_DBProxy_2eproto();
@@ -28389,6 +28897,28 @@ inline void RoleDBBaseData::set_subpack_fetch(::google::protobuf::int32 value) {
   subpack_fetch_ = value;
 }
 
+// optional uint64 hunling = 50;
+inline bool RoleDBBaseData::has_hunling() const {
+  return (_has_bits_[1] & 0x00020000u) != 0;
+}
+inline void RoleDBBaseData::set_has_hunling() {
+  _has_bits_[1] |= 0x00020000u;
+}
+inline void RoleDBBaseData::clear_has_hunling() {
+  _has_bits_[1] &= ~0x00020000u;
+}
+inline void RoleDBBaseData::clear_hunling() {
+  hunling_ = GOOGLE_ULONGLONG(0);
+  clear_has_hunling();
+}
+inline ::google::protobuf::uint64 RoleDBBaseData::hunling() const {
+  return hunling_;
+}
+inline void RoleDBBaseData::set_hunling(::google::protobuf::uint64 value) {
+  set_has_hunling();
+  hunling_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // BagItemsDBData
@@ -28802,6 +29332,28 @@ inline ::google::protobuf::int32 GrowPartEntryDBInfo::lv() const {
 inline void GrowPartEntryDBInfo::set_lv(::google::protobuf::int32 value) {
   set_has_lv();
   lv_ = value;
+}
+
+// optional int64 time = 3;
+inline bool GrowPartEntryDBInfo::has_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GrowPartEntryDBInfo::set_has_time() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GrowPartEntryDBInfo::clear_has_time() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GrowPartEntryDBInfo::clear_time() {
+  time_ = GOOGLE_LONGLONG(0);
+  clear_has_time();
+}
+inline ::google::protobuf::int64 GrowPartEntryDBInfo::time() const {
+  return time_;
+}
+inline void GrowPartEntryDBInfo::set_time(::google::protobuf::int64 value) {
+  set_has_time();
+  time_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -33474,6 +34026,44 @@ PetDBData::mutable_grows() {
   return &grows_;
 }
 
+// optional .proto_ff.PetYaoHunModule yaohun = 7;
+inline bool PetDBData::has_yaohun() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void PetDBData::set_has_yaohun() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void PetDBData::clear_has_yaohun() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void PetDBData::clear_yaohun() {
+  if (yaohun_ != NULL) yaohun_->::proto_ff::PetYaoHunModule::Clear();
+  clear_has_yaohun();
+}
+inline const ::proto_ff::PetYaoHunModule& PetDBData::yaohun() const {
+  return yaohun_ != NULL ? *yaohun_ : *default_instance_->yaohun_;
+}
+inline ::proto_ff::PetYaoHunModule* PetDBData::mutable_yaohun() {
+  set_has_yaohun();
+  if (yaohun_ == NULL) yaohun_ = new ::proto_ff::PetYaoHunModule;
+  return yaohun_;
+}
+inline ::proto_ff::PetYaoHunModule* PetDBData::release_yaohun() {
+  clear_has_yaohun();
+  ::proto_ff::PetYaoHunModule* temp = yaohun_;
+  yaohun_ = NULL;
+  return temp;
+}
+inline void PetDBData::set_allocated_yaohun(::proto_ff::PetYaoHunModule* yaohun) {
+  delete yaohun_;
+  yaohun_ = yaohun;
+  if (yaohun) {
+    set_has_yaohun();
+  } else {
+    clear_has_yaohun();
+  }
+}
+
 // -------------------------------------------------------------------
 
 // MallDBInfo
@@ -37598,6 +38188,28 @@ FestDonateDBProto::mutable_task() {
   return &task_;
 }
 
+// optional uint64 flush_time = 5;
+inline bool FestDonateDBProto::has_flush_time() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void FestDonateDBProto::set_has_flush_time() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void FestDonateDBProto::clear_has_flush_time() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void FestDonateDBProto::clear_flush_time() {
+  flush_time_ = GOOGLE_ULONGLONG(0);
+  clear_has_flush_time();
+}
+inline ::google::protobuf::uint64 FestDonateDBProto::flush_time() const {
+  return flush_time_;
+}
+inline void FestDonateDBProto::set_flush_time(::google::protobuf::uint64 value) {
+  set_has_flush_time();
+  flush_time_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // FestOnlineDBProto
@@ -37676,6 +38288,28 @@ FestCollectWordDBProto::data() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestCollectWordOneProto >*
 FestCollectWordDBProto::mutable_data() {
   return &data_;
+}
+
+// optional uint64 flush_time = 2;
+inline bool FestCollectWordDBProto::has_flush_time() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FestCollectWordDBProto::set_has_flush_time() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FestCollectWordDBProto::clear_has_flush_time() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FestCollectWordDBProto::clear_flush_time() {
+  flush_time_ = GOOGLE_ULONGLONG(0);
+  clear_has_flush_time();
+}
+inline ::google::protobuf::uint64 FestCollectWordDBProto::flush_time() const {
+  return flush_time_;
+}
+inline void FestCollectWordDBProto::set_flush_time(::google::protobuf::uint64 value) {
+  set_has_flush_time();
+  flush_time_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -37831,6 +38465,181 @@ inline ::google::protobuf::int32 FMarryRoleDB::score() const {
 inline void FMarryRoleDB::set_score(::google::protobuf::int32 value) {
   set_has_score();
   score_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// DayTotalRechargeDBProto
+
+// repeated int32 fetch_lst = 1;
+inline int DayTotalRechargeDBProto::fetch_lst_size() const {
+  return fetch_lst_.size();
+}
+inline void DayTotalRechargeDBProto::clear_fetch_lst() {
+  fetch_lst_.Clear();
+}
+inline ::google::protobuf::int32 DayTotalRechargeDBProto::fetch_lst(int index) const {
+  return fetch_lst_.Get(index);
+}
+inline void DayTotalRechargeDBProto::set_fetch_lst(int index, ::google::protobuf::int32 value) {
+  fetch_lst_.Set(index, value);
+}
+inline void DayTotalRechargeDBProto::add_fetch_lst(::google::protobuf::int32 value) {
+  fetch_lst_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+DayTotalRechargeDBProto::fetch_lst() const {
+  return fetch_lst_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+DayTotalRechargeDBProto::mutable_fetch_lst() {
+  return &fetch_lst_;
+}
+
+// optional uint32 recharge = 2;
+inline bool DayTotalRechargeDBProto::has_recharge() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DayTotalRechargeDBProto::set_has_recharge() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DayTotalRechargeDBProto::clear_has_recharge() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DayTotalRechargeDBProto::clear_recharge() {
+  recharge_ = 0u;
+  clear_has_recharge();
+}
+inline ::google::protobuf::uint32 DayTotalRechargeDBProto::recharge() const {
+  return recharge_;
+}
+inline void DayTotalRechargeDBProto::set_recharge(::google::protobuf::uint32 value) {
+  set_has_recharge();
+  recharge_ = value;
+}
+
+// optional uint64 time = 3;
+inline bool DayTotalRechargeDBProto::has_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void DayTotalRechargeDBProto::set_has_time() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void DayTotalRechargeDBProto::clear_has_time() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void DayTotalRechargeDBProto::clear_time() {
+  time_ = GOOGLE_ULONGLONG(0);
+  clear_has_time();
+}
+inline ::google::protobuf::uint64 DayTotalRechargeDBProto::time() const {
+  return time_;
+}
+inline void DayTotalRechargeDBProto::set_time(::google::protobuf::uint64 value) {
+  set_has_time();
+  time_ = value;
+}
+
+// optional uint64 reset_time = 4;
+inline bool DayTotalRechargeDBProto::has_reset_time() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void DayTotalRechargeDBProto::set_has_reset_time() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void DayTotalRechargeDBProto::clear_has_reset_time() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void DayTotalRechargeDBProto::clear_reset_time() {
+  reset_time_ = GOOGLE_ULONGLONG(0);
+  clear_has_reset_time();
+}
+inline ::google::protobuf::uint64 DayTotalRechargeDBProto::reset_time() const {
+  return reset_time_;
+}
+inline void DayTotalRechargeDBProto::set_reset_time(::google::protobuf::uint64 value) {
+  set_has_reset_time();
+  reset_time_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// TotalRechargeDBProto
+
+// repeated int32 fetch_lst = 1;
+inline int TotalRechargeDBProto::fetch_lst_size() const {
+  return fetch_lst_.size();
+}
+inline void TotalRechargeDBProto::clear_fetch_lst() {
+  fetch_lst_.Clear();
+}
+inline ::google::protobuf::int32 TotalRechargeDBProto::fetch_lst(int index) const {
+  return fetch_lst_.Get(index);
+}
+inline void TotalRechargeDBProto::set_fetch_lst(int index, ::google::protobuf::int32 value) {
+  fetch_lst_.Set(index, value);
+}
+inline void TotalRechargeDBProto::add_fetch_lst(::google::protobuf::int32 value) {
+  fetch_lst_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+TotalRechargeDBProto::fetch_lst() const {
+  return fetch_lst_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+TotalRechargeDBProto::mutable_fetch_lst() {
+  return &fetch_lst_;
+}
+
+// optional uint32 recharge = 2;
+inline bool TotalRechargeDBProto::has_recharge() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void TotalRechargeDBProto::set_has_recharge() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void TotalRechargeDBProto::clear_has_recharge() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void TotalRechargeDBProto::clear_recharge() {
+  recharge_ = 0u;
+  clear_has_recharge();
+}
+inline ::google::protobuf::uint32 TotalRechargeDBProto::recharge() const {
+  return recharge_;
+}
+inline void TotalRechargeDBProto::set_recharge(::google::protobuf::uint32 value) {
+  set_has_recharge();
+  recharge_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// LoginRewardDBProto
+
+// repeated .proto_ff.ComPair fetch = 1;
+inline int LoginRewardDBProto::fetch_size() const {
+  return fetch_.size();
+}
+inline void LoginRewardDBProto::clear_fetch() {
+  fetch_.Clear();
+}
+inline const ::proto_ff::ComPair& LoginRewardDBProto::fetch(int index) const {
+  return fetch_.Get(index);
+}
+inline ::proto_ff::ComPair* LoginRewardDBProto::mutable_fetch(int index) {
+  return fetch_.Mutable(index);
+}
+inline ::proto_ff::ComPair* LoginRewardDBProto::add_fetch() {
+  return fetch_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+LoginRewardDBProto::fetch() const {
+  return fetch_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+LoginRewardDBProto::mutable_fetch() {
+  return &fetch_;
 }
 
 // -------------------------------------------------------------------
@@ -38549,6 +39358,120 @@ inline void FestDetailDBProto::set_allocated_marry(::proto_ff::FMarryRoleDB* mar
   }
 }
 
+// optional .proto_ff.DayTotalRechargeDBProto day_total_recharge = 21;
+inline bool FestDetailDBProto::has_day_total_recharge() const {
+  return (_has_bits_[0] & 0x00100000u) != 0;
+}
+inline void FestDetailDBProto::set_has_day_total_recharge() {
+  _has_bits_[0] |= 0x00100000u;
+}
+inline void FestDetailDBProto::clear_has_day_total_recharge() {
+  _has_bits_[0] &= ~0x00100000u;
+}
+inline void FestDetailDBProto::clear_day_total_recharge() {
+  if (day_total_recharge_ != NULL) day_total_recharge_->::proto_ff::DayTotalRechargeDBProto::Clear();
+  clear_has_day_total_recharge();
+}
+inline const ::proto_ff::DayTotalRechargeDBProto& FestDetailDBProto::day_total_recharge() const {
+  return day_total_recharge_ != NULL ? *day_total_recharge_ : *default_instance_->day_total_recharge_;
+}
+inline ::proto_ff::DayTotalRechargeDBProto* FestDetailDBProto::mutable_day_total_recharge() {
+  set_has_day_total_recharge();
+  if (day_total_recharge_ == NULL) day_total_recharge_ = new ::proto_ff::DayTotalRechargeDBProto;
+  return day_total_recharge_;
+}
+inline ::proto_ff::DayTotalRechargeDBProto* FestDetailDBProto::release_day_total_recharge() {
+  clear_has_day_total_recharge();
+  ::proto_ff::DayTotalRechargeDBProto* temp = day_total_recharge_;
+  day_total_recharge_ = NULL;
+  return temp;
+}
+inline void FestDetailDBProto::set_allocated_day_total_recharge(::proto_ff::DayTotalRechargeDBProto* day_total_recharge) {
+  delete day_total_recharge_;
+  day_total_recharge_ = day_total_recharge;
+  if (day_total_recharge) {
+    set_has_day_total_recharge();
+  } else {
+    clear_has_day_total_recharge();
+  }
+}
+
+// optional .proto_ff.TotalRechargeDBProto total_recharge = 22;
+inline bool FestDetailDBProto::has_total_recharge() const {
+  return (_has_bits_[0] & 0x00200000u) != 0;
+}
+inline void FestDetailDBProto::set_has_total_recharge() {
+  _has_bits_[0] |= 0x00200000u;
+}
+inline void FestDetailDBProto::clear_has_total_recharge() {
+  _has_bits_[0] &= ~0x00200000u;
+}
+inline void FestDetailDBProto::clear_total_recharge() {
+  if (total_recharge_ != NULL) total_recharge_->::proto_ff::TotalRechargeDBProto::Clear();
+  clear_has_total_recharge();
+}
+inline const ::proto_ff::TotalRechargeDBProto& FestDetailDBProto::total_recharge() const {
+  return total_recharge_ != NULL ? *total_recharge_ : *default_instance_->total_recharge_;
+}
+inline ::proto_ff::TotalRechargeDBProto* FestDetailDBProto::mutable_total_recharge() {
+  set_has_total_recharge();
+  if (total_recharge_ == NULL) total_recharge_ = new ::proto_ff::TotalRechargeDBProto;
+  return total_recharge_;
+}
+inline ::proto_ff::TotalRechargeDBProto* FestDetailDBProto::release_total_recharge() {
+  clear_has_total_recharge();
+  ::proto_ff::TotalRechargeDBProto* temp = total_recharge_;
+  total_recharge_ = NULL;
+  return temp;
+}
+inline void FestDetailDBProto::set_allocated_total_recharge(::proto_ff::TotalRechargeDBProto* total_recharge) {
+  delete total_recharge_;
+  total_recharge_ = total_recharge;
+  if (total_recharge) {
+    set_has_total_recharge();
+  } else {
+    clear_has_total_recharge();
+  }
+}
+
+// optional .proto_ff.LoginRewardDBProto login = 23;
+inline bool FestDetailDBProto::has_login() const {
+  return (_has_bits_[0] & 0x00400000u) != 0;
+}
+inline void FestDetailDBProto::set_has_login() {
+  _has_bits_[0] |= 0x00400000u;
+}
+inline void FestDetailDBProto::clear_has_login() {
+  _has_bits_[0] &= ~0x00400000u;
+}
+inline void FestDetailDBProto::clear_login() {
+  if (login_ != NULL) login_->::proto_ff::LoginRewardDBProto::Clear();
+  clear_has_login();
+}
+inline const ::proto_ff::LoginRewardDBProto& FestDetailDBProto::login() const {
+  return login_ != NULL ? *login_ : *default_instance_->login_;
+}
+inline ::proto_ff::LoginRewardDBProto* FestDetailDBProto::mutable_login() {
+  set_has_login();
+  if (login_ == NULL) login_ = new ::proto_ff::LoginRewardDBProto;
+  return login_;
+}
+inline ::proto_ff::LoginRewardDBProto* FestDetailDBProto::release_login() {
+  clear_has_login();
+  ::proto_ff::LoginRewardDBProto* temp = login_;
+  login_ = NULL;
+  return temp;
+}
+inline void FestDetailDBProto::set_allocated_login(::proto_ff::LoginRewardDBProto* login) {
+  delete login_;
+  login_ = login;
+  if (login) {
+    set_has_login();
+  } else {
+    clear_has_login();
+  }
+}
+
 // -------------------------------------------------------------------
 
 // FestDBData
@@ -39190,6 +40113,111 @@ inline ::google::protobuf::int64 GMADbData::expaccumulate() const {
 inline void GMADbData::set_expaccumulate(::google::protobuf::int64 value) {
   set_has_expaccumulate();
   expaccumulate_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SoulDBData
+
+// optional .proto_ff.SoulEntry entry = 1;
+inline bool SoulDBData::has_entry() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulDBData::set_has_entry() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulDBData::clear_has_entry() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulDBData::clear_entry() {
+  if (entry_ != NULL) entry_->::proto_ff::SoulEntry::Clear();
+  clear_has_entry();
+}
+inline const ::proto_ff::SoulEntry& SoulDBData::entry() const {
+  return entry_ != NULL ? *entry_ : *default_instance_->entry_;
+}
+inline ::proto_ff::SoulEntry* SoulDBData::mutable_entry() {
+  set_has_entry();
+  if (entry_ == NULL) entry_ = new ::proto_ff::SoulEntry;
+  return entry_;
+}
+inline ::proto_ff::SoulEntry* SoulDBData::release_entry() {
+  clear_has_entry();
+  ::proto_ff::SoulEntry* temp = entry_;
+  entry_ = NULL;
+  return temp;
+}
+inline void SoulDBData::set_allocated_entry(::proto_ff::SoulEntry* entry) {
+  delete entry_;
+  entry_ = entry;
+  if (entry) {
+    set_has_entry();
+  } else {
+    clear_has_entry();
+  }
+}
+
+// optional .proto_ff.SoulPool pool = 2;
+inline bool SoulDBData::has_pool() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SoulDBData::set_has_pool() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SoulDBData::clear_has_pool() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SoulDBData::clear_pool() {
+  if (pool_ != NULL) pool_->::proto_ff::SoulPool::Clear();
+  clear_has_pool();
+}
+inline const ::proto_ff::SoulPool& SoulDBData::pool() const {
+  return pool_ != NULL ? *pool_ : *default_instance_->pool_;
+}
+inline ::proto_ff::SoulPool* SoulDBData::mutable_pool() {
+  set_has_pool();
+  if (pool_ == NULL) pool_ = new ::proto_ff::SoulPool;
+  return pool_;
+}
+inline ::proto_ff::SoulPool* SoulDBData::release_pool() {
+  clear_has_pool();
+  ::proto_ff::SoulPool* temp = pool_;
+  pool_ = NULL;
+  return temp;
+}
+inline void SoulDBData::set_allocated_pool(::proto_ff::SoulPool* pool) {
+  delete pool_;
+  pool_ = pool;
+  if (pool) {
+    set_has_pool();
+  } else {
+    clear_has_pool();
+  }
+}
+
+// repeated .proto_ff.ComPair tasks = 3;
+inline int SoulDBData::tasks_size() const {
+  return tasks_.size();
+}
+inline void SoulDBData::clear_tasks() {
+  tasks_.Clear();
+}
+inline const ::proto_ff::ComPair& SoulDBData::tasks(int index) const {
+  return tasks_.Get(index);
+}
+inline ::proto_ff::ComPair* SoulDBData::mutable_tasks(int index) {
+  return tasks_.Mutable(index);
+}
+inline ::proto_ff::ComPair* SoulDBData::add_tasks() {
+  return tasks_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+SoulDBData::tasks() const {
+  return tasks_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+SoulDBData::mutable_tasks() {
+  return &tasks_;
 }
 
 // -------------------------------------------------------------------
@@ -41067,6 +42095,44 @@ inline void RoleDBData::set_allocated_gma_datas(::proto_ff::GMADbData* gma_datas
     set_has_gma_datas();
   } else {
     clear_has_gma_datas();
+  }
+}
+
+// optional .proto_ff.SoulDBData soul = 52;
+inline bool RoleDBData::has_soul() const {
+  return (_has_bits_[1] & 0x00080000u) != 0;
+}
+inline void RoleDBData::set_has_soul() {
+  _has_bits_[1] |= 0x00080000u;
+}
+inline void RoleDBData::clear_has_soul() {
+  _has_bits_[1] &= ~0x00080000u;
+}
+inline void RoleDBData::clear_soul() {
+  if (soul_ != NULL) soul_->::proto_ff::SoulDBData::Clear();
+  clear_has_soul();
+}
+inline const ::proto_ff::SoulDBData& RoleDBData::soul() const {
+  return soul_ != NULL ? *soul_ : *default_instance_->soul_;
+}
+inline ::proto_ff::SoulDBData* RoleDBData::mutable_soul() {
+  set_has_soul();
+  if (soul_ == NULL) soul_ = new ::proto_ff::SoulDBData;
+  return soul_;
+}
+inline ::proto_ff::SoulDBData* RoleDBData::release_soul() {
+  clear_has_soul();
+  ::proto_ff::SoulDBData* temp = soul_;
+  soul_ = NULL;
+  return temp;
+}
+inline void RoleDBData::set_allocated_soul(::proto_ff::SoulDBData* soul) {
+  delete soul_;
+  soul_ = soul;
+  if (soul) {
+    set_has_soul();
+  } else {
+    clear_has_soul();
   }
 }
 

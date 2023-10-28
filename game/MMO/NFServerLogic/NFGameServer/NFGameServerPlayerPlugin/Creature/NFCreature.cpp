@@ -18,7 +18,7 @@
 #include "NFCreatureMgr.h"
 #include "NFBattlePlayer.h"
 #include "NFLogicCommon/NFCharactorDefine.h"
-#include "NFLogicCommon/NFAttrMgr.h"
+#include "NFLogicCommon/Attr/NFAttrMgr.h"
 #include "Player.pb.h"
 #include "proto_svr_event.pb.h"
 #include "NFLogicCommon/NFLogicCommon.h"

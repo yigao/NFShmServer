@@ -18,7 +18,7 @@ message E_FunctionunlockFunctionunlock
 
 message Sheet_FunctionunlockFunctionunlock
 {
-	repeated E_FunctionunlockFunctionunlock E_FunctionunlockFunctionunlock_List = 1[(yd_fieldoptions.field_arysize)=256];
+	repeated E_FunctionunlockFunctionunlock E_FunctionunlockFunctionunlock_List = 1[(yd_fieldoptions.field_arysize)=512];
 }
 
 message E_FunctionunlockPreview

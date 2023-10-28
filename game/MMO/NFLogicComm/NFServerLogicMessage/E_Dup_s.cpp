@@ -19,6 +19,7 @@ int E_DupDup_s::CreateInit() {
 	m_groupid = (int32_t)0;
 	m_subtype = (int32_t)0;
 	m_layer = (int32_t)0;
+	m_recommendpower = (int32_t)0;
 	m_duplicatetype = (int32_t)0;
 	m_mapid = (int64_t)0;
 	m_levellimit = (int32_t)0;
@@ -50,6 +51,7 @@ void E_DupDup_s::write_to_pbmsg(::proto_ff::E_DupDup & msg) const {
 	msg.set_m_groupid((int32_t)m_groupid);
 	msg.set_m_subtype((int32_t)m_subtype);
 	msg.set_m_layer((int32_t)m_layer);
+	msg.set_m_recommendpower((int32_t)m_recommendpower);
 	msg.set_m_duplicatetype((int32_t)m_duplicatetype);
 	msg.set_m_mapid((int64_t)m_mapid);
 	msg.set_m_levellimit((int32_t)m_levellimit);
@@ -83,6 +85,7 @@ void E_DupDup_s::read_from_pbmsg(const ::proto_ff::E_DupDup & msg) {
 	m_groupid = msg.m_groupid();
 	m_subtype = msg.m_subtype();
 	m_layer = msg.m_layer();
+	m_recommendpower = msg.m_recommendpower();
 	m_duplicatetype = msg.m_duplicatetype();
 	m_mapid = msg.m_mapid();
 	m_levellimit = msg.m_levellimit();

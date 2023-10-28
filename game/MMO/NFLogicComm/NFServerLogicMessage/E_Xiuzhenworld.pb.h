@@ -293,10 +293,17 @@ class E_XiuzhenworldConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional string m_freetimemoment = 2;
+  // optional int32 m_starfreetime = 2;
+  inline bool has_m_starfreetime() const;
+  inline void clear_m_starfreetime();
+  static const int kMStarfreetimeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_starfreetime() const;
+  inline void set_m_starfreetime(::google::protobuf::int32 value);
+
+  // optional string m_freetimemoment = 3;
   inline bool has_m_freetimemoment() const;
   inline void clear_m_freetimemoment();
-  static const int kMFreetimemomentFieldNumber = 2;
+  static const int kMFreetimemomentFieldNumber = 3;
   inline const ::std::string& m_freetimemoment() const;
   inline void set_m_freetimemoment(const ::std::string& value);
   inline void set_m_freetimemoment(const char* value);
@@ -305,87 +312,87 @@ class E_XiuzhenworldConstant : public ::google::protobuf::Message {
   inline ::std::string* release_m_freetimemoment();
   inline void set_allocated_m_freetimemoment(::std::string* m_freetimemoment);
 
-  // optional int32 m_freetime = 3;
+  // optional int32 m_freetime = 4;
   inline bool has_m_freetime() const;
   inline void clear_m_freetime();
-  static const int kMFreetimeFieldNumber = 3;
+  static const int kMFreetimeFieldNumber = 4;
   inline ::google::protobuf::int32 m_freetime() const;
   inline void set_m_freetime(::google::protobuf::int32 value);
 
-  // optional int32 m_freetimemax = 4;
+  // optional int32 m_freetimemax = 5;
   inline bool has_m_freetimemax() const;
   inline void clear_m_freetimemax();
-  static const int kMFreetimemaxFieldNumber = 4;
+  static const int kMFreetimemaxFieldNumber = 5;
   inline ::google::protobuf::int32 m_freetimemax() const;
   inline void set_m_freetimemax(::google::protobuf::int32 value);
 
-  // optional int32 m_helpid = 5;
+  // optional int32 m_helpid = 6;
   inline bool has_m_helpid() const;
   inline void clear_m_helpid();
-  static const int kMHelpidFieldNumber = 5;
+  static const int kMHelpidFieldNumber = 6;
   inline ::google::protobuf::int32 m_helpid() const;
   inline void set_m_helpid(::google::protobuf::int32 value);
 
-  // optional int32 m_addgexpmax = 6;
+  // optional int32 m_addgexpmax = 7;
   inline bool has_m_addgexpmax() const;
   inline void clear_m_addgexpmax();
-  static const int kMAddgexpmaxFieldNumber = 6;
+  static const int kMAddgexpmaxFieldNumber = 7;
   inline ::google::protobuf::int32 m_addgexpmax() const;
   inline void set_m_addgexpmax(::google::protobuf::int32 value);
 
-  // optional int32 m_pripricetype = 7;
+  // optional int32 m_pripricetype = 8;
   inline bool has_m_pripricetype() const;
   inline void clear_m_pripricetype();
-  static const int kMPripricetypeFieldNumber = 7;
+  static const int kMPripricetypeFieldNumber = 8;
   inline ::google::protobuf::int32 m_pripricetype() const;
   inline void set_m_pripricetype(::google::protobuf::int32 value);
 
-  // optional int32 m_pricevalue = 8;
+  // optional int32 m_pricevalue = 9;
   inline bool has_m_pricevalue() const;
   inline void clear_m_pricevalue();
-  static const int kMPricevalueFieldNumber = 8;
+  static const int kMPricevalueFieldNumber = 9;
   inline ::google::protobuf::int32 m_pricevalue() const;
   inline void set_m_pricevalue(::google::protobuf::int32 value);
 
-  // optional int32 m_gexppribonus = 9;
+  // optional int32 m_gexppribonus = 10;
   inline bool has_m_gexppribonus() const;
   inline void clear_m_gexppribonus();
-  static const int kMGexppribonusFieldNumber = 9;
+  static const int kMGexppribonusFieldNumber = 10;
   inline ::google::protobuf::int32 m_gexppribonus() const;
   inline void set_m_gexppribonus(::google::protobuf::int32 value);
 
-  // optional int32 m_gexpgroupbonus = 10;
+  // optional int32 m_gexpgroupbonus = 11;
   inline bool has_m_gexpgroupbonus() const;
   inline void clear_m_gexpgroupbonus();
-  static const int kMGexpgroupbonusFieldNumber = 10;
+  static const int kMGexpgroupbonusFieldNumber = 11;
   inline ::google::protobuf::int32 m_gexpgroupbonus() const;
   inline void set_m_gexpgroupbonus(::google::protobuf::int32 value);
 
-  // optional int32 m_mapstart = 11;
+  // optional int32 m_mapstart = 12;
   inline bool has_m_mapstart() const;
   inline void clear_m_mapstart();
-  static const int kMMapstartFieldNumber = 11;
+  static const int kMMapstartFieldNumber = 12;
   inline ::google::protobuf::int32 m_mapstart() const;
   inline void set_m_mapstart(::google::protobuf::int32 value);
 
-  // optional int32 m_mapend = 12;
+  // optional int32 m_mapend = 13;
   inline bool has_m_mapend() const;
   inline void clear_m_mapend();
-  static const int kMMapendFieldNumber = 12;
+  static const int kMMapendFieldNumber = 13;
   inline ::google::protobuf::int32 m_mapend() const;
   inline void set_m_mapend(::google::protobuf::int32 value);
 
-  // optional int32 m_expitemid = 13;
+  // optional int32 m_expitemid = 14;
   inline bool has_m_expitemid() const;
   inline void clear_m_expitemid();
-  static const int kMExpitemidFieldNumber = 13;
+  static const int kMExpitemidFieldNumber = 14;
   inline ::google::protobuf::int32 m_expitemid() const;
   inline void set_m_expitemid(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_XiuzhenworldConstantTimeitemDesc m_timeitem = 14;
+  // repeated .proto_ff.E_XiuzhenworldConstantTimeitemDesc m_timeitem = 15;
   inline int m_timeitem_size() const;
   inline void clear_m_timeitem();
-  static const int kMTimeitemFieldNumber = 14;
+  static const int kMTimeitemFieldNumber = 15;
   inline const ::proto_ff::E_XiuzhenworldConstantTimeitemDesc& m_timeitem(int index) const;
   inline ::proto_ff::E_XiuzhenworldConstantTimeitemDesc* mutable_m_timeitem(int index);
   inline ::proto_ff::E_XiuzhenworldConstantTimeitemDesc* add_m_timeitem();
@@ -394,10 +401,10 @@ class E_XiuzhenworldConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_XiuzhenworldConstantTimeitemDesc >*
       mutable_m_timeitem();
 
-  // repeated .proto_ff.E_XiuzhenworldConstantTypeDesc m_type = 15;
+  // repeated .proto_ff.E_XiuzhenworldConstantTypeDesc m_type = 16;
   inline int m_type_size() const;
   inline void clear_m_type();
-  static const int kMTypeFieldNumber = 15;
+  static const int kMTypeFieldNumber = 16;
   inline const ::proto_ff::E_XiuzhenworldConstantTypeDesc& m_type(int index) const;
   inline ::proto_ff::E_XiuzhenworldConstantTypeDesc* mutable_m_type(int index);
   inline ::proto_ff::E_XiuzhenworldConstantTypeDesc* add_m_type();
@@ -410,6 +417,8 @@ class E_XiuzhenworldConstant : public ::google::protobuf::Message {
  private:
   inline void set_has_m_id();
   inline void clear_has_m_id();
+  inline void set_has_m_starfreetime();
+  inline void clear_has_m_starfreetime();
   inline void set_has_m_freetimemoment();
   inline void clear_has_m_freetimemoment();
   inline void set_has_m_freetime();
@@ -437,8 +446,9 @@ class E_XiuzhenworldConstant : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::std::string* m_freetimemoment_;
   ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_starfreetime_;
+  ::std::string* m_freetimemoment_;
   ::google::protobuf::int32 m_freetime_;
   ::google::protobuf::int32 m_freetimemax_;
   ::google::protobuf::int32 m_helpid_;
@@ -449,12 +459,12 @@ class E_XiuzhenworldConstant : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_gexpgroupbonus_;
   ::google::protobuf::int32 m_mapstart_;
   ::google::protobuf::int32 m_mapend_;
-  ::google::protobuf::int32 m_expitemid_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_XiuzhenworldConstantTimeitemDesc > m_timeitem_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_XiuzhenworldConstantTypeDesc > m_type_;
+  ::google::protobuf::int32 m_expitemid_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(15 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(16 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fXiuzhenworld_2eproto();
   friend void protobuf_AssignDesc_E_5fXiuzhenworld_2eproto();
@@ -908,15 +918,37 @@ inline void E_XiuzhenworldConstant::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional string m_freetimemoment = 2;
-inline bool E_XiuzhenworldConstant::has_m_freetimemoment() const {
+// optional int32 m_starfreetime = 2;
+inline bool E_XiuzhenworldConstant::has_m_starfreetime() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void E_XiuzhenworldConstant::set_has_m_freetimemoment() {
+inline void E_XiuzhenworldConstant::set_has_m_starfreetime() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void E_XiuzhenworldConstant::clear_has_m_freetimemoment() {
+inline void E_XiuzhenworldConstant::clear_has_m_starfreetime() {
   _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_XiuzhenworldConstant::clear_m_starfreetime() {
+  m_starfreetime_ = 0;
+  clear_has_m_starfreetime();
+}
+inline ::google::protobuf::int32 E_XiuzhenworldConstant::m_starfreetime() const {
+  return m_starfreetime_;
+}
+inline void E_XiuzhenworldConstant::set_m_starfreetime(::google::protobuf::int32 value) {
+  set_has_m_starfreetime();
+  m_starfreetime_ = value;
+}
+
+// optional string m_freetimemoment = 3;
+inline bool E_XiuzhenworldConstant::has_m_freetimemoment() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_XiuzhenworldConstant::set_has_m_freetimemoment() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_XiuzhenworldConstant::clear_has_m_freetimemoment() {
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void E_XiuzhenworldConstant::clear_m_freetimemoment() {
   if (m_freetimemoment_ != &::google::protobuf::internal::kEmptyString) {
@@ -978,15 +1010,15 @@ inline void E_XiuzhenworldConstant::set_allocated_m_freetimemoment(::std::string
   }
 }
 
-// optional int32 m_freetime = 3;
+// optional int32 m_freetime = 4;
 inline bool E_XiuzhenworldConstant::has_m_freetime() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void E_XiuzhenworldConstant::set_has_m_freetime() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void E_XiuzhenworldConstant::clear_has_m_freetime() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void E_XiuzhenworldConstant::clear_m_freetime() {
   m_freetime_ = 0;
@@ -1000,15 +1032,15 @@ inline void E_XiuzhenworldConstant::set_m_freetime(::google::protobuf::int32 val
   m_freetime_ = value;
 }
 
-// optional int32 m_freetimemax = 4;
+// optional int32 m_freetimemax = 5;
 inline bool E_XiuzhenworldConstant::has_m_freetimemax() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void E_XiuzhenworldConstant::set_has_m_freetimemax() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void E_XiuzhenworldConstant::clear_has_m_freetimemax() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void E_XiuzhenworldConstant::clear_m_freetimemax() {
   m_freetimemax_ = 0;
@@ -1022,15 +1054,15 @@ inline void E_XiuzhenworldConstant::set_m_freetimemax(::google::protobuf::int32 
   m_freetimemax_ = value;
 }
 
-// optional int32 m_helpid = 5;
+// optional int32 m_helpid = 6;
 inline bool E_XiuzhenworldConstant::has_m_helpid() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void E_XiuzhenworldConstant::set_has_m_helpid() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void E_XiuzhenworldConstant::clear_has_m_helpid() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void E_XiuzhenworldConstant::clear_m_helpid() {
   m_helpid_ = 0;
@@ -1044,15 +1076,15 @@ inline void E_XiuzhenworldConstant::set_m_helpid(::google::protobuf::int32 value
   m_helpid_ = value;
 }
 
-// optional int32 m_addgexpmax = 6;
+// optional int32 m_addgexpmax = 7;
 inline bool E_XiuzhenworldConstant::has_m_addgexpmax() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void E_XiuzhenworldConstant::set_has_m_addgexpmax() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void E_XiuzhenworldConstant::clear_has_m_addgexpmax() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void E_XiuzhenworldConstant::clear_m_addgexpmax() {
   m_addgexpmax_ = 0;
@@ -1066,15 +1098,15 @@ inline void E_XiuzhenworldConstant::set_m_addgexpmax(::google::protobuf::int32 v
   m_addgexpmax_ = value;
 }
 
-// optional int32 m_pripricetype = 7;
+// optional int32 m_pripricetype = 8;
 inline bool E_XiuzhenworldConstant::has_m_pripricetype() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 inline void E_XiuzhenworldConstant::set_has_m_pripricetype() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
 }
 inline void E_XiuzhenworldConstant::clear_has_m_pripricetype() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline void E_XiuzhenworldConstant::clear_m_pripricetype() {
   m_pripricetype_ = 0;
@@ -1088,15 +1120,15 @@ inline void E_XiuzhenworldConstant::set_m_pripricetype(::google::protobuf::int32
   m_pripricetype_ = value;
 }
 
-// optional int32 m_pricevalue = 8;
+// optional int32 m_pricevalue = 9;
 inline bool E_XiuzhenworldConstant::has_m_pricevalue() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 inline void E_XiuzhenworldConstant::set_has_m_pricevalue() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000100u;
 }
 inline void E_XiuzhenworldConstant::clear_has_m_pricevalue() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline void E_XiuzhenworldConstant::clear_m_pricevalue() {
   m_pricevalue_ = 0;
@@ -1110,15 +1142,15 @@ inline void E_XiuzhenworldConstant::set_m_pricevalue(::google::protobuf::int32 v
   m_pricevalue_ = value;
 }
 
-// optional int32 m_gexppribonus = 9;
+// optional int32 m_gexppribonus = 10;
 inline bool E_XiuzhenworldConstant::has_m_gexppribonus() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
 inline void E_XiuzhenworldConstant::set_has_m_gexppribonus() {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000200u;
 }
 inline void E_XiuzhenworldConstant::clear_has_m_gexppribonus() {
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline void E_XiuzhenworldConstant::clear_m_gexppribonus() {
   m_gexppribonus_ = 0;
@@ -1132,15 +1164,15 @@ inline void E_XiuzhenworldConstant::set_m_gexppribonus(::google::protobuf::int32
   m_gexppribonus_ = value;
 }
 
-// optional int32 m_gexpgroupbonus = 10;
+// optional int32 m_gexpgroupbonus = 11;
 inline bool E_XiuzhenworldConstant::has_m_gexpgroupbonus() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
+  return (_has_bits_[0] & 0x00000400u) != 0;
 }
 inline void E_XiuzhenworldConstant::set_has_m_gexpgroupbonus() {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000400u;
 }
 inline void E_XiuzhenworldConstant::clear_has_m_gexpgroupbonus() {
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline void E_XiuzhenworldConstant::clear_m_gexpgroupbonus() {
   m_gexpgroupbonus_ = 0;
@@ -1154,15 +1186,15 @@ inline void E_XiuzhenworldConstant::set_m_gexpgroupbonus(::google::protobuf::int
   m_gexpgroupbonus_ = value;
 }
 
-// optional int32 m_mapstart = 11;
+// optional int32 m_mapstart = 12;
 inline bool E_XiuzhenworldConstant::has_m_mapstart() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
+  return (_has_bits_[0] & 0x00000800u) != 0;
 }
 inline void E_XiuzhenworldConstant::set_has_m_mapstart() {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000800u;
 }
 inline void E_XiuzhenworldConstant::clear_has_m_mapstart() {
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline void E_XiuzhenworldConstant::clear_m_mapstart() {
   m_mapstart_ = 0;
@@ -1176,15 +1208,15 @@ inline void E_XiuzhenworldConstant::set_m_mapstart(::google::protobuf::int32 val
   m_mapstart_ = value;
 }
 
-// optional int32 m_mapend = 12;
+// optional int32 m_mapend = 13;
 inline bool E_XiuzhenworldConstant::has_m_mapend() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
+  return (_has_bits_[0] & 0x00001000u) != 0;
 }
 inline void E_XiuzhenworldConstant::set_has_m_mapend() {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00001000u;
 }
 inline void E_XiuzhenworldConstant::clear_has_m_mapend() {
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline void E_XiuzhenworldConstant::clear_m_mapend() {
   m_mapend_ = 0;
@@ -1198,15 +1230,15 @@ inline void E_XiuzhenworldConstant::set_m_mapend(::google::protobuf::int32 value
   m_mapend_ = value;
 }
 
-// optional int32 m_expitemid = 13;
+// optional int32 m_expitemid = 14;
 inline bool E_XiuzhenworldConstant::has_m_expitemid() const {
-  return (_has_bits_[0] & 0x00001000u) != 0;
+  return (_has_bits_[0] & 0x00002000u) != 0;
 }
 inline void E_XiuzhenworldConstant::set_has_m_expitemid() {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00002000u;
 }
 inline void E_XiuzhenworldConstant::clear_has_m_expitemid() {
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline void E_XiuzhenworldConstant::clear_m_expitemid() {
   m_expitemid_ = 0;
@@ -1220,7 +1252,7 @@ inline void E_XiuzhenworldConstant::set_m_expitemid(::google::protobuf::int32 va
   m_expitemid_ = value;
 }
 
-// repeated .proto_ff.E_XiuzhenworldConstantTimeitemDesc m_timeitem = 14;
+// repeated .proto_ff.E_XiuzhenworldConstantTimeitemDesc m_timeitem = 15;
 inline int E_XiuzhenworldConstant::m_timeitem_size() const {
   return m_timeitem_.size();
 }
@@ -1245,7 +1277,7 @@ E_XiuzhenworldConstant::mutable_m_timeitem() {
   return &m_timeitem_;
 }
 
-// repeated .proto_ff.E_XiuzhenworldConstantTypeDesc m_type = 15;
+// repeated .proto_ff.E_XiuzhenworldConstantTypeDesc m_type = 16;
 inline int E_XiuzhenworldConstant::m_type_size() const {
   return m_type_.size();
 }

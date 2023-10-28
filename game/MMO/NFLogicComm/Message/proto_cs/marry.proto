@@ -405,6 +405,15 @@ message NotifyWeddingApply
 {
 	optional int32 wedding_id = 1;
 }
+//37-1:全服广播表白特效 NOTIFY_BROAD_EXPRESS
+message NotifyBroadExpress
+{
+	optional int32 itemid = 1;
+	optional int32 num = 2;
+	optional uint64 src_id = 3;
+	optional bytes src_name = 4;		//发起表白对象名称
+	optional bytes dst_name = 5;		//对象名字
+}
 
 //================婚宴副本============================
 //婚宴签到  WEDDING_SIGN_REQ

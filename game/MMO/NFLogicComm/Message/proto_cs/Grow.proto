@@ -8,6 +8,7 @@ message GrowStarInfo
 	optional int64 id = 1;
 	optional int32 lv = 2;
 	optional int32 state = 3;			//是否穿戴 0:未穿戴 1：穿戴
+	optional int64 time = 4;			//过期时间>0 有过期时间 =0没有过期时间
 }
 
 //某个养成系统信息
@@ -65,6 +66,7 @@ message GrowFacadeUnDressRsp
 {
 	optional int64 id = 1;
 	optional int32 ret = 2;
+	optional int32 code = 3; //0:正常卸下，1:过期卸下
 }
 
 

@@ -158,6 +158,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* NotifyYaotaDupRes_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   NotifyYaotaDupRes_reflection_ = NULL;
+const ::google::protobuf::Descriptor* TowerFlashReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  TowerFlashReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* TowerFlashRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  TowerFlashRsp_reflection_ = NULL;
 const ::google::protobuf::Descriptor* L2CEnterDupReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   L2CEnterDupReq_reflection_ = NULL;
@@ -1023,7 +1029,40 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyYaotaDupRes));
-  L2CEnterDupReq_descriptor_ = file->message_type(46);
+  TowerFlashReq_descriptor_ = file->message_type(46);
+  static const int TowerFlashReq_offsets_[1] = {
+  };
+  TowerFlashReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      TowerFlashReq_descriptor_,
+      TowerFlashReq::default_instance_,
+      TowerFlashReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TowerFlashReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TowerFlashReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(TowerFlashReq));
+  TowerFlashRsp_descriptor_ = file->message_type(47);
+  static const int TowerFlashRsp_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TowerFlashRsp, result_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TowerFlashRsp, dupid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TowerFlashRsp, star_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TowerFlashRsp, cost_sec_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TowerFlashRsp, info_),
+  };
+  TowerFlashRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      TowerFlashRsp_descriptor_,
+      TowerFlashRsp::default_instance_,
+      TowerFlashRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TowerFlashRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TowerFlashRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(TowerFlashRsp));
+  L2CEnterDupReq_descriptor_ = file->message_type(48);
   static const int L2CEnterDupReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CEnterDupReq, params_),
   };
@@ -1038,7 +1077,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(L2CEnterDupReq));
-  L2CCreateDupRsp_descriptor_ = file->message_type(47);
+  L2CCreateDupRsp_descriptor_ = file->message_type(49);
   static const int L2CCreateDupRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CCreateDupRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CCreateDupRsp, sceneid_),
@@ -1055,7 +1094,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(L2CCreateDupRsp));
-  L2CDupStateChgNotify_descriptor_ = file->message_type(48);
+  L2CDupStateChgNotify_descriptor_ = file->message_type(50);
   static const int L2CDupStateChgNotify_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CDupStateChgNotify, sceneid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CDupStateChgNotify, dupid_),
@@ -1073,7 +1112,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(L2CDupStateChgNotify));
-  C2LPullRoleEnterDupNotify_descriptor_ = file->message_type(49);
+  C2LPullRoleEnterDupNotify_descriptor_ = file->message_type(51);
   static const int C2LPullRoleEnterDupNotify_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LPullRoleEnterDupNotify, char_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LPullRoleEnterDupNotify, duplicate_id_),
@@ -1093,7 +1132,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2LPullRoleEnterDupNotify));
-  L2CDupRoleActionNotify_descriptor_ = file->message_type(50);
+  L2CDupRoleActionNotify_descriptor_ = file->message_type(52);
   static const int L2CDupRoleActionNotify_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CDupRoleActionNotify, sceneid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CDupRoleActionNotify, cid_),
@@ -1111,7 +1150,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(L2CDupRoleActionNotify));
-  S2CEnterDupReq_descriptor_ = file->message_type(51);
+  S2CEnterDupReq_descriptor_ = file->message_type(53);
   static const int S2CEnterDupReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2CEnterDupReq, params_),
   };
@@ -1126,7 +1165,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(S2CEnterDupReq));
-  C2SEnterDupRsp_descriptor_ = file->message_type(52);
+  C2SEnterDupRsp_descriptor_ = file->message_type(54);
   static const int C2SEnterDupRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2SEnterDupRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2SEnterDupRsp, params_),
@@ -1142,7 +1181,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2SEnterDupRsp));
-  L2CTowerRecvRecordReq_descriptor_ = file->message_type(53);
+  L2CTowerRecvRecordReq_descriptor_ = file->message_type(55);
   static const int L2CTowerRecvRecordReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CTowerRecvRecordReq, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CTowerRecvRecordReq, cid_),
@@ -1160,7 +1199,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(L2CTowerRecvRecordReq));
-  L2SEnterDupReq_descriptor_ = file->message_type(54);
+  L2SEnterDupReq_descriptor_ = file->message_type(56);
   static const int L2SEnterDupReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2SEnterDupReq, params_),
   };
@@ -1175,7 +1214,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(L2SEnterDupReq));
-  L2SDupTeamInviteReq_descriptor_ = file->message_type(55);
+  L2SDupTeamInviteReq_descriptor_ = file->message_type(57);
   static const int L2SDupTeamInviteReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2SDupTeamInviteReq, dupid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2SDupTeamInviteReq, teamid_),
@@ -1193,7 +1232,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(L2SDupTeamInviteReq));
-  C2SCreateDupResultRsp_descriptor_ = file->message_type(56);
+  C2SCreateDupResultRsp_descriptor_ = file->message_type(58);
   static const int C2SCreateDupResultRsp_offsets_[10] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2SCreateDupResultRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2SCreateDupResultRsp, sceneid_),
@@ -1217,7 +1256,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2SCreateDupResultRsp));
-  S2CNotifyCharEnterDup_descriptor_ = file->message_type(57);
+  S2CNotifyCharEnterDup_descriptor_ = file->message_type(59);
   static const int S2CNotifyCharEnterDup_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2CNotifyCharEnterDup, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2CNotifyCharEnterDup, dupid_),
@@ -1236,7 +1275,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(S2CNotifyCharEnterDup));
-  NotifyRebotEnterDup_descriptor_ = file->message_type(58);
+  NotifyRebotEnterDup_descriptor_ = file->message_type(60);
   static const int NotifyRebotEnterDup_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyRebotEnterDup, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyRebotEnterDup, dupid_),
@@ -1255,7 +1294,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyRebotEnterDup));
-  L2SDupTeamOptReq_descriptor_ = file->message_type(59);
+  L2SDupTeamOptReq_descriptor_ = file->message_type(61);
   static const int L2SDupTeamOptReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2SDupTeamOptReq, opt_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2SDupTeamOptReq, mergenum_),
@@ -1273,7 +1312,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(L2SDupTeamOptReq));
-  S2CNofityRoleRebotEnterDup_descriptor_ = file->message_type(60);
+  S2CNofityRoleRebotEnterDup_descriptor_ = file->message_type(62);
   static const int S2CNofityRoleRebotEnterDup_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2CNofityRoleRebotEnterDup, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2CNofityRoleRebotEnterDup, dupid_),
@@ -1294,7 +1333,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(S2CNofityRoleRebotEnterDup));
-  C2LRoleRobotEnterDupReq_descriptor_ = file->message_type(61);
+  C2LRoleRobotEnterDupReq_descriptor_ = file->message_type(63);
   static const int C2LRoleRobotEnterDupReq_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LRoleRobotEnterDupReq, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LRoleRobotEnterDupReq, dupid_),
@@ -1313,11 +1352,13 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2LRoleRobotEnterDupReq));
-  L2CDupResultRsp_descriptor_ = file->message_type(62);
-  static const int L2CDupResultRsp_offsets_[3] = {
+  L2CDupResultRsp_descriptor_ = file->message_type(64);
+  static const int L2CDupResultRsp_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CDupResultRsp, sceneid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CDupResultRsp, dupid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CDupResultRsp, result_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CDupResultRsp, int_param_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CDupResultRsp, str_param_),
   };
   L2CDupResultRsp_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -1330,7 +1371,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(L2CDupResultRsp));
-  C2LEnterRebotReq_descriptor_ = file->message_type(63);
+  C2LEnterRebotReq_descriptor_ = file->message_type(65);
   static const int C2LEnterRebotReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LEnterRebotReq, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LEnterRebotReq, dupid_),
@@ -1348,7 +1389,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2LEnterRebotReq));
-  C2SNotifyDupFinishRsp_descriptor_ = file->message_type(64);
+  C2SNotifyDupFinishRsp_descriptor_ = file->message_type(66);
   static const int C2SNotifyDupFinishRsp_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2SNotifyDupFinishRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2SNotifyDupFinishRsp, sceneid_),
@@ -1371,7 +1412,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2SNotifyDupFinishRsp));
-  C2STeamEnterDupReq_descriptor_ = file->message_type(65);
+  C2STeamEnterDupReq_descriptor_ = file->message_type(67);
   static const int C2STeamEnterDupReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2STeamEnterDupReq, dupid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2STeamEnterDupReq, params_),
@@ -1388,7 +1429,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2STeamEnterDupReq));
-  S2LCreateDupReq_descriptor_ = file->message_type(66);
+  S2LCreateDupReq_descriptor_ = file->message_type(68);
   static const int S2LCreateDupReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2LCreateDupReq, params_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2LCreateDupReq, ex_params_),
@@ -1404,7 +1445,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(S2LCreateDupReq));
-  L2SCreateDupRsp_descriptor_ = file->message_type(67);
+  L2SCreateDupRsp_descriptor_ = file->message_type(69);
   static const int L2SCreateDupRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2SCreateDupRsp, rsp_),
   };
@@ -1419,7 +1460,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(L2SCreateDupRsp));
-  S2LNotifyRoleEnterDup_descriptor_ = file->message_type(68);
+  S2LNotifyRoleEnterDup_descriptor_ = file->message_type(70);
   static const int S2LNotifyRoleEnterDup_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2LNotifyRoleEnterDup, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(S2LNotifyRoleEnterDup, zid_),
@@ -1438,7 +1479,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(S2LNotifyRoleEnterDup));
-  L2SNotifyDupFinishRsp_descriptor_ = file->message_type(69);
+  L2SNotifyDupFinishRsp_descriptor_ = file->message_type(71);
   static const int L2SNotifyDupFinishRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2SNotifyDupFinishRsp, rsp_),
   };
@@ -1453,7 +1494,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(L2SNotifyDupFinishRsp));
-  L2CGHostDupRankReq_descriptor_ = file->message_type(70);
+  L2CGHostDupRankReq_descriptor_ = file->message_type(72);
   static const int L2CGHostDupRankReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CGHostDupRankReq, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CGHostDupRankReq, wave_),
@@ -1470,7 +1511,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(L2CGHostDupRankReq));
-  L2CUpdateGHostDupRankReq_descriptor_ = file->message_type(71);
+  L2CUpdateGHostDupRankReq_descriptor_ = file->message_type(73);
   static const int L2CUpdateGHostDupRankReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CUpdateGHostDupRankReq, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CUpdateGHostDupRankReq, wave_),
@@ -1487,7 +1528,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(L2CUpdateGHostDupRankReq));
-  L2CSynPassYaotaReq_descriptor_ = file->message_type(72);
+  L2CSynPassYaotaReq_descriptor_ = file->message_type(74);
   static const int L2CSynPassYaotaReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CSynPassYaotaReq, dupid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CSynPassYaotaReq, info_),
@@ -1504,7 +1545,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(L2CSynPassYaotaReq));
-  NotifyDupTeamDisReq_descriptor_ = file->message_type(73);
+  NotifyDupTeamDisReq_descriptor_ = file->message_type(75);
   static const int NotifyDupTeamDisReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyDupTeamDisReq, teamid_),
   };
@@ -1519,7 +1560,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyDupTeamDisReq));
-  LCNotifyYaotaFirstPassReq_descriptor_ = file->message_type(74);
+  LCNotifyYaotaFirstPassReq_descriptor_ = file->message_type(76);
   static const int LCNotifyYaotaFirstPassReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCNotifyYaotaFirstPassReq, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCNotifyYaotaFirstPassReq, recved_first_pass_ids_),
@@ -1535,7 +1576,7 @@ void protobuf_AssignDesc_Dup_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCNotifyYaotaFirstPassReq));
-  CLYaotaRecvReq_descriptor_ = file->message_type(75);
+  CLYaotaRecvReq_descriptor_ = file->message_type(77);
   static const int CLYaotaRecvReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLYaotaRecvReq, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLYaotaRecvReq, dupid_),
@@ -1657,6 +1698,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     YaotaRecvRsp_descriptor_, &YaotaRecvRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     NotifyYaotaDupRes_descriptor_, &NotifyYaotaDupRes::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    TowerFlashReq_descriptor_, &TowerFlashReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    TowerFlashRsp_descriptor_, &TowerFlashRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     L2CEnterDupReq_descriptor_, &L2CEnterDupReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -1814,6 +1859,10 @@ void protobuf_ShutdownFile_Dup_2eproto() {
   delete YaotaRecvRsp_reflection_;
   delete NotifyYaotaDupRes::default_instance_;
   delete NotifyYaotaDupRes_reflection_;
+  delete TowerFlashReq::default_instance_;
+  delete TowerFlashReq_reflection_;
+  delete TowerFlashRsp::default_instance_;
+  delete TowerFlashRsp_reflection_;
   delete L2CEnterDupReq::default_instance_;
   delete L2CEnterDupReq_reflection_;
   delete L2CCreateDupRsp::default_instance_;
@@ -1968,76 +2017,81 @@ void protobuf_AddDesc_Dup_2eproto() {
     "\030\002 \001(\005\"8\n\014YaotaRecvRsp\022\013\n\003ret\030\001 \001(\005\022\014\n\004t"
     "ype\030\002 \001(\005\022\r\n\005dupId\030\003 \001(\005\"X\n\021NotifyYaotaD"
     "upRes\022\014\n\004flag\030\001 \001(\005\022\'\n\006reward\030\002 \003(\0132\027.pr"
-    "oto_ff.ItemProtoInfo\022\014\n\004time\030\003 \001(\005\"A\n\016L2"
-    "CEnterDupReq\022/\n\006params\030\001 \001(\0132\037.proto_ff."
-    "CreateSceneParamProto\">\n\017L2CCreateDupRsp"
-    "\022\013\n\003ret\030\001 \001(\005\022\017\n\007sceneId\030\002 \001(\004\022\r\n\005dupId\030"
-    "\003 \001(\004\"S\n\024L2CDupStateChgNotify\022\017\n\007sceneId"
-    "\030\001 \001(\004\022\r\n\005dupId\030\002 \001(\004\022\r\n\005state\030\003 \001(\005\022\014\n\004"
-    "time\030\004 \001(\004\"\207\001\n\031C2LPullRoleEnterDupNotify"
-    "\022\017\n\007char_id\030\001 \002(\004\022\024\n\014duplicate_id\030\002 \002(\004\022"
-    "\020\n\010scene_id\030\003 \002(\004\022\017\n\007born_id\030\004 \001(\004\022\016\n\006zo"
-    "neid\030\005 \001(\r\022\020\n\010tran_tag\030\006 \001(\005\"U\n\026L2CDupRo"
-    "leActionNotify\022\017\n\007sceneId\030\001 \001(\003\022\013\n\003cid\030\002"
-    " \001(\003\022\020\n\010actionId\030\003 \001(\005\022\013\n\003ret\030\004 \001(\005\"A\n\016S"
-    "2CEnterDupReq\022/\n\006params\030\001 \001(\0132\037.proto_ff"
-    ".CreateSceneParamProto\"N\n\016C2SEnterDupRsp"
-    "\022\013\n\003ret\030\001 \001(\005\022/\n\006params\030\002 \001(\0132\037.proto_ff"
-    ".CreateSceneParamProto\"L\n\025L2CTowerRecvRe"
-    "cordReq\022\n\n\002id\030\001 \001(\003\022\013\n\003cid\030\002 \001(\003\022\014\n\004name"
-    "\030\003 \001(\t\022\014\n\004time\030\004 \001(\003\"A\n\016L2SEnterDupReq\022/"
-    "\n\006params\030\001 \001(\0132\037.proto_ff.CreateScenePar"
-    "amProto\"r\n\023L2SDupTeamInviteReq\022\r\n\005dupid\030"
-    "\001 \002(\004\022\016\n\006teamid\030\002 \001(\003\022\013\n\003cid\030\003 \001(\003\022/\n\006pa"
-    "rams\030\004 \001(\0132\037.proto_ff.CreateSceneParamPr"
-    "oto\"\270\001\n\025C2SCreateDupResultRsp\022\013\n\003ret\030\001 \001"
-    "(\005\022\017\n\007sceneid\030\002 \001(\004\022\r\n\005mapid\030\003 \001(\004\022\017\n\007lo"
-    "gicid\030\004 \001(\r\022\016\n\006zoneid\030\005 \001(\r\022\017\n\007keytype\030\006"
-    " \001(\005\022\016\n\006keyval\030\007 \001(\004\022\016\n\006teamid\030\010 \001(\005\022\r\n\005"
-    "dupid\030\t \001(\005\022\021\n\tstr_param\030\n \001(\014\"f\n\025S2CNot"
-    "ifyCharEnterDup\022\013\n\003cid\030\001 \001(\004\022\r\n\005dupid\030\002 "
-    "\001(\004\022\017\n\007sceneid\030\003 \001(\004\022\016\n\006bornid\030\004 \001(\004\022\020\n\010"
-    "tran_tag\030\005 \001(\005\"b\n\023NotifyRebotEnterDup\022\013\n"
-    "\003cid\030\001 \001(\004\022\r\n\005dupid\030\002 \001(\004\022\017\n\007sceneid\030\003 \001"
-    "(\004\022\016\n\006bornid\030\004 \001(\005\022\016\n\006teamid\030\005 \001(\005\"N\n\020L2"
-    "SDupTeamOptReq\022\013\n\003opt\030\001 \001(\005\022\020\n\010mergeNum\030"
-    "\002 \001(\r\022\016\n\006teamId\030\003 \001(\005\022\013\n\003cid\030\004 \001(\004\"\212\001\n\032S"
-    "2CNofityRoleRebotEnterDup\022\013\n\003cid\030\001 \001(\004\022\r"
-    "\n\005dupid\030\002 \001(\004\022\017\n\007sceneid\030\003 \001(\004\022\016\n\006bornid"
-    "\030\004 \001(\005\022\016\n\006teamid\030\005 \001(\005\022\017\n\007logicid\030\006 \001(\005\022"
-    "\016\n\006campid\030\007 \001(\005\"\201\001\n\027C2LRoleRobotEnterDup"
-    "Req\022\013\n\003cid\030\001 \001(\004\022\r\n\005dupid\030\002 \001(\004\022\017\n\007scene"
-    "id\030\003 \001(\004\022\016\n\006bornid\030\004 \001(\005\022)\n\007mirrors\030\005 \003("
-    "\0132\030.proto_ff.RoleMirrorData\"A\n\017L2CDupRes"
-    "ultRsp\022\017\n\007sceneId\030\001 \001(\004\022\r\n\005dupId\030\002 \001(\004\022\016"
-    "\n\006result\030\003 \001(\005\"O\n\020C2LEnterRebotReq\022\013\n\003ci"
-    "d\030\001 \001(\004\022\r\n\005dupid\030\002 \001(\004\022\017\n\007sceneid\030\003 \001(\004\022"
-    "\016\n\006bornid\030\004 \001(\005\"\250\001\n\025C2SNotifyDupFinishRs"
-    "p\022\016\n\006result\030\001 \001(\005\022\017\n\007sceneid\030\002 \001(\004\022\r\n\005ma"
+    "oto_ff.ItemProtoInfo\022\014\n\004time\030\003 \001(\005\"\017\n\rTo"
+    "werFlashReq\"t\n\rTowerFlashRsp\022\016\n\006result\030\001"
+    " \001(\005\022\r\n\005dupId\030\002 \001(\004\022\014\n\004star\030\003 \001(\005\022\020\n\010cos"
+    "t_sec\030\004 \001(\005\022$\n\004info\030\005 \001(\0132\026.proto_ff.Dup"
+    "DropProto\"A\n\016L2CEnterDupReq\022/\n\006params\030\001 "
+    "\001(\0132\037.proto_ff.CreateSceneParamProto\">\n\017"
+    "L2CCreateDupRsp\022\013\n\003ret\030\001 \001(\005\022\017\n\007sceneId\030"
+    "\002 \001(\004\022\r\n\005dupId\030\003 \001(\004\"S\n\024L2CDupStateChgNo"
+    "tify\022\017\n\007sceneId\030\001 \001(\004\022\r\n\005dupId\030\002 \001(\004\022\r\n\005"
+    "state\030\003 \001(\005\022\014\n\004time\030\004 \001(\004\"\207\001\n\031C2LPullRol"
+    "eEnterDupNotify\022\017\n\007char_id\030\001 \002(\004\022\024\n\014dupl"
+    "icate_id\030\002 \002(\004\022\020\n\010scene_id\030\003 \002(\004\022\017\n\007born"
+    "_id\030\004 \001(\004\022\016\n\006zoneid\030\005 \001(\r\022\020\n\010tran_tag\030\006 "
+    "\001(\005\"U\n\026L2CDupRoleActionNotify\022\017\n\007sceneId"
+    "\030\001 \001(\003\022\013\n\003cid\030\002 \001(\003\022\020\n\010actionId\030\003 \001(\005\022\013\n"
+    "\003ret\030\004 \001(\005\"A\n\016S2CEnterDupReq\022/\n\006params\030\001"
+    " \001(\0132\037.proto_ff.CreateSceneParamProto\"N\n"
+    "\016C2SEnterDupRsp\022\013\n\003ret\030\001 \001(\005\022/\n\006params\030\002"
+    " \001(\0132\037.proto_ff.CreateSceneParamProto\"L\n"
+    "\025L2CTowerRecvRecordReq\022\n\n\002id\030\001 \001(\003\022\013\n\003ci"
+    "d\030\002 \001(\003\022\014\n\004name\030\003 \001(\t\022\014\n\004time\030\004 \001(\003\"A\n\016L"
+    "2SEnterDupReq\022/\n\006params\030\001 \001(\0132\037.proto_ff"
+    ".CreateSceneParamProto\"r\n\023L2SDupTeamInvi"
+    "teReq\022\r\n\005dupid\030\001 \002(\004\022\016\n\006teamid\030\002 \001(\003\022\013\n\003"
+    "cid\030\003 \001(\003\022/\n\006params\030\004 \001(\0132\037.proto_ff.Cre"
+    "ateSceneParamProto\"\270\001\n\025C2SCreateDupResul"
+    "tRsp\022\013\n\003ret\030\001 \001(\005\022\017\n\007sceneid\030\002 \001(\004\022\r\n\005ma"
     "pid\030\003 \001(\004\022\017\n\007logicid\030\004 \001(\r\022\016\n\006zoneid\030\005 \001"
     "(\r\022\017\n\007keytype\030\006 \001(\005\022\016\n\006keyval\030\007 \001(\004\022\016\n\006t"
-    "eamid\030\010 \001(\005\022\r\n\005dupid\030\t \001(\003\"c\n\022C2STeamEnt"
-    "erDupReq\022\r\n\005dupId\030\001 \001(\005\022/\n\006params\030\003 \001(\0132"
-    "\037.proto_ff.CreateSceneParamProto\022\r\n\005isdy"
-    "n\030\004 \001(\005\"U\n\017S2LCreateDupReq\022/\n\006params\030\001 \001"
-    "(\0132\037.proto_ff.CreateSceneParamProto\022\021\n\te"
-    "x_params\030\002 \001(\014\"\?\n\017L2SCreateDupRsp\022,\n\003rsp"
-    "\030\001 \001(\0132\037.proto_ff.C2SCreateDupResultRsp\""
-    "a\n\025S2LNotifyRoleEnterDup\022\013\n\003cid\030\001 \001(\003\022\013\n"
-    "\003zid\030\002 \001(\005\022\017\n\007sceneid\030\003 \001(\004\022\r\n\005mapid\030\004 \001"
-    "(\004\022\016\n\006bornid\030\005 \001(\005\"E\n\025L2SNotifyDupFinish"
-    "Rsp\022,\n\003rsp\030\001 \001(\0132\037.proto_ff.C2SNotifyDup"
-    "FinishRsp\"=\n\022L2CGHostDupRankReq\022\013\n\003cid\030\001"
-    " \001(\004\022\014\n\004wave\030\002 \001(\005\022\014\n\004time\030\003 \001(\005\"C\n\030L2CU"
-    "pdateGHostDupRankReq\022\013\n\003cid\030\001 \001(\004\022\014\n\004wav"
-    "e\030\002 \001(\005\022\014\n\004time\030\003 \001(\005\"]\n\022L2CSynPassYaota"
-    "Req\022\r\n\005dupid\030\001 \001(\005\022*\n\004info\030\002 \003(\0132\034.proto"
-    "_ff.RolePlayerMiniInfo\022\014\n\004time\030\003 \001(\004\"%\n\023"
-    "NotifyDupTeamDisReq\022\016\n\006teamid\030\001 \001(\005\"G\n\031L"
-    "CNotifyYaotaFirstPassReq\022\013\n\003cid\030\001 \001(\004\022\035\n"
-    "\025recved_first_pass_ids\030\002 \003(\005\"R\n\016CLYaotaR"
-    "ecvReq\022\013\n\003cid\030\001 \001(\004\022\r\n\005dupid\030\002 \001(\005\022\014\n\004ty"
-    "pe\030\003 \001(\005\022\026\n\016first_pass_ids\030\004 \003(\005", 6032);
+    "eamid\030\010 \001(\005\022\r\n\005dupid\030\t \001(\005\022\021\n\tstr_param\030"
+    "\n \001(\014\"f\n\025S2CNotifyCharEnterDup\022\013\n\003cid\030\001 "
+    "\001(\004\022\r\n\005dupid\030\002 \001(\004\022\017\n\007sceneid\030\003 \001(\004\022\016\n\006b"
+    "ornid\030\004 \001(\004\022\020\n\010tran_tag\030\005 \001(\005\"b\n\023NotifyR"
+    "ebotEnterDup\022\013\n\003cid\030\001 \001(\004\022\r\n\005dupid\030\002 \001(\004"
+    "\022\017\n\007sceneid\030\003 \001(\004\022\016\n\006bornid\030\004 \001(\005\022\016\n\006tea"
+    "mid\030\005 \001(\005\"N\n\020L2SDupTeamOptReq\022\013\n\003opt\030\001 \001"
+    "(\005\022\020\n\010mergeNum\030\002 \001(\r\022\016\n\006teamId\030\003 \001(\005\022\013\n\003"
+    "cid\030\004 \001(\004\"\212\001\n\032S2CNofityRoleRebotEnterDup"
+    "\022\013\n\003cid\030\001 \001(\004\022\r\n\005dupid\030\002 \001(\004\022\017\n\007sceneid\030"
+    "\003 \001(\004\022\016\n\006bornid\030\004 \001(\005\022\016\n\006teamid\030\005 \001(\005\022\017\n"
+    "\007logicid\030\006 \001(\005\022\016\n\006campid\030\007 \001(\005\"\201\001\n\027C2LRo"
+    "leRobotEnterDupReq\022\013\n\003cid\030\001 \001(\004\022\r\n\005dupid"
+    "\030\002 \001(\004\022\017\n\007sceneid\030\003 \001(\004\022\016\n\006bornid\030\004 \001(\005\022"
+    ")\n\007mirrors\030\005 \003(\0132\030.proto_ff.RoleMirrorDa"
+    "ta\"g\n\017L2CDupResultRsp\022\017\n\007sceneId\030\001 \001(\004\022\r"
+    "\n\005dupId\030\002 \001(\004\022\016\n\006result\030\003 \001(\005\022\021\n\tint_par"
+    "am\030\004 \001(\003\022\021\n\tstr_param\030\005 \001(\014\"O\n\020C2LEnterR"
+    "ebotReq\022\013\n\003cid\030\001 \001(\004\022\r\n\005dupid\030\002 \001(\004\022\017\n\007s"
+    "ceneid\030\003 \001(\004\022\016\n\006bornid\030\004 \001(\005\"\250\001\n\025C2SNoti"
+    "fyDupFinishRsp\022\016\n\006result\030\001 \001(\005\022\017\n\007scenei"
+    "d\030\002 \001(\004\022\r\n\005mapid\030\003 \001(\004\022\017\n\007logicid\030\004 \001(\r\022"
+    "\016\n\006zoneid\030\005 \001(\r\022\017\n\007keytype\030\006 \001(\005\022\016\n\006keyv"
+    "al\030\007 \001(\004\022\016\n\006teamid\030\010 \001(\005\022\r\n\005dupid\030\t \001(\003\""
+    "c\n\022C2STeamEnterDupReq\022\r\n\005dupId\030\001 \001(\005\022/\n\006"
+    "params\030\003 \001(\0132\037.proto_ff.CreateSceneParam"
+    "Proto\022\r\n\005isdyn\030\004 \001(\005\"U\n\017S2LCreateDupReq\022"
+    "/\n\006params\030\001 \001(\0132\037.proto_ff.CreateScenePa"
+    "ramProto\022\021\n\tex_params\030\002 \001(\014\"\?\n\017L2SCreate"
+    "DupRsp\022,\n\003rsp\030\001 \001(\0132\037.proto_ff.C2SCreate"
+    "DupResultRsp\"a\n\025S2LNotifyRoleEnterDup\022\013\n"
+    "\003cid\030\001 \001(\003\022\013\n\003zid\030\002 \001(\005\022\017\n\007sceneid\030\003 \001(\004"
+    "\022\r\n\005mapid\030\004 \001(\004\022\016\n\006bornid\030\005 \001(\005\"E\n\025L2SNo"
+    "tifyDupFinishRsp\022,\n\003rsp\030\001 \001(\0132\037.proto_ff"
+    ".C2SNotifyDupFinishRsp\"=\n\022L2CGHostDupRan"
+    "kReq\022\013\n\003cid\030\001 \001(\004\022\014\n\004wave\030\002 \001(\005\022\014\n\004time\030"
+    "\003 \001(\005\"C\n\030L2CUpdateGHostDupRankReq\022\013\n\003cid"
+    "\030\001 \001(\004\022\014\n\004wave\030\002 \001(\005\022\014\n\004time\030\003 \001(\005\"]\n\022L2"
+    "CSynPassYaotaReq\022\r\n\005dupid\030\001 \001(\005\022*\n\004info\030"
+    "\002 \003(\0132\034.proto_ff.RolePlayerMiniInfo\022\014\n\004t"
+    "ime\030\003 \001(\004\"%\n\023NotifyDupTeamDisReq\022\016\n\006team"
+    "id\030\001 \001(\005\"G\n\031LCNotifyYaotaFirstPassReq\022\013\n"
+    "\003cid\030\001 \001(\004\022\035\n\025recved_first_pass_ids\030\002 \003("
+    "\005\"R\n\016CLYaotaRecvReq\022\013\n\003cid\030\001 \001(\004\022\r\n\005dupi"
+    "d\030\002 \001(\005\022\014\n\004type\030\003 \001(\005\022\026\n\016first_pass_ids\030"
+    "\004 \003(\005", 6205);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Dup.proto", &protobuf_RegisterTypes);
   DupDropProto::default_instance_ = new DupDropProto();
@@ -2086,6 +2140,8 @@ void protobuf_AddDesc_Dup_2eproto() {
   YaotaRecvReq::default_instance_ = new YaotaRecvReq();
   YaotaRecvRsp::default_instance_ = new YaotaRecvRsp();
   NotifyYaotaDupRes::default_instance_ = new NotifyYaotaDupRes();
+  TowerFlashReq::default_instance_ = new TowerFlashReq();
+  TowerFlashRsp::default_instance_ = new TowerFlashRsp();
   L2CEnterDupReq::default_instance_ = new L2CEnterDupReq();
   L2CCreateDupRsp::default_instance_ = new L2CCreateDupRsp();
   L2CDupStateChgNotify::default_instance_ = new L2CDupStateChgNotify();
@@ -2162,6 +2218,8 @@ void protobuf_AddDesc_Dup_2eproto() {
   YaotaRecvReq::default_instance_->InitAsDefaultInstance();
   YaotaRecvRsp::default_instance_->InitAsDefaultInstance();
   NotifyYaotaDupRes::default_instance_->InitAsDefaultInstance();
+  TowerFlashReq::default_instance_->InitAsDefaultInstance();
+  TowerFlashRsp::default_instance_->InitAsDefaultInstance();
   L2CEnterDupReq::default_instance_->InitAsDefaultInstance();
   L2CCreateDupRsp::default_instance_->InitAsDefaultInstance();
   L2CDupStateChgNotify::default_instance_->InitAsDefaultInstance();
@@ -14851,6 +14909,538 @@ void NotifyYaotaDupRes::Swap(NotifyYaotaDupRes* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+#endif  // !_MSC_VER
+
+TowerFlashReq::TowerFlashReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void TowerFlashReq::InitAsDefaultInstance() {
+}
+
+TowerFlashReq::TowerFlashReq(const TowerFlashReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void TowerFlashReq::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+TowerFlashReq::~TowerFlashReq() {
+  SharedDtor();
+}
+
+void TowerFlashReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void TowerFlashReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* TowerFlashReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return TowerFlashReq_descriptor_;
+}
+
+const TowerFlashReq& TowerFlashReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Dup_2eproto();
+  return *default_instance_;
+}
+
+TowerFlashReq* TowerFlashReq::default_instance_ = NULL;
+
+TowerFlashReq* TowerFlashReq::New() const {
+  return new TowerFlashReq;
+}
+
+void TowerFlashReq::Clear() {
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool TowerFlashReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+      return true;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, mutable_unknown_fields()));
+  }
+  return true;
+#undef DO_
+}
+
+void TowerFlashReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* TowerFlashReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int TowerFlashReq::ByteSize() const {
+  int total_size = 0;
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void TowerFlashReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const TowerFlashReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const TowerFlashReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void TowerFlashReq::MergeFrom(const TowerFlashReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void TowerFlashReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void TowerFlashReq::CopyFrom(const TowerFlashReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool TowerFlashReq::IsInitialized() const {
+
+  return true;
+}
+
+void TowerFlashReq::Swap(TowerFlashReq* other) {
+  if (other != this) {
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata TowerFlashReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = TowerFlashReq_descriptor_;
+  metadata.reflection = TowerFlashReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int TowerFlashRsp::kResultFieldNumber;
+const int TowerFlashRsp::kDupIdFieldNumber;
+const int TowerFlashRsp::kStarFieldNumber;
+const int TowerFlashRsp::kCostSecFieldNumber;
+const int TowerFlashRsp::kInfoFieldNumber;
+#endif  // !_MSC_VER
+
+TowerFlashRsp::TowerFlashRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void TowerFlashRsp::InitAsDefaultInstance() {
+  info_ = const_cast< ::proto_ff::DupDropProto*>(&::proto_ff::DupDropProto::default_instance());
+}
+
+TowerFlashRsp::TowerFlashRsp(const TowerFlashRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void TowerFlashRsp::SharedCtor() {
+  _cached_size_ = 0;
+  result_ = 0;
+  dupid_ = GOOGLE_ULONGLONG(0);
+  star_ = 0;
+  cost_sec_ = 0;
+  info_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+TowerFlashRsp::~TowerFlashRsp() {
+  SharedDtor();
+}
+
+void TowerFlashRsp::SharedDtor() {
+  if (this != default_instance_) {
+    delete info_;
+  }
+}
+
+void TowerFlashRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* TowerFlashRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return TowerFlashRsp_descriptor_;
+}
+
+const TowerFlashRsp& TowerFlashRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Dup_2eproto();
+  return *default_instance_;
+}
+
+TowerFlashRsp* TowerFlashRsp::default_instance_ = NULL;
+
+TowerFlashRsp* TowerFlashRsp::New() const {
+  return new TowerFlashRsp;
+}
+
+void TowerFlashRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    result_ = 0;
+    dupid_ = GOOGLE_ULONGLONG(0);
+    star_ = 0;
+    cost_sec_ = 0;
+    if (has_info()) {
+      if (info_ != NULL) info_->::proto_ff::DupDropProto::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool TowerFlashRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 result = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &result_)));
+          set_has_result();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_dupId;
+        break;
+      }
+
+      // optional uint64 dupId = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_dupId:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &dupid_)));
+          set_has_dupid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_star;
+        break;
+      }
+
+      // optional int32 star = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_star:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &star_)));
+          set_has_star();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_cost_sec;
+        break;
+      }
+
+      // optional int32 cost_sec = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_cost_sec:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &cost_sec_)));
+          set_has_cost_sec();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_info;
+        break;
+      }
+
+      // optional .proto_ff.DupDropProto info = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_info:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_info()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void TowerFlashRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 result = 1;
+  if (has_result()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->result(), output);
+  }
+
+  // optional uint64 dupId = 2;
+  if (has_dupid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->dupid(), output);
+  }
+
+  // optional int32 star = 3;
+  if (has_star()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->star(), output);
+  }
+
+  // optional int32 cost_sec = 4;
+  if (has_cost_sec()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->cost_sec(), output);
+  }
+
+  // optional .proto_ff.DupDropProto info = 5;
+  if (has_info()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, this->info(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* TowerFlashRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 result = 1;
+  if (has_result()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->result(), target);
+  }
+
+  // optional uint64 dupId = 2;
+  if (has_dupid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->dupid(), target);
+  }
+
+  // optional int32 star = 3;
+  if (has_star()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->star(), target);
+  }
+
+  // optional int32 cost_sec = 4;
+  if (has_cost_sec()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->cost_sec(), target);
+  }
+
+  // optional .proto_ff.DupDropProto info = 5;
+  if (has_info()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        5, this->info(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int TowerFlashRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 result = 1;
+    if (has_result()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->result());
+    }
+
+    // optional uint64 dupId = 2;
+    if (has_dupid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->dupid());
+    }
+
+    // optional int32 star = 3;
+    if (has_star()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->star());
+    }
+
+    // optional int32 cost_sec = 4;
+    if (has_cost_sec()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->cost_sec());
+    }
+
+    // optional .proto_ff.DupDropProto info = 5;
+    if (has_info()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->info());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void TowerFlashRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const TowerFlashRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const TowerFlashRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void TowerFlashRsp::MergeFrom(const TowerFlashRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_result()) {
+      set_result(from.result());
+    }
+    if (from.has_dupid()) {
+      set_dupid(from.dupid());
+    }
+    if (from.has_star()) {
+      set_star(from.star());
+    }
+    if (from.has_cost_sec()) {
+      set_cost_sec(from.cost_sec());
+    }
+    if (from.has_info()) {
+      mutable_info()->::proto_ff::DupDropProto::MergeFrom(from.info());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void TowerFlashRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void TowerFlashRsp::CopyFrom(const TowerFlashRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool TowerFlashRsp::IsInitialized() const {
+
+  if (has_info()) {
+    if (!this->info().IsInitialized()) return false;
+  }
+  return true;
+}
+
+void TowerFlashRsp::Swap(TowerFlashRsp* other) {
+  if (other != this) {
+    std::swap(result_, other->result_);
+    std::swap(dupid_, other->dupid_);
+    std::swap(star_, other->star_);
+    std::swap(cost_sec_, other->cost_sec_);
+    std::swap(info_, other->info_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata TowerFlashRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = TowerFlashRsp_descriptor_;
+  metadata.reflection = TowerFlashRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int L2CEnterDupReq::kParamsFieldNumber;
 #endif  // !_MSC_VER
 
@@ -20258,6 +20848,8 @@ void C2LRoleRobotEnterDupReq::Swap(C2LRoleRobotEnterDupReq* other) {
 const int L2CDupResultRsp::kSceneIdFieldNumber;
 const int L2CDupResultRsp::kDupIdFieldNumber;
 const int L2CDupResultRsp::kResultFieldNumber;
+const int L2CDupResultRsp::kIntParamFieldNumber;
+const int L2CDupResultRsp::kStrParamFieldNumber;
 #endif  // !_MSC_VER
 
 L2CDupResultRsp::L2CDupResultRsp()
@@ -20279,6 +20871,8 @@ void L2CDupResultRsp::SharedCtor() {
   sceneid_ = GOOGLE_ULONGLONG(0);
   dupid_ = GOOGLE_ULONGLONG(0);
   result_ = 0;
+  int_param_ = GOOGLE_LONGLONG(0);
+  str_param_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -20287,6 +20881,9 @@ L2CDupResultRsp::~L2CDupResultRsp() {
 }
 
 void L2CDupResultRsp::SharedDtor() {
+  if (str_param_ != &::google::protobuf::internal::kEmptyString) {
+    delete str_param_;
+  }
   if (this != default_instance_) {
   }
 }
@@ -20317,6 +20914,12 @@ void L2CDupResultRsp::Clear() {
     sceneid_ = GOOGLE_ULONGLONG(0);
     dupid_ = GOOGLE_ULONGLONG(0);
     result_ = 0;
+    int_param_ = GOOGLE_LONGLONG(0);
+    if (has_str_param()) {
+      if (str_param_ != &::google::protobuf::internal::kEmptyString) {
+        str_param_->clear();
+      }
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -20371,6 +20974,36 @@ bool L2CDupResultRsp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(32)) goto parse_int_param;
+        break;
+      }
+
+      // optional int64 int_param = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_int_param:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &int_param_)));
+          set_has_int_param();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_str_param;
+        break;
+      }
+
+      // optional bytes str_param = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_str_param:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_str_param()));
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -20408,6 +21041,17 @@ void L2CDupResultRsp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->result(), output);
   }
 
+  // optional int64 int_param = 4;
+  if (has_int_param()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->int_param(), output);
+  }
+
+  // optional bytes str_param = 5;
+  if (has_str_param()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytes(
+      5, this->str_param(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -20429,6 +21073,18 @@ void L2CDupResultRsp::SerializeWithCachedSizes(
   // optional int32 result = 3;
   if (has_result()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->result(), target);
+  }
+
+  // optional int64 int_param = 4;
+  if (has_int_param()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->int_param(), target);
+  }
+
+  // optional bytes str_param = 5;
+  if (has_str_param()) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        5, this->str_param(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -20461,6 +21117,20 @@ int L2CDupResultRsp::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->result());
+    }
+
+    // optional int64 int_param = 4;
+    if (has_int_param()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->int_param());
+    }
+
+    // optional bytes str_param = 5;
+    if (has_str_param()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->str_param());
     }
 
   }
@@ -20499,6 +21169,12 @@ void L2CDupResultRsp::MergeFrom(const L2CDupResultRsp& from) {
     if (from.has_result()) {
       set_result(from.result());
     }
+    if (from.has_int_param()) {
+      set_int_param(from.int_param());
+    }
+    if (from.has_str_param()) {
+      set_str_param(from.str_param());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -20525,6 +21201,8 @@ void L2CDupResultRsp::Swap(L2CDupResultRsp* other) {
     std::swap(sceneid_, other->sceneid_);
     std::swap(dupid_, other->dupid_);
     std::swap(result_, other->result_);
+    std::swap(int_param_, other->int_param_);
+    std::swap(str_param_, other->str_param_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

@@ -9,10 +9,16 @@ ${PROTOCGEN_FILE_PATH}/module_festival_bin:${PROTOCGEN_FILE_PATH}/festival.proto
 	rm -rf ${PROTOCGEN_FILE_PATH}/module_festival_bin
 	${NFEXCELPROCESS} --work="exceltobin" --src=${RESDB_EXCELMMO_PATH}/festival.xlsx  --proto_ds=${PROTOCGEN_FILE_PATH}/festival.proto.ds --dst=${PROTOCGEN_FILE_PATH}/;
 	${FILE_COPY_EXE} --work="filecopy_notexist" --src="${PROTOCGEN_FILE_PATH}/FestivalDescEx.h ${PROTOCGEN_FILE_PATH}/FestivalDescEx.cpp" --dst=${DESC_STORE_EX_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalPeriodindex.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalPeriodindexDesc.h ${PROTOCGEN_FILE_PATH}/FestivalPeriodindexDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalFestival.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalFestivalDesc.h ${PROTOCGEN_FILE_PATH}/FestivalFestivalDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalTemplate.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalTemplateDesc.h ${PROTOCGEN_FILE_PATH}/FestivalTemplateDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_login.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_loginDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_loginDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_firstrecharge.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_firstrechargeDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_firstrechargeDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_love.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_loveDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_loveDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_love_rank.bin" --dst=${GAME_DATA_PATH}/
@@ -23,8 +29,10 @@ ${PROTOCGEN_FILE_PATH}/module_festival_bin:${PROTOCGEN_FILE_PATH}/festival.proto
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_love_taskDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_love_taskDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_love_taskreward.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_love_taskrewardDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_love_taskrewardDesc.cpp" --dst=${DESC_STORE_PATH}/
-	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalPeriodindex.bin" --dst=${GAME_DATA_PATH}/
-	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalPeriodindexDesc.h ${PROTOCGEN_FILE_PATH}/FestivalPeriodindexDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_addbox.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_addboxDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_addboxDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_doublebox.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_doubleboxDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_doubleboxDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_bossfristkill.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_bossfristkillDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_bossfristkillDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_severrank.bin" --dst=${GAME_DATA_PATH}/

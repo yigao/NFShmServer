@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Taskreward_s.h"
 
-#define MAX_TASKREWARD_TASKREWARD_NUM 16384
+#define MAX_TASKREWARD_TASKREWARD_NUM 8192
 
 #define MAX_COM_INDEX_TASKREWARD_TASKREWARD_TASKTYPE_NUM 1024
 

@@ -491,6 +491,15 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* MountUnlockSlotRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MountUnlockSlotRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MountModelChange_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MountModelChange_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MountKunEquipSlotUnlockReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MountKunEquipSlotUnlockReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MountKunEquipSlotUnlockRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MountKunEquipSlotUnlockRsp_reflection_ = NULL;
 const ::google::protobuf::Descriptor* DeityInfoReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   DeityInfoReq_reflection_ = NULL;
@@ -1609,9 +1618,10 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GetDailyTaskDataReq));
   GetDailyTaskDataRsp_descriptor_ = file->message_type(48);
-  static const int GetDailyTaskDataRsp_offsets_[2] = {
+  static const int GetDailyTaskDataRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetDailyTaskDataRsp, data_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetDailyTaskDataRsp, money_reward_finish_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetDailyTaskDataRsp, prestige_reward_finish_),
   };
   GetDailyTaskDataRsp_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -3319,7 +3329,55 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MountUnlockSlotRsp));
-  DeityInfoReq_descriptor_ = file->message_type(157);
+  MountModelChange_descriptor_ = file->message_type(157);
+  static const int MountModelChange_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MountModelChange, model_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MountModelChange, model_name_),
+  };
+  MountModelChange_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      MountModelChange_descriptor_,
+      MountModelChange::default_instance_,
+      MountModelChange_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MountModelChange, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MountModelChange, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(MountModelChange));
+  MountKunEquipSlotUnlockReq_descriptor_ = file->message_type(158);
+  static const int MountKunEquipSlotUnlockReq_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MountKunEquipSlotUnlockReq, kun_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MountKunEquipSlotUnlockReq, slot_),
+  };
+  MountKunEquipSlotUnlockReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      MountKunEquipSlotUnlockReq_descriptor_,
+      MountKunEquipSlotUnlockReq::default_instance_,
+      MountKunEquipSlotUnlockReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MountKunEquipSlotUnlockReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MountKunEquipSlotUnlockReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(MountKunEquipSlotUnlockReq));
+  MountKunEquipSlotUnlockRsp_descriptor_ = file->message_type(159);
+  static const int MountKunEquipSlotUnlockRsp_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MountKunEquipSlotUnlockRsp, ret_code_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MountKunEquipSlotUnlockRsp, kun_data_),
+  };
+  MountKunEquipSlotUnlockRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      MountKunEquipSlotUnlockRsp_descriptor_,
+      MountKunEquipSlotUnlockRsp::default_instance_,
+      MountKunEquipSlotUnlockRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MountKunEquipSlotUnlockRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MountKunEquipSlotUnlockRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(MountKunEquipSlotUnlockRsp));
+  DeityInfoReq_descriptor_ = file->message_type(160);
   static const int DeityInfoReq_offsets_[1] = {
   };
   DeityInfoReq_reflection_ =
@@ -3333,7 +3391,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityInfoReq));
-  DeityInfoRsp_descriptor_ = file->message_type(158);
+  DeityInfoRsp_descriptor_ = file->message_type(161);
   static const int DeityInfoRsp_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityInfoRsp, deity_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityInfoRsp, deity_lev_),
@@ -3354,7 +3412,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityInfoRsp));
-  DeitySkillUnlockNotify_descriptor_ = file->message_type(159);
+  DeitySkillUnlockNotify_descriptor_ = file->message_type(162);
   static const int DeitySkillUnlockNotify_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeitySkillUnlockNotify, skill_data_),
   };
@@ -3369,7 +3427,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeitySkillUnlockNotify));
-  DeityBattleSlotUnlockNotify_descriptor_ = file->message_type(160);
+  DeityBattleSlotUnlockNotify_descriptor_ = file->message_type(163);
   static const int DeityBattleSlotUnlockNotify_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityBattleSlotUnlockNotify, battle_data_),
   };
@@ -3384,7 +3442,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityBattleSlotUnlockNotify));
-  DeityUnlockBattleSlotReq_descriptor_ = file->message_type(161);
+  DeityUnlockBattleSlotReq_descriptor_ = file->message_type(164);
   static const int DeityUnlockBattleSlotReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityUnlockBattleSlotReq, id_),
   };
@@ -3399,7 +3457,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityUnlockBattleSlotReq));
-  DeityUnlockBattleSlotRsp_descriptor_ = file->message_type(162);
+  DeityUnlockBattleSlotRsp_descriptor_ = file->message_type(165);
   static const int DeityUnlockBattleSlotRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityUnlockBattleSlotRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityUnlockBattleSlotRsp, battle_data_),
@@ -3415,7 +3473,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityUnlockBattleSlotRsp));
-  DeityLevupReq_descriptor_ = file->message_type(163);
+  DeityLevupReq_descriptor_ = file->message_type(166);
   static const int DeityLevupReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityLevupReq, material_id_),
   };
@@ -3430,7 +3488,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityLevupReq));
-  DeityLevupRsp_descriptor_ = file->message_type(164);
+  DeityLevupRsp_descriptor_ = file->message_type(167);
   static const int DeityLevupRsp_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityLevupRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityLevupRsp, deity_id_),
@@ -3449,7 +3507,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityLevupRsp));
-  DeityFantasyBattleReq_descriptor_ = file->message_type(165);
+  DeityFantasyBattleReq_descriptor_ = file->message_type(168);
   static const int DeityFantasyBattleReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFantasyBattleReq, deity_fantasy_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFantasyBattleReq, battle_slot_),
@@ -3465,7 +3523,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityFantasyBattleReq));
-  DeityFantasyBattleRsp_descriptor_ = file->message_type(166);
+  DeityFantasyBattleRsp_descriptor_ = file->message_type(169);
   static const int DeityFantasyBattleRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFantasyBattleRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFantasyBattleRsp, fight_value_),
@@ -3482,7 +3540,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityFantasyBattleRsp));
-  DeityFantasyQuitBattleReq_descriptor_ = file->message_type(167);
+  DeityFantasyQuitBattleReq_descriptor_ = file->message_type(170);
   static const int DeityFantasyQuitBattleReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFantasyQuitBattleReq, battle_slot_),
   };
@@ -3497,7 +3555,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityFantasyQuitBattleReq));
-  DeityFantasyQuitBattleRsp_descriptor_ = file->message_type(168);
+  DeityFantasyQuitBattleRsp_descriptor_ = file->message_type(171);
   static const int DeityFantasyQuitBattleRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFantasyQuitBattleRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFantasyQuitBattleRsp, fight_value_),
@@ -3514,7 +3572,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityFantasyQuitBattleRsp));
-  DeityFragmentUseReq_descriptor_ = file->message_type(169);
+  DeityFragmentUseReq_descriptor_ = file->message_type(172);
   static const int DeityFragmentUseReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFragmentUseReq, fragment_id_),
   };
@@ -3529,7 +3587,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityFragmentUseReq));
-  DeityFragmentUseRsp_descriptor_ = file->message_type(170);
+  DeityFragmentUseRsp_descriptor_ = file->message_type(173);
   static const int DeityFragmentUseRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFragmentUseRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFragmentUseRsp, fragment_data_),
@@ -3546,7 +3604,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityFragmentUseRsp));
-  DeityFantasyInfoReq_descriptor_ = file->message_type(171);
+  DeityFantasyInfoReq_descriptor_ = file->message_type(174);
   static const int DeityFantasyInfoReq_offsets_[1] = {
   };
   DeityFantasyInfoReq_reflection_ =
@@ -3560,7 +3618,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityFantasyInfoReq));
-  DeityFantasyInfoRsp_descriptor_ = file->message_type(172);
+  DeityFantasyInfoRsp_descriptor_ = file->message_type(175);
   static const int DeityFantasyInfoRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFantasyInfoRsp, fantasy_data_),
   };
@@ -3575,7 +3633,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityFantasyInfoRsp));
-  DeityFantasyActiveReq_descriptor_ = file->message_type(173);
+  DeityFantasyActiveReq_descriptor_ = file->message_type(176);
   static const int DeityFantasyActiveReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFantasyActiveReq, fantasy_id_),
   };
@@ -3590,7 +3648,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityFantasyActiveReq));
-  DeityFastasyActiveRsp_descriptor_ = file->message_type(174);
+  DeityFastasyActiveRsp_descriptor_ = file->message_type(177);
   static const int DeityFastasyActiveRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFastasyActiveRsp, fantasy_data_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFastasyActiveRsp, ret_code_),
@@ -3606,7 +3664,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityFastasyActiveRsp));
-  DeityFantasyLevelupReq_descriptor_ = file->message_type(175);
+  DeityFantasyLevelupReq_descriptor_ = file->message_type(178);
   static const int DeityFantasyLevelupReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFantasyLevelupReq, fantasy_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFantasyLevelupReq, material_id_),
@@ -3622,7 +3680,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityFantasyLevelupReq));
-  DeityFastasyLevelupRsp_descriptor_ = file->message_type(176);
+  DeityFastasyLevelupRsp_descriptor_ = file->message_type(179);
   static const int DeityFastasyLevelupRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFastasyLevelupRsp, fantasy_data_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFastasyLevelupRsp, ret_code_),
@@ -3638,7 +3696,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityFastasyLevelupRsp));
-  DeityFantasyStarUpReq_descriptor_ = file->message_type(177);
+  DeityFantasyStarUpReq_descriptor_ = file->message_type(180);
   static const int DeityFantasyStarUpReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFantasyStarUpReq, fantasy_id_),
   };
@@ -3653,7 +3711,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityFantasyStarUpReq));
-  DeityFastasyStarUpRsp_descriptor_ = file->message_type(178);
+  DeityFastasyStarUpRsp_descriptor_ = file->message_type(181);
   static const int DeityFastasyStarUpRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFastasyStarUpRsp, fantasy_data_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFastasyStarUpRsp, ret_code_),
@@ -3669,7 +3727,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityFastasyStarUpRsp));
-  DeityFantasyEnterWarReq_descriptor_ = file->message_type(179);
+  DeityFantasyEnterWarReq_descriptor_ = file->message_type(182);
   static const int DeityFantasyEnterWarReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFantasyEnterWarReq, id_),
   };
@@ -3684,7 +3742,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityFantasyEnterWarReq));
-  DeityFantasyEnterWarRsp_descriptor_ = file->message_type(180);
+  DeityFantasyEnterWarRsp_descriptor_ = file->message_type(183);
   static const int DeityFantasyEnterWarRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFantasyEnterWarRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFantasyEnterWarRsp, battle_data_),
@@ -3700,7 +3758,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityFantasyEnterWarRsp));
-  DeityShowFantasyListReq_descriptor_ = file->message_type(181);
+  DeityShowFantasyListReq_descriptor_ = file->message_type(184);
   static const int DeityShowFantasyListReq_offsets_[1] = {
   };
   DeityShowFantasyListReq_reflection_ =
@@ -3714,7 +3772,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityShowFantasyListReq));
-  DeityFantasyShowData_descriptor_ = file->message_type(182);
+  DeityFantasyShowData_descriptor_ = file->message_type(185);
   static const int DeityFantasyShowData_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFantasyShowData, fantasy_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFantasyShowData, active_),
@@ -3731,7 +3789,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityFantasyShowData));
-  DeityShowFantasyListRsp_descriptor_ = file->message_type(183);
+  DeityShowFantasyListRsp_descriptor_ = file->message_type(186);
   static const int DeityShowFantasyListRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityShowFantasyListRsp, fantasy_data_),
   };
@@ -3746,7 +3804,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityShowFantasyListRsp));
-  DeityEquipDressReq_descriptor_ = file->message_type(184);
+  DeityEquipDressReq_descriptor_ = file->message_type(187);
   static const int DeityEquipDressReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipDressReq, fantasy_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipDressReq, bag_pos_),
@@ -3762,7 +3820,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityEquipDressReq));
-  DeityEquipDressRsp_descriptor_ = file->message_type(185);
+  DeityEquipDressRsp_descriptor_ = file->message_type(188);
   static const int DeityEquipDressRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipDressRsp, fantasy_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipDressRsp, bag_pos_),
@@ -3779,7 +3837,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityEquipDressRsp));
-  DeityEquipUnDressReq_descriptor_ = file->message_type(186);
+  DeityEquipUnDressReq_descriptor_ = file->message_type(189);
   static const int DeityEquipUnDressReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipUnDressReq, fantasy_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipUnDressReq, slot_pos_),
@@ -3795,7 +3853,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityEquipUnDressReq));
-  DeityEquipUnDressRsp_descriptor_ = file->message_type(187);
+  DeityEquipUnDressRsp_descriptor_ = file->message_type(190);
   static const int DeityEquipUnDressRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipUnDressRsp, fantasy_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipUnDressRsp, slot_pos_),
@@ -3812,7 +3870,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityEquipUnDressRsp));
-  NotifyDeityEquipInfoRsp_descriptor_ = file->message_type(188);
+  NotifyDeityEquipInfoRsp_descriptor_ = file->message_type(191);
   static const int NotifyDeityEquipInfoRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyDeityEquipInfoRsp, fantasy_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyDeityEquipInfoRsp, type_),
@@ -3829,7 +3887,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyDeityEquipInfoRsp));
-  DeityEquipStrongReq_descriptor_ = file->message_type(189);
+  DeityEquipStrongReq_descriptor_ = file->message_type(192);
   static const int DeityEquipStrongReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipStrongReq, fantasy_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipStrongReq, slot_pos_),
@@ -3845,7 +3903,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityEquipStrongReq));
-  DeityEquipStrongRsp_descriptor_ = file->message_type(190);
+  DeityEquipStrongRsp_descriptor_ = file->message_type(193);
   static const int DeityEquipStrongRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipStrongRsp, fantasy_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipStrongRsp, slot_pos_),
@@ -3862,7 +3920,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityEquipStrongRsp));
-  DeityEquipStrongLvReq_descriptor_ = file->message_type(191);
+  DeityEquipStrongLvReq_descriptor_ = file->message_type(194);
   static const int DeityEquipStrongLvReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipStrongLvReq, fantasy_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipStrongLvReq, slot_pos_),
@@ -3878,7 +3936,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityEquipStrongLvReq));
-  DeityEquipStrongLvRsp_descriptor_ = file->message_type(192);
+  DeityEquipStrongLvRsp_descriptor_ = file->message_type(195);
   static const int DeityEquipStrongLvRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipStrongLvRsp, fantasy_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipStrongLvRsp, slot_pos_),
@@ -3895,7 +3953,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityEquipStrongLvRsp));
-  DeityEquipSuitActiveReq_descriptor_ = file->message_type(193);
+  DeityEquipSuitActiveReq_descriptor_ = file->message_type(196);
   static const int DeityEquipSuitActiveReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipSuitActiveReq, fantasy_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipSuitActiveReq, equip_suit_),
@@ -3911,7 +3969,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityEquipSuitActiveReq));
-  DeityEquipSuitActiveRsp_descriptor_ = file->message_type(194);
+  DeityEquipSuitActiveRsp_descriptor_ = file->message_type(197);
   static const int DeityEquipSuitActiveRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipSuitActiveRsp, fantasy_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipSuitActiveRsp, ret_code_),
@@ -3928,7 +3986,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityEquipSuitActiveRsp));
-  DeityEquipDecomposeReq_descriptor_ = file->message_type(195);
+  DeityEquipDecomposeReq_descriptor_ = file->message_type(198);
   static const int DeityEquipDecomposeReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipDecomposeReq, gridlist_),
   };
@@ -3943,7 +4001,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityEquipDecomposeReq));
-  DeityEquipDecomposeRsp_descriptor_ = file->message_type(196);
+  DeityEquipDecomposeRsp_descriptor_ = file->message_type(199);
   static const int DeityEquipDecomposeRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipDecomposeRsp, ret_code_),
   };
@@ -3958,7 +4016,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityEquipDecomposeRsp));
-  DeityEquipDisassembleReq_descriptor_ = file->message_type(197);
+  DeityEquipDisassembleReq_descriptor_ = file->message_type(200);
   static const int DeityEquipDisassembleReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipDisassembleReq, grid_),
   };
@@ -3973,7 +4031,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityEquipDisassembleReq));
-  DeityEquipDisassembleRsp_descriptor_ = file->message_type(198);
+  DeityEquipDisassembleRsp_descriptor_ = file->message_type(201);
   static const int DeityEquipDisassembleRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityEquipDisassembleRsp, ret_code_),
   };
@@ -3988,7 +4046,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityEquipDisassembleRsp));
-  CGTitleInfoReq_descriptor_ = file->message_type(199);
+  CGTitleInfoReq_descriptor_ = file->message_type(202);
   static const int CGTitleInfoReq_offsets_[1] = {
   };
   CGTitleInfoReq_reflection_ =
@@ -4002,7 +4060,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGTitleInfoReq));
-  GCTitleInfoRsp_descriptor_ = file->message_type(200);
+  GCTitleInfoRsp_descriptor_ = file->message_type(203);
   static const int GCTitleInfoRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCTitleInfoRsp, cur_wearing_title_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCTitleInfoRsp, data_),
@@ -4018,7 +4076,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCTitleInfoRsp));
-  CGTitleInfoActiveReq_descriptor_ = file->message_type(201);
+  CGTitleInfoActiveReq_descriptor_ = file->message_type(204);
   static const int CGTitleInfoActiveReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGTitleInfoActiveReq, title_id_),
   };
@@ -4033,7 +4091,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGTitleInfoActiveReq));
-  GCTitleInfoActiveRsp_descriptor_ = file->message_type(202);
+  GCTitleInfoActiveRsp_descriptor_ = file->message_type(205);
   static const int GCTitleInfoActiveRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCTitleInfoActiveRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCTitleInfoActiveRsp, data_),
@@ -4049,7 +4107,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCTitleInfoActiveRsp));
-  CGTitleStarLvReq_descriptor_ = file->message_type(203);
+  CGTitleStarLvReq_descriptor_ = file->message_type(206);
   static const int CGTitleStarLvReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGTitleStarLvReq, title_id_),
   };
@@ -4064,7 +4122,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGTitleStarLvReq));
-  GCTitleStarLvRsp_descriptor_ = file->message_type(204);
+  GCTitleStarLvRsp_descriptor_ = file->message_type(207);
   static const int GCTitleStarLvRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCTitleStarLvRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCTitleStarLvRsp, data_),
@@ -4080,7 +4138,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCTitleStarLvRsp));
-  CGTitleDressReq_descriptor_ = file->message_type(205);
+  CGTitleDressReq_descriptor_ = file->message_type(208);
   static const int CGTitleDressReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGTitleDressReq, title_id_),
   };
@@ -4095,7 +4153,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGTitleDressReq));
-  GCTitleDressRsp_descriptor_ = file->message_type(206);
+  GCTitleDressRsp_descriptor_ = file->message_type(209);
   static const int GCTitleDressRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCTitleDressRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCTitleDressRsp, cur_wearing_title_),
@@ -4112,7 +4170,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCTitleDressRsp));
-  CGTitleUnDressReq_descriptor_ = file->message_type(207);
+  CGTitleUnDressReq_descriptor_ = file->message_type(210);
   static const int CGTitleUnDressReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGTitleUnDressReq, title_id_),
   };
@@ -4127,7 +4185,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGTitleUnDressReq));
-  GCTitleUnDressRsp_descriptor_ = file->message_type(208);
+  GCTitleUnDressRsp_descriptor_ = file->message_type(211);
   static const int GCTitleUnDressRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCTitleUnDressRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCTitleUnDressRsp, cur_wearing_title_),
@@ -4144,7 +4202,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCTitleUnDressRsp));
-  CGOccupationSoulInfoReq_descriptor_ = file->message_type(209);
+  CGOccupationSoulInfoReq_descriptor_ = file->message_type(212);
   static const int CGOccupationSoulInfoReq_offsets_[1] = {
   };
   CGOccupationSoulInfoReq_reflection_ =
@@ -4158,7 +4216,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGOccupationSoulInfoReq));
-  GCOccupationSoulInfoRsp_descriptor_ = file->message_type(210);
+  GCOccupationSoulInfoRsp_descriptor_ = file->message_type(213);
   static const int GCOccupationSoulInfoRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCOccupationSoulInfoRsp, grade_data_),
   };
@@ -4173,7 +4231,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCOccupationSoulInfoRsp));
-  CGOccupationLightSoulReq_descriptor_ = file->message_type(211);
+  CGOccupationLightSoulReq_descriptor_ = file->message_type(214);
   static const int CGOccupationLightSoulReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGOccupationLightSoulReq, grade_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGOccupationLightSoulReq, stage_),
@@ -4191,7 +4249,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGOccupationLightSoulReq));
-  GCOccupationLightSoulRsp_descriptor_ = file->message_type(212);
+  GCOccupationLightSoulRsp_descriptor_ = file->message_type(215);
   static const int GCOccupationLightSoulRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCOccupationLightSoulRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCOccupationLightSoulRsp, grade_),
@@ -4209,7 +4267,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCOccupationLightSoulRsp));
-  CGUnlockFlyUpwardReq_descriptor_ = file->message_type(213);
+  CGUnlockFlyUpwardReq_descriptor_ = file->message_type(216);
   static const int CGUnlockFlyUpwardReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGUnlockFlyUpwardReq, stage_),
   };
@@ -4224,7 +4282,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGUnlockFlyUpwardReq));
-  GCUnlockFlyUpwardRsp_descriptor_ = file->message_type(214);
+  GCUnlockFlyUpwardRsp_descriptor_ = file->message_type(217);
   static const int GCUnlockFlyUpwardRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCUnlockFlyUpwardRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCUnlockFlyUpwardRsp, stage_),
@@ -4240,7 +4298,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCUnlockFlyUpwardRsp));
-  CGAchievementInfoReq_descriptor_ = file->message_type(215);
+  CGAchievementInfoReq_descriptor_ = file->message_type(218);
   static const int CGAchievementInfoReq_offsets_[1] = {
   };
   CGAchievementInfoReq_reflection_ =
@@ -4254,7 +4312,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGAchievementInfoReq));
-  GCAchievementInfoRsp_descriptor_ = file->message_type(216);
+  GCAchievementInfoRsp_descriptor_ = file->message_type(219);
   static const int GCAchievementInfoRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCAchievementInfoRsp, data_),
   };
@@ -4269,7 +4327,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCAchievementInfoRsp));
-  CGAchievementGetRewardReq_descriptor_ = file->message_type(217);
+  CGAchievementGetRewardReq_descriptor_ = file->message_type(220);
   static const int CGAchievementGetRewardReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGAchievementGetRewardReq, id_),
   };
@@ -4284,7 +4342,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGAchievementGetRewardReq));
-  GCAchievementGetRewardRsp_descriptor_ = file->message_type(218);
+  GCAchievementGetRewardRsp_descriptor_ = file->message_type(221);
   static const int GCAchievementGetRewardRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCAchievementGetRewardRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCAchievementGetRewardRsp, id_),
@@ -4300,7 +4358,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCAchievementGetRewardRsp));
-  CGAchievementTotalGetRewardReq_descriptor_ = file->message_type(219);
+  CGAchievementTotalGetRewardReq_descriptor_ = file->message_type(222);
   static const int CGAchievementTotalGetRewardReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGAchievementTotalGetRewardReq, id_),
   };
@@ -4315,7 +4373,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGAchievementTotalGetRewardReq));
-  GCAchievementTotalGetRewardRsp_descriptor_ = file->message_type(220);
+  GCAchievementTotalGetRewardRsp_descriptor_ = file->message_type(223);
   static const int GCAchievementTotalGetRewardRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCAchievementTotalGetRewardRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCAchievementTotalGetRewardRsp, id_),
@@ -4331,7 +4389,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCAchievementTotalGetRewardRsp));
-  NotifyAchievementDataChange_descriptor_ = file->message_type(221);
+  NotifyAchievementDataChange_descriptor_ = file->message_type(224);
   static const int NotifyAchievementDataChange_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyAchievementDataChange, ach_point_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyAchievementDataChange, data_),
@@ -4347,7 +4405,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyAchievementDataChange));
-  NotifyAchievementTotalDataChange_descriptor_ = file->message_type(222);
+  NotifyAchievementTotalDataChange_descriptor_ = file->message_type(225);
   static const int NotifyAchievementTotalDataChange_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyAchievementTotalDataChange, ach_point_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyAchievementTotalDataChange, data_),
@@ -4363,7 +4421,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyAchievementTotalDataChange));
-  GuidelinesSaveReq_descriptor_ = file->message_type(223);
+  GuidelinesSaveReq_descriptor_ = file->message_type(226);
   static const int GuidelinesSaveReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GuidelinesSaveReq, strsave_),
   };
@@ -4378,7 +4436,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GuidelinesSaveReq));
-  XiuZhenRoadInfoReq_descriptor_ = file->message_type(224);
+  XiuZhenRoadInfoReq_descriptor_ = file->message_type(227);
   static const int XiuZhenRoadInfoReq_offsets_[1] = {
   };
   XiuZhenRoadInfoReq_reflection_ =
@@ -4392,7 +4450,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadInfoReq));
-  XiuZhenRoadInfoRsp_descriptor_ = file->message_type(225);
+  XiuZhenRoadInfoRsp_descriptor_ = file->message_type(228);
   static const int XiuZhenRoadInfoRsp_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadInfoRsp, data_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadInfoRsp, xiuezhenroad_point_),
@@ -4411,7 +4469,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadInfoRsp));
-  XiuZhenRoadGetRewardReq_descriptor_ = file->message_type(226);
+  XiuZhenRoadGetRewardReq_descriptor_ = file->message_type(229);
   static const int XiuZhenRoadGetRewardReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadGetRewardReq, id_),
   };
@@ -4426,7 +4484,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadGetRewardReq));
-  XiuZhenRoadGetRewardRsp_descriptor_ = file->message_type(227);
+  XiuZhenRoadGetRewardRsp_descriptor_ = file->message_type(230);
   static const int XiuZhenRoadGetRewardRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadGetRewardRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadGetRewardRsp, data_),
@@ -4443,7 +4501,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadGetRewardRsp));
-  XiuZhenRoadChangeNotify_descriptor_ = file->message_type(228);
+  XiuZhenRoadChangeNotify_descriptor_ = file->message_type(231);
   static const int XiuZhenRoadChangeNotify_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadChangeNotify, data_),
   };
@@ -4458,7 +4516,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadChangeNotify));
-  XiuZhenRoadPointsGetRewardReq_descriptor_ = file->message_type(229);
+  XiuZhenRoadPointsGetRewardReq_descriptor_ = file->message_type(232);
   static const int XiuZhenRoadPointsGetRewardReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadPointsGetRewardReq, id_),
   };
@@ -4473,7 +4531,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadPointsGetRewardReq));
-  XiuZhenRoadPointsGetRewardRsp_descriptor_ = file->message_type(230);
+  XiuZhenRoadPointsGetRewardRsp_descriptor_ = file->message_type(233);
   static const int XiuZhenRoadPointsGetRewardRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadPointsGetRewardRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadPointsGetRewardRsp, data_),
@@ -4489,7 +4547,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadPointsGetRewardRsp));
-  XiuZhenRoadPointsChangeNotify_descriptor_ = file->message_type(231);
+  XiuZhenRoadPointsChangeNotify_descriptor_ = file->message_type(234);
   static const int XiuZhenRoadPointsChangeNotify_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadPointsChangeNotify, data_),
   };
@@ -4504,7 +4562,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadPointsChangeNotify));
-  XiuZhenRoadRechargeChangeNotify_descriptor_ = file->message_type(232);
+  XiuZhenRoadRechargeChangeNotify_descriptor_ = file->message_type(235);
   static const int XiuZhenRoadRechargeChangeNotify_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadRechargeChangeNotify, data_),
   };
@@ -4519,7 +4577,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadRechargeChangeNotify));
-  XiuZhenRoadBackInfoReq_descriptor_ = file->message_type(233);
+  XiuZhenRoadBackInfoReq_descriptor_ = file->message_type(236);
   static const int XiuZhenRoadBackInfoReq_offsets_[1] = {
   };
   XiuZhenRoadBackInfoReq_reflection_ =
@@ -4533,7 +4591,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadBackInfoReq));
-  XiuZhenRoadBackInfoRsp_descriptor_ = file->message_type(234);
+  XiuZhenRoadBackInfoRsp_descriptor_ = file->message_type(237);
   static const int XiuZhenRoadBackInfoRsp_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadBackInfoRsp, xiuzhenroad_back_status_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadBackInfoRsp, attr_),
@@ -4552,7 +4610,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadBackInfoRsp));
-  XiuZhenRoadGetBackRewardInfoReq_descriptor_ = file->message_type(235);
+  XiuZhenRoadGetBackRewardInfoReq_descriptor_ = file->message_type(238);
   static const int XiuZhenRoadGetBackRewardInfoReq_offsets_[1] = {
   };
   XiuZhenRoadGetBackRewardInfoReq_reflection_ =
@@ -4566,7 +4624,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadGetBackRewardInfoReq));
-  XiuZhenRoadGetBackRewardInfoRsp_descriptor_ = file->message_type(236);
+  XiuZhenRoadGetBackRewardInfoRsp_descriptor_ = file->message_type(239);
   static const int XiuZhenRoadGetBackRewardInfoRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadGetBackRewardInfoRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadGetBackRewardInfoRsp, xiuzhenroad_back_status_),
@@ -4582,7 +4640,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadGetBackRewardInfoRsp));
-  CLGetGoalInfoReq_descriptor_ = file->message_type(237);
+  CLGetGoalInfoReq_descriptor_ = file->message_type(240);
   static const int CLGetGoalInfoReq_offsets_[1] = {
   };
   CLGetGoalInfoReq_reflection_ =
@@ -4596,7 +4654,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CLGetGoalInfoReq));
-  LCGetGoalInfoRsp_descriptor_ = file->message_type(238);
+  LCGetGoalInfoRsp_descriptor_ = file->message_type(241);
   static const int LCGetGoalInfoRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetGoalInfoRsp, goal_data_),
   };
@@ -4611,7 +4669,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCGetGoalInfoRsp));
-  CLGetGloalRewardReq_descriptor_ = file->message_type(239);
+  CLGetGloalRewardReq_descriptor_ = file->message_type(242);
   static const int CLGetGloalRewardReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLGetGloalRewardReq, group_id_),
   };
@@ -4626,7 +4684,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CLGetGloalRewardReq));
-  LCGetGoalRewardRsp_descriptor_ = file->message_type(240);
+  LCGetGoalRewardRsp_descriptor_ = file->message_type(243);
   static const int LCGetGoalRewardRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetGoalRewardRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetGoalRewardRsp, group_id_),
@@ -4643,7 +4701,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCGetGoalRewardRsp));
-  CLGetGoalTaskRewardReq_descriptor_ = file->message_type(241);
+  CLGetGoalTaskRewardReq_descriptor_ = file->message_type(244);
   static const int CLGetGoalTaskRewardReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLGetGoalTaskRewardReq, group_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLGetGoalTaskRewardReq, task_id_),
@@ -4659,7 +4717,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CLGetGoalTaskRewardReq));
-  LCGetGoalTaskRewardRsp_descriptor_ = file->message_type(242);
+  LCGetGoalTaskRewardRsp_descriptor_ = file->message_type(245);
   static const int LCGetGoalTaskRewardRsp_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetGoalTaskRewardRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetGoalTaskRewardRsp, group_id_),
@@ -4678,7 +4736,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCGetGoalTaskRewardRsp));
-  LCGoalTaskChangeNotify_descriptor_ = file->message_type(243);
+  LCGoalTaskChangeNotify_descriptor_ = file->message_type(246);
   static const int LCGoalTaskChangeNotify_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGoalTaskChangeNotify, data_),
   };
@@ -4693,7 +4751,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCGoalTaskChangeNotify));
-  CLGetBattlePassInfoReq_descriptor_ = file->message_type(244);
+  CLGetBattlePassInfoReq_descriptor_ = file->message_type(247);
   static const int CLGetBattlePassInfoReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLGetBattlePassInfoReq, type_),
   };
@@ -4708,7 +4766,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CLGetBattlePassInfoReq));
-  LCGetBattlePassInfoRsp_descriptor_ = file->message_type(245);
+  LCGetBattlePassInfoRsp_descriptor_ = file->message_type(248);
   static const int LCGetBattlePassInfoRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetBattlePassInfoRsp, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetBattlePassInfoRsp, data_),
@@ -4724,7 +4782,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCGetBattlePassInfoRsp));
-  LCGetBattlePassRewardReq_descriptor_ = file->message_type(246);
+  LCGetBattlePassRewardReq_descriptor_ = file->message_type(249);
   static const int LCGetBattlePassRewardReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetBattlePassRewardReq, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetBattlePassRewardReq, id_),
@@ -4740,7 +4798,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCGetBattlePassRewardReq));
-  CLGetBattlePassRewardRsp_descriptor_ = file->message_type(247);
+  CLGetBattlePassRewardRsp_descriptor_ = file->message_type(250);
   static const int CLGetBattlePassRewardRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLGetBattlePassRewardRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLGetBattlePassRewardRsp, type_),
@@ -4757,7 +4815,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CLGetBattlePassRewardRsp));
-  CLGetBattlePassTaskRewardReq_descriptor_ = file->message_type(248);
+  CLGetBattlePassTaskRewardReq_descriptor_ = file->message_type(251);
   static const int CLGetBattlePassTaskRewardReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLGetBattlePassTaskRewardReq, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLGetBattlePassTaskRewardReq, id_),
@@ -4773,7 +4831,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CLGetBattlePassTaskRewardReq));
-  LCGetBattlePassTaskRewardRsp_descriptor_ = file->message_type(249);
+  LCGetBattlePassTaskRewardRsp_descriptor_ = file->message_type(252);
   static const int LCGetBattlePassTaskRewardRsp_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetBattlePassTaskRewardRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetBattlePassTaskRewardRsp, type_),
@@ -4793,10 +4851,11 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCGetBattlePassTaskRewardRsp));
-  CLGetBuyBattlePassShopReq_descriptor_ = file->message_type(250);
-  static const int CLGetBuyBattlePassShopReq_offsets_[2] = {
+  CLGetBuyBattlePassShopReq_descriptor_ = file->message_type(253);
+  static const int CLGetBuyBattlePassShopReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLGetBuyBattlePassShopReq, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLGetBuyBattlePassShopReq, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLGetBuyBattlePassShopReq, num_),
   };
   CLGetBuyBattlePassShopReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -4809,7 +4868,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CLGetBuyBattlePassShopReq));
-  LCGetBuyBattlePassShopRsp_descriptor_ = file->message_type(251);
+  LCGetBuyBattlePassShopRsp_descriptor_ = file->message_type(254);
   static const int LCGetBuyBattlePassShopRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetBuyBattlePassShopRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetBuyBattlePassShopRsp, type_),
@@ -4826,7 +4885,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCGetBuyBattlePassShopRsp));
-  NotifyBattlePassTaskChange_descriptor_ = file->message_type(252);
+  NotifyBattlePassTaskChange_descriptor_ = file->message_type(255);
   static const int NotifyBattlePassTaskChange_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyBattlePassTaskChange, data_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyBattlePassTaskChange, type_),
@@ -4842,7 +4901,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyBattlePassTaskChange));
-  CLBuyBattlePassSuperReq_descriptor_ = file->message_type(253);
+  CLBuyBattlePassSuperReq_descriptor_ = file->message_type(256);
   static const int CLBuyBattlePassSuperReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLBuyBattlePassSuperReq, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLBuyBattlePassSuperReq, buy_ver_),
@@ -4858,7 +4917,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CLBuyBattlePassSuperReq));
-  LCBuyBattlePassSuperRsp_descriptor_ = file->message_type(254);
+  LCBuyBattlePassSuperRsp_descriptor_ = file->message_type(257);
   static const int LCBuyBattlePassSuperRsp_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCBuyBattlePassSuperRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCBuyBattlePassSuperRsp, type_),
@@ -4878,7 +4937,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCBuyBattlePassSuperRsp));
-  CLImmediatelyGetBattlePassRewardReq_descriptor_ = file->message_type(255);
+  CLImmediatelyGetBattlePassRewardReq_descriptor_ = file->message_type(258);
   static const int CLImmediatelyGetBattlePassRewardReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLImmediatelyGetBattlePassRewardReq, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLImmediatelyGetBattlePassRewardReq, id_),
@@ -4894,7 +4953,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CLImmediatelyGetBattlePassRewardReq));
-  LCImmediatelyGetBattlePassRewardRsp_descriptor_ = file->message_type(256);
+  LCImmediatelyGetBattlePassRewardRsp_descriptor_ = file->message_type(259);
   static const int LCImmediatelyGetBattlePassRewardRsp_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCImmediatelyGetBattlePassRewardRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCImmediatelyGetBattlePassRewardRsp, type_),
@@ -4913,7 +4972,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCImmediatelyGetBattlePassRewardRsp));
-  CLRefreshBattlePassTaskReq_descriptor_ = file->message_type(257);
+  CLRefreshBattlePassTaskReq_descriptor_ = file->message_type(260);
   static const int CLRefreshBattlePassTaskReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLRefreshBattlePassTaskReq, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLRefreshBattlePassTaskReq, id_),
@@ -4929,7 +4988,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CLRefreshBattlePassTaskReq));
-  LCRefreshBattlePassTaskRsp_descriptor_ = file->message_type(258);
+  LCRefreshBattlePassTaskRsp_descriptor_ = file->message_type(261);
   static const int LCRefreshBattlePassTaskRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCRefreshBattlePassTaskRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCRefreshBattlePassTaskRsp, type_),
@@ -4947,7 +5006,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCRefreshBattlePassTaskRsp));
-  EncourageReq_descriptor_ = file->message_type(259);
+  EncourageReq_descriptor_ = file->message_type(262);
   static const int EncourageReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EncourageReq, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EncourageReq, num_),
@@ -4963,7 +5022,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EncourageReq));
-  EncourageRsp_descriptor_ = file->message_type(260);
+  EncourageRsp_descriptor_ = file->message_type(263);
   static const int EncourageRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EncourageRsp, ret_),
   };
@@ -4978,7 +5037,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EncourageRsp));
-  NotifyEncourage_descriptor_ = file->message_type(261);
+  NotifyEncourage_descriptor_ = file->message_type(264);
   static const int NotifyEncourage_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyEncourage, infos_),
   };
@@ -5319,6 +5378,12 @@ void protobuf_RegisterTypes(const ::std::string&) {
     MountUnlockSlotReq_descriptor_, &MountUnlockSlotReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     MountUnlockSlotRsp_descriptor_, &MountUnlockSlotRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    MountModelChange_descriptor_, &MountModelChange::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    MountKunEquipSlotUnlockReq_descriptor_, &MountKunEquipSlotUnlockReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    MountKunEquipSlotUnlockRsp_descriptor_, &MountKunEquipSlotUnlockRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     DeityInfoReq_descriptor_, &DeityInfoReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -5848,6 +5913,12 @@ void protobuf_ShutdownFile_ClientServer_2eproto() {
   delete MountUnlockSlotReq_reflection_;
   delete MountUnlockSlotRsp::default_instance_;
   delete MountUnlockSlotRsp_reflection_;
+  delete MountModelChange::default_instance_;
+  delete MountModelChange_reflection_;
+  delete MountKunEquipSlotUnlockReq::default_instance_;
+  delete MountKunEquipSlotUnlockReq_reflection_;
+  delete MountKunEquipSlotUnlockRsp::default_instance_;
+  delete MountKunEquipSlotUnlockRsp_reflection_;
   delete DeityInfoReq::default_instance_;
   delete DeityInfoReq_reflection_;
   delete DeityInfoRsp::default_instance_;
@@ -6172,191 +6243,197 @@ void protobuf_AddDesc_ClientServer_2eproto() {
     "proto_ff.ComPair64\022\021\n\tadd_value\030\t \003(\005\"$\n"
     "\025PlayerHangUpRewardReq\022\013\n\003opt\030\001 \001(\005\"$\n\025P"
     "layerHangUpRewardRsp\022\013\n\003ret\030\002 \001(\005\"\025\n\023Get"
-    "DailyTaskDataReq\"\\\n\023GetDailyTaskDataRsp\022"
+    "DailyTaskDataReq\"|\n\023GetDailyTaskDataRsp\022"
     "(\n\004data\030\001 \001(\0132\032.proto_ff.DailyTaskAllDat"
-    "a\022\033\n\023money_reward_finish\030\002 \001(\010\"\200\002\n\025Updat"
-    "eDailyTaskNotify\022&\n\004data\030\001 \003(\0132\030.proto_f"
-    "f.DailyTaskEntry\0221\n\nlimit_data\030\002 \003(\0132\035.p"
-    "roto_ff.DailyTaskLimitEntry\0223\n\013reward_da"
-    "ta\030\003 \003(\0132\036.proto_ff.DailyTaskRewardEntry"
-    "\022/\n\tback_data\030\004 \003(\0132\034.proto_ff.DailyTask"
-    "BackEntry\022\023\n\013daily_score\030\005 \001(\r\022\021\n\tdaily_"
-    "exp\030\006 \001(\004\"*\n\025GetDailyTaskRewardReq\022\021\n\tre"
-    "ward_id\030\001 \001(\005\"<\n\025GetDailyTaskRewardRsp\022\020"
-    "\n\010ret_code\030\001 \001(\005\022\021\n\treward_id\030\002 \001(\005\"\025\n\023D"
-    "ailyTaskLevelupReq\"O\n\023DailyTaskLevelupRs"
-    "p\022\020\n\010ret_code\030\001 \001(\005\022\023\n\013daily_level\030\002 \001(\r"
-    "\022\021\n\tdaily_exp\030\003 \001(\004\",\n\031DailyLimitTaskAdd"
-    "ReadyReq\022\017\n\007task_id\030\001 \001(\003\"Z\n\031DailyLimitT"
-    "askAddReadyRsp\022\020\n\010ret_code\030\001 \001(\005\022+\n\004data"
-    "\030\002 \001(\0132\035.proto_ff.DailyTaskLimitEntry\"d\n"
-    "\024DailyBackTaskBackReq\022\017\n\007back_id\030\001 \001(\003\022\021"
-    "\n\tleft_time\030\002 \001(\005\022\032\n\022external_left_time\030"
-    "\003 \001(\005\022\014\n\004type\030\004 \001(\005\"T\n\024DailyBackTaskBack"
-    "Rsp\022\020\n\010ret_code\030\001 \001(\005\022*\n\004data\030\002 \001(\0132\034.pr"
-    "oto_ff.DailyTaskBackEntry\"\036\n\034DailyLimitT"
-    "askAddAllReadyReq\"]\n\034DailyLimitTaskAddAl"
-    "lReadyRsp\022\020\n\010ret_code\030\001 \001(\005\022+\n\004data\030\002 \003("
-    "\0132\035.proto_ff.DailyTaskLimitEntry\"L\n\027Dail"
-    "yBackTaskBackAllReq\022\014\n\004type\030\001 \001(\005\022\014\n\004bac"
-    "k\030\002 \001(\010\022\025\n\rexternal_back\030\003 \001(\010\"W\n\027DailyB"
-    "ackTaskBackAllRsp\022\020\n\010ret_code\030\001 \001(\005\022*\n\004d"
-    "ata\030\002 \003(\0132\034.proto_ff.DailyTaskBackEntry\""
-    "\016\n\014MountInfoReq\"\325\001\n\014MountInfoRsp\022\020\n\010moun"
-    "t_id\030\002 \001(\004\022\021\n\tmount_lev\030\003 \001(\r\022\021\n\tmount_e"
-    "xp\030\004 \001(\004\022\026\n\016mount_model_id\030\006 \001(\004\0222\n\rfrag"
-    "ment_data\030\007 \003(\0132\033.proto_ff.MountFragment"
-    "Data\022\023\n\013fight_value\030\010 \001(\004\022,\n\nskill_data\030"
-    "\t \003(\0132\030.proto_ff.MountSkillData\"F\n\026Mount"
-    "SkillUnlockNotify\022,\n\nskill_data\030\001 \001(\0132\030."
-    "proto_ff.MountSkillData\"$\n\rMountLevupReq"
-    "\022\023\n\013material_id\030\001 \001(\004\"n\n\rMountLevupRsp\022\020"
-    "\n\010ret_code\030\001 \001(\r\022\020\n\010mount_id\030\002 \001(\004\022\021\n\tmo"
-    "unt_lev\030\003 \001(\r\022\021\n\tmount_exp\030\004 \001(\004\022\023\n\013figh"
-    "t_value\030\005 \001(\004\"\'\n\rMountDressReq\022\026\n\016mount_"
-    "model_id\030\001 \001(\004\"N\n\rMountDressRsp\022\020\n\010ret_c"
-    "ode\030\001 \001(\r\022\023\n\013fight_value\030\003 \001(\004\022\026\n\016mount_"
-    "model_id\030\004 \001(\004\"\021\n\017MountUnDressReq\"L\n\017Mou"
-    "ntUnDressRsp\022\020\n\010ret_code\030\001 \001(\r\022\022\n\nuse_fa"
-    "cade\030\002 \001(\010\022\023\n\013fight_value\030\003 \001(\004\"*\n\023Mount"
-    "FragmentUseReq\022\023\n\013fragment_id\030\001 \001(\004\"p\n\023M"
-    "ountFragmentUseRsp\022\020\n\010ret_code\030\001 \001(\r\0222\n\r"
-    "fragment_data\030\002 \003(\0132\033.proto_ff.MountFrag"
-    "mentData\022\023\n\013fight_value\030\003 \001(\004\"\025\n\023MountFa"
-    "ntasyInfoReq\"a\n\023MountFantasyInfoRsp\0220\n\014f"
-    "antasy_data\030\001 \003(\0132\032.proto_ff.MountFantas"
-    "yData\022\030\n\020equip_fantasy_id\030\002 \001(\004\"+\n\025Mount"
-    "FantasyActiveReq\022\022\n\nfantasy_id\030\001 \001(\004\"[\n\025"
-    "MountFastasyActiveRsp\0220\n\014fantasy_data\030\001 "
-    "\001(\0132\032.proto_ff.MountFantasyData\022\020\n\010ret_c"
-    "ode\030\002 \001(\r\"A\n\026MountFantasyLevelupReq\022\022\n\nf"
-    "antasy_id\030\001 \001(\004\022\023\n\013material_id\030\002 \001(\004\"\\\n\026"
-    "MountFastasyLevelupRsp\0220\n\014fantasy_data\030\001"
-    " \001(\0132\032.proto_ff.MountFantasyData\022\020\n\010ret_"
-    "code\030\002 \001(\r\"+\n\025MountFantasyStarUpReq\022\022\n\nf"
-    "antasy_id\030\001 \001(\004\"[\n\025MountFastasyStarUpRsp"
-    "\0220\n\014fantasy_data\030\001 \001(\0132\032.proto_ff.MountF"
-    "antasyData\022\020\n\010ret_code\030\002 \001(\r\"0\n\024MountFas"
-    "tasyDressReq\022\030\n\020equip_fantasy_id\030\001 \001(\004\"B"
-    "\n\024MountFastasyDressRsp\022\020\n\010ret_code\030\001 \001(\r"
-    "\022\030\n\020equip_fantasy_id\030\002 \001(\004\"\030\n\026MountFasta"
-    "syUnDressReq\"*\n\026MountFastasyUnDressRsp\022\020"
-    "\n\010ret_code\030\001 \001(\r\"\021\n\017MountKunInfoReq\"U\n\017M"
-    "ountKunInfoRsp\022(\n\010kun_data\030\001 \003(\0132\026.proto"
-    "_ff.MountKunData\022\030\n\020equip_fantasy_id\030\002 \001"
-    "(\004\"#\n\021MountKunActiveReq\022\016\n\006kun_id\030\001 \001(\004\""
-    "O\n\021MountKunActiveRsp\022(\n\010kun_data\030\001 \001(\0132\026"
-    ".proto_ff.MountKunData\022\020\n\010ret_code\030\002 \001(\r"
-    "\"9\n\022MountKunLevelupReq\022\016\n\006kun_id\030\001 \001(\004\022\023"
-    "\n\013material_id\030\002 \001(\004\"P\n\022MountKunLevelupRs"
-    "p\022(\n\010kun_data\030\001 \001(\0132\026.proto_ff.MountKunD"
-    "ata\022\020\n\010ret_code\030\002 \001(\r\"+\n\031MountKunAdvnace"
-    "LevelupReq\022\016\n\006kun_id\030\001 \001(\004\"W\n\031MountKunAd"
-    "vnaceLevelupRsp\022(\n\010kun_data\030\001 \001(\0132\026.prot"
-    "o_ff.MountKunData\022\020\n\010ret_code\030\002 \001(\r\"#\n\021M"
-    "ountKunStarUpReq\022\016\n\006kun_id\030\001 \001(\004\"O\n\021Moun"
-    "tKunStarUpRsp\022(\n\010kun_data\030\001 \001(\0132\026.proto_"
-    "ff.MountKunData\022\020\n\010ret_code\030\002 \001(\r\",\n\020Mou"
-    "ntKunDressReq\022\030\n\020equip_fantasy_id\030\001 \001(\004\""
-    ">\n\020MountKunDressRsp\022\020\n\010ret_code\030\001 \001(\r\022\030\n"
-    "\020equip_fantasy_id\030\002 \001(\004\"\024\n\022MountKunUnDre"
-    "ssReq\"&\n\022MountKunUnDressRsp\022\020\n\010ret_code\030"
-    "\001 \001(\r\";\n\026MountKunBloodActiveReq\022\020\n\010blood"
-    "_id\030\001 \001(\003\022\017\n\007attr_id\030\002 \001(\005\"X\n\026MountKunBl"
-    "oodActiveRsp\022\020\n\010ret_code\030\001 \001(\r\022,\n\nblood_"
-    "data\030\002 \001(\0132\030.proto_ff.MountBloodData\"\025\n\023"
-    "MountBabyEggInfoReq\"E\n\023MountBabyEggInfoR"
-    "sp\022.\n\tslot_data\030\001 \003(\0132\033.proto_ff.MountBa"
-    "bySlotData\"3\n\025MountBabyCreateEggReq\022\014\n\004g"
-    "rid\030\001 \003(\r\022\014\n\004slot\030\002 \003(\r\"Y\n\025MountBabyCrea"
-    "teEggRsp\022\020\n\010ret_code\030\001 \001(\005\022.\n\tslot_data\030"
-    "\002 \003(\0132\033.proto_ff.MountBabySlotData\"/\n\021Mo"
-    "untBabyDuHuaReq\022\014\n\004type\030\001 \001(\005\022\014\n\004slot\030\002 "
-    "\001(\005\"f\n\024MountBabyDuHuaNotify\022\020\n\010ret_code\030"
-    "\001 \001(\005\022\014\n\004type\030\002 \001(\005\022.\n\tslot_data\030\003 \003(\0132\033"
-    ".proto_ff.MountBabySlotData\"6\n\030MountBaby"
-    "RecvDuHuaKunReq\022\014\n\004type\030\001 \001(\005\022\014\n\004slot\030\002 "
-    "\001(\005\"\244\001\n\030MountBabyRecvDuHuaKunRsp\022\020\n\010ret_"
-    "code\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\022.\n\tslot_data\030\003 "
-    "\003(\0132\033.proto_ff.MountBabySlotData\022$\n\titem"
-    "_data\030\004 \003(\0132\021.proto_ff.ComItem\022\022\n\nmount_"
-    "data\030\005 \003(\004\"\"\n\022MountBabyUnlockReq\022\014\n\004slot"
-    "\030\001 \001(\005\"V\n\022MountBabyUnlockRsp\022\020\n\010ret_code"
-    "\030\001 \001(\005\022.\n\tslot_data\030\002 \003(\0132\033.proto_ff.Mou"
-    "ntBabySlotData\"\020\n\016MountRideOnReq\"!\n\016Moun"
-    "tRideOnRsp\022\017\n\007retCode\030\001 \001(\r\"\021\n\017MountRide"
-    "OffReq\"\"\n\017MountRideOffRsp\022\017\n\007retCode\030\001 \001"
-    "(\r\"8\n\025MountKunEquipDressReq\022\016\n\006kun_id\030\001 "
-    "\001(\004\022\017\n\007bag_pos\030\002 \001(\005\"d\n\025MountKunEquipDre"
-    "ssRsp\022(\n\010kun_data\030\001 \001(\0132\026.proto_ff.Mount"
-    "KunData\022\017\n\007bag_pos\030\002 \001(\005\022\020\n\010ret_code\030\003 \001"
-    "(\005\";\n\027MountKunEquipUnDressReq\022\016\n\006kun_id\030"
-    "\001 \001(\004\022\020\n\010slot_pos\030\002 \001(\005\"g\n\027MountKunEquip"
-    "UnDressRsp\022(\n\010kun_data\030\001 \001(\0132\026.proto_ff."
-    "MountKunData\022\020\n\010slot_pos\030\002 \001(\005\022\020\n\010ret_co"
-    "de\030\003 \001(\005\":\n\026MountKunEquipStrongReq\022\016\n\006ku"
-    "n_id\030\001 \001(\004\022\020\n\010slot_pos\030\002 \001(\005\"f\n\026MountKun"
-    "EquipStrongRsp\022(\n\010kun_data\030\001 \001(\0132\026.proto"
+    "a\022\033\n\023money_reward_finish\030\002 \001(\010\022\036\n\026presti"
+    "ge_reward_finish\030\003 \001(\010\"\200\002\n\025UpdateDailyTa"
+    "skNotify\022&\n\004data\030\001 \003(\0132\030.proto_ff.DailyT"
+    "askEntry\0221\n\nlimit_data\030\002 \003(\0132\035.proto_ff."
+    "DailyTaskLimitEntry\0223\n\013reward_data\030\003 \003(\013"
+    "2\036.proto_ff.DailyTaskRewardEntry\022/\n\tback"
+    "_data\030\004 \003(\0132\034.proto_ff.DailyTaskBackEntr"
+    "y\022\023\n\013daily_score\030\005 \001(\r\022\021\n\tdaily_exp\030\006 \001("
+    "\004\"*\n\025GetDailyTaskRewardReq\022\021\n\treward_id\030"
+    "\001 \001(\005\"<\n\025GetDailyTaskRewardRsp\022\020\n\010ret_co"
+    "de\030\001 \001(\005\022\021\n\treward_id\030\002 \001(\005\"\025\n\023DailyTask"
+    "LevelupReq\"O\n\023DailyTaskLevelupRsp\022\020\n\010ret"
+    "_code\030\001 \001(\005\022\023\n\013daily_level\030\002 \001(\r\022\021\n\tdail"
+    "y_exp\030\003 \001(\004\",\n\031DailyLimitTaskAddReadyReq"
+    "\022\017\n\007task_id\030\001 \001(\003\"Z\n\031DailyLimitTaskAddRe"
+    "adyRsp\022\020\n\010ret_code\030\001 \001(\005\022+\n\004data\030\002 \001(\0132\035"
+    ".proto_ff.DailyTaskLimitEntry\"d\n\024DailyBa"
+    "ckTaskBackReq\022\017\n\007back_id\030\001 \001(\003\022\021\n\tleft_t"
+    "ime\030\002 \001(\005\022\032\n\022external_left_time\030\003 \001(\005\022\014\n"
+    "\004type\030\004 \001(\005\"T\n\024DailyBackTaskBackRsp\022\020\n\010r"
+    "et_code\030\001 \001(\005\022*\n\004data\030\002 \001(\0132\034.proto_ff.D"
+    "ailyTaskBackEntry\"\036\n\034DailyLimitTaskAddAl"
+    "lReadyReq\"]\n\034DailyLimitTaskAddAllReadyRs"
+    "p\022\020\n\010ret_code\030\001 \001(\005\022+\n\004data\030\002 \003(\0132\035.prot"
+    "o_ff.DailyTaskLimitEntry\"L\n\027DailyBackTas"
+    "kBackAllReq\022\014\n\004type\030\001 \001(\005\022\014\n\004back\030\002 \001(\010\022"
+    "\025\n\rexternal_back\030\003 \001(\010\"W\n\027DailyBackTaskB"
+    "ackAllRsp\022\020\n\010ret_code\030\001 \001(\005\022*\n\004data\030\002 \003("
+    "\0132\034.proto_ff.DailyTaskBackEntry\"\016\n\014Mount"
+    "InfoReq\"\325\001\n\014MountInfoRsp\022\020\n\010mount_id\030\002 \001"
+    "(\004\022\021\n\tmount_lev\030\003 \001(\r\022\021\n\tmount_exp\030\004 \001(\004"
+    "\022\026\n\016mount_model_id\030\006 \001(\004\0222\n\rfragment_dat"
+    "a\030\007 \003(\0132\033.proto_ff.MountFragmentData\022\023\n\013"
+    "fight_value\030\010 \001(\004\022,\n\nskill_data\030\t \003(\0132\030."
+    "proto_ff.MountSkillData\"F\n\026MountSkillUnl"
+    "ockNotify\022,\n\nskill_data\030\001 \001(\0132\030.proto_ff"
+    ".MountSkillData\"$\n\rMountLevupReq\022\023\n\013mate"
+    "rial_id\030\001 \001(\004\"n\n\rMountLevupRsp\022\020\n\010ret_co"
+    "de\030\001 \001(\r\022\020\n\010mount_id\030\002 \001(\004\022\021\n\tmount_lev\030"
+    "\003 \001(\r\022\021\n\tmount_exp\030\004 \001(\004\022\023\n\013fight_value\030"
+    "\005 \001(\004\"\'\n\rMountDressReq\022\026\n\016mount_model_id"
+    "\030\001 \001(\004\"N\n\rMountDressRsp\022\020\n\010ret_code\030\001 \001("
+    "\r\022\023\n\013fight_value\030\003 \001(\004\022\026\n\016mount_model_id"
+    "\030\004 \001(\004\"\021\n\017MountUnDressReq\"L\n\017MountUnDres"
+    "sRsp\022\020\n\010ret_code\030\001 \001(\r\022\022\n\nuse_facade\030\002 \001"
+    "(\010\022\023\n\013fight_value\030\003 \001(\004\"*\n\023MountFragment"
+    "UseReq\022\023\n\013fragment_id\030\001 \001(\004\"p\n\023MountFrag"
+    "mentUseRsp\022\020\n\010ret_code\030\001 \001(\r\0222\n\rfragment"
+    "_data\030\002 \003(\0132\033.proto_ff.MountFragmentData"
+    "\022\023\n\013fight_value\030\003 \001(\004\"\025\n\023MountFantasyInf"
+    "oReq\"a\n\023MountFantasyInfoRsp\0220\n\014fantasy_d"
+    "ata\030\001 \003(\0132\032.proto_ff.MountFantasyData\022\030\n"
+    "\020equip_fantasy_id\030\002 \001(\004\"+\n\025MountFantasyA"
+    "ctiveReq\022\022\n\nfantasy_id\030\001 \001(\004\"[\n\025MountFas"
+    "tasyActiveRsp\0220\n\014fantasy_data\030\001 \001(\0132\032.pr"
+    "oto_ff.MountFantasyData\022\020\n\010ret_code\030\002 \001("
+    "\r\"A\n\026MountFantasyLevelupReq\022\022\n\nfantasy_i"
+    "d\030\001 \001(\004\022\023\n\013material_id\030\002 \001(\004\"\\\n\026MountFas"
+    "tasyLevelupRsp\0220\n\014fantasy_data\030\001 \001(\0132\032.p"
+    "roto_ff.MountFantasyData\022\020\n\010ret_code\030\002 \001"
+    "(\r\"+\n\025MountFantasyStarUpReq\022\022\n\nfantasy_i"
+    "d\030\001 \001(\004\"[\n\025MountFastasyStarUpRsp\0220\n\014fant"
+    "asy_data\030\001 \001(\0132\032.proto_ff.MountFantasyDa"
+    "ta\022\020\n\010ret_code\030\002 \001(\r\"0\n\024MountFastasyDres"
+    "sReq\022\030\n\020equip_fantasy_id\030\001 \001(\004\"B\n\024MountF"
+    "astasyDressRsp\022\020\n\010ret_code\030\001 \001(\r\022\030\n\020equi"
+    "p_fantasy_id\030\002 \001(\004\"\030\n\026MountFastasyUnDres"
+    "sReq\"*\n\026MountFastasyUnDressRsp\022\020\n\010ret_co"
+    "de\030\001 \001(\r\"\021\n\017MountKunInfoReq\"U\n\017MountKunI"
+    "nfoRsp\022(\n\010kun_data\030\001 \003(\0132\026.proto_ff.Moun"
+    "tKunData\022\030\n\020equip_fantasy_id\030\002 \001(\004\"#\n\021Mo"
+    "untKunActiveReq\022\016\n\006kun_id\030\001 \001(\004\"O\n\021Mount"
+    "KunActiveRsp\022(\n\010kun_data\030\001 \001(\0132\026.proto_f"
+    "f.MountKunData\022\020\n\010ret_code\030\002 \001(\r\"9\n\022Moun"
+    "tKunLevelupReq\022\016\n\006kun_id\030\001 \001(\004\022\023\n\013materi"
+    "al_id\030\002 \001(\004\"P\n\022MountKunLevelupRsp\022(\n\010kun"
+    "_data\030\001 \001(\0132\026.proto_ff.MountKunData\022\020\n\010r"
+    "et_code\030\002 \001(\r\"+\n\031MountKunAdvnaceLevelupR"
+    "eq\022\016\n\006kun_id\030\001 \001(\004\"W\n\031MountKunAdvnaceLev"
+    "elupRsp\022(\n\010kun_data\030\001 \001(\0132\026.proto_ff.Mou"
+    "ntKunData\022\020\n\010ret_code\030\002 \001(\r\"#\n\021MountKunS"
+    "tarUpReq\022\016\n\006kun_id\030\001 \001(\004\"O\n\021MountKunStar"
+    "UpRsp\022(\n\010kun_data\030\001 \001(\0132\026.proto_ff.Mount"
+    "KunData\022\020\n\010ret_code\030\002 \001(\r\",\n\020MountKunDre"
+    "ssReq\022\030\n\020equip_fantasy_id\030\001 \001(\004\">\n\020Mount"
+    "KunDressRsp\022\020\n\010ret_code\030\001 \001(\r\022\030\n\020equip_f"
+    "antasy_id\030\002 \001(\004\"\024\n\022MountKunUnDressReq\"&\n"
+    "\022MountKunUnDressRsp\022\020\n\010ret_code\030\001 \001(\r\";\n"
+    "\026MountKunBloodActiveReq\022\020\n\010blood_id\030\001 \001("
+    "\003\022\017\n\007attr_id\030\002 \001(\005\"X\n\026MountKunBloodActiv"
+    "eRsp\022\020\n\010ret_code\030\001 \001(\r\022,\n\nblood_data\030\002 \001"
+    "(\0132\030.proto_ff.MountBloodData\"\025\n\023MountBab"
+    "yEggInfoReq\"E\n\023MountBabyEggInfoRsp\022.\n\tsl"
+    "ot_data\030\001 \003(\0132\033.proto_ff.MountBabySlotDa"
+    "ta\"3\n\025MountBabyCreateEggReq\022\014\n\004grid\030\001 \003("
+    "\r\022\014\n\004slot\030\002 \003(\r\"Y\n\025MountBabyCreateEggRsp"
+    "\022\020\n\010ret_code\030\001 \001(\005\022.\n\tslot_data\030\002 \003(\0132\033."
+    "proto_ff.MountBabySlotData\"/\n\021MountBabyD"
+    "uHuaReq\022\014\n\004type\030\001 \001(\005\022\014\n\004slot\030\002 \001(\005\"f\n\024M"
+    "ountBabyDuHuaNotify\022\020\n\010ret_code\030\001 \001(\005\022\014\n"
+    "\004type\030\002 \001(\005\022.\n\tslot_data\030\003 \003(\0132\033.proto_f"
+    "f.MountBabySlotData\"6\n\030MountBabyRecvDuHu"
+    "aKunReq\022\014\n\004type\030\001 \001(\005\022\014\n\004slot\030\002 \001(\005\"\244\001\n\030"
+    "MountBabyRecvDuHuaKunRsp\022\020\n\010ret_code\030\001 \001"
+    "(\005\022\014\n\004type\030\002 \001(\005\022.\n\tslot_data\030\003 \003(\0132\033.pr"
+    "oto_ff.MountBabySlotData\022$\n\titem_data\030\004 "
+    "\003(\0132\021.proto_ff.ComItem\022\022\n\nmount_data\030\005 \003"
+    "(\004\"\"\n\022MountBabyUnlockReq\022\014\n\004slot\030\001 \001(\005\"V"
+    "\n\022MountBabyUnlockRsp\022\020\n\010ret_code\030\001 \001(\005\022."
+    "\n\tslot_data\030\002 \003(\0132\033.proto_ff.MountBabySl"
+    "otData\"\020\n\016MountRideOnReq\"!\n\016MountRideOnR"
+    "sp\022\017\n\007retCode\030\001 \001(\r\"\021\n\017MountRideOffReq\"\""
+    "\n\017MountRideOffRsp\022\017\n\007retCode\030\001 \001(\r\"8\n\025Mo"
+    "untKunEquipDressReq\022\016\n\006kun_id\030\001 \001(\004\022\017\n\007b"
+    "ag_pos\030\002 \001(\005\"d\n\025MountKunEquipDressRsp\022(\n"
+    "\010kun_data\030\001 \001(\0132\026.proto_ff.MountKunData\022"
+    "\017\n\007bag_pos\030\002 \001(\005\022\020\n\010ret_code\030\003 \001(\005\";\n\027Mo"
+    "untKunEquipUnDressReq\022\016\n\006kun_id\030\001 \001(\004\022\020\n"
+    "\010slot_pos\030\002 \001(\005\"g\n\027MountKunEquipUnDressR"
+    "sp\022(\n\010kun_data\030\001 \001(\0132\026.proto_ff.MountKun"
+    "Data\022\020\n\010slot_pos\030\002 \001(\005\022\020\n\010ret_code\030\003 \001(\005"
+    "\":\n\026MountKunEquipStrongReq\022\016\n\006kun_id\030\001 \001"
+    "(\004\022\020\n\010slot_pos\030\002 \001(\005\"f\n\026MountKunEquipStr"
+    "ongRsp\022(\n\010kun_data\030\001 \001(\0132\026.proto_ff.Moun"
+    "tKunData\022\020\n\010slot_pos\030\002 \001(\005\022\020\n\010ret_code\030\003"
+    " \001(\005\"<\n\030MountKunEquipStrongLvReq\022\016\n\006kun_"
+    "id\030\001 \001(\004\022\020\n\010slot_pos\030\002 \001(\005\"h\n\030MountKunEq"
+    "uipStrongLvRsp\022(\n\010kun_data\030\001 \001(\0132\026.proto"
     "_ff.MountKunData\022\020\n\010slot_pos\030\002 \001(\005\022\020\n\010re"
-    "t_code\030\003 \001(\005\"<\n\030MountKunEquipStrongLvReq"
-    "\022\016\n\006kun_id\030\001 \001(\004\022\020\n\010slot_pos\030\002 \001(\005\"h\n\030Mo"
-    "untKunEquipStrongLvRsp\022(\n\010kun_data\030\001 \001(\013"
-    "2\026.proto_ff.MountKunData\022\020\n\010slot_pos\030\002 \001"
-    "(\005\022\020\n\010ret_code\030\003 \001(\005\"@\n\032MountKunEquipSui"
-    "tActiveReq\022\016\n\006kun_id\030\001 \001(\004\022\022\n\nequip_suit"
-    "\030\002 \001(\004\"X\n\032MountKunEquipSuitActiveRsp\022(\n\010"
-    "kun_data\030\001 \001(\0132\026.proto_ff.MountKunData\022\020"
-    "\n\010ret_code\030\002 \001(\005\"-\n\031MountKunEquipDecompo"
-    "seReq\022\020\n\010gridlist\030\001 \003(\r\"-\n\031MountKunEquip"
-    "DecomposeRsp\022\020\n\010ret_code\030\001 \001(\005\"L\n\026MountK"
-    "unEquipWakeLvReq\022\016\n\006kun_id\030\001 \001(\004\022\020\n\010slot"
-    "_pos\030\002 \001(\005\022\020\n\010gridlist\030\003 \003(\r\"T\n\026MountKun"
-    "EquipWakeLvRsp\022(\n\010kun_data\030\001 \001(\0132\026.proto"
-    "_ff.MountKunData\022\020\n\010ret_code\030\002 \001(\005\"#\n\021Mo"
-    "untKunTiWuLvReq\022\016\n\006kun_id\030\001 \001(\004\"O\n\021Mount"
-    "KunTiWuLvRsp\022(\n\010kun_data\030\001 \001(\0132\026.proto_f"
-    "f.MountKunData\022\020\n\010ret_code\030\002 \001(\005\"0\n\027Moun"
-    "tKunChangeActiveReq\022\025\n\rkun_change_id\030\001 \001"
-    "(\004\"[\n\027MountKunChangeActiveRsp\022.\n\010kun_dat"
-    "a\030\001 \001(\0132\034.proto_ff.MountKunChangeData\022\020\n"
-    "\010ret_code\030\002 \001(\005\".\n\025MountKunChangeStarReq"
-    "\022\025\n\rkun_change_id\030\001 \001(\004\"Y\n\025MountKunChang"
-    "eStarRsp\022.\n\010kun_data\030\001 \001(\0132\034.proto_ff.Mo"
-    "untKunChangeData\022\020\n\010ret_code\030\002 \001(\005\"5\n\026Mo"
-    "untKunChangeDressReq\022\033\n\023equip_kun_change"
-    "_id\030\001 \001(\004\"G\n\026MountKunChangeDressRsp\022\020\n\010r"
-    "et_code\030\001 \001(\r\022\033\n\023equip_kun_change_id\030\002 \001"
-    "(\004\"\032\n\030MountKunChangeUnDressReq\",\n\030MountK"
-    "unChangeUnDressRsp\022\020\n\010ret_code\030\001 \001(\005\"\027\n\025"
-    "MountKunChangeInfoReq\"`\n\025MountKunChangeI"
-    "nfoRsp\022\033\n\023equip_kun_change_id\030\001 \001(\004\022*\n\004d"
-    "ata\030\002 \003(\0132\034.proto_ff.MountKunChangeData\""
-    "\023\n\021MountBloodInfoReq\"P\n\021MountBloodInfoRs"
-    "p\022&\n\004data\030\001 \003(\0132\030.proto_ff.MountBloodDat"
-    "a\022\023\n\013blood_point\030\002 \001(\r\"\024\n\022MountBloodRese"
-    "tReq\"&\n\022MountBloodResetRsp\022\020\n\010ret_code\030\001"
-    " \001(\005\"\027\n\025MountFairyLandInfoReq\"\202\001\n\025MountF"
-    "airyLandInfoRsp\022&\n\004land\030\001 \003(\0132\030.proto_ff"
-    ".MountFairyLand\022&\n\004slot\030\002 \003(\0132\030.proto_ff"
-    ".MountFairySlot\022\031\n\021cur_fairy_land_id\030\003 \001"
-    "(\003\"D\n\032NotifyMountFairyTourChange\022&\n\004land"
-    "\030\001 \001(\0132\030.proto_ff.MountFairyLand\"m\n\027Moun"
-    "tSelectFairySlotReq\022\017\n\007slot_id\030\001 \001(\003\022\016\n\006"
-    "kun_id\030\002 \001(\r\022\030\n\020dissociate_level\030\003 \001(\r\022\027"
-    "\n\017dissociate_time\030\004 \001(\r\"S\n\027MountSelectFa"
-    "irySlotRsp\022\020\n\010ret_code\030\001 \001(\005\022&\n\004slot\030\002 \001"
-    "(\0132\030.proto_ff.MountFairySlot\"B\n\030NotifyFa"
-    "irySlotGetReward\022&\n\004slot\030\001 \001(\0132\030.proto_f"
-    "f.MountFairySlot\"-\n\032MountGetFairySlotRew"
-    "ardReq\022\017\n\007slot_id\030\001 \001(\003\"V\n\032MountGetFairy"
-    "SlotRewardRsp\022\020\n\010ret_code\030\001 \001(\005\022&\n\004slot\030"
-    "\002 \001(\0132\030.proto_ff.MountFairySlot\"*\n\027Mount"
-    "ActiveFairyTourReq\022\017\n\007tour_id\030\001 \001(\003\"S\n\027M"
-    "ountActiveFairyTourRsp\022\020\n\010ret_code\030\001 \001(\005"
-    "\022&\n\004land\030\002 \001(\0132\030.proto_ff.MountFairyLand"
-    "\"%\n\022MountUnlockSlotReq\022\017\n\007slot_id\030\001 \001(\005\""
-    "N\n\022MountUnlockSlotRsp\022\020\n\010ret_code\030\001 \001(\005\022"
-    "&\n\004slot\030\002 \001(\0132\030.proto_ff.MountFairySlot\""
+    "t_code\030\003 \001(\005\"@\n\032MountKunEquipSuitActiveR"
+    "eq\022\016\n\006kun_id\030\001 \001(\004\022\022\n\nequip_suit\030\002 \001(\004\"X"
+    "\n\032MountKunEquipSuitActiveRsp\022(\n\010kun_data"
+    "\030\001 \001(\0132\026.proto_ff.MountKunData\022\020\n\010ret_co"
+    "de\030\002 \001(\005\"-\n\031MountKunEquipDecomposeReq\022\020\n"
+    "\010gridlist\030\001 \003(\r\"-\n\031MountKunEquipDecompos"
+    "eRsp\022\020\n\010ret_code\030\001 \001(\005\"L\n\026MountKunEquipW"
+    "akeLvReq\022\016\n\006kun_id\030\001 \001(\004\022\020\n\010slot_pos\030\002 \001"
+    "(\005\022\020\n\010gridlist\030\003 \003(\r\"T\n\026MountKunEquipWak"
+    "eLvRsp\022(\n\010kun_data\030\001 \001(\0132\026.proto_ff.Moun"
+    "tKunData\022\020\n\010ret_code\030\002 \001(\005\"#\n\021MountKunTi"
+    "WuLvReq\022\016\n\006kun_id\030\001 \001(\004\"O\n\021MountKunTiWuL"
+    "vRsp\022(\n\010kun_data\030\001 \001(\0132\026.proto_ff.MountK"
+    "unData\022\020\n\010ret_code\030\002 \001(\005\"0\n\027MountKunChan"
+    "geActiveReq\022\025\n\rkun_change_id\030\001 \001(\004\"[\n\027Mo"
+    "untKunChangeActiveRsp\022.\n\010kun_data\030\001 \001(\0132"
+    "\034.proto_ff.MountKunChangeData\022\020\n\010ret_cod"
+    "e\030\002 \001(\005\".\n\025MountKunChangeStarReq\022\025\n\rkun_"
+    "change_id\030\001 \001(\004\"Y\n\025MountKunChangeStarRsp"
+    "\022.\n\010kun_data\030\001 \001(\0132\034.proto_ff.MountKunCh"
+    "angeData\022\020\n\010ret_code\030\002 \001(\005\"5\n\026MountKunCh"
+    "angeDressReq\022\033\n\023equip_kun_change_id\030\001 \001("
+    "\004\"G\n\026MountKunChangeDressRsp\022\020\n\010ret_code\030"
+    "\001 \001(\r\022\033\n\023equip_kun_change_id\030\002 \001(\004\"\032\n\030Mo"
+    "untKunChangeUnDressReq\",\n\030MountKunChange"
+    "UnDressRsp\022\020\n\010ret_code\030\001 \001(\005\"\027\n\025MountKun"
+    "ChangeInfoReq\"`\n\025MountKunChangeInfoRsp\022\033"
+    "\n\023equip_kun_change_id\030\001 \001(\004\022*\n\004data\030\002 \003("
+    "\0132\034.proto_ff.MountKunChangeData\"\023\n\021Mount"
+    "BloodInfoReq\"P\n\021MountBloodInfoRsp\022&\n\004dat"
+    "a\030\001 \003(\0132\030.proto_ff.MountBloodData\022\023\n\013blo"
+    "od_point\030\002 \001(\r\"\024\n\022MountBloodResetReq\"&\n\022"
+    "MountBloodResetRsp\022\020\n\010ret_code\030\001 \001(\005\"\027\n\025"
+    "MountFairyLandInfoReq\"\202\001\n\025MountFairyLand"
+    "InfoRsp\022&\n\004land\030\001 \003(\0132\030.proto_ff.MountFa"
+    "iryLand\022&\n\004slot\030\002 \003(\0132\030.proto_ff.MountFa"
+    "irySlot\022\031\n\021cur_fairy_land_id\030\003 \001(\003\"D\n\032No"
+    "tifyMountFairyTourChange\022&\n\004land\030\001 \001(\0132\030"
+    ".proto_ff.MountFairyLand\"m\n\027MountSelectF"
+    "airySlotReq\022\017\n\007slot_id\030\001 \001(\003\022\016\n\006kun_id\030\002"
+    " \001(\r\022\030\n\020dissociate_level\030\003 \001(\r\022\027\n\017dissoc"
+    "iate_time\030\004 \001(\r\"S\n\027MountSelectFairySlotR"
+    "sp\022\020\n\010ret_code\030\001 \001(\005\022&\n\004slot\030\002 \001(\0132\030.pro"
+    "to_ff.MountFairySlot\"B\n\030NotifyFairySlotG"
+    "etReward\022&\n\004slot\030\001 \001(\0132\030.proto_ff.MountF"
+    "airySlot\"-\n\032MountGetFairySlotRewardReq\022\017"
+    "\n\007slot_id\030\001 \001(\003\"V\n\032MountGetFairySlotRewa"
+    "rdRsp\022\020\n\010ret_code\030\001 \001(\005\022&\n\004slot\030\002 \001(\0132\030."
+    "proto_ff.MountFairySlot\"*\n\027MountActiveFa"
+    "iryTourReq\022\017\n\007tour_id\030\001 \001(\003\"S\n\027MountActi"
+    "veFairyTourRsp\022\020\n\010ret_code\030\001 \001(\005\022&\n\004land"
+    "\030\002 \001(\0132\030.proto_ff.MountFairyLand\"%\n\022Moun"
+    "tUnlockSlotReq\022\017\n\007slot_id\030\001 \001(\005\"N\n\022Mount"
+    "UnlockSlotRsp\022\020\n\010ret_code\030\001 \001(\005\022&\n\004slot\030"
+    "\002 \001(\0132\030.proto_ff.MountFairySlot\"8\n\020Mount"
+    "ModelChange\022\020\n\010model_id\030\001 \001(\005\022\022\n\nmodel_n"
+    "ame\030\002 \001(\014\":\n\032MountKunEquipSlotUnlockReq\022"
+    "\016\n\006kun_id\030\001 \001(\r\022\014\n\004slot\030\002 \001(\r\"X\n\032MountKu"
+    "nEquipSlotUnlockRsp\022\020\n\010ret_code\030\001 \001(\005\022(\n"
+    "\010kun_data\030\002 \001(\0132\026.proto_ff.MountKunData\""
     "\016\n\014DeityInfoReq\"\361\001\n\014DeityInfoRsp\022\020\n\010deit"
     "y_id\030\001 \001(\004\022\021\n\tdeity_lev\030\002 \001(\r\022\021\n\tdeity_e"
     "xp\030\003 \001(\004\0222\n\rfragment_data\030\004 \003(\0132\033.proto_"
@@ -6527,31 +6604,32 @@ void protobuf_AddDesc_ClientServer_2eproto() {
     "e\030\002 \001(\005\022-\n\004data\030\003 \001(\0132\037.proto_ff.OneBatt"
     "lePassTaskData\022\013\n\003exp\030\004 \001(\005\022\n\n\002lv\030\005 \001(\005\022"
     "1\n\006reward\030\006 \003(\0132!.proto_ff.OneBattlePass"
-    "RewardData\"5\n\031CLGetBuyBattlePassShopReq\022"
-    "\014\n\004type\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"j\n\031LCGetBuyBat"
-    "tlePassShopRsp\022\020\n\010ret_code\030\001 \001(\005\022\014\n\004type"
-    "\030\002 \001(\005\022-\n\004data\030\003 \001(\0132\037.proto_ff.OneBattl"
-    "ePassShopData\"Y\n\032NotifyBattlePassTaskCha"
-    "nge\022-\n\004data\030\001 \001(\0132\037.proto_ff.OneBattlePa"
-    "ssTaskData\022\014\n\004type\030\002 \001(\005\"8\n\027CLBuyBattleP"
-    "assSuperReq\022\014\n\004type\030\001 \001(\005\022\017\n\007buy_ver\030\002 \001"
-    "(\005\"\231\001\n\027LCBuyBattlePassSuperRsp\022\020\n\010ret_co"
-    "de\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\022\022\n\nbuy_status\030\003 \001"
-    "(\005\022\013\n\003exp\030\004 \001(\005\022\n\n\002lv\030\005 \001(\005\0221\n\006reward\030\006 "
-    "\003(\0132!.proto_ff.OneBattlePassRewardData\"\?"
-    "\n#CLImmediatelyGetBattlePassRewardReq\022\014\n"
-    "\004type\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"\217\001\n#LCImmediatel"
-    "yGetBattlePassRewardRsp\022\020\n\010ret_code\030\001 \001("
-    "\005\022\014\n\004type\030\002 \001(\005\022/\n\004data\030\003 \003(\0132!.proto_ff"
-    ".OneBattlePassRewardData\022\013\n\003exp\030\004 \001(\005\022\n\n"
-    "\002lv\030\005 \001(\005\"6\n\032CLRefreshBattlePassTaskReq\022"
-    "\014\n\004type\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"\177\n\032LCRefreshBa"
-    "ttlePassTaskRsp\022\020\n\010ret_code\030\001 \001(\005\022\014\n\004typ"
-    "e\030\002 \001(\005\022\016\n\006old_id\030\003 \001(\005\0221\n\010new_task\030\005 \001("
-    "\0132\037.proto_ff.OneBattlePassTaskData\"\'\n\014En"
-    "courageReq\022\n\n\002id\030\001 \001(\005\022\013\n\003num\030\002 \001(\005\"\033\n\014E"
-    "ncourageRsp\022\013\n\003ret\030\001 \001(\005\"3\n\017NotifyEncour"
-    "age\022 \n\005infos\030\001 \003(\0132\021.proto_ff.ComPair", 19317);
+    "RewardData\"B\n\031CLGetBuyBattlePassShopReq\022"
+    "\014\n\004type\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\022\013\n\003num\030\003 \001(\005\"j"
+    "\n\031LCGetBuyBattlePassShopRsp\022\020\n\010ret_code\030"
+    "\001 \001(\005\022\014\n\004type\030\002 \001(\005\022-\n\004data\030\003 \001(\0132\037.prot"
+    "o_ff.OneBattlePassShopData\"Y\n\032NotifyBatt"
+    "lePassTaskChange\022-\n\004data\030\001 \001(\0132\037.proto_f"
+    "f.OneBattlePassTaskData\022\014\n\004type\030\002 \001(\005\"8\n"
+    "\027CLBuyBattlePassSuperReq\022\014\n\004type\030\001 \001(\005\022\017"
+    "\n\007buy_ver\030\002 \001(\005\"\231\001\n\027LCBuyBattlePassSuper"
+    "Rsp\022\020\n\010ret_code\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\022\022\n\nb"
+    "uy_status\030\003 \001(\005\022\013\n\003exp\030\004 \001(\005\022\n\n\002lv\030\005 \001(\005"
+    "\0221\n\006reward\030\006 \003(\0132!.proto_ff.OneBattlePas"
+    "sRewardData\"\?\n#CLImmediatelyGetBattlePas"
+    "sRewardReq\022\014\n\004type\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"\217\001\n"
+    "#LCImmediatelyGetBattlePassRewardRsp\022\020\n\010"
+    "ret_code\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\022/\n\004data\030\003 \003"
+    "(\0132!.proto_ff.OneBattlePassRewardData\022\013\n"
+    "\003exp\030\004 \001(\005\022\n\n\002lv\030\005 \001(\005\"6\n\032CLRefreshBattl"
+    "ePassTaskReq\022\014\n\004type\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"\177"
+    "\n\032LCRefreshBattlePassTaskRsp\022\020\n\010ret_code"
+    "\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\022\016\n\006old_id\030\003 \001(\005\0221\n\010"
+    "new_task\030\005 \001(\0132\037.proto_ff.OneBattlePassT"
+    "askData\"\'\n\014EncourageReq\022\n\n\002id\030\001 \001(\005\022\013\n\003n"
+    "um\030\002 \001(\005\"\033\n\014EncourageRsp\022\013\n\003ret\030\001 \001(\005\"3\n"
+    "\017NotifyEncourage\022 \n\005infos\030\001 \003(\0132\021.proto_"
+    "ff.ComPair", 19570);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ClientServer.proto", &protobuf_RegisterTypes);
   FunctionUnlockInfoRsp::default_instance_ = new FunctionUnlockInfoRsp();
@@ -6711,6 +6789,9 @@ void protobuf_AddDesc_ClientServer_2eproto() {
   MountActiveFairyTourRsp::default_instance_ = new MountActiveFairyTourRsp();
   MountUnlockSlotReq::default_instance_ = new MountUnlockSlotReq();
   MountUnlockSlotRsp::default_instance_ = new MountUnlockSlotRsp();
+  MountModelChange::default_instance_ = new MountModelChange();
+  MountKunEquipSlotUnlockReq::default_instance_ = new MountKunEquipSlotUnlockReq();
+  MountKunEquipSlotUnlockRsp::default_instance_ = new MountKunEquipSlotUnlockRsp();
   DeityInfoReq::default_instance_ = new DeityInfoReq();
   DeityInfoRsp::default_instance_ = new DeityInfoRsp();
   DeitySkillUnlockNotify::default_instance_ = new DeitySkillUnlockNotify();
@@ -6973,6 +7054,9 @@ void protobuf_AddDesc_ClientServer_2eproto() {
   MountActiveFairyTourRsp::default_instance_->InitAsDefaultInstance();
   MountUnlockSlotReq::default_instance_->InitAsDefaultInstance();
   MountUnlockSlotRsp::default_instance_->InitAsDefaultInstance();
+  MountModelChange::default_instance_->InitAsDefaultInstance();
+  MountKunEquipSlotUnlockReq::default_instance_->InitAsDefaultInstance();
+  MountKunEquipSlotUnlockRsp::default_instance_->InitAsDefaultInstance();
   DeityInfoReq::default_instance_->InitAsDefaultInstance();
   DeityInfoRsp::default_instance_->InitAsDefaultInstance();
   DeitySkillUnlockNotify::default_instance_->InitAsDefaultInstance();
@@ -19994,6 +20078,7 @@ void GetDailyTaskDataReq::Swap(GetDailyTaskDataReq* other) {
 #ifndef _MSC_VER
 const int GetDailyTaskDataRsp::kDataFieldNumber;
 const int GetDailyTaskDataRsp::kMoneyRewardFinishFieldNumber;
+const int GetDailyTaskDataRsp::kPrestigeRewardFinishFieldNumber;
 #endif  // !_MSC_VER
 
 GetDailyTaskDataRsp::GetDailyTaskDataRsp()
@@ -20015,6 +20100,7 @@ void GetDailyTaskDataRsp::SharedCtor() {
   _cached_size_ = 0;
   data_ = NULL;
   money_reward_finish_ = false;
+  prestige_reward_finish_ = false;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -20055,6 +20141,7 @@ void GetDailyTaskDataRsp::Clear() {
       if (data_ != NULL) data_->::proto_ff::DailyTaskAllData::Clear();
     }
     money_reward_finish_ = false;
+    prestige_reward_finish_ = false;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -20091,6 +20178,22 @@ bool GetDailyTaskDataRsp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(24)) goto parse_prestige_reward_finish;
+        break;
+      }
+
+      // optional bool prestige_reward_finish = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_prestige_reward_finish:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &prestige_reward_finish_)));
+          set_has_prestige_reward_finish();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -20124,6 +20227,11 @@ void GetDailyTaskDataRsp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->money_reward_finish(), output);
   }
 
+  // optional bool prestige_reward_finish = 3;
+  if (has_prestige_reward_finish()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->prestige_reward_finish(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -20142,6 +20250,11 @@ void GetDailyTaskDataRsp::SerializeWithCachedSizes(
   // optional bool money_reward_finish = 2;
   if (has_money_reward_finish()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->money_reward_finish(), target);
+  }
+
+  // optional bool prestige_reward_finish = 3;
+  if (has_prestige_reward_finish()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->prestige_reward_finish(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -20164,6 +20277,11 @@ int GetDailyTaskDataRsp::ByteSize() const {
 
     // optional bool money_reward_finish = 2;
     if (has_money_reward_finish()) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool prestige_reward_finish = 3;
+    if (has_prestige_reward_finish()) {
       total_size += 1 + 1;
     }
 
@@ -20200,6 +20318,9 @@ void GetDailyTaskDataRsp::MergeFrom(const GetDailyTaskDataRsp& from) {
     if (from.has_money_reward_finish()) {
       set_money_reward_finish(from.money_reward_finish());
     }
+    if (from.has_prestige_reward_finish()) {
+      set_prestige_reward_finish(from.prestige_reward_finish());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -20225,6 +20346,7 @@ void GetDailyTaskDataRsp::Swap(GetDailyTaskDataRsp* other) {
   if (other != this) {
     std::swap(data_, other->data_);
     std::swap(money_reward_finish_, other->money_reward_finish_);
+    std::swap(prestige_reward_finish_, other->prestige_reward_finish_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -45705,6 +45827,766 @@ void MountUnlockSlotRsp::Swap(MountUnlockSlotRsp* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int MountModelChange::kModelIdFieldNumber;
+const int MountModelChange::kModelNameFieldNumber;
+#endif  // !_MSC_VER
+
+MountModelChange::MountModelChange()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void MountModelChange::InitAsDefaultInstance() {
+}
+
+MountModelChange::MountModelChange(const MountModelChange& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void MountModelChange::SharedCtor() {
+  _cached_size_ = 0;
+  model_id_ = 0;
+  model_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MountModelChange::~MountModelChange() {
+  SharedDtor();
+}
+
+void MountModelChange::SharedDtor() {
+  if (model_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete model_name_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void MountModelChange::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MountModelChange::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MountModelChange_descriptor_;
+}
+
+const MountModelChange& MountModelChange::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ClientServer_2eproto();
+  return *default_instance_;
+}
+
+MountModelChange* MountModelChange::default_instance_ = NULL;
+
+MountModelChange* MountModelChange::New() const {
+  return new MountModelChange;
+}
+
+void MountModelChange::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    model_id_ = 0;
+    if (has_model_name()) {
+      if (model_name_ != &::google::protobuf::internal::kEmptyString) {
+        model_name_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool MountModelChange::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 model_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &model_id_)));
+          set_has_model_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_model_name;
+        break;
+      }
+
+      // optional bytes model_name = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_model_name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_model_name()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void MountModelChange::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 model_id = 1;
+  if (has_model_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->model_id(), output);
+  }
+
+  // optional bytes model_name = 2;
+  if (has_model_name()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytes(
+      2, this->model_name(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* MountModelChange::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 model_id = 1;
+  if (has_model_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->model_id(), target);
+  }
+
+  // optional bytes model_name = 2;
+  if (has_model_name()) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        2, this->model_name(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int MountModelChange::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 model_id = 1;
+    if (has_model_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->model_id());
+    }
+
+    // optional bytes model_name = 2;
+    if (has_model_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->model_name());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MountModelChange::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const MountModelChange* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MountModelChange*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MountModelChange::MergeFrom(const MountModelChange& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_model_id()) {
+      set_model_id(from.model_id());
+    }
+    if (from.has_model_name()) {
+      set_model_name(from.model_name());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void MountModelChange::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MountModelChange::CopyFrom(const MountModelChange& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MountModelChange::IsInitialized() const {
+
+  return true;
+}
+
+void MountModelChange::Swap(MountModelChange* other) {
+  if (other != this) {
+    std::swap(model_id_, other->model_id_);
+    std::swap(model_name_, other->model_name_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata MountModelChange::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MountModelChange_descriptor_;
+  metadata.reflection = MountModelChange_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MountKunEquipSlotUnlockReq::kKunIdFieldNumber;
+const int MountKunEquipSlotUnlockReq::kSlotFieldNumber;
+#endif  // !_MSC_VER
+
+MountKunEquipSlotUnlockReq::MountKunEquipSlotUnlockReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void MountKunEquipSlotUnlockReq::InitAsDefaultInstance() {
+}
+
+MountKunEquipSlotUnlockReq::MountKunEquipSlotUnlockReq(const MountKunEquipSlotUnlockReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void MountKunEquipSlotUnlockReq::SharedCtor() {
+  _cached_size_ = 0;
+  kun_id_ = 0u;
+  slot_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MountKunEquipSlotUnlockReq::~MountKunEquipSlotUnlockReq() {
+  SharedDtor();
+}
+
+void MountKunEquipSlotUnlockReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MountKunEquipSlotUnlockReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MountKunEquipSlotUnlockReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MountKunEquipSlotUnlockReq_descriptor_;
+}
+
+const MountKunEquipSlotUnlockReq& MountKunEquipSlotUnlockReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ClientServer_2eproto();
+  return *default_instance_;
+}
+
+MountKunEquipSlotUnlockReq* MountKunEquipSlotUnlockReq::default_instance_ = NULL;
+
+MountKunEquipSlotUnlockReq* MountKunEquipSlotUnlockReq::New() const {
+  return new MountKunEquipSlotUnlockReq;
+}
+
+void MountKunEquipSlotUnlockReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    kun_id_ = 0u;
+    slot_ = 0u;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool MountKunEquipSlotUnlockReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint32 kun_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &kun_id_)));
+          set_has_kun_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_slot;
+        break;
+      }
+
+      // optional uint32 slot = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_slot:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &slot_)));
+          set_has_slot();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void MountKunEquipSlotUnlockReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint32 kun_id = 1;
+  if (has_kun_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->kun_id(), output);
+  }
+
+  // optional uint32 slot = 2;
+  if (has_slot()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->slot(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* MountKunEquipSlotUnlockReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint32 kun_id = 1;
+  if (has_kun_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->kun_id(), target);
+  }
+
+  // optional uint32 slot = 2;
+  if (has_slot()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->slot(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int MountKunEquipSlotUnlockReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint32 kun_id = 1;
+    if (has_kun_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->kun_id());
+    }
+
+    // optional uint32 slot = 2;
+    if (has_slot()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->slot());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MountKunEquipSlotUnlockReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const MountKunEquipSlotUnlockReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MountKunEquipSlotUnlockReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MountKunEquipSlotUnlockReq::MergeFrom(const MountKunEquipSlotUnlockReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_kun_id()) {
+      set_kun_id(from.kun_id());
+    }
+    if (from.has_slot()) {
+      set_slot(from.slot());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void MountKunEquipSlotUnlockReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MountKunEquipSlotUnlockReq::CopyFrom(const MountKunEquipSlotUnlockReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MountKunEquipSlotUnlockReq::IsInitialized() const {
+
+  return true;
+}
+
+void MountKunEquipSlotUnlockReq::Swap(MountKunEquipSlotUnlockReq* other) {
+  if (other != this) {
+    std::swap(kun_id_, other->kun_id_);
+    std::swap(slot_, other->slot_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata MountKunEquipSlotUnlockReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MountKunEquipSlotUnlockReq_descriptor_;
+  metadata.reflection = MountKunEquipSlotUnlockReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MountKunEquipSlotUnlockRsp::kRetCodeFieldNumber;
+const int MountKunEquipSlotUnlockRsp::kKunDataFieldNumber;
+#endif  // !_MSC_VER
+
+MountKunEquipSlotUnlockRsp::MountKunEquipSlotUnlockRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void MountKunEquipSlotUnlockRsp::InitAsDefaultInstance() {
+  kun_data_ = const_cast< ::proto_ff::MountKunData*>(&::proto_ff::MountKunData::default_instance());
+}
+
+MountKunEquipSlotUnlockRsp::MountKunEquipSlotUnlockRsp(const MountKunEquipSlotUnlockRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void MountKunEquipSlotUnlockRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_code_ = 0;
+  kun_data_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MountKunEquipSlotUnlockRsp::~MountKunEquipSlotUnlockRsp() {
+  SharedDtor();
+}
+
+void MountKunEquipSlotUnlockRsp::SharedDtor() {
+  if (this != default_instance_) {
+    delete kun_data_;
+  }
+}
+
+void MountKunEquipSlotUnlockRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MountKunEquipSlotUnlockRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MountKunEquipSlotUnlockRsp_descriptor_;
+}
+
+const MountKunEquipSlotUnlockRsp& MountKunEquipSlotUnlockRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ClientServer_2eproto();
+  return *default_instance_;
+}
+
+MountKunEquipSlotUnlockRsp* MountKunEquipSlotUnlockRsp::default_instance_ = NULL;
+
+MountKunEquipSlotUnlockRsp* MountKunEquipSlotUnlockRsp::New() const {
+  return new MountKunEquipSlotUnlockRsp;
+}
+
+void MountKunEquipSlotUnlockRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_code_ = 0;
+    if (has_kun_data()) {
+      if (kun_data_ != NULL) kun_data_->::proto_ff::MountKunData::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool MountKunEquipSlotUnlockRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 ret_code = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_code_)));
+          set_has_ret_code();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_kun_data;
+        break;
+      }
+
+      // optional .proto_ff.MountKunData kun_data = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_kun_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_kun_data()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void MountKunEquipSlotUnlockRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret_code(), output);
+  }
+
+  // optional .proto_ff.MountKunData kun_data = 2;
+  if (has_kun_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->kun_data(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* MountKunEquipSlotUnlockRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret_code(), target);
+  }
+
+  // optional .proto_ff.MountKunData kun_data = 2;
+  if (has_kun_data()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->kun_data(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int MountKunEquipSlotUnlockRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 ret_code = 1;
+    if (has_ret_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret_code());
+    }
+
+    // optional .proto_ff.MountKunData kun_data = 2;
+    if (has_kun_data()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->kun_data());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MountKunEquipSlotUnlockRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const MountKunEquipSlotUnlockRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MountKunEquipSlotUnlockRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MountKunEquipSlotUnlockRsp::MergeFrom(const MountKunEquipSlotUnlockRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret_code()) {
+      set_ret_code(from.ret_code());
+    }
+    if (from.has_kun_data()) {
+      mutable_kun_data()->::proto_ff::MountKunData::MergeFrom(from.kun_data());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void MountKunEquipSlotUnlockRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MountKunEquipSlotUnlockRsp::CopyFrom(const MountKunEquipSlotUnlockRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MountKunEquipSlotUnlockRsp::IsInitialized() const {
+
+  if (has_kun_data()) {
+    if (!this->kun_data().IsInitialized()) return false;
+  }
+  return true;
+}
+
+void MountKunEquipSlotUnlockRsp::Swap(MountKunEquipSlotUnlockRsp* other) {
+  if (other != this) {
+    std::swap(ret_code_, other->ret_code_);
+    std::swap(kun_data_, other->kun_data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata MountKunEquipSlotUnlockRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MountKunEquipSlotUnlockRsp_descriptor_;
+  metadata.reflection = MountKunEquipSlotUnlockRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 #endif  // !_MSC_VER
 
 DeityInfoReq::DeityInfoReq()
@@ -68231,6 +69113,7 @@ void LCGetBattlePassTaskRewardRsp::Swap(LCGetBattlePassTaskRewardRsp* other) {
 #ifndef _MSC_VER
 const int CLGetBuyBattlePassShopReq::kTypeFieldNumber;
 const int CLGetBuyBattlePassShopReq::kIdFieldNumber;
+const int CLGetBuyBattlePassShopReq::kNumFieldNumber;
 #endif  // !_MSC_VER
 
 CLGetBuyBattlePassShopReq::CLGetBuyBattlePassShopReq()
@@ -68251,6 +69134,7 @@ void CLGetBuyBattlePassShopReq::SharedCtor() {
   _cached_size_ = 0;
   type_ = 0;
   id_ = 0;
+  num_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -68288,6 +69172,7 @@ void CLGetBuyBattlePassShopReq::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     type_ = 0;
     id_ = 0;
+    num_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -68326,6 +69211,22 @@ bool CLGetBuyBattlePassShopReq::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(24)) goto parse_num;
+        break;
+      }
+
+      // optional int32 num = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_num:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &num_)));
+          set_has_num();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -68358,6 +69259,11 @@ void CLGetBuyBattlePassShopReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->id(), output);
   }
 
+  // optional int32 num = 3;
+  if (has_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->num(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -68374,6 +69280,11 @@ void CLGetBuyBattlePassShopReq::SerializeWithCachedSizes(
   // optional int32 id = 2;
   if (has_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->id(), target);
+  }
+
+  // optional int32 num = 3;
+  if (has_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->num(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -68399,6 +69310,13 @@ int CLGetBuyBattlePassShopReq::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->id());
+    }
+
+    // optional int32 num = 3;
+    if (has_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->num());
     }
 
   }
@@ -68434,6 +69352,9 @@ void CLGetBuyBattlePassShopReq::MergeFrom(const CLGetBuyBattlePassShopReq& from)
     if (from.has_id()) {
       set_id(from.id());
     }
+    if (from.has_num()) {
+      set_num(from.num());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -68459,6 +69380,7 @@ void CLGetBuyBattlePassShopReq::Swap(CLGetBuyBattlePassShopReq* other) {
   if (other != this) {
     std::swap(type_, other->type_);
     std::swap(id_, other->id_);
+    std::swap(num_, other->num_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

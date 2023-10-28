@@ -224,8 +224,8 @@ void protobuf_AssignDesc_E_5fDaily_2eproto() {
   E_DailyHelper_descriptor_ = file->message_type(9);
   static const int E_DailyHelper_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyHelper, m_helperid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyHelper, m_playid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyHelper, m_helpertype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyHelper, m_playid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyHelper, m_linkid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyHelper, m_name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_DailyHelper, m_condition_),
@@ -364,14 +364,14 @@ void protobuf_AddDesc_E_5fDaily_2eproto() {
     "linkid\030\006 \001(\005B\n\302\377\024\006linkID\"N\n\021Sheet_DailyS"
     "ports\0229\n\022E_DailySports_List\030\001 \003(\0132\027.prot"
     "o_ff.E_DailySportsB\004\210\301\024\020\"\367\001\n\rE_DailyHelp"
-    "er\022 \n\nm_helperid\030\001 \001(\005B\014\302\377\024\010\346\211\253\350\215\241ID\022\"\n\010"
-    "m_playid\030\002 \001(\tB\020\302\377\024\010\347\216\251\346\263\225ID\220\301\024@\022/\n\014m_he"
-    "lpertype\030\003 \001(\005B\031\302\377\024\025\346\211\253\350\215\241\347\216\251\346\263\225\347\232\204\347\261\273\345\236"
-    "\213\022\036\n\010m_linkid\030\004 \001(\005B\014\302\377\024\010\350\267\263\350\275\254ID\022$\n\006m_n"
+    "er\022 \n\nm_helperid\030\001 \001(\005B\014\302\377\024\010\346\211\253\350\215\241ID\022/\n\014"
+    "m_helpertype\030\002 \001(\005B\031\302\377\024\025\346\211\253\350\215\241\347\216\251\346\263\225\347\232\204\347"
+    "\261\273\345\236\213\022\"\n\010m_playid\030\003 \001(\tB\020\302\377\024\010\347\216\251\346\263\225ID\220\301\024"
+    "@\022\036\n\010m_linkid\030\004 \001(\005B\014\302\377\024\010\350\267\263\350\275\254ID\022$\n\006m_n"
     "ame\030\005 \001(\tB\024\302\377\024\014\346\240\207\351\242\230\346\230\276\347\244\272\220\301\024@\022)\n\013m_con"
     "dition\030\006 \001(\tB\024\302\377\024\014\346\235\241\344\273\266\346\230\276\347\244\272\220\301\024@\"N\n\021Sh"
     "eet_DailyHelper\0229\n\022E_DailyHelper_List\030\001 "
-    "\003(\0132\027.proto_ff.E_DailyHelperB\004\210\301\024\010", 1794);
+    "\003(\0132\027.proto_ff.E_DailyHelperB\004\210\301\024\020", 1794);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Daily.proto", &protobuf_RegisterTypes);
   E_DailyDaily::default_instance_ = new E_DailyDaily();
@@ -3222,8 +3222,8 @@ void Sheet_DailySports::Swap(Sheet_DailySports* other) {
 
 #ifndef _MSC_VER
 const int E_DailyHelper::kMHelperidFieldNumber;
-const int E_DailyHelper::kMPlayidFieldNumber;
 const int E_DailyHelper::kMHelpertypeFieldNumber;
+const int E_DailyHelper::kMPlayidFieldNumber;
 const int E_DailyHelper::kMLinkidFieldNumber;
 const int E_DailyHelper::kMNameFieldNumber;
 const int E_DailyHelper::kMConditionFieldNumber;
@@ -3246,8 +3246,8 @@ E_DailyHelper::E_DailyHelper(const E_DailyHelper& from)
 void E_DailyHelper::SharedCtor() {
   _cached_size_ = 0;
   m_helperid_ = 0;
-  m_playid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_helpertype_ = 0;
+  m_playid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_linkid_ = 0;
   m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_condition_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
@@ -3296,12 +3296,12 @@ E_DailyHelper* E_DailyHelper::New() const {
 void E_DailyHelper::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     m_helperid_ = 0;
+    m_helpertype_ = 0;
     if (has_m_playid()) {
       if (m_playid_ != &::google::protobuf::internal::kEmptyString) {
         m_playid_->clear();
       }
     }
-    m_helpertype_ = 0;
     m_linkid_ = 0;
     if (has_m_name()) {
       if (m_name_ != &::google::protobuf::internal::kEmptyString) {
@@ -3335,12 +3335,28 @@ bool E_DailyHelper::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_m_playid;
+        if (input->ExpectTag(16)) goto parse_m_helpertype;
         break;
       }
 
-      // optional string m_playid = 2;
+      // optional int32 m_helpertype = 2;
       case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_helpertype:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_helpertype_)));
+          set_has_m_helpertype();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_m_playid;
+        break;
+      }
+
+      // optional string m_playid = 3;
+      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_playid:
@@ -3349,22 +3365,6 @@ bool E_DailyHelper::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
             this->m_playid().data(), this->m_playid().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(24)) goto parse_m_helpertype;
-        break;
-      }
-
-      // optional int32 m_helpertype = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_helpertype:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_helpertype_)));
-          set_has_m_helpertype();
         } else {
           goto handle_uninterpreted;
         }
@@ -3445,18 +3445,18 @@ void E_DailyHelper::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_helperid(), output);
   }
 
-  // optional string m_playid = 2;
+  // optional int32 m_helpertype = 2;
+  if (has_m_helpertype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_helpertype(), output);
+  }
+
+  // optional string m_playid = 3;
   if (has_m_playid()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_playid().data(), this->m_playid().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->m_playid(), output);
-  }
-
-  // optional int32 m_helpertype = 3;
-  if (has_m_helpertype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_helpertype(), output);
+      3, this->m_playid(), output);
   }
 
   // optional int32 m_linkid = 4;
@@ -3495,19 +3495,19 @@ void E_DailyHelper::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_helperid(), target);
   }
 
-  // optional string m_playid = 2;
+  // optional int32 m_helpertype = 2;
+  if (has_m_helpertype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_helpertype(), target);
+  }
+
+  // optional string m_playid = 3;
   if (has_m_playid()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_playid().data(), this->m_playid().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->m_playid(), target);
-  }
-
-  // optional int32 m_helpertype = 3;
-  if (has_m_helpertype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_helpertype(), target);
+        3, this->m_playid(), target);
   }
 
   // optional int32 m_linkid = 4;
@@ -3553,18 +3553,18 @@ int E_DailyHelper::ByteSize() const {
           this->m_helperid());
     }
 
-    // optional string m_playid = 2;
-    if (has_m_playid()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->m_playid());
-    }
-
-    // optional int32 m_helpertype = 3;
+    // optional int32 m_helpertype = 2;
     if (has_m_helpertype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_helpertype());
+    }
+
+    // optional string m_playid = 3;
+    if (has_m_playid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_playid());
     }
 
     // optional int32 m_linkid = 4;
@@ -3618,11 +3618,11 @@ void E_DailyHelper::MergeFrom(const E_DailyHelper& from) {
     if (from.has_m_helperid()) {
       set_m_helperid(from.m_helperid());
     }
-    if (from.has_m_playid()) {
-      set_m_playid(from.m_playid());
-    }
     if (from.has_m_helpertype()) {
       set_m_helpertype(from.m_helpertype());
+    }
+    if (from.has_m_playid()) {
+      set_m_playid(from.m_playid());
     }
     if (from.has_m_linkid()) {
       set_m_linkid(from.m_linkid());
@@ -3657,8 +3657,8 @@ bool E_DailyHelper::IsInitialized() const {
 void E_DailyHelper::Swap(E_DailyHelper* other) {
   if (other != this) {
     std::swap(m_helperid_, other->m_helperid_);
-    std::swap(m_playid_, other->m_playid_);
     std::swap(m_helpertype_, other->m_helpertype_);
+    std::swap(m_playid_, other->m_playid_);
     std::swap(m_linkid_, other->m_linkid_);
     std::swap(m_name_, other->m_name_);
     std::swap(m_condition_, other->m_condition_);

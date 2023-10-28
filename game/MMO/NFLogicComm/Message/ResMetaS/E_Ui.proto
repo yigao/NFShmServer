@@ -11,5 +11,5 @@ message E_UiEffect
 
 message Sheet_UiEffect
 {
-	repeated E_UiEffect E_UiEffect_List = 1[(yd_fieldoptions.field_arysize)=128];
+	repeated E_UiEffect E_UiEffect_List = 1[(yd_fieldoptions.field_arysize)=256];
 }

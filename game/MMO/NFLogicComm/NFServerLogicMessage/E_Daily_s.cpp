@@ -345,8 +345,8 @@ int E_DailyHelper_s::ResumeInit() {
 
 void E_DailyHelper_s::write_to_pbmsg(::proto_ff::E_DailyHelper & msg) const {
 	msg.set_m_helperid((int32_t)m_helperid);
-	msg.set_m_playid(m_playid.data());
 	msg.set_m_helpertype((int32_t)m_helpertype);
+	msg.set_m_playid(m_playid.data());
 	msg.set_m_linkid((int32_t)m_linkid);
 	msg.set_m_name(m_name.data());
 	msg.set_m_condition(m_condition.data());
@@ -354,8 +354,8 @@ void E_DailyHelper_s::write_to_pbmsg(::proto_ff::E_DailyHelper & msg) const {
 
 void E_DailyHelper_s::read_from_pbmsg(const ::proto_ff::E_DailyHelper & msg) {
 	m_helperid = msg.m_helperid();
-	m_playid = msg.m_playid();
 	m_helpertype = msg.m_helpertype();
+	m_playid = msg.m_playid();
 	m_linkid = msg.m_linkid();
 	m_name = msg.m_name();
 	m_condition = msg.m_condition();

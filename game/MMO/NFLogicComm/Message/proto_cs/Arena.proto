@@ -202,6 +202,7 @@ message GWArenaChallReq
 	optional uint32 type = 4; //对手类型
 	optional uint32 chall_type = 5;
 	optional uint32 can_miaosha = 6;
+	optional int32 mult = 7;
 }
 
 //发放奖励

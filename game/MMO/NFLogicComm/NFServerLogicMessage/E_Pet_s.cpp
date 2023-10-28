@@ -56,6 +56,7 @@ int E_PetDisplay_s::CreateInit() {
 	m_growstar = (float)0;
 	m_advanceattribute = (int32_t)0;
 	m_advancetype = (int32_t)0;
+	m_pettag = (int32_t)0;
 	m_starattribute = (int32_t)0;
 	m_starpercent = (int32_t)0;
 	m_starllimit = (int32_t)0;
@@ -93,6 +94,7 @@ void E_PetDisplay_s::write_to_pbmsg(::proto_ff::E_PetDisplay & msg) const {
 	msg.set_m_growstar((float)m_growstar);
 	msg.set_m_advanceattribute((int32_t)m_advanceattribute);
 	msg.set_m_advancetype((int32_t)m_advancetype);
+	msg.set_m_pettag((int32_t)m_pettag);
 	msg.set_m_pettagskill(m_pettagskill.data());
 	msg.set_m_starattribute((int32_t)m_starattribute);
 	msg.set_m_starpercent((int32_t)m_starpercent);
@@ -133,6 +135,7 @@ void E_PetDisplay_s::read_from_pbmsg(const ::proto_ff::E_PetDisplay & msg) {
 	m_growstar = msg.m_growstar();
 	m_advanceattribute = msg.m_advanceattribute();
 	m_advancetype = msg.m_advancetype();
+	m_pettag = msg.m_pettag();
 	m_pettagskill = msg.m_pettagskill();
 	m_starattribute = msg.m_starattribute();
 	m_starpercent = msg.m_starpercent();
@@ -1253,7 +1256,7 @@ void Sheet_PetStarvalue_s::read_from_pbmsg(const ::proto_ff::Sheet_PetStarvalue 
 	}
 }
 
-E_PetWraithsMaterialDesc_s::E_PetWraithsMaterialDesc_s() {
+E_PetWraithsAttributeDesc_s::E_PetWraithsAttributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -1261,24 +1264,52 @@ E_PetWraithsMaterialDesc_s::E_PetWraithsMaterialDesc_s() {
 	}
 }
 
-int E_PetWraithsMaterialDesc_s::CreateInit() {
-	m_exp = (int32_t)0;
-	m_item = (int64_t)0;
+int E_PetWraithsAttributeDesc_s::CreateInit() {
+	m_value = (int32_t)0;
+	m_type = (int32_t)0;
 	return 0;
 }
 
-int E_PetWraithsMaterialDesc_s::ResumeInit() {
+int E_PetWraithsAttributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void E_PetWraithsMaterialDesc_s::write_to_pbmsg(::proto_ff::E_PetWraithsMaterialDesc & msg) const {
-	msg.set_m_exp((int32_t)m_exp);
-	msg.set_m_item((int64_t)m_item);
+void E_PetWraithsAttributeDesc_s::write_to_pbmsg(::proto_ff::E_PetWraithsAttributeDesc & msg) const {
+	msg.set_m_value((int32_t)m_value);
+	msg.set_m_type((int32_t)m_type);
 }
 
-void E_PetWraithsMaterialDesc_s::read_from_pbmsg(const ::proto_ff::E_PetWraithsMaterialDesc & msg) {
-	m_exp = msg.m_exp();
-	m_item = msg.m_item();
+void E_PetWraithsAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_PetWraithsAttributeDesc & msg) {
+	m_value = msg.m_value();
+	m_type = msg.m_type();
+}
+
+E_PetWraithsAttributebctDesc_s::E_PetWraithsAttributebctDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_PetWraithsAttributebctDesc_s::CreateInit() {
+	m_type = (int32_t)0;
+	m_value = (int32_t)0;
+	return 0;
+}
+
+int E_PetWraithsAttributebctDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_PetWraithsAttributebctDesc_s::write_to_pbmsg(::proto_ff::E_PetWraithsAttributebctDesc & msg) const {
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_value);
+}
+
+void E_PetWraithsAttributebctDesc_s::read_from_pbmsg(const ::proto_ff::E_PetWraithsAttributebctDesc & msg) {
+	m_type = msg.m_type();
+	m_value = msg.m_value();
 }
 
 E_PetWraiths_s::E_PetWraiths_s() {
@@ -1291,13 +1322,12 @@ E_PetWraiths_s::E_PetWraiths_s() {
 
 int E_PetWraiths_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_wraithsname = (int32_t)0;
-	m_wraithspart = (int32_t)0;
-	m_wraithsstar = (int32_t)0;
-	m_wraithsquality = (int32_t)0;
-	m_wraithsequip = (int32_t)0;
+	m_name = (int32_t)0;
+	m_affix = (int32_t)0;
+	m_position = (int32_t)0;
+	m_quality = (int32_t)0;
+	m_star = (int32_t)0;
 	m_propertylv = (int32_t)0;
-	m_propertyadvance = (int32_t)0;
 	m_propertytop = (int32_t)0;
 	return 0;
 }
@@ -1308,34 +1338,41 @@ int E_PetWraiths_s::ResumeInit() {
 
 void E_PetWraiths_s::write_to_pbmsg(::proto_ff::E_PetWraiths & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_wraithsname((int32_t)m_wraithsname);
-	msg.set_m_wraithspart((int32_t)m_wraithspart);
-	msg.set_m_wraithsstar((int32_t)m_wraithsstar);
-	msg.set_m_wraithsquality((int32_t)m_wraithsquality);
-	msg.set_m_wraithsequip((int32_t)m_wraithsequip);
+	msg.set_m_name((int32_t)m_name);
+	msg.set_m_affix((int32_t)m_affix);
+	msg.set_m_position((int32_t)m_position);
+	msg.set_m_quality((int32_t)m_quality);
+	msg.set_m_star((int32_t)m_star);
 	msg.set_m_propertylv((int32_t)m_propertylv);
-	msg.set_m_propertyadvance((int32_t)m_propertyadvance);
 	msg.set_m_propertytop((int32_t)m_propertytop);
-	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
-		::proto_ff::E_PetWraithsMaterialDesc* temp_m_material = msg.add_m_material();
-		m_material[i].write_to_pbmsg(*temp_m_material);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_PetWraithsAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
+	}
+	for(int32_t i = 0; i < (int32_t)m_attributebct.size(); ++i) {
+		::proto_ff::E_PetWraithsAttributebctDesc* temp_m_attributebct = msg.add_m_attributebct();
+		m_attributebct[i].write_to_pbmsg(*temp_m_attributebct);
 	}
 }
 
 void E_PetWraiths_s::read_from_pbmsg(const ::proto_ff::E_PetWraiths & msg) {
 	m_id = msg.m_id();
-	m_wraithsname = msg.m_wraithsname();
-	m_wraithspart = msg.m_wraithspart();
-	m_wraithsstar = msg.m_wraithsstar();
-	m_wraithsquality = msg.m_wraithsquality();
-	m_wraithsequip = msg.m_wraithsequip();
+	m_name = msg.m_name();
+	m_affix = msg.m_affix();
+	m_position = msg.m_position();
+	m_quality = msg.m_quality();
+	m_star = msg.m_star();
 	m_propertylv = msg.m_propertylv();
-	m_propertyadvance = msg.m_propertyadvance();
 	m_propertytop = msg.m_propertytop();
-	m_material.resize((int)msg.m_material_size() > (int)m_material.max_size() ? m_material.max_size() : msg.m_material_size());
-	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
-		const ::proto_ff::E_PetWraithsMaterialDesc & temp_m_material = msg.m_material(i);
-		m_material[i].read_from_pbmsg(temp_m_material);
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_PetWraithsAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
+	}
+	m_attributebct.resize((int)msg.m_attributebct_size() > (int)m_attributebct.max_size() ? m_attributebct.max_size() : msg.m_attributebct_size());
+	for(int32_t i = 0; i < (int32_t)m_attributebct.size(); ++i) {
+		const ::proto_ff::E_PetWraithsAttributebctDesc & temp_m_attributebct = msg.m_attributebct(i);
+		m_attributebct[i].read_from_pbmsg(temp_m_attributebct);
 	}
 }
 
@@ -1370,7 +1407,7 @@ void Sheet_PetWraiths_s::read_from_pbmsg(const ::proto_ff::Sheet_PetWraiths & ms
 	}
 }
 
-E_PetWraithsvalueAttributeDesc_s::E_PetWraithsvalueAttributeDesc_s() {
+E_PetWraithslvAttributeDesc_s::E_PetWraithslvAttributeDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -1378,101 +1415,24 @@ E_PetWraithsvalueAttributeDesc_s::E_PetWraithsvalueAttributeDesc_s() {
 	}
 }
 
-int E_PetWraithsvalueAttributeDesc_s::CreateInit() {
+int E_PetWraithslvAttributeDesc_s::CreateInit() {
 	m_value = (int32_t)0;
 	m_type = (int32_t)0;
 	return 0;
 }
 
-int E_PetWraithsvalueAttributeDesc_s::ResumeInit() {
+int E_PetWraithslvAttributeDesc_s::ResumeInit() {
 	return 0;
 }
 
-void E_PetWraithsvalueAttributeDesc_s::write_to_pbmsg(::proto_ff::E_PetWraithsvalueAttributeDesc & msg) const {
+void E_PetWraithslvAttributeDesc_s::write_to_pbmsg(::proto_ff::E_PetWraithslvAttributeDesc & msg) const {
 	msg.set_m_value((int32_t)m_value);
 	msg.set_m_type((int32_t)m_type);
 }
 
-void E_PetWraithsvalueAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_PetWraithsvalueAttributeDesc & msg) {
+void E_PetWraithslvAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_PetWraithslvAttributeDesc & msg) {
 	m_value = msg.m_value();
 	m_type = msg.m_type();
-}
-
-E_PetWraithsvalue_s::E_PetWraithsvalue_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int E_PetWraithsvalue_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_wraithsvalue = (int32_t)0;
-	m_lv = (int32_t)0;
-	m_wraithsitem = (int32_t)0;
-	m_wraithsmun = (int32_t)0;
-	return 0;
-}
-
-int E_PetWraithsvalue_s::ResumeInit() {
-	return 0;
-}
-
-void E_PetWraithsvalue_s::write_to_pbmsg(::proto_ff::E_PetWraithsvalue & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_wraithsvalue((int32_t)m_wraithsvalue);
-	msg.set_m_lv((int32_t)m_lv);
-	msg.set_m_wraithsitem((int32_t)m_wraithsitem);
-	msg.set_m_wraithsmun((int32_t)m_wraithsmun);
-	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
-		::proto_ff::E_PetWraithsvalueAttributeDesc* temp_m_attribute = msg.add_m_attribute();
-		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
-	}
-}
-
-void E_PetWraithsvalue_s::read_from_pbmsg(const ::proto_ff::E_PetWraithsvalue & msg) {
-	m_id = msg.m_id();
-	m_wraithsvalue = msg.m_wraithsvalue();
-	m_lv = msg.m_lv();
-	m_wraithsitem = msg.m_wraithsitem();
-	m_wraithsmun = msg.m_wraithsmun();
-	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
-	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
-		const ::proto_ff::E_PetWraithsvalueAttributeDesc & temp_m_attribute = msg.m_attribute(i);
-		m_attribute[i].read_from_pbmsg(temp_m_attribute);
-	}
-}
-
-Sheet_PetWraithsvalue_s::Sheet_PetWraithsvalue_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int Sheet_PetWraithsvalue_s::CreateInit() {
-	return 0;
-}
-
-int Sheet_PetWraithsvalue_s::ResumeInit() {
-	return 0;
-}
-
-void Sheet_PetWraithsvalue_s::write_to_pbmsg(::proto_ff::Sheet_PetWraithsvalue & msg) const {
-	for(int32_t i = 0; i < (int32_t)E_PetWraithsvalue_List.size(); ++i) {
-		::proto_ff::E_PetWraithsvalue* temp_e_petwraithsvalue_list = msg.add_e_petwraithsvalue_list();
-		E_PetWraithsvalue_List[i].write_to_pbmsg(*temp_e_petwraithsvalue_list);
-	}
-}
-
-void Sheet_PetWraithsvalue_s::read_from_pbmsg(const ::proto_ff::Sheet_PetWraithsvalue & msg) {
-	E_PetWraithsvalue_List.resize((int)msg.e_petwraithsvalue_list_size() > (int)E_PetWraithsvalue_List.max_size() ? E_PetWraithsvalue_List.max_size() : msg.e_petwraithsvalue_list_size());
-	for(int32_t i = 0; i < (int32_t)E_PetWraithsvalue_List.size(); ++i) {
-		const ::proto_ff::E_PetWraithsvalue & temp_e_petwraithsvalue_list = msg.e_petwraithsvalue_list(i);
-		E_PetWraithsvalue_List[i].read_from_pbmsg(temp_e_petwraithsvalue_list);
-	}
 }
 
 E_PetWraithslv_s::E_PetWraithslv_s() {
@@ -1485,6 +1445,11 @@ E_PetWraithslv_s::E_PetWraithslv_s() {
 
 int E_PetWraithslv_s::CreateInit() {
 	m_id = (int32_t)0;
+	m_value = (int32_t)0;
+	m_advancelv = (int32_t)0;
+	m_lv = (int32_t)0;
+	m_wraithsitem = (int32_t)0;
+	m_wraithsmun = (int32_t)0;
 	m_lvexp = (int32_t)0;
 	return 0;
 }
@@ -1495,12 +1460,31 @@ int E_PetWraithslv_s::ResumeInit() {
 
 void E_PetWraithslv_s::write_to_pbmsg(::proto_ff::E_PetWraithslv & msg) const {
 	msg.set_m_id((int32_t)m_id);
+	msg.set_m_value((int32_t)m_value);
+	msg.set_m_advancelv((int32_t)m_advancelv);
+	msg.set_m_lv((int32_t)m_lv);
+	msg.set_m_wraithsitem((int32_t)m_wraithsitem);
+	msg.set_m_wraithsmun((int32_t)m_wraithsmun);
 	msg.set_m_lvexp((int32_t)m_lvexp);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_PetWraithslvAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
+	}
 }
 
 void E_PetWraithslv_s::read_from_pbmsg(const ::proto_ff::E_PetWraithslv & msg) {
 	m_id = msg.m_id();
+	m_value = msg.m_value();
+	m_advancelv = msg.m_advancelv();
+	m_lv = msg.m_lv();
+	m_wraithsitem = msg.m_wraithsitem();
+	m_wraithsmun = msg.m_wraithsmun();
 	m_lvexp = msg.m_lvexp();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_PetWraithslvAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
+	}
 }
 
 Sheet_PetWraithslv_s::Sheet_PetWraithslv_s() {
@@ -1534,6 +1518,40 @@ void Sheet_PetWraithslv_s::read_from_pbmsg(const ::proto_ff::Sheet_PetWraithslv 
 	}
 }
 
+E_PetSmeltItemDesc_s::E_PetSmeltItemDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_PetSmeltItemDesc_s::CreateInit() {
+	m_maxnum = (int32_t)0;
+	m_minnum = (int32_t)0;
+	m_rarerand = (int32_t)0;
+	m_id = (int32_t)0;
+	return 0;
+}
+
+int E_PetSmeltItemDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_PetSmeltItemDesc_s::write_to_pbmsg(::proto_ff::E_PetSmeltItemDesc & msg) const {
+	msg.set_m_maxnum((int32_t)m_maxnum);
+	msg.set_m_minnum((int32_t)m_minnum);
+	msg.set_m_rarerand((int32_t)m_rarerand);
+	msg.set_m_id((int32_t)m_id);
+}
+
+void E_PetSmeltItemDesc_s::read_from_pbmsg(const ::proto_ff::E_PetSmeltItemDesc & msg) {
+	m_maxnum = msg.m_maxnum();
+	m_minnum = msg.m_minnum();
+	m_rarerand = msg.m_rarerand();
+	m_id = msg.m_id();
+}
+
 E_PetSmelt_s::E_PetSmelt_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -1544,11 +1562,11 @@ E_PetSmelt_s::E_PetSmelt_s() {
 
 int E_PetSmelt_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_refinequality = (int32_t)0;
-	m_refinestar = (int32_t)0;
+	m_quality = (int32_t)0;
+	m_star = (int32_t)0;
 	m_putmun = (int32_t)0;
 	m_smeltexp = (int32_t)0;
-	m_smelt_box = (int32_t)0;
+	m_monsternum = (int32_t)0;
 	return 0;
 }
 
@@ -1558,20 +1576,29 @@ int E_PetSmelt_s::ResumeInit() {
 
 void E_PetSmelt_s::write_to_pbmsg(::proto_ff::E_PetSmelt & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_refinequality((int32_t)m_refinequality);
-	msg.set_m_refinestar((int32_t)m_refinestar);
+	msg.set_m_quality((int32_t)m_quality);
+	msg.set_m_star((int32_t)m_star);
 	msg.set_m_putmun((int32_t)m_putmun);
 	msg.set_m_smeltexp((int32_t)m_smeltexp);
-	msg.set_m_smelt_box((int32_t)m_smelt_box);
+	msg.set_m_monsternum((int32_t)m_monsternum);
+	for(int32_t i = 0; i < (int32_t)m_item.size(); ++i) {
+		::proto_ff::E_PetSmeltItemDesc* temp_m_item = msg.add_m_item();
+		m_item[i].write_to_pbmsg(*temp_m_item);
+	}
 }
 
 void E_PetSmelt_s::read_from_pbmsg(const ::proto_ff::E_PetSmelt & msg) {
 	m_id = msg.m_id();
-	m_refinequality = msg.m_refinequality();
-	m_refinestar = msg.m_refinestar();
+	m_quality = msg.m_quality();
+	m_star = msg.m_star();
 	m_putmun = msg.m_putmun();
 	m_smeltexp = msg.m_smeltexp();
-	m_smelt_box = msg.m_smelt_box();
+	m_monsternum = msg.m_monsternum();
+	m_item.resize((int)msg.m_item_size() > (int)m_item.max_size() ? m_item.max_size() : msg.m_item_size());
+	for(int32_t i = 0; i < (int32_t)m_item.size(); ++i) {
+		const ::proto_ff::E_PetSmeltItemDesc & temp_m_item = msg.m_item(i);
+		m_item[i].read_from_pbmsg(temp_m_item);
+	}
 }
 
 Sheet_PetSmelt_s::Sheet_PetSmelt_s() {
@@ -1616,8 +1643,8 @@ E_PetRefineconversion_s::E_PetRefineconversion_s() {
 int E_PetRefineconversion_s::CreateInit() {
 	m_itemid = (int32_t)0;
 	m_group = (int32_t)0;
-	m_conversionitem = (int32_t)0;
-	m_conversionmun = (int32_t)0;
+	m_num = (int32_t)0;
+	m_condition = (int32_t)0;
 	return 0;
 }
 
@@ -1628,15 +1655,15 @@ int E_PetRefineconversion_s::ResumeInit() {
 void E_PetRefineconversion_s::write_to_pbmsg(::proto_ff::E_PetRefineconversion & msg) const {
 	msg.set_m_itemid((int32_t)m_itemid);
 	msg.set_m_group((int32_t)m_group);
-	msg.set_m_conversionitem((int32_t)m_conversionitem);
-	msg.set_m_conversionmun((int32_t)m_conversionmun);
+	msg.set_m_num((int32_t)m_num);
+	msg.set_m_condition((int32_t)m_condition);
 }
 
 void E_PetRefineconversion_s::read_from_pbmsg(const ::proto_ff::E_PetRefineconversion & msg) {
 	m_itemid = msg.m_itemid();
 	m_group = msg.m_group();
-	m_conversionitem = msg.m_conversionitem();
-	m_conversionmun = msg.m_conversionmun();
+	m_num = msg.m_num();
+	m_condition = msg.m_condition();
 }
 
 Sheet_PetRefineconversion_s::Sheet_PetRefineconversion_s() {
@@ -1679,7 +1706,7 @@ E_PetStoveStoveDesc_s::E_PetStoveStoveDesc_s() {
 }
 
 int E_PetStoveStoveDesc_s::CreateInit() {
-	m_mun = (int32_t)0;
+	m_num = (int32_t)0;
 	m_value = (int32_t)0;
 	return 0;
 }
@@ -1689,12 +1716,12 @@ int E_PetStoveStoveDesc_s::ResumeInit() {
 }
 
 void E_PetStoveStoveDesc_s::write_to_pbmsg(::proto_ff::E_PetStoveStoveDesc & msg) const {
-	msg.set_m_mun((int32_t)m_mun);
+	msg.set_m_num((int32_t)m_num);
 	msg.set_m_value((int32_t)m_value);
 }
 
 void E_PetStoveStoveDesc_s::read_from_pbmsg(const ::proto_ff::E_PetStoveStoveDesc & msg) {
-	m_mun = msg.m_mun();
+	m_num = msg.m_num();
 	m_value = msg.m_value();
 }
 
@@ -1707,9 +1734,10 @@ E_PetStove_s::E_PetStove_s() {
 }
 
 int E_PetStove_s::CreateInit() {
-	m_stovelv = (int32_t)0;
-	m_stoveexp = (int32_t)0;
-	m_stovemax = (int32_t)0;
+	m_lv = (int32_t)0;
+	m_exp = (int32_t)0;
+	m_quality = (int32_t)0;
+	m_star = (int32_t)0;
 	return 0;
 }
 
@@ -1718,9 +1746,10 @@ int E_PetStove_s::ResumeInit() {
 }
 
 void E_PetStove_s::write_to_pbmsg(::proto_ff::E_PetStove & msg) const {
-	msg.set_m_stovelv((int32_t)m_stovelv);
-	msg.set_m_stoveexp((int32_t)m_stoveexp);
-	msg.set_m_stovemax((int32_t)m_stovemax);
+	msg.set_m_lv((int32_t)m_lv);
+	msg.set_m_exp((int32_t)m_exp);
+	msg.set_m_quality((int32_t)m_quality);
+	msg.set_m_star((int32_t)m_star);
 	for(int32_t i = 0; i < (int32_t)m_stove.size(); ++i) {
 		::proto_ff::E_PetStoveStoveDesc* temp_m_stove = msg.add_m_stove();
 		m_stove[i].write_to_pbmsg(*temp_m_stove);
@@ -1728,9 +1757,10 @@ void E_PetStove_s::write_to_pbmsg(::proto_ff::E_PetStove & msg) const {
 }
 
 void E_PetStove_s::read_from_pbmsg(const ::proto_ff::E_PetStove & msg) {
-	m_stovelv = msg.m_stovelv();
-	m_stoveexp = msg.m_stoveexp();
-	m_stovemax = msg.m_stovemax();
+	m_lv = msg.m_lv();
+	m_exp = msg.m_exp();
+	m_quality = msg.m_quality();
+	m_star = msg.m_star();
 	m_stove.resize((int)msg.m_stove_size() > (int)m_stove.max_size() ? m_stove.max_size() : msg.m_stove_size());
 	for(int32_t i = 0; i < (int32_t)m_stove.size(); ++i) {
 		const ::proto_ff::E_PetStoveStoveDesc & temp_m_stove = msg.m_stove(i);
@@ -1807,6 +1837,8 @@ E_PetSuit_s::E_PetSuit_s() {
 
 int E_PetSuit_s::CreateInit() {
 	m_id = (int32_t)0;
+	m_quality = (int32_t)0;
+	m_star = (int32_t)0;
 	m_wraithsquality = (int32_t)0;
 	m_piece = (int32_t)0;
 	m_resonancetype = (int32_t)0;
@@ -1820,6 +1852,8 @@ int E_PetSuit_s::ResumeInit() {
 
 void E_PetSuit_s::write_to_pbmsg(::proto_ff::E_PetSuit & msg) const {
 	msg.set_m_id((int32_t)m_id);
+	msg.set_m_quality((int32_t)m_quality);
+	msg.set_m_star((int32_t)m_star);
 	msg.set_m_wraithsquality((int32_t)m_wraithsquality);
 	msg.set_m_piece((int32_t)m_piece);
 	msg.set_m_resonancetype((int32_t)m_resonancetype);
@@ -1832,6 +1866,8 @@ void E_PetSuit_s::write_to_pbmsg(::proto_ff::E_PetSuit & msg) const {
 
 void E_PetSuit_s::read_from_pbmsg(const ::proto_ff::E_PetSuit & msg) {
 	m_id = msg.m_id();
+	m_quality = msg.m_quality();
+	m_star = msg.m_star();
 	m_wraithsquality = msg.m_wraithsquality();
 	m_piece = msg.m_piece();
 	m_resonancetype = msg.m_resonancetype();
@@ -1871,6 +1907,404 @@ void Sheet_PetSuit_s::read_from_pbmsg(const ::proto_ff::Sheet_PetSuit & msg) {
 	for(int32_t i = 0; i < (int32_t)E_PetSuit_List.size(); ++i) {
 		const ::proto_ff::E_PetSuit & temp_e_petsuit_list = msg.e_petsuit_list(i);
 		E_PetSuit_List[i].read_from_pbmsg(temp_e_petsuit_list);
+	}
+}
+
+E_PetConstMaterialDesc_s::E_PetConstMaterialDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_PetConstMaterialDesc_s::CreateInit() {
+	m_exp = (int32_t)0;
+	m_item = (int32_t)0;
+	return 0;
+}
+
+int E_PetConstMaterialDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_PetConstMaterialDesc_s::write_to_pbmsg(::proto_ff::E_PetConstMaterialDesc & msg) const {
+	msg.set_m_exp((int32_t)m_exp);
+	msg.set_m_item((int32_t)m_item);
+}
+
+void E_PetConstMaterialDesc_s::read_from_pbmsg(const ::proto_ff::E_PetConstMaterialDesc & msg) {
+	m_exp = msg.m_exp();
+	m_item = msg.m_item();
+}
+
+E_PetConst_s::E_PetConst_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_PetConst_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_open = (int32_t)0;
+	m_solt = (int32_t)0;
+	m_item = (int32_t)0;
+	m_num = (int32_t)0;
+	return 0;
+}
+
+int E_PetConst_s::ResumeInit() {
+	return 0;
+}
+
+void E_PetConst_s::write_to_pbmsg(::proto_ff::E_PetConst & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_open((int32_t)m_open);
+	msg.set_m_solt((int32_t)m_solt);
+	msg.set_m_item((int32_t)m_item);
+	msg.set_m_num((int32_t)m_num);
+	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
+		::proto_ff::E_PetConstMaterialDesc* temp_m_material = msg.add_m_material();
+		m_material[i].write_to_pbmsg(*temp_m_material);
+	}
+}
+
+void E_PetConst_s::read_from_pbmsg(const ::proto_ff::E_PetConst & msg) {
+	m_id = msg.m_id();
+	m_open = msg.m_open();
+	m_solt = msg.m_solt();
+	m_item = msg.m_item();
+	m_num = msg.m_num();
+	m_material.resize((int)msg.m_material_size() > (int)m_material.max_size() ? m_material.max_size() : msg.m_material_size());
+	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
+		const ::proto_ff::E_PetConstMaterialDesc & temp_m_material = msg.m_material(i);
+		m_material[i].read_from_pbmsg(temp_m_material);
+	}
+}
+
+Sheet_PetConst_s::Sheet_PetConst_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_PetConst_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_PetConst_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_PetConst_s::write_to_pbmsg(::proto_ff::Sheet_PetConst & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_PetConst_List.size(); ++i) {
+		::proto_ff::E_PetConst* temp_e_petconst_list = msg.add_e_petconst_list();
+		E_PetConst_List[i].write_to_pbmsg(*temp_e_petconst_list);
+	}
+}
+
+void Sheet_PetConst_s::read_from_pbmsg(const ::proto_ff::Sheet_PetConst & msg) {
+	E_PetConst_List.resize((int)msg.e_petconst_list_size() > (int)E_PetConst_List.max_size() ? E_PetConst_List.max_size() : msg.e_petconst_list_size());
+	for(int32_t i = 0; i < (int32_t)E_PetConst_List.size(); ++i) {
+		const ::proto_ff::E_PetConst & temp_e_petconst_list = msg.e_petconst_list(i);
+		E_PetConst_List[i].read_from_pbmsg(temp_e_petconst_list);
+	}
+}
+
+E_PetTopAttributeDesc_s::E_PetTopAttributeDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_PetTopAttributeDesc_s::CreateInit() {
+	m_value = (int32_t)0;
+	m_type = (int32_t)0;
+	return 0;
+}
+
+int E_PetTopAttributeDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_PetTopAttributeDesc_s::write_to_pbmsg(::proto_ff::E_PetTopAttributeDesc & msg) const {
+	msg.set_m_value((int32_t)m_value);
+	msg.set_m_type((int32_t)m_type);
+}
+
+void E_PetTopAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_PetTopAttributeDesc & msg) {
+	m_value = msg.m_value();
+	m_type = msg.m_type();
+}
+
+E_PetTopStarattDesc_s::E_PetTopStarattDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_PetTopStarattDesc_s::CreateInit() {
+	m_value = (int32_t)0;
+	m_type = (int32_t)0;
+	return 0;
+}
+
+int E_PetTopStarattDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_PetTopStarattDesc_s::write_to_pbmsg(::proto_ff::E_PetTopStarattDesc & msg) const {
+	msg.set_m_value((int32_t)m_value);
+	msg.set_m_type((int32_t)m_type);
+}
+
+void E_PetTopStarattDesc_s::read_from_pbmsg(const ::proto_ff::E_PetTopStarattDesc & msg) {
+	m_value = msg.m_value();
+	m_type = msg.m_type();
+}
+
+E_PetTop_s::E_PetTop_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_PetTop_s::CreateInit() {
+	m_toptype = (int32_t)0;
+	return 0;
+}
+
+int E_PetTop_s::ResumeInit() {
+	return 0;
+}
+
+void E_PetTop_s::write_to_pbmsg(::proto_ff::E_PetTop & msg) const {
+	msg.set_m_toptype((int32_t)m_toptype);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_PetTopAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
+	}
+	for(int32_t i = 0; i < (int32_t)m_staratt.size(); ++i) {
+		::proto_ff::E_PetTopStarattDesc* temp_m_staratt = msg.add_m_staratt();
+		m_staratt[i].write_to_pbmsg(*temp_m_staratt);
+	}
+}
+
+void E_PetTop_s::read_from_pbmsg(const ::proto_ff::E_PetTop & msg) {
+	m_toptype = msg.m_toptype();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_PetTopAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
+	}
+	m_staratt.resize((int)msg.m_staratt_size() > (int)m_staratt.max_size() ? m_staratt.max_size() : msg.m_staratt_size());
+	for(int32_t i = 0; i < (int32_t)m_staratt.size(); ++i) {
+		const ::proto_ff::E_PetTopStarattDesc & temp_m_staratt = msg.m_staratt(i);
+		m_staratt[i].read_from_pbmsg(temp_m_staratt);
+	}
+}
+
+Sheet_PetTop_s::Sheet_PetTop_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_PetTop_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_PetTop_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_PetTop_s::write_to_pbmsg(::proto_ff::Sheet_PetTop & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_PetTop_List.size(); ++i) {
+		::proto_ff::E_PetTop* temp_e_pettop_list = msg.add_e_pettop_list();
+		E_PetTop_List[i].write_to_pbmsg(*temp_e_pettop_list);
+	}
+}
+
+void Sheet_PetTop_s::read_from_pbmsg(const ::proto_ff::Sheet_PetTop & msg) {
+	E_PetTop_List.resize((int)msg.e_pettop_list_size() > (int)E_PetTop_List.max_size() ? E_PetTop_List.max_size() : msg.e_pettop_list_size());
+	for(int32_t i = 0; i < (int32_t)E_PetTop_List.size(); ++i) {
+		const ::proto_ff::E_PetTop & temp_e_pettop_list = msg.e_pettop_list(i);
+		E_PetTop_List[i].read_from_pbmsg(temp_e_pettop_list);
+	}
+}
+
+E_PetTopitem_s::E_PetTopitem_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_PetTopitem_s::CreateInit() {
+	m_lv = (int32_t)0;
+	m_item = (int32_t)0;
+	m_num = (int32_t)0;
+	return 0;
+}
+
+int E_PetTopitem_s::ResumeInit() {
+	return 0;
+}
+
+void E_PetTopitem_s::write_to_pbmsg(::proto_ff::E_PetTopitem & msg) const {
+	msg.set_m_lv((int32_t)m_lv);
+	msg.set_m_item((int32_t)m_item);
+	msg.set_m_num((int32_t)m_num);
+}
+
+void E_PetTopitem_s::read_from_pbmsg(const ::proto_ff::E_PetTopitem & msg) {
+	m_lv = msg.m_lv();
+	m_item = msg.m_item();
+	m_num = msg.m_num();
+}
+
+Sheet_PetTopitem_s::Sheet_PetTopitem_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_PetTopitem_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_PetTopitem_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_PetTopitem_s::write_to_pbmsg(::proto_ff::Sheet_PetTopitem & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_PetTopitem_List.size(); ++i) {
+		::proto_ff::E_PetTopitem* temp_e_pettopitem_list = msg.add_e_pettopitem_list();
+		E_PetTopitem_List[i].write_to_pbmsg(*temp_e_pettopitem_list);
+	}
+}
+
+void Sheet_PetTopitem_s::read_from_pbmsg(const ::proto_ff::Sheet_PetTopitem & msg) {
+	E_PetTopitem_List.resize((int)msg.e_pettopitem_list_size() > (int)E_PetTopitem_List.max_size() ? E_PetTopitem_List.max_size() : msg.e_pettopitem_list_size());
+	for(int32_t i = 0; i < (int32_t)E_PetTopitem_List.size(); ++i) {
+		const ::proto_ff::E_PetTopitem & temp_e_pettopitem_list = msg.e_pettopitem_list(i);
+		E_PetTopitem_List[i].read_from_pbmsg(temp_e_pettopitem_list);
+	}
+}
+
+E_PetPrivilegePrivilegeDesc_s::E_PetPrivilegePrivilegeDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_PetPrivilegePrivilegeDesc_s::CreateInit() {
+	m_value = (int32_t)0;
+	m_att = (int32_t)0;
+	return 0;
+}
+
+int E_PetPrivilegePrivilegeDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_PetPrivilegePrivilegeDesc_s::write_to_pbmsg(::proto_ff::E_PetPrivilegePrivilegeDesc & msg) const {
+	msg.set_m_value((int32_t)m_value);
+	msg.set_m_att((int32_t)m_att);
+}
+
+void E_PetPrivilegePrivilegeDesc_s::read_from_pbmsg(const ::proto_ff::E_PetPrivilegePrivilegeDesc & msg) {
+	m_value = msg.m_value();
+	m_att = msg.m_att();
+}
+
+E_PetPrivilege_s::E_PetPrivilege_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_PetPrivilege_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_doubleitem = (int32_t)0;
+	m_experienceexp = (int32_t)0;
+	return 0;
+}
+
+int E_PetPrivilege_s::ResumeInit() {
+	return 0;
+}
+
+void E_PetPrivilege_s::write_to_pbmsg(::proto_ff::E_PetPrivilege & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_activate(m_activate.data());
+	msg.set_m_doubleitem((int32_t)m_doubleitem);
+	msg.set_m_experienceexp((int32_t)m_experienceexp);
+	for(int32_t i = 0; i < (int32_t)m_privilege.size(); ++i) {
+		::proto_ff::E_PetPrivilegePrivilegeDesc* temp_m_privilege = msg.add_m_privilege();
+		m_privilege[i].write_to_pbmsg(*temp_m_privilege);
+	}
+}
+
+void E_PetPrivilege_s::read_from_pbmsg(const ::proto_ff::E_PetPrivilege & msg) {
+	m_id = msg.m_id();
+	m_activate = msg.m_activate();
+	m_doubleitem = msg.m_doubleitem();
+	m_experienceexp = msg.m_experienceexp();
+	m_privilege.resize((int)msg.m_privilege_size() > (int)m_privilege.max_size() ? m_privilege.max_size() : msg.m_privilege_size());
+	for(int32_t i = 0; i < (int32_t)m_privilege.size(); ++i) {
+		const ::proto_ff::E_PetPrivilegePrivilegeDesc & temp_m_privilege = msg.m_privilege(i);
+		m_privilege[i].read_from_pbmsg(temp_m_privilege);
+	}
+}
+
+Sheet_PetPrivilege_s::Sheet_PetPrivilege_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_PetPrivilege_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_PetPrivilege_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_PetPrivilege_s::write_to_pbmsg(::proto_ff::Sheet_PetPrivilege & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_PetPrivilege_List.size(); ++i) {
+		::proto_ff::E_PetPrivilege* temp_e_petprivilege_list = msg.add_e_petprivilege_list();
+		E_PetPrivilege_List[i].write_to_pbmsg(*temp_e_petprivilege_list);
+	}
+}
+
+void Sheet_PetPrivilege_s::read_from_pbmsg(const ::proto_ff::Sheet_PetPrivilege & msg) {
+	E_PetPrivilege_List.resize((int)msg.e_petprivilege_list_size() > (int)E_PetPrivilege_List.max_size() ? E_PetPrivilege_List.max_size() : msg.e_petprivilege_list_size());
+	for(int32_t i = 0; i < (int32_t)E_PetPrivilege_List.size(); ++i) {
+		const ::proto_ff::E_PetPrivilege & temp_e_petprivilege_list = msg.e_petprivilege_list(i);
+		E_PetPrivilege_List[i].read_from_pbmsg(temp_e_petprivilege_list);
 	}
 }
 

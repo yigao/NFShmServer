@@ -10,7 +10,7 @@
 #include "NFMMOCommonModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFLogicCommon/NFLogicError.h"
-#include "NFLogicCommon/NFAttrMgr.h"
+#include "NFLogicCommon/Attr/NFAttrMgr.h"
 
 bool NFMMOCommonModule::Awake()
 {

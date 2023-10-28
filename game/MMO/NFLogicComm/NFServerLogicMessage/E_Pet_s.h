@@ -34,17 +34,26 @@
 #define DEFINE_E_PETSTARVALUE_M_ADVANCE_TYPE_MAX_NUM 3
 #define DEFINE_E_PETSTARVALUE_M_EQUIP_MAX_NUM 2
 #define DEFINE_SHEET_PETSTARVALUE_E_PETSTARVALUE_LIST_MAX_NUM 256
-#define DEFINE_E_PETWRAITHS_M_MATERIAL_MAX_NUM 3
+#define DEFINE_E_PETWRAITHS_M_ATTRIBUTE_MAX_NUM 3
+#define DEFINE_E_PETWRAITHS_M_ATTRIBUTEBCT_MAX_NUM 2
 #define DEFINE_SHEET_PETWRAITHS_E_PETWRAITHS_LIST_MAX_NUM 256
-#define DEFINE_E_PETWRAITHSVALUE_M_ATTRIBUTE_MAX_NUM 6
-#define DEFINE_SHEET_PETWRAITHSVALUE_E_PETWRAITHSVALUE_LIST_MAX_NUM 256
+#define DEFINE_E_PETWRAITHSLV_M_ATTRIBUTE_MAX_NUM 6
 #define DEFINE_SHEET_PETWRAITHSLV_E_PETWRAITHSLV_LIST_MAX_NUM 256
+#define DEFINE_E_PETSMELT_M_ITEM_MAX_NUM 3
 #define DEFINE_SHEET_PETSMELT_E_PETSMELT_LIST_MAX_NUM 64
 #define DEFINE_SHEET_PETREFINECONVERSION_E_PETREFINECONVERSION_LIST_MAX_NUM 32
 #define DEFINE_E_PETSTOVE_M_STOVE_MAX_NUM 4
 #define DEFINE_SHEET_PETSTOVE_E_PETSTOVE_LIST_MAX_NUM 512
 #define DEFINE_E_PETSUIT_M_ATTRIBUTE_MAX_NUM 5
 #define DEFINE_SHEET_PETSUIT_E_PETSUIT_LIST_MAX_NUM 32
+#define DEFINE_E_PETCONST_M_MATERIAL_MAX_NUM 3
+#define DEFINE_SHEET_PETCONST_E_PETCONST_LIST_MAX_NUM 2
+#define DEFINE_E_PETTOP_M_ATTRIBUTE_MAX_NUM 8
+#define DEFINE_E_PETTOP_M_STARATT_MAX_NUM 8
+#define DEFINE_SHEET_PETTOP_E_PETTOP_LIST_MAX_NUM 256
+#define DEFINE_SHEET_PETTOPITEM_E_PETTOPITEM_LIST_MAX_NUM 32
+#define DEFINE_E_PETPRIVILEGE_M_PRIVILEGE_MAX_NUM 4
+#define DEFINE_SHEET_PETPRIVILEGE_E_PETPRIVILEGE_LIST_MAX_NUM 2
 
 
 namespace proto_ff_s {
@@ -90,6 +99,7 @@ namespace proto_ff_s {
 		float m_growstar;//升星资质提升系数
 		int32_t m_advanceattribute;//进阶值模板
 		int32_t m_advancetype;//进阶类型
+		int32_t m_pettag;//是否神宠
 		NFShmString<64> m_pettagskill;//神宠技能
 		int32_t m_starattribute;//升星属性模板
 		int32_t m_starpercent;//升星属性加成
@@ -612,36 +622,51 @@ namespace proto_ff_s {
 	};
 	typedef struct Sheet_PetStarvalue_s Sheet_PetStarvalue_t;
 
-	struct E_PetWraithsMaterialDesc_s : public NFDescStoreSeqOP {
-		E_PetWraithsMaterialDesc_s();
-		virtual ~E_PetWraithsMaterialDesc_s(){}
+	struct E_PetWraithsAttributeDesc_s : public NFDescStoreSeqOP {
+		E_PetWraithsAttributeDesc_s();
+		virtual ~E_PetWraithsAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_exp;//经验值
-		int64_t m_item;//道具
+		int32_t m_value;//值
+		int32_t m_type;//ID
 
-		virtual void write_to_pbmsg(::proto_ff::E_PetWraithsMaterialDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::E_PetWraithsMaterialDesc & msg);
-		static ::proto_ff::E_PetWraithsMaterialDesc* new_pbmsg(){ return new ::proto_ff::E_PetWraithsMaterialDesc(); }
-		static ::proto_ff::E_PetWraithsMaterialDesc make_pbmsg(){ return ::proto_ff::E_PetWraithsMaterialDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_PetWraithsAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_PetWraithsAttributeDesc & msg);
+		static ::proto_ff::E_PetWraithsAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_PetWraithsAttributeDesc(); }
+		static ::proto_ff::E_PetWraithsAttributeDesc make_pbmsg(){ return ::proto_ff::E_PetWraithsAttributeDesc(); }
 	};
-	typedef struct E_PetWraithsMaterialDesc_s E_PetWraithsMaterialDesc_t;
+	typedef struct E_PetWraithsAttributeDesc_s E_PetWraithsAttributeDesc_t;
+
+	struct E_PetWraithsAttributebctDesc_s : public NFDescStoreSeqOP {
+		E_PetWraithsAttributebctDesc_s();
+		virtual ~E_PetWraithsAttributebctDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_type;//值
+		int32_t m_value;//ID
+
+		virtual void write_to_pbmsg(::proto_ff::E_PetWraithsAttributebctDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_PetWraithsAttributebctDesc & msg);
+		static ::proto_ff::E_PetWraithsAttributebctDesc* new_pbmsg(){ return new ::proto_ff::E_PetWraithsAttributebctDesc(); }
+		static ::proto_ff::E_PetWraithsAttributebctDesc make_pbmsg(){ return ::proto_ff::E_PetWraithsAttributebctDesc(); }
+	};
+	typedef struct E_PetWraithsAttributebctDesc_s E_PetWraithsAttributebctDesc_t;
 
 	struct E_PetWraiths_s : public NFDescStoreSeqOP {
 		E_PetWraiths_s();
 		virtual ~E_PetWraiths_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//id
-		int32_t m_wraithsname;//妖魂名称
-		int32_t m_wraithspart;//妖魂部位
-		int32_t m_wraithsstar;//妖魂星级
-		int32_t m_wraithsquality;//妖魂品质
-		int32_t m_wraithsequip;//对应装备
+		int32_t m_id;//装备id
+		int32_t m_name;//妖魂名称
+		int32_t m_affix;//词缀类型
+		int32_t m_position;//妖魂部位
+		int32_t m_quality;//妖魂品质
+		int32_t m_star;//妖魂星级
 		int32_t m_propertylv;//升级类型
-		int32_t m_propertyadvance;//进阶类型
 		int32_t m_propertytop;//突破类型
-		NFShmVector<struct E_PetWraithsMaterialDesc_s, DEFINE_E_PETWRAITHS_M_MATERIAL_MAX_NUM> m_material;//升级
+		NFShmVector<struct E_PetWraithsAttributeDesc_s, DEFINE_E_PETWRAITHS_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
+		NFShmVector<struct E_PetWraithsAttributebctDesc_s, DEFINE_E_PETWRAITHS_M_ATTRIBUTEBCT_MAX_NUM> m_attributebct;//额外属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetWraiths & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PetWraiths & msg);
@@ -664,61 +689,34 @@ namespace proto_ff_s {
 	};
 	typedef struct Sheet_PetWraiths_s Sheet_PetWraiths_t;
 
-	struct E_PetWraithsvalueAttributeDesc_s : public NFDescStoreSeqOP {
-		E_PetWraithsvalueAttributeDesc_s();
-		virtual ~E_PetWraithsvalueAttributeDesc_s(){}
+	struct E_PetWraithslvAttributeDesc_s : public NFDescStoreSeqOP {
+		E_PetWraithslvAttributeDesc_s();
+		virtual ~E_PetWraithslvAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_value;//值
 		int32_t m_type;//ID
 
-		virtual void write_to_pbmsg(::proto_ff::E_PetWraithsvalueAttributeDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::E_PetWraithsvalueAttributeDesc & msg);
-		static ::proto_ff::E_PetWraithsvalueAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_PetWraithsvalueAttributeDesc(); }
-		static ::proto_ff::E_PetWraithsvalueAttributeDesc make_pbmsg(){ return ::proto_ff::E_PetWraithsvalueAttributeDesc(); }
+		virtual void write_to_pbmsg(::proto_ff::E_PetWraithslvAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_PetWraithslvAttributeDesc & msg);
+		static ::proto_ff::E_PetWraithslvAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_PetWraithslvAttributeDesc(); }
+		static ::proto_ff::E_PetWraithslvAttributeDesc make_pbmsg(){ return ::proto_ff::E_PetWraithslvAttributeDesc(); }
 	};
-	typedef struct E_PetWraithsvalueAttributeDesc_s E_PetWraithsvalueAttributeDesc_t;
-
-	struct E_PetWraithsvalue_s : public NFDescStoreSeqOP {
-		E_PetWraithsvalue_s();
-		virtual ~E_PetWraithsvalue_s(){}
-		int CreateInit();
-		int ResumeInit();
-		int32_t m_id;//id
-		int32_t m_wraithsvalue;//属性类型
-		int32_t m_lv;//等级
-		int32_t m_wraithsitem;//道具消耗
-		int32_t m_wraithsmun;//消耗数量
-		NFShmVector<struct E_PetWraithsvalueAttributeDesc_s, DEFINE_E_PETWRAITHSVALUE_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
-
-		virtual void write_to_pbmsg(::proto_ff::E_PetWraithsvalue & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::E_PetWraithsvalue & msg);
-		static ::proto_ff::E_PetWraithsvalue* new_pbmsg(){ return new ::proto_ff::E_PetWraithsvalue(); }
-		static ::proto_ff::E_PetWraithsvalue make_pbmsg(){ return ::proto_ff::E_PetWraithsvalue(); }
-	};
-	typedef struct E_PetWraithsvalue_s E_PetWraithsvalue_t;
-
-	struct Sheet_PetWraithsvalue_s : public NFDescStoreSeqOP {
-		Sheet_PetWraithsvalue_s();
-		virtual ~Sheet_PetWraithsvalue_s(){}
-		int CreateInit();
-		int ResumeInit();
-		NFShmVector<struct E_PetWraithsvalue_s, DEFINE_SHEET_PETWRAITHSVALUE_E_PETWRAITHSVALUE_LIST_MAX_NUM> E_PetWraithsvalue_List;//
-
-		virtual void write_to_pbmsg(::proto_ff::Sheet_PetWraithsvalue & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_PetWraithsvalue & msg);
-		static ::proto_ff::Sheet_PetWraithsvalue* new_pbmsg(){ return new ::proto_ff::Sheet_PetWraithsvalue(); }
-		static ::proto_ff::Sheet_PetWraithsvalue make_pbmsg(){ return ::proto_ff::Sheet_PetWraithsvalue(); }
-	};
-	typedef struct Sheet_PetWraithsvalue_s Sheet_PetWraithsvalue_t;
+	typedef struct E_PetWraithslvAttributeDesc_s E_PetWraithslvAttributeDesc_t;
 
 	struct E_PetWraithslv_s : public NFDescStoreSeqOP {
 		E_PetWraithslv_s();
 		virtual ~E_PetWraithslv_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//妖魂升级id
+		int32_t m_id;//id
+		int32_t m_value;//属性类型
+		int32_t m_advancelv;//进阶等级
+		int32_t m_lv;//等级
+		int32_t m_wraithsitem;//道具消耗
+		int32_t m_wraithsmun;//消耗数量
 		int32_t m_lvexp;//升级所需经验
+		NFShmVector<struct E_PetWraithslvAttributeDesc_s, DEFINE_E_PETWRAITHSLV_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetWraithslv & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PetWraithslv & msg);
@@ -741,17 +739,35 @@ namespace proto_ff_s {
 	};
 	typedef struct Sheet_PetWraithslv_s Sheet_PetWraithslv_t;
 
+	struct E_PetSmeltItemDesc_s : public NFDescStoreSeqOP {
+		E_PetSmeltItemDesc_s();
+		virtual ~E_PetSmeltItemDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_maxnum;//最大数量
+		int32_t m_minnum;//最小数量
+		int32_t m_rarerand;//概率
+		int32_t m_id;//道具
+
+		virtual void write_to_pbmsg(::proto_ff::E_PetSmeltItemDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_PetSmeltItemDesc & msg);
+		static ::proto_ff::E_PetSmeltItemDesc* new_pbmsg(){ return new ::proto_ff::E_PetSmeltItemDesc(); }
+		static ::proto_ff::E_PetSmeltItemDesc make_pbmsg(){ return ::proto_ff::E_PetSmeltItemDesc(); }
+	};
+	typedef struct E_PetSmeltItemDesc_s E_PetSmeltItemDesc_t;
+
 	struct E_PetSmelt_s : public NFDescStoreSeqOP {
 		E_PetSmelt_s();
 		virtual ~E_PetSmelt_s(){}
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_refinequality;//品质
-		int32_t m_refinestar;//星级
+		int32_t m_quality;//品质
+		int32_t m_star;//星级
 		int32_t m_putmun;//放入妖魂数
 		int32_t m_smeltexp;//获得经验
-		int32_t m_smelt_box;//获得道具
+		int32_t m_monsternum;//妖气获得数量
+		NFShmVector<struct E_PetSmeltItemDesc_s, DEFINE_E_PETSMELT_M_ITEM_MAX_NUM> m_item;//获得
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetSmelt & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PetSmelt & msg);
@@ -781,8 +797,8 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_itemid;//兑换道具
 		int32_t m_group;//组
-		int32_t m_conversionitem;//所需道具
-		int32_t m_conversionmun;//兑换数量
+		int32_t m_num;//兑换数量
+		int32_t m_condition;//兑换条件
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetRefineconversion & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PetRefineconversion & msg);
@@ -810,7 +826,7 @@ namespace proto_ff_s {
 		virtual ~E_PetStoveStoveDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_mun;//值
+		int32_t m_num;//值
 		int32_t m_value;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetStoveStoveDesc & msg) const;
@@ -825,9 +841,10 @@ namespace proto_ff_s {
 		virtual ~E_PetStove_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_stovelv;//等级
-		int32_t m_stoveexp;//升级所需经验
-		int32_t m_stovemax;//炼妖开放上限
+		int32_t m_lv;//等级
+		int32_t m_exp;//升级所需经验
+		int32_t m_quality;//炼妖开放上限品质
+		int32_t m_star;//炼妖开放上限星数
 		NFShmVector<struct E_PetStoveStoveDesc_s, DEFINE_E_PETSTOVE_M_STOVE_MAX_NUM> m_stove;//妖炉
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetStove & msg) const;
@@ -872,6 +889,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
+		int32_t m_quality;//妖魂品质
+		int32_t m_star;//妖魂星级
 		int32_t m_wraithsquality;//妖魂需求
 		int32_t m_piece;//套装件数
 		int32_t m_resonancetype;//共鸣属性
@@ -898,6 +917,191 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_PetSuit make_pbmsg(){ return ::proto_ff::Sheet_PetSuit(); }
 	};
 	typedef struct Sheet_PetSuit_s Sheet_PetSuit_t;
+
+	struct E_PetConstMaterialDesc_s : public NFDescStoreSeqOP {
+		E_PetConstMaterialDesc_s();
+		virtual ~E_PetConstMaterialDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_exp;//经验值
+		int32_t m_item;//道具
+
+		virtual void write_to_pbmsg(::proto_ff::E_PetConstMaterialDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_PetConstMaterialDesc & msg);
+		static ::proto_ff::E_PetConstMaterialDesc* new_pbmsg(){ return new ::proto_ff::E_PetConstMaterialDesc(); }
+		static ::proto_ff::E_PetConstMaterialDesc make_pbmsg(){ return ::proto_ff::E_PetConstMaterialDesc(); }
+	};
+	typedef struct E_PetConstMaterialDesc_s E_PetConstMaterialDesc_t;
+
+	struct E_PetConst_s : public NFDescStoreSeqOP {
+		E_PetConst_s();
+		virtual ~E_PetConst_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_open;//开启条件
+		int32_t m_solt;//槽位解锁
+		int32_t m_item;//消耗
+		int32_t m_num;//数量
+		NFShmVector<struct E_PetConstMaterialDesc_s, DEFINE_E_PETCONST_M_MATERIAL_MAX_NUM> m_material;//升级
+
+		virtual void write_to_pbmsg(::proto_ff::E_PetConst & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_PetConst & msg);
+		static ::proto_ff::E_PetConst* new_pbmsg(){ return new ::proto_ff::E_PetConst(); }
+		static ::proto_ff::E_PetConst make_pbmsg(){ return ::proto_ff::E_PetConst(); }
+	};
+	typedef struct E_PetConst_s E_PetConst_t;
+
+	struct Sheet_PetConst_s : public NFDescStoreSeqOP {
+		Sheet_PetConst_s();
+		virtual ~Sheet_PetConst_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_PetConst_s, DEFINE_SHEET_PETCONST_E_PETCONST_LIST_MAX_NUM> E_PetConst_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_PetConst & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_PetConst & msg);
+		static ::proto_ff::Sheet_PetConst* new_pbmsg(){ return new ::proto_ff::Sheet_PetConst(); }
+		static ::proto_ff::Sheet_PetConst make_pbmsg(){ return ::proto_ff::Sheet_PetConst(); }
+	};
+	typedef struct Sheet_PetConst_s Sheet_PetConst_t;
+
+	struct E_PetTopAttributeDesc_s : public NFDescStoreSeqOP {
+		E_PetTopAttributeDesc_s();
+		virtual ~E_PetTopAttributeDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_value;//值
+		int32_t m_type;//ID
+
+		virtual void write_to_pbmsg(::proto_ff::E_PetTopAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_PetTopAttributeDesc & msg);
+		static ::proto_ff::E_PetTopAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_PetTopAttributeDesc(); }
+		static ::proto_ff::E_PetTopAttributeDesc make_pbmsg(){ return ::proto_ff::E_PetTopAttributeDesc(); }
+	};
+	typedef struct E_PetTopAttributeDesc_s E_PetTopAttributeDesc_t;
+
+	struct E_PetTopStarattDesc_s : public NFDescStoreSeqOP {
+		E_PetTopStarattDesc_s();
+		virtual ~E_PetTopStarattDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_value;//值
+		int32_t m_type;//ID
+
+		virtual void write_to_pbmsg(::proto_ff::E_PetTopStarattDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_PetTopStarattDesc & msg);
+		static ::proto_ff::E_PetTopStarattDesc* new_pbmsg(){ return new ::proto_ff::E_PetTopStarattDesc(); }
+		static ::proto_ff::E_PetTopStarattDesc make_pbmsg(){ return ::proto_ff::E_PetTopStarattDesc(); }
+	};
+	typedef struct E_PetTopStarattDesc_s E_PetTopStarattDesc_t;
+
+	struct E_PetTop_s : public NFDescStoreSeqOP {
+		E_PetTop_s();
+		virtual ~E_PetTop_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_toptype;//突破类型
+		NFShmVector<struct E_PetTopAttributeDesc_s, DEFINE_E_PETTOP_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
+		NFShmVector<struct E_PetTopStarattDesc_s, DEFINE_E_PETTOP_M_STARATT_MAX_NUM> m_staratt;//星级属性
+
+		virtual void write_to_pbmsg(::proto_ff::E_PetTop & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_PetTop & msg);
+		static ::proto_ff::E_PetTop* new_pbmsg(){ return new ::proto_ff::E_PetTop(); }
+		static ::proto_ff::E_PetTop make_pbmsg(){ return ::proto_ff::E_PetTop(); }
+	};
+	typedef struct E_PetTop_s E_PetTop_t;
+
+	struct Sheet_PetTop_s : public NFDescStoreSeqOP {
+		Sheet_PetTop_s();
+		virtual ~Sheet_PetTop_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_PetTop_s, DEFINE_SHEET_PETTOP_E_PETTOP_LIST_MAX_NUM> E_PetTop_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_PetTop & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_PetTop & msg);
+		static ::proto_ff::Sheet_PetTop* new_pbmsg(){ return new ::proto_ff::Sheet_PetTop(); }
+		static ::proto_ff::Sheet_PetTop make_pbmsg(){ return ::proto_ff::Sheet_PetTop(); }
+	};
+	typedef struct Sheet_PetTop_s Sheet_PetTop_t;
+
+	struct E_PetTopitem_s : public NFDescStoreSeqOP {
+		E_PetTopitem_s();
+		virtual ~E_PetTopitem_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_lv;//突破等级
+		int32_t m_item;//突破消耗
+		int32_t m_num;//消耗数量
+
+		virtual void write_to_pbmsg(::proto_ff::E_PetTopitem & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_PetTopitem & msg);
+		static ::proto_ff::E_PetTopitem* new_pbmsg(){ return new ::proto_ff::E_PetTopitem(); }
+		static ::proto_ff::E_PetTopitem make_pbmsg(){ return ::proto_ff::E_PetTopitem(); }
+	};
+	typedef struct E_PetTopitem_s E_PetTopitem_t;
+
+	struct Sheet_PetTopitem_s : public NFDescStoreSeqOP {
+		Sheet_PetTopitem_s();
+		virtual ~Sheet_PetTopitem_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_PetTopitem_s, DEFINE_SHEET_PETTOPITEM_E_PETTOPITEM_LIST_MAX_NUM> E_PetTopitem_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_PetTopitem & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_PetTopitem & msg);
+		static ::proto_ff::Sheet_PetTopitem* new_pbmsg(){ return new ::proto_ff::Sheet_PetTopitem(); }
+		static ::proto_ff::Sheet_PetTopitem make_pbmsg(){ return ::proto_ff::Sheet_PetTopitem(); }
+	};
+	typedef struct Sheet_PetTopitem_s Sheet_PetTopitem_t;
+
+	struct E_PetPrivilegePrivilegeDesc_s : public NFDescStoreSeqOP {
+		E_PetPrivilegePrivilegeDesc_s();
+		virtual ~E_PetPrivilegePrivilegeDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_value;//值
+		int32_t m_att;//ID
+
+		virtual void write_to_pbmsg(::proto_ff::E_PetPrivilegePrivilegeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_PetPrivilegePrivilegeDesc & msg);
+		static ::proto_ff::E_PetPrivilegePrivilegeDesc* new_pbmsg(){ return new ::proto_ff::E_PetPrivilegePrivilegeDesc(); }
+		static ::proto_ff::E_PetPrivilegePrivilegeDesc make_pbmsg(){ return ::proto_ff::E_PetPrivilegePrivilegeDesc(); }
+	};
+	typedef struct E_PetPrivilegePrivilegeDesc_s E_PetPrivilegePrivilegeDesc_t;
+
+	struct E_PetPrivilege_s : public NFDescStoreSeqOP {
+		E_PetPrivilege_s();
+		virtual ~E_PetPrivilege_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		NFShmString<64> m_activate;//激活条件
+		int32_t m_doubleitem;//道具翻倍
+		int32_t m_experienceexp;//经验加成
+		NFShmVector<struct E_PetPrivilegePrivilegeDesc_s, DEFINE_E_PETPRIVILEGE_M_PRIVILEGE_MAX_NUM> m_privilege;//基础属性
+
+		virtual void write_to_pbmsg(::proto_ff::E_PetPrivilege & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_PetPrivilege & msg);
+		static ::proto_ff::E_PetPrivilege* new_pbmsg(){ return new ::proto_ff::E_PetPrivilege(); }
+		static ::proto_ff::E_PetPrivilege make_pbmsg(){ return ::proto_ff::E_PetPrivilege(); }
+	};
+	typedef struct E_PetPrivilege_s E_PetPrivilege_t;
+
+	struct Sheet_PetPrivilege_s : public NFDescStoreSeqOP {
+		Sheet_PetPrivilege_s();
+		virtual ~Sheet_PetPrivilege_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_PetPrivilege_s, DEFINE_SHEET_PETPRIVILEGE_E_PETPRIVILEGE_LIST_MAX_NUM> E_PetPrivilege_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_PetPrivilege & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_PetPrivilege & msg);
+		static ::proto_ff::Sheet_PetPrivilege* new_pbmsg(){ return new ::proto_ff::Sheet_PetPrivilege(); }
+		static ::proto_ff::Sheet_PetPrivilege make_pbmsg(){ return ::proto_ff::Sheet_PetPrivilege(); }
+	};
+	typedef struct Sheet_PetPrivilege_s Sheet_PetPrivilege_t;
 
 }
 

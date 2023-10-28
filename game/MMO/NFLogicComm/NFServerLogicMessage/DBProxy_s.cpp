@@ -93,6 +93,7 @@ int RoleDBBaseData_s::CreateInit() {
 	magic_sum = (int64_t)0;
 	subpack_type = (int32_t)0;
 	subpack_fetch = (int32_t)0;
+	hunling = (uint64_t)0;
 	return 0;
 }
 
@@ -152,6 +153,7 @@ void RoleDBBaseData_s::write_to_pbmsg(::proto_ff::RoleDBBaseData & msg) const {
 	msg.set_magic_sum((int64_t)magic_sum);
 	msg.set_subpack_type((int32_t)subpack_type);
 	msg.set_subpack_fetch((int32_t)subpack_fetch);
+	msg.set_hunling((uint64_t)hunling);
 }
 
 void RoleDBBaseData_s::read_from_pbmsg(const ::proto_ff::RoleDBBaseData & msg) {
@@ -206,6 +208,7 @@ void RoleDBBaseData_s::read_from_pbmsg(const ::proto_ff::RoleDBBaseData & msg) {
 	magic_sum = msg.magic_sum();
 	subpack_type = msg.subpack_type();
 	subpack_fetch = msg.subpack_fetch();
+	hunling = msg.hunling();
 }
 
 BagItemsDBData_s::BagItemsDBData_s() {
@@ -417,6 +420,7 @@ GrowPartEntryDBInfo_s::GrowPartEntryDBInfo_s() {
 int GrowPartEntryDBInfo_s::CreateInit() {
 	id = (int64_t)0;
 	lv = (int32_t)0;
+	time = (int64_t)0;
 	return 0;
 }
 
@@ -427,11 +431,13 @@ int GrowPartEntryDBInfo_s::ResumeInit() {
 void GrowPartEntryDBInfo_s::write_to_pbmsg(::proto_ff::GrowPartEntryDBInfo & msg) const {
 	msg.set_id((int64_t)id);
 	msg.set_lv((int32_t)lv);
+	msg.set_time((int64_t)time);
 }
 
 void GrowPartEntryDBInfo_s::read_from_pbmsg(const ::proto_ff::GrowPartEntryDBInfo & msg) {
 	id = msg.id();
 	lv = msg.lv();
+	time = msg.time();
 }
 
 GrowPartDBData_s::GrowPartDBData_s() {
@@ -2190,6 +2196,8 @@ void PetDBData_s::write_to_pbmsg(::proto_ff::PetDBData & msg) const {
 		::proto_ff::PetGrowDB* temp_grows = msg.add_grows();
 		grows[i].write_to_pbmsg(*temp_grows);
 	}
+	::proto_ff::PetYaoHunModule* temp_yaohun = msg.mutable_yaohun();
+	yaohun.write_to_pbmsg(*temp_yaohun);
 }
 
 void PetDBData_s::read_from_pbmsg(const ::proto_ff::PetDBData & msg) {
@@ -2221,6 +2229,8 @@ void PetDBData_s::read_from_pbmsg(const ::proto_ff::PetDBData & msg) {
 		const ::proto_ff::PetGrowDB & temp_grows = msg.grows(i);
 		grows[i].read_from_pbmsg(temp_grows);
 	}
+	const ::proto_ff::PetYaoHunModule & temp_yaohun = msg.yaohun();
+	yaohun.read_from_pbmsg(temp_yaohun);
 }
 
 MallDBInfo_s::MallDBInfo_s() {
@@ -3852,6 +3862,7 @@ FestDonateDBProto_s::FestDonateDBProto_s() {
 
 int FestDonateDBProto_s::CreateInit() {
 	single_num = (uint32_t)0;
+	flush_time = (uint64_t)0;
 	return 0;
 }
 
@@ -3873,6 +3884,7 @@ void FestDonateDBProto_s::write_to_pbmsg(::proto_ff::FestDonateDBProto & msg) co
 		::proto_ff::FestDonateTaskProto* temp_task = msg.add_task();
 		task[i].write_to_pbmsg(*temp_task);
 	}
+	msg.set_flush_time((uint64_t)flush_time);
 }
 
 void FestDonateDBProto_s::read_from_pbmsg(const ::proto_ff::FestDonateDBProto & msg) {
@@ -3892,6 +3904,7 @@ void FestDonateDBProto_s::read_from_pbmsg(const ::proto_ff::FestDonateDBProto & 
 		const ::proto_ff::FestDonateTaskProto & temp_task = msg.task(i);
 		task[i].read_from_pbmsg(temp_task);
 	}
+	flush_time = msg.flush_time();
 }
 
 FestOnlineDBProto_s::FestOnlineDBProto_s() {
@@ -3937,6 +3950,7 @@ FestCollectWordDBProto_s::FestCollectWordDBProto_s() {
 }
 
 int FestCollectWordDBProto_s::CreateInit() {
+	flush_time = (uint64_t)0;
 	return 0;
 }
 
@@ -3949,6 +3963,7 @@ void FestCollectWordDBProto_s::write_to_pbmsg(::proto_ff::FestCollectWordDBProto
 		::proto_ff::FestCollectWordOneProto* temp_data = msg.add_data();
 		data[i].write_to_pbmsg(*temp_data);
 	}
+	msg.set_flush_time((uint64_t)flush_time);
 }
 
 void FestCollectWordDBProto_s::read_from_pbmsg(const ::proto_ff::FestCollectWordDBProto & msg) {
@@ -3957,6 +3972,7 @@ void FestCollectWordDBProto_s::read_from_pbmsg(const ::proto_ff::FestCollectWord
 		const ::proto_ff::FestCollectWordOneProto & temp_data = msg.data(i);
 		data[i].read_from_pbmsg(temp_data);
 	}
+	flush_time = msg.flush_time();
 }
 
 FestBossFirstDB_s::FestBossFirstDB_s() {
@@ -4043,6 +4059,107 @@ void FMarryRoleDB_s::read_from_pbmsg(const ::proto_ff::FMarryRoleDB & msg) {
 	score = msg.score();
 }
 
+DayTotalRechargeDBProto_s::DayTotalRechargeDBProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int DayTotalRechargeDBProto_s::CreateInit() {
+	recharge = (uint32_t)0;
+	time = (uint64_t)0;
+	reset_time = (uint64_t)0;
+	return 0;
+}
+
+int DayTotalRechargeDBProto_s::ResumeInit() {
+	return 0;
+}
+
+void DayTotalRechargeDBProto_s::write_to_pbmsg(::proto_ff::DayTotalRechargeDBProto & msg) const {
+	for(int32_t i = 0; i < (int32_t)fetch_lst.size(); ++i) {
+		msg.add_fetch_lst((int32_t)fetch_lst[i]);
+	}
+	msg.set_recharge((uint32_t)recharge);
+	msg.set_time((uint64_t)time);
+	msg.set_reset_time((uint64_t)reset_time);
+}
+
+void DayTotalRechargeDBProto_s::read_from_pbmsg(const ::proto_ff::DayTotalRechargeDBProto & msg) {
+	fetch_lst.resize((int)msg.fetch_lst_size() > (int)fetch_lst.max_size() ? fetch_lst.max_size() : msg.fetch_lst_size());
+	for(int32_t i = 0; i < (int32_t)fetch_lst.size(); ++i) {
+		fetch_lst[i] = msg.fetch_lst(i);
+	}
+	recharge = msg.recharge();
+	time = msg.time();
+	reset_time = msg.reset_time();
+}
+
+TotalRechargeDBProto_s::TotalRechargeDBProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int TotalRechargeDBProto_s::CreateInit() {
+	recharge = (uint32_t)0;
+	return 0;
+}
+
+int TotalRechargeDBProto_s::ResumeInit() {
+	return 0;
+}
+
+void TotalRechargeDBProto_s::write_to_pbmsg(::proto_ff::TotalRechargeDBProto & msg) const {
+	for(int32_t i = 0; i < (int32_t)fetch_lst.size(); ++i) {
+		msg.add_fetch_lst((int32_t)fetch_lst[i]);
+	}
+	msg.set_recharge((uint32_t)recharge);
+}
+
+void TotalRechargeDBProto_s::read_from_pbmsg(const ::proto_ff::TotalRechargeDBProto & msg) {
+	fetch_lst.resize((int)msg.fetch_lst_size() > (int)fetch_lst.max_size() ? fetch_lst.max_size() : msg.fetch_lst_size());
+	for(int32_t i = 0; i < (int32_t)fetch_lst.size(); ++i) {
+		fetch_lst[i] = msg.fetch_lst(i);
+	}
+	recharge = msg.recharge();
+}
+
+LoginRewardDBProto_s::LoginRewardDBProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int LoginRewardDBProto_s::CreateInit() {
+	return 0;
+}
+
+int LoginRewardDBProto_s::ResumeInit() {
+	return 0;
+}
+
+void LoginRewardDBProto_s::write_to_pbmsg(::proto_ff::LoginRewardDBProto & msg) const {
+	for(int32_t i = 0; i < (int32_t)fetch.size(); ++i) {
+		::proto_ff::ComPair* temp_fetch = msg.add_fetch();
+		fetch[i].write_to_pbmsg(*temp_fetch);
+	}
+}
+
+void LoginRewardDBProto_s::read_from_pbmsg(const ::proto_ff::LoginRewardDBProto & msg) {
+	fetch.resize((int)msg.fetch_size() > (int)fetch.max_size() ? fetch.max_size() : msg.fetch_size());
+	for(int32_t i = 0; i < (int32_t)fetch.size(); ++i) {
+		const ::proto_ff::ComPair & temp_fetch = msg.fetch(i);
+		fetch[i].read_from_pbmsg(temp_fetch);
+	}
+}
+
 FestDetailDBProto_s::FestDetailDBProto_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -4100,6 +4217,12 @@ void FestDetailDBProto_s::write_to_pbmsg(::proto_ff::FestDetailDBProto & msg) co
 	candle.write_to_pbmsg(*temp_candle);
 	::proto_ff::FMarryRoleDB* temp_marry = msg.mutable_marry();
 	marry.write_to_pbmsg(*temp_marry);
+	::proto_ff::DayTotalRechargeDBProto* temp_day_total_recharge = msg.mutable_day_total_recharge();
+	day_total_recharge.write_to_pbmsg(*temp_day_total_recharge);
+	::proto_ff::TotalRechargeDBProto* temp_total_recharge = msg.mutable_total_recharge();
+	total_recharge.write_to_pbmsg(*temp_total_recharge);
+	::proto_ff::LoginRewardDBProto* temp_login = msg.mutable_login();
+	login.write_to_pbmsg(*temp_login);
 }
 
 void FestDetailDBProto_s::read_from_pbmsg(const ::proto_ff::FestDetailDBProto & msg) {
@@ -4140,6 +4263,12 @@ void FestDetailDBProto_s::read_from_pbmsg(const ::proto_ff::FestDetailDBProto & 
 	candle.read_from_pbmsg(temp_candle);
 	const ::proto_ff::FMarryRoleDB & temp_marry = msg.marry();
 	marry.read_from_pbmsg(temp_marry);
+	const ::proto_ff::DayTotalRechargeDBProto & temp_day_total_recharge = msg.day_total_recharge();
+	day_total_recharge.read_from_pbmsg(temp_day_total_recharge);
+	const ::proto_ff::TotalRechargeDBProto & temp_total_recharge = msg.total_recharge();
+	total_recharge.read_from_pbmsg(temp_total_recharge);
+	const ::proto_ff::LoginRewardDBProto & temp_login = msg.login();
+	login.read_from_pbmsg(temp_login);
 }
 
 FestDBData_s::FestDBData_s() {
@@ -4392,6 +4521,45 @@ void GMADbData_s::read_from_pbmsg(const ::proto_ff::GMADbData & msg) {
 	expAccumulate = msg.expaccumulate();
 }
 
+SoulDBData_s::SoulDBData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int SoulDBData_s::CreateInit() {
+	return 0;
+}
+
+int SoulDBData_s::ResumeInit() {
+	return 0;
+}
+
+void SoulDBData_s::write_to_pbmsg(::proto_ff::SoulDBData & msg) const {
+	::proto_ff::SoulEntry* temp_entry = msg.mutable_entry();
+	entry.write_to_pbmsg(*temp_entry);
+	::proto_ff::SoulPool* temp_pool = msg.mutable_pool();
+	pool.write_to_pbmsg(*temp_pool);
+	for(int32_t i = 0; i < (int32_t)tasks.size(); ++i) {
+		::proto_ff::ComPair* temp_tasks = msg.add_tasks();
+		tasks[i].write_to_pbmsg(*temp_tasks);
+	}
+}
+
+void SoulDBData_s::read_from_pbmsg(const ::proto_ff::SoulDBData & msg) {
+	const ::proto_ff::SoulEntry & temp_entry = msg.entry();
+	entry.read_from_pbmsg(temp_entry);
+	const ::proto_ff::SoulPool & temp_pool = msg.pool();
+	pool.read_from_pbmsg(temp_pool);
+	tasks.resize((int)msg.tasks_size() > (int)tasks.max_size() ? tasks.max_size() : msg.tasks_size());
+	for(int32_t i = 0; i < (int32_t)tasks.size(); ++i) {
+		const ::proto_ff::ComPair & temp_tasks = msg.tasks(i);
+		tasks[i].read_from_pbmsg(temp_tasks);
+	}
+}
+
 RoleDBData_s::RoleDBData_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -4511,6 +4679,8 @@ void RoleDBData_s::write_to_pbmsg(::proto_ff::RoleDBData & msg) const {
 	turn.write_to_pbmsg(*temp_turn);
 	::proto_ff::GMADbData* temp_gma_datas = msg.mutable_gma_datas();
 	gma_datas.write_to_pbmsg(*temp_gma_datas);
+	::proto_ff::SoulDBData* temp_soul = msg.mutable_soul();
+	soul.write_to_pbmsg(*temp_soul);
 }
 
 void RoleDBData_s::read_from_pbmsg(const ::proto_ff::RoleDBData & msg) {
@@ -4612,6 +4782,8 @@ void RoleDBData_s::read_from_pbmsg(const ::proto_ff::RoleDBData & msg) {
 	turn.read_from_pbmsg(temp_turn);
 	const ::proto_ff::GMADbData & temp_gma_datas = msg.gma_datas();
 	gma_datas.read_from_pbmsg(temp_gma_datas);
+	const ::proto_ff::SoulDBData & temp_soul = msg.soul();
+	soul.read_from_pbmsg(temp_soul);
 }
 
 RedWaitDBProto_s::RedWaitDBProto_s() {

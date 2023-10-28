@@ -409,12 +409,17 @@ message Sheet_ShentiStrengtitel
 	repeated E_ShentiStrengtitel E_ShentiStrengtitel_List = 1[(yd_fieldoptions.field_arysize)=64];
 }
 
+message E_ShentiStartitelAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
 message E_ShentiStartitel
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_num = 2[(yd_fieldoptions.field_cname) = "星级数量"];
-	optional int32 m_attribute_type = 3[(yd_fieldoptions.field_cname) = "属性"];
-	optional int32 m_attribute_value = 4[(yd_fieldoptions.field_cname) = "属性数值"];
+	repeated E_ShentiStartitelAttributeDesc m_attribute = 3[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 2];
 }
 
 

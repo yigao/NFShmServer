@@ -11,4 +11,6 @@ ${PROTOCGEN_FILE_PATH}/module_link_bin:${PROTOCGEN_FILE_PATH}/link.proto.ds ${RE
 	${FILE_COPY_EXE} --work="filecopy_notexist" --src="${PROTOCGEN_FILE_PATH}/LinkDescEx.h ${PROTOCGEN_FILE_PATH}/LinkDescEx.cpp" --dst=${DESC_STORE_EX_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_LinkLink.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/LinkLinkDesc.h ${PROTOCGEN_FILE_PATH}/LinkLinkDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_LinkImagelink.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/LinkImagelinkDesc.h ${PROTOCGEN_FILE_PATH}/LinkImagelinkDesc.cpp" --dst=${DESC_STORE_PATH}/
 	touch ${PROTOCGEN_FILE_PATH}/module_link_bin

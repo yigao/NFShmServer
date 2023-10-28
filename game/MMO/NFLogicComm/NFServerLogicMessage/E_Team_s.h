@@ -8,7 +8,7 @@
 #include "E_Team.pb.h"
 #include "E_Team_s.h"
 
-#define DEFINE_SHEET_TEAMTEAM_E_TEAMTEAM_LIST_MAX_NUM 32
+#define DEFINE_SHEET_TEAMTEAM_E_TEAMTEAM_LIST_MAX_NUM 64
 
 
 namespace proto_ff_s {

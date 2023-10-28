@@ -48,6 +48,7 @@
 #define DEFINE_SHEET_SHENTISTAR_UP_E_SHENTISTAR_UP_LIST_MAX_NUM 32
 #define DEFINE_E_SHENTISTRENGTITEL_M_ATTRIBUTE_MAX_NUM 2
 #define DEFINE_SHEET_SHENTISTRENGTITEL_E_SHENTISTRENGTITEL_LIST_MAX_NUM 64
+#define DEFINE_E_SHENTISTARTITEL_M_ATTRIBUTE_MAX_NUM 2
 #define DEFINE_SHEET_SHENTISTARTITEL_E_SHENTISTARTITEL_LIST_MAX_NUM 16
 
 
@@ -929,6 +930,21 @@ namespace proto_ff_s {
 	};
 	typedef struct Sheet_ShentiStrengtitel_s Sheet_ShentiStrengtitel_t;
 
+	struct E_ShentiStartitelAttributeDesc_s : public NFDescStoreSeqOP {
+		E_ShentiStartitelAttributeDesc_s();
+		virtual ~E_ShentiStartitelAttributeDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_value;//数值
+		int32_t m_type;//
+
+		virtual void write_to_pbmsg(::proto_ff::E_ShentiStartitelAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_ShentiStartitelAttributeDesc & msg);
+		static ::proto_ff::E_ShentiStartitelAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_ShentiStartitelAttributeDesc(); }
+		static ::proto_ff::E_ShentiStartitelAttributeDesc make_pbmsg(){ return ::proto_ff::E_ShentiStartitelAttributeDesc(); }
+	};
+	typedef struct E_ShentiStartitelAttributeDesc_s E_ShentiStartitelAttributeDesc_t;
+
 	struct E_ShentiStartitel_s : public NFDescStoreSeqOP {
 		E_ShentiStartitel_s();
 		virtual ~E_ShentiStartitel_s(){}
@@ -936,8 +952,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_num;//星级数量
-		int32_t m_attribute_type;//属性
-		int32_t m_attribute_value;//属性数值
+		NFShmVector<struct E_ShentiStartitelAttributeDesc_s, DEFINE_E_SHENTISTARTITEL_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_ShentiStartitel & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ShentiStartitel & msg);

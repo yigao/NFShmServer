@@ -2,6 +2,69 @@
 
 namespace proto_ff_s {
 
+E_FestivalPeriodindex_s::E_FestivalPeriodindex_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_FestivalPeriodindex_s::CreateInit() {
+	m_minorigalday = (int32_t)0;
+	return 0;
+}
+
+int E_FestivalPeriodindex_s::ResumeInit() {
+	return 0;
+}
+
+void E_FestivalPeriodindex_s::write_to_pbmsg(::proto_ff::E_FestivalPeriodindex & msg) const {
+	msg.set_m_minorigalday((int32_t)m_minorigalday);
+	for(int32_t i = 0; i < (int32_t)m_period.size(); ++i) {
+		msg.add_m_period((int32_t)m_period[i]);
+	}
+}
+
+void E_FestivalPeriodindex_s::read_from_pbmsg(const ::proto_ff::E_FestivalPeriodindex & msg) {
+	m_minorigalday = msg.m_minorigalday();
+	m_period.resize((int)msg.m_period_size() > (int)m_period.max_size() ? m_period.max_size() : msg.m_period_size());
+	for(int32_t i = 0; i < (int32_t)m_period.size(); ++i) {
+		m_period[i] = msg.m_period(i);
+	}
+}
+
+Sheet_FestivalPeriodindex_s::Sheet_FestivalPeriodindex_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_FestivalPeriodindex_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_FestivalPeriodindex_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_FestivalPeriodindex_s::write_to_pbmsg(::proto_ff::Sheet_FestivalPeriodindex & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FestivalPeriodindex_List.size(); ++i) {
+		::proto_ff::E_FestivalPeriodindex* temp_e_festivalperiodindex_list = msg.add_e_festivalperiodindex_list();
+		E_FestivalPeriodindex_List[i].write_to_pbmsg(*temp_e_festivalperiodindex_list);
+	}
+}
+
+void Sheet_FestivalPeriodindex_s::read_from_pbmsg(const ::proto_ff::Sheet_FestivalPeriodindex & msg) {
+	E_FestivalPeriodindex_List.resize((int)msg.e_festivalperiodindex_list_size() > (int)E_FestivalPeriodindex_List.max_size() ? E_FestivalPeriodindex_List.max_size() : msg.e_festivalperiodindex_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FestivalPeriodindex_List.size(); ++i) {
+		const ::proto_ff::E_FestivalPeriodindex & temp_e_festivalperiodindex_list = msg.e_festivalperiodindex_list(i);
+		E_FestivalPeriodindex_List[i].read_from_pbmsg(temp_e_festivalperiodindex_list);
+	}
+}
+
 E_FestivalFestival_s::E_FestivalFestival_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -80,6 +143,7 @@ int E_FestivalTemplate_s::CreateInit() {
 	m_periodtype = (int32_t)0;
 	m_period = (int32_t)0;
 	m_ifopen = (int32_t)0;
+	m_activeid = (int32_t)0;
 	return 0;
 }
 
@@ -100,6 +164,7 @@ void E_FestivalTemplate_s::write_to_pbmsg(::proto_ff::E_FestivalTemplate & msg) 
 	msg.set_m_periodtype((int32_t)m_periodtype);
 	msg.set_m_period((int32_t)m_period);
 	msg.set_m_ifopen((int32_t)m_ifopen);
+	msg.set_m_activeid((int32_t)m_activeid);
 	for(int32_t i = 0; i < (int32_t)m_timearg.size(); ++i) {
 		msg.add_m_timearg(m_timearg[i].data());
 	}
@@ -118,6 +183,7 @@ void E_FestivalTemplate_s::read_from_pbmsg(const ::proto_ff::E_FestivalTemplate 
 	m_periodtype = msg.m_periodtype();
 	m_period = msg.m_period();
 	m_ifopen = msg.m_ifopen();
+	m_activeid = msg.m_activeid();
 	m_timearg.resize((int)msg.m_timearg_size() > (int)m_timearg.max_size() ? m_timearg.max_size() : msg.m_timearg_size());
 	for(int32_t i = 0; i < (int32_t)m_timearg.size(); ++i) {
 		m_timearg[i] = msg.m_timearg(i);
@@ -152,6 +218,142 @@ void Sheet_FestivalTemplate_s::read_from_pbmsg(const ::proto_ff::Sheet_FestivalT
 	for(int32_t i = 0; i < (int32_t)E_FestivalTemplate_List.size(); ++i) {
 		const ::proto_ff::E_FestivalTemplate & temp_e_festivaltemplate_list = msg.e_festivaltemplate_list(i);
 		E_FestivalTemplate_List[i].read_from_pbmsg(temp_e_festivaltemplate_list);
+	}
+}
+
+E_FestivalMuban_login_s::E_FestivalMuban_login_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_FestivalMuban_login_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_period = (int32_t)0;
+	m_loginday = (int32_t)0;
+	m_boxid = (int32_t)0;
+	return 0;
+}
+
+int E_FestivalMuban_login_s::ResumeInit() {
+	return 0;
+}
+
+void E_FestivalMuban_login_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_login & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_period((int32_t)m_period);
+	msg.set_m_loginday((int32_t)m_loginday);
+	msg.set_m_boxid((int32_t)m_boxid);
+}
+
+void E_FestivalMuban_login_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_login & msg) {
+	m_id = msg.m_id();
+	m_period = msg.m_period();
+	m_loginday = msg.m_loginday();
+	m_boxid = msg.m_boxid();
+}
+
+Sheet_FestivalMuban_login_s::Sheet_FestivalMuban_login_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_FestivalMuban_login_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_FestivalMuban_login_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_FestivalMuban_login_s::write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_login & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_login_List.size(); ++i) {
+		::proto_ff::E_FestivalMuban_login* temp_e_festivalmuban_login_list = msg.add_e_festivalmuban_login_list();
+		E_FestivalMuban_login_List[i].write_to_pbmsg(*temp_e_festivalmuban_login_list);
+	}
+}
+
+void Sheet_FestivalMuban_login_s::read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_login & msg) {
+	E_FestivalMuban_login_List.resize((int)msg.e_festivalmuban_login_list_size() > (int)E_FestivalMuban_login_List.max_size() ? E_FestivalMuban_login_List.max_size() : msg.e_festivalmuban_login_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_login_List.size(); ++i) {
+		const ::proto_ff::E_FestivalMuban_login & temp_e_festivalmuban_login_list = msg.e_festivalmuban_login_list(i);
+		E_FestivalMuban_login_List[i].read_from_pbmsg(temp_e_festivalmuban_login_list);
+	}
+}
+
+E_FestivalMuban_firstrecharge_s::E_FestivalMuban_firstrecharge_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_FestivalMuban_firstrecharge_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_period = (int32_t)0;
+	m_day = (int32_t)0;
+	m_gear = (int32_t)0;
+	m_recharge = (int32_t)0;
+	m_boxid = (int32_t)0;
+	return 0;
+}
+
+int E_FestivalMuban_firstrecharge_s::ResumeInit() {
+	return 0;
+}
+
+void E_FestivalMuban_firstrecharge_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_firstrecharge & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_period((int32_t)m_period);
+	msg.set_m_day((int32_t)m_day);
+	msg.set_m_gear((int32_t)m_gear);
+	msg.set_m_recharge((int32_t)m_recharge);
+	msg.set_m_boxid((int32_t)m_boxid);
+}
+
+void E_FestivalMuban_firstrecharge_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_firstrecharge & msg) {
+	m_id = msg.m_id();
+	m_period = msg.m_period();
+	m_day = msg.m_day();
+	m_gear = msg.m_gear();
+	m_recharge = msg.m_recharge();
+	m_boxid = msg.m_boxid();
+}
+
+Sheet_FestivalMuban_firstrecharge_s::Sheet_FestivalMuban_firstrecharge_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_FestivalMuban_firstrecharge_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_FestivalMuban_firstrecharge_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_FestivalMuban_firstrecharge_s::write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_firstrecharge & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_firstrecharge_List.size(); ++i) {
+		::proto_ff::E_FestivalMuban_firstrecharge* temp_e_festivalmuban_firstrecharge_list = msg.add_e_festivalmuban_firstrecharge_list();
+		E_FestivalMuban_firstrecharge_List[i].write_to_pbmsg(*temp_e_festivalmuban_firstrecharge_list);
+	}
+}
+
+void Sheet_FestivalMuban_firstrecharge_s::read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_firstrecharge & msg) {
+	E_FestivalMuban_firstrecharge_List.resize((int)msg.e_festivalmuban_firstrecharge_list_size() > (int)E_FestivalMuban_firstrecharge_List.max_size() ? E_FestivalMuban_firstrecharge_List.max_size() : msg.e_festivalmuban_firstrecharge_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_firstrecharge_List.size(); ++i) {
+		const ::proto_ff::E_FestivalMuban_firstrecharge & temp_e_festivalmuban_firstrecharge_list = msg.e_festivalmuban_firstrecharge_list(i);
+		E_FestivalMuban_firstrecharge_List[i].read_from_pbmsg(temp_e_festivalmuban_firstrecharge_list);
 	}
 }
 
@@ -511,7 +713,7 @@ void Sheet_FestivalMuban_love_taskreward_s::read_from_pbmsg(const ::proto_ff::Sh
 	}
 }
 
-E_FestivalPeriodindex_s::E_FestivalPeriodindex_s() {
+E_FestivalMuban_addbox_s::E_FestivalMuban_addbox_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -519,31 +721,38 @@ E_FestivalPeriodindex_s::E_FestivalPeriodindex_s() {
 	}
 }
 
-int E_FestivalPeriodindex_s::CreateInit() {
-	m_minorigalday = (int32_t)0;
+int E_FestivalMuban_addbox_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_period = (int32_t)0;
+	m_lvlimit = (int32_t)0;
+	m_type = (int32_t)0;
+	m_addboxid = (int32_t)0;
 	return 0;
 }
 
-int E_FestivalPeriodindex_s::ResumeInit() {
+int E_FestivalMuban_addbox_s::ResumeInit() {
 	return 0;
 }
 
-void E_FestivalPeriodindex_s::write_to_pbmsg(::proto_ff::E_FestivalPeriodindex & msg) const {
-	msg.set_m_minorigalday((int32_t)m_minorigalday);
-	for(int32_t i = 0; i < (int32_t)m_period.size(); ++i) {
-		msg.add_m_period((int32_t)m_period[i]);
-	}
+void E_FestivalMuban_addbox_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_addbox & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_period((int32_t)m_period);
+	msg.set_m_lvlimit((int32_t)m_lvlimit);
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_arg(m_arg.data());
+	msg.set_m_addboxid((int32_t)m_addboxid);
 }
 
-void E_FestivalPeriodindex_s::read_from_pbmsg(const ::proto_ff::E_FestivalPeriodindex & msg) {
-	m_minorigalday = msg.m_minorigalday();
-	m_period.resize((int)msg.m_period_size() > (int)m_period.max_size() ? m_period.max_size() : msg.m_period_size());
-	for(int32_t i = 0; i < (int32_t)m_period.size(); ++i) {
-		m_period[i] = msg.m_period(i);
-	}
+void E_FestivalMuban_addbox_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_addbox & msg) {
+	m_id = msg.m_id();
+	m_period = msg.m_period();
+	m_lvlimit = msg.m_lvlimit();
+	m_type = msg.m_type();
+	m_arg = msg.m_arg();
+	m_addboxid = msg.m_addboxid();
 }
 
-Sheet_FestivalPeriodindex_s::Sheet_FestivalPeriodindex_s() {
+Sheet_FestivalMuban_addbox_s::Sheet_FestivalMuban_addbox_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -551,26 +760,93 @@ Sheet_FestivalPeriodindex_s::Sheet_FestivalPeriodindex_s() {
 	}
 }
 
-int Sheet_FestivalPeriodindex_s::CreateInit() {
+int Sheet_FestivalMuban_addbox_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_FestivalPeriodindex_s::ResumeInit() {
+int Sheet_FestivalMuban_addbox_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_FestivalPeriodindex_s::write_to_pbmsg(::proto_ff::Sheet_FestivalPeriodindex & msg) const {
-	for(int32_t i = 0; i < (int32_t)E_FestivalPeriodindex_List.size(); ++i) {
-		::proto_ff::E_FestivalPeriodindex* temp_e_festivalperiodindex_list = msg.add_e_festivalperiodindex_list();
-		E_FestivalPeriodindex_List[i].write_to_pbmsg(*temp_e_festivalperiodindex_list);
+void Sheet_FestivalMuban_addbox_s::write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_addbox & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_addbox_List.size(); ++i) {
+		::proto_ff::E_FestivalMuban_addbox* temp_e_festivalmuban_addbox_list = msg.add_e_festivalmuban_addbox_list();
+		E_FestivalMuban_addbox_List[i].write_to_pbmsg(*temp_e_festivalmuban_addbox_list);
 	}
 }
 
-void Sheet_FestivalPeriodindex_s::read_from_pbmsg(const ::proto_ff::Sheet_FestivalPeriodindex & msg) {
-	E_FestivalPeriodindex_List.resize((int)msg.e_festivalperiodindex_list_size() > (int)E_FestivalPeriodindex_List.max_size() ? E_FestivalPeriodindex_List.max_size() : msg.e_festivalperiodindex_list_size());
-	for(int32_t i = 0; i < (int32_t)E_FestivalPeriodindex_List.size(); ++i) {
-		const ::proto_ff::E_FestivalPeriodindex & temp_e_festivalperiodindex_list = msg.e_festivalperiodindex_list(i);
-		E_FestivalPeriodindex_List[i].read_from_pbmsg(temp_e_festivalperiodindex_list);
+void Sheet_FestivalMuban_addbox_s::read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_addbox & msg) {
+	E_FestivalMuban_addbox_List.resize((int)msg.e_festivalmuban_addbox_list_size() > (int)E_FestivalMuban_addbox_List.max_size() ? E_FestivalMuban_addbox_List.max_size() : msg.e_festivalmuban_addbox_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_addbox_List.size(); ++i) {
+		const ::proto_ff::E_FestivalMuban_addbox & temp_e_festivalmuban_addbox_list = msg.e_festivalmuban_addbox_list(i);
+		E_FestivalMuban_addbox_List[i].read_from_pbmsg(temp_e_festivalmuban_addbox_list);
+	}
+}
+
+E_FestivalMuban_doublebox_s::E_FestivalMuban_doublebox_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_FestivalMuban_doublebox_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_period = (int32_t)0;
+	m_type = (int32_t)0;
+	m_multiply = (int32_t)0;
+	return 0;
+}
+
+int E_FestivalMuban_doublebox_s::ResumeInit() {
+	return 0;
+}
+
+void E_FestivalMuban_doublebox_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_doublebox & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_period((int32_t)m_period);
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_arg(m_arg.data());
+	msg.set_m_multiply((int32_t)m_multiply);
+}
+
+void E_FestivalMuban_doublebox_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_doublebox & msg) {
+	m_id = msg.m_id();
+	m_period = msg.m_period();
+	m_type = msg.m_type();
+	m_arg = msg.m_arg();
+	m_multiply = msg.m_multiply();
+}
+
+Sheet_FestivalMuban_doublebox_s::Sheet_FestivalMuban_doublebox_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_FestivalMuban_doublebox_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_FestivalMuban_doublebox_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_FestivalMuban_doublebox_s::write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_doublebox & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_doublebox_List.size(); ++i) {
+		::proto_ff::E_FestivalMuban_doublebox* temp_e_festivalmuban_doublebox_list = msg.add_e_festivalmuban_doublebox_list();
+		E_FestivalMuban_doublebox_List[i].write_to_pbmsg(*temp_e_festivalmuban_doublebox_list);
+	}
+}
+
+void Sheet_FestivalMuban_doublebox_s::read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_doublebox & msg) {
+	E_FestivalMuban_doublebox_List.resize((int)msg.e_festivalmuban_doublebox_list_size() > (int)E_FestivalMuban_doublebox_List.max_size() ? E_FestivalMuban_doublebox_List.max_size() : msg.e_festivalmuban_doublebox_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_doublebox_List.size(); ++i) {
+		const ::proto_ff::E_FestivalMuban_doublebox & temp_e_festivalmuban_doublebox_list = msg.e_festivalmuban_doublebox_list(i);
+		E_FestivalMuban_doublebox_List[i].read_from_pbmsg(temp_e_festivalmuban_doublebox_list);
 	}
 }
 
@@ -775,6 +1051,7 @@ void E_FestivalMuban_severrank_data_s::write_to_pbmsg(::proto_ff::E_FestivalMuba
 	msg.set_m_maxrank((int32_t)m_maxrank);
 	msg.set_m_minrank((int32_t)m_minrank);
 	msg.set_m_rankvalue((int32_t)m_rankvalue);
+	msg.set_m_unachievedisplay(m_unachievedisplay.data());
 	msg.set_m_boxid((int32_t)m_boxid);
 }
 
@@ -784,6 +1061,7 @@ void E_FestivalMuban_severrank_data_s::read_from_pbmsg(const ::proto_ff::E_Festi
 	m_maxrank = msg.m_maxrank();
 	m_minrank = msg.m_minrank();
 	m_rankvalue = msg.m_rankvalue();
+	m_unachievedisplay = msg.m_unachievedisplay();
 	m_boxid = msg.m_boxid();
 }
 
@@ -2345,7 +2623,7 @@ E_FestivalMuban_totalrecharge_s::E_FestivalMuban_totalrecharge_s() {
 
 int E_FestivalMuban_totalrecharge_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_a = (int32_t)0;
+	m_period = (int32_t)0;
 	m_value = (int32_t)0;
 	m_boxid = (int32_t)0;
 	return 0;
@@ -2357,14 +2635,14 @@ int E_FestivalMuban_totalrecharge_s::ResumeInit() {
 
 void E_FestivalMuban_totalrecharge_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_totalrecharge & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_a((int32_t)m_a);
+	msg.set_m_period((int32_t)m_period);
 	msg.set_m_value((int32_t)m_value);
 	msg.set_m_boxid((int32_t)m_boxid);
 }
 
 void E_FestivalMuban_totalrecharge_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_totalrecharge & msg) {
 	m_id = msg.m_id();
-	m_a = msg.m_a();
+	m_period = msg.m_period();
 	m_value = msg.m_value();
 	m_boxid = msg.m_boxid();
 }

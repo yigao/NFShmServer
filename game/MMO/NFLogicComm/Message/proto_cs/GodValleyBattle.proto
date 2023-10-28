@@ -505,3 +505,13 @@ message GMAResultRsp
     repeated uint64 itemCounts=2;
     required uint64 timeUsed=3;
 };
+message GMADatasReq
+{};
+
+message GMAError{
+    required uint32 errcode=1;
+};
+
+message GMATimeReq{
+    required uint32 op =1;//0need ,1not need
+};

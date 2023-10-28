@@ -275,17 +275,27 @@ class UpdateGodRelecsNotify : public ::google::protobuf::Message {
   inline ::proto_ff::GodRelicsTaskGroupEntry* release_group_data();
   inline void set_allocated_group_data(::proto_ff::GodRelicsTaskGroupEntry* group_data);
 
+  // optional uint32 cur_id = 2;
+  inline bool has_cur_id() const;
+  inline void clear_cur_id();
+  static const int kCurIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 cur_id() const;
+  inline void set_cur_id(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.UpdateGodRelecsNotify)
  private:
   inline void set_has_group_data();
   inline void clear_has_group_data();
+  inline void set_has_cur_id();
+  inline void clear_has_cur_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::proto_ff::GodRelicsTaskGroupEntry* group_data_;
+  ::google::protobuf::uint32 cur_id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_MiniActivity_2eproto();
   friend void protobuf_AssignDesc_MiniActivity_2eproto();
@@ -776,6 +786,28 @@ inline void UpdateGodRelecsNotify::set_allocated_group_data(::proto_ff::GodRelic
   } else {
     clear_has_group_data();
   }
+}
+
+// optional uint32 cur_id = 2;
+inline bool UpdateGodRelecsNotify::has_cur_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void UpdateGodRelecsNotify::set_has_cur_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void UpdateGodRelecsNotify::clear_has_cur_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void UpdateGodRelecsNotify::clear_cur_id() {
+  cur_id_ = 0u;
+  clear_has_cur_id();
+}
+inline ::google::protobuf::uint32 UpdateGodRelecsNotify::cur_id() const {
+  return cur_id_;
+}
+inline void UpdateGodRelecsNotify::set_cur_id(::google::protobuf::uint32 value) {
+  set_has_cur_id();
+  cur_id_ = value;
 }
 
 // -------------------------------------------------------------------

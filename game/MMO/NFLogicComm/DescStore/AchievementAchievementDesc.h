@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Achievement_s.h"
 
-#define MAX_ACHIEVEMENT_ACHIEVEMENT_NUM 256
+#define MAX_ACHIEVEMENT_ACHIEVEMENT_NUM 1024
 
 class AchievementAchievementDesc : public NFIDescTemplate<AchievementAchievementDesc, proto_ff_s::E_AchievementAchievement_s, EOT_CONST_ACHIEVEMENT_ACHIEVEMENT_DESC_ID, MAX_ACHIEVEMENT_ACHIEVEMENT_NUM>
 {

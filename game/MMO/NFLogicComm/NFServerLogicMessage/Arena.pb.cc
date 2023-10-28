@@ -509,13 +509,14 @@ void protobuf_AssignDesc_Arena_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GWArenaRankChangeNotify));
   GWArenaChallReq_descriptor_ = file->message_type(22);
-  static const int GWArenaChallReq_offsets_[6] = {
+  static const int GWArenaChallReq_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GWArenaChallReq, srcid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GWArenaChallReq, dstid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GWArenaChallReq, rankid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GWArenaChallReq, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GWArenaChallReq, chall_type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GWArenaChallReq, can_miaosha_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GWArenaChallReq, mult_),
   };
   GWArenaChallReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -912,30 +913,30 @@ void protobuf_AddDesc_Arena_2eproto() {
     "\010playerLv\030\n \001(\005\"8\n\026GWArenaCampChallResul"
     "t\022\021\n\tsrcCharId\030\001 \001(\004\022\013\n\003ret\030\002 \001(\r\"7\n\027GWA"
     "renaRankChangeNotify\022\016\n\006charid\030\001 \001(\004\022\014\n\004"
-    "rank\030\002 \001(\005\"v\n\017GWArenaChallReq\022\r\n\005srcId\030\001"
-    " \001(\004\022\r\n\005dstId\030\002 \001(\004\022\016\n\006rankId\030\003 \001(\r\022\014\n\004t"
-    "ype\030\004 \001(\r\022\022\n\nchall_type\030\005 \001(\r\022\023\n\013can_mia"
-    "osha\030\006 \001(\r\"F\n\022C2LSendArenaReward\022\016\n\006char"
-    "Id\030\001 \001(\004\022 \n\005items\030\002 \003(\0132\021.proto_ff.ComIt"
-    "em\"\033\n\031C2LArenaGetChallResultReq\"Z\n\031L2CAr"
-    "enaGetChallResultRsp\022\013\n\003ret\030\001 \001(\005\0220\n\014cha"
-    "ll_result\030\002 \003(\0132\032.proto_ff.ArenaChallRes"
-    "ult\"\033\n\031C2LArenaGetChallRewardReq\"T\n\031L2CA"
-    "renaGetChallRewardRsp\022\013\n\003ret\030\001 \001(\005\022*\n\006re"
-    "ward\030\002 \003(\0132\032.proto_ff.ChallArenaReward\"~"
-    "\n\031L2CArenaChallRewardNotify\022\013\n\003ret\030\001 \001(\005"
-    "\022*\n\006reward\030\002 \003(\0132\032.proto_ff.ChallArenaRe"
-    "ward\022\017\n\007rank_id\030\003 \001(\005\022\027\n\017history_rank_id"
-    "\030\004 \001(\005\"+\n\035C2LArenaReceiveChallRewardReq\022"
-    "\n\n\002id\030\001 \001(\004\"X\n\035L2CArenaReceiveChallRewar"
-    "dRsp\022\013\n\003ret\030\001 \001(\005\022*\n\006reward\030\002 \003(\0132\032.prot"
-    "o_ff.ChallArenaReward\"o\n\027C2LArenaDupBatt"
-    "leResult\022\017\n\007char_id\030\001 \001(\004\022\021\n\tchar_rank\030\002"
-    " \001(\004\022\016\n\006dst_id\030\003 \001(\004\022\020\n\010dst_rank\030\004 \001(\004\022\016"
-    "\n\006result\030\010 \001(\r\"\027\n\025C2LArenaSkipBattleReq\""
-    "$\n\025L2CArenaSkipBattleRsp\022\013\n\003ret\030\001 \001(\005*3\n"
-    "\024ARENA_CHALL_RESULT_E\022\014\n\010ACRE_WIN\020\000\022\r\n\tA"
-    "CRE_LOSE\020\001", 2770);
+    "rank\030\002 \001(\005\"\204\001\n\017GWArenaChallReq\022\r\n\005srcId\030"
+    "\001 \001(\004\022\r\n\005dstId\030\002 \001(\004\022\016\n\006rankId\030\003 \001(\r\022\014\n\004"
+    "type\030\004 \001(\r\022\022\n\nchall_type\030\005 \001(\r\022\023\n\013can_mi"
+    "aosha\030\006 \001(\r\022\014\n\004mult\030\007 \001(\005\"F\n\022C2LSendAren"
+    "aReward\022\016\n\006charId\030\001 \001(\004\022 \n\005items\030\002 \003(\0132\021"
+    ".proto_ff.ComItem\"\033\n\031C2LArenaGetChallRes"
+    "ultReq\"Z\n\031L2CArenaGetChallResultRsp\022\013\n\003r"
+    "et\030\001 \001(\005\0220\n\014chall_result\030\002 \003(\0132\032.proto_f"
+    "f.ArenaChallResult\"\033\n\031C2LArenaGetChallRe"
+    "wardReq\"T\n\031L2CArenaGetChallRewardRsp\022\013\n\003"
+    "ret\030\001 \001(\005\022*\n\006reward\030\002 \003(\0132\032.proto_ff.Cha"
+    "llArenaReward\"~\n\031L2CArenaChallRewardNoti"
+    "fy\022\013\n\003ret\030\001 \001(\005\022*\n\006reward\030\002 \003(\0132\032.proto_"
+    "ff.ChallArenaReward\022\017\n\007rank_id\030\003 \001(\005\022\027\n\017"
+    "history_rank_id\030\004 \001(\005\"+\n\035C2LArenaReceive"
+    "ChallRewardReq\022\n\n\002id\030\001 \001(\004\"X\n\035L2CArenaRe"
+    "ceiveChallRewardRsp\022\013\n\003ret\030\001 \001(\005\022*\n\006rewa"
+    "rd\030\002 \003(\0132\032.proto_ff.ChallArenaReward\"o\n\027"
+    "C2LArenaDupBattleResult\022\017\n\007char_id\030\001 \001(\004"
+    "\022\021\n\tchar_rank\030\002 \001(\004\022\016\n\006dst_id\030\003 \001(\004\022\020\n\010d"
+    "st_rank\030\004 \001(\004\022\016\n\006result\030\010 \001(\r\"\027\n\025C2LAren"
+    "aSkipBattleReq\"$\n\025L2CArenaSkipBattleRsp\022"
+    "\013\n\003ret\030\001 \001(\005*3\n\024ARENA_CHALL_RESULT_E\022\014\n\010"
+    "ACRE_WIN\020\000\022\r\n\tACRE_LOSE\020\001", 2785);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Arena.proto", &protobuf_RegisterTypes);
   CWArenaRankInfoReq::default_instance_ = new CWArenaRankInfoReq();
@@ -7410,6 +7411,7 @@ const int GWArenaChallReq::kRankIdFieldNumber;
 const int GWArenaChallReq::kTypeFieldNumber;
 const int GWArenaChallReq::kChallTypeFieldNumber;
 const int GWArenaChallReq::kCanMiaoshaFieldNumber;
+const int GWArenaChallReq::kMultFieldNumber;
 #endif  // !_MSC_VER
 
 GWArenaChallReq::GWArenaChallReq()
@@ -7434,6 +7436,7 @@ void GWArenaChallReq::SharedCtor() {
   type_ = 0u;
   chall_type_ = 0u;
   can_miaosha_ = 0u;
+  mult_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -7475,6 +7478,7 @@ void GWArenaChallReq::Clear() {
     type_ = 0u;
     chall_type_ = 0u;
     can_miaosha_ = 0u;
+    mult_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -7577,6 +7581,22 @@ bool GWArenaChallReq::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(56)) goto parse_mult;
+        break;
+      }
+
+      // optional int32 mult = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_mult:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &mult_)));
+          set_has_mult();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -7629,6 +7649,11 @@ void GWArenaChallReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->can_miaosha(), output);
   }
 
+  // optional int32 mult = 7;
+  if (has_mult()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->mult(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -7665,6 +7690,11 @@ void GWArenaChallReq::SerializeWithCachedSizes(
   // optional uint32 can_miaosha = 6;
   if (has_can_miaosha()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->can_miaosha(), target);
+  }
+
+  // optional int32 mult = 7;
+  if (has_mult()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->mult(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -7720,6 +7750,13 @@ int GWArenaChallReq::ByteSize() const {
           this->can_miaosha());
     }
 
+    // optional int32 mult = 7;
+    if (has_mult()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->mult());
+    }
+
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -7765,6 +7802,9 @@ void GWArenaChallReq::MergeFrom(const GWArenaChallReq& from) {
     if (from.has_can_miaosha()) {
       set_can_miaosha(from.can_miaosha());
     }
+    if (from.has_mult()) {
+      set_mult(from.mult());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -7794,6 +7834,7 @@ void GWArenaChallReq::Swap(GWArenaChallReq* other) {
     std::swap(type_, other->type_);
     std::swap(chall_type_, other->chall_type_);
     std::swap(can_miaosha_, other->can_miaosha_);
+    std::swap(mult_, other->mult_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

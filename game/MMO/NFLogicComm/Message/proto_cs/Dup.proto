@@ -353,6 +353,20 @@ message NotifyYaotaDupRes
 	optional int32 time =3 ;	//通過時間
 }
 
+//5-1:凡人修仙秒杀 TOWER_FLASH_REQ
+message TowerFlashReq
+{
+}
+//5-2:凡人修仙秒杀 TOWER_FLASH_RSP
+message TowerFlashRsp
+{
+	optional int32 result = 1;			//结果 0 成功，1 失败
+	optional uint64 dupId = 2;			//副本ID
+	optional int32 star = 3;			//星级
+	optional int32 cost_sec = 4;		//消耗的时间，单位：秒
+	optional DupDropProto info = 5;		//副本掉落物品
+}
+
 // =========================服务器间通信===================
 
 //2：逻辑服请求进入或者创建副本  L2C_ENTER_DUP_REQ
@@ -502,6 +516,8 @@ message L2CDupResultRsp
 	optional uint64 sceneId = 1;
 	optional uint64 dupId = 2;
 	optional int32 result = 3;
+	optional int64 int_param = 4;
+	optional bytes str_param = 5;
 }
 //18-1:中心服通知配置机器人进入副本  C2L_ENTER_REBOT_REQ
 message C2LEnterRebotReq

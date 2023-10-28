@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Equip_s.h"
 
-#define MAX_EQUIP_STRONG_NUM 512
+#define MAX_EQUIP_STRONG_NUM 2048
 
 class EquipStrongDesc : public NFIDescTemplate<EquipStrongDesc, proto_ff_s::E_EquipStrong_s, EOT_CONST_EQUIP_STRONG_DESC_ID, MAX_EQUIP_STRONG_NUM>
 {

@@ -192,6 +192,9 @@ class MountActiveFairyTourReq;
 class MountActiveFairyTourRsp;
 class MountUnlockSlotReq;
 class MountUnlockSlotRsp;
+class MountModelChange;
+class MountKunEquipSlotUnlockReq;
+class MountKunEquipSlotUnlockRsp;
 class DeityInfoReq;
 class DeityInfoRsp;
 class DeitySkillUnlockNotify;
@@ -5077,20 +5080,30 @@ class GetDailyTaskDataRsp : public ::google::protobuf::Message {
   inline bool money_reward_finish() const;
   inline void set_money_reward_finish(bool value);
 
+  // optional bool prestige_reward_finish = 3;
+  inline bool has_prestige_reward_finish() const;
+  inline void clear_prestige_reward_finish();
+  static const int kPrestigeRewardFinishFieldNumber = 3;
+  inline bool prestige_reward_finish() const;
+  inline void set_prestige_reward_finish(bool value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.GetDailyTaskDataRsp)
  private:
   inline void set_has_data();
   inline void clear_has_data();
   inline void set_has_money_reward_finish();
   inline void clear_has_money_reward_finish();
+  inline void set_has_prestige_reward_finish();
+  inline void clear_has_prestige_reward_finish();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::proto_ff::DailyTaskAllData* data_;
   bool money_reward_finish_;
+  bool prestige_reward_finish_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_ClientServer_2eproto();
   friend void protobuf_AssignDesc_ClientServer_2eproto();
@@ -14837,6 +14850,289 @@ class MountUnlockSlotRsp : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class MountModelChange : public ::google::protobuf::Message {
+ public:
+  MountModelChange();
+  virtual ~MountModelChange();
+
+  MountModelChange(const MountModelChange& from);
+
+  inline MountModelChange& operator=(const MountModelChange& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MountModelChange& default_instance();
+
+  void Swap(MountModelChange* other);
+
+  // implements Message ----------------------------------------------
+
+  MountModelChange* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MountModelChange& from);
+  void MergeFrom(const MountModelChange& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 model_id = 1;
+  inline bool has_model_id() const;
+  inline void clear_model_id();
+  static const int kModelIdFieldNumber = 1;
+  inline ::google::protobuf::int32 model_id() const;
+  inline void set_model_id(::google::protobuf::int32 value);
+
+  // optional bytes model_name = 2;
+  inline bool has_model_name() const;
+  inline void clear_model_name();
+  static const int kModelNameFieldNumber = 2;
+  inline const ::std::string& model_name() const;
+  inline void set_model_name(const ::std::string& value);
+  inline void set_model_name(const char* value);
+  inline void set_model_name(const void* value, size_t size);
+  inline ::std::string* mutable_model_name();
+  inline ::std::string* release_model_name();
+  inline void set_allocated_model_name(::std::string* model_name);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.MountModelChange)
+ private:
+  inline void set_has_model_id();
+  inline void clear_has_model_id();
+  inline void set_has_model_name();
+  inline void clear_has_model_name();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* model_name_;
+  ::google::protobuf::int32 model_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static MountModelChange* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MountKunEquipSlotUnlockReq : public ::google::protobuf::Message {
+ public:
+  MountKunEquipSlotUnlockReq();
+  virtual ~MountKunEquipSlotUnlockReq();
+
+  MountKunEquipSlotUnlockReq(const MountKunEquipSlotUnlockReq& from);
+
+  inline MountKunEquipSlotUnlockReq& operator=(const MountKunEquipSlotUnlockReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MountKunEquipSlotUnlockReq& default_instance();
+
+  void Swap(MountKunEquipSlotUnlockReq* other);
+
+  // implements Message ----------------------------------------------
+
+  MountKunEquipSlotUnlockReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MountKunEquipSlotUnlockReq& from);
+  void MergeFrom(const MountKunEquipSlotUnlockReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 kun_id = 1;
+  inline bool has_kun_id() const;
+  inline void clear_kun_id();
+  static const int kKunIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 kun_id() const;
+  inline void set_kun_id(::google::protobuf::uint32 value);
+
+  // optional uint32 slot = 2;
+  inline bool has_slot() const;
+  inline void clear_slot();
+  static const int kSlotFieldNumber = 2;
+  inline ::google::protobuf::uint32 slot() const;
+  inline void set_slot(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.MountKunEquipSlotUnlockReq)
+ private:
+  inline void set_has_kun_id();
+  inline void clear_has_kun_id();
+  inline void set_has_slot();
+  inline void clear_has_slot();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 kun_id_;
+  ::google::protobuf::uint32 slot_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static MountKunEquipSlotUnlockReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MountKunEquipSlotUnlockRsp : public ::google::protobuf::Message {
+ public:
+  MountKunEquipSlotUnlockRsp();
+  virtual ~MountKunEquipSlotUnlockRsp();
+
+  MountKunEquipSlotUnlockRsp(const MountKunEquipSlotUnlockRsp& from);
+
+  inline MountKunEquipSlotUnlockRsp& operator=(const MountKunEquipSlotUnlockRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MountKunEquipSlotUnlockRsp& default_instance();
+
+  void Swap(MountKunEquipSlotUnlockRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  MountKunEquipSlotUnlockRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MountKunEquipSlotUnlockRsp& from);
+  void MergeFrom(const MountKunEquipSlotUnlockRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // optional .proto_ff.MountKunData kun_data = 2;
+  inline bool has_kun_data() const;
+  inline void clear_kun_data();
+  static const int kKunDataFieldNumber = 2;
+  inline const ::proto_ff::MountKunData& kun_data() const;
+  inline ::proto_ff::MountKunData* mutable_kun_data();
+  inline ::proto_ff::MountKunData* release_kun_data();
+  inline void set_allocated_kun_data(::proto_ff::MountKunData* kun_data);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.MountKunEquipSlotUnlockRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+  inline void set_has_kun_data();
+  inline void clear_has_kun_data();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::proto_ff::MountKunData* kun_data_;
+  ::google::protobuf::int32 ret_code_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static MountKunEquipSlotUnlockRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class DeityInfoReq : public ::google::protobuf::Message {
  public:
   DeityInfoReq();
@@ -23433,20 +23729,30 @@ class CLGetBuyBattlePassShopReq : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 id() const;
   inline void set_id(::google::protobuf::int32 value);
 
+  // optional int32 num = 3;
+  inline bool has_num() const;
+  inline void clear_num();
+  static const int kNumFieldNumber = 3;
+  inline ::google::protobuf::int32 num() const;
+  inline void set_num(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.CLGetBuyBattlePassShopReq)
  private:
   inline void set_has_type();
   inline void clear_has_type();
   inline void set_has_id();
   inline void clear_has_id();
+  inline void set_has_num();
+  inline void clear_has_num();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int32 type_;
   ::google::protobuf::int32 id_;
+  ::google::protobuf::int32 num_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_ClientServer_2eproto();
   friend void protobuf_AssignDesc_ClientServer_2eproto();
@@ -27678,6 +27984,28 @@ inline bool GetDailyTaskDataRsp::money_reward_finish() const {
 inline void GetDailyTaskDataRsp::set_money_reward_finish(bool value) {
   set_has_money_reward_finish();
   money_reward_finish_ = value;
+}
+
+// optional bool prestige_reward_finish = 3;
+inline bool GetDailyTaskDataRsp::has_prestige_reward_finish() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GetDailyTaskDataRsp::set_has_prestige_reward_finish() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GetDailyTaskDataRsp::clear_has_prestige_reward_finish() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GetDailyTaskDataRsp::clear_prestige_reward_finish() {
+  prestige_reward_finish_ = false;
+  clear_has_prestige_reward_finish();
+}
+inline bool GetDailyTaskDataRsp::prestige_reward_finish() const {
+  return prestige_reward_finish_;
+}
+inline void GetDailyTaskDataRsp::set_prestige_reward_finish(bool value) {
+  set_has_prestige_reward_finish();
+  prestige_reward_finish_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -32634,6 +32962,214 @@ inline void MountUnlockSlotRsp::set_allocated_slot(::proto_ff::MountFairySlot* s
 
 // -------------------------------------------------------------------
 
+// MountModelChange
+
+// optional int32 model_id = 1;
+inline bool MountModelChange::has_model_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MountModelChange::set_has_model_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MountModelChange::clear_has_model_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MountModelChange::clear_model_id() {
+  model_id_ = 0;
+  clear_has_model_id();
+}
+inline ::google::protobuf::int32 MountModelChange::model_id() const {
+  return model_id_;
+}
+inline void MountModelChange::set_model_id(::google::protobuf::int32 value) {
+  set_has_model_id();
+  model_id_ = value;
+}
+
+// optional bytes model_name = 2;
+inline bool MountModelChange::has_model_name() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MountModelChange::set_has_model_name() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MountModelChange::clear_has_model_name() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MountModelChange::clear_model_name() {
+  if (model_name_ != &::google::protobuf::internal::kEmptyString) {
+    model_name_->clear();
+  }
+  clear_has_model_name();
+}
+inline const ::std::string& MountModelChange::model_name() const {
+  return *model_name_;
+}
+inline void MountModelChange::set_model_name(const ::std::string& value) {
+  set_has_model_name();
+  if (model_name_ == &::google::protobuf::internal::kEmptyString) {
+    model_name_ = new ::std::string;
+  }
+  model_name_->assign(value);
+}
+inline void MountModelChange::set_model_name(const char* value) {
+  set_has_model_name();
+  if (model_name_ == &::google::protobuf::internal::kEmptyString) {
+    model_name_ = new ::std::string;
+  }
+  model_name_->assign(value);
+}
+inline void MountModelChange::set_model_name(const void* value, size_t size) {
+  set_has_model_name();
+  if (model_name_ == &::google::protobuf::internal::kEmptyString) {
+    model_name_ = new ::std::string;
+  }
+  model_name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* MountModelChange::mutable_model_name() {
+  set_has_model_name();
+  if (model_name_ == &::google::protobuf::internal::kEmptyString) {
+    model_name_ = new ::std::string;
+  }
+  return model_name_;
+}
+inline ::std::string* MountModelChange::release_model_name() {
+  clear_has_model_name();
+  if (model_name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = model_name_;
+    model_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void MountModelChange::set_allocated_model_name(::std::string* model_name) {
+  if (model_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete model_name_;
+  }
+  if (model_name) {
+    set_has_model_name();
+    model_name_ = model_name;
+  } else {
+    clear_has_model_name();
+    model_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// MountKunEquipSlotUnlockReq
+
+// optional uint32 kun_id = 1;
+inline bool MountKunEquipSlotUnlockReq::has_kun_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MountKunEquipSlotUnlockReq::set_has_kun_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MountKunEquipSlotUnlockReq::clear_has_kun_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MountKunEquipSlotUnlockReq::clear_kun_id() {
+  kun_id_ = 0u;
+  clear_has_kun_id();
+}
+inline ::google::protobuf::uint32 MountKunEquipSlotUnlockReq::kun_id() const {
+  return kun_id_;
+}
+inline void MountKunEquipSlotUnlockReq::set_kun_id(::google::protobuf::uint32 value) {
+  set_has_kun_id();
+  kun_id_ = value;
+}
+
+// optional uint32 slot = 2;
+inline bool MountKunEquipSlotUnlockReq::has_slot() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MountKunEquipSlotUnlockReq::set_has_slot() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MountKunEquipSlotUnlockReq::clear_has_slot() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MountKunEquipSlotUnlockReq::clear_slot() {
+  slot_ = 0u;
+  clear_has_slot();
+}
+inline ::google::protobuf::uint32 MountKunEquipSlotUnlockReq::slot() const {
+  return slot_;
+}
+inline void MountKunEquipSlotUnlockReq::set_slot(::google::protobuf::uint32 value) {
+  set_has_slot();
+  slot_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// MountKunEquipSlotUnlockRsp
+
+// optional int32 ret_code = 1;
+inline bool MountKunEquipSlotUnlockRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MountKunEquipSlotUnlockRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MountKunEquipSlotUnlockRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MountKunEquipSlotUnlockRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 MountKunEquipSlotUnlockRsp::ret_code() const {
+  return ret_code_;
+}
+inline void MountKunEquipSlotUnlockRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// optional .proto_ff.MountKunData kun_data = 2;
+inline bool MountKunEquipSlotUnlockRsp::has_kun_data() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MountKunEquipSlotUnlockRsp::set_has_kun_data() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MountKunEquipSlotUnlockRsp::clear_has_kun_data() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MountKunEquipSlotUnlockRsp::clear_kun_data() {
+  if (kun_data_ != NULL) kun_data_->::proto_ff::MountKunData::Clear();
+  clear_has_kun_data();
+}
+inline const ::proto_ff::MountKunData& MountKunEquipSlotUnlockRsp::kun_data() const {
+  return kun_data_ != NULL ? *kun_data_ : *default_instance_->kun_data_;
+}
+inline ::proto_ff::MountKunData* MountKunEquipSlotUnlockRsp::mutable_kun_data() {
+  set_has_kun_data();
+  if (kun_data_ == NULL) kun_data_ = new ::proto_ff::MountKunData;
+  return kun_data_;
+}
+inline ::proto_ff::MountKunData* MountKunEquipSlotUnlockRsp::release_kun_data() {
+  clear_has_kun_data();
+  ::proto_ff::MountKunData* temp = kun_data_;
+  kun_data_ = NULL;
+  return temp;
+}
+inline void MountKunEquipSlotUnlockRsp::set_allocated_kun_data(::proto_ff::MountKunData* kun_data) {
+  delete kun_data_;
+  kun_data_ = kun_data;
+  if (kun_data) {
+    set_has_kun_data();
+  } else {
+    clear_has_kun_data();
+  }
+}
+
+// -------------------------------------------------------------------
+
 // DeityInfoReq
 
 // -------------------------------------------------------------------
@@ -37339,6 +37875,28 @@ inline ::google::protobuf::int32 CLGetBuyBattlePassShopReq::id() const {
 inline void CLGetBuyBattlePassShopReq::set_id(::google::protobuf::int32 value) {
   set_has_id();
   id_ = value;
+}
+
+// optional int32 num = 3;
+inline bool CLGetBuyBattlePassShopReq::has_num() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CLGetBuyBattlePassShopReq::set_has_num() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CLGetBuyBattlePassShopReq::clear_has_num() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CLGetBuyBattlePassShopReq::clear_num() {
+  num_ = 0;
+  clear_has_num();
+}
+inline ::google::protobuf::int32 CLGetBuyBattlePassShopReq::num() const {
+  return num_;
+}
+inline void CLGetBuyBattlePassShopReq::set_num(::google::protobuf::int32 value) {
+  set_has_num();
+  num_ = value;
 }
 
 // -------------------------------------------------------------------

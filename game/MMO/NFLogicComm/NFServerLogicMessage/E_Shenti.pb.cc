@@ -182,6 +182,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Sheet_ShentiStrengtitel_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_ShentiStrengtitel_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_ShentiStartitelAttributeDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_ShentiStartitelAttributeDesc_reflection_ = NULL;
 const ::google::protobuf::Descriptor* E_ShentiStartitel_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   E_ShentiStartitel_reflection_ = NULL;
@@ -1128,12 +1131,27 @@ void protobuf_AssignDesc_E_5fShenti_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_ShentiStrengtitel));
-  E_ShentiStartitel_descriptor_ = file->message_type(54);
-  static const int E_ShentiStartitel_offsets_[4] = {
+  E_ShentiStartitelAttributeDesc_descriptor_ = file->message_type(54);
+  static const int E_ShentiStartitelAttributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ShentiStartitelAttributeDesc, m_value_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ShentiStartitelAttributeDesc, m_type_),
+  };
+  E_ShentiStartitelAttributeDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_ShentiStartitelAttributeDesc_descriptor_,
+      E_ShentiStartitelAttributeDesc::default_instance_,
+      E_ShentiStartitelAttributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ShentiStartitelAttributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ShentiStartitelAttributeDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_ShentiStartitelAttributeDesc));
+  E_ShentiStartitel_descriptor_ = file->message_type(55);
+  static const int E_ShentiStartitel_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ShentiStartitel, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ShentiStartitel, m_num_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ShentiStartitel, m_attribute_type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ShentiStartitel, m_attribute_value_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_ShentiStartitel, m_attribute_),
   };
   E_ShentiStartitel_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -1146,7 +1164,7 @@ void protobuf_AssignDesc_E_5fShenti_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_ShentiStartitel));
-  Sheet_ShentiStartitel_descriptor_ = file->message_type(55);
+  Sheet_ShentiStartitel_descriptor_ = file->message_type(56);
   static const int Sheet_ShentiStartitel_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_ShentiStartitel, e_shentistartitel_list_),
   };
@@ -1282,6 +1300,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_ShentiStrengtitel_descriptor_, &Sheet_ShentiStrengtitel::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_ShentiStartitelAttributeDesc_descriptor_, &E_ShentiStartitelAttributeDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     E_ShentiStartitel_descriptor_, &E_ShentiStartitel::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_ShentiStartitel_descriptor_, &Sheet_ShentiStartitel::default_instance());
@@ -1398,6 +1418,8 @@ void protobuf_ShutdownFile_E_5fShenti_2eproto() {
   delete E_ShentiStrengtitel_reflection_;
   delete Sheet_ShentiStrengtitel::default_instance_;
   delete Sheet_ShentiStrengtitel_reflection_;
+  delete E_ShentiStartitelAttributeDesc::default_instance_;
+  delete E_ShentiStartitelAttributeDesc_reflection_;
   delete E_ShentiStartitel::default_instance_;
   delete E_ShentiStartitel_reflection_;
   delete Sheet_ShentiStartitel::default_instance_;
@@ -1638,14 +1660,16 @@ void protobuf_AddDesc_E_5fShenti_2eproto() {
     "_ff.E_ShentiStrengtitelAttributeDescB\024\302\377"
     "\024\014\345\274\272\345\214\226\345\261\236\346\200\247\210\301\024\002\"`\n\027Sheet_ShentiStreng"
     "titel\022E\n\030E_ShentiStrengtitel_List\030\001 \003(\0132"
-    "\035.proto_ff.E_ShentiStrengtitelB\004\210\301\024@\"\235\001\n"
-    "\021E_ShentiStartitel\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id"
-    "\022\037\n\005m_num\030\002 \001(\005B\020\302\377\024\014\346\230\237\347\272\247\346\225\260\351\207\217\022$\n\020m_a"
-    "ttribute_type\030\003 \001(\005B\n\302\377\024\006\345\261\236\346\200\247\022+\n\021m_att"
-    "ribute_value\030\004 \001(\005B\020\302\377\024\014\345\261\236\346\200\247\346\225\260\345\200\274\"Z\n\025"
-    "Sheet_ShentiStartitel\022A\n\026E_ShentiStartit"
-    "el_List\030\001 \003(\0132\033.proto_ff.E_ShentiStartit"
-    "elB\004\210\301\024\020", 9328);
+    "\035.proto_ff.E_ShentiStrengtitelB\004\210\301\024@\"S\n\036"
+    "E_ShentiStartitelAttributeDesc\022\033\n\007m_valu"
+    "e\030\001 \001(\005B\n\302\377\024\006\346\225\260\345\200\274\022\024\n\006m_type\030\002 \001(\005B\004\302\377\024"
+    "\000\"\237\001\n\021E_ShentiStartitel\022\024\n\004m_id\030\001 \001(\005B\006\302"
+    "\377\024\002id\022\037\n\005m_num\030\002 \001(\005B\020\302\377\024\014\346\230\237\347\272\247\346\225\260\351\207\217\022S"
+    "\n\013m_attribute\030\003 \003(\0132(.proto_ff.E_ShentiS"
+    "tartitelAttributeDescB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210"
+    "\301\024\002\"Z\n\025Sheet_ShentiStartitel\022A\n\026E_Shenti"
+    "Startitel_List\030\001 \003(\0132\033.proto_ff.E_Shenti"
+    "StartitelB\004\210\301\024\020", 9415);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Shenti.proto", &protobuf_RegisterTypes);
   E_ShentiConstantTimeDesc::default_instance_ = new E_ShentiConstantTimeDesc();
@@ -1702,6 +1726,7 @@ void protobuf_AddDesc_E_5fShenti_2eproto() {
   E_ShentiStrengtitelAttributeDesc::default_instance_ = new E_ShentiStrengtitelAttributeDesc();
   E_ShentiStrengtitel::default_instance_ = new E_ShentiStrengtitel();
   Sheet_ShentiStrengtitel::default_instance_ = new Sheet_ShentiStrengtitel();
+  E_ShentiStartitelAttributeDesc::default_instance_ = new E_ShentiStartitelAttributeDesc();
   E_ShentiStartitel::default_instance_ = new E_ShentiStartitel();
   Sheet_ShentiStartitel::default_instance_ = new Sheet_ShentiStartitel();
   E_ShentiConstantTimeDesc::default_instance_->InitAsDefaultInstance();
@@ -1758,6 +1783,7 @@ void protobuf_AddDesc_E_5fShenti_2eproto() {
   E_ShentiStrengtitelAttributeDesc::default_instance_->InitAsDefaultInstance();
   E_ShentiStrengtitel::default_instance_->InitAsDefaultInstance();
   Sheet_ShentiStrengtitel::default_instance_->InitAsDefaultInstance();
+  E_ShentiStartitelAttributeDesc::default_instance_->InitAsDefaultInstance();
   E_ShentiStartitel::default_instance_->InitAsDefaultInstance();
   Sheet_ShentiStartitel::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_E_5fShenti_2eproto);
@@ -17918,10 +17944,257 @@ void Sheet_ShentiStrengtitel::Swap(Sheet_ShentiStrengtitel* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int E_ShentiStartitelAttributeDesc::kMValueFieldNumber;
+const int E_ShentiStartitelAttributeDesc::kMTypeFieldNumber;
+#endif  // !_MSC_VER
+
+E_ShentiStartitelAttributeDesc::E_ShentiStartitelAttributeDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_ShentiStartitelAttributeDesc::InitAsDefaultInstance() {
+}
+
+E_ShentiStartitelAttributeDesc::E_ShentiStartitelAttributeDesc(const E_ShentiStartitelAttributeDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_ShentiStartitelAttributeDesc::SharedCtor() {
+  _cached_size_ = 0;
+  m_value_ = 0;
+  m_type_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_ShentiStartitelAttributeDesc::~E_ShentiStartitelAttributeDesc() {
+  SharedDtor();
+}
+
+void E_ShentiStartitelAttributeDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_ShentiStartitelAttributeDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_ShentiStartitelAttributeDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_ShentiStartitelAttributeDesc_descriptor_;
+}
+
+const E_ShentiStartitelAttributeDesc& E_ShentiStartitelAttributeDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fShenti_2eproto();
+  return *default_instance_;
+}
+
+E_ShentiStartitelAttributeDesc* E_ShentiStartitelAttributeDesc::default_instance_ = NULL;
+
+E_ShentiStartitelAttributeDesc* E_ShentiStartitelAttributeDesc::New() const {
+  return new E_ShentiStartitelAttributeDesc;
+}
+
+void E_ShentiStartitelAttributeDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_value_ = 0;
+    m_type_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_ShentiStartitelAttributeDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_value = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_value_)));
+          set_has_m_value();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_type;
+        break;
+      }
+
+      // optional int32 m_type = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_type:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_type_)));
+          set_has_m_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_ShentiStartitelAttributeDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_value = 1;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
+  }
+
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_ShentiStartitelAttributeDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_value = 1;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
+  }
+
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_ShentiStartitelAttributeDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_value = 1;
+    if (has_m_value()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_value());
+    }
+
+    // optional int32 m_type = 2;
+    if (has_m_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_type());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_ShentiStartitelAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_ShentiStartitelAttributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_ShentiStartitelAttributeDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_ShentiStartitelAttributeDesc::MergeFrom(const E_ShentiStartitelAttributeDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
+    }
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_ShentiStartitelAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_ShentiStartitelAttributeDesc::CopyFrom(const E_ShentiStartitelAttributeDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_ShentiStartitelAttributeDesc::IsInitialized() const {
+
+  return true;
+}
+
+void E_ShentiStartitelAttributeDesc::Swap(E_ShentiStartitelAttributeDesc* other) {
+  if (other != this) {
+    std::swap(m_value_, other->m_value_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_ShentiStartitelAttributeDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_ShentiStartitelAttributeDesc_descriptor_;
+  metadata.reflection = E_ShentiStartitelAttributeDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int E_ShentiStartitel::kMIdFieldNumber;
 const int E_ShentiStartitel::kMNumFieldNumber;
-const int E_ShentiStartitel::kMAttributeTypeFieldNumber;
-const int E_ShentiStartitel::kMAttributeValueFieldNumber;
+const int E_ShentiStartitel::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
 E_ShentiStartitel::E_ShentiStartitel()
@@ -17942,8 +18215,6 @@ void E_ShentiStartitel::SharedCtor() {
   _cached_size_ = 0;
   m_id_ = 0;
   m_num_ = 0;
-  m_attribute_type_ = 0;
-  m_attribute_value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -17981,9 +18252,8 @@ void E_ShentiStartitel::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     m_id_ = 0;
     m_num_ = 0;
-    m_attribute_type_ = 0;
-    m_attribute_value_ = 0;
   }
+  m_attribute_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -18021,38 +18291,21 @@ bool E_ShentiStartitel::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_attribute_type;
+        if (input->ExpectTag(26)) goto parse_m_attribute;
         break;
       }
 
-      // optional int32 m_attribute_type = 3;
+      // repeated .proto_ff.E_ShentiStartitelAttributeDesc m_attribute = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_attribute_type:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_attribute_type_)));
-          set_has_m_attribute_type();
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_attribute:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_m_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_attribute_value;
-        break;
-      }
-
-      // optional int32 m_attribute_value = 4;
-      case 4: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_attribute_value:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_attribute_value_)));
-          set_has_m_attribute_value();
-        } else {
-          goto handle_uninterpreted;
-        }
+        if (input->ExpectTag(26)) goto parse_m_attribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -18085,14 +18338,10 @@ void E_ShentiStartitel::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_num(), output);
   }
 
-  // optional int32 m_attribute_type = 3;
-  if (has_m_attribute_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_attribute_type(), output);
-  }
-
-  // optional int32 m_attribute_value = 4;
-  if (has_m_attribute_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_attribute_value(), output);
+  // repeated .proto_ff.E_ShentiStartitelAttributeDesc m_attribute = 3;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->m_attribute(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -18113,14 +18362,11 @@ void E_ShentiStartitel::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_num(), target);
   }
 
-  // optional int32 m_attribute_type = 3;
-  if (has_m_attribute_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_attribute_type(), target);
-  }
-
-  // optional int32 m_attribute_value = 4;
-  if (has_m_attribute_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_attribute_value(), target);
+  // repeated .proto_ff.E_ShentiStartitelAttributeDesc m_attribute = 3;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->m_attribute(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -18148,21 +18394,15 @@ int E_ShentiStartitel::ByteSize() const {
           this->m_num());
     }
 
-    // optional int32 m_attribute_type = 3;
-    if (has_m_attribute_type()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_attribute_type());
-    }
-
-    // optional int32 m_attribute_value = 4;
-    if (has_m_attribute_value()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_attribute_value());
-    }
-
   }
+  // repeated .proto_ff.E_ShentiStartitelAttributeDesc m_attribute = 3;
+  total_size += 1 * this->m_attribute_size();
+  for (int i = 0; i < this->m_attribute_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->m_attribute(i));
+  }
+
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -18188,18 +18428,13 @@ void E_ShentiStartitel::MergeFrom(const ::google::protobuf::Message& from) {
 
 void E_ShentiStartitel::MergeFrom(const E_ShentiStartitel& from) {
   GOOGLE_CHECK_NE(&from, this);
+  m_attribute_.MergeFrom(from.m_attribute_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_m_id()) {
       set_m_id(from.m_id());
     }
     if (from.has_m_num()) {
       set_m_num(from.m_num());
-    }
-    if (from.has_m_attribute_type()) {
-      set_m_attribute_type(from.m_attribute_type());
-    }
-    if (from.has_m_attribute_value()) {
-      set_m_attribute_value(from.m_attribute_value());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -18226,8 +18461,7 @@ void E_ShentiStartitel::Swap(E_ShentiStartitel* other) {
   if (other != this) {
     std::swap(m_id_, other->m_id_);
     std::swap(m_num_, other->m_num_);
-    std::swap(m_attribute_type_, other->m_attribute_type_);
-    std::swap(m_attribute_value_, other->m_attribute_value_);
+    m_attribute_.Swap(&other->m_attribute_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Functionunlock_s.h"
 
-#define MAX_FUNCTIONUNLOCK_FUNCTIONUNLOCK_NUM 256
+#define MAX_FUNCTIONUNLOCK_FUNCTIONUNLOCK_NUM 512
 
 class FunctionunlockFunctionunlockDesc : public NFIDescTemplate<FunctionunlockFunctionunlockDesc, proto_ff_s::E_FunctionunlockFunctionunlock_s, EOT_CONST_FUNCTIONUNLOCK_FUNCTIONUNLOCK_DESC_ID, MAX_FUNCTIONUNLOCK_FUNCTIONUNLOCK_NUM>
 {

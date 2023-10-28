@@ -61,6 +61,9 @@ class BlueStarAttr;
 class PetInfo;
 class PetHatchInfo;
 class PetGrow;
+class PetYaoHunSlot;
+class PetYaoHunEntry;
+class PetYaoHunModule;
 class TurnAttr;
 class ItemProtoInfo;
 class StoneSlotInfo;
@@ -115,6 +118,7 @@ class MountBloodData;
 class MountBabySlotData;
 class MountFairyLandTour;
 class MountFairyLand;
+class MountFairySlotRecord;
 class MountFairySlot;
 class StatisticDataProto;
 class GodRelicsTaskEntry;
@@ -313,6 +317,8 @@ class TurnSimple;
 class TurnHelper;
 class TurnTask;
 class FMarryTask;
+class SoulEntry;
+class SoulPool;
 
 enum ECState {
   state_init = 0,
@@ -363,11 +369,12 @@ enum EAttrGroup {
   EAttrGroup_DragonSoul = 23,
   EAttrGroup_Dragon = 24,
   EAttrGroup_Star = 25,
-  EAttrGroup_Turn = 26
+  EAttrGroup_Turn = 26,
+  EAttrGroup_Soul = 27
 };
 bool EAttrGroup_IsValid(int value);
 const EAttrGroup EAttrGroup_MIN = EAttrGroup_Level;
-const EAttrGroup EAttrGroup_MAX = EAttrGroup_Turn;
+const EAttrGroup EAttrGroup_MAX = EAttrGroup_Soul;
 const int EAttrGroup_ARRAYSIZE = EAttrGroup_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* EAttrGroup_descriptor();
@@ -524,6 +531,7 @@ enum ECreatureAttr {
   A_CAPE_SOUL_REDU = 103,
   A_CAPE_SOUL_ADD = 104,
   A_SEAT_EXP_ADD = 105,
+  A_YAO_KANG = 107,
   A_BASE_END = 130,
   A_EQUIP_POS_STONE_ALL_ADD = 131,
   A_EQUIP_POS_BASE_ALL_ADD = 132,
@@ -582,6 +590,7 @@ enum ECreatureAttr {
   A_ST_ALL_STAR_ADD = 185,
   A_ST_EVOLVE_ADD = 186,
   A_ST_SPEC_ADD = 187,
+  A_PET_GROW_BASE_ADD = 188,
   A_FIGHT_END = 200,
   A_GOLD = 201,
   A_MAGIC = 202,
@@ -627,6 +636,7 @@ enum ECreatureAttr {
   A_FINDTREASURE_BATTLE_SOUL = 243,
   A_GOD_META_EXP = 244,
   A_GOD_META_EXP_ADD = 245,
+  A_HUN_LING = 246,
   A_COMMON_END = 400
 };
 bool ECreatureAttr_IsValid(int value);
@@ -4621,6 +4631,373 @@ class PetGrow : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class PetYaoHunSlot : public ::google::protobuf::Message {
+ public:
+  PetYaoHunSlot();
+  virtual ~PetYaoHunSlot();
+
+  PetYaoHunSlot(const PetYaoHunSlot& from);
+
+  inline PetYaoHunSlot& operator=(const PetYaoHunSlot& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetYaoHunSlot& default_instance();
+
+  void Swap(PetYaoHunSlot* other);
+
+  // implements Message ----------------------------------------------
+
+  PetYaoHunSlot* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetYaoHunSlot& from);
+  void MergeFrom(const PetYaoHunSlot& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 slot_pos = 1;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 1;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // optional int32 lv = 2;
+  inline bool has_lv() const;
+  inline void clear_lv();
+  static const int kLvFieldNumber = 2;
+  inline ::google::protobuf::int32 lv() const;
+  inline void set_lv(::google::protobuf::int32 value);
+
+  // optional int32 exp = 3;
+  inline bool has_exp() const;
+  inline void clear_exp();
+  static const int kExpFieldNumber = 3;
+  inline ::google::protobuf::int32 exp() const;
+  inline void set_exp(::google::protobuf::int32 value);
+
+  // optional int32 step = 4;
+  inline bool has_step() const;
+  inline void clear_step();
+  static const int kStepFieldNumber = 4;
+  inline ::google::protobuf::int32 step() const;
+  inline void set_step(::google::protobuf::int32 value);
+
+  // optional .proto_ff.ItemProtoInfo equip = 5;
+  inline bool has_equip() const;
+  inline void clear_equip();
+  static const int kEquipFieldNumber = 5;
+  inline const ::proto_ff::ItemProtoInfo& equip() const;
+  inline ::proto_ff::ItemProtoInfo* mutable_equip();
+  inline ::proto_ff::ItemProtoInfo* release_equip();
+  inline void set_allocated_equip(::proto_ff::ItemProtoInfo* equip);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetYaoHunSlot)
+ private:
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+  inline void set_has_lv();
+  inline void clear_has_lv();
+  inline void set_has_exp();
+  inline void clear_has_exp();
+  inline void set_has_step();
+  inline void clear_has_step();
+  inline void set_has_equip();
+  inline void clear_has_equip();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 slot_pos_;
+  ::google::protobuf::int32 lv_;
+  ::google::protobuf::int32 exp_;
+  ::google::protobuf::int32 step_;
+  ::proto_ff::ItemProtoInfo* equip_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetYaoHunSlot* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PetYaoHunEntry : public ::google::protobuf::Message {
+ public:
+  PetYaoHunEntry();
+  virtual ~PetYaoHunEntry();
+
+  PetYaoHunEntry(const PetYaoHunEntry& from);
+
+  inline PetYaoHunEntry& operator=(const PetYaoHunEntry& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetYaoHunEntry& default_instance();
+
+  void Swap(PetYaoHunEntry* other);
+
+  // implements Message ----------------------------------------------
+
+  PetYaoHunEntry* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetYaoHunEntry& from);
+  void MergeFrom(const PetYaoHunEntry& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 fight_pos = 1;
+  inline bool has_fight_pos() const;
+  inline void clear_fight_pos();
+  static const int kFightPosFieldNumber = 1;
+  inline ::google::protobuf::int32 fight_pos() const;
+  inline void set_fight_pos(::google::protobuf::int32 value);
+
+  // optional int32 is_unlock = 2;
+  inline bool has_is_unlock() const;
+  inline void clear_is_unlock();
+  static const int kIsUnlockFieldNumber = 2;
+  inline ::google::protobuf::int32 is_unlock() const;
+  inline void set_is_unlock(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.PetYaoHunSlot infos = 3;
+  inline int infos_size() const;
+  inline void clear_infos();
+  static const int kInfosFieldNumber = 3;
+  inline const ::proto_ff::PetYaoHunSlot& infos(int index) const;
+  inline ::proto_ff::PetYaoHunSlot* mutable_infos(int index);
+  inline ::proto_ff::PetYaoHunSlot* add_infos();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::PetYaoHunSlot >&
+      infos() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::PetYaoHunSlot >*
+      mutable_infos();
+
+  // repeated int32 suitids = 4;
+  inline int suitids_size() const;
+  inline void clear_suitids();
+  static const int kSuitidsFieldNumber = 4;
+  inline ::google::protobuf::int32 suitids(int index) const;
+  inline void set_suitids(int index, ::google::protobuf::int32 value);
+  inline void add_suitids(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      suitids() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_suitids();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetYaoHunEntry)
+ private:
+  inline void set_has_fight_pos();
+  inline void clear_has_fight_pos();
+  inline void set_has_is_unlock();
+  inline void clear_has_is_unlock();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 fight_pos_;
+  ::google::protobuf::int32 is_unlock_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::PetYaoHunSlot > infos_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > suitids_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetYaoHunEntry* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PetYaoHunModule : public ::google::protobuf::Message {
+ public:
+  PetYaoHunModule();
+  virtual ~PetYaoHunModule();
+
+  PetYaoHunModule(const PetYaoHunModule& from);
+
+  inline PetYaoHunModule& operator=(const PetYaoHunModule& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetYaoHunModule& default_instance();
+
+  void Swap(PetYaoHunModule* other);
+
+  // implements Message ----------------------------------------------
+
+  PetYaoHunModule* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetYaoHunModule& from);
+  void MergeFrom(const PetYaoHunModule& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.PetYaoHunEntry entrys = 1;
+  inline int entrys_size() const;
+  inline void clear_entrys();
+  static const int kEntrysFieldNumber = 1;
+  inline const ::proto_ff::PetYaoHunEntry& entrys(int index) const;
+  inline ::proto_ff::PetYaoHunEntry* mutable_entrys(int index);
+  inline ::proto_ff::PetYaoHunEntry* add_entrys();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::PetYaoHunEntry >&
+      entrys() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::PetYaoHunEntry >*
+      mutable_entrys();
+
+  // optional int32 lianyao_tq_flag = 2;
+  inline bool has_lianyao_tq_flag() const;
+  inline void clear_lianyao_tq_flag();
+  static const int kLianyaoTqFlagFieldNumber = 2;
+  inline ::google::protobuf::int32 lianyao_tq_flag() const;
+  inline void set_lianyao_tq_flag(::google::protobuf::int32 value);
+
+  // optional int32 yaolu_lv = 3;
+  inline bool has_yaolu_lv() const;
+  inline void clear_yaolu_lv();
+  static const int kYaoluLvFieldNumber = 3;
+  inline ::google::protobuf::int32 yaolu_lv() const;
+  inline void set_yaolu_lv(::google::protobuf::int32 value);
+
+  // optional int32 yaolu_exp = 4;
+  inline bool has_yaolu_exp() const;
+  inline void clear_yaolu_exp();
+  static const int kYaoluExpFieldNumber = 4;
+  inline ::google::protobuf::int32 yaolu_exp() const;
+  inline void set_yaolu_exp(::google::protobuf::int32 value);
+
+  // optional int32 yaoqi = 5;
+  inline bool has_yaoqi() const;
+  inline void clear_yaoqi();
+  static const int kYaoqiFieldNumber = 5;
+  inline ::google::protobuf::int32 yaoqi() const;
+  inline void set_yaoqi(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetYaoHunModule)
+ private:
+  inline void set_has_lianyao_tq_flag();
+  inline void clear_has_lianyao_tq_flag();
+  inline void set_has_yaolu_lv();
+  inline void clear_has_yaolu_lv();
+  inline void set_has_yaolu_exp();
+  inline void clear_has_yaolu_exp();
+  inline void set_has_yaoqi();
+  inline void clear_has_yaoqi();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::PetYaoHunEntry > entrys_;
+  ::google::protobuf::int32 lianyao_tq_flag_;
+  ::google::protobuf::int32 yaolu_lv_;
+  ::google::protobuf::int32 yaolu_exp_;
+  ::google::protobuf::int32 yaoqi_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetYaoHunModule* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class TurnAttr : public ::google::protobuf::Message {
  public:
   TurnAttr();
@@ -5016,6 +5393,18 @@ class ItemProtoInfo : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 item_chg_count() const;
   inline void set_item_chg_count(::google::protobuf::int64 value);
 
+  // repeated int32 unlock_attr_index = 29;
+  inline int unlock_attr_index_size() const;
+  inline void clear_unlock_attr_index();
+  static const int kUnlockAttrIndexFieldNumber = 29;
+  inline ::google::protobuf::int32 unlock_attr_index(int index) const;
+  inline void set_unlock_attr_index(int index, ::google::protobuf::int32 value);
+  inline void add_unlock_attr_index(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      unlock_attr_index() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_unlock_attr_index();
+
   // @@protoc_insertion_point(class_scope:proto_ff.ItemProtoInfo)
  private:
   inline void set_has_index();
@@ -5067,9 +5456,9 @@ class ItemProtoInfo : public ::google::protobuf::Message {
   ::google::protobuf::int64 item_num_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr > base_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr > refine_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::BlueStarAttr > blue_;
   ::google::protobuf::int32 level_;
   ::google::protobuf::int32 strong_lv_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::BlueStarAttr > blue_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr > god_;
   ::google::protobuf::uint64 expiretime_;
   ::google::protobuf::int32 strong_wear_quality_;
@@ -5088,10 +5477,11 @@ class ItemProtoInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 evolve_lv_;
   ::proto_ff::TurnAttr* turn_attr_;
   ::google::protobuf::int64 item_chg_count_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > unlock_attr_index_;
   ::google::protobuf::int32 awaken_lv_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(28 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(29 + 31) / 32];
 
   friend void  protobuf_AddDesc_Com_2eproto();
   friend void protobuf_AssignDesc_Com_2eproto();
@@ -10315,17 +10705,17 @@ class MountKunEquipData : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::EquipInfo >*
       mutable_infos();
 
-  // repeated .proto_ff.EquipLvAttrInfo lv_attr = 2;
-  inline int lv_attr_size() const;
-  inline void clear_lv_attr();
-  static const int kLvAttrFieldNumber = 2;
-  inline const ::proto_ff::EquipLvAttrInfo& lv_attr(int index) const;
-  inline ::proto_ff::EquipLvAttrInfo* mutable_lv_attr(int index);
-  inline ::proto_ff::EquipLvAttrInfo* add_lv_attr();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::EquipLvAttrInfo >&
-      lv_attr() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::EquipLvAttrInfo >*
-      mutable_lv_attr();
+  // repeated uint32 slot_status = 2;
+  inline int slot_status_size() const;
+  inline void clear_slot_status();
+  static const int kSlotStatusFieldNumber = 2;
+  inline ::google::protobuf::uint32 slot_status(int index) const;
+  inline void set_slot_status(int index, ::google::protobuf::uint32 value);
+  inline void add_slot_status(::google::protobuf::uint32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      slot_status() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_slot_status();
 
   // @@protoc_insertion_point(class_scope:proto_ff.MountKunEquipData)
  private:
@@ -10333,7 +10723,7 @@ class MountKunEquipData : public ::google::protobuf::Message {
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::RepeatedPtrField< ::proto_ff::EquipInfo > infos_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::EquipLvAttrInfo > lv_attr_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > slot_status_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -11151,6 +11541,130 @@ class MountFairyLand : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class MountFairySlotRecord : public ::google::protobuf::Message {
+ public:
+  MountFairySlotRecord();
+  virtual ~MountFairySlotRecord();
+
+  MountFairySlotRecord(const MountFairySlotRecord& from);
+
+  inline MountFairySlotRecord& operator=(const MountFairySlotRecord& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MountFairySlotRecord& default_instance();
+
+  void Swap(MountFairySlotRecord* other);
+
+  // implements Message ----------------------------------------------
+
+  MountFairySlotRecord* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MountFairySlotRecord& from);
+  void MergeFrom(const MountFairySlotRecord& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int64 cur_fairy_id = 1;
+  inline bool has_cur_fairy_id() const;
+  inline void clear_cur_fairy_id();
+  static const int kCurFairyIdFieldNumber = 1;
+  inline ::google::protobuf::int64 cur_fairy_id() const;
+  inline void set_cur_fairy_id(::google::protobuf::int64 value);
+
+  // optional int64 event_id = 2;
+  inline bool has_event_id() const;
+  inline void clear_event_id();
+  static const int kEventIdFieldNumber = 2;
+  inline ::google::protobuf::int64 event_id() const;
+  inline void set_event_id(::google::protobuf::int64 value);
+
+  // optional int64 create_time = 3;
+  inline bool has_create_time() const;
+  inline void clear_create_time();
+  static const int kCreateTimeFieldNumber = 3;
+  inline ::google::protobuf::int64 create_time() const;
+  inline void set_create_time(::google::protobuf::int64 value);
+
+  // optional bool finish = 4;
+  inline bool has_finish() const;
+  inline void clear_finish();
+  static const int kFinishFieldNumber = 4;
+  inline bool finish() const;
+  inline void set_finish(bool value);
+
+  // optional .proto_ff.ComItem reward_item = 5;
+  inline bool has_reward_item() const;
+  inline void clear_reward_item();
+  static const int kRewardItemFieldNumber = 5;
+  inline const ::proto_ff::ComItem& reward_item() const;
+  inline ::proto_ff::ComItem* mutable_reward_item();
+  inline ::proto_ff::ComItem* release_reward_item();
+  inline void set_allocated_reward_item(::proto_ff::ComItem* reward_item);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.MountFairySlotRecord)
+ private:
+  inline void set_has_cur_fairy_id();
+  inline void clear_has_cur_fairy_id();
+  inline void set_has_event_id();
+  inline void clear_has_event_id();
+  inline void set_has_create_time();
+  inline void clear_has_create_time();
+  inline void set_has_finish();
+  inline void clear_has_finish();
+  inline void set_has_reward_item();
+  inline void clear_has_reward_item();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 cur_fairy_id_;
+  ::google::protobuf::int64 event_id_;
+  ::google::protobuf::int64 create_time_;
+  ::proto_ff::ComItem* reward_item_;
+  bool finish_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static MountFairySlotRecord* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class MountFairySlot : public ::google::protobuf::Message {
  public:
   MountFairySlot();
@@ -11254,6 +11768,51 @@ class MountFairySlot : public ::google::protobuf::Message {
   inline bool can_get_reward() const;
   inline void set_can_get_reward(bool value);
 
+  // repeated .proto_ff.ComItem reward_item = 9;
+  inline int reward_item_size() const;
+  inline void clear_reward_item();
+  static const int kRewardItemFieldNumber = 9;
+  inline const ::proto_ff::ComItem& reward_item(int index) const;
+  inline ::proto_ff::ComItem* mutable_reward_item(int index);
+  inline ::proto_ff::ComItem* add_reward_item();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItem >&
+      reward_item() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItem >*
+      mutable_reward_item();
+
+  // optional uint64 reward_gold = 10;
+  inline bool has_reward_gold() const;
+  inline void clear_reward_gold();
+  static const int kRewardGoldFieldNumber = 10;
+  inline ::google::protobuf::uint64 reward_gold() const;
+  inline void set_reward_gold(::google::protobuf::uint64 value);
+
+  // optional uint64 reward_dia = 11;
+  inline bool has_reward_dia() const;
+  inline void clear_reward_dia();
+  static const int kRewardDiaFieldNumber = 11;
+  inline ::google::protobuf::uint64 reward_dia() const;
+  inline void set_reward_dia(::google::protobuf::uint64 value);
+
+  // optional uint64 reward_bdia = 12;
+  inline bool has_reward_bdia() const;
+  inline void clear_reward_bdia();
+  static const int kRewardBdiaFieldNumber = 12;
+  inline ::google::protobuf::uint64 reward_bdia() const;
+  inline void set_reward_bdia(::google::protobuf::uint64 value);
+
+  // repeated .proto_ff.MountFairySlotRecord record = 13;
+  inline int record_size() const;
+  inline void clear_record();
+  static const int kRecordFieldNumber = 13;
+  inline const ::proto_ff::MountFairySlotRecord& record(int index) const;
+  inline ::proto_ff::MountFairySlotRecord* mutable_record(int index);
+  inline ::proto_ff::MountFairySlotRecord* add_record();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::MountFairySlotRecord >&
+      record() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::MountFairySlotRecord >*
+      mutable_record();
+
   // @@protoc_insertion_point(class_scope:proto_ff.MountFairySlot)
  private:
   inline void set_has_slot_id();
@@ -11270,6 +11829,12 @@ class MountFairySlot : public ::google::protobuf::Message {
   inline void clear_has_status();
   inline void set_has_can_get_reward();
   inline void clear_has_can_get_reward();
+  inline void set_has_reward_gold();
+  inline void clear_has_reward_gold();
+  inline void set_has_reward_dia();
+  inline void clear_has_reward_dia();
+  inline void set_has_reward_bdia();
+  inline void clear_has_reward_bdia();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -11280,9 +11845,14 @@ class MountFairySlot : public ::google::protobuf::Message {
   ::google::protobuf::uint32 cur_end_time_;
   ::google::protobuf::uint32 status_;
   bool can_get_reward_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItem > reward_item_;
+  ::google::protobuf::uint64 reward_gold_;
+  ::google::protobuf::uint64 reward_dia_;
+  ::google::protobuf::uint64 reward_bdia_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::MountFairySlotRecord > record_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(12 + 31) / 32];
 
   friend void  protobuf_AddDesc_Com_2eproto();
   friend void protobuf_AssignDesc_Com_2eproto();
@@ -11874,6 +12444,13 @@ class DailyTaskLimitEntry : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 ready_add_time() const;
   inline void set_ready_add_time(::google::protobuf::uint64 value);
 
+  // optional bool is_fest_open = 9;
+  inline bool has_is_fest_open() const;
+  inline void clear_is_fest_open();
+  static const int kIsFestOpenFieldNumber = 9;
+  inline bool is_fest_open() const;
+  inline void set_is_fest_open(bool value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.DailyTaskLimitEntry)
  private:
   inline void set_has_task_cfg_id();
@@ -11892,6 +12469,8 @@ class DailyTaskLimitEntry : public ::google::protobuf::Message {
   inline void clear_has_is_open();
   inline void set_has_ready_add_time();
   inline void clear_has_ready_add_time();
+  inline void set_has_is_fest_open();
+  inline void clear_has_is_fest_open();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -11902,10 +12481,11 @@ class DailyTaskLimitEntry : public ::google::protobuf::Message {
   ::google::protobuf::int32 buy_num_;
   bool ready_add_;
   bool is_open_;
+  bool is_fest_open_;
   ::google::protobuf::uint64 ready_add_time_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
 
   friend void  protobuf_AddDesc_Com_2eproto();
   friend void protobuf_AssignDesc_Com_2eproto();
@@ -33482,6 +34062,200 @@ class FMarryTask : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static FMarryTask* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class SoulEntry : public ::google::protobuf::Message {
+ public:
+  SoulEntry();
+  virtual ~SoulEntry();
+
+  SoulEntry(const SoulEntry& from);
+
+  inline SoulEntry& operator=(const SoulEntry& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulEntry& default_instance();
+
+  void Swap(SoulEntry* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulEntry* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulEntry& from);
+  void MergeFrom(const SoulEntry& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // optional int32 lv = 2;
+  inline bool has_lv() const;
+  inline void clear_lv();
+  static const int kLvFieldNumber = 2;
+  inline ::google::protobuf::int32 lv() const;
+  inline void set_lv(::google::protobuf::int32 value);
+
+  // optional int32 steplv = 3;
+  inline bool has_steplv() const;
+  inline void clear_steplv();
+  static const int kSteplvFieldNumber = 3;
+  inline ::google::protobuf::int32 steplv() const;
+  inline void set_steplv(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulEntry)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_lv();
+  inline void clear_has_lv();
+  inline void set_has_steplv();
+  inline void clear_has_steplv();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 id_;
+  ::google::protobuf::int32 lv_;
+  ::google::protobuf::int32 steplv_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulEntry* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulPool : public ::google::protobuf::Message {
+ public:
+  SoulPool();
+  virtual ~SoulPool();
+
+  SoulPool(const SoulPool& from);
+
+  inline SoulPool& operator=(const SoulPool& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulPool& default_instance();
+
+  void Swap(SoulPool* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulPool* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulPool& from);
+  void MergeFrom(const SoulPool& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 poolBlessLv = 1;
+  inline bool has_poolblesslv() const;
+  inline void clear_poolblesslv();
+  static const int kPoolBlessLvFieldNumber = 1;
+  inline ::google::protobuf::int32 poolblesslv() const;
+  inline void set_poolblesslv(::google::protobuf::int32 value);
+
+  // optional int32 poolPgLv = 2;
+  inline bool has_poolpglv() const;
+  inline void clear_poolpglv();
+  static const int kPoolPgLvFieldNumber = 2;
+  inline ::google::protobuf::int32 poolpglv() const;
+  inline void set_poolpglv(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulPool)
+ private:
+  inline void set_has_poolblesslv();
+  inline void clear_has_poolblesslv();
+  inline void set_has_poolpglv();
+  inline void clear_has_poolpglv();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 poolblesslv_;
+  ::google::protobuf::int32 poolpglv_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulPool* default_instance_;
+};
 // ===================================================================
 
 
@@ -38304,6 +39078,351 @@ inline void PetGrow::set_starindex(::google::protobuf::int32 value) {
 
 // -------------------------------------------------------------------
 
+// PetYaoHunSlot
+
+// optional int32 slot_pos = 1;
+inline bool PetYaoHunSlot::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PetYaoHunSlot::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PetYaoHunSlot::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PetYaoHunSlot::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 PetYaoHunSlot::slot_pos() const {
+  return slot_pos_;
+}
+inline void PetYaoHunSlot::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// optional int32 lv = 2;
+inline bool PetYaoHunSlot::has_lv() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PetYaoHunSlot::set_has_lv() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PetYaoHunSlot::clear_has_lv() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PetYaoHunSlot::clear_lv() {
+  lv_ = 0;
+  clear_has_lv();
+}
+inline ::google::protobuf::int32 PetYaoHunSlot::lv() const {
+  return lv_;
+}
+inline void PetYaoHunSlot::set_lv(::google::protobuf::int32 value) {
+  set_has_lv();
+  lv_ = value;
+}
+
+// optional int32 exp = 3;
+inline bool PetYaoHunSlot::has_exp() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void PetYaoHunSlot::set_has_exp() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void PetYaoHunSlot::clear_has_exp() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void PetYaoHunSlot::clear_exp() {
+  exp_ = 0;
+  clear_has_exp();
+}
+inline ::google::protobuf::int32 PetYaoHunSlot::exp() const {
+  return exp_;
+}
+inline void PetYaoHunSlot::set_exp(::google::protobuf::int32 value) {
+  set_has_exp();
+  exp_ = value;
+}
+
+// optional int32 step = 4;
+inline bool PetYaoHunSlot::has_step() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void PetYaoHunSlot::set_has_step() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void PetYaoHunSlot::clear_has_step() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void PetYaoHunSlot::clear_step() {
+  step_ = 0;
+  clear_has_step();
+}
+inline ::google::protobuf::int32 PetYaoHunSlot::step() const {
+  return step_;
+}
+inline void PetYaoHunSlot::set_step(::google::protobuf::int32 value) {
+  set_has_step();
+  step_ = value;
+}
+
+// optional .proto_ff.ItemProtoInfo equip = 5;
+inline bool PetYaoHunSlot::has_equip() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void PetYaoHunSlot::set_has_equip() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void PetYaoHunSlot::clear_has_equip() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void PetYaoHunSlot::clear_equip() {
+  if (equip_ != NULL) equip_->::proto_ff::ItemProtoInfo::Clear();
+  clear_has_equip();
+}
+inline const ::proto_ff::ItemProtoInfo& PetYaoHunSlot::equip() const {
+  return equip_ != NULL ? *equip_ : *default_instance_->equip_;
+}
+inline ::proto_ff::ItemProtoInfo* PetYaoHunSlot::mutable_equip() {
+  set_has_equip();
+  if (equip_ == NULL) equip_ = new ::proto_ff::ItemProtoInfo;
+  return equip_;
+}
+inline ::proto_ff::ItemProtoInfo* PetYaoHunSlot::release_equip() {
+  clear_has_equip();
+  ::proto_ff::ItemProtoInfo* temp = equip_;
+  equip_ = NULL;
+  return temp;
+}
+inline void PetYaoHunSlot::set_allocated_equip(::proto_ff::ItemProtoInfo* equip) {
+  delete equip_;
+  equip_ = equip;
+  if (equip) {
+    set_has_equip();
+  } else {
+    clear_has_equip();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// PetYaoHunEntry
+
+// optional int32 fight_pos = 1;
+inline bool PetYaoHunEntry::has_fight_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PetYaoHunEntry::set_has_fight_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PetYaoHunEntry::clear_has_fight_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PetYaoHunEntry::clear_fight_pos() {
+  fight_pos_ = 0;
+  clear_has_fight_pos();
+}
+inline ::google::protobuf::int32 PetYaoHunEntry::fight_pos() const {
+  return fight_pos_;
+}
+inline void PetYaoHunEntry::set_fight_pos(::google::protobuf::int32 value) {
+  set_has_fight_pos();
+  fight_pos_ = value;
+}
+
+// optional int32 is_unlock = 2;
+inline bool PetYaoHunEntry::has_is_unlock() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PetYaoHunEntry::set_has_is_unlock() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PetYaoHunEntry::clear_has_is_unlock() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PetYaoHunEntry::clear_is_unlock() {
+  is_unlock_ = 0;
+  clear_has_is_unlock();
+}
+inline ::google::protobuf::int32 PetYaoHunEntry::is_unlock() const {
+  return is_unlock_;
+}
+inline void PetYaoHunEntry::set_is_unlock(::google::protobuf::int32 value) {
+  set_has_is_unlock();
+  is_unlock_ = value;
+}
+
+// repeated .proto_ff.PetYaoHunSlot infos = 3;
+inline int PetYaoHunEntry::infos_size() const {
+  return infos_.size();
+}
+inline void PetYaoHunEntry::clear_infos() {
+  infos_.Clear();
+}
+inline const ::proto_ff::PetYaoHunSlot& PetYaoHunEntry::infos(int index) const {
+  return infos_.Get(index);
+}
+inline ::proto_ff::PetYaoHunSlot* PetYaoHunEntry::mutable_infos(int index) {
+  return infos_.Mutable(index);
+}
+inline ::proto_ff::PetYaoHunSlot* PetYaoHunEntry::add_infos() {
+  return infos_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::PetYaoHunSlot >&
+PetYaoHunEntry::infos() const {
+  return infos_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::PetYaoHunSlot >*
+PetYaoHunEntry::mutable_infos() {
+  return &infos_;
+}
+
+// repeated int32 suitids = 4;
+inline int PetYaoHunEntry::suitids_size() const {
+  return suitids_.size();
+}
+inline void PetYaoHunEntry::clear_suitids() {
+  suitids_.Clear();
+}
+inline ::google::protobuf::int32 PetYaoHunEntry::suitids(int index) const {
+  return suitids_.Get(index);
+}
+inline void PetYaoHunEntry::set_suitids(int index, ::google::protobuf::int32 value) {
+  suitids_.Set(index, value);
+}
+inline void PetYaoHunEntry::add_suitids(::google::protobuf::int32 value) {
+  suitids_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+PetYaoHunEntry::suitids() const {
+  return suitids_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+PetYaoHunEntry::mutable_suitids() {
+  return &suitids_;
+}
+
+// -------------------------------------------------------------------
+
+// PetYaoHunModule
+
+// repeated .proto_ff.PetYaoHunEntry entrys = 1;
+inline int PetYaoHunModule::entrys_size() const {
+  return entrys_.size();
+}
+inline void PetYaoHunModule::clear_entrys() {
+  entrys_.Clear();
+}
+inline const ::proto_ff::PetYaoHunEntry& PetYaoHunModule::entrys(int index) const {
+  return entrys_.Get(index);
+}
+inline ::proto_ff::PetYaoHunEntry* PetYaoHunModule::mutable_entrys(int index) {
+  return entrys_.Mutable(index);
+}
+inline ::proto_ff::PetYaoHunEntry* PetYaoHunModule::add_entrys() {
+  return entrys_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::PetYaoHunEntry >&
+PetYaoHunModule::entrys() const {
+  return entrys_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::PetYaoHunEntry >*
+PetYaoHunModule::mutable_entrys() {
+  return &entrys_;
+}
+
+// optional int32 lianyao_tq_flag = 2;
+inline bool PetYaoHunModule::has_lianyao_tq_flag() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PetYaoHunModule::set_has_lianyao_tq_flag() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PetYaoHunModule::clear_has_lianyao_tq_flag() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PetYaoHunModule::clear_lianyao_tq_flag() {
+  lianyao_tq_flag_ = 0;
+  clear_has_lianyao_tq_flag();
+}
+inline ::google::protobuf::int32 PetYaoHunModule::lianyao_tq_flag() const {
+  return lianyao_tq_flag_;
+}
+inline void PetYaoHunModule::set_lianyao_tq_flag(::google::protobuf::int32 value) {
+  set_has_lianyao_tq_flag();
+  lianyao_tq_flag_ = value;
+}
+
+// optional int32 yaolu_lv = 3;
+inline bool PetYaoHunModule::has_yaolu_lv() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void PetYaoHunModule::set_has_yaolu_lv() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void PetYaoHunModule::clear_has_yaolu_lv() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void PetYaoHunModule::clear_yaolu_lv() {
+  yaolu_lv_ = 0;
+  clear_has_yaolu_lv();
+}
+inline ::google::protobuf::int32 PetYaoHunModule::yaolu_lv() const {
+  return yaolu_lv_;
+}
+inline void PetYaoHunModule::set_yaolu_lv(::google::protobuf::int32 value) {
+  set_has_yaolu_lv();
+  yaolu_lv_ = value;
+}
+
+// optional int32 yaolu_exp = 4;
+inline bool PetYaoHunModule::has_yaolu_exp() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void PetYaoHunModule::set_has_yaolu_exp() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void PetYaoHunModule::clear_has_yaolu_exp() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void PetYaoHunModule::clear_yaolu_exp() {
+  yaolu_exp_ = 0;
+  clear_has_yaolu_exp();
+}
+inline ::google::protobuf::int32 PetYaoHunModule::yaolu_exp() const {
+  return yaolu_exp_;
+}
+inline void PetYaoHunModule::set_yaolu_exp(::google::protobuf::int32 value) {
+  set_has_yaolu_exp();
+  yaolu_exp_ = value;
+}
+
+// optional int32 yaoqi = 5;
+inline bool PetYaoHunModule::has_yaoqi() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void PetYaoHunModule::set_has_yaoqi() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void PetYaoHunModule::clear_has_yaoqi() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void PetYaoHunModule::clear_yaoqi() {
+  yaoqi_ = 0;
+  clear_has_yaoqi();
+}
+inline ::google::protobuf::int32 PetYaoHunModule::yaoqi() const {
+  return yaoqi_;
+}
+inline void PetYaoHunModule::set_yaoqi(::google::protobuf::int32 value) {
+  set_has_yaoqi();
+  yaoqi_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // TurnAttr
 
 // repeated int32 com_pos = 1;
@@ -39062,6 +40181,31 @@ inline ::google::protobuf::int64 ItemProtoInfo::item_chg_count() const {
 inline void ItemProtoInfo::set_item_chg_count(::google::protobuf::int64 value) {
   set_has_item_chg_count();
   item_chg_count_ = value;
+}
+
+// repeated int32 unlock_attr_index = 29;
+inline int ItemProtoInfo::unlock_attr_index_size() const {
+  return unlock_attr_index_.size();
+}
+inline void ItemProtoInfo::clear_unlock_attr_index() {
+  unlock_attr_index_.Clear();
+}
+inline ::google::protobuf::int32 ItemProtoInfo::unlock_attr_index(int index) const {
+  return unlock_attr_index_.Get(index);
+}
+inline void ItemProtoInfo::set_unlock_attr_index(int index, ::google::protobuf::int32 value) {
+  unlock_attr_index_.Set(index, value);
+}
+inline void ItemProtoInfo::add_unlock_attr_index(::google::protobuf::int32 value) {
+  unlock_attr_index_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+ItemProtoInfo::unlock_attr_index() const {
+  return unlock_attr_index_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+ItemProtoInfo::mutable_unlock_attr_index() {
+  return &unlock_attr_index_;
 }
 
 // -------------------------------------------------------------------
@@ -43971,29 +45115,29 @@ MountKunEquipData::mutable_infos() {
   return &infos_;
 }
 
-// repeated .proto_ff.EquipLvAttrInfo lv_attr = 2;
-inline int MountKunEquipData::lv_attr_size() const {
-  return lv_attr_.size();
+// repeated uint32 slot_status = 2;
+inline int MountKunEquipData::slot_status_size() const {
+  return slot_status_.size();
 }
-inline void MountKunEquipData::clear_lv_attr() {
-  lv_attr_.Clear();
+inline void MountKunEquipData::clear_slot_status() {
+  slot_status_.Clear();
 }
-inline const ::proto_ff::EquipLvAttrInfo& MountKunEquipData::lv_attr(int index) const {
-  return lv_attr_.Get(index);
+inline ::google::protobuf::uint32 MountKunEquipData::slot_status(int index) const {
+  return slot_status_.Get(index);
 }
-inline ::proto_ff::EquipLvAttrInfo* MountKunEquipData::mutable_lv_attr(int index) {
-  return lv_attr_.Mutable(index);
+inline void MountKunEquipData::set_slot_status(int index, ::google::protobuf::uint32 value) {
+  slot_status_.Set(index, value);
 }
-inline ::proto_ff::EquipLvAttrInfo* MountKunEquipData::add_lv_attr() {
-  return lv_attr_.Add();
+inline void MountKunEquipData::add_slot_status(::google::protobuf::uint32 value) {
+  slot_status_.Add(value);
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::EquipLvAttrInfo >&
-MountKunEquipData::lv_attr() const {
-  return lv_attr_;
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+MountKunEquipData::slot_status() const {
+  return slot_status_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::EquipLvAttrInfo >*
-MountKunEquipData::mutable_lv_attr() {
-  return &lv_attr_;
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+MountKunEquipData::mutable_slot_status() {
+  return &slot_status_;
 }
 
 // -------------------------------------------------------------------
@@ -44702,6 +45846,136 @@ inline void MountFairyLand::set_cur_active_tour_id(::google::protobuf::int64 val
 
 // -------------------------------------------------------------------
 
+// MountFairySlotRecord
+
+// optional int64 cur_fairy_id = 1;
+inline bool MountFairySlotRecord::has_cur_fairy_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MountFairySlotRecord::set_has_cur_fairy_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MountFairySlotRecord::clear_has_cur_fairy_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MountFairySlotRecord::clear_cur_fairy_id() {
+  cur_fairy_id_ = GOOGLE_LONGLONG(0);
+  clear_has_cur_fairy_id();
+}
+inline ::google::protobuf::int64 MountFairySlotRecord::cur_fairy_id() const {
+  return cur_fairy_id_;
+}
+inline void MountFairySlotRecord::set_cur_fairy_id(::google::protobuf::int64 value) {
+  set_has_cur_fairy_id();
+  cur_fairy_id_ = value;
+}
+
+// optional int64 event_id = 2;
+inline bool MountFairySlotRecord::has_event_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MountFairySlotRecord::set_has_event_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MountFairySlotRecord::clear_has_event_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MountFairySlotRecord::clear_event_id() {
+  event_id_ = GOOGLE_LONGLONG(0);
+  clear_has_event_id();
+}
+inline ::google::protobuf::int64 MountFairySlotRecord::event_id() const {
+  return event_id_;
+}
+inline void MountFairySlotRecord::set_event_id(::google::protobuf::int64 value) {
+  set_has_event_id();
+  event_id_ = value;
+}
+
+// optional int64 create_time = 3;
+inline bool MountFairySlotRecord::has_create_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MountFairySlotRecord::set_has_create_time() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MountFairySlotRecord::clear_has_create_time() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MountFairySlotRecord::clear_create_time() {
+  create_time_ = GOOGLE_LONGLONG(0);
+  clear_has_create_time();
+}
+inline ::google::protobuf::int64 MountFairySlotRecord::create_time() const {
+  return create_time_;
+}
+inline void MountFairySlotRecord::set_create_time(::google::protobuf::int64 value) {
+  set_has_create_time();
+  create_time_ = value;
+}
+
+// optional bool finish = 4;
+inline bool MountFairySlotRecord::has_finish() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MountFairySlotRecord::set_has_finish() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MountFairySlotRecord::clear_has_finish() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MountFairySlotRecord::clear_finish() {
+  finish_ = false;
+  clear_has_finish();
+}
+inline bool MountFairySlotRecord::finish() const {
+  return finish_;
+}
+inline void MountFairySlotRecord::set_finish(bool value) {
+  set_has_finish();
+  finish_ = value;
+}
+
+// optional .proto_ff.ComItem reward_item = 5;
+inline bool MountFairySlotRecord::has_reward_item() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void MountFairySlotRecord::set_has_reward_item() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void MountFairySlotRecord::clear_has_reward_item() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void MountFairySlotRecord::clear_reward_item() {
+  if (reward_item_ != NULL) reward_item_->::proto_ff::ComItem::Clear();
+  clear_has_reward_item();
+}
+inline const ::proto_ff::ComItem& MountFairySlotRecord::reward_item() const {
+  return reward_item_ != NULL ? *reward_item_ : *default_instance_->reward_item_;
+}
+inline ::proto_ff::ComItem* MountFairySlotRecord::mutable_reward_item() {
+  set_has_reward_item();
+  if (reward_item_ == NULL) reward_item_ = new ::proto_ff::ComItem;
+  return reward_item_;
+}
+inline ::proto_ff::ComItem* MountFairySlotRecord::release_reward_item() {
+  clear_has_reward_item();
+  ::proto_ff::ComItem* temp = reward_item_;
+  reward_item_ = NULL;
+  return temp;
+}
+inline void MountFairySlotRecord::set_allocated_reward_item(::proto_ff::ComItem* reward_item) {
+  delete reward_item_;
+  reward_item_ = reward_item;
+  if (reward_item) {
+    set_has_reward_item();
+  } else {
+    clear_has_reward_item();
+  }
+}
+
+// -------------------------------------------------------------------
+
 // MountFairySlot
 
 // optional int64 slot_id = 1;
@@ -44856,6 +46130,122 @@ inline bool MountFairySlot::can_get_reward() const {
 inline void MountFairySlot::set_can_get_reward(bool value) {
   set_has_can_get_reward();
   can_get_reward_ = value;
+}
+
+// repeated .proto_ff.ComItem reward_item = 9;
+inline int MountFairySlot::reward_item_size() const {
+  return reward_item_.size();
+}
+inline void MountFairySlot::clear_reward_item() {
+  reward_item_.Clear();
+}
+inline const ::proto_ff::ComItem& MountFairySlot::reward_item(int index) const {
+  return reward_item_.Get(index);
+}
+inline ::proto_ff::ComItem* MountFairySlot::mutable_reward_item(int index) {
+  return reward_item_.Mutable(index);
+}
+inline ::proto_ff::ComItem* MountFairySlot::add_reward_item() {
+  return reward_item_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItem >&
+MountFairySlot::reward_item() const {
+  return reward_item_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItem >*
+MountFairySlot::mutable_reward_item() {
+  return &reward_item_;
+}
+
+// optional uint64 reward_gold = 10;
+inline bool MountFairySlot::has_reward_gold() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void MountFairySlot::set_has_reward_gold() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void MountFairySlot::clear_has_reward_gold() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void MountFairySlot::clear_reward_gold() {
+  reward_gold_ = GOOGLE_ULONGLONG(0);
+  clear_has_reward_gold();
+}
+inline ::google::protobuf::uint64 MountFairySlot::reward_gold() const {
+  return reward_gold_;
+}
+inline void MountFairySlot::set_reward_gold(::google::protobuf::uint64 value) {
+  set_has_reward_gold();
+  reward_gold_ = value;
+}
+
+// optional uint64 reward_dia = 11;
+inline bool MountFairySlot::has_reward_dia() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void MountFairySlot::set_has_reward_dia() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void MountFairySlot::clear_has_reward_dia() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void MountFairySlot::clear_reward_dia() {
+  reward_dia_ = GOOGLE_ULONGLONG(0);
+  clear_has_reward_dia();
+}
+inline ::google::protobuf::uint64 MountFairySlot::reward_dia() const {
+  return reward_dia_;
+}
+inline void MountFairySlot::set_reward_dia(::google::protobuf::uint64 value) {
+  set_has_reward_dia();
+  reward_dia_ = value;
+}
+
+// optional uint64 reward_bdia = 12;
+inline bool MountFairySlot::has_reward_bdia() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void MountFairySlot::set_has_reward_bdia() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void MountFairySlot::clear_has_reward_bdia() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void MountFairySlot::clear_reward_bdia() {
+  reward_bdia_ = GOOGLE_ULONGLONG(0);
+  clear_has_reward_bdia();
+}
+inline ::google::protobuf::uint64 MountFairySlot::reward_bdia() const {
+  return reward_bdia_;
+}
+inline void MountFairySlot::set_reward_bdia(::google::protobuf::uint64 value) {
+  set_has_reward_bdia();
+  reward_bdia_ = value;
+}
+
+// repeated .proto_ff.MountFairySlotRecord record = 13;
+inline int MountFairySlot::record_size() const {
+  return record_.size();
+}
+inline void MountFairySlot::clear_record() {
+  record_.Clear();
+}
+inline const ::proto_ff::MountFairySlotRecord& MountFairySlot::record(int index) const {
+  return record_.Get(index);
+}
+inline ::proto_ff::MountFairySlotRecord* MountFairySlot::mutable_record(int index) {
+  return record_.Mutable(index);
+}
+inline ::proto_ff::MountFairySlotRecord* MountFairySlot::add_record() {
+  return record_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::MountFairySlotRecord >&
+MountFairySlot::record() const {
+  return record_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::MountFairySlotRecord >*
+MountFairySlot::mutable_record() {
+  return &record_;
 }
 
 // -------------------------------------------------------------------
@@ -45451,6 +46841,28 @@ inline ::google::protobuf::uint64 DailyTaskLimitEntry::ready_add_time() const {
 inline void DailyTaskLimitEntry::set_ready_add_time(::google::protobuf::uint64 value) {
   set_has_ready_add_time();
   ready_add_time_ = value;
+}
+
+// optional bool is_fest_open = 9;
+inline bool DailyTaskLimitEntry::has_is_fest_open() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void DailyTaskLimitEntry::set_has_is_fest_open() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void DailyTaskLimitEntry::clear_has_is_fest_open() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void DailyTaskLimitEntry::clear_is_fest_open() {
+  is_fest_open_ = false;
+  clear_has_is_fest_open();
+}
+inline bool DailyTaskLimitEntry::is_fest_open() const {
+  return is_fest_open_;
+}
+inline void DailyTaskLimitEntry::set_is_fest_open(bool value) {
+  set_has_is_fest_open();
+  is_fest_open_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -63696,6 +65108,124 @@ inline ::google::protobuf::int32 FMarryTask::state() const {
 inline void FMarryTask::set_state(::google::protobuf::int32 value) {
   set_has_state();
   state_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SoulEntry
+
+// optional int32 id = 1;
+inline bool SoulEntry::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulEntry::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulEntry::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulEntry::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 SoulEntry::id() const {
+  return id_;
+}
+inline void SoulEntry::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// optional int32 lv = 2;
+inline bool SoulEntry::has_lv() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SoulEntry::set_has_lv() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SoulEntry::clear_has_lv() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SoulEntry::clear_lv() {
+  lv_ = 0;
+  clear_has_lv();
+}
+inline ::google::protobuf::int32 SoulEntry::lv() const {
+  return lv_;
+}
+inline void SoulEntry::set_lv(::google::protobuf::int32 value) {
+  set_has_lv();
+  lv_ = value;
+}
+
+// optional int32 steplv = 3;
+inline bool SoulEntry::has_steplv() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void SoulEntry::set_has_steplv() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void SoulEntry::clear_has_steplv() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void SoulEntry::clear_steplv() {
+  steplv_ = 0;
+  clear_has_steplv();
+}
+inline ::google::protobuf::int32 SoulEntry::steplv() const {
+  return steplv_;
+}
+inline void SoulEntry::set_steplv(::google::protobuf::int32 value) {
+  set_has_steplv();
+  steplv_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SoulPool
+
+// optional int32 poolBlessLv = 1;
+inline bool SoulPool::has_poolblesslv() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulPool::set_has_poolblesslv() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulPool::clear_has_poolblesslv() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulPool::clear_poolblesslv() {
+  poolblesslv_ = 0;
+  clear_has_poolblesslv();
+}
+inline ::google::protobuf::int32 SoulPool::poolblesslv() const {
+  return poolblesslv_;
+}
+inline void SoulPool::set_poolblesslv(::google::protobuf::int32 value) {
+  set_has_poolblesslv();
+  poolblesslv_ = value;
+}
+
+// optional int32 poolPgLv = 2;
+inline bool SoulPool::has_poolpglv() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SoulPool::set_has_poolpglv() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SoulPool::clear_has_poolpglv() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SoulPool::clear_poolpglv() {
+  poolpglv_ = 0;
+  clear_has_poolpglv();
+}
+inline ::google::protobuf::int32 SoulPool::poolpglv() const {
+  return poolpglv_;
+}
+inline void SoulPool::set_poolpglv(::google::protobuf::int32 value) {
+  set_has_poolpglv();
+  poolpglv_ = value;
 }
 
 

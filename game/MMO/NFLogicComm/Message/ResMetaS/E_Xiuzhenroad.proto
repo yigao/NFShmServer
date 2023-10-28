@@ -14,7 +14,7 @@ message E_XiuzhenroadTask
 	optional int32 m_boxid = 7[(yd_fieldoptions.field_cname) = "box礼包ID"];
 	optional int32 m_integral = 8[(yd_fieldoptions.field_cname) = "奖励的积分"];
 	optional int32 m_linkid = 9[(yd_fieldoptions.field_cname) = "跳转ID"];
-	repeated int32 m_param = 10[(yd_fieldoptions.field_cname) = "事件完成参数", (yd_fieldoptions.field_arysize) = 2];
+	repeated int32 m_param = 10[(yd_fieldoptions.field_cname) = "事件完成参数", (yd_fieldoptions.field_arysize) = 3];
 }
 
 

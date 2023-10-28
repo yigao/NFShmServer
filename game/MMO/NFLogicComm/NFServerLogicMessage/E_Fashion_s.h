@@ -55,6 +55,7 @@ namespace proto_ff_s {
 		int32_t m_type;//外观类型
 		int32_t m_quality;//时装品质
 		NFShmString<64> m_professionlimit;//职业限制
+		int32_t m_timelimit;//是否时效
 		int64_t m_activationitem;//激活道具ID
 		int32_t m_activationnum;//激活道具数量
 		int64_t m_starid;//升星道具id

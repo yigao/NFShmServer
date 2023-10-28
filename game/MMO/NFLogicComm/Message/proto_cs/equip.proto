@@ -149,7 +149,11 @@ message EquipStoveSmeltRsp
 	repeated Attr64 attrs = 4;
 	optional uint32 all_num = 5;
 }
-
+//NOTIFY_EQUIP_EXPIRE 装备过期
+message NotifyEquipExpire
+{
+	optional int32 pos =1;
+}
 
 //=========================洗练相关===================
 //解锁槽位 EQUIP_WASH_UNLOCK_REQ

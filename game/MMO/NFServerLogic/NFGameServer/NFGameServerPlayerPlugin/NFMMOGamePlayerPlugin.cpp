@@ -25,7 +25,7 @@
 
 #include "Part/NFBattlePart.h"
 #include "Part/NFBattleMovePart.h"
-#include "NFLogicCommon/NFAttr.h"
+#include "NFLogicCommon/Attr/NFAttr.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 

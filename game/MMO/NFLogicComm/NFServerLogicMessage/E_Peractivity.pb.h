@@ -194,6 +194,13 @@ class E_PeractivityPeractivity : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_iscross() const;
   inline void set_m_iscross(::google::protobuf::int32 value);
 
+  // optional int32 m_isfestvial = 13;
+  inline bool has_m_isfestvial() const;
+  inline void clear_m_isfestvial();
+  static const int kMIsfestvialFieldNumber = 13;
+  inline ::google::protobuf::int32 m_isfestvial() const;
+  inline void set_m_isfestvial(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.E_PeractivityPeractivity)
  private:
   inline void set_has_m_activeid();
@@ -220,6 +227,8 @@ class E_PeractivityPeractivity : public ::google::protobuf::Message {
   inline void clear_has_m_intervaltime();
   inline void set_has_m_iscross();
   inline void clear_has_m_iscross();
+  inline void set_has_m_isfestvial();
+  inline void clear_has_m_isfestvial();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -235,9 +244,10 @@ class E_PeractivityPeractivity : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_advancetime_;
   ::google::protobuf::int32 m_intervaltime_;
   ::google::protobuf::int32 m_iscross_;
+  ::google::protobuf::int32 m_isfestvial_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(12 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(13 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fPeractivity_2eproto();
   friend void protobuf_AssignDesc_E_5fPeractivity_2eproto();
@@ -943,6 +953,28 @@ inline ::google::protobuf::int32 E_PeractivityPeractivity::m_iscross() const {
 inline void E_PeractivityPeractivity::set_m_iscross(::google::protobuf::int32 value) {
   set_has_m_iscross();
   m_iscross_ = value;
+}
+
+// optional int32 m_isfestvial = 13;
+inline bool E_PeractivityPeractivity::has_m_isfestvial() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+inline void E_PeractivityPeractivity::set_has_m_isfestvial() {
+  _has_bits_[0] |= 0x00001000u;
+}
+inline void E_PeractivityPeractivity::clear_has_m_isfestvial() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline void E_PeractivityPeractivity::clear_m_isfestvial() {
+  m_isfestvial_ = 0;
+  clear_has_m_isfestvial();
+}
+inline ::google::protobuf::int32 E_PeractivityPeractivity::m_isfestvial() const {
+  return m_isfestvial_;
+}
+inline void E_PeractivityPeractivity::set_m_isfestvial(::google::protobuf::int32 value) {
+  set_has_m_isfestvial();
+  m_isfestvial_ = value;
 }
 
 // -------------------------------------------------------------------

@@ -78,8 +78,8 @@ message Sheet_DailySports
 message E_DailyHelper
 {
 	optional int32 m_helperid = 1[(yd_fieldoptions.field_cname) = "扫荡ID"];
-	optional string m_playid = 2[(yd_fieldoptions.field_cname) = "玩法ID", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_helpertype = 3[(yd_fieldoptions.field_cname) = "扫荡玩法的类型"];
+	optional int32 m_helpertype = 2[(yd_fieldoptions.field_cname) = "扫荡玩法的类型"];
+	optional string m_playid = 3[(yd_fieldoptions.field_cname) = "玩法ID", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_linkid = 4[(yd_fieldoptions.field_cname) = "跳转ID"];
 	optional string m_name = 5[(yd_fieldoptions.field_cname) = "标题显示", (yd_fieldoptions.field_bufsize) = 64];
 	optional string m_condition = 6[(yd_fieldoptions.field_cname) = "条件显示", (yd_fieldoptions.field_bufsize) = 64];
@@ -88,5 +88,5 @@ message E_DailyHelper
 
 message Sheet_DailyHelper
 {
-	repeated E_DailyHelper E_DailyHelper_List = 1[(yd_fieldoptions.field_arysize)=8];
+	repeated E_DailyHelper E_DailyHelper_List = 1[(yd_fieldoptions.field_arysize)=16];
 }

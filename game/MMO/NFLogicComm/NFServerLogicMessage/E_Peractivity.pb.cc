@@ -43,7 +43,7 @@ void protobuf_AssignDesc_E_5fPeractivity_2eproto() {
       "E_Peractivity.proto");
   GOOGLE_CHECK(file != NULL);
   E_PeractivityPeractivity_descriptor_ = file->message_type(0);
-  static const int E_PeractivityPeractivity_offsets_[12] = {
+  static const int E_PeractivityPeractivity_offsets_[13] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PeractivityPeractivity, m_activeid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PeractivityPeractivity, m_activename_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PeractivityPeractivity, m_typeid_),
@@ -56,6 +56,7 @@ void protobuf_AssignDesc_E_5fPeractivity_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PeractivityPeractivity, m_advancetime_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PeractivityPeractivity, m_intervaltime_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PeractivityPeractivity, m_iscross_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PeractivityPeractivity, m_isfestvial_),
   };
   E_PeractivityPeractivity_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -159,7 +160,7 @@ void protobuf_AddDesc_E_5fPeractivity_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\023E_Peractivity.proto\022\010proto_ff\032\025yd_fiel"
-    "doptions.proto\"\241\004\n\030E_PeractivityPeractiv"
+    "doptions.proto\"\317\004\n\030E_PeractivityPeractiv"
     "ity\022 \n\nm_activeid\030\001 \001(\003B\014\302\377\024\010\346\264\273\345\212\250ID\022*\n"
     "\014m_activename\030\002 \001(\tB\024\302\377\024\014\346\264\273\345\212\250\345\220\215\347\247\260\220\301\024"
     "@\022\036\n\010m_typeid\030\003 \001(\005B\014\302\377\024\010\347\261\273\345\236\213ID\022(\n\014m_f"
@@ -173,14 +174,16 @@ void protobuf_AddDesc_E_5fPeractivity_2eproto() {
     "m_advancetime\030\n \001(\005B\026\302\377\024\022\346\217\220\345\211\215\345\271\277\346\222\255\346\227\266"
     "\351\227\264\022(\n\016m_intervaltime\030\013 \001(\005B\020\302\377\024\014\345\271\277\346\222\255\351"
     "\227\264\351\232\224\022#\n\tm_iscross\030\014 \001(\005B\020\302\377\024\014\346\230\257\345\220\246\350\267\250\346"
-    "\234\215\"o\n\034Sheet_PeractivityPeractivity\022O\n\035E_"
-    "PeractivityPeractivity_List\030\001 \003(\0132\".prot"
-    "o_ff.E_PeractivityPeractivityB\004\210\301\024 \"n\n\021E"
-    "_PeractivityWeek\022\030\n\004m_id\030\001 \001(\005B\n\302\377\024\006\345\272\217\345"
-    "\217\267\022\036\n\006m_time\030\002 \001(\tB\016\302\377\024\006\346\227\266\351\227\264\220\301\024@\022\037\n\006m_"
-    "week\030\003 \003(\tB\017\302\377\024\003\345\221\250\210\301\024\007\220\301\024@\"Z\n\025Sheet_Per"
-    "activityWeek\022A\n\026E_PeractivityWeek_List\030\001"
-    " \003(\0132\033.proto_ff.E_PeractivityWeekB\004\210\301\024 ", 919);
+    "\234\215\022,\n\014m_isfestvial\030\r \001(\005B\026\302\377\024\022\346\230\257\345\220\246\351\231\220\346"
+    "\227\266\346\264\273\345\212\250\"o\n\034Sheet_PeractivityPeractivity"
+    "\022O\n\035E_PeractivityPeractivity_List\030\001 \003(\0132"
+    "\".proto_ff.E_PeractivityPeractivityB\004\210\301\024"
+    " \"n\n\021E_PeractivityWeek\022\030\n\004m_id\030\001 \001(\005B\n\302\377"
+    "\024\006\345\272\217\345\217\267\022\036\n\006m_time\030\002 \001(\tB\016\302\377\024\006\346\227\266\351\227\264\220\301\024@"
+    "\022\037\n\006m_week\030\003 \003(\tB\017\302\377\024\003\345\221\250\210\301\024\007\220\301\024@\"Z\n\025She"
+    "et_PeractivityWeek\022A\n\026E_PeractivityWeek_"
+    "List\030\001 \003(\0132\033.proto_ff.E_PeractivityWeekB"
+    "\004\210\301\024 ", 965);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Peractivity.proto", &protobuf_RegisterTypes);
   E_PeractivityPeractivity::default_instance_ = new E_PeractivityPeractivity();
@@ -216,6 +219,7 @@ const int E_PeractivityPeractivity::kMOpeningtimeFieldNumber;
 const int E_PeractivityPeractivity::kMAdvancetimeFieldNumber;
 const int E_PeractivityPeractivity::kMIntervaltimeFieldNumber;
 const int E_PeractivityPeractivity::kMIscrossFieldNumber;
+const int E_PeractivityPeractivity::kMIsfestvialFieldNumber;
 #endif  // !_MSC_VER
 
 E_PeractivityPeractivity::E_PeractivityPeractivity()
@@ -246,6 +250,7 @@ void E_PeractivityPeractivity::SharedCtor() {
   m_advancetime_ = 0;
   m_intervaltime_ = 0;
   m_iscross_ = 0;
+  m_isfestvial_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -316,6 +321,7 @@ void E_PeractivityPeractivity::Clear() {
     m_advancetime_ = 0;
     m_intervaltime_ = 0;
     m_iscross_ = 0;
+    m_isfestvial_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -517,6 +523,22 @@ bool E_PeractivityPeractivity::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(104)) goto parse_m_isfestvial;
+        break;
+      }
+
+      // optional int32 m_isfestvial = 13;
+      case 13: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_isfestvial:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_isfestvial_)));
+          set_has_m_isfestvial();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -611,6 +633,11 @@ void E_PeractivityPeractivity::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_iscross(), output);
   }
 
+  // optional int32 m_isfestvial = 13;
+  if (has_m_isfestvial()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_isfestvial(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -692,6 +719,11 @@ void E_PeractivityPeractivity::SerializeWithCachedSizes(
   // optional int32 m_iscross = 12;
   if (has_m_iscross()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_iscross(), target);
+  }
+
+  // optional int32 m_isfestvial = 13;
+  if (has_m_isfestvial()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_isfestvial(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -791,6 +823,13 @@ int E_PeractivityPeractivity::ByteSize() const {
           this->m_iscross());
     }
 
+    // optional int32 m_isfestvial = 13;
+    if (has_m_isfestvial()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_isfestvial());
+    }
+
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -856,6 +895,9 @@ void E_PeractivityPeractivity::MergeFrom(const E_PeractivityPeractivity& from) {
     if (from.has_m_iscross()) {
       set_m_iscross(from.m_iscross());
     }
+    if (from.has_m_isfestvial()) {
+      set_m_isfestvial(from.m_isfestvial());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -891,6 +933,7 @@ void E_PeractivityPeractivity::Swap(E_PeractivityPeractivity* other) {
     std::swap(m_advancetime_, other->m_advancetime_);
     std::swap(m_intervaltime_, other->m_intervaltime_);
     std::swap(m_iscross_, other->m_iscross_);
+    std::swap(m_isfestvial_, other->m_isfestvial_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

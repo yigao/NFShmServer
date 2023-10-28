@@ -16,6 +16,7 @@ int E_MallMall_s::CreateInit() {
 	m_malltype = (int32_t)0;
 	m_priority = (int32_t)0;
 	m_moneytype = (int32_t)0;
+	m_moneyitem = (int32_t)0;
 	m_price = (int32_t)0;
 	m_secondarymoneytype = (int32_t)0;
 	m_discount = (int32_t)0;
@@ -40,6 +41,7 @@ void E_MallMall_s::write_to_pbmsg(::proto_ff::E_MallMall & msg) const {
 	msg.set_m_malltype((int32_t)m_malltype);
 	msg.set_m_priority((int32_t)m_priority);
 	msg.set_m_moneytype((int32_t)m_moneytype);
+	msg.set_m_moneyitem((int32_t)m_moneyitem);
 	msg.set_m_price((int32_t)m_price);
 	msg.set_m_secondarymoneytype((int32_t)m_secondarymoneytype);
 	msg.set_m_discount((int32_t)m_discount);
@@ -59,6 +61,7 @@ void E_MallMall_s::read_from_pbmsg(const ::proto_ff::E_MallMall & msg) {
 	m_malltype = msg.m_malltype();
 	m_priority = msg.m_priority();
 	m_moneytype = msg.m_moneytype();
+	m_moneyitem = msg.m_moneyitem();
 	m_price = msg.m_price();
 	m_secondarymoneytype = msg.m_secondarymoneytype();
 	m_discount = msg.m_discount();
@@ -114,6 +117,7 @@ E_MallMalltype_tab_s::E_MallMalltype_tab_s() {
 int E_MallMalltype_tab_s::CreateInit() {
 	m_priority = (int32_t)0;
 	m_functionunlock = (int32_t)0;
+	m_entrance = (int32_t)0;
 	return 0;
 }
 
@@ -124,11 +128,13 @@ int E_MallMalltype_tab_s::ResumeInit() {
 void E_MallMalltype_tab_s::write_to_pbmsg(::proto_ff::E_MallMalltype_tab & msg) const {
 	msg.set_m_priority((int32_t)m_priority);
 	msg.set_m_functionunlock((int32_t)m_functionunlock);
+	msg.set_m_entrance((int32_t)m_entrance);
 }
 
 void E_MallMalltype_tab_s::read_from_pbmsg(const ::proto_ff::E_MallMalltype_tab & msg) {
 	m_priority = msg.m_priority();
 	m_functionunlock = msg.m_functionunlock();
+	m_entrance = msg.m_entrance();
 }
 
 Sheet_MallMalltype_tab_s::Sheet_MallMalltype_tab_s() {
@@ -188,6 +194,7 @@ void E_MallMalltype_s::write_to_pbmsg(::proto_ff::E_MallMalltype & msg) const {
 	msg.set_m_grouptype((int32_t)m_grouptype);
 	msg.set_m_priority((int32_t)m_priority);
 	msg.set_m_functionunlock((int32_t)m_functionunlock);
+	msg.set_m_profession(m_profession.data());
 }
 
 void E_MallMalltype_s::read_from_pbmsg(const ::proto_ff::E_MallMalltype & msg) {
@@ -196,6 +203,7 @@ void E_MallMalltype_s::read_from_pbmsg(const ::proto_ff::E_MallMalltype & msg) {
 	m_grouptype = msg.m_grouptype();
 	m_priority = msg.m_priority();
 	m_functionunlock = msg.m_functionunlock();
+	m_profession = msg.m_profession();
 }
 
 Sheet_MallMalltype_s::Sheet_MallMalltype_s() {

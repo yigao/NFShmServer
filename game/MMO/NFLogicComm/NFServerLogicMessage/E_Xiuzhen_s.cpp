@@ -1006,6 +1006,7 @@ void E_XiuzhenGftypes_s::write_to_pbmsg(::proto_ff::E_XiuzhenGftypes & msg) cons
 	msg.set_m_itemnum((int32_t)m_itemnum);
 	msg.set_m_buylv((int32_t)m_buylv);
 	msg.set_m_rechargeid((int32_t)m_rechargeid);
+	msg.set_m_bookmodel(m_bookmodel.data());
 }
 
 void E_XiuzhenGftypes_s::read_from_pbmsg(const ::proto_ff::E_XiuzhenGftypes & msg) {
@@ -1017,6 +1018,7 @@ void E_XiuzhenGftypes_s::read_from_pbmsg(const ::proto_ff::E_XiuzhenGftypes & ms
 	m_itemnum = msg.m_itemnum();
 	m_buylv = msg.m_buylv();
 	m_rechargeid = msg.m_rechargeid();
+	m_bookmodel = msg.m_bookmodel();
 }
 
 Sheet_XiuzhenGftypes_s::Sheet_XiuzhenGftypes_s() {

@@ -123,129 +123,141 @@ class E_MonsterMonster : public ::google::protobuf::Message {
   inline ::std::string* release_m_monstername();
   inline void set_allocated_m_monstername(::std::string* m_monstername);
 
-  // optional int32 m_functiontype = 3;
+  // optional string m_mask = 3;
+  inline bool has_m_mask() const;
+  inline void clear_m_mask();
+  static const int kMMaskFieldNumber = 3;
+  inline const ::std::string& m_mask() const;
+  inline void set_m_mask(const ::std::string& value);
+  inline void set_m_mask(const char* value);
+  inline void set_m_mask(const char* value, size_t size);
+  inline ::std::string* mutable_m_mask();
+  inline ::std::string* release_m_mask();
+  inline void set_allocated_m_mask(::std::string* m_mask);
+
+  // optional int32 m_functiontype = 4;
   inline bool has_m_functiontype() const;
   inline void clear_m_functiontype();
-  static const int kMFunctiontypeFieldNumber = 3;
+  static const int kMFunctiontypeFieldNumber = 4;
   inline ::google::protobuf::int32 m_functiontype() const;
   inline void set_m_functiontype(::google::protobuf::int32 value);
 
-  // optional int64 m_functionvalue = 4;
+  // optional int64 m_functionvalue = 5;
   inline bool has_m_functionvalue() const;
   inline void clear_m_functionvalue();
-  static const int kMFunctionvalueFieldNumber = 4;
+  static const int kMFunctionvalueFieldNumber = 5;
   inline ::google::protobuf::int64 m_functionvalue() const;
   inline void set_m_functionvalue(::google::protobuf::int64 value);
 
-  // optional int32 m_tasktype = 5;
+  // optional int32 m_tasktype = 6;
   inline bool has_m_tasktype() const;
   inline void clear_m_tasktype();
-  static const int kMTasktypeFieldNumber = 5;
+  static const int kMTasktypeFieldNumber = 6;
   inline ::google::protobuf::int32 m_tasktype() const;
   inline void set_m_tasktype(::google::protobuf::int32 value);
 
-  // optional int32 m_profession = 6;
+  // optional int32 m_profession = 7;
   inline bool has_m_profession() const;
   inline void clear_m_profession();
-  static const int kMProfessionFieldNumber = 6;
+  static const int kMProfessionFieldNumber = 7;
   inline ::google::protobuf::int32 m_profession() const;
   inline void set_m_profession(::google::protobuf::int32 value);
 
-  // optional int32 m_subprofession = 7;
+  // optional int32 m_subprofession = 8;
   inline bool has_m_subprofession() const;
   inline void clear_m_subprofession();
-  static const int kMSubprofessionFieldNumber = 7;
+  static const int kMSubprofessionFieldNumber = 8;
   inline ::google::protobuf::int32 m_subprofession() const;
   inline void set_m_subprofession(::google::protobuf::int32 value);
 
-  // optional int32 m_damageaddtype = 8;
+  // optional int32 m_damageaddtype = 9;
   inline bool has_m_damageaddtype() const;
   inline void clear_m_damageaddtype();
-  static const int kMDamageaddtypeFieldNumber = 8;
+  static const int kMDamageaddtypeFieldNumber = 9;
   inline ::google::protobuf::int32 m_damageaddtype() const;
   inline void set_m_damageaddtype(::google::protobuf::int32 value);
 
-  // optional int32 m_monsterlv = 9;
+  // optional int32 m_monsterlv = 10;
   inline bool has_m_monsterlv() const;
   inline void clear_m_monsterlv();
-  static const int kMMonsterlvFieldNumber = 9;
+  static const int kMMonsterlvFieldNumber = 10;
   inline ::google::protobuf::int32 m_monsterlv() const;
   inline void set_m_monsterlv(::google::protobuf::int32 value);
 
-  // optional int32 m_droplimit = 10;
+  // optional int32 m_droplimit = 11;
   inline bool has_m_droplimit() const;
   inline void clear_m_droplimit();
-  static const int kMDroplimitFieldNumber = 10;
+  static const int kMDroplimitFieldNumber = 11;
   inline ::google::protobuf::int32 m_droplimit() const;
   inline void set_m_droplimit(::google::protobuf::int32 value);
 
-  // optional int64 m_displayid = 11;
+  // optional int64 m_displayid = 12;
   inline bool has_m_displayid() const;
   inline void clear_m_displayid();
-  static const int kMDisplayidFieldNumber = 11;
+  static const int kMDisplayidFieldNumber = 12;
   inline ::google::protobuf::int64 m_displayid() const;
   inline void set_m_displayid(::google::protobuf::int64 value);
 
-  // optional int32 m_bossid = 12;
+  // optional int32 m_bossid = 13;
   inline bool has_m_bossid() const;
   inline void clear_m_bossid();
-  static const int kMBossidFieldNumber = 12;
+  static const int kMBossidFieldNumber = 13;
   inline ::google::protobuf::int32 m_bossid() const;
   inline void set_m_bossid(::google::protobuf::int32 value);
 
-  // optional int64 m_valuetype = 13;
+  // optional int64 m_valuetype = 14;
   inline bool has_m_valuetype() const;
   inline void clear_m_valuetype();
-  static const int kMValuetypeFieldNumber = 13;
+  static const int kMValuetypeFieldNumber = 14;
   inline ::google::protobuf::int64 m_valuetype() const;
   inline void set_m_valuetype(::google::protobuf::int64 value);
 
-  // optional int32 m_valueparam = 14;
+  // optional int32 m_valueparam = 15;
   inline bool has_m_valueparam() const;
   inline void clear_m_valueparam();
-  static const int kMValueparamFieldNumber = 14;
+  static const int kMValueparamFieldNumber = 15;
   inline ::google::protobuf::int32 m_valueparam() const;
   inline void set_m_valueparam(::google::protobuf::int32 value);
 
-  // optional int64 m_aiid = 15;
+  // optional int64 m_aiid = 16;
   inline bool has_m_aiid() const;
   inline void clear_m_aiid();
-  static const int kMAiidFieldNumber = 15;
+  static const int kMAiidFieldNumber = 16;
   inline ::google::protobuf::int64 m_aiid() const;
   inline void set_m_aiid(::google::protobuf::int64 value);
 
-  // optional int32 m_hpsectionnum = 16;
+  // optional int32 m_hpsectionnum = 17;
   inline bool has_m_hpsectionnum() const;
   inline void clear_m_hpsectionnum();
-  static const int kMHpsectionnumFieldNumber = 16;
+  static const int kMHpsectionnumFieldNumber = 17;
   inline ::google::protobuf::int32 m_hpsectionnum() const;
   inline void set_m_hpsectionnum(::google::protobuf::int32 value);
 
-  // optional int32 m_breedprob = 17;
+  // optional int32 m_breedprob = 18;
   inline bool has_m_breedprob() const;
   inline void clear_m_breedprob();
-  static const int kMBreedprobFieldNumber = 17;
+  static const int kMBreedprobFieldNumber = 18;
   inline ::google::protobuf::int32 m_breedprob() const;
   inline void set_m_breedprob(::google::protobuf::int32 value);
 
-  // optional int64 m_breedmonid = 18;
+  // optional int64 m_breedmonid = 19;
   inline bool has_m_breedmonid() const;
   inline void clear_m_breedmonid();
-  static const int kMBreedmonidFieldNumber = 18;
+  static const int kMBreedmonidFieldNumber = 19;
   inline ::google::protobuf::int64 m_breedmonid() const;
   inline void set_m_breedmonid(::google::protobuf::int64 value);
 
-  // optional int32 m_breedmonlive = 19;
+  // optional int32 m_breedmonlive = 20;
   inline bool has_m_breedmonlive() const;
   inline void clear_m_breedmonlive();
-  static const int kMBreedmonliveFieldNumber = 19;
+  static const int kMBreedmonliveFieldNumber = 20;
   inline ::google::protobuf::int32 m_breedmonlive() const;
   inline void set_m_breedmonlive(::google::protobuf::int32 value);
 
-  // optional string m_itemcost = 20;
+  // optional string m_itemcost = 21;
   inline bool has_m_itemcost() const;
   inline void clear_m_itemcost();
-  static const int kMItemcostFieldNumber = 20;
+  static const int kMItemcostFieldNumber = 21;
   inline const ::std::string& m_itemcost() const;
   inline void set_m_itemcost(const ::std::string& value);
   inline void set_m_itemcost(const char* value);
@@ -254,87 +266,87 @@ class E_MonsterMonster : public ::google::protobuf::Message {
   inline ::std::string* release_m_itemcost();
   inline void set_allocated_m_itemcost(::std::string* m_itemcost);
 
-  // optional int32 m_isbornactionon = 21;
+  // optional int32 m_isbornactionon = 22;
   inline bool has_m_isbornactionon() const;
   inline void clear_m_isbornactionon();
-  static const int kMIsbornactiononFieldNumber = 21;
+  static const int kMIsbornactiononFieldNumber = 22;
   inline ::google::protobuf::int32 m_isbornactionon() const;
   inline void set_m_isbornactionon(::google::protobuf::int32 value);
 
-  // optional int32 m_belongshow = 22;
+  // optional int32 m_belongshow = 23;
   inline bool has_m_belongshow() const;
   inline void clear_m_belongshow();
-  static const int kMBelongshowFieldNumber = 22;
+  static const int kMBelongshowFieldNumber = 23;
   inline ::google::protobuf::int32 m_belongshow() const;
   inline void set_m_belongshow(::google::protobuf::int32 value);
 
-  // optional int32 m_dropgroupid = 23;
+  // optional int32 m_dropgroupid = 24;
   inline bool has_m_dropgroupid() const;
   inline void clear_m_dropgroupid();
-  static const int kMDropgroupidFieldNumber = 23;
+  static const int kMDropgroupidFieldNumber = 24;
   inline ::google::protobuf::int32 m_dropgroupid() const;
   inline void set_m_dropgroupid(::google::protobuf::int32 value);
 
-  // optional int32 m_harmdrop_type = 24;
+  // optional int32 m_harmdrop_type = 25;
   inline bool has_m_harmdrop_type() const;
   inline void clear_m_harmdrop_type();
-  static const int kMHarmdropTypeFieldNumber = 24;
+  static const int kMHarmdropTypeFieldNumber = 25;
   inline ::google::protobuf::int32 m_harmdrop_type() const;
   inline void set_m_harmdrop_type(::google::protobuf::int32 value);
 
-  // optional int32 m_joninper = 25;
+  // optional int32 m_joninper = 26;
   inline bool has_m_joninper() const;
   inline void clear_m_joninper();
-  static const int kMJoninperFieldNumber = 25;
+  static const int kMJoninperFieldNumber = 26;
   inline ::google::protobuf::int32 m_joninper() const;
   inline void set_m_joninper(::google::protobuf::int32 value);
 
-  // optional int32 m_btnrange = 26;
+  // optional int32 m_btnrange = 27;
   inline bool has_m_btnrange() const;
   inline void clear_m_btnrange();
-  static const int kMBtnrangeFieldNumber = 26;
+  static const int kMBtnrangeFieldNumber = 27;
   inline ::google::protobuf::int32 m_btnrange() const;
   inline void set_m_btnrange(::google::protobuf::int32 value);
 
-  // optional int64 m_btnid = 27;
+  // optional int64 m_btnid = 28;
   inline bool has_m_btnid() const;
   inline void clear_m_btnid();
-  static const int kMBtnidFieldNumber = 27;
+  static const int kMBtnidFieldNumber = 28;
   inline ::google::protobuf::int64 m_btnid() const;
   inline void set_m_btnid(::google::protobuf::int64 value);
 
-  // optional int32 m_drivepoint = 28;
+  // optional int32 m_drivepoint = 29;
   inline bool has_m_drivepoint() const;
   inline void clear_m_drivepoint();
-  static const int kMDrivepointFieldNumber = 28;
+  static const int kMDrivepointFieldNumber = 29;
   inline ::google::protobuf::int32 m_drivepoint() const;
   inline void set_m_drivepoint(::google::protobuf::int32 value);
 
-  // optional int32 m_corpseid = 29;
+  // optional int32 m_corpseid = 30;
   inline bool has_m_corpseid() const;
   inline void clear_m_corpseid();
-  static const int kMCorpseidFieldNumber = 29;
+  static const int kMCorpseidFieldNumber = 30;
   inline ::google::protobuf::int32 m_corpseid() const;
   inline void set_m_corpseid(::google::protobuf::int32 value);
 
-  // optional int64 m_battle = 30;
+  // optional int64 m_battle = 31;
   inline bool has_m_battle() const;
   inline void clear_m_battle();
-  static const int kMBattleFieldNumber = 30;
+  static const int kMBattleFieldNumber = 31;
   inline ::google::protobuf::int64 m_battle() const;
   inline void set_m_battle(::google::protobuf::int64 value);
 
-  // optional int32 m_lvsuppve = 31;
+  // optional int32 m_lvsuppve = 32;
   inline bool has_m_lvsuppve() const;
   inline void clear_m_lvsuppve();
-  static const int kMLvsuppveFieldNumber = 31;
+  static const int kMLvsuppveFieldNumber = 32;
   inline ::google::protobuf::int32 m_lvsuppve() const;
   inline void set_m_lvsuppve(::google::protobuf::int32 value);
 
-  // optional int32 m_powersuppve = 32;
+  // optional int32 m_powersuppve = 33;
   inline bool has_m_powersuppve() const;
   inline void clear_m_powersuppve();
-  static const int kMPowersuppveFieldNumber = 32;
+  static const int kMPowersuppveFieldNumber = 33;
   inline ::google::protobuf::int32 m_powersuppve() const;
   inline void set_m_powersuppve(::google::protobuf::int32 value);
 
@@ -344,6 +356,8 @@ class E_MonsterMonster : public ::google::protobuf::Message {
   inline void clear_has_m_monsterid();
   inline void set_has_m_monstername();
   inline void clear_has_m_monstername();
+  inline void set_has_m_mask();
+  inline void clear_has_m_mask();
   inline void set_has_m_functiontype();
   inline void clear_has_m_functiontype();
   inline void set_has_m_functionvalue();
@@ -409,6 +423,7 @@ class E_MonsterMonster : public ::google::protobuf::Message {
 
   ::google::protobuf::int64 m_monsterid_;
   ::std::string* m_monstername_;
+  ::std::string* m_mask_;
   ::google::protobuf::int32 m_functiontype_;
   ::google::protobuf::int32 m_tasktype_;
   ::google::protobuf::int64 m_functionvalue_;
@@ -441,7 +456,7 @@ class E_MonsterMonster : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_powersuppve_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(32 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(33 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fMonster_2eproto();
   friend void protobuf_AssignDesc_E_5fMonster_2eproto();
@@ -3237,15 +3252,85 @@ inline void E_MonsterMonster::set_allocated_m_monstername(::std::string* m_monst
   }
 }
 
-// optional int32 m_functiontype = 3;
-inline bool E_MonsterMonster::has_m_functiontype() const {
+// optional string m_mask = 3;
+inline bool E_MonsterMonster::has_m_mask() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void E_MonsterMonster::set_has_m_functiontype() {
+inline void E_MonsterMonster::set_has_m_mask() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void E_MonsterMonster::clear_has_m_functiontype() {
+inline void E_MonsterMonster::clear_has_m_mask() {
   _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_MonsterMonster::clear_m_mask() {
+  if (m_mask_ != &::google::protobuf::internal::kEmptyString) {
+    m_mask_->clear();
+  }
+  clear_has_m_mask();
+}
+inline const ::std::string& E_MonsterMonster::m_mask() const {
+  return *m_mask_;
+}
+inline void E_MonsterMonster::set_m_mask(const ::std::string& value) {
+  set_has_m_mask();
+  if (m_mask_ == &::google::protobuf::internal::kEmptyString) {
+    m_mask_ = new ::std::string;
+  }
+  m_mask_->assign(value);
+}
+inline void E_MonsterMonster::set_m_mask(const char* value) {
+  set_has_m_mask();
+  if (m_mask_ == &::google::protobuf::internal::kEmptyString) {
+    m_mask_ = new ::std::string;
+  }
+  m_mask_->assign(value);
+}
+inline void E_MonsterMonster::set_m_mask(const char* value, size_t size) {
+  set_has_m_mask();
+  if (m_mask_ == &::google::protobuf::internal::kEmptyString) {
+    m_mask_ = new ::std::string;
+  }
+  m_mask_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_MonsterMonster::mutable_m_mask() {
+  set_has_m_mask();
+  if (m_mask_ == &::google::protobuf::internal::kEmptyString) {
+    m_mask_ = new ::std::string;
+  }
+  return m_mask_;
+}
+inline ::std::string* E_MonsterMonster::release_m_mask() {
+  clear_has_m_mask();
+  if (m_mask_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_mask_;
+    m_mask_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_MonsterMonster::set_allocated_m_mask(::std::string* m_mask) {
+  if (m_mask_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_mask_;
+  }
+  if (m_mask) {
+    set_has_m_mask();
+    m_mask_ = m_mask;
+  } else {
+    clear_has_m_mask();
+    m_mask_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional int32 m_functiontype = 4;
+inline bool E_MonsterMonster::has_m_functiontype() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_MonsterMonster::set_has_m_functiontype() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_MonsterMonster::clear_has_m_functiontype() {
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void E_MonsterMonster::clear_m_functiontype() {
   m_functiontype_ = 0;
@@ -3259,15 +3344,15 @@ inline void E_MonsterMonster::set_m_functiontype(::google::protobuf::int32 value
   m_functiontype_ = value;
 }
 
-// optional int64 m_functionvalue = 4;
+// optional int64 m_functionvalue = 5;
 inline bool E_MonsterMonster::has_m_functionvalue() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_functionvalue() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void E_MonsterMonster::clear_has_m_functionvalue() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void E_MonsterMonster::clear_m_functionvalue() {
   m_functionvalue_ = GOOGLE_LONGLONG(0);
@@ -3281,15 +3366,15 @@ inline void E_MonsterMonster::set_m_functionvalue(::google::protobuf::int64 valu
   m_functionvalue_ = value;
 }
 
-// optional int32 m_tasktype = 5;
+// optional int32 m_tasktype = 6;
 inline bool E_MonsterMonster::has_m_tasktype() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_tasktype() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void E_MonsterMonster::clear_has_m_tasktype() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void E_MonsterMonster::clear_m_tasktype() {
   m_tasktype_ = 0;
@@ -3303,15 +3388,15 @@ inline void E_MonsterMonster::set_m_tasktype(::google::protobuf::int32 value) {
   m_tasktype_ = value;
 }
 
-// optional int32 m_profession = 6;
+// optional int32 m_profession = 7;
 inline bool E_MonsterMonster::has_m_profession() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_profession() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void E_MonsterMonster::clear_has_m_profession() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void E_MonsterMonster::clear_m_profession() {
   m_profession_ = 0;
@@ -3325,15 +3410,15 @@ inline void E_MonsterMonster::set_m_profession(::google::protobuf::int32 value) 
   m_profession_ = value;
 }
 
-// optional int32 m_subprofession = 7;
+// optional int32 m_subprofession = 8;
 inline bool E_MonsterMonster::has_m_subprofession() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_subprofession() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
 }
 inline void E_MonsterMonster::clear_has_m_subprofession() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline void E_MonsterMonster::clear_m_subprofession() {
   m_subprofession_ = 0;
@@ -3347,15 +3432,15 @@ inline void E_MonsterMonster::set_m_subprofession(::google::protobuf::int32 valu
   m_subprofession_ = value;
 }
 
-// optional int32 m_damageaddtype = 8;
+// optional int32 m_damageaddtype = 9;
 inline bool E_MonsterMonster::has_m_damageaddtype() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_damageaddtype() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000100u;
 }
 inline void E_MonsterMonster::clear_has_m_damageaddtype() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline void E_MonsterMonster::clear_m_damageaddtype() {
   m_damageaddtype_ = 0;
@@ -3369,15 +3454,15 @@ inline void E_MonsterMonster::set_m_damageaddtype(::google::protobuf::int32 valu
   m_damageaddtype_ = value;
 }
 
-// optional int32 m_monsterlv = 9;
+// optional int32 m_monsterlv = 10;
 inline bool E_MonsterMonster::has_m_monsterlv() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_monsterlv() {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000200u;
 }
 inline void E_MonsterMonster::clear_has_m_monsterlv() {
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline void E_MonsterMonster::clear_m_monsterlv() {
   m_monsterlv_ = 0;
@@ -3391,15 +3476,15 @@ inline void E_MonsterMonster::set_m_monsterlv(::google::protobuf::int32 value) {
   m_monsterlv_ = value;
 }
 
-// optional int32 m_droplimit = 10;
+// optional int32 m_droplimit = 11;
 inline bool E_MonsterMonster::has_m_droplimit() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
+  return (_has_bits_[0] & 0x00000400u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_droplimit() {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000400u;
 }
 inline void E_MonsterMonster::clear_has_m_droplimit() {
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline void E_MonsterMonster::clear_m_droplimit() {
   m_droplimit_ = 0;
@@ -3413,15 +3498,15 @@ inline void E_MonsterMonster::set_m_droplimit(::google::protobuf::int32 value) {
   m_droplimit_ = value;
 }
 
-// optional int64 m_displayid = 11;
+// optional int64 m_displayid = 12;
 inline bool E_MonsterMonster::has_m_displayid() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
+  return (_has_bits_[0] & 0x00000800u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_displayid() {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000800u;
 }
 inline void E_MonsterMonster::clear_has_m_displayid() {
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline void E_MonsterMonster::clear_m_displayid() {
   m_displayid_ = GOOGLE_LONGLONG(0);
@@ -3435,15 +3520,15 @@ inline void E_MonsterMonster::set_m_displayid(::google::protobuf::int64 value) {
   m_displayid_ = value;
 }
 
-// optional int32 m_bossid = 12;
+// optional int32 m_bossid = 13;
 inline bool E_MonsterMonster::has_m_bossid() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
+  return (_has_bits_[0] & 0x00001000u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_bossid() {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00001000u;
 }
 inline void E_MonsterMonster::clear_has_m_bossid() {
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline void E_MonsterMonster::clear_m_bossid() {
   m_bossid_ = 0;
@@ -3457,15 +3542,15 @@ inline void E_MonsterMonster::set_m_bossid(::google::protobuf::int32 value) {
   m_bossid_ = value;
 }
 
-// optional int64 m_valuetype = 13;
+// optional int64 m_valuetype = 14;
 inline bool E_MonsterMonster::has_m_valuetype() const {
-  return (_has_bits_[0] & 0x00001000u) != 0;
+  return (_has_bits_[0] & 0x00002000u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_valuetype() {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00002000u;
 }
 inline void E_MonsterMonster::clear_has_m_valuetype() {
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline void E_MonsterMonster::clear_m_valuetype() {
   m_valuetype_ = GOOGLE_LONGLONG(0);
@@ -3479,15 +3564,15 @@ inline void E_MonsterMonster::set_m_valuetype(::google::protobuf::int64 value) {
   m_valuetype_ = value;
 }
 
-// optional int32 m_valueparam = 14;
+// optional int32 m_valueparam = 15;
 inline bool E_MonsterMonster::has_m_valueparam() const {
-  return (_has_bits_[0] & 0x00002000u) != 0;
+  return (_has_bits_[0] & 0x00004000u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_valueparam() {
-  _has_bits_[0] |= 0x00002000u;
+  _has_bits_[0] |= 0x00004000u;
 }
 inline void E_MonsterMonster::clear_has_m_valueparam() {
-  _has_bits_[0] &= ~0x00002000u;
+  _has_bits_[0] &= ~0x00004000u;
 }
 inline void E_MonsterMonster::clear_m_valueparam() {
   m_valueparam_ = 0;
@@ -3501,15 +3586,15 @@ inline void E_MonsterMonster::set_m_valueparam(::google::protobuf::int32 value) 
   m_valueparam_ = value;
 }
 
-// optional int64 m_aiid = 15;
+// optional int64 m_aiid = 16;
 inline bool E_MonsterMonster::has_m_aiid() const {
-  return (_has_bits_[0] & 0x00004000u) != 0;
+  return (_has_bits_[0] & 0x00008000u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_aiid() {
-  _has_bits_[0] |= 0x00004000u;
+  _has_bits_[0] |= 0x00008000u;
 }
 inline void E_MonsterMonster::clear_has_m_aiid() {
-  _has_bits_[0] &= ~0x00004000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline void E_MonsterMonster::clear_m_aiid() {
   m_aiid_ = GOOGLE_LONGLONG(0);
@@ -3523,15 +3608,15 @@ inline void E_MonsterMonster::set_m_aiid(::google::protobuf::int64 value) {
   m_aiid_ = value;
 }
 
-// optional int32 m_hpsectionnum = 16;
+// optional int32 m_hpsectionnum = 17;
 inline bool E_MonsterMonster::has_m_hpsectionnum() const {
-  return (_has_bits_[0] & 0x00008000u) != 0;
+  return (_has_bits_[0] & 0x00010000u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_hpsectionnum() {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00010000u;
 }
 inline void E_MonsterMonster::clear_has_m_hpsectionnum() {
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline void E_MonsterMonster::clear_m_hpsectionnum() {
   m_hpsectionnum_ = 0;
@@ -3545,15 +3630,15 @@ inline void E_MonsterMonster::set_m_hpsectionnum(::google::protobuf::int32 value
   m_hpsectionnum_ = value;
 }
 
-// optional int32 m_breedprob = 17;
+// optional int32 m_breedprob = 18;
 inline bool E_MonsterMonster::has_m_breedprob() const {
-  return (_has_bits_[0] & 0x00010000u) != 0;
+  return (_has_bits_[0] & 0x00020000u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_breedprob() {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00020000u;
 }
 inline void E_MonsterMonster::clear_has_m_breedprob() {
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline void E_MonsterMonster::clear_m_breedprob() {
   m_breedprob_ = 0;
@@ -3567,15 +3652,15 @@ inline void E_MonsterMonster::set_m_breedprob(::google::protobuf::int32 value) {
   m_breedprob_ = value;
 }
 
-// optional int64 m_breedmonid = 18;
+// optional int64 m_breedmonid = 19;
 inline bool E_MonsterMonster::has_m_breedmonid() const {
-  return (_has_bits_[0] & 0x00020000u) != 0;
+  return (_has_bits_[0] & 0x00040000u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_breedmonid() {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00040000u;
 }
 inline void E_MonsterMonster::clear_has_m_breedmonid() {
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline void E_MonsterMonster::clear_m_breedmonid() {
   m_breedmonid_ = GOOGLE_LONGLONG(0);
@@ -3589,15 +3674,15 @@ inline void E_MonsterMonster::set_m_breedmonid(::google::protobuf::int64 value) 
   m_breedmonid_ = value;
 }
 
-// optional int32 m_breedmonlive = 19;
+// optional int32 m_breedmonlive = 20;
 inline bool E_MonsterMonster::has_m_breedmonlive() const {
-  return (_has_bits_[0] & 0x00040000u) != 0;
+  return (_has_bits_[0] & 0x00080000u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_breedmonlive() {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00080000u;
 }
 inline void E_MonsterMonster::clear_has_m_breedmonlive() {
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00080000u;
 }
 inline void E_MonsterMonster::clear_m_breedmonlive() {
   m_breedmonlive_ = 0;
@@ -3611,15 +3696,15 @@ inline void E_MonsterMonster::set_m_breedmonlive(::google::protobuf::int32 value
   m_breedmonlive_ = value;
 }
 
-// optional string m_itemcost = 20;
+// optional string m_itemcost = 21;
 inline bool E_MonsterMonster::has_m_itemcost() const {
-  return (_has_bits_[0] & 0x00080000u) != 0;
+  return (_has_bits_[0] & 0x00100000u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_itemcost() {
-  _has_bits_[0] |= 0x00080000u;
+  _has_bits_[0] |= 0x00100000u;
 }
 inline void E_MonsterMonster::clear_has_m_itemcost() {
-  _has_bits_[0] &= ~0x00080000u;
+  _has_bits_[0] &= ~0x00100000u;
 }
 inline void E_MonsterMonster::clear_m_itemcost() {
   if (m_itemcost_ != &::google::protobuf::internal::kEmptyString) {
@@ -3681,15 +3766,15 @@ inline void E_MonsterMonster::set_allocated_m_itemcost(::std::string* m_itemcost
   }
 }
 
-// optional int32 m_isbornactionon = 21;
+// optional int32 m_isbornactionon = 22;
 inline bool E_MonsterMonster::has_m_isbornactionon() const {
-  return (_has_bits_[0] & 0x00100000u) != 0;
+  return (_has_bits_[0] & 0x00200000u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_isbornactionon() {
-  _has_bits_[0] |= 0x00100000u;
+  _has_bits_[0] |= 0x00200000u;
 }
 inline void E_MonsterMonster::clear_has_m_isbornactionon() {
-  _has_bits_[0] &= ~0x00100000u;
+  _has_bits_[0] &= ~0x00200000u;
 }
 inline void E_MonsterMonster::clear_m_isbornactionon() {
   m_isbornactionon_ = 0;
@@ -3703,15 +3788,15 @@ inline void E_MonsterMonster::set_m_isbornactionon(::google::protobuf::int32 val
   m_isbornactionon_ = value;
 }
 
-// optional int32 m_belongshow = 22;
+// optional int32 m_belongshow = 23;
 inline bool E_MonsterMonster::has_m_belongshow() const {
-  return (_has_bits_[0] & 0x00200000u) != 0;
+  return (_has_bits_[0] & 0x00400000u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_belongshow() {
-  _has_bits_[0] |= 0x00200000u;
+  _has_bits_[0] |= 0x00400000u;
 }
 inline void E_MonsterMonster::clear_has_m_belongshow() {
-  _has_bits_[0] &= ~0x00200000u;
+  _has_bits_[0] &= ~0x00400000u;
 }
 inline void E_MonsterMonster::clear_m_belongshow() {
   m_belongshow_ = 0;
@@ -3725,15 +3810,15 @@ inline void E_MonsterMonster::set_m_belongshow(::google::protobuf::int32 value) 
   m_belongshow_ = value;
 }
 
-// optional int32 m_dropgroupid = 23;
+// optional int32 m_dropgroupid = 24;
 inline bool E_MonsterMonster::has_m_dropgroupid() const {
-  return (_has_bits_[0] & 0x00400000u) != 0;
+  return (_has_bits_[0] & 0x00800000u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_dropgroupid() {
-  _has_bits_[0] |= 0x00400000u;
+  _has_bits_[0] |= 0x00800000u;
 }
 inline void E_MonsterMonster::clear_has_m_dropgroupid() {
-  _has_bits_[0] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x00800000u;
 }
 inline void E_MonsterMonster::clear_m_dropgroupid() {
   m_dropgroupid_ = 0;
@@ -3747,15 +3832,15 @@ inline void E_MonsterMonster::set_m_dropgroupid(::google::protobuf::int32 value)
   m_dropgroupid_ = value;
 }
 
-// optional int32 m_harmdrop_type = 24;
+// optional int32 m_harmdrop_type = 25;
 inline bool E_MonsterMonster::has_m_harmdrop_type() const {
-  return (_has_bits_[0] & 0x00800000u) != 0;
+  return (_has_bits_[0] & 0x01000000u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_harmdrop_type() {
-  _has_bits_[0] |= 0x00800000u;
+  _has_bits_[0] |= 0x01000000u;
 }
 inline void E_MonsterMonster::clear_has_m_harmdrop_type() {
-  _has_bits_[0] &= ~0x00800000u;
+  _has_bits_[0] &= ~0x01000000u;
 }
 inline void E_MonsterMonster::clear_m_harmdrop_type() {
   m_harmdrop_type_ = 0;
@@ -3769,15 +3854,15 @@ inline void E_MonsterMonster::set_m_harmdrop_type(::google::protobuf::int32 valu
   m_harmdrop_type_ = value;
 }
 
-// optional int32 m_joninper = 25;
+// optional int32 m_joninper = 26;
 inline bool E_MonsterMonster::has_m_joninper() const {
-  return (_has_bits_[0] & 0x01000000u) != 0;
+  return (_has_bits_[0] & 0x02000000u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_joninper() {
-  _has_bits_[0] |= 0x01000000u;
+  _has_bits_[0] |= 0x02000000u;
 }
 inline void E_MonsterMonster::clear_has_m_joninper() {
-  _has_bits_[0] &= ~0x01000000u;
+  _has_bits_[0] &= ~0x02000000u;
 }
 inline void E_MonsterMonster::clear_m_joninper() {
   m_joninper_ = 0;
@@ -3791,15 +3876,15 @@ inline void E_MonsterMonster::set_m_joninper(::google::protobuf::int32 value) {
   m_joninper_ = value;
 }
 
-// optional int32 m_btnrange = 26;
+// optional int32 m_btnrange = 27;
 inline bool E_MonsterMonster::has_m_btnrange() const {
-  return (_has_bits_[0] & 0x02000000u) != 0;
+  return (_has_bits_[0] & 0x04000000u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_btnrange() {
-  _has_bits_[0] |= 0x02000000u;
+  _has_bits_[0] |= 0x04000000u;
 }
 inline void E_MonsterMonster::clear_has_m_btnrange() {
-  _has_bits_[0] &= ~0x02000000u;
+  _has_bits_[0] &= ~0x04000000u;
 }
 inline void E_MonsterMonster::clear_m_btnrange() {
   m_btnrange_ = 0;
@@ -3813,15 +3898,15 @@ inline void E_MonsterMonster::set_m_btnrange(::google::protobuf::int32 value) {
   m_btnrange_ = value;
 }
 
-// optional int64 m_btnid = 27;
+// optional int64 m_btnid = 28;
 inline bool E_MonsterMonster::has_m_btnid() const {
-  return (_has_bits_[0] & 0x04000000u) != 0;
+  return (_has_bits_[0] & 0x08000000u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_btnid() {
-  _has_bits_[0] |= 0x04000000u;
+  _has_bits_[0] |= 0x08000000u;
 }
 inline void E_MonsterMonster::clear_has_m_btnid() {
-  _has_bits_[0] &= ~0x04000000u;
+  _has_bits_[0] &= ~0x08000000u;
 }
 inline void E_MonsterMonster::clear_m_btnid() {
   m_btnid_ = GOOGLE_LONGLONG(0);
@@ -3835,15 +3920,15 @@ inline void E_MonsterMonster::set_m_btnid(::google::protobuf::int64 value) {
   m_btnid_ = value;
 }
 
-// optional int32 m_drivepoint = 28;
+// optional int32 m_drivepoint = 29;
 inline bool E_MonsterMonster::has_m_drivepoint() const {
-  return (_has_bits_[0] & 0x08000000u) != 0;
+  return (_has_bits_[0] & 0x10000000u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_drivepoint() {
-  _has_bits_[0] |= 0x08000000u;
+  _has_bits_[0] |= 0x10000000u;
 }
 inline void E_MonsterMonster::clear_has_m_drivepoint() {
-  _has_bits_[0] &= ~0x08000000u;
+  _has_bits_[0] &= ~0x10000000u;
 }
 inline void E_MonsterMonster::clear_m_drivepoint() {
   m_drivepoint_ = 0;
@@ -3857,15 +3942,15 @@ inline void E_MonsterMonster::set_m_drivepoint(::google::protobuf::int32 value) 
   m_drivepoint_ = value;
 }
 
-// optional int32 m_corpseid = 29;
+// optional int32 m_corpseid = 30;
 inline bool E_MonsterMonster::has_m_corpseid() const {
-  return (_has_bits_[0] & 0x10000000u) != 0;
+  return (_has_bits_[0] & 0x20000000u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_corpseid() {
-  _has_bits_[0] |= 0x10000000u;
+  _has_bits_[0] |= 0x20000000u;
 }
 inline void E_MonsterMonster::clear_has_m_corpseid() {
-  _has_bits_[0] &= ~0x10000000u;
+  _has_bits_[0] &= ~0x20000000u;
 }
 inline void E_MonsterMonster::clear_m_corpseid() {
   m_corpseid_ = 0;
@@ -3879,15 +3964,15 @@ inline void E_MonsterMonster::set_m_corpseid(::google::protobuf::int32 value) {
   m_corpseid_ = value;
 }
 
-// optional int64 m_battle = 30;
+// optional int64 m_battle = 31;
 inline bool E_MonsterMonster::has_m_battle() const {
-  return (_has_bits_[0] & 0x20000000u) != 0;
+  return (_has_bits_[0] & 0x40000000u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_battle() {
-  _has_bits_[0] |= 0x20000000u;
+  _has_bits_[0] |= 0x40000000u;
 }
 inline void E_MonsterMonster::clear_has_m_battle() {
-  _has_bits_[0] &= ~0x20000000u;
+  _has_bits_[0] &= ~0x40000000u;
 }
 inline void E_MonsterMonster::clear_m_battle() {
   m_battle_ = GOOGLE_LONGLONG(0);
@@ -3901,15 +3986,15 @@ inline void E_MonsterMonster::set_m_battle(::google::protobuf::int64 value) {
   m_battle_ = value;
 }
 
-// optional int32 m_lvsuppve = 31;
+// optional int32 m_lvsuppve = 32;
 inline bool E_MonsterMonster::has_m_lvsuppve() const {
-  return (_has_bits_[0] & 0x40000000u) != 0;
+  return (_has_bits_[0] & 0x80000000u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_lvsuppve() {
-  _has_bits_[0] |= 0x40000000u;
+  _has_bits_[0] |= 0x80000000u;
 }
 inline void E_MonsterMonster::clear_has_m_lvsuppve() {
-  _has_bits_[0] &= ~0x40000000u;
+  _has_bits_[0] &= ~0x80000000u;
 }
 inline void E_MonsterMonster::clear_m_lvsuppve() {
   m_lvsuppve_ = 0;
@@ -3923,15 +4008,15 @@ inline void E_MonsterMonster::set_m_lvsuppve(::google::protobuf::int32 value) {
   m_lvsuppve_ = value;
 }
 
-// optional int32 m_powersuppve = 32;
+// optional int32 m_powersuppve = 33;
 inline bool E_MonsterMonster::has_m_powersuppve() const {
-  return (_has_bits_[0] & 0x80000000u) != 0;
+  return (_has_bits_[1] & 0x00000001u) != 0;
 }
 inline void E_MonsterMonster::set_has_m_powersuppve() {
-  _has_bits_[0] |= 0x80000000u;
+  _has_bits_[1] |= 0x00000001u;
 }
 inline void E_MonsterMonster::clear_has_m_powersuppve() {
-  _has_bits_[0] &= ~0x80000000u;
+  _has_bits_[1] &= ~0x00000001u;
 }
 inline void E_MonsterMonster::clear_m_powersuppve() {
   m_powersuppve_ = 0;

@@ -11,6 +11,7 @@ message NotifyPetModuleRsp
 	repeated PetHatchInfo hatchs = 3;	//孵化的槽位信息
 	repeated int64 	cfgids = 4;			//获得过的宠物
 	repeated PetGrow grows = 5;			//宠物专属养成列表(这里是已激活的列表)
+	optional PetYaoHunModule yaohun = 6; //妖魂数据
 }
 
 //更新宠物信息 NOTIFY_PET_RSP
@@ -37,6 +38,20 @@ message NotifyPetGetedListRsp
 	repeated int64 	cfgids = 1;			//获得过的宠物
 }
 
+//更新妖魂数据 NOTIFY_PET_YAOHUN
+message NotifyPetYaoHun
+{
+	optional PetYaoHunEntry info = 1;		//更新妖魂数据
+}
+
+//更新妖魂简单数据数据 NOTIFY_PET_YAOHUN_SIMPLE
+message NotifyPetYaoHunSimple
+{
+	optional int32 	lianyao_tq_flag =2; 	//炼妖特权标记 0:沒有购买特权 1：已购买特权
+	optional int32  yaolu_lv = 3;			//妖炉等级
+	optional int32  yaolu_exp = 4;			//妖炉经验
+	optional int32 	yaoqi = 5;				//妖气值
+}
 
 //1-1:宠物升级请求  CLIENT_PET_LVUP_REQ
 message PetLvUpReq
@@ -251,4 +266,138 @@ message PetGrowOptRsp
 
 
 
-//================================================================================//
+//========================================妖魂功能=======================================//
+//16-1: 妖魂解锁战位  PET_YAOHUN_UNLOCK_REQ
+message PetYaoHunUnlockReq
+{
+	optional int32 fight_pos = 1; //用道具解锁战位
+}
+//16-2: 妖魂解锁战位  PET_YAOHUN_UNLOCK_RSP
+message PetYaoHunUnlockRsp
+{
+	optional int32 ret = 1;
+	optional int32 fight_pos = 2; //用道具解锁战位
+}
+//17-1:妖魂穿戴 PET_YAOHUN_DRESS_REQ
+message PetYaoHunDressReq
+{
+	optional int32 fight_pos = 1;
+	optional int32 bag_pos = 2;
+}
+
+//17-2:妖魂穿戴 PET_YAOHUN_DRESS_RSP
+message PetYaoHunDressRsp
+{
+	optional int32 ret = 1;
+	optional int32 fight_pos = 2;
+	optional int32 bag_pos = 3;
+	optional int32 code = 4; //标记提示：1：替换等级 2：替换等级和突破等级
+}
+
+//18-1:炼妖请求 PET_LIANYAO_REQ
+message PetLianYaoReq
+{
+	optional int32 lian_num =1;		//炼妖数量 快速炼妖有用
+	optional int32 quality = 2;		//炼妖品质 快速炼妖有用
+	optional int32 star = 3;		//炼妖星级 快速炼妖有用
+	optional int32 quick = 4; 		//1：快速炼妖标志(不填bag_pos，quality,star 有效)，0：bag_pos要帶内容
+	repeated int32 bag_pos = 5;
+	
+}
+//炼妖结果展示
+message PetLianYaoReward
+{
+	optional int32 itemid = 1;
+	optional int32 num = 2;
+	optional int32 tq_add_flag = 3; //特权加成标记翻倍 0：不翻倍，1翻倍 
+}
+//18-2:炼妖返回 PET_LIANYAO_RSP
+message PetLianYaoRsp
+{
+	optional int32 ret = 1;
+	repeated PetLianYaoReward rewards = 2; 	//炼妖结果展示列表
+	optional int32 yaolu_add_exp = 3; 		//妖炉加成经验
+	optional int32 yaolu_exp_flag = 4; 		//妖炉经验加成特权标志，1：显示特权加成。0没有特权加成
+	optional int32 yaohun_add = 5;			//增加的妖气
+}
+
+//19-1:妖魂兑换 PET_YAOHUN_EXCHANGE_REQ
+message PetYaoHunExchangeReq
+{
+	optional int32 target_id = 1;
+	optional int32 num = 2;
+}
+//19-2:妖魂兑换返回 PET_YAOHUN_EXCHANGE_RSP
+message PetYaoHunExchangeRsp
+{
+	optional int32 ret = 1;
+	optional int32 target_id = 2;
+	optional int32 num = 3;
+}
+
+//20-1: 妖魂升级 PET_YAOHUN_LV_REQ
+message PetYaoHunLvReq
+{
+	optional int32 fight_pos = 1;		//出站位置
+	optional int32 slot_pos = 2;		//装备位置
+}
+
+//20-2: 妖魂升级 PET_YAOHUN_LV_RSP
+message PetYaoHunLvRsp
+{
+	optional int32 ret = 1;
+	optional int32 fight_pos = 2;		//出站位置
+	optional int32 slot_pos = 3;		//装备位置
+}
+
+//20-1: 妖魂突破 PET_YAOHUN_BREAK_REQ
+message PetYaoHunBreakReq
+{
+	optional int32 fight_pos = 1;		//出站位置
+	optional int32 slot_pos = 2;		//装备位置
+}
+
+//20-2: 妖魂突破 PET_YAOHUN_BREAK_RSP
+message PetYaoHunBreakRsp
+{
+	optional int32 ret = 1;
+	optional int32 fight_pos = 2;		//出站位置
+	optional int32 slot_pos = 3;		//装备位置
+}
+
+//21-1: 炼妖特权购买 PET_LIANYAO_TQ_BUY_REQ
+message PetLianYaoTqBuyReq
+{
+}
+
+//21-2: 炼妖特权购买 PET_LIANYAO_TQ_BUY_RSP
+message PetLianYaoTqBuyRsp
+{
+	optional int32 ret = 1;
+}
+
+//22-1: 妖魂套装激活 PET_YAOHUN_SUIT_REQ
+message PetYaoHunSuitReq
+{
+	optional int32 fight_pos = 1;		//出站位置
+	optional int32 suit_id = 2;			//套装id
+}
+//22-2: 妖魂套装激活 PET_YAOHUN_SUIT_RSP
+message PetYaoHunSuitRsp
+{
+	optional int32 ret = 1;
+	optional int32 fight_pos = 2;		//出站位置
+	optional int32 suit_id = 3;			//套装id
+}
+//23-1: 妖魂拆解 PET_YAOHUN_RESET_REQ
+message PetYaoHunResetReq
+{
+	optional int32 bag_pos = 1;
+}
+
+//23-2: 妖魂拆解 PET_YAOHUN_RESET_RSP
+message PetYaoHunResetRsp
+{
+	optional int32 ret = 1;
+	optional int32 bag_pos = 2;
+}

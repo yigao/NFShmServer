@@ -32,19 +32,20 @@ message E_PetDisplay
 	optional float m_growstar = 19[(yd_fieldoptions.field_cname) = "升星资质提升系数"];
 	optional int32 m_advanceattribute = 20[(yd_fieldoptions.field_cname) = "进阶值模板"];
 	optional int32 m_advancetype = 21[(yd_fieldoptions.field_cname) = "进阶类型"];
-	optional string m_pettagskill = 22[(yd_fieldoptions.field_cname) = "神宠技能", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_starattribute = 23[(yd_fieldoptions.field_cname) = "升星属性模板"];
-	optional int32 m_starpercent = 24[(yd_fieldoptions.field_cname) = "升星属性加成"];
-	optional int32 m_starllimit = 25[(yd_fieldoptions.field_cname) = "升星上限"];
-	optional int64 m_staritem = 26[(yd_fieldoptions.field_cname) = "升星道具"];
-	optional string m_starnum = 27[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 64];
-	optional int64 m_starpetid = 28[(yd_fieldoptions.field_cname) = "升星宠物ID"];
-	optional string m_starpetnum = 29[(yd_fieldoptions.field_cname) = "升星宠物数量", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_weapon = 30[(yd_fieldoptions.field_cname) = "专属武器"];
-	optional int64 m_upattributeid = 31[(yd_fieldoptions.field_cname) = "升星属性组ID"];
-	optional int32 m_fettersid = 32[(yd_fieldoptions.field_cname) = "羁绊ID"];
-	optional string m_suit = 33[(yd_fieldoptions.field_cname) = "套装", (yd_fieldoptions.field_bufsize) = 64];
-	repeated E_PetDisplayMaterialDesc m_material = 34[(yd_fieldoptions.field_cname) = "升级材料", (yd_fieldoptions.field_arysize) = 3];
+	optional int32 m_pettag = 22[(yd_fieldoptions.field_cname) = "是否神宠"];
+	optional string m_pettagskill = 23[(yd_fieldoptions.field_cname) = "神宠技能", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_starattribute = 24[(yd_fieldoptions.field_cname) = "升星属性模板"];
+	optional int32 m_starpercent = 25[(yd_fieldoptions.field_cname) = "升星属性加成"];
+	optional int32 m_starllimit = 26[(yd_fieldoptions.field_cname) = "升星上限"];
+	optional int64 m_staritem = 27[(yd_fieldoptions.field_cname) = "升星道具"];
+	optional string m_starnum = 28[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 64];
+	optional int64 m_starpetid = 29[(yd_fieldoptions.field_cname) = "升星宠物ID"];
+	optional string m_starpetnum = 30[(yd_fieldoptions.field_cname) = "升星宠物数量", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_weapon = 31[(yd_fieldoptions.field_cname) = "专属武器"];
+	optional int64 m_upattributeid = 32[(yd_fieldoptions.field_cname) = "升星属性组ID"];
+	optional int32 m_fettersid = 33[(yd_fieldoptions.field_cname) = "羁绊ID"];
+	optional string m_suit = 34[(yd_fieldoptions.field_cname) = "套装", (yd_fieldoptions.field_bufsize) = 64];
+	repeated E_PetDisplayMaterialDesc m_material = 35[(yd_fieldoptions.field_cname) = "升级材料", (yd_fieldoptions.field_arysize) = 3];
 }
 
 
@@ -271,24 +272,30 @@ message Sheet_PetStarvalue
 	repeated E_PetStarvalue E_PetStarvalue_List = 1[(yd_fieldoptions.field_arysize)=256];
 }
 
-message E_PetWraithsMaterialDesc
+message E_PetWraithsAttributeDesc
 {
-	optional int32 m_exp = 1[(yd_fieldoptions.field_cname) = "经验值"];
-	optional int64 m_item = 2[(yd_fieldoptions.field_cname) = "道具"];
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_PetWraithsAttributebctDesc
+{
+	optional int32 m_type = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_value = 2[(yd_fieldoptions.field_cname) = "ID"];
 }
 
 message E_PetWraiths
 {
-	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_wraithsname = 2[(yd_fieldoptions.field_cname) = "妖魂名称"];
-	optional int32 m_wraithspart = 3[(yd_fieldoptions.field_cname) = "妖魂部位"];
-	optional int32 m_wraithsstar = 4[(yd_fieldoptions.field_cname) = "妖魂星级"];
-	optional int32 m_wraithsquality = 5[(yd_fieldoptions.field_cname) = "妖魂品质"];
-	optional int32 m_wraithsequip = 6[(yd_fieldoptions.field_cname) = "对应装备"];
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "装备id"];
+	optional int32 m_name = 2[(yd_fieldoptions.field_cname) = "妖魂名称"];
+	optional int32 m_affix = 3[(yd_fieldoptions.field_cname) = "词缀类型"];
+	optional int32 m_position = 4[(yd_fieldoptions.field_cname) = "妖魂部位"];
+	optional int32 m_quality = 5[(yd_fieldoptions.field_cname) = "妖魂品质"];
+	optional int32 m_star = 6[(yd_fieldoptions.field_cname) = "妖魂星级"];
 	optional int32 m_propertylv = 7[(yd_fieldoptions.field_cname) = "升级类型"];
-	optional int32 m_propertyadvance = 8[(yd_fieldoptions.field_cname) = "进阶类型"];
-	optional int32 m_propertytop = 9[(yd_fieldoptions.field_cname) = "突破类型"];
-	repeated E_PetWraithsMaterialDesc m_material = 10[(yd_fieldoptions.field_cname) = "升级", (yd_fieldoptions.field_arysize) = 3];
+	optional int32 m_propertytop = 8[(yd_fieldoptions.field_cname) = "突破类型"];
+	repeated E_PetWraithsAttributeDesc m_attribute = 9[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 3];
+	repeated E_PetWraithsAttributebctDesc m_attributebct = 10[(yd_fieldoptions.field_cname) = "额外属性", (yd_fieldoptions.field_arysize) = 2];
 }
 
 
@@ -297,32 +304,22 @@ message Sheet_PetWraiths
 	repeated E_PetWraiths E_PetWraiths_List = 1[(yd_fieldoptions.field_arysize)=256];
 }
 
-message E_PetWraithsvalueAttributeDesc
+message E_PetWraithslvAttributeDesc
 {
 	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
 	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
 }
 
-message E_PetWraithsvalue
-{
-	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_wraithsvalue = 2[(yd_fieldoptions.field_cname) = "属性类型"];
-	optional int32 m_lv = 3[(yd_fieldoptions.field_cname) = "等级"];
-	optional int32 m_wraithsitem = 4[(yd_fieldoptions.field_cname) = "道具消耗"];
-	optional int32 m_wraithsmun = 5[(yd_fieldoptions.field_cname) = "消耗数量"];
-	repeated E_PetWraithsvalueAttributeDesc m_attribute = 6[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
-}
-
-
-message Sheet_PetWraithsvalue
-{
-	repeated E_PetWraithsvalue E_PetWraithsvalue_List = 1[(yd_fieldoptions.field_arysize)=256];
-}
-
 message E_PetWraithslv
 {
-	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "妖魂升级id"];
-	optional int32 m_lvexp = 2[(yd_fieldoptions.field_cname) = "升级所需经验"];
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_value = 2[(yd_fieldoptions.field_cname) = "属性类型"];
+	optional int32 m_advancelv = 3[(yd_fieldoptions.field_cname) = "进阶等级"];
+	optional int32 m_lv = 4[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_wraithsitem = 5[(yd_fieldoptions.field_cname) = "道具消耗"];
+	optional int32 m_wraithsmun = 6[(yd_fieldoptions.field_cname) = "消耗数量"];
+	optional int32 m_lvexp = 7[(yd_fieldoptions.field_cname) = "升级所需经验"];
+	repeated E_PetWraithslvAttributeDesc m_attribute = 8[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
 }
 
 
@@ -331,14 +328,23 @@ message Sheet_PetWraithslv
 	repeated E_PetWraithslv E_PetWraithslv_List = 1[(yd_fieldoptions.field_arysize)=256];
 }
 
+message E_PetSmeltItemDesc
+{
+	optional int32 m_maxnum = 1[(yd_fieldoptions.field_cname) = "最大数量"];
+	optional int32 m_minnum = 2[(yd_fieldoptions.field_cname) = "最小数量"];
+	optional int32 m_rarerand = 3[(yd_fieldoptions.field_cname) = "概率"];
+	optional int32 m_id = 4[(yd_fieldoptions.field_cname) = "道具"];
+}
+
 message E_PetSmelt
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_refinequality = 2[(yd_fieldoptions.field_cname) = "品质"];
-	optional int32 m_refinestar = 3[(yd_fieldoptions.field_cname) = "星级"];
+	optional int32 m_quality = 2[(yd_fieldoptions.field_cname) = "品质"];
+	optional int32 m_star = 3[(yd_fieldoptions.field_cname) = "星级"];
 	optional int32 m_putmun = 4[(yd_fieldoptions.field_cname) = "放入妖魂数"];
 	optional int32 m_smeltexp = 5[(yd_fieldoptions.field_cname) = "获得经验"];
-	optional int32 m_smelt_box = 6[(yd_fieldoptions.field_cname) = "获得道具"];
+	optional int32 m_monsternum = 6[(yd_fieldoptions.field_cname) = "妖气获得数量"];
+	repeated E_PetSmeltItemDesc m_item = 7[(yd_fieldoptions.field_cname) = "获得", (yd_fieldoptions.field_arysize) = 3];
 }
 
 
@@ -351,8 +357,8 @@ message E_PetRefineconversion
 {
 	optional int32 m_itemid = 1[(yd_fieldoptions.field_cname) = "兑换道具"];
 	optional int32 m_group = 2[(yd_fieldoptions.field_cname) = "组"];
-	optional int32 m_conversionitem = 3[(yd_fieldoptions.field_cname) = "所需道具"];
-	optional int32 m_conversionmun = 4[(yd_fieldoptions.field_cname) = "兑换数量"];
+	optional int32 m_num = 3[(yd_fieldoptions.field_cname) = "兑换数量"];
+	optional int32 m_condition = 4[(yd_fieldoptions.field_cname) = "兑换条件"];
 }
 
 
@@ -363,16 +369,17 @@ message Sheet_PetRefineconversion
 
 message E_PetStoveStoveDesc
 {
-	optional int32 m_mun = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "值"];
 	optional int32 m_value = 2[(yd_fieldoptions.field_cname) = "属性"];
 }
 
 message E_PetStove
 {
-	optional int32 m_stovelv = 1[(yd_fieldoptions.field_cname) = "等级"];
-	optional int32 m_stoveexp = 2[(yd_fieldoptions.field_cname) = "升级所需经验"];
-	optional int32 m_stovemax = 3[(yd_fieldoptions.field_cname) = "炼妖开放上限"];
-	repeated E_PetStoveStoveDesc m_stove = 4[(yd_fieldoptions.field_cname) = "妖炉", (yd_fieldoptions.field_arysize) = 4];
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_exp = 2[(yd_fieldoptions.field_cname) = "升级所需经验"];
+	optional int32 m_quality = 3[(yd_fieldoptions.field_cname) = "炼妖开放上限品质"];
+	optional int32 m_star = 4[(yd_fieldoptions.field_cname) = "炼妖开放上限星数"];
+	repeated E_PetStoveStoveDesc m_stove = 5[(yd_fieldoptions.field_cname) = "妖炉", (yd_fieldoptions.field_arysize) = 4];
 }
 
 
@@ -390,15 +397,98 @@ message E_PetSuitAttributeDesc
 message E_PetSuit
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_wraithsquality = 2[(yd_fieldoptions.field_cname) = "妖魂需求"];
-	optional int32 m_piece = 3[(yd_fieldoptions.field_cname) = "套装件数"];
-	optional int32 m_resonancetype = 4[(yd_fieldoptions.field_cname) = "共鸣属性"];
-	optional int32 m_resonancevalue = 5[(yd_fieldoptions.field_cname) = "共鸣属性值"];
-	repeated E_PetSuitAttributeDesc m_attribute = 6[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 5];
+	optional int32 m_quality = 2[(yd_fieldoptions.field_cname) = "妖魂品质"];
+	optional int32 m_star = 3[(yd_fieldoptions.field_cname) = "妖魂星级"];
+	optional int32 m_wraithsquality = 4[(yd_fieldoptions.field_cname) = "妖魂需求"];
+	optional int32 m_piece = 5[(yd_fieldoptions.field_cname) = "套装件数"];
+	optional int32 m_resonancetype = 6[(yd_fieldoptions.field_cname) = "共鸣属性"];
+	optional int32 m_resonancevalue = 7[(yd_fieldoptions.field_cname) = "共鸣属性值"];
+	repeated E_PetSuitAttributeDesc m_attribute = 8[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 5];
 }
 
 
 message Sheet_PetSuit
 {
 	repeated E_PetSuit E_PetSuit_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_PetConstMaterialDesc
+{
+	optional int32 m_exp = 1[(yd_fieldoptions.field_cname) = "经验值"];
+	optional int32 m_item = 2[(yd_fieldoptions.field_cname) = "道具"];
+}
+
+message E_PetConst
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_open = 2[(yd_fieldoptions.field_cname) = "开启条件"];
+	optional int32 m_solt = 3[(yd_fieldoptions.field_cname) = "槽位解锁"];
+	optional int32 m_item = 4[(yd_fieldoptions.field_cname) = "消耗"];
+	optional int32 m_num = 5[(yd_fieldoptions.field_cname) = "数量"];
+	repeated E_PetConstMaterialDesc m_material = 6[(yd_fieldoptions.field_cname) = "升级", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_PetConst
+{
+	repeated E_PetConst E_PetConst_List = 1[(yd_fieldoptions.field_arysize)=2];
+}
+
+message E_PetTopAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_PetTopStarattDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_PetTop
+{
+	optional int32 m_toptype = 1[(yd_fieldoptions.field_cname) = "突破类型"];
+	repeated E_PetTopAttributeDesc m_attribute = 2[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 8];
+	repeated E_PetTopStarattDesc m_staratt = 3[(yd_fieldoptions.field_cname) = "星级属性", (yd_fieldoptions.field_arysize) = 8];
+}
+
+
+message Sheet_PetTop
+{
+	repeated E_PetTop E_PetTop_List = 1[(yd_fieldoptions.field_arysize)=256];
+}
+
+message E_PetTopitem
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "突破等级"];
+	optional int32 m_item = 2[(yd_fieldoptions.field_cname) = "突破消耗"];
+	optional int32 m_num = 3[(yd_fieldoptions.field_cname) = "消耗数量"];
+}
+
+
+message Sheet_PetTopitem
+{
+	repeated E_PetTopitem E_PetTopitem_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_PetPrivilegePrivilegeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_att = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_PetPrivilege
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional string m_activate = 2[(yd_fieldoptions.field_cname) = "激活条件", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_doubleitem = 3[(yd_fieldoptions.field_cname) = "道具翻倍"];
+	optional int32 m_experienceexp = 4[(yd_fieldoptions.field_cname) = "经验加成"];
+	repeated E_PetPrivilegePrivilegeDesc m_privilege = 5[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_PetPrivilege
+{
+	repeated E_PetPrivilege E_PetPrivilege_List = 1[(yd_fieldoptions.field_arysize)=2];
 }

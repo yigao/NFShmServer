@@ -25,7 +25,7 @@
 #include "NFGameCommon/NFPoint3.h"
 #include "NFLogicCommon/NFSceneDefine.h"
 #include "NFLogicCommon/NFLogDefine.h"
-#include "NFLogicCommon/NFAttr.h"
+#include "NFLogicCommon/Attr/NFAttr.h"
 
 class NFScene;
 

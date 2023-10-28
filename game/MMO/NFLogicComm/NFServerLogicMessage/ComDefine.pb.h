@@ -267,7 +267,8 @@ enum EPackageType {
   EPackageType_star = 14,
   EPackageType_turn = 15,
   EPackageType_MountKun = 16,
-  EPackageType_Limit = 17
+  EPackageType_YaoHun = 17,
+  EPackageType_Limit = 18
 };
 bool EPackageType_IsValid(int value);
 const EPackageType EPackageType_MIN = EPackageType_None;
@@ -403,12 +404,14 @@ enum EConst {
   EConst_1v1DailyRewardNum = 291,
   EConst_XiuZhenRoadPet = 296,
   EConst_1v1RankScoreNeed = 300,
+  EConst_WorldLvAddEffect = 302,
   EConst_ExpandItem = 306,
   EConst_SubpackReward = 307,
   EConst_ExpandMallId = 308,
   EConst_GodEvilWearQuaLvExp = 314,
   EConst_GodEvilQuaLvMallId = 316,
   EConst_boss_sg_rtime = 319,
+  EConst_PlotParam = 327,
   EConst_OneKeyFinishGuildMissionCost = 1000,
   EConst_OnceFinishTaskCost = 1001
 };
@@ -452,6 +455,7 @@ enum ERetCode {
   RET_REPEATED_OPERATE = 22,
   RET_UNAVAILABLE = 23,
   RET_FIGHT_LACK = 24,
+  RET_OPEN_DAY_LIMIT = 25,
   RET_OVER_MAX_NUM = 26,
   RET_OTHER_NOT_ONLINE = 28,
   RET_ITEM_PARAM_ERROR = 34,
@@ -535,6 +539,7 @@ enum ERetCode {
   RET_PACKAGE_GODEVIL_SPACE_NOT_ENOUGH = 453,
   RET_GROW_PART_ENTRY_LEVEL_FULL = 500,
   RET_GROW_PART_NOT_ACTIVE = 501,
+  RET_GROW_PART_EXPIRE = 502,
   RET_PLAYER_SEAT_STATE_ERROR = 510,
   RET_PLAYER_SEAT_MAP_NOT_SEAT = 511,
   RET_PLAYER_SEAT_NO_TIME = 512,
@@ -583,6 +588,7 @@ enum ERetCode {
   RET_EQUIP_SEAL_INLAY_NOT_FULL = 650,
   RET_EQUIP_SEAL_SUIT_HAS_ACTIVED = 651,
   RET_EQUIP_SEAL_SUIT_NUM_LACK = 652,
+  RET_EQUIP_EXPIRE = 653,
   RET_MISSION_HAVE_ACCEPT = 700,
   RET_MISSION_CAN_NOT_ACCEPT = 701,
   RET_MISSION_LEVEL_ERROR = 702,
@@ -842,6 +848,7 @@ enum ERetCode {
   RET_MOUNT_HAVE_RIDEON = 2059,
   RET_MOUNT_HAVE_RIDEOFF = 2060,
   RET_MOUNT_KUN_MAX_WAKE_LEVEL = 2061,
+  RET_MOUNT_TIWU_WIN_PROB_FAIL = 2062,
   RET_MALL_CAN_NOT_BUY = 2100,
   RET_MALL_LEV_LIMIT = 2101,
   RET_MALL_VIP_LIMIT = 2102,
@@ -884,6 +891,19 @@ enum ERetCode {
   RET_PET_NOT_GETED_NO_ACTIVE = 2588,
   RET_PET_IS_ACTIVE = 2589,
   RET_PET_GROW_STAR_NO_GROW = 2590,
+  RET_PET_YAOHUN_FIGHT_UNLOCK = 2591,
+  RET_PET_YAOHUN_NO_FIGHT = 2592,
+  RET_PET_YAOHUN_BEAST = 2593,
+  RET_PET_YAOHUN_NOT_SAME = 2594,
+  RET_PET_YAOLU_LIMIT = 2595,
+  RET_PET_LIANYAO_COND_ERR = 2596,
+  RET_PET_YAOQI_LACK = 2597,
+  RET_PET_YAOHUN_LV_MAX = 2598,
+  RET_PET_YAOHUN_BREAK_MAX = 2599,
+  RET_PET_YAOHUN_TQ_BUYED = 2600,
+  RET_PET_SUIT_COND_LACK = 2601,
+  RET_PET_SUIT_ACTIVED = 2602,
+  RET_PET_RESET_NO_GROW = 2603,
   RET_ESCORT_TASK_NOT_EXIST = 2700,
   RET_ESCORT_TASK_EXIST = 2701,
   RET_ESCORT_TASK_TIMES_LIMIT = 2702,
@@ -1051,6 +1071,7 @@ enum ERetCode {
   RET_DRAGON_SOUL_NO_UNDRESS_WAKEUP = 4231,
   RET_DRAGON_SOUL_WAKEUP_POSITION_LACK = 4232,
   RET_DRAGON_SOUL_WAKEUP_MAX_LEVEL = 4233,
+  RET_DRAGON_SOUL_SLOT_NO_UNLOCK = 4234,
   RET_CHARGE_OPEN_DAY_LIMIT = 4400,
   RET_CHARGE_ALREADY_FETCH = 4401,
   RET_CHARGE_CAN_NOT_FETCH = 4402,
@@ -1160,11 +1181,14 @@ enum ERetCode {
   RET_TURN_STAR_UP_COND_LACK = 5308,
   RET_TURN_STRONG_LV_LACK = 5309,
   RET_TURN_STAR_NUM_LACK = 5310,
-  RET_TURN_STAR_ACTIVE_BF = 5311
+  RET_TURN_STAR_ACTIVE_BF = 5311,
+  RET_HUNLING_LACK = 5320,
+  RET_SOUL_STEP_MAX = 5321,
+  RET_SOUL_POOL_BLESS_MAX = 5322
 };
 bool ERetCode_IsValid(int value);
 const ERetCode ERetCode_MIN = RET_SUCCESS;
-const ERetCode ERetCode_MAX = RET_TURN_STAR_ACTIVE_BF;
+const ERetCode ERetCode_MAX = RET_SOUL_POOL_BLESS_MAX;
 const int ERetCode_ARRAYSIZE = ERetCode_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* ERetCode_descriptor();
@@ -1323,11 +1347,12 @@ enum FunctionUnlock_ID_TYPE {
   FunctionUnlock_ID_TYPE_XiuZhenRoad = 4029,
   FunctionUnlock_ID_TYPE_1v1 = 4101,
   FunctionUnlock_ID_TYPE_LOGON_REWARD_CANCLE = 4023,
-  FunctionUnlock_ID_TYPE_DIETY = 4070
+  FunctionUnlock_ID_TYPE_DIETY = 4070,
+  FunctionUnlock_ID_Soul = 5186
 };
 bool FunctionUnlock_ID_TYPE_IsValid(int value);
 const FunctionUnlock_ID_TYPE FunctionUnlock_ID_TYPE_MIN = FunctionUnlock_ID_TYPE_ROLE;
-const FunctionUnlock_ID_TYPE FunctionUnlock_ID_TYPE_MAX = FunctionUnlock_ID_TYPE_1v1;
+const FunctionUnlock_ID_TYPE FunctionUnlock_ID_TYPE_MAX = FunctionUnlock_ID_Soul;
 const int FunctionUnlock_ID_TYPE_ARRAYSIZE = FunctionUnlock_ID_TYPE_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* FunctionUnlock_ID_TYPE_descriptor();
@@ -1368,11 +1393,12 @@ enum EDailyTaskPlayType {
   EDailyTaskPlayType_TASK = 3,
   EDailyTaskPlayType_ExpQIFU = 4,
   EDailyTaskPlayType_FactionTrans = 5,
-  EDailyTaskPlayType_YaoChi = 6
+  EDailyTaskPlayType_YaoChi = 6,
+  EDailyTaskPlayType_Arena = 7
 };
 bool EDailyTaskPlayType_IsValid(int value);
 const EDailyTaskPlayType EDailyTaskPlayType_MIN = EDailyTaskPlayType_DUP;
-const EDailyTaskPlayType EDailyTaskPlayType_MAX = EDailyTaskPlayType_YaoChi;
+const EDailyTaskPlayType EDailyTaskPlayType_MAX = EDailyTaskPlayType_Arena;
 const int EDailyTaskPlayType_ARRAYSIZE = EDailyTaskPlayType_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* EDailyTaskPlayType_descriptor();

@@ -8,7 +8,7 @@
 #include "E_Ui.pb.h"
 #include "E_Ui_s.h"
 
-#define DEFINE_SHEET_UIEFFECT_E_UIEFFECT_LIST_MAX_NUM 128
+#define DEFINE_SHEET_UIEFFECT_E_UIEFFECT_LIST_MAX_NUM 256
 
 
 namespace proto_ff_s {

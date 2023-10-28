@@ -205,7 +205,7 @@ void protobuf_AddDesc_E_5fAchievement_2eproto() {
     "cB\024\302\377\024\014\350\216\267\345\276\227\347\211\251\345\223\201\210\301\024\002\"p\n\034Sheet_Achieve"
     "mentAchievement\022P\n\035E_AchievementAchievem"
     "ent_List\030\001 \003(\0132\".proto_ff.E_AchievementA"
-    "chievementB\005\210\301\024\200\002\"\212\002\n\036E_AchievementTotal"
+    "chievementB\005\210\301\024\200\010\"\212\002\n\036E_AchievementTotal"
     "achievements\022&\n\nm_totalsum\030\001 \001(\005B\022\302\377\024\016\346\200"
     "\273\351\242\235\346\210\220\345\260\261ID\0227\n\026m_totalachievementname\030\002"
     " \001(\tB\027\302\377\024\017\346\200\273\350\247\210\346\210\220\345\260\261\345\220\215\220\301\024@\022*\n\020m_achie"
@@ -215,7 +215,7 @@ void protobuf_AddDesc_E_5fAchievement_2eproto() {
     "\346\225\260\351\207\217\"\201\001\n\"Sheet_AchievementTotalachieve"
     "ments\022[\n#E_AchievementTotalachievements_"
     "List\030\001 \003(\0132(.proto_ff.E_AchievementTotal"
-    "achievementsB\004\210\301\024\020", 1298);
+    "achievementsB\004\210\301\024@", 1298);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Achievement.proto", &protobuf_RegisterTypes);
   E_AchievementAchievementItemrewardDesc::default_instance_ = new E_AchievementAchievementItemrewardDesc();

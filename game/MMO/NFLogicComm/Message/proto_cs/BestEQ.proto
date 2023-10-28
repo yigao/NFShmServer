@@ -136,12 +136,17 @@ message BestEQAwakenRsp
 	optional int32 slot = 2;
 }
 
-//9-1:强化合成请求 BEST_EQ_STRONG_REQ
-message BestEQStrongReq
+message BestEQStrongEntry
 {
 	optional int32 bagtype = 1;
 	optional int32 pos = 2;
 	repeated int32 costpos = 3;
+}
+
+//9-1:强化合成请求 BEST_EQ_STRONG_REQ
+message BestEQStrongReq
+{
+	repeated BestEQStrongEntry entrys = 1; 
 }
 
 //9-2:强化合成返回 BEST_EQ_STRONG_RSP

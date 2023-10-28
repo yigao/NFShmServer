@@ -168,7 +168,7 @@ void protobuf_AddDesc_E_5fFunctionunlock_2eproto() {
     "t_FunctionunlockFunctionunlock\022\\\n#E_Func"
     "tionunlockFunctionunlock_List\030\001 \003(\0132(.pr"
     "oto_ff.E_FunctionunlockFunctionunlockB\005\210"
-    "\301\024\200\002\"\224\001\n\027E_FunctionunlockPreview\022\"\n\014m_fu"
+    "\301\024\200\004\"\224\001\n\027E_FunctionunlockPreview\022\"\n\014m_fu"
     "nctionid\030\001 \001(\005B\014\302\377\024\010\345\212\237\350\203\275id\022+\n\014m_reward"
     "item\030\002 \001(\005B\025\302\377\024\021\345\245\226\345\212\261\347\232\204\351\201\223\345\205\267ID\022(\n\013m_r"
     "ewardnum\030\003 \001(\005B\023\302\377\024\017\351\201\223\345\205\267\347\232\204\346\225\260\351\207\217\"l\n\033S"

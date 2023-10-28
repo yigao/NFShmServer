@@ -79,6 +79,8 @@ message E_GuildConstant
 	optional int32 m_assistradio = 72[(yd_fieldoptions.field_cname) = "助攻的积分系数"];
 	optional int32 m_tteamdamageadd = 73[(yd_fieldoptions.field_cname) = "组队增加伤害"];
 	optional int32 m_tweekclosetime = 74[(yd_fieldoptions.field_cname) = "周结算前关闭时间"];
+	optional int32 m_cyclicreward = 75[(yd_fieldoptions.field_cname) = "周环任务普通奖励"];
+	optional int32 m_tencyclicreward = 76[(yd_fieldoptions.field_cname) = "周环任务十环奖励"];
 }
 
 
@@ -195,15 +197,17 @@ message E_GuildPrestigetask
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_level = 2[(yd_fieldoptions.field_cname) = "任务分级"];
-	optional int32 m_weight = 3[(yd_fieldoptions.field_cname) = "权重"];
-	optional int32 m_taskpool = 4[(yd_fieldoptions.field_cname) = "随机的任务池id"];
-	optional int32 m_reward = 5[(yd_fieldoptions.field_cname) = "任务奖励类型id"];
+	optional int32 m_lvmin = 3[(yd_fieldoptions.field_cname) = "等级下限"];
+	optional int32 m_lvmax = 4[(yd_fieldoptions.field_cname) = "等级上限"];
+	optional int32 m_weight = 5[(yd_fieldoptions.field_cname) = "权重"];
+	optional int32 m_taskpool = 6[(yd_fieldoptions.field_cname) = "随机的任务池id"];
+	optional int32 m_reward = 7[(yd_fieldoptions.field_cname) = "任务奖励类型id"];
 }
 
 
 message Sheet_GuildPrestigetask
 {
-	repeated E_GuildPrestigetask E_GuildPrestigetask_List = 1[(yd_fieldoptions.field_arysize)=8];
+	repeated E_GuildPrestigetask E_GuildPrestigetask_List = 1[(yd_fieldoptions.field_arysize)=16];
 }
 
 message E_GuildLvreward

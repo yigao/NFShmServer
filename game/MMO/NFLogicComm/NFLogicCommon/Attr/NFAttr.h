@@ -15,7 +15,7 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "Com.pb.h"
 #include "NFGameCommon/NFComTypeDefine.h"
-#include "NFLogicShmTypeDefines.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include <unordered_map>
 
 #pragma pack(push)

@@ -345,12 +345,14 @@ void E_MountUnlock_s::write_to_pbmsg(::proto_ff::E_MountUnlock & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_lv((int32_t)m_lv);
 	msg.set_m_modelid((int32_t)m_modelid);
+	msg.set_m_name(m_name.data());
 }
 
 void E_MountUnlock_s::read_from_pbmsg(const ::proto_ff::E_MountUnlock & msg) {
 	m_id = msg.m_id();
 	m_lv = msg.m_lv();
 	m_modelid = msg.m_modelid();
+	m_name = msg.m_name();
 }
 
 Sheet_MountUnlock_s::Sheet_MountUnlock_s() {
@@ -470,6 +472,8 @@ int E_MountChange_s::ResumeInit() {
 
 void E_MountChange_s::write_to_pbmsg(::proto_ff::E_MountChange & msg) const {
 	msg.set_m_id((int32_t)m_id);
+	msg.set_m_name(m_name.data());
+	msg.set_m_advancename(m_advancename.data());
 	msg.set_m_speed((int32_t)m_speed);
 	msg.set_m_uplvtype((int32_t)m_uplvtype);
 	msg.set_m_activeskill((int32_t)m_activeskill);
@@ -496,6 +500,8 @@ void E_MountChange_s::write_to_pbmsg(::proto_ff::E_MountChange & msg) const {
 
 void E_MountChange_s::read_from_pbmsg(const ::proto_ff::E_MountChange & msg) {
 	m_id = msg.m_id();
+	m_name = msg.m_name();
+	m_advancename = msg.m_advancename();
 	m_speed = msg.m_speed();
 	m_uplvtype = msg.m_uplvtype();
 	m_activeskill = msg.m_activeskill();
@@ -652,6 +658,71 @@ void Sheet_MountAdvance_s::read_from_pbmsg(const ::proto_ff::Sheet_MountAdvance 
 	for(int32_t i = 0; i < (int32_t)E_MountAdvance_List.size(); ++i) {
 		const ::proto_ff::E_MountAdvance & temp_e_mountadvance_list = msg.e_mountadvance_list(i);
 		E_MountAdvance_List[i].read_from_pbmsg(temp_e_mountadvance_list);
+	}
+}
+
+E_MountBaby_egg_s::E_MountBaby_egg_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_MountBaby_egg_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_item = (int32_t)0;
+	m_time = (int32_t)0;
+	m_itembox = (int32_t)0;
+	return 0;
+}
+
+int E_MountBaby_egg_s::ResumeInit() {
+	return 0;
+}
+
+void E_MountBaby_egg_s::write_to_pbmsg(::proto_ff::E_MountBaby_egg & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_item((int32_t)m_item);
+	msg.set_m_time((int32_t)m_time);
+	msg.set_m_itembox((int32_t)m_itembox);
+}
+
+void E_MountBaby_egg_s::read_from_pbmsg(const ::proto_ff::E_MountBaby_egg & msg) {
+	m_id = msg.m_id();
+	m_item = msg.m_item();
+	m_time = msg.m_time();
+	m_itembox = msg.m_itembox();
+}
+
+Sheet_MountBaby_egg_s::Sheet_MountBaby_egg_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_MountBaby_egg_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_MountBaby_egg_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_MountBaby_egg_s::write_to_pbmsg(::proto_ff::Sheet_MountBaby_egg & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_MountBaby_egg_List.size(); ++i) {
+		::proto_ff::E_MountBaby_egg* temp_e_mountbaby_egg_list = msg.add_e_mountbaby_egg_list();
+		E_MountBaby_egg_List[i].write_to_pbmsg(*temp_e_mountbaby_egg_list);
+	}
+}
+
+void Sheet_MountBaby_egg_s::read_from_pbmsg(const ::proto_ff::Sheet_MountBaby_egg & msg) {
+	E_MountBaby_egg_List.resize((int)msg.e_mountbaby_egg_list_size() > (int)E_MountBaby_egg_List.max_size() ? E_MountBaby_egg_List.max_size() : msg.e_mountbaby_egg_list_size());
+	for(int32_t i = 0; i < (int32_t)E_MountBaby_egg_List.size(); ++i) {
+		const ::proto_ff::E_MountBaby_egg & temp_e_mountbaby_egg_list = msg.e_mountbaby_egg_list(i);
+		E_MountBaby_egg_List[i].read_from_pbmsg(temp_e_mountbaby_egg_list);
 	}
 }
 
@@ -826,6 +897,7 @@ void E_MountHuakun_s::write_to_pbmsg(::proto_ff::E_MountHuakun & msg) const {
 	msg.set_m_ratiopercentage((int32_t)m_ratiopercentage);
 	msg.set_m_equipsuit(m_equipsuit.data());
 	msg.set_m_qualitymax((int32_t)m_qualitymax);
+	msg.set_m_lilianchangeitem(m_lilianchangeitem.data());
 	for(int32_t i = 0; i < (int32_t)m_uplv.size(); ++i) {
 		::proto_ff::E_MountHuakunUplvDesc* temp_m_uplv = msg.add_m_uplv();
 		m_uplv[i].write_to_pbmsg(*temp_m_uplv);
@@ -875,6 +947,7 @@ void E_MountHuakun_s::read_from_pbmsg(const ::proto_ff::E_MountHuakun & msg) {
 	m_ratiopercentage = msg.m_ratiopercentage();
 	m_equipsuit = msg.m_equipsuit();
 	m_qualitymax = msg.m_qualitymax();
+	m_lilianchangeitem = msg.m_lilianchangeitem();
 	m_uplv.resize((int)msg.m_uplv_size() > (int)m_uplv.max_size() ? m_uplv.max_size() : msg.m_uplv_size());
 	for(int32_t i = 0; i < (int32_t)m_uplv.size(); ++i) {
 		const ::proto_ff::E_MountHuakunUplvDesc & temp_m_uplv = msg.m_uplv(i);
@@ -1181,6 +1254,7 @@ E_MountHuakun_change_s::E_MountHuakun_change_s() {
 
 int E_MountHuakun_change_s::CreateInit() {
 	m_id = (int32_t)0;
+	m_huakunid = (int32_t)0;
 	m_speed = (int32_t)0;
 	m_modelid = (int32_t)0;
 	m_activationitem = (int32_t)0;
@@ -1199,6 +1273,7 @@ int E_MountHuakun_change_s::ResumeInit() {
 
 void E_MountHuakun_change_s::write_to_pbmsg(::proto_ff::E_MountHuakun_change & msg) const {
 	msg.set_m_id((int32_t)m_id);
+	msg.set_m_huakunid((int32_t)m_huakunid);
 	msg.set_m_speed((int32_t)m_speed);
 	msg.set_m_fxid(m_fxid.data());
 	msg.set_m_modelid((int32_t)m_modelid);
@@ -1218,6 +1293,7 @@ void E_MountHuakun_change_s::write_to_pbmsg(::proto_ff::E_MountHuakun_change & m
 
 void E_MountHuakun_change_s::read_from_pbmsg(const ::proto_ff::E_MountHuakun_change & msg) {
 	m_id = msg.m_id();
+	m_huakunid = msg.m_huakunid();
 	m_speed = msg.m_speed();
 	m_fxid = msg.m_fxid();
 	m_modelid = msg.m_modelid();
@@ -1950,7 +2026,7 @@ void Sheet_MountEquiptopvalue_s::read_from_pbmsg(const ::proto_ff::Sheet_MountEq
 	}
 }
 
-E_MountBaby_egg_s::E_MountBaby_egg_s() {
+E_MountEquippart_s::E_MountEquippart_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -1958,33 +2034,36 @@ E_MountBaby_egg_s::E_MountBaby_egg_s() {
 	}
 }
 
-int E_MountBaby_egg_s::CreateInit() {
-	m_id = (int32_t)0;
+int E_MountEquippart_s::CreateInit() {
+	m_part = (int32_t)0;
+	m_quality = (int32_t)0;
+	m_honeopen = (int32_t)0;
 	m_item = (int32_t)0;
-	m_time = (int32_t)0;
-	m_itembox = (int32_t)0;
+	m_num = (int32_t)0;
 	return 0;
 }
 
-int E_MountBaby_egg_s::ResumeInit() {
+int E_MountEquippart_s::ResumeInit() {
 	return 0;
 }
 
-void E_MountBaby_egg_s::write_to_pbmsg(::proto_ff::E_MountBaby_egg & msg) const {
-	msg.set_m_id((int32_t)m_id);
+void E_MountEquippart_s::write_to_pbmsg(::proto_ff::E_MountEquippart & msg) const {
+	msg.set_m_part((int32_t)m_part);
+	msg.set_m_quality((int32_t)m_quality);
+	msg.set_m_honeopen((int32_t)m_honeopen);
 	msg.set_m_item((int32_t)m_item);
-	msg.set_m_time((int32_t)m_time);
-	msg.set_m_itembox((int32_t)m_itembox);
+	msg.set_m_num((int32_t)m_num);
 }
 
-void E_MountBaby_egg_s::read_from_pbmsg(const ::proto_ff::E_MountBaby_egg & msg) {
-	m_id = msg.m_id();
+void E_MountEquippart_s::read_from_pbmsg(const ::proto_ff::E_MountEquippart & msg) {
+	m_part = msg.m_part();
+	m_quality = msg.m_quality();
+	m_honeopen = msg.m_honeopen();
 	m_item = msg.m_item();
-	m_time = msg.m_time();
-	m_itembox = msg.m_itembox();
+	m_num = msg.m_num();
 }
 
-Sheet_MountBaby_egg_s::Sheet_MountBaby_egg_s() {
+Sheet_MountEquippart_s::Sheet_MountEquippart_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -1992,26 +2071,26 @@ Sheet_MountBaby_egg_s::Sheet_MountBaby_egg_s() {
 	}
 }
 
-int Sheet_MountBaby_egg_s::CreateInit() {
+int Sheet_MountEquippart_s::CreateInit() {
 	return 0;
 }
 
-int Sheet_MountBaby_egg_s::ResumeInit() {
+int Sheet_MountEquippart_s::ResumeInit() {
 	return 0;
 }
 
-void Sheet_MountBaby_egg_s::write_to_pbmsg(::proto_ff::Sheet_MountBaby_egg & msg) const {
-	for(int32_t i = 0; i < (int32_t)E_MountBaby_egg_List.size(); ++i) {
-		::proto_ff::E_MountBaby_egg* temp_e_mountbaby_egg_list = msg.add_e_mountbaby_egg_list();
-		E_MountBaby_egg_List[i].write_to_pbmsg(*temp_e_mountbaby_egg_list);
+void Sheet_MountEquippart_s::write_to_pbmsg(::proto_ff::Sheet_MountEquippart & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_MountEquippart_List.size(); ++i) {
+		::proto_ff::E_MountEquippart* temp_e_mountequippart_list = msg.add_e_mountequippart_list();
+		E_MountEquippart_List[i].write_to_pbmsg(*temp_e_mountequippart_list);
 	}
 }
 
-void Sheet_MountBaby_egg_s::read_from_pbmsg(const ::proto_ff::Sheet_MountBaby_egg & msg) {
-	E_MountBaby_egg_List.resize((int)msg.e_mountbaby_egg_list_size() > (int)E_MountBaby_egg_List.max_size() ? E_MountBaby_egg_List.max_size() : msg.e_mountbaby_egg_list_size());
-	for(int32_t i = 0; i < (int32_t)E_MountBaby_egg_List.size(); ++i) {
-		const ::proto_ff::E_MountBaby_egg & temp_e_mountbaby_egg_list = msg.e_mountbaby_egg_list(i);
-		E_MountBaby_egg_List[i].read_from_pbmsg(temp_e_mountbaby_egg_list);
+void Sheet_MountEquippart_s::read_from_pbmsg(const ::proto_ff::Sheet_MountEquippart & msg) {
+	E_MountEquippart_List.resize((int)msg.e_mountequippart_list_size() > (int)E_MountEquippart_List.max_size() ? E_MountEquippart_List.max_size() : msg.e_mountequippart_list_size());
+	for(int32_t i = 0; i < (int32_t)E_MountEquippart_List.size(); ++i) {
+		const ::proto_ff::E_MountEquippart & temp_e_mountequippart_list = msg.e_mountequippart_list(i);
+		E_MountEquippart_List[i].read_from_pbmsg(temp_e_mountequippart_list);
 	}
 }
 

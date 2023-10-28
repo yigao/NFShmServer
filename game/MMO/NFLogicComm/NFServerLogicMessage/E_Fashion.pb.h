@@ -324,31 +324,38 @@ class E_FashionFashion : public ::google::protobuf::Message {
   inline ::std::string* release_m_professionlimit();
   inline void set_allocated_m_professionlimit(::std::string* m_professionlimit);
 
-  // optional int64 m_activationitem = 6;
+  // optional int32 m_timelimit = 6;
+  inline bool has_m_timelimit() const;
+  inline void clear_m_timelimit();
+  static const int kMTimelimitFieldNumber = 6;
+  inline ::google::protobuf::int32 m_timelimit() const;
+  inline void set_m_timelimit(::google::protobuf::int32 value);
+
+  // optional int64 m_activationitem = 7;
   inline bool has_m_activationitem() const;
   inline void clear_m_activationitem();
-  static const int kMActivationitemFieldNumber = 6;
+  static const int kMActivationitemFieldNumber = 7;
   inline ::google::protobuf::int64 m_activationitem() const;
   inline void set_m_activationitem(::google::protobuf::int64 value);
 
-  // optional int32 m_activationnum = 7;
+  // optional int32 m_activationnum = 8;
   inline bool has_m_activationnum() const;
   inline void clear_m_activationnum();
-  static const int kMActivationnumFieldNumber = 7;
+  static const int kMActivationnumFieldNumber = 8;
   inline ::google::protobuf::int32 m_activationnum() const;
   inline void set_m_activationnum(::google::protobuf::int32 value);
 
-  // optional int64 m_starid = 8;
+  // optional int64 m_starid = 9;
   inline bool has_m_starid() const;
   inline void clear_m_starid();
-  static const int kMStaridFieldNumber = 8;
+  static const int kMStaridFieldNumber = 9;
   inline ::google::protobuf::int64 m_starid() const;
   inline void set_m_starid(::google::protobuf::int64 value);
 
-  // optional string m_starnum = 9;
+  // optional string m_starnum = 10;
   inline bool has_m_starnum() const;
   inline void clear_m_starnum();
-  static const int kMStarnumFieldNumber = 9;
+  static const int kMStarnumFieldNumber = 10;
   inline const ::std::string& m_starnum() const;
   inline void set_m_starnum(const ::std::string& value);
   inline void set_m_starnum(const char* value);
@@ -357,24 +364,24 @@ class E_FashionFashion : public ::google::protobuf::Message {
   inline ::std::string* release_m_starnum();
   inline void set_allocated_m_starnum(::std::string* m_starnum);
 
-  // optional int32 m_starup = 10;
+  // optional int32 m_starup = 11;
   inline bool has_m_starup() const;
   inline void clear_m_starup();
-  static const int kMStarupFieldNumber = 10;
+  static const int kMStarupFieldNumber = 11;
   inline ::google::protobuf::int32 m_starup() const;
   inline void set_m_starup(::google::protobuf::int32 value);
 
-  // optional int32 m_starber = 11;
+  // optional int32 m_starber = 12;
   inline bool has_m_starber() const;
   inline void clear_m_starber();
-  static const int kMStarberFieldNumber = 11;
+  static const int kMStarberFieldNumber = 12;
   inline ::google::protobuf::int32 m_starber() const;
   inline void set_m_starber(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_FashionFashionAttributeDesc m_attribute = 12;
+  // repeated .proto_ff.E_FashionFashionAttributeDesc m_attribute = 13;
   inline int m_attribute_size() const;
   inline void clear_m_attribute();
-  static const int kMAttributeFieldNumber = 12;
+  static const int kMAttributeFieldNumber = 13;
   inline const ::proto_ff::E_FashionFashionAttributeDesc& m_attribute(int index) const;
   inline ::proto_ff::E_FashionFashionAttributeDesc* mutable_m_attribute(int index);
   inline ::proto_ff::E_FashionFashionAttributeDesc* add_m_attribute();
@@ -383,10 +390,10 @@ class E_FashionFashion : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FashionFashionAttributeDesc >*
       mutable_m_attribute();
 
-  // repeated .proto_ff.E_FashionFashionActiveattributeDesc m_activeattribute = 13;
+  // repeated .proto_ff.E_FashionFashionActiveattributeDesc m_activeattribute = 14;
   inline int m_activeattribute_size() const;
   inline void clear_m_activeattribute();
-  static const int kMActiveattributeFieldNumber = 13;
+  static const int kMActiveattributeFieldNumber = 14;
   inline const ::proto_ff::E_FashionFashionActiveattributeDesc& m_activeattribute(int index) const;
   inline ::proto_ff::E_FashionFashionActiveattributeDesc* mutable_m_activeattribute(int index);
   inline ::proto_ff::E_FashionFashionActiveattributeDesc* add_m_activeattribute();
@@ -407,6 +414,8 @@ class E_FashionFashion : public ::google::protobuf::Message {
   inline void clear_has_m_quality();
   inline void set_has_m_professionlimit();
   inline void clear_has_m_professionlimit();
+  inline void set_has_m_timelimit();
+  inline void clear_has_m_timelimit();
   inline void set_has_m_activationitem();
   inline void clear_has_m_activationitem();
   inline void set_has_m_activationnum();
@@ -428,16 +437,17 @@ class E_FashionFashion : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_quality_;
   ::std::string* m_professionlimit_;
   ::google::protobuf::int64 m_activationitem_;
-  ::google::protobuf::int64 m_starid_;
+  ::google::protobuf::int32 m_timelimit_;
   ::google::protobuf::int32 m_activationnum_;
-  ::google::protobuf::int32 m_starup_;
+  ::google::protobuf::int64 m_starid_;
   ::std::string* m_starnum_;
+  ::google::protobuf::int32 m_starup_;
+  ::google::protobuf::int32 m_starber_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FashionFashionAttributeDesc > m_attribute_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FashionFashionActiveattributeDesc > m_activeattribute_;
-  ::google::protobuf::int32 m_starber_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(13 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(14 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fFashion_2eproto();
   friend void protobuf_AssignDesc_E_5fFashion_2eproto();
@@ -840,15 +850,37 @@ inline void E_FashionFashion::set_allocated_m_professionlimit(::std::string* m_p
   }
 }
 
-// optional int64 m_activationitem = 6;
-inline bool E_FashionFashion::has_m_activationitem() const {
+// optional int32 m_timelimit = 6;
+inline bool E_FashionFashion::has_m_timelimit() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void E_FashionFashion::set_has_m_activationitem() {
+inline void E_FashionFashion::set_has_m_timelimit() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void E_FashionFashion::clear_has_m_activationitem() {
+inline void E_FashionFashion::clear_has_m_timelimit() {
   _has_bits_[0] &= ~0x00000020u;
+}
+inline void E_FashionFashion::clear_m_timelimit() {
+  m_timelimit_ = 0;
+  clear_has_m_timelimit();
+}
+inline ::google::protobuf::int32 E_FashionFashion::m_timelimit() const {
+  return m_timelimit_;
+}
+inline void E_FashionFashion::set_m_timelimit(::google::protobuf::int32 value) {
+  set_has_m_timelimit();
+  m_timelimit_ = value;
+}
+
+// optional int64 m_activationitem = 7;
+inline bool E_FashionFashion::has_m_activationitem() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void E_FashionFashion::set_has_m_activationitem() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void E_FashionFashion::clear_has_m_activationitem() {
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void E_FashionFashion::clear_m_activationitem() {
   m_activationitem_ = GOOGLE_LONGLONG(0);
@@ -862,15 +894,15 @@ inline void E_FashionFashion::set_m_activationitem(::google::protobuf::int64 val
   m_activationitem_ = value;
 }
 
-// optional int32 m_activationnum = 7;
+// optional int32 m_activationnum = 8;
 inline bool E_FashionFashion::has_m_activationnum() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 inline void E_FashionFashion::set_has_m_activationnum() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
 }
 inline void E_FashionFashion::clear_has_m_activationnum() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline void E_FashionFashion::clear_m_activationnum() {
   m_activationnum_ = 0;
@@ -884,15 +916,15 @@ inline void E_FashionFashion::set_m_activationnum(::google::protobuf::int32 valu
   m_activationnum_ = value;
 }
 
-// optional int64 m_starid = 8;
+// optional int64 m_starid = 9;
 inline bool E_FashionFashion::has_m_starid() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 inline void E_FashionFashion::set_has_m_starid() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000100u;
 }
 inline void E_FashionFashion::clear_has_m_starid() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline void E_FashionFashion::clear_m_starid() {
   m_starid_ = GOOGLE_LONGLONG(0);
@@ -906,15 +938,15 @@ inline void E_FashionFashion::set_m_starid(::google::protobuf::int64 value) {
   m_starid_ = value;
 }
 
-// optional string m_starnum = 9;
+// optional string m_starnum = 10;
 inline bool E_FashionFashion::has_m_starnum() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
 inline void E_FashionFashion::set_has_m_starnum() {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000200u;
 }
 inline void E_FashionFashion::clear_has_m_starnum() {
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline void E_FashionFashion::clear_m_starnum() {
   if (m_starnum_ != &::google::protobuf::internal::kEmptyString) {
@@ -976,15 +1008,15 @@ inline void E_FashionFashion::set_allocated_m_starnum(::std::string* m_starnum) 
   }
 }
 
-// optional int32 m_starup = 10;
+// optional int32 m_starup = 11;
 inline bool E_FashionFashion::has_m_starup() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
+  return (_has_bits_[0] & 0x00000400u) != 0;
 }
 inline void E_FashionFashion::set_has_m_starup() {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000400u;
 }
 inline void E_FashionFashion::clear_has_m_starup() {
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline void E_FashionFashion::clear_m_starup() {
   m_starup_ = 0;
@@ -998,15 +1030,15 @@ inline void E_FashionFashion::set_m_starup(::google::protobuf::int32 value) {
   m_starup_ = value;
 }
 
-// optional int32 m_starber = 11;
+// optional int32 m_starber = 12;
 inline bool E_FashionFashion::has_m_starber() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
+  return (_has_bits_[0] & 0x00000800u) != 0;
 }
 inline void E_FashionFashion::set_has_m_starber() {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000800u;
 }
 inline void E_FashionFashion::clear_has_m_starber() {
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline void E_FashionFashion::clear_m_starber() {
   m_starber_ = 0;
@@ -1020,7 +1052,7 @@ inline void E_FashionFashion::set_m_starber(::google::protobuf::int32 value) {
   m_starber_ = value;
 }
 
-// repeated .proto_ff.E_FashionFashionAttributeDesc m_attribute = 12;
+// repeated .proto_ff.E_FashionFashionAttributeDesc m_attribute = 13;
 inline int E_FashionFashion::m_attribute_size() const {
   return m_attribute_.size();
 }
@@ -1045,7 +1077,7 @@ E_FashionFashion::mutable_m_attribute() {
   return &m_attribute_;
 }
 
-// repeated .proto_ff.E_FashionFashionActiveattributeDesc m_activeattribute = 13;
+// repeated .proto_ff.E_FashionFashionActiveattributeDesc m_activeattribute = 14;
 inline int E_FashionFashion::m_activeattribute_size() const {
   return m_activeattribute_.size();
 }

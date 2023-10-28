@@ -13,7 +13,7 @@
 #define DEFINE_E_DAILYCULTIVATE_M_ATTRIBUTE_MAX_NUM 4
 #define DEFINE_SHEET_DAILYCULTIVATE_E_DAILYCULTIVATE_LIST_MAX_NUM 1024
 #define DEFINE_SHEET_DAILYSPORTS_E_DAILYSPORTS_LIST_MAX_NUM 16
-#define DEFINE_SHEET_DAILYHELPER_E_DAILYHELPER_LIST_MAX_NUM 8
+#define DEFINE_SHEET_DAILYHELPER_E_DAILYHELPER_LIST_MAX_NUM 16
 
 
 namespace proto_ff_s {
@@ -173,8 +173,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_helperid;//扫荡ID
-		NFShmString<64> m_playid;//玩法ID
 		int32_t m_helpertype;//扫荡玩法的类型
+		NFShmString<64> m_playid;//玩法ID
 		int32_t m_linkid;//跳转ID
 		NFShmString<64> m_name;//标题显示
 		NFShmString<64> m_condition;//条件显示

@@ -1,0 +1,288 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_SoulOpen
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_lv = 2[(yd_fieldoptions.field_cname) = "解锁等级"];
+	optional int32 m_box = 3[(yd_fieldoptions.field_cname) = "奖励"];
+}
+
+
+message Sheet_SoulOpen
+{
+	repeated E_SoulOpen E_SoulOpen_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_SoulSoul
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_lvitem = 3[(yd_fieldoptions.field_cname) = "升级所需道具"];
+	optional int32 m_advanceitem = 4[(yd_fieldoptions.field_cname) = "进阶所需道具"];
+	optional int32 m_sacrificeskill = 5[(yd_fieldoptions.field_cname) = "牺牲技"];
+	optional string m_skilllv = 6[(yd_fieldoptions.field_cname) = "牺牲技等级[等级;升级需要的阶级]", (yd_fieldoptions.field_bufsize) = 128];
+}
+
+
+message Sheet_SoulSoul
+{
+	repeated E_SoulSoul E_SoulSoul_List = 1[(yd_fieldoptions.field_arysize)=2];
+}
+
+message E_SoulSoulbasicAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_SoulSoulbasic
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_soulid = 2[(yd_fieldoptions.field_cname) = "战魂ID"];
+	optional int32 m_soullv = 3[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_soulexp = 4[(yd_fieldoptions.field_cname) = "升级所需魂灵"];
+	repeated E_SoulSoulbasicAttributeDesc m_attribute = 5[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_SoulSoulbasic
+{
+	repeated E_SoulSoulbasic E_SoulSoulbasic_List = 1[(yd_fieldoptions.field_arysize)=1024];
+}
+
+message E_SoulSouladvanceAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_SoulSouladvance
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_soulid = 2[(yd_fieldoptions.field_cname) = "战魂ID"];
+	optional int32 m_advancelv = 3[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_advancenum = 4[(yd_fieldoptions.field_cname) = "升阶所需道具数量"];
+	repeated E_SoulSouladvanceAttributeDesc m_attribute = 5[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_SoulSouladvance
+{
+	repeated E_SoulSouladvance E_SoulSouladvance_List = 1[(yd_fieldoptions.field_arysize)=512];
+}
+
+message E_SoulBless
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_basic_exp = 2[(yd_fieldoptions.field_cname) = "聚灵池基础值"];
+	optional int32 m_need_gold = 3[(yd_fieldoptions.field_cname) = "元宝"];
+	optional int32 m_open_lv = 4[(yd_fieldoptions.field_cname) = "战魂等级开放升级"];
+}
+
+
+message Sheet_SoulBless
+{
+	repeated E_SoulBless E_SoulBless_List = 1[(yd_fieldoptions.field_arysize)=4];
+}
+
+message E_SoulPrivilegeAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_SoulPrivilege
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional string m_activate = 2[(yd_fieldoptions.field_cname) = "激活条件", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_poolup = 3[(yd_fieldoptions.field_cname) = "激活提高上限"];
+	optional int32 m_huoyuedu_to_exp = 4[(yd_fieldoptions.field_cname) = "活跃度兑换"];
+	optional int32 m_meditation_to_exp = 5[(yd_fieldoptions.field_cname) = "打坐兑换"];
+	repeated E_SoulPrivilegeAttributeDesc m_attribute = 6[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_SoulPrivilege
+{
+	repeated E_SoulPrivilege E_SoulPrivilege_List = 1[(yd_fieldoptions.field_arysize)=4];
+}
+
+message E_SoulCrystal
+{
+	optional int32 m_equipid = 1[(yd_fieldoptions.field_cname) = "装备id"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "魂晶命名", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_crystaltype = 3[(yd_fieldoptions.field_cname) = "魂晶类型"];
+	optional int32 m_quality = 4[(yd_fieldoptions.field_cname) = "品质"];
+	optional int32 m_star = 5[(yd_fieldoptions.field_cname) = "星级"];
+	optional int32 m_dismantletime = 6[(yd_fieldoptions.field_cname) = "分解获得"];
+	optional int32 m_dismantlenum = 7[(yd_fieldoptions.field_cname) = "分解数量"];
+	optional int32 m_skill = 8[(yd_fieldoptions.field_cname) = "技能类型"];
+	optional int32 m_skilllv = 9[(yd_fieldoptions.field_cname) = "技能等级"];
+	optional int32 m_handbook = 10[(yd_fieldoptions.field_cname) = "是否显示图鉴"];
+}
+
+
+message Sheet_SoulCrystal
+{
+	repeated E_SoulCrystal E_SoulCrystal_List = 1[(yd_fieldoptions.field_arysize)=512];
+}
+
+message E_SoulCrystallv
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_wraithsitem = 2[(yd_fieldoptions.field_cname) = "道具消耗"];
+	optional int32 m_wraithsmun = 3[(yd_fieldoptions.field_cname) = "消耗数量"];
+}
+
+
+message Sheet_SoulCrystallv
+{
+	repeated E_SoulCrystallv E_SoulCrystallv_List = 1[(yd_fieldoptions.field_arysize)=1024];
+}
+
+message E_SoulCrystaltopAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_SoulCrystaltop
+{
+	optional int32 m_toplv = 1[(yd_fieldoptions.field_cname) = "突破等级"];
+	optional int32 m_wraithsitem = 2[(yd_fieldoptions.field_cname) = "道具消耗"];
+	optional int32 m_wraithsmun = 3[(yd_fieldoptions.field_cname) = "消耗数量"];
+	repeated E_SoulCrystaltopAttributeDesc m_attribute = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_SoulCrystaltop
+{
+	repeated E_SoulCrystaltop E_SoulCrystaltop_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_SoulCrystalhole
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "魂晶孔位"];
+	optional string m_unlock = 2[(yd_fieldoptions.field_cname) = "解锁条件", (yd_fieldoptions.field_bufsize) = 64];
+}
+
+
+message Sheet_SoulCrystalhole
+{
+	repeated E_SoulCrystalhole E_SoulCrystalhole_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_SoulFusionFusionDesc
+{
+	optional int32 m_star = 1[(yd_fieldoptions.field_cname) = "星级"];
+	optional int32 m_quality = 2[(yd_fieldoptions.field_cname) = "品质"];
+}
+
+message E_SoulFusion
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_fusiontype = 2[(yd_fieldoptions.field_cname) = "融合类型"];
+	optional int32 m_quality = 3[(yd_fieldoptions.field_cname) = "魂晶品质"];
+	optional int32 m_star = 4[(yd_fieldoptions.field_cname) = "魂晶星数"];
+	optional int32 m_condition = 5[(yd_fieldoptions.field_cname) = "是否需要自身材料"];
+	optional int32 m_qualityget = 6[(yd_fieldoptions.field_cname) = "融合后品质"];
+	optional int32 m_starget = 7[(yd_fieldoptions.field_cname) = "融合后星级"];
+	optional int32 m_attributeber = 8[(yd_fieldoptions.field_cname) = "属性提升"];
+	repeated E_SoulFusionFusionDesc m_fusion = 9[(yd_fieldoptions.field_cname) = "融合材料", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_SoulFusion
+{
+	repeated E_SoulFusion E_SoulFusion_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_SoulBone
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_position = 2[(yd_fieldoptions.field_cname) = "装备位置"];
+	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "魂骨类型"];
+	optional int32 m_awakening = 4[(yd_fieldoptions.field_cname) = "觉醒类型"];
+	optional int32 m_awakeningtime = 5[(yd_fieldoptions.field_cname) = "觉醒消耗"];
+	optional int32 m_awakeningnum = 6[(yd_fieldoptions.field_cname) = "消耗数量"];
+	optional int32 m_modelid = 7[(yd_fieldoptions.field_cname) = "模型id"];
+}
+
+
+message Sheet_SoulBone
+{
+	repeated E_SoulBone E_SoulBone_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_SoulBoneequip
+{
+	optional int32 m_equipid = 1[(yd_fieldoptions.field_cname) = "装备id"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "魂骨命名", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_part = 3[(yd_fieldoptions.field_cname) = "部位"];
+	optional int32 m_quality = 4[(yd_fieldoptions.field_cname) = "品质"];
+	optional int32 m_star = 5[(yd_fieldoptions.field_cname) = "星级"];
+}
+
+
+message Sheet_SoulBoneequip
+{
+	repeated E_SoulBoneequip E_SoulBoneequip_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_SoulBoneskillPassiveDesc
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_skill = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_SoulBoneskill
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_boneid = 2[(yd_fieldoptions.field_cname) = "魂骨部位id"];
+	optional int32 m_quality = 3[(yd_fieldoptions.field_cname) = "品质"];
+	optional int32 m_star = 4[(yd_fieldoptions.field_cname) = "星级"];
+	optional int32 m_activeskill = 5[(yd_fieldoptions.field_cname) = "主动技能"];
+	optional int32 m_activeskilllv = 6[(yd_fieldoptions.field_cname) = "技能等级"];
+	repeated E_SoulBoneskillPassiveDesc m_passive = 7[(yd_fieldoptions.field_cname) = "被动技能", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_SoulBoneskill
+{
+	repeated E_SoulBoneskill E_SoulBoneskill_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_SoulBonekill
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_killboss = 2[(yd_fieldoptions.field_cname) = "击杀魔王数"];
+}
+
+
+message Sheet_SoulBonekill
+{
+	repeated E_SoulBonekill E_SoulBonekill_List = 1[(yd_fieldoptions.field_arysize)=1024];
+}
+
+message E_SoulBonestrongTypeDesc
+{
+	optional string m_num = 1[(yd_fieldoptions.field_cname) = "值", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_SoulBonestrong
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_position = 2[(yd_fieldoptions.field_cname) = "装备部位"];
+	optional int32 m_srtongup = 3[(yd_fieldoptions.field_cname) = "强化上限"];
+	repeated E_SoulBonestrongTypeDesc m_type = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_SoulBonestrong
+{
+	repeated E_SoulBonestrong E_SoulBonestrong_List = 1[(yd_fieldoptions.field_arysize)=256];
+}

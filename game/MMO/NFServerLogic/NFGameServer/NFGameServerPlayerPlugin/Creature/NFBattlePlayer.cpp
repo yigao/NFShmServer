@@ -15,7 +15,7 @@
 #include "NFLogicCommon/NFEventDefine.h"
 #include "NFComm/NFCore/NFTime.h"
 #include "ClientServerCmd.pb.h"
-#include "NFLogicCommon/NFAttrMgr.h"
+#include "NFLogicCommon/Attr/NFAttrMgr.h"
 
 NFBattlePlayer::NFBattlePlayer()
 {

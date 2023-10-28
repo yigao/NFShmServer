@@ -274,6 +274,16 @@
     }while(0)
 #endif//CHECK_EXPR_NOT_RET
 
+#ifndef CHECK_NOT_RET
+#define CHECK_NOT_RET(expr)\
+    do {\
+        if (unlikely(!(expr)))\
+        {\
+            return;\
+        }\
+    }while(0)
+#endif//CHECK_NOT_RET
+
 #ifndef CHECK_EXPR_MSG
 #define CHECK_EXPR_MSG(expr, format, ...)\
     do {\
@@ -434,6 +444,16 @@ template<> struct CompileTimeError<true> {};
 		}\
 	}
 #endif//CHECK_EXPR_CONTINUE
+
+#ifndef CHECK_CONTINUE
+#define CHECK_CONTINUE(expr)\
+    {\
+        if(unlikely(!(expr)))\
+        {\
+            continue;\
+		}\
+	}
+#endif//CHECK_CONTINUE
 
 #ifndef CHECK_NULL_CONTINUE
 #define CHECK_NULL_CONTINUE(ptr) CHECK_EXPR_CONTINUE(ptr)

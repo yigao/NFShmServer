@@ -1939,6 +1939,34 @@ void Sheet_ShentiStrengtitel_s::read_from_pbmsg(const ::proto_ff::Sheet_ShentiSt
 	}
 }
 
+E_ShentiStartitelAttributeDesc_s::E_ShentiStartitelAttributeDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_ShentiStartitelAttributeDesc_s::CreateInit() {
+	m_value = (int32_t)0;
+	m_type = (int32_t)0;
+	return 0;
+}
+
+int E_ShentiStartitelAttributeDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_ShentiStartitelAttributeDesc_s::write_to_pbmsg(::proto_ff::E_ShentiStartitelAttributeDesc & msg) const {
+	msg.set_m_value((int32_t)m_value);
+	msg.set_m_type((int32_t)m_type);
+}
+
+void E_ShentiStartitelAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_ShentiStartitelAttributeDesc & msg) {
+	m_value = msg.m_value();
+	m_type = msg.m_type();
+}
+
 E_ShentiStartitel_s::E_ShentiStartitel_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -1950,8 +1978,6 @@ E_ShentiStartitel_s::E_ShentiStartitel_s() {
 int E_ShentiStartitel_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_num = (int32_t)0;
-	m_attribute_type = (int32_t)0;
-	m_attribute_value = (int32_t)0;
 	return 0;
 }
 
@@ -1962,15 +1988,20 @@ int E_ShentiStartitel_s::ResumeInit() {
 void E_ShentiStartitel_s::write_to_pbmsg(::proto_ff::E_ShentiStartitel & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_num((int32_t)m_num);
-	msg.set_m_attribute_type((int32_t)m_attribute_type);
-	msg.set_m_attribute_value((int32_t)m_attribute_value);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_ShentiStartitelAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
+	}
 }
 
 void E_ShentiStartitel_s::read_from_pbmsg(const ::proto_ff::E_ShentiStartitel & msg) {
 	m_id = msg.m_id();
 	m_num = msg.m_num();
-	m_attribute_type = msg.m_attribute_type();
-	m_attribute_value = msg.m_attribute_value();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_ShentiStartitelAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
+	}
 }
 
 Sheet_ShentiStartitel_s::Sheet_ShentiStartitel_s() {

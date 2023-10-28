@@ -1,0 +1,79 @@
+package proto_ff;
+import "Com.proto";
+import "ComDefine.proto";
+
+//======================================通信===================================//
+//1:上线更新战魂模块信息。 NOTIFY_SOUL_MODULE
+message NotifySoulModule
+{
+	optional SoulEntry entry = 1;  //战魂数据
+	optional SoulPool pool = 2;	   //聚灵池
+	repeated ComPair tasks = 3;    //任务 key:id value: //0:未达成，1可领取，2 已领取
+}
+//2:更新战魂  NOTIFY_SOUL_ENTRY
+message NotifySoulEntry
+{
+	optional SoulEntry entry = 1;  //战魂数据
+}
+//3: 更新聚灵池 NOTIFY_SOUL_POOL
+message NotifySoulPool
+{
+	optional SoulPool pool = 1;  //战魂数据
+}
+
+//4:更新前置任务全发的 NOTIFY_SOUL_TASK
+message NotifySoulTask
+{
+	repeated ComPair tasks = 1;  //任务 key:id value: //0:未达成，1可领取，2 已领取
+}
+
+
+//=========================业务==================
+//1-1:领取前置任务 SOUL_RECV_TASK_REQ
+message SoulRecvTaskReq
+{
+	optional int32 id = 1;
+}
+
+//1-2:领取前置任务返回 SOUL_RECV_TASK_RSP
+message SoulRecvTaskRsp
+{
+	optional int32 ret = 1;
+	optional int32 id = 2;
+}
+
+//2-1: 战魂操作 SOUL_ENTRY_OPT_REQ
+message SoulEntryOptReq
+{
+	optional int32 type = 1; //1:升級 2：进阶
+}
+//2-2: 战魂操作 SOUL_ENTRY_OPT_RSP
+message SoulEntryOptRsp
+{
+	optional int32 ret = 1;
+	optional int32 type = 2; //1:升級 2：进阶
+}
+
+
+//3-1: 战魂聚灵池操作 SOUL_POOL_OPT_REQ
+message SoulPoolOptReq
+{
+	optional int32 type = 1; //1:祝福升級 2：特权升级
+}
+//3-2: 战魂聚灵池操作 SOUL_POOL_OPT_RSP
+message SoulPoolOptRsp
+{
+	optional int32 ret = 1;
+	optional int32 type = 2; //1:祝福升級 2：特权升级
+}
+
+
+
+//TODO ---后面功能在补
+
+
+
+
+
+
+

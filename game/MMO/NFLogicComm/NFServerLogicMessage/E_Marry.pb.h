@@ -2756,6 +2756,13 @@ class E_MarryExpressshop : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_broadcastid() const;
   inline void set_m_broadcastid(::google::protobuf::int32 value);
 
+  // optional int32 m_effectid = 6;
+  inline bool has_m_effectid() const;
+  inline void clear_m_effectid();
+  static const int kMEffectidFieldNumber = 6;
+  inline ::google::protobuf::int32 m_effectid() const;
+  inline void set_m_effectid(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.E_MarryExpressshop)
  private:
   inline void set_has_m_exitem();
@@ -2768,6 +2775,8 @@ class E_MarryExpressshop : public ::google::protobuf::Message {
   inline void clear_has_m_expto();
   inline void set_has_m_broadcastid();
   inline void clear_has_m_broadcastid();
+  inline void set_has_m_effectid();
+  inline void clear_has_m_effectid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -2776,9 +2785,10 @@ class E_MarryExpressshop : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_exp_;
   ::google::protobuf::int32 m_expto_;
   ::google::protobuf::int32 m_broadcastid_;
+  ::google::protobuf::int32 m_effectid_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fMarry_2eproto();
   friend void protobuf_AssignDesc_E_5fMarry_2eproto();
@@ -3313,10 +3323,24 @@ class E_MarryConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_redcollectnum() const;
   inline void set_m_redcollectnum(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_MarryConstantTourmonsterDesc m_tourmonster = 40;
+  // optional int32 m_cakemonster = 40;
+  inline bool has_m_cakemonster() const;
+  inline void clear_m_cakemonster();
+  static const int kMCakemonsterFieldNumber = 40;
+  inline ::google::protobuf::int32 m_cakemonster() const;
+  inline void set_m_cakemonster(::google::protobuf::int32 value);
+
+  // optional int32 m_hymonster = 41;
+  inline bool has_m_hymonster() const;
+  inline void clear_m_hymonster();
+  static const int kMHymonsterFieldNumber = 41;
+  inline ::google::protobuf::int32 m_hymonster() const;
+  inline void set_m_hymonster(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.E_MarryConstantTourmonsterDesc m_tourmonster = 42;
   inline int m_tourmonster_size() const;
   inline void clear_m_tourmonster();
-  static const int kMTourmonsterFieldNumber = 40;
+  static const int kMTourmonsterFieldNumber = 42;
   inline const ::proto_ff::E_MarryConstantTourmonsterDesc& m_tourmonster(int index) const;
   inline ::proto_ff::E_MarryConstantTourmonsterDesc* mutable_m_tourmonster(int index);
   inline ::proto_ff::E_MarryConstantTourmonsterDesc* add_m_tourmonster();
@@ -3405,6 +3429,10 @@ class E_MarryConstant : public ::google::protobuf::Message {
   inline void clear_has_m_redcollect();
   inline void set_has_m_redcollectnum();
   inline void clear_has_m_redcollectnum();
+  inline void set_has_m_cakemonster();
+  inline void clear_has_m_cakemonster();
+  inline void set_has_m_hymonster();
+  inline void clear_has_m_hymonster();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -3446,11 +3474,13 @@ class E_MarryConstant : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_sendredreward_;
   ::google::protobuf::int32 m_sendrednum_;
   ::google::protobuf::int32 m_redcollect_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MarryConstantTourmonsterDesc > m_tourmonster_;
   ::google::protobuf::int32 m_redcollectnum_;
+  ::google::protobuf::int32 m_cakemonster_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MarryConstantTourmonsterDesc > m_tourmonster_;
+  ::google::protobuf::int32 m_hymonster_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(40 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(42 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fMarry_2eproto();
   friend void protobuf_AssignDesc_E_5fMarry_2eproto();
@@ -6777,6 +6807,28 @@ inline void E_MarryExpressshop::set_m_broadcastid(::google::protobuf::int32 valu
   m_broadcastid_ = value;
 }
 
+// optional int32 m_effectid = 6;
+inline bool E_MarryExpressshop::has_m_effectid() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void E_MarryExpressshop::set_has_m_effectid() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void E_MarryExpressshop::clear_has_m_effectid() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void E_MarryExpressshop::clear_m_effectid() {
+  m_effectid_ = 0;
+  clear_has_m_effectid();
+}
+inline ::google::protobuf::int32 E_MarryExpressshop::m_effectid() const {
+  return m_effectid_;
+}
+inline void E_MarryExpressshop::set_m_effectid(::google::protobuf::int32 value) {
+  set_has_m_effectid();
+  m_effectid_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // Sheet_MarryExpressshop
@@ -7908,7 +7960,51 @@ inline void E_MarryConstant::set_m_redcollectnum(::google::protobuf::int32 value
   m_redcollectnum_ = value;
 }
 
-// repeated .proto_ff.E_MarryConstantTourmonsterDesc m_tourmonster = 40;
+// optional int32 m_cakemonster = 40;
+inline bool E_MarryConstant::has_m_cakemonster() const {
+  return (_has_bits_[1] & 0x00000080u) != 0;
+}
+inline void E_MarryConstant::set_has_m_cakemonster() {
+  _has_bits_[1] |= 0x00000080u;
+}
+inline void E_MarryConstant::clear_has_m_cakemonster() {
+  _has_bits_[1] &= ~0x00000080u;
+}
+inline void E_MarryConstant::clear_m_cakemonster() {
+  m_cakemonster_ = 0;
+  clear_has_m_cakemonster();
+}
+inline ::google::protobuf::int32 E_MarryConstant::m_cakemonster() const {
+  return m_cakemonster_;
+}
+inline void E_MarryConstant::set_m_cakemonster(::google::protobuf::int32 value) {
+  set_has_m_cakemonster();
+  m_cakemonster_ = value;
+}
+
+// optional int32 m_hymonster = 41;
+inline bool E_MarryConstant::has_m_hymonster() const {
+  return (_has_bits_[1] & 0x00000100u) != 0;
+}
+inline void E_MarryConstant::set_has_m_hymonster() {
+  _has_bits_[1] |= 0x00000100u;
+}
+inline void E_MarryConstant::clear_has_m_hymonster() {
+  _has_bits_[1] &= ~0x00000100u;
+}
+inline void E_MarryConstant::clear_m_hymonster() {
+  m_hymonster_ = 0;
+  clear_has_m_hymonster();
+}
+inline ::google::protobuf::int32 E_MarryConstant::m_hymonster() const {
+  return m_hymonster_;
+}
+inline void E_MarryConstant::set_m_hymonster(::google::protobuf::int32 value) {
+  set_has_m_hymonster();
+  m_hymonster_ = value;
+}
+
+// repeated .proto_ff.E_MarryConstantTourmonsterDesc m_tourmonster = 42;
 inline int E_MarryConstant::m_tourmonster_size() const {
   return m_tourmonster_.size();
 }

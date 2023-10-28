@@ -54,6 +54,7 @@ class BestEQBreakReq;
 class BestEQBreakRsp;
 class BestEQAwakenReq;
 class BestEQAwakenRsp;
+class BestEQStrongEntry;
 class BestEQStrongReq;
 class BestEQStrongRsp;
 class BestEQBreakConfirmReq;
@@ -1800,6 +1801,111 @@ class BestEQAwakenRsp : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class BestEQStrongEntry : public ::google::protobuf::Message {
+ public:
+  BestEQStrongEntry();
+  virtual ~BestEQStrongEntry();
+
+  BestEQStrongEntry(const BestEQStrongEntry& from);
+
+  inline BestEQStrongEntry& operator=(const BestEQStrongEntry& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BestEQStrongEntry& default_instance();
+
+  void Swap(BestEQStrongEntry* other);
+
+  // implements Message ----------------------------------------------
+
+  BestEQStrongEntry* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BestEQStrongEntry& from);
+  void MergeFrom(const BestEQStrongEntry& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 bagtype = 1;
+  inline bool has_bagtype() const;
+  inline void clear_bagtype();
+  static const int kBagtypeFieldNumber = 1;
+  inline ::google::protobuf::int32 bagtype() const;
+  inline void set_bagtype(::google::protobuf::int32 value);
+
+  // optional int32 pos = 2;
+  inline bool has_pos() const;
+  inline void clear_pos();
+  static const int kPosFieldNumber = 2;
+  inline ::google::protobuf::int32 pos() const;
+  inline void set_pos(::google::protobuf::int32 value);
+
+  // repeated int32 costpos = 3;
+  inline int costpos_size() const;
+  inline void clear_costpos();
+  static const int kCostposFieldNumber = 3;
+  inline ::google::protobuf::int32 costpos(int index) const;
+  inline void set_costpos(int index, ::google::protobuf::int32 value);
+  inline void add_costpos(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      costpos() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_costpos();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.BestEQStrongEntry)
+ private:
+  inline void set_has_bagtype();
+  inline void clear_has_bagtype();
+  inline void set_has_pos();
+  inline void clear_has_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 bagtype_;
+  ::google::protobuf::int32 pos_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > costpos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_BestEQ_2eproto();
+  friend void protobuf_AssignDesc_BestEQ_2eproto();
+  friend void protobuf_ShutdownFile_BestEQ_2eproto();
+
+  void InitAsDefaultInstance();
+  static BestEQStrongEntry* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class BestEQStrongReq : public ::google::protobuf::Message {
  public:
   BestEQStrongReq();
@@ -1854,47 +1960,27 @@ class BestEQStrongReq : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 bagtype = 1;
-  inline bool has_bagtype() const;
-  inline void clear_bagtype();
-  static const int kBagtypeFieldNumber = 1;
-  inline ::google::protobuf::int32 bagtype() const;
-  inline void set_bagtype(::google::protobuf::int32 value);
-
-  // optional int32 pos = 2;
-  inline bool has_pos() const;
-  inline void clear_pos();
-  static const int kPosFieldNumber = 2;
-  inline ::google::protobuf::int32 pos() const;
-  inline void set_pos(::google::protobuf::int32 value);
-
-  // repeated int32 costpos = 3;
-  inline int costpos_size() const;
-  inline void clear_costpos();
-  static const int kCostposFieldNumber = 3;
-  inline ::google::protobuf::int32 costpos(int index) const;
-  inline void set_costpos(int index, ::google::protobuf::int32 value);
-  inline void add_costpos(::google::protobuf::int32 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      costpos() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_costpos();
+  // repeated .proto_ff.BestEQStrongEntry entrys = 1;
+  inline int entrys_size() const;
+  inline void clear_entrys();
+  static const int kEntrysFieldNumber = 1;
+  inline const ::proto_ff::BestEQStrongEntry& entrys(int index) const;
+  inline ::proto_ff::BestEQStrongEntry* mutable_entrys(int index);
+  inline ::proto_ff::BestEQStrongEntry* add_entrys();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::BestEQStrongEntry >&
+      entrys() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::BestEQStrongEntry >*
+      mutable_entrys();
 
   // @@protoc_insertion_point(class_scope:proto_ff.BestEQStrongReq)
  private:
-  inline void set_has_bagtype();
-  inline void clear_has_bagtype();
-  inline void set_has_pos();
-  inline void clear_has_pos();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 bagtype_;
-  ::google::protobuf::int32 pos_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > costpos_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::BestEQStrongEntry > entrys_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
 
   friend void  protobuf_AddDesc_BestEQ_2eproto();
   friend void protobuf_AssignDesc_BestEQ_2eproto();
@@ -3110,75 +3196,104 @@ inline void BestEQAwakenRsp::set_slot(::google::protobuf::int32 value) {
 
 // -------------------------------------------------------------------
 
-// BestEQStrongReq
+// BestEQStrongEntry
 
 // optional int32 bagtype = 1;
-inline bool BestEQStrongReq::has_bagtype() const {
+inline bool BestEQStrongEntry::has_bagtype() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void BestEQStrongReq::set_has_bagtype() {
+inline void BestEQStrongEntry::set_has_bagtype() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void BestEQStrongReq::clear_has_bagtype() {
+inline void BestEQStrongEntry::clear_has_bagtype() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void BestEQStrongReq::clear_bagtype() {
+inline void BestEQStrongEntry::clear_bagtype() {
   bagtype_ = 0;
   clear_has_bagtype();
 }
-inline ::google::protobuf::int32 BestEQStrongReq::bagtype() const {
+inline ::google::protobuf::int32 BestEQStrongEntry::bagtype() const {
   return bagtype_;
 }
-inline void BestEQStrongReq::set_bagtype(::google::protobuf::int32 value) {
+inline void BestEQStrongEntry::set_bagtype(::google::protobuf::int32 value) {
   set_has_bagtype();
   bagtype_ = value;
 }
 
 // optional int32 pos = 2;
-inline bool BestEQStrongReq::has_pos() const {
+inline bool BestEQStrongEntry::has_pos() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void BestEQStrongReq::set_has_pos() {
+inline void BestEQStrongEntry::set_has_pos() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void BestEQStrongReq::clear_has_pos() {
+inline void BestEQStrongEntry::clear_has_pos() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void BestEQStrongReq::clear_pos() {
+inline void BestEQStrongEntry::clear_pos() {
   pos_ = 0;
   clear_has_pos();
 }
-inline ::google::protobuf::int32 BestEQStrongReq::pos() const {
+inline ::google::protobuf::int32 BestEQStrongEntry::pos() const {
   return pos_;
 }
-inline void BestEQStrongReq::set_pos(::google::protobuf::int32 value) {
+inline void BestEQStrongEntry::set_pos(::google::protobuf::int32 value) {
   set_has_pos();
   pos_ = value;
 }
 
 // repeated int32 costpos = 3;
-inline int BestEQStrongReq::costpos_size() const {
+inline int BestEQStrongEntry::costpos_size() const {
   return costpos_.size();
 }
-inline void BestEQStrongReq::clear_costpos() {
+inline void BestEQStrongEntry::clear_costpos() {
   costpos_.Clear();
 }
-inline ::google::protobuf::int32 BestEQStrongReq::costpos(int index) const {
+inline ::google::protobuf::int32 BestEQStrongEntry::costpos(int index) const {
   return costpos_.Get(index);
 }
-inline void BestEQStrongReq::set_costpos(int index, ::google::protobuf::int32 value) {
+inline void BestEQStrongEntry::set_costpos(int index, ::google::protobuf::int32 value) {
   costpos_.Set(index, value);
 }
-inline void BestEQStrongReq::add_costpos(::google::protobuf::int32 value) {
+inline void BestEQStrongEntry::add_costpos(::google::protobuf::int32 value) {
   costpos_.Add(value);
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-BestEQStrongReq::costpos() const {
+BestEQStrongEntry::costpos() const {
   return costpos_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-BestEQStrongReq::mutable_costpos() {
+BestEQStrongEntry::mutable_costpos() {
   return &costpos_;
+}
+
+// -------------------------------------------------------------------
+
+// BestEQStrongReq
+
+// repeated .proto_ff.BestEQStrongEntry entrys = 1;
+inline int BestEQStrongReq::entrys_size() const {
+  return entrys_.size();
+}
+inline void BestEQStrongReq::clear_entrys() {
+  entrys_.Clear();
+}
+inline const ::proto_ff::BestEQStrongEntry& BestEQStrongReq::entrys(int index) const {
+  return entrys_.Get(index);
+}
+inline ::proto_ff::BestEQStrongEntry* BestEQStrongReq::mutable_entrys(int index) {
+  return entrys_.Mutable(index);
+}
+inline ::proto_ff::BestEQStrongEntry* BestEQStrongReq::add_entrys() {
+  return entrys_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::BestEQStrongEntry >&
+BestEQStrongReq::entrys() const {
+  return entrys_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::BestEQStrongEntry >*
+BestEQStrongReq::mutable_entrys() {
+  return &entrys_;
 }
 
 // -------------------------------------------------------------------

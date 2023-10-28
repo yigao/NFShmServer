@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Mall_s.h"
 
-#define MAX_MALL_MALLTYPE_NUM 16
+#define MAX_MALL_MALLTYPE_NUM 64
 
 class MallMalltypeDesc : public NFIDescTemplate<MallMalltypeDesc, proto_ff_s::E_MallMalltype_s, EOT_CONST_MALL_MALLTYPE_DESC_ID, MAX_MALL_MALLTYPE_NUM>
 {

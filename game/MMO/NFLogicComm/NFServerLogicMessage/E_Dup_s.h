@@ -41,6 +41,7 @@ namespace proto_ff_s {
 		int32_t m_groupid;//所属副本组ID
 		int32_t m_subtype;//子类型
 		int32_t m_layer;//层级
+		int32_t m_recommendpower;//推荐战力
 		int32_t m_duplicatetype;//副本内容类型
 		int64_t m_mapid;//场景ID
 		int32_t m_levellimit;//等级要求下限

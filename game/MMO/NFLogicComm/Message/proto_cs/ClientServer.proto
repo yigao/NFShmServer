@@ -377,6 +377,7 @@ message GetDailyTaskDataRsp
 {
   optional DailyTaskAllData data = 1;
   optional bool money_reward_finish = 2;
+  optional bool prestige_reward_finish = 3;
 }
 
 //LOGIC_TO_CLIENT_UPDATE_DAILY_TASK_NOTIFY = 962; //任务更新, 任务完成，解锁，状态改变
@@ -1111,6 +1112,26 @@ message MountUnlockSlotRsp
   optional MountFairySlot slot = 2;
 }
 
+//LOGIC_TO_CLIENT_MOUNT_MODEL_CHANGE = 1514; //坐骑模型修改
+message MountModelChange
+{
+  optional int32 model_id = 1;
+  optional bytes model_name = 2;
+}
+
+//CLIENT_TO_LOGIC_MOUNT_KUN_EQUIP_SLOT_UNLOCK_REQ = 1490; //坐骑鲲装备槽位解锁
+message MountKunEquipSlotUnlockReq
+{
+  optional uint32 kun_id = 1;
+  optional uint32 slot = 2; //59-63
+}
+
+//LOGIC_TO_CLIENT_MOUNT_KUN_EQUIP_SLOT_UNLOCK_REQ = 1491; //坐骑鲲装备槽位解锁
+message MountKunEquipSlotUnlockRsp
+{
+  optional int32 ret_code = 1;
+  optional MountKunData kun_data = 2;
+}
 /////////////////////////////////天神系统//////////////////////////////////////////////
 //天神信息	CLIENT_TO_LOGIC_DEITY_INFO_REQ
 message DeityInfoReq
@@ -1773,6 +1794,7 @@ message CLGetBuyBattlePassShopReq
 {
   optional int32 type = 1; //1:福源仙册 2:举世宝鼎
   optional int32 id = 2;
+  optional int32 num = 3;
 }
 
 //LOGIC_TO_CLIENT_BUY_BATTLE_PASS_SHOP_RSP = 3597; //购买天降福源商店商品

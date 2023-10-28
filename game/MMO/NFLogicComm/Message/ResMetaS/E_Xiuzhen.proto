@@ -221,6 +221,7 @@ message E_XiuzhenGftypes
 	optional int32 m_itemnum = 6[(yd_fieldoptions.field_cname) = "道具数量"];
 	optional int32 m_buylv = 7[(yd_fieldoptions.field_cname) = "购买等级"];
 	optional int32 m_rechargeid = 8[(yd_fieldoptions.field_cname) = "充值id"];
+	optional string m_bookmodel = 9[(yd_fieldoptions.field_cname) = "书模型", (yd_fieldoptions.field_bufsize) = 64];
 }
 
 

@@ -13,7 +13,7 @@
 
 #include "DescStore/NFDescStoreHead.h"
 #include "DescStore/NFDescStoreRegister.h"
-#include "NFLogicCommon/NFAttrMgr.h"
+#include "NFLogicCommon/Attr/NFAttrMgr.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 

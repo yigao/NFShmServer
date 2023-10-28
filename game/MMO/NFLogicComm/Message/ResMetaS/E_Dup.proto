@@ -14,25 +14,26 @@ message E_DupDup
 	optional int32 m_groupid = 7[(yd_fieldoptions.field_cname) = "所属副本组ID"];
 	optional int32 m_subtype = 8[(yd_fieldoptions.field_cname) = "子类型"];
 	optional int32 m_layer = 9[(yd_fieldoptions.field_cname) = "层级"];
-	optional int32 m_duplicatetype = 10[(yd_fieldoptions.field_cname) = "副本内容类型"];
-	optional int64 m_mapid = 11[(yd_fieldoptions.field_cname) = "场景ID"];
-	optional int32 m_levellimit = 12[(yd_fieldoptions.field_cname) = "等级要求下限"];
-	optional int32 m_functionid = 13[(yd_fieldoptions.field_cname) = "额外功能开放要求"];
-	optional int32 m_pre = 14[(yd_fieldoptions.field_cname) = "前置副本要求"];
-	optional int32 m_isautofight = 15[(yd_fieldoptions.field_cname) = "是否允许自动战斗"];
-	optional string m_condition = 16[(yd_fieldoptions.field_cname) = "副本胜利条件类型", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_revivemaxtimes = 17[(yd_fieldoptions.field_cname) = "复活次数上限"];
-	optional int32 m_teamobjectid = 18[(yd_fieldoptions.field_cname) = "组队目标ID"];
-	optional string m_gradecondition = 19[(yd_fieldoptions.field_cname) = "星级时间", (yd_fieldoptions.field_bufsize) = 64];
-	optional int64 m_sweeprewardboxid = 20[(yd_fieldoptions.field_cname) = "扫荡奖励BOXID"];
-	optional int32 m_sweeprewardexp = 21[(yd_fieldoptions.field_cname) = "扫荡经验奖励"];
-	optional int32 m_sweepexptype = 22[(yd_fieldoptions.field_cname) = "扫荡经验类型"];
-	optional string m_trackpoint = 23[(yd_fieldoptions.field_cname) = "副本寻路点", (yd_fieldoptions.field_bufsize) = 64];
-	optional string m_pathofmonster = 24[(yd_fieldoptions.field_cname) = "副本寻路点对应怪物", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_ispatrol = 25[(yd_fieldoptions.field_cname) = "寻路前是否巡敌"];
-	optional int32 m_failurebox = 26[(yd_fieldoptions.field_cname) = "失败奖励"];
-	optional int32 m_planes = 27[(yd_fieldoptions.field_cname) = "位面"];
-	repeated int32 m_box = 28[(yd_fieldoptions.field_cname) = "奖励组", (yd_fieldoptions.field_arysize) = 3];
+	optional int32 m_recommendpower = 10[(yd_fieldoptions.field_cname) = "推荐战力"];
+	optional int32 m_duplicatetype = 11[(yd_fieldoptions.field_cname) = "副本内容类型"];
+	optional int64 m_mapid = 12[(yd_fieldoptions.field_cname) = "场景ID"];
+	optional int32 m_levellimit = 13[(yd_fieldoptions.field_cname) = "等级要求下限"];
+	optional int32 m_functionid = 14[(yd_fieldoptions.field_cname) = "额外功能开放要求"];
+	optional int32 m_pre = 15[(yd_fieldoptions.field_cname) = "前置副本要求"];
+	optional int32 m_isautofight = 16[(yd_fieldoptions.field_cname) = "是否允许自动战斗"];
+	optional string m_condition = 17[(yd_fieldoptions.field_cname) = "副本胜利条件类型", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_revivemaxtimes = 18[(yd_fieldoptions.field_cname) = "复活次数上限"];
+	optional int32 m_teamobjectid = 19[(yd_fieldoptions.field_cname) = "组队目标ID"];
+	optional string m_gradecondition = 20[(yd_fieldoptions.field_cname) = "星级时间", (yd_fieldoptions.field_bufsize) = 64];
+	optional int64 m_sweeprewardboxid = 21[(yd_fieldoptions.field_cname) = "扫荡奖励BOXID"];
+	optional int32 m_sweeprewardexp = 22[(yd_fieldoptions.field_cname) = "扫荡经验奖励"];
+	optional int32 m_sweepexptype = 23[(yd_fieldoptions.field_cname) = "扫荡经验类型"];
+	optional string m_trackpoint = 24[(yd_fieldoptions.field_cname) = "副本寻路点", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_pathofmonster = 25[(yd_fieldoptions.field_cname) = "副本寻路点对应怪物", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_ispatrol = 26[(yd_fieldoptions.field_cname) = "寻路前是否巡敌"];
+	optional int32 m_failurebox = 27[(yd_fieldoptions.field_cname) = "失败奖励"];
+	optional int32 m_planes = 28[(yd_fieldoptions.field_cname) = "位面"];
+	repeated int32 m_box = 29[(yd_fieldoptions.field_cname) = "奖励组", (yd_fieldoptions.field_arysize) = 3];
 }
 
 

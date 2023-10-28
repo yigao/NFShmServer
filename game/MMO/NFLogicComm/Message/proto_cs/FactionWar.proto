@@ -260,6 +260,7 @@ message FactionWarProto
 	optional bytes name = 2;
 	optional uint32 zid = 3;
 	optional uint64 fight = 4;
+	repeated uint64 cid_lst = 5; //上一轮已参加过帮派战的玩家cid列表
 }
 
 //帮派战 帮派排名信息

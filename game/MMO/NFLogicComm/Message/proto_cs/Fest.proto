@@ -149,6 +149,23 @@ message FestMarryDetail
 	repeated int32 process_ids = 2; //已领取进度id
 	optional int32 score= 3; 		//个人积分
 }
+//每日累充
+message FestDayTotalRechargeProto
+{
+	repeated int32 fetch_lst = 1;		//已领取ID列表
+	optional uint32 recharge = 2;		//累充金额
+}
+//登录奖励
+message FestLoginProto
+{
+	repeated ComPair fetch = 1;	//登录天数-领取状态， 状态：1-可领取，2-已领取
+}
+//累计充值
+message FestTotalRechargeProto
+{
+	repeated int32 fetch_lst = 1;			//已领取ID列表
+	optional uint32 total_recharge = 2;		//累计充值金额
+}
 
 
 //节日活动详细信息
@@ -173,6 +190,9 @@ message FestDetailProto
 	optional FestHuiMengXiYouData hui_meng_xi_you = 15; //回梦西游
 	optional FestMarryDetail marry = 16;			//完美情人个人数据
 	optional FestCandleProto candle = 17;										//烛龙挑战(天天养龙) serverType = 15
+	optional FestDayTotalRechargeProto day_total_recharge = 18;					//每日累充 serverType = 27
+	optional FestTotalRechargeProto total_recharge = 19;						//累计充值 serverType = 17
+	optional FestLoginProto	login = 20;											//登录奖励 serverType = 24
 }
 
 
@@ -629,6 +649,24 @@ message FestServerRankGetMyRankRsp
 	optional int32 rank_id = 3;
 	optional int32 my_rank = 4;
 	optional uint64 param = 5;
+}
+
+//FEST_SERVERRANK_GET_ALL_RANK_REQ = 4110; //获取排行榜数据
+message FestServerRankGetAllRankReq
+{
+	optional int32 template_id = 1;
+	optional int32 rank_id = 2;
+	optional uint64 cid = 3; //服务器用的，客户端不管
+	optional uint32 rank_type = 4; //服务器用的，客户端不管
+}
+
+//FEST_SERVERRANK_GET_ALL_RANK_RSP = 4111; //获取排行榜数据
+message FestServerRankGetAllRankRsp
+{
+	optional int32 ret = 1;
+	optional int32 template_id = 2;
+	optional int32 rank_id = 3;
+	repeated RankNodeData rankList = 4;		//排行数据
 }
 
 //FEST_SERVERRANK_BUY_GIFT_REQ = 4105; //购买礼包
@@ -1276,4 +1314,67 @@ message Fest_XiYouSyncForceClose
 {
 	optional int32 ready_id = 1;
 	optional int32 cur_state = 2;
+}
+
+/////////////////////////////////////// 每日首充  serverType = 27 /////////////////////////////////////////
+
+//请求领取 每日累充 奖励 FEST_DAY_TOTAL_RECHARGE_FETCH_REQ
+message Fest_DayTotalRechargeFetchReq
+{
+	optional int32 template_id = 1; //活动模板ID
+	optional int32 id = 2;			//领取奖励的配置ID muban_firstRecharge->id 字段
+}
+//返回领取 每日累充奖励 结果 FEST_DAY_TOTAL_RECHARGE_FETCH_RSP
+message Fest_DayTotalRechargeFetchRsp
+{
+	optional int32 template_id = 1; //活动模板ID
+	optional int32 ret = 2;			//返回码
+}
+//更新 每日累充 信息 FEST_DAY_TOTAL_RECHARGE_UPDATE_RSP
+message Fest_DayTotalRechargeNotify
+{
+	optional int32 template_id = 1;		//活动模板ID
+	optional uint32 recharge = 2;		//累充金额
+	repeated int32 fetch_lst = 3;		//已领取ID列表
+}
+
+/////////////////////////////////////////////////////// 登录奖励  serverType = 24 ////////////////////////////////////////////
+//请求领取 登录奖励 FEST_LOGIN_REWARD_FETCH_REQ
+message Fest_LoginRewardFetchReq
+{
+	optional int32 template_id = 1; //活动模板ID
+	optional int32 day = 2;			//领取第几天的奖励
+}
+//返回领取 登录奖励 结果 FEST_LOGIN_REWARD_FETCH_RSP
+message Fest_LoginRewardFetchRsp
+{
+	optional int32 template_id = 1; //活动模板ID
+	optional int32 ret = 2;			//返回码
+}
+//更新 登录奖励 信息 FEST_LOGIN_REWARD_UPDATE_RSP
+message Fest_LoginRewardNotify
+{
+	optional int32 template_id = 1; //活动模板ID
+	repeated ComPair fetch = 2;  //更新领取信息(有改变的才更新)
+}
+
+///////////////////////////////////////////////////// 累计充值 serverType = 17 /////////////////////////////
+//请求领取 累计充值奖励 FEST_TOTAL_RECHARGE_FETCH_REQ
+message Fest_TotalRechargeFetchReq
+{
+	optional int32 template_id = 1; //活动模板ID
+	optional int32 id = 2;			//领取奖励的配置ID
+}
+//返回领取 累计充值奖励 结果 FEST_TOTAL_RECHARGE_FETCH_RSP
+message Fest_TotalRechargeFetchRsp
+{
+	optional int32 template_id = 1; //活动模板ID
+	optional int32 ret = 2;			//返回码
+}
+//更新 累计充值 信息 FEST_TOTAL_RECHARGE_UPDATE_RSP
+message Fest_TotalRechargeNotify
+{
+	optional int32 template_id = 1;			//活动模板ID
+	repeated int32 fetch_lst = 2;			//已领取ID列表
+	optional uint32 total_recharge = 3;		//累计充值金额
 }

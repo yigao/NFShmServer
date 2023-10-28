@@ -20,6 +20,7 @@ int E_PeractivityPeractivity_s::CreateInit() {
 	m_advancetime = (int32_t)0;
 	m_intervaltime = (int32_t)0;
 	m_iscross = (int32_t)0;
+	m_isfestvial = (int32_t)0;
 	return 0;
 }
 
@@ -40,6 +41,7 @@ void E_PeractivityPeractivity_s::write_to_pbmsg(::proto_ff::E_PeractivityPeracti
 	msg.set_m_advancetime((int32_t)m_advancetime);
 	msg.set_m_intervaltime((int32_t)m_intervaltime);
 	msg.set_m_iscross((int32_t)m_iscross);
+	msg.set_m_isfestvial((int32_t)m_isfestvial);
 }
 
 void E_PeractivityPeractivity_s::read_from_pbmsg(const ::proto_ff::E_PeractivityPeractivity & msg) {
@@ -55,6 +57,7 @@ void E_PeractivityPeractivity_s::read_from_pbmsg(const ::proto_ff::E_Peractivity
 	m_advancetime = msg.m_advancetime();
 	m_intervaltime = msg.m_intervaltime();
 	m_iscross = msg.m_iscross();
+	m_isfestvial = msg.m_isfestvial();
 }
 
 Sheet_PeractivityPeractivity_s::Sheet_PeractivityPeractivity_s() {

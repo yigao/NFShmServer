@@ -123,6 +123,9 @@
 #define DEFINE_FESTBOSSFIRSTDB_M_KILLS_IDS_MAX_NUM 1
 #define DEFINE_FMARRYROLEDB_TASKS_MAX_NUM 1
 #define DEFINE_FMARRYROLEDB_PROCESS_IDS_MAX_NUM 1
+#define DEFINE_DAYTOTALRECHARGEDBPROTO_FETCH_LST_MAX_NUM 1
+#define DEFINE_TOTALRECHARGEDBPROTO_FETCH_LST_MAX_NUM 1
+#define DEFINE_LOGINREWARDDBPROTO_FETCH_MAX_NUM 1
 #define DEFINE_FESTDBDATA_INFO_MAX_NUM 1
 #define DEFINE_FESTDBDATA_CLOSE_MAX_NUM 1
 #define DEFINE_SHADOWDBPROTO_FRAG_MAX_NUM 1
@@ -130,6 +133,7 @@
 #define DEFINE_ROLEDBTURNDATA_ENTRYS_MAX_NUM 1
 #define DEFINE_ROLEDBTURNDATA_HELPER_MAX_NUM 1
 #define DEFINE_ROLEDBTURNDATA_TASKS_MAX_NUM 1
+#define DEFINE_SOULDBDATA_TASKS_MAX_NUM 1
 #define DEFINE_ROLEREDDBDATA_SEND_LST_MAX_NUM 1
 #define DEFINE_ROLEREDDBDATA_WAIT_LST_MAX_NUM 1
 #define DEFINE_ROLEREDDBDATA_TRIGGER_LST_MAX_NUM 1
@@ -266,6 +270,7 @@ namespace proto_ff_s {
 		int64_t magic_sum;//
 		int32_t subpack_type;//
 		int32_t subpack_fetch;//
+		uint64_t hunling;//
 
 		virtual void write_to_pbmsg(::proto_ff::RoleDBBaseData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::RoleDBBaseData & msg);
@@ -371,6 +376,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t id;//
 		int32_t lv;//
+		int64_t time;//
 
 		virtual void write_to_pbmsg(::proto_ff::GrowPartEntryDBInfo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::GrowPartEntryDBInfo & msg);
@@ -1091,6 +1097,7 @@ namespace proto_ff_s {
 		NFShmVector<struct PetDBRecord_s, DEFINE_PETDBDATA_RECORDS_MAX_NUM> records;//
 		NFShmVector<int64_t, DEFINE_PETDBDATA_CFGIDS_MAX_NUM> cfgids;//
 		NFShmVector<struct PetGrowDB_s, DEFINE_PETDBDATA_GROWS_MAX_NUM> grows;//
+		struct PetYaoHunModule_s yaohun;//
 
 		virtual void write_to_pbmsg(::proto_ff::PetDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::PetDBData & msg);
@@ -1812,6 +1819,7 @@ namespace proto_ff_s {
 		NFShmVector<struct FestDonateServerProto_s, DEFINE_FESTDONATEDBPROTO_SERVER_MAX_NUM> server;//
 		uint32_t single_num;//
 		NFShmVector<struct FestDonateTaskProto_s, DEFINE_FESTDONATEDBPROTO_TASK_MAX_NUM> task;//
+		uint64_t flush_time;//
 
 		virtual void write_to_pbmsg(::proto_ff::FestDonateDBProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::FestDonateDBProto & msg);
@@ -1841,6 +1849,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		NFShmVector<struct FestCollectWordOneProto_s, DEFINE_FESTCOLLECTWORDDBPROTO_DATA_MAX_NUM> data;//
+		uint64_t flush_time;//
 
 		virtual void write_to_pbmsg(::proto_ff::FestCollectWordDBProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::FestCollectWordDBProto & msg);
@@ -1881,6 +1890,52 @@ namespace proto_ff_s {
 	};
 	typedef struct FMarryRoleDB_s FMarryRoleDB_t;
 
+	struct DayTotalRechargeDBProto_s : public NFDescStoreSeqOP {
+		DayTotalRechargeDBProto_s();
+		virtual ~DayTotalRechargeDBProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<int32_t, DEFINE_DAYTOTALRECHARGEDBPROTO_FETCH_LST_MAX_NUM> fetch_lst;//
+		uint32_t recharge;//
+		uint64_t time;//
+		uint64_t reset_time;//
+
+		virtual void write_to_pbmsg(::proto_ff::DayTotalRechargeDBProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::DayTotalRechargeDBProto & msg);
+		static ::proto_ff::DayTotalRechargeDBProto* new_pbmsg(){ return new ::proto_ff::DayTotalRechargeDBProto(); }
+		static ::proto_ff::DayTotalRechargeDBProto make_pbmsg(){ return ::proto_ff::DayTotalRechargeDBProto(); }
+	};
+	typedef struct DayTotalRechargeDBProto_s DayTotalRechargeDBProto_t;
+
+	struct TotalRechargeDBProto_s : public NFDescStoreSeqOP {
+		TotalRechargeDBProto_s();
+		virtual ~TotalRechargeDBProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<int32_t, DEFINE_TOTALRECHARGEDBPROTO_FETCH_LST_MAX_NUM> fetch_lst;//
+		uint32_t recharge;//
+
+		virtual void write_to_pbmsg(::proto_ff::TotalRechargeDBProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::TotalRechargeDBProto & msg);
+		static ::proto_ff::TotalRechargeDBProto* new_pbmsg(){ return new ::proto_ff::TotalRechargeDBProto(); }
+		static ::proto_ff::TotalRechargeDBProto make_pbmsg(){ return ::proto_ff::TotalRechargeDBProto(); }
+	};
+	typedef struct TotalRechargeDBProto_s TotalRechargeDBProto_t;
+
+	struct LoginRewardDBProto_s : public NFDescStoreSeqOP {
+		LoginRewardDBProto_s();
+		virtual ~LoginRewardDBProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct ComPair_s, DEFINE_LOGINREWARDDBPROTO_FETCH_MAX_NUM> fetch;//
+
+		virtual void write_to_pbmsg(::proto_ff::LoginRewardDBProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::LoginRewardDBProto & msg);
+		static ::proto_ff::LoginRewardDBProto* new_pbmsg(){ return new ::proto_ff::LoginRewardDBProto(); }
+		static ::proto_ff::LoginRewardDBProto make_pbmsg(){ return ::proto_ff::LoginRewardDBProto(); }
+	};
+	typedef struct LoginRewardDBProto_s LoginRewardDBProto_t;
+
 	struct FestDetailDBProto_s : public NFDescStoreSeqOP {
 		FestDetailDBProto_s();
 		virtual ~FestDetailDBProto_s(){}
@@ -1906,6 +1961,9 @@ namespace proto_ff_s {
 		struct FestBtDragonDBProto_s bt_dragon;//
 		struct FestCandleDBProto_s candle;//
 		struct FMarryRoleDB_s marry;//
+		struct DayTotalRechargeDBProto_s day_total_recharge;//
+		struct TotalRechargeDBProto_s total_recharge;//
+		struct LoginRewardDBProto_s login;//
 
 		virtual void write_to_pbmsg(::proto_ff::FestDetailDBProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::FestDetailDBProto & msg);
@@ -2017,6 +2075,22 @@ namespace proto_ff_s {
 	};
 	typedef struct GMADbData_s GMADbData_t;
 
+	struct SoulDBData_s : public NFDescStoreSeqOP {
+		SoulDBData_s();
+		virtual ~SoulDBData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		struct SoulEntry_s entry;//
+		struct SoulPool_s pool;//
+		NFShmVector<struct ComPair_s, DEFINE_SOULDBDATA_TASKS_MAX_NUM> tasks;//
+
+		virtual void write_to_pbmsg(::proto_ff::SoulDBData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::SoulDBData & msg);
+		static ::proto_ff::SoulDBData* new_pbmsg(){ return new ::proto_ff::SoulDBData(); }
+		static ::proto_ff::SoulDBData make_pbmsg(){ return ::proto_ff::SoulDBData(); }
+	};
+	typedef struct SoulDBData_s SoulDBData_t;
+
 	struct RoleDBData_s : public NFDescStoreSeqOP {
 		RoleDBData_s();
 		virtual ~RoleDBData_s(){}
@@ -2073,6 +2147,7 @@ namespace proto_ff_s {
 		int32_t change;//
 		struct RoleDBTurnData_s turn;//
 		struct GMADbData_s gma_datas;//
+		struct SoulDBData_s soul;//
 
 		virtual void write_to_pbmsg(::proto_ff::RoleDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::RoleDBData & msg);

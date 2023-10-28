@@ -32,7 +32,7 @@ message E_TaskrewardTaskreward
 
 message Sheet_TaskrewardTaskreward
 {
-	repeated E_TaskrewardTaskreward E_TaskrewardTaskreward_List = 1[(yd_fieldoptions.field_arysize)=16384];
+	repeated E_TaskrewardTaskreward E_TaskrewardTaskreward_List = 1[(yd_fieldoptions.field_arysize)=8192];
 }
 
 message E_TaskrewardTasktype

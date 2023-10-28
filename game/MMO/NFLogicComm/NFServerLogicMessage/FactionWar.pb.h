@@ -3426,6 +3426,18 @@ class FactionWarProto : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 fight() const;
   inline void set_fight(::google::protobuf::uint64 value);
 
+  // repeated uint64 cid_lst = 5;
+  inline int cid_lst_size() const;
+  inline void clear_cid_lst();
+  static const int kCidLstFieldNumber = 5;
+  inline ::google::protobuf::uint64 cid_lst(int index) const;
+  inline void set_cid_lst(int index, ::google::protobuf::uint64 value);
+  inline void add_cid_lst(::google::protobuf::uint64 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
+      cid_lst() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
+      mutable_cid_lst();
+
   // @@protoc_insertion_point(class_scope:proto_ff.FactionWarProto)
  private:
   inline void set_has_faction_id();
@@ -3443,9 +3455,10 @@ class FactionWarProto : public ::google::protobuf::Message {
   ::google::protobuf::uint32 faction_id_;
   ::google::protobuf::uint32 zid_;
   ::google::protobuf::uint64 fight_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint64 > cid_lst_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
 
   friend void  protobuf_AddDesc_FactionWar_2eproto();
   friend void protobuf_AssignDesc_FactionWar_2eproto();
@@ -7306,6 +7319,31 @@ inline ::google::protobuf::uint64 FactionWarProto::fight() const {
 inline void FactionWarProto::set_fight(::google::protobuf::uint64 value) {
   set_has_fight();
   fight_ = value;
+}
+
+// repeated uint64 cid_lst = 5;
+inline int FactionWarProto::cid_lst_size() const {
+  return cid_lst_.size();
+}
+inline void FactionWarProto::clear_cid_lst() {
+  cid_lst_.Clear();
+}
+inline ::google::protobuf::uint64 FactionWarProto::cid_lst(int index) const {
+  return cid_lst_.Get(index);
+}
+inline void FactionWarProto::set_cid_lst(int index, ::google::protobuf::uint64 value) {
+  cid_lst_.Set(index, value);
+}
+inline void FactionWarProto::add_cid_lst(::google::protobuf::uint64 value) {
+  cid_lst_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
+FactionWarProto::cid_lst() const {
+  return cid_lst_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
+FactionWarProto::mutable_cid_lst() {
+  return &cid_lst_;
 }
 
 // -------------------------------------------------------------------

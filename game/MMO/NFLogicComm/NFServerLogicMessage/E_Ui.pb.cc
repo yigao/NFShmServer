@@ -104,7 +104,7 @@ void protobuf_AddDesc_E_5fUi_2eproto() {
     "\n\nE_Ui.proto\022\010proto_ff\032\025yd_fieldoptions."
     "proto\"(\n\nE_UiEffect\022\032\n\004m_id\030\001 \001(\003B\014\302\377\024\010\347"
     "\211\271\346\225\210ID\"F\n\016Sheet_UiEffect\0224\n\017E_UiEffect_"
-    "List\030\001 \003(\0132\024.proto_ff.E_UiEffectB\005\210\301\024\200\001", 159);
+    "List\030\001 \003(\0132\024.proto_ff.E_UiEffectB\005\210\301\024\200\002", 159);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Ui.proto", &protobuf_RegisterTypes);
   E_UiEffect::default_instance_ = new E_UiEffect();

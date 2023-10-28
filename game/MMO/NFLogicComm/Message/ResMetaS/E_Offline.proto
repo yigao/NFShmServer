@@ -34,5 +34,5 @@ message E_OfflineItemlist
 
 message Sheet_OfflineItemlist
 {
-	repeated E_OfflineItemlist E_OfflineItemlist_List = 1[(yd_fieldoptions.field_arysize)=32];
+	repeated E_OfflineItemlist E_OfflineItemlist_List = 1[(yd_fieldoptions.field_arysize)=64];
 }

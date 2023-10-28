@@ -10,8 +10,8 @@
 
 #define DEFINE_E_XIUZHENWORLDCONSTANT_M_TIMEITEM_MAX_NUM 3
 #define DEFINE_E_XIUZHENWORLDCONSTANT_M_TYPE_MAX_NUM 5
-#define DEFINE_SHEET_XIUZHENWORLDCONSTANT_E_XIUZHENWORLDCONSTANT_LIST_MAX_NUM 4
-#define DEFINE_SHEET_XIUZHENWORLDEXPMAP_E_XIUZHENWORLDEXPMAP_LIST_MAX_NUM 16
+#define DEFINE_SHEET_XIUZHENWORLDCONSTANT_E_XIUZHENWORLDCONSTANT_LIST_MAX_NUM 16
+#define DEFINE_SHEET_XIUZHENWORLDEXPMAP_E_XIUZHENWORLDEXPMAP_LIST_MAX_NUM 8
 
 
 namespace proto_ff_s {
@@ -52,6 +52,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
+		int32_t m_starfreetime;//初始免费时间
 		NFShmString<64> m_freetimemoment;//获得免费时间的时间点
 		int32_t m_freetime;//每次获得的时间
 		int32_t m_freetimemax;//免费时间上限

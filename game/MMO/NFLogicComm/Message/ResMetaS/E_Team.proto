@@ -20,5 +20,5 @@ message E_TeamTeam
 
 message Sheet_TeamTeam
 {
-	repeated E_TeamTeam E_TeamTeam_List = 1[(yd_fieldoptions.field_arysize)=32];
+	repeated E_TeamTeam E_TeamTeam_List = 1[(yd_fieldoptions.field_arysize)=64];
 }

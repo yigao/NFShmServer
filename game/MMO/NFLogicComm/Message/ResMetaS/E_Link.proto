@@ -18,3 +18,16 @@ message Sheet_LinkLink
 {
 	repeated E_LinkLink E_LinkLink_List = 1[(yd_fieldoptions.field_arysize)=512];
 }
+
+message E_LinkImagelink
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_closetype = 2[(yd_fieldoptions.field_cname) = "关闭条件类型"];
+	optional int32 m_closearg = 3[(yd_fieldoptions.field_cname) = "关闭条件"];
+}
+
+
+message Sheet_LinkImagelink
+{
+	repeated E_LinkImagelink E_LinkImagelink_List = 1[(yd_fieldoptions.field_arysize)=64];
+}

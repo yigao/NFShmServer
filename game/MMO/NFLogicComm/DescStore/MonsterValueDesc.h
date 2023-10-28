@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Monster_s.h"
 
-#define MAX_MONSTER_VALUE_NUM 4096
+#define MAX_MONSTER_VALUE_NUM 8192
 
 class MonsterValueDesc : public NFIDescTemplate<MonsterValueDesc, proto_ff_s::E_MonsterValue_s, EOT_CONST_MONSTER_VALUE_DESC_ID, MAX_MONSTER_VALUE_NUM>
 {

@@ -83,6 +83,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* EquipStoveSmeltRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   EquipStoveSmeltRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* NotifyEquipExpire_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  NotifyEquipExpire_reflection_ = NULL;
 const ::google::protobuf::Descriptor* EquipWashUnlockReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   EquipWashUnlockReq_reflection_ = NULL;
@@ -507,7 +510,22 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipStoveSmeltRsp));
-  EquipWashUnlockReq_descriptor_ = file->message_type(21);
+  NotifyEquipExpire_descriptor_ = file->message_type(21);
+  static const int NotifyEquipExpire_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyEquipExpire, pos_),
+  };
+  NotifyEquipExpire_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      NotifyEquipExpire_descriptor_,
+      NotifyEquipExpire::default_instance_,
+      NotifyEquipExpire_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyEquipExpire, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyEquipExpire, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(NotifyEquipExpire));
+  EquipWashUnlockReq_descriptor_ = file->message_type(22);
   static const int EquipWashUnlockReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipWashUnlockReq, equip_slot_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipWashUnlockReq, wash_slot_),
@@ -524,7 +542,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipWashUnlockReq));
-  EquipWashUnlockRsp_descriptor_ = file->message_type(22);
+  EquipWashUnlockRsp_descriptor_ = file->message_type(23);
   static const int EquipWashUnlockRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipWashUnlockRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipWashUnlockRsp, equip_slot_),
@@ -542,7 +560,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipWashUnlockRsp));
-  EquipWashReq_descriptor_ = file->message_type(23);
+  EquipWashReq_descriptor_ = file->message_type(24);
   static const int EquipWashReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipWashReq, equip_slot_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipWashReq, lock_wash_slot_),
@@ -559,7 +577,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipWashReq));
-  EquipWashRsp_descriptor_ = file->message_type(24);
+  EquipWashRsp_descriptor_ = file->message_type(25);
   static const int EquipWashRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipWashRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipWashRsp, equip_slot_),
@@ -577,7 +595,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipWashRsp));
-  EquipSuitLvReq_descriptor_ = file->message_type(25);
+  EquipSuitLvReq_descriptor_ = file->message_type(26);
   static const int EquipSuitLvReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipSuitLvReq, equip_pos_),
   };
@@ -592,7 +610,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipSuitLvReq));
-  EquipSuitLvRsp_descriptor_ = file->message_type(26);
+  EquipSuitLvRsp_descriptor_ = file->message_type(27);
   static const int EquipSuitLvRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipSuitLvRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipSuitLvRsp, equip_pos_),
@@ -609,7 +627,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipSuitLvRsp));
-  EquipRefineLvReq_descriptor_ = file->message_type(27);
+  EquipRefineLvReq_descriptor_ = file->message_type(28);
   static const int EquipRefineLvReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipRefineLvReq, slot_pos_),
   };
@@ -624,7 +642,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipRefineLvReq));
-  EquipRefineLvRsp_descriptor_ = file->message_type(28);
+  EquipRefineLvRsp_descriptor_ = file->message_type(29);
   static const int EquipRefineLvRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipRefineLvRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipRefineLvRsp, slot_pos_),
@@ -640,7 +658,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipRefineLvRsp));
-  EquipRefineUnLockReq_descriptor_ = file->message_type(29);
+  EquipRefineUnLockReq_descriptor_ = file->message_type(30);
   static const int EquipRefineUnLockReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipRefineUnLockReq, slot_pos_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipRefineUnLockReq, attr_pos_),
@@ -656,7 +674,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipRefineUnLockReq));
-  EquipRefineUnLockRsp_descriptor_ = file->message_type(30);
+  EquipRefineUnLockRsp_descriptor_ = file->message_type(31);
   static const int EquipRefineUnLockRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipRefineUnLockRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipRefineUnLockRsp, slot_pos_),
@@ -673,7 +691,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipRefineUnLockRsp));
-  EquipRefineGenAttrReq_descriptor_ = file->message_type(31);
+  EquipRefineGenAttrReq_descriptor_ = file->message_type(32);
   static const int EquipRefineGenAttrReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipRefineGenAttrReq, slot_pos_),
   };
@@ -688,7 +706,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipRefineGenAttrReq));
-  EquipRefineGenAttrRsp_descriptor_ = file->message_type(32);
+  EquipRefineGenAttrRsp_descriptor_ = file->message_type(33);
   static const int EquipRefineGenAttrRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipRefineGenAttrRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipRefineGenAttrRsp, slot_pos_),
@@ -704,7 +722,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipRefineGenAttrRsp));
-  EquipRefineLockReq_descriptor_ = file->message_type(33);
+  EquipRefineLockReq_descriptor_ = file->message_type(34);
   static const int EquipRefineLockReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipRefineLockReq, slot_pos_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipRefineLockReq, attr_pos_),
@@ -720,7 +738,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipRefineLockReq));
-  EquipRefineLockRsp_descriptor_ = file->message_type(34);
+  EquipRefineLockRsp_descriptor_ = file->message_type(35);
   static const int EquipRefineLockRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipRefineLockRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipRefineLockRsp, slot_pos_),
@@ -737,7 +755,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipRefineLockRsp));
-  EquipAwakenLvReq_descriptor_ = file->message_type(35);
+  EquipAwakenLvReq_descriptor_ = file->message_type(36);
   static const int EquipAwakenLvReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipAwakenLvReq, slot_pos_),
   };
@@ -752,7 +770,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipAwakenLvReq));
-  EquipAwakenLvRsp_descriptor_ = file->message_type(36);
+  EquipAwakenLvRsp_descriptor_ = file->message_type(37);
   static const int EquipAwakenLvRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipAwakenLvRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipAwakenLvRsp, slot_pos_),
@@ -768,7 +786,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipAwakenLvRsp));
-  EquipSoaringLvReq_descriptor_ = file->message_type(37);
+  EquipSoaringLvReq_descriptor_ = file->message_type(38);
   static const int EquipSoaringLvReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipSoaringLvReq, slot_pos_),
   };
@@ -783,7 +801,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipSoaringLvReq));
-  EquipSoaringLvRsp_descriptor_ = file->message_type(38);
+  EquipSoaringLvRsp_descriptor_ = file->message_type(39);
   static const int EquipSoaringLvRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipSoaringLvRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipSoaringLvRsp, slot_pos_),
@@ -799,7 +817,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipSoaringLvRsp));
-  EquipQualityLvReq_descriptor_ = file->message_type(39);
+  EquipQualityLvReq_descriptor_ = file->message_type(40);
   static const int EquipQualityLvReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipQualityLvReq, slot_pos_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipQualityLvReq, cost_xinyu_),
@@ -815,7 +833,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipQualityLvReq));
-  EquipQualityLvRsp_descriptor_ = file->message_type(40);
+  EquipQualityLvRsp_descriptor_ = file->message_type(41);
   static const int EquipQualityLvRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipQualityLvRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipQualityLvRsp, slot_pos_),
@@ -832,7 +850,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipQualityLvRsp));
-  EquipSealInlayReq_descriptor_ = file->message_type(41);
+  EquipSealInlayReq_descriptor_ = file->message_type(42);
   static const int EquipSealInlayReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipSealInlayReq, slot_pos_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipSealInlayReq, seal_pos_),
@@ -849,7 +867,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipSealInlayReq));
-  EquipSealInlayRsp_descriptor_ = file->message_type(42);
+  EquipSealInlayRsp_descriptor_ = file->message_type(43);
   static const int EquipSealInlayRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipSealInlayRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipSealInlayRsp, slot_pos_),
@@ -867,7 +885,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipSealInlayRsp));
-  EquipSealLvReq_descriptor_ = file->message_type(43);
+  EquipSealLvReq_descriptor_ = file->message_type(44);
   static const int EquipSealLvReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipSealLvReq, slot_pos_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipSealLvReq, seal_pos_),
@@ -883,7 +901,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipSealLvReq));
-  EquipSealLvRsp_descriptor_ = file->message_type(44);
+  EquipSealLvRsp_descriptor_ = file->message_type(45);
   static const int EquipSealLvRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipSealLvRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipSealLvRsp, slot_pos_),
@@ -900,7 +918,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipSealLvRsp));
-  EquipActiveSealSuitReq_descriptor_ = file->message_type(45);
+  EquipActiveSealSuitReq_descriptor_ = file->message_type(46);
   static const int EquipActiveSealSuitReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipActiveSealSuitReq, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipActiveSealSuitReq, slot_pos_),
@@ -916,7 +934,7 @@ void protobuf_AssignDesc_equip_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EquipActiveSealSuitReq));
-  EquipActiveSealSuitRsp_descriptor_ = file->message_type(46);
+  EquipActiveSealSuitRsp_descriptor_ = file->message_type(47);
   static const int EquipActiveSealSuitRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipActiveSealSuitRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipActiveSealSuitRsp, id_),
@@ -987,6 +1005,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     EquipStoveSmeltReq_descriptor_, &EquipStoveSmeltReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     EquipStoveSmeltRsp_descriptor_, &EquipStoveSmeltRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    NotifyEquipExpire_descriptor_, &NotifyEquipExpire::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     EquipWashUnlockReq_descriptor_, &EquipWashUnlockReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -1086,6 +1106,8 @@ void protobuf_ShutdownFile_equip_2eproto() {
   delete EquipStoveSmeltReq_reflection_;
   delete EquipStoveSmeltRsp::default_instance_;
   delete EquipStoveSmeltRsp_reflection_;
+  delete NotifyEquipExpire::default_instance_;
+  delete NotifyEquipExpire_reflection_;
   delete EquipWashUnlockReq::default_instance_;
   delete EquipWashUnlockReq_reflection_;
   delete EquipWashUnlockRsp::default_instance_;
@@ -1180,47 +1202,48 @@ void protobuf_AddDesc_equip_2eproto() {
     "\022\020\n\010gridlist\030\001 \003(\r\"\177\n\022EquipStoveSmeltRsp"
     "\022\017\n\007retcode\030\001 \001(\r\022\023\n\013stove_level\030\002 \001(\r\022\021"
     "\n\tstove_exp\030\003 \001(\004\022\037\n\005attrs\030\004 \003(\0132\020.proto"
-    "_ff.Attr64\022\017\n\007all_num\030\005 \001(\r\"L\n\022EquipWash"
-    "UnlockReq\022\022\n\nequip_slot\030\001 \001(\005\022\021\n\twash_sl"
-    "ot\030\002 \001(\005\022\017\n\007useItem\030\003 \001(\005\"Y\n\022EquipWashUn"
-    "lockRsp\022\013\n\003ret\030\001 \001(\005\022\022\n\nequip_slot\030\002 \001(\005"
-    "\022\021\n\twash_slot\030\003 \001(\005\022\017\n\007useItem\030\004 \001(\005\"K\n\014"
-    "EquipWashReq\022\022\n\nequip_slot\030\001 \001(\005\022\026\n\016lock"
-    "_wash_slot\030\002 \003(\005\022\017\n\007useItem\030\003 \001(\003\"R\n\014Equ"
-    "ipWashRsp\022\013\n\003ret\030\001 \001(\005\022\022\n\nequip_slot\030\002 \001"
-    "(\005\022\020\n\010lockslot\030\003 \003(\005\022\017\n\007useItem\030\004 \001(\003\"#\n"
-    "\016EquipSuitLvReq\022\021\n\tequip_pos\030\001 \001(\005\"@\n\016Eq"
-    "uipSuitLvRsp\022\013\n\003ret\030\001 \001(\005\022\021\n\tequip_pos\030\002"
-    " \001(\005\022\016\n\006suitlv\030\003 \001(\005\"$\n\020EquipRefineLvReq"
-    "\022\020\n\010slot_pos\030\001 \001(\005\"1\n\020EquipRefineLvRsp\022\013"
-    "\n\003ret\030\001 \001(\005\022\020\n\010slot_pos\030\002 \001(\005\":\n\024EquipRe"
-    "fineUnLockReq\022\020\n\010slot_pos\030\001 \001(\005\022\020\n\010attr_"
-    "pos\030\002 \001(\005\"G\n\024EquipRefineUnLockRsp\022\013\n\003ret"
-    "\030\001 \001(\005\022\020\n\010slot_pos\030\002 \001(\005\022\020\n\010attr_pos\030\003 \001"
-    "(\005\")\n\025EquipRefineGenAttrReq\022\020\n\010slot_pos\030"
-    "\001 \001(\005\"6\n\025EquipRefineGenAttrRsp\022\013\n\003ret\030\001 "
-    "\001(\005\022\020\n\010slot_pos\030\002 \001(\005\"8\n\022EquipRefineLock"
-    "Req\022\020\n\010slot_pos\030\001 \001(\005\022\020\n\010attr_pos\030\002 \001(\005\""
-    "E\n\022EquipRefineLockRsp\022\013\n\003ret\030\001 \001(\005\022\020\n\010sl"
-    "ot_pos\030\002 \001(\005\022\020\n\010attr_pos\030\003 \001(\005\"$\n\020EquipA"
-    "wakenLvReq\022\020\n\010slot_pos\030\001 \001(\005\"1\n\020EquipAwa"
-    "kenLvRsp\022\013\n\003ret\030\001 \001(\005\022\020\n\010slot_pos\030\002 \001(\005\""
-    "%\n\021EquipSoaringLvReq\022\020\n\010slot_pos\030\001 \001(\005\"2"
-    "\n\021EquipSoaringLvRsp\022\013\n\003ret\030\001 \001(\005\022\020\n\010slot"
-    "_pos\030\002 \001(\005\"9\n\021EquipQualityLvReq\022\020\n\010slot_"
-    "pos\030\001 \001(\005\022\022\n\ncost_xinyu\030\002 \001(\005\"@\n\021EquipQu"
-    "alityLvRsp\022\013\n\003ret\030\001 \001(\005\022\020\n\010slot_pos\030\002 \001("
-    "\005\022\014\n\004code\030\003 \001(\005\"H\n\021EquipSealInlayReq\022\020\n\010"
-    "slot_pos\030\001 \001(\005\022\020\n\010seal_pos\030\002 \001(\005\022\017\n\007bag_"
-    "pos\030\003 \001(\005\"U\n\021EquipSealInlayRsp\022\013\n\003ret\030\001 "
-    "\001(\005\022\020\n\010slot_pos\030\002 \001(\005\022\020\n\010seal_pos\030\003 \001(\005\022"
-    "\017\n\007bag_pos\030\004 \001(\005\"4\n\016EquipSealLvReq\022\020\n\010sl"
-    "ot_pos\030\001 \001(\005\022\020\n\010seal_pos\030\002 \001(\005\"A\n\016EquipS"
-    "ealLvRsp\022\013\n\003ret\030\001 \001(\005\022\020\n\010slot_pos\030\002 \001(\005\022"
-    "\020\n\010seal_pos\030\003 \001(\005\"6\n\026EquipActiveSealSuit"
-    "Req\022\n\n\002id\030\001 \001(\005\022\020\n\010slot_pos\030\002 \001(\005\"C\n\026Equ"
-    "ipActiveSealSuitRsp\022\013\n\003ret\030\001 \001(\005\022\n\n\002id\030\002"
-    " \001(\005\022\020\n\010slot_pos\030\003 \001(\005", 2862);
+    "_ff.Attr64\022\017\n\007all_num\030\005 \001(\r\" \n\021NotifyEqu"
+    "ipExpire\022\013\n\003pos\030\001 \001(\005\"L\n\022EquipWashUnlock"
+    "Req\022\022\n\nequip_slot\030\001 \001(\005\022\021\n\twash_slot\030\002 \001"
+    "(\005\022\017\n\007useItem\030\003 \001(\005\"Y\n\022EquipWashUnlockRs"
+    "p\022\013\n\003ret\030\001 \001(\005\022\022\n\nequip_slot\030\002 \001(\005\022\021\n\twa"
+    "sh_slot\030\003 \001(\005\022\017\n\007useItem\030\004 \001(\005\"K\n\014EquipW"
+    "ashReq\022\022\n\nequip_slot\030\001 \001(\005\022\026\n\016lock_wash_"
+    "slot\030\002 \003(\005\022\017\n\007useItem\030\003 \001(\003\"R\n\014EquipWash"
+    "Rsp\022\013\n\003ret\030\001 \001(\005\022\022\n\nequip_slot\030\002 \001(\005\022\020\n\010"
+    "lockslot\030\003 \003(\005\022\017\n\007useItem\030\004 \001(\003\"#\n\016Equip"
+    "SuitLvReq\022\021\n\tequip_pos\030\001 \001(\005\"@\n\016EquipSui"
+    "tLvRsp\022\013\n\003ret\030\001 \001(\005\022\021\n\tequip_pos\030\002 \001(\005\022\016"
+    "\n\006suitlv\030\003 \001(\005\"$\n\020EquipRefineLvReq\022\020\n\010sl"
+    "ot_pos\030\001 \001(\005\"1\n\020EquipRefineLvRsp\022\013\n\003ret\030"
+    "\001 \001(\005\022\020\n\010slot_pos\030\002 \001(\005\":\n\024EquipRefineUn"
+    "LockReq\022\020\n\010slot_pos\030\001 \001(\005\022\020\n\010attr_pos\030\002 "
+    "\001(\005\"G\n\024EquipRefineUnLockRsp\022\013\n\003ret\030\001 \001(\005"
+    "\022\020\n\010slot_pos\030\002 \001(\005\022\020\n\010attr_pos\030\003 \001(\005\")\n\025"
+    "EquipRefineGenAttrReq\022\020\n\010slot_pos\030\001 \001(\005\""
+    "6\n\025EquipRefineGenAttrRsp\022\013\n\003ret\030\001 \001(\005\022\020\n"
+    "\010slot_pos\030\002 \001(\005\"8\n\022EquipRefineLockReq\022\020\n"
+    "\010slot_pos\030\001 \001(\005\022\020\n\010attr_pos\030\002 \001(\005\"E\n\022Equ"
+    "ipRefineLockRsp\022\013\n\003ret\030\001 \001(\005\022\020\n\010slot_pos"
+    "\030\002 \001(\005\022\020\n\010attr_pos\030\003 \001(\005\"$\n\020EquipAwakenL"
+    "vReq\022\020\n\010slot_pos\030\001 \001(\005\"1\n\020EquipAwakenLvR"
+    "sp\022\013\n\003ret\030\001 \001(\005\022\020\n\010slot_pos\030\002 \001(\005\"%\n\021Equ"
+    "ipSoaringLvReq\022\020\n\010slot_pos\030\001 \001(\005\"2\n\021Equi"
+    "pSoaringLvRsp\022\013\n\003ret\030\001 \001(\005\022\020\n\010slot_pos\030\002"
+    " \001(\005\"9\n\021EquipQualityLvReq\022\020\n\010slot_pos\030\001 "
+    "\001(\005\022\022\n\ncost_xinyu\030\002 \001(\005\"@\n\021EquipQualityL"
+    "vRsp\022\013\n\003ret\030\001 \001(\005\022\020\n\010slot_pos\030\002 \001(\005\022\014\n\004c"
+    "ode\030\003 \001(\005\"H\n\021EquipSealInlayReq\022\020\n\010slot_p"
+    "os\030\001 \001(\005\022\020\n\010seal_pos\030\002 \001(\005\022\017\n\007bag_pos\030\003 "
+    "\001(\005\"U\n\021EquipSealInlayRsp\022\013\n\003ret\030\001 \001(\005\022\020\n"
+    "\010slot_pos\030\002 \001(\005\022\020\n\010seal_pos\030\003 \001(\005\022\017\n\007bag"
+    "_pos\030\004 \001(\005\"4\n\016EquipSealLvReq\022\020\n\010slot_pos"
+    "\030\001 \001(\005\022\020\n\010seal_pos\030\002 \001(\005\"A\n\016EquipSealLvR"
+    "sp\022\013\n\003ret\030\001 \001(\005\022\020\n\010slot_pos\030\002 \001(\005\022\020\n\010sea"
+    "l_pos\030\003 \001(\005\"6\n\026EquipActiveSealSuitReq\022\n\n"
+    "\002id\030\001 \001(\005\022\020\n\010slot_pos\030\002 \001(\005\"C\n\026EquipActi"
+    "veSealSuitRsp\022\013\n\003ret\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\022\020"
+    "\n\010slot_pos\030\003 \001(\005", 2896);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "equip.proto", &protobuf_RegisterTypes);
   EquipInfoList::default_instance_ = new EquipInfoList();
@@ -1244,6 +1267,7 @@ void protobuf_AddDesc_equip_2eproto() {
   EquipStoveInfoRsp::default_instance_ = new EquipStoveInfoRsp();
   EquipStoveSmeltReq::default_instance_ = new EquipStoveSmeltReq();
   EquipStoveSmeltRsp::default_instance_ = new EquipStoveSmeltRsp();
+  NotifyEquipExpire::default_instance_ = new NotifyEquipExpire();
   EquipWashUnlockReq::default_instance_ = new EquipWashUnlockReq();
   EquipWashUnlockRsp::default_instance_ = new EquipWashUnlockRsp();
   EquipWashReq::default_instance_ = new EquipWashReq();
@@ -1291,6 +1315,7 @@ void protobuf_AddDesc_equip_2eproto() {
   EquipStoveInfoRsp::default_instance_->InitAsDefaultInstance();
   EquipStoveSmeltReq::default_instance_->InitAsDefaultInstance();
   EquipStoveSmeltRsp::default_instance_->InitAsDefaultInstance();
+  NotifyEquipExpire::default_instance_->InitAsDefaultInstance();
   EquipWashUnlockReq::default_instance_->InitAsDefaultInstance();
   EquipWashUnlockRsp::default_instance_->InitAsDefaultInstance();
   EquipWashReq::default_instance_->InitAsDefaultInstance();
@@ -6524,6 +6549,214 @@ void EquipStoveSmeltRsp::Swap(EquipStoveSmeltRsp* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = EquipStoveSmeltRsp_descriptor_;
   metadata.reflection = EquipStoveSmeltRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int NotifyEquipExpire::kPosFieldNumber;
+#endif  // !_MSC_VER
+
+NotifyEquipExpire::NotifyEquipExpire()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void NotifyEquipExpire::InitAsDefaultInstance() {
+}
+
+NotifyEquipExpire::NotifyEquipExpire(const NotifyEquipExpire& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void NotifyEquipExpire::SharedCtor() {
+  _cached_size_ = 0;
+  pos_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+NotifyEquipExpire::~NotifyEquipExpire() {
+  SharedDtor();
+}
+
+void NotifyEquipExpire::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void NotifyEquipExpire::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* NotifyEquipExpire::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return NotifyEquipExpire_descriptor_;
+}
+
+const NotifyEquipExpire& NotifyEquipExpire::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_equip_2eproto();
+  return *default_instance_;
+}
+
+NotifyEquipExpire* NotifyEquipExpire::default_instance_ = NULL;
+
+NotifyEquipExpire* NotifyEquipExpire::New() const {
+  return new NotifyEquipExpire;
+}
+
+void NotifyEquipExpire::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    pos_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool NotifyEquipExpire::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 pos = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &pos_)));
+          set_has_pos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void NotifyEquipExpire::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 pos = 1;
+  if (has_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->pos(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* NotifyEquipExpire::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 pos = 1;
+  if (has_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->pos(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int NotifyEquipExpire::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 pos = 1;
+    if (has_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->pos());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void NotifyEquipExpire::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const NotifyEquipExpire* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const NotifyEquipExpire*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void NotifyEquipExpire::MergeFrom(const NotifyEquipExpire& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_pos()) {
+      set_pos(from.pos());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void NotifyEquipExpire::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void NotifyEquipExpire::CopyFrom(const NotifyEquipExpire& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NotifyEquipExpire::IsInitialized() const {
+
+  return true;
+}
+
+void NotifyEquipExpire::Swap(NotifyEquipExpire* other) {
+  if (other != this) {
+    std::swap(pos_, other->pos_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata NotifyEquipExpire::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = NotifyEquipExpire_descriptor_;
+  metadata.reflection = NotifyEquipExpire_reflection_;
   return metadata;
 }
 

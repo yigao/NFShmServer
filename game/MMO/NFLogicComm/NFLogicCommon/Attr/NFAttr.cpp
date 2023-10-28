@@ -9,8 +9,8 @@
 
 #include "NFAttr.h"
 #include "NFAttrMgr.h"
-#include "NFLogicShmTypeDefines.h"
-#include "NFCharactorDefine.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
+#include "NFLogicCommon/NFCharactorDefine.h"
 
 int64_t AddVal(int64_t oldval, int64_t val)
 {

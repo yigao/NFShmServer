@@ -21,6 +21,8 @@ ${PROTOCGEN_FILE_PATH}/module_mount_bin:${PROTOCGEN_FILE_PATH}/mount.proto.ds ${
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/MountChangeDesc.h ${PROTOCGEN_FILE_PATH}/MountChangeDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_MountAdvance.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/MountAdvanceDesc.h ${PROTOCGEN_FILE_PATH}/MountAdvanceDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_MountBaby_egg.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/MountBaby_eggDesc.h ${PROTOCGEN_FILE_PATH}/MountBaby_eggDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_MountHuakun.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/MountHuakunDesc.h ${PROTOCGEN_FILE_PATH}/MountHuakunDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_MountHuakun_value.bin" --dst=${GAME_DATA_PATH}/
@@ -43,8 +45,8 @@ ${PROTOCGEN_FILE_PATH}/module_mount_bin:${PROTOCGEN_FILE_PATH}/mount.proto.ds ${
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/MountEquiptopDesc.h ${PROTOCGEN_FILE_PATH}/MountEquiptopDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_MountEquiptopvalue.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/MountEquiptopvalueDesc.h ${PROTOCGEN_FILE_PATH}/MountEquiptopvalueDesc.cpp" --dst=${DESC_STORE_PATH}/
-	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_MountBaby_egg.bin" --dst=${GAME_DATA_PATH}/
-	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/MountBaby_eggDesc.h ${PROTOCGEN_FILE_PATH}/MountBaby_eggDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_MountEquippart.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/MountEquippartDesc.h ${PROTOCGEN_FILE_PATH}/MountEquippartDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_MountEmpowermenttour_debris.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/MountEmpowermenttour_debrisDesc.h ${PROTOCGEN_FILE_PATH}/MountEmpowermenttour_debrisDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_MountEmpowerment.bin" --dst=${GAME_DATA_PATH}/

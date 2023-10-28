@@ -21,6 +21,7 @@
 #define DEFINE_SHEET_MOUNTCHANGE_E_MOUNTCHANGE_LIST_MAX_NUM 32
 #define DEFINE_E_MOUNTADVANCE_M_UPATTRIBUTE_MAX_NUM 5
 #define DEFINE_SHEET_MOUNTADVANCE_E_MOUNTADVANCE_LIST_MAX_NUM 64
+#define DEFINE_SHEET_MOUNTBABY_EGG_E_MOUNTBABY_EGG_LIST_MAX_NUM 8
 #define DEFINE_E_MOUNTHUAKUN_M_UPLV_MAX_NUM 4
 #define DEFINE_E_MOUNTHUAKUN_M_MATERIAL_MAX_NUM 3
 #define DEFINE_E_MOUNTHUAKUN_M_ADVANCE_MAX_NUM 4
@@ -47,7 +48,7 @@
 #define DEFINE_E_MOUNTEQUIPTOP_M_PERCENT_MAX_NUM 8
 #define DEFINE_SHEET_MOUNTEQUIPTOP_E_MOUNTEQUIPTOP_LIST_MAX_NUM 16
 #define DEFINE_SHEET_MOUNTEQUIPTOPVALUE_E_MOUNTEQUIPTOPVALUE_LIST_MAX_NUM 128
-#define DEFINE_SHEET_MOUNTBABY_EGG_E_MOUNTBABY_EGG_LIST_MAX_NUM 8
+#define DEFINE_SHEET_MOUNTEQUIPPART_E_MOUNTEQUIPPART_LIST_MAX_NUM 16
 #define DEFINE_SHEET_MOUNTEMPOWERMENTTOUR_DEBRIS_E_MOUNTEMPOWERMENTTOUR_DEBRIS_LIST_MAX_NUM 16
 #define DEFINE_E_MOUNTEMPOWERMENT_M_TOUR_MAX_NUM 2
 #define DEFINE_SHEET_MOUNTEMPOWERMENT_E_MOUNTEMPOWERMENT_LIST_MAX_NUM 128
@@ -211,6 +212,7 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_lv;//等级
 		int32_t m_modelid;//模型id
+		NFShmString<64> m_name;//名称
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountUnlock & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountUnlock & msg);
@@ -269,6 +271,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
+		NFShmString<64> m_name;//名称
+		NFShmString<64> m_advancename;//进阶后名字
 		int32_t m_speed;//默认乘骑速度值
 		int32_t m_uplvtype;//升级参考类型
 		int32_t m_activeskill;//激活获得技能
@@ -353,6 +357,37 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_MountAdvance make_pbmsg(){ return ::proto_ff::Sheet_MountAdvance(); }
 	};
 	typedef struct Sheet_MountAdvance_s Sheet_MountAdvance_t;
+
+	struct E_MountBaby_egg_s : public NFDescStoreSeqOP {
+		E_MountBaby_egg_s();
+		virtual ~E_MountBaby_egg_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//蛋道具id
+		int32_t m_item;//道具id
+		int32_t m_time;//蛋生成时间
+		int32_t m_itembox;//奖励盒id
+
+		virtual void write_to_pbmsg(::proto_ff::E_MountBaby_egg & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_MountBaby_egg & msg);
+		static ::proto_ff::E_MountBaby_egg* new_pbmsg(){ return new ::proto_ff::E_MountBaby_egg(); }
+		static ::proto_ff::E_MountBaby_egg make_pbmsg(){ return ::proto_ff::E_MountBaby_egg(); }
+	};
+	typedef struct E_MountBaby_egg_s E_MountBaby_egg_t;
+
+	struct Sheet_MountBaby_egg_s : public NFDescStoreSeqOP {
+		Sheet_MountBaby_egg_s();
+		virtual ~Sheet_MountBaby_egg_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_MountBaby_egg_s, DEFINE_SHEET_MOUNTBABY_EGG_E_MOUNTBABY_EGG_LIST_MAX_NUM> E_MountBaby_egg_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_MountBaby_egg & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MountBaby_egg & msg);
+		static ::proto_ff::Sheet_MountBaby_egg* new_pbmsg(){ return new ::proto_ff::Sheet_MountBaby_egg(); }
+		static ::proto_ff::Sheet_MountBaby_egg make_pbmsg(){ return ::proto_ff::Sheet_MountBaby_egg(); }
+	};
+	typedef struct Sheet_MountBaby_egg_s Sheet_MountBaby_egg_t;
 
 	struct E_MountHuakunUplvDesc_s : public NFDescStoreSeqOP {
 		E_MountHuakunUplvDesc_s();
@@ -443,6 +478,7 @@ namespace proto_ff_s {
 		int32_t m_ratiopercentage;//提悟百分比属性比例
 		NFShmString<64> m_equipsuit;//鲲灵套装
 		int32_t m_qualitymax;//鲲灵穿戴最大品质
+		NFShmString<64> m_lilianchangeitem;//历练异化鲲掉落
 		NFShmVector<struct E_MountHuakunUplvDesc_s, DEFINE_E_MOUNTHUAKUN_M_UPLV_MAX_NUM> m_uplv;//百分比属性
 		NFShmVector<struct E_MountHuakunMaterialDesc_s, DEFINE_E_MOUNTHUAKUN_M_MATERIAL_MAX_NUM> m_material;//升级材料
 		NFShmVector<struct E_MountHuakunAdvanceDesc_s, DEFINE_E_MOUNTHUAKUN_M_ADVANCE_MAX_NUM> m_advance;//百分比属性
@@ -587,6 +623,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
+		int32_t m_huakunid;//名称
 		int32_t m_speed;//默认乘骑速度值
 		NFShmString<64> m_fxid;//幻化特效
 		int32_t m_modelid;//模型id
@@ -936,36 +973,37 @@ namespace proto_ff_s {
 	};
 	typedef struct Sheet_MountEquiptopvalue_s Sheet_MountEquiptopvalue_t;
 
-	struct E_MountBaby_egg_s : public NFDescStoreSeqOP {
-		E_MountBaby_egg_s();
-		virtual ~E_MountBaby_egg_s(){}
+	struct E_MountEquippart_s : public NFDescStoreSeqOP {
+		E_MountEquippart_s();
+		virtual ~E_MountEquippart_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//蛋道具id
-		int32_t m_item;//道具id
-		int32_t m_time;//蛋生成时间
-		int32_t m_itembox;//奖励盒id
+		int32_t m_part;//部位
+		int32_t m_quality;//化鲲品质
+		int32_t m_honeopen;//部位解锁类型
+		int32_t m_item;//所需物品
+		int32_t m_num;//数量
 
-		virtual void write_to_pbmsg(::proto_ff::E_MountBaby_egg & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::E_MountBaby_egg & msg);
-		static ::proto_ff::E_MountBaby_egg* new_pbmsg(){ return new ::proto_ff::E_MountBaby_egg(); }
-		static ::proto_ff::E_MountBaby_egg make_pbmsg(){ return ::proto_ff::E_MountBaby_egg(); }
+		virtual void write_to_pbmsg(::proto_ff::E_MountEquippart & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_MountEquippart & msg);
+		static ::proto_ff::E_MountEquippart* new_pbmsg(){ return new ::proto_ff::E_MountEquippart(); }
+		static ::proto_ff::E_MountEquippart make_pbmsg(){ return ::proto_ff::E_MountEquippart(); }
 	};
-	typedef struct E_MountBaby_egg_s E_MountBaby_egg_t;
+	typedef struct E_MountEquippart_s E_MountEquippart_t;
 
-	struct Sheet_MountBaby_egg_s : public NFDescStoreSeqOP {
-		Sheet_MountBaby_egg_s();
-		virtual ~Sheet_MountBaby_egg_s(){}
+	struct Sheet_MountEquippart_s : public NFDescStoreSeqOP {
+		Sheet_MountEquippart_s();
+		virtual ~Sheet_MountEquippart_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_MountBaby_egg_s, DEFINE_SHEET_MOUNTBABY_EGG_E_MOUNTBABY_EGG_LIST_MAX_NUM> E_MountBaby_egg_List;//
+		NFShmVector<struct E_MountEquippart_s, DEFINE_SHEET_MOUNTEQUIPPART_E_MOUNTEQUIPPART_LIST_MAX_NUM> E_MountEquippart_List;//
 
-		virtual void write_to_pbmsg(::proto_ff::Sheet_MountBaby_egg & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MountBaby_egg & msg);
-		static ::proto_ff::Sheet_MountBaby_egg* new_pbmsg(){ return new ::proto_ff::Sheet_MountBaby_egg(); }
-		static ::proto_ff::Sheet_MountBaby_egg make_pbmsg(){ return ::proto_ff::Sheet_MountBaby_egg(); }
+		virtual void write_to_pbmsg(::proto_ff::Sheet_MountEquippart & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_MountEquippart & msg);
+		static ::proto_ff::Sheet_MountEquippart* new_pbmsg(){ return new ::proto_ff::Sheet_MountEquippart(); }
+		static ::proto_ff::Sheet_MountEquippart make_pbmsg(){ return ::proto_ff::Sheet_MountEquippart(); }
 	};
-	typedef struct Sheet_MountBaby_egg_s Sheet_MountBaby_egg_t;
+	typedef struct Sheet_MountEquippart_s Sheet_MountEquippart_t;
 
 	struct E_MountEmpowermenttour_debris_s : public NFDescStoreSeqOP {
 		E_MountEmpowermenttour_debris_s();
