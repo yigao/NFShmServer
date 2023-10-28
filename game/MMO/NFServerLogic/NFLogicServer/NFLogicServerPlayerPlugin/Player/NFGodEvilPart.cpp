@@ -9,8 +9,6 @@
 
 #include "NFGodEvilPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFGodEvilPart, EOT_LOGIC_PART_ID + PART_GODEVIL, NFPart)
-
 NFGodEvilPart::NFGodEvilPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

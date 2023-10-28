@@ -9,8 +9,6 @@
 
 #include "NFArmorPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFArmorPart, EOT_LOGIC_PART_ID+PART_ARMOR, NFPart)
-
 NFArmorPart::NFArmorPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

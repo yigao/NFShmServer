@@ -18,6 +18,7 @@ class NFISharedMemModule;
 template<typename className, int classType, typename parentClassName>
 class NFShmObjTemplate : public parentClassName
 {
+    static_assert(!std::is_same<parentClassName, className>::value, "parentClassName is equal to the className");
 public:
     typedef NFShmObjIterator<className, className &, className *, NFISharedMemModule> iterator;
     typedef NFShmObjIterator<className, const className &, const className *, NFISharedMemModule> const_iterator;

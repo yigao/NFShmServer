@@ -17,7 +17,7 @@
 #include "Part/NFPart.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-class NFVipPart : public NFPart
+class NFVipPart : public NFShmObjTemplate<NFVipPart, EOT_LOGIC_PART_ID+PART_VIP, NFPart>
 {
 public:
     NFVipPart();
@@ -29,6 +29,4 @@ public:
     int ResumeInit();
 public:
     void DoAttrChange(uint32_t ANum, int64_t nValue, int64_t attrValue, SCommonSource* pSource) {}
-private:
-DECLARE_IDCREATE(NFVipPart)
 };

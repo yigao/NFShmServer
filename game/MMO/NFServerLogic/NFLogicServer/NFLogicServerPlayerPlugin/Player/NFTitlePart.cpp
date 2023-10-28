@@ -9,8 +9,6 @@
 
 #include "NFTitlePart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFTitlePart, EOT_LOGIC_PART_ID+PART_TITLE, NFPart)
-
 NFTitlePart::NFTitlePart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

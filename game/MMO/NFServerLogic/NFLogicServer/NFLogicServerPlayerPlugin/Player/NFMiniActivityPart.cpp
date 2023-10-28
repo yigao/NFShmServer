@@ -7,11 +7,9 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFMIniActivity.h"
+#include "NFMiniActivityPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFMIniActivity, EOT_LOGIC_PART_ID+PART_MINI_ACTIVITY, NFPart)
-
-NFMIniActivity::NFMIniActivity()
+NFMiniActivityPart::NFMiniActivityPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {
@@ -23,16 +21,16 @@ NFMIniActivity::NFMIniActivity()
     }
 }
 
-NFMIniActivity::~NFMIniActivity()
+NFMiniActivityPart::~NFMiniActivityPart()
 {
 }
 
-int NFMIniActivity::CreateInit()
+int NFMiniActivityPart::CreateInit()
 {
     return 0;
 }
 
-int NFMIniActivity::ResumeInit()
+int NFMiniActivityPart::ResumeInit()
 {
     return 0;
 }

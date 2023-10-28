@@ -9,9 +9,6 @@
 
 #include "NFBossPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFBossPart, EOT_LOGIC_PART_ID+PART_BOSS, NFPart
-)
-
 NFBossPart::NFBossPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

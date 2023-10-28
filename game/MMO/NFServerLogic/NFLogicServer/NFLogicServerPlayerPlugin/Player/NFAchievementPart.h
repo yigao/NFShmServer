@@ -16,8 +16,9 @@
 #include "Part/NFPart.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-class NFAchievementPart : public NFPart
+class NFAchievementPart : public NFShmObjTemplate<NFAchievementPart, EOT_LOGIC_PART_ID+PART_ACHIEVEMENT, NFPart>
 {
+
 public:
     NFAchievementPart();
     
@@ -41,6 +42,4 @@ public:
     void OnCommonFinishNumWithLess(int32_t num, int32_t param1, int32_t param2, int32_t eventType) {}
     void OnCommonFinishNumWithLess(int32_t num, int32_t param1, int32_t param2, int param3, int32_t eventType) {}
     void OnCommonClear(int32_t eventType) {}
-private:
-DECLARE_IDCREATE(NFAchievementPart)
 };

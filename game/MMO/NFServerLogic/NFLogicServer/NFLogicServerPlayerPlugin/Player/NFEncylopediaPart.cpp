@@ -9,9 +9,6 @@
 
 #include "NFEncylopediaPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFEncylopediaPart, EOT_LOGIC_PART_ID+PART_ENCYLOPEDIA, NFPart
-)
-
 NFEncylopediaPart::NFEncylopediaPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

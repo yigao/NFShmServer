@@ -9,8 +9,6 @@
 
 #include "NFGrowPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFGrowPart, EOT_LOGIC_PART_ID+PART_GROW, NFPart)
-
 NFGrowPart::NFGrowPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

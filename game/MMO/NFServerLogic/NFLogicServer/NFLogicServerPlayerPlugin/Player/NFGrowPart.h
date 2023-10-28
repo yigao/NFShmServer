@@ -17,7 +17,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFGrowPart : public NFPart
+class NFGrowPart : public NFShmObjTemplate<NFGrowPart, EOT_LOGIC_PART_ID+PART_GROW, NFPart>
 {
 public:
     NFGrowPart();
@@ -34,6 +34,4 @@ public:
      * @param outproto
      */
     virtual void FillHeadProto(proto_ff::RoleHeadPicProto &outproto) { }
-private:
-DECLARE_IDCREATE(NFGrowPart)
 };

@@ -9,8 +9,6 @@
 
 #include "NFFindTreasurePart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFFindTreasurePart, EOT_LOGIC_PART_ID+PART_FINDTREASURE, NFPart)
-
 NFFindTreasurePart::NFFindTreasurePart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

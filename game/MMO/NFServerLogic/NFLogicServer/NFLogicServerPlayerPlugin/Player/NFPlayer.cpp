@@ -31,8 +31,6 @@
 #include "NFRankPart.h"
 #include "DescStoreEx/AchievementDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFPlayer, EOT_LOGIC_PLAYER_ID, NFShmObj)
-
 NFPlayer::NFPlayer()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

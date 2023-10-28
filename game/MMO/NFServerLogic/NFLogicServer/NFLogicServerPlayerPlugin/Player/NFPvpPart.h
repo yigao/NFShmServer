@@ -16,7 +16,7 @@
 #include "Part/NFPart.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-class NFPvpPart : public NFPart
+class NFPvpPart : public NFShmObjTemplate<NFPvpPart, EOT_LOGIC_PART_ID+PART_PVP, NFPart>
 {
 public:
     NFPvpPart();
@@ -26,7 +26,4 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFPvpPart)
 };

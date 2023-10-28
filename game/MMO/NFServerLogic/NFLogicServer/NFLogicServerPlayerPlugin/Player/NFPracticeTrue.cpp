@@ -9,9 +9,6 @@
 
 #include "NFPracticeTrue.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFPracticeTrue, EOT_LOGIC_PART_ID+PART_PracticeTrue, NFPart
-)
-
 NFPracticeTrue::NFPracticeTrue()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

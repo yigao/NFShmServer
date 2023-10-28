@@ -17,7 +17,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFMarryPart : public NFPart
+class NFMarryPart : public NFShmObjTemplate<NFMarryPart, EOT_LOGIC_PART_ID+PART_MARRY, NFPart>
 {
 public:
     NFMarryPart();
@@ -27,7 +27,4 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFMarryPart)
 };

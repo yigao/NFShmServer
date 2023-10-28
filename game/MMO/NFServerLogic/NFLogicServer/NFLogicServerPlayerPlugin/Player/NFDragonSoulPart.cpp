@@ -9,8 +9,6 @@
 
 #include "NFDragonSoulPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFDragonSoulPart, EOT_LOGIC_PART_ID+PART_DRAGONSOUL, NFPart)
-
 NFDragonSoulPart::NFDragonSoulPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

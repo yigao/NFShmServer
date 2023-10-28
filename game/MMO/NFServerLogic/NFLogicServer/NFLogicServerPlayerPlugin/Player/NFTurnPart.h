@@ -17,7 +17,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFTurnPart : public NFPart
+class NFTurnPart : public NFShmObjTemplate<NFTurnPart, EOT_LOGIC_PART_ID+PART_TURN, NFPart>
 {
 public:
     NFTurnPart();
@@ -27,7 +27,4 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFTurnPart)
 };

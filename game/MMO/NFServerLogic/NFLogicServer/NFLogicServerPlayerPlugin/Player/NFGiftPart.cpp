@@ -9,8 +9,6 @@
 
 #include "NFGiftPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFGiftPart, EOT_LOGIC_PART_ID+PART_GIFT, NFPart)
-
 NFGiftPart::NFGiftPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

@@ -9,8 +9,6 @@
 
 #include "NFDeityPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFDeityPart, EOT_LOGIC_PART_ID+PART_DEITY, NFPart)
-
 NFDeityPart::NFDeityPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

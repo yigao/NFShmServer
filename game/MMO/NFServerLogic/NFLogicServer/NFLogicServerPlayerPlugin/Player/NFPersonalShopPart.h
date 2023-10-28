@@ -17,7 +17,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFPersonalShopPart : public NFPart
+class NFPersonalShopPart : public NFShmObjTemplate<NFPersonalShopPart, EOT_LOGIC_PART_ID+PART_PersonalShop, NFPart>
 {
 public:
     NFPersonalShopPart();
@@ -27,7 +27,4 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFPersonalShopPart)
 };

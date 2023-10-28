@@ -17,7 +17,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFGVBPDataPart : public NFPart
+class NFGVBPDataPart : public NFShmObjTemplate<NFGVBPDataPart, EOT_LOGIC_PART_ID+PART_GVBPData, NFPart>
 {
 public:
     NFGVBPDataPart();
@@ -27,7 +27,4 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFGVBPDataPart)
 };

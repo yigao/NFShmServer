@@ -17,7 +17,7 @@
 #include "Part/NFPart.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-class NFAncientPart : public NFPart
+class NFAncientPart : public NFShmObjTemplate<NFAncientPart, EOT_LOGIC_PART_ID+PART_ANCIENT, NFPart>
 {
 public:
     NFAncientPart();
@@ -27,7 +27,4 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFAncientPart)
 };

@@ -9,8 +9,6 @@
 
 #include "NFOccupationPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFOccupationPart, EOT_LOGIC_PART_ID+PART_OCCUPATION, NFPart)
-
 NFOccupationPart::NFOccupationPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

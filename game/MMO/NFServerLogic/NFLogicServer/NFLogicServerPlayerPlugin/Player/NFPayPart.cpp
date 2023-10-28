@@ -9,8 +9,6 @@
 
 #include "NFPayPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFPayPart, EOT_LOGIC_PART_ID+PART_PAY, NFPart)
-
 NFPayPart::NFPayPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

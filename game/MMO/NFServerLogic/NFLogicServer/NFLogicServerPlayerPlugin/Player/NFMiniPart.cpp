@@ -9,8 +9,6 @@
 
 #include "NFMiniPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFMiniPart, EOT_LOGIC_PART_ID+PART_MINI, NFPart)
-
 NFMiniPart::NFMiniPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

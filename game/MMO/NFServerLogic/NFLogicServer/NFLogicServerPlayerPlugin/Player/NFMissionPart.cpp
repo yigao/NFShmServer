@@ -9,8 +9,6 @@
 
 #include "NFMissionPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFMissionPart, EOT_LOGIC_PART_ID+PART_MISSION, NFPart)
-
 NFMissionPart::NFMissionPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

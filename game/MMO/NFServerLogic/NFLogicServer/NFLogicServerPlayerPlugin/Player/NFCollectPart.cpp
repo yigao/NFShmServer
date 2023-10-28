@@ -9,9 +9,6 @@
 
 #include "NFCollectPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFCollectPart, EOT_LOGIC_PART_ID+PART_COLLECT, NFPart
-)
-
 NFCollectPart::NFCollectPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

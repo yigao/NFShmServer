@@ -17,7 +17,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFBossPart : public NFPart
+class NFBossPart : public NFShmObjTemplate<NFBossPart, EOT_LOGIC_PART_ID+PART_BOSS, NFPart>
 {
 public:
     NFBossPart();
@@ -27,7 +27,4 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFBossPart)
 };

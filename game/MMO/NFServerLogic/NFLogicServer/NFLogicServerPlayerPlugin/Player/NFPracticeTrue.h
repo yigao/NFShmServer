@@ -17,7 +17,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFPracticeTrue : public NFPart
+class NFPracticeTrue : public NFShmObjTemplate<NFPracticeTrue, EOT_LOGIC_PART_ID+PART_PracticeTrue, NFPart>
 {
 public:
     NFPracticeTrue();
@@ -27,7 +27,4 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFPracticeTrue)
 };

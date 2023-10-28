@@ -18,7 +18,7 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFLogicCommon/NFRankDefine.h"
 
-class NFRankPart : public NFPart
+class NFRankPart : public NFShmObjTemplate<NFRankPart, EOT_LOGIC_PART_ID+PART_RANK, NFPart>
 {
 public:
     NFRankPart();
@@ -31,6 +31,4 @@ public:
 public:
     //发送数值到中心服更新排行榜
     void UpdateRank(enRankType rankType, uint64_t value) { }
-private:
-DECLARE_IDCREATE(NFRankPart)
 };

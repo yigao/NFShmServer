@@ -9,8 +9,6 @@
 
 #include "NFAchievementPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFAchievementPart, EOT_LOGIC_PART_ID+PART_ACHIEVEMENT, NFPart)
-
 NFAchievementPart::NFAchievementPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

@@ -9,8 +9,6 @@
 
 #include "NFAssistPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFAssistPart, EOT_LOGIC_PART_ID+PART_ASSIST, NFPart)
-
 NFAssistPart::NFAssistPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

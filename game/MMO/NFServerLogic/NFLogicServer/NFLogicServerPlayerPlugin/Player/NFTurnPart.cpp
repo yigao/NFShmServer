@@ -9,8 +9,6 @@
 
 #include "NFTurnPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFTurnPart, EOT_LOGIC_PART_ID+PART_TURN, NFPart)
-
 NFTurnPart::NFTurnPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

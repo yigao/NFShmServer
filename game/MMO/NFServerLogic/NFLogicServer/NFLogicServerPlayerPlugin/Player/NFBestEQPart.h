@@ -17,7 +17,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFBestEQPart : public NFPart
+class NFBestEQPart : public NFShmObjTemplate<NFBestEQPart, EOT_LOGIC_PART_ID+PART_BESTEQ, NFPart>
 {
 public:
     NFBestEQPart();
@@ -27,7 +27,4 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFBestEQPart)
 };

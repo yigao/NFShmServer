@@ -17,7 +17,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFEncylopediaPart : public NFPart
+class NFEncylopediaPart : public NFShmObjTemplate<NFEncylopediaPart, EOT_LOGIC_PART_ID+PART_ENCYLOPEDIA, NFPart>
 {
 public:
     NFEncylopediaPart();
@@ -27,7 +27,4 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFEncylopediaPart)
 };

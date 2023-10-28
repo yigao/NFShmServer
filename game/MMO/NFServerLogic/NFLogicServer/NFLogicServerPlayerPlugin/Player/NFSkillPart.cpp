@@ -9,8 +9,6 @@
 
 #include "NFSkillPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFSkillPart, EOT_LOGIC_PART_ID+PART_SKILL, NFPart)
-
 NFSkillPart::NFSkillPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

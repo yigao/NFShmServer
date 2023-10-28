@@ -9,8 +9,6 @@
 
 #include "NFFacadePart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFFacadePart, EOT_LOGIC_PART_ID+PART_FACADE, NFPart)
-
 NFFacadePart::NFFacadePart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

@@ -17,7 +17,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFDragonSoulPart : public NFPart
+class NFDragonSoulPart : public NFShmObjTemplate<NFDragonSoulPart, EOT_LOGIC_PART_ID+PART_DRAGONSOUL, NFPart>
 {
 public:
     NFDragonSoulPart();
@@ -27,7 +27,4 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFDragonSoulPart)
 };

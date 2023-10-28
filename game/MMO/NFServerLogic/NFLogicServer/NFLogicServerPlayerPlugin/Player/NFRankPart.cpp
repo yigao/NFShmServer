@@ -9,8 +9,6 @@
 
 #include "NFRankPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFRankPart, EOT_LOGIC_PART_ID+PART_RANK, NFPart)
-
 NFRankPart::NFRankPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

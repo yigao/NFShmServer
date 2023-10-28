@@ -13,8 +13,6 @@
 #include "NFComm/NFPluginModule/NFError.h"
 #include <map>
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFPlayerMgr, EOT_LOGIC_PLAYER_MGR_ID, NFShmObj)
-
 NFPlayerMgr::NFPlayerMgr() {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
         CreateInit();

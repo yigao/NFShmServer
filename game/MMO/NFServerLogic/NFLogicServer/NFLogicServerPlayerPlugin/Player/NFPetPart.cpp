@@ -9,8 +9,6 @@
 
 #include "NFPetPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFPetPart, EOT_LOGIC_PART_ID+PART_PET, NFPart)
-
 NFPetPart::NFPetPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

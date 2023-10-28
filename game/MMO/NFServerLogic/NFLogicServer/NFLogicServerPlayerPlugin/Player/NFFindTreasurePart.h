@@ -17,7 +17,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFFindTreasurePart : public NFPart
+class NFFindTreasurePart : public NFShmObjTemplate<NFFindTreasurePart, EOT_LOGIC_PART_ID+PART_FINDTREASURE, NFPart>
 {
 public:
     NFFindTreasurePart();
@@ -27,7 +27,4 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFFindTreasurePart)
 };

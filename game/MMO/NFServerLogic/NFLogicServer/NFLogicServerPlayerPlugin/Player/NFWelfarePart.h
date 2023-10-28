@@ -17,7 +17,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFWelfarePart : public NFPart
+class NFWelfarePart : public NFShmObjTemplate<NFWelfarePart, EOT_LOGIC_PART_ID+PART_WELFARE, NFPart>
 {
 public:
     NFWelfarePart();
@@ -27,7 +27,4 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFWelfarePart)
 };

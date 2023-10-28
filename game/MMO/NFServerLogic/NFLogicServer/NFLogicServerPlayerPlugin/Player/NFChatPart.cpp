@@ -9,9 +9,6 @@
 
 #include "NFChatPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFChatPart, EOT_LOGIC_PART_ID+PART_CHAT, NFPart
-)
-
 NFChatPart::NFChatPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

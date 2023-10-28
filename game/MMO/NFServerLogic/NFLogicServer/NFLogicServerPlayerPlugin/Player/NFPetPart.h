@@ -16,7 +16,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFPetPart : public NFPart
+class NFPetPart : public NFShmObjTemplate<NFPetPart, EOT_LOGIC_PART_ID+PART_PET, NFPart>
 {
 public:
     NFPetPart();
@@ -28,6 +28,4 @@ public:
     int ResumeInit();
 public:
     void OnChgAttr() {}
-private:
-DECLARE_IDCREATE(NFPetPart)
 };

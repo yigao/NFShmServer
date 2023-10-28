@@ -9,8 +9,6 @@
 
 #include "NFBestEQPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFBestEQPart, EOT_LOGIC_PART_ID+PART_BESTEQ, NFPart)
-
 NFBestEQPart::NFBestEQPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

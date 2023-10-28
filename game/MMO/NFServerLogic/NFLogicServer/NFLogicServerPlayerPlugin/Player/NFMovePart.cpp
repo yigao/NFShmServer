@@ -9,8 +9,6 @@
 
 #include "NFMovePart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFMovePart, EOT_LOGIC_PART_ID+PART_MOVE, NFPart)
-
 NFMovePart::NFMovePart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

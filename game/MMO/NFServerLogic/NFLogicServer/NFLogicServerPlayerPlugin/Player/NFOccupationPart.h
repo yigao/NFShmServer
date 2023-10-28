@@ -17,7 +17,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFOccupationPart : public NFPart
+class NFOccupationPart : public NFShmObjTemplate<NFOccupationPart, EOT_LOGIC_PART_ID+PART_OCCUPATION, NFPart>
 {
 public:
     NFOccupationPart();
@@ -27,7 +27,4 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFOccupationPart)
 };

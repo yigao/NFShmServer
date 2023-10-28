@@ -9,9 +9,6 @@
 
 #include "NFBuffPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFBuffPart, EOT_LOGIC_PART_ID+PART_BUFF, NFPart
-)
-
 NFBuffPart::NFBuffPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

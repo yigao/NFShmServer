@@ -17,7 +17,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFAssistPart : public NFPart
+class NFAssistPart : public NFShmObjTemplate<NFAssistPart, EOT_LOGIC_PART_ID+PART_ASSIST, NFPart>
 {
 public:
     NFAssistPart();
@@ -27,7 +27,4 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFAssistPart)
 };

@@ -9,8 +9,6 @@
 
 #include "NFFunctionUnlockPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFFunctionUnlockPart, EOT_LOGIC_PART_ID+PART_FUNCTIONUNLOCK, NFPart)
-
 NFFunctionUnlockPart::NFFunctionUnlockPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

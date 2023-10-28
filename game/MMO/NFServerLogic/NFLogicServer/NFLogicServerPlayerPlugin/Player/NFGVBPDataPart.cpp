@@ -9,8 +9,6 @@
 
 #include "NFGVBPDataPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFGVBPDataPart, EOT_LOGIC_PART_ID+PART_GVBPData, NFPart)
-
 NFGVBPDataPart::NFGVBPDataPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

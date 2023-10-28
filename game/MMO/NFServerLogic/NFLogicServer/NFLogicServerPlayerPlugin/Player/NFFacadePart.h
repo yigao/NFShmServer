@@ -17,7 +17,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFFacadePart : public NFPart
+class NFFacadePart : public NFShmObjTemplate<NFFacadePart, EOT_LOGIC_PART_ID+PART_FACADE, NFPart>
 {
 public:
     NFFacadePart();
@@ -27,7 +27,4 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFFacadePart)
 };

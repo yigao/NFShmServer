@@ -17,7 +17,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFGiftPart : public NFPart
+class NFGiftPart : public NFShmObjTemplate<NFGiftPart, EOT_LOGIC_PART_ID+PART_GIFT, NFPart>
 {
 public:
     NFGiftPart();
@@ -27,7 +27,4 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFGiftPart)
 };

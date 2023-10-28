@@ -17,7 +17,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFGodEvilPart : public NFPart
+class NFGodEvilPart : public NFShmObjTemplate<NFGodEvilPart, EOT_LOGIC_PART_ID+PART_GODEVIL, NFPart>
 {
 public:
     NFGodEvilPart();
@@ -33,6 +33,4 @@ public:
 
     //处理 增加神魔之息
     void OnAddExp(int64_t &value) {}
-private:
-DECLARE_IDCREATE(NFGodEvilPart)
 };

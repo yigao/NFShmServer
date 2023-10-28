@@ -9,8 +9,6 @@
 
 #include "NFStarPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFStarPart, EOT_LOGIC_PART_ID + PART_STAR, NFPart)
-
 NFStarPart::NFStarPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

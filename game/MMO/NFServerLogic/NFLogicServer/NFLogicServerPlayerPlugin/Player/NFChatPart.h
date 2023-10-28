@@ -17,7 +17,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFChatPart : public NFPart
+class NFChatPart : public NFShmObjTemplate<NFChatPart, EOT_LOGIC_PART_ID+PART_CHAT, NFPart>
 {
 public:
     NFChatPart();
@@ -27,7 +27,4 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFChatPart)
 };

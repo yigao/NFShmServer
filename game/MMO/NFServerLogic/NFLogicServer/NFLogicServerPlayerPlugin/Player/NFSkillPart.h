@@ -17,7 +17,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFSkillPart : public NFPart
+class NFSkillPart : public NFShmObjTemplate<NFSkillPart, EOT_LOGIC_PART_ID+PART_SKILL, NFPart>
 {
 public:
     NFSkillPart();
@@ -33,6 +33,4 @@ public:
     
     //技能总战力
     int64_t SkillFight() { return 0; }
-private:
-DECLARE_IDCREATE(NFSkillPart)
 };

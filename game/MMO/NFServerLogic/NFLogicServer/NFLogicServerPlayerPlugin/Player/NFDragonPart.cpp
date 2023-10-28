@@ -9,8 +9,6 @@
 
 #include "NFDragonPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFDragonPart, EOT_LOGIC_PART_ID+PART_DRAGON, NFPart)
-
 NFDragonPart::NFDragonPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

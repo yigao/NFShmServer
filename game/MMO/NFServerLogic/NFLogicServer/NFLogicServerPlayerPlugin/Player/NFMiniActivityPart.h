@@ -17,17 +17,14 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFMIniActivity : public NFPart
+class NFMiniActivityPart : public NFShmObjTemplate<NFMiniActivityPart, EOT_LOGIC_PART_ID+PART_MINI_ACTIVITY, NFPart>
 {
 public:
-    NFMIniActivity();
+    NFMiniActivityPart();
 
-    virtual ~NFMIniActivity();
+    virtual ~NFMiniActivityPart();
 
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFMIniActivity)
 };

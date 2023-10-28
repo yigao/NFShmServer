@@ -17,7 +17,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFPayPart : public NFPart
+class NFPayPart : public NFShmObjTemplate<NFPayPart, EOT_LOGIC_PART_ID+PART_PAY, NFPart>
 {
 public:
     NFPayPart();
@@ -27,7 +27,4 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFPayPart)
 };

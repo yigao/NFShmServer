@@ -17,7 +17,7 @@
 #include "Part/NFPart.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-class NFArmorPart : public NFPart
+class NFArmorPart : public NFShmObjTemplate<NFArmorPart, EOT_LOGIC_PART_ID+PART_ARMOR, NFPart>
 {
 public:
     NFArmorPart();
@@ -27,7 +27,4 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFArmorPart)
 };

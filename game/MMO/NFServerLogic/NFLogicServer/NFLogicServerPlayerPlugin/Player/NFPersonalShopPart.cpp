@@ -9,9 +9,6 @@
 
 #include "NFPersonalShopPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFPersonalShopPart, EOT_LOGIC_PART_ID+PART_PersonalShop, NFPart
-)
-
 NFPersonalShopPart::NFPersonalShopPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

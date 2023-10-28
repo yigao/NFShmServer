@@ -9,8 +9,6 @@
 
 #include "NFDailyWelfarePart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFDailyWelfarePart, EOT_LOGIC_PART_ID+PART_DAILYWELFARE, NFPart)
-
 NFDailyWelfarePart::NFDailyWelfarePart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

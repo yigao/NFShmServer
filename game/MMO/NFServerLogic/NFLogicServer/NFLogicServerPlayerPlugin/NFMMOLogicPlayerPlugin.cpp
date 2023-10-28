@@ -43,7 +43,7 @@
 #include "Player/NFGrowPart.h"
 #include "Player/NFMallPart.h"
 #include "Player/NFMarryPart.h"
-#include "Player/NFMIniActivity.h"
+#include "Player/NFMiniActivityPart.h"
 #include "Player/NFMiniPart.h"
 #include "Player/NFMissionPart.h"
 #include "Player/NFMountPart.h"
@@ -147,7 +147,7 @@ bool NFMMOLogicPlayerPlugin::InitShmObjectRegister()
     REGISTER_SHM_OBJ(NFGVBPDataPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFMallPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFMarryPart, maxOnlinePlayerNum);
-    REGISTER_SHM_OBJ(NFMIniActivity, maxOnlinePlayerNum);
+    REGISTER_SHM_OBJ(NFMiniActivityPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFMiniPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFMissionPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFMountPart, maxOnlinePlayerNum);

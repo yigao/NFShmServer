@@ -17,7 +17,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFConvoyPart : public NFPart
+class NFConvoyPart : public NFShmObjTemplate<NFConvoyPart, EOT_LOGIC_PART_ID+PART_CONVOY, NFPart>
 {
 public:
     NFConvoyPart();
@@ -27,7 +27,4 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFConvoyPart)
 };
