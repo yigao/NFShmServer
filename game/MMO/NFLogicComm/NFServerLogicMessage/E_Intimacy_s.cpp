@@ -40,8 +40,8 @@ E_IntimacyIntimacy_s::E_IntimacyIntimacy_s() {
 
 int E_IntimacyIntimacy_s::CreateInit() {
 	m_lv = (int32_t)0;
-	m_intimacymin = (int32_t)0;
-	m_intimacymax = (int32_t)0;
+	m_intimacyMin = (int32_t)0;
+	m_intimacyMax = (int32_t)0;
 	return 0;
 }
 
@@ -51,8 +51,8 @@ int E_IntimacyIntimacy_s::ResumeInit() {
 
 void E_IntimacyIntimacy_s::write_to_pbmsg(::proto_ff::E_IntimacyIntimacy & msg) const {
 	msg.set_m_lv((int32_t)m_lv);
-	msg.set_m_intimacymin((int32_t)m_intimacymin);
-	msg.set_m_intimacymax((int32_t)m_intimacymax);
+	msg.set_m_intimacymin((int32_t)m_intimacyMin);
+	msg.set_m_intimacymax((int32_t)m_intimacyMax);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_IntimacyIntimacyAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
@@ -61,8 +61,8 @@ void E_IntimacyIntimacy_s::write_to_pbmsg(::proto_ff::E_IntimacyIntimacy & msg) 
 
 void E_IntimacyIntimacy_s::read_from_pbmsg(const ::proto_ff::E_IntimacyIntimacy & msg) {
 	m_lv = msg.m_lv();
-	m_intimacymin = msg.m_intimacymin();
-	m_intimacymax = msg.m_intimacymax();
+	m_intimacyMin = msg.m_intimacymin();
+	m_intimacyMax = msg.m_intimacymax();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_IntimacyIntimacyAttributeDesc & temp_m_attribute = msg.m_attribute(i);
@@ -111,8 +111,8 @@ E_IntimacyGift_s::E_IntimacyGift_s() {
 
 int E_IntimacyGift_s::CreateInit() {
 	m_mallid = (int32_t)0;
-	m_itemid = (int32_t)0;
-	m_nametype = (int32_t)0;
+	m_itemId = (int32_t)0;
+	m_nameType = (int32_t)0;
 	m_intimacy = (int32_t)0;
 	m_charm = (int32_t)0;
 	return 0;
@@ -124,18 +124,18 @@ int E_IntimacyGift_s::ResumeInit() {
 
 void E_IntimacyGift_s::write_to_pbmsg(::proto_ff::E_IntimacyGift & msg) const {
 	msg.set_m_mallid((int32_t)m_mallid);
-	msg.set_m_itemid((int32_t)m_itemid);
-	msg.set_m_nametype((int32_t)m_nametype);
-	msg.set_m_uipic(m_uipic.data());
+	msg.set_m_itemid((int32_t)m_itemId);
+	msg.set_m_nametype((int32_t)m_nameType);
+	msg.set_m_uipic(m_uiPic.data());
 	msg.set_m_intimacy((int32_t)m_intimacy);
 	msg.set_m_charm((int32_t)m_charm);
 }
 
 void E_IntimacyGift_s::read_from_pbmsg(const ::proto_ff::E_IntimacyGift & msg) {
 	m_mallid = msg.m_mallid();
-	m_itemid = msg.m_itemid();
-	m_nametype = msg.m_nametype();
-	m_uipic = msg.m_uipic();
+	m_itemId = msg.m_itemid();
+	m_nameType = msg.m_nametype();
+	m_uiPic = msg.m_uipic();
 	m_intimacy = msg.m_intimacy();
 	m_charm = msg.m_charm();
 }

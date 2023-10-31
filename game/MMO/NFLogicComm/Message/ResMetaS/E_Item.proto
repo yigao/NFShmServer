@@ -7,27 +7,27 @@ message E_ItemItem
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "物品ID"];
 	optional string m_name = 2[(yd_fieldoptions.field_cname) = "物品名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_itemtype = 3[(yd_fieldoptions.field_cname) = "物品类型"];
-	optional int32 m_subtype = 4[(yd_fieldoptions.field_cname) = "子类型"];
-	optional int32 m_functiontype = 5[(yd_fieldoptions.field_cname) = "物品功能类型"];
-	optional string m_functionvalue = 6[(yd_fieldoptions.field_cname) = "物品功能参数", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_itemType = 3[(yd_fieldoptions.field_cname) = "物品类型"];
+	optional int32 m_subType = 4[(yd_fieldoptions.field_cname) = "子类型"];
+	optional int32 m_functionType = 5[(yd_fieldoptions.field_cname) = "物品功能类型"];
+	optional string m_functionValue = 6[(yd_fieldoptions.field_cname) = "物品功能参数", (yd_fieldoptions.field_bufsize) = 64];
 	optional string m_usecondition = 7[(yd_fieldoptions.field_cname) = "使用条件", (yd_fieldoptions.field_bufsize) = 64];
-	optional int64 m_waiguanlink = 8[(yd_fieldoptions.field_cname) = "外观id"];
+	optional int64 m_waiguanLink = 8[(yd_fieldoptions.field_cname) = "外观id"];
 	optional int32 m_level = 9[(yd_fieldoptions.field_cname) = "物品等级"];
 	optional int32 m_quality = 10[(yd_fieldoptions.field_cname) = "物品品质"];
-	optional int32 m_levelrequest = 11[(yd_fieldoptions.field_cname) = "使用等级"];
+	optional int32 m_levelRequest = 11[(yd_fieldoptions.field_cname) = "使用等级"];
 	optional string m_profession = 12[(yd_fieldoptions.field_cname) = "使用职业", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_bindtype = 13[(yd_fieldoptions.field_cname) = "绑定类型"];
-	optional int32 m_istradebind = 14[(yd_fieldoptions.field_cname) = "是否交易绑定"];
-	optional int32 m_dropnum = 15[(yd_fieldoptions.field_cname) = "每日掉落上限"];
-	optional int32 m_stacklimit = 16[(yd_fieldoptions.field_cname) = "堆叠上限"];
-	optional int32 m_sellprice = 17[(yd_fieldoptions.field_cname) = "出售价格"];
-	optional int64 m_sellbox = 18[(yd_fieldoptions.field_cname) = "出售掉落"];
+	optional int32 m_bindType = 13[(yd_fieldoptions.field_cname) = "绑定类型"];
+	optional int32 m_isTradeBind = 14[(yd_fieldoptions.field_cname) = "是否交易绑定"];
+	optional int32 m_dropNum = 15[(yd_fieldoptions.field_cname) = "每日掉落上限"];
+	optional int32 m_stackLimit = 16[(yd_fieldoptions.field_cname) = "堆叠上限"];
+	optional int32 m_sellPrice = 17[(yd_fieldoptions.field_cname) = "出售价格"];
+	optional int64 m_sellBox = 18[(yd_fieldoptions.field_cname) = "出售掉落"];
 	optional int32 m_broadcast = 19[(yd_fieldoptions.field_cname) = "是否跑马灯广播"];
-	optional int32 m_iscanbatchuse = 20[(yd_fieldoptions.field_cname) = "是否可批量使用"];
-	optional int32 m_dayuse = 21[(yd_fieldoptions.field_cname) = "每日使用次数"];
+	optional int32 m_isCanBatchUse = 20[(yd_fieldoptions.field_cname) = "是否可批量使用"];
+	optional int32 m_dayUse = 21[(yd_fieldoptions.field_cname) = "每日使用次数"];
 	optional int32 m_time = 22[(yd_fieldoptions.field_cname) = "限时道具"];
-	optional string m_uselimit = 23[(yd_fieldoptions.field_cname) = "禁用本道具地图", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_useLimit = 23[(yd_fieldoptions.field_cname) = "禁用本道具地图", (yd_fieldoptions.field_bufsize) = 64];
 }
 
 

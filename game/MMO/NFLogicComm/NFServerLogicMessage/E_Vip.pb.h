@@ -129,31 +129,31 @@ class E_VipVip : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_privilege_group() const;
   inline void set_m_privilege_group(::google::protobuf::int32 value);
 
-  // optional int32 m_dailybox = 5;
+  // optional int32 m_dailyBox = 5;
   inline bool has_m_dailybox() const;
   inline void clear_m_dailybox();
-  static const int kMDailyboxFieldNumber = 5;
+  static const int kMDailyBoxFieldNumber = 5;
   inline ::google::protobuf::int32 m_dailybox() const;
   inline void set_m_dailybox(::google::protobuf::int32 value);
 
-  // optional int32 m_vipgift = 6;
+  // optional int32 m_vipGift = 6;
   inline bool has_m_vipgift() const;
   inline void clear_m_vipgift();
-  static const int kMVipgiftFieldNumber = 6;
+  static const int kMVipGiftFieldNumber = 6;
   inline ::google::protobuf::int32 m_vipgift() const;
   inline void set_m_vipgift(::google::protobuf::int32 value);
 
-  // optional int32 m_pricetype = 7;
+  // optional int32 m_priceType = 7;
   inline bool has_m_pricetype() const;
   inline void clear_m_pricetype();
-  static const int kMPricetypeFieldNumber = 7;
+  static const int kMPriceTypeFieldNumber = 7;
   inline ::google::protobuf::int32 m_pricetype() const;
   inline void set_m_pricetype(::google::protobuf::int32 value);
 
-  // optional int32 m_originalprice = 8;
+  // optional int32 m_originalPrice = 8;
   inline bool has_m_originalprice() const;
   inline void clear_m_originalprice();
-  static const int kMOriginalpriceFieldNumber = 8;
+  static const int kMOriginalPriceFieldNumber = 8;
   inline ::google::protobuf::int32 m_originalprice() const;
   inline void set_m_originalprice(::google::protobuf::int32 value);
 
@@ -734,66 +734,66 @@ class E_VipCosntant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_fvipprice = 2;
+  // optional int32 m_FVipPrice = 2;
   inline bool has_m_fvipprice() const;
   inline void clear_m_fvipprice();
-  static const int kMFvippriceFieldNumber = 2;
+  static const int kMFVipPriceFieldNumber = 2;
   inline ::google::protobuf::int32 m_fvipprice() const;
   inline void set_m_fvipprice(::google::protobuf::int32 value);
 
-  // optional int32 m_fviprtime = 3;
+  // optional int32 m_FVipRtime = 3;
   inline bool has_m_fviprtime() const;
   inline void clear_m_fviprtime();
-  static const int kMFviprtimeFieldNumber = 3;
+  static const int kMFVipRtimeFieldNumber = 3;
   inline ::google::protobuf::int32 m_fviprtime() const;
   inline void set_m_fviprtime(::google::protobuf::int32 value);
 
-  // optional int32 m_fvipprivage = 4;
+  // optional int32 m_FVipPrivage = 4;
   inline bool has_m_fvipprivage() const;
   inline void clear_m_fvipprivage();
-  static const int kMFvipprivageFieldNumber = 4;
+  static const int kMFVipPrivageFieldNumber = 4;
   inline ::google::protobuf::int32 m_fvipprivage() const;
   inline void set_m_fvipprivage(::google::protobuf::int32 value);
 
-  // optional int32 m_fviplv = 5;
+  // optional int32 m_Fviplv = 5;
   inline bool has_m_fviplv() const;
   inline void clear_m_fviplv();
   static const int kMFviplvFieldNumber = 5;
   inline ::google::protobuf::int32 m_fviplv() const;
   inline void set_m_fviplv(::google::protobuf::int32 value);
 
-  // optional int32 m_fvipexp = 6;
+  // optional int32 m_Fvipexp = 6;
   inline bool has_m_fvipexp() const;
   inline void clear_m_fvipexp();
   static const int kMFvipexpFieldNumber = 6;
   inline ::google::protobuf::int32 m_fvipexp() const;
   inline void set_m_fvipexp(::google::protobuf::int32 value);
 
-  // optional int32 m_vipitemicon = 7;
+  // optional int32 m_VipItemIcon = 7;
   inline bool has_m_vipitemicon() const;
   inline void clear_m_vipitemicon();
-  static const int kMVipitemiconFieldNumber = 7;
+  static const int kMVipItemIconFieldNumber = 7;
   inline ::google::protobuf::int32 m_vipitemicon() const;
   inline void set_m_vipitemicon(::google::protobuf::int32 value);
 
-  // optional int32 m_foreverguide = 8;
+  // optional int32 m_foreverGuide = 8;
   inline bool has_m_foreverguide() const;
   inline void clear_m_foreverguide();
-  static const int kMForeverguideFieldNumber = 8;
+  static const int kMForeverGuideFieldNumber = 8;
   inline ::google::protobuf::int32 m_foreverguide() const;
   inline void set_m_foreverguide(::google::protobuf::int32 value);
 
-  // optional int32 m_unactiveguide = 9;
+  // optional int32 m_unActiveGuide = 9;
   inline bool has_m_unactiveguide() const;
   inline void clear_m_unactiveguide();
-  static const int kMUnactiveguideFieldNumber = 9;
+  static const int kMUnActiveGuideFieldNumber = 9;
   inline ::google::protobuf::int32 m_unactiveguide() const;
   inline void set_m_unactiveguide(::google::protobuf::int32 value);
 
-  // optional int32 m_vipexp = 10;
+  // optional int32 m_vipExp = 10;
   inline bool has_m_vipexp() const;
   inline void clear_m_vipexp();
-  static const int kMVipexpFieldNumber = 10;
+  static const int kMVipExpFieldNumber = 10;
   inline ::google::protobuf::int32 m_vipexp() const;
   inline void set_m_vipexp(::google::protobuf::int32 value);
 
@@ -1200,7 +1200,7 @@ inline void E_VipVip::set_m_privilege_group(::google::protobuf::int32 value) {
   m_privilege_group_ = value;
 }
 
-// optional int32 m_dailybox = 5;
+// optional int32 m_dailyBox = 5;
 inline bool E_VipVip::has_m_dailybox() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1222,7 +1222,7 @@ inline void E_VipVip::set_m_dailybox(::google::protobuf::int32 value) {
   m_dailybox_ = value;
 }
 
-// optional int32 m_vipgift = 6;
+// optional int32 m_vipGift = 6;
 inline bool E_VipVip::has_m_vipgift() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -1244,7 +1244,7 @@ inline void E_VipVip::set_m_vipgift(::google::protobuf::int32 value) {
   m_vipgift_ = value;
 }
 
-// optional int32 m_pricetype = 7;
+// optional int32 m_priceType = 7;
 inline bool E_VipVip::has_m_pricetype() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -1266,7 +1266,7 @@ inline void E_VipVip::set_m_pricetype(::google::protobuf::int32 value) {
   m_pricetype_ = value;
 }
 
-// optional int32 m_originalprice = 8;
+// optional int32 m_originalPrice = 8;
 inline bool E_VipVip::has_m_originalprice() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -1611,7 +1611,7 @@ inline void E_VipCosntant::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_fvipprice = 2;
+// optional int32 m_FVipPrice = 2;
 inline bool E_VipCosntant::has_m_fvipprice() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1633,7 +1633,7 @@ inline void E_VipCosntant::set_m_fvipprice(::google::protobuf::int32 value) {
   m_fvipprice_ = value;
 }
 
-// optional int32 m_fviprtime = 3;
+// optional int32 m_FVipRtime = 3;
 inline bool E_VipCosntant::has_m_fviprtime() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1655,7 +1655,7 @@ inline void E_VipCosntant::set_m_fviprtime(::google::protobuf::int32 value) {
   m_fviprtime_ = value;
 }
 
-// optional int32 m_fvipprivage = 4;
+// optional int32 m_FVipPrivage = 4;
 inline bool E_VipCosntant::has_m_fvipprivage() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1677,7 +1677,7 @@ inline void E_VipCosntant::set_m_fvipprivage(::google::protobuf::int32 value) {
   m_fvipprivage_ = value;
 }
 
-// optional int32 m_fviplv = 5;
+// optional int32 m_Fviplv = 5;
 inline bool E_VipCosntant::has_m_fviplv() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1699,7 +1699,7 @@ inline void E_VipCosntant::set_m_fviplv(::google::protobuf::int32 value) {
   m_fviplv_ = value;
 }
 
-// optional int32 m_fvipexp = 6;
+// optional int32 m_Fvipexp = 6;
 inline bool E_VipCosntant::has_m_fvipexp() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -1721,7 +1721,7 @@ inline void E_VipCosntant::set_m_fvipexp(::google::protobuf::int32 value) {
   m_fvipexp_ = value;
 }
 
-// optional int32 m_vipitemicon = 7;
+// optional int32 m_VipItemIcon = 7;
 inline bool E_VipCosntant::has_m_vipitemicon() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -1743,7 +1743,7 @@ inline void E_VipCosntant::set_m_vipitemicon(::google::protobuf::int32 value) {
   m_vipitemicon_ = value;
 }
 
-// optional int32 m_foreverguide = 8;
+// optional int32 m_foreverGuide = 8;
 inline bool E_VipCosntant::has_m_foreverguide() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -1765,7 +1765,7 @@ inline void E_VipCosntant::set_m_foreverguide(::google::protobuf::int32 value) {
   m_foreverguide_ = value;
 }
 
-// optional int32 m_unactiveguide = 9;
+// optional int32 m_unActiveGuide = 9;
 inline bool E_VipCosntant::has_m_unactiveguide() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -1787,7 +1787,7 @@ inline void E_VipCosntant::set_m_unactiveguide(::google::protobuf::int32 value) 
   m_unactiveguide_ = value;
 }
 
-// optional int32 m_vipexp = 10;
+// optional int32 m_vipExp = 10;
 inline bool E_VipCosntant::has_m_vipexp() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }

@@ -43,15 +43,15 @@ namespace proto_ff_s {
 		virtual ~E_ArenaRobot_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_arenaid;//竞技场排名ID
+		int32_t m_arenaId;//竞技场排名ID
 		NFShmString<64> m_robotname;//机器人名称
-		int32_t m_aiid;//aiID
-		int32_t m_rankid;//排名id
-		int32_t m_robotprofession;//机器人职业
-		int32_t m_robotlv;//机器人等级
+		int32_t m_aiId;//aiID
+		int32_t m_rankId;//排名id
+		int32_t m_robotProfession;//机器人职业
+		int32_t m_robotLv;//机器人等级
 		int32_t m_sword;//战力
-		int32_t m_facadeid;//外观ID
-		int32_t m_occupationid;//转职ID
+		int32_t m_facadeID;//外观ID
+		int32_t m_occupationID;//转职ID
 		NFShmVector<struct E_ArenaRobotAttrDesc_s, DEFINE_E_ARENAROBOT_M_ATTR_MAX_NUM> m_attr;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_ArenaRobot & msg) const;
@@ -125,8 +125,8 @@ namespace proto_ff_s {
 		virtual ~E_ArenaArenawardRewardDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_value;//数量
-		int32_t m_id;//ID
+		int32_t m_Value;//数量
+		int32_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_ArenaArenawardRewardDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ArenaArenawardRewardDesc & msg);
@@ -141,9 +141,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_lvdown;//下限等级
-		int32_t m_lvup;//上限等级
-		NFShmVector<struct E_ArenaArenawardRewardDesc_s, DEFINE_E_ARENAARENAWARD_M_REWARD_MAX_NUM> m_reward;//奖励物品
+		int32_t m_lvDown;//下限等级
+		int32_t m_lvUp;//上限等级
+		NFShmVector<struct E_ArenaArenawardRewardDesc_s, DEFINE_E_ARENAARENAWARD_M_REWARD_MAX_NUM> m_Reward;//奖励物品
 
 		virtual void write_to_pbmsg(::proto_ff::E_ArenaArenaward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ArenaArenaward & msg);
@@ -171,8 +171,8 @@ namespace proto_ff_s {
 		virtual ~E_ArenaRankawardRewardDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_value;//数量
-		int32_t m_id;//ID
+		int32_t m_Value;//数量
+		int32_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_ArenaRankawardRewardDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ArenaRankawardRewardDesc & msg);
@@ -186,10 +186,10 @@ namespace proto_ff_s {
 		virtual ~E_ArenaRankaward_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_prizeid;//奖励ID
-		int32_t m_arenadown;//下限排名
-		int32_t m_arenaup;//上限排名
-		NFShmVector<struct E_ArenaRankawardRewardDesc_s, DEFINE_E_ARENARANKAWARD_M_REWARD_MAX_NUM> m_reward;//奖励物品
+		int32_t m_PrizeId;//奖励ID
+		int32_t m_arenaDown;//下限排名
+		int32_t m_arenaUp;//上限排名
+		NFShmVector<struct E_ArenaRankawardRewardDesc_s, DEFINE_E_ARENARANKAWARD_M_REWARD_MAX_NUM> m_Reward;//奖励物品
 
 		virtual void write_to_pbmsg(::proto_ff::E_ArenaRankaward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ArenaRankaward & msg);
@@ -217,8 +217,8 @@ namespace proto_ff_s {
 		virtual ~E_ArenaFirstrankRewardDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_value;//数量
-		int32_t m_id;//ID
+		int32_t m_Value;//数量
+		int32_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_ArenaFirstrankRewardDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ArenaFirstrankRewardDesc & msg);
@@ -233,9 +233,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_rankdown;//下限排名
-		int32_t m_rankup;//上限排名
-		NFShmVector<struct E_ArenaFirstrankRewardDesc_s, DEFINE_E_ARENAFIRSTRANK_M_REWARD_MAX_NUM> m_reward;//奖励物品
+		int32_t m_rankDown;//下限排名
+		int32_t m_rankUp;//上限排名
+		NFShmVector<struct E_ArenaFirstrankRewardDesc_s, DEFINE_E_ARENAFIRSTRANK_M_REWARD_MAX_NUM> m_Reward;//奖励物品
 
 		virtual void write_to_pbmsg(::proto_ff::E_ArenaFirstrank & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ArenaFirstrank & msg);
@@ -264,7 +264,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_count;//购买计次
-		int32_t m_costtype;//花费类型
+		int32_t m_costType;//花费类型
 		int32_t m_cost;//花费
 
 		virtual void write_to_pbmsg(::proto_ff::E_ArenaBuychallenge & msg) const;

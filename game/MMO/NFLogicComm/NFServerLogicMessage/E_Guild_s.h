@@ -38,81 +38,81 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_constantid;//配置id
-		int32_t m_setitem;//创建公会需要道具ID
-		int32_t m_nameitem;//公会改名需要道具ID
-		int32_t m_editrequirelv;//修改公会公告要求公告等级
-		int32_t m_giftcd;//红包清理时间
+		int32_t m_setItem;//创建公会需要道具ID
+		int32_t m_nameItem;//公会改名需要道具ID
+		int32_t m_EditRequireLV;//修改公会公告要求公告等级
+		int32_t m_giftCD;//红包清理时间
 		int32_t m_dismiss;//解散公会时间
-		int32_t m_transferguild;//代理会长可申请时间
+		int32_t m_transferGuild;//代理会长可申请时间
 		int32_t m_territory;//公会领地场景id
-		int32_t m_autominlv;//自动审批最低等级
-		int32_t m_autominbp;//自动审批最低战力
-		int32_t m_donatetimes;//捐款次数
-		int32_t m_packetmaxd;//红包绑钻每日限制
-		int32_t m_packetmaxbd;//红包魔晶每日限制
-		int32_t m_packetmaxsend;//自费红包限制
+		int32_t m_autoMinLV;//自动审批最低等级
+		int32_t m_autoMinBP;//自动审批最低战力
+		int32_t m_donateTimes;//捐款次数
+		int32_t m_packetMaxD;//红包绑钻每日限制
+		int32_t m_packetMaxBD;//红包魔晶每日限制
+		int32_t m_packetMaxSend;//自费红包限制
 		int32_t m_packetvip;//红包加成的vip等级
-		int32_t m_packetadd;//红包加成比例
-		int32_t m_prestigetasonekeyvip;//声望任务一键vip
-		int32_t m_prestigetasonekeylv;//声望任务一键viplv
-		int32_t m_prestigetaskprivage;//声望任务特权id
-		int32_t m_prestigetaskflash;//声望任务免费刷新次数
-		int32_t m_prestigetaskflashprice;//声望任务付费刷新价格
-		int32_t m_prestigetasktimes;//声望任务每日次数
-		int32_t m_rewardcd;//晚宴持续收益间隔
+		int32_t m_packetAdd;//红包加成比例
+		int32_t m_prestigeTasOneKeyVIP;//声望任务一键vip
+		int32_t m_prestigeTasOneKeyLV;//声望任务一键viplv
+		int32_t m_prestigeTaskPrivage;//声望任务特权id
+		int32_t m_prestigeTaskFlash;//声望任务免费刷新次数
+		int32_t m_prestigeTaskflashPrice;//声望任务付费刷新价格
+		int32_t m_prestigeTaskTimes;//声望任务每日次数
+		int32_t m_rewardCD;//晚宴持续收益间隔
 		int32_t m_answerdelay;//晚宴答题间隔
-		int32_t m_answernum;//题目数
-		int32_t m_answertime;//每道题的最长作答事件
-		int32_t m_answerresulttime;//每道题的答案时间
-		int32_t m_answerlimit;//答题限时奖励
-		int32_t m_answerfirst;//答题首答奖励
-		int32_t m_answersuccess;//答题答对奖励
-		int32_t m_answebasics;//答题安慰奖励
-		int32_t m_linklvupper;//传功每级提高经验万分比
-		int32_t m_linklvupmax;//传功提高经验上限
-		int32_t m_linktime;//传功的行为时间
-		int32_t m_monsterid;//采集物id
+		int32_t m_answerNum;//题目数
+		int32_t m_answerTime;//每道题的最长作答事件
+		int32_t m_answerResultTime;//每道题的答案时间
+		int32_t m_answerLimit;//答题限时奖励
+		int32_t m_answerFirst;//答题首答奖励
+		int32_t m_answerSuccess;//答题答对奖励
+		int32_t m_answeBasics;//答题安慰奖励
+		int32_t m_linkLvUpPer;//传功每级提高经验万分比
+		int32_t m_linkLvUpMax;//传功提高经验上限
+		int32_t m_linkTime;//传功的行为时间
+		int32_t m_monsterID;//采集物id
 		int32_t m_point;//采集物刷新点
-		int32_t m_collecttimes;//每次开启可采集次数
-		int32_t m_shens_daytimes;//神兽每日次数
-		int32_t m_shens_weektimes;//神兽每周次数
+		int32_t m_collectTimes;//每次开启可采集次数
+		int32_t m_shens_dayTimes;//神兽每日次数
+		int32_t m_shens_weekTimes;//神兽每周次数
 		int32_t m_shens_dup;//神兽副本id
-		int32_t m_shensitem;//神兽祭品id
-		int32_t m_shenscost;//神兽祭品消耗
-		int32_t m_shenscostactive;//神兽祭品消耗
+		int32_t m_shensItem;//神兽祭品id
+		int32_t m_shensCost;//神兽祭品消耗
+		int32_t m_shensCostActive;//神兽祭品消耗
 		int32_t m_shouh_dup;//守护副本id
-		int32_t m_shouhexpskill;//守护副本技能
-		NFShmString<64> m_shouhmosid;//守护npcid
-		int32_t m_gwdupid;//帮派战副本id
-		int32_t m_gwbattletime;//帮派战单场时间
-		int32_t m_gwresttime;//帮派战休息时间
-		int32_t m_gwcentermid;//帮派战水晶怪物id
-		int32_t m_gwtowermid;//帮派战塔怪物id
-		int32_t m_gwtankmid;//帮派战车怪物id
-		int32_t m_gwbornrpoint;//帮派战红出生point
-		int32_t m_gwcenterrpoint;//帮派战红水晶point
-		NFShmString<64> m_gwtowerrpoint;//帮派战红塔point
-		int32_t m_gwtankrpoint;//帮派红战车point
-		int32_t m_gwbornbpoint;//帮派战蓝出生point
-		int32_t m_gwcenterbpoint;//帮派战蓝水晶point
-		NFShmString<64> m_gwtowerbpoint;//帮派战蓝塔point
-		int32_t m_gwtankbpoint;//帮派蓝战车point
-		int32_t m_tanknum;//战车初始数量
-		int32_t m_tankresttime;//战车补充间隔
-		int32_t m_tankrestnum;//战车补充数量
-		int32_t m_dominatedaily;//主宰神殿每日奖励
-		int32_t m_dominatebossreward;//主宰神殿会长临时奖励
-		int32_t m_freepoint;//每次获得的积分
-		int32_t m_deffreepoint;//处于防御塔范围额外积分
-		int32_t m_playerpoint;//击杀玩家积分
-		int32_t m_tankpoint;//击杀工程车积分
-		int32_t m_towerpoint;//机破防御塔积分
-		int32_t m_centerpoint;//水晶积分
-		int32_t m_assistradio;//助攻的积分系数
-		int32_t m_tteamdamageadd;//组队增加伤害
-		int32_t m_tweekclosetime;//周结算前关闭时间
-		int32_t m_cyclicreward;//周环任务普通奖励
-		int32_t m_tencyclicreward;//周环任务十环奖励
+		int32_t m_shouhExpSkill;//守护副本技能
+		NFShmString<64> m_shouhMosId;//守护npcid
+		int32_t m_GWDupid;//帮派战副本id
+		int32_t m_GWBattleTime;//帮派战单场时间
+		int32_t m_GWRestTime;//帮派战休息时间
+		int32_t m_GWCenterMID;//帮派战水晶怪物id
+		int32_t m_GWTowerMID;//帮派战塔怪物id
+		int32_t m_GWTankMID;//帮派战车怪物id
+		int32_t m_GWBornRPoint;//帮派战红出生point
+		int32_t m_GWCenterRPoint;//帮派战红水晶point
+		NFShmString<64> m_GWTowerRPoint;//帮派战红塔point
+		int32_t m_GWTankRPoint;//帮派红战车point
+		int32_t m_GWBornBPoint;//帮派战蓝出生point
+		int32_t m_GWCenterBPoint;//帮派战蓝水晶point
+		NFShmString<64> m_GWTowerBPoint;//帮派战蓝塔point
+		int32_t m_GWTankBPoint;//帮派蓝战车point
+		int32_t m_tankNum;//战车初始数量
+		int32_t m_tankRestTime;//战车补充间隔
+		int32_t m_tankRestNum;//战车补充数量
+		int32_t m_dominateDaily;//主宰神殿每日奖励
+		int32_t m_dominateBossReward;//主宰神殿会长临时奖励
+		int32_t m_freePoint;//每次获得的积分
+		int32_t m_defFreePoint;//处于防御塔范围额外积分
+		int32_t m_playerPoint;//击杀玩家积分
+		int32_t m_tankPoint;//击杀工程车积分
+		int32_t m_towerPoint;//机破防御塔积分
+		int32_t m_centerPoint;//水晶积分
+		int32_t m_assistRadio;//助攻的积分系数
+		int32_t m_TTeamDamageAdd;//组队增加伤害
+		int32_t m_TWeekCloseTime;//周结算前关闭时间
+		int32_t m_cyclicReward;//周环任务普通奖励
+		int32_t m_tenCyclicReward;//周环任务十环奖励
 
 		virtual void write_to_pbmsg(::proto_ff::E_GuildConstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GuildConstant & msg);
@@ -140,12 +140,12 @@ namespace proto_ff_s {
 		virtual ~E_GuildLevel_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_guildlevel;//公会等级
-		int32_t m_guildlevel_exp;//公会升级经验
-		int32_t m_guildlevel_member;//公会成员总人数
-		int32_t m_guildlevel_vp;//公会副会长人数
-		int32_t m_guildlevel_np;//公会长老数
-		int32_t m_guildlevel_g;//护法人数
+		int32_t m_guildLevel;//公会等级
+		int32_t m_guildLevel_EXP;//公会升级经验
+		int32_t m_guildLevel_member;//公会成员总人数
+		int32_t m_guildLevel_VP;//公会副会长人数
+		int32_t m_guildLevel_NP;//公会长老数
+		int32_t m_guildLevel_G;//护法人数
 
 		virtual void write_to_pbmsg(::proto_ff::E_GuildLevel & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GuildLevel & msg);
@@ -173,24 +173,24 @@ namespace proto_ff_s {
 		virtual ~E_GuildPosition_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_positionid;//职位ID
-		int32_t m_admitnewcomer;//接收新成员
-		int32_t m_appointandremovevp;//任命/解除副会长
-		int32_t m_appointandremoveelder;//任命/解除长老
-		int32_t m_appointandremoveg;//任命/解除护法
-		int32_t m_appointandremoveelite;//任命/解除精英
-		int32_t m_expelvp;//踢出副会长
-		int32_t m_expelelder;//踢出长老
-		int32_t m_expelg;//踢出护法
-		int32_t m_expelmass;//踢出普通成员
-		int32_t m_announcementediting;//编辑公告
-		int32_t m_rname;//修改名字
-		int32_t m_joincondition;//设置加入方式
-		int32_t m_guildactivity;//开启公会玩法
-		int32_t m_dissolveassignguild;//解散/转让公会
-		int32_t m_changename;//改名权限
-		int32_t m_recruitchat;//发布招贤纳士
-		int32_t m_guildpacket;//发送公会玩法红包
+		int32_t m_positionId;//职位ID
+		int32_t m_admitNewcomer;//接收新成员
+		int32_t m_appointAndRemoveVP;//任命/解除副会长
+		int32_t m_appointAndRemoveElder;//任命/解除长老
+		int32_t m_appointAndRemoveG;//任命/解除护法
+		int32_t m_appointAndRemoveElite;//任命/解除精英
+		int32_t m_expelVP;//踢出副会长
+		int32_t m_expelElder;//踢出长老
+		int32_t m_expelG;//踢出护法
+		int32_t m_expelMass;//踢出普通成员
+		int32_t m_announcementEditing;//编辑公告
+		int32_t m_rName;//修改名字
+		int32_t m_joinCondition;//设置加入方式
+		int32_t m_guildActivity;//开启公会玩法
+		int32_t m_dissolveAssignGuild;//解散/转让公会
+		int32_t m_changeName;//改名权限
+		int32_t m_recruitChat;//发布招贤纳士
+		int32_t m_guildPacket;//发送公会玩法红包
 
 		virtual void write_to_pbmsg(::proto_ff::E_GuildPosition & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GuildPosition & msg);
@@ -233,9 +233,9 @@ namespace proto_ff_s {
 		virtual ~E_GuildSalary_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//ID
+		int32_t m_ID;//ID
 		int32_t m_type;//任务类型
-		int32_t m_typearg;//类型参数
+		int32_t m_typeArg;//类型参数
 		int32_t m_times;//次数参数
 		NFShmVector<struct E_GuildSalaryRewardDesc_s, DEFINE_E_GUILDSALARY_M_REWARD_MAX_NUM> m_reward;//奖励
 
@@ -280,9 +280,9 @@ namespace proto_ff_s {
 		virtual ~E_GuildDonate_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//ID
-		int32_t m_costitem;//花费物品id
-		int32_t m_costnum;//花费物品数量
+		int32_t m_ID;//ID
+		int32_t m_costItem;//花费物品id
+		int32_t m_costNum;//花费物品数量
 		NFShmVector<struct E_GuildDonateRewardDesc_s, DEFINE_E_GUILDDONATE_M_REWARD_MAX_NUM> m_reward;//奖励
 
 		virtual void write_to_pbmsg(::proto_ff::E_GuildDonate & msg) const;
@@ -311,12 +311,12 @@ namespace proto_ff_s {
 		virtual ~E_GuildPacket_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//红包ID
-		int32_t m_belongtype;//红包归属类型
+		int32_t m_ID;//红包ID
+		int32_t m_belongType;//红包归属类型
 		int32_t m_type;//红包触发类型
-		int32_t m_typearg;//类型参数
-		int32_t m_itemid;//红包领取类型
-		int32_t m_itemnum;//红包金额
+		int32_t m_typeArg;//类型参数
+		int32_t m_itemID;//红包领取类型
+		int32_t m_itemNum;//红包金额
 		int32_t m_num;//红包份数
 		int32_t m_pre;//前置红包
 		int32_t m_daily;//每日限制触发次数
@@ -347,10 +347,10 @@ namespace proto_ff_s {
 		virtual ~E_GuildPrestigetask_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//id
+		int32_t m_ID;//id
 		int32_t m_level;//任务分级
-		int32_t m_lvmin;//等级下限
-		int32_t m_lvmax;//等级上限
+		int32_t m_lvMin;//等级下限
+		int32_t m_lvMax;//等级上限
 		int32_t m_weight;//权重
 		int32_t m_taskpool;//随机的任务池id
 		int32_t m_reward;//任务奖励类型id
@@ -382,9 +382,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//等级
-		int32_t m_partyexp;//晚宴经验
-		int32_t m_partyeontribution;//晚宴贡献
-		int32_t m_linkexp;//链接经验
+		int32_t m_partyExp;//晚宴经验
+		int32_t m_partyEontribution;//晚宴贡献
+		int32_t m_linkExp;//链接经验
 
 		virtual void write_to_pbmsg(::proto_ff::E_GuildLvreward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GuildLvreward & msg);
@@ -429,12 +429,12 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_uid;//唯一id
 		int32_t m_skillid;//技能id
-		int32_t m_skilllv;//心法等级
-		int32_t m_guildlv;//开放学习需求公会等级
-		int32_t m_playerlvlimit;//要求玩家等级
-		int32_t m_preskillid;//要求前置技能ID
-		int32_t m_preskilllv;//要求前置技能等级
-		int32_t m_costcontribute;//心法消耗贡献
+		int32_t m_skillLv;//心法等级
+		int32_t m_guildLv;//开放学习需求公会等级
+		int32_t m_playerLvLimit;//要求玩家等级
+		int32_t m_preSkillid;//要求前置技能ID
+		int32_t m_preSkillLv;//要求前置技能等级
+		int32_t m_CostContribute;//心法消耗贡献
 		NFShmVector<struct E_GuildCollegeAttributeDesc_s, DEFINE_E_GUILDCOLLEGE_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_GuildCollege & msg) const;
@@ -495,10 +495,10 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_type;//类型
 		NFShmString<64> m_note;//备注
-		int32_t m_rankmin;//排名下限
-		int32_t m_rankmax;//排名上限
-		int32_t m_lvmin;//跨服世界等级下限
-		int32_t m_rewards;//服务器奖励
+		int32_t m_rankMin;//排名下限
+		int32_t m_rankMax;//排名上限
+		int32_t m_lvMin;//跨服世界等级下限
+		int32_t m_rewardS;//服务器奖励
 
 		virtual void write_to_pbmsg(::proto_ff::E_GuildRank_reward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GuildRank_reward & msg);
@@ -526,8 +526,8 @@ namespace proto_ff_s {
 		virtual ~E_GuildShouhskillRewardDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_num;//数量
-		int32_t m_id;//id
+		int32_t m_Num;//数量
+		int32_t m_Id;//id
 
 		virtual void write_to_pbmsg(::proto_ff::E_GuildShouhskillRewardDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GuildShouhskillRewardDesc & msg);
@@ -543,8 +543,8 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		NFShmString<64> m_name;//名称
-		int32_t m_costid;//花费id
-		int32_t m_costnum;//花费数量
+		int32_t m_costId;//花费id
+		int32_t m_costNum;//花费数量
 		int32_t m_skillid;//技能id
 		int32_t m_times;//次数
 		NFShmVector<struct E_GuildShouhskillRewardDesc_s, DEFINE_E_GUILDSHOUHSKILL_M_REWARD_MAX_NUM> m_reward;//奖励
@@ -578,7 +578,7 @@ namespace proto_ff_s {
 		int32_t m_id;//ID
 		int32_t m_type;//类型
 		NFShmString<256> m_reward;//本服奖励
-		NFShmString<256> m_crossreward;//跨服奖励
+		NFShmString<256> m_Crossreward;//跨服奖励
 		NFShmVector<int32_t, DEFINE_E_GUILDGWREWARD_M_ARG_MAX_NUM> m_arg;//参数
 
 		virtual void write_to_pbmsg(::proto_ff::E_GuildGwreward & msg) const;
@@ -608,10 +608,10 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_winstreak;//连胜数
-		int32_t m_winreward;//连胜奖励
-		int32_t m_endreward;//终结奖励
-		int32_t m_challengeskill;//士气技能
+		int32_t m_winStreak;//连胜数
+		int32_t m_winReward;//连胜奖励
+		int32_t m_endReward;//终结奖励
+		int32_t m_challengeSkill;//士气技能
 
 		virtual void write_to_pbmsg(::proto_ff::E_GuildGwwinstreak & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GuildGwwinstreak & msg);
@@ -641,8 +641,8 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_dupid;//副本id
-		int32_t m_breakbox;//通关奖励
-		int32_t m_clearbox;//单次结算奖励
+		int32_t m_breakBox;//通关奖励
+		int32_t m_clearBox;//单次结算奖励
 
 		virtual void write_to_pbmsg(::proto_ff::E_GuildTtower & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GuildTtower & msg);

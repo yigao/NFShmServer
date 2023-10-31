@@ -114,19 +114,19 @@ void protobuf_AddDesc_E_5fMoneyreward_2eproto() {
     "\n\023E_Moneyreward.proto\022\010proto_ff\032\025yd_fiel"
     "doptions.proto\"\311\004\n\030E_MoneyrewardMoneyrew"
     "ard\022,\n\014m_taskreward\030\001 \001(\005B\026\302\377\024\022\344\273\273\345\212\241\345\245\226"
-    "\345\212\261\347\261\273\345\236\213\022-\n\017m_boxtaskreward\030\002 \001(\tB\024\302\377\024\014"
-    "\345\256\235\347\256\261\345\245\226\345\212\261\220\301\024@\0222\n\010m_boxnum\030\003 \001(\tB \302\377\024\030"
+    "\345\212\261\347\261\273\345\236\213\022-\n\017m_boxTaskreward\030\002 \001(\tB\024\302\377\024\014"
+    "\345\256\235\347\256\261\345\245\226\345\212\261\220\301\024@\0222\n\010m_boxNum\030\003 \001(\tB \302\377\024\030"
     "\345\256\235\347\256\261\345\245\226\345\212\261\346\254\241\346\225\260\346\235\241\344\273\266\220\301\024@\022)\n\006m_task\030\004"
     " \001(\005B\031\302\377\024\025\346\212\275\345\217\226\347\232\204\344\273\273\345\212\241\347\261\273\345\236\213\0225\n\tm_tas"
-    "kmax\030\005 \001(\005B\"\302\377\024\036\344\273\273\345\212\241\344\270\212\351\231\220\357\274\210\346\212\275\345\217\226\346\254\241"
-    "\346\225\260\357\274\211\022:\n\nm_oneprice\030\006 \001(\tB&\302\377\024\036\344\270\200\351\224\256\345\256"
-    "\214\346\210\220\345\215\225\346\254\241\350\264\247\345\270\201\344\273\267\346\240\274\220\301\024@\022>\n\016m_freeunlo"
-    "cklv\030\007 \001(\tB&\302\377\024\036\345\205\215\350\264\271\344\270\200\351\224\256\345\274\200\346\224\276\347\255\211\347\272\247"
-    "\345\222\214VIP\220\301\024@\022*\n\007m_viplv\030\010 \001(\005B\031\302\377\024\025\345\217\214\345\200\215\351"
-    "\234\200\346\261\202vip\347\255\211\347\272\247\0222\n\tm_timeget\030\t \001(\005B\037\302\377\024\033\346"
-    "\216\245\345\217\226\344\273\273\345\212\241\345\200\222\350\256\241\346\227\266\346\227\266\351\227\264\0221\n\016m_timegetm"
+    "kMax\030\005 \001(\005B\"\302\377\024\036\344\273\273\345\212\241\344\270\212\351\231\220\357\274\210\346\212\275\345\217\226\346\254\241"
+    "\346\225\260\357\274\211\022:\n\nm_onePrice\030\006 \001(\tB&\302\377\024\036\344\270\200\351\224\256\345\256"
+    "\214\346\210\220\345\215\225\346\254\241\350\264\247\345\270\201\344\273\267\346\240\274\220\301\024@\022>\n\016m_freeUnlo"
+    "ckLv\030\007 \001(\tB&\302\377\024\036\345\205\215\350\264\271\344\270\200\351\224\256\345\274\200\346\224\276\347\255\211\347\272\247"
+    "\345\222\214VIP\220\301\024@\022*\n\007m_vipLV\030\010 \001(\005B\031\302\377\024\025\345\217\214\345\200\215\351"
+    "\234\200\346\261\202vip\347\255\211\347\272\247\0222\n\tm_timeGet\030\t \001(\005B\037\302\377\024\033\346"
+    "\216\245\345\217\226\344\273\273\345\212\241\345\200\222\350\256\241\346\227\266\346\227\266\351\227\264\0221\n\016m_timeGetM"
     "oney\030\n \001(\005B\031\302\377\024\025\351\242\206\345\217\226\345\200\222\350\256\241\346\227\266\346\227\266\351\227\264\022+\n"
-    "\010m_timego\030\013 \001(\005B\031\302\377\024\025\345\211\215\345\276\200\345\200\222\350\256\241\346\227\266\346\227\266\351"
+    "\010m_timeGo\030\013 \001(\005B\031\302\377\024\025\345\211\215\345\276\200\345\200\222\350\256\241\346\227\266\346\227\266\351"
     "\227\264\"o\n\034Sheet_MoneyrewardMoneyreward\022O\n\035E_"
     "MoneyrewardMoneyreward_List\030\001 \003(\0132\".prot"
     "o_ff.E_MoneyrewardMoneyrewardB\004\210\301\024\004", 755);
@@ -150,16 +150,16 @@ struct StaticDescriptorInitializer_E_5fMoneyreward_2eproto {
 
 #ifndef _MSC_VER
 const int E_MoneyrewardMoneyreward::kMTaskrewardFieldNumber;
-const int E_MoneyrewardMoneyreward::kMBoxtaskrewardFieldNumber;
-const int E_MoneyrewardMoneyreward::kMBoxnumFieldNumber;
+const int E_MoneyrewardMoneyreward::kMBoxTaskrewardFieldNumber;
+const int E_MoneyrewardMoneyreward::kMBoxNumFieldNumber;
 const int E_MoneyrewardMoneyreward::kMTaskFieldNumber;
-const int E_MoneyrewardMoneyreward::kMTaskmaxFieldNumber;
-const int E_MoneyrewardMoneyreward::kMOnepriceFieldNumber;
-const int E_MoneyrewardMoneyreward::kMFreeunlocklvFieldNumber;
-const int E_MoneyrewardMoneyreward::kMViplvFieldNumber;
-const int E_MoneyrewardMoneyreward::kMTimegetFieldNumber;
-const int E_MoneyrewardMoneyreward::kMTimegetmoneyFieldNumber;
-const int E_MoneyrewardMoneyreward::kMTimegoFieldNumber;
+const int E_MoneyrewardMoneyreward::kMTaskMaxFieldNumber;
+const int E_MoneyrewardMoneyreward::kMOnePriceFieldNumber;
+const int E_MoneyrewardMoneyreward::kMFreeUnlockLvFieldNumber;
+const int E_MoneyrewardMoneyreward::kMVipLVFieldNumber;
+const int E_MoneyrewardMoneyreward::kMTimeGetFieldNumber;
+const int E_MoneyrewardMoneyreward::kMTimeGetMoneyFieldNumber;
+const int E_MoneyrewardMoneyreward::kMTimeGoFieldNumber;
 #endif  // !_MSC_VER
 
 E_MoneyrewardMoneyreward::E_MoneyrewardMoneyreward()
@@ -287,15 +287,15 @@ bool E_MoneyrewardMoneyreward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_m_boxtaskreward;
+        if (input->ExpectTag(18)) goto parse_m_boxTaskreward;
         break;
       }
 
-      // optional string m_boxtaskreward = 2;
+      // optional string m_boxTaskreward = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_boxtaskreward:
+         parse_m_boxTaskreward:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_boxtaskreward()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -304,15 +304,15 @@ bool E_MoneyrewardMoneyreward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_m_boxnum;
+        if (input->ExpectTag(26)) goto parse_m_boxNum;
         break;
       }
 
-      // optional string m_boxnum = 3;
+      // optional string m_boxNum = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_boxnum:
+         parse_m_boxNum:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_boxnum()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -337,15 +337,15 @@ bool E_MoneyrewardMoneyreward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_taskmax;
+        if (input->ExpectTag(40)) goto parse_m_taskMax;
         break;
       }
 
-      // optional int32 m_taskmax = 5;
+      // optional int32 m_taskMax = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_taskmax:
+         parse_m_taskMax:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_taskmax_)));
@@ -353,15 +353,15 @@ bool E_MoneyrewardMoneyreward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(50)) goto parse_m_oneprice;
+        if (input->ExpectTag(50)) goto parse_m_onePrice;
         break;
       }
 
-      // optional string m_oneprice = 6;
+      // optional string m_onePrice = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_oneprice:
+         parse_m_onePrice:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_oneprice()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -370,15 +370,15 @@ bool E_MoneyrewardMoneyreward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(58)) goto parse_m_freeunlocklv;
+        if (input->ExpectTag(58)) goto parse_m_freeUnlockLv;
         break;
       }
 
-      // optional string m_freeunlocklv = 7;
+      // optional string m_freeUnlockLv = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_freeunlocklv:
+         parse_m_freeUnlockLv:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_freeunlocklv()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -387,15 +387,15 @@ bool E_MoneyrewardMoneyreward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_viplv;
+        if (input->ExpectTag(64)) goto parse_m_vipLV;
         break;
       }
 
-      // optional int32 m_viplv = 8;
+      // optional int32 m_vipLV = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_viplv:
+         parse_m_vipLV:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_viplv_)));
@@ -403,15 +403,15 @@ bool E_MoneyrewardMoneyreward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_timeget;
+        if (input->ExpectTag(72)) goto parse_m_timeGet;
         break;
       }
 
-      // optional int32 m_timeget = 9;
+      // optional int32 m_timeGet = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_timeget:
+         parse_m_timeGet:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_timeget_)));
@@ -419,15 +419,15 @@ bool E_MoneyrewardMoneyreward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_timegetmoney;
+        if (input->ExpectTag(80)) goto parse_m_timeGetMoney;
         break;
       }
 
-      // optional int32 m_timegetmoney = 10;
+      // optional int32 m_timeGetMoney = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_timegetmoney:
+         parse_m_timeGetMoney:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_timegetmoney_)));
@@ -435,15 +435,15 @@ bool E_MoneyrewardMoneyreward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_timego;
+        if (input->ExpectTag(88)) goto parse_m_timeGo;
         break;
       }
 
-      // optional int32 m_timego = 11;
+      // optional int32 m_timeGo = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_timego:
+         parse_m_timeGo:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_timego_)));
@@ -478,7 +478,7 @@ void E_MoneyrewardMoneyreward::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_taskreward(), output);
   }
 
-  // optional string m_boxtaskreward = 2;
+  // optional string m_boxTaskreward = 2;
   if (has_m_boxtaskreward()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_boxtaskreward().data(), this->m_boxtaskreward().length(),
@@ -487,7 +487,7 @@ void E_MoneyrewardMoneyreward::SerializeWithCachedSizes(
       2, this->m_boxtaskreward(), output);
   }
 
-  // optional string m_boxnum = 3;
+  // optional string m_boxNum = 3;
   if (has_m_boxnum()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_boxnum().data(), this->m_boxnum().length(),
@@ -501,12 +501,12 @@ void E_MoneyrewardMoneyreward::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_task(), output);
   }
 
-  // optional int32 m_taskmax = 5;
+  // optional int32 m_taskMax = 5;
   if (has_m_taskmax()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_taskmax(), output);
   }
 
-  // optional string m_oneprice = 6;
+  // optional string m_onePrice = 6;
   if (has_m_oneprice()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_oneprice().data(), this->m_oneprice().length(),
@@ -515,7 +515,7 @@ void E_MoneyrewardMoneyreward::SerializeWithCachedSizes(
       6, this->m_oneprice(), output);
   }
 
-  // optional string m_freeunlocklv = 7;
+  // optional string m_freeUnlockLv = 7;
   if (has_m_freeunlocklv()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_freeunlocklv().data(), this->m_freeunlocklv().length(),
@@ -524,22 +524,22 @@ void E_MoneyrewardMoneyreward::SerializeWithCachedSizes(
       7, this->m_freeunlocklv(), output);
   }
 
-  // optional int32 m_viplv = 8;
+  // optional int32 m_vipLV = 8;
   if (has_m_viplv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_viplv(), output);
   }
 
-  // optional int32 m_timeget = 9;
+  // optional int32 m_timeGet = 9;
   if (has_m_timeget()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_timeget(), output);
   }
 
-  // optional int32 m_timegetmoney = 10;
+  // optional int32 m_timeGetMoney = 10;
   if (has_m_timegetmoney()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_timegetmoney(), output);
   }
 
-  // optional int32 m_timego = 11;
+  // optional int32 m_timeGo = 11;
   if (has_m_timego()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_timego(), output);
   }
@@ -557,7 +557,7 @@ void E_MoneyrewardMoneyreward::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_taskreward(), target);
   }
 
-  // optional string m_boxtaskreward = 2;
+  // optional string m_boxTaskreward = 2;
   if (has_m_boxtaskreward()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_boxtaskreward().data(), this->m_boxtaskreward().length(),
@@ -567,7 +567,7 @@ void E_MoneyrewardMoneyreward::SerializeWithCachedSizes(
         2, this->m_boxtaskreward(), target);
   }
 
-  // optional string m_boxnum = 3;
+  // optional string m_boxNum = 3;
   if (has_m_boxnum()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_boxnum().data(), this->m_boxnum().length(),
@@ -582,12 +582,12 @@ void E_MoneyrewardMoneyreward::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_task(), target);
   }
 
-  // optional int32 m_taskmax = 5;
+  // optional int32 m_taskMax = 5;
   if (has_m_taskmax()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_taskmax(), target);
   }
 
-  // optional string m_oneprice = 6;
+  // optional string m_onePrice = 6;
   if (has_m_oneprice()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_oneprice().data(), this->m_oneprice().length(),
@@ -597,7 +597,7 @@ void E_MoneyrewardMoneyreward::SerializeWithCachedSizes(
         6, this->m_oneprice(), target);
   }
 
-  // optional string m_freeunlocklv = 7;
+  // optional string m_freeUnlockLv = 7;
   if (has_m_freeunlocklv()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_freeunlocklv().data(), this->m_freeunlocklv().length(),
@@ -607,22 +607,22 @@ void E_MoneyrewardMoneyreward::SerializeWithCachedSizes(
         7, this->m_freeunlocklv(), target);
   }
 
-  // optional int32 m_viplv = 8;
+  // optional int32 m_vipLV = 8;
   if (has_m_viplv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_viplv(), target);
   }
 
-  // optional int32 m_timeget = 9;
+  // optional int32 m_timeGet = 9;
   if (has_m_timeget()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_timeget(), target);
   }
 
-  // optional int32 m_timegetmoney = 10;
+  // optional int32 m_timeGetMoney = 10;
   if (has_m_timegetmoney()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_timegetmoney(), target);
   }
 
-  // optional int32 m_timego = 11;
+  // optional int32 m_timeGo = 11;
   if (has_m_timego()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_timego(), target);
   }
@@ -645,14 +645,14 @@ int E_MoneyrewardMoneyreward::ByteSize() const {
           this->m_taskreward());
     }
 
-    // optional string m_boxtaskreward = 2;
+    // optional string m_boxTaskreward = 2;
     if (has_m_boxtaskreward()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_boxtaskreward());
     }
 
-    // optional string m_boxnum = 3;
+    // optional string m_boxNum = 3;
     if (has_m_boxnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -666,28 +666,28 @@ int E_MoneyrewardMoneyreward::ByteSize() const {
           this->m_task());
     }
 
-    // optional int32 m_taskmax = 5;
+    // optional int32 m_taskMax = 5;
     if (has_m_taskmax()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_taskmax());
     }
 
-    // optional string m_oneprice = 6;
+    // optional string m_onePrice = 6;
     if (has_m_oneprice()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_oneprice());
     }
 
-    // optional string m_freeunlocklv = 7;
+    // optional string m_freeUnlockLv = 7;
     if (has_m_freeunlocklv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_freeunlocklv());
     }
 
-    // optional int32 m_viplv = 8;
+    // optional int32 m_vipLV = 8;
     if (has_m_viplv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -696,21 +696,21 @@ int E_MoneyrewardMoneyreward::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_timeget = 9;
+    // optional int32 m_timeGet = 9;
     if (has_m_timeget()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_timeget());
     }
 
-    // optional int32 m_timegetmoney = 10;
+    // optional int32 m_timeGetMoney = 10;
     if (has_m_timegetmoney()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_timegetmoney());
     }
 
-    // optional int32 m_timego = 11;
+    // optional int32 m_timeGo = 11;
     if (has_m_timego()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

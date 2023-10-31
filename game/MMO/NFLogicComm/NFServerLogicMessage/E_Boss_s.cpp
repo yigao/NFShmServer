@@ -11,7 +11,7 @@ E_BossRareitem_s::E_BossRareitem_s() {
 }
 
 int E_BossRareitem_s::CreateInit() {
-	m_itemid = (int64_t)0;
+	m_itemID = (int64_t)0;
 	m_top = (int32_t)0;
 	return 0;
 }
@@ -21,12 +21,12 @@ int E_BossRareitem_s::ResumeInit() {
 }
 
 void E_BossRareitem_s::write_to_pbmsg(::proto_ff::E_BossRareitem & msg) const {
-	msg.set_m_itemid((int64_t)m_itemid);
+	msg.set_m_itemid((int64_t)m_itemID);
 	msg.set_m_top((int32_t)m_top);
 }
 
 void E_BossRareitem_s::read_from_pbmsg(const ::proto_ff::E_BossRareitem & msg) {
-	m_itemid = msg.m_itemid();
+	m_itemID = msg.m_itemid();
 	m_top = msg.m_top();
 }
 
@@ -71,21 +71,21 @@ E_BossBoss_s::E_BossBoss_s() {
 
 int E_BossBoss_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_bosstype = (int32_t)0;
-	m_monsterid = (int32_t)0;
-	m_classorder = (int32_t)0;
-	m_sceneorder = (int32_t)0;
-	m_duplicateid = (int32_t)0;
-	m_peacemask = (int32_t)0;
-	m_pointid = (int32_t)0;
-	m_flashnum = (int32_t)0;
+	m_bossType = (int32_t)0;
+	m_monsterID = (int32_t)0;
+	m_classOrder = (int32_t)0;
+	m_sceneOrder = (int32_t)0;
+	m_duplicateID = (int32_t)0;
+	m_peaceMask = (int32_t)0;
+	m_pointID = (int32_t)0;
+	m_flashNum = (int32_t)0;
 	m_group_type = (int32_t)0;
 	m_ishide = (int32_t)0;
-	m_triggerpro = (int32_t)0;
-	m_flashtime = (int32_t)0;
-	m_retrievegiftid = (int32_t)0;
-	m_notimes = (int32_t)0;
-	m_assistprestige = (int32_t)0;
+	m_triggerPro = (int32_t)0;
+	m_flashTime = (int32_t)0;
+	m_retrieveGiftID = (int32_t)0;
+	m_noTimes = (int32_t)0;
+	m_assistPrestige = (int32_t)0;
 	return 0;
 }
 
@@ -95,40 +95,40 @@ int E_BossBoss_s::ResumeInit() {
 
 void E_BossBoss_s::write_to_pbmsg(::proto_ff::E_BossBoss & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_bosstype((int32_t)m_bosstype);
-	msg.set_m_monsterid((int32_t)m_monsterid);
-	msg.set_m_classorder((int32_t)m_classorder);
-	msg.set_m_sceneorder((int32_t)m_sceneorder);
-	msg.set_m_duplicateid((int32_t)m_duplicateid);
-	msg.set_m_peacemask((int32_t)m_peacemask);
-	msg.set_m_pointid((int32_t)m_pointid);
-	msg.set_m_flashnum((int32_t)m_flashnum);
+	msg.set_m_bosstype((int32_t)m_bossType);
+	msg.set_m_monsterid((int32_t)m_monsterID);
+	msg.set_m_classorder((int32_t)m_classOrder);
+	msg.set_m_sceneorder((int32_t)m_sceneOrder);
+	msg.set_m_duplicateid((int32_t)m_duplicateID);
+	msg.set_m_peacemask((int32_t)m_peaceMask);
+	msg.set_m_pointid((int32_t)m_pointID);
+	msg.set_m_flashnum((int32_t)m_flashNum);
 	msg.set_m_group_type((int32_t)m_group_type);
 	msg.set_m_ishide((int32_t)m_ishide);
-	msg.set_m_triggerpro((int32_t)m_triggerpro);
-	msg.set_m_flashtime((int32_t)m_flashtime);
-	msg.set_m_retrievegiftid((int32_t)m_retrievegiftid);
-	msg.set_m_notimes((int32_t)m_notimes);
-	msg.set_m_assistprestige((int32_t)m_assistprestige);
+	msg.set_m_triggerpro((int32_t)m_triggerPro);
+	msg.set_m_flashtime((int32_t)m_flashTime);
+	msg.set_m_retrievegiftid((int32_t)m_retrieveGiftID);
+	msg.set_m_notimes((int32_t)m_noTimes);
+	msg.set_m_assistprestige((int32_t)m_assistPrestige);
 }
 
 void E_BossBoss_s::read_from_pbmsg(const ::proto_ff::E_BossBoss & msg) {
 	m_id = msg.m_id();
-	m_bosstype = msg.m_bosstype();
-	m_monsterid = msg.m_monsterid();
-	m_classorder = msg.m_classorder();
-	m_sceneorder = msg.m_sceneorder();
-	m_duplicateid = msg.m_duplicateid();
-	m_peacemask = msg.m_peacemask();
-	m_pointid = msg.m_pointid();
-	m_flashnum = msg.m_flashnum();
+	m_bossType = msg.m_bosstype();
+	m_monsterID = msg.m_monsterid();
+	m_classOrder = msg.m_classorder();
+	m_sceneOrder = msg.m_sceneorder();
+	m_duplicateID = msg.m_duplicateid();
+	m_peaceMask = msg.m_peacemask();
+	m_pointID = msg.m_pointid();
+	m_flashNum = msg.m_flashnum();
 	m_group_type = msg.m_group_type();
 	m_ishide = msg.m_ishide();
-	m_triggerpro = msg.m_triggerpro();
-	m_flashtime = msg.m_flashtime();
-	m_retrievegiftid = msg.m_retrievegiftid();
-	m_notimes = msg.m_notimes();
-	m_assistprestige = msg.m_assistprestige();
+	m_triggerPro = msg.m_triggerpro();
+	m_flashTime = msg.m_flashtime();
+	m_retrieveGiftID = msg.m_retrievegiftid();
+	m_noTimes = msg.m_notimes();
+	m_assistPrestige = msg.m_assistprestige();
 }
 
 Sheet_BossBoss_s::Sheet_BossBoss_s() {
@@ -199,19 +199,19 @@ E_BossBosstype_s::E_BossBosstype_s() {
 }
 
 int E_BossBosstype_s::CreateInit() {
-	m_bosstype = (int32_t)0;
-	m_maptype = (int32_t)0;
-	m_functionid = (int32_t)0;
-	m_duplicategroupid = (int32_t)0;
-	m_privilegetype = (int32_t)0;
-	m_callingcardid = (int64_t)0;
-	m_entertimes = (int32_t)0;
+	m_bossType = (int32_t)0;
+	m_mapType = (int32_t)0;
+	m_functionId = (int32_t)0;
+	m_duplicateGroupID = (int32_t)0;
+	m_privilegeType = (int32_t)0;
+	m_callingCardId = (int64_t)0;
+	m_enterTimes = (int32_t)0;
 	m_costitem = (int32_t)0;
-	m_bosstimes = (int32_t)0;
-	m_additemid = (int32_t)0;
+	m_bossTimes = (int32_t)0;
+	m_addItemID = (int32_t)0;
 	m_canhelp = (int32_t)0;
 	m_qkill = (int32_t)0;
-	m_retrieveddays = (int32_t)0;
+	m_retrievedDays = (int32_t)0;
 	m_skill = (int32_t)0;
 	return 0;
 }
@@ -221,20 +221,20 @@ int E_BossBosstype_s::ResumeInit() {
 }
 
 void E_BossBosstype_s::write_to_pbmsg(::proto_ff::E_BossBosstype & msg) const {
-	msg.set_m_bosstype((int32_t)m_bosstype);
-	msg.set_m_maptype((int32_t)m_maptype);
-	msg.set_m_functionid((int32_t)m_functionid);
-	msg.set_m_duplicategroupid((int32_t)m_duplicategroupid);
-	msg.set_m_privilegetype((int32_t)m_privilegetype);
-	msg.set_m_callingcardid((int64_t)m_callingcardid);
-	msg.set_m_entertimes((int32_t)m_entertimes);
+	msg.set_m_bosstype((int32_t)m_bossType);
+	msg.set_m_maptype((int32_t)m_mapType);
+	msg.set_m_functionid((int32_t)m_functionId);
+	msg.set_m_duplicategroupid((int32_t)m_duplicateGroupID);
+	msg.set_m_privilegetype((int32_t)m_privilegeType);
+	msg.set_m_callingcardid((int64_t)m_callingCardId);
+	msg.set_m_entertimes((int32_t)m_enterTimes);
 	msg.set_m_costitem((int32_t)m_costitem);
 	msg.set_m_costnum(m_costnum.data());
-	msg.set_m_bosstimes((int32_t)m_bosstimes);
-	msg.set_m_additemid((int32_t)m_additemid);
+	msg.set_m_bosstimes((int32_t)m_bossTimes);
+	msg.set_m_additemid((int32_t)m_addItemID);
 	msg.set_m_canhelp((int32_t)m_canhelp);
 	msg.set_m_qkill((int32_t)m_qkill);
-	msg.set_m_retrieveddays((int32_t)m_retrieveddays);
+	msg.set_m_retrieveddays((int32_t)m_retrievedDays);
 	msg.set_m_skill((int32_t)m_skill);
 	for(int32_t i = 0; i < (int32_t)m_group.size(); ++i) {
 		::proto_ff::E_BossBosstypeGroupDesc* temp_m_group = msg.add_m_group();
@@ -243,20 +243,20 @@ void E_BossBosstype_s::write_to_pbmsg(::proto_ff::E_BossBosstype & msg) const {
 }
 
 void E_BossBosstype_s::read_from_pbmsg(const ::proto_ff::E_BossBosstype & msg) {
-	m_bosstype = msg.m_bosstype();
-	m_maptype = msg.m_maptype();
-	m_functionid = msg.m_functionid();
-	m_duplicategroupid = msg.m_duplicategroupid();
-	m_privilegetype = msg.m_privilegetype();
-	m_callingcardid = msg.m_callingcardid();
-	m_entertimes = msg.m_entertimes();
+	m_bossType = msg.m_bosstype();
+	m_mapType = msg.m_maptype();
+	m_functionId = msg.m_functionid();
+	m_duplicateGroupID = msg.m_duplicategroupid();
+	m_privilegeType = msg.m_privilegetype();
+	m_callingCardId = msg.m_callingcardid();
+	m_enterTimes = msg.m_entertimes();
 	m_costitem = msg.m_costitem();
 	m_costnum = msg.m_costnum();
-	m_bosstimes = msg.m_bosstimes();
-	m_additemid = msg.m_additemid();
+	m_bossTimes = msg.m_bosstimes();
+	m_addItemID = msg.m_additemid();
 	m_canhelp = msg.m_canhelp();
 	m_qkill = msg.m_qkill();
-	m_retrieveddays = msg.m_retrieveddays();
+	m_retrievedDays = msg.m_retrieveddays();
 	m_skill = msg.m_skill();
 	m_group.resize((int)msg.m_group_size() > (int)m_group.max_size() ? m_group.max_size() : msg.m_group_size());
 	for(int32_t i = 0; i < (int32_t)m_group.size(); ++i) {
@@ -305,11 +305,11 @@ E_BossLayer_s::E_BossLayer_s() {
 }
 
 int E_BossLayer_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_bosstype = (int32_t)0;
+	m_ID = (int32_t)0;
+	m_bossType = (int32_t)0;
 	m_order = (int32_t)0;
-	m_subtype = (int32_t)0;
-	m_mapid = (int32_t)0;
+	m_subType = (int32_t)0;
+	m_mapID = (int32_t)0;
 	m_maxlv = (int32_t)0;
 	return 0;
 }
@@ -319,24 +319,24 @@ int E_BossLayer_s::ResumeInit() {
 }
 
 void E_BossLayer_s::write_to_pbmsg(::proto_ff::E_BossLayer & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_bosstype((int32_t)m_bosstype);
+	msg.set_m_id((int32_t)m_ID);
+	msg.set_m_bosstype((int32_t)m_bossType);
 	msg.set_m_order((int32_t)m_order);
-	msg.set_m_subtype((int32_t)m_subtype);
-	msg.set_m_entercondition(m_entercondition.data());
-	msg.set_m_unlockcondition(m_unlockcondition.data());
-	msg.set_m_mapid((int32_t)m_mapid);
+	msg.set_m_subtype((int32_t)m_subType);
+	msg.set_m_entercondition(m_enterCondition.data());
+	msg.set_m_unlockcondition(m_unlockCondition.data());
+	msg.set_m_mapid((int32_t)m_mapID);
 	msg.set_m_maxlv((int32_t)m_maxlv);
 }
 
 void E_BossLayer_s::read_from_pbmsg(const ::proto_ff::E_BossLayer & msg) {
-	m_id = msg.m_id();
-	m_bosstype = msg.m_bosstype();
+	m_ID = msg.m_id();
+	m_bossType = msg.m_bosstype();
 	m_order = msg.m_order();
-	m_subtype = msg.m_subtype();
-	m_entercondition = msg.m_entercondition();
-	m_unlockcondition = msg.m_unlockcondition();
-	m_mapid = msg.m_mapid();
+	m_subType = msg.m_subtype();
+	m_enterCondition = msg.m_entercondition();
+	m_unlockCondition = msg.m_unlockcondition();
+	m_mapID = msg.m_mapid();
 	m_maxlv = msg.m_maxlv();
 }
 

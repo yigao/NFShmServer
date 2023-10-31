@@ -200,22 +200,22 @@ void protobuf_AddDesc_E_5fRanking_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\017E_Ranking.proto\022\010proto_ff\032\025yd_fieldopt"
     "ions.proto\"\304\002\n\020E_RankingRanking\022$\n\013m_ran"
-    "kingid\030\001 \001(\005B\017\302\377\024\013\346\216\222\350\241\214\346\246\234ID\022+\n\rm_ranki"
-    "ngname\030\002 \001(\tB\024\302\377\024\014\346\216\222\350\241\214\345\220\215\347\247\260\220\301\024@\022%\n\007m_"
+    "kingID\030\001 \001(\005B\017\302\377\024\013\346\216\222\350\241\214\346\246\234ID\022+\n\rm_ranki"
+    "ngName\030\002 \001(\tB\024\302\377\024\014\346\216\222\350\241\214\345\220\215\347\247\260\220\301\024@\022%\n\007m_"
     "title\030\003 \001(\tB\024\302\377\024\014\346\246\234\344\270\200\347\247\260\345\217\267\220\301\024@\022-\n\nm_c"
     "apacity\030\004 \001(\005B\031\302\377\024\025\345\256\236\351\231\205\346\216\222\345\244\232\345\260\221\345\205\203\347\264\240"
-    "\022-\n\nm_showsize\030\005 \001(\005B\031\302\377\024\025\346\230\276\347\244\272\345\244\232\345\260\221\344\270"
-    "\252\345\205\203\347\264\240\0220\n\nm_rankhide\030\006 \001(\005B\034\302\377\024\030\346\230\257\345\220\246\345"
-    "\234\250\346\216\222\350\241\214\346\246\234\351\232\220\350\227\217\022&\n\010m_dateid\030\007 \003(\005B\024\302\377\024"
+    "\022-\n\nm_showSize\030\005 \001(\005B\031\302\377\024\025\346\230\276\347\244\272\345\244\232\345\260\221\344\270"
+    "\252\345\205\203\347\264\240\0220\n\nm_rankHide\030\006 \001(\005B\034\302\377\024\030\346\230\257\345\220\246\345"
+    "\234\250\346\216\222\350\241\214\346\246\234\351\232\220\350\227\217\022&\n\010m_dateID\030\007 \003(\005B\024\302\377\024"
     "\014\346\216\222\350\241\214\346\225\260\346\215\256\210\301\024\005\"W\n\024Sheet_RankingRankin"
     "g\022\?\n\025E_RankingRanking_List\030\001 \003(\0132\032.proto"
     "_ff.E_RankingRankingB\004\210\301\024\020\"Y\n\rE_RankingD"
-    "ate\022\036\n\010m_dateid\030\001 \001(\005B\014\302\377\024\010\346\225\260\346\215\256ID\022(\n\nm"
-    "_datename\030\002 \001(\tB\024\302\377\024\014\346\225\260\346\215\256\345\220\215\347\247\260\220\301\024@\"N\n"
+    "ate\022\036\n\010m_dateID\030\001 \001(\005B\014\302\377\024\010\346\225\260\346\215\256ID\022(\n\nm"
+    "_dateName\030\002 \001(\tB\024\302\377\024\014\346\225\260\346\215\256\345\220\215\347\247\260\220\301\024@\"N\n"
     "\021Sheet_RankingDate\0229\n\022E_RankingDate_List"
     "\030\001 \003(\0132\027.proto_ff.E_RankingDateB\004\210\301\024 \"\204\001"
-    "\n\017E_RankingButton\022 \n\nm_buttonid\030\001 \001(\005B\014\302"
-    "\377\024\010\346\225\260\346\215\256ID\022*\n\014m_buttonname\030\002 \001(\tB\024\302\377\024\014\346"
+    "\n\017E_RankingButton\022 \n\nm_buttonID\030\001 \001(\005B\014\302"
+    "\377\024\010\346\225\260\346\215\256ID\022*\n\014m_buttonName\030\002 \001(\tB\024\302\377\024\014\346"
     "\225\260\346\215\256\345\220\215\347\247\260\220\301\024@\022#\n\tm_display\030\003 \001(\005B\020\302\377\024\014"
     "\346\230\257\345\220\246\346\230\276\347\244\272\"T\n\023Sheet_RankingButton\022=\n\024E"
     "_RankingButton_List\030\001 \003(\0132\031.proto_ff.E_R"
@@ -247,13 +247,13 @@ struct StaticDescriptorInitializer_E_5fRanking_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_RankingRanking::kMRankingidFieldNumber;
-const int E_RankingRanking::kMRankingnameFieldNumber;
+const int E_RankingRanking::kMRankingIDFieldNumber;
+const int E_RankingRanking::kMRankingNameFieldNumber;
 const int E_RankingRanking::kMTitleFieldNumber;
 const int E_RankingRanking::kMCapacityFieldNumber;
-const int E_RankingRanking::kMShowsizeFieldNumber;
-const int E_RankingRanking::kMRankhideFieldNumber;
-const int E_RankingRanking::kMDateidFieldNumber;
+const int E_RankingRanking::kMShowSizeFieldNumber;
+const int E_RankingRanking::kMRankHideFieldNumber;
+const int E_RankingRanking::kMDateIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_RankingRanking::E_RankingRanking()
@@ -345,7 +345,7 @@ bool E_RankingRanking::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_rankingid = 1;
+      // optional int32 m_rankingID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -356,15 +356,15 @@ bool E_RankingRanking::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_m_rankingname;
+        if (input->ExpectTag(18)) goto parse_m_rankingName;
         break;
       }
 
-      // optional string m_rankingname = 2;
+      // optional string m_rankingName = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_rankingname:
+         parse_m_rankingName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_rankingname()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -406,15 +406,15 @@ bool E_RankingRanking::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_showsize;
+        if (input->ExpectTag(40)) goto parse_m_showSize;
         break;
       }
 
-      // optional int32 m_showsize = 5;
+      // optional int32 m_showSize = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_showsize:
+         parse_m_showSize:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_showsize_)));
@@ -422,15 +422,15 @@ bool E_RankingRanking::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_rankhide;
+        if (input->ExpectTag(48)) goto parse_m_rankHide;
         break;
       }
 
-      // optional int32 m_rankhide = 6;
+      // optional int32 m_rankHide = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rankhide:
+         parse_m_rankHide:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rankhide_)));
@@ -438,15 +438,15 @@ bool E_RankingRanking::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_dateid;
+        if (input->ExpectTag(56)) goto parse_m_dateID;
         break;
       }
 
-      // repeated int32 m_dateid = 7;
+      // repeated int32 m_dateID = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_dateid:
+         parse_m_dateID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  1, 56, input, this->mutable_m_dateid())));
@@ -459,7 +459,7 @@ bool E_RankingRanking::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_dateid;
+        if (input->ExpectTag(56)) goto parse_m_dateID;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -482,12 +482,12 @@ bool E_RankingRanking::MergePartialFromCodedStream(
 
 void E_RankingRanking::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_rankingid = 1;
+  // optional int32 m_rankingID = 1;
   if (has_m_rankingid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_rankingid(), output);
   }
 
-  // optional string m_rankingname = 2;
+  // optional string m_rankingName = 2;
   if (has_m_rankingname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_rankingname().data(), this->m_rankingname().length(),
@@ -510,17 +510,17 @@ void E_RankingRanking::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_capacity(), output);
   }
 
-  // optional int32 m_showsize = 5;
+  // optional int32 m_showSize = 5;
   if (has_m_showsize()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_showsize(), output);
   }
 
-  // optional int32 m_rankhide = 6;
+  // optional int32 m_rankHide = 6;
   if (has_m_rankhide()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_rankhide(), output);
   }
 
-  // repeated int32 m_dateid = 7;
+  // repeated int32 m_dateID = 7;
   for (int i = 0; i < this->m_dateid_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(
       7, this->m_dateid(i), output);
@@ -534,12 +534,12 @@ void E_RankingRanking::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_RankingRanking::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_rankingid = 1;
+  // optional int32 m_rankingID = 1;
   if (has_m_rankingid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_rankingid(), target);
   }
 
-  // optional string m_rankingname = 2;
+  // optional string m_rankingName = 2;
   if (has_m_rankingname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_rankingname().data(), this->m_rankingname().length(),
@@ -564,17 +564,17 @@ void E_RankingRanking::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_capacity(), target);
   }
 
-  // optional int32 m_showsize = 5;
+  // optional int32 m_showSize = 5;
   if (has_m_showsize()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_showsize(), target);
   }
 
-  // optional int32 m_rankhide = 6;
+  // optional int32 m_rankHide = 6;
   if (has_m_rankhide()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_rankhide(), target);
   }
 
-  // repeated int32 m_dateid = 7;
+  // repeated int32 m_dateID = 7;
   for (int i = 0; i < this->m_dateid_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteInt32ToArray(7, this->m_dateid(i), target);
@@ -591,14 +591,14 @@ int E_RankingRanking::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_rankingid = 1;
+    // optional int32 m_rankingID = 1;
     if (has_m_rankingid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_rankingid());
     }
 
-    // optional string m_rankingname = 2;
+    // optional string m_rankingName = 2;
     if (has_m_rankingname()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -619,14 +619,14 @@ int E_RankingRanking::ByteSize() const {
           this->m_capacity());
     }
 
-    // optional int32 m_showsize = 5;
+    // optional int32 m_showSize = 5;
     if (has_m_showsize()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_showsize());
     }
 
-    // optional int32 m_rankhide = 6;
+    // optional int32 m_rankHide = 6;
     if (has_m_rankhide()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -634,7 +634,7 @@ int E_RankingRanking::ByteSize() const {
     }
 
   }
-  // repeated int32 m_dateid = 7;
+  // repeated int32 m_dateID = 7;
   {
     int data_size = 0;
     for (int i = 0; i < this->m_dateid_size(); i++) {
@@ -940,8 +940,8 @@ void Sheet_RankingRanking::Swap(Sheet_RankingRanking* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_RankingDate::kMDateidFieldNumber;
-const int E_RankingDate::kMDatenameFieldNumber;
+const int E_RankingDate::kMDateIDFieldNumber;
+const int E_RankingDate::kMDateNameFieldNumber;
 #endif  // !_MSC_VER
 
 E_RankingDate::E_RankingDate()
@@ -1017,7 +1017,7 @@ bool E_RankingDate::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_dateid = 1;
+      // optional int32 m_dateID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -1028,15 +1028,15 @@ bool E_RankingDate::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_m_datename;
+        if (input->ExpectTag(18)) goto parse_m_dateName;
         break;
       }
 
-      // optional string m_datename = 2;
+      // optional string m_dateName = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_datename:
+         parse_m_dateName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_datename()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1067,12 +1067,12 @@ bool E_RankingDate::MergePartialFromCodedStream(
 
 void E_RankingDate::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_dateid = 1;
+  // optional int32 m_dateID = 1;
   if (has_m_dateid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_dateid(), output);
   }
 
-  // optional string m_datename = 2;
+  // optional string m_dateName = 2;
   if (has_m_datename()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_datename().data(), this->m_datename().length(),
@@ -1089,12 +1089,12 @@ void E_RankingDate::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_RankingDate::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_dateid = 1;
+  // optional int32 m_dateID = 1;
   if (has_m_dateid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_dateid(), target);
   }
 
-  // optional string m_datename = 2;
+  // optional string m_dateName = 2;
   if (has_m_datename()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_datename().data(), this->m_datename().length(),
@@ -1115,14 +1115,14 @@ int E_RankingDate::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_dateid = 1;
+    // optional int32 m_dateID = 1;
     if (has_m_dateid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_dateid());
     }
 
-    // optional string m_datename = 2;
+    // optional string m_dateName = 2;
     if (has_m_datename()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -1408,8 +1408,8 @@ void Sheet_RankingDate::Swap(Sheet_RankingDate* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_RankingButton::kMButtonidFieldNumber;
-const int E_RankingButton::kMButtonnameFieldNumber;
+const int E_RankingButton::kMButtonIDFieldNumber;
+const int E_RankingButton::kMButtonNameFieldNumber;
 const int E_RankingButton::kMDisplayFieldNumber;
 #endif  // !_MSC_VER
 
@@ -1488,7 +1488,7 @@ bool E_RankingButton::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_buttonid = 1;
+      // optional int32 m_buttonID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -1499,15 +1499,15 @@ bool E_RankingButton::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_m_buttonname;
+        if (input->ExpectTag(18)) goto parse_m_buttonName;
         break;
       }
 
-      // optional string m_buttonname = 2;
+      // optional string m_buttonName = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_buttonname:
+         parse_m_buttonName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_buttonname()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1554,12 +1554,12 @@ bool E_RankingButton::MergePartialFromCodedStream(
 
 void E_RankingButton::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_buttonid = 1;
+  // optional int32 m_buttonID = 1;
   if (has_m_buttonid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_buttonid(), output);
   }
 
-  // optional string m_buttonname = 2;
+  // optional string m_buttonName = 2;
   if (has_m_buttonname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_buttonname().data(), this->m_buttonname().length(),
@@ -1581,12 +1581,12 @@ void E_RankingButton::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_RankingButton::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_buttonid = 1;
+  // optional int32 m_buttonID = 1;
   if (has_m_buttonid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_buttonid(), target);
   }
 
-  // optional string m_buttonname = 2;
+  // optional string m_buttonName = 2;
   if (has_m_buttonname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_buttonname().data(), this->m_buttonname().length(),
@@ -1612,14 +1612,14 @@ int E_RankingButton::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_buttonid = 1;
+    // optional int32 m_buttonID = 1;
     if (has_m_buttonid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_buttonid());
     }
 
-    // optional string m_buttonname = 2;
+    // optional string m_buttonName = 2;
     if (has_m_buttonname()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(

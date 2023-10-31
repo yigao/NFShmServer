@@ -90,7 +90,7 @@ int PeractivityPeractivityDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_functionid <= 0 || FunctionunlockFunctionunlockDesc::Instance()->GetDesc(pDesc->m_functionid)), result, "can't find the functionid:{} in the  excel:functionunlock sheet:functionUnlock", pDesc->m_functionid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_functionID <= 0 || FunctionunlockFunctionunlockDesc::Instance()->GetDesc(pDesc->m_functionID)), result, "can't find the functionID:{} in the  excel:functionunlock sheet:functionUnlock", pDesc->m_functionID);
 	}
 	return result;
 }

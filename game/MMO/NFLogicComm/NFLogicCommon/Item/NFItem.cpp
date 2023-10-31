@@ -103,7 +103,7 @@ bool NFItem::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64
     auto pItemCfg = GetItemCfg();
     if (pItemCfg)
     {
-        m_byType = pItemCfg->m_itemtype;
+        m_byType = pItemCfg->m_itemType;
         m_nLevel = pItemCfg->m_level;
         if (pItemCfg->m_time > 0)
         {
@@ -123,7 +123,7 @@ bool NFItem::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64
     ))
     {
         auto pEquipAttrCfg = GetEquipAttributeCfg();
-        CHECK_EXPR(pEquipAttrCfg, false, "itemId:{} attrId:%d find", nItemID, pEquipCfg->m_attributeid);
+        CHECK_EXPR(pEquipAttrCfg, false, "itemId:{} attrId:%d find", nItemID, pEquipCfg->m_attributeID);
     }
     
     m_nLevel = pEquipCfg->m_level;
@@ -167,7 +167,7 @@ const proto_ff_s::E_EquipAttribute_s *NFItem::GetEquipAttributeCfg() const
     auto pEquipCfg = GetEquipCfg();
     if (pEquipCfg)
     {
-        return EquipAttributeDesc::Instance()->GetDesc(pEquipCfg->m_attributeid);
+        return EquipAttributeDesc::Instance()->GetDesc(pEquipCfg->m_attributeID);
     }
     return NULL;
 }
@@ -190,7 +190,7 @@ bool NFItem::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
         ))
         {
             auto pEquipAttrCfg = GetEquipAttributeCfg();
-            CHECK_EXPR(pEquipAttrCfg, false, "[logic] CEquip::FromItemProto itemId:{} attrId:{} find", m_nItemID, pEquipCfg->m_attributeid);
+            CHECK_EXPR(pEquipAttrCfg, false, "[logic] CEquip::FromItemProto itemId:{} attrId:{} find", m_nItemID, pEquipCfg->m_attributeID);
         }
         
         m_baseAttrPercent = protoItem.base_attr_percent();
@@ -309,7 +309,7 @@ MAP_INT32_INT32 NFItem::GetBaseAttr()
         //暂时处理普通生成
         if (m_baseAttrPercent > 0)
         {
-            mapAttr[attrId] += e.m_valuemin + ((double) m_baseAttrPercent / (double) TEN_THOUSAND) * (e.m_valuemax - e.m_valuemin);
+            mapAttr[attrId] += e.m_valueMin + ((double) m_baseAttrPercent / (double) TEN_THOUSAND) * (e.m_valueMax - e.m_valueMin);
         }
     }
     
@@ -336,7 +336,7 @@ VEC_STAR_ATTR NFItem::GetStarAttr()
     
     //1:生成星级属性
     uint32_t starLv = pEquipCfg->m_star;
-    if (starLv > pEquipAttrCfg->m_star_library.size())
+    if (starLv > pEquipAttrCfg->m_star_Library.size())
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "equipId:{} star:{} error", m_nItemID, starLv);
         return attrMap;
@@ -344,7 +344,7 @@ VEC_STAR_ATTR NFItem::GetStarAttr()
     
     for (uint32_t i = 0; i < starLv; i++)
     {
-        std::string starLibary = pEquipAttrCfg->m_star_library.at(i).data();
+        std::string starLibary = pEquipAttrCfg->m_star_Library.at(i).data();
         if (starLibary.empty())
             continue;
         VEC_STRING starStr;
@@ -376,14 +376,14 @@ MAP_BLUE_ATTR NFItem::GetBlueAttr()
     CHECK_EXPR(pEquipAttrCfg, attrMap, "");
     
     //2:生成蓝星属性
-    int32_t blueStar = pEquipAttrCfg->m_bluestarnum;
+    int32_t blueStar = pEquipAttrCfg->m_blueStarNum;
     
     VEC_INT32 vecBlueAttrType;
     VEC_INT32 vecBlueAttrLevel;
     VEC_INT32 vecBlueAttrValue;
-    NFCommonApi::SplitStrToVecInt(pEquipAttrCfg->m_bluestar_type.data(), ";", &vecBlueAttrType);
-    NFCommonApi::SplitStrToVecInt(pEquipAttrCfg->m_bluestar_lv.data(), ";", &vecBlueAttrLevel);
-    NFCommonApi::SplitStrToVecInt(pEquipAttrCfg->m_bluestar_number.data(), ";", &vecBlueAttrValue);
+    NFCommonApi::SplitStrToVecInt(pEquipAttrCfg->m_blueStar_type.data(), ";", &vecBlueAttrType);
+    NFCommonApi::SplitStrToVecInt(pEquipAttrCfg->m_blueStar_lv.data(), ";", &vecBlueAttrLevel);
+    NFCommonApi::SplitStrToVecInt(pEquipAttrCfg->m_blueStar_number.data(), ";", &vecBlueAttrValue);
     
     CHECK_EXPR(vecBlueAttrType.size() == vecBlueAttrLevel.size(), attrMap, "CEquip::genGodPinAttr blue star equipId:{} failed", m_nItemID);
     CHECK_EXPR(vecBlueAttrLevel.size() == vecBlueAttrValue.size(), attrMap, "CEquip::genGodPinAttr blue star equipId:{} failed", m_nItemID);
@@ -422,9 +422,9 @@ MAP_INT32_INT32 NFItem::GetGodAttr()
     VEC_INT32 vecAttrType;
     VEC_INT32 vecAttrMin;
     VEC_INT32 vecAttrMax;
-    NFCommonApi::SplitStrToVecInt(pEquipAttrCfg->m_godattribute_type.data(), ",", &vecAttrType);
-    NFCommonApi::SplitStrToVecInt(pEquipAttrCfg->m_godattribute_valuemin.data(), ",", &vecAttrMin);
-    NFCommonApi::SplitStrToVecInt(pEquipAttrCfg->m_godattribute_valuemax.data(), ",", &vecAttrMax);
+    NFCommonApi::SplitStrToVecInt(pEquipAttrCfg->m_godAttribute_type.data(), ",", &vecAttrType);
+    NFCommonApi::SplitStrToVecInt(pEquipAttrCfg->m_godAttribute_valueMin.data(), ",", &vecAttrMin);
+    NFCommonApi::SplitStrToVecInt(pEquipAttrCfg->m_godAttribute_valueMax.data(), ",", &vecAttrMax);
     int32_t typeSize = vecAttrType.size();
     int32_t minSize = vecAttrMin.size();
     int32_t maxSize = vecAttrMax.size();
@@ -480,7 +480,7 @@ bool NFDeityItem::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, u
     
     CHECK_EXPR(pEquipCfg->m_type == proto_ff::EPackageType_DeityEquip, false, "");
     m_deityEquip.m_stronglv = 0;
-    m_deityEquip.m_strongWearQuality = pEquipCfg->m_wearquality;
+    m_deityEquip.m_strongWearQuality = pEquipCfg->m_wearQuality;
     return true;
 }
 
@@ -524,20 +524,20 @@ bool NFBeastItem::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, u
     CHECK_EXPR(pEquipCfg->m_type == proto_ff::EPackageType_BeastEquip, false, "");
     
     m_beastEquip.m_stronglv = 1;
-    m_beastEquip.m_strongWearQuality = pEquipCfg->m_wearquality;
+    m_beastEquip.m_strongWearQuality = pEquipCfg->m_wearQuality;
     m_beastEquip.m_strongExp = 0;
     auto pBlueAttrCfg = EncyclopediaEquipexpvalueDesc::Instance()->GetDesc(m_nItemID);
     if (pBlueAttrCfg)
     {
-        uint32_t blueNum = pBlueAttrCfg->m_goldattall >= pBlueAttrCfg->m_goldatt ? (pBlueAttrCfg->m_goldattall - pBlueAttrCfg->m_goldatt) : 0;
+        uint32_t blueNum = pBlueAttrCfg->m_goldAttAll >= pBlueAttrCfg->m_goldAtt ? (pBlueAttrCfg->m_goldAttAll - pBlueAttrCfg->m_goldAtt) : 0;
         if (blueNum > 0)
         {
             std::vector<std::pair<uint32_t, uint32_t>> vec;
-            for (int i = 0; i < (int) pBlueAttrCfg->m_beaststar.size(); i++)
+            for (int i = 0; i < (int) pBlueAttrCfg->m_beastStar.size(); i++)
             {
-                if (pBlueAttrCfg->m_beaststar[i].m_att > 0)
+                if (pBlueAttrCfg->m_beastStar[i].m_att > 0)
                 {
-                    vec.push_back(std::make_pair(pBlueAttrCfg->m_beaststar[i].m_att, pBlueAttrCfg->m_beaststar[i].m_num));
+                    vec.push_back(std::make_pair(pBlueAttrCfg->m_beastStar[i].m_att, pBlueAttrCfg->m_beastStar[i].m_num));
                 }
             }
             
@@ -549,19 +549,19 @@ bool NFBeastItem::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, u
             }
         }
         
-        if (pBlueAttrCfg->m_goldatt > 0)
+        if (pBlueAttrCfg->m_goldAtt > 0)
         {
             std::vector<std::pair<uint32_t, uint32_t>> vec;
-            for (int i = 0; i < (int) pBlueAttrCfg->m_goldstar.size(); i++)
+            for (int i = 0; i < (int) pBlueAttrCfg->m_goldStar.size(); i++)
             {
-                if (pBlueAttrCfg->m_goldstar[i].m_att > 0)
+                if (pBlueAttrCfg->m_goldStar[i].m_att > 0)
                 {
-                    vec.push_back(std::make_pair(pBlueAttrCfg->m_goldstar[i].m_att, pBlueAttrCfg->m_goldstar[i].m_num));
+                    vec.push_back(std::make_pair(pBlueAttrCfg->m_goldStar[i].m_att, pBlueAttrCfg->m_goldStar[i].m_num));
                 }
             }
             
             std::random_shuffle(vec.begin(), vec.end());
-            vec.resize(vec.size() < (uint32_t) pBlueAttrCfg->m_goldatt ? vec.size() : pBlueAttrCfg->m_goldatt);
+            vec.resize(vec.size() < (uint32_t) pBlueAttrCfg->m_goldAtt ? vec.size() : pBlueAttrCfg->m_goldAtt);
             
             for (int i = 0; i < (int) vec.size(); i++)
             {

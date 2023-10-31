@@ -5,8 +5,8 @@ import "yd_fieldoptions.proto";
 
 message E_TasktrackerTasktracker
 {
-	optional int32 m_comid = 1[(yd_fieldoptions.field_cname) = "完成条件类型ID"];
-	optional int32 m_trueid = 2[(yd_fieldoptions.field_cname) = "实际完成条件类型ID"];
+	optional int32 m_comID = 1[(yd_fieldoptions.field_cname) = "完成条件类型ID"];
+	optional int32 m_trueID = 2[(yd_fieldoptions.field_cname) = "实际完成条件类型ID"];
 }
 
 

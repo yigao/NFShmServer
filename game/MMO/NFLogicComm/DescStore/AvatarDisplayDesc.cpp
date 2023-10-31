@@ -91,9 +91,9 @@ int AvatarDisplayDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		for(int j = 0; j < (int)pDesc->m_fragmentid.size(); j++)
+		for(int j = 0; j < (int)pDesc->m_fragmentID.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_fragmentid[j] <= 0 || AvatarFragmentDesc::Instance()->GetDesc(pDesc->m_fragmentid[j])), result, "can't find the fragmentid:{} in the  excel:avatar sheet:fragment", pDesc->m_fragmentid[j]);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_fragmentID[j] <= 0 || AvatarFragmentDesc::Instance()->GetDesc(pDesc->m_fragmentID[j])), result, "can't find the fragmentID:{} in the  excel:avatar sheet:fragment", pDesc->m_fragmentID[j]);
 		}
 		for(int j = 0; j < (int)pDesc->m_material.size(); j++)
 		{

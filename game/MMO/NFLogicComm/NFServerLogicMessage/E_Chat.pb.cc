@@ -154,19 +154,19 @@ void protobuf_AddDesc_E_5fChat_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\014E_Chat.proto\022\010proto_ff\032\025yd_fieldoption"
-    "s.proto\"\207\002\n\nE_ChatChat\022\036\n\010m_chatid\030\001 \001(\003"
-    "B\014\302\377\024\010\344\274\240\351\227\273ID\022$\n\nm_chattype\030\002 \001(\005B\020\302\377\024\014"
-    "\344\274\240\351\227\273\347\261\273\345\236\213\0220\n\nm_showtime\030\003 \001(\005B\034\302\377\024\030\346\264"
-    "\273\345\212\250\346\217\220\347\244\272\346\230\276\347\244\272\346\227\266\351\227\264\022,\n\rm_chatcontent\030"
+    "s.proto\"\207\002\n\nE_ChatChat\022\036\n\010m_chatId\030\001 \001(\003"
+    "B\014\302\377\024\010\344\274\240\351\227\273ID\022$\n\nm_chatType\030\002 \001(\005B\020\302\377\024\014"
+    "\344\274\240\351\227\273\347\261\273\345\236\213\0220\n\nm_showTime\030\003 \001(\005B\034\302\377\024\030\346\264"
+    "\273\345\212\250\346\217\220\347\244\272\346\230\276\347\244\272\346\227\266\351\227\264\022,\n\rm_chatContent\030"
     "\004 \001(\tB\025\302\377\024\014\344\274\240\351\227\273\345\206\205\345\256\271\220\301\024\200\001\022#\n\tm_channe"
-    "l\030\005 \001(\005B\020\302\377\024\014\346\230\276\347\244\272\351\242\221\351\201\223\022.\n\016m_crossserv"
+    "l\030\005 \001(\005B\020\302\377\024\014\346\230\276\347\244\272\351\242\221\351\201\223\022.\n\016m_CrossServ"
     "ice\030\006 \001(\005B\026\302\377\024\022\346\230\257\345\220\246\350\267\250\346\234\215\345\271\277\346\222\255\"E\n\016She"
     "et_ChatChat\0223\n\017E_ChatChat_List\030\001 \003(\0132\024.p"
     "roto_ff.E_ChatChatB\004\210\301\024@\"\301\001\n\021E_ChatSpeci"
     "alchat\022 \n\006m_type\030\001 \001(\005B\020\302\377\024\014\344\272\213\344\273\266\347\261\273\345\236\213"
     "\022\'\n\010m_parama\030\002 \001(\tB\025\302\377\024\r\344\272\213\344\273\266\345\217\202\346\225\260a\220\301\024"
     "@\022(\n\010m_paramb\030\003 \001(\tB\026\302\377\024\r\344\272\213\344\273\266\345\217\202\346\225\260b\220\301"
-    "\024\200\001\0227\n\tm_chat_id\030\004 \001(\003B$\302\377\024 \350\247\246\345\217\221\345\205\263\350\201\224"
+    "\024\200\001\0227\n\tm_chat_Id\030\004 \001(\003B$\302\377\024 \350\247\246\345\217\221\345\205\263\350\201\224"
     "\347\232\204\350\267\221\351\251\254\347\201\257\345\206\205\345\256\271id\"Z\n\025Sheet_ChatSpecia"
     "lchat\022A\n\026E_ChatSpecialchat_List\030\001 \003(\0132\033."
     "proto_ff.E_ChatSpecialchatB\004\210\301\024\010", 672);
@@ -193,12 +193,12 @@ struct StaticDescriptorInitializer_E_5fChat_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_ChatChat::kMChatidFieldNumber;
-const int E_ChatChat::kMChattypeFieldNumber;
-const int E_ChatChat::kMShowtimeFieldNumber;
-const int E_ChatChat::kMChatcontentFieldNumber;
+const int E_ChatChat::kMChatIdFieldNumber;
+const int E_ChatChat::kMChatTypeFieldNumber;
+const int E_ChatChat::kMShowTimeFieldNumber;
+const int E_ChatChat::kMChatContentFieldNumber;
 const int E_ChatChat::kMChannelFieldNumber;
-const int E_ChatChat::kMCrossserviceFieldNumber;
+const int E_ChatChat::kMCrossServiceFieldNumber;
 #endif  // !_MSC_VER
 
 E_ChatChat::E_ChatChat()
@@ -282,7 +282,7 @@ bool E_ChatChat::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 m_chatid = 1;
+      // optional int64 m_chatId = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -293,15 +293,15 @@ bool E_ChatChat::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_chattype;
+        if (input->ExpectTag(16)) goto parse_m_chatType;
         break;
       }
 
-      // optional int32 m_chattype = 2;
+      // optional int32 m_chatType = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_chattype:
+         parse_m_chatType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_chattype_)));
@@ -309,15 +309,15 @@ bool E_ChatChat::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_showtime;
+        if (input->ExpectTag(24)) goto parse_m_showTime;
         break;
       }
 
-      // optional int32 m_showtime = 3;
+      // optional int32 m_showTime = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_showtime:
+         parse_m_showTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_showtime_)));
@@ -325,15 +325,15 @@ bool E_ChatChat::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_chatcontent;
+        if (input->ExpectTag(34)) goto parse_m_chatContent;
         break;
       }
 
-      // optional string m_chatcontent = 4;
+      // optional string m_chatContent = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_chatcontent:
+         parse_m_chatContent:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_chatcontent()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -358,15 +358,15 @@ bool E_ChatChat::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_crossservice;
+        if (input->ExpectTag(48)) goto parse_m_CrossService;
         break;
       }
 
-      // optional int32 m_crossservice = 6;
+      // optional int32 m_CrossService = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_crossservice:
+         parse_m_CrossService:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_crossservice_)));
@@ -396,22 +396,22 @@ bool E_ChatChat::MergePartialFromCodedStream(
 
 void E_ChatChat::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 m_chatid = 1;
+  // optional int64 m_chatId = 1;
   if (has_m_chatid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_chatid(), output);
   }
 
-  // optional int32 m_chattype = 2;
+  // optional int32 m_chatType = 2;
   if (has_m_chattype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_chattype(), output);
   }
 
-  // optional int32 m_showtime = 3;
+  // optional int32 m_showTime = 3;
   if (has_m_showtime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_showtime(), output);
   }
 
-  // optional string m_chatcontent = 4;
+  // optional string m_chatContent = 4;
   if (has_m_chatcontent()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_chatcontent().data(), this->m_chatcontent().length(),
@@ -425,7 +425,7 @@ void E_ChatChat::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_channel(), output);
   }
 
-  // optional int32 m_crossservice = 6;
+  // optional int32 m_CrossService = 6;
   if (has_m_crossservice()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_crossservice(), output);
   }
@@ -438,22 +438,22 @@ void E_ChatChat::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_ChatChat::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 m_chatid = 1;
+  // optional int64 m_chatId = 1;
   if (has_m_chatid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_chatid(), target);
   }
 
-  // optional int32 m_chattype = 2;
+  // optional int32 m_chatType = 2;
   if (has_m_chattype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_chattype(), target);
   }
 
-  // optional int32 m_showtime = 3;
+  // optional int32 m_showTime = 3;
   if (has_m_showtime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_showtime(), target);
   }
 
-  // optional string m_chatcontent = 4;
+  // optional string m_chatContent = 4;
   if (has_m_chatcontent()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_chatcontent().data(), this->m_chatcontent().length(),
@@ -468,7 +468,7 @@ void E_ChatChat::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_channel(), target);
   }
 
-  // optional int32 m_crossservice = 6;
+  // optional int32 m_CrossService = 6;
   if (has_m_crossservice()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_crossservice(), target);
   }
@@ -484,28 +484,28 @@ int E_ChatChat::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 m_chatid = 1;
+    // optional int64 m_chatId = 1;
     if (has_m_chatid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_chatid());
     }
 
-    // optional int32 m_chattype = 2;
+    // optional int32 m_chatType = 2;
     if (has_m_chattype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_chattype());
     }
 
-    // optional int32 m_showtime = 3;
+    // optional int32 m_showTime = 3;
     if (has_m_showtime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_showtime());
     }
 
-    // optional string m_chatcontent = 4;
+    // optional string m_chatContent = 4;
     if (has_m_chatcontent()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -519,7 +519,7 @@ int E_ChatChat::ByteSize() const {
           this->m_channel());
     }
 
-    // optional int32 m_crossservice = 6;
+    // optional int32 m_CrossService = 6;
     if (has_m_crossservice()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -956,15 +956,15 @@ bool E_ChatSpecialchat::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_chat_id;
+        if (input->ExpectTag(32)) goto parse_m_chat_Id;
         break;
       }
 
-      // optional int64 m_chat_id = 4;
+      // optional int64 m_chat_Id = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_chat_id:
+         parse_m_chat_Id:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_chat_id_)));
@@ -1017,7 +1017,7 @@ void E_ChatSpecialchat::SerializeWithCachedSizes(
       3, this->m_paramb(), output);
   }
 
-  // optional int64 m_chat_id = 4;
+  // optional int64 m_chat_Id = 4;
   if (has_m_chat_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->m_chat_id(), output);
   }
@@ -1055,7 +1055,7 @@ void E_ChatSpecialchat::SerializeWithCachedSizes(
         3, this->m_paramb(), target);
   }
 
-  // optional int64 m_chat_id = 4;
+  // optional int64 m_chat_Id = 4;
   if (has_m_chat_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->m_chat_id(), target);
   }
@@ -1092,7 +1092,7 @@ int E_ChatSpecialchat::ByteSize() const {
           this->m_paramb());
     }
 
-    // optional int64 m_chat_id = 4;
+    // optional int64 m_chat_Id = 4;
     if (has_m_chat_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(

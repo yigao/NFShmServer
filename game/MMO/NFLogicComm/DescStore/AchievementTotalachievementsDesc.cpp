@@ -90,7 +90,7 @@ int AchievementTotalachievementsDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_totalitems <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_totalitems)), result, "can't find the totalitems:{} in the  excel:item sheet:item", pDesc->m_totalitems);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_totalItems <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_totalItems)), result, "can't find the totalItems:{} in the  excel:item sheet:item", pDesc->m_totalItems);
 	}
 	return result;
 }

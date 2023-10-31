@@ -205,26 +205,26 @@ void protobuf_AddDesc_E_5fFlash_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\rE_Flash.proto\022\010proto_ff\032\025yd_fieldoptio"
     "ns.proto\"J\n\027E_FlashFlashMonsterDesc\022\031\n\005m"
-    "_num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_id\030\002 \001(\003B\006\302\377"
+    "_Num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_ID\030\002 \001(\003B\006\302\377"
     "\024\002ID\"\376\002\n\014E_FlashFlash\022\032\n\004m_id\030\001 \001(\003B\014\302\377\024"
-    "\010\345\210\267\346\226\260ID\0220\n\020m_isleveldynamic\030\002 \001(\005B\026\302\377\024"
-    "\022\346\230\257\345\220\246\345\212\250\346\200\201\347\255\211\347\272\247\022+\n\013m_minilevel\030\003 \001(\005"
-    "B\026\302\377\024\022\345\212\250\346\200\201\345\210\235\345\247\213\347\255\211\347\272\247\022,\n\014m_levelcheck"
+    "\010\345\210\267\346\226\260ID\0220\n\020m_isLevelDynamic\030\002 \001(\005B\026\302\377\024"
+    "\022\346\230\257\345\220\246\345\212\250\346\200\201\347\255\211\347\272\247\022+\n\013m_miniLevel\030\003 \001(\005"
+    "B\026\302\377\024\022\345\212\250\346\200\201\345\210\235\345\247\213\347\255\211\347\272\247\022,\n\014m_levelCheck"
     "\030\004 \001(\005B\026\302\377\024\022\345\212\250\346\200\201\347\255\211\347\272\247\346\240\241\346\255\243\022\037\n\tm_poin"
-    "tid\030\005 \001(\003B\014\302\377\024\010\350\267\257\345\276\204ID\022(\n\016m_monster_typ"
-    "e\030\006 \001(\005B\020\302\377\024\014\346\200\252\347\211\251\347\261\273\345\236\213\0224\n\024m_monsterre"
-    "freshtime\030\007 \001(\005B\026\302\377\024\022\346\200\252\347\211\251\345\210\267\346\226\260\346\227\266\351\227\264\022"
+    "tID\030\005 \001(\003B\014\302\377\024\010\350\267\257\345\276\204ID\022(\n\016m_monster_Typ"
+    "e\030\006 \001(\005B\020\302\377\024\014\346\200\252\347\211\251\347\261\273\345\236\213\0224\n\024m_monsterRe"
+    "freshTime\030\007 \001(\005B\026\302\377\024\022\346\200\252\347\211\251\345\210\267\346\226\260\346\227\266\351\227\264\022"
     "D\n\tm_monster\030\010 \003(\0132!.proto_ff.E_FlashFla"
     "shMonsterDescB\016\302\377\024\006\346\200\252\347\211\251\210\301\024\005\"L\n\020Sheet_F"
     "lashFlash\0228\n\021E_FlashFlash_List\030\001 \003(\0132\026.p"
     "roto_ff.E_FlashFlashB\005\210\301\024\200\004\"Q\n\033E_FlashIt"
     "emflashMonsterDesc\022\034\n\010m_weight\030\001 \001(\005B\n\302\377"
-    "\024\006\346\235\203\351\207\215\022\024\n\004m_id\030\002 \001(\003B\006\302\377\024\002ID\"\244\002\n\020E_Fla"
+    "\024\006\346\235\203\351\207\215\022\024\n\004m_Id\030\002 \001(\003B\006\302\377\024\002ID\"\244\002\n\020E_Fla"
     "shItemflash\022\032\n\004m_id\030\001 \001(\003B\014\302\377\024\010\345\210\267\346\226\260ID\022"
-    ")\n\010m_usemap\030\002 \001(\tB\027\302\377\024\017\345\217\257\344\275\277\347\224\250\345\234\260\345\233\276\220\301"
+    ")\n\010m_useMap\030\002 \001(\tB\027\302\377\024\017\345\217\257\344\275\277\347\224\250\345\234\260\345\233\276\220\301"
     "\024@\022&\n\006m_live\030\003 \001(\005B\026\302\377\024\022\346\200\252\347\211\251\345\255\230\345\234\250\346\227\266\351"
     "\227\264\022+\n\013m_levelwave\030\004 \001(\005B\026\302\377\024\022\346\230\257\345\220\246\345\212\250\346\200"
-    "\201\347\255\211\347\272\247\022*\n\nm_flashnum\030\005 \001(\005B\026\302\377\024\022\345\210\267\346\226\260\346"
+    "\201\347\255\211\347\272\247\022*\n\nm_flashNum\030\005 \001(\005B\026\302\377\024\022\345\210\267\346\226\260\346"
     "\200\252\347\211\251\346\225\260\351\207\217\022H\n\tm_monster\030\006 \003(\0132%.proto_f"
     "f.E_FlashItemflashMonsterDescB\016\302\377\024\006\346\200\252\347\211"
     "\251\210\301\024\n\"W\n\024Sheet_FlashItemflash\022\?\n\025E_Flash"
@@ -258,7 +258,7 @@ struct StaticDescriptorInitializer_E_5fFlash_2eproto {
 
 #ifndef _MSC_VER
 const int E_FlashFlashMonsterDesc::kMNumFieldNumber;
-const int E_FlashFlashMonsterDesc::kMIdFieldNumber;
+const int E_FlashFlashMonsterDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_FlashFlashMonsterDesc::E_FlashFlashMonsterDesc()
@@ -327,7 +327,7 @@ bool E_FlashFlashMonsterDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_num = 1;
+      // optional int32 m_Num = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -338,15 +338,15 @@ bool E_FlashFlashMonsterDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int64 m_id = 2;
+      // optional int64 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_id_)));
@@ -376,12 +376,12 @@ bool E_FlashFlashMonsterDesc::MergePartialFromCodedStream(
 
 void E_FlashFlashMonsterDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_num = 1;
+  // optional int32 m_Num = 1;
   if (has_m_num()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_num(), output);
   }
 
-  // optional int64 m_id = 2;
+  // optional int64 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_id(), output);
   }
@@ -394,12 +394,12 @@ void E_FlashFlashMonsterDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_FlashFlashMonsterDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_num = 1;
+  // optional int32 m_Num = 1;
   if (has_m_num()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_num(), target);
   }
 
-  // optional int64 m_id = 2;
+  // optional int64 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_id(), target);
   }
@@ -415,14 +415,14 @@ int E_FlashFlashMonsterDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_num = 1;
+    // optional int32 m_Num = 1;
     if (has_m_num()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_num());
     }
 
-    // optional int64 m_id = 2;
+    // optional int64 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -506,12 +506,12 @@ void E_FlashFlashMonsterDesc::Swap(E_FlashFlashMonsterDesc* other) {
 
 #ifndef _MSC_VER
 const int E_FlashFlash::kMIdFieldNumber;
-const int E_FlashFlash::kMIsleveldynamicFieldNumber;
-const int E_FlashFlash::kMMinilevelFieldNumber;
-const int E_FlashFlash::kMLevelcheckFieldNumber;
-const int E_FlashFlash::kMPointidFieldNumber;
+const int E_FlashFlash::kMIsLevelDynamicFieldNumber;
+const int E_FlashFlash::kMMiniLevelFieldNumber;
+const int E_FlashFlash::kMLevelCheckFieldNumber;
+const int E_FlashFlash::kMPointIDFieldNumber;
 const int E_FlashFlash::kMMonsterTypeFieldNumber;
-const int E_FlashFlash::kMMonsterrefreshtimeFieldNumber;
+const int E_FlashFlash::kMMonsterRefreshTimeFieldNumber;
 const int E_FlashFlash::kMMonsterFieldNumber;
 #endif  // !_MSC_VER
 
@@ -603,15 +603,15 @@ bool E_FlashFlash::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_isleveldynamic;
+        if (input->ExpectTag(16)) goto parse_m_isLevelDynamic;
         break;
       }
 
-      // optional int32 m_isleveldynamic = 2;
+      // optional int32 m_isLevelDynamic = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_isleveldynamic:
+         parse_m_isLevelDynamic:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_isleveldynamic_)));
@@ -619,15 +619,15 @@ bool E_FlashFlash::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_minilevel;
+        if (input->ExpectTag(24)) goto parse_m_miniLevel;
         break;
       }
 
-      // optional int32 m_minilevel = 3;
+      // optional int32 m_miniLevel = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_minilevel:
+         parse_m_miniLevel:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_minilevel_)));
@@ -635,15 +635,15 @@ bool E_FlashFlash::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_levelcheck;
+        if (input->ExpectTag(32)) goto parse_m_levelCheck;
         break;
       }
 
-      // optional int32 m_levelcheck = 4;
+      // optional int32 m_levelCheck = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_levelcheck:
+         parse_m_levelCheck:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_levelcheck_)));
@@ -651,15 +651,15 @@ bool E_FlashFlash::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_pointid;
+        if (input->ExpectTag(40)) goto parse_m_pointID;
         break;
       }
 
-      // optional int64 m_pointid = 5;
+      // optional int64 m_pointID = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_pointid:
+         parse_m_pointID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_pointid_)));
@@ -667,15 +667,15 @@ bool E_FlashFlash::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_monster_type;
+        if (input->ExpectTag(48)) goto parse_m_monster_Type;
         break;
       }
 
-      // optional int32 m_monster_type = 6;
+      // optional int32 m_monster_Type = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_monster_type:
+         parse_m_monster_Type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_monster_type_)));
@@ -683,15 +683,15 @@ bool E_FlashFlash::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_monsterrefreshtime;
+        if (input->ExpectTag(56)) goto parse_m_monsterRefreshTime;
         break;
       }
 
-      // optional int32 m_monsterrefreshtime = 7;
+      // optional int32 m_monsterRefreshTime = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_monsterrefreshtime:
+         parse_m_monsterRefreshTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_monsterrefreshtime_)));
@@ -741,32 +741,32 @@ void E_FlashFlash::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
 
-  // optional int32 m_isleveldynamic = 2;
+  // optional int32 m_isLevelDynamic = 2;
   if (has_m_isleveldynamic()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_isleveldynamic(), output);
   }
 
-  // optional int32 m_minilevel = 3;
+  // optional int32 m_miniLevel = 3;
   if (has_m_minilevel()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_minilevel(), output);
   }
 
-  // optional int32 m_levelcheck = 4;
+  // optional int32 m_levelCheck = 4;
   if (has_m_levelcheck()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_levelcheck(), output);
   }
 
-  // optional int64 m_pointid = 5;
+  // optional int64 m_pointID = 5;
   if (has_m_pointid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(5, this->m_pointid(), output);
   }
 
-  // optional int32 m_monster_type = 6;
+  // optional int32 m_monster_Type = 6;
   if (has_m_monster_type()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_monster_type(), output);
   }
 
-  // optional int32 m_monsterrefreshtime = 7;
+  // optional int32 m_monsterRefreshTime = 7;
   if (has_m_monsterrefreshtime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_monsterrefreshtime(), output);
   }
@@ -790,32 +790,32 @@ void E_FlashFlash::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_isleveldynamic = 2;
+  // optional int32 m_isLevelDynamic = 2;
   if (has_m_isleveldynamic()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_isleveldynamic(), target);
   }
 
-  // optional int32 m_minilevel = 3;
+  // optional int32 m_miniLevel = 3;
   if (has_m_minilevel()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_minilevel(), target);
   }
 
-  // optional int32 m_levelcheck = 4;
+  // optional int32 m_levelCheck = 4;
   if (has_m_levelcheck()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_levelcheck(), target);
   }
 
-  // optional int64 m_pointid = 5;
+  // optional int64 m_pointID = 5;
   if (has_m_pointid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(5, this->m_pointid(), target);
   }
 
-  // optional int32 m_monster_type = 6;
+  // optional int32 m_monster_Type = 6;
   if (has_m_monster_type()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_monster_type(), target);
   }
 
-  // optional int32 m_monsterrefreshtime = 7;
+  // optional int32 m_monsterRefreshTime = 7;
   if (has_m_monsterrefreshtime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_monsterrefreshtime(), target);
   }
@@ -845,42 +845,42 @@ int E_FlashFlash::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_isleveldynamic = 2;
+    // optional int32 m_isLevelDynamic = 2;
     if (has_m_isleveldynamic()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_isleveldynamic());
     }
 
-    // optional int32 m_minilevel = 3;
+    // optional int32 m_miniLevel = 3;
     if (has_m_minilevel()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_minilevel());
     }
 
-    // optional int32 m_levelcheck = 4;
+    // optional int32 m_levelCheck = 4;
     if (has_m_levelcheck()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_levelcheck());
     }
 
-    // optional int64 m_pointid = 5;
+    // optional int64 m_pointID = 5;
     if (has_m_pointid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_pointid());
     }
 
-    // optional int32 m_monster_type = 6;
+    // optional int32 m_monster_Type = 6;
     if (has_m_monster_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_monster_type());
     }
 
-    // optional int32 m_monsterrefreshtime = 7;
+    // optional int32 m_monsterRefreshTime = 7;
     if (has_m_monsterrefreshtime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1277,15 +1277,15 @@ bool E_FlashItemflashMonsterDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_Id;
         break;
       }
 
-      // optional int64 m_id = 2;
+      // optional int64 m_Id = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_Id:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_id_)));
@@ -1320,7 +1320,7 @@ void E_FlashItemflashMonsterDesc::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_weight(), output);
   }
 
-  // optional int64 m_id = 2;
+  // optional int64 m_Id = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_id(), output);
   }
@@ -1338,7 +1338,7 @@ void E_FlashItemflashMonsterDesc::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_weight(), target);
   }
 
-  // optional int64 m_id = 2;
+  // optional int64 m_Id = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_id(), target);
   }
@@ -1361,7 +1361,7 @@ int E_FlashItemflashMonsterDesc::ByteSize() const {
           this->m_weight());
     }
 
-    // optional int64 m_id = 2;
+    // optional int64 m_Id = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -1445,10 +1445,10 @@ void E_FlashItemflashMonsterDesc::Swap(E_FlashItemflashMonsterDesc* other) {
 
 #ifndef _MSC_VER
 const int E_FlashItemflash::kMIdFieldNumber;
-const int E_FlashItemflash::kMUsemapFieldNumber;
+const int E_FlashItemflash::kMUseMapFieldNumber;
 const int E_FlashItemflash::kMLiveFieldNumber;
 const int E_FlashItemflash::kMLevelwaveFieldNumber;
-const int E_FlashItemflash::kMFlashnumFieldNumber;
+const int E_FlashItemflash::kMFlashNumFieldNumber;
 const int E_FlashItemflash::kMMonsterFieldNumber;
 #endif  // !_MSC_VER
 
@@ -1543,15 +1543,15 @@ bool E_FlashItemflash::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_m_usemap;
+        if (input->ExpectTag(18)) goto parse_m_useMap;
         break;
       }
 
-      // optional string m_usemap = 2;
+      // optional string m_useMap = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_usemap:
+         parse_m_useMap:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_usemap()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1592,15 +1592,15 @@ bool E_FlashItemflash::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_flashnum;
+        if (input->ExpectTag(40)) goto parse_m_flashNum;
         break;
       }
 
-      // optional int32 m_flashnum = 5;
+      // optional int32 m_flashNum = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_flashnum:
+         parse_m_flashNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_flashnum_)));
@@ -1650,7 +1650,7 @@ void E_FlashItemflash::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
 
-  // optional string m_usemap = 2;
+  // optional string m_useMap = 2;
   if (has_m_usemap()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_usemap().data(), this->m_usemap().length(),
@@ -1669,7 +1669,7 @@ void E_FlashItemflash::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_levelwave(), output);
   }
 
-  // optional int32 m_flashnum = 5;
+  // optional int32 m_flashNum = 5;
   if (has_m_flashnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_flashnum(), output);
   }
@@ -1693,7 +1693,7 @@ void E_FlashItemflash::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
 
-  // optional string m_usemap = 2;
+  // optional string m_useMap = 2;
   if (has_m_usemap()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_usemap().data(), this->m_usemap().length(),
@@ -1713,7 +1713,7 @@ void E_FlashItemflash::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_levelwave(), target);
   }
 
-  // optional int32 m_flashnum = 5;
+  // optional int32 m_flashNum = 5;
   if (has_m_flashnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_flashnum(), target);
   }
@@ -1743,7 +1743,7 @@ int E_FlashItemflash::ByteSize() const {
           this->m_id());
     }
 
-    // optional string m_usemap = 2;
+    // optional string m_useMap = 2;
     if (has_m_usemap()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -1764,7 +1764,7 @@ int E_FlashItemflash::ByteSize() const {
           this->m_levelwave());
     }
 
-    // optional int32 m_flashnum = 5;
+    // optional int32 m_flashNum = 5;
     if (has_m_flashnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

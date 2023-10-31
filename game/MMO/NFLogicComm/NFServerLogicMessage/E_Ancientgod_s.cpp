@@ -11,7 +11,7 @@ E_AncientgodAncientgodFraDesc_s::E_AncientgodAncientgodFraDesc_s() {
 }
 
 int E_AncientgodAncientgodFraDesc_s::CreateInit() {
-	m_attid = (int32_t)0;
+	m_attID = (int32_t)0;
 	m_num = (int32_t)0;
 	return 0;
 }
@@ -21,12 +21,12 @@ int E_AncientgodAncientgodFraDesc_s::ResumeInit() {
 }
 
 void E_AncientgodAncientgodFraDesc_s::write_to_pbmsg(::proto_ff::E_AncientgodAncientgodFraDesc & msg) const {
-	msg.set_m_attid((int32_t)m_attid);
+	msg.set_m_attid((int32_t)m_attID);
 	msg.set_m_num((int32_t)m_num);
 }
 
 void E_AncientgodAncientgodFraDesc_s::read_from_pbmsg(const ::proto_ff::E_AncientgodAncientgodFraDesc & msg) {
-	m_attid = msg.m_attid();
+	m_attID = msg.m_attid();
 	m_num = msg.m_num();
 }
 
@@ -41,9 +41,9 @@ E_AncientgodAncientgod_s::E_AncientgodAncientgod_s() {
 int E_AncientgodAncientgod_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_parama = (float)0;
-	m_showlv = (int32_t)0;
-	m_unlocklv = (int32_t)0;
-	m_lvlimit = (int32_t)0;
+	m_showLv = (int32_t)0;
+	m_unlockLv = (int32_t)0;
+	m_lvLimit = (int32_t)0;
 	m_stars = (int32_t)0;
 	return 0;
 }
@@ -56,10 +56,10 @@ void E_AncientgodAncientgod_s::write_to_pbmsg(::proto_ff::E_AncientgodAncientgod
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_name(m_name.data());
 	msg.set_m_parama((float)m_parama);
-	msg.set_m_showlv((int32_t)m_showlv);
-	msg.set_m_unlocklv((int32_t)m_unlocklv);
+	msg.set_m_showlv((int32_t)m_showLv);
+	msg.set_m_unlocklv((int32_t)m_unlockLv);
 	msg.set_m_condition(m_condition.data());
-	msg.set_m_lvlimit((int32_t)m_lvlimit);
+	msg.set_m_lvlimit((int32_t)m_lvLimit);
 	msg.set_m_stars((int32_t)m_stars);
 	for(int32_t i = 0; i < (int32_t)m_fra.size(); ++i) {
 		::proto_ff::E_AncientgodAncientgodFraDesc* temp_m_fra = msg.add_m_fra();
@@ -71,10 +71,10 @@ void E_AncientgodAncientgod_s::read_from_pbmsg(const ::proto_ff::E_AncientgodAnc
 	m_id = msg.m_id();
 	m_name = msg.m_name();
 	m_parama = msg.m_parama();
-	m_showlv = msg.m_showlv();
-	m_unlocklv = msg.m_unlocklv();
+	m_showLv = msg.m_showlv();
+	m_unlockLv = msg.m_unlocklv();
 	m_condition = msg.m_condition();
-	m_lvlimit = msg.m_lvlimit();
+	m_lvLimit = msg.m_lvlimit();
 	m_stars = msg.m_stars();
 	m_fra.resize((int)msg.m_fra_size() > (int)m_fra.max_size() ? m_fra.max_size() : msg.m_fra_size());
 	for(int32_t i = 0; i < (int32_t)m_fra.size(); ++i) {
@@ -153,11 +153,11 @@ E_AncientgodLvup_s::E_AncientgodLvup_s() {
 int E_AncientgodLvup_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_lv = (int32_t)0;
-	m_ancientid = (int32_t)0;
-	m_itemid = (int32_t)0;
-	m_mallid = (int32_t)0;
+	m_ancientID = (int32_t)0;
+	m_itemID = (int32_t)0;
+	m_mallID = (int32_t)0;
 	m_num = (int32_t)0;
-	m_initialvalue = (int32_t)0;
+	m_initialValue = (int32_t)0;
 	m_position = (int32_t)0;
 	return 0;
 }
@@ -169,11 +169,11 @@ int E_AncientgodLvup_s::ResumeInit() {
 void E_AncientgodLvup_s::write_to_pbmsg(::proto_ff::E_AncientgodLvup & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_lv((int32_t)m_lv);
-	msg.set_m_ancientid((int32_t)m_ancientid);
-	msg.set_m_itemid((int32_t)m_itemid);
-	msg.set_m_mallid((int32_t)m_mallid);
+	msg.set_m_ancientid((int32_t)m_ancientID);
+	msg.set_m_itemid((int32_t)m_itemID);
+	msg.set_m_mallid((int32_t)m_mallID);
 	msg.set_m_num((int32_t)m_num);
-	msg.set_m_initialvalue((int32_t)m_initialvalue);
+	msg.set_m_initialvalue((int32_t)m_initialValue);
 	msg.set_m_position((int32_t)m_position);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_AncientgodLvupAttributeDesc* temp_m_attribute = msg.add_m_attribute();
@@ -184,11 +184,11 @@ void E_AncientgodLvup_s::write_to_pbmsg(::proto_ff::E_AncientgodLvup & msg) cons
 void E_AncientgodLvup_s::read_from_pbmsg(const ::proto_ff::E_AncientgodLvup & msg) {
 	m_id = msg.m_id();
 	m_lv = msg.m_lv();
-	m_ancientid = msg.m_ancientid();
-	m_itemid = msg.m_itemid();
-	m_mallid = msg.m_mallid();
+	m_ancientID = msg.m_ancientid();
+	m_itemID = msg.m_itemid();
+	m_mallID = msg.m_mallid();
 	m_num = msg.m_num();
-	m_initialvalue = msg.m_initialvalue();
+	m_initialValue = msg.m_initialvalue();
 	m_position = msg.m_position();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
@@ -239,7 +239,7 @@ E_AncientgodEquipvalue_s::E_AncientgodEquipvalue_s() {
 int E_AncientgodEquipvalue_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_quality = (int32_t)0;
-	m_wearquality = (int32_t)0;
+	m_wearQuality = (int32_t)0;
 	m_star = (int32_t)0;
 	m_value = (int32_t)0;
 	return 0;
@@ -252,7 +252,7 @@ int E_AncientgodEquipvalue_s::ResumeInit() {
 void E_AncientgodEquipvalue_s::write_to_pbmsg(::proto_ff::E_AncientgodEquipvalue & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_quality((int32_t)m_quality);
-	msg.set_m_wearquality((int32_t)m_wearquality);
+	msg.set_m_wearquality((int32_t)m_wearQuality);
 	msg.set_m_star((int32_t)m_star);
 	msg.set_m_value((int32_t)m_value);
 }
@@ -260,7 +260,7 @@ void E_AncientgodEquipvalue_s::write_to_pbmsg(::proto_ff::E_AncientgodEquipvalue
 void E_AncientgodEquipvalue_s::read_from_pbmsg(const ::proto_ff::E_AncientgodEquipvalue & msg) {
 	m_id = msg.m_id();
 	m_quality = msg.m_quality();
-	m_wearquality = msg.m_wearquality();
+	m_wearQuality = msg.m_wearquality();
 	m_star = msg.m_star();
 	m_value = msg.m_value();
 }
@@ -334,9 +334,9 @@ E_AncientgodBless_s::E_AncientgodBless_s() {
 
 int E_AncientgodBless_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_ancientid = (int32_t)0;
+	m_ancientID = (int32_t)0;
 	m_position = (int32_t)0;
-	m_itemid = (int32_t)0;
+	m_itemID = (int32_t)0;
 	m_num = (int32_t)0;
 	return 0;
 }
@@ -347,9 +347,9 @@ int E_AncientgodBless_s::ResumeInit() {
 
 void E_AncientgodBless_s::write_to_pbmsg(::proto_ff::E_AncientgodBless & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_ancientid((int32_t)m_ancientid);
+	msg.set_m_ancientid((int32_t)m_ancientID);
 	msg.set_m_position((int32_t)m_position);
-	msg.set_m_itemid((int32_t)m_itemid);
+	msg.set_m_itemid((int32_t)m_itemID);
 	msg.set_m_num((int32_t)m_num);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_AncientgodBlessAttributeDesc* temp_m_attribute = msg.add_m_attribute();
@@ -359,9 +359,9 @@ void E_AncientgodBless_s::write_to_pbmsg(::proto_ff::E_AncientgodBless & msg) co
 
 void E_AncientgodBless_s::read_from_pbmsg(const ::proto_ff::E_AncientgodBless & msg) {
 	m_id = msg.m_id();
-	m_ancientid = msg.m_ancientid();
+	m_ancientID = msg.m_ancientid();
 	m_position = msg.m_position();
-	m_itemid = msg.m_itemid();
+	m_itemID = msg.m_itemid();
 	m_num = msg.m_num();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
@@ -442,7 +442,7 @@ E_AncientgodAdvance_s::E_AncientgodAdvance_s() {
 
 int E_AncientgodAdvance_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_ancientid = (int32_t)0;
+	m_ancientID = (int32_t)0;
 	m_position = (int32_t)0;
 	return 0;
 }
@@ -453,7 +453,7 @@ int E_AncientgodAdvance_s::ResumeInit() {
 
 void E_AncientgodAdvance_s::write_to_pbmsg(::proto_ff::E_AncientgodAdvance & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_ancientid((int32_t)m_ancientid);
+	msg.set_m_ancientid((int32_t)m_ancientID);
 	msg.set_m_position((int32_t)m_position);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_AncientgodAdvanceAttributeDesc* temp_m_attribute = msg.add_m_attribute();
@@ -463,7 +463,7 @@ void E_AncientgodAdvance_s::write_to_pbmsg(::proto_ff::E_AncientgodAdvance & msg
 
 void E_AncientgodAdvance_s::read_from_pbmsg(const ::proto_ff::E_AncientgodAdvance & msg) {
 	m_id = msg.m_id();
-	m_ancientid = msg.m_ancientid();
+	m_ancientID = msg.m_ancientid();
 	m_position = msg.m_position();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {

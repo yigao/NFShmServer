@@ -90,7 +90,7 @@ int FestivalMuban_turntable_poolDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_itemid <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_itemid)), result, "can't find the itemid:{} in the  excel:item sheet:item", pDesc->m_itemid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_itemID <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_itemID)), result, "can't find the itemID:{} in the  excel:item sheet:item", pDesc->m_itemID);
 	}
 	return result;
 }

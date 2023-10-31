@@ -6,16 +6,16 @@ import "yd_fieldoptions.proto";
 message E_MoneyrewardMoneyreward
 {
 	optional int32 m_taskreward = 1[(yd_fieldoptions.field_cname) = "任务奖励类型"];
-	optional string m_boxtaskreward = 2[(yd_fieldoptions.field_cname) = "宝箱奖励", (yd_fieldoptions.field_bufsize) = 64];
-	optional string m_boxnum = 3[(yd_fieldoptions.field_cname) = "宝箱奖励次数条件", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_boxTaskreward = 2[(yd_fieldoptions.field_cname) = "宝箱奖励", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_boxNum = 3[(yd_fieldoptions.field_cname) = "宝箱奖励次数条件", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_task = 4[(yd_fieldoptions.field_cname) = "抽取的任务类型"];
-	optional int32 m_taskmax = 5[(yd_fieldoptions.field_cname) = "任务上限（抽取次数）"];
-	optional string m_oneprice = 6[(yd_fieldoptions.field_cname) = "一键完成单次货币价格", (yd_fieldoptions.field_bufsize) = 64];
-	optional string m_freeunlocklv = 7[(yd_fieldoptions.field_cname) = "免费一键开放等级和VIP", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_viplv = 8[(yd_fieldoptions.field_cname) = "双倍需求vip等级"];
-	optional int32 m_timeget = 9[(yd_fieldoptions.field_cname) = "接取任务倒计时时间"];
-	optional int32 m_timegetmoney = 10[(yd_fieldoptions.field_cname) = "领取倒计时时间"];
-	optional int32 m_timego = 11[(yd_fieldoptions.field_cname) = "前往倒计时时间"];
+	optional int32 m_taskMax = 5[(yd_fieldoptions.field_cname) = "任务上限（抽取次数）"];
+	optional string m_onePrice = 6[(yd_fieldoptions.field_cname) = "一键完成单次货币价格", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_freeUnlockLv = 7[(yd_fieldoptions.field_cname) = "免费一键开放等级和VIP", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_vipLV = 8[(yd_fieldoptions.field_cname) = "双倍需求vip等级"];
+	optional int32 m_timeGet = 9[(yd_fieldoptions.field_cname) = "接取任务倒计时时间"];
+	optional int32 m_timeGetMoney = 10[(yd_fieldoptions.field_cname) = "领取倒计时时间"];
+	optional int32 m_timeGo = 11[(yd_fieldoptions.field_cname) = "前往倒计时时间"];
 }
 
 

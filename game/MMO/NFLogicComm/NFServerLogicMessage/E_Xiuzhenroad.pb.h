@@ -100,31 +100,31 @@ class E_XiuzhenroadTask : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_taskid = 1;
+  // optional int64 m_taskId = 1;
   inline bool has_m_taskid() const;
   inline void clear_m_taskid();
-  static const int kMTaskidFieldNumber = 1;
+  static const int kMTaskIdFieldNumber = 1;
   inline ::google::protobuf::int64 m_taskid() const;
   inline void set_m_taskid(::google::protobuf::int64 value);
 
-  // optional int32 m_tasktype = 2;
+  // optional int32 m_taskType = 2;
   inline bool has_m_tasktype() const;
   inline void clear_m_tasktype();
-  static const int kMTasktypeFieldNumber = 2;
+  static const int kMTaskTypeFieldNumber = 2;
   inline ::google::protobuf::int32 m_tasktype() const;
   inline void set_m_tasktype(::google::protobuf::int32 value);
 
-  // optional int32 m_eventtype = 3;
+  // optional int32 m_eventType = 3;
   inline bool has_m_eventtype() const;
   inline void clear_m_eventtype();
-  static const int kMEventtypeFieldNumber = 3;
+  static const int kMEventTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_eventtype() const;
   inline void set_m_eventtype(::google::protobuf::int32 value);
 
-  // optional int32 m_reachprice = 4;
+  // optional int32 m_reachPrice = 4;
   inline bool has_m_reachprice() const;
   inline void clear_m_reachprice();
-  static const int kMReachpriceFieldNumber = 4;
+  static const int kMReachPriceFieldNumber = 4;
   inline ::google::protobuf::int32 m_reachprice() const;
   inline void set_m_reachprice(::google::protobuf::int32 value);
 
@@ -135,17 +135,17 @@ class E_XiuzhenroadTask : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_reward() const;
   inline void set_m_reward(::google::protobuf::int32 value);
 
-  // optional int32 m_reward_value = 6;
+  // optional int32 m_reward_Value = 6;
   inline bool has_m_reward_value() const;
   inline void clear_m_reward_value();
   static const int kMRewardValueFieldNumber = 6;
   inline ::google::protobuf::int32 m_reward_value() const;
   inline void set_m_reward_value(::google::protobuf::int32 value);
 
-  // optional int32 m_boxid = 7;
+  // optional int32 m_boxID = 7;
   inline bool has_m_boxid() const;
   inline void clear_m_boxid();
-  static const int kMBoxidFieldNumber = 7;
+  static const int kMBoxIDFieldNumber = 7;
   inline ::google::protobuf::int32 m_boxid() const;
   inline void set_m_boxid(::google::protobuf::int32 value);
 
@@ -360,17 +360,17 @@ class E_XiuzhenroadBonuspointsTotalitemsDesc : public ::google::protobuf::Messag
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   inline bool has_m_value() const;
   inline void clear_m_value();
   static const int kMValueFieldNumber = 1;
   inline ::google::protobuf::int32 m_value() const;
   inline void set_m_value(::google::protobuf::int32 value);
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -452,24 +452,24 @@ class E_XiuzhenroadBonuspoints : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_totalrewardsid = 1;
+  // optional int32 m_totalRewardsID = 1;
   inline bool has_m_totalrewardsid() const;
   inline void clear_m_totalrewardsid();
-  static const int kMTotalrewardsidFieldNumber = 1;
+  static const int kMTotalRewardsIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_totalrewardsid() const;
   inline void set_m_totalrewardsid(::google::protobuf::int32 value);
 
-  // optional int32 m_achievedpoints = 2;
+  // optional int32 m_achievedPoints = 2;
   inline bool has_m_achievedpoints() const;
   inline void clear_m_achievedpoints();
-  static const int kMAchievedpointsFieldNumber = 2;
+  static const int kMAchievedPointsFieldNumber = 2;
   inline ::google::protobuf::int32 m_achievedpoints() const;
   inline void set_m_achievedpoints(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_XiuzhenroadBonuspointsTotalitemsDesc m_totalitems = 3;
+  // repeated .proto_ff.E_XiuzhenroadBonuspointsTotalitemsDesc m_totalItems = 3;
   inline int m_totalitems_size() const;
   inline void clear_m_totalitems();
-  static const int kMTotalitemsFieldNumber = 3;
+  static const int kMTotalItemsFieldNumber = 3;
   inline const ::proto_ff::E_XiuzhenroadBonuspointsTotalitemsDesc& m_totalitems(int index) const;
   inline ::proto_ff::E_XiuzhenroadBonuspointsTotalitemsDesc* mutable_m_totalitems(int index);
   inline ::proto_ff::E_XiuzhenroadBonuspointsTotalitemsDesc* add_m_totalitems();
@@ -642,24 +642,24 @@ class E_XiuzhenroadSkill : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_activityskills = 1;
+  // optional int32 m_activitySkills = 1;
   inline bool has_m_activityskills() const;
   inline void clear_m_activityskills();
-  static const int kMActivityskillsFieldNumber = 1;
+  static const int kMActivitySkillsFieldNumber = 1;
   inline ::google::protobuf::int32 m_activityskills() const;
   inline void set_m_activityskills(::google::protobuf::int32 value);
 
-  // optional int32 m_skillid = 2;
+  // optional int32 m_skillID = 2;
   inline bool has_m_skillid() const;
   inline void clear_m_skillid();
-  static const int kMSkillidFieldNumber = 2;
+  static const int kMSkillIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_skillid() const;
   inline void set_m_skillid(::google::protobuf::int32 value);
 
-  // optional int32 m_itenmid = 3;
+  // optional int32 m_itenmID = 3;
   inline bool has_m_itenmid() const;
   inline void clear_m_itenmid();
-  static const int kMItenmidFieldNumber = 3;
+  static const int kMItenmIDFieldNumber = 3;
   inline ::google::protobuf::int32 m_itenmid() const;
   inline void set_m_itenmid(::google::protobuf::int32 value);
 
@@ -839,10 +839,10 @@ class E_XiuzhenroadClassify : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_typeid = 1;
+  // optional int32 m_typeID = 1;
   inline bool has_m_typeid() const;
   inline void clear_m_typeid();
-  static const int kMTypeidFieldNumber = 1;
+  static const int kMTypeIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_typeid() const;
   inline void set_m_typeid(::google::protobuf::int32 value);
 
@@ -858,17 +858,17 @@ class E_XiuzhenroadClassify : public ::google::protobuf::Message {
   inline ::std::string* release_m_gift();
   inline void set_allocated_m_gift(::std::string* m_gift);
 
-  // optional int32 m_giftid = 3;
+  // optional int32 m_giftID = 3;
   inline bool has_m_giftid() const;
   inline void clear_m_giftid();
-  static const int kMGiftidFieldNumber = 3;
+  static const int kMGiftIDFieldNumber = 3;
   inline ::google::protobuf::int32 m_giftid() const;
   inline void set_m_giftid(::google::protobuf::int32 value);
 
-  // optional int32 m_rechargeid = 4;
+  // optional int32 m_rechargeID = 4;
   inline bool has_m_rechargeid() const;
   inline void clear_m_rechargeid();
-  static const int kMRechargeidFieldNumber = 4;
+  static const int kMRechargeIDFieldNumber = 4;
   inline ::google::protobuf::int32 m_rechargeid() const;
   inline void set_m_rechargeid(::google::protobuf::int32 value);
 
@@ -992,7 +992,7 @@ class Sheet_XiuzhenroadClassify : public ::google::protobuf::Message {
 
 // E_XiuzhenroadTask
 
-// optional int64 m_taskid = 1;
+// optional int64 m_taskId = 1;
 inline bool E_XiuzhenroadTask::has_m_taskid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1014,7 +1014,7 @@ inline void E_XiuzhenroadTask::set_m_taskid(::google::protobuf::int64 value) {
   m_taskid_ = value;
 }
 
-// optional int32 m_tasktype = 2;
+// optional int32 m_taskType = 2;
 inline bool E_XiuzhenroadTask::has_m_tasktype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1036,7 +1036,7 @@ inline void E_XiuzhenroadTask::set_m_tasktype(::google::protobuf::int32 value) {
   m_tasktype_ = value;
 }
 
-// optional int32 m_eventtype = 3;
+// optional int32 m_eventType = 3;
 inline bool E_XiuzhenroadTask::has_m_eventtype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1058,7 +1058,7 @@ inline void E_XiuzhenroadTask::set_m_eventtype(::google::protobuf::int32 value) 
   m_eventtype_ = value;
 }
 
-// optional int32 m_reachprice = 4;
+// optional int32 m_reachPrice = 4;
 inline bool E_XiuzhenroadTask::has_m_reachprice() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1102,7 +1102,7 @@ inline void E_XiuzhenroadTask::set_m_reward(::google::protobuf::int32 value) {
   m_reward_ = value;
 }
 
-// optional int32 m_reward_value = 6;
+// optional int32 m_reward_Value = 6;
 inline bool E_XiuzhenroadTask::has_m_reward_value() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -1124,7 +1124,7 @@ inline void E_XiuzhenroadTask::set_m_reward_value(::google::protobuf::int32 valu
   m_reward_value_ = value;
 }
 
-// optional int32 m_boxid = 7;
+// optional int32 m_boxID = 7;
 inline bool E_XiuzhenroadTask::has_m_boxid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -1248,7 +1248,7 @@ Sheet_XiuzhenroadTask::mutable_e_xiuzhenroadtask_list() {
 
 // E_XiuzhenroadBonuspointsTotalitemsDesc
 
-// optional int32 m_value = 1;
+// optional int32 m_Value = 1;
 inline bool E_XiuzhenroadBonuspointsTotalitemsDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1270,7 +1270,7 @@ inline void E_XiuzhenroadBonuspointsTotalitemsDesc::set_m_value(::google::protob
   m_value_ = value;
 }
 
-// optional int32 m_id = 2;
+// optional int32 m_ID = 2;
 inline bool E_XiuzhenroadBonuspointsTotalitemsDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1296,7 +1296,7 @@ inline void E_XiuzhenroadBonuspointsTotalitemsDesc::set_m_id(::google::protobuf:
 
 // E_XiuzhenroadBonuspoints
 
-// optional int32 m_totalrewardsid = 1;
+// optional int32 m_totalRewardsID = 1;
 inline bool E_XiuzhenroadBonuspoints::has_m_totalrewardsid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1318,7 +1318,7 @@ inline void E_XiuzhenroadBonuspoints::set_m_totalrewardsid(::google::protobuf::i
   m_totalrewardsid_ = value;
 }
 
-// optional int32 m_achievedpoints = 2;
+// optional int32 m_achievedPoints = 2;
 inline bool E_XiuzhenroadBonuspoints::has_m_achievedpoints() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1340,7 +1340,7 @@ inline void E_XiuzhenroadBonuspoints::set_m_achievedpoints(::google::protobuf::i
   m_achievedpoints_ = value;
 }
 
-// repeated .proto_ff.E_XiuzhenroadBonuspointsTotalitemsDesc m_totalitems = 3;
+// repeated .proto_ff.E_XiuzhenroadBonuspointsTotalitemsDesc m_totalItems = 3;
 inline int E_XiuzhenroadBonuspoints::m_totalitems_size() const {
   return m_totalitems_.size();
 }
@@ -1398,7 +1398,7 @@ Sheet_XiuzhenroadBonuspoints::mutable_e_xiuzhenroadbonuspoints_list() {
 
 // E_XiuzhenroadSkill
 
-// optional int32 m_activityskills = 1;
+// optional int32 m_activitySkills = 1;
 inline bool E_XiuzhenroadSkill::has_m_activityskills() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1420,7 +1420,7 @@ inline void E_XiuzhenroadSkill::set_m_activityskills(::google::protobuf::int32 v
   m_activityskills_ = value;
 }
 
-// optional int32 m_skillid = 2;
+// optional int32 m_skillID = 2;
 inline bool E_XiuzhenroadSkill::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1442,7 +1442,7 @@ inline void E_XiuzhenroadSkill::set_m_skillid(::google::protobuf::int32 value) {
   m_skillid_ = value;
 }
 
-// optional int32 m_itenmid = 3;
+// optional int32 m_itenmID = 3;
 inline bool E_XiuzhenroadSkill::has_m_itenmid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1519,7 +1519,7 @@ Sheet_XiuzhenroadSkill::mutable_e_xiuzhenroadskill_list() {
 
 // E_XiuzhenroadClassify
 
-// optional int32 m_typeid = 1;
+// optional int32 m_typeID = 1;
 inline bool E_XiuzhenroadClassify::has_m_typeid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1611,7 +1611,7 @@ inline void E_XiuzhenroadClassify::set_allocated_m_gift(::std::string* m_gift) {
   }
 }
 
-// optional int32 m_giftid = 3;
+// optional int32 m_giftID = 3;
 inline bool E_XiuzhenroadClassify::has_m_giftid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1633,7 +1633,7 @@ inline void E_XiuzhenroadClassify::set_m_giftid(::google::protobuf::int32 value)
   m_giftid_ = value;
 }
 
-// optional int32 m_rechargeid = 4;
+// optional int32 m_rechargeID = 4;
 inline bool E_XiuzhenroadClassify::has_m_rechargeid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }

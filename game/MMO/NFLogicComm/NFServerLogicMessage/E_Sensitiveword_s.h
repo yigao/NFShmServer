@@ -21,7 +21,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//序号
-		NFShmString<64> m_sensitiveword;//敏感字
+		NFShmString<64> m_sensitiveWord;//敏感字
 
 		virtual void write_to_pbmsg(::proto_ff::E_SensitivewordWord1 & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SensitivewordWord1 & msg);
@@ -50,7 +50,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//序号
-		NFShmString<64> m_sensitiveword;//敏感字
+		NFShmString<64> m_sensitiveWord;//敏感字
 
 		virtual void write_to_pbmsg(::proto_ff::E_SensitivewordWord2 & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SensitivewordWord2 & msg);
@@ -79,7 +79,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//序号
-		NFShmString<64> m_sensitiveword;//敏感字
+		NFShmString<64> m_sensitiveWord;//敏感字
 
 		virtual void write_to_pbmsg(::proto_ff::E_SensitivewordWord3 & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SensitivewordWord3 & msg);

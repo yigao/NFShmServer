@@ -41,8 +41,8 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_type;//类型
 		int32_t m_order;//解锁顺序
-		int32_t m_lvindex;//lv索引
-		int32_t m_starindex;//星级索引
+		int32_t m_lvIndex;//lv索引
+		int32_t m_starIndex;//星级索引
 		NFShmVector<struct E_WaremblemWaremblemSkillDesc_s, DEFINE_E_WAREMBLEMWAREMBLEM_M_SKILL_MAX_NUM> m_skill;//技能
 
 		virtual void write_to_pbmsg(::proto_ff::E_WaremblemWaremblem & msg) const;
@@ -89,9 +89,9 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_index;//索引
 		int32_t m_lv;//lv
-		int32_t m_classbonus;//阶级加成
-		int32_t m_costid;//消耗道具ID
-		int32_t m_costnum;//消耗数量
+		int32_t m_classBonus;//阶级加成
+		int32_t m_costId;//消耗道具ID
+		int32_t m_costNum;//消耗数量
 		NFShmVector<struct E_WaremblemLvAttributeDesc_s, DEFINE_E_WAREMBLEMLV_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_WaremblemLv & msg) const;
@@ -138,8 +138,8 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_index;//索引
 		int32_t m_star;//星级
-		int32_t m_costid;//消耗道具
-		int32_t m_costnum;//消耗数量
+		int32_t m_costId;//消耗道具
+		int32_t m_costNum;//消耗数量
 		int32_t m_succes;//成功率
 		NFShmVector<struct E_WaremblemStarAttributeDesc_s, DEFINE_E_WAREMBLEMSTAR_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
 

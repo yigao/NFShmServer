@@ -19,12 +19,12 @@ namespace proto_ff_s {
 		virtual ~E_ChatChat_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_chatid;//传闻ID
-		int32_t m_chattype;//传闻类型
-		int32_t m_showtime;//活动提示显示时间
-		NFShmString<128> m_chatcontent;//传闻内容
+		int64_t m_chatId;//传闻ID
+		int32_t m_chatType;//传闻类型
+		int32_t m_showTime;//活动提示显示时间
+		NFShmString<128> m_chatContent;//传闻内容
 		int32_t m_channel;//显示频道
-		int32_t m_crossservice;//是否跨服广播
+		int32_t m_CrossService;//是否跨服广播
 
 		virtual void write_to_pbmsg(::proto_ff::E_ChatChat & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ChatChat & msg);
@@ -55,7 +55,7 @@ namespace proto_ff_s {
 		int32_t m_type;//事件类型
 		NFShmString<64> m_parama;//事件参数a
 		NFShmString<128> m_paramb;//事件参数b
-		int64_t m_chat_id;//触发关联的跑马灯内容id
+		int64_t m_chat_Id;//触发关联的跑马灯内容id
 
 		virtual void write_to_pbmsg(::proto_ff::E_ChatSpecialchat & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ChatSpecialchat & msg);

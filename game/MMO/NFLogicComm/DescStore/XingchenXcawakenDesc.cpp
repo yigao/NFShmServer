@@ -84,7 +84,7 @@ int XingchenXcawakenDesc::Load(NFResDB *pDB)
 		auto pDesc = &iter->second;
 		{
 			XingchenXcawakenPositionidAwaken_quality data;
-			data.m_PositionID = pDesc->m_positionid;
+			data.m_PositionID = pDesc->m_PositionID;
 			data.m_awaken_quality = pDesc->m_awaken_quality;
 			if(m_PositionidAwaken_qualityComIndexMap.size() >= m_PositionidAwaken_qualityComIndexMap.max_size())
 			{

@@ -132,31 +132,31 @@ class E_GuildConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_constantid() const;
   inline void set_m_constantid(::google::protobuf::int32 value);
 
-  // optional int32 m_setitem = 2;
+  // optional int32 m_setItem = 2;
   inline bool has_m_setitem() const;
   inline void clear_m_setitem();
-  static const int kMSetitemFieldNumber = 2;
+  static const int kMSetItemFieldNumber = 2;
   inline ::google::protobuf::int32 m_setitem() const;
   inline void set_m_setitem(::google::protobuf::int32 value);
 
-  // optional int32 m_nameitem = 3;
+  // optional int32 m_nameItem = 3;
   inline bool has_m_nameitem() const;
   inline void clear_m_nameitem();
-  static const int kMNameitemFieldNumber = 3;
+  static const int kMNameItemFieldNumber = 3;
   inline ::google::protobuf::int32 m_nameitem() const;
   inline void set_m_nameitem(::google::protobuf::int32 value);
 
-  // optional int32 m_editrequirelv = 4;
+  // optional int32 m_EditRequireLV = 4;
   inline bool has_m_editrequirelv() const;
   inline void clear_m_editrequirelv();
-  static const int kMEditrequirelvFieldNumber = 4;
+  static const int kMEditRequireLVFieldNumber = 4;
   inline ::google::protobuf::int32 m_editrequirelv() const;
   inline void set_m_editrequirelv(::google::protobuf::int32 value);
 
-  // optional int32 m_giftcd = 5;
+  // optional int32 m_giftCD = 5;
   inline bool has_m_giftcd() const;
   inline void clear_m_giftcd();
-  static const int kMGiftcdFieldNumber = 5;
+  static const int kMGiftCDFieldNumber = 5;
   inline ::google::protobuf::int32 m_giftcd() const;
   inline void set_m_giftcd(::google::protobuf::int32 value);
 
@@ -167,10 +167,10 @@ class E_GuildConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_dismiss() const;
   inline void set_m_dismiss(::google::protobuf::int32 value);
 
-  // optional int32 m_transferguild = 7;
+  // optional int32 m_transferGuild = 7;
   inline bool has_m_transferguild() const;
   inline void clear_m_transferguild();
-  static const int kMTransferguildFieldNumber = 7;
+  static const int kMTransferGuildFieldNumber = 7;
   inline ::google::protobuf::int32 m_transferguild() const;
   inline void set_m_transferguild(::google::protobuf::int32 value);
 
@@ -181,45 +181,45 @@ class E_GuildConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_territory() const;
   inline void set_m_territory(::google::protobuf::int32 value);
 
-  // optional int32 m_autominlv = 9;
+  // optional int32 m_autoMinLV = 9;
   inline bool has_m_autominlv() const;
   inline void clear_m_autominlv();
-  static const int kMAutominlvFieldNumber = 9;
+  static const int kMAutoMinLVFieldNumber = 9;
   inline ::google::protobuf::int32 m_autominlv() const;
   inline void set_m_autominlv(::google::protobuf::int32 value);
 
-  // optional int32 m_autominbp = 10;
+  // optional int32 m_autoMinBP = 10;
   inline bool has_m_autominbp() const;
   inline void clear_m_autominbp();
-  static const int kMAutominbpFieldNumber = 10;
+  static const int kMAutoMinBPFieldNumber = 10;
   inline ::google::protobuf::int32 m_autominbp() const;
   inline void set_m_autominbp(::google::protobuf::int32 value);
 
-  // optional int32 m_donatetimes = 11;
+  // optional int32 m_donateTimes = 11;
   inline bool has_m_donatetimes() const;
   inline void clear_m_donatetimes();
-  static const int kMDonatetimesFieldNumber = 11;
+  static const int kMDonateTimesFieldNumber = 11;
   inline ::google::protobuf::int32 m_donatetimes() const;
   inline void set_m_donatetimes(::google::protobuf::int32 value);
 
-  // optional int32 m_packetmaxd = 12;
+  // optional int32 m_packetMaxD = 12;
   inline bool has_m_packetmaxd() const;
   inline void clear_m_packetmaxd();
-  static const int kMPacketmaxdFieldNumber = 12;
+  static const int kMPacketMaxDFieldNumber = 12;
   inline ::google::protobuf::int32 m_packetmaxd() const;
   inline void set_m_packetmaxd(::google::protobuf::int32 value);
 
-  // optional int32 m_packetmaxbd = 13;
+  // optional int32 m_packetMaxBD = 13;
   inline bool has_m_packetmaxbd() const;
   inline void clear_m_packetmaxbd();
-  static const int kMPacketmaxbdFieldNumber = 13;
+  static const int kMPacketMaxBDFieldNumber = 13;
   inline ::google::protobuf::int32 m_packetmaxbd() const;
   inline void set_m_packetmaxbd(::google::protobuf::int32 value);
 
-  // optional int32 m_packetmaxsend = 14;
+  // optional int32 m_packetMaxSend = 14;
   inline bool has_m_packetmaxsend() const;
   inline void clear_m_packetmaxsend();
-  static const int kMPacketmaxsendFieldNumber = 14;
+  static const int kMPacketMaxSendFieldNumber = 14;
   inline ::google::protobuf::int32 m_packetmaxsend() const;
   inline void set_m_packetmaxsend(::google::protobuf::int32 value);
 
@@ -230,59 +230,59 @@ class E_GuildConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_packetvip() const;
   inline void set_m_packetvip(::google::protobuf::int32 value);
 
-  // optional int32 m_packetadd = 16;
+  // optional int32 m_packetAdd = 16;
   inline bool has_m_packetadd() const;
   inline void clear_m_packetadd();
-  static const int kMPacketaddFieldNumber = 16;
+  static const int kMPacketAddFieldNumber = 16;
   inline ::google::protobuf::int32 m_packetadd() const;
   inline void set_m_packetadd(::google::protobuf::int32 value);
 
-  // optional int32 m_prestigetasonekeyvip = 17;
+  // optional int32 m_prestigeTasOneKeyVIP = 17;
   inline bool has_m_prestigetasonekeyvip() const;
   inline void clear_m_prestigetasonekeyvip();
-  static const int kMPrestigetasonekeyvipFieldNumber = 17;
+  static const int kMPrestigeTasOneKeyVIPFieldNumber = 17;
   inline ::google::protobuf::int32 m_prestigetasonekeyvip() const;
   inline void set_m_prestigetasonekeyvip(::google::protobuf::int32 value);
 
-  // optional int32 m_prestigetasonekeylv = 18;
+  // optional int32 m_prestigeTasOneKeyLV = 18;
   inline bool has_m_prestigetasonekeylv() const;
   inline void clear_m_prestigetasonekeylv();
-  static const int kMPrestigetasonekeylvFieldNumber = 18;
+  static const int kMPrestigeTasOneKeyLVFieldNumber = 18;
   inline ::google::protobuf::int32 m_prestigetasonekeylv() const;
   inline void set_m_prestigetasonekeylv(::google::protobuf::int32 value);
 
-  // optional int32 m_prestigetaskprivage = 19;
+  // optional int32 m_prestigeTaskPrivage = 19;
   inline bool has_m_prestigetaskprivage() const;
   inline void clear_m_prestigetaskprivage();
-  static const int kMPrestigetaskprivageFieldNumber = 19;
+  static const int kMPrestigeTaskPrivageFieldNumber = 19;
   inline ::google::protobuf::int32 m_prestigetaskprivage() const;
   inline void set_m_prestigetaskprivage(::google::protobuf::int32 value);
 
-  // optional int32 m_prestigetaskflash = 20;
+  // optional int32 m_prestigeTaskFlash = 20;
   inline bool has_m_prestigetaskflash() const;
   inline void clear_m_prestigetaskflash();
-  static const int kMPrestigetaskflashFieldNumber = 20;
+  static const int kMPrestigeTaskFlashFieldNumber = 20;
   inline ::google::protobuf::int32 m_prestigetaskflash() const;
   inline void set_m_prestigetaskflash(::google::protobuf::int32 value);
 
-  // optional int32 m_prestigetaskflashprice = 21;
+  // optional int32 m_prestigeTaskflashPrice = 21;
   inline bool has_m_prestigetaskflashprice() const;
   inline void clear_m_prestigetaskflashprice();
-  static const int kMPrestigetaskflashpriceFieldNumber = 21;
+  static const int kMPrestigeTaskflashPriceFieldNumber = 21;
   inline ::google::protobuf::int32 m_prestigetaskflashprice() const;
   inline void set_m_prestigetaskflashprice(::google::protobuf::int32 value);
 
-  // optional int32 m_prestigetasktimes = 22;
+  // optional int32 m_prestigeTaskTimes = 22;
   inline bool has_m_prestigetasktimes() const;
   inline void clear_m_prestigetasktimes();
-  static const int kMPrestigetasktimesFieldNumber = 22;
+  static const int kMPrestigeTaskTimesFieldNumber = 22;
   inline ::google::protobuf::int32 m_prestigetasktimes() const;
   inline void set_m_prestigetasktimes(::google::protobuf::int32 value);
 
-  // optional int32 m_rewardcd = 23;
+  // optional int32 m_rewardCD = 23;
   inline bool has_m_rewardcd() const;
   inline void clear_m_rewardcd();
-  static const int kMRewardcdFieldNumber = 23;
+  static const int kMRewardCDFieldNumber = 23;
   inline ::google::protobuf::int32 m_rewardcd() const;
   inline void set_m_rewardcd(::google::protobuf::int32 value);
 
@@ -293,80 +293,80 @@ class E_GuildConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_answerdelay() const;
   inline void set_m_answerdelay(::google::protobuf::int32 value);
 
-  // optional int32 m_answernum = 25;
+  // optional int32 m_answerNum = 25;
   inline bool has_m_answernum() const;
   inline void clear_m_answernum();
-  static const int kMAnswernumFieldNumber = 25;
+  static const int kMAnswerNumFieldNumber = 25;
   inline ::google::protobuf::int32 m_answernum() const;
   inline void set_m_answernum(::google::protobuf::int32 value);
 
-  // optional int32 m_answertime = 26;
+  // optional int32 m_answerTime = 26;
   inline bool has_m_answertime() const;
   inline void clear_m_answertime();
-  static const int kMAnswertimeFieldNumber = 26;
+  static const int kMAnswerTimeFieldNumber = 26;
   inline ::google::protobuf::int32 m_answertime() const;
   inline void set_m_answertime(::google::protobuf::int32 value);
 
-  // optional int32 m_answerresulttime = 27;
+  // optional int32 m_answerResultTime = 27;
   inline bool has_m_answerresulttime() const;
   inline void clear_m_answerresulttime();
-  static const int kMAnswerresulttimeFieldNumber = 27;
+  static const int kMAnswerResultTimeFieldNumber = 27;
   inline ::google::protobuf::int32 m_answerresulttime() const;
   inline void set_m_answerresulttime(::google::protobuf::int32 value);
 
-  // optional int32 m_answerlimit = 28;
+  // optional int32 m_answerLimit = 28;
   inline bool has_m_answerlimit() const;
   inline void clear_m_answerlimit();
-  static const int kMAnswerlimitFieldNumber = 28;
+  static const int kMAnswerLimitFieldNumber = 28;
   inline ::google::protobuf::int32 m_answerlimit() const;
   inline void set_m_answerlimit(::google::protobuf::int32 value);
 
-  // optional int32 m_answerfirst = 29;
+  // optional int32 m_answerFirst = 29;
   inline bool has_m_answerfirst() const;
   inline void clear_m_answerfirst();
-  static const int kMAnswerfirstFieldNumber = 29;
+  static const int kMAnswerFirstFieldNumber = 29;
   inline ::google::protobuf::int32 m_answerfirst() const;
   inline void set_m_answerfirst(::google::protobuf::int32 value);
 
-  // optional int32 m_answersuccess = 30;
+  // optional int32 m_answerSuccess = 30;
   inline bool has_m_answersuccess() const;
   inline void clear_m_answersuccess();
-  static const int kMAnswersuccessFieldNumber = 30;
+  static const int kMAnswerSuccessFieldNumber = 30;
   inline ::google::protobuf::int32 m_answersuccess() const;
   inline void set_m_answersuccess(::google::protobuf::int32 value);
 
-  // optional int32 m_answebasics = 31;
+  // optional int32 m_answeBasics = 31;
   inline bool has_m_answebasics() const;
   inline void clear_m_answebasics();
-  static const int kMAnswebasicsFieldNumber = 31;
+  static const int kMAnsweBasicsFieldNumber = 31;
   inline ::google::protobuf::int32 m_answebasics() const;
   inline void set_m_answebasics(::google::protobuf::int32 value);
 
-  // optional int32 m_linklvupper = 32;
+  // optional int32 m_linkLvUpPer = 32;
   inline bool has_m_linklvupper() const;
   inline void clear_m_linklvupper();
-  static const int kMLinklvupperFieldNumber = 32;
+  static const int kMLinkLvUpPerFieldNumber = 32;
   inline ::google::protobuf::int32 m_linklvupper() const;
   inline void set_m_linklvupper(::google::protobuf::int32 value);
 
-  // optional int32 m_linklvupmax = 33;
+  // optional int32 m_linkLvUpMax = 33;
   inline bool has_m_linklvupmax() const;
   inline void clear_m_linklvupmax();
-  static const int kMLinklvupmaxFieldNumber = 33;
+  static const int kMLinkLvUpMaxFieldNumber = 33;
   inline ::google::protobuf::int32 m_linklvupmax() const;
   inline void set_m_linklvupmax(::google::protobuf::int32 value);
 
-  // optional int32 m_linktime = 34;
+  // optional int32 m_linkTime = 34;
   inline bool has_m_linktime() const;
   inline void clear_m_linktime();
-  static const int kMLinktimeFieldNumber = 34;
+  static const int kMLinkTimeFieldNumber = 34;
   inline ::google::protobuf::int32 m_linktime() const;
   inline void set_m_linktime(::google::protobuf::int32 value);
 
-  // optional int32 m_monsterid = 35;
+  // optional int32 m_monsterID = 35;
   inline bool has_m_monsterid() const;
   inline void clear_m_monsterid();
-  static const int kMMonsteridFieldNumber = 35;
+  static const int kMMonsterIDFieldNumber = 35;
   inline ::google::protobuf::int32 m_monsterid() const;
   inline void set_m_monsterid(::google::protobuf::int32 value);
 
@@ -377,24 +377,24 @@ class E_GuildConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_point() const;
   inline void set_m_point(::google::protobuf::int32 value);
 
-  // optional int32 m_collecttimes = 37;
+  // optional int32 m_collectTimes = 37;
   inline bool has_m_collecttimes() const;
   inline void clear_m_collecttimes();
-  static const int kMCollecttimesFieldNumber = 37;
+  static const int kMCollectTimesFieldNumber = 37;
   inline ::google::protobuf::int32 m_collecttimes() const;
   inline void set_m_collecttimes(::google::protobuf::int32 value);
 
-  // optional int32 m_shens_daytimes = 38;
+  // optional int32 m_shens_dayTimes = 38;
   inline bool has_m_shens_daytimes() const;
   inline void clear_m_shens_daytimes();
-  static const int kMShensDaytimesFieldNumber = 38;
+  static const int kMShensDayTimesFieldNumber = 38;
   inline ::google::protobuf::int32 m_shens_daytimes() const;
   inline void set_m_shens_daytimes(::google::protobuf::int32 value);
 
-  // optional int32 m_shens_weektimes = 39;
+  // optional int32 m_shens_weekTimes = 39;
   inline bool has_m_shens_weektimes() const;
   inline void clear_m_shens_weektimes();
-  static const int kMShensWeektimesFieldNumber = 39;
+  static const int kMShensWeekTimesFieldNumber = 39;
   inline ::google::protobuf::int32 m_shens_weektimes() const;
   inline void set_m_shens_weektimes(::google::protobuf::int32 value);
 
@@ -405,24 +405,24 @@ class E_GuildConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_shens_dup() const;
   inline void set_m_shens_dup(::google::protobuf::int32 value);
 
-  // optional int32 m_shensitem = 41;
+  // optional int32 m_shensItem = 41;
   inline bool has_m_shensitem() const;
   inline void clear_m_shensitem();
-  static const int kMShensitemFieldNumber = 41;
+  static const int kMShensItemFieldNumber = 41;
   inline ::google::protobuf::int32 m_shensitem() const;
   inline void set_m_shensitem(::google::protobuf::int32 value);
 
-  // optional int32 m_shenscost = 42;
+  // optional int32 m_shensCost = 42;
   inline bool has_m_shenscost() const;
   inline void clear_m_shenscost();
-  static const int kMShenscostFieldNumber = 42;
+  static const int kMShensCostFieldNumber = 42;
   inline ::google::protobuf::int32 m_shenscost() const;
   inline void set_m_shenscost(::google::protobuf::int32 value);
 
-  // optional int32 m_shenscostactive = 43;
+  // optional int32 m_shensCostActive = 43;
   inline bool has_m_shenscostactive() const;
   inline void clear_m_shenscostactive();
-  static const int kMShenscostactiveFieldNumber = 43;
+  static const int kMShensCostActiveFieldNumber = 43;
   inline ::google::protobuf::int32 m_shenscostactive() const;
   inline void set_m_shenscostactive(::google::protobuf::int32 value);
 
@@ -433,17 +433,17 @@ class E_GuildConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_shouh_dup() const;
   inline void set_m_shouh_dup(::google::protobuf::int32 value);
 
-  // optional int32 m_shouhexpskill = 45;
+  // optional int32 m_shouhExpSkill = 45;
   inline bool has_m_shouhexpskill() const;
   inline void clear_m_shouhexpskill();
-  static const int kMShouhexpskillFieldNumber = 45;
+  static const int kMShouhExpSkillFieldNumber = 45;
   inline ::google::protobuf::int32 m_shouhexpskill() const;
   inline void set_m_shouhexpskill(::google::protobuf::int32 value);
 
-  // optional string m_shouhmosid = 46;
+  // optional string m_shouhMosId = 46;
   inline bool has_m_shouhmosid() const;
   inline void clear_m_shouhmosid();
-  static const int kMShouhmosidFieldNumber = 46;
+  static const int kMShouhMosIdFieldNumber = 46;
   inline const ::std::string& m_shouhmosid() const;
   inline void set_m_shouhmosid(const ::std::string& value);
   inline void set_m_shouhmosid(const char* value);
@@ -452,66 +452,66 @@ class E_GuildConstant : public ::google::protobuf::Message {
   inline ::std::string* release_m_shouhmosid();
   inline void set_allocated_m_shouhmosid(::std::string* m_shouhmosid);
 
-  // optional int32 m_gwdupid = 47;
+  // optional int32 m_GWDupid = 47;
   inline bool has_m_gwdupid() const;
   inline void clear_m_gwdupid();
-  static const int kMGwdupidFieldNumber = 47;
+  static const int kMGWDupidFieldNumber = 47;
   inline ::google::protobuf::int32 m_gwdupid() const;
   inline void set_m_gwdupid(::google::protobuf::int32 value);
 
-  // optional int32 m_gwbattletime = 48;
+  // optional int32 m_GWBattleTime = 48;
   inline bool has_m_gwbattletime() const;
   inline void clear_m_gwbattletime();
-  static const int kMGwbattletimeFieldNumber = 48;
+  static const int kMGWBattleTimeFieldNumber = 48;
   inline ::google::protobuf::int32 m_gwbattletime() const;
   inline void set_m_gwbattletime(::google::protobuf::int32 value);
 
-  // optional int32 m_gwresttime = 49;
+  // optional int32 m_GWRestTime = 49;
   inline bool has_m_gwresttime() const;
   inline void clear_m_gwresttime();
-  static const int kMGwresttimeFieldNumber = 49;
+  static const int kMGWRestTimeFieldNumber = 49;
   inline ::google::protobuf::int32 m_gwresttime() const;
   inline void set_m_gwresttime(::google::protobuf::int32 value);
 
-  // optional int32 m_gwcentermid = 50;
+  // optional int32 m_GWCenterMID = 50;
   inline bool has_m_gwcentermid() const;
   inline void clear_m_gwcentermid();
-  static const int kMGwcentermidFieldNumber = 50;
+  static const int kMGWCenterMIDFieldNumber = 50;
   inline ::google::protobuf::int32 m_gwcentermid() const;
   inline void set_m_gwcentermid(::google::protobuf::int32 value);
 
-  // optional int32 m_gwtowermid = 51;
+  // optional int32 m_GWTowerMID = 51;
   inline bool has_m_gwtowermid() const;
   inline void clear_m_gwtowermid();
-  static const int kMGwtowermidFieldNumber = 51;
+  static const int kMGWTowerMIDFieldNumber = 51;
   inline ::google::protobuf::int32 m_gwtowermid() const;
   inline void set_m_gwtowermid(::google::protobuf::int32 value);
 
-  // optional int32 m_gwtankmid = 52;
+  // optional int32 m_GWTankMID = 52;
   inline bool has_m_gwtankmid() const;
   inline void clear_m_gwtankmid();
-  static const int kMGwtankmidFieldNumber = 52;
+  static const int kMGWTankMIDFieldNumber = 52;
   inline ::google::protobuf::int32 m_gwtankmid() const;
   inline void set_m_gwtankmid(::google::protobuf::int32 value);
 
-  // optional int32 m_gwbornrpoint = 53;
+  // optional int32 m_GWBornRPoint = 53;
   inline bool has_m_gwbornrpoint() const;
   inline void clear_m_gwbornrpoint();
-  static const int kMGwbornrpointFieldNumber = 53;
+  static const int kMGWBornRPointFieldNumber = 53;
   inline ::google::protobuf::int32 m_gwbornrpoint() const;
   inline void set_m_gwbornrpoint(::google::protobuf::int32 value);
 
-  // optional int32 m_gwcenterrpoint = 54;
+  // optional int32 m_GWCenterRPoint = 54;
   inline bool has_m_gwcenterrpoint() const;
   inline void clear_m_gwcenterrpoint();
-  static const int kMGwcenterrpointFieldNumber = 54;
+  static const int kMGWCenterRPointFieldNumber = 54;
   inline ::google::protobuf::int32 m_gwcenterrpoint() const;
   inline void set_m_gwcenterrpoint(::google::protobuf::int32 value);
 
-  // optional string m_gwtowerrpoint = 55;
+  // optional string m_GWTowerRPoint = 55;
   inline bool has_m_gwtowerrpoint() const;
   inline void clear_m_gwtowerrpoint();
-  static const int kMGwtowerrpointFieldNumber = 55;
+  static const int kMGWTowerRPointFieldNumber = 55;
   inline const ::std::string& m_gwtowerrpoint() const;
   inline void set_m_gwtowerrpoint(const ::std::string& value);
   inline void set_m_gwtowerrpoint(const char* value);
@@ -520,31 +520,31 @@ class E_GuildConstant : public ::google::protobuf::Message {
   inline ::std::string* release_m_gwtowerrpoint();
   inline void set_allocated_m_gwtowerrpoint(::std::string* m_gwtowerrpoint);
 
-  // optional int32 m_gwtankrpoint = 56;
+  // optional int32 m_GWTankRPoint = 56;
   inline bool has_m_gwtankrpoint() const;
   inline void clear_m_gwtankrpoint();
-  static const int kMGwtankrpointFieldNumber = 56;
+  static const int kMGWTankRPointFieldNumber = 56;
   inline ::google::protobuf::int32 m_gwtankrpoint() const;
   inline void set_m_gwtankrpoint(::google::protobuf::int32 value);
 
-  // optional int32 m_gwbornbpoint = 57;
+  // optional int32 m_GWBornBPoint = 57;
   inline bool has_m_gwbornbpoint() const;
   inline void clear_m_gwbornbpoint();
-  static const int kMGwbornbpointFieldNumber = 57;
+  static const int kMGWBornBPointFieldNumber = 57;
   inline ::google::protobuf::int32 m_gwbornbpoint() const;
   inline void set_m_gwbornbpoint(::google::protobuf::int32 value);
 
-  // optional int32 m_gwcenterbpoint = 58;
+  // optional int32 m_GWCenterBPoint = 58;
   inline bool has_m_gwcenterbpoint() const;
   inline void clear_m_gwcenterbpoint();
-  static const int kMGwcenterbpointFieldNumber = 58;
+  static const int kMGWCenterBPointFieldNumber = 58;
   inline ::google::protobuf::int32 m_gwcenterbpoint() const;
   inline void set_m_gwcenterbpoint(::google::protobuf::int32 value);
 
-  // optional string m_gwtowerbpoint = 59;
+  // optional string m_GWTowerBPoint = 59;
   inline bool has_m_gwtowerbpoint() const;
   inline void clear_m_gwtowerbpoint();
-  static const int kMGwtowerbpointFieldNumber = 59;
+  static const int kMGWTowerBPointFieldNumber = 59;
   inline const ::std::string& m_gwtowerbpoint() const;
   inline void set_m_gwtowerbpoint(const ::std::string& value);
   inline void set_m_gwtowerbpoint(const char* value);
@@ -553,122 +553,122 @@ class E_GuildConstant : public ::google::protobuf::Message {
   inline ::std::string* release_m_gwtowerbpoint();
   inline void set_allocated_m_gwtowerbpoint(::std::string* m_gwtowerbpoint);
 
-  // optional int32 m_gwtankbpoint = 60;
+  // optional int32 m_GWTankBPoint = 60;
   inline bool has_m_gwtankbpoint() const;
   inline void clear_m_gwtankbpoint();
-  static const int kMGwtankbpointFieldNumber = 60;
+  static const int kMGWTankBPointFieldNumber = 60;
   inline ::google::protobuf::int32 m_gwtankbpoint() const;
   inline void set_m_gwtankbpoint(::google::protobuf::int32 value);
 
-  // optional int32 m_tanknum = 61;
+  // optional int32 m_tankNum = 61;
   inline bool has_m_tanknum() const;
   inline void clear_m_tanknum();
-  static const int kMTanknumFieldNumber = 61;
+  static const int kMTankNumFieldNumber = 61;
   inline ::google::protobuf::int32 m_tanknum() const;
   inline void set_m_tanknum(::google::protobuf::int32 value);
 
-  // optional int32 m_tankresttime = 62;
+  // optional int32 m_tankRestTime = 62;
   inline bool has_m_tankresttime() const;
   inline void clear_m_tankresttime();
-  static const int kMTankresttimeFieldNumber = 62;
+  static const int kMTankRestTimeFieldNumber = 62;
   inline ::google::protobuf::int32 m_tankresttime() const;
   inline void set_m_tankresttime(::google::protobuf::int32 value);
 
-  // optional int32 m_tankrestnum = 63;
+  // optional int32 m_tankRestNum = 63;
   inline bool has_m_tankrestnum() const;
   inline void clear_m_tankrestnum();
-  static const int kMTankrestnumFieldNumber = 63;
+  static const int kMTankRestNumFieldNumber = 63;
   inline ::google::protobuf::int32 m_tankrestnum() const;
   inline void set_m_tankrestnum(::google::protobuf::int32 value);
 
-  // optional int32 m_dominatedaily = 64;
+  // optional int32 m_dominateDaily = 64;
   inline bool has_m_dominatedaily() const;
   inline void clear_m_dominatedaily();
-  static const int kMDominatedailyFieldNumber = 64;
+  static const int kMDominateDailyFieldNumber = 64;
   inline ::google::protobuf::int32 m_dominatedaily() const;
   inline void set_m_dominatedaily(::google::protobuf::int32 value);
 
-  // optional int32 m_dominatebossreward = 65;
+  // optional int32 m_dominateBossReward = 65;
   inline bool has_m_dominatebossreward() const;
   inline void clear_m_dominatebossreward();
-  static const int kMDominatebossrewardFieldNumber = 65;
+  static const int kMDominateBossRewardFieldNumber = 65;
   inline ::google::protobuf::int32 m_dominatebossreward() const;
   inline void set_m_dominatebossreward(::google::protobuf::int32 value);
 
-  // optional int32 m_freepoint = 66;
+  // optional int32 m_freePoint = 66;
   inline bool has_m_freepoint() const;
   inline void clear_m_freepoint();
-  static const int kMFreepointFieldNumber = 66;
+  static const int kMFreePointFieldNumber = 66;
   inline ::google::protobuf::int32 m_freepoint() const;
   inline void set_m_freepoint(::google::protobuf::int32 value);
 
-  // optional int32 m_deffreepoint = 67;
+  // optional int32 m_defFreePoint = 67;
   inline bool has_m_deffreepoint() const;
   inline void clear_m_deffreepoint();
-  static const int kMDeffreepointFieldNumber = 67;
+  static const int kMDefFreePointFieldNumber = 67;
   inline ::google::protobuf::int32 m_deffreepoint() const;
   inline void set_m_deffreepoint(::google::protobuf::int32 value);
 
-  // optional int32 m_playerpoint = 68;
+  // optional int32 m_playerPoint = 68;
   inline bool has_m_playerpoint() const;
   inline void clear_m_playerpoint();
-  static const int kMPlayerpointFieldNumber = 68;
+  static const int kMPlayerPointFieldNumber = 68;
   inline ::google::protobuf::int32 m_playerpoint() const;
   inline void set_m_playerpoint(::google::protobuf::int32 value);
 
-  // optional int32 m_tankpoint = 69;
+  // optional int32 m_tankPoint = 69;
   inline bool has_m_tankpoint() const;
   inline void clear_m_tankpoint();
-  static const int kMTankpointFieldNumber = 69;
+  static const int kMTankPointFieldNumber = 69;
   inline ::google::protobuf::int32 m_tankpoint() const;
   inline void set_m_tankpoint(::google::protobuf::int32 value);
 
-  // optional int32 m_towerpoint = 70;
+  // optional int32 m_towerPoint = 70;
   inline bool has_m_towerpoint() const;
   inline void clear_m_towerpoint();
-  static const int kMTowerpointFieldNumber = 70;
+  static const int kMTowerPointFieldNumber = 70;
   inline ::google::protobuf::int32 m_towerpoint() const;
   inline void set_m_towerpoint(::google::protobuf::int32 value);
 
-  // optional int32 m_centerpoint = 71;
+  // optional int32 m_centerPoint = 71;
   inline bool has_m_centerpoint() const;
   inline void clear_m_centerpoint();
-  static const int kMCenterpointFieldNumber = 71;
+  static const int kMCenterPointFieldNumber = 71;
   inline ::google::protobuf::int32 m_centerpoint() const;
   inline void set_m_centerpoint(::google::protobuf::int32 value);
 
-  // optional int32 m_assistradio = 72;
+  // optional int32 m_assistRadio = 72;
   inline bool has_m_assistradio() const;
   inline void clear_m_assistradio();
-  static const int kMAssistradioFieldNumber = 72;
+  static const int kMAssistRadioFieldNumber = 72;
   inline ::google::protobuf::int32 m_assistradio() const;
   inline void set_m_assistradio(::google::protobuf::int32 value);
 
-  // optional int32 m_tteamdamageadd = 73;
+  // optional int32 m_TTeamDamageAdd = 73;
   inline bool has_m_tteamdamageadd() const;
   inline void clear_m_tteamdamageadd();
-  static const int kMTteamdamageaddFieldNumber = 73;
+  static const int kMTTeamDamageAddFieldNumber = 73;
   inline ::google::protobuf::int32 m_tteamdamageadd() const;
   inline void set_m_tteamdamageadd(::google::protobuf::int32 value);
 
-  // optional int32 m_tweekclosetime = 74;
+  // optional int32 m_TWeekCloseTime = 74;
   inline bool has_m_tweekclosetime() const;
   inline void clear_m_tweekclosetime();
-  static const int kMTweekclosetimeFieldNumber = 74;
+  static const int kMTWeekCloseTimeFieldNumber = 74;
   inline ::google::protobuf::int32 m_tweekclosetime() const;
   inline void set_m_tweekclosetime(::google::protobuf::int32 value);
 
-  // optional int32 m_cyclicreward = 75;
+  // optional int32 m_cyclicReward = 75;
   inline bool has_m_cyclicreward() const;
   inline void clear_m_cyclicreward();
-  static const int kMCyclicrewardFieldNumber = 75;
+  static const int kMCyclicRewardFieldNumber = 75;
   inline ::google::protobuf::int32 m_cyclicreward() const;
   inline void set_m_cyclicreward(::google::protobuf::int32 value);
 
-  // optional int32 m_tencyclicreward = 76;
+  // optional int32 m_tenCyclicReward = 76;
   inline bool has_m_tencyclicreward() const;
   inline void clear_m_tencyclicreward();
-  static const int kMTencyclicrewardFieldNumber = 76;
+  static const int kMTenCyclicRewardFieldNumber = 76;
   inline ::google::protobuf::int32 m_tencyclicreward() const;
   inline void set_m_tencyclicreward(::google::protobuf::int32 value);
 
@@ -1057,45 +1057,45 @@ class E_GuildLevel : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_guildlevel = 1;
+  // optional int32 m_guildLevel = 1;
   inline bool has_m_guildlevel() const;
   inline void clear_m_guildlevel();
-  static const int kMGuildlevelFieldNumber = 1;
+  static const int kMGuildLevelFieldNumber = 1;
   inline ::google::protobuf::int32 m_guildlevel() const;
   inline void set_m_guildlevel(::google::protobuf::int32 value);
 
-  // optional int32 m_guildlevel_exp = 2;
+  // optional int32 m_guildLevel_EXP = 2;
   inline bool has_m_guildlevel_exp() const;
   inline void clear_m_guildlevel_exp();
-  static const int kMGuildlevelExpFieldNumber = 2;
+  static const int kMGuildLevelEXPFieldNumber = 2;
   inline ::google::protobuf::int32 m_guildlevel_exp() const;
   inline void set_m_guildlevel_exp(::google::protobuf::int32 value);
 
-  // optional int32 m_guildlevel_member = 3;
+  // optional int32 m_guildLevel_member = 3;
   inline bool has_m_guildlevel_member() const;
   inline void clear_m_guildlevel_member();
-  static const int kMGuildlevelMemberFieldNumber = 3;
+  static const int kMGuildLevelMemberFieldNumber = 3;
   inline ::google::protobuf::int32 m_guildlevel_member() const;
   inline void set_m_guildlevel_member(::google::protobuf::int32 value);
 
-  // optional int32 m_guildlevel_vp = 4;
+  // optional int32 m_guildLevel_VP = 4;
   inline bool has_m_guildlevel_vp() const;
   inline void clear_m_guildlevel_vp();
-  static const int kMGuildlevelVpFieldNumber = 4;
+  static const int kMGuildLevelVPFieldNumber = 4;
   inline ::google::protobuf::int32 m_guildlevel_vp() const;
   inline void set_m_guildlevel_vp(::google::protobuf::int32 value);
 
-  // optional int32 m_guildlevel_np = 5;
+  // optional int32 m_guildLevel_NP = 5;
   inline bool has_m_guildlevel_np() const;
   inline void clear_m_guildlevel_np();
-  static const int kMGuildlevelNpFieldNumber = 5;
+  static const int kMGuildLevelNPFieldNumber = 5;
   inline ::google::protobuf::int32 m_guildlevel_np() const;
   inline void set_m_guildlevel_np(::google::protobuf::int32 value);
 
-  // optional int32 m_guildlevel_g = 6;
+  // optional int32 m_guildLevel_G = 6;
   inline bool has_m_guildlevel_g() const;
   inline void clear_m_guildlevel_g();
-  static const int kMGuildlevelGFieldNumber = 6;
+  static const int kMGuildLevelGFieldNumber = 6;
   inline ::google::protobuf::int32 m_guildlevel_g() const;
   inline void set_m_guildlevel_g(::google::protobuf::int32 value);
 
@@ -1274,129 +1274,129 @@ class E_GuildPosition : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_positionid = 1;
+  // optional int32 m_positionId = 1;
   inline bool has_m_positionid() const;
   inline void clear_m_positionid();
-  static const int kMPositionidFieldNumber = 1;
+  static const int kMPositionIdFieldNumber = 1;
   inline ::google::protobuf::int32 m_positionid() const;
   inline void set_m_positionid(::google::protobuf::int32 value);
 
-  // optional int32 m_admitnewcomer = 2;
+  // optional int32 m_admitNewcomer = 2;
   inline bool has_m_admitnewcomer() const;
   inline void clear_m_admitnewcomer();
-  static const int kMAdmitnewcomerFieldNumber = 2;
+  static const int kMAdmitNewcomerFieldNumber = 2;
   inline ::google::protobuf::int32 m_admitnewcomer() const;
   inline void set_m_admitnewcomer(::google::protobuf::int32 value);
 
-  // optional int32 m_appointandremovevp = 3;
+  // optional int32 m_appointAndRemoveVP = 3;
   inline bool has_m_appointandremovevp() const;
   inline void clear_m_appointandremovevp();
-  static const int kMAppointandremovevpFieldNumber = 3;
+  static const int kMAppointAndRemoveVPFieldNumber = 3;
   inline ::google::protobuf::int32 m_appointandremovevp() const;
   inline void set_m_appointandremovevp(::google::protobuf::int32 value);
 
-  // optional int32 m_appointandremoveelder = 4;
+  // optional int32 m_appointAndRemoveElder = 4;
   inline bool has_m_appointandremoveelder() const;
   inline void clear_m_appointandremoveelder();
-  static const int kMAppointandremoveelderFieldNumber = 4;
+  static const int kMAppointAndRemoveElderFieldNumber = 4;
   inline ::google::protobuf::int32 m_appointandremoveelder() const;
   inline void set_m_appointandremoveelder(::google::protobuf::int32 value);
 
-  // optional int32 m_appointandremoveg = 5;
+  // optional int32 m_appointAndRemoveG = 5;
   inline bool has_m_appointandremoveg() const;
   inline void clear_m_appointandremoveg();
-  static const int kMAppointandremovegFieldNumber = 5;
+  static const int kMAppointAndRemoveGFieldNumber = 5;
   inline ::google::protobuf::int32 m_appointandremoveg() const;
   inline void set_m_appointandremoveg(::google::protobuf::int32 value);
 
-  // optional int32 m_appointandremoveelite = 6;
+  // optional int32 m_appointAndRemoveElite = 6;
   inline bool has_m_appointandremoveelite() const;
   inline void clear_m_appointandremoveelite();
-  static const int kMAppointandremoveeliteFieldNumber = 6;
+  static const int kMAppointAndRemoveEliteFieldNumber = 6;
   inline ::google::protobuf::int32 m_appointandremoveelite() const;
   inline void set_m_appointandremoveelite(::google::protobuf::int32 value);
 
-  // optional int32 m_expelvp = 7;
+  // optional int32 m_expelVP = 7;
   inline bool has_m_expelvp() const;
   inline void clear_m_expelvp();
-  static const int kMExpelvpFieldNumber = 7;
+  static const int kMExpelVPFieldNumber = 7;
   inline ::google::protobuf::int32 m_expelvp() const;
   inline void set_m_expelvp(::google::protobuf::int32 value);
 
-  // optional int32 m_expelelder = 8;
+  // optional int32 m_expelElder = 8;
   inline bool has_m_expelelder() const;
   inline void clear_m_expelelder();
-  static const int kMExpelelderFieldNumber = 8;
+  static const int kMExpelElderFieldNumber = 8;
   inline ::google::protobuf::int32 m_expelelder() const;
   inline void set_m_expelelder(::google::protobuf::int32 value);
 
-  // optional int32 m_expelg = 9;
+  // optional int32 m_expelG = 9;
   inline bool has_m_expelg() const;
   inline void clear_m_expelg();
-  static const int kMExpelgFieldNumber = 9;
+  static const int kMExpelGFieldNumber = 9;
   inline ::google::protobuf::int32 m_expelg() const;
   inline void set_m_expelg(::google::protobuf::int32 value);
 
-  // optional int32 m_expelmass = 10;
+  // optional int32 m_expelMass = 10;
   inline bool has_m_expelmass() const;
   inline void clear_m_expelmass();
-  static const int kMExpelmassFieldNumber = 10;
+  static const int kMExpelMassFieldNumber = 10;
   inline ::google::protobuf::int32 m_expelmass() const;
   inline void set_m_expelmass(::google::protobuf::int32 value);
 
-  // optional int32 m_announcementediting = 11;
+  // optional int32 m_announcementEditing = 11;
   inline bool has_m_announcementediting() const;
   inline void clear_m_announcementediting();
-  static const int kMAnnouncementeditingFieldNumber = 11;
+  static const int kMAnnouncementEditingFieldNumber = 11;
   inline ::google::protobuf::int32 m_announcementediting() const;
   inline void set_m_announcementediting(::google::protobuf::int32 value);
 
-  // optional int32 m_rname = 12;
+  // optional int32 m_rName = 12;
   inline bool has_m_rname() const;
   inline void clear_m_rname();
-  static const int kMRnameFieldNumber = 12;
+  static const int kMRNameFieldNumber = 12;
   inline ::google::protobuf::int32 m_rname() const;
   inline void set_m_rname(::google::protobuf::int32 value);
 
-  // optional int32 m_joincondition = 13;
+  // optional int32 m_joinCondition = 13;
   inline bool has_m_joincondition() const;
   inline void clear_m_joincondition();
-  static const int kMJoinconditionFieldNumber = 13;
+  static const int kMJoinConditionFieldNumber = 13;
   inline ::google::protobuf::int32 m_joincondition() const;
   inline void set_m_joincondition(::google::protobuf::int32 value);
 
-  // optional int32 m_guildactivity = 14;
+  // optional int32 m_guildActivity = 14;
   inline bool has_m_guildactivity() const;
   inline void clear_m_guildactivity();
-  static const int kMGuildactivityFieldNumber = 14;
+  static const int kMGuildActivityFieldNumber = 14;
   inline ::google::protobuf::int32 m_guildactivity() const;
   inline void set_m_guildactivity(::google::protobuf::int32 value);
 
-  // optional int32 m_dissolveassignguild = 15;
+  // optional int32 m_dissolveAssignGuild = 15;
   inline bool has_m_dissolveassignguild() const;
   inline void clear_m_dissolveassignguild();
-  static const int kMDissolveassignguildFieldNumber = 15;
+  static const int kMDissolveAssignGuildFieldNumber = 15;
   inline ::google::protobuf::int32 m_dissolveassignguild() const;
   inline void set_m_dissolveassignguild(::google::protobuf::int32 value);
 
-  // optional int32 m_changename = 16;
+  // optional int32 m_changeName = 16;
   inline bool has_m_changename() const;
   inline void clear_m_changename();
-  static const int kMChangenameFieldNumber = 16;
+  static const int kMChangeNameFieldNumber = 16;
   inline ::google::protobuf::int32 m_changename() const;
   inline void set_m_changename(::google::protobuf::int32 value);
 
-  // optional int32 m_recruitchat = 17;
+  // optional int32 m_recruitChat = 17;
   inline bool has_m_recruitchat() const;
   inline void clear_m_recruitchat();
-  static const int kMRecruitchatFieldNumber = 17;
+  static const int kMRecruitChatFieldNumber = 17;
   inline ::google::protobuf::int32 m_recruitchat() const;
   inline void set_m_recruitchat(::google::protobuf::int32 value);
 
-  // optional int32 m_guildpacket = 18;
+  // optional int32 m_guildPacket = 18;
   inline bool has_m_guildpacket() const;
   inline void clear_m_guildpacket();
-  static const int kMGuildpacketFieldNumber = 18;
+  static const int kMGuildPacketFieldNumber = 18;
   inline ::google::protobuf::int32 m_guildpacket() const;
   inline void set_m_guildpacket(::google::protobuf::int32 value);
 
@@ -1703,10 +1703,10 @@ class E_GuildSalary : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 1;
+  static const int kMIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -1717,10 +1717,10 @@ class E_GuildSalary : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_type() const;
   inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 m_typearg = 3;
+  // optional int32 m_typeArg = 3;
   inline bool has_m_typearg() const;
   inline void clear_m_typearg();
-  static const int kMTypeargFieldNumber = 3;
+  static const int kMTypeArgFieldNumber = 3;
   inline ::google::protobuf::int32 m_typearg() const;
   inline void set_m_typearg(::google::protobuf::int32 value);
 
@@ -2005,24 +2005,24 @@ class E_GuildDonate : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 1;
+  static const int kMIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_costitem = 2;
+  // optional int32 m_costItem = 2;
   inline bool has_m_costitem() const;
   inline void clear_m_costitem();
-  static const int kMCostitemFieldNumber = 2;
+  static const int kMCostItemFieldNumber = 2;
   inline ::google::protobuf::int32 m_costitem() const;
   inline void set_m_costitem(::google::protobuf::int32 value);
 
-  // optional int32 m_costnum = 3;
+  // optional int32 m_costNum = 3;
   inline bool has_m_costnum() const;
   inline void clear_m_costnum();
-  static const int kMCostnumFieldNumber = 3;
+  static const int kMCostNumFieldNumber = 3;
   inline ::google::protobuf::int32 m_costnum() const;
   inline void set_m_costnum(::google::protobuf::int32 value);
 
@@ -2205,17 +2205,17 @@ class E_GuildPacket : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 1;
+  static const int kMIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_belongtype = 2;
+  // optional int32 m_belongType = 2;
   inline bool has_m_belongtype() const;
   inline void clear_m_belongtype();
-  static const int kMBelongtypeFieldNumber = 2;
+  static const int kMBelongTypeFieldNumber = 2;
   inline ::google::protobuf::int32 m_belongtype() const;
   inline void set_m_belongtype(::google::protobuf::int32 value);
 
@@ -2226,24 +2226,24 @@ class E_GuildPacket : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_type() const;
   inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 m_typearg = 4;
+  // optional int32 m_typeArg = 4;
   inline bool has_m_typearg() const;
   inline void clear_m_typearg();
-  static const int kMTypeargFieldNumber = 4;
+  static const int kMTypeArgFieldNumber = 4;
   inline ::google::protobuf::int32 m_typearg() const;
   inline void set_m_typearg(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 5;
+  // optional int32 m_itemID = 5;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 5;
+  static const int kMItemIDFieldNumber = 5;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
-  // optional int32 m_itemnum = 6;
+  // optional int32 m_itemNum = 6;
   inline bool has_m_itemnum() const;
   inline void clear_m_itemnum();
-  static const int kMItemnumFieldNumber = 6;
+  static const int kMItemNumFieldNumber = 6;
   inline ::google::protobuf::int32 m_itemnum() const;
   inline void set_m_itemnum(::google::protobuf::int32 value);
 
@@ -2452,10 +2452,10 @@ class E_GuildPrestigetask : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 1;
+  static const int kMIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -2466,17 +2466,17 @@ class E_GuildPrestigetask : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_level() const;
   inline void set_m_level(::google::protobuf::int32 value);
 
-  // optional int32 m_lvmin = 3;
+  // optional int32 m_lvMin = 3;
   inline bool has_m_lvmin() const;
   inline void clear_m_lvmin();
-  static const int kMLvminFieldNumber = 3;
+  static const int kMLvMinFieldNumber = 3;
   inline ::google::protobuf::int32 m_lvmin() const;
   inline void set_m_lvmin(::google::protobuf::int32 value);
 
-  // optional int32 m_lvmax = 4;
+  // optional int32 m_lvMax = 4;
   inline bool has_m_lvmax() const;
   inline void clear_m_lvmax();
-  static const int kMLvmaxFieldNumber = 4;
+  static const int kMLvMaxFieldNumber = 4;
   inline ::google::protobuf::int32 m_lvmax() const;
   inline void set_m_lvmax(::google::protobuf::int32 value);
 
@@ -2686,24 +2686,24 @@ class E_GuildLvreward : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_partyexp = 2;
+  // optional int32 m_partyExp = 2;
   inline bool has_m_partyexp() const;
   inline void clear_m_partyexp();
-  static const int kMPartyexpFieldNumber = 2;
+  static const int kMPartyExpFieldNumber = 2;
   inline ::google::protobuf::int32 m_partyexp() const;
   inline void set_m_partyexp(::google::protobuf::int32 value);
 
-  // optional int32 m_partyeontribution = 3;
+  // optional int32 m_partyEontribution = 3;
   inline bool has_m_partyeontribution() const;
   inline void clear_m_partyeontribution();
-  static const int kMPartyeontributionFieldNumber = 3;
+  static const int kMPartyEontributionFieldNumber = 3;
   inline ::google::protobuf::int32 m_partyeontribution() const;
   inline void set_m_partyeontribution(::google::protobuf::int32 value);
 
-  // optional int32 m_linkexp = 4;
+  // optional int32 m_linkExp = 4;
   inline bool has_m_linkexp() const;
   inline void clear_m_linkexp();
-  static const int kMLinkexpFieldNumber = 4;
+  static const int kMLinkExpFieldNumber = 4;
   inline ::google::protobuf::int32 m_linkexp() const;
   inline void set_m_linkexp(::google::protobuf::int32 value);
 
@@ -2982,45 +2982,45 @@ class E_GuildCollege : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_skillid() const;
   inline void set_m_skillid(::google::protobuf::int32 value);
 
-  // optional int32 m_skilllv = 3;
+  // optional int32 m_skillLv = 3;
   inline bool has_m_skilllv() const;
   inline void clear_m_skilllv();
-  static const int kMSkilllvFieldNumber = 3;
+  static const int kMSkillLvFieldNumber = 3;
   inline ::google::protobuf::int32 m_skilllv() const;
   inline void set_m_skilllv(::google::protobuf::int32 value);
 
-  // optional int32 m_guildlv = 4;
+  // optional int32 m_guildLv = 4;
   inline bool has_m_guildlv() const;
   inline void clear_m_guildlv();
-  static const int kMGuildlvFieldNumber = 4;
+  static const int kMGuildLvFieldNumber = 4;
   inline ::google::protobuf::int32 m_guildlv() const;
   inline void set_m_guildlv(::google::protobuf::int32 value);
 
-  // optional int32 m_playerlvlimit = 5;
+  // optional int32 m_playerLvLimit = 5;
   inline bool has_m_playerlvlimit() const;
   inline void clear_m_playerlvlimit();
-  static const int kMPlayerlvlimitFieldNumber = 5;
+  static const int kMPlayerLvLimitFieldNumber = 5;
   inline ::google::protobuf::int32 m_playerlvlimit() const;
   inline void set_m_playerlvlimit(::google::protobuf::int32 value);
 
-  // optional int32 m_preskillid = 6;
+  // optional int32 m_preSkillid = 6;
   inline bool has_m_preskillid() const;
   inline void clear_m_preskillid();
-  static const int kMPreskillidFieldNumber = 6;
+  static const int kMPreSkillidFieldNumber = 6;
   inline ::google::protobuf::int32 m_preskillid() const;
   inline void set_m_preskillid(::google::protobuf::int32 value);
 
-  // optional int32 m_preskilllv = 7;
+  // optional int32 m_preSkillLv = 7;
   inline bool has_m_preskilllv() const;
   inline void clear_m_preskilllv();
-  static const int kMPreskilllvFieldNumber = 7;
+  static const int kMPreSkillLvFieldNumber = 7;
   inline ::google::protobuf::int32 m_preskilllv() const;
   inline void set_m_preskilllv(::google::protobuf::int32 value);
 
-  // optional int32 m_costcontribute = 8;
+  // optional int32 m_CostContribute = 8;
   inline bool has_m_costcontribute() const;
   inline void clear_m_costcontribute();
-  static const int kMCostcontributeFieldNumber = 8;
+  static const int kMCostContributeFieldNumber = 8;
   inline ::google::protobuf::int32 m_costcontribute() const;
   inline void set_m_costcontribute(::google::protobuf::int32 value);
 
@@ -3426,31 +3426,31 @@ class E_GuildRank_reward : public ::google::protobuf::Message {
   inline ::std::string* release_m_note();
   inline void set_allocated_m_note(::std::string* m_note);
 
-  // optional int32 m_rankmin = 4;
+  // optional int32 m_rankMin = 4;
   inline bool has_m_rankmin() const;
   inline void clear_m_rankmin();
-  static const int kMRankminFieldNumber = 4;
+  static const int kMRankMinFieldNumber = 4;
   inline ::google::protobuf::int32 m_rankmin() const;
   inline void set_m_rankmin(::google::protobuf::int32 value);
 
-  // optional int32 m_rankmax = 5;
+  // optional int32 m_rankMax = 5;
   inline bool has_m_rankmax() const;
   inline void clear_m_rankmax();
-  static const int kMRankmaxFieldNumber = 5;
+  static const int kMRankMaxFieldNumber = 5;
   inline ::google::protobuf::int32 m_rankmax() const;
   inline void set_m_rankmax(::google::protobuf::int32 value);
 
-  // optional int32 m_lvmin = 6;
+  // optional int32 m_lvMin = 6;
   inline bool has_m_lvmin() const;
   inline void clear_m_lvmin();
-  static const int kMLvminFieldNumber = 6;
+  static const int kMLvMinFieldNumber = 6;
   inline ::google::protobuf::int32 m_lvmin() const;
   inline void set_m_lvmin(::google::protobuf::int32 value);
 
-  // optional int32 m_rewards = 7;
+  // optional int32 m_rewardS = 7;
   inline bool has_m_rewards() const;
   inline void clear_m_rewards();
-  static const int kMRewardsFieldNumber = 7;
+  static const int kMRewardSFieldNumber = 7;
   inline ::google::protobuf::int32 m_rewards() const;
   inline void set_m_rewards(::google::protobuf::int32 value);
 
@@ -3632,14 +3632,14 @@ class E_GuildShouhskillRewardDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_num = 1;
+  // optional int32 m_Num = 1;
   inline bool has_m_num() const;
   inline void clear_m_num();
   static const int kMNumFieldNumber = 1;
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int32 m_id = 2;
+  // optional int32 m_Id = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
   static const int kMIdFieldNumber = 2;
@@ -3743,17 +3743,17 @@ class E_GuildShouhskill : public ::google::protobuf::Message {
   inline ::std::string* release_m_name();
   inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional int32 m_costid = 3;
+  // optional int32 m_costId = 3;
   inline bool has_m_costid() const;
   inline void clear_m_costid();
-  static const int kMCostidFieldNumber = 3;
+  static const int kMCostIdFieldNumber = 3;
   inline ::google::protobuf::int32 m_costid() const;
   inline void set_m_costid(::google::protobuf::int32 value);
 
-  // optional int32 m_costnum = 4;
+  // optional int32 m_costNum = 4;
   inline bool has_m_costnum() const;
   inline void clear_m_costnum();
-  static const int kMCostnumFieldNumber = 4;
+  static const int kMCostNumFieldNumber = 4;
   inline ::google::protobuf::int32 m_costnum() const;
   inline void set_m_costnum(::google::protobuf::int32 value);
 
@@ -3985,7 +3985,7 @@ class E_GuildGwreward : public ::google::protobuf::Message {
   inline ::std::string* release_m_reward();
   inline void set_allocated_m_reward(::std::string* m_reward);
 
-  // optional string m_crossreward = 4;
+  // optional string m_Crossreward = 4;
   inline bool has_m_crossreward() const;
   inline void clear_m_crossreward();
   static const int kMCrossrewardFieldNumber = 4;
@@ -4186,31 +4186,31 @@ class E_GuildGwwinstreak : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_winstreak = 2;
+  // optional int32 m_winStreak = 2;
   inline bool has_m_winstreak() const;
   inline void clear_m_winstreak();
-  static const int kMWinstreakFieldNumber = 2;
+  static const int kMWinStreakFieldNumber = 2;
   inline ::google::protobuf::int32 m_winstreak() const;
   inline void set_m_winstreak(::google::protobuf::int32 value);
 
-  // optional int32 m_winreward = 3;
+  // optional int32 m_winReward = 3;
   inline bool has_m_winreward() const;
   inline void clear_m_winreward();
-  static const int kMWinrewardFieldNumber = 3;
+  static const int kMWinRewardFieldNumber = 3;
   inline ::google::protobuf::int32 m_winreward() const;
   inline void set_m_winreward(::google::protobuf::int32 value);
 
-  // optional int32 m_endreward = 4;
+  // optional int32 m_endReward = 4;
   inline bool has_m_endreward() const;
   inline void clear_m_endreward();
-  static const int kMEndrewardFieldNumber = 4;
+  static const int kMEndRewardFieldNumber = 4;
   inline ::google::protobuf::int32 m_endreward() const;
   inline void set_m_endreward(::google::protobuf::int32 value);
 
-  // optional int32 m_challengeskill = 5;
+  // optional int32 m_challengeSkill = 5;
   inline bool has_m_challengeskill() const;
   inline void clear_m_challengeskill();
-  static const int kMChallengeskillFieldNumber = 5;
+  static const int kMChallengeSkillFieldNumber = 5;
   inline ::google::protobuf::int32 m_challengeskill() const;
   inline void set_m_challengeskill(::google::protobuf::int32 value);
 
@@ -4400,17 +4400,17 @@ class E_GuildTtower : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_dupid() const;
   inline void set_m_dupid(::google::protobuf::int32 value);
 
-  // optional int32 m_breakbox = 3;
+  // optional int32 m_breakBox = 3;
   inline bool has_m_breakbox() const;
   inline void clear_m_breakbox();
-  static const int kMBreakboxFieldNumber = 3;
+  static const int kMBreakBoxFieldNumber = 3;
   inline ::google::protobuf::int32 m_breakbox() const;
   inline void set_m_breakbox(::google::protobuf::int32 value);
 
-  // optional int32 m_clearbox = 4;
+  // optional int32 m_clearBox = 4;
   inline bool has_m_clearbox() const;
   inline void clear_m_clearbox();
-  static const int kMClearboxFieldNumber = 4;
+  static const int kMClearBoxFieldNumber = 4;
   inline ::google::protobuf::int32 m_clearbox() const;
   inline void set_m_clearbox(::google::protobuf::int32 value);
 
@@ -4556,7 +4556,7 @@ inline void E_GuildConstant::set_m_constantid(::google::protobuf::int32 value) {
   m_constantid_ = value;
 }
 
-// optional int32 m_setitem = 2;
+// optional int32 m_setItem = 2;
 inline bool E_GuildConstant::has_m_setitem() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -4578,7 +4578,7 @@ inline void E_GuildConstant::set_m_setitem(::google::protobuf::int32 value) {
   m_setitem_ = value;
 }
 
-// optional int32 m_nameitem = 3;
+// optional int32 m_nameItem = 3;
 inline bool E_GuildConstant::has_m_nameitem() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -4600,7 +4600,7 @@ inline void E_GuildConstant::set_m_nameitem(::google::protobuf::int32 value) {
   m_nameitem_ = value;
 }
 
-// optional int32 m_editrequirelv = 4;
+// optional int32 m_EditRequireLV = 4;
 inline bool E_GuildConstant::has_m_editrequirelv() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -4622,7 +4622,7 @@ inline void E_GuildConstant::set_m_editrequirelv(::google::protobuf::int32 value
   m_editrequirelv_ = value;
 }
 
-// optional int32 m_giftcd = 5;
+// optional int32 m_giftCD = 5;
 inline bool E_GuildConstant::has_m_giftcd() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -4666,7 +4666,7 @@ inline void E_GuildConstant::set_m_dismiss(::google::protobuf::int32 value) {
   m_dismiss_ = value;
 }
 
-// optional int32 m_transferguild = 7;
+// optional int32 m_transferGuild = 7;
 inline bool E_GuildConstant::has_m_transferguild() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -4710,7 +4710,7 @@ inline void E_GuildConstant::set_m_territory(::google::protobuf::int32 value) {
   m_territory_ = value;
 }
 
-// optional int32 m_autominlv = 9;
+// optional int32 m_autoMinLV = 9;
 inline bool E_GuildConstant::has_m_autominlv() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -4732,7 +4732,7 @@ inline void E_GuildConstant::set_m_autominlv(::google::protobuf::int32 value) {
   m_autominlv_ = value;
 }
 
-// optional int32 m_autominbp = 10;
+// optional int32 m_autoMinBP = 10;
 inline bool E_GuildConstant::has_m_autominbp() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -4754,7 +4754,7 @@ inline void E_GuildConstant::set_m_autominbp(::google::protobuf::int32 value) {
   m_autominbp_ = value;
 }
 
-// optional int32 m_donatetimes = 11;
+// optional int32 m_donateTimes = 11;
 inline bool E_GuildConstant::has_m_donatetimes() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -4776,7 +4776,7 @@ inline void E_GuildConstant::set_m_donatetimes(::google::protobuf::int32 value) 
   m_donatetimes_ = value;
 }
 
-// optional int32 m_packetmaxd = 12;
+// optional int32 m_packetMaxD = 12;
 inline bool E_GuildConstant::has_m_packetmaxd() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -4798,7 +4798,7 @@ inline void E_GuildConstant::set_m_packetmaxd(::google::protobuf::int32 value) {
   m_packetmaxd_ = value;
 }
 
-// optional int32 m_packetmaxbd = 13;
+// optional int32 m_packetMaxBD = 13;
 inline bool E_GuildConstant::has_m_packetmaxbd() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -4820,7 +4820,7 @@ inline void E_GuildConstant::set_m_packetmaxbd(::google::protobuf::int32 value) 
   m_packetmaxbd_ = value;
 }
 
-// optional int32 m_packetmaxsend = 14;
+// optional int32 m_packetMaxSend = 14;
 inline bool E_GuildConstant::has_m_packetmaxsend() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -4864,7 +4864,7 @@ inline void E_GuildConstant::set_m_packetvip(::google::protobuf::int32 value) {
   m_packetvip_ = value;
 }
 
-// optional int32 m_packetadd = 16;
+// optional int32 m_packetAdd = 16;
 inline bool E_GuildConstant::has_m_packetadd() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
@@ -4886,7 +4886,7 @@ inline void E_GuildConstant::set_m_packetadd(::google::protobuf::int32 value) {
   m_packetadd_ = value;
 }
 
-// optional int32 m_prestigetasonekeyvip = 17;
+// optional int32 m_prestigeTasOneKeyVIP = 17;
 inline bool E_GuildConstant::has_m_prestigetasonekeyvip() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
@@ -4908,7 +4908,7 @@ inline void E_GuildConstant::set_m_prestigetasonekeyvip(::google::protobuf::int3
   m_prestigetasonekeyvip_ = value;
 }
 
-// optional int32 m_prestigetasonekeylv = 18;
+// optional int32 m_prestigeTasOneKeyLV = 18;
 inline bool E_GuildConstant::has_m_prestigetasonekeylv() const {
   return (_has_bits_[0] & 0x00020000u) != 0;
 }
@@ -4930,7 +4930,7 @@ inline void E_GuildConstant::set_m_prestigetasonekeylv(::google::protobuf::int32
   m_prestigetasonekeylv_ = value;
 }
 
-// optional int32 m_prestigetaskprivage = 19;
+// optional int32 m_prestigeTaskPrivage = 19;
 inline bool E_GuildConstant::has_m_prestigetaskprivage() const {
   return (_has_bits_[0] & 0x00040000u) != 0;
 }
@@ -4952,7 +4952,7 @@ inline void E_GuildConstant::set_m_prestigetaskprivage(::google::protobuf::int32
   m_prestigetaskprivage_ = value;
 }
 
-// optional int32 m_prestigetaskflash = 20;
+// optional int32 m_prestigeTaskFlash = 20;
 inline bool E_GuildConstant::has_m_prestigetaskflash() const {
   return (_has_bits_[0] & 0x00080000u) != 0;
 }
@@ -4974,7 +4974,7 @@ inline void E_GuildConstant::set_m_prestigetaskflash(::google::protobuf::int32 v
   m_prestigetaskflash_ = value;
 }
 
-// optional int32 m_prestigetaskflashprice = 21;
+// optional int32 m_prestigeTaskflashPrice = 21;
 inline bool E_GuildConstant::has_m_prestigetaskflashprice() const {
   return (_has_bits_[0] & 0x00100000u) != 0;
 }
@@ -4996,7 +4996,7 @@ inline void E_GuildConstant::set_m_prestigetaskflashprice(::google::protobuf::in
   m_prestigetaskflashprice_ = value;
 }
 
-// optional int32 m_prestigetasktimes = 22;
+// optional int32 m_prestigeTaskTimes = 22;
 inline bool E_GuildConstant::has_m_prestigetasktimes() const {
   return (_has_bits_[0] & 0x00200000u) != 0;
 }
@@ -5018,7 +5018,7 @@ inline void E_GuildConstant::set_m_prestigetasktimes(::google::protobuf::int32 v
   m_prestigetasktimes_ = value;
 }
 
-// optional int32 m_rewardcd = 23;
+// optional int32 m_rewardCD = 23;
 inline bool E_GuildConstant::has_m_rewardcd() const {
   return (_has_bits_[0] & 0x00400000u) != 0;
 }
@@ -5062,7 +5062,7 @@ inline void E_GuildConstant::set_m_answerdelay(::google::protobuf::int32 value) 
   m_answerdelay_ = value;
 }
 
-// optional int32 m_answernum = 25;
+// optional int32 m_answerNum = 25;
 inline bool E_GuildConstant::has_m_answernum() const {
   return (_has_bits_[0] & 0x01000000u) != 0;
 }
@@ -5084,7 +5084,7 @@ inline void E_GuildConstant::set_m_answernum(::google::protobuf::int32 value) {
   m_answernum_ = value;
 }
 
-// optional int32 m_answertime = 26;
+// optional int32 m_answerTime = 26;
 inline bool E_GuildConstant::has_m_answertime() const {
   return (_has_bits_[0] & 0x02000000u) != 0;
 }
@@ -5106,7 +5106,7 @@ inline void E_GuildConstant::set_m_answertime(::google::protobuf::int32 value) {
   m_answertime_ = value;
 }
 
-// optional int32 m_answerresulttime = 27;
+// optional int32 m_answerResultTime = 27;
 inline bool E_GuildConstant::has_m_answerresulttime() const {
   return (_has_bits_[0] & 0x04000000u) != 0;
 }
@@ -5128,7 +5128,7 @@ inline void E_GuildConstant::set_m_answerresulttime(::google::protobuf::int32 va
   m_answerresulttime_ = value;
 }
 
-// optional int32 m_answerlimit = 28;
+// optional int32 m_answerLimit = 28;
 inline bool E_GuildConstant::has_m_answerlimit() const {
   return (_has_bits_[0] & 0x08000000u) != 0;
 }
@@ -5150,7 +5150,7 @@ inline void E_GuildConstant::set_m_answerlimit(::google::protobuf::int32 value) 
   m_answerlimit_ = value;
 }
 
-// optional int32 m_answerfirst = 29;
+// optional int32 m_answerFirst = 29;
 inline bool E_GuildConstant::has_m_answerfirst() const {
   return (_has_bits_[0] & 0x10000000u) != 0;
 }
@@ -5172,7 +5172,7 @@ inline void E_GuildConstant::set_m_answerfirst(::google::protobuf::int32 value) 
   m_answerfirst_ = value;
 }
 
-// optional int32 m_answersuccess = 30;
+// optional int32 m_answerSuccess = 30;
 inline bool E_GuildConstant::has_m_answersuccess() const {
   return (_has_bits_[0] & 0x20000000u) != 0;
 }
@@ -5194,7 +5194,7 @@ inline void E_GuildConstant::set_m_answersuccess(::google::protobuf::int32 value
   m_answersuccess_ = value;
 }
 
-// optional int32 m_answebasics = 31;
+// optional int32 m_answeBasics = 31;
 inline bool E_GuildConstant::has_m_answebasics() const {
   return (_has_bits_[0] & 0x40000000u) != 0;
 }
@@ -5216,7 +5216,7 @@ inline void E_GuildConstant::set_m_answebasics(::google::protobuf::int32 value) 
   m_answebasics_ = value;
 }
 
-// optional int32 m_linklvupper = 32;
+// optional int32 m_linkLvUpPer = 32;
 inline bool E_GuildConstant::has_m_linklvupper() const {
   return (_has_bits_[0] & 0x80000000u) != 0;
 }
@@ -5238,7 +5238,7 @@ inline void E_GuildConstant::set_m_linklvupper(::google::protobuf::int32 value) 
   m_linklvupper_ = value;
 }
 
-// optional int32 m_linklvupmax = 33;
+// optional int32 m_linkLvUpMax = 33;
 inline bool E_GuildConstant::has_m_linklvupmax() const {
   return (_has_bits_[1] & 0x00000001u) != 0;
 }
@@ -5260,7 +5260,7 @@ inline void E_GuildConstant::set_m_linklvupmax(::google::protobuf::int32 value) 
   m_linklvupmax_ = value;
 }
 
-// optional int32 m_linktime = 34;
+// optional int32 m_linkTime = 34;
 inline bool E_GuildConstant::has_m_linktime() const {
   return (_has_bits_[1] & 0x00000002u) != 0;
 }
@@ -5282,7 +5282,7 @@ inline void E_GuildConstant::set_m_linktime(::google::protobuf::int32 value) {
   m_linktime_ = value;
 }
 
-// optional int32 m_monsterid = 35;
+// optional int32 m_monsterID = 35;
 inline bool E_GuildConstant::has_m_monsterid() const {
   return (_has_bits_[1] & 0x00000004u) != 0;
 }
@@ -5326,7 +5326,7 @@ inline void E_GuildConstant::set_m_point(::google::protobuf::int32 value) {
   m_point_ = value;
 }
 
-// optional int32 m_collecttimes = 37;
+// optional int32 m_collectTimes = 37;
 inline bool E_GuildConstant::has_m_collecttimes() const {
   return (_has_bits_[1] & 0x00000010u) != 0;
 }
@@ -5348,7 +5348,7 @@ inline void E_GuildConstant::set_m_collecttimes(::google::protobuf::int32 value)
   m_collecttimes_ = value;
 }
 
-// optional int32 m_shens_daytimes = 38;
+// optional int32 m_shens_dayTimes = 38;
 inline bool E_GuildConstant::has_m_shens_daytimes() const {
   return (_has_bits_[1] & 0x00000020u) != 0;
 }
@@ -5370,7 +5370,7 @@ inline void E_GuildConstant::set_m_shens_daytimes(::google::protobuf::int32 valu
   m_shens_daytimes_ = value;
 }
 
-// optional int32 m_shens_weektimes = 39;
+// optional int32 m_shens_weekTimes = 39;
 inline bool E_GuildConstant::has_m_shens_weektimes() const {
   return (_has_bits_[1] & 0x00000040u) != 0;
 }
@@ -5414,7 +5414,7 @@ inline void E_GuildConstant::set_m_shens_dup(::google::protobuf::int32 value) {
   m_shens_dup_ = value;
 }
 
-// optional int32 m_shensitem = 41;
+// optional int32 m_shensItem = 41;
 inline bool E_GuildConstant::has_m_shensitem() const {
   return (_has_bits_[1] & 0x00000100u) != 0;
 }
@@ -5436,7 +5436,7 @@ inline void E_GuildConstant::set_m_shensitem(::google::protobuf::int32 value) {
   m_shensitem_ = value;
 }
 
-// optional int32 m_shenscost = 42;
+// optional int32 m_shensCost = 42;
 inline bool E_GuildConstant::has_m_shenscost() const {
   return (_has_bits_[1] & 0x00000200u) != 0;
 }
@@ -5458,7 +5458,7 @@ inline void E_GuildConstant::set_m_shenscost(::google::protobuf::int32 value) {
   m_shenscost_ = value;
 }
 
-// optional int32 m_shenscostactive = 43;
+// optional int32 m_shensCostActive = 43;
 inline bool E_GuildConstant::has_m_shenscostactive() const {
   return (_has_bits_[1] & 0x00000400u) != 0;
 }
@@ -5502,7 +5502,7 @@ inline void E_GuildConstant::set_m_shouh_dup(::google::protobuf::int32 value) {
   m_shouh_dup_ = value;
 }
 
-// optional int32 m_shouhexpskill = 45;
+// optional int32 m_shouhExpSkill = 45;
 inline bool E_GuildConstant::has_m_shouhexpskill() const {
   return (_has_bits_[1] & 0x00001000u) != 0;
 }
@@ -5524,7 +5524,7 @@ inline void E_GuildConstant::set_m_shouhexpskill(::google::protobuf::int32 value
   m_shouhexpskill_ = value;
 }
 
-// optional string m_shouhmosid = 46;
+// optional string m_shouhMosId = 46;
 inline bool E_GuildConstant::has_m_shouhmosid() const {
   return (_has_bits_[1] & 0x00002000u) != 0;
 }
@@ -5594,7 +5594,7 @@ inline void E_GuildConstant::set_allocated_m_shouhmosid(::std::string* m_shouhmo
   }
 }
 
-// optional int32 m_gwdupid = 47;
+// optional int32 m_GWDupid = 47;
 inline bool E_GuildConstant::has_m_gwdupid() const {
   return (_has_bits_[1] & 0x00004000u) != 0;
 }
@@ -5616,7 +5616,7 @@ inline void E_GuildConstant::set_m_gwdupid(::google::protobuf::int32 value) {
   m_gwdupid_ = value;
 }
 
-// optional int32 m_gwbattletime = 48;
+// optional int32 m_GWBattleTime = 48;
 inline bool E_GuildConstant::has_m_gwbattletime() const {
   return (_has_bits_[1] & 0x00008000u) != 0;
 }
@@ -5638,7 +5638,7 @@ inline void E_GuildConstant::set_m_gwbattletime(::google::protobuf::int32 value)
   m_gwbattletime_ = value;
 }
 
-// optional int32 m_gwresttime = 49;
+// optional int32 m_GWRestTime = 49;
 inline bool E_GuildConstant::has_m_gwresttime() const {
   return (_has_bits_[1] & 0x00010000u) != 0;
 }
@@ -5660,7 +5660,7 @@ inline void E_GuildConstant::set_m_gwresttime(::google::protobuf::int32 value) {
   m_gwresttime_ = value;
 }
 
-// optional int32 m_gwcentermid = 50;
+// optional int32 m_GWCenterMID = 50;
 inline bool E_GuildConstant::has_m_gwcentermid() const {
   return (_has_bits_[1] & 0x00020000u) != 0;
 }
@@ -5682,7 +5682,7 @@ inline void E_GuildConstant::set_m_gwcentermid(::google::protobuf::int32 value) 
   m_gwcentermid_ = value;
 }
 
-// optional int32 m_gwtowermid = 51;
+// optional int32 m_GWTowerMID = 51;
 inline bool E_GuildConstant::has_m_gwtowermid() const {
   return (_has_bits_[1] & 0x00040000u) != 0;
 }
@@ -5704,7 +5704,7 @@ inline void E_GuildConstant::set_m_gwtowermid(::google::protobuf::int32 value) {
   m_gwtowermid_ = value;
 }
 
-// optional int32 m_gwtankmid = 52;
+// optional int32 m_GWTankMID = 52;
 inline bool E_GuildConstant::has_m_gwtankmid() const {
   return (_has_bits_[1] & 0x00080000u) != 0;
 }
@@ -5726,7 +5726,7 @@ inline void E_GuildConstant::set_m_gwtankmid(::google::protobuf::int32 value) {
   m_gwtankmid_ = value;
 }
 
-// optional int32 m_gwbornrpoint = 53;
+// optional int32 m_GWBornRPoint = 53;
 inline bool E_GuildConstant::has_m_gwbornrpoint() const {
   return (_has_bits_[1] & 0x00100000u) != 0;
 }
@@ -5748,7 +5748,7 @@ inline void E_GuildConstant::set_m_gwbornrpoint(::google::protobuf::int32 value)
   m_gwbornrpoint_ = value;
 }
 
-// optional int32 m_gwcenterrpoint = 54;
+// optional int32 m_GWCenterRPoint = 54;
 inline bool E_GuildConstant::has_m_gwcenterrpoint() const {
   return (_has_bits_[1] & 0x00200000u) != 0;
 }
@@ -5770,7 +5770,7 @@ inline void E_GuildConstant::set_m_gwcenterrpoint(::google::protobuf::int32 valu
   m_gwcenterrpoint_ = value;
 }
 
-// optional string m_gwtowerrpoint = 55;
+// optional string m_GWTowerRPoint = 55;
 inline bool E_GuildConstant::has_m_gwtowerrpoint() const {
   return (_has_bits_[1] & 0x00400000u) != 0;
 }
@@ -5840,7 +5840,7 @@ inline void E_GuildConstant::set_allocated_m_gwtowerrpoint(::std::string* m_gwto
   }
 }
 
-// optional int32 m_gwtankrpoint = 56;
+// optional int32 m_GWTankRPoint = 56;
 inline bool E_GuildConstant::has_m_gwtankrpoint() const {
   return (_has_bits_[1] & 0x00800000u) != 0;
 }
@@ -5862,7 +5862,7 @@ inline void E_GuildConstant::set_m_gwtankrpoint(::google::protobuf::int32 value)
   m_gwtankrpoint_ = value;
 }
 
-// optional int32 m_gwbornbpoint = 57;
+// optional int32 m_GWBornBPoint = 57;
 inline bool E_GuildConstant::has_m_gwbornbpoint() const {
   return (_has_bits_[1] & 0x01000000u) != 0;
 }
@@ -5884,7 +5884,7 @@ inline void E_GuildConstant::set_m_gwbornbpoint(::google::protobuf::int32 value)
   m_gwbornbpoint_ = value;
 }
 
-// optional int32 m_gwcenterbpoint = 58;
+// optional int32 m_GWCenterBPoint = 58;
 inline bool E_GuildConstant::has_m_gwcenterbpoint() const {
   return (_has_bits_[1] & 0x02000000u) != 0;
 }
@@ -5906,7 +5906,7 @@ inline void E_GuildConstant::set_m_gwcenterbpoint(::google::protobuf::int32 valu
   m_gwcenterbpoint_ = value;
 }
 
-// optional string m_gwtowerbpoint = 59;
+// optional string m_GWTowerBPoint = 59;
 inline bool E_GuildConstant::has_m_gwtowerbpoint() const {
   return (_has_bits_[1] & 0x04000000u) != 0;
 }
@@ -5976,7 +5976,7 @@ inline void E_GuildConstant::set_allocated_m_gwtowerbpoint(::std::string* m_gwto
   }
 }
 
-// optional int32 m_gwtankbpoint = 60;
+// optional int32 m_GWTankBPoint = 60;
 inline bool E_GuildConstant::has_m_gwtankbpoint() const {
   return (_has_bits_[1] & 0x08000000u) != 0;
 }
@@ -5998,7 +5998,7 @@ inline void E_GuildConstant::set_m_gwtankbpoint(::google::protobuf::int32 value)
   m_gwtankbpoint_ = value;
 }
 
-// optional int32 m_tanknum = 61;
+// optional int32 m_tankNum = 61;
 inline bool E_GuildConstant::has_m_tanknum() const {
   return (_has_bits_[1] & 0x10000000u) != 0;
 }
@@ -6020,7 +6020,7 @@ inline void E_GuildConstant::set_m_tanknum(::google::protobuf::int32 value) {
   m_tanknum_ = value;
 }
 
-// optional int32 m_tankresttime = 62;
+// optional int32 m_tankRestTime = 62;
 inline bool E_GuildConstant::has_m_tankresttime() const {
   return (_has_bits_[1] & 0x20000000u) != 0;
 }
@@ -6042,7 +6042,7 @@ inline void E_GuildConstant::set_m_tankresttime(::google::protobuf::int32 value)
   m_tankresttime_ = value;
 }
 
-// optional int32 m_tankrestnum = 63;
+// optional int32 m_tankRestNum = 63;
 inline bool E_GuildConstant::has_m_tankrestnum() const {
   return (_has_bits_[1] & 0x40000000u) != 0;
 }
@@ -6064,7 +6064,7 @@ inline void E_GuildConstant::set_m_tankrestnum(::google::protobuf::int32 value) 
   m_tankrestnum_ = value;
 }
 
-// optional int32 m_dominatedaily = 64;
+// optional int32 m_dominateDaily = 64;
 inline bool E_GuildConstant::has_m_dominatedaily() const {
   return (_has_bits_[1] & 0x80000000u) != 0;
 }
@@ -6086,7 +6086,7 @@ inline void E_GuildConstant::set_m_dominatedaily(::google::protobuf::int32 value
   m_dominatedaily_ = value;
 }
 
-// optional int32 m_dominatebossreward = 65;
+// optional int32 m_dominateBossReward = 65;
 inline bool E_GuildConstant::has_m_dominatebossreward() const {
   return (_has_bits_[2] & 0x00000001u) != 0;
 }
@@ -6108,7 +6108,7 @@ inline void E_GuildConstant::set_m_dominatebossreward(::google::protobuf::int32 
   m_dominatebossreward_ = value;
 }
 
-// optional int32 m_freepoint = 66;
+// optional int32 m_freePoint = 66;
 inline bool E_GuildConstant::has_m_freepoint() const {
   return (_has_bits_[2] & 0x00000002u) != 0;
 }
@@ -6130,7 +6130,7 @@ inline void E_GuildConstant::set_m_freepoint(::google::protobuf::int32 value) {
   m_freepoint_ = value;
 }
 
-// optional int32 m_deffreepoint = 67;
+// optional int32 m_defFreePoint = 67;
 inline bool E_GuildConstant::has_m_deffreepoint() const {
   return (_has_bits_[2] & 0x00000004u) != 0;
 }
@@ -6152,7 +6152,7 @@ inline void E_GuildConstant::set_m_deffreepoint(::google::protobuf::int32 value)
   m_deffreepoint_ = value;
 }
 
-// optional int32 m_playerpoint = 68;
+// optional int32 m_playerPoint = 68;
 inline bool E_GuildConstant::has_m_playerpoint() const {
   return (_has_bits_[2] & 0x00000008u) != 0;
 }
@@ -6174,7 +6174,7 @@ inline void E_GuildConstant::set_m_playerpoint(::google::protobuf::int32 value) 
   m_playerpoint_ = value;
 }
 
-// optional int32 m_tankpoint = 69;
+// optional int32 m_tankPoint = 69;
 inline bool E_GuildConstant::has_m_tankpoint() const {
   return (_has_bits_[2] & 0x00000010u) != 0;
 }
@@ -6196,7 +6196,7 @@ inline void E_GuildConstant::set_m_tankpoint(::google::protobuf::int32 value) {
   m_tankpoint_ = value;
 }
 
-// optional int32 m_towerpoint = 70;
+// optional int32 m_towerPoint = 70;
 inline bool E_GuildConstant::has_m_towerpoint() const {
   return (_has_bits_[2] & 0x00000020u) != 0;
 }
@@ -6218,7 +6218,7 @@ inline void E_GuildConstant::set_m_towerpoint(::google::protobuf::int32 value) {
   m_towerpoint_ = value;
 }
 
-// optional int32 m_centerpoint = 71;
+// optional int32 m_centerPoint = 71;
 inline bool E_GuildConstant::has_m_centerpoint() const {
   return (_has_bits_[2] & 0x00000040u) != 0;
 }
@@ -6240,7 +6240,7 @@ inline void E_GuildConstant::set_m_centerpoint(::google::protobuf::int32 value) 
   m_centerpoint_ = value;
 }
 
-// optional int32 m_assistradio = 72;
+// optional int32 m_assistRadio = 72;
 inline bool E_GuildConstant::has_m_assistradio() const {
   return (_has_bits_[2] & 0x00000080u) != 0;
 }
@@ -6262,7 +6262,7 @@ inline void E_GuildConstant::set_m_assistradio(::google::protobuf::int32 value) 
   m_assistradio_ = value;
 }
 
-// optional int32 m_tteamdamageadd = 73;
+// optional int32 m_TTeamDamageAdd = 73;
 inline bool E_GuildConstant::has_m_tteamdamageadd() const {
   return (_has_bits_[2] & 0x00000100u) != 0;
 }
@@ -6284,7 +6284,7 @@ inline void E_GuildConstant::set_m_tteamdamageadd(::google::protobuf::int32 valu
   m_tteamdamageadd_ = value;
 }
 
-// optional int32 m_tweekclosetime = 74;
+// optional int32 m_TWeekCloseTime = 74;
 inline bool E_GuildConstant::has_m_tweekclosetime() const {
   return (_has_bits_[2] & 0x00000200u) != 0;
 }
@@ -6306,7 +6306,7 @@ inline void E_GuildConstant::set_m_tweekclosetime(::google::protobuf::int32 valu
   m_tweekclosetime_ = value;
 }
 
-// optional int32 m_cyclicreward = 75;
+// optional int32 m_cyclicReward = 75;
 inline bool E_GuildConstant::has_m_cyclicreward() const {
   return (_has_bits_[2] & 0x00000400u) != 0;
 }
@@ -6328,7 +6328,7 @@ inline void E_GuildConstant::set_m_cyclicreward(::google::protobuf::int32 value)
   m_cyclicreward_ = value;
 }
 
-// optional int32 m_tencyclicreward = 76;
+// optional int32 m_tenCyclicReward = 76;
 inline bool E_GuildConstant::has_m_tencyclicreward() const {
   return (_has_bits_[2] & 0x00000800u) != 0;
 }
@@ -6383,7 +6383,7 @@ Sheet_GuildConstant::mutable_e_guildconstant_list() {
 
 // E_GuildLevel
 
-// optional int32 m_guildlevel = 1;
+// optional int32 m_guildLevel = 1;
 inline bool E_GuildLevel::has_m_guildlevel() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -6405,7 +6405,7 @@ inline void E_GuildLevel::set_m_guildlevel(::google::protobuf::int32 value) {
   m_guildlevel_ = value;
 }
 
-// optional int32 m_guildlevel_exp = 2;
+// optional int32 m_guildLevel_EXP = 2;
 inline bool E_GuildLevel::has_m_guildlevel_exp() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -6427,7 +6427,7 @@ inline void E_GuildLevel::set_m_guildlevel_exp(::google::protobuf::int32 value) 
   m_guildlevel_exp_ = value;
 }
 
-// optional int32 m_guildlevel_member = 3;
+// optional int32 m_guildLevel_member = 3;
 inline bool E_GuildLevel::has_m_guildlevel_member() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -6449,7 +6449,7 @@ inline void E_GuildLevel::set_m_guildlevel_member(::google::protobuf::int32 valu
   m_guildlevel_member_ = value;
 }
 
-// optional int32 m_guildlevel_vp = 4;
+// optional int32 m_guildLevel_VP = 4;
 inline bool E_GuildLevel::has_m_guildlevel_vp() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -6471,7 +6471,7 @@ inline void E_GuildLevel::set_m_guildlevel_vp(::google::protobuf::int32 value) {
   m_guildlevel_vp_ = value;
 }
 
-// optional int32 m_guildlevel_np = 5;
+// optional int32 m_guildLevel_NP = 5;
 inline bool E_GuildLevel::has_m_guildlevel_np() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -6493,7 +6493,7 @@ inline void E_GuildLevel::set_m_guildlevel_np(::google::protobuf::int32 value) {
   m_guildlevel_np_ = value;
 }
 
-// optional int32 m_guildlevel_g = 6;
+// optional int32 m_guildLevel_G = 6;
 inline bool E_GuildLevel::has_m_guildlevel_g() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -6548,7 +6548,7 @@ Sheet_GuildLevel::mutable_e_guildlevel_list() {
 
 // E_GuildPosition
 
-// optional int32 m_positionid = 1;
+// optional int32 m_positionId = 1;
 inline bool E_GuildPosition::has_m_positionid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -6570,7 +6570,7 @@ inline void E_GuildPosition::set_m_positionid(::google::protobuf::int32 value) {
   m_positionid_ = value;
 }
 
-// optional int32 m_admitnewcomer = 2;
+// optional int32 m_admitNewcomer = 2;
 inline bool E_GuildPosition::has_m_admitnewcomer() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -6592,7 +6592,7 @@ inline void E_GuildPosition::set_m_admitnewcomer(::google::protobuf::int32 value
   m_admitnewcomer_ = value;
 }
 
-// optional int32 m_appointandremovevp = 3;
+// optional int32 m_appointAndRemoveVP = 3;
 inline bool E_GuildPosition::has_m_appointandremovevp() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -6614,7 +6614,7 @@ inline void E_GuildPosition::set_m_appointandremovevp(::google::protobuf::int32 
   m_appointandremovevp_ = value;
 }
 
-// optional int32 m_appointandremoveelder = 4;
+// optional int32 m_appointAndRemoveElder = 4;
 inline bool E_GuildPosition::has_m_appointandremoveelder() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -6636,7 +6636,7 @@ inline void E_GuildPosition::set_m_appointandremoveelder(::google::protobuf::int
   m_appointandremoveelder_ = value;
 }
 
-// optional int32 m_appointandremoveg = 5;
+// optional int32 m_appointAndRemoveG = 5;
 inline bool E_GuildPosition::has_m_appointandremoveg() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -6658,7 +6658,7 @@ inline void E_GuildPosition::set_m_appointandremoveg(::google::protobuf::int32 v
   m_appointandremoveg_ = value;
 }
 
-// optional int32 m_appointandremoveelite = 6;
+// optional int32 m_appointAndRemoveElite = 6;
 inline bool E_GuildPosition::has_m_appointandremoveelite() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -6680,7 +6680,7 @@ inline void E_GuildPosition::set_m_appointandremoveelite(::google::protobuf::int
   m_appointandremoveelite_ = value;
 }
 
-// optional int32 m_expelvp = 7;
+// optional int32 m_expelVP = 7;
 inline bool E_GuildPosition::has_m_expelvp() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -6702,7 +6702,7 @@ inline void E_GuildPosition::set_m_expelvp(::google::protobuf::int32 value) {
   m_expelvp_ = value;
 }
 
-// optional int32 m_expelelder = 8;
+// optional int32 m_expelElder = 8;
 inline bool E_GuildPosition::has_m_expelelder() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -6724,7 +6724,7 @@ inline void E_GuildPosition::set_m_expelelder(::google::protobuf::int32 value) {
   m_expelelder_ = value;
 }
 
-// optional int32 m_expelg = 9;
+// optional int32 m_expelG = 9;
 inline bool E_GuildPosition::has_m_expelg() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -6746,7 +6746,7 @@ inline void E_GuildPosition::set_m_expelg(::google::protobuf::int32 value) {
   m_expelg_ = value;
 }
 
-// optional int32 m_expelmass = 10;
+// optional int32 m_expelMass = 10;
 inline bool E_GuildPosition::has_m_expelmass() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -6768,7 +6768,7 @@ inline void E_GuildPosition::set_m_expelmass(::google::protobuf::int32 value) {
   m_expelmass_ = value;
 }
 
-// optional int32 m_announcementediting = 11;
+// optional int32 m_announcementEditing = 11;
 inline bool E_GuildPosition::has_m_announcementediting() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -6790,7 +6790,7 @@ inline void E_GuildPosition::set_m_announcementediting(::google::protobuf::int32
   m_announcementediting_ = value;
 }
 
-// optional int32 m_rname = 12;
+// optional int32 m_rName = 12;
 inline bool E_GuildPosition::has_m_rname() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -6812,7 +6812,7 @@ inline void E_GuildPosition::set_m_rname(::google::protobuf::int32 value) {
   m_rname_ = value;
 }
 
-// optional int32 m_joincondition = 13;
+// optional int32 m_joinCondition = 13;
 inline bool E_GuildPosition::has_m_joincondition() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -6834,7 +6834,7 @@ inline void E_GuildPosition::set_m_joincondition(::google::protobuf::int32 value
   m_joincondition_ = value;
 }
 
-// optional int32 m_guildactivity = 14;
+// optional int32 m_guildActivity = 14;
 inline bool E_GuildPosition::has_m_guildactivity() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -6856,7 +6856,7 @@ inline void E_GuildPosition::set_m_guildactivity(::google::protobuf::int32 value
   m_guildactivity_ = value;
 }
 
-// optional int32 m_dissolveassignguild = 15;
+// optional int32 m_dissolveAssignGuild = 15;
 inline bool E_GuildPosition::has_m_dissolveassignguild() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
@@ -6878,7 +6878,7 @@ inline void E_GuildPosition::set_m_dissolveassignguild(::google::protobuf::int32
   m_dissolveassignguild_ = value;
 }
 
-// optional int32 m_changename = 16;
+// optional int32 m_changeName = 16;
 inline bool E_GuildPosition::has_m_changename() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
@@ -6900,7 +6900,7 @@ inline void E_GuildPosition::set_m_changename(::google::protobuf::int32 value) {
   m_changename_ = value;
 }
 
-// optional int32 m_recruitchat = 17;
+// optional int32 m_recruitChat = 17;
 inline bool E_GuildPosition::has_m_recruitchat() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
@@ -6922,7 +6922,7 @@ inline void E_GuildPosition::set_m_recruitchat(::google::protobuf::int32 value) 
   m_recruitchat_ = value;
 }
 
-// optional int32 m_guildpacket = 18;
+// optional int32 m_guildPacket = 18;
 inline bool E_GuildPosition::has_m_guildpacket() const {
   return (_has_bits_[0] & 0x00020000u) != 0;
 }
@@ -7025,7 +7025,7 @@ inline void E_GuildSalaryRewardDesc::set_m_item(::google::protobuf::int32 value)
 
 // E_GuildSalary
 
-// optional int32 m_id = 1;
+// optional int32 m_ID = 1;
 inline bool E_GuildSalary::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -7069,7 +7069,7 @@ inline void E_GuildSalary::set_m_type(::google::protobuf::int32 value) {
   m_type_ = value;
 }
 
-// optional int32 m_typearg = 3;
+// optional int32 m_typeArg = 3;
 inline bool E_GuildSalary::has_m_typearg() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -7219,7 +7219,7 @@ inline void E_GuildDonateRewardDesc::set_m_item(::google::protobuf::int32 value)
 
 // E_GuildDonate
 
-// optional int32 m_id = 1;
+// optional int32 m_ID = 1;
 inline bool E_GuildDonate::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -7241,7 +7241,7 @@ inline void E_GuildDonate::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_costitem = 2;
+// optional int32 m_costItem = 2;
 inline bool E_GuildDonate::has_m_costitem() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -7263,7 +7263,7 @@ inline void E_GuildDonate::set_m_costitem(::google::protobuf::int32 value) {
   m_costitem_ = value;
 }
 
-// optional int32 m_costnum = 3;
+// optional int32 m_costNum = 3;
 inline bool E_GuildDonate::has_m_costnum() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -7343,7 +7343,7 @@ Sheet_GuildDonate::mutable_e_guilddonate_list() {
 
 // E_GuildPacket
 
-// optional int32 m_id = 1;
+// optional int32 m_ID = 1;
 inline bool E_GuildPacket::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -7365,7 +7365,7 @@ inline void E_GuildPacket::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_belongtype = 2;
+// optional int32 m_belongType = 2;
 inline bool E_GuildPacket::has_m_belongtype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -7409,7 +7409,7 @@ inline void E_GuildPacket::set_m_type(::google::protobuf::int32 value) {
   m_type_ = value;
 }
 
-// optional int32 m_typearg = 4;
+// optional int32 m_typeArg = 4;
 inline bool E_GuildPacket::has_m_typearg() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -7431,7 +7431,7 @@ inline void E_GuildPacket::set_m_typearg(::google::protobuf::int32 value) {
   m_typearg_ = value;
 }
 
-// optional int32 m_itemid = 5;
+// optional int32 m_itemID = 5;
 inline bool E_GuildPacket::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -7453,7 +7453,7 @@ inline void E_GuildPacket::set_m_itemid(::google::protobuf::int32 value) {
   m_itemid_ = value;
 }
 
-// optional int32 m_itemnum = 6;
+// optional int32 m_itemNum = 6;
 inline bool E_GuildPacket::has_m_itemnum() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -7574,7 +7574,7 @@ Sheet_GuildPacket::mutable_e_guildpacket_list() {
 
 // E_GuildPrestigetask
 
-// optional int32 m_id = 1;
+// optional int32 m_ID = 1;
 inline bool E_GuildPrestigetask::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -7618,7 +7618,7 @@ inline void E_GuildPrestigetask::set_m_level(::google::protobuf::int32 value) {
   m_level_ = value;
 }
 
-// optional int32 m_lvmin = 3;
+// optional int32 m_lvMin = 3;
 inline bool E_GuildPrestigetask::has_m_lvmin() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -7640,7 +7640,7 @@ inline void E_GuildPrestigetask::set_m_lvmin(::google::protobuf::int32 value) {
   m_lvmin_ = value;
 }
 
-// optional int32 m_lvmax = 4;
+// optional int32 m_lvMax = 4;
 inline bool E_GuildPrestigetask::has_m_lvmax() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -7783,7 +7783,7 @@ inline void E_GuildLvreward::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional int32 m_partyexp = 2;
+// optional int32 m_partyExp = 2;
 inline bool E_GuildLvreward::has_m_partyexp() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -7805,7 +7805,7 @@ inline void E_GuildLvreward::set_m_partyexp(::google::protobuf::int32 value) {
   m_partyexp_ = value;
 }
 
-// optional int32 m_partyeontribution = 3;
+// optional int32 m_partyEontribution = 3;
 inline bool E_GuildLvreward::has_m_partyeontribution() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -7827,7 +7827,7 @@ inline void E_GuildLvreward::set_m_partyeontribution(::google::protobuf::int32 v
   m_partyeontribution_ = value;
 }
 
-// optional int32 m_linkexp = 4;
+// optional int32 m_linkExp = 4;
 inline bool E_GuildLvreward::has_m_linkexp() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -7974,7 +7974,7 @@ inline void E_GuildCollege::set_m_skillid(::google::protobuf::int32 value) {
   m_skillid_ = value;
 }
 
-// optional int32 m_skilllv = 3;
+// optional int32 m_skillLv = 3;
 inline bool E_GuildCollege::has_m_skilllv() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -7996,7 +7996,7 @@ inline void E_GuildCollege::set_m_skilllv(::google::protobuf::int32 value) {
   m_skilllv_ = value;
 }
 
-// optional int32 m_guildlv = 4;
+// optional int32 m_guildLv = 4;
 inline bool E_GuildCollege::has_m_guildlv() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -8018,7 +8018,7 @@ inline void E_GuildCollege::set_m_guildlv(::google::protobuf::int32 value) {
   m_guildlv_ = value;
 }
 
-// optional int32 m_playerlvlimit = 5;
+// optional int32 m_playerLvLimit = 5;
 inline bool E_GuildCollege::has_m_playerlvlimit() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -8040,7 +8040,7 @@ inline void E_GuildCollege::set_m_playerlvlimit(::google::protobuf::int32 value)
   m_playerlvlimit_ = value;
 }
 
-// optional int32 m_preskillid = 6;
+// optional int32 m_preSkillid = 6;
 inline bool E_GuildCollege::has_m_preskillid() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -8062,7 +8062,7 @@ inline void E_GuildCollege::set_m_preskillid(::google::protobuf::int32 value) {
   m_preskillid_ = value;
 }
 
-// optional int32 m_preskilllv = 7;
+// optional int32 m_preSkillLv = 7;
 inline bool E_GuildCollege::has_m_preskilllv() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -8084,7 +8084,7 @@ inline void E_GuildCollege::set_m_preskilllv(::google::protobuf::int32 value) {
   m_preskilllv_ = value;
 }
 
-// optional int32 m_costcontribute = 8;
+// optional int32 m_CostContribute = 8;
 inline bool E_GuildCollege::has_m_costcontribute() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -8403,7 +8403,7 @@ inline void E_GuildRank_reward::set_allocated_m_note(::std::string* m_note) {
   }
 }
 
-// optional int32 m_rankmin = 4;
+// optional int32 m_rankMin = 4;
 inline bool E_GuildRank_reward::has_m_rankmin() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -8425,7 +8425,7 @@ inline void E_GuildRank_reward::set_m_rankmin(::google::protobuf::int32 value) {
   m_rankmin_ = value;
 }
 
-// optional int32 m_rankmax = 5;
+// optional int32 m_rankMax = 5;
 inline bool E_GuildRank_reward::has_m_rankmax() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -8447,7 +8447,7 @@ inline void E_GuildRank_reward::set_m_rankmax(::google::protobuf::int32 value) {
   m_rankmax_ = value;
 }
 
-// optional int32 m_lvmin = 6;
+// optional int32 m_lvMin = 6;
 inline bool E_GuildRank_reward::has_m_lvmin() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -8469,7 +8469,7 @@ inline void E_GuildRank_reward::set_m_lvmin(::google::protobuf::int32 value) {
   m_lvmin_ = value;
 }
 
-// optional int32 m_rewards = 7;
+// optional int32 m_rewardS = 7;
 inline bool E_GuildRank_reward::has_m_rewards() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -8524,7 +8524,7 @@ Sheet_GuildRank_reward::mutable_e_guildrank_reward_list() {
 
 // E_GuildShouhskillRewardDesc
 
-// optional int32 m_num = 1;
+// optional int32 m_Num = 1;
 inline bool E_GuildShouhskillRewardDesc::has_m_num() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -8546,7 +8546,7 @@ inline void E_GuildShouhskillRewardDesc::set_m_num(::google::protobuf::int32 val
   m_num_ = value;
 }
 
-// optional int32 m_id = 2;
+// optional int32 m_Id = 2;
 inline bool E_GuildShouhskillRewardDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -8664,7 +8664,7 @@ inline void E_GuildShouhskill::set_allocated_m_name(::std::string* m_name) {
   }
 }
 
-// optional int32 m_costid = 3;
+// optional int32 m_costId = 3;
 inline bool E_GuildShouhskill::has_m_costid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -8686,7 +8686,7 @@ inline void E_GuildShouhskill::set_m_costid(::google::protobuf::int32 value) {
   m_costid_ = value;
 }
 
-// optional int32 m_costnum = 4;
+// optional int32 m_costNum = 4;
 inline bool E_GuildShouhskill::has_m_costnum() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -8924,7 +8924,7 @@ inline void E_GuildGwreward::set_allocated_m_reward(::std::string* m_reward) {
   }
 }
 
-// optional string m_crossreward = 4;
+// optional string m_Crossreward = 4;
 inline bool E_GuildGwreward::has_m_crossreward() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -9074,7 +9074,7 @@ inline void E_GuildGwwinstreak::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_winstreak = 2;
+// optional int32 m_winStreak = 2;
 inline bool E_GuildGwwinstreak::has_m_winstreak() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -9096,7 +9096,7 @@ inline void E_GuildGwwinstreak::set_m_winstreak(::google::protobuf::int32 value)
   m_winstreak_ = value;
 }
 
-// optional int32 m_winreward = 3;
+// optional int32 m_winReward = 3;
 inline bool E_GuildGwwinstreak::has_m_winreward() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -9118,7 +9118,7 @@ inline void E_GuildGwwinstreak::set_m_winreward(::google::protobuf::int32 value)
   m_winreward_ = value;
 }
 
-// optional int32 m_endreward = 4;
+// optional int32 m_endReward = 4;
 inline bool E_GuildGwwinstreak::has_m_endreward() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -9140,7 +9140,7 @@ inline void E_GuildGwwinstreak::set_m_endreward(::google::protobuf::int32 value)
   m_endreward_ = value;
 }
 
-// optional int32 m_challengeskill = 5;
+// optional int32 m_challengeSkill = 5;
 inline bool E_GuildGwwinstreak::has_m_challengeskill() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -9239,7 +9239,7 @@ inline void E_GuildTtower::set_m_dupid(::google::protobuf::int32 value) {
   m_dupid_ = value;
 }
 
-// optional int32 m_breakbox = 3;
+// optional int32 m_breakBox = 3;
 inline bool E_GuildTtower::has_m_breakbox() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -9261,7 +9261,7 @@ inline void E_GuildTtower::set_m_breakbox(::google::protobuf::int32 value) {
   m_breakbox_ = value;
 }
 
-// optional int32 m_clearbox = 4;
+// optional int32 m_clearBox = 4;
 inline bool E_GuildTtower::has_m_clearbox() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }

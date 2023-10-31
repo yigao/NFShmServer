@@ -536,15 +536,15 @@ void protobuf_AddDesc_E_5fAncientgod_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\022E_Ancientgod.proto\022\010proto_ff\032\025yd_field"
     "options.proto\"k\n\035E_AncientgodAncientgodF"
-    "raDesc\022)\n\007m_attid\030\001 \001(\005B\030\302\377\024\024\350\247\243\351\224\201\350\216\267\345\276"
+    "raDesc\022)\n\007m_attID\030\001 \001(\005B\030\302\377\024\024\350\247\243\351\224\201\350\216\267\345\276"
     "\227\345\261\236\346\200\247ID\022\037\n\005m_num\030\002 \001(\005B\020\302\377\024\014\350\247\243\351\224\201\346\225\260\351"
     "\207\217\"\241\003\n\026E_AncientgodAncientgod\022\032\n\004m_id\030\001 "
     "\001(\005B\014\302\377\024\010\347\245\236\347\201\265ID\022$\n\006m_name\030\002 \001(\tB\024\302\377\024\014\347"
     "\245\236\347\201\265\345\220\215\347\247\260\220\301\024@\022(\n\010m_parama\030\003 \001(\002B\026\302\377\024\022\347"
-    "\245\236\347\201\265\345\223\201\350\264\250\347\263\273\346\225\260\022(\n\010m_showlv\030\004 \001(\005B\026\302\377\024"
-    "\022\347\245\236\347\201\265\346\230\276\347\244\272\347\255\211\347\272\247\022*\n\nm_unlocklv\030\005 \001(\005B"
+    "\245\236\347\201\265\345\223\201\350\264\250\347\263\273\346\225\260\022(\n\010m_showLv\030\004 \001(\005B\026\302\377\024"
+    "\022\347\245\236\347\201\265\346\230\276\347\244\272\347\255\211\347\272\247\022*\n\nm_unlockLv\030\005 \001(\005B"
     "\026\302\377\024\022\347\245\236\347\201\265\350\247\243\351\224\201\347\255\211\347\272\247\022)\n\013m_condition\030\006"
-    " \001(\tB\024\302\377\024\014\350\247\243\351\224\201\346\235\241\344\273\266\220\301\024@\022)\n\tm_lvlimit\030"
+    " \001(\tB\024\302\377\024\014\350\247\243\351\224\201\346\235\241\344\273\266\220\301\024@\022)\n\tm_lvLimit\030"
     "\007 \001(\005B\026\302\377\024\022\350\277\233\351\230\266\347\255\211\347\272\247\344\270\212\351\231\220\022\'\n\007m_stars"
     "\030\010 \001(\005B\026\302\377\024\022\351\203\250\344\275\215\350\277\233\351\230\266\346\230\237\346\225\260\022F\n\005m_fra\030"
     "\t \003(\0132\'.proto_ff.E_AncientgodAncientgodF"
@@ -555,10 +555,10 @@ void protobuf_AddDesc_E_5fAncientgod_2eproto() {
     "sc\022\033\n\007m_value\030\001 \001(\005B\n\302\377\024\006\346\225\260\345\200\274\022\024\n\006m_typ"
     "e\030\002 \001(\005B\004\302\377\024\000\"\367\002\n\020E_AncientgodLvup\022\024\n\004m_"
     "id\030\001 \001(\005B\006\302\377\024\002id\022\036\n\004m_lv\030\002 \001(\005B\020\302\377\024\014\351\203\250\344"
-    "\275\215\347\255\211\347\272\247\022!\n\013m_ancientid\030\003 \001(\005B\014\302\377\024\010\347\245\236\347\201"
-    "\265ID\022\"\n\010m_itemid\030\004 \001(\005B\020\302\377\024\014\345\215\207\347\272\247\351\201\223\345\205\267\022"
-    "\036\n\010m_mallid\030\005 \001(\005B\014\302\377\024\010\345\225\206\345\223\201ID\022\037\n\005m_num"
-    "\030\006 \001(\005B\020\302\377\024\014\345\215\207\347\272\247\346\225\260\351\207\217\022+\n\016m_initialval"
+    "\275\215\347\255\211\347\272\247\022!\n\013m_ancientID\030\003 \001(\005B\014\302\377\024\010\347\245\236\347\201"
+    "\265ID\022\"\n\010m_itemID\030\004 \001(\005B\020\302\377\024\014\345\215\207\347\272\247\351\201\223\345\205\267\022"
+    "\036\n\010m_mallID\030\005 \001(\005B\014\302\377\024\010\345\225\206\345\223\201ID\022\037\n\005m_num"
+    "\030\006 \001(\005B\020\302\377\024\014\345\215\207\347\272\247\346\225\260\351\207\217\022+\n\016m_initialVal"
     "ue\030\007 \001(\005B\023\302\377\024\017\350\277\233\351\230\266\345\210\235\345\247\213\345\200\274\022$\n\nm_posit"
     "ion\030\010 \001(\005B\020\302\377\024\014\351\203\250\344\275\215\347\261\273\345\236\213\022R\n\013m_attribu"
     "te\030\t \003(\0132\'.proto_ff.E_AncientgodLvupAttr"
@@ -567,7 +567,7 @@ void protobuf_AddDesc_E_5fAncientgod_2eproto() {
     "\030\001 \003(\0132\032.proto_ff.E_AncientgodLvupB\005\210\301\024\200"
     "\020\"\276\001\n\026E_AncientgodEquipvalue\022\024\n\004m_id\030\001 \001"
     "(\005B\006\302\377\024\002id\022#\n\tm_quality\030\002 \001(\005B\020\302\377\024\014\350\243\205\345\244"
-    "\207\345\223\201\350\264\250\022\'\n\rm_wearquality\030\003 \001(\005B\020\302\377\024\014\350\243\205\345"
+    "\207\345\223\201\350\264\250\022\'\n\rm_wearQuality\030\003 \001(\005B\020\302\377\024\014\350\243\205\345"
     "\244\207\345\223\201\351\230\266\022\032\n\006m_star\030\004 \001(\005B\n\302\377\024\006\346\230\237\347\272\247\022$\n\007"
     "m_value\030\005 \001(\005B\023\302\377\024\017\345\210\235\345\247\213\350\277\233\345\272\246\345\200\274\"i\n\032Sh"
     "eet_AncientgodEquipvalue\022K\n\033E_Ancientgod"
@@ -576,8 +576,8 @@ void protobuf_AddDesc_E_5fAncientgod_2eproto() {
     "ssAttributeDesc\022\033\n\007m_value\030\001 \001(\005B\n\302\377\024\006\346\225"
     "\260\345\200\274\022\024\n\006m_type\030\002 \001(\005B\004\302\377\024\000\"\216\002\n\021E_Ancient"
     "godBless\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022!\n\013m_anci"
-    "entid\030\002 \001(\005B\014\302\377\024\010\347\245\236\347\201\265ID\022 \n\nm_position\030"
-    "\003 \001(\005B\014\302\377\024\010\351\203\250\344\275\215ID\022(\n\010m_itemid\030\004 \001(\005B\026\302"
+    "entID\030\002 \001(\005B\014\302\377\024\010\347\245\236\347\201\265ID\022 \n\nm_position\030"
+    "\003 \001(\005B\014\302\377\024\010\351\203\250\344\275\215ID\022(\n\010m_itemID\030\004 \001(\005B\026\302"
     "\377\024\022\347\245\235\347\246\217\346\266\210\350\200\227\351\201\223\345\205\267\022\037\n\005m_num\030\005 \001(\005B\020\302\377"
     "\024\014\346\266\210\350\200\227\346\225\260\351\207\217\022S\n\013m_attribute\030\006 \003(\0132(.pr"
     "oto_ff.E_AncientgodBlessAttributeDescB\024\302"
@@ -588,7 +588,7 @@ void protobuf_AddDesc_E_5fAncientgod_2eproto() {
     " \001(\005B\n\302\377\024\006\346\230\237\347\272\247\022\033\n\007m_value\030\002 \001(\005B\n\302\377\024\006\346"
     "\225\260\345\200\274\022\032\n\006m_type\030\003 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"\303\001\n\023E_"
     "AncientgodAdvance\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022"
-    "!\n\013m_ancientid\030\002 \001(\005B\014\302\377\024\010\347\245\236\347\201\265ID\022 \n\nm_"
+    "!\n\013m_ancientID\030\002 \001(\005B\014\302\377\024\010\347\245\236\347\201\265ID\022 \n\nm_"
     "position\030\003 \001(\005B\014\302\377\024\010\351\203\250\344\275\215ID\022Q\n\013m_attrib"
     "ute\030\004 \003(\0132*.proto_ff.E_AncientgodAdvance"
     "AttributeDescB\020\302\377\024\010\345\261\236\346\200\247ID\210\301\024\024\"a\n\027Sheet"
@@ -666,7 +666,7 @@ struct StaticDescriptorInitializer_E_5fAncientgod_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_AncientgodAncientgodFraDesc::kMAttidFieldNumber;
+const int E_AncientgodAncientgodFraDesc::kMAttIDFieldNumber;
 const int E_AncientgodAncientgodFraDesc::kMNumFieldNumber;
 #endif  // !_MSC_VER
 
@@ -736,7 +736,7 @@ bool E_AncientgodAncientgodFraDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_attid = 1;
+      // optional int32 m_attID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -785,7 +785,7 @@ bool E_AncientgodAncientgodFraDesc::MergePartialFromCodedStream(
 
 void E_AncientgodAncientgodFraDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_attid = 1;
+  // optional int32 m_attID = 1;
   if (has_m_attid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_attid(), output);
   }
@@ -803,7 +803,7 @@ void E_AncientgodAncientgodFraDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_AncientgodAncientgodFraDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_attid = 1;
+  // optional int32 m_attID = 1;
   if (has_m_attid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_attid(), target);
   }
@@ -824,7 +824,7 @@ int E_AncientgodAncientgodFraDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_attid = 1;
+    // optional int32 m_attID = 1;
     if (has_m_attid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -917,10 +917,10 @@ void E_AncientgodAncientgodFraDesc::Swap(E_AncientgodAncientgodFraDesc* other) {
 const int E_AncientgodAncientgod::kMIdFieldNumber;
 const int E_AncientgodAncientgod::kMNameFieldNumber;
 const int E_AncientgodAncientgod::kMParamaFieldNumber;
-const int E_AncientgodAncientgod::kMShowlvFieldNumber;
-const int E_AncientgodAncientgod::kMUnlocklvFieldNumber;
+const int E_AncientgodAncientgod::kMShowLvFieldNumber;
+const int E_AncientgodAncientgod::kMUnlockLvFieldNumber;
 const int E_AncientgodAncientgod::kMConditionFieldNumber;
-const int E_AncientgodAncientgod::kMLvlimitFieldNumber;
+const int E_AncientgodAncientgod::kMLvLimitFieldNumber;
 const int E_AncientgodAncientgod::kMStarsFieldNumber;
 const int E_AncientgodAncientgod::kMFraFieldNumber;
 #endif  // !_MSC_VER
@@ -1062,15 +1062,15 @@ bool E_AncientgodAncientgod::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_showlv;
+        if (input->ExpectTag(32)) goto parse_m_showLv;
         break;
       }
 
-      // optional int32 m_showlv = 4;
+      // optional int32 m_showLv = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_showlv:
+         parse_m_showLv:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_showlv_)));
@@ -1078,15 +1078,15 @@ bool E_AncientgodAncientgod::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_unlocklv;
+        if (input->ExpectTag(40)) goto parse_m_unlockLv;
         break;
       }
 
-      // optional int32 m_unlocklv = 5;
+      // optional int32 m_unlockLv = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_unlocklv:
+         parse_m_unlockLv:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_unlocklv_)));
@@ -1111,15 +1111,15 @@ bool E_AncientgodAncientgod::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_lvlimit;
+        if (input->ExpectTag(56)) goto parse_m_lvLimit;
         break;
       }
 
-      // optional int32 m_lvlimit = 7;
+      // optional int32 m_lvLimit = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_lvlimit:
+         parse_m_lvLimit:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_lvlimit_)));
@@ -1199,12 +1199,12 @@ void E_AncientgodAncientgod::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->m_parama(), output);
   }
 
-  // optional int32 m_showlv = 4;
+  // optional int32 m_showLv = 4;
   if (has_m_showlv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_showlv(), output);
   }
 
-  // optional int32 m_unlocklv = 5;
+  // optional int32 m_unlockLv = 5;
   if (has_m_unlocklv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_unlocklv(), output);
   }
@@ -1218,7 +1218,7 @@ void E_AncientgodAncientgod::SerializeWithCachedSizes(
       6, this->m_condition(), output);
   }
 
-  // optional int32 m_lvlimit = 7;
+  // optional int32 m_lvLimit = 7;
   if (has_m_lvlimit()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_lvlimit(), output);
   }
@@ -1262,12 +1262,12 @@ void E_AncientgodAncientgod::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->m_parama(), target);
   }
 
-  // optional int32 m_showlv = 4;
+  // optional int32 m_showLv = 4;
   if (has_m_showlv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_showlv(), target);
   }
 
-  // optional int32 m_unlocklv = 5;
+  // optional int32 m_unlockLv = 5;
   if (has_m_unlocklv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_unlocklv(), target);
   }
@@ -1282,7 +1282,7 @@ void E_AncientgodAncientgod::SerializeWithCachedSizes(
         6, this->m_condition(), target);
   }
 
-  // optional int32 m_lvlimit = 7;
+  // optional int32 m_lvLimit = 7;
   if (has_m_lvlimit()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_lvlimit(), target);
   }
@@ -1329,14 +1329,14 @@ int E_AncientgodAncientgod::ByteSize() const {
       total_size += 1 + 4;
     }
 
-    // optional int32 m_showlv = 4;
+    // optional int32 m_showLv = 4;
     if (has_m_showlv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_showlv());
     }
 
-    // optional int32 m_unlocklv = 5;
+    // optional int32 m_unlockLv = 5;
     if (has_m_unlocklv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1350,7 +1350,7 @@ int E_AncientgodAncientgod::ByteSize() const {
           this->m_condition());
     }
 
-    // optional int32 m_lvlimit = 7;
+    // optional int32 m_lvLimit = 7;
     if (has_m_lvlimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1927,11 +1927,11 @@ void E_AncientgodLvupAttributeDesc::Swap(E_AncientgodLvupAttributeDesc* other) {
 #ifndef _MSC_VER
 const int E_AncientgodLvup::kMIdFieldNumber;
 const int E_AncientgodLvup::kMLvFieldNumber;
-const int E_AncientgodLvup::kMAncientidFieldNumber;
-const int E_AncientgodLvup::kMItemidFieldNumber;
-const int E_AncientgodLvup::kMMallidFieldNumber;
+const int E_AncientgodLvup::kMAncientIDFieldNumber;
+const int E_AncientgodLvup::kMItemIDFieldNumber;
+const int E_AncientgodLvup::kMMallIDFieldNumber;
 const int E_AncientgodLvup::kMNumFieldNumber;
-const int E_AncientgodLvup::kMInitialvalueFieldNumber;
+const int E_AncientgodLvup::kMInitialValueFieldNumber;
 const int E_AncientgodLvup::kMPositionFieldNumber;
 const int E_AncientgodLvup::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
@@ -2042,15 +2042,15 @@ bool E_AncientgodLvup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_ancientid;
+        if (input->ExpectTag(24)) goto parse_m_ancientID;
         break;
       }
 
-      // optional int32 m_ancientid = 3;
+      // optional int32 m_ancientID = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_ancientid:
+         parse_m_ancientID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_ancientid_)));
@@ -2058,15 +2058,15 @@ bool E_AncientgodLvup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_itemid;
+        if (input->ExpectTag(32)) goto parse_m_itemID;
         break;
       }
 
-      // optional int32 m_itemid = 4;
+      // optional int32 m_itemID = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemid:
+         parse_m_itemID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itemid_)));
@@ -2074,15 +2074,15 @@ bool E_AncientgodLvup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_mallid;
+        if (input->ExpectTag(40)) goto parse_m_mallID;
         break;
       }
 
-      // optional int32 m_mallid = 5;
+      // optional int32 m_mallID = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_mallid:
+         parse_m_mallID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_mallid_)));
@@ -2106,15 +2106,15 @@ bool E_AncientgodLvup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_initialvalue;
+        if (input->ExpectTag(56)) goto parse_m_initialValue;
         break;
       }
 
-      // optional int32 m_initialvalue = 7;
+      // optional int32 m_initialValue = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_initialvalue:
+         parse_m_initialValue:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_initialvalue_)));
@@ -2185,17 +2185,17 @@ void E_AncientgodLvup::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_lv(), output);
   }
 
-  // optional int32 m_ancientid = 3;
+  // optional int32 m_ancientID = 3;
   if (has_m_ancientid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_ancientid(), output);
   }
 
-  // optional int32 m_itemid = 4;
+  // optional int32 m_itemID = 4;
   if (has_m_itemid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_itemid(), output);
   }
 
-  // optional int32 m_mallid = 5;
+  // optional int32 m_mallID = 5;
   if (has_m_mallid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_mallid(), output);
   }
@@ -2205,7 +2205,7 @@ void E_AncientgodLvup::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_num(), output);
   }
 
-  // optional int32 m_initialvalue = 7;
+  // optional int32 m_initialValue = 7;
   if (has_m_initialvalue()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_initialvalue(), output);
   }
@@ -2239,17 +2239,17 @@ void E_AncientgodLvup::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_lv(), target);
   }
 
-  // optional int32 m_ancientid = 3;
+  // optional int32 m_ancientID = 3;
   if (has_m_ancientid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_ancientid(), target);
   }
 
-  // optional int32 m_itemid = 4;
+  // optional int32 m_itemID = 4;
   if (has_m_itemid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_itemid(), target);
   }
 
-  // optional int32 m_mallid = 5;
+  // optional int32 m_mallID = 5;
   if (has_m_mallid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_mallid(), target);
   }
@@ -2259,7 +2259,7 @@ void E_AncientgodLvup::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_num(), target);
   }
 
-  // optional int32 m_initialvalue = 7;
+  // optional int32 m_initialValue = 7;
   if (has_m_initialvalue()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_initialvalue(), target);
   }
@@ -2301,21 +2301,21 @@ int E_AncientgodLvup::ByteSize() const {
           this->m_lv());
     }
 
-    // optional int32 m_ancientid = 3;
+    // optional int32 m_ancientID = 3;
     if (has_m_ancientid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_ancientid());
     }
 
-    // optional int32 m_itemid = 4;
+    // optional int32 m_itemID = 4;
     if (has_m_itemid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_itemid());
     }
 
-    // optional int32 m_mallid = 5;
+    // optional int32 m_mallID = 5;
     if (has_m_mallid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2329,7 +2329,7 @@ int E_AncientgodLvup::ByteSize() const {
           this->m_num());
     }
 
-    // optional int32 m_initialvalue = 7;
+    // optional int32 m_initialValue = 7;
     if (has_m_initialvalue()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2658,7 +2658,7 @@ void Sheet_AncientgodLvup::Swap(Sheet_AncientgodLvup* other) {
 #ifndef _MSC_VER
 const int E_AncientgodEquipvalue::kMIdFieldNumber;
 const int E_AncientgodEquipvalue::kMQualityFieldNumber;
-const int E_AncientgodEquipvalue::kMWearqualityFieldNumber;
+const int E_AncientgodEquipvalue::kMWearQualityFieldNumber;
 const int E_AncientgodEquipvalue::kMStarFieldNumber;
 const int E_AncientgodEquipvalue::kMValueFieldNumber;
 #endif  // !_MSC_VER
@@ -2762,15 +2762,15 @@ bool E_AncientgodEquipvalue::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_wearquality;
+        if (input->ExpectTag(24)) goto parse_m_wearQuality;
         break;
       }
 
-      // optional int32 m_wearquality = 3;
+      // optional int32 m_wearQuality = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_wearquality:
+         parse_m_wearQuality:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_wearquality_)));
@@ -2842,7 +2842,7 @@ void E_AncientgodEquipvalue::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_quality(), output);
   }
 
-  // optional int32 m_wearquality = 3;
+  // optional int32 m_wearQuality = 3;
   if (has_m_wearquality()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_wearquality(), output);
   }
@@ -2875,7 +2875,7 @@ void E_AncientgodEquipvalue::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_quality(), target);
   }
 
-  // optional int32 m_wearquality = 3;
+  // optional int32 m_wearQuality = 3;
   if (has_m_wearquality()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_wearquality(), target);
   }
@@ -2915,7 +2915,7 @@ int E_AncientgodEquipvalue::ByteSize() const {
           this->m_quality());
     }
 
-    // optional int32 m_wearquality = 3;
+    // optional int32 m_wearQuality = 3;
     if (has_m_wearquality()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3476,9 +3476,9 @@ void E_AncientgodBlessAttributeDesc::Swap(E_AncientgodBlessAttributeDesc* other)
 
 #ifndef _MSC_VER
 const int E_AncientgodBless::kMIdFieldNumber;
-const int E_AncientgodBless::kMAncientidFieldNumber;
+const int E_AncientgodBless::kMAncientIDFieldNumber;
 const int E_AncientgodBless::kMPositionFieldNumber;
-const int E_AncientgodBless::kMItemidFieldNumber;
+const int E_AncientgodBless::kMItemIDFieldNumber;
 const int E_AncientgodBless::kMNumFieldNumber;
 const int E_AncientgodBless::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
@@ -3567,15 +3567,15 @@ bool E_AncientgodBless::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_ancientid;
+        if (input->ExpectTag(16)) goto parse_m_ancientID;
         break;
       }
 
-      // optional int32 m_ancientid = 2;
+      // optional int32 m_ancientID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_ancientid:
+         parse_m_ancientID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_ancientid_)));
@@ -3599,15 +3599,15 @@ bool E_AncientgodBless::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_itemid;
+        if (input->ExpectTag(32)) goto parse_m_itemID;
         break;
       }
 
-      // optional int32 m_itemid = 4;
+      // optional int32 m_itemID = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemid:
+         parse_m_itemID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itemid_)));
@@ -3673,7 +3673,7 @@ void E_AncientgodBless::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_ancientid = 2;
+  // optional int32 m_ancientID = 2;
   if (has_m_ancientid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_ancientid(), output);
   }
@@ -3683,7 +3683,7 @@ void E_AncientgodBless::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_position(), output);
   }
 
-  // optional int32 m_itemid = 4;
+  // optional int32 m_itemID = 4;
   if (has_m_itemid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_itemid(), output);
   }
@@ -3712,7 +3712,7 @@ void E_AncientgodBless::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_ancientid = 2;
+  // optional int32 m_ancientID = 2;
   if (has_m_ancientid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_ancientid(), target);
   }
@@ -3722,7 +3722,7 @@ void E_AncientgodBless::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_position(), target);
   }
 
-  // optional int32 m_itemid = 4;
+  // optional int32 m_itemID = 4;
   if (has_m_itemid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_itemid(), target);
   }
@@ -3757,7 +3757,7 @@ int E_AncientgodBless::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_ancientid = 2;
+    // optional int32 m_ancientID = 2;
     if (has_m_ancientid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3771,7 +3771,7 @@ int E_AncientgodBless::ByteSize() const {
           this->m_position());
     }
 
-    // optional int32 m_itemid = 4;
+    // optional int32 m_itemID = 4;
     if (has_m_itemid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4375,7 +4375,7 @@ void E_AncientgodAdvanceAttributeDesc::Swap(E_AncientgodAdvanceAttributeDesc* ot
 
 #ifndef _MSC_VER
 const int E_AncientgodAdvance::kMIdFieldNumber;
-const int E_AncientgodAdvance::kMAncientidFieldNumber;
+const int E_AncientgodAdvance::kMAncientIDFieldNumber;
 const int E_AncientgodAdvance::kMPositionFieldNumber;
 const int E_AncientgodAdvance::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
@@ -4460,15 +4460,15 @@ bool E_AncientgodAdvance::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_ancientid;
+        if (input->ExpectTag(16)) goto parse_m_ancientID;
         break;
       }
 
-      // optional int32 m_ancientid = 2;
+      // optional int32 m_ancientID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_ancientid:
+         parse_m_ancientID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_ancientid_)));
@@ -4534,7 +4534,7 @@ void E_AncientgodAdvance::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_ancientid = 2;
+  // optional int32 m_ancientID = 2;
   if (has_m_ancientid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_ancientid(), output);
   }
@@ -4563,7 +4563,7 @@ void E_AncientgodAdvance::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_ancientid = 2;
+  // optional int32 m_ancientID = 2;
   if (has_m_ancientid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_ancientid(), target);
   }
@@ -4598,7 +4598,7 @@ int E_AncientgodAdvance::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_ancientid = 2;
+    // optional int32 m_ancientID = 2;
     if (has_m_ancientid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

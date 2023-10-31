@@ -308,10 +308,10 @@ class E_TaskrewardTaskreward : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 m_tasktype = 2;
+  // optional int32 m_taskType = 2;
   inline bool has_m_tasktype() const;
   inline void clear_m_tasktype();
-  static const int kMTasktypeFieldNumber = 2;
+  static const int kMTaskTypeFieldNumber = 2;
   inline ::google::protobuf::int32 m_tasktype() const;
   inline void set_m_tasktype(::google::protobuf::int32 value);
 
@@ -322,24 +322,24 @@ class E_TaskrewardTaskreward : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_guildexp = 4;
+  // optional int32 m_guildExp = 4;
   inline bool has_m_guildexp() const;
   inline void clear_m_guildexp();
-  static const int kMGuildexpFieldNumber = 4;
+  static const int kMGuildExpFieldNumber = 4;
   inline ::google::protobuf::int32 m_guildexp() const;
   inline void set_m_guildexp(::google::protobuf::int32 value);
 
-  // optional int32 m_guildpoint = 5;
+  // optional int32 m_guildPoint = 5;
   inline bool has_m_guildpoint() const;
   inline void clear_m_guildpoint();
-  static const int kMGuildpointFieldNumber = 5;
+  static const int kMGuildPointFieldNumber = 5;
   inline ::google::protobuf::int32 m_guildpoint() const;
   inline void set_m_guildpoint(::google::protobuf::int32 value);
 
-  // optional int32 m_skillid = 6;
+  // optional int32 m_skillId = 6;
   inline bool has_m_skillid() const;
   inline void clear_m_skillid();
-  static const int kMSkillidFieldNumber = 6;
+  static const int kMSkillIdFieldNumber = 6;
   inline ::google::protobuf::int32 m_skillid() const;
   inline void set_m_skillid(::google::protobuf::int32 value);
 
@@ -544,10 +544,10 @@ class E_TaskrewardTasktype : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_tasktype = 1;
+  // optional int32 m_taskType = 1;
   inline bool has_m_tasktype() const;
   inline void clear_m_tasktype();
-  static const int kMTasktypeFieldNumber = 1;
+  static const int kMTaskTypeFieldNumber = 1;
   inline ::google::protobuf::int32 m_tasktype() const;
   inline void set_m_tasktype(::google::protobuf::int32 value);
 
@@ -824,7 +824,7 @@ inline void E_TaskrewardTaskreward::set_m_id(::google::protobuf::int64 value) {
   m_id_ = value;
 }
 
-// optional int32 m_tasktype = 2;
+// optional int32 m_taskType = 2;
 inline bool E_TaskrewardTaskreward::has_m_tasktype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -868,7 +868,7 @@ inline void E_TaskrewardTaskreward::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional int32 m_guildexp = 4;
+// optional int32 m_guildExp = 4;
 inline bool E_TaskrewardTaskreward::has_m_guildexp() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -890,7 +890,7 @@ inline void E_TaskrewardTaskreward::set_m_guildexp(::google::protobuf::int32 val
   m_guildexp_ = value;
 }
 
-// optional int32 m_guildpoint = 5;
+// optional int32 m_guildPoint = 5;
 inline bool E_TaskrewardTaskreward::has_m_guildpoint() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -912,7 +912,7 @@ inline void E_TaskrewardTaskreward::set_m_guildpoint(::google::protobuf::int32 v
   m_guildpoint_ = value;
 }
 
-// optional int32 m_skillid = 6;
+// optional int32 m_skillId = 6;
 inline bool E_TaskrewardTaskreward::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -1017,7 +1017,7 @@ Sheet_TaskrewardTaskreward::mutable_e_taskrewardtaskreward_list() {
 
 // E_TaskrewardTasktype
 
-// optional int32 m_tasktype = 1;
+// optional int32 m_taskType = 1;
 inline bool E_TaskrewardTasktype::has_m_tasktype() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }

@@ -12,7 +12,7 @@ E_PointPoint_s::E_PointPoint_s() {
 
 int E_PointPoint_s::CreateInit() {
 	m_id = (int64_t)0;
-	m_belongtosceneid = (int64_t)0;
+	m_belongToSceneID = (int64_t)0;
 	return 0;
 }
 
@@ -22,12 +22,12 @@ int E_PointPoint_s::ResumeInit() {
 
 void E_PointPoint_s::write_to_pbmsg(::proto_ff::E_PointPoint & msg) const {
 	msg.set_m_id((int64_t)m_id);
-	msg.set_m_belongtosceneid((int64_t)m_belongtosceneid);
+	msg.set_m_belongtosceneid((int64_t)m_belongToSceneID);
 }
 
 void E_PointPoint_s::read_from_pbmsg(const ::proto_ff::E_PointPoint & msg) {
 	m_id = msg.m_id();
-	m_belongtosceneid = msg.m_belongtosceneid();
+	m_belongToSceneID = msg.m_belongtosceneid();
 }
 
 Sheet_PointPoint_s::Sheet_PointPoint_s() {

@@ -83,8 +83,8 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_type;//材料类型
 		NFShmString<64> m_position;//装备位置
-		int32_t m_itemid;//道具id
-		int32_t m_itemexp;//道具经验值
+		int32_t m_itemId;//道具id
+		int32_t m_itemExp;//道具经验值
 		NFShmVector<struct E_DragonsoulOfferexpQualityDesc_s, DEFINE_E_DRAGONSOULOFFEREXP_M_QUALITY_MAX_NUM> m_quality;//品质
 
 		virtual void write_to_pbmsg(::proto_ff::E_DragonsoulOfferexp & msg) const;
@@ -172,9 +172,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;//属性组id
-		int64_t m_attid;//属性id
+		int64_t m_attId;//属性id
 		int32_t m_count;//计算方式
-		int32_t m_atttype;//属性类型
+		int32_t m_attType;//属性类型
 		NFShmVector<int32_t, DEFINE_E_DRAGONSOULFLYATT_M_ATT_MAX_NUM> m_att;//属性觉醒
 
 		virtual void write_to_pbmsg(::proto_ff::E_DragonsoulFlyatt & msg) const;
@@ -220,9 +220,9 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t m_id;//部位ID
 		int32_t m_position;//装备部位
-		int32_t m_offerexp;//提供经验值
-		int32_t m_quality;//装备品质
-		int32_t m_srtongup;//强化上限
+		int32_t m_offerExp;//提供经验值
+		int32_t m_Quality;//装备品质
+		int32_t m_srtongUp;//强化上限
 		NFShmVector<struct E_DragonsoulFlyTypeDesc_s, DEFINE_E_DRAGONSOULFLY_M_TYPE_MAX_NUM> m_type;//属性
 		NFShmVector<int32_t, DEFINE_E_DRAGONSOULFLY_M_FLYATT_MAX_NUM> m_flyatt;//飞升属性
 
@@ -252,8 +252,8 @@ namespace proto_ff_s {
 		virtual ~E_DragonsoulAwakeAwakeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_flyaddratio;//飞升属性加成百分比
-		int32_t m_lvaddratio;//升级属性加成百分比
+		int32_t m_flyAddratio;//飞升属性加成百分比
+		int32_t m_lvAddratio;//升级属性加成百分比
 		int32_t m_value;//属性值
 		int32_t m_att;//属性ID
 		int32_t m_num;//材料数量
@@ -271,7 +271,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_position;//装备部位
-		int32_t m_awakeitem;//觉醒材料
+		int32_t m_awakeItem;//觉醒材料
 		int32_t m_awaketoplimit;//觉醒上限
 		NFShmVector<struct E_DragonsoulAwakeAwakeDesc_s, DEFINE_E_DRAGONSOULAWAKE_M_AWAKE_MAX_NUM> m_awake;//觉醒
 

@@ -106,17 +106,17 @@ class E_MallMall : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 2;
+  // optional int32 m_itemID = 2;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 2;
+  static const int kMItemIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
-  // optional int32 m_malltype = 3;
+  // optional int32 m_mallType = 3;
   inline bool has_m_malltype() const;
   inline void clear_m_malltype();
-  static const int kMMalltypeFieldNumber = 3;
+  static const int kMMallTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_malltype() const;
   inline void set_m_malltype(::google::protobuf::int32 value);
 
@@ -127,17 +127,17 @@ class E_MallMall : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_priority() const;
   inline void set_m_priority(::google::protobuf::int32 value);
 
-  // optional int32 m_moneytype = 5;
+  // optional int32 m_moneyType = 5;
   inline bool has_m_moneytype() const;
   inline void clear_m_moneytype();
-  static const int kMMoneytypeFieldNumber = 5;
+  static const int kMMoneyTypeFieldNumber = 5;
   inline ::google::protobuf::int32 m_moneytype() const;
   inline void set_m_moneytype(::google::protobuf::int32 value);
 
-  // optional int32 m_moneyitem = 6;
+  // optional int32 m_moneyItem = 6;
   inline bool has_m_moneyitem() const;
   inline void clear_m_moneyitem();
-  static const int kMMoneyitemFieldNumber = 6;
+  static const int kMMoneyItemFieldNumber = 6;
   inline ::google::protobuf::int32 m_moneyitem() const;
   inline void set_m_moneyitem(::google::protobuf::int32 value);
 
@@ -148,10 +148,10 @@ class E_MallMall : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_price() const;
   inline void set_m_price(::google::protobuf::int32 value);
 
-  // optional int32 m_secondarymoneytype = 8;
+  // optional int32 m_secondaryMoneyType = 8;
   inline bool has_m_secondarymoneytype() const;
   inline void clear_m_secondarymoneytype();
-  static const int kMSecondarymoneytypeFieldNumber = 8;
+  static const int kMSecondaryMoneyTypeFieldNumber = 8;
   inline ::google::protobuf::int32 m_secondarymoneytype() const;
   inline void set_m_secondarymoneytype(::google::protobuf::int32 value);
 
@@ -162,59 +162,59 @@ class E_MallMall : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_discount() const;
   inline void set_m_discount(::google::protobuf::int32 value);
 
-  // optional int32 m_buylimittype = 10;
+  // optional int32 m_buyLimitType = 10;
   inline bool has_m_buylimittype() const;
   inline void clear_m_buylimittype();
-  static const int kMBuylimittypeFieldNumber = 10;
+  static const int kMBuyLimitTypeFieldNumber = 10;
   inline ::google::protobuf::int32 m_buylimittype() const;
   inline void set_m_buylimittype(::google::protobuf::int32 value);
 
-  // optional int32 m_buyamount = 11;
+  // optional int32 m_buyAmount = 11;
   inline bool has_m_buyamount() const;
   inline void clear_m_buyamount();
-  static const int kMBuyamountFieldNumber = 11;
+  static const int kMBuyAmountFieldNumber = 11;
   inline ::google::protobuf::int32 m_buyamount() const;
   inline void set_m_buyamount(::google::protobuf::int32 value);
 
-  // optional int32 m_viplimit = 12;
+  // optional int32 m_vipLimit = 12;
   inline bool has_m_viplimit() const;
   inline void clear_m_viplimit();
-  static const int kMViplimitFieldNumber = 12;
+  static const int kMVipLimitFieldNumber = 12;
   inline ::google::protobuf::int32 m_viplimit() const;
   inline void set_m_viplimit(::google::protobuf::int32 value);
 
-  // optional int32 m_lvlimit = 13;
+  // optional int32 m_lvLimit = 13;
   inline bool has_m_lvlimit() const;
   inline void clear_m_lvlimit();
-  static const int kMLvlimitFieldNumber = 13;
+  static const int kMLvLimitFieldNumber = 13;
   inline ::google::protobuf::int32 m_lvlimit() const;
   inline void set_m_lvlimit(::google::protobuf::int32 value);
 
-  // optional int32 m_vipunlock = 14;
+  // optional int32 m_vipUnlock = 14;
   inline bool has_m_vipunlock() const;
   inline void clear_m_vipunlock();
-  static const int kMVipunlockFieldNumber = 14;
+  static const int kMVipUnlockFieldNumber = 14;
   inline ::google::protobuf::int32 m_vipunlock() const;
   inline void set_m_vipunlock(::google::protobuf::int32 value);
 
-  // optional int32 m_isclose = 15;
+  // optional int32 m_isClose = 15;
   inline bool has_m_isclose() const;
   inline void clear_m_isclose();
-  static const int kMIscloseFieldNumber = 15;
+  static const int kMIsCloseFieldNumber = 15;
   inline ::google::protobuf::int32 m_isclose() const;
   inline void set_m_isclose(::google::protobuf::int32 value);
 
-  // optional int32 m_cantbuy = 16;
+  // optional int32 m_cantBuy = 16;
   inline bool has_m_cantbuy() const;
   inline void clear_m_cantbuy();
-  static const int kMCantbuyFieldNumber = 16;
+  static const int kMCantBuyFieldNumber = 16;
   inline ::google::protobuf::int32 m_cantbuy() const;
   inline void set_m_cantbuy(::google::protobuf::int32 value);
 
-  // optional int32 m_ismarkbind = 17;
+  // optional int32 m_isMarkBind = 17;
   inline bool has_m_ismarkbind() const;
   inline void clear_m_ismarkbind();
-  static const int kMIsmarkbindFieldNumber = 17;
+  static const int kMIsMarkBindFieldNumber = 17;
   inline ::google::protobuf::int32 m_ismarkbind() const;
   inline void set_m_ismarkbind(::google::protobuf::int32 value);
 
@@ -632,10 +632,10 @@ class E_MallMalltype : public ::google::protobuf::Message {
   inline ::std::string* release_m_title();
   inline void set_allocated_m_title(::std::string* m_title);
 
-  // optional int32 m_grouptype = 3;
+  // optional int32 m_groupType = 3;
   inline bool has_m_grouptype() const;
   inline void clear_m_grouptype();
-  static const int kMGrouptypeFieldNumber = 3;
+  static const int kMGroupTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_grouptype() const;
   inline void set_m_grouptype(::google::protobuf::int32 value);
 
@@ -847,31 +847,31 @@ class E_MallHolybeast : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_mountid = 2;
+  // optional int32 m_mountId = 2;
   inline bool has_m_mountid() const;
   inline void clear_m_mountid();
-  static const int kMMountidFieldNumber = 2;
+  static const int kMMountIdFieldNumber = 2;
   inline ::google::protobuf::int32 m_mountid() const;
   inline void set_m_mountid(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 3;
+  // optional int32 m_itemId = 3;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 3;
+  static const int kMItemIdFieldNumber = 3;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
-  // optional int32 m_costid = 4;
+  // optional int32 m_costId = 4;
   inline bool has_m_costid() const;
   inline void clear_m_costid();
-  static const int kMCostidFieldNumber = 4;
+  static const int kMCostIdFieldNumber = 4;
   inline ::google::protobuf::int32 m_costid() const;
   inline void set_m_costid(::google::protobuf::int32 value);
 
-  // optional int32 m_costnum = 5;
+  // optional int32 m_costNum = 5;
   inline bool has_m_costnum() const;
   inline void clear_m_costnum();
-  static const int kMCostnumFieldNumber = 5;
+  static const int kMCostNumFieldNumber = 5;
   inline ::google::protobuf::int32 m_costnum() const;
   inline void set_m_costnum(::google::protobuf::int32 value);
 
@@ -1020,7 +1020,7 @@ inline void E_MallMall::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_itemid = 2;
+// optional int32 m_itemID = 2;
 inline bool E_MallMall::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1042,7 +1042,7 @@ inline void E_MallMall::set_m_itemid(::google::protobuf::int32 value) {
   m_itemid_ = value;
 }
 
-// optional int32 m_malltype = 3;
+// optional int32 m_mallType = 3;
 inline bool E_MallMall::has_m_malltype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1086,7 +1086,7 @@ inline void E_MallMall::set_m_priority(::google::protobuf::int32 value) {
   m_priority_ = value;
 }
 
-// optional int32 m_moneytype = 5;
+// optional int32 m_moneyType = 5;
 inline bool E_MallMall::has_m_moneytype() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1108,7 +1108,7 @@ inline void E_MallMall::set_m_moneytype(::google::protobuf::int32 value) {
   m_moneytype_ = value;
 }
 
-// optional int32 m_moneyitem = 6;
+// optional int32 m_moneyItem = 6;
 inline bool E_MallMall::has_m_moneyitem() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -1152,7 +1152,7 @@ inline void E_MallMall::set_m_price(::google::protobuf::int32 value) {
   m_price_ = value;
 }
 
-// optional int32 m_secondarymoneytype = 8;
+// optional int32 m_secondaryMoneyType = 8;
 inline bool E_MallMall::has_m_secondarymoneytype() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -1196,7 +1196,7 @@ inline void E_MallMall::set_m_discount(::google::protobuf::int32 value) {
   m_discount_ = value;
 }
 
-// optional int32 m_buylimittype = 10;
+// optional int32 m_buyLimitType = 10;
 inline bool E_MallMall::has_m_buylimittype() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -1218,7 +1218,7 @@ inline void E_MallMall::set_m_buylimittype(::google::protobuf::int32 value) {
   m_buylimittype_ = value;
 }
 
-// optional int32 m_buyamount = 11;
+// optional int32 m_buyAmount = 11;
 inline bool E_MallMall::has_m_buyamount() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -1240,7 +1240,7 @@ inline void E_MallMall::set_m_buyamount(::google::protobuf::int32 value) {
   m_buyamount_ = value;
 }
 
-// optional int32 m_viplimit = 12;
+// optional int32 m_vipLimit = 12;
 inline bool E_MallMall::has_m_viplimit() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -1262,7 +1262,7 @@ inline void E_MallMall::set_m_viplimit(::google::protobuf::int32 value) {
   m_viplimit_ = value;
 }
 
-// optional int32 m_lvlimit = 13;
+// optional int32 m_lvLimit = 13;
 inline bool E_MallMall::has_m_lvlimit() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -1284,7 +1284,7 @@ inline void E_MallMall::set_m_lvlimit(::google::protobuf::int32 value) {
   m_lvlimit_ = value;
 }
 
-// optional int32 m_vipunlock = 14;
+// optional int32 m_vipUnlock = 14;
 inline bool E_MallMall::has_m_vipunlock() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -1306,7 +1306,7 @@ inline void E_MallMall::set_m_vipunlock(::google::protobuf::int32 value) {
   m_vipunlock_ = value;
 }
 
-// optional int32 m_isclose = 15;
+// optional int32 m_isClose = 15;
 inline bool E_MallMall::has_m_isclose() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
@@ -1328,7 +1328,7 @@ inline void E_MallMall::set_m_isclose(::google::protobuf::int32 value) {
   m_isclose_ = value;
 }
 
-// optional int32 m_cantbuy = 16;
+// optional int32 m_cantBuy = 16;
 inline bool E_MallMall::has_m_cantbuy() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
@@ -1350,7 +1350,7 @@ inline void E_MallMall::set_m_cantbuy(::google::protobuf::int32 value) {
   m_cantbuy_ = value;
 }
 
-// optional int32 m_ismarkbind = 17;
+// optional int32 m_isMarkBind = 17;
 inline bool E_MallMall::has_m_ismarkbind() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
@@ -1596,7 +1596,7 @@ inline void E_MallMalltype::set_allocated_m_title(::std::string* m_title) {
   }
 }
 
-// optional int32 m_grouptype = 3;
+// optional int32 m_groupType = 3;
 inline bool E_MallMalltype::has_m_grouptype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1787,7 +1787,7 @@ inline void E_MallHolybeast::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_mountid = 2;
+// optional int32 m_mountId = 2;
 inline bool E_MallHolybeast::has_m_mountid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1809,7 +1809,7 @@ inline void E_MallHolybeast::set_m_mountid(::google::protobuf::int32 value) {
   m_mountid_ = value;
 }
 
-// optional int32 m_itemid = 3;
+// optional int32 m_itemId = 3;
 inline bool E_MallHolybeast::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1831,7 +1831,7 @@ inline void E_MallHolybeast::set_m_itemid(::google::protobuf::int32 value) {
   m_itemid_ = value;
 }
 
-// optional int32 m_costid = 4;
+// optional int32 m_costId = 4;
 inline bool E_MallHolybeast::has_m_costid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1853,7 +1853,7 @@ inline void E_MallHolybeast::set_m_costid(::google::protobuf::int32 value) {
   m_costid_ = value;
 }
 
-// optional int32 m_costnum = 5;
+// optional int32 m_costNum = 5;
 inline bool E_MallHolybeast::has_m_costnum() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }

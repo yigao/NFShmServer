@@ -273,10 +273,10 @@ class E_PetDisplay : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_quality() const;
   inline void set_m_quality(::google::protobuf::int32 value);
 
-  // optional int32 m_isstar = 4;
+  // optional int32 m_isStar = 4;
   inline bool has_m_isstar() const;
   inline void clear_m_isstar();
-  static const int kMIsstarFieldNumber = 4;
+  static const int kMIsStarFieldNumber = 4;
   inline ::google::protobuf::int32 m_isstar() const;
   inline void set_m_isstar(::google::protobuf::int32 value);
 
@@ -292,24 +292,24 @@ class E_PetDisplay : public ::google::protobuf::Message {
   inline ::std::string* release_m_grade();
   inline void set_allocated_m_grade(::std::string* m_grade);
 
-  // optional int64 m_monsterid = 6;
+  // optional int64 m_monsterId = 6;
   inline bool has_m_monsterid() const;
   inline void clear_m_monsterid();
-  static const int kMMonsteridFieldNumber = 6;
+  static const int kMMonsterIdFieldNumber = 6;
   inline ::google::protobuf::int64 m_monsterid() const;
   inline void set_m_monsterid(::google::protobuf::int64 value);
 
-  // optional int32 m_activeskillid = 7;
+  // optional int32 m_activeSkillID = 7;
   inline bool has_m_activeskillid() const;
   inline void clear_m_activeskillid();
-  static const int kMActiveskillidFieldNumber = 7;
+  static const int kMActiveSkillIDFieldNumber = 7;
   inline ::google::protobuf::int32 m_activeskillid() const;
   inline void set_m_activeskillid(::google::protobuf::int32 value);
 
-  // optional string m_exclusiveskillid = 8;
+  // optional string m_exclusiveSkillID = 8;
   inline bool has_m_exclusiveskillid() const;
   inline void clear_m_exclusiveskillid();
-  static const int kMExclusiveskillidFieldNumber = 8;
+  static const int kMExclusiveSkillIDFieldNumber = 8;
   inline const ::std::string& m_exclusiveskillid() const;
   inline void set_m_exclusiveskillid(const ::std::string& value);
   inline void set_m_exclusiveskillid(const char* value);
@@ -318,10 +318,10 @@ class E_PetDisplay : public ::google::protobuf::Message {
   inline ::std::string* release_m_exclusiveskillid();
   inline void set_allocated_m_exclusiveskillid(::std::string* m_exclusiveskillid);
 
-  // optional string m_passiveskillid = 9;
+  // optional string m_passiveSkillID = 9;
   inline bool has_m_passiveskillid() const;
   inline void clear_m_passiveskillid();
-  static const int kMPassiveskillidFieldNumber = 9;
+  static const int kMPassiveSkillIDFieldNumber = 9;
   inline const ::std::string& m_passiveskillid() const;
   inline void set_m_passiveskillid(const ::std::string& value);
   inline void set_m_passiveskillid(const char* value);
@@ -330,101 +330,101 @@ class E_PetDisplay : public ::google::protobuf::Message {
   inline ::std::string* release_m_passiveskillid();
   inline void set_allocated_m_passiveskillid(::std::string* m_passiveskillid);
 
-  // optional int32 m_activeattribute = 10;
+  // optional int32 m_activeAttribute = 10;
   inline bool has_m_activeattribute() const;
   inline void clear_m_activeattribute();
-  static const int kMActiveattributeFieldNumber = 10;
+  static const int kMActiveAttributeFieldNumber = 10;
   inline ::google::protobuf::int32 m_activeattribute() const;
   inline void set_m_activeattribute(::google::protobuf::int32 value);
 
-  // optional int32 m_growatt = 11;
+  // optional int32 m_growAtt = 11;
   inline bool has_m_growatt() const;
   inline void clear_m_growatt();
-  static const int kMGrowattFieldNumber = 11;
+  static const int kMGrowAttFieldNumber = 11;
   inline ::google::protobuf::int32 m_growatt() const;
   inline void set_m_growatt(::google::protobuf::int32 value);
 
-  // optional float m_activeparama = 12;
+  // optional float m_activeParama = 12;
   inline bool has_m_activeparama() const;
   inline void clear_m_activeparama();
-  static const int kMActiveparamaFieldNumber = 12;
+  static const int kMActiveParamaFieldNumber = 12;
   inline float m_activeparama() const;
   inline void set_m_activeparama(float value);
 
-  // optional float m_growattparama = 13;
+  // optional float m_growAttParama = 13;
   inline bool has_m_growattparama() const;
   inline void clear_m_growattparama();
-  static const int kMGrowattparamaFieldNumber = 13;
+  static const int kMGrowAttParamaFieldNumber = 13;
   inline float m_growattparama() const;
   inline void set_m_growattparama(float value);
 
-  // optional float m_growstandarda = 14;
+  // optional float m_growStandardA = 14;
   inline bool has_m_growstandarda() const;
   inline void clear_m_growstandarda();
-  static const int kMGrowstandardaFieldNumber = 14;
+  static const int kMGrowStandardAFieldNumber = 14;
   inline float m_growstandarda() const;
   inline void set_m_growstandarda(float value);
 
-  // optional float m_growstandardb = 15;
+  // optional float m_growStandardB = 15;
   inline bool has_m_growstandardb() const;
   inline void clear_m_growstandardb();
-  static const int kMGrowstandardbFieldNumber = 15;
+  static const int kMGrowStandardBFieldNumber = 15;
   inline float m_growstandardb() const;
   inline void set_m_growstandardb(float value);
 
-  // optional float m_growstandard = 16;
+  // optional float m_growStandard = 16;
   inline bool has_m_growstandard() const;
   inline void clear_m_growstandard();
-  static const int kMGrowstandardFieldNumber = 16;
+  static const int kMGrowStandardFieldNumber = 16;
   inline float m_growstandard() const;
   inline void set_m_growstandard(float value);
 
-  // optional float m_growmin = 17;
+  // optional float m_growMin = 17;
   inline bool has_m_growmin() const;
   inline void clear_m_growmin();
-  static const int kMGrowminFieldNumber = 17;
+  static const int kMGrowMinFieldNumber = 17;
   inline float m_growmin() const;
   inline void set_m_growmin(float value);
 
-  // optional float m_growmax = 18;
+  // optional float m_growMax = 18;
   inline bool has_m_growmax() const;
   inline void clear_m_growmax();
-  static const int kMGrowmaxFieldNumber = 18;
+  static const int kMGrowMaxFieldNumber = 18;
   inline float m_growmax() const;
   inline void set_m_growmax(float value);
 
-  // optional float m_growstar = 19;
+  // optional float m_growStar = 19;
   inline bool has_m_growstar() const;
   inline void clear_m_growstar();
-  static const int kMGrowstarFieldNumber = 19;
+  static const int kMGrowStarFieldNumber = 19;
   inline float m_growstar() const;
   inline void set_m_growstar(float value);
 
-  // optional int32 m_advanceattribute = 20;
+  // optional int32 m_advanceAttribute = 20;
   inline bool has_m_advanceattribute() const;
   inline void clear_m_advanceattribute();
-  static const int kMAdvanceattributeFieldNumber = 20;
+  static const int kMAdvanceAttributeFieldNumber = 20;
   inline ::google::protobuf::int32 m_advanceattribute() const;
   inline void set_m_advanceattribute(::google::protobuf::int32 value);
 
-  // optional int32 m_advancetype = 21;
+  // optional int32 m_advanceType = 21;
   inline bool has_m_advancetype() const;
   inline void clear_m_advancetype();
-  static const int kMAdvancetypeFieldNumber = 21;
+  static const int kMAdvanceTypeFieldNumber = 21;
   inline ::google::protobuf::int32 m_advancetype() const;
   inline void set_m_advancetype(::google::protobuf::int32 value);
 
-  // optional int32 m_pettag = 22;
+  // optional int32 m_petTag = 22;
   inline bool has_m_pettag() const;
   inline void clear_m_pettag();
-  static const int kMPettagFieldNumber = 22;
+  static const int kMPetTagFieldNumber = 22;
   inline ::google::protobuf::int32 m_pettag() const;
   inline void set_m_pettag(::google::protobuf::int32 value);
 
-  // optional string m_pettagskill = 23;
+  // optional string m_petTagSkill = 23;
   inline bool has_m_pettagskill() const;
   inline void clear_m_pettagskill();
-  static const int kMPettagskillFieldNumber = 23;
+  static const int kMPetTagSkillFieldNumber = 23;
   inline const ::std::string& m_pettagskill() const;
   inline void set_m_pettagskill(const ::std::string& value);
   inline void set_m_pettagskill(const char* value);
@@ -433,38 +433,38 @@ class E_PetDisplay : public ::google::protobuf::Message {
   inline ::std::string* release_m_pettagskill();
   inline void set_allocated_m_pettagskill(::std::string* m_pettagskill);
 
-  // optional int32 m_starattribute = 24;
+  // optional int32 m_starAttribute = 24;
   inline bool has_m_starattribute() const;
   inline void clear_m_starattribute();
-  static const int kMStarattributeFieldNumber = 24;
+  static const int kMStarAttributeFieldNumber = 24;
   inline ::google::protobuf::int32 m_starattribute() const;
   inline void set_m_starattribute(::google::protobuf::int32 value);
 
-  // optional int32 m_starpercent = 25;
+  // optional int32 m_starPercent = 25;
   inline bool has_m_starpercent() const;
   inline void clear_m_starpercent();
-  static const int kMStarpercentFieldNumber = 25;
+  static const int kMStarPercentFieldNumber = 25;
   inline ::google::protobuf::int32 m_starpercent() const;
   inline void set_m_starpercent(::google::protobuf::int32 value);
 
-  // optional int32 m_starllimit = 26;
+  // optional int32 m_starLlimit = 26;
   inline bool has_m_starllimit() const;
   inline void clear_m_starllimit();
-  static const int kMStarllimitFieldNumber = 26;
+  static const int kMStarLlimitFieldNumber = 26;
   inline ::google::protobuf::int32 m_starllimit() const;
   inline void set_m_starllimit(::google::protobuf::int32 value);
 
-  // optional int64 m_staritem = 27;
+  // optional int64 m_starItem = 27;
   inline bool has_m_staritem() const;
   inline void clear_m_staritem();
-  static const int kMStaritemFieldNumber = 27;
+  static const int kMStarItemFieldNumber = 27;
   inline ::google::protobuf::int64 m_staritem() const;
   inline void set_m_staritem(::google::protobuf::int64 value);
 
-  // optional string m_starnum = 28;
+  // optional string m_starNum = 28;
   inline bool has_m_starnum() const;
   inline void clear_m_starnum();
-  static const int kMStarnumFieldNumber = 28;
+  static const int kMStarNumFieldNumber = 28;
   inline const ::std::string& m_starnum() const;
   inline void set_m_starnum(const ::std::string& value);
   inline void set_m_starnum(const char* value);
@@ -473,17 +473,17 @@ class E_PetDisplay : public ::google::protobuf::Message {
   inline ::std::string* release_m_starnum();
   inline void set_allocated_m_starnum(::std::string* m_starnum);
 
-  // optional int64 m_starpetid = 29;
+  // optional int64 m_starPetID = 29;
   inline bool has_m_starpetid() const;
   inline void clear_m_starpetid();
-  static const int kMStarpetidFieldNumber = 29;
+  static const int kMStarPetIDFieldNumber = 29;
   inline ::google::protobuf::int64 m_starpetid() const;
   inline void set_m_starpetid(::google::protobuf::int64 value);
 
-  // optional string m_starpetnum = 30;
+  // optional string m_starPetNum = 30;
   inline bool has_m_starpetnum() const;
   inline void clear_m_starpetnum();
-  static const int kMStarpetnumFieldNumber = 30;
+  static const int kMStarPetNumFieldNumber = 30;
   inline const ::std::string& m_starpetnum() const;
   inline void set_m_starpetnum(const ::std::string& value);
   inline void set_m_starpetnum(const char* value);
@@ -499,17 +499,17 @@ class E_PetDisplay : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_weapon() const;
   inline void set_m_weapon(::google::protobuf::int32 value);
 
-  // optional int64 m_upattributeid = 32;
+  // optional int64 m_upAttributeId = 32;
   inline bool has_m_upattributeid() const;
   inline void clear_m_upattributeid();
-  static const int kMUpattributeidFieldNumber = 32;
+  static const int kMUpAttributeIdFieldNumber = 32;
   inline ::google::protobuf::int64 m_upattributeid() const;
   inline void set_m_upattributeid(::google::protobuf::int64 value);
 
-  // optional int32 m_fettersid = 33;
+  // optional int32 m_fettersID = 33;
   inline bool has_m_fettersid() const;
   inline void clear_m_fettersid();
-  static const int kMFettersidFieldNumber = 33;
+  static const int kMFettersIDFieldNumber = 33;
   inline ::google::protobuf::int32 m_fettersid() const;
   inline void set_m_fettersid(::google::protobuf::int32 value);
 
@@ -1355,17 +1355,17 @@ class E_PetAdvancelv : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_advanceitem = 2;
+  // optional int32 m_advanceItem = 2;
   inline bool has_m_advanceitem() const;
   inline void clear_m_advanceitem();
-  static const int kMAdvanceitemFieldNumber = 2;
+  static const int kMAdvanceItemFieldNumber = 2;
   inline ::google::protobuf::int32 m_advanceitem() const;
   inline void set_m_advanceitem(::google::protobuf::int32 value);
 
-  // optional int32 m_advancenum = 3;
+  // optional int32 m_advanceNum = 3;
   inline bool has_m_advancenum() const;
   inline void clear_m_advancenum();
-  static const int kMAdvancenumFieldNumber = 3;
+  static const int kMAdvanceNumFieldNumber = 3;
   inline ::google::protobuf::int32 m_advancenum() const;
   inline void set_m_advancenum(::google::protobuf::int32 value);
 
@@ -1640,45 +1640,45 @@ class E_PetStarup : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 1;
+  static const int kMIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int64 m_upattributeid = 2;
+  // optional int64 m_upAttributeId = 2;
   inline bool has_m_upattributeid() const;
   inline void clear_m_upattributeid();
-  static const int kMUpattributeidFieldNumber = 2;
+  static const int kMUpAttributeIdFieldNumber = 2;
   inline ::google::protobuf::int64 m_upattributeid() const;
   inline void set_m_upattributeid(::google::protobuf::int64 value);
 
-  // optional int32 m_starid = 3;
+  // optional int32 m_starID = 3;
   inline bool has_m_starid() const;
   inline void clear_m_starid();
-  static const int kMStaridFieldNumber = 3;
+  static const int kMStarIDFieldNumber = 3;
   inline ::google::protobuf::int32 m_starid() const;
   inline void set_m_starid(::google::protobuf::int32 value);
 
-  // optional int32 m_skillid = 4;
+  // optional int32 m_skillID = 4;
   inline bool has_m_skillid() const;
   inline void clear_m_skillid();
-  static const int kMSkillidFieldNumber = 4;
+  static const int kMSkillIDFieldNumber = 4;
   inline ::google::protobuf::int32 m_skillid() const;
   inline void set_m_skillid(::google::protobuf::int32 value);
 
-  // optional int32 m_activeskillidlv = 5;
+  // optional int32 m_activeSkillIDLv = 5;
   inline bool has_m_activeskillidlv() const;
   inline void clear_m_activeskillidlv();
-  static const int kMActiveskillidlvFieldNumber = 5;
+  static const int kMActiveSkillIDLvFieldNumber = 5;
   inline ::google::protobuf::int32 m_activeskillidlv() const;
   inline void set_m_activeskillidlv(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_PetStarupUpattributeDesc m_upattribute = 6;
+  // repeated .proto_ff.E_PetStarupUpattributeDesc m_upAttribute = 6;
   inline int m_upattribute_size() const;
   inline void clear_m_upattribute();
-  static const int kMUpattributeFieldNumber = 6;
+  static const int kMUpAttributeFieldNumber = 6;
   inline const ::proto_ff::E_PetStarupUpattributeDesc& m_upattribute(int index) const;
   inline ::proto_ff::E_PetStarupUpattributeDesc* mutable_m_upattribute(int index);
   inline ::proto_ff::E_PetStarupUpattributeDesc* add_m_upattribute();
@@ -2142,10 +2142,10 @@ class E_PetDecomposeDecomposeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_boxid = 1;
+  // optional int32 m_boxID = 1;
   inline bool has_m_boxid() const;
   inline void clear_m_boxid();
-  static const int kMBoxidFieldNumber = 1;
+  static const int kMBoxIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_boxid() const;
   inline void set_m_boxid(::google::protobuf::int32 value);
 
@@ -2530,10 +2530,10 @@ class E_PetFetters : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_quality() const;
   inline void set_m_quality(::google::protobuf::int32 value);
 
-  // repeated int32 m_petid = 3;
+  // repeated int32 m_petID = 3;
   inline int m_petid_size() const;
   inline void clear_m_petid();
-  static const int kMPetidFieldNumber = 3;
+  static const int kMPetIDFieldNumber = 3;
   inline ::google::protobuf::int32 m_petid(int index) const;
   inline void set_m_petid(int index, ::google::protobuf::int32 value);
   inline void add_m_petid(::google::protobuf::int32 value);
@@ -2554,10 +2554,10 @@ class E_PetFetters : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PetFettersAttributeDesc >*
       mutable_m_attribute();
 
-  // repeated int32 m_atctive_skillid = 5;
+  // repeated int32 m_atctive_skillID = 5;
   inline int m_atctive_skillid_size() const;
   inline void clear_m_atctive_skillid();
-  static const int kMAtctiveSkillidFieldNumber = 5;
+  static const int kMAtctiveSkillIDFieldNumber = 5;
   inline ::google::protobuf::int32 m_atctive_skillid(int index) const;
   inline void set_m_atctive_skillid(int index, ::google::protobuf::int32 value);
   inline void add_m_atctive_skillid(::google::protobuf::int32 value);
@@ -2732,14 +2732,14 @@ class E_PetPetequipActDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_mun = 1;
+  // optional int32 m_Mun = 1;
   inline bool has_m_mun() const;
   inline void clear_m_mun();
   static const int kMMunFieldNumber = 1;
   inline ::google::protobuf::int32 m_mun() const;
   inline void set_m_mun(::google::protobuf::int32 value);
 
-  // optional int32 m_time = 2;
+  // optional int32 m_Time = 2;
   inline bool has_m_time() const;
   inline void clear_m_time();
   static const int kMTimeFieldNumber = 2;
@@ -2831,10 +2831,10 @@ class E_PetPetequip : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_pet() const;
   inline void set_m_pet(::google::protobuf::int32 value);
 
-  // optional int32 m_orderid = 2;
+  // optional int32 m_orderId = 2;
   inline bool has_m_orderid() const;
   inline void clear_m_orderid();
-  static const int kMOrderidFieldNumber = 2;
+  static const int kMOrderIdFieldNumber = 2;
   inline ::google::protobuf::int32 m_orderid() const;
   inline void set_m_orderid(::google::protobuf::int32 value);
 
@@ -2850,24 +2850,24 @@ class E_PetPetequip : public ::google::protobuf::Message {
   inline ::std::string* release_m_name();
   inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional int32 m_qeuiditem = 4;
+  // optional int32 m_qeuidItem = 4;
   inline bool has_m_qeuiditem() const;
   inline void clear_m_qeuiditem();
-  static const int kMQeuiditemFieldNumber = 4;
+  static const int kMQeuidItemFieldNumber = 4;
   inline ::google::protobuf::int32 m_qeuiditem() const;
   inline void set_m_qeuiditem(::google::protobuf::int32 value);
 
-  // optional int32 m_equipqualitymin = 5;
+  // optional int32 m_equipQualityMin = 5;
   inline bool has_m_equipqualitymin() const;
   inline void clear_m_equipqualitymin();
-  static const int kMEquipqualityminFieldNumber = 5;
+  static const int kMEquipQualityMinFieldNumber = 5;
   inline ::google::protobuf::int32 m_equipqualitymin() const;
   inline void set_m_equipqualitymin(::google::protobuf::int32 value);
 
-  // optional int32 m_equipmodelid = 6;
+  // optional int32 m_equipModelId = 6;
   inline bool has_m_equipmodelid() const;
   inline void clear_m_equipmodelid();
-  static const int kMEquipmodelidFieldNumber = 6;
+  static const int kMEquipModelIdFieldNumber = 6;
   inline ::google::protobuf::int32 m_equipmodelid() const;
   inline void set_m_equipmodelid(::google::protobuf::int32 value);
 
@@ -3285,17 +3285,17 @@ class E_PetEquipvalue : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_equipvalue = 2;
+  // optional int32 m_equipValue = 2;
   inline bool has_m_equipvalue() const;
   inline void clear_m_equipvalue();
-  static const int kMEquipvalueFieldNumber = 2;
+  static const int kMEquipValueFieldNumber = 2;
   inline ::google::protobuf::int32 m_equipvalue() const;
   inline void set_m_equipvalue(::google::protobuf::int32 value);
 
-  // optional int32 m_equiplv = 3;
+  // optional int32 m_equipLv = 3;
   inline bool has_m_equiplv() const;
   inline void clear_m_equiplv();
-  static const int kMEquiplvFieldNumber = 3;
+  static const int kMEquipLvFieldNumber = 3;
   inline ::google::protobuf::int32 m_equiplv() const;
   inline void set_m_equiplv(::google::protobuf::int32 value);
 
@@ -3306,35 +3306,35 @@ class E_PetEquipvalue : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_item() const;
   inline void set_m_item(::google::protobuf::int32 value);
 
-  // optional int32 m_winprob = 5;
+  // optional int32 m_winProb = 5;
   inline bool has_m_winprob() const;
   inline void clear_m_winprob();
-  static const int kMWinprobFieldNumber = 5;
+  static const int kMWinProbFieldNumber = 5;
   inline ::google::protobuf::int32 m_winprob() const;
   inline void set_m_winprob(::google::protobuf::int32 value);
 
-  // optional int32 m_equipitem = 6;
+  // optional int32 m_equipItem = 6;
   inline bool has_m_equipitem() const;
   inline void clear_m_equipitem();
-  static const int kMEquipitemFieldNumber = 6;
+  static const int kMEquipItemFieldNumber = 6;
   inline ::google::protobuf::int32 m_equipitem() const;
   inline void set_m_equipitem(::google::protobuf::int32 value);
 
-  // optional int32 m_equipmun = 7;
+  // optional int32 m_equipMun = 7;
   inline bool has_m_equipmun() const;
   inline void clear_m_equipmun();
-  static const int kMEquipmunFieldNumber = 7;
+  static const int kMEquipMunFieldNumber = 7;
   inline ::google::protobuf::int32 m_equipmun() const;
   inline void set_m_equipmun(::google::protobuf::int32 value);
 
-  // optional int32 m_failmax = 8;
+  // optional int32 m_failMax = 8;
   inline bool has_m_failmax() const;
   inline void clear_m_failmax();
-  static const int kMFailmaxFieldNumber = 8;
+  static const int kMFailMaxFieldNumber = 8;
   inline ::google::protobuf::int32 m_failmax() const;
   inline void set_m_failmax(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_PetEquipvalueAttributeDesc m_attribute = 9;
+  // repeated .proto_ff.E_PetEquipvalueAttributeDesc m_Attribute = 9;
   inline int m_attribute_size() const;
   inline void clear_m_attribute();
   static const int kMAttributeFieldNumber = 9;
@@ -3633,14 +3633,14 @@ class E_PetStarvalueEquipDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_mun = 1;
+  // optional int32 m_Mun = 1;
   inline bool has_m_mun() const;
   inline void clear_m_mun();
   static const int kMMunFieldNumber = 1;
   inline ::google::protobuf::int32 m_mun() const;
   inline void set_m_mun(::google::protobuf::int32 value);
 
-  // optional int32 m_item = 2;
+  // optional int32 m_Item = 2;
   inline bool has_m_item() const;
   inline void clear_m_item();
   static const int kMItemFieldNumber = 2;
@@ -3732,21 +3732,21 @@ class E_PetStarvalue : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_starvalue = 2;
+  // optional int32 m_starValue = 2;
   inline bool has_m_starvalue() const;
   inline void clear_m_starvalue();
-  static const int kMStarvalueFieldNumber = 2;
+  static const int kMStarValueFieldNumber = 2;
   inline ::google::protobuf::int32 m_starvalue() const;
   inline void set_m_starvalue(::google::protobuf::int32 value);
 
-  // optional int32 m_starlv = 3;
+  // optional int32 m_starLv = 3;
   inline bool has_m_starlv() const;
   inline void clear_m_starlv();
-  static const int kMStarlvFieldNumber = 3;
+  static const int kMStarLvFieldNumber = 3;
   inline ::google::protobuf::int32 m_starlv() const;
   inline void set_m_starlv(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_PetStarvalueAttributeDesc m_attribute = 4;
+  // repeated .proto_ff.E_PetStarvalueAttributeDesc m_Attribute = 4;
   inline int m_attribute_size() const;
   inline void clear_m_attribute();
   static const int kMAttributeFieldNumber = 4;
@@ -3758,7 +3758,7 @@ class E_PetStarvalue : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PetStarvalueAttributeDesc >*
       mutable_m_attribute();
 
-  // repeated string m_advance_type = 5;
+  // repeated string m_advance_Type = 5;
   inline int m_advance_type_size() const;
   inline void clear_m_advance_type();
   static const int kMAdvanceTypeFieldNumber = 5;
@@ -4181,17 +4181,17 @@ class E_PetWraiths : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_star() const;
   inline void set_m_star(::google::protobuf::int32 value);
 
-  // optional int32 m_propertylv = 7;
+  // optional int32 m_propertyLv = 7;
   inline bool has_m_propertylv() const;
   inline void clear_m_propertylv();
-  static const int kMPropertylvFieldNumber = 7;
+  static const int kMPropertyLvFieldNumber = 7;
   inline ::google::protobuf::int32 m_propertylv() const;
   inline void set_m_propertylv(::google::protobuf::int32 value);
 
-  // optional int32 m_propertytop = 8;
+  // optional int32 m_propertyTop = 8;
   inline bool has_m_propertytop() const;
   inline void clear_m_propertytop();
-  static const int kMPropertytopFieldNumber = 8;
+  static const int kMPropertyTopFieldNumber = 8;
   inline ::google::protobuf::int32 m_propertytop() const;
   inline void set_m_propertytop(::google::protobuf::int32 value);
 
@@ -4207,10 +4207,10 @@ class E_PetWraiths : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PetWraithsAttributeDesc >*
       mutable_m_attribute();
 
-  // repeated .proto_ff.E_PetWraithsAttributebctDesc m_attributebct = 10;
+  // repeated .proto_ff.E_PetWraithsAttributebctDesc m_attributeBct = 10;
   inline int m_attributebct_size() const;
   inline void clear_m_attributebct();
-  static const int kMAttributebctFieldNumber = 10;
+  static const int kMAttributeBctFieldNumber = 10;
   inline const ::proto_ff::E_PetWraithsAttributebctDesc& m_attributebct(int index) const;
   inline ::proto_ff::E_PetWraithsAttributebctDesc* mutable_m_attributebct(int index);
   inline ::proto_ff::E_PetWraithsAttributebctDesc* add_m_attributebct();
@@ -4508,10 +4508,10 @@ class E_PetWraithslv : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_value() const;
   inline void set_m_value(::google::protobuf::int32 value);
 
-  // optional int32 m_advancelv = 3;
+  // optional int32 m_advanceLv = 3;
   inline bool has_m_advancelv() const;
   inline void clear_m_advancelv();
-  static const int kMAdvancelvFieldNumber = 3;
+  static const int kMAdvanceLvFieldNumber = 3;
   inline ::google::protobuf::int32 m_advancelv() const;
   inline void set_m_advancelv(::google::protobuf::int32 value);
 
@@ -4522,24 +4522,24 @@ class E_PetWraithslv : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_wraithsitem = 5;
+  // optional int32 m_wraithsItem = 5;
   inline bool has_m_wraithsitem() const;
   inline void clear_m_wraithsitem();
-  static const int kMWraithsitemFieldNumber = 5;
+  static const int kMWraithsItemFieldNumber = 5;
   inline ::google::protobuf::int32 m_wraithsitem() const;
   inline void set_m_wraithsitem(::google::protobuf::int32 value);
 
-  // optional int32 m_wraithsmun = 6;
+  // optional int32 m_wraithsMun = 6;
   inline bool has_m_wraithsmun() const;
   inline void clear_m_wraithsmun();
-  static const int kMWraithsmunFieldNumber = 6;
+  static const int kMWraithsMunFieldNumber = 6;
   inline ::google::protobuf::int32 m_wraithsmun() const;
   inline void set_m_wraithsmun(::google::protobuf::int32 value);
 
-  // optional int32 m_lvexp = 7;
+  // optional int32 m_lvExp = 7;
   inline bool has_m_lvexp() const;
   inline void clear_m_lvexp();
-  static const int kMLvexpFieldNumber = 7;
+  static const int kMLvExpFieldNumber = 7;
   inline ::google::protobuf::int32 m_lvexp() const;
   inline void set_m_lvexp(::google::protobuf::int32 value);
 
@@ -4734,17 +4734,17 @@ class E_PetSmeltItemDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_maxnum = 1;
+  // optional int32 m_maxNum = 1;
   inline bool has_m_maxnum() const;
   inline void clear_m_maxnum();
-  static const int kMMaxnumFieldNumber = 1;
+  static const int kMMaxNumFieldNumber = 1;
   inline ::google::protobuf::int32 m_maxnum() const;
   inline void set_m_maxnum(::google::protobuf::int32 value);
 
-  // optional int32 m_minnum = 2;
+  // optional int32 m_minNum = 2;
   inline bool has_m_minnum() const;
   inline void clear_m_minnum();
-  static const int kMMinnumFieldNumber = 2;
+  static const int kMMinNumFieldNumber = 2;
   inline ::google::protobuf::int32 m_minnum() const;
   inline void set_m_minnum(::google::protobuf::int32 value);
 
@@ -4867,24 +4867,24 @@ class E_PetSmelt : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_star() const;
   inline void set_m_star(::google::protobuf::int32 value);
 
-  // optional int32 m_putmun = 4;
+  // optional int32 m_putMun = 4;
   inline bool has_m_putmun() const;
   inline void clear_m_putmun();
-  static const int kMPutmunFieldNumber = 4;
+  static const int kMPutMunFieldNumber = 4;
   inline ::google::protobuf::int32 m_putmun() const;
   inline void set_m_putmun(::google::protobuf::int32 value);
 
-  // optional int32 m_smeltexp = 5;
+  // optional int32 m_smeltExp = 5;
   inline bool has_m_smeltexp() const;
   inline void clear_m_smeltexp();
-  static const int kMSmeltexpFieldNumber = 5;
+  static const int kMSmeltExpFieldNumber = 5;
   inline ::google::protobuf::int32 m_smeltexp() const;
   inline void set_m_smeltexp(::google::protobuf::int32 value);
 
-  // optional int32 m_monsternum = 6;
+  // optional int32 m_monsterNum = 6;
   inline bool has_m_monsternum() const;
   inline void clear_m_monsternum();
-  static const int kMMonsternumFieldNumber = 6;
+  static const int kMMonsterNumFieldNumber = 6;
   inline ::google::protobuf::int32 m_monsternum() const;
   inline void set_m_monsternum(::google::protobuf::int32 value);
 
@@ -5688,10 +5688,10 @@ class E_PetSuit : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_star() const;
   inline void set_m_star(::google::protobuf::int32 value);
 
-  // optional int32 m_wraithsquality = 4;
+  // optional int32 m_wraithsQuality = 4;
   inline bool has_m_wraithsquality() const;
   inline void clear_m_wraithsquality();
-  static const int kMWraithsqualityFieldNumber = 4;
+  static const int kMWraithsQualityFieldNumber = 4;
   inline ::google::protobuf::int32 m_wraithsquality() const;
   inline void set_m_wraithsquality(::google::protobuf::int32 value);
 
@@ -5702,21 +5702,21 @@ class E_PetSuit : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_piece() const;
   inline void set_m_piece(::google::protobuf::int32 value);
 
-  // optional int32 m_resonancetype = 6;
+  // optional int32 m_resonanceType = 6;
   inline bool has_m_resonancetype() const;
   inline void clear_m_resonancetype();
-  static const int kMResonancetypeFieldNumber = 6;
+  static const int kMResonanceTypeFieldNumber = 6;
   inline ::google::protobuf::int32 m_resonancetype() const;
   inline void set_m_resonancetype(::google::protobuf::int32 value);
 
-  // optional int32 m_resonancevalue = 7;
+  // optional int32 m_resonanceValue = 7;
   inline bool has_m_resonancevalue() const;
   inline void clear_m_resonancevalue();
-  static const int kMResonancevalueFieldNumber = 7;
+  static const int kMResonanceValueFieldNumber = 7;
   inline ::google::protobuf::int32 m_resonancevalue() const;
   inline void set_m_resonancevalue(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_PetSuitAttributeDesc m_attribute = 8;
+  // repeated .proto_ff.E_PetSuitAttributeDesc m_Attribute = 8;
   inline int m_attribute_size() const;
   inline void clear_m_attribute();
   static const int kMAttributeFieldNumber = 8;
@@ -6403,10 +6403,10 @@ class E_PetTop : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_toptype = 1;
+  // optional int32 m_topType = 1;
   inline bool has_m_toptype() const;
   inline void clear_m_toptype();
-  static const int kMToptypeFieldNumber = 1;
+  static const int kMTopTypeFieldNumber = 1;
   inline ::google::protobuf::int32 m_toptype() const;
   inline void set_m_toptype(::google::protobuf::int32 value);
 
@@ -6422,10 +6422,10 @@ class E_PetTop : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PetTopAttributeDesc >*
       mutable_m_attribute();
 
-  // repeated .proto_ff.E_PetTopStarattDesc m_staratt = 3;
+  // repeated .proto_ff.E_PetTopStarattDesc m_starAtt = 3;
   inline int m_staratt_size() const;
   inline void clear_m_staratt();
-  static const int kMStarattFieldNumber = 3;
+  static const int kMStarAttFieldNumber = 3;
   inline const ::proto_ff::E_PetTopStarattDesc& m_staratt(int index) const;
   inline ::proto_ff::E_PetTopStarattDesc* mutable_m_staratt(int index);
   inline ::proto_ff::E_PetTopStarattDesc* add_m_staratt();
@@ -6894,17 +6894,17 @@ class E_PetPrivilege : public ::google::protobuf::Message {
   inline ::std::string* release_m_activate();
   inline void set_allocated_m_activate(::std::string* m_activate);
 
-  // optional int32 m_doubleitem = 3;
+  // optional int32 m_doubleItem = 3;
   inline bool has_m_doubleitem() const;
   inline void clear_m_doubleitem();
-  static const int kMDoubleitemFieldNumber = 3;
+  static const int kMDoubleItemFieldNumber = 3;
   inline ::google::protobuf::int32 m_doubleitem() const;
   inline void set_m_doubleitem(::google::protobuf::int32 value);
 
-  // optional int32 m_experienceexp = 4;
+  // optional int32 m_experienceExp = 4;
   inline bool has_m_experienceexp() const;
   inline void clear_m_experienceexp();
-  static const int kMExperienceexpFieldNumber = 4;
+  static const int kMExperienceExpFieldNumber = 4;
   inline ::google::protobuf::int32 m_experienceexp() const;
   inline void set_m_experienceexp(::google::protobuf::int32 value);
 
@@ -7203,7 +7203,7 @@ inline void E_PetDisplay::set_m_quality(::google::protobuf::int32 value) {
   m_quality_ = value;
 }
 
-// optional int32 m_isstar = 4;
+// optional int32 m_isStar = 4;
 inline bool E_PetDisplay::has_m_isstar() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -7295,7 +7295,7 @@ inline void E_PetDisplay::set_allocated_m_grade(::std::string* m_grade) {
   }
 }
 
-// optional int64 m_monsterid = 6;
+// optional int64 m_monsterId = 6;
 inline bool E_PetDisplay::has_m_monsterid() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -7317,7 +7317,7 @@ inline void E_PetDisplay::set_m_monsterid(::google::protobuf::int64 value) {
   m_monsterid_ = value;
 }
 
-// optional int32 m_activeskillid = 7;
+// optional int32 m_activeSkillID = 7;
 inline bool E_PetDisplay::has_m_activeskillid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -7339,7 +7339,7 @@ inline void E_PetDisplay::set_m_activeskillid(::google::protobuf::int32 value) {
   m_activeskillid_ = value;
 }
 
-// optional string m_exclusiveskillid = 8;
+// optional string m_exclusiveSkillID = 8;
 inline bool E_PetDisplay::has_m_exclusiveskillid() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -7409,7 +7409,7 @@ inline void E_PetDisplay::set_allocated_m_exclusiveskillid(::std::string* m_excl
   }
 }
 
-// optional string m_passiveskillid = 9;
+// optional string m_passiveSkillID = 9;
 inline bool E_PetDisplay::has_m_passiveskillid() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -7479,7 +7479,7 @@ inline void E_PetDisplay::set_allocated_m_passiveskillid(::std::string* m_passiv
   }
 }
 
-// optional int32 m_activeattribute = 10;
+// optional int32 m_activeAttribute = 10;
 inline bool E_PetDisplay::has_m_activeattribute() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -7501,7 +7501,7 @@ inline void E_PetDisplay::set_m_activeattribute(::google::protobuf::int32 value)
   m_activeattribute_ = value;
 }
 
-// optional int32 m_growatt = 11;
+// optional int32 m_growAtt = 11;
 inline bool E_PetDisplay::has_m_growatt() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -7523,7 +7523,7 @@ inline void E_PetDisplay::set_m_growatt(::google::protobuf::int32 value) {
   m_growatt_ = value;
 }
 
-// optional float m_activeparama = 12;
+// optional float m_activeParama = 12;
 inline bool E_PetDisplay::has_m_activeparama() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -7545,7 +7545,7 @@ inline void E_PetDisplay::set_m_activeparama(float value) {
   m_activeparama_ = value;
 }
 
-// optional float m_growattparama = 13;
+// optional float m_growAttParama = 13;
 inline bool E_PetDisplay::has_m_growattparama() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -7567,7 +7567,7 @@ inline void E_PetDisplay::set_m_growattparama(float value) {
   m_growattparama_ = value;
 }
 
-// optional float m_growstandarda = 14;
+// optional float m_growStandardA = 14;
 inline bool E_PetDisplay::has_m_growstandarda() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -7589,7 +7589,7 @@ inline void E_PetDisplay::set_m_growstandarda(float value) {
   m_growstandarda_ = value;
 }
 
-// optional float m_growstandardb = 15;
+// optional float m_growStandardB = 15;
 inline bool E_PetDisplay::has_m_growstandardb() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
@@ -7611,7 +7611,7 @@ inline void E_PetDisplay::set_m_growstandardb(float value) {
   m_growstandardb_ = value;
 }
 
-// optional float m_growstandard = 16;
+// optional float m_growStandard = 16;
 inline bool E_PetDisplay::has_m_growstandard() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
@@ -7633,7 +7633,7 @@ inline void E_PetDisplay::set_m_growstandard(float value) {
   m_growstandard_ = value;
 }
 
-// optional float m_growmin = 17;
+// optional float m_growMin = 17;
 inline bool E_PetDisplay::has_m_growmin() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
@@ -7655,7 +7655,7 @@ inline void E_PetDisplay::set_m_growmin(float value) {
   m_growmin_ = value;
 }
 
-// optional float m_growmax = 18;
+// optional float m_growMax = 18;
 inline bool E_PetDisplay::has_m_growmax() const {
   return (_has_bits_[0] & 0x00020000u) != 0;
 }
@@ -7677,7 +7677,7 @@ inline void E_PetDisplay::set_m_growmax(float value) {
   m_growmax_ = value;
 }
 
-// optional float m_growstar = 19;
+// optional float m_growStar = 19;
 inline bool E_PetDisplay::has_m_growstar() const {
   return (_has_bits_[0] & 0x00040000u) != 0;
 }
@@ -7699,7 +7699,7 @@ inline void E_PetDisplay::set_m_growstar(float value) {
   m_growstar_ = value;
 }
 
-// optional int32 m_advanceattribute = 20;
+// optional int32 m_advanceAttribute = 20;
 inline bool E_PetDisplay::has_m_advanceattribute() const {
   return (_has_bits_[0] & 0x00080000u) != 0;
 }
@@ -7721,7 +7721,7 @@ inline void E_PetDisplay::set_m_advanceattribute(::google::protobuf::int32 value
   m_advanceattribute_ = value;
 }
 
-// optional int32 m_advancetype = 21;
+// optional int32 m_advanceType = 21;
 inline bool E_PetDisplay::has_m_advancetype() const {
   return (_has_bits_[0] & 0x00100000u) != 0;
 }
@@ -7743,7 +7743,7 @@ inline void E_PetDisplay::set_m_advancetype(::google::protobuf::int32 value) {
   m_advancetype_ = value;
 }
 
-// optional int32 m_pettag = 22;
+// optional int32 m_petTag = 22;
 inline bool E_PetDisplay::has_m_pettag() const {
   return (_has_bits_[0] & 0x00200000u) != 0;
 }
@@ -7765,7 +7765,7 @@ inline void E_PetDisplay::set_m_pettag(::google::protobuf::int32 value) {
   m_pettag_ = value;
 }
 
-// optional string m_pettagskill = 23;
+// optional string m_petTagSkill = 23;
 inline bool E_PetDisplay::has_m_pettagskill() const {
   return (_has_bits_[0] & 0x00400000u) != 0;
 }
@@ -7835,7 +7835,7 @@ inline void E_PetDisplay::set_allocated_m_pettagskill(::std::string* m_pettagski
   }
 }
 
-// optional int32 m_starattribute = 24;
+// optional int32 m_starAttribute = 24;
 inline bool E_PetDisplay::has_m_starattribute() const {
   return (_has_bits_[0] & 0x00800000u) != 0;
 }
@@ -7857,7 +7857,7 @@ inline void E_PetDisplay::set_m_starattribute(::google::protobuf::int32 value) {
   m_starattribute_ = value;
 }
 
-// optional int32 m_starpercent = 25;
+// optional int32 m_starPercent = 25;
 inline bool E_PetDisplay::has_m_starpercent() const {
   return (_has_bits_[0] & 0x01000000u) != 0;
 }
@@ -7879,7 +7879,7 @@ inline void E_PetDisplay::set_m_starpercent(::google::protobuf::int32 value) {
   m_starpercent_ = value;
 }
 
-// optional int32 m_starllimit = 26;
+// optional int32 m_starLlimit = 26;
 inline bool E_PetDisplay::has_m_starllimit() const {
   return (_has_bits_[0] & 0x02000000u) != 0;
 }
@@ -7901,7 +7901,7 @@ inline void E_PetDisplay::set_m_starllimit(::google::protobuf::int32 value) {
   m_starllimit_ = value;
 }
 
-// optional int64 m_staritem = 27;
+// optional int64 m_starItem = 27;
 inline bool E_PetDisplay::has_m_staritem() const {
   return (_has_bits_[0] & 0x04000000u) != 0;
 }
@@ -7923,7 +7923,7 @@ inline void E_PetDisplay::set_m_staritem(::google::protobuf::int64 value) {
   m_staritem_ = value;
 }
 
-// optional string m_starnum = 28;
+// optional string m_starNum = 28;
 inline bool E_PetDisplay::has_m_starnum() const {
   return (_has_bits_[0] & 0x08000000u) != 0;
 }
@@ -7993,7 +7993,7 @@ inline void E_PetDisplay::set_allocated_m_starnum(::std::string* m_starnum) {
   }
 }
 
-// optional int64 m_starpetid = 29;
+// optional int64 m_starPetID = 29;
 inline bool E_PetDisplay::has_m_starpetid() const {
   return (_has_bits_[0] & 0x10000000u) != 0;
 }
@@ -8015,7 +8015,7 @@ inline void E_PetDisplay::set_m_starpetid(::google::protobuf::int64 value) {
   m_starpetid_ = value;
 }
 
-// optional string m_starpetnum = 30;
+// optional string m_starPetNum = 30;
 inline bool E_PetDisplay::has_m_starpetnum() const {
   return (_has_bits_[0] & 0x20000000u) != 0;
 }
@@ -8107,7 +8107,7 @@ inline void E_PetDisplay::set_m_weapon(::google::protobuf::int32 value) {
   m_weapon_ = value;
 }
 
-// optional int64 m_upattributeid = 32;
+// optional int64 m_upAttributeId = 32;
 inline bool E_PetDisplay::has_m_upattributeid() const {
   return (_has_bits_[0] & 0x80000000u) != 0;
 }
@@ -8129,7 +8129,7 @@ inline void E_PetDisplay::set_m_upattributeid(::google::protobuf::int64 value) {
   m_upattributeid_ = value;
 }
 
-// optional int32 m_fettersid = 33;
+// optional int32 m_fettersID = 33;
 inline bool E_PetDisplay::has_m_fettersid() const {
   return (_has_bits_[1] & 0x00000001u) != 0;
 }
@@ -8576,7 +8576,7 @@ inline void E_PetAdvancelv::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_advanceitem = 2;
+// optional int32 m_advanceItem = 2;
 inline bool E_PetAdvancelv::has_m_advanceitem() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -8598,7 +8598,7 @@ inline void E_PetAdvancelv::set_m_advanceitem(::google::protobuf::int32 value) {
   m_advanceitem_ = value;
 }
 
-// optional int32 m_advancenum = 3;
+// optional int32 m_advanceNum = 3;
 inline bool E_PetAdvancelv::has_m_advancenum() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -8726,7 +8726,7 @@ inline void E_PetStarupUpattributeDesc::set_m_type(::google::protobuf::int32 val
 
 // E_PetStarup
 
-// optional int32 m_id = 1;
+// optional int32 m_ID = 1;
 inline bool E_PetStarup::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -8748,7 +8748,7 @@ inline void E_PetStarup::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int64 m_upattributeid = 2;
+// optional int64 m_upAttributeId = 2;
 inline bool E_PetStarup::has_m_upattributeid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -8770,7 +8770,7 @@ inline void E_PetStarup::set_m_upattributeid(::google::protobuf::int64 value) {
   m_upattributeid_ = value;
 }
 
-// optional int32 m_starid = 3;
+// optional int32 m_starID = 3;
 inline bool E_PetStarup::has_m_starid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -8792,7 +8792,7 @@ inline void E_PetStarup::set_m_starid(::google::protobuf::int32 value) {
   m_starid_ = value;
 }
 
-// optional int32 m_skillid = 4;
+// optional int32 m_skillID = 4;
 inline bool E_PetStarup::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -8814,7 +8814,7 @@ inline void E_PetStarup::set_m_skillid(::google::protobuf::int32 value) {
   m_skillid_ = value;
 }
 
-// optional int32 m_activeskillidlv = 5;
+// optional int32 m_activeSkillIDLv = 5;
 inline bool E_PetStarup::has_m_activeskillidlv() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -8836,7 +8836,7 @@ inline void E_PetStarup::set_m_activeskillidlv(::google::protobuf::int32 value) 
   m_activeskillidlv_ = value;
 }
 
-// repeated .proto_ff.E_PetStarupUpattributeDesc m_upattribute = 6;
+// repeated .proto_ff.E_PetStarupUpattributeDesc m_upAttribute = 6;
 inline int E_PetStarup::m_upattribute_size() const {
   return m_upattribute_.size();
 }
@@ -9044,7 +9044,7 @@ Sheet_PetEgg::mutable_e_petegg_list() {
 
 // E_PetDecomposeDecomposeDesc
 
-// optional int32 m_boxid = 1;
+// optional int32 m_boxID = 1;
 inline bool E_PetDecomposeDecomposeDesc::has_m_boxid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -9286,7 +9286,7 @@ inline void E_PetFetters::set_m_quality(::google::protobuf::int32 value) {
   m_quality_ = value;
 }
 
-// repeated int32 m_petid = 3;
+// repeated int32 m_petID = 3;
 inline int E_PetFetters::m_petid_size() const {
   return m_petid_.size();
 }
@@ -9336,7 +9336,7 @@ E_PetFetters::mutable_m_attribute() {
   return &m_attribute_;
 }
 
-// repeated int32 m_atctive_skillid = 5;
+// repeated int32 m_atctive_skillID = 5;
 inline int E_PetFetters::m_atctive_skillid_size() const {
   return m_atctive_skillid_.size();
 }
@@ -9394,7 +9394,7 @@ Sheet_PetFetters::mutable_e_petfetters_list() {
 
 // E_PetPetequipActDesc
 
-// optional int32 m_mun = 1;
+// optional int32 m_Mun = 1;
 inline bool E_PetPetequipActDesc::has_m_mun() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -9416,7 +9416,7 @@ inline void E_PetPetequipActDesc::set_m_mun(::google::protobuf::int32 value) {
   m_mun_ = value;
 }
 
-// optional int32 m_time = 2;
+// optional int32 m_Time = 2;
 inline bool E_PetPetequipActDesc::has_m_time() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -9464,7 +9464,7 @@ inline void E_PetPetequip::set_m_pet(::google::protobuf::int32 value) {
   m_pet_ = value;
 }
 
-// optional int32 m_orderid = 2;
+// optional int32 m_orderId = 2;
 inline bool E_PetPetequip::has_m_orderid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -9556,7 +9556,7 @@ inline void E_PetPetequip::set_allocated_m_name(::std::string* m_name) {
   }
 }
 
-// optional int32 m_qeuiditem = 4;
+// optional int32 m_qeuidItem = 4;
 inline bool E_PetPetequip::has_m_qeuiditem() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -9578,7 +9578,7 @@ inline void E_PetPetequip::set_m_qeuiditem(::google::protobuf::int32 value) {
   m_qeuiditem_ = value;
 }
 
-// optional int32 m_equipqualitymin = 5;
+// optional int32 m_equipQualityMin = 5;
 inline bool E_PetPetequip::has_m_equipqualitymin() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -9600,7 +9600,7 @@ inline void E_PetPetequip::set_m_equipqualitymin(::google::protobuf::int32 value
   m_equipqualitymin_ = value;
 }
 
-// optional int32 m_equipmodelid = 6;
+// optional int32 m_equipModelId = 6;
 inline bool E_PetPetequip::has_m_equipmodelid() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -9912,7 +9912,7 @@ inline void E_PetEquipvalue::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_equipvalue = 2;
+// optional int32 m_equipValue = 2;
 inline bool E_PetEquipvalue::has_m_equipvalue() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -9934,7 +9934,7 @@ inline void E_PetEquipvalue::set_m_equipvalue(::google::protobuf::int32 value) {
   m_equipvalue_ = value;
 }
 
-// optional int32 m_equiplv = 3;
+// optional int32 m_equipLv = 3;
 inline bool E_PetEquipvalue::has_m_equiplv() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -9978,7 +9978,7 @@ inline void E_PetEquipvalue::set_m_item(::google::protobuf::int32 value) {
   m_item_ = value;
 }
 
-// optional int32 m_winprob = 5;
+// optional int32 m_winProb = 5;
 inline bool E_PetEquipvalue::has_m_winprob() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -10000,7 +10000,7 @@ inline void E_PetEquipvalue::set_m_winprob(::google::protobuf::int32 value) {
   m_winprob_ = value;
 }
 
-// optional int32 m_equipitem = 6;
+// optional int32 m_equipItem = 6;
 inline bool E_PetEquipvalue::has_m_equipitem() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -10022,7 +10022,7 @@ inline void E_PetEquipvalue::set_m_equipitem(::google::protobuf::int32 value) {
   m_equipitem_ = value;
 }
 
-// optional int32 m_equipmun = 7;
+// optional int32 m_equipMun = 7;
 inline bool E_PetEquipvalue::has_m_equipmun() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -10044,7 +10044,7 @@ inline void E_PetEquipvalue::set_m_equipmun(::google::protobuf::int32 value) {
   m_equipmun_ = value;
 }
 
-// optional int32 m_failmax = 8;
+// optional int32 m_failMax = 8;
 inline bool E_PetEquipvalue::has_m_failmax() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -10066,7 +10066,7 @@ inline void E_PetEquipvalue::set_m_failmax(::google::protobuf::int32 value) {
   m_failmax_ = value;
 }
 
-// repeated .proto_ff.E_PetEquipvalueAttributeDesc m_attribute = 9;
+// repeated .proto_ff.E_PetEquipvalueAttributeDesc m_Attribute = 9;
 inline int E_PetEquipvalue::m_attribute_size() const {
   return m_attribute_.size();
 }
@@ -10197,7 +10197,7 @@ inline void E_PetStarvalueAttributeDesc::set_m_type(::google::protobuf::int32 va
 
 // E_PetStarvalueEquipDesc
 
-// optional int32 m_mun = 1;
+// optional int32 m_Mun = 1;
 inline bool E_PetStarvalueEquipDesc::has_m_mun() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -10219,7 +10219,7 @@ inline void E_PetStarvalueEquipDesc::set_m_mun(::google::protobuf::int32 value) 
   m_mun_ = value;
 }
 
-// optional int32 m_item = 2;
+// optional int32 m_Item = 2;
 inline bool E_PetStarvalueEquipDesc::has_m_item() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -10267,7 +10267,7 @@ inline void E_PetStarvalue::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_starvalue = 2;
+// optional int32 m_starValue = 2;
 inline bool E_PetStarvalue::has_m_starvalue() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -10289,7 +10289,7 @@ inline void E_PetStarvalue::set_m_starvalue(::google::protobuf::int32 value) {
   m_starvalue_ = value;
 }
 
-// optional int32 m_starlv = 3;
+// optional int32 m_starLv = 3;
 inline bool E_PetStarvalue::has_m_starlv() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -10311,7 +10311,7 @@ inline void E_PetStarvalue::set_m_starlv(::google::protobuf::int32 value) {
   m_starlv_ = value;
 }
 
-// repeated .proto_ff.E_PetStarvalueAttributeDesc m_attribute = 4;
+// repeated .proto_ff.E_PetStarvalueAttributeDesc m_Attribute = 4;
 inline int E_PetStarvalue::m_attribute_size() const {
   return m_attribute_.size();
 }
@@ -10336,7 +10336,7 @@ E_PetStarvalue::mutable_m_attribute() {
   return &m_attribute_;
 }
 
-// repeated string m_advance_type = 5;
+// repeated string m_advance_Type = 5;
 inline int E_PetStarvalue::m_advance_type_size() const {
   return m_advance_type_.size();
 }
@@ -10666,7 +10666,7 @@ inline void E_PetWraiths::set_m_star(::google::protobuf::int32 value) {
   m_star_ = value;
 }
 
-// optional int32 m_propertylv = 7;
+// optional int32 m_propertyLv = 7;
 inline bool E_PetWraiths::has_m_propertylv() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -10688,7 +10688,7 @@ inline void E_PetWraiths::set_m_propertylv(::google::protobuf::int32 value) {
   m_propertylv_ = value;
 }
 
-// optional int32 m_propertytop = 8;
+// optional int32 m_propertyTop = 8;
 inline bool E_PetWraiths::has_m_propertytop() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -10735,7 +10735,7 @@ E_PetWraiths::mutable_m_attribute() {
   return &m_attribute_;
 }
 
-// repeated .proto_ff.E_PetWraithsAttributebctDesc m_attributebct = 10;
+// repeated .proto_ff.E_PetWraithsAttributebctDesc m_attributeBct = 10;
 inline int E_PetWraiths::m_attributebct_size() const {
   return m_attributebct_.size();
 }
@@ -10885,7 +10885,7 @@ inline void E_PetWraithslv::set_m_value(::google::protobuf::int32 value) {
   m_value_ = value;
 }
 
-// optional int32 m_advancelv = 3;
+// optional int32 m_advanceLv = 3;
 inline bool E_PetWraithslv::has_m_advancelv() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -10929,7 +10929,7 @@ inline void E_PetWraithslv::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional int32 m_wraithsitem = 5;
+// optional int32 m_wraithsItem = 5;
 inline bool E_PetWraithslv::has_m_wraithsitem() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -10951,7 +10951,7 @@ inline void E_PetWraithslv::set_m_wraithsitem(::google::protobuf::int32 value) {
   m_wraithsitem_ = value;
 }
 
-// optional int32 m_wraithsmun = 6;
+// optional int32 m_wraithsMun = 6;
 inline bool E_PetWraithslv::has_m_wraithsmun() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -10973,7 +10973,7 @@ inline void E_PetWraithslv::set_m_wraithsmun(::google::protobuf::int32 value) {
   m_wraithsmun_ = value;
 }
 
-// optional int32 m_lvexp = 7;
+// optional int32 m_lvExp = 7;
 inline bool E_PetWraithslv::has_m_lvexp() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -11053,7 +11053,7 @@ Sheet_PetWraithslv::mutable_e_petwraithslv_list() {
 
 // E_PetSmeltItemDesc
 
-// optional int32 m_maxnum = 1;
+// optional int32 m_maxNum = 1;
 inline bool E_PetSmeltItemDesc::has_m_maxnum() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -11075,7 +11075,7 @@ inline void E_PetSmeltItemDesc::set_m_maxnum(::google::protobuf::int32 value) {
   m_maxnum_ = value;
 }
 
-// optional int32 m_minnum = 2;
+// optional int32 m_minNum = 2;
 inline bool E_PetSmeltItemDesc::has_m_minnum() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -11211,7 +11211,7 @@ inline void E_PetSmelt::set_m_star(::google::protobuf::int32 value) {
   m_star_ = value;
 }
 
-// optional int32 m_putmun = 4;
+// optional int32 m_putMun = 4;
 inline bool E_PetSmelt::has_m_putmun() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -11233,7 +11233,7 @@ inline void E_PetSmelt::set_m_putmun(::google::protobuf::int32 value) {
   m_putmun_ = value;
 }
 
-// optional int32 m_smeltexp = 5;
+// optional int32 m_smeltExp = 5;
 inline bool E_PetSmelt::has_m_smeltexp() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -11255,7 +11255,7 @@ inline void E_PetSmelt::set_m_smeltexp(::google::protobuf::int32 value) {
   m_smeltexp_ = value;
 }
 
-// optional int32 m_monsternum = 6;
+// optional int32 m_monsterNum = 6;
 inline bool E_PetSmelt::has_m_monsternum() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -11764,7 +11764,7 @@ inline void E_PetSuit::set_m_star(::google::protobuf::int32 value) {
   m_star_ = value;
 }
 
-// optional int32 m_wraithsquality = 4;
+// optional int32 m_wraithsQuality = 4;
 inline bool E_PetSuit::has_m_wraithsquality() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -11808,7 +11808,7 @@ inline void E_PetSuit::set_m_piece(::google::protobuf::int32 value) {
   m_piece_ = value;
 }
 
-// optional int32 m_resonancetype = 6;
+// optional int32 m_resonanceType = 6;
 inline bool E_PetSuit::has_m_resonancetype() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -11830,7 +11830,7 @@ inline void E_PetSuit::set_m_resonancetype(::google::protobuf::int32 value) {
   m_resonancetype_ = value;
 }
 
-// optional int32 m_resonancevalue = 7;
+// optional int32 m_resonanceValue = 7;
 inline bool E_PetSuit::has_m_resonancevalue() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -11852,7 +11852,7 @@ inline void E_PetSuit::set_m_resonancevalue(::google::protobuf::int32 value) {
   m_resonancevalue_ = value;
 }
 
-// repeated .proto_ff.E_PetSuitAttributeDesc m_attribute = 8;
+// repeated .proto_ff.E_PetSuitAttributeDesc m_Attribute = 8;
 inline int E_PetSuit::m_attribute_size() const {
   return m_attribute_.size();
 }
@@ -12222,7 +12222,7 @@ inline void E_PetTopStarattDesc::set_m_type(::google::protobuf::int32 value) {
 
 // E_PetTop
 
-// optional int32 m_toptype = 1;
+// optional int32 m_topType = 1;
 inline bool E_PetTop::has_m_toptype() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -12269,7 +12269,7 @@ E_PetTop::mutable_m_attribute() {
   return &m_attribute_;
 }
 
-// repeated .proto_ff.E_PetTopStarattDesc m_staratt = 3;
+// repeated .proto_ff.E_PetTopStarattDesc m_starAtt = 3;
 inline int E_PetTop::m_staratt_size() const {
   return m_staratt_.size();
 }
@@ -12566,7 +12566,7 @@ inline void E_PetPrivilege::set_allocated_m_activate(::std::string* m_activate) 
   }
 }
 
-// optional int32 m_doubleitem = 3;
+// optional int32 m_doubleItem = 3;
 inline bool E_PetPrivilege::has_m_doubleitem() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -12588,7 +12588,7 @@ inline void E_PetPrivilege::set_m_doubleitem(::google::protobuf::int32 value) {
   m_doubleitem_ = value;
 }
 
-// optional int32 m_experienceexp = 4;
+// optional int32 m_experienceExp = 4;
 inline bool E_PetPrivilege::has_m_experienceexp() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }

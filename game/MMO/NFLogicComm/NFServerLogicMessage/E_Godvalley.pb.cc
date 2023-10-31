@@ -274,59 +274,59 @@ void protobuf_AddDesc_E_5fGodvalley_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\021E_Godvalley.proto\022\010proto_ff\032\025yd_fieldo"
     "ptions.proto\"\340\014\n\021E_GodvalleyBattle\022\030\n\004m_"
-    "id\030\001 \001(\003B\n\302\377\024\006\345\272\217\345\217\267\0226\n\020m_roomplayersmax"
+    "id\030\001 \001(\003B\n\302\377\024\006\345\272\217\345\217\267\0226\n\020m_roomPlayersMax"
     "\030\002 \001(\005B\034\302\377\024\030\344\270\200\344\270\252\346\210\277\351\227\264\346\234\200\345\244\247\344\272\272\346\225\260\022 \n\010"
     "m_team1n\030\003 \001(\tB\016\302\377\024\006\347\273\204\345\220\215\220\301\024@\022 \n\010m_team"
     "2n\030\004 \001(\tB\016\302\377\024\006\347\273\204\345\220\215\220\301\024@\022\037\n\007m_name1\030\005 \001("
     "\tB\016\302\377\024\006\345\220\215\347\247\260\220\301\024@\022\037\n\007m_name2\030\006 \001(\tB\016\302\377\024\006"
-    "\345\220\215\347\247\260\220\301\024@\022*\n\nm_winscore\030\007 \001(\005B\026\302\377\024\022\350\203\234\345"
-    "\210\251\347\232\204\350\265\204\346\272\220\347\202\271\022+\n\013m_timescore\030\010 \001(\005B\026\302\377\024"
-    "\022\346\227\266\351\227\264\345\242\236\345\212\240\347\247\257\345\210\206\022(\n\013m_killscore\030\t \001(\005"
-    "B\023\302\377\024\017\346\235\200\344\272\272\345\276\227\347\247\257\345\210\206\022,\n\017m_killkeepscore"
-    "\030\n \001(\005B\023\302\377\024\017\350\277\236\346\235\200\345\276\227\347\247\257\345\210\206\022=\n\024m_breakki"
-    "llkeepscore\030\013 \001(\005B\037\302\377\024\033\346\211\223\346\226\255\345\210\253\344\272\272\350\277\236\346\235"
-    "\200\345\276\227\347\247\257\345\210\206\022/\n\022m_killmonsterscore\030\014 \001(\005B\023"
-    "\302\377\024\017\346\235\200\346\200\252\345\276\227\347\247\257\345\210\206\0222\n\017m_crystalpoints\030\r"
+    "\345\220\215\347\247\260\220\301\024@\022*\n\nm_winScore\030\007 \001(\005B\026\302\377\024\022\350\203\234\345"
+    "\210\251\347\232\204\350\265\204\346\272\220\347\202\271\022+\n\013m_timeScore\030\010 \001(\005B\026\302\377\024"
+    "\022\346\227\266\351\227\264\345\242\236\345\212\240\347\247\257\345\210\206\022(\n\013m_killScore\030\t \001(\005"
+    "B\023\302\377\024\017\346\235\200\344\272\272\345\276\227\347\247\257\345\210\206\022,\n\017m_killKeepScore"
+    "\030\n \001(\005B\023\302\377\024\017\350\277\236\346\235\200\345\276\227\347\247\257\345\210\206\022=\n\024m_breakKi"
+    "llKeepScore\030\013 \001(\005B\037\302\377\024\033\346\211\223\346\226\255\345\210\253\344\272\272\350\277\236\346\235"
+    "\200\345\276\227\347\247\257\345\210\206\022/\n\022m_killMonsterScore\030\014 \001(\005B\023"
+    "\302\377\024\017\346\235\200\346\200\252\345\276\227\347\247\257\345\210\206\0222\n\017m_crystalPoints\030\r"
     " \001(\005B\031\302\377\024\025\350\277\220\346\260\264\346\231\266\345\212\240\350\265\204\346\272\220\347\202\271\0224\n\016m_cry"
-    "stalscore\030\016 \001(\005B\034\302\377\024\030\350\277\220\346\260\264\346\231\266\345\212\240\344\270\252\344\272\272\347"
-    "\247\257\345\210\206\022:\n\021m_interceptpoints\030\017 \001(\005B\037\302\377\024\033\346\213"
+    "stalScore\030\016 \001(\005B\034\302\377\024\030\350\277\220\346\260\264\346\231\266\345\212\240\344\270\252\344\272\272\347"
+    "\247\257\345\210\206\022:\n\021m_interceptPoints\030\017 \001(\005B\037\302\377\024\033\346\213"
     "\246\346\210\252\346\260\264\346\231\266\345\242\236\345\212\240\350\265\204\346\272\220\347\202\271\022<\n\020m_intercept"
-    "score\030\020 \001(\005B\"\302\377\024\036\346\213\246\346\210\252\346\260\264\346\231\266\345\242\236\345\212\240\344\270\252\344\272"
-    "\272\347\247\257\345\210\206\0229\n\023m_crystalreborntime\030\021 \001(\005B\034\302\377"
-    "\024\030\346\260\264\346\231\266\345\210\267\346\226\260\346\227\266\351\227\264\357\274\210\347\247\222\0221\n\022m_crystalm"
-    "onsterid\030\022 \001(\005B\025\302\377\024\021\346\260\264\346\231\266\351\207\207\351\233\206\347\211\251id\022*\n"
-    "\014m_crystalpos\030\023 \001(\tB\024\302\377\024\014\346\260\264\346\231\266\344\275\215\347\275\256\220\301\024"
+    "Score\030\020 \001(\005B\"\302\377\024\036\346\213\246\346\210\252\346\260\264\346\231\266\345\242\236\345\212\240\344\270\252\344\272"
+    "\272\347\247\257\345\210\206\0229\n\023m_crystalReBornTime\030\021 \001(\005B\034\302\377"
+    "\024\030\346\260\264\346\231\266\345\210\267\346\226\260\346\227\266\351\227\264\357\274\210\347\247\222\0221\n\022m_crystalM"
+    "onsterId\030\022 \001(\005B\025\302\377\024\021\346\260\264\346\231\266\351\207\207\351\233\206\347\211\251id\022*\n"
+    "\014m_crystalPos\030\023 \001(\tB\024\302\377\024\014\346\260\264\346\231\266\344\275\215\347\275\256\220\301\024"
     "@\022#\n\tm_match_s\030\024 \001(\005B\020\302\377\024\014\345\214\271\351\205\215\346\227\266\351\227\264\022#"
     "\n\014m_duration_s\030\025 \001(\005B\r\302\377\024\t\346\211\223\345\244\232\344\271\205\0229\n\017m"
-    "_matchmapentry\030\026 \001(\tB \302\377\024\030\345\214\271\351\205\215\345\234\260\345\233\276\345\207"
+    "_matchMapEntry\030\026 \001(\tB \302\377\024\030\345\214\271\351\205\215\345\234\260\345\233\276\345\207"
     "\272\347\224\237\344\275\215\347\275\256\220\301\024@\022!\n\007m_mapid\030\027 \001(\003B\020\302\377\024\014\346\211\200"
-    "\345\234\250\345\234\260\345\233\276\022/\n\013m_mapentry1\030\030 \001(\tB\032\302\377\024\022\351\235\222\344"
-    "\272\221\350\265\267\345\247\213\344\275\215\347\275\256\220\301\024@\022/\n\013m_mapentry2\030\031 \001(\tB"
+    "\345\234\250\345\234\260\345\233\276\022/\n\013m_mapEntry1\030\030 \001(\tB\032\302\377\024\022\351\235\222\344"
+    "\272\221\350\265\267\345\247\213\344\275\215\347\275\256\220\301\024@\022/\n\013m_mapEntry2\030\031 \001(\tB"
     "\032\302\377\024\022\350\234\200\345\261\261\350\265\267\345\247\213\344\275\215\347\275\256\220\301\024@\022(\n\nm_monster"
     "1\030\032 \001(\tB\024\302\377\024\014\351\235\222\344\272\221\346\200\252\347\211\251\220\301\024@\0226\n\017m_reviv"
-    "alpoint1\030\033 \001(\tB\035\302\377\024\025\351\235\222\344\272\221\346\200\252\347\211\251\345\244\215\346\264\273\347\202"
+    "alPoint1\030\033 \001(\tB\035\302\377\024\025\351\235\222\344\272\221\346\200\252\347\211\251\345\244\215\346\264\273\347\202"
     "\271\220\301\024@\022.\n\nm_monster2\030\034 \001(\tB\032\302\377\024\022\345\246\226\351\276\231\344\271\213"
-    "\346\234\253\346\200\252\347\211\251\220\301\024@\022<\n\017m_revivalpoint2\030\035 \001(\tB#"
+    "\346\234\253\346\200\252\347\211\251\220\301\024@\022<\n\017m_revivalPoint2\030\035 \001(\tB#"
     "\302\377\024\033\345\246\226\351\276\231\344\271\213\346\234\253\346\200\252\347\211\251\345\244\215\346\264\273\347\202\271\220\301\024@\022(\n\nm"
     "_monster3\030\036 \001(\tB\024\302\377\024\014\350\234\200\345\261\261\346\200\252\347\211\251\220\301\024@\0226\n"
-    "\017m_revivalpoint3\030\037 \001(\tB\035\302\377\024\025\350\234\200\345\261\261\346\200\252\347\211\251"
+    "\017m_revivalPoint3\030\037 \001(\tB\035\302\377\024\025\350\234\200\345\261\261\346\200\252\347\211\251"
     "\345\244\215\346\264\273\347\202\271\220\301\024@\022\'\n\tm_npc1pos\030  \001(\tB\024\302\377\024\014\351\235"
     "\222\344\272\221\347\245\236\345\214\240\220\301\024@\022\'\n\tm_npc2pos\030! \001(\tB\024\302\377\024\014\350"
-    "\234\200\345\261\261\347\245\236\345\214\240\220\301\024@\022#\n\007m_actid\030\" \001(\005B\022\302\377\024\016\346\211"
+    "\234\200\345\261\261\347\245\236\345\214\240\220\301\024@\022#\n\007m_actId\030\" \001(\005B\022\302\377\024\016\346\211"
     "\200\345\234\250\346\264\273\345\212\250ID\022!\n\007m_skill\030# \001(\005B\020\302\377\024\014\346\250\241\347\211"
     "\210\346\212\200\350\203\275\"Z\n\025Sheet_GodvalleyBattle\022A\n\026E_Go"
     "dvalleyBattle_List\030\001 \003(\0132\033.proto_ff.E_Go"
     "dvalleyBattleB\004\210\301\024\010\"O\n\034E_GodvalleyReward"
-    "sRewardDesc\022\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024"
-    "\n\004m_id\030\002 \001(\003B\006\302\377\024\002ID\"\233\001\n\022E_GodvalleyRewa"
+    "sRewardDesc\022\031\n\005m_Num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024"
+    "\n\004m_ID\030\002 \001(\003B\006\302\377\024\002ID\"\233\001\n\022E_GodvalleyRewa"
     "rds\022\030\n\004m_id\030\001 \001(\005B\n\302\377\024\006\345\272\217\345\217\267\022!\n\007m_score"
     "\030\002 \001(\005B\020\302\377\024\014\347\247\257\345\210\206\346\225\260\351\207\217\022H\n\010m_reward\030\003 \003"
     "(\0132&.proto_ff.E_GodvalleyRewardsRewardDe"
     "scB\016\302\377\024\006\345\245\226\345\212\261\210\301\024\005\"]\n\026Sheet_GodvalleyRew"
     "ards\022C\n\027E_GodvalleyRewards_List\030\001 \003(\0132\034."
     "proto_ff.E_GodvalleyRewardsB\004\210\301\024\020\"Y\n!E_G"
-    "odvalleyAttributeAttributeDesc\022\030\n\007m_valu"
-    "e\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006\347\261"
+    "odvalleyAttributeAttributeDesc\022\030\n\007m_Valu"
+    "e\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_Type\030\002 \001(\005B\n\302\377\024\006\347\261"
     "\273\345\236\213\"~\n\024E_GodvalleyAttribute\022\024\n\004m_id\030\001 \001"
     "(\005B\006\302\377\024\002id\022P\n\013m_attribute\030\002 \003(\0132+.proto_"
     "ff.E_GodvalleyAttributeAttributeDescB\016\302\377"
@@ -365,39 +365,39 @@ struct StaticDescriptorInitializer_E_5fGodvalley_2eproto {
 
 #ifndef _MSC_VER
 const int E_GodvalleyBattle::kMIdFieldNumber;
-const int E_GodvalleyBattle::kMRoomplayersmaxFieldNumber;
+const int E_GodvalleyBattle::kMRoomPlayersMaxFieldNumber;
 const int E_GodvalleyBattle::kMTeam1NFieldNumber;
 const int E_GodvalleyBattle::kMTeam2NFieldNumber;
 const int E_GodvalleyBattle::kMName1FieldNumber;
 const int E_GodvalleyBattle::kMName2FieldNumber;
-const int E_GodvalleyBattle::kMWinscoreFieldNumber;
-const int E_GodvalleyBattle::kMTimescoreFieldNumber;
-const int E_GodvalleyBattle::kMKillscoreFieldNumber;
-const int E_GodvalleyBattle::kMKillkeepscoreFieldNumber;
-const int E_GodvalleyBattle::kMBreakkillkeepscoreFieldNumber;
-const int E_GodvalleyBattle::kMKillmonsterscoreFieldNumber;
-const int E_GodvalleyBattle::kMCrystalpointsFieldNumber;
-const int E_GodvalleyBattle::kMCrystalscoreFieldNumber;
-const int E_GodvalleyBattle::kMInterceptpointsFieldNumber;
-const int E_GodvalleyBattle::kMInterceptscoreFieldNumber;
-const int E_GodvalleyBattle::kMCrystalreborntimeFieldNumber;
-const int E_GodvalleyBattle::kMCrystalmonsteridFieldNumber;
-const int E_GodvalleyBattle::kMCrystalposFieldNumber;
+const int E_GodvalleyBattle::kMWinScoreFieldNumber;
+const int E_GodvalleyBattle::kMTimeScoreFieldNumber;
+const int E_GodvalleyBattle::kMKillScoreFieldNumber;
+const int E_GodvalleyBattle::kMKillKeepScoreFieldNumber;
+const int E_GodvalleyBattle::kMBreakKillKeepScoreFieldNumber;
+const int E_GodvalleyBattle::kMKillMonsterScoreFieldNumber;
+const int E_GodvalleyBattle::kMCrystalPointsFieldNumber;
+const int E_GodvalleyBattle::kMCrystalScoreFieldNumber;
+const int E_GodvalleyBattle::kMInterceptPointsFieldNumber;
+const int E_GodvalleyBattle::kMInterceptScoreFieldNumber;
+const int E_GodvalleyBattle::kMCrystalReBornTimeFieldNumber;
+const int E_GodvalleyBattle::kMCrystalMonsterIdFieldNumber;
+const int E_GodvalleyBattle::kMCrystalPosFieldNumber;
 const int E_GodvalleyBattle::kMMatchSFieldNumber;
 const int E_GodvalleyBattle::kMDurationSFieldNumber;
-const int E_GodvalleyBattle::kMMatchmapentryFieldNumber;
+const int E_GodvalleyBattle::kMMatchMapEntryFieldNumber;
 const int E_GodvalleyBattle::kMMapidFieldNumber;
-const int E_GodvalleyBattle::kMMapentry1FieldNumber;
-const int E_GodvalleyBattle::kMMapentry2FieldNumber;
+const int E_GodvalleyBattle::kMMapEntry1FieldNumber;
+const int E_GodvalleyBattle::kMMapEntry2FieldNumber;
 const int E_GodvalleyBattle::kMMonster1FieldNumber;
-const int E_GodvalleyBattle::kMRevivalpoint1FieldNumber;
+const int E_GodvalleyBattle::kMRevivalPoint1FieldNumber;
 const int E_GodvalleyBattle::kMMonster2FieldNumber;
-const int E_GodvalleyBattle::kMRevivalpoint2FieldNumber;
+const int E_GodvalleyBattle::kMRevivalPoint2FieldNumber;
 const int E_GodvalleyBattle::kMMonster3FieldNumber;
-const int E_GodvalleyBattle::kMRevivalpoint3FieldNumber;
+const int E_GodvalleyBattle::kMRevivalPoint3FieldNumber;
 const int E_GodvalleyBattle::kMNpc1PosFieldNumber;
 const int E_GodvalleyBattle::kMNpc2PosFieldNumber;
-const int E_GodvalleyBattle::kMActidFieldNumber;
+const int E_GodvalleyBattle::kMActIdFieldNumber;
 const int E_GodvalleyBattle::kMSkillFieldNumber;
 #endif  // !_MSC_VER
 
@@ -664,15 +664,15 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_roomplayersmax;
+        if (input->ExpectTag(16)) goto parse_m_roomPlayersMax;
         break;
       }
 
-      // optional int32 m_roomplayersmax = 2;
+      // optional int32 m_roomPlayersMax = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_roomplayersmax:
+         parse_m_roomPlayersMax:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_roomplayersmax_)));
@@ -748,15 +748,15 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_winscore;
+        if (input->ExpectTag(56)) goto parse_m_winScore;
         break;
       }
 
-      // optional int32 m_winscore = 7;
+      // optional int32 m_winScore = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_winscore:
+         parse_m_winScore:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_winscore_)));
@@ -764,15 +764,15 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_timescore;
+        if (input->ExpectTag(64)) goto parse_m_timeScore;
         break;
       }
 
-      // optional int32 m_timescore = 8;
+      // optional int32 m_timeScore = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_timescore:
+         parse_m_timeScore:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_timescore_)));
@@ -780,15 +780,15 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_killscore;
+        if (input->ExpectTag(72)) goto parse_m_killScore;
         break;
       }
 
-      // optional int32 m_killscore = 9;
+      // optional int32 m_killScore = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_killscore:
+         parse_m_killScore:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_killscore_)));
@@ -796,15 +796,15 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_killkeepscore;
+        if (input->ExpectTag(80)) goto parse_m_killKeepScore;
         break;
       }
 
-      // optional int32 m_killkeepscore = 10;
+      // optional int32 m_killKeepScore = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_killkeepscore:
+         parse_m_killKeepScore:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_killkeepscore_)));
@@ -812,15 +812,15 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_breakkillkeepscore;
+        if (input->ExpectTag(88)) goto parse_m_breakKillKeepScore;
         break;
       }
 
-      // optional int32 m_breakkillkeepscore = 11;
+      // optional int32 m_breakKillKeepScore = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_breakkillkeepscore:
+         parse_m_breakKillKeepScore:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_breakkillkeepscore_)));
@@ -828,15 +828,15 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_killmonsterscore;
+        if (input->ExpectTag(96)) goto parse_m_killMonsterScore;
         break;
       }
 
-      // optional int32 m_killmonsterscore = 12;
+      // optional int32 m_killMonsterScore = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_killmonsterscore:
+         parse_m_killMonsterScore:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_killmonsterscore_)));
@@ -844,15 +844,15 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_m_crystalpoints;
+        if (input->ExpectTag(104)) goto parse_m_crystalPoints;
         break;
       }
 
-      // optional int32 m_crystalpoints = 13;
+      // optional int32 m_crystalPoints = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_crystalpoints:
+         parse_m_crystalPoints:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_crystalpoints_)));
@@ -860,15 +860,15 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(112)) goto parse_m_crystalscore;
+        if (input->ExpectTag(112)) goto parse_m_crystalScore;
         break;
       }
 
-      // optional int32 m_crystalscore = 14;
+      // optional int32 m_crystalScore = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_crystalscore:
+         parse_m_crystalScore:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_crystalscore_)));
@@ -876,15 +876,15 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(120)) goto parse_m_interceptpoints;
+        if (input->ExpectTag(120)) goto parse_m_interceptPoints;
         break;
       }
 
-      // optional int32 m_interceptpoints = 15;
+      // optional int32 m_interceptPoints = 15;
       case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_interceptpoints:
+         parse_m_interceptPoints:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_interceptpoints_)));
@@ -892,15 +892,15 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(128)) goto parse_m_interceptscore;
+        if (input->ExpectTag(128)) goto parse_m_interceptScore;
         break;
       }
 
-      // optional int32 m_interceptscore = 16;
+      // optional int32 m_interceptScore = 16;
       case 16: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_interceptscore:
+         parse_m_interceptScore:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_interceptscore_)));
@@ -908,15 +908,15 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(136)) goto parse_m_crystalreborntime;
+        if (input->ExpectTag(136)) goto parse_m_crystalReBornTime;
         break;
       }
 
-      // optional int32 m_crystalreborntime = 17;
+      // optional int32 m_crystalReBornTime = 17;
       case 17: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_crystalreborntime:
+         parse_m_crystalReBornTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_crystalreborntime_)));
@@ -924,15 +924,15 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(144)) goto parse_m_crystalmonsterid;
+        if (input->ExpectTag(144)) goto parse_m_crystalMonsterId;
         break;
       }
 
-      // optional int32 m_crystalmonsterid = 18;
+      // optional int32 m_crystalMonsterId = 18;
       case 18: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_crystalmonsterid:
+         parse_m_crystalMonsterId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_crystalmonsterid_)));
@@ -940,15 +940,15 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(154)) goto parse_m_crystalpos;
+        if (input->ExpectTag(154)) goto parse_m_crystalPos;
         break;
       }
 
-      // optional string m_crystalpos = 19;
+      // optional string m_crystalPos = 19;
       case 19: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_crystalpos:
+         parse_m_crystalPos:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_crystalpos()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -989,15 +989,15 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(178)) goto parse_m_matchmapentry;
+        if (input->ExpectTag(178)) goto parse_m_matchMapEntry;
         break;
       }
 
-      // optional string m_matchmapentry = 22;
+      // optional string m_matchMapEntry = 22;
       case 22: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_matchmapentry:
+         parse_m_matchMapEntry:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_matchmapentry()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1022,15 +1022,15 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(194)) goto parse_m_mapentry1;
+        if (input->ExpectTag(194)) goto parse_m_mapEntry1;
         break;
       }
 
-      // optional string m_mapentry1 = 24;
+      // optional string m_mapEntry1 = 24;
       case 24: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_mapentry1:
+         parse_m_mapEntry1:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_mapentry1()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1039,15 +1039,15 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(202)) goto parse_m_mapentry2;
+        if (input->ExpectTag(202)) goto parse_m_mapEntry2;
         break;
       }
 
-      // optional string m_mapentry2 = 25;
+      // optional string m_mapEntry2 = 25;
       case 25: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_mapentry2:
+         parse_m_mapEntry2:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_mapentry2()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1073,15 +1073,15 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(218)) goto parse_m_revivalpoint1;
+        if (input->ExpectTag(218)) goto parse_m_revivalPoint1;
         break;
       }
 
-      // optional string m_revivalpoint1 = 27;
+      // optional string m_revivalPoint1 = 27;
       case 27: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_revivalpoint1:
+         parse_m_revivalPoint1:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_revivalpoint1()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1107,15 +1107,15 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(234)) goto parse_m_revivalpoint2;
+        if (input->ExpectTag(234)) goto parse_m_revivalPoint2;
         break;
       }
 
-      // optional string m_revivalpoint2 = 29;
+      // optional string m_revivalPoint2 = 29;
       case 29: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_revivalpoint2:
+         parse_m_revivalPoint2:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_revivalpoint2()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1141,15 +1141,15 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(250)) goto parse_m_revivalpoint3;
+        if (input->ExpectTag(250)) goto parse_m_revivalPoint3;
         break;
       }
 
-      // optional string m_revivalpoint3 = 31;
+      // optional string m_revivalPoint3 = 31;
       case 31: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_revivalpoint3:
+         parse_m_revivalPoint3:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_revivalpoint3()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1192,15 +1192,15 @@ bool E_GodvalleyBattle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(272)) goto parse_m_actid;
+        if (input->ExpectTag(272)) goto parse_m_actId;
         break;
       }
 
-      // optional int32 m_actid = 34;
+      // optional int32 m_actId = 34;
       case 34: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_actid:
+         parse_m_actId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_actid_)));
@@ -1251,7 +1251,7 @@ void E_GodvalleyBattle::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
 
-  // optional int32 m_roomplayersmax = 2;
+  // optional int32 m_roomPlayersMax = 2;
   if (has_m_roomplayersmax()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_roomplayersmax(), output);
   }
@@ -1292,67 +1292,67 @@ void E_GodvalleyBattle::SerializeWithCachedSizes(
       6, this->m_name2(), output);
   }
 
-  // optional int32 m_winscore = 7;
+  // optional int32 m_winScore = 7;
   if (has_m_winscore()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_winscore(), output);
   }
 
-  // optional int32 m_timescore = 8;
+  // optional int32 m_timeScore = 8;
   if (has_m_timescore()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_timescore(), output);
   }
 
-  // optional int32 m_killscore = 9;
+  // optional int32 m_killScore = 9;
   if (has_m_killscore()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_killscore(), output);
   }
 
-  // optional int32 m_killkeepscore = 10;
+  // optional int32 m_killKeepScore = 10;
   if (has_m_killkeepscore()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_killkeepscore(), output);
   }
 
-  // optional int32 m_breakkillkeepscore = 11;
+  // optional int32 m_breakKillKeepScore = 11;
   if (has_m_breakkillkeepscore()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_breakkillkeepscore(), output);
   }
 
-  // optional int32 m_killmonsterscore = 12;
+  // optional int32 m_killMonsterScore = 12;
   if (has_m_killmonsterscore()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_killmonsterscore(), output);
   }
 
-  // optional int32 m_crystalpoints = 13;
+  // optional int32 m_crystalPoints = 13;
   if (has_m_crystalpoints()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_crystalpoints(), output);
   }
 
-  // optional int32 m_crystalscore = 14;
+  // optional int32 m_crystalScore = 14;
   if (has_m_crystalscore()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_crystalscore(), output);
   }
 
-  // optional int32 m_interceptpoints = 15;
+  // optional int32 m_interceptPoints = 15;
   if (has_m_interceptpoints()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_interceptpoints(), output);
   }
 
-  // optional int32 m_interceptscore = 16;
+  // optional int32 m_interceptScore = 16;
   if (has_m_interceptscore()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->m_interceptscore(), output);
   }
 
-  // optional int32 m_crystalreborntime = 17;
+  // optional int32 m_crystalReBornTime = 17;
   if (has_m_crystalreborntime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(17, this->m_crystalreborntime(), output);
   }
 
-  // optional int32 m_crystalmonsterid = 18;
+  // optional int32 m_crystalMonsterId = 18;
   if (has_m_crystalmonsterid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(18, this->m_crystalmonsterid(), output);
   }
 
-  // optional string m_crystalpos = 19;
+  // optional string m_crystalPos = 19;
   if (has_m_crystalpos()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_crystalpos().data(), this->m_crystalpos().length(),
@@ -1371,7 +1371,7 @@ void E_GodvalleyBattle::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(21, this->m_duration_s(), output);
   }
 
-  // optional string m_matchmapentry = 22;
+  // optional string m_matchMapEntry = 22;
   if (has_m_matchmapentry()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_matchmapentry().data(), this->m_matchmapentry().length(),
@@ -1385,7 +1385,7 @@ void E_GodvalleyBattle::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(23, this->m_mapid(), output);
   }
 
-  // optional string m_mapentry1 = 24;
+  // optional string m_mapEntry1 = 24;
   if (has_m_mapentry1()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_mapentry1().data(), this->m_mapentry1().length(),
@@ -1394,7 +1394,7 @@ void E_GodvalleyBattle::SerializeWithCachedSizes(
       24, this->m_mapentry1(), output);
   }
 
-  // optional string m_mapentry2 = 25;
+  // optional string m_mapEntry2 = 25;
   if (has_m_mapentry2()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_mapentry2().data(), this->m_mapentry2().length(),
@@ -1412,7 +1412,7 @@ void E_GodvalleyBattle::SerializeWithCachedSizes(
       26, this->m_monster1(), output);
   }
 
-  // optional string m_revivalpoint1 = 27;
+  // optional string m_revivalPoint1 = 27;
   if (has_m_revivalpoint1()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_revivalpoint1().data(), this->m_revivalpoint1().length(),
@@ -1430,7 +1430,7 @@ void E_GodvalleyBattle::SerializeWithCachedSizes(
       28, this->m_monster2(), output);
   }
 
-  // optional string m_revivalpoint2 = 29;
+  // optional string m_revivalPoint2 = 29;
   if (has_m_revivalpoint2()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_revivalpoint2().data(), this->m_revivalpoint2().length(),
@@ -1448,7 +1448,7 @@ void E_GodvalleyBattle::SerializeWithCachedSizes(
       30, this->m_monster3(), output);
   }
 
-  // optional string m_revivalpoint3 = 31;
+  // optional string m_revivalPoint3 = 31;
   if (has_m_revivalpoint3()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_revivalpoint3().data(), this->m_revivalpoint3().length(),
@@ -1475,7 +1475,7 @@ void E_GodvalleyBattle::SerializeWithCachedSizes(
       33, this->m_npc2pos(), output);
   }
 
-  // optional int32 m_actid = 34;
+  // optional int32 m_actId = 34;
   if (has_m_actid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(34, this->m_actid(), output);
   }
@@ -1498,7 +1498,7 @@ void E_GodvalleyBattle::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_roomplayersmax = 2;
+  // optional int32 m_roomPlayersMax = 2;
   if (has_m_roomplayersmax()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_roomplayersmax(), target);
   }
@@ -1543,67 +1543,67 @@ void E_GodvalleyBattle::SerializeWithCachedSizes(
         6, this->m_name2(), target);
   }
 
-  // optional int32 m_winscore = 7;
+  // optional int32 m_winScore = 7;
   if (has_m_winscore()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_winscore(), target);
   }
 
-  // optional int32 m_timescore = 8;
+  // optional int32 m_timeScore = 8;
   if (has_m_timescore()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_timescore(), target);
   }
 
-  // optional int32 m_killscore = 9;
+  // optional int32 m_killScore = 9;
   if (has_m_killscore()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_killscore(), target);
   }
 
-  // optional int32 m_killkeepscore = 10;
+  // optional int32 m_killKeepScore = 10;
   if (has_m_killkeepscore()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_killkeepscore(), target);
   }
 
-  // optional int32 m_breakkillkeepscore = 11;
+  // optional int32 m_breakKillKeepScore = 11;
   if (has_m_breakkillkeepscore()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_breakkillkeepscore(), target);
   }
 
-  // optional int32 m_killmonsterscore = 12;
+  // optional int32 m_killMonsterScore = 12;
   if (has_m_killmonsterscore()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_killmonsterscore(), target);
   }
 
-  // optional int32 m_crystalpoints = 13;
+  // optional int32 m_crystalPoints = 13;
   if (has_m_crystalpoints()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_crystalpoints(), target);
   }
 
-  // optional int32 m_crystalscore = 14;
+  // optional int32 m_crystalScore = 14;
   if (has_m_crystalscore()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_crystalscore(), target);
   }
 
-  // optional int32 m_interceptpoints = 15;
+  // optional int32 m_interceptPoints = 15;
   if (has_m_interceptpoints()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_interceptpoints(), target);
   }
 
-  // optional int32 m_interceptscore = 16;
+  // optional int32 m_interceptScore = 16;
   if (has_m_interceptscore()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->m_interceptscore(), target);
   }
 
-  // optional int32 m_crystalreborntime = 17;
+  // optional int32 m_crystalReBornTime = 17;
   if (has_m_crystalreborntime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(17, this->m_crystalreborntime(), target);
   }
 
-  // optional int32 m_crystalmonsterid = 18;
+  // optional int32 m_crystalMonsterId = 18;
   if (has_m_crystalmonsterid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(18, this->m_crystalmonsterid(), target);
   }
 
-  // optional string m_crystalpos = 19;
+  // optional string m_crystalPos = 19;
   if (has_m_crystalpos()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_crystalpos().data(), this->m_crystalpos().length(),
@@ -1623,7 +1623,7 @@ void E_GodvalleyBattle::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(21, this->m_duration_s(), target);
   }
 
-  // optional string m_matchmapentry = 22;
+  // optional string m_matchMapEntry = 22;
   if (has_m_matchmapentry()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_matchmapentry().data(), this->m_matchmapentry().length(),
@@ -1638,7 +1638,7 @@ void E_GodvalleyBattle::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(23, this->m_mapid(), target);
   }
 
-  // optional string m_mapentry1 = 24;
+  // optional string m_mapEntry1 = 24;
   if (has_m_mapentry1()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_mapentry1().data(), this->m_mapentry1().length(),
@@ -1648,7 +1648,7 @@ void E_GodvalleyBattle::SerializeWithCachedSizes(
         24, this->m_mapentry1(), target);
   }
 
-  // optional string m_mapentry2 = 25;
+  // optional string m_mapEntry2 = 25;
   if (has_m_mapentry2()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_mapentry2().data(), this->m_mapentry2().length(),
@@ -1668,7 +1668,7 @@ void E_GodvalleyBattle::SerializeWithCachedSizes(
         26, this->m_monster1(), target);
   }
 
-  // optional string m_revivalpoint1 = 27;
+  // optional string m_revivalPoint1 = 27;
   if (has_m_revivalpoint1()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_revivalpoint1().data(), this->m_revivalpoint1().length(),
@@ -1688,7 +1688,7 @@ void E_GodvalleyBattle::SerializeWithCachedSizes(
         28, this->m_monster2(), target);
   }
 
-  // optional string m_revivalpoint2 = 29;
+  // optional string m_revivalPoint2 = 29;
   if (has_m_revivalpoint2()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_revivalpoint2().data(), this->m_revivalpoint2().length(),
@@ -1708,7 +1708,7 @@ void E_GodvalleyBattle::SerializeWithCachedSizes(
         30, this->m_monster3(), target);
   }
 
-  // optional string m_revivalpoint3 = 31;
+  // optional string m_revivalPoint3 = 31;
   if (has_m_revivalpoint3()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_revivalpoint3().data(), this->m_revivalpoint3().length(),
@@ -1738,7 +1738,7 @@ void E_GodvalleyBattle::SerializeWithCachedSizes(
         33, this->m_npc2pos(), target);
   }
 
-  // optional int32 m_actid = 34;
+  // optional int32 m_actId = 34;
   if (has_m_actid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(34, this->m_actid(), target);
   }
@@ -1766,7 +1766,7 @@ int E_GodvalleyBattle::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_roomplayersmax = 2;
+    // optional int32 m_roomPlayersMax = 2;
     if (has_m_roomplayersmax()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1801,14 +1801,14 @@ int E_GodvalleyBattle::ByteSize() const {
           this->m_name2());
     }
 
-    // optional int32 m_winscore = 7;
+    // optional int32 m_winScore = 7;
     if (has_m_winscore()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_winscore());
     }
 
-    // optional int32 m_timescore = 8;
+    // optional int32 m_timeScore = 8;
     if (has_m_timescore()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1817,56 +1817,56 @@ int E_GodvalleyBattle::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_killscore = 9;
+    // optional int32 m_killScore = 9;
     if (has_m_killscore()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_killscore());
     }
 
-    // optional int32 m_killkeepscore = 10;
+    // optional int32 m_killKeepScore = 10;
     if (has_m_killkeepscore()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_killkeepscore());
     }
 
-    // optional int32 m_breakkillkeepscore = 11;
+    // optional int32 m_breakKillKeepScore = 11;
     if (has_m_breakkillkeepscore()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_breakkillkeepscore());
     }
 
-    // optional int32 m_killmonsterscore = 12;
+    // optional int32 m_killMonsterScore = 12;
     if (has_m_killmonsterscore()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_killmonsterscore());
     }
 
-    // optional int32 m_crystalpoints = 13;
+    // optional int32 m_crystalPoints = 13;
     if (has_m_crystalpoints()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_crystalpoints());
     }
 
-    // optional int32 m_crystalscore = 14;
+    // optional int32 m_crystalScore = 14;
     if (has_m_crystalscore()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_crystalscore());
     }
 
-    // optional int32 m_interceptpoints = 15;
+    // optional int32 m_interceptPoints = 15;
     if (has_m_interceptpoints()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_interceptpoints());
     }
 
-    // optional int32 m_interceptscore = 16;
+    // optional int32 m_interceptScore = 16;
     if (has_m_interceptscore()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1875,21 +1875,21 @@ int E_GodvalleyBattle::ByteSize() const {
 
   }
   if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    // optional int32 m_crystalreborntime = 17;
+    // optional int32 m_crystalReBornTime = 17;
     if (has_m_crystalreborntime()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_crystalreborntime());
     }
 
-    // optional int32 m_crystalmonsterid = 18;
+    // optional int32 m_crystalMonsterId = 18;
     if (has_m_crystalmonsterid()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_crystalmonsterid());
     }
 
-    // optional string m_crystalpos = 19;
+    // optional string m_crystalPos = 19;
     if (has_m_crystalpos()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -1910,7 +1910,7 @@ int E_GodvalleyBattle::ByteSize() const {
           this->m_duration_s());
     }
 
-    // optional string m_matchmapentry = 22;
+    // optional string m_matchMapEntry = 22;
     if (has_m_matchmapentry()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -1924,7 +1924,7 @@ int E_GodvalleyBattle::ByteSize() const {
           this->m_mapid());
     }
 
-    // optional string m_mapentry1 = 24;
+    // optional string m_mapEntry1 = 24;
     if (has_m_mapentry1()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -1933,7 +1933,7 @@ int E_GodvalleyBattle::ByteSize() const {
 
   }
   if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
-    // optional string m_mapentry2 = 25;
+    // optional string m_mapEntry2 = 25;
     if (has_m_mapentry2()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -1947,7 +1947,7 @@ int E_GodvalleyBattle::ByteSize() const {
           this->m_monster1());
     }
 
-    // optional string m_revivalpoint1 = 27;
+    // optional string m_revivalPoint1 = 27;
     if (has_m_revivalpoint1()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -1961,7 +1961,7 @@ int E_GodvalleyBattle::ByteSize() const {
           this->m_monster2());
     }
 
-    // optional string m_revivalpoint2 = 29;
+    // optional string m_revivalPoint2 = 29;
     if (has_m_revivalpoint2()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -1975,7 +1975,7 @@ int E_GodvalleyBattle::ByteSize() const {
           this->m_monster3());
     }
 
-    // optional string m_revivalpoint3 = 31;
+    // optional string m_revivalPoint3 = 31;
     if (has_m_revivalpoint3()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -1998,7 +1998,7 @@ int E_GodvalleyBattle::ByteSize() const {
           this->m_npc2pos());
     }
 
-    // optional int32 m_actid = 34;
+    // optional int32 m_actId = 34;
     if (has_m_actid()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2433,7 +2433,7 @@ void Sheet_GodvalleyBattle::Swap(Sheet_GodvalleyBattle* other) {
 
 #ifndef _MSC_VER
 const int E_GodvalleyRewardsRewardDesc::kMNumFieldNumber;
-const int E_GodvalleyRewardsRewardDesc::kMIdFieldNumber;
+const int E_GodvalleyRewardsRewardDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_GodvalleyRewardsRewardDesc::E_GodvalleyRewardsRewardDesc()
@@ -2502,7 +2502,7 @@ bool E_GodvalleyRewardsRewardDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_num = 1;
+      // optional int32 m_Num = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -2513,15 +2513,15 @@ bool E_GodvalleyRewardsRewardDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int64 m_id = 2;
+      // optional int64 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_id_)));
@@ -2551,12 +2551,12 @@ bool E_GodvalleyRewardsRewardDesc::MergePartialFromCodedStream(
 
 void E_GodvalleyRewardsRewardDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_num = 1;
+  // optional int32 m_Num = 1;
   if (has_m_num()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_num(), output);
   }
 
-  // optional int64 m_id = 2;
+  // optional int64 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_id(), output);
   }
@@ -2569,12 +2569,12 @@ void E_GodvalleyRewardsRewardDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_GodvalleyRewardsRewardDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_num = 1;
+  // optional int32 m_Num = 1;
   if (has_m_num()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_num(), target);
   }
 
-  // optional int64 m_id = 2;
+  // optional int64 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_id(), target);
   }
@@ -2590,14 +2590,14 @@ int E_GodvalleyRewardsRewardDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_num = 1;
+    // optional int32 m_Num = 1;
     if (has_m_num()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_num());
     }
 
-    // optional int64 m_id = 2;
+    // optional int64 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -3241,7 +3241,7 @@ bool E_GodvalleyAttributeAttributeDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_value = 1;
+      // optional int32 m_Value = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -3252,15 +3252,15 @@ bool E_GodvalleyAttributeAttributeDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_type;
+        if (input->ExpectTag(16)) goto parse_m_Type;
         break;
       }
 
-      // optional int32 m_type = 2;
+      // optional int32 m_Type = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_type:
+         parse_m_Type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_type_)));
@@ -3290,12 +3290,12 @@ bool E_GodvalleyAttributeAttributeDesc::MergePartialFromCodedStream(
 
 void E_GodvalleyAttributeAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
   }
 
-  // optional int32 m_type = 2;
+  // optional int32 m_Type = 2;
   if (has_m_type()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
   }
@@ -3308,12 +3308,12 @@ void E_GodvalleyAttributeAttributeDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_GodvalleyAttributeAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_type = 2;
+  // optional int32 m_Type = 2;
   if (has_m_type()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
   }
@@ -3329,14 +3329,14 @@ int E_GodvalleyAttributeAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_value = 1;
+    // optional int32 m_Value = 1;
     if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_value());
     }
 
-    // optional int32 m_type = 2;
+    // optional int32 m_Type = 2;
     if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

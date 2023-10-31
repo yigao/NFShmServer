@@ -132,12 +132,12 @@ E_AssistConst_s::E_AssistConst_s() {
 
 int E_AssistConst_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_sendergift = (int32_t)0;
-	m_sendergiftnum = (int32_t)0;
-	m_helpergift = (int32_t)0;
-	m_helpergiftnum = (int32_t)0;
-	m_prestigedaylimit = (int32_t)0;
-	m_prestigedaybosslimit = (int32_t)0;
+	m_senderGift = (int32_t)0;
+	m_senderGiftNum = (int32_t)0;
+	m_helperGift = (int32_t)0;
+	m_helperGiftNum = (int32_t)0;
+	m_prestigeDaylimit = (int32_t)0;
+	m_prestigeDayBosslimit = (int32_t)0;
 	return 0;
 }
 
@@ -147,22 +147,22 @@ int E_AssistConst_s::ResumeInit() {
 
 void E_AssistConst_s::write_to_pbmsg(::proto_ff::E_AssistConst & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_sendergift((int32_t)m_sendergift);
-	msg.set_m_sendergiftnum((int32_t)m_sendergiftnum);
-	msg.set_m_helpergift((int32_t)m_helpergift);
-	msg.set_m_helpergiftnum((int32_t)m_helpergiftnum);
-	msg.set_m_prestigedaylimit((int32_t)m_prestigedaylimit);
-	msg.set_m_prestigedaybosslimit((int32_t)m_prestigedaybosslimit);
+	msg.set_m_sendergift((int32_t)m_senderGift);
+	msg.set_m_sendergiftnum((int32_t)m_senderGiftNum);
+	msg.set_m_helpergift((int32_t)m_helperGift);
+	msg.set_m_helpergiftnum((int32_t)m_helperGiftNum);
+	msg.set_m_prestigedaylimit((int32_t)m_prestigeDaylimit);
+	msg.set_m_prestigedaybosslimit((int32_t)m_prestigeDayBosslimit);
 }
 
 void E_AssistConst_s::read_from_pbmsg(const ::proto_ff::E_AssistConst & msg) {
 	m_id = msg.m_id();
-	m_sendergift = msg.m_sendergift();
-	m_sendergiftnum = msg.m_sendergiftnum();
-	m_helpergift = msg.m_helpergift();
-	m_helpergiftnum = msg.m_helpergiftnum();
-	m_prestigedaylimit = msg.m_prestigedaylimit();
-	m_prestigedaybosslimit = msg.m_prestigedaybosslimit();
+	m_senderGift = msg.m_sendergift();
+	m_senderGiftNum = msg.m_sendergiftnum();
+	m_helperGift = msg.m_helpergift();
+	m_helperGiftNum = msg.m_helpergiftnum();
+	m_prestigeDaylimit = msg.m_prestigedaylimit();
+	m_prestigeDayBosslimit = msg.m_prestigedaybosslimit();
 }
 
 Sheet_AssistConst_s::Sheet_AssistConst_s() {

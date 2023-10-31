@@ -17,20 +17,20 @@ message E_FashionFashionActiveattributeDesc
 
 message E_FashionFashion
 {
-	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "时装ID"];
+	optional int64 m_ID = 1[(yd_fieldoptions.field_cname) = "时装ID"];
 	optional string m_name = 2[(yd_fieldoptions.field_cname) = "时装名称", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "外观类型"];
 	optional int32 m_quality = 4[(yd_fieldoptions.field_cname) = "时装品质"];
-	optional string m_professionlimit = 5[(yd_fieldoptions.field_cname) = "职业限制", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_timelimit = 6[(yd_fieldoptions.field_cname) = "是否时效"];
-	optional int64 m_activationitem = 7[(yd_fieldoptions.field_cname) = "激活道具ID"];
-	optional int32 m_activationnum = 8[(yd_fieldoptions.field_cname) = "激活道具数量"];
-	optional int64 m_starid = 9[(yd_fieldoptions.field_cname) = "升星道具id"];
-	optional string m_starnum = 10[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 256];
-	optional int32 m_starup = 11[(yd_fieldoptions.field_cname) = "升星等级上限"];
-	optional int32 m_starber = 12[(yd_fieldoptions.field_cname) = "每次升星属性增加的百分比值"];
+	optional string m_professionLimit = 5[(yd_fieldoptions.field_cname) = "职业限制", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_timeLimit = 6[(yd_fieldoptions.field_cname) = "是否时效"];
+	optional int64 m_activationItem = 7[(yd_fieldoptions.field_cname) = "激活道具ID"];
+	optional int32 m_activationNum = 8[(yd_fieldoptions.field_cname) = "激活道具数量"];
+	optional int64 m_starId = 9[(yd_fieldoptions.field_cname) = "升星道具id"];
+	optional string m_starNum = 10[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 256];
+	optional int32 m_starUp = 11[(yd_fieldoptions.field_cname) = "升星等级上限"];
+	optional int32 m_starBer = 12[(yd_fieldoptions.field_cname) = "每次升星属性增加的百分比值"];
 	repeated E_FashionFashionAttributeDesc m_attribute = 13[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
-	repeated E_FashionFashionActiveattributeDesc m_activeattribute = 14[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
+	repeated E_FashionFashionActiveattributeDesc m_ActiveAttribute = 14[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
 }
 
 

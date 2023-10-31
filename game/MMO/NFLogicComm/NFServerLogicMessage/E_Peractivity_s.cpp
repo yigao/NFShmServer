@@ -11,16 +11,16 @@ E_PeractivityPeractivity_s::E_PeractivityPeractivity_s() {
 }
 
 int E_PeractivityPeractivity_s::CreateInit() {
-	m_activeid = (int64_t)0;
-	m_typeid = (int32_t)0;
-	m_functionid = (int32_t)0;
-	m_serverdelaytime = (int32_t)0;
-	m_servertime = (int32_t)0;
-	m_openingtime = (int32_t)0;
-	m_advancetime = (int32_t)0;
-	m_intervaltime = (int32_t)0;
-	m_iscross = (int32_t)0;
-	m_isfestvial = (int32_t)0;
+	m_activeId = (int64_t)0;
+	m_typeId = (int32_t)0;
+	m_functionID = (int32_t)0;
+	m_serverdelayTime = (int32_t)0;
+	m_serverTime = (int32_t)0;
+	m_openingTime = (int32_t)0;
+	m_advanceTime = (int32_t)0;
+	m_intervalTime = (int32_t)0;
+	m_isCross = (int32_t)0;
+	m_isFestvial = (int32_t)0;
 	return 0;
 }
 
@@ -29,35 +29,35 @@ int E_PeractivityPeractivity_s::ResumeInit() {
 }
 
 void E_PeractivityPeractivity_s::write_to_pbmsg(::proto_ff::E_PeractivityPeractivity & msg) const {
-	msg.set_m_activeid((int64_t)m_activeid);
-	msg.set_m_activename(m_activename.data());
-	msg.set_m_typeid((int32_t)m_typeid);
-	msg.set_m_functionid((int32_t)m_functionid);
-	msg.set_m_opeday(m_opeday.data());
-	msg.set_m_closeday(m_closeday.data());
-	msg.set_m_serverdelaytime((int32_t)m_serverdelaytime);
-	msg.set_m_servertime((int32_t)m_servertime);
-	msg.set_m_openingtime((int32_t)m_openingtime);
-	msg.set_m_advancetime((int32_t)m_advancetime);
-	msg.set_m_intervaltime((int32_t)m_intervaltime);
-	msg.set_m_iscross((int32_t)m_iscross);
-	msg.set_m_isfestvial((int32_t)m_isfestvial);
+	msg.set_m_activeid((int64_t)m_activeId);
+	msg.set_m_activename(m_activeName.data());
+	msg.set_m_typeid((int32_t)m_typeId);
+	msg.set_m_functionid((int32_t)m_functionID);
+	msg.set_m_opeday(m_opeDay.data());
+	msg.set_m_closeday(m_closeDay.data());
+	msg.set_m_serverdelaytime((int32_t)m_serverdelayTime);
+	msg.set_m_servertime((int32_t)m_serverTime);
+	msg.set_m_openingtime((int32_t)m_openingTime);
+	msg.set_m_advancetime((int32_t)m_advanceTime);
+	msg.set_m_intervaltime((int32_t)m_intervalTime);
+	msg.set_m_iscross((int32_t)m_isCross);
+	msg.set_m_isfestvial((int32_t)m_isFestvial);
 }
 
 void E_PeractivityPeractivity_s::read_from_pbmsg(const ::proto_ff::E_PeractivityPeractivity & msg) {
-	m_activeid = msg.m_activeid();
-	m_activename = msg.m_activename();
-	m_typeid = msg.m_typeid();
-	m_functionid = msg.m_functionid();
-	m_opeday = msg.m_opeday();
-	m_closeday = msg.m_closeday();
-	m_serverdelaytime = msg.m_serverdelaytime();
-	m_servertime = msg.m_servertime();
-	m_openingtime = msg.m_openingtime();
-	m_advancetime = msg.m_advancetime();
-	m_intervaltime = msg.m_intervaltime();
-	m_iscross = msg.m_iscross();
-	m_isfestvial = msg.m_isfestvial();
+	m_activeId = msg.m_activeid();
+	m_activeName = msg.m_activename();
+	m_typeId = msg.m_typeid();
+	m_functionID = msg.m_functionid();
+	m_opeDay = msg.m_opeday();
+	m_closeDay = msg.m_closeday();
+	m_serverdelayTime = msg.m_serverdelaytime();
+	m_serverTime = msg.m_servertime();
+	m_openingTime = msg.m_openingtime();
+	m_advanceTime = msg.m_advancetime();
+	m_intervalTime = msg.m_intervaltime();
+	m_isCross = msg.m_iscross();
+	m_isFestvial = msg.m_isfestvial();
 }
 
 Sheet_PeractivityPeractivity_s::Sheet_PeractivityPeractivity_s() {

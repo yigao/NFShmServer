@@ -23,7 +23,7 @@ namespace proto_ff_s {
 		int32_t m_id;//属性ID
 		int32_t m_percent;//百分比
 		float m_power;//战斗力
-		int32_t m_systemtype;//模块类型
+		int32_t m_systemType;//模块类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_AttributeAttribute & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_AttributeAttribute & msg);
@@ -51,17 +51,17 @@ namespace proto_ff_s {
 		virtual ~E_AttributeSuppress_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_lvldiff;//等级差
-		int32_t m_hitsuppve;//命中压制
-		int32_t m_critsuppve;//暴击压制
-		int32_t m_killsuppve;//必杀压制
-		int32_t m_statesuppve;//状态压制
-		int32_t m_lvsuppve;//等级压制
-		int32_t m_hitsuppvp;//命中压制
-		int32_t m_critsuppvp;//暴击压制
-		int32_t m_killsuppvp;//必杀压制
-		int32_t m_statesuppvp;//状态压制
-		int32_t m_lvsuppvp;//等级压制
+		int32_t m_lvlDiff;//等级差
+		int32_t m_hitSupPve;//命中压制
+		int32_t m_critSupPve;//暴击压制
+		int32_t m_killSupPve;//必杀压制
+		int32_t m_stateSupPve;//状态压制
+		int32_t m_lvSupPve;//等级压制
+		int32_t m_hitSupPvp;//命中压制
+		int32_t m_critSupPvp;//暴击压制
+		int32_t m_killSupPvp;//必杀压制
+		int32_t m_stateSupPvp;//状态压制
+		int32_t m_lvSupPvp;//等级压制
 
 		virtual void write_to_pbmsg(::proto_ff::E_AttributeSuppress & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_AttributeSuppress & msg);
@@ -89,9 +89,9 @@ namespace proto_ff_s {
 		virtual ~E_AttributePowersup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_powerdiff;//战力差
-		int32_t m_powersuppve;//战力压制
-		int32_t m_powersuppvp;//战力压制
+		int32_t m_powerDiff;//战力差
+		int32_t m_powerSupPve;//战力压制
+		int32_t m_powerSupPvp;//战力压制
 
 		virtual void write_to_pbmsg(::proto_ff::E_AttributePowersup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_AttributePowersup & msg);

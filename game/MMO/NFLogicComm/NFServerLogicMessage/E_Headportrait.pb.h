@@ -279,10 +279,10 @@ class E_HeadportraitHead : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_id = 1;
+  // optional int64 m_ID = 1;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 1;
+  static const int kMIDFieldNumber = 1;
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
@@ -312,10 +312,10 @@ class E_HeadportraitHead : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_quality() const;
   inline void set_m_quality(::google::protobuf::int32 value);
 
-  // optional string m_professionlimit = 5;
+  // optional string m_professionLimit = 5;
   inline bool has_m_professionlimit() const;
   inline void clear_m_professionlimit();
-  static const int kMProfessionlimitFieldNumber = 5;
+  static const int kMProfessionLimitFieldNumber = 5;
   inline const ::std::string& m_professionlimit() const;
   inline void set_m_professionlimit(const ::std::string& value);
   inline void set_m_professionlimit(const char* value);
@@ -324,31 +324,31 @@ class E_HeadportraitHead : public ::google::protobuf::Message {
   inline ::std::string* release_m_professionlimit();
   inline void set_allocated_m_professionlimit(::std::string* m_professionlimit);
 
-  // optional int64 m_activationitem = 6;
+  // optional int64 m_activationItem = 6;
   inline bool has_m_activationitem() const;
   inline void clear_m_activationitem();
-  static const int kMActivationitemFieldNumber = 6;
+  static const int kMActivationItemFieldNumber = 6;
   inline ::google::protobuf::int64 m_activationitem() const;
   inline void set_m_activationitem(::google::protobuf::int64 value);
 
-  // optional int32 m_activationnum = 7;
+  // optional int32 m_activationNum = 7;
   inline bool has_m_activationnum() const;
   inline void clear_m_activationnum();
-  static const int kMActivationnumFieldNumber = 7;
+  static const int kMActivationNumFieldNumber = 7;
   inline ::google::protobuf::int32 m_activationnum() const;
   inline void set_m_activationnum(::google::protobuf::int32 value);
 
-  // optional int64 m_starid = 8;
+  // optional int64 m_starId = 8;
   inline bool has_m_starid() const;
   inline void clear_m_starid();
-  static const int kMStaridFieldNumber = 8;
+  static const int kMStarIdFieldNumber = 8;
   inline ::google::protobuf::int64 m_starid() const;
   inline void set_m_starid(::google::protobuf::int64 value);
 
-  // optional string m_starnum = 9;
+  // optional string m_starNum = 9;
   inline bool has_m_starnum() const;
   inline void clear_m_starnum();
-  static const int kMStarnumFieldNumber = 9;
+  static const int kMStarNumFieldNumber = 9;
   inline const ::std::string& m_starnum() const;
   inline void set_m_starnum(const ::std::string& value);
   inline void set_m_starnum(const char* value);
@@ -357,17 +357,17 @@ class E_HeadportraitHead : public ::google::protobuf::Message {
   inline ::std::string* release_m_starnum();
   inline void set_allocated_m_starnum(::std::string* m_starnum);
 
-  // optional int32 m_starup = 10;
+  // optional int32 m_starUp = 10;
   inline bool has_m_starup() const;
   inline void clear_m_starup();
-  static const int kMStarupFieldNumber = 10;
+  static const int kMStarUpFieldNumber = 10;
   inline ::google::protobuf::int32 m_starup() const;
   inline void set_m_starup(::google::protobuf::int32 value);
 
-  // optional int32 m_starber = 11;
+  // optional int32 m_starBer = 11;
   inline bool has_m_starber() const;
   inline void clear_m_starber();
-  static const int kMStarberFieldNumber = 11;
+  static const int kMStarBerFieldNumber = 11;
   inline ::google::protobuf::int32 m_starber() const;
   inline void set_m_starber(::google::protobuf::int32 value);
 
@@ -383,10 +383,10 @@ class E_HeadportraitHead : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_HeadportraitHeadAttributeDesc >*
       mutable_m_attribute();
 
-  // repeated .proto_ff.E_HeadportraitHeadActiveattributeDesc m_activeattribute = 13;
+  // repeated .proto_ff.E_HeadportraitHeadActiveattributeDesc m_ActiveAttribute = 13;
   inline int m_activeattribute_size() const;
   inline void clear_m_activeattribute();
-  static const int kMActiveattributeFieldNumber = 13;
+  static const int kMActiveAttributeFieldNumber = 13;
   inline const ::proto_ff::E_HeadportraitHeadActiveattributeDesc& m_activeattribute(int index) const;
   inline ::proto_ff::E_HeadportraitHeadActiveattributeDesc* mutable_m_activeattribute(int index);
   inline ::proto_ff::E_HeadportraitHeadActiveattributeDesc* add_m_activeattribute();
@@ -634,7 +634,7 @@ inline void E_HeadportraitHeadActiveattributeDesc::set_m_type(::google::protobuf
 
 // E_HeadportraitHead
 
-// optional int64 m_id = 1;
+// optional int64 m_ID = 1;
 inline bool E_HeadportraitHead::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -770,7 +770,7 @@ inline void E_HeadportraitHead::set_m_quality(::google::protobuf::int32 value) {
   m_quality_ = value;
 }
 
-// optional string m_professionlimit = 5;
+// optional string m_professionLimit = 5;
 inline bool E_HeadportraitHead::has_m_professionlimit() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -840,7 +840,7 @@ inline void E_HeadportraitHead::set_allocated_m_professionlimit(::std::string* m
   }
 }
 
-// optional int64 m_activationitem = 6;
+// optional int64 m_activationItem = 6;
 inline bool E_HeadportraitHead::has_m_activationitem() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -862,7 +862,7 @@ inline void E_HeadportraitHead::set_m_activationitem(::google::protobuf::int64 v
   m_activationitem_ = value;
 }
 
-// optional int32 m_activationnum = 7;
+// optional int32 m_activationNum = 7;
 inline bool E_HeadportraitHead::has_m_activationnum() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -884,7 +884,7 @@ inline void E_HeadportraitHead::set_m_activationnum(::google::protobuf::int32 va
   m_activationnum_ = value;
 }
 
-// optional int64 m_starid = 8;
+// optional int64 m_starId = 8;
 inline bool E_HeadportraitHead::has_m_starid() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -906,7 +906,7 @@ inline void E_HeadportraitHead::set_m_starid(::google::protobuf::int64 value) {
   m_starid_ = value;
 }
 
-// optional string m_starnum = 9;
+// optional string m_starNum = 9;
 inline bool E_HeadportraitHead::has_m_starnum() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -976,7 +976,7 @@ inline void E_HeadportraitHead::set_allocated_m_starnum(::std::string* m_starnum
   }
 }
 
-// optional int32 m_starup = 10;
+// optional int32 m_starUp = 10;
 inline bool E_HeadportraitHead::has_m_starup() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -998,7 +998,7 @@ inline void E_HeadportraitHead::set_m_starup(::google::protobuf::int32 value) {
   m_starup_ = value;
 }
 
-// optional int32 m_starber = 11;
+// optional int32 m_starBer = 11;
 inline bool E_HeadportraitHead::has_m_starber() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -1045,7 +1045,7 @@ E_HeadportraitHead::mutable_m_attribute() {
   return &m_attribute_;
 }
 
-// repeated .proto_ff.E_HeadportraitHeadActiveattributeDesc m_activeattribute = 13;
+// repeated .proto_ff.E_HeadportraitHeadActiveattributeDesc m_ActiveAttribute = 13;
 inline int E_HeadportraitHead::m_activeattribute_size() const {
   return m_activeattribute_.size();
 }

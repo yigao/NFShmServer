@@ -97,9 +97,9 @@ int AncientgodLvupDesc::CheckWhenAllDataLoaded()
 		{
 			CHECK_EXPR_MSG_RESULT((pDesc->m_attribute[j].m_type <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_attribute[j].m_type)), result, "can't find the attribute:{} in the  excel:attribute sheet:attribute", pDesc->m_attribute[j].m_type);
 		}
-		CHECK_EXPR_MSG_RESULT((pDesc->m_mallid <= 0 || MallMallDesc::Instance()->GetDesc(pDesc->m_mallid)), result, "can't find the mallid:{} in the  excel:mall sheet:mall", pDesc->m_mallid);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_itemid <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_itemid)), result, "can't find the itemid:{} in the  excel:item sheet:item", pDesc->m_itemid);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_ancientid <= 0 || AncientgodAncientgodDesc::Instance()->GetDesc(pDesc->m_ancientid)), result, "can't find the ancientid:{} in the  excel:ancientgod sheet:ancientgod", pDesc->m_ancientid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_mallID <= 0 || MallMallDesc::Instance()->GetDesc(pDesc->m_mallID)), result, "can't find the mallID:{} in the  excel:mall sheet:mall", pDesc->m_mallID);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_itemID <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_itemID)), result, "can't find the itemID:{} in the  excel:item sheet:item", pDesc->m_itemID);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_ancientID <= 0 || AncientgodAncientgodDesc::Instance()->GetDesc(pDesc->m_ancientID)), result, "can't find the ancientID:{} in the  excel:ancientgod sheet:ancientgod", pDesc->m_ancientID);
 	}
 	return result;
 }

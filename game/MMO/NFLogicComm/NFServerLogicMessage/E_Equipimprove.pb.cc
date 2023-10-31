@@ -536,15 +536,15 @@ void protobuf_AddDesc_E_5fEquipimprove_2eproto() {
     "uipimproveUpquality\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002i"
     "d\022\035\n\tm_quality\030\002 \001(\005B\n\302\377\024\006\345\223\201\351\230\266\022(\n\nm_po"
     "sition\030\003 \001(\tB\024\302\377\024\014\350\243\205\345\244\207\351\203\250\344\275\215\220\301\024@\0222\n\022m_"
-    "wearqualitylimit\030\004 \001(\005B\026\302\377\024\022\350\243\205\345\244\207\345\223\201\351\230\266"
+    "wearQualityLimit\030\004 \001(\005B\026\302\377\024\022\350\243\205\345\244\207\345\223\201\351\230\266"
     "\344\270\213\351\231\220\022 \n\006m_star\030\005 \001(\005B\020\302\377\024\014\346\230\237\347\272\247\347\255\211\347\272\247"
     "\022#\n\tm_starnum\030\006 \001(\005B\020\302\377\024\014\346\230\237\347\272\247\346\230\237\346\225\260\022,\n"
     "\tm_success\030\007 \001(\005B\031\302\377\024\025\345\215\207\346\230\237\345\237\272\347\241\200\346\210\220\345\212\237"
     "\347\216\207\022$\n\010m_luckid\030\010 \001(\005B\022\302\377\024\016\345\271\270\350\277\220\351\201\223\345\205\267i"
     "d\022*\n\rm_lucksuccess\030\t \001(\005B\023\302\377\024\017\345\212\240\346\210\220\346\210\220\345"
     "\212\237\347\216\207\022)\n\tm_lucknum\030\n \001(\005B\026\302\377\024\022\345\271\270\350\277\220\351\201\223\345"
-    "\205\267\346\225\260\351\207\217\022&\n\014m_qualityatt\030\013 \001(\005B\020\302\377\024\014\345\223\201\351"
-    "\230\266\345\261\236\346\200\247\022+\n\016m_qualityvalue\030\014 \001(\005B\023\302\377\024\017\345\223"
+    "\205\267\346\225\260\351\207\217\022&\n\014m_qualityAtt\030\013 \001(\005B\020\302\377\024\014\345\223\201\351"
+    "\230\266\345\261\236\346\200\247\022+\n\016m_qualityValue\030\014 \001(\005B\023\302\377\024\017\345\223"
     "\201\351\230\266\345\261\236\346\200\247\345\200\274\022W\n\nm_material\030\r \003(\0132-.prot"
     "o_ff.E_EquipimproveUpqualityMaterialDesc"
     "B\024\302\377\024\014\345\215\207\346\230\237\346\235\220\346\226\231\210\301\024\002\022S\n\013m_attribute\030\016 "
@@ -559,11 +559,11 @@ void protobuf_AddDesc_E_5fEquipimprove_2eproto() {
     "\200\274\022\024\n\006m_type\030\002 \001(\005B\004\302\377\024\000\"\210\005\n\024E_Equipimpr"
     "oveAwaken\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\035\n\tm_qua"
     "lity\030\002 \001(\005B\n\302\377\024\006\345\223\201\351\230\266\022(\n\nm_position\030\003 \001"
-    "(\tB\024\302\377\024\014\350\243\205\345\244\207\351\203\250\344\275\215\220\301\024@\0222\n\022m_wearqualit"
-    "ylimit\030\004 \001(\005B\026\302\377\024\022\350\243\205\345\244\207\345\223\201\351\230\266\344\270\213\351\231\220\022.\n\016"
-    "m_qualitylimit\030\005 \001(\005B\026\302\377\024\022\350\243\205\345\244\207\345\223\201\350\264\250\344\270"
-    "\213\351\231\220\022/\n\017m_wearstarlimit\030\006 \001(\005B\026\302\377\024\022\350\243\205\345\244"
-    "\207\346\230\237\347\272\247\344\270\213\351\231\220\022$\n\nm_awakenlv\030\007 \001(\005B\020\302\377\024\014\350"
+    "(\tB\024\302\377\024\014\350\243\205\345\244\207\351\203\250\344\275\215\220\301\024@\0222\n\022m_wearQualit"
+    "yLimit\030\004 \001(\005B\026\302\377\024\022\350\243\205\345\244\207\345\223\201\351\230\266\344\270\213\351\231\220\022.\n\016"
+    "m_qualityLimit\030\005 \001(\005B\026\302\377\024\022\350\243\205\345\244\207\345\223\201\350\264\250\344\270"
+    "\213\351\231\220\022/\n\017m_wearStarLimit\030\006 \001(\005B\026\302\377\024\022\350\243\205\345\244"
+    "\207\346\230\237\347\272\247\344\270\213\351\231\220\022$\n\nm_awakenLv\030\007 \001(\005B\020\302\377\024\014\350"
     "\247\211\351\206\222\347\255\211\347\272\247\022)\n\rm_material_id\030\010 \001(\005B\022\302\377\024\016"
     "\350\247\211\351\206\222\346\235\220\346\226\231ID\022.\n\016m_material_num\030\t \001(\005B\026"
     "\302\377\024\022\350\247\211\351\206\222\346\235\220\346\226\231\346\225\260\351\207\217\022&\n\nm_break_id\030\n \001"
@@ -591,13 +591,13 @@ void protobuf_AddDesc_E_5fEquipimprove_2eproto() {
     "\024 \"L\n\032E_EquipimproveSealSealDesc\022\030\n\007m_va"
     "lue\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\024\n\006m_type\030\002 \001(\005B\004\302\377\024\000"
     "\"\376\002\n\022E_EquipimproveSeal\022 \n\004m_id\030\001 \001(\005B\022\302"
-    "\377\024\016\345\215\260\347\254\246\347\211\251\345\223\201id\0222\n\016m_sealposition\030\002 \001("
+    "\377\024\016\345\215\260\347\254\246\347\211\251\345\223\201id\0222\n\016m_sealPosition\030\002 \001("
     "\tB\032\302\377\024\022\345\215\260\347\254\246\351\225\266\345\265\214\351\203\250\344\275\215\220\301\024@\022\"\n\010m_seall"
-    "v\030\003 \001(\005B\020\302\377\024\014\345\215\260\347\254\246\345\223\201\351\230\266\022#\n\007m_preid\030\004 \001"
-    "(\005B\022\302\377\024\016\344\270\212\351\230\266\345\215\260\347\254\246ID\022$\n\010m_nextid\030\005 \001(\005"
+    "v\030\003 \001(\005B\020\302\377\024\014\345\215\260\347\254\246\345\223\201\351\230\266\022#\n\007m_preId\030\004 \001"
+    "(\005B\022\302\377\024\016\344\270\212\351\230\266\345\215\260\347\254\246ID\022$\n\010m_nextId\030\005 \001(\005"
     "B\022\302\377\024\016\344\270\213\351\230\266\345\215\260\347\254\246ID\0220\n\006m_numb\030\006 \001(\tB \302\377"
     "\024\030\345\257\271\345\272\224\344\270\200\351\230\266\345\215\260\347\254\246\346\225\260\351\207\217\220\301\024@\022%\n\013m_next"
-    "value\030\007 \001(\005B\020\302\377\024\014\344\270\213\347\272\247\345\267\256\345\200\274\022J\n\006m_seal\030"
+    "Value\030\007 \001(\005B\020\302\377\024\014\344\270\213\347\272\247\345\267\256\345\200\274\022J\n\006m_seal\030"
     "\010 \003(\0132$.proto_ff.E_EquipimproveSealSealD"
     "escB\024\302\377\024\014\345\215\260\347\254\246\345\261\236\346\200\247\210\301\024\003\"]\n\026Sheet_Equip"
     "improveSeal\022C\n\027E_EquipimproveSeal_List\030\001"
@@ -1173,15 +1173,15 @@ void E_EquipimproveUpqualityAttributeDesc::Swap(E_EquipimproveUpqualityAttribute
 const int E_EquipimproveUpquality::kMIdFieldNumber;
 const int E_EquipimproveUpquality::kMQualityFieldNumber;
 const int E_EquipimproveUpquality::kMPositionFieldNumber;
-const int E_EquipimproveUpquality::kMWearqualitylimitFieldNumber;
+const int E_EquipimproveUpquality::kMWearQualityLimitFieldNumber;
 const int E_EquipimproveUpquality::kMStarFieldNumber;
 const int E_EquipimproveUpquality::kMStarnumFieldNumber;
 const int E_EquipimproveUpquality::kMSuccessFieldNumber;
 const int E_EquipimproveUpquality::kMLuckidFieldNumber;
 const int E_EquipimproveUpquality::kMLucksuccessFieldNumber;
 const int E_EquipimproveUpquality::kMLucknumFieldNumber;
-const int E_EquipimproveUpquality::kMQualityattFieldNumber;
-const int E_EquipimproveUpquality::kMQualityvalueFieldNumber;
+const int E_EquipimproveUpquality::kMQualityAttFieldNumber;
+const int E_EquipimproveUpquality::kMQualityValueFieldNumber;
 const int E_EquipimproveUpquality::kMMaterialFieldNumber;
 const int E_EquipimproveUpquality::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
@@ -1327,15 +1327,15 @@ bool E_EquipimproveUpquality::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_wearqualitylimit;
+        if (input->ExpectTag(32)) goto parse_m_wearQualityLimit;
         break;
       }
 
-      // optional int32 m_wearqualitylimit = 4;
+      // optional int32 m_wearQualityLimit = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_wearqualitylimit:
+         parse_m_wearQualityLimit:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_wearqualitylimit_)));
@@ -1439,15 +1439,15 @@ bool E_EquipimproveUpquality::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_qualityatt;
+        if (input->ExpectTag(88)) goto parse_m_qualityAtt;
         break;
       }
 
-      // optional int32 m_qualityatt = 11;
+      // optional int32 m_qualityAtt = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_qualityatt:
+         parse_m_qualityAtt:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_qualityatt_)));
@@ -1455,15 +1455,15 @@ bool E_EquipimproveUpquality::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_qualityvalue;
+        if (input->ExpectTag(96)) goto parse_m_qualityValue;
         break;
       }
 
-      // optional int32 m_qualityvalue = 12;
+      // optional int32 m_qualityValue = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_qualityvalue:
+         parse_m_qualityValue:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_qualityvalue_)));
@@ -1542,7 +1542,7 @@ void E_EquipimproveUpquality::SerializeWithCachedSizes(
       3, this->m_position(), output);
   }
 
-  // optional int32 m_wearqualitylimit = 4;
+  // optional int32 m_wearQualityLimit = 4;
   if (has_m_wearqualitylimit()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_wearqualitylimit(), output);
   }
@@ -1577,12 +1577,12 @@ void E_EquipimproveUpquality::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_lucknum(), output);
   }
 
-  // optional int32 m_qualityatt = 11;
+  // optional int32 m_qualityAtt = 11;
   if (has_m_qualityatt()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_qualityatt(), output);
   }
 
-  // optional int32 m_qualityvalue = 12;
+  // optional int32 m_qualityValue = 12;
   if (has_m_qualityvalue()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_qualityvalue(), output);
   }
@@ -1627,7 +1627,7 @@ void E_EquipimproveUpquality::SerializeWithCachedSizes(
         3, this->m_position(), target);
   }
 
-  // optional int32 m_wearqualitylimit = 4;
+  // optional int32 m_wearQualityLimit = 4;
   if (has_m_wearqualitylimit()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_wearqualitylimit(), target);
   }
@@ -1662,12 +1662,12 @@ void E_EquipimproveUpquality::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_lucknum(), target);
   }
 
-  // optional int32 m_qualityatt = 11;
+  // optional int32 m_qualityAtt = 11;
   if (has_m_qualityatt()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_qualityatt(), target);
   }
 
-  // optional int32 m_qualityvalue = 12;
+  // optional int32 m_qualityValue = 12;
   if (has_m_qualityvalue()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_qualityvalue(), target);
   }
@@ -1718,7 +1718,7 @@ int E_EquipimproveUpquality::ByteSize() const {
           this->m_position());
     }
 
-    // optional int32 m_wearqualitylimit = 4;
+    // optional int32 m_wearQualityLimit = 4;
     if (has_m_wearqualitylimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1769,14 +1769,14 @@ int E_EquipimproveUpquality::ByteSize() const {
           this->m_lucknum());
     }
 
-    // optional int32 m_qualityatt = 11;
+    // optional int32 m_qualityAtt = 11;
     if (has_m_qualityatt()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_qualityatt());
     }
 
-    // optional int32 m_qualityvalue = 12;
+    // optional int32 m_qualityValue = 12;
     if (has_m_qualityvalue()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2623,10 +2623,10 @@ void E_EquipimproveAwakenBreakDesc::Swap(E_EquipimproveAwakenBreakDesc* other) {
 const int E_EquipimproveAwaken::kMIdFieldNumber;
 const int E_EquipimproveAwaken::kMQualityFieldNumber;
 const int E_EquipimproveAwaken::kMPositionFieldNumber;
-const int E_EquipimproveAwaken::kMWearqualitylimitFieldNumber;
-const int E_EquipimproveAwaken::kMQualitylimitFieldNumber;
-const int E_EquipimproveAwaken::kMWearstarlimitFieldNumber;
-const int E_EquipimproveAwaken::kMAwakenlvFieldNumber;
+const int E_EquipimproveAwaken::kMWearQualityLimitFieldNumber;
+const int E_EquipimproveAwaken::kMQualityLimitFieldNumber;
+const int E_EquipimproveAwaken::kMWearStarLimitFieldNumber;
+const int E_EquipimproveAwaken::kMAwakenLvFieldNumber;
 const int E_EquipimproveAwaken::kMMaterialIdFieldNumber;
 const int E_EquipimproveAwaken::kMMaterialNumFieldNumber;
 const int E_EquipimproveAwaken::kMBreakIdFieldNumber;
@@ -2774,15 +2774,15 @@ bool E_EquipimproveAwaken::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_wearqualitylimit;
+        if (input->ExpectTag(32)) goto parse_m_wearQualityLimit;
         break;
       }
 
-      // optional int32 m_wearqualitylimit = 4;
+      // optional int32 m_wearQualityLimit = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_wearqualitylimit:
+         parse_m_wearQualityLimit:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_wearqualitylimit_)));
@@ -2790,15 +2790,15 @@ bool E_EquipimproveAwaken::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_qualitylimit;
+        if (input->ExpectTag(40)) goto parse_m_qualityLimit;
         break;
       }
 
-      // optional int32 m_qualitylimit = 5;
+      // optional int32 m_qualityLimit = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_qualitylimit:
+         parse_m_qualityLimit:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_qualitylimit_)));
@@ -2806,15 +2806,15 @@ bool E_EquipimproveAwaken::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_wearstarlimit;
+        if (input->ExpectTag(48)) goto parse_m_wearStarLimit;
         break;
       }
 
-      // optional int32 m_wearstarlimit = 6;
+      // optional int32 m_wearStarLimit = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_wearstarlimit:
+         parse_m_wearStarLimit:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_wearstarlimit_)));
@@ -2822,15 +2822,15 @@ bool E_EquipimproveAwaken::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_awakenlv;
+        if (input->ExpectTag(56)) goto parse_m_awakenLv;
         break;
       }
 
-      // optional int32 m_awakenlv = 7;
+      // optional int32 m_awakenLv = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_awakenlv:
+         parse_m_awakenLv:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_awakenlv_)));
@@ -2973,22 +2973,22 @@ void E_EquipimproveAwaken::SerializeWithCachedSizes(
       3, this->m_position(), output);
   }
 
-  // optional int32 m_wearqualitylimit = 4;
+  // optional int32 m_wearQualityLimit = 4;
   if (has_m_wearqualitylimit()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_wearqualitylimit(), output);
   }
 
-  // optional int32 m_qualitylimit = 5;
+  // optional int32 m_qualityLimit = 5;
   if (has_m_qualitylimit()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_qualitylimit(), output);
   }
 
-  // optional int32 m_wearstarlimit = 6;
+  // optional int32 m_wearStarLimit = 6;
   if (has_m_wearstarlimit()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_wearstarlimit(), output);
   }
 
-  // optional int32 m_awakenlv = 7;
+  // optional int32 m_awakenLv = 7;
   if (has_m_awakenlv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_awakenlv(), output);
   }
@@ -3053,22 +3053,22 @@ void E_EquipimproveAwaken::SerializeWithCachedSizes(
         3, this->m_position(), target);
   }
 
-  // optional int32 m_wearqualitylimit = 4;
+  // optional int32 m_wearQualityLimit = 4;
   if (has_m_wearqualitylimit()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_wearqualitylimit(), target);
   }
 
-  // optional int32 m_qualitylimit = 5;
+  // optional int32 m_qualityLimit = 5;
   if (has_m_qualitylimit()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_qualitylimit(), target);
   }
 
-  // optional int32 m_wearstarlimit = 6;
+  // optional int32 m_wearStarLimit = 6;
   if (has_m_wearstarlimit()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_wearstarlimit(), target);
   }
 
-  // optional int32 m_awakenlv = 7;
+  // optional int32 m_awakenLv = 7;
   if (has_m_awakenlv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_awakenlv(), target);
   }
@@ -3139,28 +3139,28 @@ int E_EquipimproveAwaken::ByteSize() const {
           this->m_position());
     }
 
-    // optional int32 m_wearqualitylimit = 4;
+    // optional int32 m_wearQualityLimit = 4;
     if (has_m_wearqualitylimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_wearqualitylimit());
     }
 
-    // optional int32 m_qualitylimit = 5;
+    // optional int32 m_qualityLimit = 5;
     if (has_m_qualitylimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_qualitylimit());
     }
 
-    // optional int32 m_wearstarlimit = 6;
+    // optional int32 m_wearStarLimit = 6;
     if (has_m_wearstarlimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_wearstarlimit());
     }
 
-    // optional int32 m_awakenlv = 7;
+    // optional int32 m_awakenLv = 7;
     if (has_m_awakenlv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4699,12 +4699,12 @@ void E_EquipimproveSealSealDesc::Swap(E_EquipimproveSealSealDesc* other) {
 
 #ifndef _MSC_VER
 const int E_EquipimproveSeal::kMIdFieldNumber;
-const int E_EquipimproveSeal::kMSealpositionFieldNumber;
+const int E_EquipimproveSeal::kMSealPositionFieldNumber;
 const int E_EquipimproveSeal::kMSeallvFieldNumber;
-const int E_EquipimproveSeal::kMPreidFieldNumber;
-const int E_EquipimproveSeal::kMNextidFieldNumber;
+const int E_EquipimproveSeal::kMPreIdFieldNumber;
+const int E_EquipimproveSeal::kMNextIdFieldNumber;
 const int E_EquipimproveSeal::kMNumbFieldNumber;
-const int E_EquipimproveSeal::kMNextvalueFieldNumber;
+const int E_EquipimproveSeal::kMNextValueFieldNumber;
 const int E_EquipimproveSeal::kMSealFieldNumber;
 #endif  // !_MSC_VER
 
@@ -4810,15 +4810,15 @@ bool E_EquipimproveSeal::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_m_sealposition;
+        if (input->ExpectTag(18)) goto parse_m_sealPosition;
         break;
       }
 
-      // optional string m_sealposition = 2;
+      // optional string m_sealPosition = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_sealposition:
+         parse_m_sealPosition:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_sealposition()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -4843,15 +4843,15 @@ bool E_EquipimproveSeal::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_preid;
+        if (input->ExpectTag(32)) goto parse_m_preId;
         break;
       }
 
-      // optional int32 m_preid = 4;
+      // optional int32 m_preId = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_preid:
+         parse_m_preId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_preid_)));
@@ -4859,15 +4859,15 @@ bool E_EquipimproveSeal::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_nextid;
+        if (input->ExpectTag(40)) goto parse_m_nextId;
         break;
       }
 
-      // optional int32 m_nextid = 5;
+      // optional int32 m_nextId = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_nextid:
+         parse_m_nextId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_nextid_)));
@@ -4892,15 +4892,15 @@ bool E_EquipimproveSeal::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_nextvalue;
+        if (input->ExpectTag(56)) goto parse_m_nextValue;
         break;
       }
 
-      // optional int32 m_nextvalue = 7;
+      // optional int32 m_nextValue = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_nextvalue:
+         parse_m_nextValue:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_nextvalue_)));
@@ -4950,7 +4950,7 @@ void E_EquipimproveSeal::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional string m_sealposition = 2;
+  // optional string m_sealPosition = 2;
   if (has_m_sealposition()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_sealposition().data(), this->m_sealposition().length(),
@@ -4964,12 +4964,12 @@ void E_EquipimproveSeal::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_seallv(), output);
   }
 
-  // optional int32 m_preid = 4;
+  // optional int32 m_preId = 4;
   if (has_m_preid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_preid(), output);
   }
 
-  // optional int32 m_nextid = 5;
+  // optional int32 m_nextId = 5;
   if (has_m_nextid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_nextid(), output);
   }
@@ -4983,7 +4983,7 @@ void E_EquipimproveSeal::SerializeWithCachedSizes(
       6, this->m_numb(), output);
   }
 
-  // optional int32 m_nextvalue = 7;
+  // optional int32 m_nextValue = 7;
   if (has_m_nextvalue()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_nextvalue(), output);
   }
@@ -5007,7 +5007,7 @@ void E_EquipimproveSeal::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional string m_sealposition = 2;
+  // optional string m_sealPosition = 2;
   if (has_m_sealposition()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_sealposition().data(), this->m_sealposition().length(),
@@ -5022,12 +5022,12 @@ void E_EquipimproveSeal::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_seallv(), target);
   }
 
-  // optional int32 m_preid = 4;
+  // optional int32 m_preId = 4;
   if (has_m_preid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_preid(), target);
   }
 
-  // optional int32 m_nextid = 5;
+  // optional int32 m_nextId = 5;
   if (has_m_nextid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_nextid(), target);
   }
@@ -5042,7 +5042,7 @@ void E_EquipimproveSeal::SerializeWithCachedSizes(
         6, this->m_numb(), target);
   }
 
-  // optional int32 m_nextvalue = 7;
+  // optional int32 m_nextValue = 7;
   if (has_m_nextvalue()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_nextvalue(), target);
   }
@@ -5072,7 +5072,7 @@ int E_EquipimproveSeal::ByteSize() const {
           this->m_id());
     }
 
-    // optional string m_sealposition = 2;
+    // optional string m_sealPosition = 2;
     if (has_m_sealposition()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -5086,14 +5086,14 @@ int E_EquipimproveSeal::ByteSize() const {
           this->m_seallv());
     }
 
-    // optional int32 m_preid = 4;
+    // optional int32 m_preId = 4;
     if (has_m_preid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_preid());
     }
 
-    // optional int32 m_nextid = 5;
+    // optional int32 m_nextId = 5;
     if (has_m_nextid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -5107,7 +5107,7 @@ int E_EquipimproveSeal::ByteSize() const {
           this->m_numb());
     }
 
-    // optional int32 m_nextvalue = 7;
+    // optional int32 m_nextValue = 7;
     if (has_m_nextvalue()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

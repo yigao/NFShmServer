@@ -137,10 +137,10 @@ class E_MarryMarriage : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional string m_weddingname = 2;
+  // optional string m_weddingName = 2;
   inline bool has_m_weddingname() const;
   inline void clear_m_weddingname();
-  static const int kMWeddingnameFieldNumber = 2;
+  static const int kMWeddingNameFieldNumber = 2;
   inline const ::std::string& m_weddingname() const;
   inline void set_m_weddingname(const ::std::string& value);
   inline void set_m_weddingname(const char* value);
@@ -177,38 +177,38 @@ class E_MarryMarriage : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_price() const;
   inline void set_m_price(::google::protobuf::int32 value);
 
-  // optional int32 m_firstboxid = 7;
+  // optional int32 m_firstboxID = 7;
   inline bool has_m_firstboxid() const;
   inline void clear_m_firstboxid();
-  static const int kMFirstboxidFieldNumber = 7;
+  static const int kMFirstboxIDFieldNumber = 7;
   inline ::google::protobuf::int32 m_firstboxid() const;
   inline void set_m_firstboxid(::google::protobuf::int32 value);
 
-  // optional int32 m_firstaddpower = 8;
+  // optional int32 m_firstaddPower = 8;
   inline bool has_m_firstaddpower() const;
   inline void clear_m_firstaddpower();
-  static const int kMFirstaddpowerFieldNumber = 8;
+  static const int kMFirstaddPowerFieldNumber = 8;
   inline ::google::protobuf::int32 m_firstaddpower() const;
   inline void set_m_firstaddpower(::google::protobuf::int32 value);
 
-  // optional int32 m_repeatboxid = 9;
+  // optional int32 m_repeatboxID = 9;
   inline bool has_m_repeatboxid() const;
   inline void clear_m_repeatboxid();
-  static const int kMRepeatboxidFieldNumber = 9;
+  static const int kMRepeatboxIDFieldNumber = 9;
   inline ::google::protobuf::int32 m_repeatboxid() const;
   inline void set_m_repeatboxid(::google::protobuf::int32 value);
 
-  // optional int32 m_repeataddpower = 10;
+  // optional int32 m_repeataddPower = 10;
   inline bool has_m_repeataddpower() const;
   inline void clear_m_repeataddpower();
-  static const int kMRepeataddpowerFieldNumber = 10;
+  static const int kMRepeataddPowerFieldNumber = 10;
   inline ::google::protobuf::int32 m_repeataddpower() const;
   inline void set_m_repeataddpower(::google::protobuf::int32 value);
 
-  // optional int32 m_titleid = 11;
+  // optional int32 m_titleID = 11;
   inline bool has_m_titleid() const;
   inline void clear_m_titleid();
-  static const int kMTitleidFieldNumber = 11;
+  static const int kMTitleIDFieldNumber = 11;
   inline ::google::protobuf::int32 m_titleid() const;
   inline void set_m_titleid(::google::protobuf::int32 value);
 
@@ -429,10 +429,10 @@ class E_MarryBanquet : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional string m_begintime = 2;
+  // optional string m_beginTime = 2;
   inline bool has_m_begintime() const;
   inline void clear_m_begintime();
-  static const int kMBegintimeFieldNumber = 2;
+  static const int kMBeginTimeFieldNumber = 2;
   inline const ::std::string& m_begintime() const;
   inline void set_m_begintime(const ::std::string& value);
   inline void set_m_begintime(const char* value);
@@ -441,10 +441,10 @@ class E_MarryBanquet : public ::google::protobuf::Message {
   inline ::std::string* release_m_begintime();
   inline void set_allocated_m_begintime(::std::string* m_begintime);
 
-  // optional string m_finishtime = 3;
+  // optional string m_finishTime = 3;
   inline bool has_m_finishtime() const;
   inline void clear_m_finishtime();
-  static const int kMFinishtimeFieldNumber = 3;
+  static const int kMFinishTimeFieldNumber = 3;
   inline const ::std::string& m_finishtime() const;
   inline void set_m_finishtime(const ::std::string& value);
   inline void set_m_finishtime(const char* value);
@@ -837,14 +837,14 @@ class E_MarryLocklv : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_exp = 3;
+  // optional int32 m_Exp = 3;
   inline bool has_m_exp() const;
   inline void clear_m_exp();
   static const int kMExpFieldNumber = 3;
   inline ::google::protobuf::int32 m_exp() const;
   inline void set_m_exp(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_MarryLocklvAttributeDesc m_attribute = 4;
+  // repeated .proto_ff.E_MarryLocklvAttributeDesc m_Attribute = 4;
   inline int m_attribute_size() const;
   inline void clear_m_attribute();
   static const int kMAttributeFieldNumber = 4;
@@ -1512,24 +1512,24 @@ class E_MarryChild : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_childid = 1;
+  // optional int64 m_childID = 1;
   inline bool has_m_childid() const;
   inline void clear_m_childid();
-  static const int kMChildidFieldNumber = 1;
+  static const int kMChildIDFieldNumber = 1;
   inline ::google::protobuf::int64 m_childid() const;
   inline void set_m_childid(::google::protobuf::int64 value);
 
-  // optional int64 m_itemid = 2;
+  // optional int64 m_itemId = 2;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 2;
+  static const int kMItemIdFieldNumber = 2;
   inline ::google::protobuf::int64 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int64 value);
 
-  // optional string m_childname = 3;
+  // optional string m_childName = 3;
   inline bool has_m_childname() const;
   inline void clear_m_childname();
-  static const int kMChildnameFieldNumber = 3;
+  static const int kMChildNameFieldNumber = 3;
   inline const ::std::string& m_childname() const;
   inline void set_m_childname(const ::std::string& value);
   inline void set_m_childname(const char* value);
@@ -1538,24 +1538,24 @@ class E_MarryChild : public ::google::protobuf::Message {
   inline ::std::string* release_m_childname();
   inline void set_allocated_m_childname(::std::string* m_childname);
 
-  // optional int32 m_childquality = 4;
+  // optional int32 m_childQuality = 4;
   inline bool has_m_childquality() const;
   inline void clear_m_childquality();
-  static const int kMChildqualityFieldNumber = 4;
+  static const int kMChildQualityFieldNumber = 4;
   inline ::google::protobuf::int32 m_childquality() const;
   inline void set_m_childquality(::google::protobuf::int32 value);
 
-  // optional int32 m_handz = 5;
+  // optional int32 m_handZ = 5;
   inline bool has_m_handz() const;
   inline void clear_m_handz();
-  static const int kMHandzFieldNumber = 5;
+  static const int kMHandZFieldNumber = 5;
   inline ::google::protobuf::int32 m_handz() const;
   inline void set_m_handz(::google::protobuf::int32 value);
 
-  // optional string m_handzname = 6;
+  // optional string m_handZName = 6;
   inline bool has_m_handzname() const;
   inline void clear_m_handzname();
-  static const int kMHandznameFieldNumber = 6;
+  static const int kMHandZNameFieldNumber = 6;
   inline const ::std::string& m_handzname() const;
   inline void set_m_handzname(const ::std::string& value);
   inline void set_m_handzname(const char* value);
@@ -1564,10 +1564,10 @@ class E_MarryChild : public ::google::protobuf::Message {
   inline ::std::string* release_m_handzname();
   inline void set_allocated_m_handzname(::std::string* m_handzname);
 
-  // optional string m_skillid = 7;
+  // optional string m_skillID = 7;
   inline bool has_m_skillid() const;
   inline void clear_m_skillid();
-  static const int kMSkillidFieldNumber = 7;
+  static const int kMSkillIDFieldNumber = 7;
   inline const ::std::string& m_skillid() const;
   inline void set_m_skillid(const ::std::string& value);
   inline void set_m_skillid(const char* value);
@@ -1576,17 +1576,17 @@ class E_MarryChild : public ::google::protobuf::Message {
   inline ::std::string* release_m_skillid();
   inline void set_allocated_m_skillid(::std::string* m_skillid);
 
-  // optional int64 m_starid = 8;
+  // optional int64 m_starId = 8;
   inline bool has_m_starid() const;
   inline void clear_m_starid();
-  static const int kMStaridFieldNumber = 8;
+  static const int kMStarIdFieldNumber = 8;
   inline ::google::protobuf::int64 m_starid() const;
   inline void set_m_starid(::google::protobuf::int64 value);
 
-  // optional string m_starnum = 9;
+  // optional string m_starNum = 9;
   inline bool has_m_starnum() const;
   inline void clear_m_starnum();
-  static const int kMStarnumFieldNumber = 9;
+  static const int kMStarNumFieldNumber = 9;
   inline const ::std::string& m_starnum() const;
   inline void set_m_starnum(const ::std::string& value);
   inline void set_m_starnum(const char* value);
@@ -1607,10 +1607,10 @@ class E_MarryChild : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MarryChildAttributeDesc >*
       mutable_m_attribute();
 
-  // repeated .proto_ff.E_MarryChildStariattributeDesc m_stariattribute = 11;
+  // repeated .proto_ff.E_MarryChildStariattributeDesc m_starIattribute = 11;
   inline int m_stariattribute_size() const;
   inline void clear_m_stariattribute();
-  static const int kMStariattributeFieldNumber = 11;
+  static const int kMStarIattributeFieldNumber = 11;
   inline const ::proto_ff::E_MarryChildStariattributeDesc& m_stariattribute(int index) const;
   inline ::proto_ff::E_MarryChildStariattributeDesc* mutable_m_stariattribute(int index);
   inline ::proto_ff::E_MarryChildStariattributeDesc* add_m_stariattribute();
@@ -1812,10 +1812,10 @@ class E_MarryChildvalue : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
-  // repeated int32 m_lvvalue = 2;
+  // repeated int32 m_lvValue = 2;
   inline int m_lvvalue_size() const;
   inline void clear_m_lvvalue();
-  static const int kMLvvalueFieldNumber = 2;
+  static const int kMLvValueFieldNumber = 2;
   inline ::google::protobuf::int32 m_lvvalue(int index) const;
   inline void set_m_lvvalue(int index, ::google::protobuf::int32 value);
   inline void add_m_lvvalue(::google::protobuf::int32 value);
@@ -2084,7 +2084,7 @@ class E_MarryChildexp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_MarryChildexpGradeDesc m_grade = 2;
+  // repeated .proto_ff.E_MarryChildexpGradeDesc m_Grade = 2;
   inline int m_grade_size() const;
   inline void clear_m_grade();
   static const int kMGradeFieldNumber = 2;
@@ -2356,14 +2356,14 @@ class E_MarryExpress : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_exp = 2;
+  // optional int32 m_Exp = 2;
   inline bool has_m_exp() const;
   inline void clear_m_exp();
   static const int kMExpFieldNumber = 2;
   inline ::google::protobuf::int32 m_exp() const;
   inline void set_m_exp(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_MarryExpressAttributeDesc m_attribute = 3;
+  // repeated .proto_ff.E_MarryExpressAttributeDesc m_Attribute = 3;
   inline int m_attribute_size() const;
   inline void clear_m_attribute();
   static const int kMAttributeFieldNumber = 3;
@@ -2756,10 +2756,10 @@ class E_MarryExpressshop : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_broadcastid() const;
   inline void set_m_broadcastid(::google::protobuf::int32 value);
 
-  // optional int32 m_effectid = 6;
+  // optional int32 m_effectId = 6;
   inline bool has_m_effectid() const;
   inline void clear_m_effectid();
-  static const int kMEffectidFieldNumber = 6;
+  static const int kMEffectIdFieldNumber = 6;
   inline ::google::protobuf::int32 m_effectid() const;
   inline void set_m_effectid(::google::protobuf::int32 value);
 
@@ -3107,7 +3107,7 @@ class E_MarryConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_givegirl() const;
   inline void set_m_givegirl(::google::protobuf::int32 value);
 
-  // optional int32 m_xytime = 12;
+  // optional int32 m_Xytime = 12;
   inline bool has_m_xytime() const;
   inline void clear_m_xytime();
   static const int kMXytimeFieldNumber = 12;
@@ -3121,10 +3121,10 @@ class E_MarryConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_free() const;
   inline void set_m_free(::google::protobuf::int32 value);
 
-  // optional int32 m_buynum = 14;
+  // optional int32 m_buyNum = 14;
   inline bool has_m_buynum() const;
   inline void clear_m_buynum();
-  static const int kMBuynumFieldNumber = 14;
+  static const int kMBuyNumFieldNumber = 14;
   inline ::google::protobuf::int32 m_buynum() const;
   inline void set_m_buynum(::google::protobuf::int32 value);
 
@@ -3135,10 +3135,10 @@ class E_MarryConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_consume() const;
   inline void set_m_consume(::google::protobuf::int32 value);
 
-  // optional int32 m_consumenum = 16;
+  // optional int32 m_consumeNum = 16;
   inline bool has_m_consumenum() const;
   inline void clear_m_consumenum();
-  static const int kMConsumenumFieldNumber = 16;
+  static const int kMConsumeNumFieldNumber = 16;
   inline ::google::protobuf::int32 m_consumenum() const;
   inline void set_m_consumenum(::google::protobuf::int32 value);
 
@@ -3163,10 +3163,10 @@ class E_MarryConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lockitem() const;
   inline void set_m_lockitem(::google::protobuf::int32 value);
 
-  // optional int32 m_lockitemexp = 20;
+  // optional int32 m_lockitemExp = 20;
   inline bool has_m_lockitemexp() const;
   inline void clear_m_lockitemexp();
-  static const int kMLockitemexpFieldNumber = 20;
+  static const int kMLockitemExpFieldNumber = 20;
   inline ::google::protobuf::int32 m_lockitemexp() const;
   inline void set_m_lockitemexp(::google::protobuf::int32 value);
 
@@ -3177,10 +3177,10 @@ class E_MarryConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_childitem() const;
   inline void set_m_childitem(::google::protobuf::int32 value);
 
-  // optional int32 m_childitemexp = 22;
+  // optional int32 m_childitemExp = 22;
   inline bool has_m_childitemexp() const;
   inline void clear_m_childitemexp();
-  static const int kMChilditemexpFieldNumber = 22;
+  static const int kMChilditemExpFieldNumber = 22;
   inline ::google::protobuf::int32 m_childitemexp() const;
   inline void set_m_childitemexp(::google::protobuf::int32 value);
 
@@ -3205,28 +3205,28 @@ class E_MarryConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_asklimit() const;
   inline void set_m_asklimit(::google::protobuf::int32 value);
 
-  // optional int32 m_hyreward = 26;
+  // optional int32 m_HyReward = 26;
   inline bool has_m_hyreward() const;
   inline void clear_m_hyreward();
-  static const int kMHyrewardFieldNumber = 26;
+  static const int kMHyRewardFieldNumber = 26;
   inline ::google::protobuf::int32 m_hyreward() const;
   inline void set_m_hyreward(::google::protobuf::int32 value);
 
-  // optional int32 m_toursceneid = 27;
+  // optional int32 m_tourSceneId = 27;
   inline bool has_m_toursceneid() const;
   inline void clear_m_toursceneid();
-  static const int kMToursceneidFieldNumber = 27;
+  static const int kMTourSceneIdFieldNumber = 27;
   inline ::google::protobuf::int32 m_toursceneid() const;
   inline void set_m_toursceneid(::google::protobuf::int32 value);
 
-  // optional int32 m_tourfollowindex = 28;
+  // optional int32 m_tourFollowIndex = 28;
   inline bool has_m_tourfollowindex() const;
   inline void clear_m_tourfollowindex();
-  static const int kMTourfollowindexFieldNumber = 28;
+  static const int kMTourFollowIndexFieldNumber = 28;
   inline ::google::protobuf::int32 m_tourfollowindex() const;
   inline void set_m_tourfollowindex(::google::protobuf::int32 value);
 
-  // optional string m_hyicon = 29;
+  // optional string m_Hyicon = 29;
   inline bool has_m_hyicon() const;
   inline void clear_m_hyicon();
   static const int kMHyiconFieldNumber = 29;
@@ -3238,7 +3238,7 @@ class E_MarryConstant : public ::google::protobuf::Message {
   inline ::std::string* release_m_hyicon();
   inline void set_allocated_m_hyicon(::std::string* m_hyicon);
 
-  // optional string m_hyname = 30;
+  // optional string m_Hyname = 30;
   inline bool has_m_hyname() const;
   inline void clear_m_hyname();
   static const int kMHynameFieldNumber = 30;
@@ -3250,7 +3250,7 @@ class E_MarryConstant : public ::google::protobuf::Message {
   inline ::std::string* release_m_hyname();
   inline void set_allocated_m_hyname(::std::string* m_hyname);
 
-  // optional string m_xyicon = 31;
+  // optional string m_Xyicon = 31;
   inline bool has_m_xyicon() const;
   inline void clear_m_xyicon();
   static const int kMXyiconFieldNumber = 31;
@@ -3262,7 +3262,7 @@ class E_MarryConstant : public ::google::protobuf::Message {
   inline ::std::string* release_m_xyicon();
   inline void set_allocated_m_xyicon(::std::string* m_xyicon);
 
-  // optional string m_xyname = 32;
+  // optional string m_Xyname = 32;
   inline bool has_m_xyname() const;
   inline void clear_m_xyname();
   static const int kMXynameFieldNumber = 32;
@@ -3274,38 +3274,38 @@ class E_MarryConstant : public ::google::protobuf::Message {
   inline ::std::string* release_m_xyname();
   inline void set_allocated_m_xyname(::std::string* m_xyname);
 
-  // optional int32 m_redbagnum = 33;
+  // optional int32 m_redbagNum = 33;
   inline bool has_m_redbagnum() const;
   inline void clear_m_redbagnum();
-  static const int kMRedbagnumFieldNumber = 33;
+  static const int kMRedbagNumFieldNumber = 33;
   inline ::google::protobuf::int32 m_redbagnum() const;
   inline void set_m_redbagnum(::google::protobuf::int32 value);
 
-  // optional int32 m_redmoney = 34;
+  // optional int32 m_redMoney = 34;
   inline bool has_m_redmoney() const;
   inline void clear_m_redmoney();
-  static const int kMRedmoneyFieldNumber = 34;
+  static const int kMRedMoneyFieldNumber = 34;
   inline ::google::protobuf::int32 m_redmoney() const;
   inline void set_m_redmoney(::google::protobuf::int32 value);
 
-  // optional int32 m_redprice = 35;
+  // optional int32 m_redPrice = 35;
   inline bool has_m_redprice() const;
   inline void clear_m_redprice();
-  static const int kMRedpriceFieldNumber = 35;
+  static const int kMRedPriceFieldNumber = 35;
   inline ::google::protobuf::int32 m_redprice() const;
   inline void set_m_redprice(::google::protobuf::int32 value);
 
-  // optional int32 m_sendredreward = 36;
+  // optional int32 m_sendredReward = 36;
   inline bool has_m_sendredreward() const;
   inline void clear_m_sendredreward();
-  static const int kMSendredrewardFieldNumber = 36;
+  static const int kMSendredRewardFieldNumber = 36;
   inline ::google::protobuf::int32 m_sendredreward() const;
   inline void set_m_sendredreward(::google::protobuf::int32 value);
 
-  // optional int32 m_sendrednum = 37;
+  // optional int32 m_sendredNum = 37;
   inline bool has_m_sendrednum() const;
   inline void clear_m_sendrednum();
-  static const int kMSendrednumFieldNumber = 37;
+  static const int kMSendredNumFieldNumber = 37;
   inline ::google::protobuf::int32 m_sendrednum() const;
   inline void set_m_sendrednum(::google::protobuf::int32 value);
 
@@ -3316,31 +3316,31 @@ class E_MarryConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_redcollect() const;
   inline void set_m_redcollect(::google::protobuf::int32 value);
 
-  // optional int32 m_redcollectnum = 39;
+  // optional int32 m_redcollectNum = 39;
   inline bool has_m_redcollectnum() const;
   inline void clear_m_redcollectnum();
-  static const int kMRedcollectnumFieldNumber = 39;
+  static const int kMRedcollectNumFieldNumber = 39;
   inline ::google::protobuf::int32 m_redcollectnum() const;
   inline void set_m_redcollectnum(::google::protobuf::int32 value);
 
-  // optional int32 m_cakemonster = 40;
+  // optional int32 m_cakeMonster = 40;
   inline bool has_m_cakemonster() const;
   inline void clear_m_cakemonster();
-  static const int kMCakemonsterFieldNumber = 40;
+  static const int kMCakeMonsterFieldNumber = 40;
   inline ::google::protobuf::int32 m_cakemonster() const;
   inline void set_m_cakemonster(::google::protobuf::int32 value);
 
-  // optional int32 m_hymonster = 41;
+  // optional int32 m_HyMonster = 41;
   inline bool has_m_hymonster() const;
   inline void clear_m_hymonster();
-  static const int kMHymonsterFieldNumber = 41;
+  static const int kMHyMonsterFieldNumber = 41;
   inline ::google::protobuf::int32 m_hymonster() const;
   inline void set_m_hymonster(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_MarryConstantTourmonsterDesc m_tourmonster = 42;
+  // repeated .proto_ff.E_MarryConstantTourmonsterDesc m_tourMonster = 42;
   inline int m_tourmonster_size() const;
   inline void clear_m_tourmonster();
-  static const int kMTourmonsterFieldNumber = 42;
+  static const int kMTourMonsterFieldNumber = 42;
   inline const ::proto_ff::E_MarryConstantTourmonsterDesc& m_tourmonster(int index) const;
   inline ::proto_ff::E_MarryConstantTourmonsterDesc* mutable_m_tourmonster(int index);
   inline ::proto_ff::E_MarryConstantTourmonsterDesc* add_m_tourmonster();
@@ -4070,31 +4070,31 @@ class E_MarryWedding : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_signreward = 2;
+  // optional int32 m_signReward = 2;
   inline bool has_m_signreward() const;
   inline void clear_m_signreward();
-  static const int kMSignrewardFieldNumber = 2;
+  static const int kMSignRewardFieldNumber = 2;
   inline ::google::protobuf::int32 m_signreward() const;
   inline void set_m_signreward(::google::protobuf::int32 value);
 
-  // optional int32 m_signdaynum = 3;
+  // optional int32 m_signDaynum = 3;
   inline bool has_m_signdaynum() const;
   inline void clear_m_signdaynum();
-  static const int kMSigndaynumFieldNumber = 3;
+  static const int kMSignDaynumFieldNumber = 3;
   inline ::google::protobuf::int32 m_signdaynum() const;
   inline void set_m_signdaynum(::google::protobuf::int32 value);
 
-  // optional int32 m_cakereftime = 4;
+  // optional int32 m_cakeReftime = 4;
   inline bool has_m_cakereftime() const;
   inline void clear_m_cakereftime();
-  static const int kMCakereftimeFieldNumber = 4;
+  static const int kMCakeReftimeFieldNumber = 4;
   inline ::google::protobuf::int32 m_cakereftime() const;
   inline void set_m_cakereftime(::google::protobuf::int32 value);
 
-  // optional int32 m_cakenum = 5;
+  // optional int32 m_cakeNum = 5;
   inline bool has_m_cakenum() const;
   inline void clear_m_cakenum();
-  static const int kMCakenumFieldNumber = 5;
+  static const int kMCakeNumFieldNumber = 5;
   inline ::google::protobuf::int32 m_cakenum() const;
   inline void set_m_cakenum(::google::protobuf::int32 value);
 
@@ -4124,17 +4124,17 @@ class E_MarryWedding : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_modeltime() const;
   inline void set_m_modeltime(::google::protobuf::int32 value);
 
-  // optional int32 m_cakereward = 9;
+  // optional int32 m_cakeReward = 9;
   inline bool has_m_cakereward() const;
   inline void clear_m_cakereward();
-  static const int kMCakerewardFieldNumber = 9;
+  static const int kMCakeRewardFieldNumber = 9;
   inline ::google::protobuf::int32 m_cakereward() const;
   inline void set_m_cakereward(::google::protobuf::int32 value);
 
-  // optional int32 m_signcakenum = 10;
+  // optional int32 m_signCakenum = 10;
   inline bool has_m_signcakenum() const;
   inline void clear_m_signcakenum();
-  static const int kMSigncakenumFieldNumber = 10;
+  static const int kMSignCakenumFieldNumber = 10;
   inline ::google::protobuf::int32 m_signcakenum() const;
   inline void set_m_signcakenum(::google::protobuf::int32 value);
 
@@ -4145,10 +4145,10 @@ class E_MarryWedding : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_monster() const;
   inline void set_m_monster(::google::protobuf::int32 value);
 
-  // optional int32 m_monsternum = 12;
+  // optional int32 m_monsterNum = 12;
   inline bool has_m_monsternum() const;
   inline void clear_m_monsternum();
-  static const int kMMonsternumFieldNumber = 12;
+  static const int kMMonsterNumFieldNumber = 12;
   inline ::google::protobuf::int32 m_monsternum() const;
   inline void set_m_monsternum(::google::protobuf::int32 value);
 
@@ -4166,45 +4166,45 @@ class E_MarryWedding : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_npcid() const;
   inline void set_m_npcid(::google::protobuf::int32 value);
 
-  // optional int32 m_npcnum = 15;
+  // optional int32 m_npcNum = 15;
   inline bool has_m_npcnum() const;
   inline void clear_m_npcnum();
-  static const int kMNpcnumFieldNumber = 15;
+  static const int kMNpcNumFieldNumber = 15;
   inline ::google::protobuf::int32 m_npcnum() const;
   inline void set_m_npcnum(::google::protobuf::int32 value);
 
-  // optional int32 m_monsterreward = 16;
+  // optional int32 m_monsterReward = 16;
   inline bool has_m_monsterreward() const;
   inline void clear_m_monsterreward();
-  static const int kMMonsterrewardFieldNumber = 16;
+  static const int kMMonsterRewardFieldNumber = 16;
   inline ::google::protobuf::int32 m_monsterreward() const;
   inline void set_m_monsterreward(::google::protobuf::int32 value);
 
-  // optional int32 m_monsterdaynum = 17;
+  // optional int32 m_monsterDaynum = 17;
   inline bool has_m_monsterdaynum() const;
   inline void clear_m_monsterdaynum();
-  static const int kMMonsterdaynumFieldNumber = 17;
+  static const int kMMonsterDaynumFieldNumber = 17;
   inline ::google::protobuf::int32 m_monsterdaynum() const;
   inline void set_m_monsterdaynum(::google::protobuf::int32 value);
 
-  // optional int32 m_feastid = 18;
+  // optional int32 m_feastId = 18;
   inline bool has_m_feastid() const;
   inline void clear_m_feastid();
-  static const int kMFeastidFieldNumber = 18;
+  static const int kMFeastIdFieldNumber = 18;
   inline ::google::protobuf::int32 m_feastid() const;
   inline void set_m_feastid(::google::protobuf::int32 value);
 
-  // optional int32 m_feastreward = 19;
+  // optional int32 m_feastReward = 19;
   inline bool has_m_feastreward() const;
   inline void clear_m_feastreward();
-  static const int kMFeastrewardFieldNumber = 19;
+  static const int kMFeastRewardFieldNumber = 19;
   inline ::google::protobuf::int32 m_feastreward() const;
   inline void set_m_feastreward(::google::protobuf::int32 value);
 
-  // optional int32 m_feastnum = 20;
+  // optional int32 m_feastNum = 20;
   inline bool has_m_feastnum() const;
   inline void clear_m_feastnum();
-  static const int kMFeastnumFieldNumber = 20;
+  static const int kMFeastNumFieldNumber = 20;
   inline ::google::protobuf::int32 m_feastnum() const;
   inline void set_m_feastnum(::google::protobuf::int32 value);
 
@@ -4491,17 +4491,17 @@ class E_MarryExp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_weddingexp = 2;
+  // optional int32 m_weddingExp = 2;
   inline bool has_m_weddingexp() const;
   inline void clear_m_weddingexp();
-  static const int kMWeddingexpFieldNumber = 2;
+  static const int kMWeddingExpFieldNumber = 2;
   inline ::google::protobuf::int32 m_weddingexp() const;
   inline void set_m_weddingexp(::google::protobuf::int32 value);
 
-  // optional int32 m_dayexpmax = 3;
+  // optional int32 m_dayExpmax = 3;
   inline bool has_m_dayexpmax() const;
   inline void clear_m_dayexpmax();
-  static const int kMDayexpmaxFieldNumber = 3;
+  static const int kMDayExpmaxFieldNumber = 3;
   inline ::google::protobuf::int32 m_dayexpmax() const;
   inline void set_m_dayexpmax(::google::protobuf::int32 value);
 
@@ -4644,7 +4644,7 @@ inline void E_MarryMarriage::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional string m_weddingname = 2;
+// optional string m_weddingName = 2;
 inline bool E_MarryMarriage::has_m_weddingname() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -4802,7 +4802,7 @@ inline void E_MarryMarriage::set_m_price(::google::protobuf::int32 value) {
   m_price_ = value;
 }
 
-// optional int32 m_firstboxid = 7;
+// optional int32 m_firstboxID = 7;
 inline bool E_MarryMarriage::has_m_firstboxid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -4824,7 +4824,7 @@ inline void E_MarryMarriage::set_m_firstboxid(::google::protobuf::int32 value) {
   m_firstboxid_ = value;
 }
 
-// optional int32 m_firstaddpower = 8;
+// optional int32 m_firstaddPower = 8;
 inline bool E_MarryMarriage::has_m_firstaddpower() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -4846,7 +4846,7 @@ inline void E_MarryMarriage::set_m_firstaddpower(::google::protobuf::int32 value
   m_firstaddpower_ = value;
 }
 
-// optional int32 m_repeatboxid = 9;
+// optional int32 m_repeatboxID = 9;
 inline bool E_MarryMarriage::has_m_repeatboxid() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -4868,7 +4868,7 @@ inline void E_MarryMarriage::set_m_repeatboxid(::google::protobuf::int32 value) 
   m_repeatboxid_ = value;
 }
 
-// optional int32 m_repeataddpower = 10;
+// optional int32 m_repeataddPower = 10;
 inline bool E_MarryMarriage::has_m_repeataddpower() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -4890,7 +4890,7 @@ inline void E_MarryMarriage::set_m_repeataddpower(::google::protobuf::int32 valu
   m_repeataddpower_ = value;
 }
 
-// optional int32 m_titleid = 11;
+// optional int32 m_titleID = 11;
 inline bool E_MarryMarriage::has_m_titleid() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -5011,7 +5011,7 @@ inline void E_MarryBanquet::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional string m_begintime = 2;
+// optional string m_beginTime = 2;
 inline bool E_MarryBanquet::has_m_begintime() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -5081,7 +5081,7 @@ inline void E_MarryBanquet::set_allocated_m_begintime(::std::string* m_begintime
   }
 }
 
-// optional string m_finishtime = 3;
+// optional string m_finishTime = 3;
 inline bool E_MarryBanquet::has_m_finishtime() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -5368,7 +5368,7 @@ inline void E_MarryLocklv::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional int32 m_exp = 3;
+// optional int32 m_Exp = 3;
 inline bool E_MarryLocklv::has_m_exp() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -5390,7 +5390,7 @@ inline void E_MarryLocklv::set_m_exp(::google::protobuf::int32 value) {
   m_exp_ = value;
 }
 
-// repeated .proto_ff.E_MarryLocklvAttributeDesc m_attribute = 4;
+// repeated .proto_ff.E_MarryLocklvAttributeDesc m_Attribute = 4;
 inline int E_MarryLocklv::m_attribute_size() const {
   return m_attribute_.size();
 }
@@ -5741,7 +5741,7 @@ inline void E_MarryChildStariattributeDesc::set_m_type(::google::protobuf::int32
 
 // E_MarryChild
 
-// optional int64 m_childid = 1;
+// optional int64 m_childID = 1;
 inline bool E_MarryChild::has_m_childid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -5763,7 +5763,7 @@ inline void E_MarryChild::set_m_childid(::google::protobuf::int64 value) {
   m_childid_ = value;
 }
 
-// optional int64 m_itemid = 2;
+// optional int64 m_itemId = 2;
 inline bool E_MarryChild::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -5785,7 +5785,7 @@ inline void E_MarryChild::set_m_itemid(::google::protobuf::int64 value) {
   m_itemid_ = value;
 }
 
-// optional string m_childname = 3;
+// optional string m_childName = 3;
 inline bool E_MarryChild::has_m_childname() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -5855,7 +5855,7 @@ inline void E_MarryChild::set_allocated_m_childname(::std::string* m_childname) 
   }
 }
 
-// optional int32 m_childquality = 4;
+// optional int32 m_childQuality = 4;
 inline bool E_MarryChild::has_m_childquality() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -5877,7 +5877,7 @@ inline void E_MarryChild::set_m_childquality(::google::protobuf::int32 value) {
   m_childquality_ = value;
 }
 
-// optional int32 m_handz = 5;
+// optional int32 m_handZ = 5;
 inline bool E_MarryChild::has_m_handz() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -5899,7 +5899,7 @@ inline void E_MarryChild::set_m_handz(::google::protobuf::int32 value) {
   m_handz_ = value;
 }
 
-// optional string m_handzname = 6;
+// optional string m_handZName = 6;
 inline bool E_MarryChild::has_m_handzname() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -5969,7 +5969,7 @@ inline void E_MarryChild::set_allocated_m_handzname(::std::string* m_handzname) 
   }
 }
 
-// optional string m_skillid = 7;
+// optional string m_skillID = 7;
 inline bool E_MarryChild::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -6039,7 +6039,7 @@ inline void E_MarryChild::set_allocated_m_skillid(::std::string* m_skillid) {
   }
 }
 
-// optional int64 m_starid = 8;
+// optional int64 m_starId = 8;
 inline bool E_MarryChild::has_m_starid() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -6061,7 +6061,7 @@ inline void E_MarryChild::set_m_starid(::google::protobuf::int64 value) {
   m_starid_ = value;
 }
 
-// optional string m_starnum = 9;
+// optional string m_starNum = 9;
 inline bool E_MarryChild::has_m_starnum() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -6156,7 +6156,7 @@ E_MarryChild::mutable_m_attribute() {
   return &m_attribute_;
 }
 
-// repeated .proto_ff.E_MarryChildStariattributeDesc m_stariattribute = 11;
+// repeated .proto_ff.E_MarryChildStariattributeDesc m_starIattribute = 11;
 inline int E_MarryChild::m_stariattribute_size() const {
   return m_stariattribute_.size();
 }
@@ -6236,7 +6236,7 @@ inline void E_MarryChildvalue::set_m_id(::google::protobuf::int64 value) {
   m_id_ = value;
 }
 
-// repeated int32 m_lvvalue = 2;
+// repeated int32 m_lvValue = 2;
 inline int E_MarryChildvalue::m_lvvalue_size() const {
   return m_lvvalue_.size();
 }
@@ -6364,7 +6364,7 @@ inline void E_MarryChildexp::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// repeated .proto_ff.E_MarryChildexpGradeDesc m_grade = 2;
+// repeated .proto_ff.E_MarryChildexpGradeDesc m_Grade = 2;
 inline int E_MarryChildexp::m_grade_size() const {
   return m_grade_.size();
 }
@@ -6492,7 +6492,7 @@ inline void E_MarryExpress::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional int32 m_exp = 2;
+// optional int32 m_Exp = 2;
 inline bool E_MarryExpress::has_m_exp() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -6514,7 +6514,7 @@ inline void E_MarryExpress::set_m_exp(::google::protobuf::int32 value) {
   m_exp_ = value;
 }
 
-// repeated .proto_ff.E_MarryExpressAttributeDesc m_attribute = 3;
+// repeated .proto_ff.E_MarryExpressAttributeDesc m_Attribute = 3;
 inline int E_MarryExpress::m_attribute_size() const {
   return m_attribute_.size();
 }
@@ -6807,7 +6807,7 @@ inline void E_MarryExpressshop::set_m_broadcastid(::google::protobuf::int32 valu
   m_broadcastid_ = value;
 }
 
-// optional int32 m_effectid = 6;
+// optional int32 m_effectId = 6;
 inline bool E_MarryExpressshop::has_m_effectid() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -7152,7 +7152,7 @@ inline void E_MarryConstant::set_m_givegirl(::google::protobuf::int32 value) {
   m_givegirl_ = value;
 }
 
-// optional int32 m_xytime = 12;
+// optional int32 m_Xytime = 12;
 inline bool E_MarryConstant::has_m_xytime() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -7196,7 +7196,7 @@ inline void E_MarryConstant::set_m_free(::google::protobuf::int32 value) {
   m_free_ = value;
 }
 
-// optional int32 m_buynum = 14;
+// optional int32 m_buyNum = 14;
 inline bool E_MarryConstant::has_m_buynum() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -7240,7 +7240,7 @@ inline void E_MarryConstant::set_m_consume(::google::protobuf::int32 value) {
   m_consume_ = value;
 }
 
-// optional int32 m_consumenum = 16;
+// optional int32 m_consumeNum = 16;
 inline bool E_MarryConstant::has_m_consumenum() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
@@ -7328,7 +7328,7 @@ inline void E_MarryConstant::set_m_lockitem(::google::protobuf::int32 value) {
   m_lockitem_ = value;
 }
 
-// optional int32 m_lockitemexp = 20;
+// optional int32 m_lockitemExp = 20;
 inline bool E_MarryConstant::has_m_lockitemexp() const {
   return (_has_bits_[0] & 0x00080000u) != 0;
 }
@@ -7372,7 +7372,7 @@ inline void E_MarryConstant::set_m_childitem(::google::protobuf::int32 value) {
   m_childitem_ = value;
 }
 
-// optional int32 m_childitemexp = 22;
+// optional int32 m_childitemExp = 22;
 inline bool E_MarryConstant::has_m_childitemexp() const {
   return (_has_bits_[0] & 0x00200000u) != 0;
 }
@@ -7460,7 +7460,7 @@ inline void E_MarryConstant::set_m_asklimit(::google::protobuf::int32 value) {
   m_asklimit_ = value;
 }
 
-// optional int32 m_hyreward = 26;
+// optional int32 m_HyReward = 26;
 inline bool E_MarryConstant::has_m_hyreward() const {
   return (_has_bits_[0] & 0x02000000u) != 0;
 }
@@ -7482,7 +7482,7 @@ inline void E_MarryConstant::set_m_hyreward(::google::protobuf::int32 value) {
   m_hyreward_ = value;
 }
 
-// optional int32 m_toursceneid = 27;
+// optional int32 m_tourSceneId = 27;
 inline bool E_MarryConstant::has_m_toursceneid() const {
   return (_has_bits_[0] & 0x04000000u) != 0;
 }
@@ -7504,7 +7504,7 @@ inline void E_MarryConstant::set_m_toursceneid(::google::protobuf::int32 value) 
   m_toursceneid_ = value;
 }
 
-// optional int32 m_tourfollowindex = 28;
+// optional int32 m_tourFollowIndex = 28;
 inline bool E_MarryConstant::has_m_tourfollowindex() const {
   return (_has_bits_[0] & 0x08000000u) != 0;
 }
@@ -7526,7 +7526,7 @@ inline void E_MarryConstant::set_m_tourfollowindex(::google::protobuf::int32 val
   m_tourfollowindex_ = value;
 }
 
-// optional string m_hyicon = 29;
+// optional string m_Hyicon = 29;
 inline bool E_MarryConstant::has_m_hyicon() const {
   return (_has_bits_[0] & 0x10000000u) != 0;
 }
@@ -7596,7 +7596,7 @@ inline void E_MarryConstant::set_allocated_m_hyicon(::std::string* m_hyicon) {
   }
 }
 
-// optional string m_hyname = 30;
+// optional string m_Hyname = 30;
 inline bool E_MarryConstant::has_m_hyname() const {
   return (_has_bits_[0] & 0x20000000u) != 0;
 }
@@ -7666,7 +7666,7 @@ inline void E_MarryConstant::set_allocated_m_hyname(::std::string* m_hyname) {
   }
 }
 
-// optional string m_xyicon = 31;
+// optional string m_Xyicon = 31;
 inline bool E_MarryConstant::has_m_xyicon() const {
   return (_has_bits_[0] & 0x40000000u) != 0;
 }
@@ -7736,7 +7736,7 @@ inline void E_MarryConstant::set_allocated_m_xyicon(::std::string* m_xyicon) {
   }
 }
 
-// optional string m_xyname = 32;
+// optional string m_Xyname = 32;
 inline bool E_MarryConstant::has_m_xyname() const {
   return (_has_bits_[0] & 0x80000000u) != 0;
 }
@@ -7806,7 +7806,7 @@ inline void E_MarryConstant::set_allocated_m_xyname(::std::string* m_xyname) {
   }
 }
 
-// optional int32 m_redbagnum = 33;
+// optional int32 m_redbagNum = 33;
 inline bool E_MarryConstant::has_m_redbagnum() const {
   return (_has_bits_[1] & 0x00000001u) != 0;
 }
@@ -7828,7 +7828,7 @@ inline void E_MarryConstant::set_m_redbagnum(::google::protobuf::int32 value) {
   m_redbagnum_ = value;
 }
 
-// optional int32 m_redmoney = 34;
+// optional int32 m_redMoney = 34;
 inline bool E_MarryConstant::has_m_redmoney() const {
   return (_has_bits_[1] & 0x00000002u) != 0;
 }
@@ -7850,7 +7850,7 @@ inline void E_MarryConstant::set_m_redmoney(::google::protobuf::int32 value) {
   m_redmoney_ = value;
 }
 
-// optional int32 m_redprice = 35;
+// optional int32 m_redPrice = 35;
 inline bool E_MarryConstant::has_m_redprice() const {
   return (_has_bits_[1] & 0x00000004u) != 0;
 }
@@ -7872,7 +7872,7 @@ inline void E_MarryConstant::set_m_redprice(::google::protobuf::int32 value) {
   m_redprice_ = value;
 }
 
-// optional int32 m_sendredreward = 36;
+// optional int32 m_sendredReward = 36;
 inline bool E_MarryConstant::has_m_sendredreward() const {
   return (_has_bits_[1] & 0x00000008u) != 0;
 }
@@ -7894,7 +7894,7 @@ inline void E_MarryConstant::set_m_sendredreward(::google::protobuf::int32 value
   m_sendredreward_ = value;
 }
 
-// optional int32 m_sendrednum = 37;
+// optional int32 m_sendredNum = 37;
 inline bool E_MarryConstant::has_m_sendrednum() const {
   return (_has_bits_[1] & 0x00000010u) != 0;
 }
@@ -7938,7 +7938,7 @@ inline void E_MarryConstant::set_m_redcollect(::google::protobuf::int32 value) {
   m_redcollect_ = value;
 }
 
-// optional int32 m_redcollectnum = 39;
+// optional int32 m_redcollectNum = 39;
 inline bool E_MarryConstant::has_m_redcollectnum() const {
   return (_has_bits_[1] & 0x00000040u) != 0;
 }
@@ -7960,7 +7960,7 @@ inline void E_MarryConstant::set_m_redcollectnum(::google::protobuf::int32 value
   m_redcollectnum_ = value;
 }
 
-// optional int32 m_cakemonster = 40;
+// optional int32 m_cakeMonster = 40;
 inline bool E_MarryConstant::has_m_cakemonster() const {
   return (_has_bits_[1] & 0x00000080u) != 0;
 }
@@ -7982,7 +7982,7 @@ inline void E_MarryConstant::set_m_cakemonster(::google::protobuf::int32 value) 
   m_cakemonster_ = value;
 }
 
-// optional int32 m_hymonster = 41;
+// optional int32 m_HyMonster = 41;
 inline bool E_MarryConstant::has_m_hymonster() const {
   return (_has_bits_[1] & 0x00000100u) != 0;
 }
@@ -8004,7 +8004,7 @@ inline void E_MarryConstant::set_m_hymonster(::google::protobuf::int32 value) {
   m_hymonster_ = value;
 }
 
-// repeated .proto_ff.E_MarryConstantTourmonsterDesc m_tourmonster = 42;
+// repeated .proto_ff.E_MarryConstantTourmonsterDesc m_tourMonster = 42;
 inline int E_MarryConstant::m_tourmonster_size() const {
   return m_tourmonster_.size();
 }
@@ -8261,7 +8261,7 @@ inline void E_MarryWedding::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_signreward = 2;
+// optional int32 m_signReward = 2;
 inline bool E_MarryWedding::has_m_signreward() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -8283,7 +8283,7 @@ inline void E_MarryWedding::set_m_signreward(::google::protobuf::int32 value) {
   m_signreward_ = value;
 }
 
-// optional int32 m_signdaynum = 3;
+// optional int32 m_signDaynum = 3;
 inline bool E_MarryWedding::has_m_signdaynum() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -8305,7 +8305,7 @@ inline void E_MarryWedding::set_m_signdaynum(::google::protobuf::int32 value) {
   m_signdaynum_ = value;
 }
 
-// optional int32 m_cakereftime = 4;
+// optional int32 m_cakeReftime = 4;
 inline bool E_MarryWedding::has_m_cakereftime() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -8327,7 +8327,7 @@ inline void E_MarryWedding::set_m_cakereftime(::google::protobuf::int32 value) {
   m_cakereftime_ = value;
 }
 
-// optional int32 m_cakenum = 5;
+// optional int32 m_cakeNum = 5;
 inline bool E_MarryWedding::has_m_cakenum() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -8463,7 +8463,7 @@ inline void E_MarryWedding::set_m_modeltime(::google::protobuf::int32 value) {
   m_modeltime_ = value;
 }
 
-// optional int32 m_cakereward = 9;
+// optional int32 m_cakeReward = 9;
 inline bool E_MarryWedding::has_m_cakereward() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -8485,7 +8485,7 @@ inline void E_MarryWedding::set_m_cakereward(::google::protobuf::int32 value) {
   m_cakereward_ = value;
 }
 
-// optional int32 m_signcakenum = 10;
+// optional int32 m_signCakenum = 10;
 inline bool E_MarryWedding::has_m_signcakenum() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -8529,7 +8529,7 @@ inline void E_MarryWedding::set_m_monster(::google::protobuf::int32 value) {
   m_monster_ = value;
 }
 
-// optional int32 m_monsternum = 12;
+// optional int32 m_monsterNum = 12;
 inline bool E_MarryWedding::has_m_monsternum() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -8595,7 +8595,7 @@ inline void E_MarryWedding::set_m_npcid(::google::protobuf::int32 value) {
   m_npcid_ = value;
 }
 
-// optional int32 m_npcnum = 15;
+// optional int32 m_npcNum = 15;
 inline bool E_MarryWedding::has_m_npcnum() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
@@ -8617,7 +8617,7 @@ inline void E_MarryWedding::set_m_npcnum(::google::protobuf::int32 value) {
   m_npcnum_ = value;
 }
 
-// optional int32 m_monsterreward = 16;
+// optional int32 m_monsterReward = 16;
 inline bool E_MarryWedding::has_m_monsterreward() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
@@ -8639,7 +8639,7 @@ inline void E_MarryWedding::set_m_monsterreward(::google::protobuf::int32 value)
   m_monsterreward_ = value;
 }
 
-// optional int32 m_monsterdaynum = 17;
+// optional int32 m_monsterDaynum = 17;
 inline bool E_MarryWedding::has_m_monsterdaynum() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
@@ -8661,7 +8661,7 @@ inline void E_MarryWedding::set_m_monsterdaynum(::google::protobuf::int32 value)
   m_monsterdaynum_ = value;
 }
 
-// optional int32 m_feastid = 18;
+// optional int32 m_feastId = 18;
 inline bool E_MarryWedding::has_m_feastid() const {
   return (_has_bits_[0] & 0x00020000u) != 0;
 }
@@ -8683,7 +8683,7 @@ inline void E_MarryWedding::set_m_feastid(::google::protobuf::int32 value) {
   m_feastid_ = value;
 }
 
-// optional int32 m_feastreward = 19;
+// optional int32 m_feastReward = 19;
 inline bool E_MarryWedding::has_m_feastreward() const {
   return (_has_bits_[0] & 0x00040000u) != 0;
 }
@@ -8705,7 +8705,7 @@ inline void E_MarryWedding::set_m_feastreward(::google::protobuf::int32 value) {
   m_feastreward_ = value;
 }
 
-// optional int32 m_feastnum = 20;
+// optional int32 m_feastNum = 20;
 inline bool E_MarryWedding::has_m_feastnum() const {
   return (_has_bits_[0] & 0x00080000u) != 0;
 }
@@ -8901,7 +8901,7 @@ inline void E_MarryExp::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional int32 m_weddingexp = 2;
+// optional int32 m_weddingExp = 2;
 inline bool E_MarryExp::has_m_weddingexp() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -8923,7 +8923,7 @@ inline void E_MarryExp::set_m_weddingexp(::google::protobuf::int32 value) {
   m_weddingexp_ = value;
 }
 
-// optional int32 m_dayexpmax = 3;
+// optional int32 m_dayExpmax = 3;
 inline bool E_MarryExp::has_m_dayexpmax() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }

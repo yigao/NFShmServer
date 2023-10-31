@@ -83,7 +83,7 @@ int TaskrewardTaskrewardDesc::Load(NFResDB *pDB)
 		auto pDesc = &iter->second;
 		{
 			TaskrewardTaskrewardTasktypeLv data;
-			data.m_taskType = pDesc->m_tasktype;
+			data.m_taskType = pDesc->m_taskType;
 			data.m_lv = pDesc->m_lv;
 			if(m_TasktypeLvComIndexMap.size() >= m_TasktypeLvComIndexMap.max_size())
 			{

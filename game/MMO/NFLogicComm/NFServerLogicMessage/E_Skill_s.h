@@ -32,29 +32,29 @@ namespace proto_ff_s {
 		virtual ~E_SkillBuff_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_buffid;//附加buffid
-		NFShmString<64> m_buffname;//buff名称
-		NFShmString<64> m_bufficon;//buff图标
-		NFShmString<64> m_effectresources;//特效路径
-		int32_t m_showtpye;//显示类型
-		int32_t m_startprobability;//生效概率
-		int32_t m_probability_up;//概率成长系数ID
-		int32_t m_starttype;//生效条件
-		NFShmString<64> m_starttypevalue;//生效条件参数
-		int32_t m_endtype;//常规结束条件
-		NFShmString<64> m_endtypevalue;//结束条件参数
-		int32_t m_endtypea;//额外结束条件A
-		NFShmString<64> m_endtypevaluea;//额外结束条件参数A
-		int32_t m_endtypeb;//额外结束条件B
-		NFShmString<64> m_endtypevalueb;//额外结束条件参数B
+		int64_t m_buffID;//附加buffid
+		NFShmString<64> m_buffName;//buff名称
+		NFShmString<64> m_buffIcon;//buff图标
+		NFShmString<64> m_effectResources;//特效路径
+		int32_t m_showTpye;//显示类型
+		int32_t m_startProbability;//生效概率
+		int32_t m_Probability_up;//概率成长系数ID
+		int32_t m_startType;//生效条件
+		NFShmString<64> m_startTypeValue;//生效条件参数
+		int32_t m_endType;//常规结束条件
+		NFShmString<64> m_endTypeValue;//结束条件参数
+		int32_t m_endTypeA;//额外结束条件A
+		NFShmString<64> m_endTypeValueA;//额外结束条件参数A
+		int32_t m_endTypeB;//额外结束条件B
+		NFShmString<64> m_endTypeValueB;//额外结束条件参数B
 		int32_t m_group;//buff组
-		NFShmString<64> m_buffrule;//同一状态组叠加规则
+		NFShmString<64> m_buffRule;//同一状态组叠加规则
 		NFShmString<64> m_immune;//免疫的组id
 		NFShmString<64> m_dispel;//驱散的组id
-		int32_t m_buffcd;//buff冷却
-		int32_t m_effect_time;//buff时间
-		int32_t m_effect_type;//效果类型
-		NFShmString<64> m_effect_param;//效果参数
+		int32_t m_buffCd;//buff冷却
+		int32_t m_effect_Time;//buff时间
+		int32_t m_effect_Type;//效果类型
+		NFShmString<64> m_effect_Param;//效果参数
 		int32_t m_effect_up;//成长系数ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_SkillBuff & msg) const;
@@ -84,8 +84,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id序号
-		int32_t m_addstartprobability;//概率成长值
-		int32_t m_attributeid;//属性类型
+		int32_t m_AddStartProbability;//概率成长值
+		int32_t m_attributeId;//属性类型
 		int32_t m_parama;//成长值
 
 		virtual void write_to_pbmsg(::proto_ff::E_SkillBuffup & msg) const;
@@ -114,9 +114,9 @@ namespace proto_ff_s {
 		virtual ~E_SkillSkillBuffDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_target;//归属
-		int32_t m_point;//生效点
-		int64_t m_id;//id
+		int32_t m_Target;//归属
+		int32_t m_Point;//生效点
+		int64_t m_ID;//id
 
 		virtual void write_to_pbmsg(::proto_ff::E_SkillSkillBuffDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SkillSkillBuffDesc & msg);
@@ -130,7 +130,7 @@ namespace proto_ff_s {
 		virtual ~E_SkillSkillAwakebuffDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_id;//id
+		int64_t m_ID;//id
 
 		virtual void write_to_pbmsg(::proto_ff::E_SkillSkillAwakebuffDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SkillSkillAwakebuffDesc & msg);
@@ -144,7 +144,7 @@ namespace proto_ff_s {
 		virtual ~E_SkillSkillAdvancetype1buffDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_id;//id
+		int64_t m_ID;//id
 
 		virtual void write_to_pbmsg(::proto_ff::E_SkillSkillAdvancetype1buffDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SkillSkillAdvancetype1buffDesc & msg);
@@ -158,7 +158,7 @@ namespace proto_ff_s {
 		virtual ~E_SkillSkillAdvancetype2buffDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_id;//id
+		int64_t m_ID;//id
 
 		virtual void write_to_pbmsg(::proto_ff::E_SkillSkillAdvancetype2buffDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SkillSkillAdvancetype2buffDesc & msg);
@@ -172,7 +172,7 @@ namespace proto_ff_s {
 		virtual ~E_SkillSkillAdvancetype3buffDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_id;//id
+		int64_t m_ID;//id
 
 		virtual void write_to_pbmsg(::proto_ff::E_SkillSkillAdvancetype3buffDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SkillSkillAdvancetype3buffDesc & msg);
@@ -186,68 +186,68 @@ namespace proto_ff_s {
 		virtual ~E_SkillSkill_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_skillid;//技能id
+		int64_t m_skillID;//技能id
 		NFShmString<64> m_name;//名称
-		int32_t m_skilltype;//技能类型
+		int32_t m_skillType;//技能类型
 		int32_t m_group;//技能组
 		int32_t m_position;//技能位置
-		int32_t m_displacetime;//位移开始时间点
-		int32_t m_displacesign;//位移正负标记
-		NFShmString<64> m_displacespeed;//位移速度
-		NFShmString<64> m_distimes;//位移时间
-		int32_t m_targetdisplacetime;//目标位移开始时间点
-		int32_t m_targetdisplacesign;//目标位移正负标记
-		NFShmString<64> m_targetdisplacespeed;//目标位移速度
-		NFShmString<64> m_targetdistimes;//目标位移时间
-		int32_t m_breaktype;//打断类型
-		int32_t m_cdskill;//CD能否减少
-		int64_t m_relation;//普攻关联
-		NFShmString<64> m_unlockcondition;//解锁条件
+		int32_t m_displaceTime;//位移开始时间点
+		int32_t m_displaceSign;//位移正负标记
+		NFShmString<64> m_displaceSpeed;//位移速度
+		NFShmString<64> m_disTimes;//位移时间
+		int32_t m_targetDisplaceTime;//目标位移开始时间点
+		int32_t m_targetDisplaceSign;//目标位移正负标记
+		NFShmString<64> m_targetDisplaceSpeed;//目标位移速度
+		NFShmString<64> m_targetDisTimes;//目标位移时间
+		int32_t m_breakType;//打断类型
+		int32_t m_cdSkill;//CD能否减少
+		int64_t m_Relation;//普攻关联
+		NFShmString<64> m_unlockCondition;//解锁条件
 		int32_t m_type;//目标类型
 		int32_t m_cd;//cd
-		int32_t m_nolock;//是否锁定
+		int32_t m_noLock;//是否锁定
 		int32_t m_priority;//挂机使用优先级
 		int32_t m_fighting;//初始战斗力
-		float m_fightingparama;//战斗力成长系数
-		int32_t m_releasetype;//释放类型
-		int32_t m_processtypes;//过程类型
-		NFShmString<64> m_releasetime;//第几次释放
-		int32_t m_flyspeed;//飞行速度
-		int32_t m_acttime;//动作总时间
-		int32_t m_readytime;//攻击特效延迟时间
-		int32_t m_readytimeex;//攻击特效延迟时间ex
-		int32_t m_attacktime;//攻击总时间
-		NFShmString<64> m_damagetime;//伤害生效时间点
-		NFShmString<64> m_damagetimeex;//伤害生效时间点ex
-		int32_t m_attackdistance;//攻击距离
-		int32_t m_rangetype;//范围类型
-		NFShmString<64> m_rangetypevalue;//范围类型值
-		int32_t m_rangetypeex;//范围类型ex
-		NFShmString<64> m_rangetypevalueex;//范围类型值ex
+		float m_fightingParama;//战斗力成长系数
+		int32_t m_releaseType;//释放类型
+		int32_t m_processTypes;//过程类型
+		NFShmString<64> m_releaseTime;//第几次释放
+		int32_t m_flySpeed;//飞行速度
+		int32_t m_actTime;//动作总时间
+		int32_t m_readyTime;//攻击特效延迟时间
+		int32_t m_readyTimeEx;//攻击特效延迟时间ex
+		int32_t m_attackTime;//攻击总时间
+		NFShmString<64> m_damageTime;//伤害生效时间点
+		NFShmString<64> m_damageTimeEx;//伤害生效时间点ex
+		int32_t m_attackDistance;//攻击距离
+		int32_t m_rangeType;//范围类型
+		NFShmString<64> m_rangeTypeValue;//范围类型值
+		int32_t m_rangeTypeEx;//范围类型ex
+		NFShmString<64> m_rangeTypeValueEx;//范围类型值ex
 		int32_t m_warn;//预警id
-		int32_t m_dazetime;//发呆时间
-		int32_t m_warntime;//预警时间
-		NFShmString<64> m_infomationid;//提示ID
-		int32_t m_attackmindistance;//攻击最小距离
-		int32_t m_goalmaxnum;//目标最大数量
-		int32_t m_goalmaxnummonster;//目标最大数量（怪物）
-		int32_t m_damagetype;//伤害类型
-		int32_t m_damagerate;//伤害倍率
-		int32_t m_awakedamagerate;//觉醒后技能倍率
-		int32_t m_advancetype1damagerate;//进阶火后技能倍率加成
-		int32_t m_advancetype2damagerate;//进阶雷后技能倍率加成
-		int32_t m_advancetype3damagerate;//进阶冰后技能倍率加成
-		int32_t m_damagevalue;//附加伤害初始值
-		float m_damageparama;//伤害固定值成长系数
-		float m_damagerateparama;//伤害倍率成长系数
+		int32_t m_dazeTime;//发呆时间
+		int32_t m_warnTime;//预警时间
+		NFShmString<64> m_infomationId;//提示ID
+		int32_t m_attackMinDistance;//攻击最小距离
+		int32_t m_goalMaxNum;//目标最大数量
+		int32_t m_goalMaxNumMonster;//目标最大数量（怪物）
+		int32_t m_damageType;//伤害类型
+		int32_t m_damageRate;//伤害倍率
+		int32_t m_awakeDamageRate;//觉醒后技能倍率
+		int32_t m_advanceType1DamageRate;//进阶火后技能倍率加成
+		int32_t m_advanceType2DamageRate;//进阶雷后技能倍率加成
+		int32_t m_advanceType3DamageRate;//进阶冰后技能倍率加成
+		int32_t m_damageValue;//附加伤害初始值
+		float m_damageParama;//伤害固定值成长系数
+		float m_damageRateParama;//伤害倍率成长系数
 		int32_t m_addhitrate;//附加命中率
-		int64_t m_attackbuff;//给攻击方施加的buff
-		int64_t m_behitbuff;//给受击方施加的buff
+		int64_t m_attackBuff;//给攻击方施加的buff
+		int64_t m_behitBuff;//给受击方施加的buff
 		NFShmVector<struct E_SkillSkillBuffDesc_s, DEFINE_E_SKILLSKILL_M_BUFF_MAX_NUM> m_buff;//buff包
 		NFShmVector<struct E_SkillSkillAwakebuffDesc_s, DEFINE_E_SKILLSKILL_M_AWAKEBUFF_MAX_NUM> m_awakebuff;//觉醒buff包
-		NFShmVector<struct E_SkillSkillAdvancetype1buffDesc_s, DEFINE_E_SKILLSKILL_M_ADVANCETYPE1BUFF_MAX_NUM> m_advancetype1buff;//进阶火buff等级
-		NFShmVector<struct E_SkillSkillAdvancetype2buffDesc_s, DEFINE_E_SKILLSKILL_M_ADVANCETYPE2BUFF_MAX_NUM> m_advancetype2buff;//进阶雷buff等级
-		NFShmVector<struct E_SkillSkillAdvancetype3buffDesc_s, DEFINE_E_SKILLSKILL_M_ADVANCETYPE3BUFF_MAX_NUM> m_advancetype3buff;//进阶冰buff等级
+		NFShmVector<struct E_SkillSkillAdvancetype1buffDesc_s, DEFINE_E_SKILLSKILL_M_ADVANCETYPE1BUFF_MAX_NUM> m_advanceType1buff;//进阶火buff等级
+		NFShmVector<struct E_SkillSkillAdvancetype2buffDesc_s, DEFINE_E_SKILLSKILL_M_ADVANCETYPE2BUFF_MAX_NUM> m_advanceType2buff;//进阶雷buff等级
+		NFShmVector<struct E_SkillSkillAdvancetype3buffDesc_s, DEFINE_E_SKILLSKILL_M_ADVANCETYPE3BUFF_MAX_NUM> m_advanceType3buff;//进阶冰buff等级
 
 		virtual void write_to_pbmsg(::proto_ff::E_SkillSkill & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SkillSkill & msg);
@@ -278,9 +278,9 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_profession;//职业
 		int32_t m_type;//类型
-		int32_t m_advancelv;//进阶等级
-		NFShmString<64> m_advancecondition;//进阶条件
-		NFShmString<64> m_skillid;//技能ID
+		int32_t m_advanceLv;//进阶等级
+		NFShmString<64> m_advanceCondition;//进阶条件
+		NFShmString<64> m_skillID;//技能ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_SkillSkilladvance & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SkillSkilladvance & msg);
@@ -310,11 +310,11 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//唯一id
 		int32_t m_group;//组id
-		int32_t m_skilllv;//技能等级
-		NFShmString<128> m_skillids;//技能ID组
-		int32_t m_rolelv;//需求人物等级
-		int64_t m_costitemid;//消耗的道具ID
-		int32_t m_costnum;//道具数量
+		int32_t m_skillLv;//技能等级
+		NFShmString<128> m_skillIds;//技能ID组
+		int32_t m_roleLv;//需求人物等级
+		int64_t m_costItemId;//消耗的道具ID
+		int32_t m_costNum;//道具数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_SkillSkillup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SkillSkillup & msg);
@@ -342,9 +342,9 @@ namespace proto_ff_s {
 		virtual ~E_SkillSkillawake_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_skillid;//技能ID
-		int32_t m_costitemid;//消耗的道具ID
-		int32_t m_costnum;//道具数量
+		int32_t m_skillId;//技能ID
+		int32_t m_costItemId;//消耗的道具ID
+		int32_t m_costNum;//道具数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_SkillSkillawake & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SkillSkillawake & msg);
@@ -373,7 +373,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_position;//位置
-		int32_t m_id;//ID
+		int32_t m_Id;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_SkillSkillgroupSkillDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SkillSkillgroupSkillDesc & msg);
@@ -387,8 +387,8 @@ namespace proto_ff_s {
 		virtual ~E_SkillSkillgroup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_skillgroup;//技能组
-		NFShmString<64> m_showskilltype;//显示技能类型
+		int32_t m_skillGroup;//技能组
+		NFShmString<64> m_showSkillType;//显示技能类型
 		NFShmVector<struct E_SkillSkillgroupSkillDesc_s, DEFINE_E_SKILLSKILLGROUP_M_SKILL_MAX_NUM> m_skill;//技能
 
 		virtual void write_to_pbmsg(::proto_ff::E_SkillSkillgroup & msg) const;

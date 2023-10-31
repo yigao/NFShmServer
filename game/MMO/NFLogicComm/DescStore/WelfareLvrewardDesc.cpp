@@ -91,9 +91,9 @@ int WelfareLvrewardDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_vipreward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_vipreward)), result, "can't find the vipreward:{} in the  excel:box sheet:box", pDesc->m_vipreward);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_vipReward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_vipReward)), result, "can't find the vipReward:{} in the  excel:box sheet:box", pDesc->m_vipReward);
 		CHECK_EXPR_MSG_RESULT((pDesc->m_vip <= 0 || VipVipDesc::Instance()->GetDesc(pDesc->m_vip)), result, "can't find the vip:{} in the  excel:vip sheet:vip", pDesc->m_vip);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_lvreward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_lvreward)), result, "can't find the lvreward:{} in the  excel:box sheet:box", pDesc->m_lvreward);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_lvReward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_lvReward)), result, "can't find the lvReward:{} in the  excel:box sheet:box", pDesc->m_lvReward);
 	}
 	return result;
 }

@@ -5,7 +5,7 @@ import "yd_fieldoptions.proto";
 
 message E_BossRareitem
 {
-	optional int64 m_itemid = 1[(yd_fieldoptions.field_cname) = "物品ID"];
+	optional int64 m_itemID = 1[(yd_fieldoptions.field_cname) = "物品ID"];
 	optional int32 m_top = 2[(yd_fieldoptions.field_cname) = "是否置顶"];
 }
 
@@ -18,21 +18,21 @@ message Sheet_BossRareitem
 message E_BossBoss
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "bossID"];
-	optional int32 m_bosstype = 2[(yd_fieldoptions.field_cname) = "BOSS类型"];
-	optional int32 m_monsterid = 3[(yd_fieldoptions.field_cname) = "怪物ID"];
-	optional int32 m_classorder = 4[(yd_fieldoptions.field_cname) = "阶次"];
-	optional int32 m_sceneorder = 5[(yd_fieldoptions.field_cname) = "所属层级"];
-	optional int32 m_duplicateid = 6[(yd_fieldoptions.field_cname) = "副本ID"];
-	optional int32 m_peacemask = 7[(yd_fieldoptions.field_cname) = "和平标记"];
-	optional int32 m_pointid = 8[(yd_fieldoptions.field_cname) = "位置点"];
-	optional int32 m_flashnum = 9[(yd_fieldoptions.field_cname) = "刷新数量"];
+	optional int32 m_bossType = 2[(yd_fieldoptions.field_cname) = "BOSS类型"];
+	optional int32 m_monsterID = 3[(yd_fieldoptions.field_cname) = "怪物ID"];
+	optional int32 m_classOrder = 4[(yd_fieldoptions.field_cname) = "阶次"];
+	optional int32 m_sceneOrder = 5[(yd_fieldoptions.field_cname) = "所属层级"];
+	optional int32 m_duplicateID = 6[(yd_fieldoptions.field_cname) = "副本ID"];
+	optional int32 m_peaceMask = 7[(yd_fieldoptions.field_cname) = "和平标记"];
+	optional int32 m_pointID = 8[(yd_fieldoptions.field_cname) = "位置点"];
+	optional int32 m_flashNum = 9[(yd_fieldoptions.field_cname) = "刷新数量"];
 	optional int32 m_group_type = 10[(yd_fieldoptions.field_cname) = "组类型"];
 	optional int32 m_ishide = 11[(yd_fieldoptions.field_cname) = "是否是隐藏boss"];
-	optional int32 m_triggerpro = 12[(yd_fieldoptions.field_cname) = "触发隐藏的概率"];
-	optional int32 m_flashtime = 13[(yd_fieldoptions.field_cname) = "刷新间隔"];
-	optional int32 m_retrievegiftid = 14[(yd_fieldoptions.field_cname) = "找回礼包id"];
-	optional int32 m_notimes = 15[(yd_fieldoptions.field_cname) = "是否不消耗次数"];
-	optional int32 m_assistprestige = 16[(yd_fieldoptions.field_cname) = "协助击杀奖励的声望"];
+	optional int32 m_triggerPro = 12[(yd_fieldoptions.field_cname) = "触发隐藏的概率"];
+	optional int32 m_flashTime = 13[(yd_fieldoptions.field_cname) = "刷新间隔"];
+	optional int32 m_retrieveGiftID = 14[(yd_fieldoptions.field_cname) = "找回礼包id"];
+	optional int32 m_noTimes = 15[(yd_fieldoptions.field_cname) = "是否不消耗次数"];
+	optional int32 m_assistPrestige = 16[(yd_fieldoptions.field_cname) = "协助击杀奖励的声望"];
 }
 
 
@@ -49,20 +49,20 @@ message E_BossBosstypeGroupDesc
 
 message E_BossBosstype
 {
-	optional int32 m_bosstype = 1[(yd_fieldoptions.field_cname) = "总类型"];
-	optional int32 m_maptype = 2[(yd_fieldoptions.field_cname) = "地图类型"];
-	optional int32 m_functionid = 3[(yd_fieldoptions.field_cname) = "功能解锁ID"];
-	optional int32 m_duplicategroupid = 4[(yd_fieldoptions.field_cname) = "副本组ID"];
-	optional int32 m_privilegetype = 5[(yd_fieldoptions.field_cname) = "特权类型"];
-	optional int64 m_callingcardid = 6[(yd_fieldoptions.field_cname) = "召唤卡id"];
-	optional int32 m_entertimes = 7[(yd_fieldoptions.field_cname) = "进入次数"];
+	optional int32 m_bossType = 1[(yd_fieldoptions.field_cname) = "总类型"];
+	optional int32 m_mapType = 2[(yd_fieldoptions.field_cname) = "地图类型"];
+	optional int32 m_functionId = 3[(yd_fieldoptions.field_cname) = "功能解锁ID"];
+	optional int32 m_duplicateGroupID = 4[(yd_fieldoptions.field_cname) = "副本组ID"];
+	optional int32 m_privilegeType = 5[(yd_fieldoptions.field_cname) = "特权类型"];
+	optional int64 m_callingCardId = 6[(yd_fieldoptions.field_cname) = "召唤卡id"];
+	optional int32 m_enterTimes = 7[(yd_fieldoptions.field_cname) = "进入次数"];
 	optional int32 m_costitem = 8[(yd_fieldoptions.field_cname) = "进入消耗物品"];
 	optional string m_costnum = 9[(yd_fieldoptions.field_cname) = "进入消耗物品数量", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_bosstimes = 10[(yd_fieldoptions.field_cname) = "boss次数"];
-	optional int32 m_additemid = 11[(yd_fieldoptions.field_cname) = "增加次数物品ID"];
+	optional int32 m_bossTimes = 10[(yd_fieldoptions.field_cname) = "boss次数"];
+	optional int32 m_addItemID = 11[(yd_fieldoptions.field_cname) = "增加次数物品ID"];
 	optional int32 m_canhelp = 12[(yd_fieldoptions.field_cname) = "是否可以援助"];
 	optional int32 m_qkill = 13[(yd_fieldoptions.field_cname) = "是否支持快速击杀"];
-	optional int32 m_retrieveddays = 14[(yd_fieldoptions.field_cname) = "找回天数"];
+	optional int32 m_retrievedDays = 14[(yd_fieldoptions.field_cname) = "找回天数"];
 	optional int32 m_skill = 15[(yd_fieldoptions.field_cname) = "纳入全服首杀"];
 	repeated E_BossBosstypeGroupDesc m_group = 16[(yd_fieldoptions.field_cname) = "Boss组", (yd_fieldoptions.field_arysize) = 3];
 }
@@ -75,13 +75,13 @@ message Sheet_BossBosstype
 
 message E_BossLayer
 {
-	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_bosstype = 2[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_ID = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_bossType = 2[(yd_fieldoptions.field_cname) = "类型"];
 	optional int32 m_order = 3[(yd_fieldoptions.field_cname) = "排序"];
-	optional int32 m_subtype = 4[(yd_fieldoptions.field_cname) = "类型"];
-	optional string m_entercondition = 5[(yd_fieldoptions.field_cname) = "进入条件", (yd_fieldoptions.field_bufsize) = 64];
-	optional string m_unlockcondition = 6[(yd_fieldoptions.field_cname) = "解锁条件", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_mapid = 7[(yd_fieldoptions.field_cname) = "地图ID"];
+	optional int32 m_subType = 4[(yd_fieldoptions.field_cname) = "类型"];
+	optional string m_enterCondition = 5[(yd_fieldoptions.field_cname) = "进入条件", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_unlockCondition = 6[(yd_fieldoptions.field_cname) = "解锁条件", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_mapID = 7[(yd_fieldoptions.field_cname) = "地图ID"];
 	optional int32 m_maxlv = 8[(yd_fieldoptions.field_cname) = "最大进入等级"];
 }
 

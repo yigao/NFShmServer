@@ -20,9 +20,9 @@ namespace proto_ff_s {
 		virtual ~E_YanglongYanglong_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_projectid;//项目ID
-		int32_t m_groupid;//副本组ID
-		int32_t m_dupid;//副本ID
+		int32_t m_projectID;//项目ID
+		int32_t m_groupID;//副本组ID
+		int32_t m_dupId;//副本ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_YanglongYanglong & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_YanglongYanglong & msg);
@@ -50,13 +50,13 @@ namespace proto_ff_s {
 		virtual ~E_YanglongZadan_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_taskid;//任务ID
-		int32_t m_achievementsubtype;//事件类型
-		int32_t m_bosstype;//BOSS分类
-		int32_t m_reachprice;//达成值
+		int64_t m_taskId;//任务ID
+		int32_t m_achievementSubType;//事件类型
+		int32_t m_bossType;//BOSS分类
+		int32_t m_reachPrice;//达成值
 		int32_t m_reward;//奖励物品
-		int32_t m_reward_value;//奖励物品数量
-		int32_t m_linkid;//跳转ID
+		int32_t m_reward_Value;//奖励物品数量
+		int32_t m_linkId;//跳转ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_YanglongZadan & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_YanglongZadan & msg);
@@ -84,9 +84,9 @@ namespace proto_ff_s {
 		virtual ~E_YanglongRanking_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_rankingid;//排名礼包ID
+		int32_t m_rankingID;//排名礼包ID
 		int32_t m_rank;//排名条件
-		int32_t m_boxid;//boxl礼包ID
+		int32_t m_boxID;//boxl礼包ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_YanglongRanking & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_YanglongRanking & msg);

@@ -107,10 +107,10 @@ class E_BackBack : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_type() const;
   inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 m_typeparam = 3;
+  // optional int32 m_typeParam = 3;
   inline bool has_m_typeparam() const;
   inline void clear_m_typeparam();
-  static const int kMTypeparamFieldNumber = 3;
+  static const int kMTypeParamFieldNumber = 3;
   inline ::google::protobuf::int32 m_typeparam() const;
   inline void set_m_typeparam(::google::protobuf::int32 value);
 
@@ -133,80 +133,80 @@ class E_BackBack : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_group() const;
   inline void set_m_group(::google::protobuf::int32 value);
 
-  // optional int32 m_functionunlock = 6;
+  // optional int32 m_functionUnlock = 6;
   inline bool has_m_functionunlock() const;
   inline void clear_m_functionunlock();
-  static const int kMFunctionunlockFieldNumber = 6;
+  static const int kMFunctionUnlockFieldNumber = 6;
   inline ::google::protobuf::int32 m_functionunlock() const;
   inline void set_m_functionunlock(::google::protobuf::int32 value);
 
-  // optional int32 m_levellimit = 7;
+  // optional int32 m_levelLimit = 7;
   inline bool has_m_levellimit() const;
   inline void clear_m_levellimit();
-  static const int kMLevellimitFieldNumber = 7;
+  static const int kMLevelLimitFieldNumber = 7;
   inline ::google::protobuf::int32 m_levellimit() const;
   inline void set_m_levellimit(::google::protobuf::int32 value);
 
-  // optional int64 m_pboxid = 8;
+  // optional int64 m_PboxId = 8;
   inline bool has_m_pboxid() const;
   inline void clear_m_pboxid();
-  static const int kMPboxidFieldNumber = 8;
+  static const int kMPboxIdFieldNumber = 8;
   inline ::google::protobuf::int64 m_pboxid() const;
   inline void set_m_pboxid(::google::protobuf::int64 value);
 
-  // optional int64 m_boxid = 9;
+  // optional int64 m_boxId = 9;
   inline bool has_m_boxid() const;
   inline void clear_m_boxid();
-  static const int kMBoxidFieldNumber = 9;
+  static const int kMBoxIdFieldNumber = 9;
   inline ::google::protobuf::int64 m_boxid() const;
   inline void set_m_boxid(::google::protobuf::int64 value);
 
-  // optional int32 m_backday = 10;
+  // optional int32 m_backDay = 10;
   inline bool has_m_backday() const;
   inline void clear_m_backday();
-  static const int kMBackdayFieldNumber = 10;
+  static const int kMBackDayFieldNumber = 10;
   inline ::google::protobuf::int32 m_backday() const;
   inline void set_m_backday(::google::protobuf::int32 value);
 
-  // optional int32 m_costitemid = 11;
+  // optional int32 m_costItemID = 11;
   inline bool has_m_costitemid() const;
   inline void clear_m_costitemid();
-  static const int kMCostitemidFieldNumber = 11;
+  static const int kMCostItemIDFieldNumber = 11;
   inline ::google::protobuf::int32 m_costitemid() const;
   inline void set_m_costitemid(::google::protobuf::int32 value);
 
-  // optional int32 m_costnum = 12;
+  // optional int32 m_costNum = 12;
   inline bool has_m_costnum() const;
   inline void clear_m_costnum();
-  static const int kMCostnumFieldNumber = 12;
+  static const int kMCostNumFieldNumber = 12;
   inline ::google::protobuf::int32 m_costnum() const;
   inline void set_m_costnum(::google::protobuf::int32 value);
 
-  // optional int32 m_pcostitemid = 13;
+  // optional int32 m_PcostItemID = 13;
   inline bool has_m_pcostitemid() const;
   inline void clear_m_pcostitemid();
-  static const int kMPcostitemidFieldNumber = 13;
+  static const int kMPcostItemIDFieldNumber = 13;
   inline ::google::protobuf::int32 m_pcostitemid() const;
   inline void set_m_pcostitemid(::google::protobuf::int32 value);
 
-  // optional int32 m_pcostnum = 14;
+  // optional int32 m_PcostNum = 14;
   inline bool has_m_pcostnum() const;
   inline void clear_m_pcostnum();
-  static const int kMPcostnumFieldNumber = 14;
+  static const int kMPcostNumFieldNumber = 14;
   inline ::google::protobuf::int32 m_pcostnum() const;
   inline void set_m_pcostnum(::google::protobuf::int32 value);
 
-  // optional int32 m_acostitemid = 15;
+  // optional int32 m_AcostItemID = 15;
   inline bool has_m_acostitemid() const;
   inline void clear_m_acostitemid();
-  static const int kMAcostitemidFieldNumber = 15;
+  static const int kMAcostItemIDFieldNumber = 15;
   inline ::google::protobuf::int32 m_acostitemid() const;
   inline void set_m_acostitemid(::google::protobuf::int32 value);
 
-  // optional int32 m_acostnum = 16;
+  // optional int32 m_AcostNum = 16;
   inline bool has_m_acostnum() const;
   inline void clear_m_acostnum();
-  static const int kMAcostnumFieldNumber = 16;
+  static const int kMAcostNumFieldNumber = 16;
   inline ::google::protobuf::int32 m_acostnum() const;
   inline void set_m_acostnum(::google::protobuf::int32 value);
 
@@ -423,7 +423,7 @@ inline void E_BackBack::set_m_type(::google::protobuf::int32 value) {
   m_type_ = value;
 }
 
-// optional int32 m_typeparam = 3;
+// optional int32 m_typeParam = 3;
 inline bool E_BackBack::has_m_typeparam() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -537,7 +537,7 @@ inline void E_BackBack::set_m_group(::google::protobuf::int32 value) {
   m_group_ = value;
 }
 
-// optional int32 m_functionunlock = 6;
+// optional int32 m_functionUnlock = 6;
 inline bool E_BackBack::has_m_functionunlock() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -559,7 +559,7 @@ inline void E_BackBack::set_m_functionunlock(::google::protobuf::int32 value) {
   m_functionunlock_ = value;
 }
 
-// optional int32 m_levellimit = 7;
+// optional int32 m_levelLimit = 7;
 inline bool E_BackBack::has_m_levellimit() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -581,7 +581,7 @@ inline void E_BackBack::set_m_levellimit(::google::protobuf::int32 value) {
   m_levellimit_ = value;
 }
 
-// optional int64 m_pboxid = 8;
+// optional int64 m_PboxId = 8;
 inline bool E_BackBack::has_m_pboxid() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -603,7 +603,7 @@ inline void E_BackBack::set_m_pboxid(::google::protobuf::int64 value) {
   m_pboxid_ = value;
 }
 
-// optional int64 m_boxid = 9;
+// optional int64 m_boxId = 9;
 inline bool E_BackBack::has_m_boxid() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -625,7 +625,7 @@ inline void E_BackBack::set_m_boxid(::google::protobuf::int64 value) {
   m_boxid_ = value;
 }
 
-// optional int32 m_backday = 10;
+// optional int32 m_backDay = 10;
 inline bool E_BackBack::has_m_backday() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -647,7 +647,7 @@ inline void E_BackBack::set_m_backday(::google::protobuf::int32 value) {
   m_backday_ = value;
 }
 
-// optional int32 m_costitemid = 11;
+// optional int32 m_costItemID = 11;
 inline bool E_BackBack::has_m_costitemid() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -669,7 +669,7 @@ inline void E_BackBack::set_m_costitemid(::google::protobuf::int32 value) {
   m_costitemid_ = value;
 }
 
-// optional int32 m_costnum = 12;
+// optional int32 m_costNum = 12;
 inline bool E_BackBack::has_m_costnum() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -691,7 +691,7 @@ inline void E_BackBack::set_m_costnum(::google::protobuf::int32 value) {
   m_costnum_ = value;
 }
 
-// optional int32 m_pcostitemid = 13;
+// optional int32 m_PcostItemID = 13;
 inline bool E_BackBack::has_m_pcostitemid() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -713,7 +713,7 @@ inline void E_BackBack::set_m_pcostitemid(::google::protobuf::int32 value) {
   m_pcostitemid_ = value;
 }
 
-// optional int32 m_pcostnum = 14;
+// optional int32 m_PcostNum = 14;
 inline bool E_BackBack::has_m_pcostnum() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -735,7 +735,7 @@ inline void E_BackBack::set_m_pcostnum(::google::protobuf::int32 value) {
   m_pcostnum_ = value;
 }
 
-// optional int32 m_acostitemid = 15;
+// optional int32 m_AcostItemID = 15;
 inline bool E_BackBack::has_m_acostitemid() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
@@ -757,7 +757,7 @@ inline void E_BackBack::set_m_acostitemid(::google::protobuf::int32 value) {
   m_acostitemid_ = value;
 }
 
-// optional int32 m_acostnum = 16;
+// optional int32 m_AcostNum = 16;
 inline bool E_BackBack::has_m_acostnum() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }

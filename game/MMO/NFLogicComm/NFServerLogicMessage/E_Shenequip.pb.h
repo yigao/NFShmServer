@@ -144,10 +144,10 @@ class E_ShenequipEquip : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_grade() const;
   inline void set_m_grade(::google::protobuf::int32 value);
 
-  // optional int32 m_subtype = 5;
+  // optional int32 m_subType = 5;
   inline bool has_m_subtype() const;
   inline void clear_m_subtype();
-  static const int kMSubtypeFieldNumber = 5;
+  static const int kMSubTypeFieldNumber = 5;
   inline ::google::protobuf::int32 m_subtype() const;
   inline void set_m_subtype(::google::protobuf::int32 value);
 
@@ -172,10 +172,10 @@ class E_ShenequipEquip : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_star() const;
   inline void set_m_star(::google::protobuf::int32 value);
 
-  // optional int32 m_attributeid = 9;
+  // optional int32 m_attributeID = 9;
   inline bool has_m_attributeid() const;
   inline void clear_m_attributeid();
-  static const int kMAttributeidFieldNumber = 9;
+  static const int kMAttributeIDFieldNumber = 9;
   inline ::google::protobuf::int32 m_attributeid() const;
   inline void set_m_attributeid(::google::protobuf::int32 value);
 
@@ -191,17 +191,17 @@ class E_ShenequipEquip : public ::google::protobuf::Message {
   inline ::std::string* release_m_decompose();
   inline void set_allocated_m_decompose(::std::string* m_decompose);
 
-  // optional int32 m_iscanbind = 11;
+  // optional int32 m_isCanbind = 11;
   inline bool has_m_iscanbind() const;
   inline void clear_m_iscanbind();
-  static const int kMIscanbindFieldNumber = 11;
+  static const int kMIsCanbindFieldNumber = 11;
   inline ::google::protobuf::int32 m_iscanbind() const;
   inline void set_m_iscanbind(::google::protobuf::int32 value);
 
-  // optional int32 m_istradebind = 12;
+  // optional int32 m_isTradeBind = 12;
   inline bool has_m_istradebind() const;
   inline void clear_m_istradebind();
-  static const int kMIstradebindFieldNumber = 12;
+  static const int kMIsTradeBindFieldNumber = 12;
   inline ::google::protobuf::int32 m_istradebind() const;
   inline void set_m_istradebind(::google::protobuf::int32 value);
 
@@ -219,17 +219,17 @@ class E_ShenequipEquip : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_broadcast() const;
   inline void set_m_broadcast(::google::protobuf::int32 value);
 
-  // optional int32 m_exclusiveid = 15;
+  // optional int32 m_exclusiveID = 15;
   inline bool has_m_exclusiveid() const;
   inline void clear_m_exclusiveid();
-  static const int kMExclusiveidFieldNumber = 15;
+  static const int kMExclusiveIDFieldNumber = 15;
   inline ::google::protobuf::int32 m_exclusiveid() const;
   inline void set_m_exclusiveid(::google::protobuf::int32 value);
 
-  // optional string m_secretskill = 16;
+  // optional string m_secretSkill = 16;
   inline bool has_m_secretskill() const;
   inline void clear_m_secretskill();
-  static const int kMSecretskillFieldNumber = 16;
+  static const int kMSecretSkillFieldNumber = 16;
   inline const ::std::string& m_secretskill() const;
   inline void set_m_secretskill(const ::std::string& value);
   inline void set_m_secretskill(const char* value);
@@ -238,10 +238,10 @@ class E_ShenequipEquip : public ::google::protobuf::Message {
   inline ::std::string* release_m_secretskill();
   inline void set_allocated_m_secretskill(::std::string* m_secretskill);
 
-  // optional string m_crypticskill = 17;
+  // optional string m_crypticSkill = 17;
   inline bool has_m_crypticskill() const;
   inline void clear_m_crypticskill();
-  static const int kMCrypticskillFieldNumber = 17;
+  static const int kMCrypticSkillFieldNumber = 17;
   inline const ::std::string& m_crypticskill() const;
   inline void set_m_crypticskill(const ::std::string& value);
   inline void set_m_crypticskill(const char* value);
@@ -250,10 +250,10 @@ class E_ShenequipEquip : public ::google::protobuf::Message {
   inline ::std::string* release_m_crypticskill();
   inline void set_allocated_m_crypticskill(::std::string* m_crypticskill);
 
-  // optional string m_passiveskill = 18;
+  // optional string m_passiveSkill = 18;
   inline bool has_m_passiveskill() const;
   inline void clear_m_passiveskill();
-  static const int kMPassiveskillFieldNumber = 18;
+  static const int kMPassiveSkillFieldNumber = 18;
   inline const ::std::string& m_passiveskill() const;
   inline void set_m_passiveskill(const ::std::string& value);
   inline void set_m_passiveskill(const char* value);
@@ -850,17 +850,17 @@ class E_ShenequipLvupAttributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_stepid = 1;
+  // optional int32 m_stepId = 1;
   inline bool has_m_stepid() const;
   inline void clear_m_stepid();
-  static const int kMStepidFieldNumber = 1;
+  static const int kMStepIdFieldNumber = 1;
   inline ::google::protobuf::int32 m_stepid() const;
   inline void set_m_stepid(::google::protobuf::int32 value);
 
-  // optional int32 m_lvid = 2;
+  // optional int32 m_lvId = 2;
   inline bool has_m_lvid() const;
   inline void clear_m_lvid();
-  static const int kMLvidFieldNumber = 2;
+  static const int kMLvIdFieldNumber = 2;
   inline ::google::protobuf::int32 m_lvid() const;
   inline void set_m_lvid(::google::protobuf::int32 value);
 
@@ -963,10 +963,10 @@ class E_ShenequipLvup : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_type() const;
   inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 4;
+  // optional int32 m_itemID = 4;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 4;
+  static const int kMItemIDFieldNumber = 4;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
@@ -977,17 +977,17 @@ class E_ShenequipLvup : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int32 m_advanceitem = 6;
+  // optional int32 m_advanceItem = 6;
   inline bool has_m_advanceitem() const;
   inline void clear_m_advanceitem();
-  static const int kMAdvanceitemFieldNumber = 6;
+  static const int kMAdvanceItemFieldNumber = 6;
   inline ::google::protobuf::int32 m_advanceitem() const;
   inline void set_m_advanceitem(::google::protobuf::int32 value);
 
-  // optional int32 m_advancenum = 7;
+  // optional int32 m_advanceNum = 7;
   inline bool has_m_advancenum() const;
   inline void clear_m_advancenum();
-  static const int kMAdvancenumFieldNumber = 7;
+  static const int kMAdvanceNumFieldNumber = 7;
   inline ::google::protobuf::int32 m_advancenum() const;
   inline void set_m_advancenum(::google::protobuf::int32 value);
 
@@ -1203,10 +1203,10 @@ class E_ShenequipClear : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 4;
+  // optional int32 m_itemID = 4;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 4;
+  static const int kMItemIDFieldNumber = 4;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
@@ -1217,31 +1217,31 @@ class E_ShenequipClear : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int32 m_breakitem = 6;
+  // optional int32 m_breakItem = 6;
   inline bool has_m_breakitem() const;
   inline void clear_m_breakitem();
-  static const int kMBreakitemFieldNumber = 6;
+  static const int kMBreakItemFieldNumber = 6;
   inline ::google::protobuf::int32 m_breakitem() const;
   inline void set_m_breakitem(::google::protobuf::int32 value);
 
-  // optional int32 m_breaknum = 7;
+  // optional int32 m_breakNum = 7;
   inline bool has_m_breaknum() const;
   inline void clear_m_breaknum();
-  static const int kMBreaknumFieldNumber = 7;
+  static const int kMBreakNumFieldNumber = 7;
   inline ::google::protobuf::int32 m_breaknum() const;
   inline void set_m_breaknum(::google::protobuf::int32 value);
 
-  // optional int32 m_breakprogress = 8;
+  // optional int32 m_breakProgress = 8;
   inline bool has_m_breakprogress() const;
   inline void clear_m_breakprogress();
-  static const int kMBreakprogressFieldNumber = 8;
+  static const int kMBreakProgressFieldNumber = 8;
   inline ::google::protobuf::int32 m_breakprogress() const;
   inline void set_m_breakprogress(::google::protobuf::int32 value);
 
-  // optional int32 m_randomcounts = 9;
+  // optional int32 m_randomCounts = 9;
   inline bool has_m_randomcounts() const;
   inline void clear_m_randomcounts();
-  static const int kMRandomcountsFieldNumber = 9;
+  static const int kMRandomCountsFieldNumber = 9;
   inline ::google::protobuf::int32 m_randomcounts() const;
   inline void set_m_randomcounts(::google::protobuf::int32 value);
 
@@ -1252,10 +1252,10 @@ class E_ShenequipClear : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_minus() const;
   inline void set_m_minus(::google::protobuf::int32 value);
 
-  // optional int32 m_nextid = 11;
+  // optional int32 m_nextID = 11;
   inline bool has_m_nextid() const;
   inline void clear_m_nextid();
-  static const int kMNextidFieldNumber = 11;
+  static const int kMNextIDFieldNumber = 11;
   inline ::google::protobuf::int32 m_nextid() const;
   inline void set_m_nextid(::google::protobuf::int32 value);
 
@@ -1575,10 +1575,10 @@ class E_ShenequipAwaken : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 4;
+  // optional int32 m_itemID = 4;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 4;
+  static const int kMItemIDFieldNumber = 4;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
@@ -1589,10 +1589,10 @@ class E_ShenequipAwaken : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int32 m_awakeskillid = 6;
+  // optional int32 m_awakeSkillID = 6;
   inline bool has_m_awakeskillid() const;
   inline void clear_m_awakeskillid();
-  static const int kMAwakeskillidFieldNumber = 6;
+  static const int kMAwakeSkillIDFieldNumber = 6;
   inline ::google::protobuf::int32 m_awakeskillid() const;
   inline void set_m_awakeskillid(::google::protobuf::int32 value);
 
@@ -1934,17 +1934,17 @@ class E_ShenequipStarup : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_stars() const;
   inline void set_m_stars(::google::protobuf::int32 value);
 
-  // optional int32 m_nextid = 5;
+  // optional int32 m_nextID = 5;
   inline bool has_m_nextid() const;
   inline void clear_m_nextid();
-  static const int kMNextidFieldNumber = 5;
+  static const int kMNextIDFieldNumber = 5;
   inline ::google::protobuf::int32 m_nextid() const;
   inline void set_m_nextid(::google::protobuf::int32 value);
 
-  // optional int32 m_lastid = 6;
+  // optional int32 m_lastID = 6;
   inline bool has_m_lastid() const;
   inline void clear_m_lastid();
-  static const int kMLastidFieldNumber = 6;
+  static const int kMLastIDFieldNumber = 6;
   inline ::google::protobuf::int32 m_lastid() const;
   inline void set_m_lastid(::google::protobuf::int32 value);
 
@@ -2525,7 +2525,7 @@ inline void E_ShenequipEquip::set_m_grade(::google::protobuf::int32 value) {
   m_grade_ = value;
 }
 
-// optional int32 m_subtype = 5;
+// optional int32 m_subType = 5;
 inline bool E_ShenequipEquip::has_m_subtype() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -2613,7 +2613,7 @@ inline void E_ShenequipEquip::set_m_star(::google::protobuf::int32 value) {
   m_star_ = value;
 }
 
-// optional int32 m_attributeid = 9;
+// optional int32 m_attributeID = 9;
 inline bool E_ShenequipEquip::has_m_attributeid() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -2705,7 +2705,7 @@ inline void E_ShenequipEquip::set_allocated_m_decompose(::std::string* m_decompo
   }
 }
 
-// optional int32 m_iscanbind = 11;
+// optional int32 m_isCanbind = 11;
 inline bool E_ShenequipEquip::has_m_iscanbind() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -2727,7 +2727,7 @@ inline void E_ShenequipEquip::set_m_iscanbind(::google::protobuf::int32 value) {
   m_iscanbind_ = value;
 }
 
-// optional int32 m_istradebind = 12;
+// optional int32 m_isTradeBind = 12;
 inline bool E_ShenequipEquip::has_m_istradebind() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -2793,7 +2793,7 @@ inline void E_ShenequipEquip::set_m_broadcast(::google::protobuf::int32 value) {
   m_broadcast_ = value;
 }
 
-// optional int32 m_exclusiveid = 15;
+// optional int32 m_exclusiveID = 15;
 inline bool E_ShenequipEquip::has_m_exclusiveid() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
@@ -2815,7 +2815,7 @@ inline void E_ShenequipEquip::set_m_exclusiveid(::google::protobuf::int32 value)
   m_exclusiveid_ = value;
 }
 
-// optional string m_secretskill = 16;
+// optional string m_secretSkill = 16;
 inline bool E_ShenequipEquip::has_m_secretskill() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
@@ -2885,7 +2885,7 @@ inline void E_ShenequipEquip::set_allocated_m_secretskill(::std::string* m_secre
   }
 }
 
-// optional string m_crypticskill = 17;
+// optional string m_crypticSkill = 17;
 inline bool E_ShenequipEquip::has_m_crypticskill() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
@@ -2955,7 +2955,7 @@ inline void E_ShenequipEquip::set_allocated_m_crypticskill(::std::string* m_cryp
   }
 }
 
-// optional string m_passiveskill = 18;
+// optional string m_passiveSkill = 18;
 inline bool E_ShenequipEquip::has_m_passiveskill() const {
   return (_has_bits_[0] & 0x00020000u) != 0;
 }
@@ -3259,7 +3259,7 @@ Sheet_ShenequipAtt::mutable_e_shenequipatt_list() {
 
 // E_ShenequipLvupAttributeDesc
 
-// optional int32 m_stepid = 1;
+// optional int32 m_stepId = 1;
 inline bool E_ShenequipLvupAttributeDesc::has_m_stepid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -3281,7 +3281,7 @@ inline void E_ShenequipLvupAttributeDesc::set_m_stepid(::google::protobuf::int32
   m_stepid_ = value;
 }
 
-// optional int32 m_lvid = 2;
+// optional int32 m_lvId = 2;
 inline bool E_ShenequipLvupAttributeDesc::has_m_lvid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -3373,7 +3373,7 @@ inline void E_ShenequipLvup::set_m_type(::google::protobuf::int32 value) {
   m_type_ = value;
 }
 
-// optional int32 m_itemid = 4;
+// optional int32 m_itemID = 4;
 inline bool E_ShenequipLvup::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -3417,7 +3417,7 @@ inline void E_ShenequipLvup::set_m_num(::google::protobuf::int32 value) {
   m_num_ = value;
 }
 
-// optional int32 m_advanceitem = 6;
+// optional int32 m_advanceItem = 6;
 inline bool E_ShenequipLvup::has_m_advanceitem() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -3439,7 +3439,7 @@ inline void E_ShenequipLvup::set_m_advanceitem(::google::protobuf::int32 value) 
   m_advanceitem_ = value;
 }
 
-// optional int32 m_advancenum = 7;
+// optional int32 m_advanceNum = 7;
 inline bool E_ShenequipLvup::has_m_advancenum() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -3585,7 +3585,7 @@ inline void E_ShenequipClear::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional int32 m_itemid = 4;
+// optional int32 m_itemID = 4;
 inline bool E_ShenequipClear::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -3629,7 +3629,7 @@ inline void E_ShenequipClear::set_m_num(::google::protobuf::int32 value) {
   m_num_ = value;
 }
 
-// optional int32 m_breakitem = 6;
+// optional int32 m_breakItem = 6;
 inline bool E_ShenequipClear::has_m_breakitem() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -3651,7 +3651,7 @@ inline void E_ShenequipClear::set_m_breakitem(::google::protobuf::int32 value) {
   m_breakitem_ = value;
 }
 
-// optional int32 m_breaknum = 7;
+// optional int32 m_breakNum = 7;
 inline bool E_ShenequipClear::has_m_breaknum() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -3673,7 +3673,7 @@ inline void E_ShenequipClear::set_m_breaknum(::google::protobuf::int32 value) {
   m_breaknum_ = value;
 }
 
-// optional int32 m_breakprogress = 8;
+// optional int32 m_breakProgress = 8;
 inline bool E_ShenequipClear::has_m_breakprogress() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -3695,7 +3695,7 @@ inline void E_ShenequipClear::set_m_breakprogress(::google::protobuf::int32 valu
   m_breakprogress_ = value;
 }
 
-// optional int32 m_randomcounts = 9;
+// optional int32 m_randomCounts = 9;
 inline bool E_ShenequipClear::has_m_randomcounts() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -3739,7 +3739,7 @@ inline void E_ShenequipClear::set_m_minus(::google::protobuf::int32 value) {
   m_minus_ = value;
 }
 
-// optional int32 m_nextid = 11;
+// optional int32 m_nextID = 11;
 inline bool E_ShenequipClear::has_m_nextid() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -3933,7 +3933,7 @@ inline void E_ShenequipAwaken::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional int32 m_itemid = 4;
+// optional int32 m_itemID = 4;
 inline bool E_ShenequipAwaken::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -3977,7 +3977,7 @@ inline void E_ShenequipAwaken::set_m_num(::google::protobuf::int32 value) {
   m_num_ = value;
 }
 
-// optional int32 m_awakeskillid = 6;
+// optional int32 m_awakeSkillID = 6;
 inline bool E_ShenequipAwaken::has_m_awakeskillid() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -4259,7 +4259,7 @@ inline void E_ShenequipStarup::set_m_stars(::google::protobuf::int32 value) {
   m_stars_ = value;
 }
 
-// optional int32 m_nextid = 5;
+// optional int32 m_nextID = 5;
 inline bool E_ShenequipStarup::has_m_nextid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -4281,7 +4281,7 @@ inline void E_ShenequipStarup::set_m_nextid(::google::protobuf::int32 value) {
   m_nextid_ = value;
 }
 
-// optional int32 m_lastid = 6;
+// optional int32 m_lastID = 6;
 inline bool E_ShenequipStarup::has_m_lastid() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }

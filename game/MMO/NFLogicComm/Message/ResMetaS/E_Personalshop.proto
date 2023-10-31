@@ -6,13 +6,13 @@ import "yd_fieldoptions.proto";
 message E_PersonalshopShopitems
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
-	optional int32 m_shopid = 2[(yd_fieldoptions.field_cname) = "商店类型"];
-	optional int32 m_itemid = 3[(yd_fieldoptions.field_cname) = "物品ID"];
+	optional int32 m_shopId = 2[(yd_fieldoptions.field_cname) = "商店类型"];
+	optional int32 m_itemID = 3[(yd_fieldoptions.field_cname) = "物品ID"];
 	optional int32 m_amount = 4[(yd_fieldoptions.field_cname) = "物品数量"];
 	optional int32 m_currency = 5[(yd_fieldoptions.field_cname) = "货币类型"];
 	optional int32 m_price = 6[(yd_fieldoptions.field_cname) = "价格"];
 	optional int32 m_discount = 7[(yd_fieldoptions.field_cname) = "折扣"];
-	optional int32 m_lvlimit = 8[(yd_fieldoptions.field_cname) = "等级限制"];
+	optional int32 m_lvLimit = 8[(yd_fieldoptions.field_cname) = "等级限制"];
 	optional int32 m_weight = 9[(yd_fieldoptions.field_cname) = "权重"];
 }
 
@@ -25,13 +25,13 @@ message Sheet_PersonalshopShopitems
 message E_PersonalshopShops
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "商店id"];
-	optional int32 m_keeptime = 2[(yd_fieldoptions.field_cname) = "商店持续时间"];
-	optional int32 m_freetimes = 3[(yd_fieldoptions.field_cname) = "免费刷新次数"];
-	optional int32 m_refreshmoney = 4[(yd_fieldoptions.field_cname) = "刷新货币id"];
-	optional int32 m_refreshprice = 5[(yd_fieldoptions.field_cname) = "刷新价格"];
-	optional int32 m_salelistcount = 6[(yd_fieldoptions.field_cname) = "出售数量"];
-	optional int32 m_addtype = 7[(yd_fieldoptions.field_cname) = "添加类型"];
-	optional int32 m_addtypevalue = 8[(yd_fieldoptions.field_cname) = "变量"];
+	optional int32 m_keepTime = 2[(yd_fieldoptions.field_cname) = "商店持续时间"];
+	optional int32 m_freeTimes = 3[(yd_fieldoptions.field_cname) = "免费刷新次数"];
+	optional int32 m_refreshMoney = 4[(yd_fieldoptions.field_cname) = "刷新货币id"];
+	optional int32 m_refreshPrice = 5[(yd_fieldoptions.field_cname) = "刷新价格"];
+	optional int32 m_saleListCount = 6[(yd_fieldoptions.field_cname) = "出售数量"];
+	optional int32 m_addType = 7[(yd_fieldoptions.field_cname) = "添加类型"];
+	optional int32 m_addTypeValue = 8[(yd_fieldoptions.field_cname) = "变量"];
 }
 
 

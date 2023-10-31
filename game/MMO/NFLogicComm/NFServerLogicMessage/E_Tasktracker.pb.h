@@ -93,17 +93,17 @@ class E_TasktrackerTasktracker : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_comid = 1;
+  // optional int32 m_comID = 1;
   inline bool has_m_comid() const;
   inline void clear_m_comid();
-  static const int kMComidFieldNumber = 1;
+  static const int kMComIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_comid() const;
   inline void set_m_comid(::google::protobuf::int32 value);
 
-  // optional int32 m_trueid = 2;
+  // optional int32 m_trueID = 2;
   inline bool has_m_trueid() const;
   inline void clear_m_trueid();
-  static const int kMTrueidFieldNumber = 2;
+  static const int kMTrueIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_trueid() const;
   inline void set_m_trueid(::google::protobuf::int32 value);
 
@@ -221,7 +221,7 @@ class Sheet_TasktrackerTasktracker : public ::google::protobuf::Message {
 
 // E_TasktrackerTasktracker
 
-// optional int32 m_comid = 1;
+// optional int32 m_comID = 1;
 inline bool E_TasktrackerTasktracker::has_m_comid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -243,7 +243,7 @@ inline void E_TasktrackerTasktracker::set_m_comid(::google::protobuf::int32 valu
   m_comid_ = value;
 }
 
-// optional int32 m_trueid = 2;
+// optional int32 m_trueID = 2;
 inline bool E_TasktrackerTasktracker::has_m_trueid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }

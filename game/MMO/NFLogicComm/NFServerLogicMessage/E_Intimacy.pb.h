@@ -195,17 +195,17 @@ class E_IntimacyIntimacy : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_intimacymin = 2;
+  // optional int32 m_intimacyMin = 2;
   inline bool has_m_intimacymin() const;
   inline void clear_m_intimacymin();
-  static const int kMIntimacyminFieldNumber = 2;
+  static const int kMIntimacyMinFieldNumber = 2;
   inline ::google::protobuf::int32 m_intimacymin() const;
   inline void set_m_intimacymin(::google::protobuf::int32 value);
 
-  // optional int32 m_intimacymax = 3;
+  // optional int32 m_intimacyMax = 3;
   inline bool has_m_intimacymax() const;
   inline void clear_m_intimacymax();
-  static const int kMIntimacymaxFieldNumber = 3;
+  static const int kMIntimacyMaxFieldNumber = 3;
   inline ::google::protobuf::int32 m_intimacymax() const;
   inline void set_m_intimacymax(::google::protobuf::int32 value);
 
@@ -395,24 +395,24 @@ class E_IntimacyGift : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_mallid() const;
   inline void set_m_mallid(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 2;
+  // optional int32 m_itemId = 2;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 2;
+  static const int kMItemIdFieldNumber = 2;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
-  // optional int32 m_nametype = 3;
+  // optional int32 m_nameType = 3;
   inline bool has_m_nametype() const;
   inline void clear_m_nametype();
-  static const int kMNametypeFieldNumber = 3;
+  static const int kMNameTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_nametype() const;
   inline void set_m_nametype(::google::protobuf::int32 value);
 
-  // optional string m_uipic = 4;
+  // optional string m_uiPic = 4;
   inline bool has_m_uipic() const;
   inline void clear_m_uipic();
-  static const int kMUipicFieldNumber = 4;
+  static const int kMUiPicFieldNumber = 4;
   inline const ::std::string& m_uipic() const;
   inline void set_m_uipic(const ::std::string& value);
   inline void set_m_uipic(const char* value);
@@ -631,7 +631,7 @@ inline void E_IntimacyIntimacy::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional int32 m_intimacymin = 2;
+// optional int32 m_intimacyMin = 2;
 inline bool E_IntimacyIntimacy::has_m_intimacymin() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -653,7 +653,7 @@ inline void E_IntimacyIntimacy::set_m_intimacymin(::google::protobuf::int32 valu
   m_intimacymin_ = value;
 }
 
-// optional int32 m_intimacymax = 3;
+// optional int32 m_intimacyMax = 3;
 inline bool E_IntimacyIntimacy::has_m_intimacymax() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -755,7 +755,7 @@ inline void E_IntimacyGift::set_m_mallid(::google::protobuf::int32 value) {
   m_mallid_ = value;
 }
 
-// optional int32 m_itemid = 2;
+// optional int32 m_itemId = 2;
 inline bool E_IntimacyGift::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -777,7 +777,7 @@ inline void E_IntimacyGift::set_m_itemid(::google::protobuf::int32 value) {
   m_itemid_ = value;
 }
 
-// optional int32 m_nametype = 3;
+// optional int32 m_nameType = 3;
 inline bool E_IntimacyGift::has_m_nametype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -799,7 +799,7 @@ inline void E_IntimacyGift::set_m_nametype(::google::protobuf::int32 value) {
   m_nametype_ = value;
 }
 
-// optional string m_uipic = 4;
+// optional string m_uiPic = 4;
 inline bool E_IntimacyGift::has_m_uipic() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }

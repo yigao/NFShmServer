@@ -37,18 +37,18 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t m_id;//表ID
 		int32_t m_type;//ai类型
-		NFShmString<64> m_deadhateremain;//死亡仇恨保留
-		NFShmString<64> m_invisibleremain;//隐身仇恨保留
-		int32_t m_isactive;//是否为主动怪
-		int32_t m_returntype;//回归类型
+		NFShmString<64> m_deadHateRemain;//死亡仇恨保留
+		NFShmString<64> m_invisibleRemain;//隐身仇恨保留
+		int32_t m_isActive;//是否为主动怪
+		int32_t m_returnType;//回归类型
 		int32_t m_view;//视野
-		int32_t m_isattackedshowoff;//是否关闭受击表现
-		int32_t m_pursuerange;//追击范围
-		int32_t m_actionrange;//怪物活动范围
-		int32_t m_wakeupradius;//唤醒半径
-		int32_t m_isaiworkwhennobody;//是否无人时启用AI
-		int32_t m_borneffectaidelay;//出生AI延时
-		NFShmString<128> m_initskills;//技能池初始技能组
+		int32_t m_isAttackedShowOff;//是否关闭受击表现
+		int32_t m_pursueRange;//追击范围
+		int32_t m_actionRange;//怪物活动范围
+		int32_t m_wakeupRadius;//唤醒半径
+		int32_t m_isAIWorkWhenNobody;//是否无人时启用AI
+		int32_t m_bornEffectAIDelay;//出生AI延时
+		NFShmString<128> m_initSkills;//技能池初始技能组
 		NFShmVector<struct E_AiAiHpDesc_s, DEFINE_E_AIAI_M_HP_MAX_NUM> m_hp;//触发血量
 
 		virtual void write_to_pbmsg(::proto_ff::E_AiAi & msg) const;

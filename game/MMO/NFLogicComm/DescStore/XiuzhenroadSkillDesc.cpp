@@ -91,8 +91,8 @@ int XiuzhenroadSkillDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_itenmid <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_itenmid)), result, "can't find the itenmid:{} in the  excel:item sheet:item", pDesc->m_itenmid);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_skillid <= 0 || SkillSkillDesc::Instance()->GetDesc(pDesc->m_skillid)), result, "can't find the skillid:{} in the  excel:skill sheet:skill", pDesc->m_skillid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_itenmID <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_itenmID)), result, "can't find the itenmID:{} in the  excel:item sheet:item", pDesc->m_itenmID);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_skillID <= 0 || SkillSkillDesc::Instance()->GetDesc(pDesc->m_skillID)), result, "can't find the skillID:{} in the  excel:skill sheet:skill", pDesc->m_skillID);
 	}
 	return result;
 }

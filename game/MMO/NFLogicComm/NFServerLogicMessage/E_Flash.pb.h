@@ -97,17 +97,17 @@ class E_FlashFlashMonsterDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_num = 1;
+  // optional int32 m_Num = 1;
   inline bool has_m_num() const;
   inline void clear_m_num();
   static const int kMNumFieldNumber = 1;
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int64 m_id = 2;
+  // optional int64 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
@@ -196,45 +196,45 @@ class E_FlashFlash : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 m_isleveldynamic = 2;
+  // optional int32 m_isLevelDynamic = 2;
   inline bool has_m_isleveldynamic() const;
   inline void clear_m_isleveldynamic();
-  static const int kMIsleveldynamicFieldNumber = 2;
+  static const int kMIsLevelDynamicFieldNumber = 2;
   inline ::google::protobuf::int32 m_isleveldynamic() const;
   inline void set_m_isleveldynamic(::google::protobuf::int32 value);
 
-  // optional int32 m_minilevel = 3;
+  // optional int32 m_miniLevel = 3;
   inline bool has_m_minilevel() const;
   inline void clear_m_minilevel();
-  static const int kMMinilevelFieldNumber = 3;
+  static const int kMMiniLevelFieldNumber = 3;
   inline ::google::protobuf::int32 m_minilevel() const;
   inline void set_m_minilevel(::google::protobuf::int32 value);
 
-  // optional int32 m_levelcheck = 4;
+  // optional int32 m_levelCheck = 4;
   inline bool has_m_levelcheck() const;
   inline void clear_m_levelcheck();
-  static const int kMLevelcheckFieldNumber = 4;
+  static const int kMLevelCheckFieldNumber = 4;
   inline ::google::protobuf::int32 m_levelcheck() const;
   inline void set_m_levelcheck(::google::protobuf::int32 value);
 
-  // optional int64 m_pointid = 5;
+  // optional int64 m_pointID = 5;
   inline bool has_m_pointid() const;
   inline void clear_m_pointid();
-  static const int kMPointidFieldNumber = 5;
+  static const int kMPointIDFieldNumber = 5;
   inline ::google::protobuf::int64 m_pointid() const;
   inline void set_m_pointid(::google::protobuf::int64 value);
 
-  // optional int32 m_monster_type = 6;
+  // optional int32 m_monster_Type = 6;
   inline bool has_m_monster_type() const;
   inline void clear_m_monster_type();
   static const int kMMonsterTypeFieldNumber = 6;
   inline ::google::protobuf::int32 m_monster_type() const;
   inline void set_m_monster_type(::google::protobuf::int32 value);
 
-  // optional int32 m_monsterrefreshtime = 7;
+  // optional int32 m_monsterRefreshTime = 7;
   inline bool has_m_monsterrefreshtime() const;
   inline void clear_m_monsterrefreshtime();
-  static const int kMMonsterrefreshtimeFieldNumber = 7;
+  static const int kMMonsterRefreshTimeFieldNumber = 7;
   inline ::google::protobuf::int32 m_monsterrefreshtime() const;
   inline void set_m_monsterrefreshtime(::google::protobuf::int32 value);
 
@@ -436,7 +436,7 @@ class E_FlashItemflashMonsterDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_weight() const;
   inline void set_m_weight(::google::protobuf::int32 value);
 
-  // optional int64 m_id = 2;
+  // optional int64 m_Id = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
   static const int kMIdFieldNumber = 2;
@@ -528,10 +528,10 @@ class E_FlashItemflash : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional string m_usemap = 2;
+  // optional string m_useMap = 2;
   inline bool has_m_usemap() const;
   inline void clear_m_usemap();
-  static const int kMUsemapFieldNumber = 2;
+  static const int kMUseMapFieldNumber = 2;
   inline const ::std::string& m_usemap() const;
   inline void set_m_usemap(const ::std::string& value);
   inline void set_m_usemap(const char* value);
@@ -554,10 +554,10 @@ class E_FlashItemflash : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_levelwave() const;
   inline void set_m_levelwave(::google::protobuf::int32 value);
 
-  // optional int32 m_flashnum = 5;
+  // optional int32 m_flashNum = 5;
   inline bool has_m_flashnum() const;
   inline void clear_m_flashnum();
-  static const int kMFlashnumFieldNumber = 5;
+  static const int kMFlashNumFieldNumber = 5;
   inline ::google::protobuf::int32 m_flashnum() const;
   inline void set_m_flashnum(::google::protobuf::int32 value);
 
@@ -697,7 +697,7 @@ class Sheet_FlashItemflash : public ::google::protobuf::Message {
 
 // E_FlashFlashMonsterDesc
 
-// optional int32 m_num = 1;
+// optional int32 m_Num = 1;
 inline bool E_FlashFlashMonsterDesc::has_m_num() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -719,7 +719,7 @@ inline void E_FlashFlashMonsterDesc::set_m_num(::google::protobuf::int32 value) 
   m_num_ = value;
 }
 
-// optional int64 m_id = 2;
+// optional int64 m_ID = 2;
 inline bool E_FlashFlashMonsterDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -767,7 +767,7 @@ inline void E_FlashFlash::set_m_id(::google::protobuf::int64 value) {
   m_id_ = value;
 }
 
-// optional int32 m_isleveldynamic = 2;
+// optional int32 m_isLevelDynamic = 2;
 inline bool E_FlashFlash::has_m_isleveldynamic() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -789,7 +789,7 @@ inline void E_FlashFlash::set_m_isleveldynamic(::google::protobuf::int32 value) 
   m_isleveldynamic_ = value;
 }
 
-// optional int32 m_minilevel = 3;
+// optional int32 m_miniLevel = 3;
 inline bool E_FlashFlash::has_m_minilevel() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -811,7 +811,7 @@ inline void E_FlashFlash::set_m_minilevel(::google::protobuf::int32 value) {
   m_minilevel_ = value;
 }
 
-// optional int32 m_levelcheck = 4;
+// optional int32 m_levelCheck = 4;
 inline bool E_FlashFlash::has_m_levelcheck() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -833,7 +833,7 @@ inline void E_FlashFlash::set_m_levelcheck(::google::protobuf::int32 value) {
   m_levelcheck_ = value;
 }
 
-// optional int64 m_pointid = 5;
+// optional int64 m_pointID = 5;
 inline bool E_FlashFlash::has_m_pointid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -855,7 +855,7 @@ inline void E_FlashFlash::set_m_pointid(::google::protobuf::int64 value) {
   m_pointid_ = value;
 }
 
-// optional int32 m_monster_type = 6;
+// optional int32 m_monster_Type = 6;
 inline bool E_FlashFlash::has_m_monster_type() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -877,7 +877,7 @@ inline void E_FlashFlash::set_m_monster_type(::google::protobuf::int32 value) {
   m_monster_type_ = value;
 }
 
-// optional int32 m_monsterrefreshtime = 7;
+// optional int32 m_monsterRefreshTime = 7;
 inline bool E_FlashFlash::has_m_monsterrefreshtime() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -979,7 +979,7 @@ inline void E_FlashItemflashMonsterDesc::set_m_weight(::google::protobuf::int32 
   m_weight_ = value;
 }
 
-// optional int64 m_id = 2;
+// optional int64 m_Id = 2;
 inline bool E_FlashItemflashMonsterDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1027,7 +1027,7 @@ inline void E_FlashItemflash::set_m_id(::google::protobuf::int64 value) {
   m_id_ = value;
 }
 
-// optional string m_usemap = 2;
+// optional string m_useMap = 2;
 inline bool E_FlashItemflash::has_m_usemap() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1141,7 +1141,7 @@ inline void E_FlashItemflash::set_m_levelwave(::google::protobuf::int32 value) {
   m_levelwave_ = value;
 }
 
-// optional int32 m_flashnum = 5;
+// optional int32 m_flashNum = 5;
 inline bool E_FlashItemflash::has_m_flashnum() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }

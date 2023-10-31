@@ -91,8 +91,8 @@ int XiuzhenroadClassifyDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_rechargeid <= 0 || RechargeRechargeDesc::Instance()->GetDesc(pDesc->m_rechargeid)), result, "can't find the rechargeid:{} in the  excel:recharge sheet:recharge", pDesc->m_rechargeid);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_giftid <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_giftid)), result, "can't find the giftid:{} in the  excel:box sheet:box", pDesc->m_giftid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_rechargeID <= 0 || RechargeRechargeDesc::Instance()->GetDesc(pDesc->m_rechargeID)), result, "can't find the rechargeID:{} in the  excel:recharge sheet:recharge", pDesc->m_rechargeID);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_giftID <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_giftID)), result, "can't find the giftID:{} in the  excel:box sheet:box", pDesc->m_giftID);
 	}
 	return result;
 }

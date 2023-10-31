@@ -21,7 +21,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//唯一ID
-		int32_t m_roomid;//房间ID
+		int32_t m_RoomId;//房间ID
 		int32_t m_gameid;//游戏ID
 		NFShmString<64> m_gamename;//游戏名
 		int32_t m_roomtype;//房间类型

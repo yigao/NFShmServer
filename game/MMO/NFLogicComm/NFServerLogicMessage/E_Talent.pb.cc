@@ -156,12 +156,12 @@ void protobuf_AddDesc_E_5fTalent_2eproto() {
     "\n\016E_Talent.proto\022\010proto_ff\032\025yd_fieldopti"
     "ons.proto\"\351\002\n\016E_TalentTalent\022\032\n\004m_id\030\001 \001"
     "(\005B\014\302\377\024\010\345\244\251\350\265\213ID\022 \n\006m_type\030\002 \001(\005B\020\302\377\024\014\345\244"
-    "\251\350\265\213\345\244\247\347\261\273\022\037\n\tm_skillid\030\003 \001(\005B\014\302\377\024\010\346\212\200\350\203"
-    "\275ID\022#\n\tm_lvlimit\030\004 \001(\005B\020\302\377\024\014\347\255\211\347\272\247\344\270\212\351\231\220"
-    "\022&\n\014m_aheadskill\030\005 \001(\005B\020\302\377\024\014\345\211\215\347\275\256\346\212\200\350\203\275"
-    "\022)\n\tm_aheadlv\030\006 \001(\005B\026\302\377\024\022\345\211\215\347\275\256\346\212\200\350\203\275\347\255\211"
-    "\347\272\247\022*\n\nm_needtype\030\007 \001(\005B\026\302\377\024\022\350\246\201\346\261\202\345\244\251\350\265"
-    "\213\347\261\273\345\236\213\022)\n\tm_typenum\030\010 \001(\005B\026\302\377\024\022\350\246\201\346\261\202\345\244"
+    "\251\350\265\213\345\244\247\347\261\273\022\037\n\tm_skillID\030\003 \001(\005B\014\302\377\024\010\346\212\200\350\203"
+    "\275ID\022#\n\tm_lvLImit\030\004 \001(\005B\020\302\377\024\014\347\255\211\347\272\247\344\270\212\351\231\220"
+    "\022&\n\014m_aheadSkill\030\005 \001(\005B\020\302\377\024\014\345\211\215\347\275\256\346\212\200\350\203\275"
+    "\022)\n\tm_aheadLv\030\006 \001(\005B\026\302\377\024\022\345\211\215\347\275\256\346\212\200\350\203\275\347\255\211"
+    "\347\272\247\022*\n\nm_needType\030\007 \001(\005B\026\302\377\024\022\350\246\201\346\261\202\345\244\251\350\265"
+    "\213\347\261\273\345\236\213\022)\n\tm_typeNum\030\010 \001(\005B\026\302\377\024\022\350\246\201\346\261\202\345\244"
     "\251\350\265\213\347\202\271\346\225\260\022)\n\006m_cost\030\t \001(\005B\031\302\377\024\025\345\215\207\347\272\247\346\266"
     "\210\350\200\227\345\244\251\350\265\213\347\202\271\"Q\n\022Sheet_TalentTalent\022;\n\023E"
     "_TalentTalent_List\030\001 \003(\0132\030.proto_ff.E_Ta"
@@ -195,12 +195,12 @@ struct StaticDescriptorInitializer_E_5fTalent_2eproto {
 #ifndef _MSC_VER
 const int E_TalentTalent::kMIdFieldNumber;
 const int E_TalentTalent::kMTypeFieldNumber;
-const int E_TalentTalent::kMSkillidFieldNumber;
-const int E_TalentTalent::kMLvlimitFieldNumber;
-const int E_TalentTalent::kMAheadskillFieldNumber;
-const int E_TalentTalent::kMAheadlvFieldNumber;
-const int E_TalentTalent::kMNeedtypeFieldNumber;
-const int E_TalentTalent::kMTypenumFieldNumber;
+const int E_TalentTalent::kMSkillIDFieldNumber;
+const int E_TalentTalent::kMLvLImitFieldNumber;
+const int E_TalentTalent::kMAheadSkillFieldNumber;
+const int E_TalentTalent::kMAheadLvFieldNumber;
+const int E_TalentTalent::kMNeedTypeFieldNumber;
+const int E_TalentTalent::kMTypeNumFieldNumber;
 const int E_TalentTalent::kMCostFieldNumber;
 #endif  // !_MSC_VER
 
@@ -313,15 +313,15 @@ bool E_TalentTalent::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_skillid;
+        if (input->ExpectTag(24)) goto parse_m_skillID;
         break;
       }
 
-      // optional int32 m_skillid = 3;
+      // optional int32 m_skillID = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_skillid:
+         parse_m_skillID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_skillid_)));
@@ -329,15 +329,15 @@ bool E_TalentTalent::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_lvlimit;
+        if (input->ExpectTag(32)) goto parse_m_lvLImit;
         break;
       }
 
-      // optional int32 m_lvlimit = 4;
+      // optional int32 m_lvLImit = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_lvlimit:
+         parse_m_lvLImit:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_lvlimit_)));
@@ -345,15 +345,15 @@ bool E_TalentTalent::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_aheadskill;
+        if (input->ExpectTag(40)) goto parse_m_aheadSkill;
         break;
       }
 
-      // optional int32 m_aheadskill = 5;
+      // optional int32 m_aheadSkill = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_aheadskill:
+         parse_m_aheadSkill:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_aheadskill_)));
@@ -361,15 +361,15 @@ bool E_TalentTalent::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_aheadlv;
+        if (input->ExpectTag(48)) goto parse_m_aheadLv;
         break;
       }
 
-      // optional int32 m_aheadlv = 6;
+      // optional int32 m_aheadLv = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_aheadlv:
+         parse_m_aheadLv:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_aheadlv_)));
@@ -377,15 +377,15 @@ bool E_TalentTalent::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_needtype;
+        if (input->ExpectTag(56)) goto parse_m_needType;
         break;
       }
 
-      // optional int32 m_needtype = 7;
+      // optional int32 m_needType = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_needtype:
+         parse_m_needType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_needtype_)));
@@ -393,15 +393,15 @@ bool E_TalentTalent::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_typenum;
+        if (input->ExpectTag(64)) goto parse_m_typeNum;
         break;
       }
 
-      // optional int32 m_typenum = 8;
+      // optional int32 m_typeNum = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_typenum:
+         parse_m_typeNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_typenum_)));
@@ -457,32 +457,32 @@ void E_TalentTalent::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
   }
 
-  // optional int32 m_skillid = 3;
+  // optional int32 m_skillID = 3;
   if (has_m_skillid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_skillid(), output);
   }
 
-  // optional int32 m_lvlimit = 4;
+  // optional int32 m_lvLImit = 4;
   if (has_m_lvlimit()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_lvlimit(), output);
   }
 
-  // optional int32 m_aheadskill = 5;
+  // optional int32 m_aheadSkill = 5;
   if (has_m_aheadskill()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_aheadskill(), output);
   }
 
-  // optional int32 m_aheadlv = 6;
+  // optional int32 m_aheadLv = 6;
   if (has_m_aheadlv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_aheadlv(), output);
   }
 
-  // optional int32 m_needtype = 7;
+  // optional int32 m_needType = 7;
   if (has_m_needtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_needtype(), output);
   }
 
-  // optional int32 m_typenum = 8;
+  // optional int32 m_typeNum = 8;
   if (has_m_typenum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_typenum(), output);
   }
@@ -510,32 +510,32 @@ void E_TalentTalent::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
   }
 
-  // optional int32 m_skillid = 3;
+  // optional int32 m_skillID = 3;
   if (has_m_skillid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_skillid(), target);
   }
 
-  // optional int32 m_lvlimit = 4;
+  // optional int32 m_lvLImit = 4;
   if (has_m_lvlimit()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_lvlimit(), target);
   }
 
-  // optional int32 m_aheadskill = 5;
+  // optional int32 m_aheadSkill = 5;
   if (has_m_aheadskill()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_aheadskill(), target);
   }
 
-  // optional int32 m_aheadlv = 6;
+  // optional int32 m_aheadLv = 6;
   if (has_m_aheadlv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_aheadlv(), target);
   }
 
-  // optional int32 m_needtype = 7;
+  // optional int32 m_needType = 7;
   if (has_m_needtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_needtype(), target);
   }
 
-  // optional int32 m_typenum = 8;
+  // optional int32 m_typeNum = 8;
   if (has_m_typenum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_typenum(), target);
   }
@@ -570,42 +570,42 @@ int E_TalentTalent::ByteSize() const {
           this->m_type());
     }
 
-    // optional int32 m_skillid = 3;
+    // optional int32 m_skillID = 3;
     if (has_m_skillid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_skillid());
     }
 
-    // optional int32 m_lvlimit = 4;
+    // optional int32 m_lvLImit = 4;
     if (has_m_lvlimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_lvlimit());
     }
 
-    // optional int32 m_aheadskill = 5;
+    // optional int32 m_aheadSkill = 5;
     if (has_m_aheadskill()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_aheadskill());
     }
 
-    // optional int32 m_aheadlv = 6;
+    // optional int32 m_aheadLv = 6;
     if (has_m_aheadlv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_aheadlv());
     }
 
-    // optional int32 m_needtype = 7;
+    // optional int32 m_needType = 7;
     if (has_m_needtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_needtype());
     }
 
-    // optional int32 m_typenum = 8;
+    // optional int32 m_typeNum = 8;
     if (has_m_typenum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

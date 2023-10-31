@@ -12,23 +12,23 @@ E_GodvalleyBattle_s::E_GodvalleyBattle_s() {
 
 int E_GodvalleyBattle_s::CreateInit() {
 	m_id = (int64_t)0;
-	m_roomplayersmax = (int32_t)0;
-	m_winscore = (int32_t)0;
-	m_timescore = (int32_t)0;
-	m_killscore = (int32_t)0;
-	m_killkeepscore = (int32_t)0;
-	m_breakkillkeepscore = (int32_t)0;
-	m_killmonsterscore = (int32_t)0;
-	m_crystalpoints = (int32_t)0;
-	m_crystalscore = (int32_t)0;
-	m_interceptpoints = (int32_t)0;
-	m_interceptscore = (int32_t)0;
-	m_crystalreborntime = (int32_t)0;
-	m_crystalmonsterid = (int32_t)0;
+	m_roomPlayersMax = (int32_t)0;
+	m_winScore = (int32_t)0;
+	m_timeScore = (int32_t)0;
+	m_killScore = (int32_t)0;
+	m_killKeepScore = (int32_t)0;
+	m_breakKillKeepScore = (int32_t)0;
+	m_killMonsterScore = (int32_t)0;
+	m_crystalPoints = (int32_t)0;
+	m_crystalScore = (int32_t)0;
+	m_interceptPoints = (int32_t)0;
+	m_interceptScore = (int32_t)0;
+	m_crystalReBornTime = (int32_t)0;
+	m_crystalMonsterId = (int32_t)0;
 	m_match_s = (int32_t)0;
 	m_duration_s = (int32_t)0;
 	m_mapid = (int64_t)0;
-	m_actid = (int32_t)0;
+	m_actId = (int32_t)0;
 	m_skill = (int32_t)0;
 	return 0;
 }
@@ -39,77 +39,77 @@ int E_GodvalleyBattle_s::ResumeInit() {
 
 void E_GodvalleyBattle_s::write_to_pbmsg(::proto_ff::E_GodvalleyBattle & msg) const {
 	msg.set_m_id((int64_t)m_id);
-	msg.set_m_roomplayersmax((int32_t)m_roomplayersmax);
+	msg.set_m_roomplayersmax((int32_t)m_roomPlayersMax);
 	msg.set_m_team1n(m_team1n.data());
 	msg.set_m_team2n(m_team2n.data());
 	msg.set_m_name1(m_name1.data());
 	msg.set_m_name2(m_name2.data());
-	msg.set_m_winscore((int32_t)m_winscore);
-	msg.set_m_timescore((int32_t)m_timescore);
-	msg.set_m_killscore((int32_t)m_killscore);
-	msg.set_m_killkeepscore((int32_t)m_killkeepscore);
-	msg.set_m_breakkillkeepscore((int32_t)m_breakkillkeepscore);
-	msg.set_m_killmonsterscore((int32_t)m_killmonsterscore);
-	msg.set_m_crystalpoints((int32_t)m_crystalpoints);
-	msg.set_m_crystalscore((int32_t)m_crystalscore);
-	msg.set_m_interceptpoints((int32_t)m_interceptpoints);
-	msg.set_m_interceptscore((int32_t)m_interceptscore);
-	msg.set_m_crystalreborntime((int32_t)m_crystalreborntime);
-	msg.set_m_crystalmonsterid((int32_t)m_crystalmonsterid);
-	msg.set_m_crystalpos(m_crystalpos.data());
+	msg.set_m_winscore((int32_t)m_winScore);
+	msg.set_m_timescore((int32_t)m_timeScore);
+	msg.set_m_killscore((int32_t)m_killScore);
+	msg.set_m_killkeepscore((int32_t)m_killKeepScore);
+	msg.set_m_breakkillkeepscore((int32_t)m_breakKillKeepScore);
+	msg.set_m_killmonsterscore((int32_t)m_killMonsterScore);
+	msg.set_m_crystalpoints((int32_t)m_crystalPoints);
+	msg.set_m_crystalscore((int32_t)m_crystalScore);
+	msg.set_m_interceptpoints((int32_t)m_interceptPoints);
+	msg.set_m_interceptscore((int32_t)m_interceptScore);
+	msg.set_m_crystalreborntime((int32_t)m_crystalReBornTime);
+	msg.set_m_crystalmonsterid((int32_t)m_crystalMonsterId);
+	msg.set_m_crystalpos(m_crystalPos.data());
 	msg.set_m_match_s((int32_t)m_match_s);
 	msg.set_m_duration_s((int32_t)m_duration_s);
-	msg.set_m_matchmapentry(m_matchmapentry.data());
+	msg.set_m_matchmapentry(m_matchMapEntry.data());
 	msg.set_m_mapid((int64_t)m_mapid);
-	msg.set_m_mapentry1(m_mapentry1.data());
-	msg.set_m_mapentry2(m_mapentry2.data());
+	msg.set_m_mapentry1(m_mapEntry1.data());
+	msg.set_m_mapentry2(m_mapEntry2.data());
 	msg.set_m_monster1(m_monster1.data());
-	msg.set_m_revivalpoint1(m_revivalpoint1.data());
+	msg.set_m_revivalpoint1(m_revivalPoint1.data());
 	msg.set_m_monster2(m_monster2.data());
-	msg.set_m_revivalpoint2(m_revivalpoint2.data());
+	msg.set_m_revivalpoint2(m_revivalPoint2.data());
 	msg.set_m_monster3(m_monster3.data());
-	msg.set_m_revivalpoint3(m_revivalpoint3.data());
+	msg.set_m_revivalpoint3(m_revivalPoint3.data());
 	msg.set_m_npc1pos(m_npc1pos.data());
 	msg.set_m_npc2pos(m_npc2pos.data());
-	msg.set_m_actid((int32_t)m_actid);
+	msg.set_m_actid((int32_t)m_actId);
 	msg.set_m_skill((int32_t)m_skill);
 }
 
 void E_GodvalleyBattle_s::read_from_pbmsg(const ::proto_ff::E_GodvalleyBattle & msg) {
 	m_id = msg.m_id();
-	m_roomplayersmax = msg.m_roomplayersmax();
+	m_roomPlayersMax = msg.m_roomplayersmax();
 	m_team1n = msg.m_team1n();
 	m_team2n = msg.m_team2n();
 	m_name1 = msg.m_name1();
 	m_name2 = msg.m_name2();
-	m_winscore = msg.m_winscore();
-	m_timescore = msg.m_timescore();
-	m_killscore = msg.m_killscore();
-	m_killkeepscore = msg.m_killkeepscore();
-	m_breakkillkeepscore = msg.m_breakkillkeepscore();
-	m_killmonsterscore = msg.m_killmonsterscore();
-	m_crystalpoints = msg.m_crystalpoints();
-	m_crystalscore = msg.m_crystalscore();
-	m_interceptpoints = msg.m_interceptpoints();
-	m_interceptscore = msg.m_interceptscore();
-	m_crystalreborntime = msg.m_crystalreborntime();
-	m_crystalmonsterid = msg.m_crystalmonsterid();
-	m_crystalpos = msg.m_crystalpos();
+	m_winScore = msg.m_winscore();
+	m_timeScore = msg.m_timescore();
+	m_killScore = msg.m_killscore();
+	m_killKeepScore = msg.m_killkeepscore();
+	m_breakKillKeepScore = msg.m_breakkillkeepscore();
+	m_killMonsterScore = msg.m_killmonsterscore();
+	m_crystalPoints = msg.m_crystalpoints();
+	m_crystalScore = msg.m_crystalscore();
+	m_interceptPoints = msg.m_interceptpoints();
+	m_interceptScore = msg.m_interceptscore();
+	m_crystalReBornTime = msg.m_crystalreborntime();
+	m_crystalMonsterId = msg.m_crystalmonsterid();
+	m_crystalPos = msg.m_crystalpos();
 	m_match_s = msg.m_match_s();
 	m_duration_s = msg.m_duration_s();
-	m_matchmapentry = msg.m_matchmapentry();
+	m_matchMapEntry = msg.m_matchmapentry();
 	m_mapid = msg.m_mapid();
-	m_mapentry1 = msg.m_mapentry1();
-	m_mapentry2 = msg.m_mapentry2();
+	m_mapEntry1 = msg.m_mapentry1();
+	m_mapEntry2 = msg.m_mapentry2();
 	m_monster1 = msg.m_monster1();
-	m_revivalpoint1 = msg.m_revivalpoint1();
+	m_revivalPoint1 = msg.m_revivalpoint1();
 	m_monster2 = msg.m_monster2();
-	m_revivalpoint2 = msg.m_revivalpoint2();
+	m_revivalPoint2 = msg.m_revivalpoint2();
 	m_monster3 = msg.m_monster3();
-	m_revivalpoint3 = msg.m_revivalpoint3();
+	m_revivalPoint3 = msg.m_revivalpoint3();
 	m_npc1pos = msg.m_npc1pos();
 	m_npc2pos = msg.m_npc2pos();
-	m_actid = msg.m_actid();
+	m_actId = msg.m_actid();
 	m_skill = msg.m_skill();
 }
 
@@ -153,8 +153,8 @@ E_GodvalleyRewardsRewardDesc_s::E_GodvalleyRewardsRewardDesc_s() {
 }
 
 int E_GodvalleyRewardsRewardDesc_s::CreateInit() {
-	m_num = (int32_t)0;
-	m_id = (int64_t)0;
+	m_Num = (int32_t)0;
+	m_ID = (int64_t)0;
 	return 0;
 }
 
@@ -163,13 +163,13 @@ int E_GodvalleyRewardsRewardDesc_s::ResumeInit() {
 }
 
 void E_GodvalleyRewardsRewardDesc_s::write_to_pbmsg(::proto_ff::E_GodvalleyRewardsRewardDesc & msg) const {
-	msg.set_m_num((int32_t)m_num);
-	msg.set_m_id((int64_t)m_id);
+	msg.set_m_num((int32_t)m_Num);
+	msg.set_m_id((int64_t)m_ID);
 }
 
 void E_GodvalleyRewardsRewardDesc_s::read_from_pbmsg(const ::proto_ff::E_GodvalleyRewardsRewardDesc & msg) {
-	m_num = msg.m_num();
-	m_id = msg.m_id();
+	m_Num = msg.m_num();
+	m_ID = msg.m_id();
 }
 
 E_GodvalleyRewards_s::E_GodvalleyRewards_s() {
@@ -249,8 +249,8 @@ E_GodvalleyAttributeAttributeDesc_s::E_GodvalleyAttributeAttributeDesc_s() {
 }
 
 int E_GodvalleyAttributeAttributeDesc_s::CreateInit() {
-	m_value = (int32_t)0;
-	m_type = (int32_t)0;
+	m_Value = (int32_t)0;
+	m_Type = (int32_t)0;
 	return 0;
 }
 
@@ -259,13 +259,13 @@ int E_GodvalleyAttributeAttributeDesc_s::ResumeInit() {
 }
 
 void E_GodvalleyAttributeAttributeDesc_s::write_to_pbmsg(::proto_ff::E_GodvalleyAttributeAttributeDesc & msg) const {
-	msg.set_m_value((int32_t)m_value);
-	msg.set_m_type((int32_t)m_type);
+	msg.set_m_value((int32_t)m_Value);
+	msg.set_m_type((int32_t)m_Type);
 }
 
 void E_GodvalleyAttributeAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_GodvalleyAttributeAttributeDesc & msg) {
-	m_value = msg.m_value();
-	m_type = msg.m_type();
+	m_Value = msg.m_value();
+	m_Type = msg.m_type();
 }
 
 E_GodvalleyAttribute_s::E_GodvalleyAttribute_s() {

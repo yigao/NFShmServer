@@ -90,9 +90,9 @@ int WelfareConstantDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_fraudreward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_fraudreward)), result, "can't find the fraudreward:{} in the  excel:box sheet:box", pDesc->m_fraudreward);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_keyrebate <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_keyrebate)), result, "can't find the keyrebate:{} in the  excel:box sheet:box", pDesc->m_keyrebate);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_noticereward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_noticereward)), result, "can't find the noticereward:{} in the  excel:box sheet:box", pDesc->m_noticereward);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_fraudReward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_fraudReward)), result, "can't find the fraudReward:{} in the  excel:box sheet:box", pDesc->m_fraudReward);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_keyRebate <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_keyRebate)), result, "can't find the keyRebate:{} in the  excel:box sheet:box", pDesc->m_keyRebate);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_noticeReward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_noticeReward)), result, "can't find the noticeReward:{} in the  excel:box sheet:box", pDesc->m_noticeReward);
 	}
 	return result;
 }

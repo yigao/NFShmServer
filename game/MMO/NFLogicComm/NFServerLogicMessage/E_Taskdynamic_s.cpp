@@ -11,12 +11,12 @@ E_TaskdynamicTaskdynamic_s::E_TaskdynamicTaskdynamic_s() {
 }
 
 int E_TaskdynamicTaskdynamic_s::CreateInit() {
-	m_taskid = (int64_t)0;
-	m_tasktype = (int32_t)0;
+	m_taskID = (int64_t)0;
+	m_taskType = (int32_t)0;
 	m_weights = (int32_t)0;
 	m_minlv = (int32_t)0;
 	m_maxlv = (int32_t)0;
-	m_rececount = (int32_t)0;
+	m_receCount = (int32_t)0;
 	return 0;
 }
 
@@ -25,25 +25,25 @@ int E_TaskdynamicTaskdynamic_s::ResumeInit() {
 }
 
 void E_TaskdynamicTaskdynamic_s::write_to_pbmsg(::proto_ff::E_TaskdynamicTaskdynamic & msg) const {
-	msg.set_m_taskid((int64_t)m_taskid);
+	msg.set_m_taskid((int64_t)m_taskID);
 	msg.set_m_remark(m_remark.data());
-	msg.set_m_tasktype((int32_t)m_tasktype);
+	msg.set_m_tasktype((int32_t)m_taskType);
 	msg.set_m_weights((int32_t)m_weights);
 	msg.set_m_minlv((int32_t)m_minlv);
 	msg.set_m_maxlv((int32_t)m_maxlv);
-	msg.set_m_rececount((int32_t)m_rececount);
-	msg.set_m_idlist(m_idlist.data());
+	msg.set_m_rececount((int32_t)m_receCount);
+	msg.set_m_idlist(m_idList.data());
 }
 
 void E_TaskdynamicTaskdynamic_s::read_from_pbmsg(const ::proto_ff::E_TaskdynamicTaskdynamic & msg) {
-	m_taskid = msg.m_taskid();
+	m_taskID = msg.m_taskid();
 	m_remark = msg.m_remark();
-	m_tasktype = msg.m_tasktype();
+	m_taskType = msg.m_tasktype();
 	m_weights = msg.m_weights();
 	m_minlv = msg.m_minlv();
 	m_maxlv = msg.m_maxlv();
-	m_rececount = msg.m_rececount();
-	m_idlist = msg.m_idlist();
+	m_receCount = msg.m_rececount();
+	m_idList = msg.m_idlist();
 }
 
 Sheet_TaskdynamicTaskdynamic_s::Sheet_TaskdynamicTaskdynamic_s() {
@@ -86,14 +86,14 @@ E_TaskdynamicTaskcomcond_s::E_TaskdynamicTaskcomcond_s() {
 }
 
 int E_TaskdynamicTaskcomcond_s::CreateInit() {
-	m_comcondid = (int64_t)0;
-	m_comcondtype = (int32_t)0;
+	m_comcondID = (int64_t)0;
+	m_comcondType = (int32_t)0;
 	m_param1 = (int64_t)0;
 	m_param2 = (int64_t)0;
 	m_param3 = (int64_t)0;
 	m_param4 = (int64_t)0;
 	m_param5 = (int64_t)0;
-	m_comcondrandomvalue = (int32_t)0;
+	m_comcondRandomValue = (int32_t)0;
 	return 0;
 }
 
@@ -102,25 +102,25 @@ int E_TaskdynamicTaskcomcond_s::ResumeInit() {
 }
 
 void E_TaskdynamicTaskcomcond_s::write_to_pbmsg(::proto_ff::E_TaskdynamicTaskcomcond & msg) const {
-	msg.set_m_comcondid((int64_t)m_comcondid);
-	msg.set_m_comcondtype((int32_t)m_comcondtype);
+	msg.set_m_comcondid((int64_t)m_comcondID);
+	msg.set_m_comcondtype((int32_t)m_comcondType);
 	msg.set_m_param1((int64_t)m_param1);
 	msg.set_m_param2((int64_t)m_param2);
 	msg.set_m_param3((int64_t)m_param3);
 	msg.set_m_param4((int64_t)m_param4);
 	msg.set_m_param5((int64_t)m_param5);
-	msg.set_m_comcondrandomvalue((int32_t)m_comcondrandomvalue);
+	msg.set_m_comcondrandomvalue((int32_t)m_comcondRandomValue);
 }
 
 void E_TaskdynamicTaskcomcond_s::read_from_pbmsg(const ::proto_ff::E_TaskdynamicTaskcomcond & msg) {
-	m_comcondid = msg.m_comcondid();
-	m_comcondtype = msg.m_comcondtype();
+	m_comcondID = msg.m_comcondid();
+	m_comcondType = msg.m_comcondtype();
 	m_param1 = msg.m_param1();
 	m_param2 = msg.m_param2();
 	m_param3 = msg.m_param3();
 	m_param4 = msg.m_param4();
 	m_param5 = msg.m_param5();
-	m_comcondrandomvalue = msg.m_comcondrandomvalue();
+	m_comcondRandomValue = msg.m_comcondrandomvalue();
 }
 
 Sheet_TaskdynamicTaskcomcond_s::Sheet_TaskdynamicTaskcomcond_s() {
@@ -163,8 +163,8 @@ E_TaskdynamicTasktext_s::E_TaskdynamicTasktext_s() {
 }
 
 int E_TaskdynamicTasktext_s::CreateInit() {
-	m_textid = (int64_t)0;
-	m_comcondtype = (int32_t)0;
+	m_textID = (int64_t)0;
+	m_comcondType = (int32_t)0;
 	return 0;
 }
 
@@ -173,15 +173,15 @@ int E_TaskdynamicTasktext_s::ResumeInit() {
 }
 
 void E_TaskdynamicTasktext_s::write_to_pbmsg(::proto_ff::E_TaskdynamicTasktext & msg) const {
-	msg.set_m_textid((int64_t)m_textid);
-	msg.set_m_tasktype(m_tasktype.data());
-	msg.set_m_comcondtype((int32_t)m_comcondtype);
+	msg.set_m_textid((int64_t)m_textID);
+	msg.set_m_tasktype(m_taskType.data());
+	msg.set_m_comcondtype((int32_t)m_comcondType);
 }
 
 void E_TaskdynamicTasktext_s::read_from_pbmsg(const ::proto_ff::E_TaskdynamicTasktext & msg) {
-	m_textid = msg.m_textid();
-	m_tasktype = msg.m_tasktype();
-	m_comcondtype = msg.m_comcondtype();
+	m_textID = msg.m_textid();
+	m_taskType = msg.m_tasktype();
+	m_comcondType = msg.m_comcondtype();
 }
 
 Sheet_TaskdynamicTasktext_s::Sheet_TaskdynamicTasktext_s() {

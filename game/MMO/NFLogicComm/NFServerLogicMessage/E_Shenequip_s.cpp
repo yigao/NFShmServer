@@ -14,16 +14,16 @@ int E_ShenequipEquip_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_type = (int32_t)0;
 	m_grade = (int32_t)0;
-	m_subtype = (int32_t)0;
+	m_subType = (int32_t)0;
 	m_level = (int32_t)0;
 	m_quality = (int32_t)0;
 	m_star = (int32_t)0;
-	m_attributeid = (int32_t)0;
-	m_iscanbind = (int32_t)0;
-	m_istradebind = (int32_t)0;
+	m_attributeID = (int32_t)0;
+	m_isCanbind = (int32_t)0;
+	m_isTradeBind = (int32_t)0;
 	m_time = (int32_t)0;
 	m_broadcast = (int32_t)0;
-	m_exclusiveid = (int32_t)0;
+	m_exclusiveID = (int32_t)0;
 	return 0;
 }
 
@@ -36,20 +36,20 @@ void E_ShenequipEquip_s::write_to_pbmsg(::proto_ff::E_ShenequipEquip & msg) cons
 	msg.set_m_name(m_name.data());
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_grade((int32_t)m_grade);
-	msg.set_m_subtype((int32_t)m_subtype);
+	msg.set_m_subtype((int32_t)m_subType);
 	msg.set_m_level((int32_t)m_level);
 	msg.set_m_quality((int32_t)m_quality);
 	msg.set_m_star((int32_t)m_star);
-	msg.set_m_attributeid((int32_t)m_attributeid);
+	msg.set_m_attributeid((int32_t)m_attributeID);
 	msg.set_m_decompose(m_decompose.data());
-	msg.set_m_iscanbind((int32_t)m_iscanbind);
-	msg.set_m_istradebind((int32_t)m_istradebind);
+	msg.set_m_iscanbind((int32_t)m_isCanbind);
+	msg.set_m_istradebind((int32_t)m_isTradeBind);
 	msg.set_m_time((int32_t)m_time);
 	msg.set_m_broadcast((int32_t)m_broadcast);
-	msg.set_m_exclusiveid((int32_t)m_exclusiveid);
-	msg.set_m_secretskill(m_secretskill.data());
-	msg.set_m_crypticskill(m_crypticskill.data());
-	msg.set_m_passiveskill(m_passiveskill.data());
+	msg.set_m_exclusiveid((int32_t)m_exclusiveID);
+	msg.set_m_secretskill(m_secretSkill.data());
+	msg.set_m_crypticskill(m_crypticSkill.data());
+	msg.set_m_passiveskill(m_passiveSkill.data());
 }
 
 void E_ShenequipEquip_s::read_from_pbmsg(const ::proto_ff::E_ShenequipEquip & msg) {
@@ -57,20 +57,20 @@ void E_ShenequipEquip_s::read_from_pbmsg(const ::proto_ff::E_ShenequipEquip & ms
 	m_name = msg.m_name();
 	m_type = msg.m_type();
 	m_grade = msg.m_grade();
-	m_subtype = msg.m_subtype();
+	m_subType = msg.m_subtype();
 	m_level = msg.m_level();
 	m_quality = msg.m_quality();
 	m_star = msg.m_star();
-	m_attributeid = msg.m_attributeid();
+	m_attributeID = msg.m_attributeid();
 	m_decompose = msg.m_decompose();
-	m_iscanbind = msg.m_iscanbind();
-	m_istradebind = msg.m_istradebind();
+	m_isCanbind = msg.m_iscanbind();
+	m_isTradeBind = msg.m_istradebind();
 	m_time = msg.m_time();
 	m_broadcast = msg.m_broadcast();
-	m_exclusiveid = msg.m_exclusiveid();
-	m_secretskill = msg.m_secretskill();
-	m_crypticskill = msg.m_crypticskill();
-	m_passiveskill = msg.m_passiveskill();
+	m_exclusiveID = msg.m_exclusiveid();
+	m_secretSkill = msg.m_secretskill();
+	m_crypticSkill = msg.m_crypticskill();
+	m_passiveSkill = msg.m_passiveskill();
 }
 
 Sheet_ShenequipEquip_s::Sheet_ShenequipEquip_s() {
@@ -243,8 +243,8 @@ E_ShenequipLvupAttributeDesc_s::E_ShenequipLvupAttributeDesc_s() {
 }
 
 int E_ShenequipLvupAttributeDesc_s::CreateInit() {
-	m_stepid = (int32_t)0;
-	m_lvid = (int32_t)0;
+	m_stepId = (int32_t)0;
+	m_lvId = (int32_t)0;
 	return 0;
 }
 
@@ -253,13 +253,13 @@ int E_ShenequipLvupAttributeDesc_s::ResumeInit() {
 }
 
 void E_ShenequipLvupAttributeDesc_s::write_to_pbmsg(::proto_ff::E_ShenequipLvupAttributeDesc & msg) const {
-	msg.set_m_stepid((int32_t)m_stepid);
-	msg.set_m_lvid((int32_t)m_lvid);
+	msg.set_m_stepid((int32_t)m_stepId);
+	msg.set_m_lvid((int32_t)m_lvId);
 }
 
 void E_ShenequipLvupAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_ShenequipLvupAttributeDesc & msg) {
-	m_stepid = msg.m_stepid();
-	m_lvid = msg.m_lvid();
+	m_stepId = msg.m_stepid();
+	m_lvId = msg.m_lvid();
 }
 
 E_ShenequipLvup_s::E_ShenequipLvup_s() {
@@ -274,10 +274,10 @@ int E_ShenequipLvup_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_lv = (int32_t)0;
 	m_type = (int32_t)0;
-	m_itemid = (int32_t)0;
+	m_itemID = (int32_t)0;
 	m_num = (int32_t)0;
-	m_advanceitem = (int32_t)0;
-	m_advancenum = (int32_t)0;
+	m_advanceItem = (int32_t)0;
+	m_advanceNum = (int32_t)0;
 	return 0;
 }
 
@@ -289,10 +289,10 @@ void E_ShenequipLvup_s::write_to_pbmsg(::proto_ff::E_ShenequipLvup & msg) const 
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_lv((int32_t)m_lv);
 	msg.set_m_type((int32_t)m_type);
-	msg.set_m_itemid((int32_t)m_itemid);
+	msg.set_m_itemid((int32_t)m_itemID);
 	msg.set_m_num((int32_t)m_num);
-	msg.set_m_advanceitem((int32_t)m_advanceitem);
-	msg.set_m_advancenum((int32_t)m_advancenum);
+	msg.set_m_advanceitem((int32_t)m_advanceItem);
+	msg.set_m_advancenum((int32_t)m_advanceNum);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_ShenequipLvupAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
@@ -303,10 +303,10 @@ void E_ShenequipLvup_s::read_from_pbmsg(const ::proto_ff::E_ShenequipLvup & msg)
 	m_id = msg.m_id();
 	m_lv = msg.m_lv();
 	m_type = msg.m_type();
-	m_itemid = msg.m_itemid();
+	m_itemID = msg.m_itemid();
 	m_num = msg.m_num();
-	m_advanceitem = msg.m_advanceitem();
-	m_advancenum = msg.m_advancenum();
+	m_advanceItem = msg.m_advanceitem();
+	m_advanceNum = msg.m_advancenum();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_ShenequipLvupAttributeDesc & temp_m_attribute = msg.m_attribute(i);
@@ -357,14 +357,14 @@ int E_ShenequipClear_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_type = (int32_t)0;
 	m_lv = (int32_t)0;
-	m_itemid = (int32_t)0;
+	m_itemID = (int32_t)0;
 	m_num = (int32_t)0;
-	m_breakitem = (int32_t)0;
-	m_breaknum = (int32_t)0;
-	m_breakprogress = (int32_t)0;
-	m_randomcounts = (int32_t)0;
+	m_breakItem = (int32_t)0;
+	m_breakNum = (int32_t)0;
+	m_breakProgress = (int32_t)0;
+	m_randomCounts = (int32_t)0;
 	m_minus = (int32_t)0;
-	m_nextid = (int32_t)0;
+	m_nextID = (int32_t)0;
 	return 0;
 }
 
@@ -376,14 +376,14 @@ void E_ShenequipClear_s::write_to_pbmsg(::proto_ff::E_ShenequipClear & msg) cons
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_lv((int32_t)m_lv);
-	msg.set_m_itemid((int32_t)m_itemid);
+	msg.set_m_itemid((int32_t)m_itemID);
 	msg.set_m_num((int32_t)m_num);
-	msg.set_m_breakitem((int32_t)m_breakitem);
-	msg.set_m_breaknum((int32_t)m_breaknum);
-	msg.set_m_breakprogress((int32_t)m_breakprogress);
-	msg.set_m_randomcounts((int32_t)m_randomcounts);
+	msg.set_m_breakitem((int32_t)m_breakItem);
+	msg.set_m_breaknum((int32_t)m_breakNum);
+	msg.set_m_breakprogress((int32_t)m_breakProgress);
+	msg.set_m_randomcounts((int32_t)m_randomCounts);
 	msg.set_m_minus((int32_t)m_minus);
-	msg.set_m_nextid((int32_t)m_nextid);
+	msg.set_m_nextid((int32_t)m_nextID);
 	for(int32_t i = 0; i < (int32_t)m_percent.size(); ++i) {
 		msg.add_m_percent((int32_t)m_percent[i]);
 	}
@@ -393,14 +393,14 @@ void E_ShenequipClear_s::read_from_pbmsg(const ::proto_ff::E_ShenequipClear & ms
 	m_id = msg.m_id();
 	m_type = msg.m_type();
 	m_lv = msg.m_lv();
-	m_itemid = msg.m_itemid();
+	m_itemID = msg.m_itemid();
 	m_num = msg.m_num();
-	m_breakitem = msg.m_breakitem();
-	m_breaknum = msg.m_breaknum();
-	m_breakprogress = msg.m_breakprogress();
-	m_randomcounts = msg.m_randomcounts();
+	m_breakItem = msg.m_breakitem();
+	m_breakNum = msg.m_breaknum();
+	m_breakProgress = msg.m_breakprogress();
+	m_randomCounts = msg.m_randomcounts();
 	m_minus = msg.m_minus();
-	m_nextid = msg.m_nextid();
+	m_nextID = msg.m_nextid();
 	m_percent.resize((int)msg.m_percent_size() > (int)m_percent.max_size() ? m_percent.max_size() : msg.m_percent_size());
 	for(int32_t i = 0; i < (int32_t)m_percent.size(); ++i) {
 		m_percent[i] = msg.m_percent(i);
@@ -478,9 +478,9 @@ int E_ShenequipAwaken_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_type = (int32_t)0;
 	m_lv = (int32_t)0;
-	m_itemid = (int32_t)0;
+	m_itemID = (int32_t)0;
 	m_num = (int32_t)0;
-	m_awakeskillid = (int32_t)0;
+	m_awakeSkillID = (int32_t)0;
 	return 0;
 }
 
@@ -492,9 +492,9 @@ void E_ShenequipAwaken_s::write_to_pbmsg(::proto_ff::E_ShenequipAwaken & msg) co
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_lv((int32_t)m_lv);
-	msg.set_m_itemid((int32_t)m_itemid);
+	msg.set_m_itemid((int32_t)m_itemID);
 	msg.set_m_num((int32_t)m_num);
-	msg.set_m_awakeskillid((int32_t)m_awakeskillid);
+	msg.set_m_awakeskillid((int32_t)m_awakeSkillID);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_ShenequipAwakenAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
@@ -505,9 +505,9 @@ void E_ShenequipAwaken_s::read_from_pbmsg(const ::proto_ff::E_ShenequipAwaken & 
 	m_id = msg.m_id();
 	m_type = msg.m_type();
 	m_lv = msg.m_lv();
-	m_itemid = msg.m_itemid();
+	m_itemID = msg.m_itemid();
 	m_num = msg.m_num();
-	m_awakeskillid = msg.m_awakeskillid();
+	m_awakeSkillID = msg.m_awakeskillid();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_ShenequipAwakenAttributeDesc & temp_m_attribute = msg.m_attribute(i);
@@ -596,8 +596,8 @@ int E_ShenequipStarup_s::CreateInit() {
 	m_grade = (int32_t)0;
 	m_quality = (int32_t)0;
 	m_stars = (int32_t)0;
-	m_nextid = (int32_t)0;
-	m_lastid = (int32_t)0;
+	m_nextID = (int32_t)0;
+	m_lastID = (int32_t)0;
 	m_percent = (int32_t)0;
 	return 0;
 }
@@ -611,8 +611,8 @@ void E_ShenequipStarup_s::write_to_pbmsg(::proto_ff::E_ShenequipStarup & msg) co
 	msg.set_m_grade((int32_t)m_grade);
 	msg.set_m_quality((int32_t)m_quality);
 	msg.set_m_stars((int32_t)m_stars);
-	msg.set_m_nextid((int32_t)m_nextid);
-	msg.set_m_lastid((int32_t)m_lastid);
+	msg.set_m_nextid((int32_t)m_nextID);
+	msg.set_m_lastid((int32_t)m_lastID);
 	msg.set_m_percent((int32_t)m_percent);
 	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
 		::proto_ff::E_ShenequipStarupMaterialDesc* temp_m_material = msg.add_m_material();
@@ -625,8 +625,8 @@ void E_ShenequipStarup_s::read_from_pbmsg(const ::proto_ff::E_ShenequipStarup & 
 	m_grade = msg.m_grade();
 	m_quality = msg.m_quality();
 	m_stars = msg.m_stars();
-	m_nextid = msg.m_nextid();
-	m_lastid = msg.m_lastid();
+	m_nextID = msg.m_nextid();
+	m_lastID = msg.m_lastid();
 	m_percent = msg.m_percent();
 	m_material.resize((int)msg.m_material_size() > (int)m_material.max_size() ? m_material.max_size() : msg.m_material_size());
 	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {

@@ -51,21 +51,21 @@ namespace proto_ff_s {
 		virtual ~E_XiuzhenworldConstant_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//id
-		int32_t m_starfreetime;//初始免费时间
-		NFShmString<64> m_freetimemoment;//获得免费时间的时间点
-		int32_t m_freetime;//每次获得的时间
-		int32_t m_freetimemax;//免费时间上限
+		int32_t m_ID;//id
+		int32_t m_starFreeTime;//初始免费时间
+		NFShmString<64> m_freeTimeMoment;//获得免费时间的时间点
+		int32_t m_freeTime;//每次获得的时间
+		int32_t m_freeTimeMax;//免费时间上限
 		int32_t m_helpid;//帮助信息
-		int32_t m_addgexpmax;//神元经验上限
-		int32_t m_pripricetype;//特权价格类型
-		int32_t m_pricevalue;//特权价格
-		int32_t m_gexppribonus;//特权神元经验加成
-		int32_t m_gexpgroupbonus;//组队加成
-		int32_t m_mapstart;//地图开始
-		int32_t m_mapend;//地图结束
-		int32_t m_expitemid;//经验的物品ID
-		NFShmVector<struct E_XiuzhenworldConstantTimeitemDesc_s, DEFINE_E_XIUZHENWORLDCONSTANT_M_TIMEITEM_MAX_NUM> m_timeitem;//时间道具
+		int32_t m_addGExpMax;//神元经验上限
+		int32_t m_priPriceType;//特权价格类型
+		int32_t m_priceValue;//特权价格
+		int32_t m_GExpPriBonus;//特权神元经验加成
+		int32_t m_GExpGroupBonus;//组队加成
+		int32_t m_mapStart;//地图开始
+		int32_t m_mapEnd;//地图结束
+		int32_t m_expItemId;//经验的物品ID
+		NFShmVector<struct E_XiuzhenworldConstantTimeitemDesc_s, DEFINE_E_XIUZHENWORLDCONSTANT_M_TIMEITEM_MAX_NUM> m_timeItem;//时间道具
 		NFShmVector<struct E_XiuzhenworldConstantTypeDesc_s, DEFINE_E_XIUZHENWORLDCONSTANT_M_TYPE_MAX_NUM> m_type;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenworldConstant & msg) const;
@@ -95,7 +95,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_conditionglv;//进入转生要求
+		int32_t m_conditionGlv;//进入转生要求
 		int32_t m_mapid;//地图id
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenworldExpmap & msg) const;

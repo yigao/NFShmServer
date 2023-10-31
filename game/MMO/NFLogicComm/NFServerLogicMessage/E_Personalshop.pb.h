@@ -102,17 +102,17 @@ class E_PersonalshopShopitems : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_shopid = 2;
+  // optional int32 m_shopId = 2;
   inline bool has_m_shopid() const;
   inline void clear_m_shopid();
-  static const int kMShopidFieldNumber = 2;
+  static const int kMShopIdFieldNumber = 2;
   inline ::google::protobuf::int32 m_shopid() const;
   inline void set_m_shopid(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 3;
+  // optional int32 m_itemID = 3;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 3;
+  static const int kMItemIDFieldNumber = 3;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
@@ -144,10 +144,10 @@ class E_PersonalshopShopitems : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_discount() const;
   inline void set_m_discount(::google::protobuf::int32 value);
 
-  // optional int32 m_lvlimit = 8;
+  // optional int32 m_lvLimit = 8;
   inline bool has_m_lvlimit() const;
   inline void clear_m_lvlimit();
-  static const int kMLvlimitFieldNumber = 8;
+  static const int kMLvLimitFieldNumber = 8;
   inline ::google::protobuf::int32 m_lvlimit() const;
   inline void set_m_lvlimit(::google::protobuf::int32 value);
 
@@ -349,52 +349,52 @@ class E_PersonalshopShops : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_keeptime = 2;
+  // optional int32 m_keepTime = 2;
   inline bool has_m_keeptime() const;
   inline void clear_m_keeptime();
-  static const int kMKeeptimeFieldNumber = 2;
+  static const int kMKeepTimeFieldNumber = 2;
   inline ::google::protobuf::int32 m_keeptime() const;
   inline void set_m_keeptime(::google::protobuf::int32 value);
 
-  // optional int32 m_freetimes = 3;
+  // optional int32 m_freeTimes = 3;
   inline bool has_m_freetimes() const;
   inline void clear_m_freetimes();
-  static const int kMFreetimesFieldNumber = 3;
+  static const int kMFreeTimesFieldNumber = 3;
   inline ::google::protobuf::int32 m_freetimes() const;
   inline void set_m_freetimes(::google::protobuf::int32 value);
 
-  // optional int32 m_refreshmoney = 4;
+  // optional int32 m_refreshMoney = 4;
   inline bool has_m_refreshmoney() const;
   inline void clear_m_refreshmoney();
-  static const int kMRefreshmoneyFieldNumber = 4;
+  static const int kMRefreshMoneyFieldNumber = 4;
   inline ::google::protobuf::int32 m_refreshmoney() const;
   inline void set_m_refreshmoney(::google::protobuf::int32 value);
 
-  // optional int32 m_refreshprice = 5;
+  // optional int32 m_refreshPrice = 5;
   inline bool has_m_refreshprice() const;
   inline void clear_m_refreshprice();
-  static const int kMRefreshpriceFieldNumber = 5;
+  static const int kMRefreshPriceFieldNumber = 5;
   inline ::google::protobuf::int32 m_refreshprice() const;
   inline void set_m_refreshprice(::google::protobuf::int32 value);
 
-  // optional int32 m_salelistcount = 6;
+  // optional int32 m_saleListCount = 6;
   inline bool has_m_salelistcount() const;
   inline void clear_m_salelistcount();
-  static const int kMSalelistcountFieldNumber = 6;
+  static const int kMSaleListCountFieldNumber = 6;
   inline ::google::protobuf::int32 m_salelistcount() const;
   inline void set_m_salelistcount(::google::protobuf::int32 value);
 
-  // optional int32 m_addtype = 7;
+  // optional int32 m_addType = 7;
   inline bool has_m_addtype() const;
   inline void clear_m_addtype();
-  static const int kMAddtypeFieldNumber = 7;
+  static const int kMAddTypeFieldNumber = 7;
   inline ::google::protobuf::int32 m_addtype() const;
   inline void set_m_addtype(::google::protobuf::int32 value);
 
-  // optional int32 m_addtypevalue = 8;
+  // optional int32 m_addTypeValue = 8;
   inline bool has_m_addtypevalue() const;
   inline void clear_m_addtypevalue();
-  static const int kMAddtypevalueFieldNumber = 8;
+  static const int kMAddTypeValueFieldNumber = 8;
   inline ::google::protobuf::int32 m_addtypevalue() const;
   inline void set_m_addtypevalue(::google::protobuf::int32 value);
 
@@ -552,7 +552,7 @@ inline void E_PersonalshopShopitems::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_shopid = 2;
+// optional int32 m_shopId = 2;
 inline bool E_PersonalshopShopitems::has_m_shopid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -574,7 +574,7 @@ inline void E_PersonalshopShopitems::set_m_shopid(::google::protobuf::int32 valu
   m_shopid_ = value;
 }
 
-// optional int32 m_itemid = 3;
+// optional int32 m_itemID = 3;
 inline bool E_PersonalshopShopitems::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -684,7 +684,7 @@ inline void E_PersonalshopShopitems::set_m_discount(::google::protobuf::int32 va
   m_discount_ = value;
 }
 
-// optional int32 m_lvlimit = 8;
+// optional int32 m_lvLimit = 8;
 inline bool E_PersonalshopShopitems::has_m_lvlimit() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -783,7 +783,7 @@ inline void E_PersonalshopShops::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_keeptime = 2;
+// optional int32 m_keepTime = 2;
 inline bool E_PersonalshopShops::has_m_keeptime() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -805,7 +805,7 @@ inline void E_PersonalshopShops::set_m_keeptime(::google::protobuf::int32 value)
   m_keeptime_ = value;
 }
 
-// optional int32 m_freetimes = 3;
+// optional int32 m_freeTimes = 3;
 inline bool E_PersonalshopShops::has_m_freetimes() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -827,7 +827,7 @@ inline void E_PersonalshopShops::set_m_freetimes(::google::protobuf::int32 value
   m_freetimes_ = value;
 }
 
-// optional int32 m_refreshmoney = 4;
+// optional int32 m_refreshMoney = 4;
 inline bool E_PersonalshopShops::has_m_refreshmoney() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -849,7 +849,7 @@ inline void E_PersonalshopShops::set_m_refreshmoney(::google::protobuf::int32 va
   m_refreshmoney_ = value;
 }
 
-// optional int32 m_refreshprice = 5;
+// optional int32 m_refreshPrice = 5;
 inline bool E_PersonalshopShops::has_m_refreshprice() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -871,7 +871,7 @@ inline void E_PersonalshopShops::set_m_refreshprice(::google::protobuf::int32 va
   m_refreshprice_ = value;
 }
 
-// optional int32 m_salelistcount = 6;
+// optional int32 m_saleListCount = 6;
 inline bool E_PersonalshopShops::has_m_salelistcount() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -893,7 +893,7 @@ inline void E_PersonalshopShops::set_m_salelistcount(::google::protobuf::int32 v
   m_salelistcount_ = value;
 }
 
-// optional int32 m_addtype = 7;
+// optional int32 m_addType = 7;
 inline bool E_PersonalshopShops::has_m_addtype() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -915,7 +915,7 @@ inline void E_PersonalshopShops::set_m_addtype(::google::protobuf::int32 value) 
   m_addtype_ = value;
 }
 
-// optional int32 m_addtypevalue = 8;
+// optional int32 m_addTypeValue = 8;
 inline bool E_PersonalshopShops::has_m_addtypevalue() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }

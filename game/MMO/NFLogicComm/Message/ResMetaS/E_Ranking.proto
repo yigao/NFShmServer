@@ -5,13 +5,13 @@ import "yd_fieldoptions.proto";
 
 message E_RankingRanking
 {
-	optional int32 m_rankingid = 1[(yd_fieldoptions.field_cname) = "排行榜ID"];
-	optional string m_rankingname = 2[(yd_fieldoptions.field_cname) = "排行名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_rankingID = 1[(yd_fieldoptions.field_cname) = "排行榜ID"];
+	optional string m_rankingName = 2[(yd_fieldoptions.field_cname) = "排行名称", (yd_fieldoptions.field_bufsize) = 64];
 	optional string m_title = 3[(yd_fieldoptions.field_cname) = "榜一称号", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_capacity = 4[(yd_fieldoptions.field_cname) = "实际排多少元素"];
-	optional int32 m_showsize = 5[(yd_fieldoptions.field_cname) = "显示多少个元素"];
-	optional int32 m_rankhide = 6[(yd_fieldoptions.field_cname) = "是否在排行榜隐藏"];
-	repeated int32 m_dateid = 7[(yd_fieldoptions.field_cname) = "排行数据", (yd_fieldoptions.field_arysize) = 5];
+	optional int32 m_showSize = 5[(yd_fieldoptions.field_cname) = "显示多少个元素"];
+	optional int32 m_rankHide = 6[(yd_fieldoptions.field_cname) = "是否在排行榜隐藏"];
+	repeated int32 m_dateID = 7[(yd_fieldoptions.field_cname) = "排行数据", (yd_fieldoptions.field_arysize) = 5];
 }
 
 
@@ -22,8 +22,8 @@ message Sheet_RankingRanking
 
 message E_RankingDate
 {
-	optional int32 m_dateid = 1[(yd_fieldoptions.field_cname) = "数据ID"];
-	optional string m_datename = 2[(yd_fieldoptions.field_cname) = "数据名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_dateID = 1[(yd_fieldoptions.field_cname) = "数据ID"];
+	optional string m_dateName = 2[(yd_fieldoptions.field_cname) = "数据名称", (yd_fieldoptions.field_bufsize) = 64];
 }
 
 
@@ -34,8 +34,8 @@ message Sheet_RankingDate
 
 message E_RankingButton
 {
-	optional int32 m_buttonid = 1[(yd_fieldoptions.field_cname) = "数据ID"];
-	optional string m_buttonname = 2[(yd_fieldoptions.field_cname) = "数据名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_buttonID = 1[(yd_fieldoptions.field_cname) = "数据ID"];
+	optional string m_buttonName = 2[(yd_fieldoptions.field_cname) = "数据名称", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_display = 3[(yd_fieldoptions.field_cname) = "是否显示"];
 }
 

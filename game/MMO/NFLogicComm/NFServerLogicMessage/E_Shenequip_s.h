@@ -35,20 +35,20 @@ namespace proto_ff_s {
 		NFShmString<64> m_name;//装备名称
 		int32_t m_type;//装备大类
 		int32_t m_grade;//装备评级
-		int32_t m_subtype;//装备子类
+		int32_t m_subType;//装备子类
 		int32_t m_level;//穿戴等级限制
 		int32_t m_quality;//装备品质
 		int32_t m_star;//初始星级
-		int32_t m_attributeid;//属性ID
+		int32_t m_attributeID;//属性ID
 		NFShmString<64> m_decompose;//分解获得
-		int32_t m_iscanbind;//是否绑定
-		int32_t m_istradebind;//是否交易绑定
+		int32_t m_isCanbind;//是否绑定
+		int32_t m_isTradeBind;//是否交易绑定
 		int32_t m_time;//限时装备
 		int32_t m_broadcast;//是否播放跑马灯
-		int32_t m_exclusiveid;//专属技能
-		NFShmString<64> m_secretskill;//秘技技能
-		NFShmString<64> m_crypticskill;//暗术技能
-		NFShmString<64> m_passiveskill;//被动技能
+		int32_t m_exclusiveID;//专属技能
+		NFShmString<64> m_secretSkill;//秘技技能
+		NFShmString<64> m_crypticSkill;//暗术技能
+		NFShmString<64> m_passiveSkill;//被动技能
 
 		virtual void write_to_pbmsg(::proto_ff::E_ShenequipEquip & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ShenequipEquip & msg);
@@ -136,8 +136,8 @@ namespace proto_ff_s {
 		virtual ~E_ShenequipLvupAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_stepid;//阶段
-		int32_t m_lvid;//升级
+		int32_t m_stepId;//阶段
+		int32_t m_lvId;//升级
 
 		virtual void write_to_pbmsg(::proto_ff::E_ShenequipLvupAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ShenequipLvupAttributeDesc & msg);
@@ -154,10 +154,10 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_lv;//注灵等级
 		int32_t m_type;//装备大类
-		int32_t m_itemid;//升级道具
+		int32_t m_itemID;//升级道具
 		int32_t m_num;//升级数量
-		int32_t m_advanceitem;//进阶道具
-		int32_t m_advancenum;//进阶数量
+		int32_t m_advanceItem;//进阶道具
+		int32_t m_advanceNum;//进阶数量
 		NFShmVector<struct E_ShenequipLvupAttributeDesc_s, DEFINE_E_SHENEQUIPLVUP_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_ShenequipLvup & msg) const;
@@ -189,14 +189,14 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_type;//装备大类
 		int32_t m_lv;//等级
-		int32_t m_itemid;//铭刻道具
+		int32_t m_itemID;//铭刻道具
 		int32_t m_num;//消耗数量
-		int32_t m_breakitem;//突破道具
-		int32_t m_breaknum;//突破数量
-		int32_t m_breakprogress;//突破进度值
-		int32_t m_randomcounts;//随机条目数
+		int32_t m_breakItem;//突破道具
+		int32_t m_breakNum;//突破数量
+		int32_t m_breakProgress;//突破进度值
+		int32_t m_randomCounts;//随机条目数
 		int32_t m_minus;//负数百分比
-		int32_t m_nextid;//下段ID
+		int32_t m_nextID;//下段ID
 		NFShmVector<int32_t, DEFINE_E_SHENEQUIPCLEAR_M_PERCENT_MAX_NUM> m_percent;//百分比区间值
 
 		virtual void write_to_pbmsg(::proto_ff::E_ShenequipClear & msg) const;
@@ -243,9 +243,9 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_type;//装备大类
 		int32_t m_lv;//技能等级
-		int32_t m_itemid;//觉醒材料
+		int32_t m_itemID;//觉醒材料
 		int32_t m_num;//材料数量
-		int32_t m_awakeskillid;//觉醒技能
+		int32_t m_awakeSkillID;//觉醒技能
 		NFShmVector<struct E_ShenequipAwakenAttributeDesc_s, DEFINE_E_SHENEQUIPAWAKEN_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_ShenequipAwaken & msg) const;
@@ -296,8 +296,8 @@ namespace proto_ff_s {
 		int32_t m_grade;//装备评级
 		int32_t m_quality;//装备品质
 		int32_t m_stars;//装备星级
-		int32_t m_nextid;//下级装备
-		int32_t m_lastid;//上级装备
+		int32_t m_nextID;//下级装备
+		int32_t m_lastID;//上级装备
 		int32_t m_percent;//提升增加的百分比
 		NFShmVector<struct E_ShenequipStarupMaterialDesc_s, DEFINE_E_SHENEQUIPSTARUP_M_MATERIAL_MAX_NUM> m_material;//升级材料
 

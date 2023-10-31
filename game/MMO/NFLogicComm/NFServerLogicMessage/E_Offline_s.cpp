@@ -12,7 +12,7 @@ E_OfflineOffline_s::E_OfflineOffline_s() {
 
 int E_OfflineOffline_s::CreateInit() {
 	m_lv = (int32_t)0;
-	m_offlineexp = (int64_t)0;
+	m_offlineExp = (int64_t)0;
 	return 0;
 }
 
@@ -22,12 +22,12 @@ int E_OfflineOffline_s::ResumeInit() {
 
 void E_OfflineOffline_s::write_to_pbmsg(::proto_ff::E_OfflineOffline & msg) const {
 	msg.set_m_lv((int32_t)m_lv);
-	msg.set_m_offlineexp((int64_t)m_offlineexp);
+	msg.set_m_offlineexp((int64_t)m_offlineExp);
 }
 
 void E_OfflineOffline_s::read_from_pbmsg(const ::proto_ff::E_OfflineOffline & msg) {
 	m_lv = msg.m_lv();
-	m_offlineexp = msg.m_offlineexp();
+	m_offlineExp = msg.m_offlineexp();
 }
 
 Sheet_OfflineOffline_s::Sheet_OfflineOffline_s() {
@@ -70,9 +70,9 @@ E_OfflineItemlistItemDesc_s::E_OfflineItemlistItemDesc_s() {
 }
 
 int E_OfflineItemlistItemDesc_s::CreateInit() {
-	m_vle = (int32_t)0;
-	m_num = (int32_t)0;
-	m_id = (int64_t)0;
+	m_Vle = (int32_t)0;
+	m_Num = (int32_t)0;
+	m_ID = (int64_t)0;
 	return 0;
 }
 
@@ -81,15 +81,15 @@ int E_OfflineItemlistItemDesc_s::ResumeInit() {
 }
 
 void E_OfflineItemlistItemDesc_s::write_to_pbmsg(::proto_ff::E_OfflineItemlistItemDesc & msg) const {
-	msg.set_m_vle((int32_t)m_vle);
-	msg.set_m_num((int32_t)m_num);
-	msg.set_m_id((int64_t)m_id);
+	msg.set_m_vle((int32_t)m_Vle);
+	msg.set_m_num((int32_t)m_Num);
+	msg.set_m_id((int64_t)m_ID);
 }
 
 void E_OfflineItemlistItemDesc_s::read_from_pbmsg(const ::proto_ff::E_OfflineItemlistItemDesc & msg) {
-	m_vle = msg.m_vle();
-	m_num = msg.m_num();
-	m_id = msg.m_id();
+	m_Vle = msg.m_vle();
+	m_Num = msg.m_num();
+	m_ID = msg.m_id();
 }
 
 E_OfflineItemlist_s::E_OfflineItemlist_s() {
@@ -102,8 +102,8 @@ E_OfflineItemlist_s::E_OfflineItemlist_s() {
 
 int E_OfflineItemlist_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_lvdown = (int32_t)0;
-	m_lvup = (int32_t)0;
+	m_Lvdown = (int32_t)0;
+	m_Lvup = (int32_t)0;
 	m_daoju = (int32_t)0;
 	return 0;
 }
@@ -114,8 +114,8 @@ int E_OfflineItemlist_s::ResumeInit() {
 
 void E_OfflineItemlist_s::write_to_pbmsg(::proto_ff::E_OfflineItemlist & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_lvdown((int32_t)m_lvdown);
-	msg.set_m_lvup((int32_t)m_lvup);
+	msg.set_m_lvdown((int32_t)m_Lvdown);
+	msg.set_m_lvup((int32_t)m_Lvup);
 	msg.set_m_daoju((int32_t)m_daoju);
 	for(int32_t i = 0; i < (int32_t)m_item.size(); ++i) {
 		::proto_ff::E_OfflineItemlistItemDesc* temp_m_item = msg.add_m_item();
@@ -125,8 +125,8 @@ void E_OfflineItemlist_s::write_to_pbmsg(::proto_ff::E_OfflineItemlist & msg) co
 
 void E_OfflineItemlist_s::read_from_pbmsg(const ::proto_ff::E_OfflineItemlist & msg) {
 	m_id = msg.m_id();
-	m_lvdown = msg.m_lvdown();
-	m_lvup = msg.m_lvup();
+	m_Lvdown = msg.m_lvdown();
+	m_Lvup = msg.m_lvup();
 	m_daoju = msg.m_daoju();
 	m_item.resize((int)msg.m_item_size() > (int)m_item.max_size() ? m_item.max_size() : msg.m_item_size());
 	for(int32_t i = 0; i < (int32_t)m_item.size(); ++i) {

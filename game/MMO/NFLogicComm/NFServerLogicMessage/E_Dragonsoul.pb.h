@@ -453,17 +453,17 @@ class E_DragonsoulOfferexp : public ::google::protobuf::Message {
   inline ::std::string* release_m_position();
   inline void set_allocated_m_position(::std::string* m_position);
 
-  // optional int32 m_itemid = 4;
+  // optional int32 m_itemId = 4;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 4;
+  static const int kMItemIdFieldNumber = 4;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
-  // optional int32 m_itemexp = 5;
+  // optional int32 m_itemExp = 5;
   inline bool has_m_itemexp() const;
   inline void clear_m_itemexp();
-  static const int kMItemexpFieldNumber = 5;
+  static const int kMItemExpFieldNumber = 5;
   inline ::google::protobuf::int32 m_itemexp() const;
   inline void set_m_itemexp(::google::protobuf::int32 value);
 
@@ -1013,10 +1013,10 @@ class E_DragonsoulFlyatt : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int64 m_attid = 2;
+  // optional int64 m_attId = 2;
   inline bool has_m_attid() const;
   inline void clear_m_attid();
-  static const int kMAttidFieldNumber = 2;
+  static const int kMAttIdFieldNumber = 2;
   inline ::google::protobuf::int64 m_attid() const;
   inline void set_m_attid(::google::protobuf::int64 value);
 
@@ -1027,10 +1027,10 @@ class E_DragonsoulFlyatt : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_count() const;
   inline void set_m_count(::google::protobuf::int32 value);
 
-  // optional int32 m_atttype = 4;
+  // optional int32 m_attType = 4;
   inline bool has_m_atttype() const;
   inline void clear_m_atttype();
-  static const int kMAtttypeFieldNumber = 4;
+  static const int kMAttTypeFieldNumber = 4;
   inline ::google::protobuf::int32 m_atttype() const;
   inline void set_m_atttype(::google::protobuf::int32 value);
 
@@ -1327,24 +1327,24 @@ class E_DragonsoulFly : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_position() const;
   inline void set_m_position(::google::protobuf::int32 value);
 
-  // optional int32 m_offerexp = 3;
+  // optional int32 m_offerExp = 3;
   inline bool has_m_offerexp() const;
   inline void clear_m_offerexp();
-  static const int kMOfferexpFieldNumber = 3;
+  static const int kMOfferExpFieldNumber = 3;
   inline ::google::protobuf::int32 m_offerexp() const;
   inline void set_m_offerexp(::google::protobuf::int32 value);
 
-  // optional int32 m_quality = 4;
+  // optional int32 m_Quality = 4;
   inline bool has_m_quality() const;
   inline void clear_m_quality();
   static const int kMQualityFieldNumber = 4;
   inline ::google::protobuf::int32 m_quality() const;
   inline void set_m_quality(::google::protobuf::int32 value);
 
-  // optional int32 m_srtongup = 5;
+  // optional int32 m_srtongUp = 5;
   inline bool has_m_srtongup() const;
   inline void clear_m_srtongup();
-  static const int kMSrtongupFieldNumber = 5;
+  static const int kMSrtongUpFieldNumber = 5;
   inline ::google::protobuf::int32 m_srtongup() const;
   inline void set_m_srtongup(::google::protobuf::int32 value);
 
@@ -1546,17 +1546,17 @@ class E_DragonsoulAwakeAwakeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_flyaddratio = 1;
+  // optional int32 m_flyAddratio = 1;
   inline bool has_m_flyaddratio() const;
   inline void clear_m_flyaddratio();
-  static const int kMFlyaddratioFieldNumber = 1;
+  static const int kMFlyAddratioFieldNumber = 1;
   inline ::google::protobuf::int32 m_flyaddratio() const;
   inline void set_m_flyaddratio(::google::protobuf::int32 value);
 
-  // optional int32 m_lvaddratio = 2;
+  // optional int32 m_lvAddratio = 2;
   inline bool has_m_lvaddratio() const;
   inline void clear_m_lvaddratio();
-  static const int kMLvaddratioFieldNumber = 2;
+  static const int kMLvAddratioFieldNumber = 2;
   inline ::google::protobuf::int32 m_lvaddratio() const;
   inline void set_m_lvaddratio(::google::protobuf::int32 value);
 
@@ -1675,10 +1675,10 @@ class E_DragonsoulAwake : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_position() const;
   inline void set_m_position(::google::protobuf::int32 value);
 
-  // optional int32 m_awakeitem = 2;
+  // optional int32 m_awakeItem = 2;
   inline bool has_m_awakeitem() const;
   inline void clear_m_awakeitem();
-  static const int kMAwakeitemFieldNumber = 2;
+  static const int kMAwakeItemFieldNumber = 2;
   inline ::google::protobuf::int32 m_awakeitem() const;
   inline void set_m_awakeitem(::google::protobuf::int32 value);
 
@@ -2643,7 +2643,7 @@ inline void E_DragonsoulOfferexp::set_allocated_m_position(::std::string* m_posi
   }
 }
 
-// optional int32 m_itemid = 4;
+// optional int32 m_itemId = 4;
 inline bool E_DragonsoulOfferexp::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -2665,7 +2665,7 @@ inline void E_DragonsoulOfferexp::set_m_itemid(::google::protobuf::int32 value) 
   m_itemid_ = value;
 }
 
-// optional int32 m_itemexp = 5;
+// optional int32 m_itemExp = 5;
 inline bool E_DragonsoulOfferexp::has_m_itemexp() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -2921,7 +2921,7 @@ inline void E_DragonsoulFlyatt::set_m_id(::google::protobuf::int64 value) {
   m_id_ = value;
 }
 
-// optional int64 m_attid = 2;
+// optional int64 m_attId = 2;
 inline bool E_DragonsoulFlyatt::has_m_attid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -2965,7 +2965,7 @@ inline void E_DragonsoulFlyatt::set_m_count(::google::protobuf::int32 value) {
   m_count_ = value;
 }
 
-// optional int32 m_atttype = 4;
+// optional int32 m_attType = 4;
 inline bool E_DragonsoulFlyatt::has_m_atttype() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -3185,7 +3185,7 @@ inline void E_DragonsoulFly::set_m_position(::google::protobuf::int32 value) {
   m_position_ = value;
 }
 
-// optional int32 m_offerexp = 3;
+// optional int32 m_offerExp = 3;
 inline bool E_DragonsoulFly::has_m_offerexp() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -3207,7 +3207,7 @@ inline void E_DragonsoulFly::set_m_offerexp(::google::protobuf::int32 value) {
   m_offerexp_ = value;
 }
 
-// optional int32 m_quality = 4;
+// optional int32 m_Quality = 4;
 inline bool E_DragonsoulFly::has_m_quality() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -3229,7 +3229,7 @@ inline void E_DragonsoulFly::set_m_quality(::google::protobuf::int32 value) {
   m_quality_ = value;
 }
 
-// optional int32 m_srtongup = 5;
+// optional int32 m_srtongUp = 5;
 inline bool E_DragonsoulFly::has_m_srtongup() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -3334,7 +3334,7 @@ Sheet_DragonsoulFly::mutable_e_dragonsoulfly_list() {
 
 // E_DragonsoulAwakeAwakeDesc
 
-// optional int32 m_flyaddratio = 1;
+// optional int32 m_flyAddratio = 1;
 inline bool E_DragonsoulAwakeAwakeDesc::has_m_flyaddratio() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -3356,7 +3356,7 @@ inline void E_DragonsoulAwakeAwakeDesc::set_m_flyaddratio(::google::protobuf::in
   m_flyaddratio_ = value;
 }
 
-// optional int32 m_lvaddratio = 2;
+// optional int32 m_lvAddratio = 2;
 inline bool E_DragonsoulAwakeAwakeDesc::has_m_lvaddratio() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -3470,7 +3470,7 @@ inline void E_DragonsoulAwake::set_m_position(::google::protobuf::int32 value) {
   m_position_ = value;
 }
 
-// optional int32 m_awakeitem = 2;
+// optional int32 m_awakeItem = 2;
 inline bool E_DragonsoulAwake::has_m_awakeitem() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }

@@ -23,13 +23,13 @@ namespace proto_ff_s {
 		virtual ~E_XiuzhenroadTask_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_taskid;//任务ID
-		int32_t m_tasktype;//任务类型
-		int32_t m_eventtype;//事件类型
-		int32_t m_reachprice;//达成值
+		int64_t m_taskId;//任务ID
+		int32_t m_taskType;//任务类型
+		int32_t m_eventType;//事件类型
+		int32_t m_reachPrice;//达成值
 		int32_t m_reward;//奖励物品
-		int32_t m_reward_value;//奖励物品数量
-		int32_t m_boxid;//box礼包ID
+		int32_t m_reward_Value;//奖励物品数量
+		int32_t m_boxID;//box礼包ID
 		int32_t m_integral;//奖励的积分
 		int32_t m_linkid;//跳转ID
 		NFShmVector<int32_t, DEFINE_E_XIUZHENROADTASK_M_PARAM_MAX_NUM> m_param;//事件完成参数
@@ -60,8 +60,8 @@ namespace proto_ff_s {
 		virtual ~E_XiuzhenroadBonuspointsTotalitemsDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_value;//数量
-		int32_t m_id;//ID
+		int32_t m_Value;//数量
+		int32_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenroadBonuspointsTotalitemsDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenroadBonuspointsTotalitemsDesc & msg);
@@ -75,9 +75,9 @@ namespace proto_ff_s {
 		virtual ~E_XiuzhenroadBonuspoints_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_totalrewardsid;//总积分奖励
-		int32_t m_achievedpoints;//达成点数
-		NFShmVector<struct E_XiuzhenroadBonuspointsTotalitemsDesc_s, DEFINE_E_XIUZHENROADBONUSPOINTS_M_TOTALITEMS_MAX_NUM> m_totalitems;//奖励物品
+		int32_t m_totalRewardsID;//总积分奖励
+		int32_t m_achievedPoints;//达成点数
+		NFShmVector<struct E_XiuzhenroadBonuspointsTotalitemsDesc_s, DEFINE_E_XIUZHENROADBONUSPOINTS_M_TOTALITEMS_MAX_NUM> m_totalItems;//奖励物品
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenroadBonuspoints & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenroadBonuspoints & msg);
@@ -105,9 +105,9 @@ namespace proto_ff_s {
 		virtual ~E_XiuzhenroadSkill_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_activityskills;//活动分类技能
-		int32_t m_skillid;//技能ID
-		int32_t m_itenmid;//属性道具ID
+		int32_t m_activitySkills;//活动分类技能
+		int32_t m_skillID;//技能ID
+		int32_t m_itenmID;//属性道具ID
 		int32_t m_attribute;//道具增加属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenroadSkill & msg) const;
@@ -136,10 +136,10 @@ namespace proto_ff_s {
 		virtual ~E_XiuzhenroadClassify_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_typeid;//任务类型ID
+		int32_t m_typeID;//任务类型ID
 		NFShmString<64> m_gift;//礼包名称
-		int32_t m_giftid;//礼包ID
-		int32_t m_rechargeid;//礼包计费点ID
+		int32_t m_giftID;//礼包ID
+		int32_t m_rechargeID;//礼包计费点ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenroadClassify & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenroadClassify & msg);

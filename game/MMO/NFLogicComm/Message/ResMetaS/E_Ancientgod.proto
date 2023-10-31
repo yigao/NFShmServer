@@ -5,7 +5,7 @@ import "yd_fieldoptions.proto";
 
 message E_AncientgodAncientgodFraDesc
 {
-	optional int32 m_attid = 1[(yd_fieldoptions.field_cname) = "解锁获得属性ID"];
+	optional int32 m_attID = 1[(yd_fieldoptions.field_cname) = "解锁获得属性ID"];
 	optional int32 m_num = 2[(yd_fieldoptions.field_cname) = "解锁数量"];
 }
 
@@ -14,10 +14,10 @@ message E_AncientgodAncientgod
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "神灵ID"];
 	optional string m_name = 2[(yd_fieldoptions.field_cname) = "神灵名称", (yd_fieldoptions.field_bufsize) = 64];
 	optional float m_parama = 3[(yd_fieldoptions.field_cname) = "神灵品质系数"];
-	optional int32 m_showlv = 4[(yd_fieldoptions.field_cname) = "神灵显示等级"];
-	optional int32 m_unlocklv = 5[(yd_fieldoptions.field_cname) = "神灵解锁等级"];
+	optional int32 m_showLv = 4[(yd_fieldoptions.field_cname) = "神灵显示等级"];
+	optional int32 m_unlockLv = 5[(yd_fieldoptions.field_cname) = "神灵解锁等级"];
 	optional string m_condition = 6[(yd_fieldoptions.field_cname) = "解锁条件", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_lvlimit = 7[(yd_fieldoptions.field_cname) = "进阶等级上限"];
+	optional int32 m_lvLimit = 7[(yd_fieldoptions.field_cname) = "进阶等级上限"];
 	optional int32 m_stars = 8[(yd_fieldoptions.field_cname) = "部位进阶星数"];
 	repeated E_AncientgodAncientgodFraDesc m_fra = 9[(yd_fieldoptions.field_cname) = "碎片", (yd_fieldoptions.field_arysize) = 3];
 }
@@ -38,11 +38,11 @@ message E_AncientgodLvup
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_lv = 2[(yd_fieldoptions.field_cname) = "部位等级"];
-	optional int32 m_ancientid = 3[(yd_fieldoptions.field_cname) = "神灵ID"];
-	optional int32 m_itemid = 4[(yd_fieldoptions.field_cname) = "升级道具"];
-	optional int32 m_mallid = 5[(yd_fieldoptions.field_cname) = "商品ID"];
+	optional int32 m_ancientID = 3[(yd_fieldoptions.field_cname) = "神灵ID"];
+	optional int32 m_itemID = 4[(yd_fieldoptions.field_cname) = "升级道具"];
+	optional int32 m_mallID = 5[(yd_fieldoptions.field_cname) = "商品ID"];
 	optional int32 m_num = 6[(yd_fieldoptions.field_cname) = "升级数量"];
-	optional int32 m_initialvalue = 7[(yd_fieldoptions.field_cname) = "进阶初始值"];
+	optional int32 m_initialValue = 7[(yd_fieldoptions.field_cname) = "进阶初始值"];
 	optional int32 m_position = 8[(yd_fieldoptions.field_cname) = "部位类型"];
 	repeated E_AncientgodLvupAttributeDesc m_attribute = 9[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 2];
 }
@@ -57,7 +57,7 @@ message E_AncientgodEquipvalue
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_quality = 2[(yd_fieldoptions.field_cname) = "装备品质"];
-	optional int32 m_wearquality = 3[(yd_fieldoptions.field_cname) = "装备品阶"];
+	optional int32 m_wearQuality = 3[(yd_fieldoptions.field_cname) = "装备品阶"];
 	optional int32 m_star = 4[(yd_fieldoptions.field_cname) = "星级"];
 	optional int32 m_value = 5[(yd_fieldoptions.field_cname) = "初始进度值"];
 }
@@ -77,9 +77,9 @@ message E_AncientgodBlessAttributeDesc
 message E_AncientgodBless
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_ancientid = 2[(yd_fieldoptions.field_cname) = "神灵ID"];
+	optional int32 m_ancientID = 2[(yd_fieldoptions.field_cname) = "神灵ID"];
 	optional int32 m_position = 3[(yd_fieldoptions.field_cname) = "部位ID"];
-	optional int32 m_itemid = 4[(yd_fieldoptions.field_cname) = "祝福消耗道具"];
+	optional int32 m_itemID = 4[(yd_fieldoptions.field_cname) = "祝福消耗道具"];
 	optional int32 m_num = 5[(yd_fieldoptions.field_cname) = "消耗数量"];
 	repeated E_AncientgodBlessAttributeDesc m_attribute = 6[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 5];
 }
@@ -100,7 +100,7 @@ message E_AncientgodAdvanceAttributeDesc
 message E_AncientgodAdvance
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_ancientid = 2[(yd_fieldoptions.field_cname) = "神灵ID"];
+	optional int32 m_ancientID = 2[(yd_fieldoptions.field_cname) = "神灵ID"];
 	optional int32 m_position = 3[(yd_fieldoptions.field_cname) = "部位ID"];
 	repeated E_AncientgodAdvanceAttributeDesc m_attribute = 4[(yd_fieldoptions.field_cname) = "属性ID", (yd_fieldoptions.field_arysize) = 20];
 }

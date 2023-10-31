@@ -95,52 +95,52 @@ class E_FunctionunlockFunctionunlock : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_functionid = 1;
+  // optional int32 m_functionId = 1;
   inline bool has_m_functionid() const;
   inline void clear_m_functionid();
-  static const int kMFunctionidFieldNumber = 1;
+  static const int kMFunctionIdFieldNumber = 1;
   inline ::google::protobuf::int32 m_functionid() const;
   inline void set_m_functionid(::google::protobuf::int32 value);
 
-  // optional int32 m_opendaily = 2;
+  // optional int32 m_openDaily = 2;
   inline bool has_m_opendaily() const;
   inline void clear_m_opendaily();
-  static const int kMOpendailyFieldNumber = 2;
+  static const int kMOpenDailyFieldNumber = 2;
   inline ::google::protobuf::int32 m_opendaily() const;
   inline void set_m_opendaily(::google::protobuf::int32 value);
 
-  // optional int32 m_opentype = 3;
+  // optional int32 m_openType = 3;
   inline bool has_m_opentype() const;
   inline void clear_m_opentype();
-  static const int kMOpentypeFieldNumber = 3;
+  static const int kMOpenTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_opentype() const;
   inline void set_m_opentype(::google::protobuf::int32 value);
 
-  // optional int64 m_openval = 4;
+  // optional int64 m_openVal = 4;
   inline bool has_m_openval() const;
   inline void clear_m_openval();
-  static const int kMOpenvalFieldNumber = 4;
+  static const int kMOpenValFieldNumber = 4;
   inline ::google::protobuf::int64 m_openval() const;
   inline void set_m_openval(::google::protobuf::int64 value);
 
-  // optional int32 m_defaultclosed = 5;
+  // optional int32 m_defaultClosed = 5;
   inline bool has_m_defaultclosed() const;
   inline void clear_m_defaultclosed();
-  static const int kMDefaultclosedFieldNumber = 5;
+  static const int kMDefaultClosedFieldNumber = 5;
   inline ::google::protobuf::int32 m_defaultclosed() const;
   inline void set_m_defaultclosed(::google::protobuf::int32 value);
 
-  // optional int32 m_iconopenval = 6;
+  // optional int32 m_iconOpenVal = 6;
   inline bool has_m_iconopenval() const;
   inline void clear_m_iconopenval();
-  static const int kMIconopenvalFieldNumber = 6;
+  static const int kMIconOpenValFieldNumber = 6;
   inline ::google::protobuf::int32 m_iconopenval() const;
   inline void set_m_iconopenval(::google::protobuf::int32 value);
 
-  // optional int32 m_icondisapearid = 7;
+  // optional int32 m_iconDisapearID = 7;
   inline bool has_m_icondisapearid() const;
   inline void clear_m_icondisapearid();
-  static const int kMIcondisapearidFieldNumber = 7;
+  static const int kMIconDisapearIDFieldNumber = 7;
   inline ::google::protobuf::int32 m_icondisapearid() const;
   inline void set_m_icondisapearid(::google::protobuf::int32 value);
 
@@ -332,24 +332,24 @@ class E_FunctionunlockPreview : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_functionid = 1;
+  // optional int32 m_functionId = 1;
   inline bool has_m_functionid() const;
   inline void clear_m_functionid();
-  static const int kMFunctionidFieldNumber = 1;
+  static const int kMFunctionIdFieldNumber = 1;
   inline ::google::protobuf::int32 m_functionid() const;
   inline void set_m_functionid(::google::protobuf::int32 value);
 
-  // optional int32 m_rewarditem = 2;
+  // optional int32 m_rewardItem = 2;
   inline bool has_m_rewarditem() const;
   inline void clear_m_rewarditem();
-  static const int kMRewarditemFieldNumber = 2;
+  static const int kMRewardItemFieldNumber = 2;
   inline ::google::protobuf::int32 m_rewarditem() const;
   inline void set_m_rewarditem(::google::protobuf::int32 value);
 
-  // optional int32 m_rewardnum = 3;
+  // optional int32 m_rewardNum = 3;
   inline bool has_m_rewardnum() const;
   inline void clear_m_rewardnum();
-  static const int kMRewardnumFieldNumber = 3;
+  static const int kMRewardNumFieldNumber = 3;
   inline ::google::protobuf::int32 m_rewardnum() const;
   inline void set_m_rewardnum(::google::protobuf::int32 value);
 
@@ -470,7 +470,7 @@ class Sheet_FunctionunlockPreview : public ::google::protobuf::Message {
 
 // E_FunctionunlockFunctionunlock
 
-// optional int32 m_functionid = 1;
+// optional int32 m_functionId = 1;
 inline bool E_FunctionunlockFunctionunlock::has_m_functionid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -492,7 +492,7 @@ inline void E_FunctionunlockFunctionunlock::set_m_functionid(::google::protobuf:
   m_functionid_ = value;
 }
 
-// optional int32 m_opendaily = 2;
+// optional int32 m_openDaily = 2;
 inline bool E_FunctionunlockFunctionunlock::has_m_opendaily() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -514,7 +514,7 @@ inline void E_FunctionunlockFunctionunlock::set_m_opendaily(::google::protobuf::
   m_opendaily_ = value;
 }
 
-// optional int32 m_opentype = 3;
+// optional int32 m_openType = 3;
 inline bool E_FunctionunlockFunctionunlock::has_m_opentype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -536,7 +536,7 @@ inline void E_FunctionunlockFunctionunlock::set_m_opentype(::google::protobuf::i
   m_opentype_ = value;
 }
 
-// optional int64 m_openval = 4;
+// optional int64 m_openVal = 4;
 inline bool E_FunctionunlockFunctionunlock::has_m_openval() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -558,7 +558,7 @@ inline void E_FunctionunlockFunctionunlock::set_m_openval(::google::protobuf::in
   m_openval_ = value;
 }
 
-// optional int32 m_defaultclosed = 5;
+// optional int32 m_defaultClosed = 5;
 inline bool E_FunctionunlockFunctionunlock::has_m_defaultclosed() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -580,7 +580,7 @@ inline void E_FunctionunlockFunctionunlock::set_m_defaultclosed(::google::protob
   m_defaultclosed_ = value;
 }
 
-// optional int32 m_iconopenval = 6;
+// optional int32 m_iconOpenVal = 6;
 inline bool E_FunctionunlockFunctionunlock::has_m_iconopenval() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -602,7 +602,7 @@ inline void E_FunctionunlockFunctionunlock::set_m_iconopenval(::google::protobuf
   m_iconopenval_ = value;
 }
 
-// optional int32 m_icondisapearid = 7;
+// optional int32 m_iconDisapearID = 7;
 inline bool E_FunctionunlockFunctionunlock::has_m_icondisapearid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -679,7 +679,7 @@ Sheet_FunctionunlockFunctionunlock::mutable_e_functionunlockfunctionunlock_list(
 
 // E_FunctionunlockPreview
 
-// optional int32 m_functionid = 1;
+// optional int32 m_functionId = 1;
 inline bool E_FunctionunlockPreview::has_m_functionid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -701,7 +701,7 @@ inline void E_FunctionunlockPreview::set_m_functionid(::google::protobuf::int32 
   m_functionid_ = value;
 }
 
-// optional int32 m_rewarditem = 2;
+// optional int32 m_rewardItem = 2;
 inline bool E_FunctionunlockPreview::has_m_rewarditem() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -723,7 +723,7 @@ inline void E_FunctionunlockPreview::set_m_rewarditem(::google::protobuf::int32 
   m_rewarditem_ = value;
 }
 
-// optional int32 m_rewardnum = 3;
+// optional int32 m_rewardNum = 3;
 inline bool E_FunctionunlockPreview::has_m_rewardnum() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }

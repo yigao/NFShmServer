@@ -7,13 +7,13 @@ message E_Pk1v1Rank
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_mark = 2[(yd_fieldoptions.field_cname) = "段位标识"];
-	optional int32 m_scoremin = 3[(yd_fieldoptions.field_cname) = "分数下限"];
-	optional int32 m_scoremax = 4[(yd_fieldoptions.field_cname) = "分数上限"];
-	optional int32 m_sucessscore = 5[(yd_fieldoptions.field_cname) = "胜利加分"];
-	optional int32 m_defeatscore = 6[(yd_fieldoptions.field_cname) = "失败扣分"];
-	optional int32 m_sucessbox = 7[(yd_fieldoptions.field_cname) = "单场获胜奖励"];
-	optional int32 m_defeatbox = 8[(yd_fieldoptions.field_cname) = "单场失败奖励"];
-	optional int32 m_tiebox = 9[(yd_fieldoptions.field_cname) = "单场平局奖励"];
+	optional int32 m_scoreMin = 3[(yd_fieldoptions.field_cname) = "分数下限"];
+	optional int32 m_scoreMax = 4[(yd_fieldoptions.field_cname) = "分数上限"];
+	optional int32 m_sucessScore = 5[(yd_fieldoptions.field_cname) = "胜利加分"];
+	optional int32 m_defeatScore = 6[(yd_fieldoptions.field_cname) = "失败扣分"];
+	optional int32 m_sucessBox = 7[(yd_fieldoptions.field_cname) = "单场获胜奖励"];
+	optional int32 m_defeatBox = 8[(yd_fieldoptions.field_cname) = "单场失败奖励"];
+	optional int32 m_tieBox = 9[(yd_fieldoptions.field_cname) = "单场平局奖励"];
 }
 
 
@@ -27,7 +27,7 @@ message E_Pk1v1Reward
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
 	optional int32 m_boxid = 3[(yd_fieldoptions.field_cname) = "奖励内容"];
-	repeated int32 m_typearg = 4[(yd_fieldoptions.field_cname) = "类型参数", (yd_fieldoptions.field_arysize) = 3];
+	repeated int32 m_typeArg = 4[(yd_fieldoptions.field_cname) = "类型参数", (yd_fieldoptions.field_arysize) = 3];
 }
 
 

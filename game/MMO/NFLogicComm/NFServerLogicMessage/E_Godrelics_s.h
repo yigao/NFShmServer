@@ -21,9 +21,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_functionid;//功能开放id
+		int32_t m_functionId;//功能开放id
 		int32_t m_group;//条件组ID
-		int32_t m_skillid;//激活技能
+		int32_t m_skillID;//激活技能
 
 		virtual void write_to_pbmsg(::proto_ff::E_GodrelicsGodrelics & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GodrelicsGodrelics & msg);
@@ -55,8 +55,8 @@ namespace proto_ff_s {
 		int32_t m_group;//条件组id
 		int32_t m_conditon;//条件类型
 		int32_t m_count;//完成次数
-		int32_t m_rewarditem;//奖励道具
-		int32_t m_rewardnumber;//奖励道具数量
+		int32_t m_rewardItem;//奖励道具
+		int32_t m_rewardNumber;//奖励道具数量
 		NFShmVector<int32_t, DEFINE_E_GODRELICSCONDITION_M_PARAM_MAX_NUM> m_param;//事件完成参数
 
 		virtual void write_to_pbmsg(::proto_ff::E_GodrelicsCondition & msg) const;

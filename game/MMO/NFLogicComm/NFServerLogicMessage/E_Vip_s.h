@@ -26,10 +26,10 @@ namespace proto_ff_s {
 		int32_t m_level;//vip等级
 		int32_t m_exp;//经验值
 		int32_t m_privilege_group;//特权组
-		int32_t m_dailybox;//每日福利奖励
-		int32_t m_vipgift;//专属礼包box
-		int32_t m_pricetype;//专属礼包价格类型
-		int32_t m_originalprice;//专属礼包原价
+		int32_t m_dailyBox;//每日福利奖励
+		int32_t m_vipGift;//专属礼包box
+		int32_t m_priceType;//专属礼包价格类型
+		int32_t m_originalPrice;//专属礼包原价
 		int32_t m_price;//专属礼包价格
 
 		virtual void write_to_pbmsg(::proto_ff::E_VipVip & msg) const;
@@ -119,15 +119,15 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_fvipprice;//零元vip的价格
-		int32_t m_fviprtime;//零元vip的返还开服时间
-		int32_t m_fvipprivage;//零元VIP的特权
-		int32_t m_fviplv;//零元vip对应的vip等级
-		int32_t m_fvipexp;//获得的vip经验
-		int32_t m_vipitemicon;//vip道具图标
-		int32_t m_foreverguide;//永久玩法映射
-		int32_t m_unactiveguide;//临时玩法映射
-		int32_t m_vipexp;//vip消费经验
+		int32_t m_FVipPrice;//零元vip的价格
+		int32_t m_FVipRtime;//零元vip的返还开服时间
+		int32_t m_FVipPrivage;//零元VIP的特权
+		int32_t m_Fviplv;//零元vip对应的vip等级
+		int32_t m_Fvipexp;//获得的vip经验
+		int32_t m_VipItemIcon;//vip道具图标
+		int32_t m_foreverGuide;//永久玩法映射
+		int32_t m_unActiveGuide;//临时玩法映射
+		int32_t m_vipExp;//vip消费经验
 
 		virtual void write_to_pbmsg(::proto_ff::E_VipCosntant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_VipCosntant & msg);

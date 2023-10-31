@@ -11,16 +11,16 @@ message E_MofaSetupZfDesc
 
 message E_MofaSetup
 {
-	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "排序"];
-	optional int32 m_positionid = 2[(yd_fieldoptions.field_cname) = "部位id"];
-	optional int32 m_unlock = 3[(yd_fieldoptions.field_cname) = "解锁道具"];
-	optional int32 m_zyatt = 4[(yd_fieldoptions.field_cname) = "阵眼属性组"];
-	optional int32 m_bless = 5[(yd_fieldoptions.field_cname) = "祝福道具"];
-	optional int32 m_blessbonus = 6[(yd_fieldoptions.field_cname) = "祝福属性加成"];
-	optional int32 m_jxzyatt = 7[(yd_fieldoptions.field_cname) = "觉醒阵眼属性组"];
-	optional int32 m_jxblessbonus = 8[(yd_fieldoptions.field_cname) = "觉醒祝福属性加成"];
-	optional int32 m_jxblessatt = 9[(yd_fieldoptions.field_cname) = "觉醒祝福属性组"];
-	repeated E_MofaSetupZfDesc m_zf = 10[(yd_fieldoptions.field_cname) = "祝福属性", (yd_fieldoptions.field_arysize) = 3];
+	optional int32 m_ID = 1[(yd_fieldoptions.field_cname) = "排序"];
+	optional int32 m_PositionID = 2[(yd_fieldoptions.field_cname) = "部位id"];
+	optional int32 m_Unlock = 3[(yd_fieldoptions.field_cname) = "解锁道具"];
+	optional int32 m_ZyAtt = 4[(yd_fieldoptions.field_cname) = "阵眼属性组"];
+	optional int32 m_Bless = 5[(yd_fieldoptions.field_cname) = "祝福道具"];
+	optional int32 m_BlessBonus = 6[(yd_fieldoptions.field_cname) = "祝福属性加成"];
+	optional int32 m_JxZyAtt = 7[(yd_fieldoptions.field_cname) = "觉醒阵眼属性组"];
+	optional int32 m_JxBlessBonus = 8[(yd_fieldoptions.field_cname) = "觉醒祝福属性加成"];
+	optional int32 m_JxBlessAtt = 9[(yd_fieldoptions.field_cname) = "觉醒祝福属性组"];
+	repeated E_MofaSetupZfDesc m_ZF = 10[(yd_fieldoptions.field_cname) = "祝福属性", (yd_fieldoptions.field_arysize) = 3];
 }
 
 
@@ -37,18 +37,18 @@ message E_MofaYuansuAttributeDesc
 
 message E_MofaYuansuAwakenDesc
 {
-	optional int32 m_lvaddratio = 1[(yd_fieldoptions.field_cname) = "升级属性加成百分比"];
+	optional int32 m_lvAddratio = 1[(yd_fieldoptions.field_cname) = "升级属性加成百分比"];
 	optional int32 m_num = 2[(yd_fieldoptions.field_cname) = "材料数量"];
 }
 
 message E_MofaYuansu
 {
-	optional int32 m_itemid = 1[(yd_fieldoptions.field_cname) = "道具ID"];
-	optional int32 m_attritype = 2[(yd_fieldoptions.field_cname) = "物品类型排序"];
+	optional int32 m_ItemID = 1[(yd_fieldoptions.field_cname) = "道具ID"];
+	optional int32 m_AttriType = 2[(yd_fieldoptions.field_cname) = "物品类型排序"];
 	optional int32 m_mosaic = 3[(yd_fieldoptions.field_cname) = "可镶嵌部位"];
-	optional int32 m_lvitem = 4[(yd_fieldoptions.field_cname) = "升级道具"];
+	optional int32 m_LvItem = 4[(yd_fieldoptions.field_cname) = "升级道具"];
 	optional int32 m_awaken_can = 5[(yd_fieldoptions.field_cname) = "是否可觉醒"];
-	optional int32 m_awaken_lvmax = 6[(yd_fieldoptions.field_cname) = "觉醒上限"];
+	optional int32 m_awaken_Lvmax = 6[(yd_fieldoptions.field_cname) = "觉醒上限"];
 	optional int32 m_awaken_item = 7[(yd_fieldoptions.field_cname) = "觉醒材料"];
 	repeated E_MofaYuansuAttributeDesc m_attribute = 8[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 2];
 	repeated E_MofaYuansuAwakenDesc m_awaken = 9[(yd_fieldoptions.field_cname) = "觉醒", (yd_fieldoptions.field_arysize) = 6];
@@ -62,10 +62,10 @@ message Sheet_MofaYuansu
 
 message E_MofaDecompose
 {
-	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_dpqua = 2[(yd_fieldoptions.field_cname) = "分解品质"];
-	optional int32 m_dpitem = 3[(yd_fieldoptions.field_cname) = "分解返还道具"];
-	optional int32 m_dpess = 4[(yd_fieldoptions.field_cname) = "分解精华"];
+	optional int32 m_Id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_DpQua = 2[(yd_fieldoptions.field_cname) = "分解品质"];
+	optional int32 m_DpItem = 3[(yd_fieldoptions.field_cname) = "分解返还道具"];
+	optional int32 m_DpEss = 4[(yd_fieldoptions.field_cname) = "分解精华"];
 }
 
 
@@ -88,7 +88,7 @@ message Sheet_MofaLvexp
 
 message E_MofaLvatt
 {
-	optional int64 m_attid = 1[(yd_fieldoptions.field_cname) = "属性组id"];
+	optional int64 m_attId = 1[(yd_fieldoptions.field_cname) = "属性组id"];
 	repeated int32 m_att = 2[(yd_fieldoptions.field_cname) = "属性等级", (yd_fieldoptions.field_arysize) = 100];
 }
 
@@ -106,10 +106,10 @@ message E_MofaZyattZyDesc
 
 message E_MofaZyatt
 {
-	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "排序"];
-	optional int64 m_attid = 2[(yd_fieldoptions.field_cname) = "属性ID"];
+	optional int32 m_ID = 1[(yd_fieldoptions.field_cname) = "排序"];
+	optional int64 m_AttID = 2[(yd_fieldoptions.field_cname) = "属性ID"];
 	optional int32 m_quality = 3[(yd_fieldoptions.field_cname) = "品质"];
-	repeated E_MofaZyattZyDesc m_zy = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 2];
+	repeated E_MofaZyattZyDesc m_ZY = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 2];
 }
 
 
@@ -126,10 +126,10 @@ message E_MofaZyjxattZyjxDesc
 
 message E_MofaZyjxatt
 {
-	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "排序"];
-	optional int64 m_attid = 2[(yd_fieldoptions.field_cname) = "属性ID"];
-	optional int32 m_jxlv = 3[(yd_fieldoptions.field_cname) = "觉醒需求"];
-	repeated E_MofaZyjxattZyjxDesc m_zyjx = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 3];
+	optional int32 m_ID = 1[(yd_fieldoptions.field_cname) = "排序"];
+	optional int64 m_AttID = 2[(yd_fieldoptions.field_cname) = "属性ID"];
+	optional int32 m_JxLv = 3[(yd_fieldoptions.field_cname) = "觉醒需求"];
+	repeated E_MofaZyjxattZyjxDesc m_ZyJx = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 3];
 }
 
 
@@ -146,10 +146,10 @@ message E_MofaZyjxzfattZyjxzfDesc
 
 message E_MofaZyjxzfatt
 {
-	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "排序"];
-	optional int64 m_attid = 2[(yd_fieldoptions.field_cname) = "属性ID"];
-	optional int32 m_jxlv = 3[(yd_fieldoptions.field_cname) = "觉醒需求"];
-	repeated E_MofaZyjxzfattZyjxzfDesc m_zyjxzf = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 3];
+	optional int32 m_ID = 1[(yd_fieldoptions.field_cname) = "排序"];
+	optional int64 m_AttID = 2[(yd_fieldoptions.field_cname) = "属性ID"];
+	optional int32 m_JxLv = 3[(yd_fieldoptions.field_cname) = "觉醒需求"];
+	repeated E_MofaZyjxzfattZyjxzfDesc m_ZyJxZf = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 3];
 }
 
 
@@ -160,10 +160,10 @@ message Sheet_MofaZyjxzfatt
 
 message E_MofaExchange
 {
-	optional int32 m_itemid = 1[(yd_fieldoptions.field_cname) = "道具ID"];
+	optional int32 m_ItemID = 1[(yd_fieldoptions.field_cname) = "道具ID"];
 	optional int32 m_quality = 2[(yd_fieldoptions.field_cname) = "品质"];
-	optional int32 m_ecitem = 3[(yd_fieldoptions.field_cname) = "兑换道具"];
-	optional int32 m_ecnum = 4[(yd_fieldoptions.field_cname) = "兑换道具数量"];
+	optional int32 m_EcItem = 3[(yd_fieldoptions.field_cname) = "兑换道具"];
+	optional int32 m_EcNum = 4[(yd_fieldoptions.field_cname) = "兑换道具数量"];
 }
 
 

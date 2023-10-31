@@ -80,12 +80,12 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_sendergift;//求助者礼包id
-		int32_t m_sendergiftnum;//求助者礼包每日数量
-		int32_t m_helpergift;//协助者礼包id
-		int32_t m_helpergiftnum;//协助者礼包每日数量
-		int32_t m_prestigedaylimit;//每日日常声望获取上限
-		int32_t m_prestigedaybosslimit;//每日boss协助声望获取上限
+		int32_t m_senderGift;//求助者礼包id
+		int32_t m_senderGiftNum;//求助者礼包每日数量
+		int32_t m_helperGift;//协助者礼包id
+		int32_t m_helperGiftNum;//协助者礼包每日数量
+		int32_t m_prestigeDaylimit;//每日日常声望获取上限
+		int32_t m_prestigeDayBosslimit;//每日boss协助声望获取上限
 
 		virtual void write_to_pbmsg(::proto_ff::E_AssistConst & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_AssistConst & msg);

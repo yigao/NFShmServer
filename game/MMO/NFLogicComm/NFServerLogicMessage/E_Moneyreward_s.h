@@ -19,16 +19,16 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_taskreward;//任务奖励类型
-		NFShmString<64> m_boxtaskreward;//宝箱奖励
-		NFShmString<64> m_boxnum;//宝箱奖励次数条件
+		NFShmString<64> m_boxTaskreward;//宝箱奖励
+		NFShmString<64> m_boxNum;//宝箱奖励次数条件
 		int32_t m_task;//抽取的任务类型
-		int32_t m_taskmax;//任务上限（抽取次数）
-		NFShmString<64> m_oneprice;//一键完成单次货币价格
-		NFShmString<64> m_freeunlocklv;//免费一键开放等级和VIP
-		int32_t m_viplv;//双倍需求vip等级
-		int32_t m_timeget;//接取任务倒计时时间
-		int32_t m_timegetmoney;//领取倒计时时间
-		int32_t m_timego;//前往倒计时时间
+		int32_t m_taskMax;//任务上限（抽取次数）
+		NFShmString<64> m_onePrice;//一键完成单次货币价格
+		NFShmString<64> m_freeUnlockLv;//免费一键开放等级和VIP
+		int32_t m_vipLV;//双倍需求vip等级
+		int32_t m_timeGet;//接取任务倒计时时间
+		int32_t m_timeGetMoney;//领取倒计时时间
+		int32_t m_timeGo;//前往倒计时时间
 
 		virtual void write_to_pbmsg(::proto_ff::E_MoneyrewardMoneyreward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MoneyrewardMoneyreward & msg);

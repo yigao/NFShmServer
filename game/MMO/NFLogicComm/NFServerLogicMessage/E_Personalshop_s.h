@@ -20,13 +20,13 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//序号
-		int32_t m_shopid;//商店类型
-		int32_t m_itemid;//物品ID
+		int32_t m_shopId;//商店类型
+		int32_t m_itemID;//物品ID
 		int32_t m_amount;//物品数量
 		int32_t m_currency;//货币类型
 		int32_t m_price;//价格
 		int32_t m_discount;//折扣
-		int32_t m_lvlimit;//等级限制
+		int32_t m_lvLimit;//等级限制
 		int32_t m_weight;//权重
 
 		virtual void write_to_pbmsg(::proto_ff::E_PersonalshopShopitems & msg) const;
@@ -56,13 +56,13 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//商店id
-		int32_t m_keeptime;//商店持续时间
-		int32_t m_freetimes;//免费刷新次数
-		int32_t m_refreshmoney;//刷新货币id
-		int32_t m_refreshprice;//刷新价格
-		int32_t m_salelistcount;//出售数量
-		int32_t m_addtype;//添加类型
-		int32_t m_addtypevalue;//变量
+		int32_t m_keepTime;//商店持续时间
+		int32_t m_freeTimes;//免费刷新次数
+		int32_t m_refreshMoney;//刷新货币id
+		int32_t m_refreshPrice;//刷新价格
+		int32_t m_saleListCount;//出售数量
+		int32_t m_addType;//添加类型
+		int32_t m_addTypeValue;//变量
 
 		virtual void write_to_pbmsg(::proto_ff::E_PersonalshopShops & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PersonalshopShops & msg);

@@ -14,8 +14,8 @@ message E_WaremblemWaremblem
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
 	optional int32 m_order = 3[(yd_fieldoptions.field_cname) = "解锁顺序"];
-	optional int32 m_lvindex = 4[(yd_fieldoptions.field_cname) = "lv索引"];
-	optional int32 m_starindex = 5[(yd_fieldoptions.field_cname) = "星级索引"];
+	optional int32 m_lvIndex = 4[(yd_fieldoptions.field_cname) = "lv索引"];
+	optional int32 m_starIndex = 5[(yd_fieldoptions.field_cname) = "星级索引"];
 	repeated E_WaremblemWaremblemSkillDesc m_skill = 6[(yd_fieldoptions.field_cname) = "技能", (yd_fieldoptions.field_arysize) = 5];
 }
 
@@ -36,9 +36,9 @@ message E_WaremblemLv
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_index = 2[(yd_fieldoptions.field_cname) = "索引"];
 	optional int32 m_lv = 3[(yd_fieldoptions.field_cname) = "lv"];
-	optional int32 m_classbonus = 4[(yd_fieldoptions.field_cname) = "阶级加成"];
-	optional int32 m_costid = 5[(yd_fieldoptions.field_cname) = "消耗道具ID"];
-	optional int32 m_costnum = 6[(yd_fieldoptions.field_cname) = "消耗数量"];
+	optional int32 m_classBonus = 4[(yd_fieldoptions.field_cname) = "阶级加成"];
+	optional int32 m_costId = 5[(yd_fieldoptions.field_cname) = "消耗道具ID"];
+	optional int32 m_costNum = 6[(yd_fieldoptions.field_cname) = "消耗数量"];
 	repeated E_WaremblemLvAttributeDesc m_attribute = 7[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 4];
 }
 
@@ -59,8 +59,8 @@ message E_WaremblemStar
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_index = 2[(yd_fieldoptions.field_cname) = "索引"];
 	optional int32 m_star = 3[(yd_fieldoptions.field_cname) = "星级"];
-	optional int32 m_costid = 4[(yd_fieldoptions.field_cname) = "消耗道具"];
-	optional int32 m_costnum = 5[(yd_fieldoptions.field_cname) = "消耗数量"];
+	optional int32 m_costId = 4[(yd_fieldoptions.field_cname) = "消耗道具"];
+	optional int32 m_costNum = 5[(yd_fieldoptions.field_cname) = "消耗数量"];
 	optional int32 m_succes = 6[(yd_fieldoptions.field_cname) = "成功率"];
 	repeated E_WaremblemStarAttributeDesc m_attribute = 7[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 5];
 }

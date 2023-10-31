@@ -108,10 +108,10 @@ class E_OccupationOccupation : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 m_professionid = 2;
+  // optional int32 m_professionID = 2;
   inline bool has_m_professionid() const;
   inline void clear_m_professionid();
-  static const int kMProfessionidFieldNumber = 2;
+  static const int kMProfessionIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_professionid() const;
   inline void set_m_professionid(::google::protobuf::int32 value);
 
@@ -134,10 +134,10 @@ class E_OccupationOccupation : public ::google::protobuf::Message {
   inline ::std::string* release_m_equip();
   inline void set_allocated_m_equip(::std::string* m_equip);
 
-  // optional string m_modelid = 5;
+  // optional string m_modelID = 5;
   inline bool has_m_modelid() const;
   inline void clear_m_modelid();
-  static const int kMModelidFieldNumber = 5;
+  static const int kMModelIDFieldNumber = 5;
   inline const ::std::string& m_modelid() const;
   inline void set_m_modelid(const ::std::string& value);
   inline void set_m_modelid(const char* value);
@@ -146,10 +146,10 @@ class E_OccupationOccupation : public ::google::protobuf::Message {
   inline ::std::string* release_m_modelid();
   inline void set_allocated_m_modelid(::std::string* m_modelid);
 
-  // optional string m_activedesc = 6;
+  // optional string m_activeDesc = 6;
   inline bool has_m_activedesc() const;
   inline void clear_m_activedesc();
-  static const int kMActivedescFieldNumber = 6;
+  static const int kMActiveDescFieldNumber = 6;
   inline const ::std::string& m_activedesc() const;
   inline void set_m_activedesc(const ::std::string& value);
   inline void set_m_activedesc(const char* value);
@@ -172,10 +172,10 @@ class E_OccupationOccupation : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_skill_id() const;
   inline void set_m_skill_id(::google::protobuf::int64 value);
 
-  // optional string m_itemids = 9;
+  // optional string m_itemIDs = 9;
   inline bool has_m_itemids() const;
   inline void clear_m_itemids();
-  static const int kMItemidsFieldNumber = 9;
+  static const int kMItemIDsFieldNumber = 9;
   inline const ::std::string& m_itemids() const;
   inline void set_m_itemids(const ::std::string& value);
   inline void set_m_itemids(const char* value);
@@ -401,24 +401,24 @@ class E_OccupationStage : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_stgaeattshow = 5;
+  // optional int32 m_stgaeAttShow = 5;
   inline bool has_m_stgaeattshow() const;
   inline void clear_m_stgaeattshow();
-  static const int kMStgaeattshowFieldNumber = 5;
+  static const int kMStgaeAttShowFieldNumber = 5;
   inline ::google::protobuf::int32 m_stgaeattshow() const;
   inline void set_m_stgaeattshow(::google::protobuf::int32 value);
 
-  // optional int32 m_stgaeatt = 6;
+  // optional int32 m_stgaeAtt = 6;
   inline bool has_m_stgaeatt() const;
   inline void clear_m_stgaeatt();
-  static const int kMStgaeattFieldNumber = 6;
+  static const int kMStgaeAttFieldNumber = 6;
   inline ::google::protobuf::int32 m_stgaeatt() const;
   inline void set_m_stgaeatt(::google::protobuf::int32 value);
 
-  // optional int32 m_taskid = 7;
+  // optional int32 m_taskId = 7;
   inline bool has_m_taskid() const;
   inline void clear_m_taskid();
-  static const int kMTaskidFieldNumber = 7;
+  static const int kMTaskIdFieldNumber = 7;
   inline ::google::protobuf::int32 m_taskid() const;
   inline void set_m_taskid(::google::protobuf::int32 value);
 
@@ -429,17 +429,17 @@ class E_OccupationStage : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_battle() const;
   inline void set_m_battle(::google::protobuf::int32 value);
 
-  // optional int32 m_skillid = 9;
+  // optional int32 m_skillID = 9;
   inline bool has_m_skillid() const;
   inline void clear_m_skillid();
-  static const int kMSkillidFieldNumber = 9;
+  static const int kMSkillIDFieldNumber = 9;
   inline ::google::protobuf::int32 m_skillid() const;
   inline void set_m_skillid(::google::protobuf::int32 value);
 
-  // optional string m_lightsoul = 10;
+  // optional string m_lightSoul = 10;
   inline bool has_m_lightsoul() const;
   inline void clear_m_lightsoul();
-  static const int kMLightsoulFieldNumber = 10;
+  static const int kMLightSoulFieldNumber = 10;
   inline const ::std::string& m_lightsoul() const;
   inline void set_m_lightsoul(const ::std::string& value);
   inline void set_m_lightsoul(const char* value);
@@ -448,17 +448,17 @@ class E_OccupationStage : public ::google::protobuf::Message {
   inline ::std::string* release_m_lightsoul();
   inline void set_allocated_m_lightsoul(::std::string* m_lightsoul);
 
-  // optional int32 m_soultpye = 11;
+  // optional int32 m_soulTpye = 11;
   inline bool has_m_soultpye() const;
   inline void clear_m_soultpye();
-  static const int kMSoultpyeFieldNumber = 11;
+  static const int kMSoulTpyeFieldNumber = 11;
   inline ::google::protobuf::int32 m_soultpye() const;
   inline void set_m_soultpye(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 12;
+  // optional int32 m_itemID = 12;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 12;
+  static const int kMItemIDFieldNumber = 12;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
@@ -1026,10 +1026,10 @@ class E_OccupationSoul : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_soultpye = 2;
+  // optional int32 m_soulTpye = 2;
   inline bool has_m_soultpye() const;
   inline void clear_m_soultpye();
-  static const int kMSoultpyeFieldNumber = 2;
+  static const int kMSoulTpyeFieldNumber = 2;
   inline ::google::protobuf::int32 m_soultpye() const;
   inline void set_m_soultpye(::google::protobuf::int32 value);
 
@@ -1192,7 +1192,7 @@ inline void E_OccupationOccupation::set_m_id(::google::protobuf::int64 value) {
   m_id_ = value;
 }
 
-// optional int32 m_professionid = 2;
+// optional int32 m_professionID = 2;
 inline bool E_OccupationOccupation::has_m_professionid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1306,7 +1306,7 @@ inline void E_OccupationOccupation::set_allocated_m_equip(::std::string* m_equip
   }
 }
 
-// optional string m_modelid = 5;
+// optional string m_modelID = 5;
 inline bool E_OccupationOccupation::has_m_modelid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1376,7 +1376,7 @@ inline void E_OccupationOccupation::set_allocated_m_modelid(::std::string* m_mod
   }
 }
 
-// optional string m_activedesc = 6;
+// optional string m_activeDesc = 6;
 inline bool E_OccupationOccupation::has_m_activedesc() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -1490,7 +1490,7 @@ inline void E_OccupationOccupation::set_m_skill_id(::google::protobuf::int64 val
   m_skill_id_ = value;
 }
 
-// optional string m_itemids = 9;
+// optional string m_itemIDs = 9;
 inline bool E_OccupationOccupation::has_m_itemids() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -1729,7 +1729,7 @@ inline void E_OccupationStage::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional int32 m_stgaeattshow = 5;
+// optional int32 m_stgaeAttShow = 5;
 inline bool E_OccupationStage::has_m_stgaeattshow() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1751,7 +1751,7 @@ inline void E_OccupationStage::set_m_stgaeattshow(::google::protobuf::int32 valu
   m_stgaeattshow_ = value;
 }
 
-// optional int32 m_stgaeatt = 6;
+// optional int32 m_stgaeAtt = 6;
 inline bool E_OccupationStage::has_m_stgaeatt() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -1773,7 +1773,7 @@ inline void E_OccupationStage::set_m_stgaeatt(::google::protobuf::int32 value) {
   m_stgaeatt_ = value;
 }
 
-// optional int32 m_taskid = 7;
+// optional int32 m_taskId = 7;
 inline bool E_OccupationStage::has_m_taskid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -1817,7 +1817,7 @@ inline void E_OccupationStage::set_m_battle(::google::protobuf::int32 value) {
   m_battle_ = value;
 }
 
-// optional int32 m_skillid = 9;
+// optional int32 m_skillID = 9;
 inline bool E_OccupationStage::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -1839,7 +1839,7 @@ inline void E_OccupationStage::set_m_skillid(::google::protobuf::int32 value) {
   m_skillid_ = value;
 }
 
-// optional string m_lightsoul = 10;
+// optional string m_lightSoul = 10;
 inline bool E_OccupationStage::has_m_lightsoul() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -1909,7 +1909,7 @@ inline void E_OccupationStage::set_allocated_m_lightsoul(::std::string* m_lights
   }
 }
 
-// optional int32 m_soultpye = 11;
+// optional int32 m_soulTpye = 11;
 inline bool E_OccupationStage::has_m_soultpye() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -1931,7 +1931,7 @@ inline void E_OccupationStage::set_m_soultpye(::google::protobuf::int32 value) {
   m_soultpye_ = value;
 }
 
-// optional int32 m_itemid = 12;
+// optional int32 m_itemID = 12;
 inline bool E_OccupationStage::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -2184,7 +2184,7 @@ inline void E_OccupationSoul::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_soultpye = 2;
+// optional int32 m_soulTpye = 2;
 inline bool E_OccupationSoul::has_m_soultpye() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }

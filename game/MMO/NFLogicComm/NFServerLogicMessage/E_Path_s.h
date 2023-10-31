@@ -19,7 +19,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;//路径ID
-		int64_t m_belongtosceneid;//所属场景
+		int64_t m_belongToSceneID;//所属场景
 
 		virtual void write_to_pbmsg(::proto_ff::E_PathPath & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PathPath & msg);

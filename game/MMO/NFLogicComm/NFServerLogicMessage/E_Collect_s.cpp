@@ -11,7 +11,7 @@ E_CollectCollectAttributDesc_s::E_CollectCollectAttributDesc_s() {
 }
 
 int E_CollectCollectAttributDesc_s::CreateInit() {
-	m_id = (int32_t)0;
+	m_ID = (int32_t)0;
 	m_num = (int32_t)0;
 	return 0;
 }
@@ -21,12 +21,12 @@ int E_CollectCollectAttributDesc_s::ResumeInit() {
 }
 
 void E_CollectCollectAttributDesc_s::write_to_pbmsg(::proto_ff::E_CollectCollectAttributDesc & msg) const {
-	msg.set_m_id((int32_t)m_id);
+	msg.set_m_id((int32_t)m_ID);
 	msg.set_m_num((int32_t)m_num);
 }
 
 void E_CollectCollectAttributDesc_s::read_from_pbmsg(const ::proto_ff::E_CollectCollectAttributDesc & msg) {
-	m_id = msg.m_id();
+	m_ID = msg.m_id();
 	m_num = msg.m_num();
 }
 
@@ -45,7 +45,7 @@ int E_CollectCollect_s::CreateInit() {
 	m_grade = (int32_t)0;
 	m_quality = (int32_t)0;
 	m_star = (int32_t)0;
-	m_skillid = (int32_t)0;
+	m_skillID = (int32_t)0;
 	return 0;
 }
 
@@ -58,12 +58,12 @@ void E_CollectCollect_s::write_to_pbmsg(::proto_ff::E_CollectCollect & msg) cons
 	msg.set_m_name(m_name.data());
 	msg.set_m_lv((int32_t)m_lv);
 	msg.set_m_group((int32_t)m_group);
-	msg.set_m_stagetitle(m_stagetitle.data());
+	msg.set_m_stagetitle(m_stageTitle.data());
 	msg.set_m_position(m_position.data());
 	msg.set_m_grade((int32_t)m_grade);
 	msg.set_m_quality((int32_t)m_quality);
 	msg.set_m_star((int32_t)m_star);
-	msg.set_m_skillid((int32_t)m_skillid);
+	msg.set_m_skillid((int32_t)m_skillID);
 	for(int32_t i = 0; i < (int32_t)m_attribut.size(); ++i) {
 		::proto_ff::E_CollectCollectAttributDesc* temp_m_attribut = msg.add_m_attribut();
 		m_attribut[i].write_to_pbmsg(*temp_m_attribut);
@@ -75,12 +75,12 @@ void E_CollectCollect_s::read_from_pbmsg(const ::proto_ff::E_CollectCollect & ms
 	m_name = msg.m_name();
 	m_lv = msg.m_lv();
 	m_group = msg.m_group();
-	m_stagetitle = msg.m_stagetitle();
+	m_stageTitle = msg.m_stagetitle();
 	m_position = msg.m_position();
 	m_grade = msg.m_grade();
 	m_quality = msg.m_quality();
 	m_star = msg.m_star();
-	m_skillid = msg.m_skillid();
+	m_skillID = msg.m_skillid();
 	m_attribut.resize((int)msg.m_attribut_size() > (int)m_attribut.max_size() ? m_attribut.max_size() : msg.m_attribut_size());
 	for(int32_t i = 0; i < (int32_t)m_attribut.size(); ++i) {
 		const ::proto_ff::E_CollectCollectAttributDesc & temp_m_attribut = msg.m_attribut(i);

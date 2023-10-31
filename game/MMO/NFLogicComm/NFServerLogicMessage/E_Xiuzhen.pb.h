@@ -151,10 +151,10 @@ class E_XiuzhenStagesItemDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_num() const;
   inline void set_m_num(::google::protobuf::int64 value);
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -236,17 +236,17 @@ class E_XiuzhenStagesSkillDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_lv = 1;
+  // optional int32 m_Lv = 1;
   inline bool has_m_lv() const;
   inline void clear_m_lv();
   static const int kMLvFieldNumber = 1;
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -335,10 +335,10 @@ class E_XiuzhenStagesAttributeDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_value() const;
   inline void set_m_value(::google::protobuf::int64 value);
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -427,7 +427,7 @@ class E_XiuzhenStages : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_success_rate = 2;
+  // optional int32 m_Success_rate = 2;
   inline bool has_m_success_rate() const;
   inline void clear_m_success_rate();
   static const int kMSuccessRateFieldNumber = 2;
@@ -453,7 +453,7 @@ class E_XiuzhenStages : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_XiuzhenStagesItemDesc >*
       mutable_m_item();
 
-  // repeated .proto_ff.E_XiuzhenStagesSkillDesc m_skill = 5;
+  // repeated .proto_ff.E_XiuzhenStagesSkillDesc m_Skill = 5;
   inline int m_skill_size() const;
   inline void clear_m_skill();
   static const int kMSkillFieldNumber = 5;
@@ -465,7 +465,7 @@ class E_XiuzhenStages : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_XiuzhenStagesSkillDesc >*
       mutable_m_skill();
 
-  // repeated .proto_ff.E_XiuzhenStagesAttributeDesc m_attribute = 6;
+  // repeated .proto_ff.E_XiuzhenStagesAttributeDesc m_Attribute = 6;
   inline int m_attribute_size() const;
   inline void clear_m_attribute();
   static const int kMAttributeFieldNumber = 6;
@@ -733,24 +733,24 @@ class E_XiuzhenGb_areas : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_energy_max() const;
   inline void set_m_energy_max(::google::protobuf::int32 value);
 
-  // optional int32 m_eventrate = 12;
+  // optional int32 m_eventRate = 12;
   inline bool has_m_eventrate() const;
   inline void clear_m_eventrate();
-  static const int kMEventrateFieldNumber = 12;
+  static const int kMEventRateFieldNumber = 12;
   inline ::google::protobuf::int32 m_eventrate() const;
   inline void set_m_eventrate(::google::protobuf::int32 value);
 
-  // optional int32 m_eventrateenergyadd = 13;
+  // optional int32 m_eventRateEnergyAdd = 13;
   inline bool has_m_eventrateenergyadd() const;
   inline void clear_m_eventrateenergyadd();
-  static const int kMEventrateenergyaddFieldNumber = 13;
+  static const int kMEventRateEnergyAddFieldNumber = 13;
   inline ::google::protobuf::int32 m_eventrateenergyadd() const;
   inline void set_m_eventrateenergyadd(::google::protobuf::int32 value);
 
-  // optional int32 m_eventgetitemsrate = 14;
+  // optional int32 m_eventGetItemsRate = 14;
   inline bool has_m_eventgetitemsrate() const;
   inline void clear_m_eventgetitemsrate();
-  static const int kMEventgetitemsrateFieldNumber = 14;
+  static const int kMEventGetItemsRateFieldNumber = 14;
   inline ::google::protobuf::int32 m_eventgetitemsrate() const;
   inline void set_m_eventgetitemsrate(::google::protobuf::int32 value);
 
@@ -953,17 +953,17 @@ class E_XiuzhenGb_area_eventsItemDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_num = 1;
+  // optional int32 m_Num = 1;
   inline bool has_m_num() const;
   inline void clear_m_num();
   static const int kMNumFieldNumber = 1;
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int64 m_id = 2;
+  // optional int64 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
@@ -1052,10 +1052,10 @@ class E_XiuzhenGb_area_events : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int64 m_areaid = 2;
+  // optional int64 m_areaId = 2;
   inline bool has_m_areaid() const;
   inline void clear_m_areaid();
-  static const int kMAreaidFieldNumber = 2;
+  static const int kMAreaIdFieldNumber = 2;
   inline ::google::protobuf::int64 m_areaid() const;
   inline void set_m_areaid(::google::protobuf::int64 value);
 
@@ -1073,17 +1073,17 @@ class E_XiuzhenGb_area_events : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_type() const;
   inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 m_bodylvl = 5;
+  // optional int32 m_bodyLvl = 5;
   inline bool has_m_bodylvl() const;
   inline void clear_m_bodylvl();
-  static const int kMBodylvlFieldNumber = 5;
+  static const int kMBodyLvlFieldNumber = 5;
   inline ::google::protobuf::int32 m_bodylvl() const;
   inline void set_m_bodylvl(::google::protobuf::int32 value);
 
-  // optional string m_chattitle = 6;
+  // optional string m_chatTitle = 6;
   inline bool has_m_chattitle() const;
   inline void clear_m_chattitle();
-  static const int kMChattitleFieldNumber = 6;
+  static const int kMChatTitleFieldNumber = 6;
   inline const ::std::string& m_chattitle() const;
   inline void set_m_chattitle(const ::std::string& value);
   inline void set_m_chattitle(const char* value);
@@ -1104,10 +1104,10 @@ class E_XiuzhenGb_area_events : public ::google::protobuf::Message {
   inline ::std::string* release_m_chats();
   inline void set_allocated_m_chats(::std::string* m_chats);
 
-  // optional string m_chatbgf = 8;
+  // optional string m_chatBGF = 8;
   inline bool has_m_chatbgf() const;
   inline void clear_m_chatbgf();
-  static const int kMChatbgfFieldNumber = 8;
+  static const int kMChatBGFFieldNumber = 8;
   inline const ::std::string& m_chatbgf() const;
   inline void set_m_chatbgf(const ::std::string& value);
   inline void set_m_chatbgf(const char* value);
@@ -1116,10 +1116,10 @@ class E_XiuzhenGb_area_events : public ::google::protobuf::Message {
   inline ::std::string* release_m_chatbgf();
   inline void set_allocated_m_chatbgf(::std::string* m_chatbgf);
 
-  // optional string m_chatbgm = 9;
+  // optional string m_chatBGM = 9;
   inline bool has_m_chatbgm() const;
   inline void clear_m_chatbgm();
-  static const int kMChatbgmFieldNumber = 9;
+  static const int kMChatBGMFieldNumber = 9;
   inline const ::std::string& m_chatbgm() const;
   inline void set_m_chatbgm(const ::std::string& value);
   inline void set_m_chatbgm(const char* value);
@@ -1128,10 +1128,10 @@ class E_XiuzhenGb_area_events : public ::google::protobuf::Message {
   inline ::std::string* release_m_chatbgm();
   inline void set_allocated_m_chatbgm(::std::string* m_chatbgm);
 
-  // optional int32 m_energyadd = 10;
+  // optional int32 m_energyAdd = 10;
   inline bool has_m_energyadd() const;
   inline void clear_m_energyadd();
-  static const int kMEnergyaddFieldNumber = 10;
+  static const int kMEnergyAddFieldNumber = 10;
   inline ::google::protobuf::int32 m_energyadd() const;
   inline void set_m_energyadd(::google::protobuf::int32 value);
 
@@ -1342,10 +1342,10 @@ class E_XiuzhenGb_lvlupItemDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -1434,10 +1434,10 @@ class E_XiuzhenGb_lvlupAttributeDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_value() const;
   inline void set_m_value(::google::protobuf::int32 value);
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -1526,10 +1526,10 @@ class E_XiuzhenGb_lvlup : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_needenergy = 2;
+  // optional int32 m_needEnergy = 2;
   inline bool has_m_needenergy() const;
   inline void clear_m_needenergy();
-  static const int kMNeedenergyFieldNumber = 2;
+  static const int kMNeedEnergyFieldNumber = 2;
   inline ::google::protobuf::int32 m_needenergy() const;
   inline void set_m_needenergy(::google::protobuf::int32 value);
 
@@ -1545,7 +1545,7 @@ class E_XiuzhenGb_lvlup : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_XiuzhenGb_lvlupItemDesc >*
       mutable_m_item();
 
-  // repeated .proto_ff.E_XiuzhenGb_lvlupAttributeDesc m_attribute = 4;
+  // repeated .proto_ff.E_XiuzhenGb_lvlupAttributeDesc m_Attribute = 4;
   inline int m_attribute_size() const;
   inline void clear_m_attribute();
   static const int kMAttributeFieldNumber = 4;
@@ -1729,10 +1729,10 @@ class E_XiuzhenEvolveItemDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_num() const;
   inline void set_m_num(::google::protobuf::int64 value);
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -1821,10 +1821,10 @@ class E_XiuzhenEvolveAttributeDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_value() const;
   inline void set_m_value(::google::protobuf::int64 value);
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -1913,14 +1913,14 @@ class E_XiuzhenEvolve : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int64 m_needxw = 2;
+  // optional int64 m_needXW = 2;
   inline bool has_m_needxw() const;
   inline void clear_m_needxw();
-  static const int kMNeedxwFieldNumber = 2;
+  static const int kMNeedXWFieldNumber = 2;
   inline ::google::protobuf::int64 m_needxw() const;
   inline void set_m_needxw(::google::protobuf::int64 value);
 
-  // optional int32 m_success_rate = 3;
+  // optional int32 m_Success_rate = 3;
   inline bool has_m_success_rate() const;
   inline void clear_m_success_rate();
   static const int kMSuccessRateFieldNumber = 3;
@@ -1934,17 +1934,17 @@ class E_XiuzhenEvolve : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_blessing() const;
   inline void set_m_blessing(::google::protobuf::int32 value);
 
-  // optional int32 m_specialattriid = 5;
+  // optional int32 m_specialAttriId = 5;
   inline bool has_m_specialattriid() const;
   inline void clear_m_specialattriid();
-  static const int kMSpecialattriidFieldNumber = 5;
+  static const int kMSpecialAttriIdFieldNumber = 5;
   inline ::google::protobuf::int32 m_specialattriid() const;
   inline void set_m_specialattriid(::google::protobuf::int32 value);
 
-  // optional int64 m_specialattrivalue = 6;
+  // optional int64 m_specialAttriValue = 6;
   inline bool has_m_specialattrivalue() const;
   inline void clear_m_specialattrivalue();
-  static const int kMSpecialattrivalueFieldNumber = 6;
+  static const int kMSpecialAttriValueFieldNumber = 6;
   inline ::google::protobuf::int64 m_specialattrivalue() const;
   inline void set_m_specialattrivalue(::google::protobuf::int64 value);
 
@@ -1967,7 +1967,7 @@ class E_XiuzhenEvolve : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_XiuzhenEvolveItemDesc >*
       mutable_m_item();
 
-  // repeated .proto_ff.E_XiuzhenEvolveAttributeDesc m_attribute = 9;
+  // repeated .proto_ff.E_XiuzhenEvolveAttributeDesc m_Attribute = 9;
   inline int m_attribute_size() const;
   inline void clear_m_attribute();
   static const int kMAttributeFieldNumber = 9;
@@ -2392,10 +2392,10 @@ class E_XiuzhenLgtypes : public ::google::protobuf::Message {
   inline ::std::string* release_m_name();
   inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional string m_shortname = 3;
+  // optional string m_shortName = 3;
   inline bool has_m_shortname() const;
   inline void clear_m_shortname();
-  static const int kMShortnameFieldNumber = 3;
+  static const int kMShortNameFieldNumber = 3;
   inline const ::std::string& m_shortname() const;
   inline void set_m_shortname(const ::std::string& value);
   inline void set_m_shortname(const char* value);
@@ -2404,10 +2404,10 @@ class E_XiuzhenLgtypes : public ::google::protobuf::Message {
   inline ::std::string* release_m_shortname();
   inline void set_allocated_m_shortname(::std::string* m_shortname);
 
-  // optional string m_namecolor = 4;
+  // optional string m_nameColor = 4;
   inline bool has_m_namecolor() const;
   inline void clear_m_namecolor();
-  static const int kMNamecolorFieldNumber = 4;
+  static const int kMNameColorFieldNumber = 4;
   inline const ::std::string& m_namecolor() const;
   inline void set_m_namecolor(const ::std::string& value);
   inline void set_m_namecolor(const char* value);
@@ -2416,10 +2416,10 @@ class E_XiuzhenLgtypes : public ::google::protobuf::Message {
   inline ::std::string* release_m_namecolor();
   inline void set_allocated_m_namecolor(::std::string* m_namecolor);
 
-  // optional string m_bookmodel = 5;
+  // optional string m_bookModel = 5;
   inline bool has_m_bookmodel() const;
   inline void clear_m_bookmodel();
-  static const int kMBookmodelFieldNumber = 5;
+  static const int kMBookModelFieldNumber = 5;
   inline const ::std::string& m_bookmodel() const;
   inline void set_m_bookmodel(const ::std::string& value);
   inline void set_m_bookmodel(const char* value);
@@ -2428,10 +2428,10 @@ class E_XiuzhenLgtypes : public ::google::protobuf::Message {
   inline ::std::string* release_m_bookmodel();
   inline void set_allocated_m_bookmodel(::std::string* m_bookmodel);
 
-  // optional string m_bodymodel = 6;
+  // optional string m_bodyModel = 6;
   inline bool has_m_bodymodel() const;
   inline void clear_m_bodymodel();
-  static const int kMBodymodelFieldNumber = 6;
+  static const int kMBodyModelFieldNumber = 6;
   inline const ::std::string& m_bodymodel() const;
   inline void set_m_bodymodel(const ::std::string& value);
   inline void set_m_bodymodel(const char* value);
@@ -2440,24 +2440,24 @@ class E_XiuzhenLgtypes : public ::google::protobuf::Message {
   inline ::std::string* release_m_bodymodel();
   inline void set_allocated_m_bodymodel(::std::string* m_bodymodel);
 
-  // optional int32 m_unlockbook = 7;
+  // optional int32 m_unlockBook = 7;
   inline bool has_m_unlockbook() const;
   inline void clear_m_unlockbook();
-  static const int kMUnlockbookFieldNumber = 7;
+  static const int kMUnlockBookFieldNumber = 7;
   inline ::google::protobuf::int32 m_unlockbook() const;
   inline void set_m_unlockbook(::google::protobuf::int32 value);
 
-  // optional int32 m_bookcount = 8;
+  // optional int32 m_bookCount = 8;
   inline bool has_m_bookcount() const;
   inline void clear_m_bookcount();
-  static const int kMBookcountFieldNumber = 8;
+  static const int kMBookCountFieldNumber = 8;
   inline ::google::protobuf::int32 m_bookcount() const;
   inline void set_m_bookcount(::google::protobuf::int32 value);
 
-  // optional int32 m_addpoints = 9;
+  // optional int32 m_addPoints = 9;
   inline bool has_m_addpoints() const;
   inline void clear_m_addpoints();
-  static const int kMAddpointsFieldNumber = 9;
+  static const int kMAddPointsFieldNumber = 9;
   inline ::google::protobuf::int32 m_addpoints() const;
   inline void set_m_addpoints(::google::protobuf::int32 value);
 
@@ -2473,10 +2473,10 @@ class E_XiuzhenLgtypes : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_XiuzhenLgtypesAttriDesc >*
       mutable_m_attri();
 
-  // repeated .proto_ff.E_XiuzhenLgtypesLgattDesc m_lgatt = 11;
+  // repeated .proto_ff.E_XiuzhenLgtypesLgattDesc m_LGatt = 11;
   inline int m_lgatt_size() const;
   inline void clear_m_lgatt();
-  static const int kMLgattFieldNumber = 11;
+  static const int kMLGattFieldNumber = 11;
   inline const ::proto_ff::E_XiuzhenLgtypesLgattDesc& m_lgatt(int index) const;
   inline ::proto_ff::E_XiuzhenLgtypesLgattDesc* mutable_m_lgatt(int index);
   inline ::proto_ff::E_XiuzhenLgtypesLgattDesc* add_m_lgatt();
@@ -2678,10 +2678,10 @@ class E_XiuzhenLglvlup : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int64 m_needxw = 2;
+  // optional int64 m_needXW = 2;
   inline bool has_m_needxw() const;
   inline void clear_m_needxw();
-  static const int kMNeedxwFieldNumber = 2;
+  static const int kMNeedXWFieldNumber = 2;
   inline ::google::protobuf::int64 m_needxw() const;
   inline void set_m_needxw(::google::protobuf::int64 value);
 
@@ -2848,14 +2848,14 @@ class E_XiuzhenLgpotionsLgDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_value = 1;
+  // optional int64 m_Value = 1;
   inline bool has_m_value() const;
   inline void clear_m_value();
   static const int kMValueFieldNumber = 1;
   inline ::google::protobuf::int64 m_value() const;
   inline void set_m_value(::google::protobuf::int64 value);
 
-  // optional int32 m_type = 2;
+  // optional int32 m_Type = 2;
   inline bool has_m_type() const;
   inline void clear_m_type();
   static const int kMTypeFieldNumber = 2;
@@ -3158,38 +3158,38 @@ class E_XiuzhenGftypes : public ::google::protobuf::Message {
   inline ::std::string* release_m_icon();
   inline void set_allocated_m_icon(::std::string* m_icon);
 
-  // optional int32 m_activationitem = 5;
+  // optional int32 m_activationItem = 5;
   inline bool has_m_activationitem() const;
   inline void clear_m_activationitem();
-  static const int kMActivationitemFieldNumber = 5;
+  static const int kMActivationItemFieldNumber = 5;
   inline ::google::protobuf::int32 m_activationitem() const;
   inline void set_m_activationitem(::google::protobuf::int32 value);
 
-  // optional int32 m_itemnum = 6;
+  // optional int32 m_itemNum = 6;
   inline bool has_m_itemnum() const;
   inline void clear_m_itemnum();
-  static const int kMItemnumFieldNumber = 6;
+  static const int kMItemNumFieldNumber = 6;
   inline ::google::protobuf::int32 m_itemnum() const;
   inline void set_m_itemnum(::google::protobuf::int32 value);
 
-  // optional int32 m_buylv = 7;
+  // optional int32 m_buyLv = 7;
   inline bool has_m_buylv() const;
   inline void clear_m_buylv();
-  static const int kMBuylvFieldNumber = 7;
+  static const int kMBuyLvFieldNumber = 7;
   inline ::google::protobuf::int32 m_buylv() const;
   inline void set_m_buylv(::google::protobuf::int32 value);
 
-  // optional int32 m_rechargeid = 8;
+  // optional int32 m_rechargeId = 8;
   inline bool has_m_rechargeid() const;
   inline void clear_m_rechargeid();
-  static const int kMRechargeidFieldNumber = 8;
+  static const int kMRechargeIdFieldNumber = 8;
   inline ::google::protobuf::int32 m_rechargeid() const;
   inline void set_m_rechargeid(::google::protobuf::int32 value);
 
-  // optional string m_bookmodel = 9;
+  // optional string m_bookModel = 9;
   inline bool has_m_bookmodel() const;
   inline void clear_m_bookmodel();
-  static const int kMBookmodelFieldNumber = 9;
+  static const int kMBookModelFieldNumber = 9;
   inline const ::std::string& m_bookmodel() const;
   inline void set_m_bookmodel(const ::std::string& value);
   inline void set_m_bookmodel(const char* value);
@@ -3389,10 +3389,10 @@ class E_XiuzhenGflvlupAttributeDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_value() const;
   inline void set_m_value(::google::protobuf::int32 value);
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -3516,17 +3516,17 @@ class E_XiuzhenGflvlup : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_roushen_level() const;
   inline void set_m_roushen_level(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 7;
+  // optional int32 m_itemID = 7;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 7;
+  static const int kMItemIDFieldNumber = 7;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
-  // optional int32 m_itemnum = 8;
+  // optional int32 m_itemNum = 8;
   inline bool has_m_itemnum() const;
   inline void clear_m_itemnum();
-  static const int kMItemnumFieldNumber = 8;
+  static const int kMItemNumFieldNumber = 8;
   inline ::google::protobuf::int32 m_itemnum() const;
   inline void set_m_itemnum(::google::protobuf::int32 value);
 
@@ -3537,35 +3537,35 @@ class E_XiuzhenGflvlup : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_xw() const;
   inline void set_m_xw(::google::protobuf::int32 value);
 
-  // optional int32 m_awakeskill = 10;
+  // optional int32 m_awakeSkill = 10;
   inline bool has_m_awakeskill() const;
   inline void clear_m_awakeskill();
-  static const int kMAwakeskillFieldNumber = 10;
+  static const int kMAwakeSkillFieldNumber = 10;
   inline ::google::protobuf::int32 m_awakeskill() const;
   inline void set_m_awakeskill(::google::protobuf::int32 value);
 
-  // optional int32 m_awakeskilllvl = 11;
+  // optional int32 m_awakeSkillLvl = 11;
   inline bool has_m_awakeskilllvl() const;
   inline void clear_m_awakeskilllvl();
-  static const int kMAwakeskilllvlFieldNumber = 11;
+  static const int kMAwakeSkillLvlFieldNumber = 11;
   inline ::google::protobuf::int32 m_awakeskilllvl() const;
   inline void set_m_awakeskilllvl(::google::protobuf::int32 value);
 
-  // optional int32 m_specialattriid = 12;
+  // optional int32 m_specialAttriId = 12;
   inline bool has_m_specialattriid() const;
   inline void clear_m_specialattriid();
-  static const int kMSpecialattriidFieldNumber = 12;
+  static const int kMSpecialAttriIdFieldNumber = 12;
   inline ::google::protobuf::int32 m_specialattriid() const;
   inline void set_m_specialattriid(::google::protobuf::int32 value);
 
-  // optional int32 m_specialattrivalue = 13;
+  // optional int32 m_specialAttriValue = 13;
   inline bool has_m_specialattrivalue() const;
   inline void clear_m_specialattrivalue();
-  static const int kMSpecialattrivalueFieldNumber = 13;
+  static const int kMSpecialAttriValueFieldNumber = 13;
   inline ::google::protobuf::int32 m_specialattrivalue() const;
   inline void set_m_specialattrivalue(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_XiuzhenGflvlupAttributeDesc m_attribute = 14;
+  // repeated .proto_ff.E_XiuzhenGflvlupAttributeDesc m_Attribute = 14;
   inline int m_attribute_size() const;
   inline void clear_m_attribute();
   static const int kMAttributeFieldNumber = 14;
@@ -3781,10 +3781,10 @@ class E_XiuzhenGfstageupAttributeDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_value() const;
   inline void set_m_value(::google::protobuf::int32 value);
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -3899,49 +3899,49 @@ class E_XiuzhenGfstageup : public ::google::protobuf::Message {
   inline ::std::string* release_m_highlevel_icon();
   inline void set_allocated_m_highlevel_icon(::std::string* m_highlevel_icon);
 
-  // optional int32 m_itemid = 5;
+  // optional int32 m_itemID = 5;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 5;
+  static const int kMItemIDFieldNumber = 5;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
-  // optional int32 m_itemnum = 6;
+  // optional int32 m_itemNum = 6;
   inline bool has_m_itemnum() const;
   inline void clear_m_itemnum();
-  static const int kMItemnumFieldNumber = 6;
+  static const int kMItemNumFieldNumber = 6;
   inline ::google::protobuf::int32 m_itemnum() const;
   inline void set_m_itemnum(::google::protobuf::int32 value);
 
-  // optional int32 m_awakeskill1 = 7;
+  // optional int32 m_awakeSkill1 = 7;
   inline bool has_m_awakeskill1() const;
   inline void clear_m_awakeskill1();
-  static const int kMAwakeskill1FieldNumber = 7;
+  static const int kMAwakeSkill1FieldNumber = 7;
   inline ::google::protobuf::int32 m_awakeskill1() const;
   inline void set_m_awakeskill1(::google::protobuf::int32 value);
 
-  // optional int32 m_awakeskilllvl1 = 8;
+  // optional int32 m_awakeSkillLvl1 = 8;
   inline bool has_m_awakeskilllvl1() const;
   inline void clear_m_awakeskilllvl1();
-  static const int kMAwakeskilllvl1FieldNumber = 8;
+  static const int kMAwakeSkillLvl1FieldNumber = 8;
   inline ::google::protobuf::int32 m_awakeskilllvl1() const;
   inline void set_m_awakeskilllvl1(::google::protobuf::int32 value);
 
-  // optional int32 m_awakeskill2 = 9;
+  // optional int32 m_awakeSkill2 = 9;
   inline bool has_m_awakeskill2() const;
   inline void clear_m_awakeskill2();
-  static const int kMAwakeskill2FieldNumber = 9;
+  static const int kMAwakeSkill2FieldNumber = 9;
   inline ::google::protobuf::int32 m_awakeskill2() const;
   inline void set_m_awakeskill2(::google::protobuf::int32 value);
 
-  // optional int32 m_awakeskilllvl2 = 10;
+  // optional int32 m_awakeSkillLvl2 = 10;
   inline bool has_m_awakeskilllvl2() const;
   inline void clear_m_awakeskilllvl2();
-  static const int kMAwakeskilllvl2FieldNumber = 10;
+  static const int kMAwakeSkillLvl2FieldNumber = 10;
   inline ::google::protobuf::int32 m_awakeskilllvl2() const;
   inline void set_m_awakeskilllvl2(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_XiuzhenGfstageupAttributeDesc m_attribute = 11;
+  // repeated .proto_ff.E_XiuzhenGfstageupAttributeDesc m_Attribute = 11;
   inline int m_attribute_size() const;
   inline void clear_m_attribute();
   static const int kMAttributeFieldNumber = 11;
@@ -4325,10 +4325,10 @@ class E_XiuzhenJmlvlupItemDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -4417,10 +4417,10 @@ class E_XiuzhenJmlvlupAttributeDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_value() const;
   inline void set_m_value(::google::protobuf::int32 value);
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -4523,31 +4523,31 @@ class E_XiuzhenJmlvlup : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lvl() const;
   inline void set_m_lvl(::google::protobuf::int32 value);
 
-  // optional int64 m_needxw = 4;
+  // optional int64 m_needXW = 4;
   inline bool has_m_needxw() const;
   inline void clear_m_needxw();
-  static const int kMNeedxwFieldNumber = 4;
+  static const int kMNeedXWFieldNumber = 4;
   inline ::google::protobuf::int64 m_needxw() const;
   inline void set_m_needxw(::google::protobuf::int64 value);
 
-  // optional int32 m_success_rate = 5;
+  // optional int32 m_Success_rate = 5;
   inline bool has_m_success_rate() const;
   inline void clear_m_success_rate();
   static const int kMSuccessRateFieldNumber = 5;
   inline ::google::protobuf::int32 m_success_rate() const;
   inline void set_m_success_rate(::google::protobuf::int32 value);
 
-  // optional int32 m_specialattriid = 6;
+  // optional int32 m_specialAttriId = 6;
   inline bool has_m_specialattriid() const;
   inline void clear_m_specialattriid();
-  static const int kMSpecialattriidFieldNumber = 6;
+  static const int kMSpecialAttriIdFieldNumber = 6;
   inline ::google::protobuf::int32 m_specialattriid() const;
   inline void set_m_specialattriid(::google::protobuf::int32 value);
 
-  // optional int32 m_specialattrivalue = 7;
+  // optional int32 m_specialAttriValue = 7;
   inline bool has_m_specialattrivalue() const;
   inline void clear_m_specialattrivalue();
-  static const int kMSpecialattrivalueFieldNumber = 7;
+  static const int kMSpecialAttriValueFieldNumber = 7;
   inline ::google::protobuf::int32 m_specialattrivalue() const;
   inline void set_m_specialattrivalue(::google::protobuf::int32 value);
 
@@ -4762,10 +4762,10 @@ class E_XiuzhenJmstageupItemDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -4854,10 +4854,10 @@ class E_XiuzhenJmstageupAttributeDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_value() const;
   inline void set_m_value(::google::protobuf::int32 value);
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -4972,14 +4972,14 @@ class E_XiuzhenJmstageup : public ::google::protobuf::Message {
   inline ::std::string* release_m_name();
   inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional int32 m_needgfunlock = 5;
+  // optional int32 m_needGFUnlock = 5;
   inline bool has_m_needgfunlock() const;
   inline void clear_m_needgfunlock();
-  static const int kMNeedgfunlockFieldNumber = 5;
+  static const int kMNeedGFUnlockFieldNumber = 5;
   inline ::google::protobuf::int32 m_needgfunlock() const;
   inline void set_m_needgfunlock(::google::protobuf::int32 value);
 
-  // optional int32 m_success_rate = 6;
+  // optional int32 m_Success_rate = 6;
   inline bool has_m_success_rate() const;
   inline void clear_m_success_rate();
   static const int kMSuccessRateFieldNumber = 6;
@@ -4993,17 +4993,17 @@ class E_XiuzhenJmstageup : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_blessing() const;
   inline void set_m_blessing(::google::protobuf::int32 value);
 
-  // optional int32 m_awakeskillid = 8;
+  // optional int32 m_awakeSkillID = 8;
   inline bool has_m_awakeskillid() const;
   inline void clear_m_awakeskillid();
-  static const int kMAwakeskillidFieldNumber = 8;
+  static const int kMAwakeSkillIDFieldNumber = 8;
   inline ::google::protobuf::int32 m_awakeskillid() const;
   inline void set_m_awakeskillid(::google::protobuf::int32 value);
 
-  // optional int32 m_awakeskilllvl = 9;
+  // optional int32 m_awakeSkillLvl = 9;
   inline bool has_m_awakeskilllvl() const;
   inline void clear_m_awakeskilllvl();
-  static const int kMAwakeskilllvlFieldNumber = 9;
+  static const int kMAwakeSkillLvlFieldNumber = 9;
   inline ::google::protobuf::int32 m_awakeskilllvl() const;
   inline void set_m_awakeskilllvl(::google::protobuf::int32 value);
 
@@ -5316,10 +5316,10 @@ class E_XiuzhenJmmergeupAttributeDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_value() const;
   inline void set_m_value(::google::protobuf::int32 value);
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -5415,17 +5415,17 @@ class E_XiuzhenJmmergeup : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_gf_type() const;
   inline void set_m_gf_type(::google::protobuf::int32 value);
 
-  // optional int32 m_awakeskillid = 3;
+  // optional int32 m_awakeSkillID = 3;
   inline bool has_m_awakeskillid() const;
   inline void clear_m_awakeskillid();
-  static const int kMAwakeskillidFieldNumber = 3;
+  static const int kMAwakeSkillIDFieldNumber = 3;
   inline ::google::protobuf::int32 m_awakeskillid() const;
   inline void set_m_awakeskillid(::google::protobuf::int32 value);
 
-  // optional int32 m_awakeskilllvl = 4;
+  // optional int32 m_awakeSkillLvl = 4;
   inline bool has_m_awakeskilllvl() const;
   inline void clear_m_awakeskilllvl();
-  static const int kMAwakeskilllvlFieldNumber = 4;
+  static const int kMAwakeSkillLvlFieldNumber = 4;
   inline ::google::protobuf::int32 m_awakeskilllvl() const;
   inline void set_m_awakeskilllvl(::google::protobuf::int32 value);
 
@@ -5837,17 +5837,17 @@ class E_XiuzhenPrivilege : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_price() const;
   inline void set_m_price(::google::protobuf::int32 value);
 
-  // optional int32 m_activeavatar = 3;
+  // optional int32 m_activeAvatar = 3;
   inline bool has_m_activeavatar() const;
   inline void clear_m_activeavatar();
-  static const int kMActiveavatarFieldNumber = 3;
+  static const int kMActiveAvatarFieldNumber = 3;
   inline ::google::protobuf::int32 m_activeavatar() const;
   inline void set_m_activeavatar(::google::protobuf::int32 value);
 
-  // optional string m_avatarname = 4;
+  // optional string m_avatarName = 4;
   inline bool has_m_avatarname() const;
   inline void clear_m_avatarname();
-  static const int kMAvatarnameFieldNumber = 4;
+  static const int kMAvatarNameFieldNumber = 4;
   inline const ::std::string& m_avatarname() const;
   inline void set_m_avatarname(const ::std::string& value);
   inline void set_m_avatarname(const char* value);
@@ -5856,10 +5856,10 @@ class E_XiuzhenPrivilege : public ::google::protobuf::Message {
   inline ::std::string* release_m_avatarname();
   inline void set_allocated_m_avatarname(::std::string* m_avatarname);
 
-  // repeated .proto_ff.E_XiuzhenPrivilegePtaddDesc m_ptadd = 5;
+  // repeated .proto_ff.E_XiuzhenPrivilegePtaddDesc m_ptAdd = 5;
   inline int m_ptadd_size() const;
   inline void clear_m_ptadd();
-  static const int kMPtaddFieldNumber = 5;
+  static const int kMPtAddFieldNumber = 5;
   inline const ::proto_ff::E_XiuzhenPrivilegePtaddDesc& m_ptadd(int index) const;
   inline ::proto_ff::E_XiuzhenPrivilegePtaddDesc* mutable_m_ptadd(int index);
   inline ::proto_ff::E_XiuzhenPrivilegePtaddDesc* add_m_ptadd();
@@ -6024,7 +6024,7 @@ inline void E_XiuzhenStagesItemDesc::set_m_num(::google::protobuf::int64 value) 
   m_num_ = value;
 }
 
-// optional int32 m_id = 2;
+// optional int32 m_ID = 2;
 inline bool E_XiuzhenStagesItemDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -6050,7 +6050,7 @@ inline void E_XiuzhenStagesItemDesc::set_m_id(::google::protobuf::int32 value) {
 
 // E_XiuzhenStagesSkillDesc
 
-// optional int32 m_lv = 1;
+// optional int32 m_Lv = 1;
 inline bool E_XiuzhenStagesSkillDesc::has_m_lv() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -6072,7 +6072,7 @@ inline void E_XiuzhenStagesSkillDesc::set_m_lv(::google::protobuf::int32 value) 
   m_lv_ = value;
 }
 
-// optional int32 m_id = 2;
+// optional int32 m_ID = 2;
 inline bool E_XiuzhenStagesSkillDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -6120,7 +6120,7 @@ inline void E_XiuzhenStagesAttributeDesc::set_m_value(::google::protobuf::int64 
   m_value_ = value;
 }
 
-// optional int32 m_id = 2;
+// optional int32 m_ID = 2;
 inline bool E_XiuzhenStagesAttributeDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -6168,7 +6168,7 @@ inline void E_XiuzhenStages::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_success_rate = 2;
+// optional int32 m_Success_rate = 2;
 inline bool E_XiuzhenStages::has_m_success_rate() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -6237,7 +6237,7 @@ E_XiuzhenStages::mutable_m_item() {
   return &m_item_;
 }
 
-// repeated .proto_ff.E_XiuzhenStagesSkillDesc m_skill = 5;
+// repeated .proto_ff.E_XiuzhenStagesSkillDesc m_Skill = 5;
 inline int E_XiuzhenStages::m_skill_size() const {
   return m_skill_.size();
 }
@@ -6262,7 +6262,7 @@ E_XiuzhenStages::mutable_m_skill() {
   return &m_skill_;
 }
 
-// repeated .proto_ff.E_XiuzhenStagesAttributeDesc m_attribute = 6;
+// repeated .proto_ff.E_XiuzhenStagesAttributeDesc m_Attribute = 6;
 inline int E_XiuzhenStages::m_attribute_size() const {
   return m_attribute_.size();
 }
@@ -6658,7 +6658,7 @@ inline void E_XiuzhenGb_areas::set_m_energy_max(::google::protobuf::int32 value)
   m_energy_max_ = value;
 }
 
-// optional int32 m_eventrate = 12;
+// optional int32 m_eventRate = 12;
 inline bool E_XiuzhenGb_areas::has_m_eventrate() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -6680,7 +6680,7 @@ inline void E_XiuzhenGb_areas::set_m_eventrate(::google::protobuf::int32 value) 
   m_eventrate_ = value;
 }
 
-// optional int32 m_eventrateenergyadd = 13;
+// optional int32 m_eventRateEnergyAdd = 13;
 inline bool E_XiuzhenGb_areas::has_m_eventrateenergyadd() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -6702,7 +6702,7 @@ inline void E_XiuzhenGb_areas::set_m_eventrateenergyadd(::google::protobuf::int3
   m_eventrateenergyadd_ = value;
 }
 
-// optional int32 m_eventgetitemsrate = 14;
+// optional int32 m_eventGetItemsRate = 14;
 inline bool E_XiuzhenGb_areas::has_m_eventgetitemsrate() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -6757,7 +6757,7 @@ Sheet_XiuzhenGb_areas::mutable_e_xiuzhengb_areas_list() {
 
 // E_XiuzhenGb_area_eventsItemDesc
 
-// optional int32 m_num = 1;
+// optional int32 m_Num = 1;
 inline bool E_XiuzhenGb_area_eventsItemDesc::has_m_num() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -6779,7 +6779,7 @@ inline void E_XiuzhenGb_area_eventsItemDesc::set_m_num(::google::protobuf::int32
   m_num_ = value;
 }
 
-// optional int64 m_id = 2;
+// optional int64 m_ID = 2;
 inline bool E_XiuzhenGb_area_eventsItemDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -6827,7 +6827,7 @@ inline void E_XiuzhenGb_area_events::set_m_id(::google::protobuf::int64 value) {
   m_id_ = value;
 }
 
-// optional int64 m_areaid = 2;
+// optional int64 m_areaId = 2;
 inline bool E_XiuzhenGb_area_events::has_m_areaid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -6893,7 +6893,7 @@ inline void E_XiuzhenGb_area_events::set_m_type(::google::protobuf::int32 value)
   m_type_ = value;
 }
 
-// optional int32 m_bodylvl = 5;
+// optional int32 m_bodyLvl = 5;
 inline bool E_XiuzhenGb_area_events::has_m_bodylvl() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -6915,7 +6915,7 @@ inline void E_XiuzhenGb_area_events::set_m_bodylvl(::google::protobuf::int32 val
   m_bodylvl_ = value;
 }
 
-// optional string m_chattitle = 6;
+// optional string m_chatTitle = 6;
 inline bool E_XiuzhenGb_area_events::has_m_chattitle() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -7055,7 +7055,7 @@ inline void E_XiuzhenGb_area_events::set_allocated_m_chats(::std::string* m_chat
   }
 }
 
-// optional string m_chatbgf = 8;
+// optional string m_chatBGF = 8;
 inline bool E_XiuzhenGb_area_events::has_m_chatbgf() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -7125,7 +7125,7 @@ inline void E_XiuzhenGb_area_events::set_allocated_m_chatbgf(::std::string* m_ch
   }
 }
 
-// optional string m_chatbgm = 9;
+// optional string m_chatBGM = 9;
 inline bool E_XiuzhenGb_area_events::has_m_chatbgm() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -7195,7 +7195,7 @@ inline void E_XiuzhenGb_area_events::set_allocated_m_chatbgm(::std::string* m_ch
   }
 }
 
-// optional int32 m_energyadd = 10;
+// optional int32 m_energyAdd = 10;
 inline bool E_XiuzhenGb_area_events::has_m_energyadd() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -7297,7 +7297,7 @@ inline void E_XiuzhenGb_lvlupItemDesc::set_m_num(::google::protobuf::int32 value
   m_num_ = value;
 }
 
-// optional int32 m_id = 2;
+// optional int32 m_ID = 2;
 inline bool E_XiuzhenGb_lvlupItemDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -7345,7 +7345,7 @@ inline void E_XiuzhenGb_lvlupAttributeDesc::set_m_value(::google::protobuf::int3
   m_value_ = value;
 }
 
-// optional int32 m_id = 2;
+// optional int32 m_ID = 2;
 inline bool E_XiuzhenGb_lvlupAttributeDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -7393,7 +7393,7 @@ inline void E_XiuzhenGb_lvlup::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_needenergy = 2;
+// optional int32 m_needEnergy = 2;
 inline bool E_XiuzhenGb_lvlup::has_m_needenergy() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -7440,7 +7440,7 @@ E_XiuzhenGb_lvlup::mutable_m_item() {
   return &m_item_;
 }
 
-// repeated .proto_ff.E_XiuzhenGb_lvlupAttributeDesc m_attribute = 4;
+// repeated .proto_ff.E_XiuzhenGb_lvlupAttributeDesc m_Attribute = 4;
 inline int E_XiuzhenGb_lvlup::m_attribute_size() const {
   return m_attribute_.size();
 }
@@ -7520,7 +7520,7 @@ inline void E_XiuzhenEvolveItemDesc::set_m_num(::google::protobuf::int64 value) 
   m_num_ = value;
 }
 
-// optional int32 m_id = 2;
+// optional int32 m_ID = 2;
 inline bool E_XiuzhenEvolveItemDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -7568,7 +7568,7 @@ inline void E_XiuzhenEvolveAttributeDesc::set_m_value(::google::protobuf::int64 
   m_value_ = value;
 }
 
-// optional int32 m_id = 2;
+// optional int32 m_ID = 2;
 inline bool E_XiuzhenEvolveAttributeDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -7616,7 +7616,7 @@ inline void E_XiuzhenEvolve::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int64 m_needxw = 2;
+// optional int64 m_needXW = 2;
 inline bool E_XiuzhenEvolve::has_m_needxw() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -7638,7 +7638,7 @@ inline void E_XiuzhenEvolve::set_m_needxw(::google::protobuf::int64 value) {
   m_needxw_ = value;
 }
 
-// optional int32 m_success_rate = 3;
+// optional int32 m_Success_rate = 3;
 inline bool E_XiuzhenEvolve::has_m_success_rate() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -7682,7 +7682,7 @@ inline void E_XiuzhenEvolve::set_m_blessing(::google::protobuf::int32 value) {
   m_blessing_ = value;
 }
 
-// optional int32 m_specialattriid = 5;
+// optional int32 m_specialAttriId = 5;
 inline bool E_XiuzhenEvolve::has_m_specialattriid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -7704,7 +7704,7 @@ inline void E_XiuzhenEvolve::set_m_specialattriid(::google::protobuf::int32 valu
   m_specialattriid_ = value;
 }
 
-// optional int64 m_specialattrivalue = 6;
+// optional int64 m_specialAttriValue = 6;
 inline bool E_XiuzhenEvolve::has_m_specialattrivalue() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -7773,7 +7773,7 @@ E_XiuzhenEvolve::mutable_m_item() {
   return &m_item_;
 }
 
-// repeated .proto_ff.E_XiuzhenEvolveAttributeDesc m_attribute = 9;
+// repeated .proto_ff.E_XiuzhenEvolveAttributeDesc m_Attribute = 9;
 inline int E_XiuzhenEvolve::m_attribute_size() const {
   return m_attribute_.size();
 }
@@ -8085,7 +8085,7 @@ inline void E_XiuzhenLgtypes::set_allocated_m_name(::std::string* m_name) {
   }
 }
 
-// optional string m_shortname = 3;
+// optional string m_shortName = 3;
 inline bool E_XiuzhenLgtypes::has_m_shortname() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -8155,7 +8155,7 @@ inline void E_XiuzhenLgtypes::set_allocated_m_shortname(::std::string* m_shortna
   }
 }
 
-// optional string m_namecolor = 4;
+// optional string m_nameColor = 4;
 inline bool E_XiuzhenLgtypes::has_m_namecolor() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -8225,7 +8225,7 @@ inline void E_XiuzhenLgtypes::set_allocated_m_namecolor(::std::string* m_namecol
   }
 }
 
-// optional string m_bookmodel = 5;
+// optional string m_bookModel = 5;
 inline bool E_XiuzhenLgtypes::has_m_bookmodel() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -8295,7 +8295,7 @@ inline void E_XiuzhenLgtypes::set_allocated_m_bookmodel(::std::string* m_bookmod
   }
 }
 
-// optional string m_bodymodel = 6;
+// optional string m_bodyModel = 6;
 inline bool E_XiuzhenLgtypes::has_m_bodymodel() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -8365,7 +8365,7 @@ inline void E_XiuzhenLgtypes::set_allocated_m_bodymodel(::std::string* m_bodymod
   }
 }
 
-// optional int32 m_unlockbook = 7;
+// optional int32 m_unlockBook = 7;
 inline bool E_XiuzhenLgtypes::has_m_unlockbook() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -8387,7 +8387,7 @@ inline void E_XiuzhenLgtypes::set_m_unlockbook(::google::protobuf::int32 value) 
   m_unlockbook_ = value;
 }
 
-// optional int32 m_bookcount = 8;
+// optional int32 m_bookCount = 8;
 inline bool E_XiuzhenLgtypes::has_m_bookcount() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -8409,7 +8409,7 @@ inline void E_XiuzhenLgtypes::set_m_bookcount(::google::protobuf::int32 value) {
   m_bookcount_ = value;
 }
 
-// optional int32 m_addpoints = 9;
+// optional int32 m_addPoints = 9;
 inline bool E_XiuzhenLgtypes::has_m_addpoints() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -8456,7 +8456,7 @@ E_XiuzhenLgtypes::mutable_m_attri() {
   return &m_attri_;
 }
 
-// repeated .proto_ff.E_XiuzhenLgtypesLgattDesc m_lgatt = 11;
+// repeated .proto_ff.E_XiuzhenLgtypesLgattDesc m_LGatt = 11;
 inline int E_XiuzhenLgtypes::m_lgatt_size() const {
   return m_lgatt_.size();
 }
@@ -8536,7 +8536,7 @@ inline void E_XiuzhenLglvlup::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int64 m_needxw = 2;
+// optional int64 m_needXW = 2;
 inline bool E_XiuzhenLglvlup::has_m_needxw() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -8591,7 +8591,7 @@ Sheet_XiuzhenLglvlup::mutable_e_xiuzhenlglvlup_list() {
 
 // E_XiuzhenLgpotionsLgDesc
 
-// optional int64 m_value = 1;
+// optional int64 m_Value = 1;
 inline bool E_XiuzhenLgpotionsLgDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -8613,7 +8613,7 @@ inline void E_XiuzhenLgpotionsLgDesc::set_m_value(::google::protobuf::int64 valu
   m_value_ = value;
 }
 
-// optional int32 m_type = 2;
+// optional int32 m_Type = 2;
 inline bool E_XiuzhenLgpotionsLgDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -8903,7 +8903,7 @@ inline void E_XiuzhenGftypes::set_allocated_m_icon(::std::string* m_icon) {
   }
 }
 
-// optional int32 m_activationitem = 5;
+// optional int32 m_activationItem = 5;
 inline bool E_XiuzhenGftypes::has_m_activationitem() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -8925,7 +8925,7 @@ inline void E_XiuzhenGftypes::set_m_activationitem(::google::protobuf::int32 val
   m_activationitem_ = value;
 }
 
-// optional int32 m_itemnum = 6;
+// optional int32 m_itemNum = 6;
 inline bool E_XiuzhenGftypes::has_m_itemnum() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -8947,7 +8947,7 @@ inline void E_XiuzhenGftypes::set_m_itemnum(::google::protobuf::int32 value) {
   m_itemnum_ = value;
 }
 
-// optional int32 m_buylv = 7;
+// optional int32 m_buyLv = 7;
 inline bool E_XiuzhenGftypes::has_m_buylv() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -8969,7 +8969,7 @@ inline void E_XiuzhenGftypes::set_m_buylv(::google::protobuf::int32 value) {
   m_buylv_ = value;
 }
 
-// optional int32 m_rechargeid = 8;
+// optional int32 m_rechargeId = 8;
 inline bool E_XiuzhenGftypes::has_m_rechargeid() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -8991,7 +8991,7 @@ inline void E_XiuzhenGftypes::set_m_rechargeid(::google::protobuf::int32 value) 
   m_rechargeid_ = value;
 }
 
-// optional string m_bookmodel = 9;
+// optional string m_bookModel = 9;
 inline bool E_XiuzhenGftypes::has_m_bookmodel() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -9116,7 +9116,7 @@ inline void E_XiuzhenGflvlupAttributeDesc::set_m_value(::google::protobuf::int32
   m_value_ = value;
 }
 
-// optional int32 m_id = 2;
+// optional int32 m_ID = 2;
 inline bool E_XiuzhenGflvlupAttributeDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -9274,7 +9274,7 @@ inline void E_XiuzhenGflvlup::set_m_roushen_level(::google::protobuf::int32 valu
   m_roushen_level_ = value;
 }
 
-// optional int32 m_itemid = 7;
+// optional int32 m_itemID = 7;
 inline bool E_XiuzhenGflvlup::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -9296,7 +9296,7 @@ inline void E_XiuzhenGflvlup::set_m_itemid(::google::protobuf::int32 value) {
   m_itemid_ = value;
 }
 
-// optional int32 m_itemnum = 8;
+// optional int32 m_itemNum = 8;
 inline bool E_XiuzhenGflvlup::has_m_itemnum() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -9340,7 +9340,7 @@ inline void E_XiuzhenGflvlup::set_m_xw(::google::protobuf::int32 value) {
   m_xw_ = value;
 }
 
-// optional int32 m_awakeskill = 10;
+// optional int32 m_awakeSkill = 10;
 inline bool E_XiuzhenGflvlup::has_m_awakeskill() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -9362,7 +9362,7 @@ inline void E_XiuzhenGflvlup::set_m_awakeskill(::google::protobuf::int32 value) 
   m_awakeskill_ = value;
 }
 
-// optional int32 m_awakeskilllvl = 11;
+// optional int32 m_awakeSkillLvl = 11;
 inline bool E_XiuzhenGflvlup::has_m_awakeskilllvl() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -9384,7 +9384,7 @@ inline void E_XiuzhenGflvlup::set_m_awakeskilllvl(::google::protobuf::int32 valu
   m_awakeskilllvl_ = value;
 }
 
-// optional int32 m_specialattriid = 12;
+// optional int32 m_specialAttriId = 12;
 inline bool E_XiuzhenGflvlup::has_m_specialattriid() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -9406,7 +9406,7 @@ inline void E_XiuzhenGflvlup::set_m_specialattriid(::google::protobuf::int32 val
   m_specialattriid_ = value;
 }
 
-// optional int32 m_specialattrivalue = 13;
+// optional int32 m_specialAttriValue = 13;
 inline bool E_XiuzhenGflvlup::has_m_specialattrivalue() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -9428,7 +9428,7 @@ inline void E_XiuzhenGflvlup::set_m_specialattrivalue(::google::protobuf::int32 
   m_specialattrivalue_ = value;
 }
 
-// repeated .proto_ff.E_XiuzhenGflvlupAttributeDesc m_attribute = 14;
+// repeated .proto_ff.E_XiuzhenGflvlupAttributeDesc m_Attribute = 14;
 inline int E_XiuzhenGflvlup::m_attribute_size() const {
   return m_attribute_.size();
 }
@@ -9508,7 +9508,7 @@ inline void E_XiuzhenGfstageupAttributeDesc::set_m_value(::google::protobuf::int
   m_value_ = value;
 }
 
-// optional int32 m_id = 2;
+// optional int32 m_ID = 2;
 inline bool E_XiuzhenGfstageupAttributeDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -9670,7 +9670,7 @@ inline void E_XiuzhenGfstageup::set_allocated_m_highlevel_icon(::std::string* m_
   }
 }
 
-// optional int32 m_itemid = 5;
+// optional int32 m_itemID = 5;
 inline bool E_XiuzhenGfstageup::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -9692,7 +9692,7 @@ inline void E_XiuzhenGfstageup::set_m_itemid(::google::protobuf::int32 value) {
   m_itemid_ = value;
 }
 
-// optional int32 m_itemnum = 6;
+// optional int32 m_itemNum = 6;
 inline bool E_XiuzhenGfstageup::has_m_itemnum() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -9714,7 +9714,7 @@ inline void E_XiuzhenGfstageup::set_m_itemnum(::google::protobuf::int32 value) {
   m_itemnum_ = value;
 }
 
-// optional int32 m_awakeskill1 = 7;
+// optional int32 m_awakeSkill1 = 7;
 inline bool E_XiuzhenGfstageup::has_m_awakeskill1() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -9736,7 +9736,7 @@ inline void E_XiuzhenGfstageup::set_m_awakeskill1(::google::protobuf::int32 valu
   m_awakeskill1_ = value;
 }
 
-// optional int32 m_awakeskilllvl1 = 8;
+// optional int32 m_awakeSkillLvl1 = 8;
 inline bool E_XiuzhenGfstageup::has_m_awakeskilllvl1() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -9758,7 +9758,7 @@ inline void E_XiuzhenGfstageup::set_m_awakeskilllvl1(::google::protobuf::int32 v
   m_awakeskilllvl1_ = value;
 }
 
-// optional int32 m_awakeskill2 = 9;
+// optional int32 m_awakeSkill2 = 9;
 inline bool E_XiuzhenGfstageup::has_m_awakeskill2() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -9780,7 +9780,7 @@ inline void E_XiuzhenGfstageup::set_m_awakeskill2(::google::protobuf::int32 valu
   m_awakeskill2_ = value;
 }
 
-// optional int32 m_awakeskilllvl2 = 10;
+// optional int32 m_awakeSkillLvl2 = 10;
 inline bool E_XiuzhenGfstageup::has_m_awakeskilllvl2() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -9802,7 +9802,7 @@ inline void E_XiuzhenGfstageup::set_m_awakeskilllvl2(::google::protobuf::int32 v
   m_awakeskilllvl2_ = value;
 }
 
-// repeated .proto_ff.E_XiuzhenGfstageupAttributeDesc m_attribute = 11;
+// repeated .proto_ff.E_XiuzhenGfstageupAttributeDesc m_Attribute = 11;
 inline int E_XiuzhenGfstageup::m_attribute_size() const {
   return m_attribute_.size();
 }
@@ -9959,7 +9959,7 @@ inline void E_XiuzhenJmlvlupItemDesc::set_m_num(::google::protobuf::int32 value)
   m_num_ = value;
 }
 
-// optional int32 m_id = 2;
+// optional int32 m_ID = 2;
 inline bool E_XiuzhenJmlvlupItemDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -10007,7 +10007,7 @@ inline void E_XiuzhenJmlvlupAttributeDesc::set_m_value(::google::protobuf::int32
   m_value_ = value;
 }
 
-// optional int32 m_id = 2;
+// optional int32 m_ID = 2;
 inline bool E_XiuzhenJmlvlupAttributeDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -10099,7 +10099,7 @@ inline void E_XiuzhenJmlvlup::set_m_lvl(::google::protobuf::int32 value) {
   m_lvl_ = value;
 }
 
-// optional int64 m_needxw = 4;
+// optional int64 m_needXW = 4;
 inline bool E_XiuzhenJmlvlup::has_m_needxw() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -10121,7 +10121,7 @@ inline void E_XiuzhenJmlvlup::set_m_needxw(::google::protobuf::int64 value) {
   m_needxw_ = value;
 }
 
-// optional int32 m_success_rate = 5;
+// optional int32 m_Success_rate = 5;
 inline bool E_XiuzhenJmlvlup::has_m_success_rate() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -10143,7 +10143,7 @@ inline void E_XiuzhenJmlvlup::set_m_success_rate(::google::protobuf::int32 value
   m_success_rate_ = value;
 }
 
-// optional int32 m_specialattriid = 6;
+// optional int32 m_specialAttriId = 6;
 inline bool E_XiuzhenJmlvlup::has_m_specialattriid() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -10165,7 +10165,7 @@ inline void E_XiuzhenJmlvlup::set_m_specialattriid(::google::protobuf::int32 val
   m_specialattriid_ = value;
 }
 
-// optional int32 m_specialattrivalue = 7;
+// optional int32 m_specialAttriValue = 7;
 inline bool E_XiuzhenJmlvlup::has_m_specialattrivalue() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -10292,7 +10292,7 @@ inline void E_XiuzhenJmstageupItemDesc::set_m_num(::google::protobuf::int32 valu
   m_num_ = value;
 }
 
-// optional int32 m_id = 2;
+// optional int32 m_ID = 2;
 inline bool E_XiuzhenJmstageupItemDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -10340,7 +10340,7 @@ inline void E_XiuzhenJmstageupAttributeDesc::set_m_value(::google::protobuf::int
   m_value_ = value;
 }
 
-// optional int32 m_id = 2;
+// optional int32 m_ID = 2;
 inline bool E_XiuzhenJmstageupAttributeDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -10502,7 +10502,7 @@ inline void E_XiuzhenJmstageup::set_allocated_m_name(::std::string* m_name) {
   }
 }
 
-// optional int32 m_needgfunlock = 5;
+// optional int32 m_needGFUnlock = 5;
 inline bool E_XiuzhenJmstageup::has_m_needgfunlock() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -10524,7 +10524,7 @@ inline void E_XiuzhenJmstageup::set_m_needgfunlock(::google::protobuf::int32 val
   m_needgfunlock_ = value;
 }
 
-// optional int32 m_success_rate = 6;
+// optional int32 m_Success_rate = 6;
 inline bool E_XiuzhenJmstageup::has_m_success_rate() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -10568,7 +10568,7 @@ inline void E_XiuzhenJmstageup::set_m_blessing(::google::protobuf::int32 value) 
   m_blessing_ = value;
 }
 
-// optional int32 m_awakeskillid = 8;
+// optional int32 m_awakeSkillID = 8;
 inline bool E_XiuzhenJmstageup::has_m_awakeskillid() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -10590,7 +10590,7 @@ inline void E_XiuzhenJmstageup::set_m_awakeskillid(::google::protobuf::int32 val
   m_awakeskillid_ = value;
 }
 
-// optional int32 m_awakeskilllvl = 9;
+// optional int32 m_awakeSkillLvl = 9;
 inline bool E_XiuzhenJmstageup::has_m_awakeskilllvl() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -10765,7 +10765,7 @@ inline void E_XiuzhenJmmergeupAttributeDesc::set_m_value(::google::protobuf::int
   m_value_ = value;
 }
 
-// optional int32 m_id = 2;
+// optional int32 m_ID = 2;
 inline bool E_XiuzhenJmmergeupAttributeDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -10835,7 +10835,7 @@ inline void E_XiuzhenJmmergeup::set_m_gf_type(::google::protobuf::int32 value) {
   m_gf_type_ = value;
 }
 
-// optional int32 m_awakeskillid = 3;
+// optional int32 m_awakeSkillID = 3;
 inline bool E_XiuzhenJmmergeup::has_m_awakeskillid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -10857,7 +10857,7 @@ inline void E_XiuzhenJmmergeup::set_m_awakeskillid(::google::protobuf::int32 val
   m_awakeskillid_ = value;
 }
 
-// optional int32 m_awakeskilllvl = 4;
+// optional int32 m_awakeSkillLvl = 4;
 inline bool E_XiuzhenJmmergeup::has_m_awakeskilllvl() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -11172,7 +11172,7 @@ inline void E_XiuzhenPrivilege::set_m_price(::google::protobuf::int32 value) {
   m_price_ = value;
 }
 
-// optional int32 m_activeavatar = 3;
+// optional int32 m_activeAvatar = 3;
 inline bool E_XiuzhenPrivilege::has_m_activeavatar() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -11194,7 +11194,7 @@ inline void E_XiuzhenPrivilege::set_m_activeavatar(::google::protobuf::int32 val
   m_activeavatar_ = value;
 }
 
-// optional string m_avatarname = 4;
+// optional string m_avatarName = 4;
 inline bool E_XiuzhenPrivilege::has_m_avatarname() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -11264,7 +11264,7 @@ inline void E_XiuzhenPrivilege::set_allocated_m_avatarname(::std::string* m_avat
   }
 }
 
-// repeated .proto_ff.E_XiuzhenPrivilegePtaddDesc m_ptadd = 5;
+// repeated .proto_ff.E_XiuzhenPrivilegePtaddDesc m_ptAdd = 5;
 inline int E_XiuzhenPrivilege::m_ptadd_size() const {
   return m_ptadd_.size();
 }

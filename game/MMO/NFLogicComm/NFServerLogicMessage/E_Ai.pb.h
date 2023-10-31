@@ -210,10 +210,10 @@ class E_AiAi : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_type() const;
   inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional string m_deadhateremain = 3;
+  // optional string m_deadHateRemain = 3;
   inline bool has_m_deadhateremain() const;
   inline void clear_m_deadhateremain();
-  static const int kMDeadhateremainFieldNumber = 3;
+  static const int kMDeadHateRemainFieldNumber = 3;
   inline const ::std::string& m_deadhateremain() const;
   inline void set_m_deadhateremain(const ::std::string& value);
   inline void set_m_deadhateremain(const char* value);
@@ -222,10 +222,10 @@ class E_AiAi : public ::google::protobuf::Message {
   inline ::std::string* release_m_deadhateremain();
   inline void set_allocated_m_deadhateremain(::std::string* m_deadhateremain);
 
-  // optional string m_invisibleremain = 4;
+  // optional string m_invisibleRemain = 4;
   inline bool has_m_invisibleremain() const;
   inline void clear_m_invisibleremain();
-  static const int kMInvisibleremainFieldNumber = 4;
+  static const int kMInvisibleRemainFieldNumber = 4;
   inline const ::std::string& m_invisibleremain() const;
   inline void set_m_invisibleremain(const ::std::string& value);
   inline void set_m_invisibleremain(const char* value);
@@ -234,17 +234,17 @@ class E_AiAi : public ::google::protobuf::Message {
   inline ::std::string* release_m_invisibleremain();
   inline void set_allocated_m_invisibleremain(::std::string* m_invisibleremain);
 
-  // optional int32 m_isactive = 5;
+  // optional int32 m_isActive = 5;
   inline bool has_m_isactive() const;
   inline void clear_m_isactive();
-  static const int kMIsactiveFieldNumber = 5;
+  static const int kMIsActiveFieldNumber = 5;
   inline ::google::protobuf::int32 m_isactive() const;
   inline void set_m_isactive(::google::protobuf::int32 value);
 
-  // optional int32 m_returntype = 6;
+  // optional int32 m_returnType = 6;
   inline bool has_m_returntype() const;
   inline void clear_m_returntype();
-  static const int kMReturntypeFieldNumber = 6;
+  static const int kMReturnTypeFieldNumber = 6;
   inline ::google::protobuf::int32 m_returntype() const;
   inline void set_m_returntype(::google::protobuf::int32 value);
 
@@ -255,52 +255,52 @@ class E_AiAi : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_view() const;
   inline void set_m_view(::google::protobuf::int32 value);
 
-  // optional int32 m_isattackedshowoff = 8;
+  // optional int32 m_isAttackedShowOff = 8;
   inline bool has_m_isattackedshowoff() const;
   inline void clear_m_isattackedshowoff();
-  static const int kMIsattackedshowoffFieldNumber = 8;
+  static const int kMIsAttackedShowOffFieldNumber = 8;
   inline ::google::protobuf::int32 m_isattackedshowoff() const;
   inline void set_m_isattackedshowoff(::google::protobuf::int32 value);
 
-  // optional int32 m_pursuerange = 9;
+  // optional int32 m_pursueRange = 9;
   inline bool has_m_pursuerange() const;
   inline void clear_m_pursuerange();
-  static const int kMPursuerangeFieldNumber = 9;
+  static const int kMPursueRangeFieldNumber = 9;
   inline ::google::protobuf::int32 m_pursuerange() const;
   inline void set_m_pursuerange(::google::protobuf::int32 value);
 
-  // optional int32 m_actionrange = 10;
+  // optional int32 m_actionRange = 10;
   inline bool has_m_actionrange() const;
   inline void clear_m_actionrange();
-  static const int kMActionrangeFieldNumber = 10;
+  static const int kMActionRangeFieldNumber = 10;
   inline ::google::protobuf::int32 m_actionrange() const;
   inline void set_m_actionrange(::google::protobuf::int32 value);
 
-  // optional int32 m_wakeupradius = 11;
+  // optional int32 m_wakeupRadius = 11;
   inline bool has_m_wakeupradius() const;
   inline void clear_m_wakeupradius();
-  static const int kMWakeupradiusFieldNumber = 11;
+  static const int kMWakeupRadiusFieldNumber = 11;
   inline ::google::protobuf::int32 m_wakeupradius() const;
   inline void set_m_wakeupradius(::google::protobuf::int32 value);
 
-  // optional int32 m_isaiworkwhennobody = 12;
+  // optional int32 m_isAIWorkWhenNobody = 12;
   inline bool has_m_isaiworkwhennobody() const;
   inline void clear_m_isaiworkwhennobody();
-  static const int kMIsaiworkwhennobodyFieldNumber = 12;
+  static const int kMIsAIWorkWhenNobodyFieldNumber = 12;
   inline ::google::protobuf::int32 m_isaiworkwhennobody() const;
   inline void set_m_isaiworkwhennobody(::google::protobuf::int32 value);
 
-  // optional int32 m_borneffectaidelay = 13;
+  // optional int32 m_bornEffectAIDelay = 13;
   inline bool has_m_borneffectaidelay() const;
   inline void clear_m_borneffectaidelay();
-  static const int kMBorneffectaidelayFieldNumber = 13;
+  static const int kMBornEffectAIDelayFieldNumber = 13;
   inline ::google::protobuf::int32 m_borneffectaidelay() const;
   inline void set_m_borneffectaidelay(::google::protobuf::int32 value);
 
-  // optional string m_initskills = 14;
+  // optional string m_initSkills = 14;
   inline bool has_m_initskills() const;
   inline void clear_m_initskills();
-  static const int kMInitskillsFieldNumber = 14;
+  static const int kMInitSkillsFieldNumber = 14;
   inline const ::std::string& m_initskills() const;
   inline void set_m_initskills(const ::std::string& value);
   inline void set_m_initskills(const char* value);
@@ -586,7 +586,7 @@ inline void E_AiAi::set_m_type(::google::protobuf::int32 value) {
   m_type_ = value;
 }
 
-// optional string m_deadhateremain = 3;
+// optional string m_deadHateRemain = 3;
 inline bool E_AiAi::has_m_deadhateremain() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -656,7 +656,7 @@ inline void E_AiAi::set_allocated_m_deadhateremain(::std::string* m_deadhaterema
   }
 }
 
-// optional string m_invisibleremain = 4;
+// optional string m_invisibleRemain = 4;
 inline bool E_AiAi::has_m_invisibleremain() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -726,7 +726,7 @@ inline void E_AiAi::set_allocated_m_invisibleremain(::std::string* m_invisiblere
   }
 }
 
-// optional int32 m_isactive = 5;
+// optional int32 m_isActive = 5;
 inline bool E_AiAi::has_m_isactive() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -748,7 +748,7 @@ inline void E_AiAi::set_m_isactive(::google::protobuf::int32 value) {
   m_isactive_ = value;
 }
 
-// optional int32 m_returntype = 6;
+// optional int32 m_returnType = 6;
 inline bool E_AiAi::has_m_returntype() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -792,7 +792,7 @@ inline void E_AiAi::set_m_view(::google::protobuf::int32 value) {
   m_view_ = value;
 }
 
-// optional int32 m_isattackedshowoff = 8;
+// optional int32 m_isAttackedShowOff = 8;
 inline bool E_AiAi::has_m_isattackedshowoff() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -814,7 +814,7 @@ inline void E_AiAi::set_m_isattackedshowoff(::google::protobuf::int32 value) {
   m_isattackedshowoff_ = value;
 }
 
-// optional int32 m_pursuerange = 9;
+// optional int32 m_pursueRange = 9;
 inline bool E_AiAi::has_m_pursuerange() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -836,7 +836,7 @@ inline void E_AiAi::set_m_pursuerange(::google::protobuf::int32 value) {
   m_pursuerange_ = value;
 }
 
-// optional int32 m_actionrange = 10;
+// optional int32 m_actionRange = 10;
 inline bool E_AiAi::has_m_actionrange() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -858,7 +858,7 @@ inline void E_AiAi::set_m_actionrange(::google::protobuf::int32 value) {
   m_actionrange_ = value;
 }
 
-// optional int32 m_wakeupradius = 11;
+// optional int32 m_wakeupRadius = 11;
 inline bool E_AiAi::has_m_wakeupradius() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -880,7 +880,7 @@ inline void E_AiAi::set_m_wakeupradius(::google::protobuf::int32 value) {
   m_wakeupradius_ = value;
 }
 
-// optional int32 m_isaiworkwhennobody = 12;
+// optional int32 m_isAIWorkWhenNobody = 12;
 inline bool E_AiAi::has_m_isaiworkwhennobody() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -902,7 +902,7 @@ inline void E_AiAi::set_m_isaiworkwhennobody(::google::protobuf::int32 value) {
   m_isaiworkwhennobody_ = value;
 }
 
-// optional int32 m_borneffectaidelay = 13;
+// optional int32 m_bornEffectAIDelay = 13;
 inline bool E_AiAi::has_m_borneffectaidelay() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -924,7 +924,7 @@ inline void E_AiAi::set_m_borneffectaidelay(::google::protobuf::int32 value) {
   m_borneffectaidelay_ = value;
 }
 
-// optional string m_initskills = 14;
+// optional string m_initSkills = 14;
 inline bool E_AiAi::has_m_initskills() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }

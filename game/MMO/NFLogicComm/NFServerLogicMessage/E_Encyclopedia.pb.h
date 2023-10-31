@@ -308,24 +308,24 @@ class E_EncyclopediaHandbook : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_handbookid = 1;
+  // optional int64 m_handbookID = 1;
   inline bool has_m_handbookid() const;
   inline void clear_m_handbookid();
-  static const int kMHandbookidFieldNumber = 1;
+  static const int kMHandbookIDFieldNumber = 1;
   inline ::google::protobuf::int64 m_handbookid() const;
   inline void set_m_handbookid(::google::protobuf::int64 value);
 
-  // optional int64 m_itemid = 2;
+  // optional int64 m_itemId = 2;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 2;
+  static const int kMItemIdFieldNumber = 2;
   inline ::google::protobuf::int64 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int64 value);
 
-  // optional string m_handbookname = 3;
+  // optional string m_handbookName = 3;
   inline bool has_m_handbookname() const;
   inline void clear_m_handbookname();
-  static const int kMHandbooknameFieldNumber = 3;
+  static const int kMHandbookNameFieldNumber = 3;
   inline const ::std::string& m_handbookname() const;
   inline void set_m_handbookname(const ::std::string& value);
   inline void set_m_handbookname(const char* value);
@@ -334,24 +334,24 @@ class E_EncyclopediaHandbook : public ::google::protobuf::Message {
   inline ::std::string* release_m_handbookname();
   inline void set_allocated_m_handbookname(::std::string* m_handbookname);
 
-  // optional int32 m_handbookquality = 4;
+  // optional int32 m_handbookQuality = 4;
   inline bool has_m_handbookquality() const;
   inline void clear_m_handbookquality();
-  static const int kMHandbookqualityFieldNumber = 4;
+  static const int kMHandbookQualityFieldNumber = 4;
   inline ::google::protobuf::int32 m_handbookquality() const;
   inline void set_m_handbookquality(::google::protobuf::int32 value);
 
-  // optional int32 m_handbooktype = 5;
+  // optional int32 m_handbookType = 5;
   inline bool has_m_handbooktype() const;
   inline void clear_m_handbooktype();
-  static const int kMHandbooktypeFieldNumber = 5;
+  static const int kMHandbookTypeFieldNumber = 5;
   inline ::google::protobuf::int32 m_handbooktype() const;
   inline void set_m_handbooktype(::google::protobuf::int32 value);
 
-  // optional string m_handbooktype_name = 6;
+  // optional string m_handbookType_name = 6;
   inline bool has_m_handbooktype_name() const;
   inline void clear_m_handbooktype_name();
-  static const int kMHandbooktypeNameFieldNumber = 6;
+  static const int kMHandbookTypeNameFieldNumber = 6;
   inline const ::std::string& m_handbooktype_name() const;
   inline void set_m_handbooktype_name(const ::std::string& value);
   inline void set_m_handbooktype_name(const char* value);
@@ -360,17 +360,17 @@ class E_EncyclopediaHandbook : public ::google::protobuf::Message {
   inline ::std::string* release_m_handbooktype_name();
   inline void set_allocated_m_handbooktype_name(::std::string* m_handbooktype_name);
 
-  // optional int32 m_handz = 7;
+  // optional int32 m_handZ = 7;
   inline bool has_m_handz() const;
   inline void clear_m_handz();
-  static const int kMHandzFieldNumber = 7;
+  static const int kMHandZFieldNumber = 7;
   inline ::google::protobuf::int32 m_handz() const;
   inline void set_m_handz(::google::protobuf::int32 value);
 
-  // optional string m_handzname = 8;
+  // optional string m_handZName = 8;
   inline bool has_m_handzname() const;
   inline void clear_m_handzname();
-  static const int kMHandznameFieldNumber = 8;
+  static const int kMHandZNameFieldNumber = 8;
   inline const ::std::string& m_handzname() const;
   inline void set_m_handzname(const ::std::string& value);
   inline void set_m_handzname(const char* value);
@@ -379,24 +379,24 @@ class E_EncyclopediaHandbook : public ::google::protobuf::Message {
   inline ::std::string* release_m_handzname();
   inline void set_allocated_m_handzname(::std::string* m_handzname);
 
-  // optional int32 m_handbooklv = 9;
+  // optional int32 m_handbookLv = 9;
   inline bool has_m_handbooklv() const;
   inline void clear_m_handbooklv();
-  static const int kMHandbooklvFieldNumber = 9;
+  static const int kMHandbookLvFieldNumber = 9;
   inline ::google::protobuf::int32 m_handbooklv() const;
   inline void set_m_handbooklv(::google::protobuf::int32 value);
 
-  // optional int64 m_lvid = 10;
+  // optional int64 m_LvId = 10;
   inline bool has_m_lvid() const;
   inline void clear_m_lvid();
-  static const int kMLvidFieldNumber = 10;
+  static const int kMLvIdFieldNumber = 10;
   inline ::google::protobuf::int64 m_lvid() const;
   inline void set_m_lvid(::google::protobuf::int64 value);
 
-  // optional string m_lvnum = 11;
+  // optional string m_LvNum = 11;
   inline bool has_m_lvnum() const;
   inline void clear_m_lvnum();
-  static const int kMLvnumFieldNumber = 11;
+  static const int kMLvNumFieldNumber = 11;
   inline const ::std::string& m_lvnum() const;
   inline void set_m_lvnum(const ::std::string& value);
   inline void set_m_lvnum(const char* value);
@@ -405,17 +405,17 @@ class E_EncyclopediaHandbook : public ::google::protobuf::Message {
   inline ::std::string* release_m_lvnum();
   inline void set_allocated_m_lvnum(::std::string* m_lvnum);
 
-  // optional int64 m_starid = 12;
+  // optional int64 m_starId = 12;
   inline bool has_m_starid() const;
   inline void clear_m_starid();
-  static const int kMStaridFieldNumber = 12;
+  static const int kMStarIdFieldNumber = 12;
   inline ::google::protobuf::int64 m_starid() const;
   inline void set_m_starid(::google::protobuf::int64 value);
 
-  // optional string m_starnum = 13;
+  // optional string m_starNum = 13;
   inline bool has_m_starnum() const;
   inline void clear_m_starnum();
-  static const int kMStarnumFieldNumber = 13;
+  static const int kMStarNumFieldNumber = 13;
   inline const ::std::string& m_starnum() const;
   inline void set_m_starnum(const ::std::string& value);
   inline void set_m_starnum(const char* value);
@@ -424,10 +424,10 @@ class E_EncyclopediaHandbook : public ::google::protobuf::Message {
   inline ::std::string* release_m_starnum();
   inline void set_allocated_m_starnum(::std::string* m_starnum);
 
-  // repeated .proto_ff.E_EncyclopediaHandbookLviattributeDesc m_lviattribute = 14;
+  // repeated .proto_ff.E_EncyclopediaHandbookLviattributeDesc m_LvIattribute = 14;
   inline int m_lviattribute_size() const;
   inline void clear_m_lviattribute();
-  static const int kMLviattributeFieldNumber = 14;
+  static const int kMLvIattributeFieldNumber = 14;
   inline const ::proto_ff::E_EncyclopediaHandbookLviattributeDesc& m_lviattribute(int index) const;
   inline ::proto_ff::E_EncyclopediaHandbookLviattributeDesc* mutable_m_lviattribute(int index);
   inline ::proto_ff::E_EncyclopediaHandbookLviattributeDesc* add_m_lviattribute();
@@ -436,10 +436,10 @@ class E_EncyclopediaHandbook : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaHandbookLviattributeDesc >*
       mutable_m_lviattribute();
 
-  // repeated int32 m_awakeskill = 15;
+  // repeated int32 m_awakeSkill = 15;
   inline int m_awakeskill_size() const;
   inline void clear_m_awakeskill();
-  static const int kMAwakeskillFieldNumber = 15;
+  static const int kMAwakeSkillFieldNumber = 15;
   inline ::google::protobuf::int32 m_awakeskill(int index) const;
   inline void set_m_awakeskill(int index, ::google::protobuf::int32 value);
   inline void add_m_awakeskill(::google::protobuf::int32 value);
@@ -448,10 +448,10 @@ class E_EncyclopediaHandbook : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_m_awakeskill();
 
-  // repeated .proto_ff.E_EncyclopediaHandbookStariattributeDesc m_stariattribute = 16;
+  // repeated .proto_ff.E_EncyclopediaHandbookStariattributeDesc m_starIattribute = 16;
   inline int m_stariattribute_size() const;
   inline void clear_m_stariattribute();
-  static const int kMStariattributeFieldNumber = 16;
+  static const int kMStarIattributeFieldNumber = 16;
   inline const ::proto_ff::E_EncyclopediaHandbookStariattributeDesc& m_stariattribute(int index) const;
   inline ::proto_ff::E_EncyclopediaHandbookStariattributeDesc* mutable_m_stariattribute(int index);
   inline ::proto_ff::E_EncyclopediaHandbookStariattributeDesc* add_m_stariattribute();
@@ -751,17 +751,17 @@ class E_EncyclopediaHandbookfate : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_fateid = 1;
+  // optional int64 m_fateID = 1;
   inline bool has_m_fateid() const;
   inline void clear_m_fateid();
-  static const int kMFateidFieldNumber = 1;
+  static const int kMFateIDFieldNumber = 1;
   inline ::google::protobuf::int64 m_fateid() const;
   inline void set_m_fateid(::google::protobuf::int64 value);
 
-  // optional string m_fatename = 2;
+  // optional string m_fateName = 2;
   inline bool has_m_fatename() const;
   inline void clear_m_fatename();
-  static const int kMFatenameFieldNumber = 2;
+  static const int kMFateNameFieldNumber = 2;
   inline const ::std::string& m_fatename() const;
   inline void set_m_fatename(const ::std::string& value);
   inline void set_m_fatename(const char* value);
@@ -770,17 +770,17 @@ class E_EncyclopediaHandbookfate : public ::google::protobuf::Message {
   inline ::std::string* release_m_fatename();
   inline void set_allocated_m_fatename(::std::string* m_fatename);
 
-  // optional int32 m_fatequality = 3;
+  // optional int32 m_fateQuality = 3;
   inline bool has_m_fatequality() const;
   inline void clear_m_fatequality();
-  static const int kMFatequalityFieldNumber = 3;
+  static const int kMFateQualityFieldNumber = 3;
   inline ::google::protobuf::int32 m_fatequality() const;
   inline void set_m_fatequality(::google::protobuf::int32 value);
 
-  // repeated int64 m_fatehand = 4;
+  // repeated int64 m_fateHand = 4;
   inline int m_fatehand_size() const;
   inline void clear_m_fatehand();
-  static const int kMFatehandFieldNumber = 4;
+  static const int kMFateHandFieldNumber = 4;
   inline ::google::protobuf::int64 m_fatehand(int index) const;
   inline void set_m_fatehand(int index, ::google::protobuf::int64 value);
   inline void add_m_fatehand(::google::protobuf::int64 value);
@@ -969,24 +969,24 @@ class E_EncyclopediaHandbookresolve : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_handbookquality = 1;
+  // optional int32 m_handbookQuality = 1;
   inline bool has_m_handbookquality() const;
   inline void clear_m_handbookquality();
-  static const int kMHandbookqualityFieldNumber = 1;
+  static const int kMHandbookQualityFieldNumber = 1;
   inline ::google::protobuf::int32 m_handbookquality() const;
   inline void set_m_handbookquality(::google::protobuf::int32 value);
 
-  // optional int32 m_resolveitem = 2;
+  // optional int32 m_resolveItem = 2;
   inline bool has_m_resolveitem() const;
   inline void clear_m_resolveitem();
-  static const int kMResolveitemFieldNumber = 2;
+  static const int kMResolveItemFieldNumber = 2;
   inline ::google::protobuf::int32 m_resolveitem() const;
   inline void set_m_resolveitem(::google::protobuf::int32 value);
 
-  // optional int32 m_resolvenum = 3;
+  // optional int32 m_resolveNum = 3;
   inline bool has_m_resolvenum() const;
   inline void clear_m_resolvenum();
-  static const int kMResolvenumFieldNumber = 3;
+  static const int kMResolveNumFieldNumber = 3;
   inline ::google::protobuf::int32 m_resolvenum() const;
   inline void set_m_resolvenum(::google::protobuf::int32 value);
 
@@ -1156,10 +1156,10 @@ class E_EncyclopediaHandbooklv_attr : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_attid = 1;
+  // optional int64 m_attID = 1;
   inline bool has_m_attid() const;
   inline void clear_m_attid();
-  static const int kMAttidFieldNumber = 1;
+  static const int kMAttIDFieldNumber = 1;
   inline ::google::protobuf::int64 m_attid() const;
   inline void set_m_attid(::google::protobuf::int64 value);
 
@@ -1336,10 +1336,10 @@ class E_EncyclopediaHandbookstar_attr : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_attid = 1;
+  // optional int64 m_attID = 1;
   inline bool has_m_attid() const;
   inline void clear_m_attid();
-  static const int kMAttidFieldNumber = 1;
+  static const int kMAttIDFieldNumber = 1;
   inline ::google::protobuf::int64 m_attid() const;
   inline void set_m_attid(::google::protobuf::int64 value);
 
@@ -2053,24 +2053,24 @@ class E_EncyclopediaEquipexpvalue : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_link() const;
   inline void set_m_link(::google::protobuf::int64 value);
 
-  // optional int32 m_goldattall = 6;
+  // optional int32 m_goldAttAll = 6;
   inline bool has_m_goldattall() const;
   inline void clear_m_goldattall();
-  static const int kMGoldattallFieldNumber = 6;
+  static const int kMGoldAttAllFieldNumber = 6;
   inline ::google::protobuf::int32 m_goldattall() const;
   inline void set_m_goldattall(::google::protobuf::int32 value);
 
-  // optional int32 m_goldatt = 7;
+  // optional int32 m_goldAtt = 7;
   inline bool has_m_goldatt() const;
   inline void clear_m_goldatt();
-  static const int kMGoldattFieldNumber = 7;
+  static const int kMGoldAttFieldNumber = 7;
   inline ::google::protobuf::int32 m_goldatt() const;
   inline void set_m_goldatt(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_EncyclopediaEquipexpvalueBeaststarDesc m_beaststar = 8;
+  // repeated .proto_ff.E_EncyclopediaEquipexpvalueBeaststarDesc m_beastStar = 8;
   inline int m_beaststar_size() const;
   inline void clear_m_beaststar();
-  static const int kMBeaststarFieldNumber = 8;
+  static const int kMBeastStarFieldNumber = 8;
   inline const ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc& m_beaststar(int index) const;
   inline ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc* mutable_m_beaststar(int index);
   inline ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc* add_m_beaststar();
@@ -2079,10 +2079,10 @@ class E_EncyclopediaEquipexpvalue : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc >*
       mutable_m_beaststar();
 
-  // repeated .proto_ff.E_EncyclopediaEquipexpvalueGoldstarDesc m_goldstar = 9;
+  // repeated .proto_ff.E_EncyclopediaEquipexpvalueGoldstarDesc m_goldStar = 9;
   inline int m_goldstar_size() const;
   inline void clear_m_goldstar();
-  static const int kMGoldstarFieldNumber = 9;
+  static const int kMGoldStarFieldNumber = 9;
   inline const ::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc& m_goldstar(int index) const;
   inline ::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc* mutable_m_goldstar(int index);
   inline ::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc* add_m_goldstar();
@@ -2560,10 +2560,10 @@ class E_EncyclopediaBeastprivilege : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_privilegetype = 1;
+  // optional int32 m_privilegeType = 1;
   inline bool has_m_privilegetype() const;
   inline void clear_m_privilegetype();
-  static const int kMPrivilegetypeFieldNumber = 1;
+  static const int kMPrivilegeTypeFieldNumber = 1;
   inline ::google::protobuf::int32 m_privilegetype() const;
   inline void set_m_privilegetype(::google::protobuf::int32 value);
 
@@ -2586,10 +2586,10 @@ class E_EncyclopediaBeastprivilege : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_price() const;
   inline void set_m_price(::google::protobuf::int32 value);
 
-  // optional int64 m_expaddition = 4;
+  // optional int64 m_expAddition = 4;
   inline bool has_m_expaddition() const;
   inline void clear_m_expaddition();
-  static const int kMExpadditionFieldNumber = 4;
+  static const int kMExpAdditionFieldNumber = 4;
   inline ::google::protobuf::int64 m_expaddition() const;
   inline void set_m_expaddition(::google::protobuf::int64 value);
 
@@ -3044,10 +3044,10 @@ class E_EncyclopediaEmploy : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_employid = 1;
+  // optional int64 m_employID = 1;
   inline bool has_m_employid() const;
   inline void clear_m_employid();
-  static const int kMEmployidFieldNumber = 1;
+  static const int kMEmployIDFieldNumber = 1;
   inline ::google::protobuf::int64 m_employid() const;
   inline void set_m_employid(::google::protobuf::int64 value);
 
@@ -3058,17 +3058,17 @@ class E_EncyclopediaEmploy : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_type() const;
   inline void set_m_type(::google::protobuf::int64 value);
 
-  // optional int64 m_itemid = 3;
+  // optional int64 m_itemId = 3;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 3;
+  static const int kMItemIdFieldNumber = 3;
   inline ::google::protobuf::int64 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int64 value);
 
-  // optional string m_employname = 4;
+  // optional string m_employName = 4;
   inline bool has_m_employname() const;
   inline void clear_m_employname();
-  static const int kMEmploynameFieldNumber = 4;
+  static const int kMEmployNameFieldNumber = 4;
   inline const ::std::string& m_employname() const;
   inline void set_m_employname(const ::std::string& value);
   inline void set_m_employname(const char* value);
@@ -3077,24 +3077,24 @@ class E_EncyclopediaEmploy : public ::google::protobuf::Message {
   inline ::std::string* release_m_employname();
   inline void set_allocated_m_employname(::std::string* m_employname);
 
-  // optional int32 m_employquality = 5;
+  // optional int32 m_employQuality = 5;
   inline bool has_m_employquality() const;
   inline void clear_m_employquality();
-  static const int kMEmployqualityFieldNumber = 5;
+  static const int kMEmployQualityFieldNumber = 5;
   inline ::google::protobuf::int32 m_employquality() const;
   inline void set_m_employquality(::google::protobuf::int32 value);
 
-  // optional int32 m_employtype = 6;
+  // optional int32 m_employType = 6;
   inline bool has_m_employtype() const;
   inline void clear_m_employtype();
-  static const int kMEmploytypeFieldNumber = 6;
+  static const int kMEmployTypeFieldNumber = 6;
   inline ::google::protobuf::int32 m_employtype() const;
   inline void set_m_employtype(::google::protobuf::int32 value);
 
-  // optional string m_employtype_name = 7;
+  // optional string m_employType_name = 7;
   inline bool has_m_employtype_name() const;
   inline void clear_m_employtype_name();
-  static const int kMEmploytypeNameFieldNumber = 7;
+  static const int kMEmployTypeNameFieldNumber = 7;
   inline const ::std::string& m_employtype_name() const;
   inline void set_m_employtype_name(const ::std::string& value);
   inline void set_m_employtype_name(const char* value);
@@ -3103,17 +3103,17 @@ class E_EncyclopediaEmploy : public ::google::protobuf::Message {
   inline ::std::string* release_m_employtype_name();
   inline void set_allocated_m_employtype_name(::std::string* m_employtype_name);
 
-  // optional int32 m_employz = 8;
+  // optional int32 m_employZ = 8;
   inline bool has_m_employz() const;
   inline void clear_m_employz();
-  static const int kMEmployzFieldNumber = 8;
+  static const int kMEmployZFieldNumber = 8;
   inline ::google::protobuf::int32 m_employz() const;
   inline void set_m_employz(::google::protobuf::int32 value);
 
-  // optional string m_employzname = 9;
+  // optional string m_employZName = 9;
   inline bool has_m_employzname() const;
   inline void clear_m_employzname();
-  static const int kMEmployznameFieldNumber = 9;
+  static const int kMEmployZNameFieldNumber = 9;
   inline const ::std::string& m_employzname() const;
   inline void set_m_employzname(const ::std::string& value);
   inline void set_m_employzname(const char* value);
@@ -3122,10 +3122,10 @@ class E_EncyclopediaEmploy : public ::google::protobuf::Message {
   inline ::std::string* release_m_employzname();
   inline void set_allocated_m_employzname(::std::string* m_employzname);
 
-  // repeated .proto_ff.E_EncyclopediaEmployLviattributeDesc m_lviattribute = 10;
+  // repeated .proto_ff.E_EncyclopediaEmployLviattributeDesc m_LvIattribute = 10;
   inline int m_lviattribute_size() const;
   inline void clear_m_lviattribute();
-  static const int kMLviattributeFieldNumber = 10;
+  static const int kMLvIattributeFieldNumber = 10;
   inline const ::proto_ff::E_EncyclopediaEmployLviattributeDesc& m_lviattribute(int index) const;
   inline ::proto_ff::E_EncyclopediaEmployLviattributeDesc* mutable_m_lviattribute(int index);
   inline ::proto_ff::E_EncyclopediaEmployLviattributeDesc* add_m_lviattribute();
@@ -3411,10 +3411,10 @@ class E_EncyclopediaTable : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_id = 1;
+  // optional int64 m_ID = 1;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 1;
+  static const int kMIDFieldNumber = 1;
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
@@ -3425,10 +3425,10 @@ class E_EncyclopediaTable : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_tableid() const;
   inline void set_m_tableid(::google::protobuf::int64 value);
 
-  // optional string m_tablename = 3;
+  // optional string m_tableName = 3;
   inline bool has_m_tablename() const;
   inline void clear_m_tablename();
-  static const int kMTablenameFieldNumber = 3;
+  static const int kMTableNameFieldNumber = 3;
   inline const ::std::string& m_tablename() const;
   inline void set_m_tablename(const ::std::string& value);
   inline void set_m_tablename(const char* value);
@@ -3437,10 +3437,10 @@ class E_EncyclopediaTable : public ::google::protobuf::Message {
   inline ::std::string* release_m_tablename();
   inline void set_allocated_m_tablename(::std::string* m_tablename);
 
-  // repeated .proto_ff.E_EncyclopediaTableLviattributeDesc m_lviattribute = 4;
+  // repeated .proto_ff.E_EncyclopediaTableLviattributeDesc m_LvIattribute = 4;
   inline int m_lviattribute_size() const;
   inline void clear_m_lviattribute();
-  static const int kMLviattributeFieldNumber = 4;
+  static const int kMLvIattributeFieldNumber = 4;
   inline const ::proto_ff::E_EncyclopediaTableLviattributeDesc& m_lviattribute(int index) const;
   inline ::proto_ff::E_EncyclopediaTableLviattributeDesc* mutable_m_lviattribute(int index);
   inline ::proto_ff::E_EncyclopediaTableLviattributeDesc* add_m_lviattribute();
@@ -3663,7 +3663,7 @@ inline void E_EncyclopediaHandbookStariattributeDesc::set_m_type(::google::proto
 
 // E_EncyclopediaHandbook
 
-// optional int64 m_handbookid = 1;
+// optional int64 m_handbookID = 1;
 inline bool E_EncyclopediaHandbook::has_m_handbookid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -3685,7 +3685,7 @@ inline void E_EncyclopediaHandbook::set_m_handbookid(::google::protobuf::int64 v
   m_handbookid_ = value;
 }
 
-// optional int64 m_itemid = 2;
+// optional int64 m_itemId = 2;
 inline bool E_EncyclopediaHandbook::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -3707,7 +3707,7 @@ inline void E_EncyclopediaHandbook::set_m_itemid(::google::protobuf::int64 value
   m_itemid_ = value;
 }
 
-// optional string m_handbookname = 3;
+// optional string m_handbookName = 3;
 inline bool E_EncyclopediaHandbook::has_m_handbookname() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -3777,7 +3777,7 @@ inline void E_EncyclopediaHandbook::set_allocated_m_handbookname(::std::string* 
   }
 }
 
-// optional int32 m_handbookquality = 4;
+// optional int32 m_handbookQuality = 4;
 inline bool E_EncyclopediaHandbook::has_m_handbookquality() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -3799,7 +3799,7 @@ inline void E_EncyclopediaHandbook::set_m_handbookquality(::google::protobuf::in
   m_handbookquality_ = value;
 }
 
-// optional int32 m_handbooktype = 5;
+// optional int32 m_handbookType = 5;
 inline bool E_EncyclopediaHandbook::has_m_handbooktype() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -3821,7 +3821,7 @@ inline void E_EncyclopediaHandbook::set_m_handbooktype(::google::protobuf::int32
   m_handbooktype_ = value;
 }
 
-// optional string m_handbooktype_name = 6;
+// optional string m_handbookType_name = 6;
 inline bool E_EncyclopediaHandbook::has_m_handbooktype_name() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -3891,7 +3891,7 @@ inline void E_EncyclopediaHandbook::set_allocated_m_handbooktype_name(::std::str
   }
 }
 
-// optional int32 m_handz = 7;
+// optional int32 m_handZ = 7;
 inline bool E_EncyclopediaHandbook::has_m_handz() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -3913,7 +3913,7 @@ inline void E_EncyclopediaHandbook::set_m_handz(::google::protobuf::int32 value)
   m_handz_ = value;
 }
 
-// optional string m_handzname = 8;
+// optional string m_handZName = 8;
 inline bool E_EncyclopediaHandbook::has_m_handzname() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -3983,7 +3983,7 @@ inline void E_EncyclopediaHandbook::set_allocated_m_handzname(::std::string* m_h
   }
 }
 
-// optional int32 m_handbooklv = 9;
+// optional int32 m_handbookLv = 9;
 inline bool E_EncyclopediaHandbook::has_m_handbooklv() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -4005,7 +4005,7 @@ inline void E_EncyclopediaHandbook::set_m_handbooklv(::google::protobuf::int32 v
   m_handbooklv_ = value;
 }
 
-// optional int64 m_lvid = 10;
+// optional int64 m_LvId = 10;
 inline bool E_EncyclopediaHandbook::has_m_lvid() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -4027,7 +4027,7 @@ inline void E_EncyclopediaHandbook::set_m_lvid(::google::protobuf::int64 value) 
   m_lvid_ = value;
 }
 
-// optional string m_lvnum = 11;
+// optional string m_LvNum = 11;
 inline bool E_EncyclopediaHandbook::has_m_lvnum() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -4097,7 +4097,7 @@ inline void E_EncyclopediaHandbook::set_allocated_m_lvnum(::std::string* m_lvnum
   }
 }
 
-// optional int64 m_starid = 12;
+// optional int64 m_starId = 12;
 inline bool E_EncyclopediaHandbook::has_m_starid() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -4119,7 +4119,7 @@ inline void E_EncyclopediaHandbook::set_m_starid(::google::protobuf::int64 value
   m_starid_ = value;
 }
 
-// optional string m_starnum = 13;
+// optional string m_starNum = 13;
 inline bool E_EncyclopediaHandbook::has_m_starnum() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -4189,7 +4189,7 @@ inline void E_EncyclopediaHandbook::set_allocated_m_starnum(::std::string* m_sta
   }
 }
 
-// repeated .proto_ff.E_EncyclopediaHandbookLviattributeDesc m_lviattribute = 14;
+// repeated .proto_ff.E_EncyclopediaHandbookLviattributeDesc m_LvIattribute = 14;
 inline int E_EncyclopediaHandbook::m_lviattribute_size() const {
   return m_lviattribute_.size();
 }
@@ -4214,7 +4214,7 @@ E_EncyclopediaHandbook::mutable_m_lviattribute() {
   return &m_lviattribute_;
 }
 
-// repeated int32 m_awakeskill = 15;
+// repeated int32 m_awakeSkill = 15;
 inline int E_EncyclopediaHandbook::m_awakeskill_size() const {
   return m_awakeskill_.size();
 }
@@ -4239,7 +4239,7 @@ E_EncyclopediaHandbook::mutable_m_awakeskill() {
   return &m_awakeskill_;
 }
 
-// repeated .proto_ff.E_EncyclopediaHandbookStariattributeDesc m_stariattribute = 16;
+// repeated .proto_ff.E_EncyclopediaHandbookStariattributeDesc m_starIattribute = 16;
 inline int E_EncyclopediaHandbook::m_stariattribute_size() const {
   return m_stariattribute_.size();
 }
@@ -4345,7 +4345,7 @@ inline void E_EncyclopediaHandbookfateAttributeDesc::set_m_type(::google::protob
 
 // E_EncyclopediaHandbookfate
 
-// optional int64 m_fateid = 1;
+// optional int64 m_fateID = 1;
 inline bool E_EncyclopediaHandbookfate::has_m_fateid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -4367,7 +4367,7 @@ inline void E_EncyclopediaHandbookfate::set_m_fateid(::google::protobuf::int64 v
   m_fateid_ = value;
 }
 
-// optional string m_fatename = 2;
+// optional string m_fateName = 2;
 inline bool E_EncyclopediaHandbookfate::has_m_fatename() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -4437,7 +4437,7 @@ inline void E_EncyclopediaHandbookfate::set_allocated_m_fatename(::std::string* 
   }
 }
 
-// optional int32 m_fatequality = 3;
+// optional int32 m_fateQuality = 3;
 inline bool E_EncyclopediaHandbookfate::has_m_fatequality() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -4459,7 +4459,7 @@ inline void E_EncyclopediaHandbookfate::set_m_fatequality(::google::protobuf::in
   m_fatequality_ = value;
 }
 
-// repeated int64 m_fatehand = 4;
+// repeated int64 m_fateHand = 4;
 inline int E_EncyclopediaHandbookfate::m_fatehand_size() const {
   return m_fatehand_.size();
 }
@@ -4542,7 +4542,7 @@ Sheet_EncyclopediaHandbookfate::mutable_e_encyclopediahandbookfate_list() {
 
 // E_EncyclopediaHandbookresolve
 
-// optional int32 m_handbookquality = 1;
+// optional int32 m_handbookQuality = 1;
 inline bool E_EncyclopediaHandbookresolve::has_m_handbookquality() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -4564,7 +4564,7 @@ inline void E_EncyclopediaHandbookresolve::set_m_handbookquality(::google::proto
   m_handbookquality_ = value;
 }
 
-// optional int32 m_resolveitem = 2;
+// optional int32 m_resolveItem = 2;
 inline bool E_EncyclopediaHandbookresolve::has_m_resolveitem() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -4586,7 +4586,7 @@ inline void E_EncyclopediaHandbookresolve::set_m_resolveitem(::google::protobuf:
   m_resolveitem_ = value;
 }
 
-// optional int32 m_resolvenum = 3;
+// optional int32 m_resolveNum = 3;
 inline bool E_EncyclopediaHandbookresolve::has_m_resolvenum() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -4641,7 +4641,7 @@ Sheet_EncyclopediaHandbookresolve::mutable_e_encyclopediahandbookresolve_list() 
 
 // E_EncyclopediaHandbooklv_attr
 
-// optional int64 m_attid = 1;
+// optional int64 m_attID = 1;
 inline bool E_EncyclopediaHandbooklv_attr::has_m_attid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -4721,7 +4721,7 @@ Sheet_EncyclopediaHandbooklv_attr::mutable_e_encyclopediahandbooklv_attr_list() 
 
 // E_EncyclopediaHandbookstar_attr
 
-// optional int64 m_attid = 1;
+// optional int64 m_attID = 1;
 inline bool E_EncyclopediaHandbookstar_attr::has_m_attid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -5303,7 +5303,7 @@ inline void E_EncyclopediaEquipexpvalue::set_m_link(::google::protobuf::int64 va
   m_link_ = value;
 }
 
-// optional int32 m_goldattall = 6;
+// optional int32 m_goldAttAll = 6;
 inline bool E_EncyclopediaEquipexpvalue::has_m_goldattall() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -5325,7 +5325,7 @@ inline void E_EncyclopediaEquipexpvalue::set_m_goldattall(::google::protobuf::in
   m_goldattall_ = value;
 }
 
-// optional int32 m_goldatt = 7;
+// optional int32 m_goldAtt = 7;
 inline bool E_EncyclopediaEquipexpvalue::has_m_goldatt() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -5347,7 +5347,7 @@ inline void E_EncyclopediaEquipexpvalue::set_m_goldatt(::google::protobuf::int32
   m_goldatt_ = value;
 }
 
-// repeated .proto_ff.E_EncyclopediaEquipexpvalueBeaststarDesc m_beaststar = 8;
+// repeated .proto_ff.E_EncyclopediaEquipexpvalueBeaststarDesc m_beastStar = 8;
 inline int E_EncyclopediaEquipexpvalue::m_beaststar_size() const {
   return m_beaststar_.size();
 }
@@ -5372,7 +5372,7 @@ E_EncyclopediaEquipexpvalue::mutable_m_beaststar() {
   return &m_beaststar_;
 }
 
-// repeated .proto_ff.E_EncyclopediaEquipexpvalueGoldstarDesc m_goldstar = 9;
+// repeated .proto_ff.E_EncyclopediaEquipexpvalueGoldstarDesc m_goldStar = 9;
 inline int E_EncyclopediaEquipexpvalue::m_goldstar_size() const {
   return m_goldstar_.size();
 }
@@ -5599,7 +5599,7 @@ inline void E_EncyclopediaBeastprivilegeAttributeDesc::set_m_type(::google::prot
 
 // E_EncyclopediaBeastprivilege
 
-// optional int32 m_privilegetype = 1;
+// optional int32 m_privilegeType = 1;
 inline bool E_EncyclopediaBeastprivilege::has_m_privilegetype() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -5713,7 +5713,7 @@ inline void E_EncyclopediaBeastprivilege::set_m_price(::google::protobuf::int32 
   m_price_ = value;
 }
 
-// optional int64 m_expaddition = 4;
+// optional int64 m_expAddition = 4;
 inline bool E_EncyclopediaBeastprivilege::has_m_expaddition() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -5918,7 +5918,7 @@ inline void E_EncyclopediaEmployLviattributeDesc::set_m_type(::google::protobuf:
 
 // E_EncyclopediaEmploy
 
-// optional int64 m_employid = 1;
+// optional int64 m_employID = 1;
 inline bool E_EncyclopediaEmploy::has_m_employid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -5962,7 +5962,7 @@ inline void E_EncyclopediaEmploy::set_m_type(::google::protobuf::int64 value) {
   m_type_ = value;
 }
 
-// optional int64 m_itemid = 3;
+// optional int64 m_itemId = 3;
 inline bool E_EncyclopediaEmploy::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -5984,7 +5984,7 @@ inline void E_EncyclopediaEmploy::set_m_itemid(::google::protobuf::int64 value) 
   m_itemid_ = value;
 }
 
-// optional string m_employname = 4;
+// optional string m_employName = 4;
 inline bool E_EncyclopediaEmploy::has_m_employname() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -6054,7 +6054,7 @@ inline void E_EncyclopediaEmploy::set_allocated_m_employname(::std::string* m_em
   }
 }
 
-// optional int32 m_employquality = 5;
+// optional int32 m_employQuality = 5;
 inline bool E_EncyclopediaEmploy::has_m_employquality() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -6076,7 +6076,7 @@ inline void E_EncyclopediaEmploy::set_m_employquality(::google::protobuf::int32 
   m_employquality_ = value;
 }
 
-// optional int32 m_employtype = 6;
+// optional int32 m_employType = 6;
 inline bool E_EncyclopediaEmploy::has_m_employtype() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -6098,7 +6098,7 @@ inline void E_EncyclopediaEmploy::set_m_employtype(::google::protobuf::int32 val
   m_employtype_ = value;
 }
 
-// optional string m_employtype_name = 7;
+// optional string m_employType_name = 7;
 inline bool E_EncyclopediaEmploy::has_m_employtype_name() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -6168,7 +6168,7 @@ inline void E_EncyclopediaEmploy::set_allocated_m_employtype_name(::std::string*
   }
 }
 
-// optional int32 m_employz = 8;
+// optional int32 m_employZ = 8;
 inline bool E_EncyclopediaEmploy::has_m_employz() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -6190,7 +6190,7 @@ inline void E_EncyclopediaEmploy::set_m_employz(::google::protobuf::int32 value)
   m_employz_ = value;
 }
 
-// optional string m_employzname = 9;
+// optional string m_employZName = 9;
 inline bool E_EncyclopediaEmploy::has_m_employzname() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -6260,7 +6260,7 @@ inline void E_EncyclopediaEmploy::set_allocated_m_employzname(::std::string* m_e
   }
 }
 
-// repeated .proto_ff.E_EncyclopediaEmployLviattributeDesc m_lviattribute = 10;
+// repeated .proto_ff.E_EncyclopediaEmployLviattributeDesc m_LvIattribute = 10;
 inline int E_EncyclopediaEmploy::m_lviattribute_size() const {
   return m_lviattribute_.size();
 }
@@ -6366,7 +6366,7 @@ inline void E_EncyclopediaTableLviattributeDesc::set_m_type(::google::protobuf::
 
 // E_EncyclopediaTable
 
-// optional int64 m_id = 1;
+// optional int64 m_ID = 1;
 inline bool E_EncyclopediaTable::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -6410,7 +6410,7 @@ inline void E_EncyclopediaTable::set_m_tableid(::google::protobuf::int64 value) 
   m_tableid_ = value;
 }
 
-// optional string m_tablename = 3;
+// optional string m_tableName = 3;
 inline bool E_EncyclopediaTable::has_m_tablename() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -6480,7 +6480,7 @@ inline void E_EncyclopediaTable::set_allocated_m_tablename(::std::string* m_tabl
   }
 }
 
-// repeated .proto_ff.E_EncyclopediaTableLviattributeDesc m_lviattribute = 4;
+// repeated .proto_ff.E_EncyclopediaTableLviattributeDesc m_LvIattribute = 4;
 inline int E_EncyclopediaTable::m_lviattribute_size() const {
   return m_lviattribute_.size();
 }

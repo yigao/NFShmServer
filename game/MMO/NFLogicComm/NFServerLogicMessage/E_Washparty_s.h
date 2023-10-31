@@ -20,23 +20,23 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_collectid;//采集物id
-		int32_t m_collectnum;//采集次数
-		int32_t m_collectposid;//采集物位置id
-		int32_t m_collectgeninterval;//采集物刷新时间间隔
-		int32_t m_collectmax;//采集物最大数量
-		int32_t m_splashnum;//泼水次数
-		int32_t m_splashreward;//泼水奖励id
-		int32_t m_massagenum;//按摩次数
-		int32_t m_massagetime;//按摩时长
-		int32_t m_massagereward;//按摩奖励id
-		int32_t m_pairexpaddition;//双修时经验加成
-		int32_t m_mapid;//所在地图id
+		int32_t m_collectId;//采集物id
+		int32_t m_collectNum;//采集次数
+		int32_t m_collectPosId;//采集物位置id
+		int32_t m_collectGenInterval;//采集物刷新时间间隔
+		int32_t m_collectMax;//采集物最大数量
+		int32_t m_splashNum;//泼水次数
+		int32_t m_splashReward;//泼水奖励id
+		int32_t m_massageNum;//按摩次数
+		int32_t m_massageTime;//按摩时长
+		int32_t m_massageReward;//按摩奖励id
+		int32_t m_pairExpAddition;//双修时经验加成
+		int32_t m_mapId;//所在地图id
 		int32_t m_duration;//持续时间
-		int32_t m_expaddinterval;//多少秒获得一次经验
-		int32_t m_splashsi;//泼水技能ID
-		int32_t m_birthareaid;//出生区域
-		int32_t m_actid;//活动ID
+		int32_t m_expAddInterval;//多少秒获得一次经验
+		int32_t m_splashSI;//泼水技能ID
+		int32_t m_birthAreaId;//出生区域
+		int32_t m_actId;//活动ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_WashpartyWashparty & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_WashpartyWashparty & msg);
@@ -65,7 +65,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//等级
-		int32_t m_washexp;//泡澡经验
+		int32_t m_washExp;//泡澡经验
 
 		virtual void write_to_pbmsg(::proto_ff::E_WashpartyExp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_WashpartyExp & msg);

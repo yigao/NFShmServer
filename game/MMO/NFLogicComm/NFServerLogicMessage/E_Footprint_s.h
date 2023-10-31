@@ -50,19 +50,19 @@ namespace proto_ff_s {
 		virtual ~E_FootprintFootprint_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_id;//足迹ID
+		int64_t m_ID;//足迹ID
 		NFShmString<64> m_name;//足迹名称
 		int32_t m_type;//外观类型
 		int32_t m_quality;//足迹品质
-		NFShmString<64> m_professionlimit;//职业限制
-		int64_t m_activationitem;//激活道具ID
-		int32_t m_activationnum;//激活道具数量
-		int64_t m_starid;//升星道具id
-		NFShmString<256> m_starnum;//升星道具数量
-		int32_t m_starup;//升星等级上限
-		int32_t m_starber;//每次升星属性增加的百分比值
+		NFShmString<64> m_professionLimit;//职业限制
+		int64_t m_activationItem;//激活道具ID
+		int32_t m_activationNum;//激活道具数量
+		int64_t m_starId;//升星道具id
+		NFShmString<256> m_starNum;//升星道具数量
+		int32_t m_starUp;//升星等级上限
+		int32_t m_starBer;//每次升星属性增加的百分比值
 		NFShmVector<struct E_FootprintFootprintAttributeDesc_s, DEFINE_E_FOOTPRINTFOOTPRINT_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
-		NFShmVector<struct E_FootprintFootprintActiveattributeDesc_s, DEFINE_E_FOOTPRINTFOOTPRINT_M_ACTIVEATTRIBUTE_MAX_NUM> m_activeattribute;//属性
+		NFShmVector<struct E_FootprintFootprintActiveattributeDesc_s, DEFINE_E_FOOTPRINTFOOTPRINT_M_ACTIVEATTRIBUTE_MAX_NUM> m_ActiveAttribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_FootprintFootprint & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FootprintFootprint & msg);

@@ -91,7 +91,7 @@ int EncyclopediaEmployDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_itemid <= 0 || PetDisplayDesc::Instance()->GetDesc(pDesc->m_itemid)) || (pDesc->m_itemid <= 0 || AvatarChangeDesc::Instance()->GetDesc(pDesc->m_itemid)), result, "can't find the itemid:{} in the  excel:pet sheet:display or  excel:avatar sheet:change", pDesc->m_itemid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_itemId <= 0 || PetDisplayDesc::Instance()->GetDesc(pDesc->m_itemId)) || (pDesc->m_itemId <= 0 || AvatarChangeDesc::Instance()->GetDesc(pDesc->m_itemId)), result, "can't find the itemId:{} in the  excel:pet sheet:display or  excel:avatar sheet:change", pDesc->m_itemId);
 	}
 	return result;
 }

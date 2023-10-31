@@ -20,14 +20,14 @@ namespace proto_ff_s {
 		virtual ~E_TaskdynamicTaskdynamic_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_taskid;//id
+		int64_t m_taskID;//id
 		NFShmString<64> m_remark;//策划备注
-		int32_t m_tasktype;//任务类型
+		int32_t m_taskType;//任务类型
 		int32_t m_weights;//权重值
 		int32_t m_minlv;//最低等级
 		int32_t m_maxlv;//最高等级
-		int32_t m_rececount;//可接取数量
-		NFShmString<64> m_idlist;//抽取id列表
+		int32_t m_receCount;//可接取数量
+		NFShmString<64> m_idList;//抽取id列表
 
 		virtual void write_to_pbmsg(::proto_ff::E_TaskdynamicTaskdynamic & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_TaskdynamicTaskdynamic & msg);
@@ -55,14 +55,14 @@ namespace proto_ff_s {
 		virtual ~E_TaskdynamicTaskcomcond_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_comcondid;//完成id
-		int32_t m_comcondtype;//条件类型
+		int64_t m_comcondID;//完成id
+		int32_t m_comcondType;//条件类型
 		int64_t m_param1;//条件参数a
 		int64_t m_param2;//条件参数b
 		int64_t m_param3;//条件参数c
 		int64_t m_param4;//条件参数d
 		int64_t m_param5;//条件参数e
-		int32_t m_comcondrandomvalue;//完成条件随机值
+		int32_t m_comcondRandomValue;//完成条件随机值
 
 		virtual void write_to_pbmsg(::proto_ff::E_TaskdynamicTaskcomcond & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_TaskdynamicTaskcomcond & msg);
@@ -90,9 +90,9 @@ namespace proto_ff_s {
 		virtual ~E_TaskdynamicTasktext_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_textid;//文本id
-		NFShmString<64> m_tasktype;//任务类型
-		int32_t m_comcondtype;//完成条件类型
+		int64_t m_textID;//文本id
+		NFShmString<64> m_taskType;//任务类型
+		int32_t m_comcondType;//完成条件类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_TaskdynamicTasktext & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_TaskdynamicTasktext & msg);

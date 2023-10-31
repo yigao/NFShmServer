@@ -8,10 +8,10 @@ message E_WelfareSign
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_month = 2[(yd_fieldoptions.field_cname) = "月份"];
 	optional int32 m_days = 3[(yd_fieldoptions.field_cname) = "天数"];
-	optional int32 m_vip = 4[(yd_fieldoptions.field_cname) = "VIP双倍等级"];
+	optional int32 m_VIP = 4[(yd_fieldoptions.field_cname) = "VIP双倍等级"];
 	optional string m_icon = 5[(yd_fieldoptions.field_cname) = "图标", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_reward = 6[(yd_fieldoptions.field_cname) = "道具奖励"];
-	optional int32 m_rewardnum = 7[(yd_fieldoptions.field_cname) = "道具数量"];
+	optional int32 m_rewardNum = 7[(yd_fieldoptions.field_cname) = "道具数量"];
 }
 
 
@@ -24,9 +24,9 @@ message E_WelfareAccruereward
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_month = 2[(yd_fieldoptions.field_cname) = "月份"];
-	optional int32 m_accruedays = 3[(yd_fieldoptions.field_cname) = "累积签到天数"];
+	optional int32 m_accrueDays = 3[(yd_fieldoptions.field_cname) = "累积签到天数"];
 	optional int32 m_reward = 4[(yd_fieldoptions.field_cname) = "累积奖励道具"];
-	optional int32 m_rewardnum = 5[(yd_fieldoptions.field_cname) = "累积奖励道具数量"];
+	optional int32 m_rewardNum = 5[(yd_fieldoptions.field_cname) = "累积奖励道具数量"];
 }
 
 
@@ -39,9 +39,9 @@ message E_WelfareLvreward
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_lv = 2[(yd_fieldoptions.field_cname) = "等级"];
-	optional int32 m_lvreward = 3[(yd_fieldoptions.field_cname) = "奖励"];
+	optional int32 m_lvReward = 3[(yd_fieldoptions.field_cname) = "奖励"];
 	optional int32 m_vip = 4[(yd_fieldoptions.field_cname) = "VIP等级"];
-	optional int32 m_vipreward = 5[(yd_fieldoptions.field_cname) = "VIP奖励"];
+	optional int32 m_vipReward = 5[(yd_fieldoptions.field_cname) = "VIP奖励"];
 }
 
 
@@ -53,8 +53,8 @@ message Sheet_WelfareLvreward
 message E_WelfareOnline
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_onlinetime = 2[(yd_fieldoptions.field_cname) = "在线时间"];
-	optional int32 m_lvreward = 3[(yd_fieldoptions.field_cname) = "奖励"];
+	optional int32 m_onlineTime = 2[(yd_fieldoptions.field_cname) = "在线时间"];
+	optional int32 m_lvReward = 3[(yd_fieldoptions.field_cname) = "奖励"];
 }
 
 
@@ -79,8 +79,8 @@ message Sheet_WelfareFraud
 message E_WelfareWeekendgift
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_lvmin = 2[(yd_fieldoptions.field_cname) = "最小等级"];
-	optional int32 m_lvmax = 3[(yd_fieldoptions.field_cname) = "最大等级"];
+	optional int32 m_lvMin = 2[(yd_fieldoptions.field_cname) = "最小等级"];
+	optional int32 m_lvMax = 3[(yd_fieldoptions.field_cname) = "最大等级"];
 	optional int32 m_date = 4[(yd_fieldoptions.field_cname) = "日期"];
 	repeated int32 m_rewards = 5[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 3];
 }
@@ -94,18 +94,18 @@ message Sheet_WelfareWeekendgift
 message E_WelfareConstant
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_addsigncost = 2[(yd_fieldoptions.field_cname) = "补签花费货币"];
-	optional int32 m_addsignprice = 3[(yd_fieldoptions.field_cname) = "补签花费价格"];
-	optional int32 m_noticereward = 4[(yd_fieldoptions.field_cname) = "公告奖励"];
-	optional int32 m_wrongmin = 5[(yd_fieldoptions.field_cname) = "最小错误答案"];
-	optional int32 m_wrongmax = 6[(yd_fieldoptions.field_cname) = "最大错误答案数量"];
-	optional int32 m_fraudreward = 7[(yd_fieldoptions.field_cname) = "防诈骗奖励"];
-	optional int32 m_firstrcharge = 8[(yd_fieldoptions.field_cname) = "首充额度"];
-	optional int32 m_secondrcharge = 9[(yd_fieldoptions.field_cname) = "续充额度"];
-	optional int32 m_gemmb = 10[(yd_fieldoptions.field_cname) = "钻石秘宝额度"];
-	optional int32 m_starmb = 11[(yd_fieldoptions.field_cname) = "星耀秘宝额度"];
-	optional int32 m_kingmb = 12[(yd_fieldoptions.field_cname) = "王者秘宝额度"];
-	optional int32 m_keyrebate = 13[(yd_fieldoptions.field_cname) = "密匙返利"];
+	optional int32 m_addSigncost = 2[(yd_fieldoptions.field_cname) = "补签花费货币"];
+	optional int32 m_addSignprice = 3[(yd_fieldoptions.field_cname) = "补签花费价格"];
+	optional int32 m_noticeReward = 4[(yd_fieldoptions.field_cname) = "公告奖励"];
+	optional int32 m_wrongMin = 5[(yd_fieldoptions.field_cname) = "最小错误答案"];
+	optional int32 m_wrongMax = 6[(yd_fieldoptions.field_cname) = "最大错误答案数量"];
+	optional int32 m_fraudReward = 7[(yd_fieldoptions.field_cname) = "防诈骗奖励"];
+	optional int32 m_firstRcharge = 8[(yd_fieldoptions.field_cname) = "首充额度"];
+	optional int32 m_secondRcharge = 9[(yd_fieldoptions.field_cname) = "续充额度"];
+	optional int32 m_gemMB = 10[(yd_fieldoptions.field_cname) = "钻石秘宝额度"];
+	optional int32 m_starMB = 11[(yd_fieldoptions.field_cname) = "星耀秘宝额度"];
+	optional int32 m_kingMB = 12[(yd_fieldoptions.field_cname) = "王者秘宝额度"];
+	optional int32 m_keyRebate = 13[(yd_fieldoptions.field_cname) = "密匙返利"];
 }
 
 
@@ -144,7 +144,7 @@ message E_WelfareLogon
 	optional int32 m_days = 1[(yd_fieldoptions.field_cname) = "登录天数"];
 	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "奖励类型"];
 	optional int32 m_icon = 3[(yd_fieldoptions.field_cname) = "入口icon"];
-	optional int32 m_showitem = 4[(yd_fieldoptions.field_cname) = "展示物品"];
+	optional int32 m_showItem = 4[(yd_fieldoptions.field_cname) = "展示物品"];
 	optional int32 m_reward = 5[(yd_fieldoptions.field_cname) = "奖励"];
 }
 
@@ -159,11 +159,11 @@ message E_WelfareFirstcharge
 	optional int32 m_constantid = 1[(yd_fieldoptions.field_cname) = "配置id"];
 	optional int32 m_openlv = 2[(yd_fieldoptions.field_cname) = "开启等级"];
 	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "充值类型"];
-	optional int32 m_opendays = 4[(yd_fieldoptions.field_cname) = "开服天数"];
+	optional int32 m_openDays = 4[(yd_fieldoptions.field_cname) = "开服天数"];
 	optional int32 m_reward = 5[(yd_fieldoptions.field_cname) = "奖励"];
 	repeated string m_model = 6[(yd_fieldoptions.field_cname) = "展示模型", (yd_fieldoptions.field_arysize) = 2, (yd_fieldoptions.field_bufsize) = 64];
-	repeated int32 m_rewardshow = 7[(yd_fieldoptions.field_cname) = "展示奖励", (yd_fieldoptions.field_arysize) = 2];
-	repeated string m_rewarddes = 8[(yd_fieldoptions.field_cname) = "奖励描述", (yd_fieldoptions.field_arysize) = 3, (yd_fieldoptions.field_bufsize) = 64];
+	repeated int32 m_rewardShow = 7[(yd_fieldoptions.field_cname) = "展示奖励", (yd_fieldoptions.field_arysize) = 2];
+	repeated string m_rewardDes = 8[(yd_fieldoptions.field_cname) = "奖励描述", (yd_fieldoptions.field_arysize) = 3, (yd_fieldoptions.field_bufsize) = 64];
 }
 
 
@@ -177,7 +177,7 @@ message E_WelfareSctype
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_functionid = 2[(yd_fieldoptions.field_cname) = "功能开放id"];
 	optional string m_title = 3[(yd_fieldoptions.field_cname) = "标题图片", (yd_fieldoptions.field_bufsize) = 64];
-	optional string m_basemap = 4[(yd_fieldoptions.field_cname) = "底图", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_baseMap = 4[(yd_fieldoptions.field_cname) = "底图", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_rcharge = 5[(yd_fieldoptions.field_cname) = "充值额度"];
 }
 
@@ -193,7 +193,7 @@ message E_WelfareMibao
 	optional int32 m_openlv = 2[(yd_fieldoptions.field_cname) = "开启等级"];
 	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "充值类型"];
 	optional int32 m_rank = 4[(yd_fieldoptions.field_cname) = "排序"];
-	optional int32 m_opendays = 5[(yd_fieldoptions.field_cname) = "开服天数"];
+	optional int32 m_openDays = 5[(yd_fieldoptions.field_cname) = "开服天数"];
 	optional int32 m_reward = 6[(yd_fieldoptions.field_cname) = "奖励"];
 	optional string m_des = 7[(yd_fieldoptions.field_cname) = "倍数描述", (yd_fieldoptions.field_bufsize) = 64];
 }
@@ -222,8 +222,8 @@ message E_WelfareDailygift
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "礼包类型"];
-	optional int32 m_rechargeid = 3[(yd_fieldoptions.field_cname) = "价格链接"];
-	optional int32 m_oneclickbuy = 4[(yd_fieldoptions.field_cname) = "是否一键购买"];
+	optional int32 m_rechargeId = 3[(yd_fieldoptions.field_cname) = "价格链接"];
+	optional int32 m_OneclickBuy = 4[(yd_fieldoptions.field_cname) = "是否一键购买"];
 	optional int32 m_reward = 5[(yd_fieldoptions.field_cname) = "奖励"];
 	optional int32 m_quality = 6[(yd_fieldoptions.field_cname) = "礼包品质"];
 }
@@ -240,9 +240,9 @@ message E_WelfareLcgift
 	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "礼包类型"];
 	optional int32 m_limit = 3[(yd_fieldoptions.field_cname) = "充值额度"];
 	optional int32 m_days = 4[(yd_fieldoptions.field_cname) = "累充天数"];
-	optional int32 m_starnum = 5[(yd_fieldoptions.field_cname) = "星星数量"];
+	optional int32 m_starNum = 5[(yd_fieldoptions.field_cname) = "星星数量"];
 	optional int32 m_reward = 6[(yd_fieldoptions.field_cname) = "奖励"];
-	optional int32 m_showitem = 7[(yd_fieldoptions.field_cname) = "道具展示"];
+	optional int32 m_showItem = 7[(yd_fieldoptions.field_cname) = "道具展示"];
 }
 
 
@@ -274,9 +274,9 @@ message E_WelfareLcturntableRaffleDesc
 message E_WelfareLcturntable
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_jackpottype = 2[(yd_fieldoptions.field_cname) = "奖池类型"];
-	optional int32 m_raffletimes = 3[(yd_fieldoptions.field_cname) = "累积抽奖次数"];
-	optional int32 m_ratimesrew = 4[(yd_fieldoptions.field_cname) = "累积抽奖奖励"];
+	optional int32 m_jackpotType = 2[(yd_fieldoptions.field_cname) = "奖池类型"];
+	optional int32 m_raffleTimes = 3[(yd_fieldoptions.field_cname) = "累积抽奖次数"];
+	optional int32 m_raTimesRew = 4[(yd_fieldoptions.field_cname) = "累积抽奖奖励"];
 	repeated E_WelfareLcturntableRaffleDesc m_raffle = 5[(yd_fieldoptions.field_cname) = "抽奖", (yd_fieldoptions.field_arysize) = 2];
 }
 
@@ -292,7 +292,7 @@ message E_WelfareJackpot
 	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "奖池类型"];
 	optional int32 m_rank = 3[(yd_fieldoptions.field_cname) = "排序"];
 	optional int32 m_item = 4[(yd_fieldoptions.field_cname) = "道具"];
-	optional int32 m_itemnum = 5[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_itemNum = 5[(yd_fieldoptions.field_cname) = "数量"];
 	optional int32 m_weight = 6[(yd_fieldoptions.field_cname) = "抽取权重"];
 }
 
@@ -305,12 +305,12 @@ message Sheet_WelfareJackpot
 message E_WelfareMonthlycard
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_cardtype = 2[(yd_fieldoptions.field_cname) = "月卡类型"];
-	optional int32 m_cardmoney = 3[(yd_fieldoptions.field_cname) = "月卡购买链接"];
-	optional int32 m_cardbuyitem = 4[(yd_fieldoptions.field_cname) = "月卡购买立得材料"];
-	optional int32 m_carddailyitem = 5[(yd_fieldoptions.field_cname) = "月卡每日材料"];
-	optional int32 m_cardtime = 6[(yd_fieldoptions.field_cname) = "月卡持续时间"];
-	optional int32 m_flmultiple = 7[(yd_fieldoptions.field_cname) = "返利倍数"];
+	optional int32 m_cardType = 2[(yd_fieldoptions.field_cname) = "月卡类型"];
+	optional int32 m_cardMoney = 3[(yd_fieldoptions.field_cname) = "月卡购买链接"];
+	optional int32 m_cardBuyitem = 4[(yd_fieldoptions.field_cname) = "月卡购买立得材料"];
+	optional int32 m_cardDailyitem = 5[(yd_fieldoptions.field_cname) = "月卡每日材料"];
+	optional int32 m_cardTime = 6[(yd_fieldoptions.field_cname) = "月卡持续时间"];
+	optional int32 m_Flmultiple = 7[(yd_fieldoptions.field_cname) = "返利倍数"];
 }
 
 
@@ -323,9 +323,9 @@ message E_WelfareGoal
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_functionid = 2[(yd_fieldoptions.field_cname) = "关联开关"];
-	optional int32 m_taskgroup = 3[(yd_fieldoptions.field_cname) = "任务列表组"];
+	optional int32 m_taskGroup = 3[(yd_fieldoptions.field_cname) = "任务列表组"];
 	optional int32 m_tasknum = 4[(yd_fieldoptions.field_cname) = "需要完成的任务数量"];
-	optional int32 m_rewrditem = 5[(yd_fieldoptions.field_cname) = "完成奖励"];
+	optional int32 m_rewrdItem = 5[(yd_fieldoptions.field_cname) = "完成奖励"];
 	optional int32 m_time = 6[(yd_fieldoptions.field_cname) = "持续时间"];
 }
 
@@ -338,11 +338,11 @@ message Sheet_WelfareGoal
 message E_WelfareGoaltask
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_groupid = 2[(yd_fieldoptions.field_cname) = "任务组id"];
-	optional int32 m_eventtype = 3[(yd_fieldoptions.field_cname) = "事件类型"];
-	optional int32 m_reachprice = 4[(yd_fieldoptions.field_cname) = "达成值"];
-	optional int32 m_itemid = 5[(yd_fieldoptions.field_cname) = "奖励道具"];
-	optional int32 m_itemnum = 6[(yd_fieldoptions.field_cname) = "道具数量"];
+	optional int32 m_groupID = 2[(yd_fieldoptions.field_cname) = "任务组id"];
+	optional int32 m_eventType = 3[(yd_fieldoptions.field_cname) = "事件类型"];
+	optional int32 m_reachPrice = 4[(yd_fieldoptions.field_cname) = "达成值"];
+	optional int32 m_itemID = 5[(yd_fieldoptions.field_cname) = "奖励道具"];
+	optional int32 m_itemNum = 6[(yd_fieldoptions.field_cname) = "道具数量"];
 	repeated int32 m_param = 7[(yd_fieldoptions.field_cname) = "事件完成参数", (yd_fieldoptions.field_arysize) = 3];
 }
 
@@ -355,10 +355,10 @@ message Sheet_WelfareGoaltask
 message E_WelfareInvest
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_functionid = 2[(yd_fieldoptions.field_cname) = "开放条件"];
+	optional int32 m_functionID = 2[(yd_fieldoptions.field_cname) = "开放条件"];
 	optional int32 m_price = 3[(yd_fieldoptions.field_cname) = "价格"];
-	optional int32 m_rewarditem = 4[(yd_fieldoptions.field_cname) = "奖励道具"];
-	optional int32 m_rewardgroup = 5[(yd_fieldoptions.field_cname) = "投资奖励组"];
+	optional int32 m_rewardItem = 4[(yd_fieldoptions.field_cname) = "奖励道具"];
+	optional int32 m_rewardGroup = 5[(yd_fieldoptions.field_cname) = "投资奖励组"];
 }
 
 
@@ -378,7 +378,7 @@ message E_WelfareInvestreward
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_group = 2[(yd_fieldoptions.field_cname) = "组id"];
 	optional int32 m_lv = 3[(yd_fieldoptions.field_cname) = "领取等级"];
-	repeated E_WelfareInvestrewardItemDesc m_item = 4[(yd_fieldoptions.field_cname) = "奖励道具", (yd_fieldoptions.field_arysize) = 2];
+	repeated E_WelfareInvestrewardItemDesc m_Item = 4[(yd_fieldoptions.field_cname) = "奖励道具", (yd_fieldoptions.field_arysize) = 2];
 }
 
 
@@ -390,7 +390,7 @@ message Sheet_WelfareInvestreward
 message E_WelfareYttlgift
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_rechargeid = 2[(yd_fieldoptions.field_cname) = "价格链接"];
+	optional int32 m_rechargeId = 2[(yd_fieldoptions.field_cname) = "价格链接"];
 	optional int32 m_reward = 3[(yd_fieldoptions.field_cname) = "奖励"];
 }
 

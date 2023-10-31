@@ -185,33 +185,33 @@ void protobuf_AddDesc_E_5fAchievement_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\023E_Achievement.proto\022\010proto_ff\032\025yd_fiel"
     "doptions.proto\"[\n&E_AchievementAchieveme"
-    "ntItemrewardDesc\022\033\n\007m_value\030\001 \001(\005B\n\302\377\024\006\346"
-    "\225\260\351\207\217\022\024\n\004m_id\030\002 \001(\003B\006\302\377\024\002ID\"\371\004\n\030E_Achiev"
-    "ementAchievement\022%\n\017m_achievementid\030\001 \001("
-    "\005B\014\302\377\024\010\346\210\220\345\260\261ID\0222\n\022m_achievementlevel\030\002 "
+    "ntItemrewardDesc\022\033\n\007m_Value\030\001 \001(\005B\n\302\377\024\006\346"
+    "\225\260\351\207\217\022\024\n\004m_ID\030\002 \001(\003B\006\302\377\024\002ID\"\371\004\n\030E_Achiev"
+    "ementAchievement\022%\n\017m_achievementId\030\001 \001("
+    "\005B\014\302\377\024\010\346\210\220\345\260\261ID\0222\n\022m_achievementLevel\030\002 "
     "\001(\005B\026\302\377\024\022\346\210\220\345\260\261\350\247\246\345\217\221\347\255\211\347\272\247\022+\n\021m_achieve"
-    "menttype\030\003 \001(\005B\020\302\377\024\014\346\210\220\345\260\261\347\261\273\345\236\213\022.\n\024m_ac"
-    "hievementsubtype\030\004 \001(\005B\020\302\377\024\014\344\272\213\344\273\266\347\261\273\345\236\213"
-    "\022#\n\tm_subtype\030\005 \001(\005B\020\302\377\024\014\344\272\213\344\273\266\347\273\206\345\210\206\022;\n"
-    "\030m_achievementobjectvalue\030\006 \001(\005B\031\302\377\024\025\344\272\213"
-    "\344\273\266\347\233\256\346\240\207\345\256\214\346\210\220\345\200\274\022(\n\nm_typename\030\007 \001(\tB\024"
+    "mentType\030\003 \001(\005B\020\302\377\024\014\346\210\220\345\260\261\347\261\273\345\236\213\022.\n\024m_ac"
+    "hievementSubType\030\004 \001(\005B\020\302\377\024\014\344\272\213\344\273\266\347\261\273\345\236\213"
+    "\022#\n\tm_SubType\030\005 \001(\005B\020\302\377\024\014\344\272\213\344\273\266\347\273\206\345\210\206\022;\n"
+    "\030m_achievementObjectValue\030\006 \001(\005B\031\302\377\024\025\344\272\213"
+    "\344\273\266\347\233\256\346\240\207\345\256\214\346\210\220\345\200\274\022(\n\nm_typeName\030\007 \001(\tB\024"
     "\302\377\024\014\347\261\273\345\236\213\345\220\215\347\247\260\220\301\024@\022%\n\007m_label\030\010 \001(\tB\024\302"
-    "\377\024\014\344\272\214\347\272\247\346\240\207\347\255\276\220\301\024@\0225\n\022m_achievementpoin"
+    "\377\024\014\344\272\214\347\272\247\346\240\207\347\255\276\220\301\024@\0225\n\022m_achievementPoin"
     "t\030\t \001(\005B\031\302\377\024\025\350\216\267\345\217\226\346\210\220\345\260\261\347\202\271\346\225\260\351\207\217\0220\n\nm_"
-    "overview\030\n \001(\005B\034\302\377\024\030\346\230\257\345\220\246\350\277\233\345\205\245\346\200\273\350\247\210\350\277"
+    "Overview\030\n \001(\005B\034\302\377\024\030\346\230\257\345\220\246\350\277\233\345\205\245\346\200\273\350\247\210\350\277"
     "\233\345\272\246\022+\n\007m_param\030\013 \003(\005B\032\302\377\024\022\344\272\213\344\273\266\345\256\214\346\210\220\345"
-    "\217\202\346\225\260\210\301\024\002\022\\\n\014m_itemreward\030\014 \003(\01320.proto_"
+    "\217\202\346\225\260\210\301\024\002\022\\\n\014m_itemReward\030\014 \003(\01320.proto_"
     "ff.E_AchievementAchievementItemrewardDes"
     "cB\024\302\377\024\014\350\216\267\345\276\227\347\211\251\345\223\201\210\301\024\002\"p\n\034Sheet_Achieve"
     "mentAchievement\022P\n\035E_AchievementAchievem"
     "ent_List\030\001 \003(\0132\".proto_ff.E_AchievementA"
     "chievementB\005\210\301\024\200\010\"\212\002\n\036E_AchievementTotal"
-    "achievements\022&\n\nm_totalsum\030\001 \001(\005B\022\302\377\024\016\346\200"
-    "\273\351\242\235\346\210\220\345\260\261ID\0227\n\026m_totalachievementname\030\002"
+    "achievements\022&\n\nm_totalSum\030\001 \001(\005B\022\302\377\024\016\346\200"
+    "\273\351\242\235\346\210\220\345\260\261ID\0227\n\026m_totalAchievementName\030\002"
     " \001(\tB\027\302\377\024\017\346\200\273\350\247\210\346\210\220\345\260\261\345\220\215\220\301\024@\022*\n\020m_achie"
-    "vedpoints\030\003 \001(\005B\020\302\377\024\014\350\276\276\346\210\220\347\202\271\346\225\260\022,\n\014m_t"
-    "otalitems\030\004 \001(\005B\026\302\377\024\022\346\200\273\350\247\210\345\245\226\345\212\261\347\211\251\345\223\201\022"
-    "-\n\rm_rewardvalue\030\005 \001(\005B\026\302\377\024\022\345\245\226\345\212\261\347\211\251\345\223\201"
+    "vedPoints\030\003 \001(\005B\020\302\377\024\014\350\276\276\346\210\220\347\202\271\346\225\260\022,\n\014m_t"
+    "otalItems\030\004 \001(\005B\026\302\377\024\022\346\200\273\350\247\210\345\245\226\345\212\261\347\211\251\345\223\201\022"
+    "-\n\rm_RewardValue\030\005 \001(\005B\026\302\377\024\022\345\245\226\345\212\261\347\211\251\345\223\201"
     "\346\225\260\351\207\217\"\201\001\n\"Sheet_AchievementTotalachieve"
     "ments\022[\n#E_AchievementTotalachievements_"
     "List\030\001 \003(\0132(.proto_ff.E_AchievementTotal"
@@ -242,7 +242,7 @@ struct StaticDescriptorInitializer_E_5fAchievement_2eproto {
 
 #ifndef _MSC_VER
 const int E_AchievementAchievementItemrewardDesc::kMValueFieldNumber;
-const int E_AchievementAchievementItemrewardDesc::kMIdFieldNumber;
+const int E_AchievementAchievementItemrewardDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_AchievementAchievementItemrewardDesc::E_AchievementAchievementItemrewardDesc()
@@ -311,7 +311,7 @@ bool E_AchievementAchievementItemrewardDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_value = 1;
+      // optional int32 m_Value = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -322,15 +322,15 @@ bool E_AchievementAchievementItemrewardDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int64 m_id = 2;
+      // optional int64 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_id_)));
@@ -360,12 +360,12 @@ bool E_AchievementAchievementItemrewardDesc::MergePartialFromCodedStream(
 
 void E_AchievementAchievementItemrewardDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
   }
 
-  // optional int64 m_id = 2;
+  // optional int64 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_id(), output);
   }
@@ -378,12 +378,12 @@ void E_AchievementAchievementItemrewardDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_AchievementAchievementItemrewardDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
   }
 
-  // optional int64 m_id = 2;
+  // optional int64 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_id(), target);
   }
@@ -399,14 +399,14 @@ int E_AchievementAchievementItemrewardDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_value = 1;
+    // optional int32 m_Value = 1;
     if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_value());
     }
 
-    // optional int64 m_id = 2;
+    // optional int64 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -489,18 +489,18 @@ void E_AchievementAchievementItemrewardDesc::Swap(E_AchievementAchievementItemre
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_AchievementAchievement::kMAchievementidFieldNumber;
-const int E_AchievementAchievement::kMAchievementlevelFieldNumber;
-const int E_AchievementAchievement::kMAchievementtypeFieldNumber;
-const int E_AchievementAchievement::kMAchievementsubtypeFieldNumber;
-const int E_AchievementAchievement::kMSubtypeFieldNumber;
-const int E_AchievementAchievement::kMAchievementobjectvalueFieldNumber;
-const int E_AchievementAchievement::kMTypenameFieldNumber;
+const int E_AchievementAchievement::kMAchievementIdFieldNumber;
+const int E_AchievementAchievement::kMAchievementLevelFieldNumber;
+const int E_AchievementAchievement::kMAchievementTypeFieldNumber;
+const int E_AchievementAchievement::kMAchievementSubTypeFieldNumber;
+const int E_AchievementAchievement::kMSubTypeFieldNumber;
+const int E_AchievementAchievement::kMAchievementObjectValueFieldNumber;
+const int E_AchievementAchievement::kMTypeNameFieldNumber;
 const int E_AchievementAchievement::kMLabelFieldNumber;
-const int E_AchievementAchievement::kMAchievementpointFieldNumber;
+const int E_AchievementAchievement::kMAchievementPointFieldNumber;
 const int E_AchievementAchievement::kMOverviewFieldNumber;
 const int E_AchievementAchievement::kMParamFieldNumber;
-const int E_AchievementAchievement::kMItemrewardFieldNumber;
+const int E_AchievementAchievement::kMItemRewardFieldNumber;
 #endif  // !_MSC_VER
 
 E_AchievementAchievement::E_AchievementAchievement()
@@ -603,7 +603,7 @@ bool E_AchievementAchievement::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_achievementid = 1;
+      // optional int32 m_achievementId = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -614,15 +614,15 @@ bool E_AchievementAchievement::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_achievementlevel;
+        if (input->ExpectTag(16)) goto parse_m_achievementLevel;
         break;
       }
 
-      // optional int32 m_achievementlevel = 2;
+      // optional int32 m_achievementLevel = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_achievementlevel:
+         parse_m_achievementLevel:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_achievementlevel_)));
@@ -630,15 +630,15 @@ bool E_AchievementAchievement::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_achievementtype;
+        if (input->ExpectTag(24)) goto parse_m_achievementType;
         break;
       }
 
-      // optional int32 m_achievementtype = 3;
+      // optional int32 m_achievementType = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_achievementtype:
+         parse_m_achievementType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_achievementtype_)));
@@ -646,15 +646,15 @@ bool E_AchievementAchievement::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_achievementsubtype;
+        if (input->ExpectTag(32)) goto parse_m_achievementSubType;
         break;
       }
 
-      // optional int32 m_achievementsubtype = 4;
+      // optional int32 m_achievementSubType = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_achievementsubtype:
+         parse_m_achievementSubType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_achievementsubtype_)));
@@ -662,15 +662,15 @@ bool E_AchievementAchievement::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_subtype;
+        if (input->ExpectTag(40)) goto parse_m_SubType;
         break;
       }
 
-      // optional int32 m_subtype = 5;
+      // optional int32 m_SubType = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_subtype:
+         parse_m_SubType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_subtype_)));
@@ -678,15 +678,15 @@ bool E_AchievementAchievement::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_achievementobjectvalue;
+        if (input->ExpectTag(48)) goto parse_m_achievementObjectValue;
         break;
       }
 
-      // optional int32 m_achievementobjectvalue = 6;
+      // optional int32 m_achievementObjectValue = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_achievementobjectvalue:
+         parse_m_achievementObjectValue:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_achievementobjectvalue_)));
@@ -694,15 +694,15 @@ bool E_AchievementAchievement::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(58)) goto parse_m_typename;
+        if (input->ExpectTag(58)) goto parse_m_typeName;
         break;
       }
 
-      // optional string m_typename = 7;
+      // optional string m_typeName = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_typename:
+         parse_m_typeName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_typename()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -728,15 +728,15 @@ bool E_AchievementAchievement::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_achievementpoint;
+        if (input->ExpectTag(72)) goto parse_m_achievementPoint;
         break;
       }
 
-      // optional int32 m_achievementpoint = 9;
+      // optional int32 m_achievementPoint = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_achievementpoint:
+         parse_m_achievementPoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_achievementpoint_)));
@@ -744,15 +744,15 @@ bool E_AchievementAchievement::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_overview;
+        if (input->ExpectTag(80)) goto parse_m_Overview;
         break;
       }
 
-      // optional int32 m_overview = 10;
+      // optional int32 m_Overview = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_overview:
+         parse_m_Overview:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_overview_)));
@@ -782,21 +782,21 @@ bool E_AchievementAchievement::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(88)) goto parse_m_param;
-        if (input->ExpectTag(98)) goto parse_m_itemreward;
+        if (input->ExpectTag(98)) goto parse_m_itemReward;
         break;
       }
 
-      // repeated .proto_ff.E_AchievementAchievementItemrewardDesc m_itemreward = 12;
+      // repeated .proto_ff.E_AchievementAchievementItemrewardDesc m_itemReward = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_itemreward:
+         parse_m_itemReward:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_itemreward()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(98)) goto parse_m_itemreward;
+        if (input->ExpectTag(98)) goto parse_m_itemReward;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -819,37 +819,37 @@ bool E_AchievementAchievement::MergePartialFromCodedStream(
 
 void E_AchievementAchievement::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_achievementid = 1;
+  // optional int32 m_achievementId = 1;
   if (has_m_achievementid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_achievementid(), output);
   }
 
-  // optional int32 m_achievementlevel = 2;
+  // optional int32 m_achievementLevel = 2;
   if (has_m_achievementlevel()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_achievementlevel(), output);
   }
 
-  // optional int32 m_achievementtype = 3;
+  // optional int32 m_achievementType = 3;
   if (has_m_achievementtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_achievementtype(), output);
   }
 
-  // optional int32 m_achievementsubtype = 4;
+  // optional int32 m_achievementSubType = 4;
   if (has_m_achievementsubtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_achievementsubtype(), output);
   }
 
-  // optional int32 m_subtype = 5;
+  // optional int32 m_SubType = 5;
   if (has_m_subtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_subtype(), output);
   }
 
-  // optional int32 m_achievementobjectvalue = 6;
+  // optional int32 m_achievementObjectValue = 6;
   if (has_m_achievementobjectvalue()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_achievementobjectvalue(), output);
   }
 
-  // optional string m_typename = 7;
+  // optional string m_typeName = 7;
   if (has_m_typename()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_typename().data(), this->m_typename().length(),
@@ -867,12 +867,12 @@ void E_AchievementAchievement::SerializeWithCachedSizes(
       8, this->m_label(), output);
   }
 
-  // optional int32 m_achievementpoint = 9;
+  // optional int32 m_achievementPoint = 9;
   if (has_m_achievementpoint()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_achievementpoint(), output);
   }
 
-  // optional int32 m_overview = 10;
+  // optional int32 m_Overview = 10;
   if (has_m_overview()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_overview(), output);
   }
@@ -883,7 +883,7 @@ void E_AchievementAchievement::SerializeWithCachedSizes(
       11, this->m_param(i), output);
   }
 
-  // repeated .proto_ff.E_AchievementAchievementItemrewardDesc m_itemreward = 12;
+  // repeated .proto_ff.E_AchievementAchievementItemrewardDesc m_itemReward = 12;
   for (int i = 0; i < this->m_itemreward_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       12, this->m_itemreward(i), output);
@@ -897,37 +897,37 @@ void E_AchievementAchievement::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_AchievementAchievement::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_achievementid = 1;
+  // optional int32 m_achievementId = 1;
   if (has_m_achievementid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_achievementid(), target);
   }
 
-  // optional int32 m_achievementlevel = 2;
+  // optional int32 m_achievementLevel = 2;
   if (has_m_achievementlevel()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_achievementlevel(), target);
   }
 
-  // optional int32 m_achievementtype = 3;
+  // optional int32 m_achievementType = 3;
   if (has_m_achievementtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_achievementtype(), target);
   }
 
-  // optional int32 m_achievementsubtype = 4;
+  // optional int32 m_achievementSubType = 4;
   if (has_m_achievementsubtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_achievementsubtype(), target);
   }
 
-  // optional int32 m_subtype = 5;
+  // optional int32 m_SubType = 5;
   if (has_m_subtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_subtype(), target);
   }
 
-  // optional int32 m_achievementobjectvalue = 6;
+  // optional int32 m_achievementObjectValue = 6;
   if (has_m_achievementobjectvalue()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_achievementobjectvalue(), target);
   }
 
-  // optional string m_typename = 7;
+  // optional string m_typeName = 7;
   if (has_m_typename()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_typename().data(), this->m_typename().length(),
@@ -947,12 +947,12 @@ void E_AchievementAchievement::SerializeWithCachedSizes(
         8, this->m_label(), target);
   }
 
-  // optional int32 m_achievementpoint = 9;
+  // optional int32 m_achievementPoint = 9;
   if (has_m_achievementpoint()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_achievementpoint(), target);
   }
 
-  // optional int32 m_overview = 10;
+  // optional int32 m_Overview = 10;
   if (has_m_overview()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_overview(), target);
   }
@@ -963,7 +963,7 @@ void E_AchievementAchievement::SerializeWithCachedSizes(
       WriteInt32ToArray(11, this->m_param(i), target);
   }
 
-  // repeated .proto_ff.E_AchievementAchievementItemrewardDesc m_itemreward = 12;
+  // repeated .proto_ff.E_AchievementAchievementItemrewardDesc m_itemReward = 12;
   for (int i = 0; i < this->m_itemreward_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -981,49 +981,49 @@ int E_AchievementAchievement::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_achievementid = 1;
+    // optional int32 m_achievementId = 1;
     if (has_m_achievementid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_achievementid());
     }
 
-    // optional int32 m_achievementlevel = 2;
+    // optional int32 m_achievementLevel = 2;
     if (has_m_achievementlevel()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_achievementlevel());
     }
 
-    // optional int32 m_achievementtype = 3;
+    // optional int32 m_achievementType = 3;
     if (has_m_achievementtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_achievementtype());
     }
 
-    // optional int32 m_achievementsubtype = 4;
+    // optional int32 m_achievementSubType = 4;
     if (has_m_achievementsubtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_achievementsubtype());
     }
 
-    // optional int32 m_subtype = 5;
+    // optional int32 m_SubType = 5;
     if (has_m_subtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_subtype());
     }
 
-    // optional int32 m_achievementobjectvalue = 6;
+    // optional int32 m_achievementObjectValue = 6;
     if (has_m_achievementobjectvalue()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_achievementobjectvalue());
     }
 
-    // optional string m_typename = 7;
+    // optional string m_typeName = 7;
     if (has_m_typename()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -1039,14 +1039,14 @@ int E_AchievementAchievement::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_achievementpoint = 9;
+    // optional int32 m_achievementPoint = 9;
     if (has_m_achievementpoint()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_achievementpoint());
     }
 
-    // optional int32 m_overview = 10;
+    // optional int32 m_Overview = 10;
     if (has_m_overview()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1064,7 +1064,7 @@ int E_AchievementAchievement::ByteSize() const {
     total_size += 1 * this->m_param_size() + data_size;
   }
 
-  // repeated .proto_ff.E_AchievementAchievementItemrewardDesc m_itemreward = 12;
+  // repeated .proto_ff.E_AchievementAchievementItemrewardDesc m_itemReward = 12;
   total_size += 1 * this->m_itemreward_size();
   for (int i = 0; i < this->m_itemreward_size(); i++) {
     total_size +=
@@ -1388,11 +1388,11 @@ void Sheet_AchievementAchievement::Swap(Sheet_AchievementAchievement* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_AchievementTotalachievements::kMTotalsumFieldNumber;
-const int E_AchievementTotalachievements::kMTotalachievementnameFieldNumber;
-const int E_AchievementTotalachievements::kMAchievedpointsFieldNumber;
-const int E_AchievementTotalachievements::kMTotalitemsFieldNumber;
-const int E_AchievementTotalachievements::kMRewardvalueFieldNumber;
+const int E_AchievementTotalachievements::kMTotalSumFieldNumber;
+const int E_AchievementTotalachievements::kMTotalAchievementNameFieldNumber;
+const int E_AchievementTotalachievements::kMAchievedPointsFieldNumber;
+const int E_AchievementTotalachievements::kMTotalItemsFieldNumber;
+const int E_AchievementTotalachievements::kMRewardValueFieldNumber;
 #endif  // !_MSC_VER
 
 E_AchievementTotalachievements::E_AchievementTotalachievements()
@@ -1474,7 +1474,7 @@ bool E_AchievementTotalachievements::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_totalsum = 1;
+      // optional int32 m_totalSum = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -1485,15 +1485,15 @@ bool E_AchievementTotalachievements::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_m_totalachievementname;
+        if (input->ExpectTag(18)) goto parse_m_totalAchievementName;
         break;
       }
 
-      // optional string m_totalachievementname = 2;
+      // optional string m_totalAchievementName = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_totalachievementname:
+         parse_m_totalAchievementName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_totalachievementname()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1502,15 +1502,15 @@ bool E_AchievementTotalachievements::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_achievedpoints;
+        if (input->ExpectTag(24)) goto parse_m_achievedPoints;
         break;
       }
 
-      // optional int32 m_achievedpoints = 3;
+      // optional int32 m_achievedPoints = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_achievedpoints:
+         parse_m_achievedPoints:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_achievedpoints_)));
@@ -1518,15 +1518,15 @@ bool E_AchievementTotalachievements::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_totalitems;
+        if (input->ExpectTag(32)) goto parse_m_totalItems;
         break;
       }
 
-      // optional int32 m_totalitems = 4;
+      // optional int32 m_totalItems = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_totalitems:
+         parse_m_totalItems:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_totalitems_)));
@@ -1534,15 +1534,15 @@ bool E_AchievementTotalachievements::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_rewardvalue;
+        if (input->ExpectTag(40)) goto parse_m_RewardValue;
         break;
       }
 
-      // optional int32 m_rewardvalue = 5;
+      // optional int32 m_RewardValue = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rewardvalue:
+         parse_m_RewardValue:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rewardvalue_)));
@@ -1572,12 +1572,12 @@ bool E_AchievementTotalachievements::MergePartialFromCodedStream(
 
 void E_AchievementTotalachievements::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_totalsum = 1;
+  // optional int32 m_totalSum = 1;
   if (has_m_totalsum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_totalsum(), output);
   }
 
-  // optional string m_totalachievementname = 2;
+  // optional string m_totalAchievementName = 2;
   if (has_m_totalachievementname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_totalachievementname().data(), this->m_totalachievementname().length(),
@@ -1586,17 +1586,17 @@ void E_AchievementTotalachievements::SerializeWithCachedSizes(
       2, this->m_totalachievementname(), output);
   }
 
-  // optional int32 m_achievedpoints = 3;
+  // optional int32 m_achievedPoints = 3;
   if (has_m_achievedpoints()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_achievedpoints(), output);
   }
 
-  // optional int32 m_totalitems = 4;
+  // optional int32 m_totalItems = 4;
   if (has_m_totalitems()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_totalitems(), output);
   }
 
-  // optional int32 m_rewardvalue = 5;
+  // optional int32 m_RewardValue = 5;
   if (has_m_rewardvalue()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_rewardvalue(), output);
   }
@@ -1609,12 +1609,12 @@ void E_AchievementTotalachievements::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_AchievementTotalachievements::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_totalsum = 1;
+  // optional int32 m_totalSum = 1;
   if (has_m_totalsum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_totalsum(), target);
   }
 
-  // optional string m_totalachievementname = 2;
+  // optional string m_totalAchievementName = 2;
   if (has_m_totalachievementname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_totalachievementname().data(), this->m_totalachievementname().length(),
@@ -1624,17 +1624,17 @@ void E_AchievementTotalachievements::SerializeWithCachedSizes(
         2, this->m_totalachievementname(), target);
   }
 
-  // optional int32 m_achievedpoints = 3;
+  // optional int32 m_achievedPoints = 3;
   if (has_m_achievedpoints()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_achievedpoints(), target);
   }
 
-  // optional int32 m_totalitems = 4;
+  // optional int32 m_totalItems = 4;
   if (has_m_totalitems()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_totalitems(), target);
   }
 
-  // optional int32 m_rewardvalue = 5;
+  // optional int32 m_RewardValue = 5;
   if (has_m_rewardvalue()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_rewardvalue(), target);
   }
@@ -1650,35 +1650,35 @@ int E_AchievementTotalachievements::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_totalsum = 1;
+    // optional int32 m_totalSum = 1;
     if (has_m_totalsum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_totalsum());
     }
 
-    // optional string m_totalachievementname = 2;
+    // optional string m_totalAchievementName = 2;
     if (has_m_totalachievementname()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_totalachievementname());
     }
 
-    // optional int32 m_achievedpoints = 3;
+    // optional int32 m_achievedPoints = 3;
     if (has_m_achievedpoints()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_achievedpoints());
     }
 
-    // optional int32 m_totalitems = 4;
+    // optional int32 m_totalItems = 4;
     if (has_m_totalitems()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_totalitems());
     }
 
-    // optional int32 m_rewardvalue = 5;
+    // optional int32 m_RewardValue = 5;
     if (has_m_rewardvalue()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

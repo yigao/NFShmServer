@@ -90,7 +90,7 @@ int FestivalMuban_play_gameDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_rewardbox <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_rewardbox)), result, "can't find the rewardbox:{} in the  excel:box sheet:box", pDesc->m_rewardbox);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_rewardBox <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_rewardBox)), result, "can't find the rewardBox:{} in the  excel:box sheet:box", pDesc->m_rewardBox);
 	}
 	return result;
 }

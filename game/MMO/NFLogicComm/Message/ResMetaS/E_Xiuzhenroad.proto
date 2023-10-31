@@ -5,13 +5,13 @@ import "yd_fieldoptions.proto";
 
 message E_XiuzhenroadTask
 {
-	optional int64 m_taskid = 1[(yd_fieldoptions.field_cname) = "任务ID"];
-	optional int32 m_tasktype = 2[(yd_fieldoptions.field_cname) = "任务类型"];
-	optional int32 m_eventtype = 3[(yd_fieldoptions.field_cname) = "事件类型"];
-	optional int32 m_reachprice = 4[(yd_fieldoptions.field_cname) = "达成值"];
+	optional int64 m_taskId = 1[(yd_fieldoptions.field_cname) = "任务ID"];
+	optional int32 m_taskType = 2[(yd_fieldoptions.field_cname) = "任务类型"];
+	optional int32 m_eventType = 3[(yd_fieldoptions.field_cname) = "事件类型"];
+	optional int32 m_reachPrice = 4[(yd_fieldoptions.field_cname) = "达成值"];
 	optional int32 m_reward = 5[(yd_fieldoptions.field_cname) = "奖励物品"];
-	optional int32 m_reward_value = 6[(yd_fieldoptions.field_cname) = "奖励物品数量"];
-	optional int32 m_boxid = 7[(yd_fieldoptions.field_cname) = "box礼包ID"];
+	optional int32 m_reward_Value = 6[(yd_fieldoptions.field_cname) = "奖励物品数量"];
+	optional int32 m_boxID = 7[(yd_fieldoptions.field_cname) = "box礼包ID"];
 	optional int32 m_integral = 8[(yd_fieldoptions.field_cname) = "奖励的积分"];
 	optional int32 m_linkid = 9[(yd_fieldoptions.field_cname) = "跳转ID"];
 	repeated int32 m_param = 10[(yd_fieldoptions.field_cname) = "事件完成参数", (yd_fieldoptions.field_arysize) = 3];
@@ -25,15 +25,15 @@ message Sheet_XiuzhenroadTask
 
 message E_XiuzhenroadBonuspointsTotalitemsDesc
 {
-	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数量"];
-	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_Value = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_ID = 2[(yd_fieldoptions.field_cname) = "ID"];
 }
 
 message E_XiuzhenroadBonuspoints
 {
-	optional int32 m_totalrewardsid = 1[(yd_fieldoptions.field_cname) = "总积分奖励"];
-	optional int32 m_achievedpoints = 2[(yd_fieldoptions.field_cname) = "达成点数"];
-	repeated E_XiuzhenroadBonuspointsTotalitemsDesc m_totalitems = 3[(yd_fieldoptions.field_cname) = "奖励物品", (yd_fieldoptions.field_arysize) = 2];
+	optional int32 m_totalRewardsID = 1[(yd_fieldoptions.field_cname) = "总积分奖励"];
+	optional int32 m_achievedPoints = 2[(yd_fieldoptions.field_cname) = "达成点数"];
+	repeated E_XiuzhenroadBonuspointsTotalitemsDesc m_totalItems = 3[(yd_fieldoptions.field_cname) = "奖励物品", (yd_fieldoptions.field_arysize) = 2];
 }
 
 
@@ -44,9 +44,9 @@ message Sheet_XiuzhenroadBonuspoints
 
 message E_XiuzhenroadSkill
 {
-	optional int32 m_activityskills = 1[(yd_fieldoptions.field_cname) = "活动分类技能"];
-	optional int32 m_skillid = 2[(yd_fieldoptions.field_cname) = "技能ID"];
-	optional int32 m_itenmid = 3[(yd_fieldoptions.field_cname) = "属性道具ID"];
+	optional int32 m_activitySkills = 1[(yd_fieldoptions.field_cname) = "活动分类技能"];
+	optional int32 m_skillID = 2[(yd_fieldoptions.field_cname) = "技能ID"];
+	optional int32 m_itenmID = 3[(yd_fieldoptions.field_cname) = "属性道具ID"];
 	optional int32 m_attribute = 4[(yd_fieldoptions.field_cname) = "道具增加属性"];
 }
 
@@ -58,10 +58,10 @@ message Sheet_XiuzhenroadSkill
 
 message E_XiuzhenroadClassify
 {
-	optional int32 m_typeid = 1[(yd_fieldoptions.field_cname) = "任务类型ID"];
+	optional int32 m_typeID = 1[(yd_fieldoptions.field_cname) = "任务类型ID"];
 	optional string m_gift = 2[(yd_fieldoptions.field_cname) = "礼包名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_giftid = 3[(yd_fieldoptions.field_cname) = "礼包ID"];
-	optional int32 m_rechargeid = 4[(yd_fieldoptions.field_cname) = "礼包计费点ID"];
+	optional int32 m_giftID = 3[(yd_fieldoptions.field_cname) = "礼包ID"];
+	optional int32 m_rechargeID = 4[(yd_fieldoptions.field_cname) = "礼包计费点ID"];
 }
 
 

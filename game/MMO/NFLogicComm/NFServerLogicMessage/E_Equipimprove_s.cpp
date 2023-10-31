@@ -69,15 +69,15 @@ E_EquipimproveUpquality_s::E_EquipimproveUpquality_s() {
 int E_EquipimproveUpquality_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_quality = (int32_t)0;
-	m_wearqualitylimit = (int32_t)0;
+	m_wearQualityLimit = (int32_t)0;
 	m_star = (int32_t)0;
 	m_starnum = (int32_t)0;
 	m_success = (int32_t)0;
 	m_luckid = (int32_t)0;
 	m_lucksuccess = (int32_t)0;
 	m_lucknum = (int32_t)0;
-	m_qualityatt = (int32_t)0;
-	m_qualityvalue = (int32_t)0;
+	m_qualityAtt = (int32_t)0;
+	m_qualityValue = (int32_t)0;
 	return 0;
 }
 
@@ -89,15 +89,15 @@ void E_EquipimproveUpquality_s::write_to_pbmsg(::proto_ff::E_EquipimproveUpquali
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_quality((int32_t)m_quality);
 	msg.set_m_position(m_position.data());
-	msg.set_m_wearqualitylimit((int32_t)m_wearqualitylimit);
+	msg.set_m_wearqualitylimit((int32_t)m_wearQualityLimit);
 	msg.set_m_star((int32_t)m_star);
 	msg.set_m_starnum((int32_t)m_starnum);
 	msg.set_m_success((int32_t)m_success);
 	msg.set_m_luckid((int32_t)m_luckid);
 	msg.set_m_lucksuccess((int32_t)m_lucksuccess);
 	msg.set_m_lucknum((int32_t)m_lucknum);
-	msg.set_m_qualityatt((int32_t)m_qualityatt);
-	msg.set_m_qualityvalue((int32_t)m_qualityvalue);
+	msg.set_m_qualityatt((int32_t)m_qualityAtt);
+	msg.set_m_qualityvalue((int32_t)m_qualityValue);
 	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
 		::proto_ff::E_EquipimproveUpqualityMaterialDesc* temp_m_material = msg.add_m_material();
 		m_material[i].write_to_pbmsg(*temp_m_material);
@@ -112,15 +112,15 @@ void E_EquipimproveUpquality_s::read_from_pbmsg(const ::proto_ff::E_Equipimprove
 	m_id = msg.m_id();
 	m_quality = msg.m_quality();
 	m_position = msg.m_position();
-	m_wearqualitylimit = msg.m_wearqualitylimit();
+	m_wearQualityLimit = msg.m_wearqualitylimit();
 	m_star = msg.m_star();
 	m_starnum = msg.m_starnum();
 	m_success = msg.m_success();
 	m_luckid = msg.m_luckid();
 	m_lucksuccess = msg.m_lucksuccess();
 	m_lucknum = msg.m_lucknum();
-	m_qualityatt = msg.m_qualityatt();
-	m_qualityvalue = msg.m_qualityvalue();
+	m_qualityAtt = msg.m_qualityatt();
+	m_qualityValue = msg.m_qualityvalue();
 	m_material.resize((int)msg.m_material_size() > (int)m_material.max_size() ? m_material.max_size() : msg.m_material_size());
 	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
 		const ::proto_ff::E_EquipimproveUpqualityMaterialDesc & temp_m_material = msg.m_material(i);
@@ -231,10 +231,10 @@ E_EquipimproveAwaken_s::E_EquipimproveAwaken_s() {
 int E_EquipimproveAwaken_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_quality = (int32_t)0;
-	m_wearqualitylimit = (int32_t)0;
-	m_qualitylimit = (int32_t)0;
-	m_wearstarlimit = (int32_t)0;
-	m_awakenlv = (int32_t)0;
+	m_wearQualityLimit = (int32_t)0;
+	m_qualityLimit = (int32_t)0;
+	m_wearStarLimit = (int32_t)0;
+	m_awakenLv = (int32_t)0;
 	m_material_id = (int32_t)0;
 	m_material_num = (int32_t)0;
 	m_break_id = (int32_t)0;
@@ -250,10 +250,10 @@ void E_EquipimproveAwaken_s::write_to_pbmsg(::proto_ff::E_EquipimproveAwaken & m
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_quality((int32_t)m_quality);
 	msg.set_m_position(m_position.data());
-	msg.set_m_wearqualitylimit((int32_t)m_wearqualitylimit);
-	msg.set_m_qualitylimit((int32_t)m_qualitylimit);
-	msg.set_m_wearstarlimit((int32_t)m_wearstarlimit);
-	msg.set_m_awakenlv((int32_t)m_awakenlv);
+	msg.set_m_wearqualitylimit((int32_t)m_wearQualityLimit);
+	msg.set_m_qualitylimit((int32_t)m_qualityLimit);
+	msg.set_m_wearstarlimit((int32_t)m_wearStarLimit);
+	msg.set_m_awakenlv((int32_t)m_awakenLv);
 	msg.set_m_material_id((int32_t)m_material_id);
 	msg.set_m_material_num((int32_t)m_material_num);
 	msg.set_m_break_id((int32_t)m_break_id);
@@ -272,10 +272,10 @@ void E_EquipimproveAwaken_s::read_from_pbmsg(const ::proto_ff::E_EquipimproveAwa
 	m_id = msg.m_id();
 	m_quality = msg.m_quality();
 	m_position = msg.m_position();
-	m_wearqualitylimit = msg.m_wearqualitylimit();
-	m_qualitylimit = msg.m_qualitylimit();
-	m_wearstarlimit = msg.m_wearstarlimit();
-	m_awakenlv = msg.m_awakenlv();
+	m_wearQualityLimit = msg.m_wearqualitylimit();
+	m_qualityLimit = msg.m_qualitylimit();
+	m_wearStarLimit = msg.m_wearstarlimit();
+	m_awakenLv = msg.m_awakenlv();
 	m_material_id = msg.m_material_id();
 	m_material_num = msg.m_material_num();
 	m_break_id = msg.m_break_id();
@@ -469,9 +469,9 @@ E_EquipimproveSeal_s::E_EquipimproveSeal_s() {
 int E_EquipimproveSeal_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_seallv = (int32_t)0;
-	m_preid = (int32_t)0;
-	m_nextid = (int32_t)0;
-	m_nextvalue = (int32_t)0;
+	m_preId = (int32_t)0;
+	m_nextId = (int32_t)0;
+	m_nextValue = (int32_t)0;
 	return 0;
 }
 
@@ -481,12 +481,12 @@ int E_EquipimproveSeal_s::ResumeInit() {
 
 void E_EquipimproveSeal_s::write_to_pbmsg(::proto_ff::E_EquipimproveSeal & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_sealposition(m_sealposition.data());
+	msg.set_m_sealposition(m_sealPosition.data());
 	msg.set_m_seallv((int32_t)m_seallv);
-	msg.set_m_preid((int32_t)m_preid);
-	msg.set_m_nextid((int32_t)m_nextid);
+	msg.set_m_preid((int32_t)m_preId);
+	msg.set_m_nextid((int32_t)m_nextId);
 	msg.set_m_numb(m_numb.data());
-	msg.set_m_nextvalue((int32_t)m_nextvalue);
+	msg.set_m_nextvalue((int32_t)m_nextValue);
 	for(int32_t i = 0; i < (int32_t)m_seal.size(); ++i) {
 		::proto_ff::E_EquipimproveSealSealDesc* temp_m_seal = msg.add_m_seal();
 		m_seal[i].write_to_pbmsg(*temp_m_seal);
@@ -495,12 +495,12 @@ void E_EquipimproveSeal_s::write_to_pbmsg(::proto_ff::E_EquipimproveSeal & msg) 
 
 void E_EquipimproveSeal_s::read_from_pbmsg(const ::proto_ff::E_EquipimproveSeal & msg) {
 	m_id = msg.m_id();
-	m_sealposition = msg.m_sealposition();
+	m_sealPosition = msg.m_sealposition();
 	m_seallv = msg.m_seallv();
-	m_preid = msg.m_preid();
-	m_nextid = msg.m_nextid();
+	m_preId = msg.m_preid();
+	m_nextId = msg.m_nextid();
 	m_numb = msg.m_numb();
-	m_nextvalue = msg.m_nextvalue();
+	m_nextValue = msg.m_nextvalue();
 	m_seal.resize((int)msg.m_seal_size() > (int)m_seal.max_size() ? m_seal.max_size() : msg.m_seal_size());
 	for(int32_t i = 0; i < (int32_t)m_seal.size(); ++i) {
 		const ::proto_ff::E_EquipimproveSealSealDesc & temp_m_seal = msg.m_seal(i);

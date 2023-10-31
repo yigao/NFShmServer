@@ -75,13 +75,13 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_lvlimit;//助阵等级要求
-		int32_t m_remanietimes;//每天免费转生次数
-		int32_t m_currencyid;//消耗货币id
-		int32_t m_currencynum;//消耗货币数量
-		int32_t m_currencytimes;//最大使用货币转生次数
-		int32_t m_baglimit;//神体背包上限
-		int32_t m_itemid;//神元经验道具id
+		int32_t m_lvLimit;//助阵等级要求
+		int32_t m_remanieTimes;//每天免费转生次数
+		int32_t m_currencyId;//消耗货币id
+		int32_t m_currencyNum;//消耗货币数量
+		int32_t m_currencyTimes;//最大使用货币转生次数
+		int32_t m_bagLimit;//神体背包上限
+		int32_t m_itemId;//神元经验道具id
 		NFShmVector<struct E_ShentiConstantTimeDesc_s, DEFINE_E_SHENTICONSTANT_M_TIME_MAX_NUM> m_time;//天时时间段
 
 		virtual void write_to_pbmsg(::proto_ff::E_ShentiConstant & msg) const;
@@ -173,9 +173,9 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t m_id;//id
 		int32_t m_lv;//等级
-		int32_t m_changelv;//转生等级
+		int32_t m_changeLv;//转生等级
 		int64_t m_exp;//下级所需神元
-		int64_t m_explimit;//神元储存上限
+		int64_t m_expLimit;//神元储存上限
 		NFShmVector<struct E_ShentiUpgradeAttributeDesc_s, DEFINE_E_SHENTIUPGRADE_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_ShentiUpgrade & msg) const;
@@ -220,13 +220,13 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//转生等级
-		int32_t m_remanielv;//转生等级要求
+		int32_t m_remanieLv;//转生等级要求
 		int32_t m_lv;//等级要求
-		int32_t m_tiansuccess;//天时增加成功率
-		int32_t m_disuccess;//地利初始成功率
-		int32_t m_losesuccess;//地利失败提升成功率
-		int32_t m_rensuccess;//人和提升成功率
-		int32_t m_rensuccesslimit;//人和成功率上限
+		int32_t m_tianSuccess;//天时增加成功率
+		int32_t m_diSuccess;//地利初始成功率
+		int32_t m_loseSuccess;//地利失败提升成功率
+		int32_t m_renSuccess;//人和提升成功率
+		int32_t m_renSuccessLimit;//人和成功率上限
 		int32_t m_reward;//转生奖励
 		NFShmVector<struct E_ShentiRemanieAttrDesc_s, DEFINE_E_SHENTIREMANIE_M_ATTR_MAX_NUM> m_attr;//转生属性
 
@@ -259,17 +259,17 @@ namespace proto_ff_s {
 		int64_t m_id;//装备ID
 		NFShmString<64> m_name;//装备名称
 		int32_t m_type;//装备大类
-		int32_t m_remanielv;//装备转生
+		int32_t m_remanieLv;//装备转生
 		int32_t m_position;//装备位置
 		NFShmString<64> m_profession;//职业限制
-		int32_t m_professionlv;//转职等级
+		int32_t m_professionLv;//转职等级
 		int32_t m_quality;//装备品质
-		int32_t m_attributeid;//属性ID
-		int32_t m_suitgroup;//套装组
-		int32_t m_stargroup;//随机星级属性组
-		int32_t m_iscanbind;//是否绑定
-		int32_t m_istradebind;//是否交易绑定
-		int32_t m_sellprice;//出售价格
+		int32_t m_attributeID;//属性ID
+		int32_t m_suitGroup;//套装组
+		int32_t m_starGroup;//随机星级属性组
+		int32_t m_isCanbind;//是否绑定
+		int32_t m_isTradeBind;//是否交易绑定
+		int32_t m_sellPrice;//出售价格
 		NFShmString<64> m_icon;//装备图标名
 		int32_t m_broadcast;//是否播放跑马灯
 
@@ -439,7 +439,7 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_lv;//强化等级
 		NFShmString<64> m_position;//强化部位
-		int32_t m_remanielv;//装备转生
+		int32_t m_remanieLv;//装备转生
 		NFShmVector<struct E_ShentiStrongMaterialDesc_s, DEFINE_E_SHENTISTRONG_M_MATERIAL_MAX_NUM> m_material;//强化材料
 		NFShmVector<struct E_ShentiStrongAttributeDesc_s, DEFINE_E_SHENTISTRONG_M_ATTRIBUTE_MAX_NUM> m_attribute;//强化属性
 
@@ -513,16 +513,16 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_evolvelv;//进化等级
+		int32_t m_evolveLv;//进化等级
 		NFShmString<64> m_position;//进化部位
-		int32_t m_remanielv;//装备转生
+		int32_t m_remanieLv;//装备转生
 		int32_t m_need_quality;//装备品质要求
 		int32_t m_need_star;//装备星级要求
 		int32_t m_material_id;//进化材料
 		int32_t m_material_num;//进化材料数量
-		int32_t m_mallid;//商品ID
-		int32_t m_initialvalue;//进化初始值
-		int32_t m_specialstar;//是否为特殊星级属性
+		int32_t m_mallID;//商品ID
+		int32_t m_initialValue;//进化初始值
+		int32_t m_specialStar;//是否为特殊星级属性
 		NFShmVector<struct E_ShentiEvolveAttributeDesc_s, DEFINE_E_SHENTIEVOLVE_M_ATTRIBUTE_MAX_NUM> m_attribute;//进化属性
 		NFShmVector<struct E_ShentiEvolveXpcomDesc_s, DEFINE_E_SHENTIEVOLVE_M_XPCOM_MAX_NUM> m_xpcom;//星级属性随机库
 		NFShmVector<struct E_ShentiEvolveXpstarDesc_s, DEFINE_E_SHENTIEVOLVE_M_XPSTAR_MAX_NUM> m_xpstar;//特殊星级属性随机库
@@ -554,10 +554,10 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_evolvelv;//进化等级
-		int32_t m_remanielv;//装备转生
-		int32_t m_equipquality;//材料装备品质
-		int32_t m_equipstar;//材料装备星级
+		int32_t m_evolveLv;//进化等级
+		int32_t m_remanieLv;//装备转生
+		int32_t m_equipQuality;//材料装备品质
+		int32_t m_equipStar;//材料装备星级
 		NFShmVector<int32_t, DEFINE_E_SHENTIEVOLVEPROGRESS_M_EVOLVE_MAX_NUM> m_evolve;//完美度
 
 		virtual void write_to_pbmsg(::proto_ff::E_ShentiEvolveprogress & msg) const;
@@ -616,7 +616,7 @@ namespace proto_ff_s {
 		virtual ~E_ShentiStarlibrary_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_stargroup;//随机星级属性组
+		int32_t m_starGroup;//随机星级属性组
 		NFShmVector<struct E_ShentiStarlibraryXpcomDesc_s, DEFINE_E_SHENTISTARLIBRARY_M_XPCOM_MAX_NUM> m_xpcom;//星级属性
 		NFShmVector<struct E_ShentiStarlibraryXpstarDesc_s, DEFINE_E_SHENTISTARLIBRARY_M_XPSTAR_MAX_NUM> m_xpstar;//特殊星级属性
 
@@ -677,17 +677,17 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_awakenlv;//觉醒等级
+		int32_t m_awakenLv;//觉醒等级
 		NFShmString<64> m_position;//觉醒部位
-		int32_t m_remanielv;//装备转生
+		int32_t m_remanieLv;//装备转生
 		int32_t m_need_quality;//装备品质要求
 		int32_t m_need_star;//装备星级要求
 		int32_t m_material_id;//觉醒材料
 		int32_t m_material_num;//觉醒材料数量
-		int32_t m_mallid;//商品ID
-		int32_t m_initialvalue;//觉醒初始值
+		int32_t m_mallID;//商品ID
+		int32_t m_initialValue;//觉醒初始值
 		NFShmVector<struct E_ShentiAwakenAttributeDesc_s, DEFINE_E_SHENTIAWAKEN_M_ATTRIBUTE_MAX_NUM> m_attribute;//觉醒属性
-		NFShmVector<struct E_ShentiAwakenAfflatusattDesc_s, DEFINE_E_SHENTIAWAKEN_M_AFFLATUSATT_MAX_NUM> m_afflatusatt;//神悟属性
+		NFShmVector<struct E_ShentiAwakenAfflatusattDesc_s, DEFINE_E_SHENTIAWAKEN_M_AFFLATUSATT_MAX_NUM> m_afflatusAtt;//神悟属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_ShentiAwaken & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ShentiAwaken & msg);
@@ -716,10 +716,10 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_awakenlv;//觉醒等级
-		int32_t m_remanielv;//装备转生
-		int32_t m_equipquality;//材料装备品质
-		int32_t m_equipstar;//材料装备星级
+		int32_t m_awakenLv;//觉醒等级
+		int32_t m_remanieLv;//装备转生
+		int32_t m_equipQuality;//材料装备品质
+		int32_t m_equipStar;//材料装备星级
 		NFShmVector<int32_t, DEFINE_E_SHENTIAWAKENPROGRESS_M_AWAKEN_MAX_NUM> m_awaken;//觉醒度
 
 		virtual void write_to_pbmsg(::proto_ff::E_ShentiAwakenprogress & msg) const;
@@ -764,8 +764,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_suitgroup;//套装组
-		int32_t m_suitlv;//套装等级
+		int32_t m_suitGroup;//套装组
+		int32_t m_suitLv;//套装等级
 		int32_t m_num;//套装激活件数
 		NFShmString<64> m_name;//套装名称
 		int32_t m_skill;//套装技能
@@ -905,8 +905,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_remanielv;//装备转生
-		int32_t m_strenglv;//强化目标
+		int32_t m_remanieLv;//装备转生
+		int32_t m_strengLv;//强化目标
 		NFShmVector<struct E_ShentiStrengtitelAttributeDesc_s, DEFINE_E_SHENTISTRENGTITEL_M_ATTRIBUTE_MAX_NUM> m_attribute;//强化属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_ShentiStrengtitel & msg) const;

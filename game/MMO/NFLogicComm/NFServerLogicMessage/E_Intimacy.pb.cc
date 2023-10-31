@@ -180,17 +180,17 @@ void protobuf_AddDesc_E_5fIntimacy_2eproto() {
     "tions.proto\"S\n\037E_IntimacyIntimacyAttribu"
     "teDesc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\026\n\006m_ty"
     "pe\030\002 \001(\005B\006\302\377\024\002ID\"\334\001\n\022E_IntimacyIntimacy\022"
-    "\030\n\004m_lv\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022*\n\rm_intimacym"
+    "\030\n\004m_lv\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022*\n\rm_intimacyM"
     "in\030\002 \001(\005B\023\302\377\024\017\344\272\262\345\257\206\345\272\246\350\246\201\346\261\202\022*\n\rm_intim"
-    "acymax\030\003 \001(\005B\023\302\377\024\017\344\272\262\345\257\206\345\272\246\350\246\201\346\261\202\022T\n\013m_a"
+    "acyMax\030\003 \001(\005B\023\302\377\024\017\344\272\262\345\257\206\345\272\246\350\246\201\346\261\202\022T\n\013m_a"
     "ttribute\030\004 \003(\0132).proto_ff.E_IntimacyInti"
     "macyAttributeDescB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\003\""
     "]\n\026Sheet_IntimacyIntimacy\022C\n\027E_IntimacyI"
     "ntimacy_List\030\001 \003(\0132\034.proto_ff.E_Intimacy"
     "IntimacyB\004\210\301\024\020\"\340\001\n\016E_IntimacyGift\022\036\n\010m_m"
-    "allid\030\001 \001(\005B\014\302\377\024\010\345\225\206\345\237\216id\022\036\n\010m_itemid\030\002 "
-    "\001(\005B\014\302\377\024\010\351\201\223\345\205\267id\022$\n\nm_nametype\030\003 \001(\005B\020\302"
-    "\377\024\014\345\220\215\347\247\260\347\261\273\345\236\213\022%\n\007m_uipic\030\004 \001(\tB\024\302\377\024\014\345\272"
+    "allid\030\001 \001(\005B\014\302\377\024\010\345\225\206\345\237\216id\022\036\n\010m_itemId\030\002 "
+    "\001(\005B\014\302\377\024\010\351\201\223\345\205\267id\022$\n\nm_nameType\030\003 \001(\005B\020\302"
+    "\377\024\014\345\220\215\347\247\260\347\261\273\345\236\213\022%\n\007m_uiPic\030\004 \001(\tB\024\302\377\024\014\345\272"
     "\225\346\241\206\345\233\276\347\211\207\220\301\024@\022!\n\nm_intimacy\030\005 \001(\005B\r\302\377\024\t"
     "\344\272\262\345\257\206\345\272\246\022\036\n\007m_charm\030\006 \001(\005B\r\302\377\024\t\351\255\205\345\212\233\345\200"
     "\274\"Q\n\022Sheet_IntimacyGift\022;\n\023E_IntimacyGif"
@@ -470,8 +470,8 @@ void E_IntimacyIntimacyAttributeDesc::Swap(E_IntimacyIntimacyAttributeDesc* othe
 
 #ifndef _MSC_VER
 const int E_IntimacyIntimacy::kMLvFieldNumber;
-const int E_IntimacyIntimacy::kMIntimacyminFieldNumber;
-const int E_IntimacyIntimacy::kMIntimacymaxFieldNumber;
+const int E_IntimacyIntimacy::kMIntimacyMinFieldNumber;
+const int E_IntimacyIntimacy::kMIntimacyMaxFieldNumber;
 const int E_IntimacyIntimacy::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -555,15 +555,15 @@ bool E_IntimacyIntimacy::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_intimacymin;
+        if (input->ExpectTag(16)) goto parse_m_intimacyMin;
         break;
       }
 
-      // optional int32 m_intimacymin = 2;
+      // optional int32 m_intimacyMin = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_intimacymin:
+         parse_m_intimacyMin:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_intimacymin_)));
@@ -571,15 +571,15 @@ bool E_IntimacyIntimacy::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_intimacymax;
+        if (input->ExpectTag(24)) goto parse_m_intimacyMax;
         break;
       }
 
-      // optional int32 m_intimacymax = 3;
+      // optional int32 m_intimacyMax = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_intimacymax:
+         parse_m_intimacyMax:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_intimacymax_)));
@@ -629,12 +629,12 @@ void E_IntimacyIntimacy::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 m_intimacymin = 2;
+  // optional int32 m_intimacyMin = 2;
   if (has_m_intimacymin()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_intimacymin(), output);
   }
 
-  // optional int32 m_intimacymax = 3;
+  // optional int32 m_intimacyMax = 3;
   if (has_m_intimacymax()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_intimacymax(), output);
   }
@@ -658,12 +658,12 @@ void E_IntimacyIntimacy::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 m_intimacymin = 2;
+  // optional int32 m_intimacyMin = 2;
   if (has_m_intimacymin()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_intimacymin(), target);
   }
 
-  // optional int32 m_intimacymax = 3;
+  // optional int32 m_intimacyMax = 3;
   if (has_m_intimacymax()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_intimacymax(), target);
   }
@@ -693,14 +693,14 @@ int E_IntimacyIntimacy::ByteSize() const {
           this->m_lv());
     }
 
-    // optional int32 m_intimacymin = 2;
+    // optional int32 m_intimacyMin = 2;
     if (has_m_intimacymin()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_intimacymin());
     }
 
-    // optional int32 m_intimacymax = 3;
+    // optional int32 m_intimacyMax = 3;
     if (has_m_intimacymax()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1001,9 +1001,9 @@ void Sheet_IntimacyIntimacy::Swap(Sheet_IntimacyIntimacy* other) {
 
 #ifndef _MSC_VER
 const int E_IntimacyGift::kMMallidFieldNumber;
-const int E_IntimacyGift::kMItemidFieldNumber;
-const int E_IntimacyGift::kMNametypeFieldNumber;
-const int E_IntimacyGift::kMUipicFieldNumber;
+const int E_IntimacyGift::kMItemIdFieldNumber;
+const int E_IntimacyGift::kMNameTypeFieldNumber;
+const int E_IntimacyGift::kMUiPicFieldNumber;
 const int E_IntimacyGift::kMIntimacyFieldNumber;
 const int E_IntimacyGift::kMCharmFieldNumber;
 #endif  // !_MSC_VER
@@ -1100,15 +1100,15 @@ bool E_IntimacyGift::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_itemid;
+        if (input->ExpectTag(16)) goto parse_m_itemId;
         break;
       }
 
-      // optional int32 m_itemid = 2;
+      // optional int32 m_itemId = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemid:
+         parse_m_itemId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itemid_)));
@@ -1116,15 +1116,15 @@ bool E_IntimacyGift::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_nametype;
+        if (input->ExpectTag(24)) goto parse_m_nameType;
         break;
       }
 
-      // optional int32 m_nametype = 3;
+      // optional int32 m_nameType = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_nametype:
+         parse_m_nameType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_nametype_)));
@@ -1132,15 +1132,15 @@ bool E_IntimacyGift::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_uipic;
+        if (input->ExpectTag(34)) goto parse_m_uiPic;
         break;
       }
 
-      // optional string m_uipic = 4;
+      // optional string m_uiPic = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_uipic:
+         parse_m_uiPic:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_uipic()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1208,17 +1208,17 @@ void E_IntimacyGift::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_mallid(), output);
   }
 
-  // optional int32 m_itemid = 2;
+  // optional int32 m_itemId = 2;
   if (has_m_itemid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_itemid(), output);
   }
 
-  // optional int32 m_nametype = 3;
+  // optional int32 m_nameType = 3;
   if (has_m_nametype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_nametype(), output);
   }
 
-  // optional string m_uipic = 4;
+  // optional string m_uiPic = 4;
   if (has_m_uipic()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_uipic().data(), this->m_uipic().length(),
@@ -1250,17 +1250,17 @@ void E_IntimacyGift::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_mallid(), target);
   }
 
-  // optional int32 m_itemid = 2;
+  // optional int32 m_itemId = 2;
   if (has_m_itemid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_itemid(), target);
   }
 
-  // optional int32 m_nametype = 3;
+  // optional int32 m_nameType = 3;
   if (has_m_nametype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_nametype(), target);
   }
 
-  // optional string m_uipic = 4;
+  // optional string m_uiPic = 4;
   if (has_m_uipic()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_uipic().data(), this->m_uipic().length(),
@@ -1298,21 +1298,21 @@ int E_IntimacyGift::ByteSize() const {
           this->m_mallid());
     }
 
-    // optional int32 m_itemid = 2;
+    // optional int32 m_itemId = 2;
     if (has_m_itemid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_itemid());
     }
 
-    // optional int32 m_nametype = 3;
+    // optional int32 m_nameType = 3;
     if (has_m_nametype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_nametype());
     }
 
-    // optional string m_uipic = 4;
+    // optional string m_uiPic = 4;
     if (has_m_uipic()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(

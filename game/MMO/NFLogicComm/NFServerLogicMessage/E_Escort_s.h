@@ -23,13 +23,13 @@ namespace proto_ff_s {
 		virtual ~E_EscortEscort_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_convoyid;//镖车ID
-		NFShmString<64> m_convoyname;//物资车名称
-		int32_t m_monsterid;//物资车ID
+		int32_t m_convoyId;//镖车ID
+		NFShmString<64> m_convoyName;//物资车名称
+		int32_t m_MonsterId;//物资车ID
 		NFShmString<64> m_scalle;//大小与y轴朝向
-		int32_t m_convoylevel;//镖车等级
+		int32_t m_convoyLevel;//镖车等级
 		int32_t m_chance;//默认获得权重
-		int32_t m_rewardlvmultiply;//基础经验倍率
+		int32_t m_rewardLvMultiply;//基础经验倍率
 
 		virtual void write_to_pbmsg(::proto_ff::E_EscortEscort & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EscortEscort & msg);
@@ -58,7 +58,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_chance;//权重
-		int32_t m_id;//ID
+		int32_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_EscortChanceEscortDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EscortChanceEscortDesc & msg);
@@ -72,7 +72,7 @@ namespace proto_ff_s {
 		virtual ~E_EscortChance_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_convoyid;//镖车ID
+		int32_t m_convoyId;//镖车ID
 		NFShmVector<struct E_EscortChanceEscortDesc_s, DEFINE_E_ESCORTCHANCE_M_ESCORT_MAX_NUM> m_escort;//镖车
 
 		virtual void write_to_pbmsg(::proto_ff::E_EscortChance & msg) const;
@@ -103,7 +103,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_num;//数量
 		int32_t m_item;//物品
-		int32_t m_id;//ID
+		int32_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_EscortRewardRewardDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EscortRewardRewardDesc & msg);
@@ -148,20 +148,20 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_tokenid;//护送令商品id
-		int32_t m_tokennumber;//物资卷轴数量
-		int32_t m_daytime;//每日次数
-		int32_t m_freenum;//免费次数
-		int32_t m_mapid;//地图ID
-		int32_t m_startnpcid;//开始任务npcID
-		int32_t m_startnpcpointid;//开始任务npc坐标点
-		int32_t m_overnpcid;//完成任务npcID
-		int32_t m_activityid;//活动信息id
-		int32_t m_taskid;//任务id
-		int32_t m_distancea;//最大距离
-		int32_t m_distanceb;//跟进距离
-		int32_t m_distancec;//最近距离
-		int32_t m_timelimit;//任务时间限制
+		int32_t m_tokenId;//护送令商品id
+		int32_t m_tokenNumber;//物资卷轴数量
+		int32_t m_dayTime;//每日次数
+		int32_t m_freeNum;//免费次数
+		int32_t m_mapId;//地图ID
+		int32_t m_startNpcID;//开始任务npcID
+		int32_t m_startNpcPointID;//开始任务npc坐标点
+		int32_t m_overNpcID;//完成任务npcID
+		int32_t m_activityID;//活动信息id
+		int32_t m_taskID;//任务id
+		int32_t m_DistanceA;//最大距离
+		int32_t m_DistanceB;//跟进距离
+		int32_t m_DistanceC;//最近距离
+		int32_t m_timeLimit;//任务时间限制
 
 		virtual void write_to_pbmsg(::proto_ff::E_EscortConst & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EscortConst & msg);

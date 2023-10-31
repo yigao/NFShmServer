@@ -127,10 +127,10 @@ class E_Pk3v3Level : public ::google::protobuf::Message {
   inline ::std::string* release_m_name();
   inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional int32 m_starnum = 4;
+  // optional int32 m_starNum = 4;
   inline bool has_m_starnum() const;
   inline void clear_m_starnum();
-  static const int kMStarnumFieldNumber = 4;
+  static const int kMStarNumFieldNumber = 4;
   inline ::google::protobuf::int32 m_starnum() const;
   inline void set_m_starnum(::google::protobuf::int32 value);
 
@@ -153,10 +153,10 @@ class E_Pk3v3Level : public ::google::protobuf::Message {
   inline ::std::string* release_m_badge();
   inline void set_allocated_m_badge(::std::string* m_badge);
 
-  // optional string m_showbadge = 7;
+  // optional string m_showBadge = 7;
   inline bool has_m_showbadge() const;
   inline void clear_m_showbadge();
-  static const int kMShowbadgeFieldNumber = 7;
+  static const int kMShowBadgeFieldNumber = 7;
   inline const ::std::string& m_showbadge() const;
   inline void set_m_showbadge(const ::std::string& value);
   inline void set_m_showbadge(const char* value);
@@ -165,17 +165,17 @@ class E_Pk3v3Level : public ::google::protobuf::Message {
   inline ::std::string* release_m_showbadge();
   inline void set_allocated_m_showbadge(::std::string* m_showbadge);
 
-  // optional int32 m_scoringadd = 8;
+  // optional int32 m_scoringAdd = 8;
   inline bool has_m_scoringadd() const;
   inline void clear_m_scoringadd();
-  static const int kMScoringaddFieldNumber = 8;
+  static const int kMScoringAddFieldNumber = 8;
   inline ::google::protobuf::int32 m_scoringadd() const;
   inline void set_m_scoringadd(::google::protobuf::int32 value);
 
-  // optional int32 m_scoringcut = 9;
+  // optional int32 m_scoringCut = 9;
   inline bool has_m_scoringcut() const;
   inline void clear_m_scoringcut();
-  static const int kMScoringcutFieldNumber = 9;
+  static const int kMScoringCutFieldNumber = 9;
   inline ::google::protobuf::int32 m_scoringcut() const;
   inline void set_m_scoringcut(::google::protobuf::int32 value);
 
@@ -785,101 +785,101 @@ class E_Pk3v3Constant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_teammember = 2;
+  // optional int32 m_teamMember = 2;
   inline bool has_m_teammember() const;
   inline void clear_m_teammember();
-  static const int kMTeammemberFieldNumber = 2;
+  static const int kMTeamMemberFieldNumber = 2;
   inline ::google::protobuf::int32 m_teammember() const;
   inline void set_m_teammember(::google::protobuf::int32 value);
 
-  // optional int32 m_teamtoplimit = 3;
+  // optional int32 m_teamToplimit = 3;
   inline bool has_m_teamtoplimit() const;
   inline void clear_m_teamtoplimit();
-  static const int kMTeamtoplimitFieldNumber = 3;
+  static const int kMTeamToplimitFieldNumber = 3;
   inline ::google::protobuf::int32 m_teamtoplimit() const;
   inline void set_m_teamtoplimit(::google::protobuf::int32 value);
 
-  // optional int32 m_cedetime = 4;
+  // optional int32 m_cedeTime = 4;
   inline bool has_m_cedetime() const;
   inline void clear_m_cedetime();
-  static const int kMCedetimeFieldNumber = 4;
+  static const int kMCedeTimeFieldNumber = 4;
   inline ::google::protobuf::int32 m_cedetime() const;
   inline void set_m_cedetime(::google::protobuf::int32 value);
 
-  // optional int32 m_punishtime = 5;
+  // optional int32 m_punishTime = 5;
   inline bool has_m_punishtime() const;
   inline void clear_m_punishtime();
-  static const int kMPunishtimeFieldNumber = 5;
+  static const int kMPunishTimeFieldNumber = 5;
   inline ::google::protobuf::int32 m_punishtime() const;
   inline void set_m_punishtime(::google::protobuf::int32 value);
 
-  // optional int32 m_breaktime = 6;
+  // optional int32 m_breakTime = 6;
   inline bool has_m_breaktime() const;
   inline void clear_m_breaktime();
-  static const int kMBreaktimeFieldNumber = 6;
+  static const int kMBreakTimeFieldNumber = 6;
   inline ::google::protobuf::int32 m_breaktime() const;
   inline void set_m_breaktime(::google::protobuf::int32 value);
 
-  // optional int32 m_entryreward = 7;
+  // optional int32 m_entryReward = 7;
   inline bool has_m_entryreward() const;
   inline void clear_m_entryreward();
-  static const int kMEntryrewardFieldNumber = 7;
+  static const int kMEntryRewardFieldNumber = 7;
   inline ::google::protobuf::int32 m_entryreward() const;
   inline void set_m_entryreward(::google::protobuf::int32 value);
 
-  // optional int32 m_entrtimes = 8;
+  // optional int32 m_entrTimes = 8;
   inline bool has_m_entrtimes() const;
   inline void clear_m_entrtimes();
-  static const int kMEntrtimesFieldNumber = 8;
+  static const int kMEntrTimesFieldNumber = 8;
   inline ::google::protobuf::int32 m_entrtimes() const;
   inline void set_m_entrtimes(::google::protobuf::int32 value);
 
-  // optional int32 m_mvpreward = 9;
+  // optional int32 m_mvpReward = 9;
   inline bool has_m_mvpreward() const;
   inline void clear_m_mvpreward();
-  static const int kMMvprewardFieldNumber = 9;
+  static const int kMMvpRewardFieldNumber = 9;
   inline ::google::protobuf::int32 m_mvpreward() const;
   inline void set_m_mvpreward(::google::protobuf::int32 value);
 
-  // optional int32 m_mvptimes = 10;
+  // optional int32 m_mvpTimes = 10;
   inline bool has_m_mvptimes() const;
   inline void clear_m_mvptimes();
-  static const int kMMvptimesFieldNumber = 10;
+  static const int kMMvpTimesFieldNumber = 10;
   inline ::google::protobuf::int32 m_mvptimes() const;
   inline void set_m_mvptimes(::google::protobuf::int32 value);
 
-  // optional int32 m_matchtime = 11;
+  // optional int32 m_matchTime = 11;
   inline bool has_m_matchtime() const;
   inline void clear_m_matchtime();
-  static const int kMMatchtimeFieldNumber = 11;
+  static const int kMMatchTimeFieldNumber = 11;
   inline ::google::protobuf::int32 m_matchtime() const;
   inline void set_m_matchtime(::google::protobuf::int32 value);
 
-  // optional int32 m_unitname = 12;
+  // optional int32 m_unitName = 12;
   inline bool has_m_unitname() const;
   inline void clear_m_unitname();
-  static const int kMUnitnameFieldNumber = 12;
+  static const int kMUnitNameFieldNumber = 12;
   inline ::google::protobuf::int32 m_unitname() const;
   inline void set_m_unitname(::google::protobuf::int32 value);
 
-  // optional int32 m_unitcost = 13;
+  // optional int32 m_unitCost = 13;
   inline bool has_m_unitcost() const;
   inline void clear_m_unitcost();
-  static const int kMUnitcostFieldNumber = 13;
+  static const int kMUnitCostFieldNumber = 13;
   inline ::google::protobuf::int32 m_unitcost() const;
   inline void set_m_unitcost(::google::protobuf::int32 value);
 
-  // optional int32 m_initialzlid = 14;
+  // optional int32 m_initialZLid = 14;
   inline bool has_m_initialzlid() const;
   inline void clear_m_initialzlid();
-  static const int kMInitialzlidFieldNumber = 14;
+  static const int kMInitialZLidFieldNumber = 14;
   inline ::google::protobuf::int32 m_initialzlid() const;
   inline void set_m_initialzlid(::google::protobuf::int32 value);
 
-  // optional string m_initialzlname = 15;
+  // optional string m_initialZLName = 15;
   inline bool has_m_initialzlname() const;
   inline void clear_m_initialzlname();
-  static const int kMInitialzlnameFieldNumber = 15;
+  static const int kMInitialZLNameFieldNumber = 15;
   inline const ::std::string& m_initialzlname() const;
   inline void set_m_initialzlname(const ::std::string& value);
   inline void set_m_initialzlname(const char* value);
@@ -888,10 +888,10 @@ class E_Pk3v3Constant : public ::google::protobuf::Message {
   inline ::std::string* release_m_initialzlname();
   inline void set_allocated_m_initialzlname(::std::string* m_initialzlname);
 
-  // optional string m_robotname = 16;
+  // optional string m_robotName = 16;
   inline bool has_m_robotname() const;
   inline void clear_m_robotname();
-  static const int kMRobotnameFieldNumber = 16;
+  static const int kMRobotNameFieldNumber = 16;
   inline const ::std::string& m_robotname() const;
   inline void set_m_robotname(const ::std::string& value);
   inline void set_m_robotname(const char* value);
@@ -900,24 +900,24 @@ class E_Pk3v3Constant : public ::google::protobuf::Message {
   inline ::std::string* release_m_robotname();
   inline void set_allocated_m_robotname(::std::string* m_robotname);
 
-  // optional int32 m_matetime = 17;
+  // optional int32 m_mateTime = 17;
   inline bool has_m_matetime() const;
   inline void clear_m_matetime();
-  static const int kMMatetimeFieldNumber = 17;
+  static const int kMMateTimeFieldNumber = 17;
   inline ::google::protobuf::int32 m_matetime() const;
   inline void set_m_matetime(::google::protobuf::int32 value);
 
-  // optional int32 m_addtime = 18;
+  // optional int32 m_addTime = 18;
   inline bool has_m_addtime() const;
   inline void clear_m_addtime();
-  static const int kMAddtimeFieldNumber = 18;
+  static const int kMAddTimeFieldNumber = 18;
   inline ::google::protobuf::int32 m_addtime() const;
   inline void set_m_addtime(::google::protobuf::int32 value);
 
-  // optional string m_initialnotice = 19;
+  // optional string m_initialNotice = 19;
   inline bool has_m_initialnotice() const;
   inline void clear_m_initialnotice();
-  static const int kMInitialnoticeFieldNumber = 19;
+  static const int kMInitialNoticeFieldNumber = 19;
   inline const ::std::string& m_initialnotice() const;
   inline void set_m_initialnotice(const ::std::string& value);
   inline void set_m_initialnotice(const char* value);
@@ -926,10 +926,10 @@ class E_Pk3v3Constant : public ::google::protobuf::Message {
   inline ::std::string* release_m_initialnotice();
   inline void set_allocated_m_initialnotice(::std::string* m_initialnotice);
 
-  // repeated int32 m_showreward = 20;
+  // repeated int32 m_showReward = 20;
   inline int m_showreward_size() const;
   inline void clear_m_showreward();
-  static const int kMShowrewardFieldNumber = 20;
+  static const int kMShowRewardFieldNumber = 20;
   inline ::google::protobuf::int32 m_showreward(int index) const;
   inline void set_m_showreward(int index, ::google::protobuf::int32 value);
   inline void add_m_showreward(::google::protobuf::int32 value);
@@ -1160,10 +1160,10 @@ class E_Pk3v3Exp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_mateexp = 2;
+  // optional int32 m_mateExp = 2;
   inline bool has_m_mateexp() const;
   inline void clear_m_mateexp();
-  static const int kMMateexpFieldNumber = 2;
+  static const int kMMateExpFieldNumber = 2;
   inline ::google::protobuf::int32 m_mateexp() const;
   inline void set_m_mateexp(::google::protobuf::int32 value);
 
@@ -1395,7 +1395,7 @@ inline void E_Pk3v3Level::set_allocated_m_name(::std::string* m_name) {
   }
 }
 
-// optional int32 m_starnum = 4;
+// optional int32 m_starNum = 4;
 inline bool E_Pk3v3Level::has_m_starnum() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1509,7 +1509,7 @@ inline void E_Pk3v3Level::set_allocated_m_badge(::std::string* m_badge) {
   }
 }
 
-// optional string m_showbadge = 7;
+// optional string m_showBadge = 7;
 inline bool E_Pk3v3Level::has_m_showbadge() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -1579,7 +1579,7 @@ inline void E_Pk3v3Level::set_allocated_m_showbadge(::std::string* m_showbadge) 
   }
 }
 
-// optional int32 m_scoringadd = 8;
+// optional int32 m_scoringAdd = 8;
 inline bool E_Pk3v3Level::has_m_scoringadd() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -1601,7 +1601,7 @@ inline void E_Pk3v3Level::set_m_scoringadd(::google::protobuf::int32 value) {
   m_scoringadd_ = value;
 }
 
-// optional int32 m_scoringcut = 9;
+// optional int32 m_scoringCut = 9;
 inline bool E_Pk3v3Level::has_m_scoringcut() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -1996,7 +1996,7 @@ inline void E_Pk3v3Constant::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_teammember = 2;
+// optional int32 m_teamMember = 2;
 inline bool E_Pk3v3Constant::has_m_teammember() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -2018,7 +2018,7 @@ inline void E_Pk3v3Constant::set_m_teammember(::google::protobuf::int32 value) {
   m_teammember_ = value;
 }
 
-// optional int32 m_teamtoplimit = 3;
+// optional int32 m_teamToplimit = 3;
 inline bool E_Pk3v3Constant::has_m_teamtoplimit() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -2040,7 +2040,7 @@ inline void E_Pk3v3Constant::set_m_teamtoplimit(::google::protobuf::int32 value)
   m_teamtoplimit_ = value;
 }
 
-// optional int32 m_cedetime = 4;
+// optional int32 m_cedeTime = 4;
 inline bool E_Pk3v3Constant::has_m_cedetime() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -2062,7 +2062,7 @@ inline void E_Pk3v3Constant::set_m_cedetime(::google::protobuf::int32 value) {
   m_cedetime_ = value;
 }
 
-// optional int32 m_punishtime = 5;
+// optional int32 m_punishTime = 5;
 inline bool E_Pk3v3Constant::has_m_punishtime() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -2084,7 +2084,7 @@ inline void E_Pk3v3Constant::set_m_punishtime(::google::protobuf::int32 value) {
   m_punishtime_ = value;
 }
 
-// optional int32 m_breaktime = 6;
+// optional int32 m_breakTime = 6;
 inline bool E_Pk3v3Constant::has_m_breaktime() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -2106,7 +2106,7 @@ inline void E_Pk3v3Constant::set_m_breaktime(::google::protobuf::int32 value) {
   m_breaktime_ = value;
 }
 
-// optional int32 m_entryreward = 7;
+// optional int32 m_entryReward = 7;
 inline bool E_Pk3v3Constant::has_m_entryreward() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -2128,7 +2128,7 @@ inline void E_Pk3v3Constant::set_m_entryreward(::google::protobuf::int32 value) 
   m_entryreward_ = value;
 }
 
-// optional int32 m_entrtimes = 8;
+// optional int32 m_entrTimes = 8;
 inline bool E_Pk3v3Constant::has_m_entrtimes() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -2150,7 +2150,7 @@ inline void E_Pk3v3Constant::set_m_entrtimes(::google::protobuf::int32 value) {
   m_entrtimes_ = value;
 }
 
-// optional int32 m_mvpreward = 9;
+// optional int32 m_mvpReward = 9;
 inline bool E_Pk3v3Constant::has_m_mvpreward() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -2172,7 +2172,7 @@ inline void E_Pk3v3Constant::set_m_mvpreward(::google::protobuf::int32 value) {
   m_mvpreward_ = value;
 }
 
-// optional int32 m_mvptimes = 10;
+// optional int32 m_mvpTimes = 10;
 inline bool E_Pk3v3Constant::has_m_mvptimes() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -2194,7 +2194,7 @@ inline void E_Pk3v3Constant::set_m_mvptimes(::google::protobuf::int32 value) {
   m_mvptimes_ = value;
 }
 
-// optional int32 m_matchtime = 11;
+// optional int32 m_matchTime = 11;
 inline bool E_Pk3v3Constant::has_m_matchtime() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -2216,7 +2216,7 @@ inline void E_Pk3v3Constant::set_m_matchtime(::google::protobuf::int32 value) {
   m_matchtime_ = value;
 }
 
-// optional int32 m_unitname = 12;
+// optional int32 m_unitName = 12;
 inline bool E_Pk3v3Constant::has_m_unitname() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -2238,7 +2238,7 @@ inline void E_Pk3v3Constant::set_m_unitname(::google::protobuf::int32 value) {
   m_unitname_ = value;
 }
 
-// optional int32 m_unitcost = 13;
+// optional int32 m_unitCost = 13;
 inline bool E_Pk3v3Constant::has_m_unitcost() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -2260,7 +2260,7 @@ inline void E_Pk3v3Constant::set_m_unitcost(::google::protobuf::int32 value) {
   m_unitcost_ = value;
 }
 
-// optional int32 m_initialzlid = 14;
+// optional int32 m_initialZLid = 14;
 inline bool E_Pk3v3Constant::has_m_initialzlid() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -2282,7 +2282,7 @@ inline void E_Pk3v3Constant::set_m_initialzlid(::google::protobuf::int32 value) 
   m_initialzlid_ = value;
 }
 
-// optional string m_initialzlname = 15;
+// optional string m_initialZLName = 15;
 inline bool E_Pk3v3Constant::has_m_initialzlname() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
@@ -2352,7 +2352,7 @@ inline void E_Pk3v3Constant::set_allocated_m_initialzlname(::std::string* m_init
   }
 }
 
-// optional string m_robotname = 16;
+// optional string m_robotName = 16;
 inline bool E_Pk3v3Constant::has_m_robotname() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
@@ -2422,7 +2422,7 @@ inline void E_Pk3v3Constant::set_allocated_m_robotname(::std::string* m_robotnam
   }
 }
 
-// optional int32 m_matetime = 17;
+// optional int32 m_mateTime = 17;
 inline bool E_Pk3v3Constant::has_m_matetime() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
@@ -2444,7 +2444,7 @@ inline void E_Pk3v3Constant::set_m_matetime(::google::protobuf::int32 value) {
   m_matetime_ = value;
 }
 
-// optional int32 m_addtime = 18;
+// optional int32 m_addTime = 18;
 inline bool E_Pk3v3Constant::has_m_addtime() const {
   return (_has_bits_[0] & 0x00020000u) != 0;
 }
@@ -2466,7 +2466,7 @@ inline void E_Pk3v3Constant::set_m_addtime(::google::protobuf::int32 value) {
   m_addtime_ = value;
 }
 
-// optional string m_initialnotice = 19;
+// optional string m_initialNotice = 19;
 inline bool E_Pk3v3Constant::has_m_initialnotice() const {
   return (_has_bits_[0] & 0x00040000u) != 0;
 }
@@ -2536,7 +2536,7 @@ inline void E_Pk3v3Constant::set_allocated_m_initialnotice(::std::string* m_init
   }
 }
 
-// repeated int32 m_showreward = 20;
+// repeated int32 m_showReward = 20;
 inline int E_Pk3v3Constant::m_showreward_size() const {
   return m_showreward_.size();
 }
@@ -2616,7 +2616,7 @@ inline void E_Pk3v3Exp::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional int32 m_mateexp = 2;
+// optional int32 m_mateExp = 2;
 inline bool E_Pk3v3Exp::has_m_mateexp() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }

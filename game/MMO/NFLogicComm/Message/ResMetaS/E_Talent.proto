@@ -7,12 +7,12 @@ message E_TalentTalent
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "天赋ID"];
 	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "天赋大类"];
-	optional int32 m_skillid = 3[(yd_fieldoptions.field_cname) = "技能ID"];
-	optional int32 m_lvlimit = 4[(yd_fieldoptions.field_cname) = "等级上限"];
-	optional int32 m_aheadskill = 5[(yd_fieldoptions.field_cname) = "前置技能"];
-	optional int32 m_aheadlv = 6[(yd_fieldoptions.field_cname) = "前置技能等级"];
-	optional int32 m_needtype = 7[(yd_fieldoptions.field_cname) = "要求天赋类型"];
-	optional int32 m_typenum = 8[(yd_fieldoptions.field_cname) = "要求天赋点数"];
+	optional int32 m_skillID = 3[(yd_fieldoptions.field_cname) = "技能ID"];
+	optional int32 m_lvLImit = 4[(yd_fieldoptions.field_cname) = "等级上限"];
+	optional int32 m_aheadSkill = 5[(yd_fieldoptions.field_cname) = "前置技能"];
+	optional int32 m_aheadLv = 6[(yd_fieldoptions.field_cname) = "前置技能等级"];
+	optional int32 m_needType = 7[(yd_fieldoptions.field_cname) = "要求天赋类型"];
+	optional int32 m_typeNum = 8[(yd_fieldoptions.field_cname) = "要求天赋点数"];
 	optional int32 m_cost = 9[(yd_fieldoptions.field_cname) = "升级消耗天赋点"];
 }
 

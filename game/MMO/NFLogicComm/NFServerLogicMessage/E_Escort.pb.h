@@ -101,17 +101,17 @@ class E_EscortEscort : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_convoyid = 1;
+  // optional int32 m_convoyId = 1;
   inline bool has_m_convoyid() const;
   inline void clear_m_convoyid();
-  static const int kMConvoyidFieldNumber = 1;
+  static const int kMConvoyIdFieldNumber = 1;
   inline ::google::protobuf::int32 m_convoyid() const;
   inline void set_m_convoyid(::google::protobuf::int32 value);
 
-  // optional string m_convoyname = 2;
+  // optional string m_convoyName = 2;
   inline bool has_m_convoyname() const;
   inline void clear_m_convoyname();
-  static const int kMConvoynameFieldNumber = 2;
+  static const int kMConvoyNameFieldNumber = 2;
   inline const ::std::string& m_convoyname() const;
   inline void set_m_convoyname(const ::std::string& value);
   inline void set_m_convoyname(const char* value);
@@ -120,10 +120,10 @@ class E_EscortEscort : public ::google::protobuf::Message {
   inline ::std::string* release_m_convoyname();
   inline void set_allocated_m_convoyname(::std::string* m_convoyname);
 
-  // optional int32 m_monsterid = 3;
+  // optional int32 m_MonsterId = 3;
   inline bool has_m_monsterid() const;
   inline void clear_m_monsterid();
-  static const int kMMonsteridFieldNumber = 3;
+  static const int kMMonsterIdFieldNumber = 3;
   inline ::google::protobuf::int32 m_monsterid() const;
   inline void set_m_monsterid(::google::protobuf::int32 value);
 
@@ -139,10 +139,10 @@ class E_EscortEscort : public ::google::protobuf::Message {
   inline ::std::string* release_m_scalle();
   inline void set_allocated_m_scalle(::std::string* m_scalle);
 
-  // optional int32 m_convoylevel = 5;
+  // optional int32 m_convoyLevel = 5;
   inline bool has_m_convoylevel() const;
   inline void clear_m_convoylevel();
-  static const int kMConvoylevelFieldNumber = 5;
+  static const int kMConvoyLevelFieldNumber = 5;
   inline ::google::protobuf::int32 m_convoylevel() const;
   inline void set_m_convoylevel(::google::protobuf::int32 value);
 
@@ -153,10 +153,10 @@ class E_EscortEscort : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_chance() const;
   inline void set_m_chance(::google::protobuf::int32 value);
 
-  // optional int32 m_rewardlvmultiply = 7;
+  // optional int32 m_rewardLvMultiply = 7;
   inline bool has_m_rewardlvmultiply() const;
   inline void clear_m_rewardlvmultiply();
-  static const int kMRewardlvmultiplyFieldNumber = 7;
+  static const int kMRewardLvMultiplyFieldNumber = 7;
   inline ::google::protobuf::int32 m_rewardlvmultiply() const;
   inline void set_m_rewardlvmultiply(::google::protobuf::int32 value);
 
@@ -345,10 +345,10 @@ class E_EscortChanceEscortDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_chance() const;
   inline void set_m_chance(::google::protobuf::int32 value);
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -430,10 +430,10 @@ class E_EscortChance : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_convoyid = 1;
+  // optional int32 m_convoyId = 1;
   inline bool has_m_convoyid() const;
   inline void clear_m_convoyid();
-  static const int kMConvoyidFieldNumber = 1;
+  static const int kMConvoyIdFieldNumber = 1;
   inline ::google::protobuf::int32 m_convoyid() const;
   inline void set_m_convoyid(::google::protobuf::int32 value);
 
@@ -624,10 +624,10 @@ class E_EscortRewardRewardDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_item() const;
   inline void set_m_item(::google::protobuf::int32 value);
 
-  // optional int32 m_id = 3;
+  // optional int32 m_ID = 3;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 3;
+  static const int kMIDFieldNumber = 3;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -909,101 +909,101 @@ class E_EscortConst : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_tokenid = 2;
+  // optional int32 m_tokenId = 2;
   inline bool has_m_tokenid() const;
   inline void clear_m_tokenid();
-  static const int kMTokenidFieldNumber = 2;
+  static const int kMTokenIdFieldNumber = 2;
   inline ::google::protobuf::int32 m_tokenid() const;
   inline void set_m_tokenid(::google::protobuf::int32 value);
 
-  // optional int32 m_tokennumber = 3;
+  // optional int32 m_tokenNumber = 3;
   inline bool has_m_tokennumber() const;
   inline void clear_m_tokennumber();
-  static const int kMTokennumberFieldNumber = 3;
+  static const int kMTokenNumberFieldNumber = 3;
   inline ::google::protobuf::int32 m_tokennumber() const;
   inline void set_m_tokennumber(::google::protobuf::int32 value);
 
-  // optional int32 m_daytime = 4;
+  // optional int32 m_dayTime = 4;
   inline bool has_m_daytime() const;
   inline void clear_m_daytime();
-  static const int kMDaytimeFieldNumber = 4;
+  static const int kMDayTimeFieldNumber = 4;
   inline ::google::protobuf::int32 m_daytime() const;
   inline void set_m_daytime(::google::protobuf::int32 value);
 
-  // optional int32 m_freenum = 5;
+  // optional int32 m_freeNum = 5;
   inline bool has_m_freenum() const;
   inline void clear_m_freenum();
-  static const int kMFreenumFieldNumber = 5;
+  static const int kMFreeNumFieldNumber = 5;
   inline ::google::protobuf::int32 m_freenum() const;
   inline void set_m_freenum(::google::protobuf::int32 value);
 
-  // optional int32 m_mapid = 6;
+  // optional int32 m_mapId = 6;
   inline bool has_m_mapid() const;
   inline void clear_m_mapid();
-  static const int kMMapidFieldNumber = 6;
+  static const int kMMapIdFieldNumber = 6;
   inline ::google::protobuf::int32 m_mapid() const;
   inline void set_m_mapid(::google::protobuf::int32 value);
 
-  // optional int32 m_startnpcid = 7;
+  // optional int32 m_startNpcID = 7;
   inline bool has_m_startnpcid() const;
   inline void clear_m_startnpcid();
-  static const int kMStartnpcidFieldNumber = 7;
+  static const int kMStartNpcIDFieldNumber = 7;
   inline ::google::protobuf::int32 m_startnpcid() const;
   inline void set_m_startnpcid(::google::protobuf::int32 value);
 
-  // optional int32 m_startnpcpointid = 8;
+  // optional int32 m_startNpcPointID = 8;
   inline bool has_m_startnpcpointid() const;
   inline void clear_m_startnpcpointid();
-  static const int kMStartnpcpointidFieldNumber = 8;
+  static const int kMStartNpcPointIDFieldNumber = 8;
   inline ::google::protobuf::int32 m_startnpcpointid() const;
   inline void set_m_startnpcpointid(::google::protobuf::int32 value);
 
-  // optional int32 m_overnpcid = 9;
+  // optional int32 m_overNpcID = 9;
   inline bool has_m_overnpcid() const;
   inline void clear_m_overnpcid();
-  static const int kMOvernpcidFieldNumber = 9;
+  static const int kMOverNpcIDFieldNumber = 9;
   inline ::google::protobuf::int32 m_overnpcid() const;
   inline void set_m_overnpcid(::google::protobuf::int32 value);
 
-  // optional int32 m_activityid = 10;
+  // optional int32 m_activityID = 10;
   inline bool has_m_activityid() const;
   inline void clear_m_activityid();
-  static const int kMActivityidFieldNumber = 10;
+  static const int kMActivityIDFieldNumber = 10;
   inline ::google::protobuf::int32 m_activityid() const;
   inline void set_m_activityid(::google::protobuf::int32 value);
 
-  // optional int32 m_taskid = 11;
+  // optional int32 m_taskID = 11;
   inline bool has_m_taskid() const;
   inline void clear_m_taskid();
-  static const int kMTaskidFieldNumber = 11;
+  static const int kMTaskIDFieldNumber = 11;
   inline ::google::protobuf::int32 m_taskid() const;
   inline void set_m_taskid(::google::protobuf::int32 value);
 
-  // optional int32 m_distancea = 12;
+  // optional int32 m_DistanceA = 12;
   inline bool has_m_distancea() const;
   inline void clear_m_distancea();
-  static const int kMDistanceaFieldNumber = 12;
+  static const int kMDistanceAFieldNumber = 12;
   inline ::google::protobuf::int32 m_distancea() const;
   inline void set_m_distancea(::google::protobuf::int32 value);
 
-  // optional int32 m_distanceb = 13;
+  // optional int32 m_DistanceB = 13;
   inline bool has_m_distanceb() const;
   inline void clear_m_distanceb();
-  static const int kMDistancebFieldNumber = 13;
+  static const int kMDistanceBFieldNumber = 13;
   inline ::google::protobuf::int32 m_distanceb() const;
   inline void set_m_distanceb(::google::protobuf::int32 value);
 
-  // optional int32 m_distancec = 14;
+  // optional int32 m_DistanceC = 14;
   inline bool has_m_distancec() const;
   inline void clear_m_distancec();
-  static const int kMDistancecFieldNumber = 14;
+  static const int kMDistanceCFieldNumber = 14;
   inline ::google::protobuf::int32 m_distancec() const;
   inline void set_m_distancec(::google::protobuf::int32 value);
 
-  // optional int32 m_timelimit = 15;
+  // optional int32 m_timeLimit = 15;
   inline bool has_m_timelimit() const;
   inline void clear_m_timelimit();
-  static const int kMTimelimitFieldNumber = 15;
+  static const int kMTimeLimitFieldNumber = 15;
   inline ::google::protobuf::int32 m_timelimit() const;
   inline void set_m_timelimit(::google::protobuf::int32 value);
 
@@ -1160,7 +1160,7 @@ class Sheet_EscortConst : public ::google::protobuf::Message {
 
 // E_EscortEscort
 
-// optional int32 m_convoyid = 1;
+// optional int32 m_convoyId = 1;
 inline bool E_EscortEscort::has_m_convoyid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1182,7 +1182,7 @@ inline void E_EscortEscort::set_m_convoyid(::google::protobuf::int32 value) {
   m_convoyid_ = value;
 }
 
-// optional string m_convoyname = 2;
+// optional string m_convoyName = 2;
 inline bool E_EscortEscort::has_m_convoyname() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1252,7 +1252,7 @@ inline void E_EscortEscort::set_allocated_m_convoyname(::std::string* m_convoyna
   }
 }
 
-// optional int32 m_monsterid = 3;
+// optional int32 m_MonsterId = 3;
 inline bool E_EscortEscort::has_m_monsterid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1344,7 +1344,7 @@ inline void E_EscortEscort::set_allocated_m_scalle(::std::string* m_scalle) {
   }
 }
 
-// optional int32 m_convoylevel = 5;
+// optional int32 m_convoyLevel = 5;
 inline bool E_EscortEscort::has_m_convoylevel() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1388,7 +1388,7 @@ inline void E_EscortEscort::set_m_chance(::google::protobuf::int32 value) {
   m_chance_ = value;
 }
 
-// optional int32 m_rewardlvmultiply = 7;
+// optional int32 m_rewardLvMultiply = 7;
 inline bool E_EscortEscort::has_m_rewardlvmultiply() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -1465,7 +1465,7 @@ inline void E_EscortChanceEscortDesc::set_m_chance(::google::protobuf::int32 val
   m_chance_ = value;
 }
 
-// optional int32 m_id = 2;
+// optional int32 m_ID = 2;
 inline bool E_EscortChanceEscortDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1491,7 +1491,7 @@ inline void E_EscortChanceEscortDesc::set_m_id(::google::protobuf::int32 value) 
 
 // E_EscortChance
 
-// optional int32 m_convoyid = 1;
+// optional int32 m_convoyId = 1;
 inline bool E_EscortChance::has_m_convoyid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1615,7 +1615,7 @@ inline void E_EscortRewardRewardDesc::set_m_item(::google::protobuf::int32 value
   m_item_ = value;
 }
 
-// optional int32 m_id = 3;
+// optional int32 m_ID = 3;
 inline bool E_EscortRewardRewardDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1765,7 +1765,7 @@ inline void E_EscortConst::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_tokenid = 2;
+// optional int32 m_tokenId = 2;
 inline bool E_EscortConst::has_m_tokenid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1787,7 +1787,7 @@ inline void E_EscortConst::set_m_tokenid(::google::protobuf::int32 value) {
   m_tokenid_ = value;
 }
 
-// optional int32 m_tokennumber = 3;
+// optional int32 m_tokenNumber = 3;
 inline bool E_EscortConst::has_m_tokennumber() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1809,7 +1809,7 @@ inline void E_EscortConst::set_m_tokennumber(::google::protobuf::int32 value) {
   m_tokennumber_ = value;
 }
 
-// optional int32 m_daytime = 4;
+// optional int32 m_dayTime = 4;
 inline bool E_EscortConst::has_m_daytime() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1831,7 +1831,7 @@ inline void E_EscortConst::set_m_daytime(::google::protobuf::int32 value) {
   m_daytime_ = value;
 }
 
-// optional int32 m_freenum = 5;
+// optional int32 m_freeNum = 5;
 inline bool E_EscortConst::has_m_freenum() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1853,7 +1853,7 @@ inline void E_EscortConst::set_m_freenum(::google::protobuf::int32 value) {
   m_freenum_ = value;
 }
 
-// optional int32 m_mapid = 6;
+// optional int32 m_mapId = 6;
 inline bool E_EscortConst::has_m_mapid() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -1875,7 +1875,7 @@ inline void E_EscortConst::set_m_mapid(::google::protobuf::int32 value) {
   m_mapid_ = value;
 }
 
-// optional int32 m_startnpcid = 7;
+// optional int32 m_startNpcID = 7;
 inline bool E_EscortConst::has_m_startnpcid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -1897,7 +1897,7 @@ inline void E_EscortConst::set_m_startnpcid(::google::protobuf::int32 value) {
   m_startnpcid_ = value;
 }
 
-// optional int32 m_startnpcpointid = 8;
+// optional int32 m_startNpcPointID = 8;
 inline bool E_EscortConst::has_m_startnpcpointid() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -1919,7 +1919,7 @@ inline void E_EscortConst::set_m_startnpcpointid(::google::protobuf::int32 value
   m_startnpcpointid_ = value;
 }
 
-// optional int32 m_overnpcid = 9;
+// optional int32 m_overNpcID = 9;
 inline bool E_EscortConst::has_m_overnpcid() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -1941,7 +1941,7 @@ inline void E_EscortConst::set_m_overnpcid(::google::protobuf::int32 value) {
   m_overnpcid_ = value;
 }
 
-// optional int32 m_activityid = 10;
+// optional int32 m_activityID = 10;
 inline bool E_EscortConst::has_m_activityid() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -1963,7 +1963,7 @@ inline void E_EscortConst::set_m_activityid(::google::protobuf::int32 value) {
   m_activityid_ = value;
 }
 
-// optional int32 m_taskid = 11;
+// optional int32 m_taskID = 11;
 inline bool E_EscortConst::has_m_taskid() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -1985,7 +1985,7 @@ inline void E_EscortConst::set_m_taskid(::google::protobuf::int32 value) {
   m_taskid_ = value;
 }
 
-// optional int32 m_distancea = 12;
+// optional int32 m_DistanceA = 12;
 inline bool E_EscortConst::has_m_distancea() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -2007,7 +2007,7 @@ inline void E_EscortConst::set_m_distancea(::google::protobuf::int32 value) {
   m_distancea_ = value;
 }
 
-// optional int32 m_distanceb = 13;
+// optional int32 m_DistanceB = 13;
 inline bool E_EscortConst::has_m_distanceb() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -2029,7 +2029,7 @@ inline void E_EscortConst::set_m_distanceb(::google::protobuf::int32 value) {
   m_distanceb_ = value;
 }
 
-// optional int32 m_distancec = 14;
+// optional int32 m_DistanceC = 14;
 inline bool E_EscortConst::has_m_distancec() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -2051,7 +2051,7 @@ inline void E_EscortConst::set_m_distancec(::google::protobuf::int32 value) {
   m_distancec_ = value;
 }
 
-// optional int32 m_timelimit = 15;
+// optional int32 m_timeLimit = 15;
 inline bool E_EscortConst::has_m_timelimit() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }

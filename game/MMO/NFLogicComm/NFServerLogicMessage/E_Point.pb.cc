@@ -104,7 +104,7 @@ void protobuf_AddDesc_E_5fPoint_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\rE_Point.proto\022\010proto_ff\032\025yd_fieldoptio"
     "ns.proto\"W\n\014E_PointPoint\022\032\n\004m_id\030\001 \001(\003B\014"
-    "\302\377\024\010\350\267\257\345\276\204ID\022+\n\021m_belongtosceneid\030\002 \001(\003B"
+    "\302\377\024\010\350\267\257\345\276\204ID\022+\n\021m_belongToSceneID\030\002 \001(\003B"
     "\020\302\377\024\014\346\211\200\345\261\236\345\234\272\346\231\257\"L\n\020Sheet_PointPoint\0228\n"
     "\021E_PointPoint_List\030\001 \003(\0132\026.proto_ff.E_Po"
     "intPointB\005\210\301\024\200\020", 215);
@@ -128,7 +128,7 @@ struct StaticDescriptorInitializer_E_5fPoint_2eproto {
 
 #ifndef _MSC_VER
 const int E_PointPoint::kMIdFieldNumber;
-const int E_PointPoint::kMBelongtosceneidFieldNumber;
+const int E_PointPoint::kMBelongToSceneIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_PointPoint::E_PointPoint()
@@ -208,15 +208,15 @@ bool E_PointPoint::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_belongtosceneid;
+        if (input->ExpectTag(16)) goto parse_m_belongToSceneID;
         break;
       }
 
-      // optional int64 m_belongtosceneid = 2;
+      // optional int64 m_belongToSceneID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_belongtosceneid:
+         parse_m_belongToSceneID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_belongtosceneid_)));
@@ -251,7 +251,7 @@ void E_PointPoint::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
 
-  // optional int64 m_belongtosceneid = 2;
+  // optional int64 m_belongToSceneID = 2;
   if (has_m_belongtosceneid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_belongtosceneid(), output);
   }
@@ -269,7 +269,7 @@ void E_PointPoint::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
 
-  // optional int64 m_belongtosceneid = 2;
+  // optional int64 m_belongToSceneID = 2;
   if (has_m_belongtosceneid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_belongtosceneid(), target);
   }
@@ -292,7 +292,7 @@ int E_PointPoint::ByteSize() const {
           this->m_id());
     }
 
-    // optional int64 m_belongtosceneid = 2;
+    // optional int64 m_belongToSceneID = 2;
     if (has_m_belongtosceneid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(

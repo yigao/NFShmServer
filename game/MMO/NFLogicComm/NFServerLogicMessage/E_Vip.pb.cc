@@ -303,11 +303,11 @@ void protobuf_AddDesc_E_5fVip_2eproto() {
     ".proto\"\351\002\n\010E_VipVip\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002i"
     "d\022\036\n\007m_level\030\002 \001(\005B\r\302\377\024\tvip\347\255\211\347\272\247\022\034\n\005m_e"
     "xp\030\003 \001(\005B\r\302\377\024\t\347\273\217\351\252\214\345\200\274\022(\n\021m_privilege_g"
-    "roup\030\004 \001(\005B\r\302\377\024\t\347\211\271\346\235\203\347\273\204\022*\n\nm_dailybox\030"
-    "\005 \001(\005B\026\302\377\024\022\346\257\217\346\227\245\347\246\217\345\210\251\345\245\226\345\212\261\022&\n\tm_vipgi"
+    "roup\030\004 \001(\005B\r\302\377\024\t\347\211\271\346\235\203\347\273\204\022*\n\nm_dailyBox\030"
+    "\005 \001(\005B\026\302\377\024\022\346\257\217\346\227\245\347\246\217\345\210\251\345\245\226\345\212\261\022&\n\tm_vipGi"
     "ft\030\006 \001(\005B\023\302\377\024\017\344\270\223\345\261\236\347\244\274\345\214\205box\0221\n\013m_price"
-    "type\030\007 \001(\005B\034\302\377\024\030\344\270\223\345\261\236\347\244\274\345\214\205\344\273\267\346\240\274\347\261\273\345\236\213"
-    "\022/\n\017m_originalprice\030\010 \001(\005B\026\302\377\024\022\344\270\223\345\261\236\347\244\274"
+    "Type\030\007 \001(\005B\034\302\377\024\030\344\270\223\345\261\236\347\244\274\345\214\205\344\273\267\346\240\274\347\261\273\345\236\213"
+    "\022/\n\017m_originalPrice\030\010 \001(\005B\026\302\377\024\022\344\270\223\345\261\236\347\244\274"
     "\345\214\205\345\216\237\344\273\267\022\'\n\007m_price\030\t \001(\005B\026\302\377\024\022\344\270\223\345\261\236\347\244"
     "\274\345\214\205\344\273\267\346\240\274\"\?\n\014Sheet_VipVip\022/\n\rE_VipVip_L"
     "ist\030\001 \003(\0132\022.proto_ff.E_VipVipB\004\210\301\024\020\"\265\001\n\016"
@@ -321,16 +321,16 @@ void protobuf_AddDesc_E_5fVip_2eproto() {
     "m_id\030\001 \001(\005B\006\302\377\024\002id\"B\n\rSheet_VipChat\0221\n\016E"
     "_VipChat_List\030\001 \003(\0132\023.proto_ff.E_VipChat"
     "B\004\210\301\024\020\"\314\003\n\rE_VipCosntant\022\024\n\004m_id\030\001 \001(\005B\006"
-    "\302\377\024\002id\022+\n\013m_fvipprice\030\002 \001(\005B\026\302\377\024\022\351\233\266\345\205\203v"
-    "ip\347\232\204\344\273\267\346\240\274\0227\n\013m_fviprtime\030\003 \001(\005B\"\302\377\024\036\351\233"
-    "\266\345\205\203vip\347\232\204\350\277\224\350\277\230\345\274\200\346\234\215\346\227\266\351\227\264\022-\n\rm_fvippr"
+    "\302\377\024\002id\022+\n\013m_FVipPrice\030\002 \001(\005B\026\302\377\024\022\351\233\266\345\205\203v"
+    "ip\347\232\204\344\273\267\346\240\274\0227\n\013m_FVipRtime\030\003 \001(\005B\"\302\377\024\036\351\233"
+    "\266\345\205\203vip\347\232\204\350\277\224\350\277\230\345\274\200\346\234\215\346\227\266\351\227\264\022-\n\rm_FVipPr"
     "ivage\030\004 \001(\005B\026\302\377\024\022\351\233\266\345\205\203VIP\347\232\204\347\211\271\346\235\203\0221\n\010m"
-    "_fviplv\030\005 \001(\005B\037\302\377\024\033\351\233\266\345\205\203vip\345\257\271\345\272\224\347\232\204vip"
-    "\347\255\211\347\272\247\022)\n\tm_fvipexp\030\006 \001(\005B\026\302\377\024\022\350\216\267\345\276\227\347\232\204"
-    "vip\347\273\217\351\252\214\022*\n\rm_vipitemicon\030\007 \001(\005B\023\302\377\024\017vi"
-    "p\351\201\223\345\205\267\345\233\276\346\240\207\022.\n\016m_foreverguide\030\010 \001(\005B\026\302"
-    "\377\024\022\346\260\270\344\271\205\347\216\251\346\263\225\346\230\240\345\260\204\022/\n\017m_unactiveguide"
-    "\030\t \001(\005B\026\302\377\024\022\344\270\264\346\227\266\347\216\251\346\263\225\346\230\240\345\260\204\022%\n\010m_vipe"
+    "_Fviplv\030\005 \001(\005B\037\302\377\024\033\351\233\266\345\205\203vip\345\257\271\345\272\224\347\232\204vip"
+    "\347\255\211\347\272\247\022)\n\tm_Fvipexp\030\006 \001(\005B\026\302\377\024\022\350\216\267\345\276\227\347\232\204"
+    "vip\347\273\217\351\252\214\022*\n\rm_VipItemIcon\030\007 \001(\005B\023\302\377\024\017vi"
+    "p\351\201\223\345\205\267\345\233\276\346\240\207\022.\n\016m_foreverGuide\030\010 \001(\005B\026\302"
+    "\377\024\022\346\260\270\344\271\205\347\216\251\346\263\225\346\230\240\345\260\204\022/\n\017m_unActiveGuide"
+    "\030\t \001(\005B\026\302\377\024\022\344\270\264\346\227\266\347\216\251\346\263\225\346\230\240\345\260\204\022%\n\010m_vipE"
     "xp\030\n \001(\005B\023\302\377\024\017vip\346\266\210\350\264\271\347\273\217\351\252\214\"N\n\021Sheet_V"
     "ipCosntant\0229\n\022E_VipCosntant_List\030\001 \003(\0132\027"
     ".proto_ff.E_VipCosntantB\004\210\301\024\002\"L\n\rE_VipEx"
@@ -377,10 +377,10 @@ const int E_VipVip::kMIdFieldNumber;
 const int E_VipVip::kMLevelFieldNumber;
 const int E_VipVip::kMExpFieldNumber;
 const int E_VipVip::kMPrivilegeGroupFieldNumber;
-const int E_VipVip::kMDailyboxFieldNumber;
-const int E_VipVip::kMVipgiftFieldNumber;
-const int E_VipVip::kMPricetypeFieldNumber;
-const int E_VipVip::kMOriginalpriceFieldNumber;
+const int E_VipVip::kMDailyBoxFieldNumber;
+const int E_VipVip::kMVipGiftFieldNumber;
+const int E_VipVip::kMPriceTypeFieldNumber;
+const int E_VipVip::kMOriginalPriceFieldNumber;
 const int E_VipVip::kMPriceFieldNumber;
 #endif  // !_MSC_VER
 
@@ -525,15 +525,15 @@ bool E_VipVip::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_dailybox;
+        if (input->ExpectTag(40)) goto parse_m_dailyBox;
         break;
       }
 
-      // optional int32 m_dailybox = 5;
+      // optional int32 m_dailyBox = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_dailybox:
+         parse_m_dailyBox:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_dailybox_)));
@@ -541,15 +541,15 @@ bool E_VipVip::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_vipgift;
+        if (input->ExpectTag(48)) goto parse_m_vipGift;
         break;
       }
 
-      // optional int32 m_vipgift = 6;
+      // optional int32 m_vipGift = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_vipgift:
+         parse_m_vipGift:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_vipgift_)));
@@ -557,15 +557,15 @@ bool E_VipVip::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_pricetype;
+        if (input->ExpectTag(56)) goto parse_m_priceType;
         break;
       }
 
-      // optional int32 m_pricetype = 7;
+      // optional int32 m_priceType = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_pricetype:
+         parse_m_priceType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_pricetype_)));
@@ -573,15 +573,15 @@ bool E_VipVip::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_originalprice;
+        if (input->ExpectTag(64)) goto parse_m_originalPrice;
         break;
       }
 
-      // optional int32 m_originalprice = 8;
+      // optional int32 m_originalPrice = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_originalprice:
+         parse_m_originalPrice:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_originalprice_)));
@@ -647,22 +647,22 @@ void E_VipVip::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_privilege_group(), output);
   }
 
-  // optional int32 m_dailybox = 5;
+  // optional int32 m_dailyBox = 5;
   if (has_m_dailybox()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_dailybox(), output);
   }
 
-  // optional int32 m_vipgift = 6;
+  // optional int32 m_vipGift = 6;
   if (has_m_vipgift()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_vipgift(), output);
   }
 
-  // optional int32 m_pricetype = 7;
+  // optional int32 m_priceType = 7;
   if (has_m_pricetype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_pricetype(), output);
   }
 
-  // optional int32 m_originalprice = 8;
+  // optional int32 m_originalPrice = 8;
   if (has_m_originalprice()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_originalprice(), output);
   }
@@ -700,22 +700,22 @@ void E_VipVip::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_privilege_group(), target);
   }
 
-  // optional int32 m_dailybox = 5;
+  // optional int32 m_dailyBox = 5;
   if (has_m_dailybox()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_dailybox(), target);
   }
 
-  // optional int32 m_vipgift = 6;
+  // optional int32 m_vipGift = 6;
   if (has_m_vipgift()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_vipgift(), target);
   }
 
-  // optional int32 m_pricetype = 7;
+  // optional int32 m_priceType = 7;
   if (has_m_pricetype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_pricetype(), target);
   }
 
-  // optional int32 m_originalprice = 8;
+  // optional int32 m_originalPrice = 8;
   if (has_m_originalprice()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_originalprice(), target);
   }
@@ -764,28 +764,28 @@ int E_VipVip::ByteSize() const {
           this->m_privilege_group());
     }
 
-    // optional int32 m_dailybox = 5;
+    // optional int32 m_dailyBox = 5;
     if (has_m_dailybox()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_dailybox());
     }
 
-    // optional int32 m_vipgift = 6;
+    // optional int32 m_vipGift = 6;
     if (has_m_vipgift()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_vipgift());
     }
 
-    // optional int32 m_pricetype = 7;
+    // optional int32 m_priceType = 7;
     if (has_m_pricetype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_pricetype());
     }
 
-    // optional int32 m_originalprice = 8;
+    // optional int32 m_originalPrice = 8;
     if (has_m_originalprice()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2110,15 +2110,15 @@ void Sheet_VipChat::Swap(Sheet_VipChat* other) {
 
 #ifndef _MSC_VER
 const int E_VipCosntant::kMIdFieldNumber;
-const int E_VipCosntant::kMFvippriceFieldNumber;
-const int E_VipCosntant::kMFviprtimeFieldNumber;
-const int E_VipCosntant::kMFvipprivageFieldNumber;
+const int E_VipCosntant::kMFVipPriceFieldNumber;
+const int E_VipCosntant::kMFVipRtimeFieldNumber;
+const int E_VipCosntant::kMFVipPrivageFieldNumber;
 const int E_VipCosntant::kMFviplvFieldNumber;
 const int E_VipCosntant::kMFvipexpFieldNumber;
-const int E_VipCosntant::kMVipitemiconFieldNumber;
-const int E_VipCosntant::kMForeverguideFieldNumber;
-const int E_VipCosntant::kMUnactiveguideFieldNumber;
-const int E_VipCosntant::kMVipexpFieldNumber;
+const int E_VipCosntant::kMVipItemIconFieldNumber;
+const int E_VipCosntant::kMForeverGuideFieldNumber;
+const int E_VipCosntant::kMUnActiveGuideFieldNumber;
+const int E_VipCosntant::kMVipExpFieldNumber;
 #endif  // !_MSC_VER
 
 E_VipCosntant::E_VipCosntant()
@@ -2216,15 +2216,15 @@ bool E_VipCosntant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_fvipprice;
+        if (input->ExpectTag(16)) goto parse_m_FVipPrice;
         break;
       }
 
-      // optional int32 m_fvipprice = 2;
+      // optional int32 m_FVipPrice = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_fvipprice:
+         parse_m_FVipPrice:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_fvipprice_)));
@@ -2232,15 +2232,15 @@ bool E_VipCosntant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_fviprtime;
+        if (input->ExpectTag(24)) goto parse_m_FVipRtime;
         break;
       }
 
-      // optional int32 m_fviprtime = 3;
+      // optional int32 m_FVipRtime = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_fviprtime:
+         parse_m_FVipRtime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_fviprtime_)));
@@ -2248,15 +2248,15 @@ bool E_VipCosntant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_fvipprivage;
+        if (input->ExpectTag(32)) goto parse_m_FVipPrivage;
         break;
       }
 
-      // optional int32 m_fvipprivage = 4;
+      // optional int32 m_FVipPrivage = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_fvipprivage:
+         parse_m_FVipPrivage:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_fvipprivage_)));
@@ -2264,15 +2264,15 @@ bool E_VipCosntant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_fviplv;
+        if (input->ExpectTag(40)) goto parse_m_Fviplv;
         break;
       }
 
-      // optional int32 m_fviplv = 5;
+      // optional int32 m_Fviplv = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_fviplv:
+         parse_m_Fviplv:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_fviplv_)));
@@ -2280,15 +2280,15 @@ bool E_VipCosntant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_fvipexp;
+        if (input->ExpectTag(48)) goto parse_m_Fvipexp;
         break;
       }
 
-      // optional int32 m_fvipexp = 6;
+      // optional int32 m_Fvipexp = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_fvipexp:
+         parse_m_Fvipexp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_fvipexp_)));
@@ -2296,15 +2296,15 @@ bool E_VipCosntant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_vipitemicon;
+        if (input->ExpectTag(56)) goto parse_m_VipItemIcon;
         break;
       }
 
-      // optional int32 m_vipitemicon = 7;
+      // optional int32 m_VipItemIcon = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_vipitemicon:
+         parse_m_VipItemIcon:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_vipitemicon_)));
@@ -2312,15 +2312,15 @@ bool E_VipCosntant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_foreverguide;
+        if (input->ExpectTag(64)) goto parse_m_foreverGuide;
         break;
       }
 
-      // optional int32 m_foreverguide = 8;
+      // optional int32 m_foreverGuide = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_foreverguide:
+         parse_m_foreverGuide:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_foreverguide_)));
@@ -2328,15 +2328,15 @@ bool E_VipCosntant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_unactiveguide;
+        if (input->ExpectTag(72)) goto parse_m_unActiveGuide;
         break;
       }
 
-      // optional int32 m_unactiveguide = 9;
+      // optional int32 m_unActiveGuide = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_unactiveguide:
+         parse_m_unActiveGuide:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_unactiveguide_)));
@@ -2344,15 +2344,15 @@ bool E_VipCosntant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_vipexp;
+        if (input->ExpectTag(80)) goto parse_m_vipExp;
         break;
       }
 
-      // optional int32 m_vipexp = 10;
+      // optional int32 m_vipExp = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_vipexp:
+         parse_m_vipExp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_vipexp_)));
@@ -2387,47 +2387,47 @@ void E_VipCosntant::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_fvipprice = 2;
+  // optional int32 m_FVipPrice = 2;
   if (has_m_fvipprice()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_fvipprice(), output);
   }
 
-  // optional int32 m_fviprtime = 3;
+  // optional int32 m_FVipRtime = 3;
   if (has_m_fviprtime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_fviprtime(), output);
   }
 
-  // optional int32 m_fvipprivage = 4;
+  // optional int32 m_FVipPrivage = 4;
   if (has_m_fvipprivage()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_fvipprivage(), output);
   }
 
-  // optional int32 m_fviplv = 5;
+  // optional int32 m_Fviplv = 5;
   if (has_m_fviplv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_fviplv(), output);
   }
 
-  // optional int32 m_fvipexp = 6;
+  // optional int32 m_Fvipexp = 6;
   if (has_m_fvipexp()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_fvipexp(), output);
   }
 
-  // optional int32 m_vipitemicon = 7;
+  // optional int32 m_VipItemIcon = 7;
   if (has_m_vipitemicon()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_vipitemicon(), output);
   }
 
-  // optional int32 m_foreverguide = 8;
+  // optional int32 m_foreverGuide = 8;
   if (has_m_foreverguide()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_foreverguide(), output);
   }
 
-  // optional int32 m_unactiveguide = 9;
+  // optional int32 m_unActiveGuide = 9;
   if (has_m_unactiveguide()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_unactiveguide(), output);
   }
 
-  // optional int32 m_vipexp = 10;
+  // optional int32 m_vipExp = 10;
   if (has_m_vipexp()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_vipexp(), output);
   }
@@ -2445,47 +2445,47 @@ void E_VipCosntant::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_fvipprice = 2;
+  // optional int32 m_FVipPrice = 2;
   if (has_m_fvipprice()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_fvipprice(), target);
   }
 
-  // optional int32 m_fviprtime = 3;
+  // optional int32 m_FVipRtime = 3;
   if (has_m_fviprtime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_fviprtime(), target);
   }
 
-  // optional int32 m_fvipprivage = 4;
+  // optional int32 m_FVipPrivage = 4;
   if (has_m_fvipprivage()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_fvipprivage(), target);
   }
 
-  // optional int32 m_fviplv = 5;
+  // optional int32 m_Fviplv = 5;
   if (has_m_fviplv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_fviplv(), target);
   }
 
-  // optional int32 m_fvipexp = 6;
+  // optional int32 m_Fvipexp = 6;
   if (has_m_fvipexp()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_fvipexp(), target);
   }
 
-  // optional int32 m_vipitemicon = 7;
+  // optional int32 m_VipItemIcon = 7;
   if (has_m_vipitemicon()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_vipitemicon(), target);
   }
 
-  // optional int32 m_foreverguide = 8;
+  // optional int32 m_foreverGuide = 8;
   if (has_m_foreverguide()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_foreverguide(), target);
   }
 
-  // optional int32 m_unactiveguide = 9;
+  // optional int32 m_unActiveGuide = 9;
   if (has_m_unactiveguide()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_unactiveguide(), target);
   }
 
-  // optional int32 m_vipexp = 10;
+  // optional int32 m_vipExp = 10;
   if (has_m_vipexp()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_vipexp(), target);
   }
@@ -2508,49 +2508,49 @@ int E_VipCosntant::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_fvipprice = 2;
+    // optional int32 m_FVipPrice = 2;
     if (has_m_fvipprice()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_fvipprice());
     }
 
-    // optional int32 m_fviprtime = 3;
+    // optional int32 m_FVipRtime = 3;
     if (has_m_fviprtime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_fviprtime());
     }
 
-    // optional int32 m_fvipprivage = 4;
+    // optional int32 m_FVipPrivage = 4;
     if (has_m_fvipprivage()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_fvipprivage());
     }
 
-    // optional int32 m_fviplv = 5;
+    // optional int32 m_Fviplv = 5;
     if (has_m_fviplv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_fviplv());
     }
 
-    // optional int32 m_fvipexp = 6;
+    // optional int32 m_Fvipexp = 6;
     if (has_m_fvipexp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_fvipexp());
     }
 
-    // optional int32 m_vipitemicon = 7;
+    // optional int32 m_VipItemIcon = 7;
     if (has_m_vipitemicon()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_vipitemicon());
     }
 
-    // optional int32 m_foreverguide = 8;
+    // optional int32 m_foreverGuide = 8;
     if (has_m_foreverguide()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2559,14 +2559,14 @@ int E_VipCosntant::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_unactiveguide = 9;
+    // optional int32 m_unActiveGuide = 9;
     if (has_m_unactiveguide()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_unactiveguide());
     }
 
-    // optional int32 m_vipexp = 10;
+    // optional int32 m_vipExp = 10;
     if (has_m_vipexp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

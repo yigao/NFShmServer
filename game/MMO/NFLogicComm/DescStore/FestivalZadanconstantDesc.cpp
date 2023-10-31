@@ -90,7 +90,7 @@ int FestivalZadanconstantDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_costitem <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_costitem)), result, "can't find the costitem:{} in the  excel:item sheet:item", pDesc->m_costitem);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_costItem <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_costItem)), result, "can't find the costItem:{} in the  excel:item sheet:item", pDesc->m_costItem);
 	}
 	return result;
 }

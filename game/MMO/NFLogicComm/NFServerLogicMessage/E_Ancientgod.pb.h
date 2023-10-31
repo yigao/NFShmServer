@@ -111,10 +111,10 @@ class E_AncientgodAncientgodFraDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_attid = 1;
+  // optional int32 m_attID = 1;
   inline bool has_m_attid() const;
   inline void clear_m_attid();
-  static const int kMAttidFieldNumber = 1;
+  static const int kMAttIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_attid() const;
   inline void set_m_attid(::google::protobuf::int32 value);
 
@@ -229,17 +229,17 @@ class E_AncientgodAncientgod : public ::google::protobuf::Message {
   inline float m_parama() const;
   inline void set_m_parama(float value);
 
-  // optional int32 m_showlv = 4;
+  // optional int32 m_showLv = 4;
   inline bool has_m_showlv() const;
   inline void clear_m_showlv();
-  static const int kMShowlvFieldNumber = 4;
+  static const int kMShowLvFieldNumber = 4;
   inline ::google::protobuf::int32 m_showlv() const;
   inline void set_m_showlv(::google::protobuf::int32 value);
 
-  // optional int32 m_unlocklv = 5;
+  // optional int32 m_unlockLv = 5;
   inline bool has_m_unlocklv() const;
   inline void clear_m_unlocklv();
-  static const int kMUnlocklvFieldNumber = 5;
+  static const int kMUnlockLvFieldNumber = 5;
   inline ::google::protobuf::int32 m_unlocklv() const;
   inline void set_m_unlocklv(::google::protobuf::int32 value);
 
@@ -255,10 +255,10 @@ class E_AncientgodAncientgod : public ::google::protobuf::Message {
   inline ::std::string* release_m_condition();
   inline void set_allocated_m_condition(::std::string* m_condition);
 
-  // optional int32 m_lvlimit = 7;
+  // optional int32 m_lvLimit = 7;
   inline bool has_m_lvlimit() const;
   inline void clear_m_lvlimit();
-  static const int kMLvlimitFieldNumber = 7;
+  static const int kMLvLimitFieldNumber = 7;
   inline ::google::protobuf::int32 m_lvlimit() const;
   inline void set_m_lvlimit(::google::protobuf::int32 value);
 
@@ -569,24 +569,24 @@ class E_AncientgodLvup : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_ancientid = 3;
+  // optional int32 m_ancientID = 3;
   inline bool has_m_ancientid() const;
   inline void clear_m_ancientid();
-  static const int kMAncientidFieldNumber = 3;
+  static const int kMAncientIDFieldNumber = 3;
   inline ::google::protobuf::int32 m_ancientid() const;
   inline void set_m_ancientid(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 4;
+  // optional int32 m_itemID = 4;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 4;
+  static const int kMItemIDFieldNumber = 4;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
-  // optional int32 m_mallid = 5;
+  // optional int32 m_mallID = 5;
   inline bool has_m_mallid() const;
   inline void clear_m_mallid();
-  static const int kMMallidFieldNumber = 5;
+  static const int kMMallIDFieldNumber = 5;
   inline ::google::protobuf::int32 m_mallid() const;
   inline void set_m_mallid(::google::protobuf::int32 value);
 
@@ -597,10 +597,10 @@ class E_AncientgodLvup : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int32 m_initialvalue = 7;
+  // optional int32 m_initialValue = 7;
   inline bool has_m_initialvalue() const;
   inline void clear_m_initialvalue();
-  static const int kMInitialvalueFieldNumber = 7;
+  static const int kMInitialValueFieldNumber = 7;
   inline ::google::protobuf::int32 m_initialvalue() const;
   inline void set_m_initialvalue(::google::protobuf::int32 value);
 
@@ -819,10 +819,10 @@ class E_AncientgodEquipvalue : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_quality() const;
   inline void set_m_quality(::google::protobuf::int32 value);
 
-  // optional int32 m_wearquality = 3;
+  // optional int32 m_wearQuality = 3;
   inline bool has_m_wearquality() const;
   inline void clear_m_wearquality();
-  static const int kMWearqualityFieldNumber = 3;
+  static const int kMWearQualityFieldNumber = 3;
   inline ::google::protobuf::int32 m_wearquality() const;
   inline void set_m_wearquality(::google::protobuf::int32 value);
 
@@ -1111,10 +1111,10 @@ class E_AncientgodBless : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_ancientid = 2;
+  // optional int32 m_ancientID = 2;
   inline bool has_m_ancientid() const;
   inline void clear_m_ancientid();
-  static const int kMAncientidFieldNumber = 2;
+  static const int kMAncientIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_ancientid() const;
   inline void set_m_ancientid(::google::protobuf::int32 value);
 
@@ -1125,10 +1125,10 @@ class E_AncientgodBless : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_position() const;
   inline void set_m_position(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 4;
+  // optional int32 m_itemID = 4;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 4;
+  static const int kMItemIDFieldNumber = 4;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
@@ -1433,10 +1433,10 @@ class E_AncientgodAdvance : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_ancientid = 2;
+  // optional int32 m_ancientID = 2;
   inline bool has_m_ancientid() const;
   inline void clear_m_ancientid();
-  static const int kMAncientidFieldNumber = 2;
+  static const int kMAncientIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_ancientid() const;
   inline void set_m_ancientid(::google::protobuf::int32 value);
 
@@ -2121,7 +2121,7 @@ class Sheet_AncientgodStarcollect : public ::google::protobuf::Message {
 
 // E_AncientgodAncientgodFraDesc
 
-// optional int32 m_attid = 1;
+// optional int32 m_attID = 1;
 inline bool E_AncientgodAncientgodFraDesc::has_m_attid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -2283,7 +2283,7 @@ inline void E_AncientgodAncientgod::set_m_parama(float value) {
   m_parama_ = value;
 }
 
-// optional int32 m_showlv = 4;
+// optional int32 m_showLv = 4;
 inline bool E_AncientgodAncientgod::has_m_showlv() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -2305,7 +2305,7 @@ inline void E_AncientgodAncientgod::set_m_showlv(::google::protobuf::int32 value
   m_showlv_ = value;
 }
 
-// optional int32 m_unlocklv = 5;
+// optional int32 m_unlockLv = 5;
 inline bool E_AncientgodAncientgod::has_m_unlocklv() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -2397,7 +2397,7 @@ inline void E_AncientgodAncientgod::set_allocated_m_condition(::std::string* m_c
   }
 }
 
-// optional int32 m_lvlimit = 7;
+// optional int32 m_lvLimit = 7;
 inline bool E_AncientgodAncientgod::has_m_lvlimit() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -2591,7 +2591,7 @@ inline void E_AncientgodLvup::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional int32 m_ancientid = 3;
+// optional int32 m_ancientID = 3;
 inline bool E_AncientgodLvup::has_m_ancientid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -2613,7 +2613,7 @@ inline void E_AncientgodLvup::set_m_ancientid(::google::protobuf::int32 value) {
   m_ancientid_ = value;
 }
 
-// optional int32 m_itemid = 4;
+// optional int32 m_itemID = 4;
 inline bool E_AncientgodLvup::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -2635,7 +2635,7 @@ inline void E_AncientgodLvup::set_m_itemid(::google::protobuf::int32 value) {
   m_itemid_ = value;
 }
 
-// optional int32 m_mallid = 5;
+// optional int32 m_mallID = 5;
 inline bool E_AncientgodLvup::has_m_mallid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -2679,7 +2679,7 @@ inline void E_AncientgodLvup::set_m_num(::google::protobuf::int32 value) {
   m_num_ = value;
 }
 
-// optional int32 m_initialvalue = 7;
+// optional int32 m_initialValue = 7;
 inline bool E_AncientgodLvup::has_m_initialvalue() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -2825,7 +2825,7 @@ inline void E_AncientgodEquipvalue::set_m_quality(::google::protobuf::int32 valu
   m_quality_ = value;
 }
 
-// optional int32 m_wearquality = 3;
+// optional int32 m_wearQuality = 3;
 inline bool E_AncientgodEquipvalue::has_m_wearquality() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -2994,7 +2994,7 @@ inline void E_AncientgodBless::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_ancientid = 2;
+// optional int32 m_ancientID = 2;
 inline bool E_AncientgodBless::has_m_ancientid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -3038,7 +3038,7 @@ inline void E_AncientgodBless::set_m_position(::google::protobuf::int32 value) {
   m_position_ = value;
 }
 
-// optional int32 m_itemid = 4;
+// optional int32 m_itemID = 4;
 inline bool E_AncientgodBless::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -3232,7 +3232,7 @@ inline void E_AncientgodAdvance::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_ancientid = 2;
+// optional int32 m_ancientID = 2;
 inline bool E_AncientgodAdvance::has_m_ancientid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }

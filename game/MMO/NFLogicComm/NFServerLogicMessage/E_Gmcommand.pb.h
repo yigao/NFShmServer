@@ -93,14 +93,14 @@ class E_GmcommandGmcommand : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 1;
+  static const int kMIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional string m_key = 2;
+  // optional string m_Key = 2;
   inline bool has_m_key() const;
   inline void clear_m_key();
   static const int kMKeyFieldNumber = 2;
@@ -112,14 +112,14 @@ class E_GmcommandGmcommand : public ::google::protobuf::Message {
   inline ::std::string* release_m_key();
   inline void set_allocated_m_key(::std::string* m_key);
 
-  // optional int32 m_paramcount = 3;
+  // optional int32 m_ParamCount = 3;
   inline bool has_m_paramcount() const;
   inline void clear_m_paramcount();
-  static const int kMParamcountFieldNumber = 3;
+  static const int kMParamCountFieldNumber = 3;
   inline ::google::protobuf::int32 m_paramcount() const;
   inline void set_m_paramcount(::google::protobuf::int32 value);
 
-  // optional string m_des = 4;
+  // optional string m_Des = 4;
   inline bool has_m_des() const;
   inline void clear_m_des();
   static const int kMDesFieldNumber = 4;
@@ -251,7 +251,7 @@ class Sheet_GmcommandGmcommand : public ::google::protobuf::Message {
 
 // E_GmcommandGmcommand
 
-// optional int32 m_id = 1;
+// optional int32 m_ID = 1;
 inline bool E_GmcommandGmcommand::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -273,7 +273,7 @@ inline void E_GmcommandGmcommand::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional string m_key = 2;
+// optional string m_Key = 2;
 inline bool E_GmcommandGmcommand::has_m_key() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -343,7 +343,7 @@ inline void E_GmcommandGmcommand::set_allocated_m_key(::std::string* m_key) {
   }
 }
 
-// optional int32 m_paramcount = 3;
+// optional int32 m_ParamCount = 3;
 inline bool E_GmcommandGmcommand::has_m_paramcount() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -365,7 +365,7 @@ inline void E_GmcommandGmcommand::set_m_paramcount(::google::protobuf::int32 val
   m_paramcount_ = value;
 }
 
-// optional string m_des = 4;
+// optional string m_Des = 4;
 inline bool E_GmcommandGmcommand::has_m_des() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }

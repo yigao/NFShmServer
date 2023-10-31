@@ -38,13 +38,13 @@ E_ShentiConstant_s::E_ShentiConstant_s() {
 
 int E_ShentiConstant_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_lvlimit = (int32_t)0;
-	m_remanietimes = (int32_t)0;
-	m_currencyid = (int32_t)0;
-	m_currencynum = (int32_t)0;
-	m_currencytimes = (int32_t)0;
-	m_baglimit = (int32_t)0;
-	m_itemid = (int32_t)0;
+	m_lvLimit = (int32_t)0;
+	m_remanieTimes = (int32_t)0;
+	m_currencyId = (int32_t)0;
+	m_currencyNum = (int32_t)0;
+	m_currencyTimes = (int32_t)0;
+	m_bagLimit = (int32_t)0;
+	m_itemId = (int32_t)0;
 	return 0;
 }
 
@@ -54,13 +54,13 @@ int E_ShentiConstant_s::ResumeInit() {
 
 void E_ShentiConstant_s::write_to_pbmsg(::proto_ff::E_ShentiConstant & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_lvlimit((int32_t)m_lvlimit);
-	msg.set_m_remanietimes((int32_t)m_remanietimes);
-	msg.set_m_currencyid((int32_t)m_currencyid);
-	msg.set_m_currencynum((int32_t)m_currencynum);
-	msg.set_m_currencytimes((int32_t)m_currencytimes);
-	msg.set_m_baglimit((int32_t)m_baglimit);
-	msg.set_m_itemid((int32_t)m_itemid);
+	msg.set_m_lvlimit((int32_t)m_lvLimit);
+	msg.set_m_remanietimes((int32_t)m_remanieTimes);
+	msg.set_m_currencyid((int32_t)m_currencyId);
+	msg.set_m_currencynum((int32_t)m_currencyNum);
+	msg.set_m_currencytimes((int32_t)m_currencyTimes);
+	msg.set_m_baglimit((int32_t)m_bagLimit);
+	msg.set_m_itemid((int32_t)m_itemId);
 	for(int32_t i = 0; i < (int32_t)m_time.size(); ++i) {
 		::proto_ff::E_ShentiConstantTimeDesc* temp_m_time = msg.add_m_time();
 		m_time[i].write_to_pbmsg(*temp_m_time);
@@ -69,13 +69,13 @@ void E_ShentiConstant_s::write_to_pbmsg(::proto_ff::E_ShentiConstant & msg) cons
 
 void E_ShentiConstant_s::read_from_pbmsg(const ::proto_ff::E_ShentiConstant & msg) {
 	m_id = msg.m_id();
-	m_lvlimit = msg.m_lvlimit();
-	m_remanietimes = msg.m_remanietimes();
-	m_currencyid = msg.m_currencyid();
-	m_currencynum = msg.m_currencynum();
-	m_currencytimes = msg.m_currencytimes();
-	m_baglimit = msg.m_baglimit();
-	m_itemid = msg.m_itemid();
+	m_lvLimit = msg.m_lvlimit();
+	m_remanieTimes = msg.m_remanietimes();
+	m_currencyId = msg.m_currencyid();
+	m_currencyNum = msg.m_currencynum();
+	m_currencyTimes = msg.m_currencytimes();
+	m_bagLimit = msg.m_baglimit();
+	m_itemId = msg.m_itemid();
 	m_time.resize((int)msg.m_time_size() > (int)m_time.max_size() ? m_time.max_size() : msg.m_time_size());
 	for(int32_t i = 0; i < (int32_t)m_time.size(); ++i) {
 		const ::proto_ff::E_ShentiConstantTimeDesc & temp_m_time = msg.m_time(i);
@@ -252,9 +252,9 @@ E_ShentiUpgrade_s::E_ShentiUpgrade_s() {
 int E_ShentiUpgrade_s::CreateInit() {
 	m_id = (int64_t)0;
 	m_lv = (int32_t)0;
-	m_changelv = (int32_t)0;
+	m_changeLv = (int32_t)0;
 	m_exp = (int64_t)0;
-	m_explimit = (int64_t)0;
+	m_expLimit = (int64_t)0;
 	return 0;
 }
 
@@ -265,9 +265,9 @@ int E_ShentiUpgrade_s::ResumeInit() {
 void E_ShentiUpgrade_s::write_to_pbmsg(::proto_ff::E_ShentiUpgrade & msg) const {
 	msg.set_m_id((int64_t)m_id);
 	msg.set_m_lv((int32_t)m_lv);
-	msg.set_m_changelv((int32_t)m_changelv);
+	msg.set_m_changelv((int32_t)m_changeLv);
 	msg.set_m_exp((int64_t)m_exp);
-	msg.set_m_explimit((int64_t)m_explimit);
+	msg.set_m_explimit((int64_t)m_expLimit);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_ShentiUpgradeAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
@@ -277,9 +277,9 @@ void E_ShentiUpgrade_s::write_to_pbmsg(::proto_ff::E_ShentiUpgrade & msg) const 
 void E_ShentiUpgrade_s::read_from_pbmsg(const ::proto_ff::E_ShentiUpgrade & msg) {
 	m_id = msg.m_id();
 	m_lv = msg.m_lv();
-	m_changelv = msg.m_changelv();
+	m_changeLv = msg.m_changelv();
 	m_exp = msg.m_exp();
-	m_explimit = msg.m_explimit();
+	m_expLimit = msg.m_explimit();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_ShentiUpgradeAttributeDesc & temp_m_attribute = msg.m_attribute(i);
@@ -356,13 +356,13 @@ E_ShentiRemanie_s::E_ShentiRemanie_s() {
 
 int E_ShentiRemanie_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_remanielv = (int32_t)0;
+	m_remanieLv = (int32_t)0;
 	m_lv = (int32_t)0;
-	m_tiansuccess = (int32_t)0;
-	m_disuccess = (int32_t)0;
-	m_losesuccess = (int32_t)0;
-	m_rensuccess = (int32_t)0;
-	m_rensuccesslimit = (int32_t)0;
+	m_tianSuccess = (int32_t)0;
+	m_diSuccess = (int32_t)0;
+	m_loseSuccess = (int32_t)0;
+	m_renSuccess = (int32_t)0;
+	m_renSuccessLimit = (int32_t)0;
 	m_reward = (int32_t)0;
 	return 0;
 }
@@ -373,13 +373,13 @@ int E_ShentiRemanie_s::ResumeInit() {
 
 void E_ShentiRemanie_s::write_to_pbmsg(::proto_ff::E_ShentiRemanie & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_remanielv((int32_t)m_remanielv);
+	msg.set_m_remanielv((int32_t)m_remanieLv);
 	msg.set_m_lv((int32_t)m_lv);
-	msg.set_m_tiansuccess((int32_t)m_tiansuccess);
-	msg.set_m_disuccess((int32_t)m_disuccess);
-	msg.set_m_losesuccess((int32_t)m_losesuccess);
-	msg.set_m_rensuccess((int32_t)m_rensuccess);
-	msg.set_m_rensuccesslimit((int32_t)m_rensuccesslimit);
+	msg.set_m_tiansuccess((int32_t)m_tianSuccess);
+	msg.set_m_disuccess((int32_t)m_diSuccess);
+	msg.set_m_losesuccess((int32_t)m_loseSuccess);
+	msg.set_m_rensuccess((int32_t)m_renSuccess);
+	msg.set_m_rensuccesslimit((int32_t)m_renSuccessLimit);
 	msg.set_m_reward((int32_t)m_reward);
 	for(int32_t i = 0; i < (int32_t)m_attr.size(); ++i) {
 		::proto_ff::E_ShentiRemanieAttrDesc* temp_m_attr = msg.add_m_attr();
@@ -389,13 +389,13 @@ void E_ShentiRemanie_s::write_to_pbmsg(::proto_ff::E_ShentiRemanie & msg) const 
 
 void E_ShentiRemanie_s::read_from_pbmsg(const ::proto_ff::E_ShentiRemanie & msg) {
 	m_id = msg.m_id();
-	m_remanielv = msg.m_remanielv();
+	m_remanieLv = msg.m_remanielv();
 	m_lv = msg.m_lv();
-	m_tiansuccess = msg.m_tiansuccess();
-	m_disuccess = msg.m_disuccess();
-	m_losesuccess = msg.m_losesuccess();
-	m_rensuccess = msg.m_rensuccess();
-	m_rensuccesslimit = msg.m_rensuccesslimit();
+	m_tianSuccess = msg.m_tiansuccess();
+	m_diSuccess = msg.m_disuccess();
+	m_loseSuccess = msg.m_losesuccess();
+	m_renSuccess = msg.m_rensuccess();
+	m_renSuccessLimit = msg.m_rensuccesslimit();
 	m_reward = msg.m_reward();
 	m_attr.resize((int)msg.m_attr_size() > (int)m_attr.max_size() ? m_attr.max_size() : msg.m_attr_size());
 	for(int32_t i = 0; i < (int32_t)m_attr.size(); ++i) {
@@ -446,16 +446,16 @@ E_ShentiEquip_s::E_ShentiEquip_s() {
 int E_ShentiEquip_s::CreateInit() {
 	m_id = (int64_t)0;
 	m_type = (int32_t)0;
-	m_remanielv = (int32_t)0;
+	m_remanieLv = (int32_t)0;
 	m_position = (int32_t)0;
-	m_professionlv = (int32_t)0;
+	m_professionLv = (int32_t)0;
 	m_quality = (int32_t)0;
-	m_attributeid = (int32_t)0;
-	m_suitgroup = (int32_t)0;
-	m_stargroup = (int32_t)0;
-	m_iscanbind = (int32_t)0;
-	m_istradebind = (int32_t)0;
-	m_sellprice = (int32_t)0;
+	m_attributeID = (int32_t)0;
+	m_suitGroup = (int32_t)0;
+	m_starGroup = (int32_t)0;
+	m_isCanbind = (int32_t)0;
+	m_isTradeBind = (int32_t)0;
+	m_sellPrice = (int32_t)0;
 	m_broadcast = (int32_t)0;
 	return 0;
 }
@@ -468,17 +468,17 @@ void E_ShentiEquip_s::write_to_pbmsg(::proto_ff::E_ShentiEquip & msg) const {
 	msg.set_m_id((int64_t)m_id);
 	msg.set_m_name(m_name.data());
 	msg.set_m_type((int32_t)m_type);
-	msg.set_m_remanielv((int32_t)m_remanielv);
+	msg.set_m_remanielv((int32_t)m_remanieLv);
 	msg.set_m_position((int32_t)m_position);
 	msg.set_m_profession(m_profession.data());
-	msg.set_m_professionlv((int32_t)m_professionlv);
+	msg.set_m_professionlv((int32_t)m_professionLv);
 	msg.set_m_quality((int32_t)m_quality);
-	msg.set_m_attributeid((int32_t)m_attributeid);
-	msg.set_m_suitgroup((int32_t)m_suitgroup);
-	msg.set_m_stargroup((int32_t)m_stargroup);
-	msg.set_m_iscanbind((int32_t)m_iscanbind);
-	msg.set_m_istradebind((int32_t)m_istradebind);
-	msg.set_m_sellprice((int32_t)m_sellprice);
+	msg.set_m_attributeid((int32_t)m_attributeID);
+	msg.set_m_suitgroup((int32_t)m_suitGroup);
+	msg.set_m_stargroup((int32_t)m_starGroup);
+	msg.set_m_iscanbind((int32_t)m_isCanbind);
+	msg.set_m_istradebind((int32_t)m_isTradeBind);
+	msg.set_m_sellprice((int32_t)m_sellPrice);
 	msg.set_m_icon(m_icon.data());
 	msg.set_m_broadcast((int32_t)m_broadcast);
 }
@@ -487,17 +487,17 @@ void E_ShentiEquip_s::read_from_pbmsg(const ::proto_ff::E_ShentiEquip & msg) {
 	m_id = msg.m_id();
 	m_name = msg.m_name();
 	m_type = msg.m_type();
-	m_remanielv = msg.m_remanielv();
+	m_remanieLv = msg.m_remanielv();
 	m_position = msg.m_position();
 	m_profession = msg.m_profession();
-	m_professionlv = msg.m_professionlv();
+	m_professionLv = msg.m_professionlv();
 	m_quality = msg.m_quality();
-	m_attributeid = msg.m_attributeid();
-	m_suitgroup = msg.m_suitgroup();
-	m_stargroup = msg.m_stargroup();
-	m_iscanbind = msg.m_iscanbind();
-	m_istradebind = msg.m_istradebind();
-	m_sellprice = msg.m_sellprice();
+	m_attributeID = msg.m_attributeid();
+	m_suitGroup = msg.m_suitgroup();
+	m_starGroup = msg.m_stargroup();
+	m_isCanbind = msg.m_iscanbind();
+	m_isTradeBind = msg.m_istradebind();
+	m_sellPrice = msg.m_sellprice();
 	m_icon = msg.m_icon();
 	m_broadcast = msg.m_broadcast();
 }
@@ -838,7 +838,7 @@ E_ShentiStrong_s::E_ShentiStrong_s() {
 int E_ShentiStrong_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_lv = (int32_t)0;
-	m_remanielv = (int32_t)0;
+	m_remanieLv = (int32_t)0;
 	return 0;
 }
 
@@ -850,7 +850,7 @@ void E_ShentiStrong_s::write_to_pbmsg(::proto_ff::E_ShentiStrong & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_lv((int32_t)m_lv);
 	msg.set_m_position(m_position.data());
-	msg.set_m_remanielv((int32_t)m_remanielv);
+	msg.set_m_remanielv((int32_t)m_remanieLv);
 	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
 		::proto_ff::E_ShentiStrongMaterialDesc* temp_m_material = msg.add_m_material();
 		m_material[i].write_to_pbmsg(*temp_m_material);
@@ -865,7 +865,7 @@ void E_ShentiStrong_s::read_from_pbmsg(const ::proto_ff::E_ShentiStrong & msg) {
 	m_id = msg.m_id();
 	m_lv = msg.m_lv();
 	m_position = msg.m_position();
-	m_remanielv = msg.m_remanielv();
+	m_remanieLv = msg.m_remanielv();
 	m_material.resize((int)msg.m_material_size() > (int)m_material.max_size() ? m_material.max_size() : msg.m_material_size());
 	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
 		const ::proto_ff::E_ShentiStrongMaterialDesc & temp_m_material = msg.m_material(i);
@@ -997,15 +997,15 @@ E_ShentiEvolve_s::E_ShentiEvolve_s() {
 
 int E_ShentiEvolve_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_evolvelv = (int32_t)0;
-	m_remanielv = (int32_t)0;
+	m_evolveLv = (int32_t)0;
+	m_remanieLv = (int32_t)0;
 	m_need_quality = (int32_t)0;
 	m_need_star = (int32_t)0;
 	m_material_id = (int32_t)0;
 	m_material_num = (int32_t)0;
-	m_mallid = (int32_t)0;
-	m_initialvalue = (int32_t)0;
-	m_specialstar = (int32_t)0;
+	m_mallID = (int32_t)0;
+	m_initialValue = (int32_t)0;
+	m_specialStar = (int32_t)0;
 	return 0;
 }
 
@@ -1015,16 +1015,16 @@ int E_ShentiEvolve_s::ResumeInit() {
 
 void E_ShentiEvolve_s::write_to_pbmsg(::proto_ff::E_ShentiEvolve & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_evolvelv((int32_t)m_evolvelv);
+	msg.set_m_evolvelv((int32_t)m_evolveLv);
 	msg.set_m_position(m_position.data());
-	msg.set_m_remanielv((int32_t)m_remanielv);
+	msg.set_m_remanielv((int32_t)m_remanieLv);
 	msg.set_m_need_quality((int32_t)m_need_quality);
 	msg.set_m_need_star((int32_t)m_need_star);
 	msg.set_m_material_id((int32_t)m_material_id);
 	msg.set_m_material_num((int32_t)m_material_num);
-	msg.set_m_mallid((int32_t)m_mallid);
-	msg.set_m_initialvalue((int32_t)m_initialvalue);
-	msg.set_m_specialstar((int32_t)m_specialstar);
+	msg.set_m_mallid((int32_t)m_mallID);
+	msg.set_m_initialvalue((int32_t)m_initialValue);
+	msg.set_m_specialstar((int32_t)m_specialStar);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_ShentiEvolveAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
@@ -1041,16 +1041,16 @@ void E_ShentiEvolve_s::write_to_pbmsg(::proto_ff::E_ShentiEvolve & msg) const {
 
 void E_ShentiEvolve_s::read_from_pbmsg(const ::proto_ff::E_ShentiEvolve & msg) {
 	m_id = msg.m_id();
-	m_evolvelv = msg.m_evolvelv();
+	m_evolveLv = msg.m_evolvelv();
 	m_position = msg.m_position();
-	m_remanielv = msg.m_remanielv();
+	m_remanieLv = msg.m_remanielv();
 	m_need_quality = msg.m_need_quality();
 	m_need_star = msg.m_need_star();
 	m_material_id = msg.m_material_id();
 	m_material_num = msg.m_material_num();
-	m_mallid = msg.m_mallid();
-	m_initialvalue = msg.m_initialvalue();
-	m_specialstar = msg.m_specialstar();
+	m_mallID = msg.m_mallid();
+	m_initialValue = msg.m_initialvalue();
+	m_specialStar = msg.m_specialstar();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_ShentiEvolveAttributeDesc & temp_m_attribute = msg.m_attribute(i);
@@ -1109,10 +1109,10 @@ E_ShentiEvolveprogress_s::E_ShentiEvolveprogress_s() {
 
 int E_ShentiEvolveprogress_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_evolvelv = (int32_t)0;
-	m_remanielv = (int32_t)0;
-	m_equipquality = (int32_t)0;
-	m_equipstar = (int32_t)0;
+	m_evolveLv = (int32_t)0;
+	m_remanieLv = (int32_t)0;
+	m_equipQuality = (int32_t)0;
+	m_equipStar = (int32_t)0;
 	return 0;
 }
 
@@ -1122,10 +1122,10 @@ int E_ShentiEvolveprogress_s::ResumeInit() {
 
 void E_ShentiEvolveprogress_s::write_to_pbmsg(::proto_ff::E_ShentiEvolveprogress & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_evolvelv((int32_t)m_evolvelv);
-	msg.set_m_remanielv((int32_t)m_remanielv);
-	msg.set_m_equipquality((int32_t)m_equipquality);
-	msg.set_m_equipstar((int32_t)m_equipstar);
+	msg.set_m_evolvelv((int32_t)m_evolveLv);
+	msg.set_m_remanielv((int32_t)m_remanieLv);
+	msg.set_m_equipquality((int32_t)m_equipQuality);
+	msg.set_m_equipstar((int32_t)m_equipStar);
 	for(int32_t i = 0; i < (int32_t)m_evolve.size(); ++i) {
 		msg.add_m_evolve((int32_t)m_evolve[i]);
 	}
@@ -1133,10 +1133,10 @@ void E_ShentiEvolveprogress_s::write_to_pbmsg(::proto_ff::E_ShentiEvolveprogress
 
 void E_ShentiEvolveprogress_s::read_from_pbmsg(const ::proto_ff::E_ShentiEvolveprogress & msg) {
 	m_id = msg.m_id();
-	m_evolvelv = msg.m_evolvelv();
-	m_remanielv = msg.m_remanielv();
-	m_equipquality = msg.m_equipquality();
-	m_equipstar = msg.m_equipstar();
+	m_evolveLv = msg.m_evolvelv();
+	m_remanieLv = msg.m_remanielv();
+	m_equipQuality = msg.m_equipquality();
+	m_equipStar = msg.m_equipstar();
 	m_evolve.resize((int)msg.m_evolve_size() > (int)m_evolve.max_size() ? m_evolve.max_size() : msg.m_evolve_size());
 	for(int32_t i = 0; i < (int32_t)m_evolve.size(); ++i) {
 		m_evolve[i] = msg.m_evolve(i);
@@ -1239,7 +1239,7 @@ E_ShentiStarlibrary_s::E_ShentiStarlibrary_s() {
 }
 
 int E_ShentiStarlibrary_s::CreateInit() {
-	m_stargroup = (int32_t)0;
+	m_starGroup = (int32_t)0;
 	return 0;
 }
 
@@ -1248,7 +1248,7 @@ int E_ShentiStarlibrary_s::ResumeInit() {
 }
 
 void E_ShentiStarlibrary_s::write_to_pbmsg(::proto_ff::E_ShentiStarlibrary & msg) const {
-	msg.set_m_stargroup((int32_t)m_stargroup);
+	msg.set_m_stargroup((int32_t)m_starGroup);
 	for(int32_t i = 0; i < (int32_t)m_xpcom.size(); ++i) {
 		::proto_ff::E_ShentiStarlibraryXpcomDesc* temp_m_xpcom = msg.add_m_xpcom();
 		m_xpcom[i].write_to_pbmsg(*temp_m_xpcom);
@@ -1260,7 +1260,7 @@ void E_ShentiStarlibrary_s::write_to_pbmsg(::proto_ff::E_ShentiStarlibrary & msg
 }
 
 void E_ShentiStarlibrary_s::read_from_pbmsg(const ::proto_ff::E_ShentiStarlibrary & msg) {
-	m_stargroup = msg.m_stargroup();
+	m_starGroup = msg.m_stargroup();
 	m_xpcom.resize((int)msg.m_xpcom_size() > (int)m_xpcom.max_size() ? m_xpcom.max_size() : msg.m_xpcom_size());
 	for(int32_t i = 0; i < (int32_t)m_xpcom.size(); ++i) {
 		const ::proto_ff::E_ShentiStarlibraryXpcomDesc & temp_m_xpcom = msg.m_xpcom(i);
@@ -1370,14 +1370,14 @@ E_ShentiAwaken_s::E_ShentiAwaken_s() {
 
 int E_ShentiAwaken_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_awakenlv = (int32_t)0;
-	m_remanielv = (int32_t)0;
+	m_awakenLv = (int32_t)0;
+	m_remanieLv = (int32_t)0;
 	m_need_quality = (int32_t)0;
 	m_need_star = (int32_t)0;
 	m_material_id = (int32_t)0;
 	m_material_num = (int32_t)0;
-	m_mallid = (int32_t)0;
-	m_initialvalue = (int32_t)0;
+	m_mallID = (int32_t)0;
+	m_initialValue = (int32_t)0;
 	return 0;
 }
 
@@ -1387,45 +1387,45 @@ int E_ShentiAwaken_s::ResumeInit() {
 
 void E_ShentiAwaken_s::write_to_pbmsg(::proto_ff::E_ShentiAwaken & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_awakenlv((int32_t)m_awakenlv);
+	msg.set_m_awakenlv((int32_t)m_awakenLv);
 	msg.set_m_position(m_position.data());
-	msg.set_m_remanielv((int32_t)m_remanielv);
+	msg.set_m_remanielv((int32_t)m_remanieLv);
 	msg.set_m_need_quality((int32_t)m_need_quality);
 	msg.set_m_need_star((int32_t)m_need_star);
 	msg.set_m_material_id((int32_t)m_material_id);
 	msg.set_m_material_num((int32_t)m_material_num);
-	msg.set_m_mallid((int32_t)m_mallid);
-	msg.set_m_initialvalue((int32_t)m_initialvalue);
+	msg.set_m_mallid((int32_t)m_mallID);
+	msg.set_m_initialvalue((int32_t)m_initialValue);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_ShentiAwakenAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
-	for(int32_t i = 0; i < (int32_t)m_afflatusatt.size(); ++i) {
+	for(int32_t i = 0; i < (int32_t)m_afflatusAtt.size(); ++i) {
 		::proto_ff::E_ShentiAwakenAfflatusattDesc* temp_m_afflatusatt = msg.add_m_afflatusatt();
-		m_afflatusatt[i].write_to_pbmsg(*temp_m_afflatusatt);
+		m_afflatusAtt[i].write_to_pbmsg(*temp_m_afflatusatt);
 	}
 }
 
 void E_ShentiAwaken_s::read_from_pbmsg(const ::proto_ff::E_ShentiAwaken & msg) {
 	m_id = msg.m_id();
-	m_awakenlv = msg.m_awakenlv();
+	m_awakenLv = msg.m_awakenlv();
 	m_position = msg.m_position();
-	m_remanielv = msg.m_remanielv();
+	m_remanieLv = msg.m_remanielv();
 	m_need_quality = msg.m_need_quality();
 	m_need_star = msg.m_need_star();
 	m_material_id = msg.m_material_id();
 	m_material_num = msg.m_material_num();
-	m_mallid = msg.m_mallid();
-	m_initialvalue = msg.m_initialvalue();
+	m_mallID = msg.m_mallid();
+	m_initialValue = msg.m_initialvalue();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_ShentiAwakenAttributeDesc & temp_m_attribute = msg.m_attribute(i);
 		m_attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
-	m_afflatusatt.resize((int)msg.m_afflatusatt_size() > (int)m_afflatusatt.max_size() ? m_afflatusatt.max_size() : msg.m_afflatusatt_size());
-	for(int32_t i = 0; i < (int32_t)m_afflatusatt.size(); ++i) {
+	m_afflatusAtt.resize((int)msg.m_afflatusatt_size() > (int)m_afflatusAtt.max_size() ? m_afflatusAtt.max_size() : msg.m_afflatusatt_size());
+	for(int32_t i = 0; i < (int32_t)m_afflatusAtt.size(); ++i) {
 		const ::proto_ff::E_ShentiAwakenAfflatusattDesc & temp_m_afflatusatt = msg.m_afflatusatt(i);
-		m_afflatusatt[i].read_from_pbmsg(temp_m_afflatusatt);
+		m_afflatusAtt[i].read_from_pbmsg(temp_m_afflatusatt);
 	}
 }
 
@@ -1470,10 +1470,10 @@ E_ShentiAwakenprogress_s::E_ShentiAwakenprogress_s() {
 
 int E_ShentiAwakenprogress_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_awakenlv = (int32_t)0;
-	m_remanielv = (int32_t)0;
-	m_equipquality = (int32_t)0;
-	m_equipstar = (int32_t)0;
+	m_awakenLv = (int32_t)0;
+	m_remanieLv = (int32_t)0;
+	m_equipQuality = (int32_t)0;
+	m_equipStar = (int32_t)0;
 	return 0;
 }
 
@@ -1483,10 +1483,10 @@ int E_ShentiAwakenprogress_s::ResumeInit() {
 
 void E_ShentiAwakenprogress_s::write_to_pbmsg(::proto_ff::E_ShentiAwakenprogress & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_awakenlv((int32_t)m_awakenlv);
-	msg.set_m_remanielv((int32_t)m_remanielv);
-	msg.set_m_equipquality((int32_t)m_equipquality);
-	msg.set_m_equipstar((int32_t)m_equipstar);
+	msg.set_m_awakenlv((int32_t)m_awakenLv);
+	msg.set_m_remanielv((int32_t)m_remanieLv);
+	msg.set_m_equipquality((int32_t)m_equipQuality);
+	msg.set_m_equipstar((int32_t)m_equipStar);
 	for(int32_t i = 0; i < (int32_t)m_awaken.size(); ++i) {
 		msg.add_m_awaken((int32_t)m_awaken[i]);
 	}
@@ -1494,10 +1494,10 @@ void E_ShentiAwakenprogress_s::write_to_pbmsg(::proto_ff::E_ShentiAwakenprogress
 
 void E_ShentiAwakenprogress_s::read_from_pbmsg(const ::proto_ff::E_ShentiAwakenprogress & msg) {
 	m_id = msg.m_id();
-	m_awakenlv = msg.m_awakenlv();
-	m_remanielv = msg.m_remanielv();
-	m_equipquality = msg.m_equipquality();
-	m_equipstar = msg.m_equipstar();
+	m_awakenLv = msg.m_awakenlv();
+	m_remanieLv = msg.m_remanielv();
+	m_equipQuality = msg.m_equipquality();
+	m_equipStar = msg.m_equipstar();
 	m_awaken.resize((int)msg.m_awaken_size() > (int)m_awaken.max_size() ? m_awaken.max_size() : msg.m_awaken_size());
 	for(int32_t i = 0; i < (int32_t)m_awaken.size(); ++i) {
 		m_awaken[i] = msg.m_awaken(i);
@@ -1573,8 +1573,8 @@ E_ShentiSuit_s::E_ShentiSuit_s() {
 
 int E_ShentiSuit_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_suitgroup = (int32_t)0;
-	m_suitlv = (int32_t)0;
+	m_suitGroup = (int32_t)0;
+	m_suitLv = (int32_t)0;
 	m_num = (int32_t)0;
 	m_skill = (int32_t)0;
 	return 0;
@@ -1586,8 +1586,8 @@ int E_ShentiSuit_s::ResumeInit() {
 
 void E_ShentiSuit_s::write_to_pbmsg(::proto_ff::E_ShentiSuit & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_suitgroup((int32_t)m_suitgroup);
-	msg.set_m_suitlv((int32_t)m_suitlv);
+	msg.set_m_suitgroup((int32_t)m_suitGroup);
+	msg.set_m_suitlv((int32_t)m_suitLv);
 	msg.set_m_num((int32_t)m_num);
 	msg.set_m_name(m_name.data());
 	msg.set_m_skill((int32_t)m_skill);
@@ -1599,8 +1599,8 @@ void E_ShentiSuit_s::write_to_pbmsg(::proto_ff::E_ShentiSuit & msg) const {
 
 void E_ShentiSuit_s::read_from_pbmsg(const ::proto_ff::E_ShentiSuit & msg) {
 	m_id = msg.m_id();
-	m_suitgroup = msg.m_suitgroup();
-	m_suitlv = msg.m_suitlv();
+	m_suitGroup = msg.m_suitgroup();
+	m_suitLv = msg.m_suitlv();
 	m_num = msg.m_num();
 	m_name = msg.m_name();
 	m_skill = msg.m_skill();
@@ -1878,8 +1878,8 @@ E_ShentiStrengtitel_s::E_ShentiStrengtitel_s() {
 
 int E_ShentiStrengtitel_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_remanielv = (int32_t)0;
-	m_strenglv = (int32_t)0;
+	m_remanieLv = (int32_t)0;
+	m_strengLv = (int32_t)0;
 	return 0;
 }
 
@@ -1889,8 +1889,8 @@ int E_ShentiStrengtitel_s::ResumeInit() {
 
 void E_ShentiStrengtitel_s::write_to_pbmsg(::proto_ff::E_ShentiStrengtitel & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_remanielv((int32_t)m_remanielv);
-	msg.set_m_strenglv((int32_t)m_strenglv);
+	msg.set_m_remanielv((int32_t)m_remanieLv);
+	msg.set_m_strenglv((int32_t)m_strengLv);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_ShentiStrengtitelAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
@@ -1899,8 +1899,8 @@ void E_ShentiStrengtitel_s::write_to_pbmsg(::proto_ff::E_ShentiStrengtitel & msg
 
 void E_ShentiStrengtitel_s::read_from_pbmsg(const ::proto_ff::E_ShentiStrengtitel & msg) {
 	m_id = msg.m_id();
-	m_remanielv = msg.m_remanielv();
-	m_strenglv = msg.m_strenglv();
+	m_remanieLv = msg.m_remanielv();
+	m_strengLv = msg.m_strenglv();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_ShentiStrengtitelAttributeDesc & temp_m_attribute = msg.m_attribute(i);

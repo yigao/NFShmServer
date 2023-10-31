@@ -208,22 +208,22 @@ void protobuf_AddDesc_E_5fGift_2eproto() {
     "s.proto\"\317\001\n\nE_GiftFree\022\024\n\004m_id\030\001 \001(\005B\006\302\377"
     "\024\002id\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\036\n\010m_co"
     "stid\030\003 \001(\005B\014\302\377\024\010\350\264\247\345\270\201id\022\033\n\007m_price\030\004 \001("
-    "\005B\n\302\377\024\006\344\273\267\346\240\274\022,\n\tm_freeday\030\005 \001(\005B\031\302\377\024\025\350\277"
-    "\224\350\277\230\346\234\215\345\212\241\345\231\250\345\244\251\346\225\260\022$\n\007m_boxid\030\006 \001(\005B\023\302\377"
+    "\005B\n\302\377\024\006\344\273\267\346\240\274\022,\n\tm_freeDay\030\005 \001(\005B\031\302\377\024\025\350\277"
+    "\224\350\277\230\346\234\215\345\212\241\345\231\250\345\244\251\346\225\260\022$\n\007m_boxID\030\006 \001(\005B\023\302\377"
     "\024\017\347\244\274\345\214\205\345\206\205\345\256\271box\"E\n\016Sheet_GiftFree\0223\n\017E"
     "_GiftFree_List\030\001 \003(\0132\024.proto_ff.E_GiftFr"
     "eeB\004\210\301\024\020\"\371\001\n\017E_GiftCondition\022\024\n\004m_id\030\001 \001"
-    "(\005B\006\302\377\024\002id\022#\n\017m_conditiontype\030\002 \001(\005B\n\302\377\024"
+    "(\005B\006\302\377\024\002id\022#\n\017m_conditionType\030\002 \001(\005B\n\302\377\024"
     "\006\347\261\273\345\236\213\022\031\n\005m_arg\030\003 \001(\005B\n\302\377\024\006\345\217\202\346\225\260\022&\n\006m_"
     "time\030\004 \001(\005B\026\302\377\024\022\347\244\274\345\214\205\346\214\201\347\273\255\346\227\266\351\227\264\022%\n\013m_"
-    "pricetype\030\005 \001(\005B\020\302\377\024\014\344\273\267\346\240\274\347\261\273\345\236\213\022\033\n\007m_p"
-    "rice\030\006 \001(\005B\n\302\377\024\006\344\273\267\346\240\274\022$\n\007m_boxid\030\007 \001(\005B"
+    "priceType\030\005 \001(\005B\020\302\377\024\014\344\273\267\346\240\274\347\261\273\345\236\213\022\033\n\007m_p"
+    "rice\030\006 \001(\005B\n\302\377\024\006\344\273\267\346\240\274\022$\n\007m_boxID\030\007 \001(\005B"
     "\023\302\377\024\017\347\244\274\345\214\205\345\206\205\345\256\271box\"T\n\023Sheet_GiftCondit"
     "ion\022=\n\024E_GiftCondition_List\030\001 \003(\0132\031.prot"
     "o_ff.E_GiftConditionB\004\210\301\024\002\"\242\001\n\nE_GiftMus"
     "t\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\032\n\007m_boxid\030\002 \001(\005"
     "B\t\302\377\024\005boxid\022\036\n\nm_original\030\003 \001(\005B\n\302\377\024\006\345\216\237"
-    "\344\273\267\022%\n\013m_pricetype\030\004 \001(\005B\020\302\377\024\014\344\273\267\346\240\274\347\261\273\345"
+    "\344\273\267\022%\n\013m_priceType\030\004 \001(\005B\020\302\377\024\014\344\273\267\346\240\274\347\261\273\345"
     "\236\213\022\033\n\007m_price\030\005 \001(\005B\n\302\377\024\006\347\216\260\344\273\267\"E\n\016Sheet"
     "_GiftMust\0223\n\017E_GiftMust_List\030\001 \003(\0132\024.pro"
     "to_ff.E_GiftMustB\004\210\301\024 ", 902);
@@ -258,8 +258,8 @@ const int E_GiftFree::kMIdFieldNumber;
 const int E_GiftFree::kMTypeFieldNumber;
 const int E_GiftFree::kMCostidFieldNumber;
 const int E_GiftFree::kMPriceFieldNumber;
-const int E_GiftFree::kMFreedayFieldNumber;
-const int E_GiftFree::kMBoxidFieldNumber;
+const int E_GiftFree::kMFreeDayFieldNumber;
+const int E_GiftFree::kMBoxIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_GiftFree::E_GiftFree()
@@ -395,15 +395,15 @@ bool E_GiftFree::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_freeday;
+        if (input->ExpectTag(40)) goto parse_m_freeDay;
         break;
       }
 
-      // optional int32 m_freeday = 5;
+      // optional int32 m_freeDay = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_freeday:
+         parse_m_freeDay:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_freeday_)));
@@ -411,15 +411,15 @@ bool E_GiftFree::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_boxid;
+        if (input->ExpectTag(48)) goto parse_m_boxID;
         break;
       }
 
-      // optional int32 m_boxid = 6;
+      // optional int32 m_boxID = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_boxid:
+         parse_m_boxID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_boxid_)));
@@ -469,12 +469,12 @@ void E_GiftFree::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_price(), output);
   }
 
-  // optional int32 m_freeday = 5;
+  // optional int32 m_freeDay = 5;
   if (has_m_freeday()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_freeday(), output);
   }
 
-  // optional int32 m_boxid = 6;
+  // optional int32 m_boxID = 6;
   if (has_m_boxid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_boxid(), output);
   }
@@ -507,12 +507,12 @@ void E_GiftFree::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_price(), target);
   }
 
-  // optional int32 m_freeday = 5;
+  // optional int32 m_freeDay = 5;
   if (has_m_freeday()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_freeday(), target);
   }
 
-  // optional int32 m_boxid = 6;
+  // optional int32 m_boxID = 6;
   if (has_m_boxid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_boxid(), target);
   }
@@ -556,14 +556,14 @@ int E_GiftFree::ByteSize() const {
           this->m_price());
     }
 
-    // optional int32 m_freeday = 5;
+    // optional int32 m_freeDay = 5;
     if (has_m_freeday()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_freeday());
     }
 
-    // optional int32 m_boxid = 6;
+    // optional int32 m_boxID = 6;
     if (has_m_boxid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -866,12 +866,12 @@ void Sheet_GiftFree::Swap(Sheet_GiftFree* other) {
 
 #ifndef _MSC_VER
 const int E_GiftCondition::kMIdFieldNumber;
-const int E_GiftCondition::kMConditiontypeFieldNumber;
+const int E_GiftCondition::kMConditionTypeFieldNumber;
 const int E_GiftCondition::kMArgFieldNumber;
 const int E_GiftCondition::kMTimeFieldNumber;
-const int E_GiftCondition::kMPricetypeFieldNumber;
+const int E_GiftCondition::kMPriceTypeFieldNumber;
 const int E_GiftCondition::kMPriceFieldNumber;
-const int E_GiftCondition::kMBoxidFieldNumber;
+const int E_GiftCondition::kMBoxIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_GiftCondition::E_GiftCondition()
@@ -961,15 +961,15 @@ bool E_GiftCondition::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_conditiontype;
+        if (input->ExpectTag(16)) goto parse_m_conditionType;
         break;
       }
 
-      // optional int32 m_conditiontype = 2;
+      // optional int32 m_conditionType = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_conditiontype:
+         parse_m_conditionType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_conditiontype_)));
@@ -1009,15 +1009,15 @@ bool E_GiftCondition::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_pricetype;
+        if (input->ExpectTag(40)) goto parse_m_priceType;
         break;
       }
 
-      // optional int32 m_pricetype = 5;
+      // optional int32 m_priceType = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_pricetype:
+         parse_m_priceType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_pricetype_)));
@@ -1041,15 +1041,15 @@ bool E_GiftCondition::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_boxid;
+        if (input->ExpectTag(56)) goto parse_m_boxID;
         break;
       }
 
-      // optional int32 m_boxid = 7;
+      // optional int32 m_boxID = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_boxid:
+         parse_m_boxID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_boxid_)));
@@ -1084,7 +1084,7 @@ void E_GiftCondition::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_conditiontype = 2;
+  // optional int32 m_conditionType = 2;
   if (has_m_conditiontype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_conditiontype(), output);
   }
@@ -1099,7 +1099,7 @@ void E_GiftCondition::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_time(), output);
   }
 
-  // optional int32 m_pricetype = 5;
+  // optional int32 m_priceType = 5;
   if (has_m_pricetype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_pricetype(), output);
   }
@@ -1109,7 +1109,7 @@ void E_GiftCondition::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_price(), output);
   }
 
-  // optional int32 m_boxid = 7;
+  // optional int32 m_boxID = 7;
   if (has_m_boxid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_boxid(), output);
   }
@@ -1127,7 +1127,7 @@ void E_GiftCondition::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_conditiontype = 2;
+  // optional int32 m_conditionType = 2;
   if (has_m_conditiontype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_conditiontype(), target);
   }
@@ -1142,7 +1142,7 @@ void E_GiftCondition::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_time(), target);
   }
 
-  // optional int32 m_pricetype = 5;
+  // optional int32 m_priceType = 5;
   if (has_m_pricetype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_pricetype(), target);
   }
@@ -1152,7 +1152,7 @@ void E_GiftCondition::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_price(), target);
   }
 
-  // optional int32 m_boxid = 7;
+  // optional int32 m_boxID = 7;
   if (has_m_boxid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_boxid(), target);
   }
@@ -1175,7 +1175,7 @@ int E_GiftCondition::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_conditiontype = 2;
+    // optional int32 m_conditionType = 2;
     if (has_m_conditiontype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1196,7 +1196,7 @@ int E_GiftCondition::ByteSize() const {
           this->m_time());
     }
 
-    // optional int32 m_pricetype = 5;
+    // optional int32 m_priceType = 5;
     if (has_m_pricetype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1210,7 +1210,7 @@ int E_GiftCondition::ByteSize() const {
           this->m_price());
     }
 
-    // optional int32 m_boxid = 7;
+    // optional int32 m_boxID = 7;
     if (has_m_boxid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1519,7 +1519,7 @@ void Sheet_GiftCondition::Swap(Sheet_GiftCondition* other) {
 const int E_GiftMust::kMIdFieldNumber;
 const int E_GiftMust::kMBoxidFieldNumber;
 const int E_GiftMust::kMOriginalFieldNumber;
-const int E_GiftMust::kMPricetypeFieldNumber;
+const int E_GiftMust::kMPriceTypeFieldNumber;
 const int E_GiftMust::kMPriceFieldNumber;
 #endif  // !_MSC_VER
 
@@ -1638,15 +1638,15 @@ bool E_GiftMust::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_pricetype;
+        if (input->ExpectTag(32)) goto parse_m_priceType;
         break;
       }
 
-      // optional int32 m_pricetype = 4;
+      // optional int32 m_priceType = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_pricetype:
+         parse_m_priceType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_pricetype_)));
@@ -1707,7 +1707,7 @@ void E_GiftMust::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_original(), output);
   }
 
-  // optional int32 m_pricetype = 4;
+  // optional int32 m_priceType = 4;
   if (has_m_pricetype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_pricetype(), output);
   }
@@ -1740,7 +1740,7 @@ void E_GiftMust::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_original(), target);
   }
 
-  // optional int32 m_pricetype = 4;
+  // optional int32 m_priceType = 4;
   if (has_m_pricetype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_pricetype(), target);
   }
@@ -1782,7 +1782,7 @@ int E_GiftMust::ByteSize() const {
           this->m_original());
     }
 
-    // optional int32 m_pricetype = 4;
+    // optional int32 m_priceType = 4;
     if (has_m_pricetype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

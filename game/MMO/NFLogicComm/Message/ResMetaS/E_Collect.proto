@@ -5,7 +5,7 @@ import "yd_fieldoptions.proto";
 
 message E_CollectCollectAttributDesc
 {
-	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_ID = 1[(yd_fieldoptions.field_cname) = "ID"];
 	optional int32 m_num = 2[(yd_fieldoptions.field_cname) = "数量"];
 }
 
@@ -15,12 +15,12 @@ message E_CollectCollect
 	optional string m_name = 2[(yd_fieldoptions.field_cname) = "真甲名称", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_lv = 3[(yd_fieldoptions.field_cname) = "开启等级"];
 	optional int32 m_group = 4[(yd_fieldoptions.field_cname) = "分组"];
-	optional string m_stagetitle = 5[(yd_fieldoptions.field_cname) = "阶段标题", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_stageTitle = 5[(yd_fieldoptions.field_cname) = "阶段标题", (yd_fieldoptions.field_bufsize) = 64];
 	optional string m_position = 6[(yd_fieldoptions.field_cname) = "装备部位", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_grade = 7[(yd_fieldoptions.field_cname) = "要求阶数"];
 	optional int32 m_quality = 8[(yd_fieldoptions.field_cname) = "要求品质"];
 	optional int32 m_star = 9[(yd_fieldoptions.field_cname) = "要求星级"];
-	optional int32 m_skillid = 10[(yd_fieldoptions.field_cname) = "激活技能"];
+	optional int32 m_skillID = 10[(yd_fieldoptions.field_cname) = "激活技能"];
 	repeated E_CollectCollectAttributDesc m_attribut = 11[(yd_fieldoptions.field_cname) = "套装属性", (yd_fieldoptions.field_arysize) = 4];
 }
 

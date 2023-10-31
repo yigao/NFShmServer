@@ -6,7 +6,7 @@ import "yd_fieldoptions.proto";
 message E_FishRoom
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "唯一ID"];
-	optional int32 m_roomid = 2[(yd_fieldoptions.field_cname) = "房间ID"];
+	optional int32 m_RoomId = 2[(yd_fieldoptions.field_cname) = "房间ID"];
 	optional int32 m_gameid = 3[(yd_fieldoptions.field_cname) = "游戏ID"];
 	optional string m_gamename = 4[(yd_fieldoptions.field_cname) = "游戏名", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_roomtype = 5[(yd_fieldoptions.field_cname) = "房间类型"];

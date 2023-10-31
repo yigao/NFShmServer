@@ -100,10 +100,10 @@ class E_MoneyrewardMoneyreward : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_taskreward() const;
   inline void set_m_taskreward(::google::protobuf::int32 value);
 
-  // optional string m_boxtaskreward = 2;
+  // optional string m_boxTaskreward = 2;
   inline bool has_m_boxtaskreward() const;
   inline void clear_m_boxtaskreward();
-  static const int kMBoxtaskrewardFieldNumber = 2;
+  static const int kMBoxTaskrewardFieldNumber = 2;
   inline const ::std::string& m_boxtaskreward() const;
   inline void set_m_boxtaskreward(const ::std::string& value);
   inline void set_m_boxtaskreward(const char* value);
@@ -112,10 +112,10 @@ class E_MoneyrewardMoneyreward : public ::google::protobuf::Message {
   inline ::std::string* release_m_boxtaskreward();
   inline void set_allocated_m_boxtaskreward(::std::string* m_boxtaskreward);
 
-  // optional string m_boxnum = 3;
+  // optional string m_boxNum = 3;
   inline bool has_m_boxnum() const;
   inline void clear_m_boxnum();
-  static const int kMBoxnumFieldNumber = 3;
+  static const int kMBoxNumFieldNumber = 3;
   inline const ::std::string& m_boxnum() const;
   inline void set_m_boxnum(const ::std::string& value);
   inline void set_m_boxnum(const char* value);
@@ -131,17 +131,17 @@ class E_MoneyrewardMoneyreward : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_task() const;
   inline void set_m_task(::google::protobuf::int32 value);
 
-  // optional int32 m_taskmax = 5;
+  // optional int32 m_taskMax = 5;
   inline bool has_m_taskmax() const;
   inline void clear_m_taskmax();
-  static const int kMTaskmaxFieldNumber = 5;
+  static const int kMTaskMaxFieldNumber = 5;
   inline ::google::protobuf::int32 m_taskmax() const;
   inline void set_m_taskmax(::google::protobuf::int32 value);
 
-  // optional string m_oneprice = 6;
+  // optional string m_onePrice = 6;
   inline bool has_m_oneprice() const;
   inline void clear_m_oneprice();
-  static const int kMOnepriceFieldNumber = 6;
+  static const int kMOnePriceFieldNumber = 6;
   inline const ::std::string& m_oneprice() const;
   inline void set_m_oneprice(const ::std::string& value);
   inline void set_m_oneprice(const char* value);
@@ -150,10 +150,10 @@ class E_MoneyrewardMoneyreward : public ::google::protobuf::Message {
   inline ::std::string* release_m_oneprice();
   inline void set_allocated_m_oneprice(::std::string* m_oneprice);
 
-  // optional string m_freeunlocklv = 7;
+  // optional string m_freeUnlockLv = 7;
   inline bool has_m_freeunlocklv() const;
   inline void clear_m_freeunlocklv();
-  static const int kMFreeunlocklvFieldNumber = 7;
+  static const int kMFreeUnlockLvFieldNumber = 7;
   inline const ::std::string& m_freeunlocklv() const;
   inline void set_m_freeunlocklv(const ::std::string& value);
   inline void set_m_freeunlocklv(const char* value);
@@ -162,31 +162,31 @@ class E_MoneyrewardMoneyreward : public ::google::protobuf::Message {
   inline ::std::string* release_m_freeunlocklv();
   inline void set_allocated_m_freeunlocklv(::std::string* m_freeunlocklv);
 
-  // optional int32 m_viplv = 8;
+  // optional int32 m_vipLV = 8;
   inline bool has_m_viplv() const;
   inline void clear_m_viplv();
-  static const int kMViplvFieldNumber = 8;
+  static const int kMVipLVFieldNumber = 8;
   inline ::google::protobuf::int32 m_viplv() const;
   inline void set_m_viplv(::google::protobuf::int32 value);
 
-  // optional int32 m_timeget = 9;
+  // optional int32 m_timeGet = 9;
   inline bool has_m_timeget() const;
   inline void clear_m_timeget();
-  static const int kMTimegetFieldNumber = 9;
+  static const int kMTimeGetFieldNumber = 9;
   inline ::google::protobuf::int32 m_timeget() const;
   inline void set_m_timeget(::google::protobuf::int32 value);
 
-  // optional int32 m_timegetmoney = 10;
+  // optional int32 m_timeGetMoney = 10;
   inline bool has_m_timegetmoney() const;
   inline void clear_m_timegetmoney();
-  static const int kMTimegetmoneyFieldNumber = 10;
+  static const int kMTimeGetMoneyFieldNumber = 10;
   inline ::google::protobuf::int32 m_timegetmoney() const;
   inline void set_m_timegetmoney(::google::protobuf::int32 value);
 
-  // optional int32 m_timego = 11;
+  // optional int32 m_timeGo = 11;
   inline bool has_m_timego() const;
   inline void clear_m_timego();
-  static const int kMTimegoFieldNumber = 11;
+  static const int kMTimeGoFieldNumber = 11;
   inline ::google::protobuf::int32 m_timego() const;
   inline void set_m_timego(::google::protobuf::int32 value);
 
@@ -353,7 +353,7 @@ inline void E_MoneyrewardMoneyreward::set_m_taskreward(::google::protobuf::int32
   m_taskreward_ = value;
 }
 
-// optional string m_boxtaskreward = 2;
+// optional string m_boxTaskreward = 2;
 inline bool E_MoneyrewardMoneyreward::has_m_boxtaskreward() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -423,7 +423,7 @@ inline void E_MoneyrewardMoneyreward::set_allocated_m_boxtaskreward(::std::strin
   }
 }
 
-// optional string m_boxnum = 3;
+// optional string m_boxNum = 3;
 inline bool E_MoneyrewardMoneyreward::has_m_boxnum() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -515,7 +515,7 @@ inline void E_MoneyrewardMoneyreward::set_m_task(::google::protobuf::int32 value
   m_task_ = value;
 }
 
-// optional int32 m_taskmax = 5;
+// optional int32 m_taskMax = 5;
 inline bool E_MoneyrewardMoneyreward::has_m_taskmax() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -537,7 +537,7 @@ inline void E_MoneyrewardMoneyreward::set_m_taskmax(::google::protobuf::int32 va
   m_taskmax_ = value;
 }
 
-// optional string m_oneprice = 6;
+// optional string m_onePrice = 6;
 inline bool E_MoneyrewardMoneyreward::has_m_oneprice() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -607,7 +607,7 @@ inline void E_MoneyrewardMoneyreward::set_allocated_m_oneprice(::std::string* m_
   }
 }
 
-// optional string m_freeunlocklv = 7;
+// optional string m_freeUnlockLv = 7;
 inline bool E_MoneyrewardMoneyreward::has_m_freeunlocklv() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -677,7 +677,7 @@ inline void E_MoneyrewardMoneyreward::set_allocated_m_freeunlocklv(::std::string
   }
 }
 
-// optional int32 m_viplv = 8;
+// optional int32 m_vipLV = 8;
 inline bool E_MoneyrewardMoneyreward::has_m_viplv() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -699,7 +699,7 @@ inline void E_MoneyrewardMoneyreward::set_m_viplv(::google::protobuf::int32 valu
   m_viplv_ = value;
 }
 
-// optional int32 m_timeget = 9;
+// optional int32 m_timeGet = 9;
 inline bool E_MoneyrewardMoneyreward::has_m_timeget() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -721,7 +721,7 @@ inline void E_MoneyrewardMoneyreward::set_m_timeget(::google::protobuf::int32 va
   m_timeget_ = value;
 }
 
-// optional int32 m_timegetmoney = 10;
+// optional int32 m_timeGetMoney = 10;
 inline bool E_MoneyrewardMoneyreward::has_m_timegetmoney() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -743,7 +743,7 @@ inline void E_MoneyrewardMoneyreward::set_m_timegetmoney(::google::protobuf::int
   m_timegetmoney_ = value;
 }
 
-// optional int32 m_timego = 11;
+// optional int32 m_timeGo = 11;
 inline bool E_MoneyrewardMoneyreward::has_m_timego() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }

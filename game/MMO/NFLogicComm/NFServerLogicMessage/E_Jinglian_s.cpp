@@ -12,7 +12,7 @@ E_JinglianSimple_s::E_JinglianSimple_s() {
 
 int E_JinglianSimple_s::CreateInit() {
 	m_position = (int32_t)0;
-	m_groupid = (int32_t)0;
+	m_groupId = (int32_t)0;
 	m_openlv = (int32_t)0;
 	m_default_attrs = (int32_t)0;
 	return 0;
@@ -24,7 +24,7 @@ int E_JinglianSimple_s::ResumeInit() {
 
 void E_JinglianSimple_s::write_to_pbmsg(::proto_ff::E_JinglianSimple & msg) const {
 	msg.set_m_position((int32_t)m_position);
-	msg.set_m_groupid((int32_t)m_groupid);
+	msg.set_m_groupid((int32_t)m_groupId);
 	msg.set_m_openlv((int32_t)m_openlv);
 	msg.set_m_default_attrs((int32_t)m_default_attrs);
 	for(int32_t i = 0; i < (int32_t)m_open_attr.size(); ++i) {
@@ -34,7 +34,7 @@ void E_JinglianSimple_s::write_to_pbmsg(::proto_ff::E_JinglianSimple & msg) cons
 
 void E_JinglianSimple_s::read_from_pbmsg(const ::proto_ff::E_JinglianSimple & msg) {
 	m_position = msg.m_position();
-	m_groupid = msg.m_groupid();
+	m_groupId = msg.m_groupid();
 	m_openlv = msg.m_openlv();
 	m_default_attrs = msg.m_default_attrs();
 	m_open_attr.resize((int)msg.m_open_attr_size() > (int)m_open_attr.max_size() ? m_open_attr.max_size() : msg.m_open_attr_size());
@@ -140,7 +140,7 @@ E_JinglianLv_s::E_JinglianLv_s() {
 
 int E_JinglianLv_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_groupid = (int32_t)0;
+	m_groupId = (int32_t)0;
 	m_lv = (int32_t)0;
 	return 0;
 }
@@ -151,7 +151,7 @@ int E_JinglianLv_s::ResumeInit() {
 
 void E_JinglianLv_s::write_to_pbmsg(::proto_ff::E_JinglianLv & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_groupid((int32_t)m_groupid);
+	msg.set_m_groupid((int32_t)m_groupId);
 	msg.set_m_lv((int32_t)m_lv);
 	for(int32_t i = 0; i < (int32_t)m_cost.size(); ++i) {
 		::proto_ff::E_JinglianLvCostDesc* temp_m_cost = msg.add_m_cost();
@@ -165,7 +165,7 @@ void E_JinglianLv_s::write_to_pbmsg(::proto_ff::E_JinglianLv & msg) const {
 
 void E_JinglianLv_s::read_from_pbmsg(const ::proto_ff::E_JinglianLv & msg) {
 	m_id = msg.m_id();
-	m_groupid = msg.m_groupid();
+	m_groupId = msg.m_groupid();
 	m_lv = msg.m_lv();
 	m_cost.resize((int)msg.m_cost_size() > (int)m_cost.max_size() ? m_cost.max_size() : msg.m_cost_size());
 	for(int32_t i = 0; i < (int32_t)m_cost.size(); ++i) {

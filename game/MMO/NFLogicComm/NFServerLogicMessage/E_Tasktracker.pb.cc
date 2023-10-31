@@ -104,8 +104,8 @@ void protobuf_AddDesc_E_5fTasktracker_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\023E_Tasktracker.proto\022\010proto_ff\032\025yd_fiel"
     "doptions.proto\"w\n\030E_TasktrackerTasktrack"
-    "er\022)\n\007m_comid\030\001 \001(\005B\030\302\377\024\024\345\256\214\346\210\220\346\235\241\344\273\266\347\261\273"
-    "\345\236\213ID\0220\n\010m_trueid\030\002 \001(\005B\036\302\377\024\032\345\256\236\351\231\205\345\256\214\346\210"
+    "er\022)\n\007m_comID\030\001 \001(\005B\030\302\377\024\024\345\256\214\346\210\220\346\235\241\344\273\266\347\261\273"
+    "\345\236\213ID\0220\n\010m_trueID\030\002 \001(\005B\036\302\377\024\032\345\256\236\351\231\205\345\256\214\346\210"
     "\220\346\235\241\344\273\266\347\261\273\345\236\213ID\"o\n\034Sheet_TasktrackerTask"
     "tracker\022O\n\035E_TasktrackerTasktracker_List"
     "\030\001 \003(\0132\".proto_ff.E_TasktrackerTasktrack"
@@ -129,8 +129,8 @@ struct StaticDescriptorInitializer_E_5fTasktracker_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_TasktrackerTasktracker::kMComidFieldNumber;
-const int E_TasktrackerTasktracker::kMTrueidFieldNumber;
+const int E_TasktrackerTasktracker::kMComIDFieldNumber;
+const int E_TasktrackerTasktracker::kMTrueIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_TasktrackerTasktracker::E_TasktrackerTasktracker()
@@ -199,7 +199,7 @@ bool E_TasktrackerTasktracker::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_comid = 1;
+      // optional int32 m_comID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -210,15 +210,15 @@ bool E_TasktrackerTasktracker::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_trueid;
+        if (input->ExpectTag(16)) goto parse_m_trueID;
         break;
       }
 
-      // optional int32 m_trueid = 2;
+      // optional int32 m_trueID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_trueid:
+         parse_m_trueID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_trueid_)));
@@ -248,12 +248,12 @@ bool E_TasktrackerTasktracker::MergePartialFromCodedStream(
 
 void E_TasktrackerTasktracker::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_comid = 1;
+  // optional int32 m_comID = 1;
   if (has_m_comid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_comid(), output);
   }
 
-  // optional int32 m_trueid = 2;
+  // optional int32 m_trueID = 2;
   if (has_m_trueid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_trueid(), output);
   }
@@ -266,12 +266,12 @@ void E_TasktrackerTasktracker::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_TasktrackerTasktracker::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_comid = 1;
+  // optional int32 m_comID = 1;
   if (has_m_comid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_comid(), target);
   }
 
-  // optional int32 m_trueid = 2;
+  // optional int32 m_trueID = 2;
   if (has_m_trueid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_trueid(), target);
   }
@@ -287,14 +287,14 @@ int E_TasktrackerTasktracker::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_comid = 1;
+    // optional int32 m_comID = 1;
     if (has_m_comid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_comid());
     }
 
-    // optional int32 m_trueid = 2;
+    // optional int32 m_trueID = 2;
     if (has_m_trueid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

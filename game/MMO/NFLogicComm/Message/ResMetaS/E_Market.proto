@@ -5,20 +5,20 @@ import "yd_fieldoptions.proto";
 
 message E_MarketMarket
 {
-	optional int32 m_itemid = 1[(yd_fieldoptions.field_cname) = "道具id"];
+	optional int32 m_itemId = 1[(yd_fieldoptions.field_cname) = "道具id"];
 	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "所属类型组"];
 	optional int32 m_order = 3[(yd_fieldoptions.field_cname) = "排序"];
-	optional int32 m_readytime = 4[(yd_fieldoptions.field_cname) = "准备时间"];
-	optional int32 m_sjtime = 5[(yd_fieldoptions.field_cname) = "上架时间"];
-	optional int32 m_endtime = 6[(yd_fieldoptions.field_cname) = "竞拍时间"];
-	optional int32 m_pricetype = 7[(yd_fieldoptions.field_cname) = "交易货币"];
-	optional int32 m_vietype = 8[(yd_fieldoptions.field_cname) = "是否支持竞价"];
-	optional int32 m_startprice = 9[(yd_fieldoptions.field_cname) = "竞拍底价"];
-	optional int32 m_onceprice = 10[(yd_fieldoptions.field_cname) = "每次增加的价格"];
-	optional int32 m_directprice = 11[(yd_fieldoptions.field_cname) = "一口价"];
-	optional int32 m_gztype = 12[(yd_fieldoptions.field_cname) = "是否关注"];
-	optional string m_gztutype = 13[(yd_fieldoptions.field_cname) = "关注获取途径", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_recoverytype = 14[(yd_fieldoptions.field_cname) = "是否系统回收"];
+	optional int32 m_readyTime = 4[(yd_fieldoptions.field_cname) = "准备时间"];
+	optional int32 m_sjTime = 5[(yd_fieldoptions.field_cname) = "上架时间"];
+	optional int32 m_endTime = 6[(yd_fieldoptions.field_cname) = "竞拍时间"];
+	optional int32 m_priceType = 7[(yd_fieldoptions.field_cname) = "交易货币"];
+	optional int32 m_vieType = 8[(yd_fieldoptions.field_cname) = "是否支持竞价"];
+	optional int32 m_startPrice = 9[(yd_fieldoptions.field_cname) = "竞拍底价"];
+	optional int32 m_oncePrice = 10[(yd_fieldoptions.field_cname) = "每次增加的价格"];
+	optional int32 m_directPrice = 11[(yd_fieldoptions.field_cname) = "一口价"];
+	optional int32 m_gzType = 12[(yd_fieldoptions.field_cname) = "是否关注"];
+	optional string m_gztuType = 13[(yd_fieldoptions.field_cname) = "关注获取途径", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_recoveryType = 14[(yd_fieldoptions.field_cname) = "是否系统回收"];
 }
 
 
@@ -30,7 +30,7 @@ message Sheet_MarketMarket
 message E_MarketBig
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "大类id"];
-	optional string m_bigname = 2[(yd_fieldoptions.field_cname) = "大类名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_bigName = 2[(yd_fieldoptions.field_cname) = "大类名称", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_xb = 3[(yd_fieldoptions.field_cname) = "性别"];
 }
 
@@ -43,8 +43,8 @@ message Sheet_MarketBig
 message E_MarketSmall
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "子页签id"];
-	optional string m_smallname = 2[(yd_fieldoptions.field_cname) = "子页签名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_openlevel = 3[(yd_fieldoptions.field_cname) = "显示等级"];
+	optional string m_smallName = 2[(yd_fieldoptions.field_cname) = "子页签名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_openLevel = 3[(yd_fieldoptions.field_cname) = "显示等级"];
 	optional int32 m_bigid = 4[(yd_fieldoptions.field_cname) = "大类id"];
 }
 
@@ -57,12 +57,12 @@ message Sheet_MarketSmall
 message E_MarketConstant
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_taxrate = 2[(yd_fieldoptions.field_cname) = "出售税率"];
-	optional int32 m_bpselltime = 3[(yd_fieldoptions.field_cname) = "帮派拍品上架时间"];
-	optional int32 m_sellnum = 4[(yd_fieldoptions.field_cname) = "上架数量"];
-	optional int32 m_recyclenum = 5[(yd_fieldoptions.field_cname) = "回收数量"];
+	optional int32 m_taxRate = 2[(yd_fieldoptions.field_cname) = "出售税率"];
+	optional int32 m_BPsellTime = 3[(yd_fieldoptions.field_cname) = "帮派拍品上架时间"];
+	optional int32 m_sellNum = 4[(yd_fieldoptions.field_cname) = "上架数量"];
+	optional int32 m_recycleNum = 5[(yd_fieldoptions.field_cname) = "回收数量"];
 	optional int32 m_gz = 6[(yd_fieldoptions.field_cname) = "关注上限"];
-	optional string m_epackagetype = 7[(yd_fieldoptions.field_cname) = "包裹类型", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_EpackageType = 7[(yd_fieldoptions.field_cname) = "包裹类型", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_dh = 8[(yd_fieldoptions.field_cname) = "钻石兑换元宝"];
 }
 

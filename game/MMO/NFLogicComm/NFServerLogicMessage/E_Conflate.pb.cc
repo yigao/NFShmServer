@@ -569,25 +569,25 @@ void protobuf_AddDesc_E_5fConflate_2eproto() {
     "tions.proto\"J\n\027E_ConflateEquipElemDesc\022\031"
     "\n\005m_num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_id\030\002 \001(\005B"
     "\006\302\377\024\002id\"\261\007\n\017E_ConflateEquip\022\032\n\004m_id\030\001 \001("
-    "\005B\014\302\377\024\010\345\220\210\346\210\220id\022\"\n\010m_openlv\030\002 \001(\005B\020\302\377\024\014\346"
-    "\230\276\347\244\272\347\255\211\347\272\247\022%\n\013m_grouptype\030\003 \001(\005B\020\302\377\024\014\350\243"
-    "\205\345\244\207\347\261\273\345\236\213\022\"\n\tm_subtype\030\004 \001(\005B\017\302\377\024\013\350\243\205\345\244"
+    "\005B\014\302\377\024\010\345\220\210\346\210\220id\022\"\n\010m_openLv\030\002 \001(\005B\020\302\377\024\014\346"
+    "\230\276\347\244\272\347\255\211\347\272\247\022%\n\013m_groupType\030\003 \001(\005B\020\302\377\024\014\350\243"
+    "\205\345\244\207\347\261\273\345\236\213\022\"\n\tm_subType\030\004 \001(\005B\017\302\377\024\013\350\243\205\345\244"
     "\207\347\273\204id\022/\n\022m_needsameposition\030\005 \001(\005B\023\302\377\024\017"
     "\346\230\257\345\220\246\345\220\214\351\203\250\344\275\215\022 \n\006m_star\030\006 \001(\005B\020\302\377\024\014\350\243\205"
     "\345\244\207\346\230\237\347\272\247\022#\n\tm_quality\030\007 \001(\005B\020\302\377\024\014\350\243\205\345\244\207"
-    "\345\223\201\350\264\250\022\'\n\rm_wearquality\030\010 \001(\005B\020\302\377\024\014\350\243\205\345\244"
-    "\207\345\223\201\351\230\266\022$\n\nm_elemstar\030\t \001(\005B\020\302\377\024\014\347\264\240\346\235\220\346"
-    "\230\237\347\272\247\022\'\n\rm_elemquality\030\n \001(\005B\020\302\377\024\014\347\264\240\346\235\220"
-    "\345\223\201\350\264\250\022+\n\021m_elemwearquality\030\013 \001(\005B\020\302\377\024\014\347"
+    "\345\223\201\350\264\250\022\'\n\rm_wearQuality\030\010 \001(\005B\020\302\377\024\014\350\243\205\345\244"
+    "\207\345\223\201\351\230\266\022$\n\nm_elemStar\030\t \001(\005B\020\302\377\024\014\347\264\240\346\235\220\346"
+    "\230\237\347\272\247\022\'\n\rm_elemQuality\030\n \001(\005B\020\302\377\024\014\347\264\240\346\235\220"
+    "\345\223\201\350\264\250\022+\n\021m_elemWearQuality\030\013 \001(\005B\020\302\377\024\014\347"
     "\264\240\346\235\220\345\223\201\351\230\266\022)\n\tm_minimum\030\014 \001(\005B\026\302\377\024\022\346\234\200\345"
     "\260\217\350\243\205\345\244\207\346\225\260\351\207\217\0224\n\021m_minisuccessrate\030\r \001("
     "\005B\031\302\377\024\025\346\234\200\345\260\221\350\243\205\345\244\207\346\210\220\345\212\237\347\216\207\022(\n\010m_maxmum"
     "\030\016 \001(\005B\026\302\377\024\022\346\234\200\345\244\247\350\243\205\345\244\207\346\225\260\351\207\217\0223\n\020m_maxs"
     "uccessrate\030\017 \001(\005B\031\302\377\024\025\346\234\200\345\244\247\350\243\205\345\244\207\346\210\220\345\212\237"
-    "\347\216\207\022$\n\nm_muststar\030\020 \001(\005B\020\302\377\024\014\345\220\214\351\230\266\346\230\237\347\272"
-    "\247\022\'\n\rm_mustquality\030\021 \001(\005B\020\302\377\024\014\345\220\214\351\230\266\345\223\201\350"
-    "\264\250\022+\n\021m_mustwearquality\030\022 \001(\005B\020\302\377\024\014\345\220\214\351\230"
-    "\266\345\223\201\351\230\266\022)\n\tm_mustnum\030\023 \001(\005B\026\302\377\024\022\345\220\214\351\230\266\350\243"
+    "\347\216\207\022$\n\nm_mustStar\030\020 \001(\005B\020\302\377\024\014\345\220\214\351\230\266\346\230\237\347\272"
+    "\247\022\'\n\rm_mustQuality\030\021 \001(\005B\020\302\377\024\014\345\220\214\351\230\266\345\223\201\350"
+    "\264\250\022+\n\021m_mustWearQuality\030\022 \001(\005B\020\302\377\024\014\345\220\214\351\230"
+    "\266\345\223\201\351\230\266\022)\n\tm_mustNum\030\023 \001(\005B\026\302\377\024\022\345\220\214\351\230\266\350\243"
     "\205\345\244\207\346\225\260\351\207\217\022*\n\nm_usemoney\030\024 \001(\005B\026\302\377\024\022\345\220\210\346"
     "\210\220\346\266\210\350\200\227\350\264\247\345\270\201\022 \n\006m_cost\030\025 \001(\005B\020\302\377\024\014\350\264\247\345"
     "\270\201\346\225\260\351\207\217\022A\n\006m_elem\030\026 \003(\0132!.proto_ff.E_Co"
@@ -597,30 +597,30 @@ void protobuf_AddDesc_E_5fConflate_2eproto() {
     "\200\020\"\222\002\n\023E_ConflateGrouptype\022\032\n\004m_id\030\001 \001(\005"
     "B\014\302\377\024\010\345\220\210\346\210\220id\022(\n\nm_position\030\002 \001(\tB\024\302\377\024\014"
     "\350\243\205\345\244\207\351\203\250\344\275\215\220\301\024@\022*\n\014m_profession\030\003 \001(\tB\024"
-    "\302\377\024\014\350\201\214\344\270\232\351\231\220\345\210\266\220\301\024@\022(\n\nm_typename\030\004 \001(\t"
-    "B\024\302\377\024\014\347\261\273\345\236\213\345\220\215\347\247\260\220\301\024@\022$\n\nm_unlockid\030\005 \001"
+    "\302\377\024\014\350\201\214\344\270\232\351\231\220\345\210\266\220\301\024@\022(\n\nm_typeName\030\004 \001(\t"
+    "B\024\302\377\024\014\347\261\273\345\236\213\345\220\215\347\247\260\220\301\024@\022$\n\nm_unlockId\030\005 \001"
     "(\005B\020\302\377\024\014\345\274\200\345\220\257\346\235\241\344\273\266\022\035\n\007m_entry\030\006 \001(\005B\014\302"
     "\377\024\010\345\205\245\345\217\243id\022\032\n\006m_rule\030\007 \001(\005B\n\302\377\024\006\350\247\204\345\210\231\""
     "`\n\027Sheet_ConflateGrouptype\022E\n\030E_Conflate"
     "Grouptype_List\030\001 \003(\0132\035.proto_ff.E_Confla"
     "teGrouptypeB\004\210\301\024@\"\241\001\n\021E_ConflateSubtype\022"
-    "\035\n\004m_id\030\001 \001(\005B\017\302\377\024\013\350\243\205\345\244\207\347\273\204id\022$\n\tm_subn"
+    "\035\n\004m_id\030\001 \001(\005B\017\302\377\024\013\350\243\205\345\244\207\347\273\204id\022$\n\tm_subN"
     "ame\030\002 \001(\tB\021\302\377\024\t\347\273\204\345\220\215\347\247\260\220\301\024@\022#\n\tm_groupi"
-    "d\030\003 \001(\005B\020\302\377\024\014\350\243\205\345\244\207\347\261\273\345\236\213\022\"\n\010m_openlv\030\004 "
+    "d\030\003 \001(\005B\020\302\377\024\014\350\243\205\345\244\207\347\261\273\345\236\213\022\"\n\010m_openLv\030\004 "
     "\001(\005B\020\302\377\024\014\346\230\276\347\244\272\347\255\211\347\272\247\"[\n\025Sheet_ConflateS"
     "ubtype\022B\n\026E_ConflateSubtype_List\030\001 \003(\0132\033"
     ".proto_ff.E_ConflateSubtypeB\005\210\301\024\200\001\"V\n\031E_"
-    "ConflatePropReplaceDesc\022\037\n\005m_num\030\001 \001(\005B\020"
+    "ConflatePropReplaceDesc\022\037\n\005m_Num\030\001 \001(\005B\020"
     "\302\377\024\014\347\264\240\346\235\220\346\225\260\351\207\217\022\030\n\004m_id\030\002 \001(\005B\n\302\377\024\006\347\264\240\346"
     "\235\220\"I\n\026E_ConflatePropElemDesc\022\031\n\005m_num\030\001 "
     "\001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002id\"\243\004"
     "\n\016E_ConflateProp\022\"\n\010m_target\030\001 \001(\005B\020\302\377\024\014"
-    "\345\220\210\346\210\220\347\233\256\346\240\207\022\"\n\010m_openlv\030\002 \001(\005B\020\302\377\024\014\346\230\276\347"
-    "\244\272\347\255\211\347\272\247\022\035\n\tm_subtype\030\003 \001(\005B\n\302\377\024\006\346\235\241\347\233\256\022"
+    "\345\220\210\346\210\220\347\233\256\346\240\207\022\"\n\010m_openLv\030\002 \001(\005B\020\302\377\024\014\346\230\276\347"
+    "\244\272\347\255\211\347\272\247\022\035\n\tm_subType\030\003 \001(\005B\n\302\377\024\006\346\235\241\347\233\256\022"
     "\033\n\007m_order\030\004 \001(\005B\n\302\377\024\006\346\216\222\345\272\217\0223\n\nm_activa"
     "te\030\005 \001(\005B\037\302\377\024\033\346\230\257\345\220\246\346\277\200\346\264\273\345\220\216\344\270\215\345\217\257\345\220\210\346\210"
     "\220\022/\n\tm_display\030\006 \001(\005B\034\302\377\024\030\346\230\257\345\220\246\346\230\276\347\244\272\345\220"
-    "\210\346\210\220\346\225\260\351\207\217\022*\n\rm_replacetype\030\007 \001(\005B\023\302\377\024\017\346"
+    "\210\346\210\220\346\225\260\351\207\217\022*\n\rm_replaceType\030\007 \001(\005B\023\302\377\024\017\346"
     "\230\257\345\220\246\345\217\257\346\233\277\344\273\243\022#\n\tm_culture\030\010 \001(\005B\020\302\377\024\014\346"
     "\230\257\345\220\246\345\205\273\346\210\220\022*\n\nm_usemoney\030\t \001(\005B\026\302\377\024\022\345\220\210"
     "\346\210\220\346\266\210\350\200\227\350\264\247\345\270\201\022 \n\006m_cost\030\n \001(\005B\020\302\377\024\014\350\264\247"
@@ -633,8 +633,8 @@ void protobuf_AddDesc_E_5fConflate_2eproto() {
     "flateJewelry_spElemDesc\022\031\n\005m_num\030\001 \001(\005B\n"
     "\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002id\"\214\003\n\024E_C"
     "onflateJewelry_sp\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\345\220\210"
-    "\346\210\220id\022\"\n\013m_grouptype\030\002 \001(\005B\r\302\377\024\t\347\273\204\347\261\273\345\236"
-    "\213\0221\n\021m_openwearquality\030\003 \001(\005B\026\302\377\024\022\350\243\205\345\244\207"
+    "\346\210\220id\022\"\n\013m_groupType\030\002 \001(\005B\r\302\377\024\t\347\273\204\347\261\273\345\236"
+    "\213\0221\n\021m_openwearQuality\030\003 \001(\005B\026\302\377\024\022\350\243\205\345\244\207"
     "\345\223\201\351\230\266\350\246\201\346\261\202\022\'\n\rm_openspecial\030\004 \001(\005B\020\302\377\024"
     "\014\347\234\237\347\202\274\350\246\201\346\261\202\022$\n\nm_position\030\005 \001(\005B\020\302\377\024\014\350"
     "\243\205\345\244\207\344\275\215\347\275\256\022)\n\tm_quality\030\006 \001(\005B\026\302\377\024\022\350\243\205\345"
@@ -648,11 +648,11 @@ void protobuf_AddDesc_E_5fConflate_2eproto() {
     "Desc\022\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_id\030"
     "\002 \001(\005B\006\302\377\024\002id\"\326\002\n\024E_ConflateJewelry_zl\022\032"
     "\n\004m_id\030\001 \001(\005B\014\302\377\024\010\345\220\210\346\210\220id\022\'\n\rm_openqual"
-    "ity\030\002 \001(\005B\020\302\377\024\014\345\223\201\350\264\250\350\246\201\346\261\202\022\"\n\013m_groupty"
+    "ity\030\002 \001(\005B\020\302\377\024\014\345\223\201\350\264\250\350\246\201\346\261\202\022\"\n\013m_groupTy"
     "pe\030\003 \001(\005B\r\302\377\024\t\347\273\204\347\261\273\345\236\213\022$\n\nm_position\030\004 "
-    "\001(\005B\020\302\377\024\014\350\243\205\345\244\207\351\203\250\344\275\215\022 \n\006m_zllv\030\005 \001(\005B\020\302"
+    "\001(\005B\020\302\377\024\014\350\243\205\345\244\207\351\203\250\344\275\215\022 \n\006m_Zllv\030\005 \001(\005B\020\302"
     "\377\024\014\347\234\237\347\202\274\347\255\211\347\272\247\022\035\n\006m_next\030\006 \001(\005B\r\302\377\024\t\344\270\213"
-    "\344\270\200\347\272\247\022&\n\010m_zlname\030\007 \001(\tB\024\302\377\024\014\347\255\211\347\272\247\346\217\217\350"
+    "\344\270\200\347\272\247\022&\n\010m_Zlname\030\007 \001(\tB\024\302\377\024\014\347\255\211\347\272\247\346\217\217\350"
     "\277\260\220\301\024@\022F\n\006m_elem\030\010 \003(\0132&.proto_ff.E_Conf"
     "lateJewelry_zlElemDescB\016\302\377\024\006\347\264\240\346\235\220\210\301\024\004\"c"
     "\n\030Sheet_ConflateJewelry_zl\022G\n\031E_Conflate"
@@ -661,10 +661,10 @@ void protobuf_AddDesc_E_5fConflate_2eproto() {
     "_sjElemDesc\022\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024"
     "\n\004m_id\030\002 \001(\005B\006\302\377\024\002id\"\260\002\n\024E_ConflateJewel"
     "ry_sj\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\345\220\210\346\210\220id\022\"\n\013m_g"
-    "rouptype\030\002 \001(\005B\r\302\377\024\t\347\273\204\347\261\273\345\236\213\022$\n\nm_posit"
-    "ion\030\003 \001(\005B\020\302\377\024\014\350\243\205\345\244\207\344\275\215\347\275\256\022\'\n\rm_wearqua"
+    "roupType\030\002 \001(\005B\r\302\377\024\t\347\273\204\347\261\273\345\236\213\022$\n\nm_posit"
+    "ion\030\003 \001(\005B\020\302\377\024\014\350\243\205\345\244\207\344\275\215\347\275\256\022\'\n\rm_wearQua"
     "lity\030\004 \001(\005B\020\302\377\024\014\350\243\205\345\244\207\345\223\201\351\230\266\022\035\n\006m_next\030\005"
-    " \001(\005B\r\302\377\024\t\344\270\213\344\270\200\347\272\247\022\"\n\010m_openlv\030\006 \001(\005B\020\302"
+    " \001(\005B\r\302\377\024\t\344\270\213\344\270\200\347\272\247\022\"\n\010m_openLv\030\006 \001(\005B\020\302"
     "\377\024\014\345\215\207\351\230\266\347\255\211\347\272\247\022F\n\006m_elem\030\007 \003(\0132&.proto_"
     "ff.E_ConflateJewelry_sjElemDescB\016\302\377\024\006\347\264\240"
     "\346\235\220\210\301\024\004\"c\n\030Sheet_ConflateJewelry_sj\022G\n\031E"
@@ -974,24 +974,24 @@ void E_ConflateEquipElemDesc::Swap(E_ConflateEquipElemDesc* other) {
 
 #ifndef _MSC_VER
 const int E_ConflateEquip::kMIdFieldNumber;
-const int E_ConflateEquip::kMOpenlvFieldNumber;
-const int E_ConflateEquip::kMGrouptypeFieldNumber;
-const int E_ConflateEquip::kMSubtypeFieldNumber;
+const int E_ConflateEquip::kMOpenLvFieldNumber;
+const int E_ConflateEquip::kMGroupTypeFieldNumber;
+const int E_ConflateEquip::kMSubTypeFieldNumber;
 const int E_ConflateEquip::kMNeedsamepositionFieldNumber;
 const int E_ConflateEquip::kMStarFieldNumber;
 const int E_ConflateEquip::kMQualityFieldNumber;
-const int E_ConflateEquip::kMWearqualityFieldNumber;
-const int E_ConflateEquip::kMElemstarFieldNumber;
-const int E_ConflateEquip::kMElemqualityFieldNumber;
-const int E_ConflateEquip::kMElemwearqualityFieldNumber;
+const int E_ConflateEquip::kMWearQualityFieldNumber;
+const int E_ConflateEquip::kMElemStarFieldNumber;
+const int E_ConflateEquip::kMElemQualityFieldNumber;
+const int E_ConflateEquip::kMElemWearQualityFieldNumber;
 const int E_ConflateEquip::kMMinimumFieldNumber;
 const int E_ConflateEquip::kMMinisuccessrateFieldNumber;
 const int E_ConflateEquip::kMMaxmumFieldNumber;
 const int E_ConflateEquip::kMMaxsuccessrateFieldNumber;
-const int E_ConflateEquip::kMMuststarFieldNumber;
-const int E_ConflateEquip::kMMustqualityFieldNumber;
-const int E_ConflateEquip::kMMustwearqualityFieldNumber;
-const int E_ConflateEquip::kMMustnumFieldNumber;
+const int E_ConflateEquip::kMMustStarFieldNumber;
+const int E_ConflateEquip::kMMustQualityFieldNumber;
+const int E_ConflateEquip::kMMustWearQualityFieldNumber;
+const int E_ConflateEquip::kMMustNumFieldNumber;
 const int E_ConflateEquip::kMUsemoneyFieldNumber;
 const int E_ConflateEquip::kMCostFieldNumber;
 const int E_ConflateEquip::kMElemFieldNumber;
@@ -1117,15 +1117,15 @@ bool E_ConflateEquip::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_openlv;
+        if (input->ExpectTag(16)) goto parse_m_openLv;
         break;
       }
 
-      // optional int32 m_openlv = 2;
+      // optional int32 m_openLv = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_openlv:
+         parse_m_openLv:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_openlv_)));
@@ -1133,15 +1133,15 @@ bool E_ConflateEquip::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_grouptype;
+        if (input->ExpectTag(24)) goto parse_m_groupType;
         break;
       }
 
-      // optional int32 m_grouptype = 3;
+      // optional int32 m_groupType = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_grouptype:
+         parse_m_groupType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_grouptype_)));
@@ -1149,15 +1149,15 @@ bool E_ConflateEquip::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_subtype;
+        if (input->ExpectTag(32)) goto parse_m_subType;
         break;
       }
 
-      // optional int32 m_subtype = 4;
+      // optional int32 m_subType = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_subtype:
+         parse_m_subType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_subtype_)));
@@ -1213,15 +1213,15 @@ bool E_ConflateEquip::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_wearquality;
+        if (input->ExpectTag(64)) goto parse_m_wearQuality;
         break;
       }
 
-      // optional int32 m_wearquality = 8;
+      // optional int32 m_wearQuality = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_wearquality:
+         parse_m_wearQuality:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_wearquality_)));
@@ -1229,15 +1229,15 @@ bool E_ConflateEquip::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_elemstar;
+        if (input->ExpectTag(72)) goto parse_m_elemStar;
         break;
       }
 
-      // optional int32 m_elemstar = 9;
+      // optional int32 m_elemStar = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_elemstar:
+         parse_m_elemStar:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_elemstar_)));
@@ -1245,15 +1245,15 @@ bool E_ConflateEquip::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_elemquality;
+        if (input->ExpectTag(80)) goto parse_m_elemQuality;
         break;
       }
 
-      // optional int32 m_elemquality = 10;
+      // optional int32 m_elemQuality = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_elemquality:
+         parse_m_elemQuality:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_elemquality_)));
@@ -1261,15 +1261,15 @@ bool E_ConflateEquip::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_elemwearquality;
+        if (input->ExpectTag(88)) goto parse_m_elemWearQuality;
         break;
       }
 
-      // optional int32 m_elemwearquality = 11;
+      // optional int32 m_elemWearQuality = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_elemwearquality:
+         parse_m_elemWearQuality:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_elemwearquality_)));
@@ -1341,15 +1341,15 @@ bool E_ConflateEquip::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(128)) goto parse_m_muststar;
+        if (input->ExpectTag(128)) goto parse_m_mustStar;
         break;
       }
 
-      // optional int32 m_muststar = 16;
+      // optional int32 m_mustStar = 16;
       case 16: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_muststar:
+         parse_m_mustStar:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_muststar_)));
@@ -1357,15 +1357,15 @@ bool E_ConflateEquip::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(136)) goto parse_m_mustquality;
+        if (input->ExpectTag(136)) goto parse_m_mustQuality;
         break;
       }
 
-      // optional int32 m_mustquality = 17;
+      // optional int32 m_mustQuality = 17;
       case 17: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_mustquality:
+         parse_m_mustQuality:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_mustquality_)));
@@ -1373,15 +1373,15 @@ bool E_ConflateEquip::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(144)) goto parse_m_mustwearquality;
+        if (input->ExpectTag(144)) goto parse_m_mustWearQuality;
         break;
       }
 
-      // optional int32 m_mustwearquality = 18;
+      // optional int32 m_mustWearQuality = 18;
       case 18: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_mustwearquality:
+         parse_m_mustWearQuality:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_mustwearquality_)));
@@ -1389,15 +1389,15 @@ bool E_ConflateEquip::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(152)) goto parse_m_mustnum;
+        if (input->ExpectTag(152)) goto parse_m_mustNum;
         break;
       }
 
-      // optional int32 m_mustnum = 19;
+      // optional int32 m_mustNum = 19;
       case 19: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_mustnum:
+         parse_m_mustNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_mustnum_)));
@@ -1479,17 +1479,17 @@ void E_ConflateEquip::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_openlv = 2;
+  // optional int32 m_openLv = 2;
   if (has_m_openlv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_openlv(), output);
   }
 
-  // optional int32 m_grouptype = 3;
+  // optional int32 m_groupType = 3;
   if (has_m_grouptype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_grouptype(), output);
   }
 
-  // optional int32 m_subtype = 4;
+  // optional int32 m_subType = 4;
   if (has_m_subtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_subtype(), output);
   }
@@ -1509,22 +1509,22 @@ void E_ConflateEquip::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_quality(), output);
   }
 
-  // optional int32 m_wearquality = 8;
+  // optional int32 m_wearQuality = 8;
   if (has_m_wearquality()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_wearquality(), output);
   }
 
-  // optional int32 m_elemstar = 9;
+  // optional int32 m_elemStar = 9;
   if (has_m_elemstar()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_elemstar(), output);
   }
 
-  // optional int32 m_elemquality = 10;
+  // optional int32 m_elemQuality = 10;
   if (has_m_elemquality()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_elemquality(), output);
   }
 
-  // optional int32 m_elemwearquality = 11;
+  // optional int32 m_elemWearQuality = 11;
   if (has_m_elemwearquality()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_elemwearquality(), output);
   }
@@ -1549,22 +1549,22 @@ void E_ConflateEquip::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_maxsuccessrate(), output);
   }
 
-  // optional int32 m_muststar = 16;
+  // optional int32 m_mustStar = 16;
   if (has_m_muststar()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->m_muststar(), output);
   }
 
-  // optional int32 m_mustquality = 17;
+  // optional int32 m_mustQuality = 17;
   if (has_m_mustquality()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(17, this->m_mustquality(), output);
   }
 
-  // optional int32 m_mustwearquality = 18;
+  // optional int32 m_mustWearQuality = 18;
   if (has_m_mustwearquality()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(18, this->m_mustwearquality(), output);
   }
 
-  // optional int32 m_mustnum = 19;
+  // optional int32 m_mustNum = 19;
   if (has_m_mustnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(19, this->m_mustnum(), output);
   }
@@ -1598,17 +1598,17 @@ void E_ConflateEquip::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_openlv = 2;
+  // optional int32 m_openLv = 2;
   if (has_m_openlv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_openlv(), target);
   }
 
-  // optional int32 m_grouptype = 3;
+  // optional int32 m_groupType = 3;
   if (has_m_grouptype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_grouptype(), target);
   }
 
-  // optional int32 m_subtype = 4;
+  // optional int32 m_subType = 4;
   if (has_m_subtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_subtype(), target);
   }
@@ -1628,22 +1628,22 @@ void E_ConflateEquip::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_quality(), target);
   }
 
-  // optional int32 m_wearquality = 8;
+  // optional int32 m_wearQuality = 8;
   if (has_m_wearquality()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_wearquality(), target);
   }
 
-  // optional int32 m_elemstar = 9;
+  // optional int32 m_elemStar = 9;
   if (has_m_elemstar()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_elemstar(), target);
   }
 
-  // optional int32 m_elemquality = 10;
+  // optional int32 m_elemQuality = 10;
   if (has_m_elemquality()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_elemquality(), target);
   }
 
-  // optional int32 m_elemwearquality = 11;
+  // optional int32 m_elemWearQuality = 11;
   if (has_m_elemwearquality()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_elemwearquality(), target);
   }
@@ -1668,22 +1668,22 @@ void E_ConflateEquip::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_maxsuccessrate(), target);
   }
 
-  // optional int32 m_muststar = 16;
+  // optional int32 m_mustStar = 16;
   if (has_m_muststar()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->m_muststar(), target);
   }
 
-  // optional int32 m_mustquality = 17;
+  // optional int32 m_mustQuality = 17;
   if (has_m_mustquality()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(17, this->m_mustquality(), target);
   }
 
-  // optional int32 m_mustwearquality = 18;
+  // optional int32 m_mustWearQuality = 18;
   if (has_m_mustwearquality()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(18, this->m_mustwearquality(), target);
   }
 
-  // optional int32 m_mustnum = 19;
+  // optional int32 m_mustNum = 19;
   if (has_m_mustnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(19, this->m_mustnum(), target);
   }
@@ -1723,21 +1723,21 @@ int E_ConflateEquip::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_openlv = 2;
+    // optional int32 m_openLv = 2;
     if (has_m_openlv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_openlv());
     }
 
-    // optional int32 m_grouptype = 3;
+    // optional int32 m_groupType = 3;
     if (has_m_grouptype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_grouptype());
     }
 
-    // optional int32 m_subtype = 4;
+    // optional int32 m_subType = 4;
     if (has_m_subtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1765,7 +1765,7 @@ int E_ConflateEquip::ByteSize() const {
           this->m_quality());
     }
 
-    // optional int32 m_wearquality = 8;
+    // optional int32 m_wearQuality = 8;
     if (has_m_wearquality()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1774,21 +1774,21 @@ int E_ConflateEquip::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_elemstar = 9;
+    // optional int32 m_elemStar = 9;
     if (has_m_elemstar()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_elemstar());
     }
 
-    // optional int32 m_elemquality = 10;
+    // optional int32 m_elemQuality = 10;
     if (has_m_elemquality()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_elemquality());
     }
 
-    // optional int32 m_elemwearquality = 11;
+    // optional int32 m_elemWearQuality = 11;
     if (has_m_elemwearquality()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1823,7 +1823,7 @@ int E_ConflateEquip::ByteSize() const {
           this->m_maxsuccessrate());
     }
 
-    // optional int32 m_muststar = 16;
+    // optional int32 m_mustStar = 16;
     if (has_m_muststar()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1832,21 +1832,21 @@ int E_ConflateEquip::ByteSize() const {
 
   }
   if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    // optional int32 m_mustquality = 17;
+    // optional int32 m_mustQuality = 17;
     if (has_m_mustquality()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_mustquality());
     }
 
-    // optional int32 m_mustwearquality = 18;
+    // optional int32 m_mustWearQuality = 18;
     if (has_m_mustwearquality()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_mustwearquality());
     }
 
-    // optional int32 m_mustnum = 19;
+    // optional int32 m_mustNum = 19;
     if (has_m_mustnum()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2239,8 +2239,8 @@ void Sheet_ConflateEquip::Swap(Sheet_ConflateEquip* other) {
 const int E_ConflateGrouptype::kMIdFieldNumber;
 const int E_ConflateGrouptype::kMPositionFieldNumber;
 const int E_ConflateGrouptype::kMProfessionFieldNumber;
-const int E_ConflateGrouptype::kMTypenameFieldNumber;
-const int E_ConflateGrouptype::kMUnlockidFieldNumber;
+const int E_ConflateGrouptype::kMTypeNameFieldNumber;
+const int E_ConflateGrouptype::kMUnlockIdFieldNumber;
 const int E_ConflateGrouptype::kMEntryFieldNumber;
 const int E_ConflateGrouptype::kMRuleFieldNumber;
 #endif  // !_MSC_VER
@@ -2387,15 +2387,15 @@ bool E_ConflateGrouptype::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_typename;
+        if (input->ExpectTag(34)) goto parse_m_typeName;
         break;
       }
 
-      // optional string m_typename = 4;
+      // optional string m_typeName = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_typename:
+         parse_m_typeName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_typename()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -2404,15 +2404,15 @@ bool E_ConflateGrouptype::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_unlockid;
+        if (input->ExpectTag(40)) goto parse_m_unlockId;
         break;
       }
 
-      // optional int32 m_unlockid = 5;
+      // optional int32 m_unlockId = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_unlockid:
+         parse_m_unlockId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_unlockid_)));
@@ -2497,7 +2497,7 @@ void E_ConflateGrouptype::SerializeWithCachedSizes(
       3, this->m_profession(), output);
   }
 
-  // optional string m_typename = 4;
+  // optional string m_typeName = 4;
   if (has_m_typename()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_typename().data(), this->m_typename().length(),
@@ -2506,7 +2506,7 @@ void E_ConflateGrouptype::SerializeWithCachedSizes(
       4, this->m_typename(), output);
   }
 
-  // optional int32 m_unlockid = 5;
+  // optional int32 m_unlockId = 5;
   if (has_m_unlockid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_unlockid(), output);
   }
@@ -2554,7 +2554,7 @@ void E_ConflateGrouptype::SerializeWithCachedSizes(
         3, this->m_profession(), target);
   }
 
-  // optional string m_typename = 4;
+  // optional string m_typeName = 4;
   if (has_m_typename()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_typename().data(), this->m_typename().length(),
@@ -2564,7 +2564,7 @@ void E_ConflateGrouptype::SerializeWithCachedSizes(
         4, this->m_typename(), target);
   }
 
-  // optional int32 m_unlockid = 5;
+  // optional int32 m_unlockId = 5;
   if (has_m_unlockid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_unlockid(), target);
   }
@@ -2611,14 +2611,14 @@ int E_ConflateGrouptype::ByteSize() const {
           this->m_profession());
     }
 
-    // optional string m_typename = 4;
+    // optional string m_typeName = 4;
     if (has_m_typename()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_typename());
     }
 
-    // optional int32 m_unlockid = 5;
+    // optional int32 m_unlockId = 5;
     if (has_m_unlockid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2939,9 +2939,9 @@ void Sheet_ConflateGrouptype::Swap(Sheet_ConflateGrouptype* other) {
 
 #ifndef _MSC_VER
 const int E_ConflateSubtype::kMIdFieldNumber;
-const int E_ConflateSubtype::kMSubnameFieldNumber;
+const int E_ConflateSubtype::kMSubNameFieldNumber;
 const int E_ConflateSubtype::kMGroupidFieldNumber;
-const int E_ConflateSubtype::kMOpenlvFieldNumber;
+const int E_ConflateSubtype::kMOpenLvFieldNumber;
 #endif  // !_MSC_VER
 
 E_ConflateSubtype::E_ConflateSubtype()
@@ -3032,15 +3032,15 @@ bool E_ConflateSubtype::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_m_subname;
+        if (input->ExpectTag(18)) goto parse_m_subName;
         break;
       }
 
-      // optional string m_subname = 2;
+      // optional string m_subName = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_subname:
+         parse_m_subName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_subname()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -3065,15 +3065,15 @@ bool E_ConflateSubtype::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_openlv;
+        if (input->ExpectTag(32)) goto parse_m_openLv;
         break;
       }
 
-      // optional int32 m_openlv = 4;
+      // optional int32 m_openLv = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_openlv:
+         parse_m_openLv:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_openlv_)));
@@ -3108,7 +3108,7 @@ void E_ConflateSubtype::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional string m_subname = 2;
+  // optional string m_subName = 2;
   if (has_m_subname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_subname().data(), this->m_subname().length(),
@@ -3122,7 +3122,7 @@ void E_ConflateSubtype::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_groupid(), output);
   }
 
-  // optional int32 m_openlv = 4;
+  // optional int32 m_openLv = 4;
   if (has_m_openlv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_openlv(), output);
   }
@@ -3140,7 +3140,7 @@ void E_ConflateSubtype::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional string m_subname = 2;
+  // optional string m_subName = 2;
   if (has_m_subname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_subname().data(), this->m_subname().length(),
@@ -3155,7 +3155,7 @@ void E_ConflateSubtype::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_groupid(), target);
   }
 
-  // optional int32 m_openlv = 4;
+  // optional int32 m_openLv = 4;
   if (has_m_openlv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_openlv(), target);
   }
@@ -3178,7 +3178,7 @@ int E_ConflateSubtype::ByteSize() const {
           this->m_id());
     }
 
-    // optional string m_subname = 2;
+    // optional string m_subName = 2;
     if (has_m_subname()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -3192,7 +3192,7 @@ int E_ConflateSubtype::ByteSize() const {
           this->m_groupid());
     }
 
-    // optional int32 m_openlv = 4;
+    // optional int32 m_openLv = 4;
     if (has_m_openlv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3556,7 +3556,7 @@ bool E_ConflatePropReplaceDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_num = 1;
+      // optional int32 m_Num = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -3605,7 +3605,7 @@ bool E_ConflatePropReplaceDesc::MergePartialFromCodedStream(
 
 void E_ConflatePropReplaceDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_num = 1;
+  // optional int32 m_Num = 1;
   if (has_m_num()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_num(), output);
   }
@@ -3623,7 +3623,7 @@ void E_ConflatePropReplaceDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_ConflatePropReplaceDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_num = 1;
+  // optional int32 m_Num = 1;
   if (has_m_num()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_num(), target);
   }
@@ -3644,7 +3644,7 @@ int E_ConflatePropReplaceDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_num = 1;
+    // optional int32 m_Num = 1;
     if (has_m_num()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3983,12 +3983,12 @@ void E_ConflatePropElemDesc::Swap(E_ConflatePropElemDesc* other) {
 
 #ifndef _MSC_VER
 const int E_ConflateProp::kMTargetFieldNumber;
-const int E_ConflateProp::kMOpenlvFieldNumber;
-const int E_ConflateProp::kMSubtypeFieldNumber;
+const int E_ConflateProp::kMOpenLvFieldNumber;
+const int E_ConflateProp::kMSubTypeFieldNumber;
 const int E_ConflateProp::kMOrderFieldNumber;
 const int E_ConflateProp::kMActivateFieldNumber;
 const int E_ConflateProp::kMDisplayFieldNumber;
-const int E_ConflateProp::kMReplacetypeFieldNumber;
+const int E_ConflateProp::kMReplaceTypeFieldNumber;
 const int E_ConflateProp::kMCultureFieldNumber;
 const int E_ConflateProp::kMUsemoneyFieldNumber;
 const int E_ConflateProp::kMCostFieldNumber;
@@ -4093,15 +4093,15 @@ bool E_ConflateProp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_openlv;
+        if (input->ExpectTag(16)) goto parse_m_openLv;
         break;
       }
 
-      // optional int32 m_openlv = 2;
+      // optional int32 m_openLv = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_openlv:
+         parse_m_openLv:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_openlv_)));
@@ -4109,15 +4109,15 @@ bool E_ConflateProp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_subtype;
+        if (input->ExpectTag(24)) goto parse_m_subType;
         break;
       }
 
-      // optional int32 m_subtype = 3;
+      // optional int32 m_subType = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_subtype:
+         parse_m_subType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_subtype_)));
@@ -4173,15 +4173,15 @@ bool E_ConflateProp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_replacetype;
+        if (input->ExpectTag(56)) goto parse_m_replaceType;
         break;
       }
 
-      // optional int32 m_replacetype = 7;
+      // optional int32 m_replaceType = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_replacetype:
+         parse_m_replaceType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_replacetype_)));
@@ -4294,12 +4294,12 @@ void E_ConflateProp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_target(), output);
   }
 
-  // optional int32 m_openlv = 2;
+  // optional int32 m_openLv = 2;
   if (has_m_openlv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_openlv(), output);
   }
 
-  // optional int32 m_subtype = 3;
+  // optional int32 m_subType = 3;
   if (has_m_subtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_subtype(), output);
   }
@@ -4319,7 +4319,7 @@ void E_ConflateProp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_display(), output);
   }
 
-  // optional int32 m_replacetype = 7;
+  // optional int32 m_replaceType = 7;
   if (has_m_replacetype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_replacetype(), output);
   }
@@ -4364,12 +4364,12 @@ void E_ConflateProp::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_target(), target);
   }
 
-  // optional int32 m_openlv = 2;
+  // optional int32 m_openLv = 2;
   if (has_m_openlv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_openlv(), target);
   }
 
-  // optional int32 m_subtype = 3;
+  // optional int32 m_subType = 3;
   if (has_m_subtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_subtype(), target);
   }
@@ -4389,7 +4389,7 @@ void E_ConflateProp::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_display(), target);
   }
 
-  // optional int32 m_replacetype = 7;
+  // optional int32 m_replaceType = 7;
   if (has_m_replacetype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_replacetype(), target);
   }
@@ -4441,14 +4441,14 @@ int E_ConflateProp::ByteSize() const {
           this->m_target());
     }
 
-    // optional int32 m_openlv = 2;
+    // optional int32 m_openLv = 2;
     if (has_m_openlv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_openlv());
     }
 
-    // optional int32 m_subtype = 3;
+    // optional int32 m_subType = 3;
     if (has_m_subtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4476,7 +4476,7 @@ int E_ConflateProp::ByteSize() const {
           this->m_display());
     }
 
-    // optional int32 m_replacetype = 7;
+    // optional int32 m_replaceType = 7;
     if (has_m_replacetype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -5088,8 +5088,8 @@ void E_ConflateJewelry_spElemDesc::Swap(E_ConflateJewelry_spElemDesc* other) {
 
 #ifndef _MSC_VER
 const int E_ConflateJewelry_sp::kMIdFieldNumber;
-const int E_ConflateJewelry_sp::kMGrouptypeFieldNumber;
-const int E_ConflateJewelry_sp::kMOpenwearqualityFieldNumber;
+const int E_ConflateJewelry_sp::kMGroupTypeFieldNumber;
+const int E_ConflateJewelry_sp::kMOpenwearQualityFieldNumber;
 const int E_ConflateJewelry_sp::kMOpenspecialFieldNumber;
 const int E_ConflateJewelry_sp::kMPositionFieldNumber;
 const int E_ConflateJewelry_sp::kMQualityFieldNumber;
@@ -5188,15 +5188,15 @@ bool E_ConflateJewelry_sp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_grouptype;
+        if (input->ExpectTag(16)) goto parse_m_groupType;
         break;
       }
 
-      // optional int32 m_grouptype = 2;
+      // optional int32 m_groupType = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_grouptype:
+         parse_m_groupType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_grouptype_)));
@@ -5204,15 +5204,15 @@ bool E_ConflateJewelry_sp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_openwearquality;
+        if (input->ExpectTag(24)) goto parse_m_openwearQuality;
         break;
       }
 
-      // optional int32 m_openwearquality = 3;
+      // optional int32 m_openwearQuality = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_openwearquality:
+         parse_m_openwearQuality:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_openwearquality_)));
@@ -5342,12 +5342,12 @@ void E_ConflateJewelry_sp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_grouptype = 2;
+  // optional int32 m_groupType = 2;
   if (has_m_grouptype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_grouptype(), output);
   }
 
-  // optional int32 m_openwearquality = 3;
+  // optional int32 m_openwearQuality = 3;
   if (has_m_openwearquality()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_openwearquality(), output);
   }
@@ -5396,12 +5396,12 @@ void E_ConflateJewelry_sp::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_grouptype = 2;
+  // optional int32 m_groupType = 2;
   if (has_m_grouptype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_grouptype(), target);
   }
 
-  // optional int32 m_openwearquality = 3;
+  // optional int32 m_openwearQuality = 3;
   if (has_m_openwearquality()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_openwearquality(), target);
   }
@@ -5456,14 +5456,14 @@ int E_ConflateJewelry_sp::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_grouptype = 2;
+    // optional int32 m_groupType = 2;
     if (has_m_grouptype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_grouptype());
     }
 
-    // optional int32 m_openwearquality = 3;
+    // optional int32 m_openwearQuality = 3;
     if (has_m_openwearquality()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -6068,7 +6068,7 @@ void E_ConflateJewelry_zlElemDesc::Swap(E_ConflateJewelry_zlElemDesc* other) {
 #ifndef _MSC_VER
 const int E_ConflateJewelry_zl::kMIdFieldNumber;
 const int E_ConflateJewelry_zl::kMOpenqualityFieldNumber;
-const int E_ConflateJewelry_zl::kMGrouptypeFieldNumber;
+const int E_ConflateJewelry_zl::kMGroupTypeFieldNumber;
 const int E_ConflateJewelry_zl::kMPositionFieldNumber;
 const int E_ConflateJewelry_zl::kMZllvFieldNumber;
 const int E_ConflateJewelry_zl::kMNextFieldNumber;
@@ -6187,15 +6187,15 @@ bool E_ConflateJewelry_zl::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_grouptype;
+        if (input->ExpectTag(24)) goto parse_m_groupType;
         break;
       }
 
-      // optional int32 m_grouptype = 3;
+      // optional int32 m_groupType = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_grouptype:
+         parse_m_groupType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_grouptype_)));
@@ -6219,15 +6219,15 @@ bool E_ConflateJewelry_zl::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_zllv;
+        if (input->ExpectTag(40)) goto parse_m_Zllv;
         break;
       }
 
-      // optional int32 m_zllv = 5;
+      // optional int32 m_Zllv = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_zllv:
+         parse_m_Zllv:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_zllv_)));
@@ -6251,15 +6251,15 @@ bool E_ConflateJewelry_zl::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(58)) goto parse_m_zlname;
+        if (input->ExpectTag(58)) goto parse_m_Zlname;
         break;
       }
 
-      // optional string m_zlname = 7;
+      // optional string m_Zlname = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_zlname:
+         parse_m_Zlname:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_zlname()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -6315,7 +6315,7 @@ void E_ConflateJewelry_zl::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_openquality(), output);
   }
 
-  // optional int32 m_grouptype = 3;
+  // optional int32 m_groupType = 3;
   if (has_m_grouptype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_grouptype(), output);
   }
@@ -6325,7 +6325,7 @@ void E_ConflateJewelry_zl::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_position(), output);
   }
 
-  // optional int32 m_zllv = 5;
+  // optional int32 m_Zllv = 5;
   if (has_m_zllv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_zllv(), output);
   }
@@ -6335,7 +6335,7 @@ void E_ConflateJewelry_zl::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_next(), output);
   }
 
-  // optional string m_zlname = 7;
+  // optional string m_Zlname = 7;
   if (has_m_zlname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_zlname().data(), this->m_zlname().length(),
@@ -6368,7 +6368,7 @@ void E_ConflateJewelry_zl::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_openquality(), target);
   }
 
-  // optional int32 m_grouptype = 3;
+  // optional int32 m_groupType = 3;
   if (has_m_grouptype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_grouptype(), target);
   }
@@ -6378,7 +6378,7 @@ void E_ConflateJewelry_zl::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_position(), target);
   }
 
-  // optional int32 m_zllv = 5;
+  // optional int32 m_Zllv = 5;
   if (has_m_zllv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_zllv(), target);
   }
@@ -6388,7 +6388,7 @@ void E_ConflateJewelry_zl::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_next(), target);
   }
 
-  // optional string m_zlname = 7;
+  // optional string m_Zlname = 7;
   if (has_m_zlname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_zlname().data(), this->m_zlname().length(),
@@ -6430,7 +6430,7 @@ int E_ConflateJewelry_zl::ByteSize() const {
           this->m_openquality());
     }
 
-    // optional int32 m_grouptype = 3;
+    // optional int32 m_groupType = 3;
     if (has_m_grouptype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -6444,7 +6444,7 @@ int E_ConflateJewelry_zl::ByteSize() const {
           this->m_position());
     }
 
-    // optional int32 m_zllv = 5;
+    // optional int32 m_Zllv = 5;
     if (has_m_zllv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -6458,7 +6458,7 @@ int E_ConflateJewelry_zl::ByteSize() const {
           this->m_next());
     }
 
-    // optional string m_zlname = 7;
+    // optional string m_Zlname = 7;
     if (has_m_zlname()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -7023,11 +7023,11 @@ void E_ConflateJewelry_sjElemDesc::Swap(E_ConflateJewelry_sjElemDesc* other) {
 
 #ifndef _MSC_VER
 const int E_ConflateJewelry_sj::kMIdFieldNumber;
-const int E_ConflateJewelry_sj::kMGrouptypeFieldNumber;
+const int E_ConflateJewelry_sj::kMGroupTypeFieldNumber;
 const int E_ConflateJewelry_sj::kMPositionFieldNumber;
-const int E_ConflateJewelry_sj::kMWearqualityFieldNumber;
+const int E_ConflateJewelry_sj::kMWearQualityFieldNumber;
 const int E_ConflateJewelry_sj::kMNextFieldNumber;
-const int E_ConflateJewelry_sj::kMOpenlvFieldNumber;
+const int E_ConflateJewelry_sj::kMOpenLvFieldNumber;
 const int E_ConflateJewelry_sj::kMElemFieldNumber;
 #endif  // !_MSC_VER
 
@@ -7117,15 +7117,15 @@ bool E_ConflateJewelry_sj::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_grouptype;
+        if (input->ExpectTag(16)) goto parse_m_groupType;
         break;
       }
 
-      // optional int32 m_grouptype = 2;
+      // optional int32 m_groupType = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_grouptype:
+         parse_m_groupType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_grouptype_)));
@@ -7149,15 +7149,15 @@ bool E_ConflateJewelry_sj::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_wearquality;
+        if (input->ExpectTag(32)) goto parse_m_wearQuality;
         break;
       }
 
-      // optional int32 m_wearquality = 4;
+      // optional int32 m_wearQuality = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_wearquality:
+         parse_m_wearQuality:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_wearquality_)));
@@ -7181,15 +7181,15 @@ bool E_ConflateJewelry_sj::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_openlv;
+        if (input->ExpectTag(48)) goto parse_m_openLv;
         break;
       }
 
-      // optional int32 m_openlv = 6;
+      // optional int32 m_openLv = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_openlv:
+         parse_m_openLv:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_openlv_)));
@@ -7239,7 +7239,7 @@ void E_ConflateJewelry_sj::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_grouptype = 2;
+  // optional int32 m_groupType = 2;
   if (has_m_grouptype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_grouptype(), output);
   }
@@ -7249,7 +7249,7 @@ void E_ConflateJewelry_sj::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_position(), output);
   }
 
-  // optional int32 m_wearquality = 4;
+  // optional int32 m_wearQuality = 4;
   if (has_m_wearquality()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_wearquality(), output);
   }
@@ -7259,7 +7259,7 @@ void E_ConflateJewelry_sj::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_next(), output);
   }
 
-  // optional int32 m_openlv = 6;
+  // optional int32 m_openLv = 6;
   if (has_m_openlv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_openlv(), output);
   }
@@ -7283,7 +7283,7 @@ void E_ConflateJewelry_sj::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_grouptype = 2;
+  // optional int32 m_groupType = 2;
   if (has_m_grouptype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_grouptype(), target);
   }
@@ -7293,7 +7293,7 @@ void E_ConflateJewelry_sj::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_position(), target);
   }
 
-  // optional int32 m_wearquality = 4;
+  // optional int32 m_wearQuality = 4;
   if (has_m_wearquality()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_wearquality(), target);
   }
@@ -7303,7 +7303,7 @@ void E_ConflateJewelry_sj::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_next(), target);
   }
 
-  // optional int32 m_openlv = 6;
+  // optional int32 m_openLv = 6;
   if (has_m_openlv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_openlv(), target);
   }
@@ -7333,7 +7333,7 @@ int E_ConflateJewelry_sj::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_grouptype = 2;
+    // optional int32 m_groupType = 2;
     if (has_m_grouptype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -7347,7 +7347,7 @@ int E_ConflateJewelry_sj::ByteSize() const {
           this->m_position());
     }
 
-    // optional int32 m_wearquality = 4;
+    // optional int32 m_wearQuality = 4;
     if (has_m_wearquality()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -7361,7 +7361,7 @@ int E_ConflateJewelry_sj::ByteSize() const {
           this->m_next());
     }
 
-    // optional int32 m_openlv = 6;
+    // optional int32 m_openLv = 6;
     if (has_m_openlv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

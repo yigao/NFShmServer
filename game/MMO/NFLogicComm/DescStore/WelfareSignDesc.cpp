@@ -91,7 +91,7 @@ int WelfareSignDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_vip <= 0 || VipVipDesc::Instance()->GetDesc(pDesc->m_vip)), result, "can't find the vip:{} in the  excel:vip sheet:vip", pDesc->m_vip);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_VIP <= 0 || VipVipDesc::Instance()->GetDesc(pDesc->m_VIP)), result, "can't find the VIP:{} in the  excel:vip sheet:vip", pDesc->m_VIP);
 		CHECK_EXPR_MSG_RESULT((pDesc->m_reward <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_reward)), result, "can't find the reward:{} in the  excel:item sheet:item", pDesc->m_reward);
 	}
 	return result;

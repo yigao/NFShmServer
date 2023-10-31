@@ -91,8 +91,8 @@ int DailyDailyDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_funciontid <= 0 || FunctionunlockFunctionunlockDesc::Instance()->GetDesc(pDesc->m_funciontid)), result, "can't find the funciontid:{} in the  excel:functionunlock sheet:functionUnlock", pDesc->m_funciontid);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_regreward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_regreward)), result, "can't find the regreward:{} in the  excel:box sheet:box", pDesc->m_regreward);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_funciontID <= 0 || FunctionunlockFunctionunlockDesc::Instance()->GetDesc(pDesc->m_funciontID)), result, "can't find the funciontID:{} in the  excel:functionunlock sheet:functionUnlock", pDesc->m_funciontID);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_regReward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_regReward)), result, "can't find the regReward:{} in the  excel:box sheet:box", pDesc->m_regReward);
 	}
 	return result;
 }

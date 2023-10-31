@@ -97,10 +97,10 @@ class E_TaskdynamicTaskdynamic : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_taskid = 1;
+  // optional int64 m_taskID = 1;
   inline bool has_m_taskid() const;
   inline void clear_m_taskid();
-  static const int kMTaskidFieldNumber = 1;
+  static const int kMTaskIDFieldNumber = 1;
   inline ::google::protobuf::int64 m_taskid() const;
   inline void set_m_taskid(::google::protobuf::int64 value);
 
@@ -116,10 +116,10 @@ class E_TaskdynamicTaskdynamic : public ::google::protobuf::Message {
   inline ::std::string* release_m_remark();
   inline void set_allocated_m_remark(::std::string* m_remark);
 
-  // optional int32 m_tasktype = 3;
+  // optional int32 m_taskType = 3;
   inline bool has_m_tasktype() const;
   inline void clear_m_tasktype();
-  static const int kMTasktypeFieldNumber = 3;
+  static const int kMTaskTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_tasktype() const;
   inline void set_m_tasktype(::google::protobuf::int32 value);
 
@@ -144,17 +144,17 @@ class E_TaskdynamicTaskdynamic : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_maxlv() const;
   inline void set_m_maxlv(::google::protobuf::int32 value);
 
-  // optional int32 m_rececount = 7;
+  // optional int32 m_receCount = 7;
   inline bool has_m_rececount() const;
   inline void clear_m_rececount();
-  static const int kMRececountFieldNumber = 7;
+  static const int kMReceCountFieldNumber = 7;
   inline ::google::protobuf::int32 m_rececount() const;
   inline void set_m_rececount(::google::protobuf::int32 value);
 
-  // optional string m_idlist = 8;
+  // optional string m_idList = 8;
   inline bool has_m_idlist() const;
   inline void clear_m_idlist();
-  static const int kMIdlistFieldNumber = 8;
+  static const int kMIdListFieldNumber = 8;
   inline const ::std::string& m_idlist() const;
   inline void set_m_idlist(const ::std::string& value);
   inline void set_m_idlist(const char* value);
@@ -344,17 +344,17 @@ class E_TaskdynamicTaskcomcond : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_comcondid = 1;
+  // optional int64 m_comcondID = 1;
   inline bool has_m_comcondid() const;
   inline void clear_m_comcondid();
-  static const int kMComcondidFieldNumber = 1;
+  static const int kMComcondIDFieldNumber = 1;
   inline ::google::protobuf::int64 m_comcondid() const;
   inline void set_m_comcondid(::google::protobuf::int64 value);
 
-  // optional int32 m_comcondtype = 2;
+  // optional int32 m_comcondType = 2;
   inline bool has_m_comcondtype() const;
   inline void clear_m_comcondtype();
-  static const int kMComcondtypeFieldNumber = 2;
+  static const int kMComcondTypeFieldNumber = 2;
   inline ::google::protobuf::int32 m_comcondtype() const;
   inline void set_m_comcondtype(::google::protobuf::int32 value);
 
@@ -393,10 +393,10 @@ class E_TaskdynamicTaskcomcond : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_param5() const;
   inline void set_m_param5(::google::protobuf::int64 value);
 
-  // optional int32 m_comcondrandomvalue = 8;
+  // optional int32 m_comcondRandomValue = 8;
   inline bool has_m_comcondrandomvalue() const;
   inline void clear_m_comcondrandomvalue();
-  static const int kMComcondrandomvalueFieldNumber = 8;
+  static const int kMComcondRandomValueFieldNumber = 8;
   inline ::google::protobuf::int32 m_comcondrandomvalue() const;
   inline void set_m_comcondrandomvalue(::google::protobuf::int32 value);
 
@@ -581,17 +581,17 @@ class E_TaskdynamicTasktext : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_textid = 1;
+  // optional int64 m_textID = 1;
   inline bool has_m_textid() const;
   inline void clear_m_textid();
-  static const int kMTextidFieldNumber = 1;
+  static const int kMTextIDFieldNumber = 1;
   inline ::google::protobuf::int64 m_textid() const;
   inline void set_m_textid(::google::protobuf::int64 value);
 
-  // optional string m_tasktype = 2;
+  // optional string m_taskType = 2;
   inline bool has_m_tasktype() const;
   inline void clear_m_tasktype();
-  static const int kMTasktypeFieldNumber = 2;
+  static const int kMTaskTypeFieldNumber = 2;
   inline const ::std::string& m_tasktype() const;
   inline void set_m_tasktype(const ::std::string& value);
   inline void set_m_tasktype(const char* value);
@@ -600,10 +600,10 @@ class E_TaskdynamicTasktext : public ::google::protobuf::Message {
   inline ::std::string* release_m_tasktype();
   inline void set_allocated_m_tasktype(::std::string* m_tasktype);
 
-  // optional int32 m_comcondtype = 3;
+  // optional int32 m_comcondType = 3;
   inline bool has_m_comcondtype() const;
   inline void clear_m_comcondtype();
-  static const int kMComcondtypeFieldNumber = 3;
+  static const int kMComcondTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_comcondtype() const;
   inline void set_m_comcondtype(::google::protobuf::int32 value);
 
@@ -724,7 +724,7 @@ class Sheet_TaskdynamicTasktext : public ::google::protobuf::Message {
 
 // E_TaskdynamicTaskdynamic
 
-// optional int64 m_taskid = 1;
+// optional int64 m_taskID = 1;
 inline bool E_TaskdynamicTaskdynamic::has_m_taskid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -816,7 +816,7 @@ inline void E_TaskdynamicTaskdynamic::set_allocated_m_remark(::std::string* m_re
   }
 }
 
-// optional int32 m_tasktype = 3;
+// optional int32 m_taskType = 3;
 inline bool E_TaskdynamicTaskdynamic::has_m_tasktype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -904,7 +904,7 @@ inline void E_TaskdynamicTaskdynamic::set_m_maxlv(::google::protobuf::int32 valu
   m_maxlv_ = value;
 }
 
-// optional int32 m_rececount = 7;
+// optional int32 m_receCount = 7;
 inline bool E_TaskdynamicTaskdynamic::has_m_rececount() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -926,7 +926,7 @@ inline void E_TaskdynamicTaskdynamic::set_m_rececount(::google::protobuf::int32 
   m_rececount_ = value;
 }
 
-// optional string m_idlist = 8;
+// optional string m_idList = 8;
 inline bool E_TaskdynamicTaskdynamic::has_m_idlist() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -1029,7 +1029,7 @@ Sheet_TaskdynamicTaskdynamic::mutable_e_taskdynamictaskdynamic_list() {
 
 // E_TaskdynamicTaskcomcond
 
-// optional int64 m_comcondid = 1;
+// optional int64 m_comcondID = 1;
 inline bool E_TaskdynamicTaskcomcond::has_m_comcondid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1051,7 +1051,7 @@ inline void E_TaskdynamicTaskcomcond::set_m_comcondid(::google::protobuf::int64 
   m_comcondid_ = value;
 }
 
-// optional int32 m_comcondtype = 2;
+// optional int32 m_comcondType = 2;
 inline bool E_TaskdynamicTaskcomcond::has_m_comcondtype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1183,7 +1183,7 @@ inline void E_TaskdynamicTaskcomcond::set_m_param5(::google::protobuf::int64 val
   m_param5_ = value;
 }
 
-// optional int32 m_comcondrandomvalue = 8;
+// optional int32 m_comcondRandomValue = 8;
 inline bool E_TaskdynamicTaskcomcond::has_m_comcondrandomvalue() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -1238,7 +1238,7 @@ Sheet_TaskdynamicTaskcomcond::mutable_e_taskdynamictaskcomcond_list() {
 
 // E_TaskdynamicTasktext
 
-// optional int64 m_textid = 1;
+// optional int64 m_textID = 1;
 inline bool E_TaskdynamicTasktext::has_m_textid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1260,7 +1260,7 @@ inline void E_TaskdynamicTasktext::set_m_textid(::google::protobuf::int64 value)
   m_textid_ = value;
 }
 
-// optional string m_tasktype = 2;
+// optional string m_taskType = 2;
 inline bool E_TaskdynamicTasktext::has_m_tasktype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1330,7 +1330,7 @@ inline void E_TaskdynamicTasktext::set_allocated_m_tasktype(::std::string* m_tas
   }
 }
 
-// optional int32 m_comcondtype = 3;
+// optional int32 m_comcondType = 3;
 inline bool E_TaskdynamicTasktext::has_m_comcondtype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }

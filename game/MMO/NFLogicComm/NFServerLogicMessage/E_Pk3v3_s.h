@@ -28,12 +28,12 @@ namespace proto_ff_s {
 		int32_t m_id;//唯一id
 		int32_t m_type;//段位类型
 		NFShmString<64> m_name;//段位名称
-		int32_t m_starnum;//星星数量
+		int32_t m_starNum;//星星数量
 		int32_t m_scoring;//积分值
 		NFShmString<64> m_badge;//段位徽章
-		NFShmString<64> m_showbadge;//展示段位徽章
-		int32_t m_scoringadd;//胜场积分奖励
-		int32_t m_scoringcut;//负场积分扣除
+		NFShmString<64> m_showBadge;//展示段位徽章
+		int32_t m_scoringAdd;//胜场积分奖励
+		int32_t m_scoringCut;//负场积分扣除
 
 		virtual void write_to_pbmsg(::proto_ff::E_Pk3v3Level & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_Pk3v3Level & msg);
@@ -125,25 +125,25 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//序号
-		int32_t m_teammember;//战队人数上限
-		int32_t m_teamtoplimit;//战队上限
-		int32_t m_cedetime;//转让队长时间
-		int32_t m_punishtime;//离队惩罚时间
-		int32_t m_breaktime;//战队解散时间
-		int32_t m_entryreward;//参赛奖励
-		int32_t m_entrtimes;//参赛获奖次数
-		int32_t m_mvpreward;//mvp奖励
-		int32_t m_mvptimes;//mvp奖励次数
-		int32_t m_matchtime;//单场时间
-		int32_t m_unitname;//修改战队名称
-		int32_t m_unitcost;//修改花费数量
-		int32_t m_initialzlid;//初始战令id
-		NFShmString<64> m_initialzlname;//初始战令名称
-		NFShmString<64> m_robotname;//机器人名称
-		int32_t m_matetime;//匹配预计时间
-		int32_t m_addtime;//匹配增量时间
-		NFShmString<256> m_initialnotice;//初始公告
-		NFShmVector<int32_t, DEFINE_E_PK3V3CONSTANT_M_SHOWREWARD_MAX_NUM> m_showreward;//展示奖励
+		int32_t m_teamMember;//战队人数上限
+		int32_t m_teamToplimit;//战队上限
+		int32_t m_cedeTime;//转让队长时间
+		int32_t m_punishTime;//离队惩罚时间
+		int32_t m_breakTime;//战队解散时间
+		int32_t m_entryReward;//参赛奖励
+		int32_t m_entrTimes;//参赛获奖次数
+		int32_t m_mvpReward;//mvp奖励
+		int32_t m_mvpTimes;//mvp奖励次数
+		int32_t m_matchTime;//单场时间
+		int32_t m_unitName;//修改战队名称
+		int32_t m_unitCost;//修改花费数量
+		int32_t m_initialZLid;//初始战令id
+		NFShmString<64> m_initialZLName;//初始战令名称
+		NFShmString<64> m_robotName;//机器人名称
+		int32_t m_mateTime;//匹配预计时间
+		int32_t m_addTime;//匹配增量时间
+		NFShmString<256> m_initialNotice;//初始公告
+		NFShmVector<int32_t, DEFINE_E_PK3V3CONSTANT_M_SHOWREWARD_MAX_NUM> m_showReward;//展示奖励
 
 		virtual void write_to_pbmsg(::proto_ff::E_Pk3v3Constant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_Pk3v3Constant & msg);
@@ -172,7 +172,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//等级
-		int32_t m_mateexp;//匹配经验
+		int32_t m_mateExp;//匹配经验
 
 		virtual void write_to_pbmsg(::proto_ff::E_Pk3v3Exp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_Pk3v3Exp & msg);

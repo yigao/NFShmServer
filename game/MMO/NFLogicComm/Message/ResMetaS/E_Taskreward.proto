@@ -20,11 +20,11 @@ message E_TaskrewardTaskrewardItemDesc
 message E_TaskrewardTaskreward
 {
 	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "奖励id"];
-	optional int32 m_tasktype = 2[(yd_fieldoptions.field_cname) = "任务类型"];
+	optional int32 m_taskType = 2[(yd_fieldoptions.field_cname) = "任务类型"];
 	optional int32 m_lv = 3[(yd_fieldoptions.field_cname) = "等级"];
-	optional int32 m_guildexp = 4[(yd_fieldoptions.field_cname) = "公会经验"];
-	optional int32 m_guildpoint = 5[(yd_fieldoptions.field_cname) = "公会贡献"];
-	optional int32 m_skillid = 6[(yd_fieldoptions.field_cname) = "技能ID"];
+	optional int32 m_guildExp = 4[(yd_fieldoptions.field_cname) = "公会经验"];
+	optional int32 m_guildPoint = 5[(yd_fieldoptions.field_cname) = "公会贡献"];
+	optional int32 m_skillId = 6[(yd_fieldoptions.field_cname) = "技能ID"];
 	repeated E_TaskrewardTaskrewardAttrDesc m_attr = 7[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 5];
 	repeated E_TaskrewardTaskrewardItemDesc m_item = 8[(yd_fieldoptions.field_cname) = "物品", (yd_fieldoptions.field_arysize) = 5];
 }
@@ -37,7 +37,7 @@ message Sheet_TaskrewardTaskreward
 
 message E_TaskrewardTasktype
 {
-	optional int32 m_tasktype = 1[(yd_fieldoptions.field_cname) = "任务类型"];
+	optional int32 m_taskType = 1[(yd_fieldoptions.field_cname) = "任务类型"];
 }
 
 

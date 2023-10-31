@@ -320,10 +320,10 @@ class E_EquipimproveUpquality : public ::google::protobuf::Message {
   inline ::std::string* release_m_position();
   inline void set_allocated_m_position(::std::string* m_position);
 
-  // optional int32 m_wearqualitylimit = 4;
+  // optional int32 m_wearQualityLimit = 4;
   inline bool has_m_wearqualitylimit() const;
   inline void clear_m_wearqualitylimit();
-  static const int kMWearqualitylimitFieldNumber = 4;
+  static const int kMWearQualityLimitFieldNumber = 4;
   inline ::google::protobuf::int32 m_wearqualitylimit() const;
   inline void set_m_wearqualitylimit(::google::protobuf::int32 value);
 
@@ -369,17 +369,17 @@ class E_EquipimproveUpquality : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lucknum() const;
   inline void set_m_lucknum(::google::protobuf::int32 value);
 
-  // optional int32 m_qualityatt = 11;
+  // optional int32 m_qualityAtt = 11;
   inline bool has_m_qualityatt() const;
   inline void clear_m_qualityatt();
-  static const int kMQualityattFieldNumber = 11;
+  static const int kMQualityAttFieldNumber = 11;
   inline ::google::protobuf::int32 m_qualityatt() const;
   inline void set_m_qualityatt(::google::protobuf::int32 value);
 
-  // optional int32 m_qualityvalue = 12;
+  // optional int32 m_qualityValue = 12;
   inline bool has_m_qualityvalue() const;
   inline void clear_m_qualityvalue();
-  static const int kMQualityvalueFieldNumber = 12;
+  static const int kMQualityValueFieldNumber = 12;
   inline ::google::protobuf::int32 m_qualityvalue() const;
   inline void set_m_qualityvalue(::google::protobuf::int32 value);
 
@@ -812,31 +812,31 @@ class E_EquipimproveAwaken : public ::google::protobuf::Message {
   inline ::std::string* release_m_position();
   inline void set_allocated_m_position(::std::string* m_position);
 
-  // optional int32 m_wearqualitylimit = 4;
+  // optional int32 m_wearQualityLimit = 4;
   inline bool has_m_wearqualitylimit() const;
   inline void clear_m_wearqualitylimit();
-  static const int kMWearqualitylimitFieldNumber = 4;
+  static const int kMWearQualityLimitFieldNumber = 4;
   inline ::google::protobuf::int32 m_wearqualitylimit() const;
   inline void set_m_wearqualitylimit(::google::protobuf::int32 value);
 
-  // optional int32 m_qualitylimit = 5;
+  // optional int32 m_qualityLimit = 5;
   inline bool has_m_qualitylimit() const;
   inline void clear_m_qualitylimit();
-  static const int kMQualitylimitFieldNumber = 5;
+  static const int kMQualityLimitFieldNumber = 5;
   inline ::google::protobuf::int32 m_qualitylimit() const;
   inline void set_m_qualitylimit(::google::protobuf::int32 value);
 
-  // optional int32 m_wearstarlimit = 6;
+  // optional int32 m_wearStarLimit = 6;
   inline bool has_m_wearstarlimit() const;
   inline void clear_m_wearstarlimit();
-  static const int kMWearstarlimitFieldNumber = 6;
+  static const int kMWearStarLimitFieldNumber = 6;
   inline ::google::protobuf::int32 m_wearstarlimit() const;
   inline void set_m_wearstarlimit(::google::protobuf::int32 value);
 
-  // optional int32 m_awakenlv = 7;
+  // optional int32 m_awakenLv = 7;
   inline bool has_m_awakenlv() const;
   inline void clear_m_awakenlv();
-  static const int kMAwakenlvFieldNumber = 7;
+  static const int kMAwakenLvFieldNumber = 7;
   inline ::google::protobuf::int32 m_awakenlv() const;
   inline void set_m_awakenlv(::google::protobuf::int32 value);
 
@@ -1510,10 +1510,10 @@ class E_EquipimproveSeal : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional string m_sealposition = 2;
+  // optional string m_sealPosition = 2;
   inline bool has_m_sealposition() const;
   inline void clear_m_sealposition();
-  static const int kMSealpositionFieldNumber = 2;
+  static const int kMSealPositionFieldNumber = 2;
   inline const ::std::string& m_sealposition() const;
   inline void set_m_sealposition(const ::std::string& value);
   inline void set_m_sealposition(const char* value);
@@ -1529,17 +1529,17 @@ class E_EquipimproveSeal : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_seallv() const;
   inline void set_m_seallv(::google::protobuf::int32 value);
 
-  // optional int32 m_preid = 4;
+  // optional int32 m_preId = 4;
   inline bool has_m_preid() const;
   inline void clear_m_preid();
-  static const int kMPreidFieldNumber = 4;
+  static const int kMPreIdFieldNumber = 4;
   inline ::google::protobuf::int32 m_preid() const;
   inline void set_m_preid(::google::protobuf::int32 value);
 
-  // optional int32 m_nextid = 5;
+  // optional int32 m_nextId = 5;
   inline bool has_m_nextid() const;
   inline void clear_m_nextid();
-  static const int kMNextidFieldNumber = 5;
+  static const int kMNextIdFieldNumber = 5;
   inline ::google::protobuf::int32 m_nextid() const;
   inline void set_m_nextid(::google::protobuf::int32 value);
 
@@ -1555,10 +1555,10 @@ class E_EquipimproveSeal : public ::google::protobuf::Message {
   inline ::std::string* release_m_numb();
   inline void set_allocated_m_numb(::std::string* m_numb);
 
-  // optional int32 m_nextvalue = 7;
+  // optional int32 m_nextValue = 7;
   inline bool has_m_nextvalue() const;
   inline void clear_m_nextvalue();
-  static const int kMNextvalueFieldNumber = 7;
+  static const int kMNextValueFieldNumber = 7;
   inline ::google::protobuf::int32 m_nextvalue() const;
   inline void set_m_nextvalue(::google::protobuf::int32 value);
 
@@ -2418,7 +2418,7 @@ inline void E_EquipimproveUpquality::set_allocated_m_position(::std::string* m_p
   }
 }
 
-// optional int32 m_wearqualitylimit = 4;
+// optional int32 m_wearQualityLimit = 4;
 inline bool E_EquipimproveUpquality::has_m_wearqualitylimit() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -2572,7 +2572,7 @@ inline void E_EquipimproveUpquality::set_m_lucknum(::google::protobuf::int32 val
   m_lucknum_ = value;
 }
 
-// optional int32 m_qualityatt = 11;
+// optional int32 m_qualityAtt = 11;
 inline bool E_EquipimproveUpquality::has_m_qualityatt() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -2594,7 +2594,7 @@ inline void E_EquipimproveUpquality::set_m_qualityatt(::google::protobuf::int32 
   m_qualityatt_ = value;
 }
 
-// optional int32 m_qualityvalue = 12;
+// optional int32 m_qualityValue = 12;
 inline bool E_EquipimproveUpquality::has_m_qualityvalue() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -2909,7 +2909,7 @@ inline void E_EquipimproveAwaken::set_allocated_m_position(::std::string* m_posi
   }
 }
 
-// optional int32 m_wearqualitylimit = 4;
+// optional int32 m_wearQualityLimit = 4;
 inline bool E_EquipimproveAwaken::has_m_wearqualitylimit() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -2931,7 +2931,7 @@ inline void E_EquipimproveAwaken::set_m_wearqualitylimit(::google::protobuf::int
   m_wearqualitylimit_ = value;
 }
 
-// optional int32 m_qualitylimit = 5;
+// optional int32 m_qualityLimit = 5;
 inline bool E_EquipimproveAwaken::has_m_qualitylimit() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -2953,7 +2953,7 @@ inline void E_EquipimproveAwaken::set_m_qualitylimit(::google::protobuf::int32 v
   m_qualitylimit_ = value;
 }
 
-// optional int32 m_wearstarlimit = 6;
+// optional int32 m_wearStarLimit = 6;
 inline bool E_EquipimproveAwaken::has_m_wearstarlimit() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -2975,7 +2975,7 @@ inline void E_EquipimproveAwaken::set_m_wearstarlimit(::google::protobuf::int32 
   m_wearstarlimit_ = value;
 }
 
-// optional int32 m_awakenlv = 7;
+// optional int32 m_awakenLv = 7;
 inline bool E_EquipimproveAwaken::has_m_awakenlv() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -3524,7 +3524,7 @@ inline void E_EquipimproveSeal::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional string m_sealposition = 2;
+// optional string m_sealPosition = 2;
 inline bool E_EquipimproveSeal::has_m_sealposition() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -3616,7 +3616,7 @@ inline void E_EquipimproveSeal::set_m_seallv(::google::protobuf::int32 value) {
   m_seallv_ = value;
 }
 
-// optional int32 m_preid = 4;
+// optional int32 m_preId = 4;
 inline bool E_EquipimproveSeal::has_m_preid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -3638,7 +3638,7 @@ inline void E_EquipimproveSeal::set_m_preid(::google::protobuf::int32 value) {
   m_preid_ = value;
 }
 
-// optional int32 m_nextid = 5;
+// optional int32 m_nextId = 5;
 inline bool E_EquipimproveSeal::has_m_nextid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -3730,7 +3730,7 @@ inline void E_EquipimproveSeal::set_allocated_m_numb(::std::string* m_numb) {
   }
 }
 
-// optional int32 m_nextvalue = 7;
+// optional int32 m_nextValue = 7;
 inline bool E_EquipimproveSeal::has_m_nextvalue() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }

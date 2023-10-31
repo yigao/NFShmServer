@@ -17,21 +17,21 @@ message E_XiuzhenworldConstantTypeDesc
 
 message E_XiuzhenworldConstant
 {
-	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_starfreetime = 2[(yd_fieldoptions.field_cname) = "初始免费时间"];
-	optional string m_freetimemoment = 3[(yd_fieldoptions.field_cname) = "获得免费时间的时间点", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_freetime = 4[(yd_fieldoptions.field_cname) = "每次获得的时间"];
-	optional int32 m_freetimemax = 5[(yd_fieldoptions.field_cname) = "免费时间上限"];
+	optional int32 m_ID = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_starFreeTime = 2[(yd_fieldoptions.field_cname) = "初始免费时间"];
+	optional string m_freeTimeMoment = 3[(yd_fieldoptions.field_cname) = "获得免费时间的时间点", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_freeTime = 4[(yd_fieldoptions.field_cname) = "每次获得的时间"];
+	optional int32 m_freeTimeMax = 5[(yd_fieldoptions.field_cname) = "免费时间上限"];
 	optional int32 m_helpid = 6[(yd_fieldoptions.field_cname) = "帮助信息"];
-	optional int32 m_addgexpmax = 7[(yd_fieldoptions.field_cname) = "神元经验上限"];
-	optional int32 m_pripricetype = 8[(yd_fieldoptions.field_cname) = "特权价格类型"];
-	optional int32 m_pricevalue = 9[(yd_fieldoptions.field_cname) = "特权价格"];
-	optional int32 m_gexppribonus = 10[(yd_fieldoptions.field_cname) = "特权神元经验加成"];
-	optional int32 m_gexpgroupbonus = 11[(yd_fieldoptions.field_cname) = "组队加成"];
-	optional int32 m_mapstart = 12[(yd_fieldoptions.field_cname) = "地图开始"];
-	optional int32 m_mapend = 13[(yd_fieldoptions.field_cname) = "地图结束"];
-	optional int32 m_expitemid = 14[(yd_fieldoptions.field_cname) = "经验的物品ID"];
-	repeated E_XiuzhenworldConstantTimeitemDesc m_timeitem = 15[(yd_fieldoptions.field_cname) = "时间道具", (yd_fieldoptions.field_arysize) = 3];
+	optional int32 m_addGExpMax = 7[(yd_fieldoptions.field_cname) = "神元经验上限"];
+	optional int32 m_priPriceType = 8[(yd_fieldoptions.field_cname) = "特权价格类型"];
+	optional int32 m_priceValue = 9[(yd_fieldoptions.field_cname) = "特权价格"];
+	optional int32 m_GExpPriBonus = 10[(yd_fieldoptions.field_cname) = "特权神元经验加成"];
+	optional int32 m_GExpGroupBonus = 11[(yd_fieldoptions.field_cname) = "组队加成"];
+	optional int32 m_mapStart = 12[(yd_fieldoptions.field_cname) = "地图开始"];
+	optional int32 m_mapEnd = 13[(yd_fieldoptions.field_cname) = "地图结束"];
+	optional int32 m_expItemId = 14[(yd_fieldoptions.field_cname) = "经验的物品ID"];
+	repeated E_XiuzhenworldConstantTimeitemDesc m_timeItem = 15[(yd_fieldoptions.field_cname) = "时间道具", (yd_fieldoptions.field_arysize) = 3];
 	repeated E_XiuzhenworldConstantTypeDesc m_type = 16[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 5];
 }
 
@@ -44,7 +44,7 @@ message Sheet_XiuzhenworldConstant
 message E_XiuzhenworldExpmap
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_conditionglv = 2[(yd_fieldoptions.field_cname) = "进入转生要求"];
+	optional int32 m_conditionGlv = 2[(yd_fieldoptions.field_cname) = "进入转生要求"];
 	optional int32 m_mapid = 3[(yd_fieldoptions.field_cname) = "地图id"];
 }
 

@@ -24,8 +24,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//唯一id
-		int32_t m_rewarditem;//奖励道具
-		int64_t m_itemnum;//道具数量
+		int32_t m_rewardItem;//奖励道具
+		int64_t m_itemNum;//道具数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_CloudpeakRankrewards & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_CloudpeakRankrewards & msg);
@@ -69,23 +69,23 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_revivalbuff;//复活buff
+		int32_t m_revivalBuff;//复活buff
 		int32_t m_refresh;//buff刷新时间
-		int32_t m_victoryreward;//阵营胜利奖励
-		int32_t m_failurereward;//阵营失败奖励
+		int32_t m_victoryReward;//阵营胜利奖励
+		int32_t m_failureReward;//阵营失败奖励
 		int32_t m_round;//比赛轮数
-		int32_t m_roundtime;//每轮持续时间
-		int32_t m_initialscoring;//初始积分
+		int32_t m_roundTime;//每轮持续时间
+		int32_t m_initialScoring;//初始积分
 		int32_t m_getscoring;//获得积分
-		int32_t m_assistscoring;//助攻积分
-		int32_t m_matchtime;//匹配时间
-		int32_t m_matchentry;//匹配地图出生位置
-		int64_t m_mapid;//所在地图
-		int32_t m_playersmax;//每个房间最多人数
-		int32_t m_rebotid;//机器人id
-		int32_t m_rebotcount;//机器人数量
-		int32_t m_actid;//活动ID
-		NFShmVector<int32_t, DEFINE_E_CLOUDPEAKCONSTANT_M_REVIVALPOINT_MAX_NUM> m_revivalpoint;//复活点
+		int32_t m_assistScoring;//助攻积分
+		int32_t m_matchTime;//匹配时间
+		int32_t m_matchEntry;//匹配地图出生位置
+		int64_t m_mapId;//所在地图
+		int32_t m_playersMax;//每个房间最多人数
+		int32_t m_rebotId;//机器人id
+		int32_t m_rebotCount;//机器人数量
+		int32_t m_actId;//活动ID
+		NFShmVector<int32_t, DEFINE_E_CLOUDPEAKCONSTANT_M_REVIVALPOINT_MAX_NUM> m_revivalPoint;//复活点
 		NFShmVector<struct E_CloudpeakConstantBuffDesc_s, DEFINE_E_CLOUDPEAKCONSTANT_M_BUFF_MAX_NUM> m_buff;//增益
 		NFShmVector<int32_t, DEFINE_E_CLOUDPEAKCONSTANT_M_REBOT_ID_MAX_NUM> m_rebot_id;//机器人id
 
@@ -116,7 +116,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//等级
-		int32_t m_getexp;//活动经验
+		int32_t m_getExp;//活动经验
 
 		virtual void write_to_pbmsg(::proto_ff::E_CloudpeakExp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_CloudpeakExp & msg);

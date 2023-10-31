@@ -51,24 +51,24 @@ namespace proto_ff_s {
 		int64_t m_id;//装备ID
 		NFShmString<64> m_name;//装备名称
 		int32_t m_type;//装备大类
-		int32_t m_wearquality;//装备品阶
+		int32_t m_wearQuality;//装备品阶
 		int32_t m_position;//装备位置
 		NFShmString<64> m_profession;//职业限制
-		int32_t m_professionlv;//转职等级
+		int32_t m_professionLv;//转职等级
 		int32_t m_level;//穿戴等级限制
 		int32_t m_quality;//装备品质
-		int32_t m_attributeid;//属性ID
+		int32_t m_attributeID;//属性ID
 		int32_t m_star;//装备星级
-		int32_t m_notcompose;//不参与合成
-		int32_t m_iscanbind;//是否绑定
-		int32_t m_istradebind;//是否交易绑定
-		int32_t m_sellprice;//出售价格
+		int32_t m_notCompose;//不参与合成
+		int32_t m_isCanbind;//是否绑定
+		int32_t m_isTradeBind;//是否交易绑定
+		int32_t m_sellPrice;//出售价格
 		NFShmString<64> m_icon;//装备图标名
 		int32_t m_time;//限时装备
 		int32_t m_broadcast;//是否播放跑马灯
-		NFShmString<64> m_meltingresult;//熔炼产出
-		NFShmString<64> m_skillid;//附带技能
-		int32_t m_privilegegroupid;//特权组ID
+		NFShmString<64> m_meltingResult;//熔炼产出
+		NFShmString<64> m_skillId;//附带技能
+		int32_t m_privilegeGroupId;//特权组ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipEquip & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipEquip & msg);
@@ -96,8 +96,8 @@ namespace proto_ff_s {
 		virtual ~E_EquipAttributeAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_valuemax;//最大数值
-		int32_t m_valuemin;//最小数值
+		int32_t m_valueMax;//最大数值
+		int32_t m_valueMin;//最小数值
 		int32_t m_type;//
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipAttributeAttributeDesc & msg) const;
@@ -113,28 +113,28 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//属性ID
-		int32_t m_bluestarnum;//蓝色星级属性条数
-		NFShmString<64> m_bluestar_type;//蓝色星级属性类型库
-		NFShmString<64> m_bluestar_lv;//蓝色星级等级间隔差
-		NFShmString<64> m_bluestar_number;//蓝色星级每级增加值
+		int32_t m_blueStarNum;//蓝色星级属性条数
+		NFShmString<64> m_blueStar_type;//蓝色星级属性类型库
+		NFShmString<64> m_blueStar_lv;//蓝色星级等级间隔差
+		NFShmString<64> m_blueStar_number;//蓝色星级每级增加值
 		int32_t m_specid;//特殊属性id
-		int32_t m_specialattributedown;//特殊属性数量下限
-		int32_t m_specialattributeup;//特殊属性数量上限
-		NFShmString<64> m_specialattribute_typelibrary;//特殊星级属性库
-		NFShmString<64> m_specialattribute_valuemin;//特殊属性最小值
-		NFShmString<64> m_specialattribute_valuemax;//特殊属性最大值
-		NFShmString<64> m_godattribute_type;//仙尊属性
-		NFShmString<64> m_godattribute_valuemin;//仙尊属性最小数值
-		NFShmString<64> m_godattribute_valuemax;//仙尊属性最大数值
-		NFShmString<64> m_silverstarlib;//白星属性库
-		NFShmString<64> m_silverstarvalue;//白星属性值
-		NFShmString<64> m_goldstarlib;//金星属性库
-		NFShmString<64> m_goldstarvalue;//金星属性值
-		NFShmString<64> m_godeviatt;//神品属性库
-		NFShmString<64> m_godeviattvalue;//神品属性值
-		NFShmString<64> m_godevilskill;//神魔技能
+		int32_t m_specialAttributeDown;//特殊属性数量下限
+		int32_t m_specialAttributeUp;//特殊属性数量上限
+		NFShmString<64> m_specialAttribute_typeLibrary;//特殊星级属性库
+		NFShmString<64> m_specialAttribute_valueMin;//特殊属性最小值
+		NFShmString<64> m_specialAttribute_valueMax;//特殊属性最大值
+		NFShmString<64> m_godAttribute_type;//仙尊属性
+		NFShmString<64> m_godAttribute_valueMin;//仙尊属性最小数值
+		NFShmString<64> m_godAttribute_valueMax;//仙尊属性最大数值
+		NFShmString<64> m_silverStarLib;//白星属性库
+		NFShmString<64> m_silverStarValue;//白星属性值
+		NFShmString<64> m_goldStarLib;//金星属性库
+		NFShmString<64> m_goldStarValue;//金星属性值
+		NFShmString<64> m_godeviAtt;//神品属性库
+		NFShmString<64> m_godeviAttValue;//神品属性值
+		NFShmString<64> m_godevilSkill;//神魔技能
 		NFShmVector<struct E_EquipAttributeAttributeDesc_s, DEFINE_E_EQUIPATTRIBUTE_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
-		NFShmVector<NFShmString<64>, DEFINE_E_EQUIPATTRIBUTE_M_STAR_LIBRARY_MAX_NUM> m_star_library;//星级属性库
+		NFShmVector<NFShmString<64>, DEFINE_E_EQUIPATTRIBUTE_M_STAR_LIBRARY_MAX_NUM> m_star_Library;//星级属性库
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipAttribute & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipAttribute & msg);
@@ -180,7 +180,7 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_groupid;//首饰组id
 		int32_t m_lv;//真炼等级
-		NFShmString<64> m_zlname;//等级描述
+		NFShmString<64> m_Zlname;//等级描述
 		NFShmVector<struct E_EquipSpecattAttributeDesc_s, DEFINE_E_EQUIPSPECATT_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipSpecatt & msg) const;
@@ -226,8 +226,8 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t m_id;//部位ID
 		int32_t m_position;//装备部位
-		int32_t m_wearquality;//装备品阶
-		int32_t m_srtongup;//强化上限
+		int32_t m_wearQuality;//装备品阶
+		int32_t m_srtongUp;//强化上限
 		NFShmVector<struct E_EquipStrongTypeDesc_s, DEFINE_E_EQUIPSTRONG_M_TYPE_MAX_NUM> m_type;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipStrong & msg) const;
@@ -256,8 +256,8 @@ namespace proto_ff_s {
 		virtual ~E_EquipStrongexpCostDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_num;//道具数量
-		int32_t m_item;//消耗道具
+		int32_t m_Num;//道具数量
+		int32_t m_Item;//消耗道具
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipStrongexpCostDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipStrongexpCostDesc & msg);
@@ -271,9 +271,9 @@ namespace proto_ff_s {
 		virtual ~E_EquipStrongexp_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_lv;//等级
+		int32_t m_Lv;//等级
 		int32_t m_gold;//强化消耗金币
-		NFShmVector<NFShmString<64>, DEFINE_E_EQUIPSTRONGEXP_M_POSITIONTYPE_MAX_NUM> m_positiontype;//部位类型
+		NFShmVector<NFShmString<64>, DEFINE_E_EQUIPSTRONGEXP_M_POSITIONTYPE_MAX_NUM> m_positionType;//部位类型
 		NFShmVector<struct E_EquipStrongexpCostDesc_s, DEFINE_E_EQUIPSTRONGEXP_M_COST_MAX_NUM> m_cost;//部位类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipStrongexp & msg) const;
@@ -319,8 +319,8 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t m_id;//部位ID
 		int32_t m_position;//装备部位
-		int32_t m_wearquality;//装备品质
-		int32_t m_srtongup;//强化上限
+		int32_t m_wearQuality;//装备品质
+		int32_t m_srtongUp;//强化上限
 		NFShmVector<struct E_EquipBeaststrongTypeDesc_s, DEFINE_E_EQUIPBEASTSTRONG_M_TYPE_MAX_NUM> m_type;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipBeaststrong & msg) const;
@@ -365,8 +365,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;//总等级ID
-		int32_t m_idtype;//总等级类型
-		int32_t m_idnum;//总等级
+		int32_t m_idType;//总等级类型
+		int32_t m_idNum;//总等级
 		NFShmVector<struct E_EquipStrongtotalAttributeDesc_s, DEFINE_E_EQUIPSTRONGTOTAL_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipStrongtotal & msg) const;
@@ -396,13 +396,13 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_position;//装备部位
-		NFShmString<64> m_gemtype;//普通槽位宝石类型
-		int32_t m_speciallygemtype;//特殊槽位宝石类型
-		int32_t m_payunlockitem;//付费解锁槽道具
-		int32_t m_payunlocknnm;//解锁道具数量
-		NFShmString<64> m_commongembuy;//普通槽位快捷购买
-		NFShmString<64> m_speciallygembuy;//特殊槽位快捷购买
-		NFShmVector<int32_t, DEFINE_E_EQUIPGEM_M_GEMUNLOCK_MAX_NUM> m_gemunlock;//装备槽解锁品阶
+		NFShmString<64> m_gemType;//普通槽位宝石类型
+		int32_t m_speciallyGemType;//特殊槽位宝石类型
+		int32_t m_payUnlockItem;//付费解锁槽道具
+		int32_t m_payUnlockNnm;//解锁道具数量
+		NFShmString<64> m_commonGemBuy;//普通槽位快捷购买
+		NFShmString<64> m_speciallyGemBuy;//特殊槽位快捷购买
+		NFShmVector<int32_t, DEFINE_E_EQUIPGEM_M_GEMUNLOCK_MAX_NUM> m_gemUnlock;//装备槽解锁品阶
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipGem & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipGem & msg);
@@ -431,12 +431,12 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_preid;//上级宝石ID
-		int32_t m_nextid;//下级宝石ID
+		int32_t m_preId;//上级宝石ID
+		int32_t m_nextId;//下级宝石ID
 		NFShmString<64> m_numb;//对应一级宝石数量
-		int32_t m_nextvalue;//下级差值
-		int32_t m_costgold;//下级消耗金币
-		int32_t m_mallid;//补足商品的id
+		int32_t m_nextValue;//下级差值
+		int32_t m_costGold;//下级消耗金币
+		int32_t m_mallID;//补足商品的id
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipGemlv & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipGemlv & msg);
@@ -509,9 +509,9 @@ namespace proto_ff_s {
 		virtual ~E_EquipStoveexp_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//序号
+		int32_t m_ID;//序号
 		int32_t m_exp;//经验值
-		int32_t m_wearquality;//装备品阶
+		int32_t m_wearQuality;//装备品阶
 		int32_t m_quality;//装备品质
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipStoveexp & msg) const;
@@ -540,7 +540,7 @@ namespace proto_ff_s {
 		virtual ~E_EquipGrade_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//序号
+		int32_t m_ID;//序号
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipGrade & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipGrade & msg);
@@ -602,14 +602,14 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//部位id
 		NFShmString<64> m_value;//开孔绑钻花费
-		int32_t m_unlockitem;//开孔道具
-		NFShmString<64> m_unlocknum;//开孔道具数量
-		int64_t m_consumeid;//消耗道具ID
-		NFShmString<64> m_consumenum;//消耗道具数量
-		NFShmString<64> m_lockingid;//高级道具ID
-		NFShmString<64> m_lockingnum;//高级道具数量
+		int32_t m_unlockItem;//开孔道具
+		NFShmString<64> m_unlockNum;//开孔道具数量
+		int64_t m_consumeId;//消耗道具ID
+		NFShmString<64> m_consumeNum;//消耗道具数量
+		NFShmString<64> m_lockingId;//高级道具ID
+		NFShmString<64> m_lockingNum;//高级道具数量
 		NFShmVector<struct E_EquipClearAttributeDesc_s, DEFINE_E_EQUIPCLEAR_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性达标激活
-		NFShmVector<struct E_EquipClearSectionDesc_s, DEFINE_E_EQUIPCLEAR_M_SECTION_MAX_NUM> m_section;//属性类型
+		NFShmVector<struct E_EquipClearSectionDesc_s, DEFINE_E_EQUIPCLEAR_M_SECTION_MAX_NUM> m_Section;//属性类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipClear & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipClear & msg);
@@ -654,14 +654,14 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t m_id;//套装ID
 		int32_t m_type;//类型
-		int32_t m_suitlv;//套装等级
-		int32_t m_wearquality;//装备品阶
+		int32_t m_suitLv;//套装等级
+		int32_t m_wearQuality;//装备品阶
 		int32_t m_colour;//套装打造品质
-		NFShmString<64> m_aftername;//套装命前缀
-		int32_t m_suitevalue;//套装套件数量
+		NFShmString<64> m_afterName;//套装命前缀
+		int32_t m_suiteValue;//套装套件数量
 		NFShmVector<struct E_EquipSuitAttributeDesc_s, DEFINE_E_EQUIPSUIT_M_ATTRIBUTE_MAX_NUM> m_attribute;//套件激活属性
-		NFShmVector<NFShmString<64>, DEFINE_E_EQUIPSUIT_M_MALEPOSITION_MAX_NUM> m_maleposition;//男部位
-		NFShmVector<NFShmString<64>, DEFINE_E_EQUIPSUIT_M_FEMALEPOSITION_MAX_NUM> m_femaleposition;//女部位
+		NFShmVector<NFShmString<64>, DEFINE_E_EQUIPSUIT_M_MALEPOSITION_MAX_NUM> m_malePosition;//男部位
+		NFShmVector<NFShmString<64>, DEFINE_E_EQUIPSUIT_M_FEMALEPOSITION_MAX_NUM> m_femalePosition;//女部位
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipSuit & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipSuit & msg);
@@ -689,8 +689,8 @@ namespace proto_ff_s {
 		virtual ~E_EquipBreakBreakDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_num;//道具数量
-		int32_t m_item;//消耗道具
+		int32_t m_Num;//道具数量
+		int32_t m_Item;//消耗道具
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipBreakBreakDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipBreakBreakDesc & msg);
@@ -704,9 +704,9 @@ namespace proto_ff_s {
 		virtual ~E_EquipBreak_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_lv;//id
+		int32_t m_Lv;//id
 		int32_t m_step;//阶数
-		NFShmString<64> m_positiontype;//部位类型
+		NFShmString<64> m_positionType;//部位类型
 		int32_t m_basic;//提升基础属性万分比
 		int32_t m_star;//提升星级属性万分比
 		NFShmVector<struct E_EquipBreakBreakDesc_s, DEFINE_E_EQUIPBREAK_M_BREAK_MAX_NUM> m_break;//突破消耗

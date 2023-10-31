@@ -6,16 +6,16 @@ import "yd_fieldoptions.proto";
 message E_MarryMarriage
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional string m_weddingname = 2[(yd_fieldoptions.field_cname) = "婚礼名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_weddingName = 2[(yd_fieldoptions.field_cname) = "婚礼名称", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_banquet = 3[(yd_fieldoptions.field_cname) = "是否宴会"];
 	optional int32 m_cruise = 4[(yd_fieldoptions.field_cname) = "是否巡游"];
 	optional int32 m_money = 5[(yd_fieldoptions.field_cname) = "货币"];
 	optional int32 m_price = 6[(yd_fieldoptions.field_cname) = "价格"];
-	optional int32 m_firstboxid = 7[(yd_fieldoptions.field_cname) = "首次奖励组id"];
-	optional int32 m_firstaddpower = 8[(yd_fieldoptions.field_cname) = "首次增加战力"];
-	optional int32 m_repeatboxid = 9[(yd_fieldoptions.field_cname) = "多次奖励组id"];
-	optional int32 m_repeataddpower = 10[(yd_fieldoptions.field_cname) = "多次增加战力"];
-	optional int32 m_titleid = 11[(yd_fieldoptions.field_cname) = "称号"];
+	optional int32 m_firstboxID = 7[(yd_fieldoptions.field_cname) = "首次奖励组id"];
+	optional int32 m_firstaddPower = 8[(yd_fieldoptions.field_cname) = "首次增加战力"];
+	optional int32 m_repeatboxID = 9[(yd_fieldoptions.field_cname) = "多次奖励组id"];
+	optional int32 m_repeataddPower = 10[(yd_fieldoptions.field_cname) = "多次增加战力"];
+	optional int32 m_titleID = 11[(yd_fieldoptions.field_cname) = "称号"];
 	optional int32 m_equip = 12[(yd_fieldoptions.field_cname) = "同心锁"];
 	optional int32 m_freeprice = 13[(yd_fieldoptions.field_cname) = "免费席位"];
 }
@@ -29,8 +29,8 @@ message Sheet_MarryMarriage
 message E_MarryBanquet
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional string m_begintime = 2[(yd_fieldoptions.field_cname) = "宴会开始时间", (yd_fieldoptions.field_bufsize) = 64];
-	optional string m_finishtime = 3[(yd_fieldoptions.field_cname) = "宴会结束时间", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_beginTime = 2[(yd_fieldoptions.field_cname) = "宴会开始时间", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_finishTime = 3[(yd_fieldoptions.field_cname) = "宴会结束时间", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_pre_broad_sec = 4[(yd_fieldoptions.field_cname) = "提前广播时间"];
 	optional int32 m_broad_inter_sec = 5[(yd_fieldoptions.field_cname) = "广播间隔"];
 }
@@ -57,8 +57,8 @@ message E_MarryLocklv
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_lv = 2[(yd_fieldoptions.field_cname) = "星级"];
-	optional int32 m_exp = 3[(yd_fieldoptions.field_cname) = "升级需要经验"];
-	repeated E_MarryLocklvAttributeDesc m_attribute = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 4];
+	optional int32 m_Exp = 3[(yd_fieldoptions.field_cname) = "升级需要经验"];
+	repeated E_MarryLocklvAttributeDesc m_Attribute = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 4];
 	repeated E_MarryLocklvSkillDesc m_skill = 5[(yd_fieldoptions.field_cname) = "技能", (yd_fieldoptions.field_arysize) = 5];
 }
 
@@ -102,17 +102,17 @@ message E_MarryChildStariattributeDesc
 
 message E_MarryChild
 {
-	optional int64 m_childid = 1[(yd_fieldoptions.field_cname) = "仙娃id"];
-	optional int64 m_itemid = 2[(yd_fieldoptions.field_cname) = "激活物品id"];
-	optional string m_childname = 3[(yd_fieldoptions.field_cname) = "仙娃名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_childquality = 4[(yd_fieldoptions.field_cname) = "仙娃品质"];
-	optional int32 m_handz = 5[(yd_fieldoptions.field_cname) = "仙娃组"];
-	optional string m_handzname = 6[(yd_fieldoptions.field_cname) = "仙娃组名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional string m_skillid = 7[(yd_fieldoptions.field_cname) = "解锁技能组", (yd_fieldoptions.field_bufsize) = 64];
-	optional int64 m_starid = 8[(yd_fieldoptions.field_cname) = "升星道具id"];
-	optional string m_starnum = 9[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 64];
+	optional int64 m_childID = 1[(yd_fieldoptions.field_cname) = "仙娃id"];
+	optional int64 m_itemId = 2[(yd_fieldoptions.field_cname) = "激活物品id"];
+	optional string m_childName = 3[(yd_fieldoptions.field_cname) = "仙娃名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_childQuality = 4[(yd_fieldoptions.field_cname) = "仙娃品质"];
+	optional int32 m_handZ = 5[(yd_fieldoptions.field_cname) = "仙娃组"];
+	optional string m_handZName = 6[(yd_fieldoptions.field_cname) = "仙娃组名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_skillID = 7[(yd_fieldoptions.field_cname) = "解锁技能组", (yd_fieldoptions.field_bufsize) = 64];
+	optional int64 m_starId = 8[(yd_fieldoptions.field_cname) = "升星道具id"];
+	optional string m_starNum = 9[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 64];
 	repeated E_MarryChildAttributeDesc m_attribute = 10[(yd_fieldoptions.field_cname) = "激活属性", (yd_fieldoptions.field_arysize) = 6];
-	repeated E_MarryChildStariattributeDesc m_stariattribute = 11[(yd_fieldoptions.field_cname) = "升星属性", (yd_fieldoptions.field_arysize) = 5];
+	repeated E_MarryChildStariattributeDesc m_starIattribute = 11[(yd_fieldoptions.field_cname) = "升星属性", (yd_fieldoptions.field_arysize) = 5];
 }
 
 
@@ -124,7 +124,7 @@ message Sheet_MarryChild
 message E_MarryChildvalue
 {
 	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "属性组ID"];
-	repeated int32 m_lvvalue = 2[(yd_fieldoptions.field_cname) = "等级值", (yd_fieldoptions.field_arysize) = 31];
+	repeated int32 m_lvValue = 2[(yd_fieldoptions.field_cname) = "等级值", (yd_fieldoptions.field_arysize) = 31];
 }
 
 
@@ -142,7 +142,7 @@ message E_MarryChildexpGradeDesc
 message E_MarryChildexp
 {
 	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "阶级"];
-	repeated E_MarryChildexpGradeDesc m_grade = 2[(yd_fieldoptions.field_cname) = "品阶", (yd_fieldoptions.field_arysize) = 3];
+	repeated E_MarryChildexpGradeDesc m_Grade = 2[(yd_fieldoptions.field_cname) = "品阶", (yd_fieldoptions.field_arysize) = 3];
 }
 
 
@@ -160,8 +160,8 @@ message E_MarryExpressAttributeDesc
 message E_MarryExpress
 {
 	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
-	optional int32 m_exp = 2[(yd_fieldoptions.field_cname) = "升级需要经验"];
-	repeated E_MarryExpressAttributeDesc m_attribute = 3[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 4];
+	optional int32 m_Exp = 2[(yd_fieldoptions.field_cname) = "升级需要经验"];
+	repeated E_MarryExpressAttributeDesc m_Attribute = 3[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 4];
 }
 
 
@@ -189,7 +189,7 @@ message E_MarryExpressshop
 	optional int32 m_exp = 3[(yd_fieldoptions.field_cname) = "增加表白值"];
 	optional int32 m_expto = 4[(yd_fieldoptions.field_cname) = "被表白经验值"];
 	optional int32 m_broadcastid = 5[(yd_fieldoptions.field_cname) = "广播id"];
-	optional int32 m_effectid = 6[(yd_fieldoptions.field_cname) = "表白特效ID"];
+	optional int32 m_effectId = 6[(yd_fieldoptions.field_cname) = "表白特效ID"];
 }
 
 
@@ -217,37 +217,37 @@ message E_MarryConstant
 	optional int32 m_scale = 9[(yd_fieldoptions.field_cname) = "表白分享属性比例"];
 	optional int32 m_giveboy = 10[(yd_fieldoptions.field_cname) = "赠送男仙娃"];
 	optional int32 m_givegirl = 11[(yd_fieldoptions.field_cname) = "赠送女仙娃"];
-	optional int32 m_xytime = 12[(yd_fieldoptions.field_cname) = "巡游提前宴会开始时间"];
+	optional int32 m_Xytime = 12[(yd_fieldoptions.field_cname) = "巡游提前宴会开始时间"];
 	optional int32 m_free = 13[(yd_fieldoptions.field_cname) = "副本免费次数"];
-	optional int32 m_buynum = 14[(yd_fieldoptions.field_cname) = "可购买次数"];
+	optional int32 m_buyNum = 14[(yd_fieldoptions.field_cname) = "可购买次数"];
 	optional int32 m_consume = 15[(yd_fieldoptions.field_cname) = "消耗货币"];
-	optional int32 m_consumenum = 16[(yd_fieldoptions.field_cname) = "价格"];
+	optional int32 m_consumeNum = 16[(yd_fieldoptions.field_cname) = "价格"];
 	optional int32 m_marrylv = 17[(yd_fieldoptions.field_cname) = "结缘等级"];
 	optional int32 m_childtime = 18[(yd_fieldoptions.field_cname) = "仙娃领取时间"];
 	optional int32 m_lockitem = 19[(yd_fieldoptions.field_cname) = "信物养成道具"];
-	optional int32 m_lockitemexp = 20[(yd_fieldoptions.field_cname) = "信物经验值"];
+	optional int32 m_lockitemExp = 20[(yd_fieldoptions.field_cname) = "信物经验值"];
 	optional int32 m_childitem = 21[(yd_fieldoptions.field_cname) = "仙娃养成道具"];
-	optional int32 m_childitemexp = 22[(yd_fieldoptions.field_cname) = "仙娃经验值"];
+	optional int32 m_childitemExp = 22[(yd_fieldoptions.field_cname) = "仙娃经验值"];
 	optional int32 m_guestprice = 23[(yd_fieldoptions.field_cname) = "席位货币"];
 	optional int32 m_guestpricenum = 24[(yd_fieldoptions.field_cname) = "席位价格"];
 	optional int32 m_asklimit = 25[(yd_fieldoptions.field_cname) = "申请列表上限"];
-	optional int32 m_hyreward = 26[(yd_fieldoptions.field_cname) = "婚宴奖励展示"];
-	optional int32 m_toursceneid = 27[(yd_fieldoptions.field_cname) = "巡游场景id"];
-	optional int32 m_tourfollowindex = 28[(yd_fieldoptions.field_cname) = "巡游挂点怪"];
-	optional string m_hyicon = 29[(yd_fieldoptions.field_cname) = "婚宴icon", (yd_fieldoptions.field_bufsize) = 64];
-	optional string m_hyname = 30[(yd_fieldoptions.field_cname) = "婚宴名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional string m_xyicon = 31[(yd_fieldoptions.field_cname) = "巡游icon", (yd_fieldoptions.field_bufsize) = 64];
-	optional string m_xyname = 32[(yd_fieldoptions.field_cname) = "巡游名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_redbagnum = 33[(yd_fieldoptions.field_cname) = "巡游免费红包数量"];
-	optional int32 m_redmoney = 34[(yd_fieldoptions.field_cname) = "红包购买货币"];
-	optional int32 m_redprice = 35[(yd_fieldoptions.field_cname) = "红包购买价格"];
-	optional int32 m_sendredreward = 36[(yd_fieldoptions.field_cname) = "发红包奖励货币"];
-	optional int32 m_sendrednum = 37[(yd_fieldoptions.field_cname) = "发红包奖励价格"];
+	optional int32 m_HyReward = 26[(yd_fieldoptions.field_cname) = "婚宴奖励展示"];
+	optional int32 m_tourSceneId = 27[(yd_fieldoptions.field_cname) = "巡游场景id"];
+	optional int32 m_tourFollowIndex = 28[(yd_fieldoptions.field_cname) = "巡游挂点怪"];
+	optional string m_Hyicon = 29[(yd_fieldoptions.field_cname) = "婚宴icon", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_Hyname = 30[(yd_fieldoptions.field_cname) = "婚宴名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_Xyicon = 31[(yd_fieldoptions.field_cname) = "巡游icon", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_Xyname = 32[(yd_fieldoptions.field_cname) = "巡游名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_redbagNum = 33[(yd_fieldoptions.field_cname) = "巡游免费红包数量"];
+	optional int32 m_redMoney = 34[(yd_fieldoptions.field_cname) = "红包购买货币"];
+	optional int32 m_redPrice = 35[(yd_fieldoptions.field_cname) = "红包购买价格"];
+	optional int32 m_sendredReward = 36[(yd_fieldoptions.field_cname) = "发红包奖励货币"];
+	optional int32 m_sendredNum = 37[(yd_fieldoptions.field_cname) = "发红包奖励价格"];
 	optional int32 m_redcollect = 38[(yd_fieldoptions.field_cname) = "红包采集物"];
-	optional int32 m_redcollectnum = 39[(yd_fieldoptions.field_cname) = "红包采集物数量"];
-	optional int32 m_cakemonster = 40[(yd_fieldoptions.field_cname) = "婚宴蛋糕模型"];
-	optional int32 m_hymonster = 41[(yd_fieldoptions.field_cname) = "宴席模型"];
-	repeated E_MarryConstantTourmonsterDesc m_tourmonster = 42[(yd_fieldoptions.field_cname) = "巡游怪物", (yd_fieldoptions.field_arysize) = 8];
+	optional int32 m_redcollectNum = 39[(yd_fieldoptions.field_cname) = "红包采集物数量"];
+	optional int32 m_cakeMonster = 40[(yd_fieldoptions.field_cname) = "婚宴蛋糕模型"];
+	optional int32 m_HyMonster = 41[(yd_fieldoptions.field_cname) = "宴席模型"];
+	repeated E_MarryConstantTourmonsterDesc m_tourMonster = 42[(yd_fieldoptions.field_cname) = "巡游怪物", (yd_fieldoptions.field_arysize) = 8];
 }
 
 
@@ -287,25 +287,25 @@ message E_MarryWeddingMoodDesc
 message E_MarryWedding
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_signreward = 2[(yd_fieldoptions.field_cname) = "签到奖励"];
-	optional int32 m_signdaynum = 3[(yd_fieldoptions.field_cname) = "每日签到奖励次数"];
-	optional int32 m_cakereftime = 4[(yd_fieldoptions.field_cname) = "蛋糕采集物"];
-	optional int32 m_cakenum = 5[(yd_fieldoptions.field_cname) = "蛋糕数量"];
+	optional int32 m_signReward = 2[(yd_fieldoptions.field_cname) = "签到奖励"];
+	optional int32 m_signDaynum = 3[(yd_fieldoptions.field_cname) = "每日签到奖励次数"];
+	optional int32 m_cakeReftime = 4[(yd_fieldoptions.field_cname) = "蛋糕采集物"];
+	optional int32 m_cakeNum = 5[(yd_fieldoptions.field_cname) = "蛋糕数量"];
 	optional int32 m_cake = 6[(yd_fieldoptions.field_cname) = "蛋糕刷新时间"];
 	optional string m_model = 7[(yd_fieldoptions.field_cname) = "变身模型", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_modeltime = 8[(yd_fieldoptions.field_cname) = "变身持续时间"];
-	optional int32 m_cakereward = 9[(yd_fieldoptions.field_cname) = "采集奖励"];
-	optional int32 m_signcakenum = 10[(yd_fieldoptions.field_cname) = "每日采集蛋糕奖励次数"];
+	optional int32 m_cakeReward = 9[(yd_fieldoptions.field_cname) = "采集奖励"];
+	optional int32 m_signCakenum = 10[(yd_fieldoptions.field_cname) = "每日采集蛋糕奖励次数"];
 	optional int32 m_monster = 11[(yd_fieldoptions.field_cname) = "亲友怪物id"];
-	optional int32 m_monsternum = 12[(yd_fieldoptions.field_cname) = "亲友怪物数量"];
+	optional int32 m_monsterNum = 12[(yd_fieldoptions.field_cname) = "亲友怪物数量"];
 	optional int32 m_monstertime = 13[(yd_fieldoptions.field_cname) = "怪物击杀时间"];
 	optional int32 m_npcid = 14[(yd_fieldoptions.field_cname) = "亲友npcid"];
-	optional int32 m_npcnum = 15[(yd_fieldoptions.field_cname) = "亲友npc数量"];
-	optional int32 m_monsterreward = 16[(yd_fieldoptions.field_cname) = "亲友奖励"];
-	optional int32 m_monsterdaynum = 17[(yd_fieldoptions.field_cname) = "每日亲友奖励次数"];
-	optional int32 m_feastid = 18[(yd_fieldoptions.field_cname) = "宴席采集物id"];
-	optional int32 m_feastreward = 19[(yd_fieldoptions.field_cname) = "宴席采集奖励"];
-	optional int32 m_feastnum = 20[(yd_fieldoptions.field_cname) = "单场宴席采集次数"];
+	optional int32 m_npcNum = 15[(yd_fieldoptions.field_cname) = "亲友npc数量"];
+	optional int32 m_monsterReward = 16[(yd_fieldoptions.field_cname) = "亲友奖励"];
+	optional int32 m_monsterDaynum = 17[(yd_fieldoptions.field_cname) = "每日亲友奖励次数"];
+	optional int32 m_feastId = 18[(yd_fieldoptions.field_cname) = "宴席采集物id"];
+	optional int32 m_feastReward = 19[(yd_fieldoptions.field_cname) = "宴席采集奖励"];
+	optional int32 m_feastNum = 20[(yd_fieldoptions.field_cname) = "单场宴席采集次数"];
 	optional int32 m_interval = 21[(yd_fieldoptions.field_cname) = "获得经验间隔"];
 	optional int32 m_skillid = 22[(yd_fieldoptions.field_cname) = "丢蛋糕技能id"];
 	repeated E_MarryWeddingStageDesc m_stage = 23[(yd_fieldoptions.field_cname) = "第", (yd_fieldoptions.field_arysize) = 6];
@@ -322,8 +322,8 @@ message Sheet_MarryWedding
 message E_MarryExp
 {
 	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
-	optional int32 m_weddingexp = 2[(yd_fieldoptions.field_cname) = "婚宴经验"];
-	optional int32 m_dayexpmax = 3[(yd_fieldoptions.field_cname) = "每日最大经验值"];
+	optional int32 m_weddingExp = 2[(yd_fieldoptions.field_cname) = "婚宴经验"];
+	optional int32 m_dayExpmax = 3[(yd_fieldoptions.field_cname) = "每日最大经验值"];
 }
 
 

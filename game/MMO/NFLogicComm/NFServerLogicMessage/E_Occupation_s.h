@@ -24,14 +24,14 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;//转职职业ID
-		int32_t m_professionid;//主职业ID
+		int32_t m_professionID;//主职业ID
 		int32_t m_grade;//职业等级
 		NFShmString<64> m_equip;//展示武器模型
-		NFShmString<64> m_modelid;//展示衣服模型
-		NFShmString<128> m_activedesc;//激活描述
+		NFShmString<64> m_modelID;//展示衣服模型
+		NFShmString<128> m_activeDesc;//激活描述
 		int32_t m_level;//等级要求
 		int64_t m_skill_id;//增加技能ID
-		NFShmString<64> m_itemids;//转职道具奖励奖励
+		NFShmString<64> m_itemIDs;//转职道具奖励奖励
 
 		virtual void write_to_pbmsg(::proto_ff::E_OccupationOccupation & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_OccupationOccupation & msg);
@@ -63,14 +63,14 @@ namespace proto_ff_s {
 		int32_t m_grade;//职业等级
 		NFShmString<64> m_stgae;//阶段
 		int32_t m_lv;//要求等级
-		int32_t m_stgaeattshow;//属性是否展示用
-		int32_t m_stgaeatt;//阶段属性
-		int32_t m_taskid;//阶段任务ID
+		int32_t m_stgaeAttShow;//属性是否展示用
+		int32_t m_stgaeAtt;//阶段属性
+		int32_t m_taskId;//阶段任务ID
 		int32_t m_battle;//推荐战力
-		int32_t m_skillid;//激活技能
-		NFShmString<64> m_lightsoul;//点亮龙魂
-		int32_t m_soultpye;//龙魂类型
-		int32_t m_itemid;//点亮的道具
+		int32_t m_skillID;//激活技能
+		NFShmString<64> m_lightSoul;//点亮龙魂
+		int32_t m_soulTpye;//龙魂类型
+		int32_t m_itemID;//点亮的道具
 
 		virtual void write_to_pbmsg(::proto_ff::E_OccupationStage & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_OccupationStage & msg);
@@ -158,7 +158,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//属性id
-		int32_t m_soultpye;//属性类型
+		int32_t m_soulTpye;//属性类型
 		int32_t m_position;//位置
 		NFShmVector<struct E_OccupationSoulAttributeDesc_s, DEFINE_E_OCCUPATIONSOUL_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
 

@@ -90,9 +90,9 @@ int AvatarEquipsuitDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		for(int j = 0; j < (int)pDesc->m_attribute.size(); j++)
+		for(int j = 0; j < (int)pDesc->m_Attribute.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_attribute[j].m_type <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_attribute[j].m_type)), result, "can't find the attribute:{} in the  excel:attribute sheet:attribute", pDesc->m_attribute[j].m_type);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_Attribute[j].m_type <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_Attribute[j].m_type)), result, "can't find the Attribute:{} in the  excel:attribute sheet:attribute", pDesc->m_Attribute[j].m_type);
 		}
 	}
 	return result;

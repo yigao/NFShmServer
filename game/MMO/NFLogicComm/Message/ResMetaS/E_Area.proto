@@ -6,10 +6,10 @@ import "yd_fieldoptions.proto";
 message E_AreaArea
 {
 	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "区域ID"];
-	optional int32 m_subtype = 2[(yd_fieldoptions.field_cname) = "细分类型"];
-	optional int64 m_belongtosceneid = 3[(yd_fieldoptions.field_cname) = "所属场景"];
-	optional int32 m_shapetype = 4[(yd_fieldoptions.field_cname) = "形状类型"];
-	optional int32 m_isnotice = 5[(yd_fieldoptions.field_cname) = "是否进出提示"];
+	optional int32 m_subType = 2[(yd_fieldoptions.field_cname) = "细分类型"];
+	optional int64 m_belongToSceneID = 3[(yd_fieldoptions.field_cname) = "所属场景"];
+	optional int32 m_shapeType = 4[(yd_fieldoptions.field_cname) = "形状类型"];
+	optional int32 m_isNotice = 5[(yd_fieldoptions.field_cname) = "是否进出提示"];
 }
 
 

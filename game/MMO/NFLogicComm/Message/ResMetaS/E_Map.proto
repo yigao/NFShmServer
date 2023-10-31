@@ -5,45 +5,45 @@ import "yd_fieldoptions.proto";
 
 message E_MapMap
 {
-	optional int64 m_mapid = 1[(yd_fieldoptions.field_cname) = "地图id"];
-	optional int32 m_levellimit = 2[(yd_fieldoptions.field_cname) = "地图等级限制"];
-	optional string m_advicelv = 3[(yd_fieldoptions.field_cname) = "地图推荐等级段", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_isdyn = 4[(yd_fieldoptions.field_cname) = "是否动态地图"];
-	optional int32 m_maptype = 5[(yd_fieldoptions.field_cname) = "地图类型"];
-	optional int32 m_mapsubtype = 6[(yd_fieldoptions.field_cname) = "地图子类型"];
-	optional int32 m_clearancetime = 7[(yd_fieldoptions.field_cname) = "地图清场时间（秒）"];
-	optional int32 m_mappkmode = 8[(yd_fieldoptions.field_cname) = "地图pk模式"];
-	optional string m_mappkvalue = 9[(yd_fieldoptions.field_cname) = "地图可用的PK模式", (yd_fieldoptions.field_bufsize) = 64];
+	optional int64 m_mapId = 1[(yd_fieldoptions.field_cname) = "地图id"];
+	optional int32 m_levelLimit = 2[(yd_fieldoptions.field_cname) = "地图等级限制"];
+	optional string m_adviceLv = 3[(yd_fieldoptions.field_cname) = "地图推荐等级段", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_isDyn = 4[(yd_fieldoptions.field_cname) = "是否动态地图"];
+	optional int32 m_mapType = 5[(yd_fieldoptions.field_cname) = "地图类型"];
+	optional int32 m_mapSubType = 6[(yd_fieldoptions.field_cname) = "地图子类型"];
+	optional int32 m_clearanceTime = 7[(yd_fieldoptions.field_cname) = "地图清场时间（秒）"];
+	optional int32 m_mapPkmode = 8[(yd_fieldoptions.field_cname) = "地图pk模式"];
+	optional string m_mapPkValue = 9[(yd_fieldoptions.field_cname) = "地图可用的PK模式", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_pklock = 10[(yd_fieldoptions.field_cname) = "地图是否允许切换PK模式"];
 	optional int32 m_pk = 11[(yd_fieldoptions.field_cname) = "地图是否允许pk"];
-	optional int32 m_killvalue = 12[(yd_fieldoptions.field_cname) = "地图杀人是否增加杀戮值且地图死亡后是否清除杀戮值"];
-	optional int32 m_bangroup = 13[(yd_fieldoptions.field_cname) = "禁止组队进入邀请"];
-	optional int32 m_revivetime = 14[(yd_fieldoptions.field_cname) = "场景复活倒计时长"];
-	optional int32 m_mapwide = 15[(yd_fieldoptions.field_cname) = "地图宽度"];
-	optional int32 m_mapheight = 16[(yd_fieldoptions.field_cname) = "地图高度"];
-	optional string m_mapresources = 17[(yd_fieldoptions.field_cname) = "地图资源名", (yd_fieldoptions.field_bufsize) = 64];
-	optional int64 m_reviveskill = 18[(yd_fieldoptions.field_cname) = "复活无敌"];
-	optional int32 m_reviveinplacetype = 19[(yd_fieldoptions.field_cname) = "原地复活类型"];
-	optional int32 m_ishangup = 20[(yd_fieldoptions.field_cname) = "是否能自动挂机"];
-	optional int32 m_itemdroptype = 21[(yd_fieldoptions.field_cname) = "死亡掉落类型"];
-	optional string m_itemdropid = 22[(yd_fieldoptions.field_cname) = "触发掉落组ID", (yd_fieldoptions.field_bufsize) = 64];
-	optional int64 m_linkoffline = 23[(yd_fieldoptions.field_cname) = "下线后回到地图"];
-	optional int32 m_banonhook = 24[(yd_fieldoptions.field_cname) = "是否禁止原地挂机"];
-	optional int32 m_rewait = 25[(yd_fieldoptions.field_cname) = "普通复活等待时间"];
-	optional int32 m_retime = 26[(yd_fieldoptions.field_cname) = "自动普通复活倒计时"];
-	optional int32 m_hreban = 27[(yd_fieldoptions.field_cname) = "禁止原地复活"];
-	optional int32 m_retiered = 28[(yd_fieldoptions.field_cname) = "是否疲劳复活"];
-	optional int32 m_reskillid = 29[(yd_fieldoptions.field_cname) = "复活后获得的技能"];
-	optional int32 m_reteimes = 30[(yd_fieldoptions.field_cname) = "复活次数限制"];
-	optional int32 m_drivepoint = 31[(yd_fieldoptions.field_cname) = "驱赶值"];
-	optional int32 m_diedp = 32[(yd_fieldoptions.field_cname) = "死亡增加驱赶值"];
-	optional int32 m_timedp = 33[(yd_fieldoptions.field_cname) = "每分钟增加驱赶值"];
+	optional int32 m_killValue = 12[(yd_fieldoptions.field_cname) = "地图杀人是否增加杀戮值且地图死亡后是否清除杀戮值"];
+	optional int32 m_BanGroup = 13[(yd_fieldoptions.field_cname) = "禁止组队进入邀请"];
+	optional int32 m_reviveTime = 14[(yd_fieldoptions.field_cname) = "场景复活倒计时长"];
+	optional int32 m_mapWide = 15[(yd_fieldoptions.field_cname) = "地图宽度"];
+	optional int32 m_mapHeight = 16[(yd_fieldoptions.field_cname) = "地图高度"];
+	optional string m_mapResources = 17[(yd_fieldoptions.field_cname) = "地图资源名", (yd_fieldoptions.field_bufsize) = 64];
+	optional int64 m_reviveSkill = 18[(yd_fieldoptions.field_cname) = "复活无敌"];
+	optional int32 m_reviveInPlaceType = 19[(yd_fieldoptions.field_cname) = "原地复活类型"];
+	optional int32 m_isHangUp = 20[(yd_fieldoptions.field_cname) = "是否能自动挂机"];
+	optional int32 m_itemDropType = 21[(yd_fieldoptions.field_cname) = "死亡掉落类型"];
+	optional string m_itemDropID = 22[(yd_fieldoptions.field_cname) = "触发掉落组ID", (yd_fieldoptions.field_bufsize) = 64];
+	optional int64 m_linkOffLine = 23[(yd_fieldoptions.field_cname) = "下线后回到地图"];
+	optional int32 m_banOnHook = 24[(yd_fieldoptions.field_cname) = "是否禁止原地挂机"];
+	optional int32 m_Rewait = 25[(yd_fieldoptions.field_cname) = "普通复活等待时间"];
+	optional int32 m_REtime = 26[(yd_fieldoptions.field_cname) = "自动普通复活倒计时"];
+	optional int32 m_HREBan = 27[(yd_fieldoptions.field_cname) = "禁止原地复活"];
+	optional int32 m_Retiered = 28[(yd_fieldoptions.field_cname) = "是否疲劳复活"];
+	optional int32 m_REskillid = 29[(yd_fieldoptions.field_cname) = "复活后获得的技能"];
+	optional int32 m_Reteimes = 30[(yd_fieldoptions.field_cname) = "复活次数限制"];
+	optional int32 m_drivePoint = 31[(yd_fieldoptions.field_cname) = "驱赶值"];
+	optional int32 m_dieDP = 32[(yd_fieldoptions.field_cname) = "死亡增加驱赶值"];
+	optional int32 m_timeDP = 33[(yd_fieldoptions.field_cname) = "每分钟增加驱赶值"];
 	optional int32 m_meditation = 34[(yd_fieldoptions.field_cname) = "是否允许打坐"];
-	optional string m_mapbutton = 35[(yd_fieldoptions.field_cname) = "地图按钮", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_banmount = 36[(yd_fieldoptions.field_cname) = "禁用坐骑"];
-	optional int32 m_banlink = 37[(yd_fieldoptions.field_cname) = "禁用link"];
-	optional int32 m_lvsuppvp = 38[(yd_fieldoptions.field_cname) = "等级压制"];
-	optional int32 m_powersuppvp = 39[(yd_fieldoptions.field_cname) = "战力压制"];
+	optional string m_mapButton = 35[(yd_fieldoptions.field_cname) = "地图按钮", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_banMount = 36[(yd_fieldoptions.field_cname) = "禁用坐骑"];
+	optional int32 m_banLink = 37[(yd_fieldoptions.field_cname) = "禁用link"];
+	optional int32 m_lvSupPvp = 38[(yd_fieldoptions.field_cname) = "等级压制"];
+	optional int32 m_powerSupPvp = 39[(yd_fieldoptions.field_cname) = "战力压制"];
 }
 
 
@@ -54,8 +54,8 @@ message Sheet_MapMap
 
 message E_MapItemdrop
 {
-	optional int32 m_itemdropid = 1[(yd_fieldoptions.field_cname) = "掉落ID"];
-	optional int32 m_droptype = 2[(yd_fieldoptions.field_cname) = "掉落类型"];
+	optional int32 m_itemDropID = 1[(yd_fieldoptions.field_cname) = "掉落ID"];
+	optional int32 m_dropType = 2[(yd_fieldoptions.field_cname) = "掉落类型"];
 	optional int32 m_odds = 3[(yd_fieldoptions.field_cname) = "触发几率"];
 	optional int32 m_dropvaluea = 4[(yd_fieldoptions.field_cname) = "掉落参数a"];
 	optional int32 m_dropvalueb = 5[(yd_fieldoptions.field_cname) = "掉落参数b"];
@@ -73,7 +73,7 @@ message Sheet_MapItemdrop
 
 message E_MapDestroyitem
 {
-	optional int64 m_destroyitemid = 1[(yd_fieldoptions.field_cname) = "触发摧毁道具ID"];
+	optional int64 m_destroyitemID = 1[(yd_fieldoptions.field_cname) = "触发摧毁道具ID"];
 }
 
 
@@ -98,8 +98,8 @@ message Sheet_MapButton
 
 message E_MapInspireRewardDesc
 {
-	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
-	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_Id = 2[(yd_fieldoptions.field_cname) = "id"];
 }
 
 message E_MapInspire
@@ -107,8 +107,8 @@ message E_MapInspire
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_group = 2[(yd_fieldoptions.field_cname) = "组"];
 	optional string m_name = 3[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_costid = 4[(yd_fieldoptions.field_cname) = "花费id"];
-	optional int32 m_costnum = 5[(yd_fieldoptions.field_cname) = "花费数量"];
+	optional int32 m_costId = 4[(yd_fieldoptions.field_cname) = "花费id"];
+	optional int32 m_costNum = 5[(yd_fieldoptions.field_cname) = "花费数量"];
 	optional int32 m_skillid = 6[(yd_fieldoptions.field_cname) = "技能id"];
 	optional int32 m_times = 7[(yd_fieldoptions.field_cname) = "次数"];
 	repeated E_MapInspireRewardDesc m_reward = 8[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 2];

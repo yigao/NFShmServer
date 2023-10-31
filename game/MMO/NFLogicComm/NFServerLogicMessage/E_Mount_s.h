@@ -79,9 +79,9 @@ namespace proto_ff_s {
 		virtual ~E_MountFragment_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_fragmentid;//碎片ID
+		int64_t m_fragmentID;//碎片ID
 		int64_t m_item;//物品ID
-		int32_t m_itemnum;//碎片使用上限
+		int32_t m_itemNum;//碎片使用上限
 		NFShmVector<struct E_MountFragmentAttributeDesc_s, DEFINE_E_MOUNTFRAGMENT_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountFragment & msg) const;
@@ -128,9 +128,9 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_type;//类型
 		int32_t m_lv;//等级
-		int32_t m_exp;//升级需要经验
+		int32_t m_Exp;//升级需要经验
 		int32_t m_speed;//默认乘骑速度值
-		NFShmVector<struct E_MountValueAttributeDesc_s, DEFINE_E_MOUNTVALUE_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
+		NFShmVector<struct E_MountValueAttributeDesc_s, DEFINE_E_MOUNTVALUE_M_ATTRIBUTE_MAX_NUM> m_Attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountValue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountValue & msg);
@@ -175,13 +175,13 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_speed;//默认乘骑速度值
-		int32_t m_uplvtype;//升级参考类型
-		NFShmString<64> m_skillid;//解锁技能组
-		NFShmString<64> m_fxid;//幻化特效
-		int32_t m_starup;//星星上限
-		int32_t m_lvmax;//等级上限
+		int32_t m_UpLvType;//升级参考类型
+		NFShmString<64> m_skillID;//解锁技能组
+		NFShmString<64> m_fxID;//幻化特效
+		int32_t m_starUp;//星星上限
+		int32_t m_LvMax;//等级上限
 		NFShmVector<struct E_MountDisplayMaterialDesc_s, DEFINE_E_MOUNTDISPLAY_M_MATERIAL_MAX_NUM> m_material;//升级材料
-		NFShmVector<int64_t, DEFINE_E_MOUNTDISPLAY_M_FRAGMENTID_MAX_NUM> m_fragmentid;//关联碎片ID
+		NFShmVector<int64_t, DEFINE_E_MOUNTDISPLAY_M_FRAGMENTID_MAX_NUM> m_fragmentID;//关联碎片ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountDisplay & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountDisplay & msg);
@@ -210,9 +210,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_lv;//等级
-		int32_t m_modelid;//模型id
-		NFShmString<64> m_name;//名称
+		int32_t m_Lv;//等级
+		int32_t m_ModelID;//模型id
+		NFShmString<64> m_Name;//名称
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountUnlock & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountUnlock & msg);
@@ -255,8 +255,8 @@ namespace proto_ff_s {
 		virtual ~E_MountChangeAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_upvalue;//值
-		int32_t m_upber;//
+		int32_t m_UpValue;//值
+		int32_t m_UpBer;//
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountChangeAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountChangeAttributeDesc & msg);
@@ -272,23 +272,23 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		NFShmString<64> m_name;//名称
-		NFShmString<64> m_advancename;//进阶后名字
+		NFShmString<64> m_advanceName;//进阶后名字
 		int32_t m_speed;//默认乘骑速度值
-		int32_t m_uplvtype;//升级参考类型
-		int32_t m_activeskill;//激活获得技能
-		NFShmString<64> m_skillid;//解锁技能组
-		NFShmString<64> m_fxid;//幻化特效
-		int32_t m_starmax;//星星上限
-		int32_t m_lvmax;//等级上限
-		int32_t m_modelid;//模型id
-		int32_t m_activationitem;//激活需要的道具
-		int32_t m_activationnum;//激活需要的道具数量
-		int32_t m_starid;//升星需要道具ID
-		NFShmString<256> m_starnum;//升星需要数量
-		int32_t m_starber;//每星级提升百分比
-		int32_t m_upattributeid;//进阶类型
+		int32_t m_UpLvType;//升级参考类型
+		int32_t m_activeSkill;//激活获得技能
+		NFShmString<64> m_skillID;//解锁技能组
+		NFShmString<64> m_fxID;//幻化特效
+		int32_t m_starMax;//星星上限
+		int32_t m_LvMax;//等级上限
+		int32_t m_ModelID;//模型id
+		int32_t m_activationItem;//激活需要的道具
+		int32_t m_activationNum;//激活需要的道具数量
+		int32_t m_starId;//升星需要道具ID
+		NFShmString<256> m_starNum;//升星需要数量
+		int32_t m_starBer;//每星级提升百分比
+		int32_t m_upAttributeId;//进阶类型
 		NFShmVector<struct E_MountChangeMaterialDesc_s, DEFINE_E_MOUNTCHANGE_M_MATERIAL_MAX_NUM> m_material;//升级材料
-		NFShmVector<struct E_MountChangeAttributeDesc_s, DEFINE_E_MOUNTCHANGE_M_ATTRIBUTE_MAX_NUM> m_attribute;//百分比属性
+		NFShmVector<struct E_MountChangeAttributeDesc_s, DEFINE_E_MOUNTCHANGE_M_ATTRIBUTE_MAX_NUM> m_Attribute;//百分比属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountChange & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountChange & msg);
@@ -332,10 +332,10 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_upattributeid;//进阶类型
-		int32_t m_starid;//进阶专属需求星星数量
-		int32_t m_skillid;//进阶专属技能
-		NFShmVector<struct E_MountAdvanceUpattributeDesc_s, DEFINE_E_MOUNTADVANCE_M_UPATTRIBUTE_MAX_NUM> m_upattribute;//激活属性
+		int32_t m_upAttributeId;//进阶类型
+		int32_t m_starID;//进阶专属需求星星数量
+		int32_t m_skillID;//进阶专属技能
+		NFShmVector<struct E_MountAdvanceUpattributeDesc_s, DEFINE_E_MOUNTADVANCE_M_UPATTRIBUTE_MAX_NUM> m_upAttribute;//激活属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountAdvance & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountAdvance & msg);
@@ -366,7 +366,7 @@ namespace proto_ff_s {
 		int32_t m_id;//蛋道具id
 		int32_t m_item;//道具id
 		int32_t m_time;//蛋生成时间
-		int32_t m_itembox;//奖励盒id
+		int32_t m_itemBox;//奖励盒id
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountBaby_egg & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountBaby_egg & msg);
@@ -394,8 +394,8 @@ namespace proto_ff_s {
 		virtual ~E_MountHuakunUplvDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_upvalue;//值
-		int32_t m_upber;//
+		int32_t m_UpValue;//值
+		int32_t m_UpBer;//
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountHuakunUplvDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountHuakunUplvDesc & msg);
@@ -424,8 +424,8 @@ namespace proto_ff_s {
 		virtual ~E_MountHuakunAdvanceDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_upvalue;//值
-		int32_t m_upber;//
+		int32_t m_UpValue;//值
+		int32_t m_UpBer;//
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountHuakunAdvanceDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountHuakunAdvanceDesc & msg);
@@ -439,8 +439,8 @@ namespace proto_ff_s {
 		virtual ~E_MountHuakunAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_upvalue;//值
-		int32_t m_upber;//
+		int32_t m_UpValue;//值
+		int32_t m_UpBer;//
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountHuakunAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountHuakunAttributeDesc & msg);
@@ -455,36 +455,36 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_modelid;//模型
+		int32_t m_ModelID;//模型
 		int32_t m_quality;//坐骑品质
 		int32_t m_speed;//默认乘骑速度值
-		int32_t m_uplvtype;//升级参考类型
-		int32_t m_activateitem;//激活材料
-		int32_t m_activateitemnum;//激活材料需要数量
-		int32_t m_advancetype;//进阶类型
-		int32_t m_starvancetype;//星级类型
-		int32_t m_starlimit;//星级上限
-		int32_t m_starber;//每星级提升百分比
-		NFShmString<64> m_skill_lg;//灵根技能
-		NFShmString<64> m_skill_bd;//被动
-		int32_t m_soaringattributeid;//飞升类型
+		int32_t m_UpLvType;//升级参考类型
+		int32_t m_activateItem;//激活材料
+		int32_t m_activateItemNum;//激活材料需要数量
+		int32_t m_advanceType;//进阶类型
+		int32_t m_starvanceType;//星级类型
+		int32_t m_starLimit;//星级上限
+		int32_t m_starBer;//每星级提升百分比
+		NFShmString<64> m_skill_LG;//灵根技能
+		NFShmString<64> m_skill_BD;//被动
+		int32_t m_soaringAttributeId;//飞升类型
 		int32_t m_comprehend;//提悟类型
 		NFShmString<64> m_exclusive;//提悟专属
-		NFShmString<64> m_comprehendskill;//提悟技能
+		NFShmString<64> m_comprehendSkill;//提悟技能
 		NFShmString<64> m_potential;//潜能
-		int32_t m_comprehendupitem;//提悟升品显示
-		int32_t m_comprehendtype;//提悟属性类型
+		int32_t m_comprehendUpItem;//提悟升品显示
+		int32_t m_comprehendType;//提悟属性类型
 		int32_t m_ratio;//提悟非百分比属性比例
-		int32_t m_ratiopercentage;//提悟百分比属性比例
-		NFShmString<64> m_equipsuit;//鲲灵套装
-		int32_t m_qualitymax;//鲲灵穿戴最大品质
-		NFShmString<64> m_lilianchangeitem;//历练异化鲲掉落
-		NFShmVector<struct E_MountHuakunUplvDesc_s, DEFINE_E_MOUNTHUAKUN_M_UPLV_MAX_NUM> m_uplv;//百分比属性
+		int32_t m_ratioPercentage;//提悟百分比属性比例
+		NFShmString<64> m_equipSuit;//鲲灵套装
+		int32_t m_qualityMax;//鲲灵穿戴最大品质
+		NFShmString<64> m_liLianChangeItem;//历练异化鲲掉落
+		NFShmVector<struct E_MountHuakunUplvDesc_s, DEFINE_E_MOUNTHUAKUN_M_UPLV_MAX_NUM> m_UpLv;//百分比属性
 		NFShmVector<struct E_MountHuakunMaterialDesc_s, DEFINE_E_MOUNTHUAKUN_M_MATERIAL_MAX_NUM> m_material;//升级材料
 		NFShmVector<struct E_MountHuakunAdvanceDesc_s, DEFINE_E_MOUNTHUAKUN_M_ADVANCE_MAX_NUM> m_advance;//百分比属性
-		NFShmVector<int32_t, DEFINE_E_MOUNTHUAKUN_M_UPSTARITEM_MAX_NUM> m_upstaritem;//升星需要道具ID
-		NFShmVector<NFShmString<64>, DEFINE_E_MOUNTHUAKUN_M_UPSTARNUM_MAX_NUM> m_upstarnum;//升星总共需要数量
-		NFShmVector<struct E_MountHuakunAttributeDesc_s, DEFINE_E_MOUNTHUAKUN_M_ATTRIBUTE_MAX_NUM> m_attribute;//百分比属性
+		NFShmVector<int32_t, DEFINE_E_MOUNTHUAKUN_M_UPSTARITEM_MAX_NUM> m_UpStarItem;//升星需要道具ID
+		NFShmVector<NFShmString<64>, DEFINE_E_MOUNTHUAKUN_M_UPSTARNUM_MAX_NUM> m_UpStarNum;//升星总共需要数量
+		NFShmVector<struct E_MountHuakunAttributeDesc_s, DEFINE_E_MOUNTHUAKUN_M_ATTRIBUTE_MAX_NUM> m_Attribute;//百分比属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountHuakun & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountHuakun & msg);
@@ -528,9 +528,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;//id
-		int32_t m_huakuntype;//属性类型
-		int32_t m_huakunlv;//等级
-		int32_t m_huakunexp;//升级所需经验
+		int32_t m_huaKunType;//属性类型
+		int32_t m_huaKunLv;//等级
+		int32_t m_huaKunExp;//升级所需经验
 		NFShmVector<struct E_MountHuakun_valueAttributeDesc_s, DEFINE_E_MOUNTHUAKUN_VALUE_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountHuakun_value & msg) const;
@@ -559,7 +559,7 @@ namespace proto_ff_s {
 		virtual ~E_MountHuakun_advancevalueItemDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_num;//数量
+		int32_t m_Num;//数量
 		int32_t m_id;//
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountHuakun_advancevalueItemDesc & msg) const;
@@ -575,10 +575,10 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_lv;//等级
-		int32_t m_advancetype;//进阶类型
-		int32_t m_winprob;//进阶成功概率
-		int32_t m_faillv;//进阶失败掉级
+		int32_t m_Lv;//等级
+		int32_t m_advanceType;//进阶类型
+		int32_t m_winProb;//进阶成功概率
+		int32_t m_failLv;//进阶失败掉级
 		NFShmVector<struct E_MountHuakun_advancevalueItemDesc_s, DEFINE_E_MOUNTHUAKUN_ADVANCEVALUE_M_ITEM_MAX_NUM> m_item;//需求道具
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountHuakun_advancevalue & msg) const;
@@ -607,8 +607,8 @@ namespace proto_ff_s {
 		virtual ~E_MountHuakun_changeAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_upvalue;//值
-		int32_t m_upber;//
+		int32_t m_UpValue;//值
+		int32_t m_UpBer;//
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountHuakun_changeAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountHuakun_changeAttributeDesc & msg);
@@ -623,19 +623,19 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_huakunid;//名称
+		int32_t m_huaKunId;//名称
 		int32_t m_speed;//默认乘骑速度值
-		NFShmString<64> m_fxid;//幻化特效
-		int32_t m_modelid;//模型id
-		int32_t m_activationitem;//激活需要的道具
-		int32_t m_activationnum;//激活需要的道具数量
-		int32_t m_starattributeid;//升星类型
-		int32_t m_starmax;//星星上限
-		int32_t m_starid;//升星需要道具ID
-		NFShmString<64> m_starnum;//升星需要数量
-		int32_t m_starber;//每星级提升百分比
-		int32_t m_changeattributeid;//异化飞升类型
-		NFShmVector<struct E_MountHuakun_changeAttributeDesc_s, DEFINE_E_MOUNTHUAKUN_CHANGE_M_ATTRIBUTE_MAX_NUM> m_attribute;//百分比属性
+		NFShmString<64> m_fxID;//幻化特效
+		int32_t m_ModelID;//模型id
+		int32_t m_activationItem;//激活需要的道具
+		int32_t m_activationNum;//激活需要的道具数量
+		int32_t m_starAttributeId;//升星类型
+		int32_t m_starMax;//星星上限
+		int32_t m_starId;//升星需要道具ID
+		NFShmString<64> m_starNum;//升星需要数量
+		int32_t m_starBer;//每星级提升百分比
+		int32_t m_changeAttributeId;//异化飞升类型
+		NFShmVector<struct E_MountHuakun_changeAttributeDesc_s, DEFINE_E_MOUNTHUAKUN_CHANGE_M_ATTRIBUTE_MAX_NUM> m_Attribute;//百分比属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountHuakun_change & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountHuakun_change & msg);
@@ -679,10 +679,10 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_upattributeid;//进阶类型
-		int32_t m_starid;//进阶专属需求星星数量
-		int32_t m_skillid;//进阶专属技能
-		NFShmVector<struct E_MountHuakun_advanceUpattributeDesc_s, DEFINE_E_MOUNTHUAKUN_ADVANCE_M_UPATTRIBUTE_MAX_NUM> m_upattribute;//激活属性
+		int32_t m_upAttributeId;//进阶类型
+		int32_t m_starID;//进阶专属需求星星数量
+		int32_t m_skillID;//进阶专属技能
+		NFShmVector<struct E_MountHuakun_advanceUpattributeDesc_s, DEFINE_E_MOUNTHUAKUN_ADVANCE_M_UPATTRIBUTE_MAX_NUM> m_upAttribute;//激活属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountHuakun_advance & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountHuakun_advance & msg);
@@ -754,15 +754,15 @@ namespace proto_ff_s {
 		virtual ~E_MountHuakun_equip_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_equipid;//id
+		int32_t m_equipId;//id
 		int32_t m_part;//部位
 		int32_t m_quality;//品质
-		int32_t m_equipintensify;//强化类型
-		int32_t m_srtongup;//强化上限
-		int32_t m_advanceintensify;//进阶类型
-		int32_t m_equipttop;//突破类型
+		int32_t m_equipIntensify;//强化类型
+		int32_t m_srtongUp;//强化上限
+		int32_t m_advanceIntensify;//进阶类型
+		int32_t m_equipTtop;//突破类型
 		int32_t m_resolve;//鲲灵分解材料
-		int32_t m_resolvemun;//分解数量
+		int32_t m_resolveMun;//分解数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountHuakun_equip & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountHuakun_equip & msg);
@@ -805,12 +805,12 @@ namespace proto_ff_s {
 		virtual ~E_MountEquip_value_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_equipintensify;//id
-		int32_t m_equipvalue;//属性类型
-		int32_t m_equiplv;//等级
-		int32_t m_equipitem;//道具消耗
-		int32_t m_equipmun;//消耗数量
-		NFShmVector<struct E_MountEquip_valueAttributeDesc_s, DEFINE_E_MOUNTEQUIP_VALUE_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
+		int32_t m_equipIntensify;//id
+		int32_t m_equipValue;//属性类型
+		int32_t m_equipLv;//等级
+		int32_t m_equipItem;//道具消耗
+		int32_t m_equipMun;//消耗数量
+		NFShmVector<struct E_MountEquip_valueAttributeDesc_s, DEFINE_E_MOUNTEQUIP_VALUE_M_ATTRIBUTE_MAX_NUM> m_Attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountEquip_value & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountEquip_value & msg);
@@ -856,7 +856,7 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_quality;//要求品质
 		int32_t m_piece;//套装件数
-		NFShmVector<struct E_MountEquipsuitAttributeDesc_s, DEFINE_E_MOUNTEQUIPSUIT_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
+		NFShmVector<struct E_MountEquipsuitAttributeDesc_s, DEFINE_E_MOUNTEQUIPSUIT_M_ATTRIBUTE_MAX_NUM> m_Attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountEquipsuit & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountEquipsuit & msg);
@@ -915,8 +915,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_positionid;//装备部位id
-		int32_t m_equipttop;//突破类型
+		int32_t m_positionId;//装备部位id
+		int32_t m_equipTtop;//突破类型
 		int32_t m_quality;//品质
 		NFShmVector<struct E_MountEquiptopTopDesc_s, DEFINE_E_MOUNTEQUIPTOP_M_TOP_MAX_NUM> m_top;//非百分比
 		NFShmVector<struct E_MountEquiptopPercentDesc_s, DEFINE_E_MOUNTEQUIPTOP_M_PERCENT_MAX_NUM> m_percent;//百分比
@@ -980,7 +980,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_part;//部位
 		int32_t m_quality;//化鲲品质
-		int32_t m_honeopen;//部位解锁类型
+		int32_t m_honeOpen;//部位解锁类型
 		int32_t m_item;//所需物品
 		int32_t m_num;//数量
 
@@ -1010,9 +1010,9 @@ namespace proto_ff_s {
 		virtual ~E_MountEmpowermenttour_debris_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_fairylandid;//仙境id
-		int32_t m_fairylandnextid;//下一个仙境id
-		NFShmString<64> m_fairylandskin;//仙境获取皮肤预览
+		int32_t m_fairylandId;//仙境id
+		int32_t m_fairylandNextId;//下一个仙境id
+		NFShmString<64> m_fairylandSkin;//仙境获取皮肤预览
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountEmpowermenttour_debris & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountEmpowermenttour_debris & msg);
@@ -1055,10 +1055,10 @@ namespace proto_ff_s {
 		virtual ~E_MountEmpowerment_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_tourid;//游记id
-		int32_t m_fairylandid;//仙境id
-		int32_t m_touritem;//碎片id
-		int32_t m_tourdebris;//游记总碎片
+		int32_t m_tourId;//游记id
+		int32_t m_fairylandId;//仙境id
+		int32_t m_tourItem;//碎片id
+		int32_t m_tourDebris;//游记总碎片
 		NFShmVector<struct E_MountEmpowermentTourDesc_s, DEFINE_E_MOUNTEMPOWERMENT_M_TOUR_MAX_NUM> m_tour;//游记属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountEmpowerment & msg) const;
@@ -1087,9 +1087,9 @@ namespace proto_ff_s {
 		virtual ~E_MountEmpowerment_position_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_empowermentslot;//历练槽位
-		int32_t m_unlocktime;//解锁条件
-		int32_t m_unlocknum;//解锁数量
+		int32_t m_empowermentSlot;//历练槽位
+		int32_t m_unlockTime;//解锁条件
+		int32_t m_unlockNum;//解锁数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountEmpowerment_position & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountEmpowerment_position & msg);
@@ -1118,13 +1118,13 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_dissociatelevel;//游历级别
-		int32_t m_dissociatetime;//时间档位
-		int32_t m_dissociatehour;//时长
-		int32_t m_dissociateitem;//游离级别消耗
-		int32_t m_dissociatenum;//消耗数量
-		NFShmString<64> m_eventtime;//播放事件时间间隔范围
-		int32_t m_dissociatebox;//服务器奖励
+		int32_t m_dissociateLevel;//游历级别
+		int32_t m_dissociateTime;//时间档位
+		int32_t m_dissociateHour;//时长
+		int32_t m_dissociateItem;//游离级别消耗
+		int32_t m_dissociateNum;//消耗数量
+		NFShmString<64> m_eventTime;//播放事件时间间隔范围
+		int32_t m_dissociateBox;//服务器奖励
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountEmpowerment_slot & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountEmpowerment_slot & msg);
@@ -1153,7 +1153,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_eventtype;//类型
+		int32_t m_eventType;//类型
 		int32_t m_weight;//权重
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountEmpowerment_event & msg) const;

@@ -13,10 +13,10 @@ E_Pk3v3Level_s::E_Pk3v3Level_s() {
 int E_Pk3v3Level_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_type = (int32_t)0;
-	m_starnum = (int32_t)0;
+	m_starNum = (int32_t)0;
 	m_scoring = (int32_t)0;
-	m_scoringadd = (int32_t)0;
-	m_scoringcut = (int32_t)0;
+	m_scoringAdd = (int32_t)0;
+	m_scoringCut = (int32_t)0;
 	return 0;
 }
 
@@ -28,24 +28,24 @@ void E_Pk3v3Level_s::write_to_pbmsg(::proto_ff::E_Pk3v3Level & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_name(m_name.data());
-	msg.set_m_starnum((int32_t)m_starnum);
+	msg.set_m_starnum((int32_t)m_starNum);
 	msg.set_m_scoring((int32_t)m_scoring);
 	msg.set_m_badge(m_badge.data());
-	msg.set_m_showbadge(m_showbadge.data());
-	msg.set_m_scoringadd((int32_t)m_scoringadd);
-	msg.set_m_scoringcut((int32_t)m_scoringcut);
+	msg.set_m_showbadge(m_showBadge.data());
+	msg.set_m_scoringadd((int32_t)m_scoringAdd);
+	msg.set_m_scoringcut((int32_t)m_scoringCut);
 }
 
 void E_Pk3v3Level_s::read_from_pbmsg(const ::proto_ff::E_Pk3v3Level & msg) {
 	m_id = msg.m_id();
 	m_type = msg.m_type();
 	m_name = msg.m_name();
-	m_starnum = msg.m_starnum();
+	m_starNum = msg.m_starnum();
 	m_scoring = msg.m_scoring();
 	m_badge = msg.m_badge();
-	m_showbadge = msg.m_showbadge();
-	m_scoringadd = msg.m_scoringadd();
-	m_scoringcut = msg.m_scoringcut();
+	m_showBadge = msg.m_showbadge();
+	m_scoringAdd = msg.m_scoringadd();
+	m_scoringCut = msg.m_scoringcut();
 }
 
 Sheet_Pk3v3Level_s::Sheet_Pk3v3Level_s() {
@@ -229,21 +229,21 @@ E_Pk3v3Constant_s::E_Pk3v3Constant_s() {
 
 int E_Pk3v3Constant_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_teammember = (int32_t)0;
-	m_teamtoplimit = (int32_t)0;
-	m_cedetime = (int32_t)0;
-	m_punishtime = (int32_t)0;
-	m_breaktime = (int32_t)0;
-	m_entryreward = (int32_t)0;
-	m_entrtimes = (int32_t)0;
-	m_mvpreward = (int32_t)0;
-	m_mvptimes = (int32_t)0;
-	m_matchtime = (int32_t)0;
-	m_unitname = (int32_t)0;
-	m_unitcost = (int32_t)0;
-	m_initialzlid = (int32_t)0;
-	m_matetime = (int32_t)0;
-	m_addtime = (int32_t)0;
+	m_teamMember = (int32_t)0;
+	m_teamToplimit = (int32_t)0;
+	m_cedeTime = (int32_t)0;
+	m_punishTime = (int32_t)0;
+	m_breakTime = (int32_t)0;
+	m_entryReward = (int32_t)0;
+	m_entrTimes = (int32_t)0;
+	m_mvpReward = (int32_t)0;
+	m_mvpTimes = (int32_t)0;
+	m_matchTime = (int32_t)0;
+	m_unitName = (int32_t)0;
+	m_unitCost = (int32_t)0;
+	m_initialZLid = (int32_t)0;
+	m_mateTime = (int32_t)0;
+	m_addTime = (int32_t)0;
 	return 0;
 }
 
@@ -253,52 +253,52 @@ int E_Pk3v3Constant_s::ResumeInit() {
 
 void E_Pk3v3Constant_s::write_to_pbmsg(::proto_ff::E_Pk3v3Constant & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_teammember((int32_t)m_teammember);
-	msg.set_m_teamtoplimit((int32_t)m_teamtoplimit);
-	msg.set_m_cedetime((int32_t)m_cedetime);
-	msg.set_m_punishtime((int32_t)m_punishtime);
-	msg.set_m_breaktime((int32_t)m_breaktime);
-	msg.set_m_entryreward((int32_t)m_entryreward);
-	msg.set_m_entrtimes((int32_t)m_entrtimes);
-	msg.set_m_mvpreward((int32_t)m_mvpreward);
-	msg.set_m_mvptimes((int32_t)m_mvptimes);
-	msg.set_m_matchtime((int32_t)m_matchtime);
-	msg.set_m_unitname((int32_t)m_unitname);
-	msg.set_m_unitcost((int32_t)m_unitcost);
-	msg.set_m_initialzlid((int32_t)m_initialzlid);
-	msg.set_m_initialzlname(m_initialzlname.data());
-	msg.set_m_robotname(m_robotname.data());
-	msg.set_m_matetime((int32_t)m_matetime);
-	msg.set_m_addtime((int32_t)m_addtime);
-	msg.set_m_initialnotice(m_initialnotice.data());
-	for(int32_t i = 0; i < (int32_t)m_showreward.size(); ++i) {
-		msg.add_m_showreward((int32_t)m_showreward[i]);
+	msg.set_m_teammember((int32_t)m_teamMember);
+	msg.set_m_teamtoplimit((int32_t)m_teamToplimit);
+	msg.set_m_cedetime((int32_t)m_cedeTime);
+	msg.set_m_punishtime((int32_t)m_punishTime);
+	msg.set_m_breaktime((int32_t)m_breakTime);
+	msg.set_m_entryreward((int32_t)m_entryReward);
+	msg.set_m_entrtimes((int32_t)m_entrTimes);
+	msg.set_m_mvpreward((int32_t)m_mvpReward);
+	msg.set_m_mvptimes((int32_t)m_mvpTimes);
+	msg.set_m_matchtime((int32_t)m_matchTime);
+	msg.set_m_unitname((int32_t)m_unitName);
+	msg.set_m_unitcost((int32_t)m_unitCost);
+	msg.set_m_initialzlid((int32_t)m_initialZLid);
+	msg.set_m_initialzlname(m_initialZLName.data());
+	msg.set_m_robotname(m_robotName.data());
+	msg.set_m_matetime((int32_t)m_mateTime);
+	msg.set_m_addtime((int32_t)m_addTime);
+	msg.set_m_initialnotice(m_initialNotice.data());
+	for(int32_t i = 0; i < (int32_t)m_showReward.size(); ++i) {
+		msg.add_m_showreward((int32_t)m_showReward[i]);
 	}
 }
 
 void E_Pk3v3Constant_s::read_from_pbmsg(const ::proto_ff::E_Pk3v3Constant & msg) {
 	m_id = msg.m_id();
-	m_teammember = msg.m_teammember();
-	m_teamtoplimit = msg.m_teamtoplimit();
-	m_cedetime = msg.m_cedetime();
-	m_punishtime = msg.m_punishtime();
-	m_breaktime = msg.m_breaktime();
-	m_entryreward = msg.m_entryreward();
-	m_entrtimes = msg.m_entrtimes();
-	m_mvpreward = msg.m_mvpreward();
-	m_mvptimes = msg.m_mvptimes();
-	m_matchtime = msg.m_matchtime();
-	m_unitname = msg.m_unitname();
-	m_unitcost = msg.m_unitcost();
-	m_initialzlid = msg.m_initialzlid();
-	m_initialzlname = msg.m_initialzlname();
-	m_robotname = msg.m_robotname();
-	m_matetime = msg.m_matetime();
-	m_addtime = msg.m_addtime();
-	m_initialnotice = msg.m_initialnotice();
-	m_showreward.resize((int)msg.m_showreward_size() > (int)m_showreward.max_size() ? m_showreward.max_size() : msg.m_showreward_size());
-	for(int32_t i = 0; i < (int32_t)m_showreward.size(); ++i) {
-		m_showreward[i] = msg.m_showreward(i);
+	m_teamMember = msg.m_teammember();
+	m_teamToplimit = msg.m_teamtoplimit();
+	m_cedeTime = msg.m_cedetime();
+	m_punishTime = msg.m_punishtime();
+	m_breakTime = msg.m_breaktime();
+	m_entryReward = msg.m_entryreward();
+	m_entrTimes = msg.m_entrtimes();
+	m_mvpReward = msg.m_mvpreward();
+	m_mvpTimes = msg.m_mvptimes();
+	m_matchTime = msg.m_matchtime();
+	m_unitName = msg.m_unitname();
+	m_unitCost = msg.m_unitcost();
+	m_initialZLid = msg.m_initialzlid();
+	m_initialZLName = msg.m_initialzlname();
+	m_robotName = msg.m_robotname();
+	m_mateTime = msg.m_matetime();
+	m_addTime = msg.m_addtime();
+	m_initialNotice = msg.m_initialnotice();
+	m_showReward.resize((int)msg.m_showreward_size() > (int)m_showReward.max_size() ? m_showReward.max_size() : msg.m_showreward_size());
+	for(int32_t i = 0; i < (int32_t)m_showReward.size(); ++i) {
+		m_showReward[i] = msg.m_showreward(i);
 	}
 }
 
@@ -343,7 +343,7 @@ E_Pk3v3Exp_s::E_Pk3v3Exp_s() {
 
 int E_Pk3v3Exp_s::CreateInit() {
 	m_lv = (int32_t)0;
-	m_mateexp = (int32_t)0;
+	m_mateExp = (int32_t)0;
 	return 0;
 }
 
@@ -353,12 +353,12 @@ int E_Pk3v3Exp_s::ResumeInit() {
 
 void E_Pk3v3Exp_s::write_to_pbmsg(::proto_ff::E_Pk3v3Exp & msg) const {
 	msg.set_m_lv((int32_t)m_lv);
-	msg.set_m_mateexp((int32_t)m_mateexp);
+	msg.set_m_mateexp((int32_t)m_mateExp);
 }
 
 void E_Pk3v3Exp_s::read_from_pbmsg(const ::proto_ff::E_Pk3v3Exp & msg) {
 	m_lv = msg.m_lv();
-	m_mateexp = msg.m_mateexp();
+	m_mateExp = msg.m_mateexp();
 }
 
 Sheet_Pk3v3Exp_s::Sheet_Pk3v3Exp_s() {

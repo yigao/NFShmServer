@@ -11,11 +11,11 @@ E_ChatChat_s::E_ChatChat_s() {
 }
 
 int E_ChatChat_s::CreateInit() {
-	m_chatid = (int64_t)0;
-	m_chattype = (int32_t)0;
-	m_showtime = (int32_t)0;
+	m_chatId = (int64_t)0;
+	m_chatType = (int32_t)0;
+	m_showTime = (int32_t)0;
 	m_channel = (int32_t)0;
-	m_crossservice = (int32_t)0;
+	m_CrossService = (int32_t)0;
 	return 0;
 }
 
@@ -24,21 +24,21 @@ int E_ChatChat_s::ResumeInit() {
 }
 
 void E_ChatChat_s::write_to_pbmsg(::proto_ff::E_ChatChat & msg) const {
-	msg.set_m_chatid((int64_t)m_chatid);
-	msg.set_m_chattype((int32_t)m_chattype);
-	msg.set_m_showtime((int32_t)m_showtime);
-	msg.set_m_chatcontent(m_chatcontent.data());
+	msg.set_m_chatid((int64_t)m_chatId);
+	msg.set_m_chattype((int32_t)m_chatType);
+	msg.set_m_showtime((int32_t)m_showTime);
+	msg.set_m_chatcontent(m_chatContent.data());
 	msg.set_m_channel((int32_t)m_channel);
-	msg.set_m_crossservice((int32_t)m_crossservice);
+	msg.set_m_crossservice((int32_t)m_CrossService);
 }
 
 void E_ChatChat_s::read_from_pbmsg(const ::proto_ff::E_ChatChat & msg) {
-	m_chatid = msg.m_chatid();
-	m_chattype = msg.m_chattype();
-	m_showtime = msg.m_showtime();
-	m_chatcontent = msg.m_chatcontent();
+	m_chatId = msg.m_chatid();
+	m_chatType = msg.m_chattype();
+	m_showTime = msg.m_showtime();
+	m_chatContent = msg.m_chatcontent();
 	m_channel = msg.m_channel();
-	m_crossservice = msg.m_crossservice();
+	m_CrossService = msg.m_crossservice();
 }
 
 Sheet_ChatChat_s::Sheet_ChatChat_s() {
@@ -82,7 +82,7 @@ E_ChatSpecialchat_s::E_ChatSpecialchat_s() {
 
 int E_ChatSpecialchat_s::CreateInit() {
 	m_type = (int32_t)0;
-	m_chat_id = (int64_t)0;
+	m_chat_Id = (int64_t)0;
 	return 0;
 }
 
@@ -94,14 +94,14 @@ void E_ChatSpecialchat_s::write_to_pbmsg(::proto_ff::E_ChatSpecialchat & msg) co
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_parama(m_parama.data());
 	msg.set_m_paramb(m_paramb.data());
-	msg.set_m_chat_id((int64_t)m_chat_id);
+	msg.set_m_chat_id((int64_t)m_chat_Id);
 }
 
 void E_ChatSpecialchat_s::read_from_pbmsg(const ::proto_ff::E_ChatSpecialchat & msg) {
 	m_type = msg.m_type();
 	m_parama = msg.m_parama();
 	m_paramb = msg.m_paramb();
-	m_chat_id = msg.m_chat_id();
+	m_chat_Id = msg.m_chat_id();
 }
 
 Sheet_ChatSpecialchat_s::Sheet_ChatSpecialchat_s() {

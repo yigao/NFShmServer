@@ -166,22 +166,22 @@ void protobuf_AddDesc_E_5fFashion_2eproto() {
     "\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"[\n#E_FashionFashionAct"
     "iveattributeDesc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345"
     "\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"\272\005\n\020E_Fas"
-    "hionFashion\022\032\n\004m_id\030\001 \001(\003B\014\302\377\024\010\346\227\266\350\243\205ID\022"
+    "hionFashion\022\032\n\004m_ID\030\001 \001(\003B\014\302\377\024\010\346\227\266\350\243\205ID\022"
     "$\n\006m_name\030\002 \001(\tB\024\302\377\024\014\346\227\266\350\243\205\345\220\215\347\247\260\220\301\024@\022 \n"
     "\006m_type\030\003 \001(\005B\020\302\377\024\014\345\244\226\350\247\202\347\261\273\345\236\213\022#\n\tm_qua"
     "lity\030\004 \001(\005B\020\302\377\024\014\346\227\266\350\243\205\345\223\201\350\264\250\022/\n\021m_profes"
-    "sionlimit\030\005 \001(\tB\024\302\377\024\014\350\201\214\344\270\232\351\231\220\345\210\266\220\301\024@\022%\n"
-    "\013m_timelimit\030\006 \001(\005B\020\302\377\024\014\346\230\257\345\220\246\346\227\266\346\225\210\022,\n\020"
-    "m_activationitem\030\007 \001(\003B\022\302\377\024\016\346\277\200\346\264\273\351\201\223\345\205\267"
-    "ID\022/\n\017m_activationnum\030\010 \001(\005B\026\302\377\024\022\346\277\200\346\264\273\351"
-    "\201\223\345\205\267\346\225\260\351\207\217\022$\n\010m_starid\030\t \001(\003B\022\302\377\024\016\345\215\207\346\230"
-    "\237\351\201\223\345\205\267id\022.\n\tm_starnum\030\n \001(\tB\033\302\377\024\022\345\215\207\346\230\237"
-    "\351\201\223\345\205\267\346\225\260\351\207\217\220\301\024\200\002\022(\n\010m_starup\030\013 \001(\005B\026\302\377\024"
-    "\022\345\215\207\346\230\237\347\255\211\347\272\247\344\270\212\351\231\220\022>\n\tm_starber\030\014 \001(\005B+"
+    "sionLimit\030\005 \001(\tB\024\302\377\024\014\350\201\214\344\270\232\351\231\220\345\210\266\220\301\024@\022%\n"
+    "\013m_timeLimit\030\006 \001(\005B\020\302\377\024\014\346\230\257\345\220\246\346\227\266\346\225\210\022,\n\020"
+    "m_activationItem\030\007 \001(\003B\022\302\377\024\016\346\277\200\346\264\273\351\201\223\345\205\267"
+    "ID\022/\n\017m_activationNum\030\010 \001(\005B\026\302\377\024\022\346\277\200\346\264\273\351"
+    "\201\223\345\205\267\346\225\260\351\207\217\022$\n\010m_starId\030\t \001(\003B\022\302\377\024\016\345\215\207\346\230"
+    "\237\351\201\223\345\205\267id\022.\n\tm_starNum\030\n \001(\tB\033\302\377\024\022\345\215\207\346\230\237"
+    "\351\201\223\345\205\267\346\225\260\351\207\217\220\301\024\200\002\022(\n\010m_starUp\030\013 \001(\005B\026\302\377\024"
+    "\022\345\215\207\346\230\237\347\255\211\347\272\247\344\270\212\351\231\220\022>\n\tm_starBer\030\014 \001(\005B+"
     "\302\377\024\'\346\257\217\346\254\241\345\215\207\346\230\237\345\261\236\346\200\247\345\242\236\345\212\240\347\232\204\347\231\276\345\210\206\346\257\224"
     "\345\200\274\022L\n\013m_attribute\030\r \003(\0132\'.proto_ff.E_Fa"
     "shionFashionAttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024"
-    "\006\022X\n\021m_activeattribute\030\016 \003(\0132-.proto_ff."
+    "\006\022X\n\021m_ActiveAttribute\030\016 \003(\0132-.proto_ff."
     "E_FashionFashionActiveattributeDescB\016\302\377\024"
     "\006\345\261\236\346\200\247\210\301\024\006\"W\n\024Sheet_FashionFashion\022\?\n\025E"
     "_FashionFashion_List\030\001 \003(\0132\032.proto_ff.E_"
@@ -705,20 +705,20 @@ void E_FashionFashionActiveattributeDesc::Swap(E_FashionFashionActiveattributeDe
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_FashionFashion::kMIdFieldNumber;
+const int E_FashionFashion::kMIDFieldNumber;
 const int E_FashionFashion::kMNameFieldNumber;
 const int E_FashionFashion::kMTypeFieldNumber;
 const int E_FashionFashion::kMQualityFieldNumber;
-const int E_FashionFashion::kMProfessionlimitFieldNumber;
-const int E_FashionFashion::kMTimelimitFieldNumber;
-const int E_FashionFashion::kMActivationitemFieldNumber;
-const int E_FashionFashion::kMActivationnumFieldNumber;
-const int E_FashionFashion::kMStaridFieldNumber;
-const int E_FashionFashion::kMStarnumFieldNumber;
-const int E_FashionFashion::kMStarupFieldNumber;
-const int E_FashionFashion::kMStarberFieldNumber;
+const int E_FashionFashion::kMProfessionLimitFieldNumber;
+const int E_FashionFashion::kMTimeLimitFieldNumber;
+const int E_FashionFashion::kMActivationItemFieldNumber;
+const int E_FashionFashion::kMActivationNumFieldNumber;
+const int E_FashionFashion::kMStarIdFieldNumber;
+const int E_FashionFashion::kMStarNumFieldNumber;
+const int E_FashionFashion::kMStarUpFieldNumber;
+const int E_FashionFashion::kMStarBerFieldNumber;
 const int E_FashionFashion::kMAttributeFieldNumber;
-const int E_FashionFashion::kMActiveattributeFieldNumber;
+const int E_FashionFashion::kMActiveAttributeFieldNumber;
 #endif  // !_MSC_VER
 
 E_FashionFashion::E_FashionFashion()
@@ -832,7 +832,7 @@ bool E_FashionFashion::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 m_id = 1;
+      // optional int64 m_ID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -892,15 +892,15 @@ bool E_FashionFashion::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_m_professionlimit;
+        if (input->ExpectTag(42)) goto parse_m_professionLimit;
         break;
       }
 
-      // optional string m_professionlimit = 5;
+      // optional string m_professionLimit = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_professionlimit:
+         parse_m_professionLimit:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_professionlimit()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -909,15 +909,15 @@ bool E_FashionFashion::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_timelimit;
+        if (input->ExpectTag(48)) goto parse_m_timeLimit;
         break;
       }
 
-      // optional int32 m_timelimit = 6;
+      // optional int32 m_timeLimit = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_timelimit:
+         parse_m_timeLimit:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_timelimit_)));
@@ -925,15 +925,15 @@ bool E_FashionFashion::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_activationitem;
+        if (input->ExpectTag(56)) goto parse_m_activationItem;
         break;
       }
 
-      // optional int64 m_activationitem = 7;
+      // optional int64 m_activationItem = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_activationitem:
+         parse_m_activationItem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_activationitem_)));
@@ -941,15 +941,15 @@ bool E_FashionFashion::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_activationnum;
+        if (input->ExpectTag(64)) goto parse_m_activationNum;
         break;
       }
 
-      // optional int32 m_activationnum = 8;
+      // optional int32 m_activationNum = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_activationnum:
+         parse_m_activationNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_activationnum_)));
@@ -957,15 +957,15 @@ bool E_FashionFashion::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_starid;
+        if (input->ExpectTag(72)) goto parse_m_starId;
         break;
       }
 
-      // optional int64 m_starid = 9;
+      // optional int64 m_starId = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_starid:
+         parse_m_starId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_starid_)));
@@ -973,15 +973,15 @@ bool E_FashionFashion::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(82)) goto parse_m_starnum;
+        if (input->ExpectTag(82)) goto parse_m_starNum;
         break;
       }
 
-      // optional string m_starnum = 10;
+      // optional string m_starNum = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_starnum:
+         parse_m_starNum:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_starnum()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -990,15 +990,15 @@ bool E_FashionFashion::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_starup;
+        if (input->ExpectTag(88)) goto parse_m_starUp;
         break;
       }
 
-      // optional int32 m_starup = 11;
+      // optional int32 m_starUp = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_starup:
+         parse_m_starUp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_starup_)));
@@ -1006,15 +1006,15 @@ bool E_FashionFashion::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_starber;
+        if (input->ExpectTag(96)) goto parse_m_starBer;
         break;
       }
 
-      // optional int32 m_starber = 12;
+      // optional int32 m_starBer = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_starber:
+         parse_m_starBer:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_starber_)));
@@ -1037,21 +1037,21 @@ bool E_FashionFashion::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(106)) goto parse_m_attribute;
-        if (input->ExpectTag(114)) goto parse_m_activeattribute;
+        if (input->ExpectTag(114)) goto parse_m_ActiveAttribute;
         break;
       }
 
-      // repeated .proto_ff.E_FashionFashionActiveattributeDesc m_activeattribute = 14;
+      // repeated .proto_ff.E_FashionFashionActiveattributeDesc m_ActiveAttribute = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_activeattribute:
+         parse_m_ActiveAttribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_activeattribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(114)) goto parse_m_activeattribute;
+        if (input->ExpectTag(114)) goto parse_m_ActiveAttribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1074,7 +1074,7 @@ bool E_FashionFashion::MergePartialFromCodedStream(
 
 void E_FashionFashion::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 m_id = 1;
+  // optional int64 m_ID = 1;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
@@ -1098,7 +1098,7 @@ void E_FashionFashion::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_quality(), output);
   }
 
-  // optional string m_professionlimit = 5;
+  // optional string m_professionLimit = 5;
   if (has_m_professionlimit()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_professionlimit().data(), this->m_professionlimit().length(),
@@ -1107,27 +1107,27 @@ void E_FashionFashion::SerializeWithCachedSizes(
       5, this->m_professionlimit(), output);
   }
 
-  // optional int32 m_timelimit = 6;
+  // optional int32 m_timeLimit = 6;
   if (has_m_timelimit()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_timelimit(), output);
   }
 
-  // optional int64 m_activationitem = 7;
+  // optional int64 m_activationItem = 7;
   if (has_m_activationitem()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(7, this->m_activationitem(), output);
   }
 
-  // optional int32 m_activationnum = 8;
+  // optional int32 m_activationNum = 8;
   if (has_m_activationnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_activationnum(), output);
   }
 
-  // optional int64 m_starid = 9;
+  // optional int64 m_starId = 9;
   if (has_m_starid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(9, this->m_starid(), output);
   }
 
-  // optional string m_starnum = 10;
+  // optional string m_starNum = 10;
   if (has_m_starnum()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_starnum().data(), this->m_starnum().length(),
@@ -1136,12 +1136,12 @@ void E_FashionFashion::SerializeWithCachedSizes(
       10, this->m_starnum(), output);
   }
 
-  // optional int32 m_starup = 11;
+  // optional int32 m_starUp = 11;
   if (has_m_starup()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_starup(), output);
   }
 
-  // optional int32 m_starber = 12;
+  // optional int32 m_starBer = 12;
   if (has_m_starber()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_starber(), output);
   }
@@ -1152,7 +1152,7 @@ void E_FashionFashion::SerializeWithCachedSizes(
       13, this->m_attribute(i), output);
   }
 
-  // repeated .proto_ff.E_FashionFashionActiveattributeDesc m_activeattribute = 14;
+  // repeated .proto_ff.E_FashionFashionActiveattributeDesc m_ActiveAttribute = 14;
   for (int i = 0; i < this->m_activeattribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       14, this->m_activeattribute(i), output);
@@ -1166,7 +1166,7 @@ void E_FashionFashion::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_FashionFashion::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 m_id = 1;
+  // optional int64 m_ID = 1;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
@@ -1191,7 +1191,7 @@ void E_FashionFashion::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_quality(), target);
   }
 
-  // optional string m_professionlimit = 5;
+  // optional string m_professionLimit = 5;
   if (has_m_professionlimit()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_professionlimit().data(), this->m_professionlimit().length(),
@@ -1201,27 +1201,27 @@ void E_FashionFashion::SerializeWithCachedSizes(
         5, this->m_professionlimit(), target);
   }
 
-  // optional int32 m_timelimit = 6;
+  // optional int32 m_timeLimit = 6;
   if (has_m_timelimit()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_timelimit(), target);
   }
 
-  // optional int64 m_activationitem = 7;
+  // optional int64 m_activationItem = 7;
   if (has_m_activationitem()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(7, this->m_activationitem(), target);
   }
 
-  // optional int32 m_activationnum = 8;
+  // optional int32 m_activationNum = 8;
   if (has_m_activationnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_activationnum(), target);
   }
 
-  // optional int64 m_starid = 9;
+  // optional int64 m_starId = 9;
   if (has_m_starid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(9, this->m_starid(), target);
   }
 
-  // optional string m_starnum = 10;
+  // optional string m_starNum = 10;
   if (has_m_starnum()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_starnum().data(), this->m_starnum().length(),
@@ -1231,12 +1231,12 @@ void E_FashionFashion::SerializeWithCachedSizes(
         10, this->m_starnum(), target);
   }
 
-  // optional int32 m_starup = 11;
+  // optional int32 m_starUp = 11;
   if (has_m_starup()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_starup(), target);
   }
 
-  // optional int32 m_starber = 12;
+  // optional int32 m_starBer = 12;
   if (has_m_starber()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_starber(), target);
   }
@@ -1248,7 +1248,7 @@ void E_FashionFashion::SerializeWithCachedSizes(
         13, this->m_attribute(i), target);
   }
 
-  // repeated .proto_ff.E_FashionFashionActiveattributeDesc m_activeattribute = 14;
+  // repeated .proto_ff.E_FashionFashionActiveattributeDesc m_ActiveAttribute = 14;
   for (int i = 0; i < this->m_activeattribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -1266,7 +1266,7 @@ int E_FashionFashion::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 m_id = 1;
+    // optional int64 m_ID = 1;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -1294,28 +1294,28 @@ int E_FashionFashion::ByteSize() const {
           this->m_quality());
     }
 
-    // optional string m_professionlimit = 5;
+    // optional string m_professionLimit = 5;
     if (has_m_professionlimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_professionlimit());
     }
 
-    // optional int32 m_timelimit = 6;
+    // optional int32 m_timeLimit = 6;
     if (has_m_timelimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_timelimit());
     }
 
-    // optional int64 m_activationitem = 7;
+    // optional int64 m_activationItem = 7;
     if (has_m_activationitem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_activationitem());
     }
 
-    // optional int32 m_activationnum = 8;
+    // optional int32 m_activationNum = 8;
     if (has_m_activationnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1324,28 +1324,28 @@ int E_FashionFashion::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int64 m_starid = 9;
+    // optional int64 m_starId = 9;
     if (has_m_starid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_starid());
     }
 
-    // optional string m_starnum = 10;
+    // optional string m_starNum = 10;
     if (has_m_starnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_starnum());
     }
 
-    // optional int32 m_starup = 11;
+    // optional int32 m_starUp = 11;
     if (has_m_starup()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_starup());
     }
 
-    // optional int32 m_starber = 12;
+    // optional int32 m_starBer = 12;
     if (has_m_starber()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1361,7 +1361,7 @@ int E_FashionFashion::ByteSize() const {
         this->m_attribute(i));
   }
 
-  // repeated .proto_ff.E_FashionFashionActiveattributeDesc m_activeattribute = 14;
+  // repeated .proto_ff.E_FashionFashionActiveattributeDesc m_ActiveAttribute = 14;
   total_size += 1 * this->m_activeattribute_size();
   for (int i = 0; i < this->m_activeattribute_size(); i++) {
     total_size +=

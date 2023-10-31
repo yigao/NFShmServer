@@ -1316,30 +1316,30 @@ void protobuf_AddDesc_E_5fWelfare_2eproto() {
     "\n\017E_Welfare.proto\022\010proto_ff\032\025yd_fieldopt"
     "ions.proto\"\355\001\n\rE_WelfareSign\022\024\n\004m_id\030\001 \001"
     "(\005B\006\302\377\024\002id\022\033\n\007m_month\030\002 \001(\005B\n\302\377\024\006\346\234\210\344\273\275\022"
-    "\032\n\006m_days\030\003 \001(\005B\n\302\377\024\006\345\244\251\346\225\260\022\"\n\005m_vip\030\004 \001"
+    "\032\n\006m_days\030\003 \001(\005B\n\302\377\024\006\345\244\251\346\225\260\022\"\n\005m_VIP\030\004 \001"
     "(\005B\023\302\377\024\017VIP\345\217\214\345\200\215\347\255\211\347\272\247\022\036\n\006m_icon\030\005 \001(\tB"
     "\016\302\377\024\006\345\233\276\346\240\207\220\301\024@\022\"\n\010m_reward\030\006 \001(\005B\020\302\377\024\014\351"
-    "\201\223\345\205\267\345\245\226\345\212\261\022%\n\013m_rewardnum\030\007 \001(\005B\020\302\377\024\014\351\201"
+    "\201\223\345\205\267\345\245\226\345\212\261\022%\n\013m_rewardNum\030\007 \001(\005B\020\302\377\024\014\351\201"
     "\223\345\205\267\346\225\260\351\207\217\"O\n\021Sheet_WelfareSign\022:\n\022E_Wel"
     "fareSign_List\030\001 \003(\0132\027.proto_ff.E_Welfare"
     "SignB\005\210\301\024\200\001\"\325\001\n\025E_WelfareAccruereward\022\024\n"
     "\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\033\n\007m_month\030\002 \001(\005B\n\302\377"
-    "\024\006\346\234\210\344\273\275\022,\n\014m_accruedays\030\003 \001(\005B\026\302\377\024\022\347\264\257\347"
+    "\024\006\346\234\210\344\273\275\022,\n\014m_accrueDays\030\003 \001(\005B\026\302\377\024\022\347\264\257\347"
     "\247\257\347\255\276\345\210\260\345\244\251\346\225\260\022(\n\010m_reward\030\004 \001(\005B\026\302\377\024\022\347\264"
-    "\257\347\247\257\345\245\226\345\212\261\351\201\223\345\205\267\0221\n\013m_rewardnum\030\005 \001(\005B\034\302"
+    "\257\347\247\257\345\245\226\345\212\261\351\201\223\345\205\267\0221\n\013m_rewardNum\030\005 \001(\005B\034\302"
     "\377\024\030\347\264\257\347\247\257\345\245\226\345\212\261\351\201\223\345\205\267\346\225\260\351\207\217\"f\n\031Sheet_Wel"
     "fareAccruereward\022I\n\032E_WelfareAccruerewar"
     "d_List\030\001 \003(\0132\037.proto_ff.E_WelfareAccruer"
     "ewardB\004\210\301\024\020\"\245\001\n\021E_WelfareLvreward\022\024\n\004m_i"
     "d\030\001 \001(\005B\006\302\377\024\002id\022\030\n\004m_lv\030\002 \001(\005B\n\302\377\024\006\347\255\211\347\272"
-    "\247\022\036\n\nm_lvreward\030\003 \001(\005B\n\302\377\024\006\345\245\226\345\212\261\022\034\n\005m_v"
-    "ip\030\004 \001(\005B\r\302\377\024\tVIP\347\255\211\347\272\247\022\"\n\013m_vipreward\030\005"
+    "\247\022\036\n\nm_lvReward\030\003 \001(\005B\n\302\377\024\006\345\245\226\345\212\261\022\034\n\005m_v"
+    "ip\030\004 \001(\005B\r\302\377\024\tVIP\347\255\211\347\272\247\022\"\n\013m_vipReward\030\005"
     " \001(\005B\r\302\377\024\tVIP\345\245\226\345\212\261\"Z\n\025Sheet_WelfareLvre"
     "ward\022A\n\026E_WelfareLvreward_List\030\001 \003(\0132\033.p"
     "roto_ff.E_WelfareLvrewardB\004\210\301\024@\"o\n\017E_Wel"
     "fareOnline\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022&\n\014m_on"
-    "linetime\030\002 \001(\005B\020\302\377\024\014\345\234\250\347\272\277\346\227\266\351\227\264\022\036\n\nm_lv"
-    "reward\030\003 \001(\005B\n\302\377\024\006\345\245\226\345\212\261\"T\n\023Sheet_Welfar"
+    "lineTime\030\002 \001(\005B\020\302\377\024\014\345\234\250\347\272\277\346\227\266\351\227\264\022\036\n\nm_lv"
+    "Reward\030\003 \001(\005B\n\302\377\024\006\345\245\226\345\212\261\"T\n\023Sheet_Welfar"
     "eOnline\022=\n\024E_WelfareOnline_List\030\001 \003(\0132\031."
     "proto_ff.E_WelfareOnlineB\004\210\301\024\010\"}\n\016E_Welf"
     "areFraud\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\'\n\tm_pict"
@@ -1348,26 +1348,26 @@ void protobuf_AddDesc_E_5fWelfare_2eproto() {
     "\022Sheet_WelfareFraud\022;\n\023E_WelfareFraud_Li"
     "st\030\001 \003(\0132\030.proto_ff.E_WelfareFraudB\004\210\301\024\020"
     "\"\261\001\n\024E_WelfareWeekendgift\022\024\n\004m_id\030\001 \001(\005B"
-    "\006\302\377\024\002id\022!\n\007m_lvmin\030\002 \001(\005B\020\302\377\024\014\346\234\200\345\260\217\347\255\211\347"
-    "\272\247\022!\n\007m_lvmax\030\003 \001(\005B\020\302\377\024\014\346\234\200\345\244\247\347\255\211\347\272\247\022\032\n"
+    "\006\302\377\024\002id\022!\n\007m_lvMin\030\002 \001(\005B\020\302\377\024\014\346\234\200\345\260\217\347\255\211\347"
+    "\272\247\022!\n\007m_lvMax\030\003 \001(\005B\020\302\377\024\014\346\234\200\345\244\247\347\255\211\347\272\247\022\032\n"
     "\006m_date\030\004 \001(\005B\n\302\377\024\006\346\227\245\346\234\237\022!\n\tm_rewards\030\005"
     " \003(\005B\016\302\377\024\006\345\245\226\345\212\261\210\301\024\003\"c\n\030Sheet_WelfareWee"
     "kendgift\022G\n\031E_WelfareWeekendgift_List\030\001 "
     "\003(\0132\036.proto_ff.E_WelfareWeekendgiftB\004\210\301\024"
     "\010\"\265\004\n\021E_WelfareConstant\022\024\n\004m_id\030\001 \001(\005B\006\302"
-    "\377\024\002id\022-\n\rm_addsigncost\030\002 \001(\005B\026\302\377\024\022\350\241\245\347\255\276"
-    "\350\212\261\350\264\271\350\264\247\345\270\201\022.\n\016m_addsignprice\030\003 \001(\005B\026\302\377"
-    "\024\022\350\241\245\347\255\276\350\212\261\350\264\271\344\273\267\346\240\274\022(\n\016m_noticereward\030\004"
-    " \001(\005B\020\302\377\024\014\345\205\254\345\221\212\345\245\226\345\212\261\022*\n\nm_wrongmin\030\005 \001"
-    "(\005B\026\302\377\024\022\346\234\200\345\260\217\351\224\231\350\257\257\347\255\224\346\241\210\0220\n\nm_wrongmax"
+    "\377\024\002id\022-\n\rm_addSigncost\030\002 \001(\005B\026\302\377\024\022\350\241\245\347\255\276"
+    "\350\212\261\350\264\271\350\264\247\345\270\201\022.\n\016m_addSignprice\030\003 \001(\005B\026\302\377"
+    "\024\022\350\241\245\347\255\276\350\212\261\350\264\271\344\273\267\346\240\274\022(\n\016m_noticeReward\030\004"
+    " \001(\005B\020\302\377\024\014\345\205\254\345\221\212\345\245\226\345\212\261\022*\n\nm_wrongMin\030\005 \001"
+    "(\005B\026\302\377\024\022\346\234\200\345\260\217\351\224\231\350\257\257\347\255\224\346\241\210\0220\n\nm_wrongMax"
     "\030\006 \001(\005B\034\302\377\024\030\346\234\200\345\244\247\351\224\231\350\257\257\347\255\224\346\241\210\346\225\260\351\207\217\022*\n\r"
-    "m_fraudreward\030\007 \001(\005B\023\302\377\024\017\351\230\262\350\257\210\351\252\227\345\245\226\345\212\261"
-    "\022(\n\016m_firstrcharge\030\010 \001(\005B\020\302\377\024\014\351\246\226\345\205\205\351\242\235\345"
-    "\272\246\022)\n\017m_secondrcharge\030\t \001(\005B\020\302\377\024\014\347\273\255\345\205\205\351"
-    "\242\235\345\272\246\022\'\n\007m_gemmb\030\n \001(\005B\026\302\377\024\022\351\222\273\347\237\263\347\247\230\345\256\235"
-    "\351\242\235\345\272\246\022(\n\010m_starmb\030\013 \001(\005B\026\302\377\024\022\346\230\237\350\200\200\347\247\230\345"
-    "\256\235\351\242\235\345\272\246\022(\n\010m_kingmb\030\014 \001(\005B\026\302\377\024\022\347\216\213\350\200\205\347\247"
-    "\230\345\256\235\351\242\235\345\272\246\022%\n\013m_keyrebate\030\r \001(\005B\020\302\377\024\014\345\257\206"
+    "m_fraudReward\030\007 \001(\005B\023\302\377\024\017\351\230\262\350\257\210\351\252\227\345\245\226\345\212\261"
+    "\022(\n\016m_firstRcharge\030\010 \001(\005B\020\302\377\024\014\351\246\226\345\205\205\351\242\235\345"
+    "\272\246\022)\n\017m_secondRcharge\030\t \001(\005B\020\302\377\024\014\347\273\255\345\205\205\351"
+    "\242\235\345\272\246\022\'\n\007m_gemMB\030\n \001(\005B\026\302\377\024\022\351\222\273\347\237\263\347\247\230\345\256\235"
+    "\351\242\235\345\272\246\022(\n\010m_starMB\030\013 \001(\005B\026\302\377\024\022\346\230\237\350\200\200\347\247\230\345"
+    "\256\235\351\242\235\345\272\246\022(\n\010m_kingMB\030\014 \001(\005B\026\302\377\024\022\347\216\213\350\200\205\347\247"
+    "\230\345\256\235\351\242\235\345\272\246\022%\n\013m_keyRebate\030\r \001(\005B\020\302\377\024\014\345\257\206"
     "\345\214\231\350\277\224\345\210\251\"Z\n\025Sheet_WelfareConstant\022A\n\026E_"
     "WelfareConstant_List\030\001 \003(\0132\033.proto_ff.E_"
     "WelfareConstantB\004\210\301\024\002\"\206\001\n\rE_WelfareQifu\022"
@@ -1383,24 +1383,24 @@ void protobuf_AddDesc_E_5fWelfare_2eproto() {
     "\001\n\016E_WelfareLogon\022 \n\006m_days\030\001 \001(\005B\020\302\377\024\014\347"
     "\231\273\345\275\225\345\244\251\346\225\260\022 \n\006m_type\030\002 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\347"
     "\261\273\345\236\213\022\036\n\006m_icon\030\003 \001(\005B\016\302\377\024\n\345\205\245\345\217\243icon\022$\n"
-    "\nm_showitem\030\004 \001(\005B\020\302\377\024\014\345\261\225\347\244\272\347\211\251\345\223\201\022\034\n\010m"
+    "\nm_showItem\030\004 \001(\005B\020\302\377\024\014\345\261\225\347\244\272\347\211\251\345\223\201\022\034\n\010m"
     "_reward\030\005 \001(\005B\n\302\377\024\006\345\245\226\345\212\261\"Q\n\022Sheet_Welfa"
     "reLogon\022;\n\023E_WelfareLogon_List\030\001 \003(\0132\030.p"
     "roto_ff.E_WelfareLogonB\004\210\301\024\020\"\312\002\n\024E_Welfa"
     "reFirstcharge\022\"\n\014m_constantid\030\001 \001(\005B\014\302\377\024"
     "\010\351\205\215\347\275\256id\022\"\n\010m_openlv\030\002 \001(\005B\020\302\377\024\014\345\274\200\345\220\257\347"
     "\255\211\347\272\247\022 \n\006m_type\030\003 \001(\005B\020\302\377\024\014\345\205\205\345\200\274\347\261\273\345\236\213\022"
-    "$\n\nm_opendays\030\004 \001(\005B\020\302\377\024\014\345\274\200\346\234\215\345\244\251\346\225\260\022\034\n"
+    "$\n\nm_openDays\030\004 \001(\005B\020\302\377\024\014\345\274\200\346\234\215\345\244\251\346\225\260\022\034\n"
     "\010m_reward\030\005 \001(\005B\n\302\377\024\006\345\245\226\345\212\261\022)\n\007m_model\030\006"
     " \003(\tB\030\302\377\024\014\345\261\225\347\244\272\346\250\241\345\236\213\210\301\024\002\220\301\024@\022*\n\014m_rewa"
-    "rdshow\030\007 \003(\005B\024\302\377\024\014\345\261\225\347\244\272\345\245\226\345\212\261\210\301\024\002\022-\n\013m_"
-    "rewarddes\030\010 \003(\tB\030\302\377\024\014\345\245\226\345\212\261\346\217\217\350\277\260\210\301\024\003\220\301\024"
+    "rdShow\030\007 \003(\005B\024\302\377\024\014\345\261\225\347\244\272\345\245\226\345\212\261\210\301\024\002\022-\n\013m_"
+    "rewardDes\030\010 \003(\tB\030\302\377\024\014\345\245\226\345\212\261\346\217\217\350\277\260\210\301\024\003\220\301\024"
     "@\"c\n\030Sheet_WelfareFirstcharge\022G\n\031E_Welfa"
     "reFirstcharge_List\030\001 \003(\0132\036.proto_ff.E_We"
     "lfareFirstchargeB\004\210\301\024\010\"\300\001\n\017E_WelfareScty"
     "pe\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022(\n\014m_functionid"
     "\030\002 \001(\005B\022\302\377\024\016\345\212\237\350\203\275\345\274\200\346\224\276id\022%\n\007m_title\030\003 "
-    "\001(\tB\024\302\377\024\014\346\240\207\351\242\230\345\233\276\347\211\207\220\301\024@\022!\n\tm_basemap\030\004"
+    "\001(\tB\024\302\377\024\014\346\240\207\351\242\230\345\233\276\347\211\207\220\301\024@\022!\n\tm_baseMap\030\004"
     " \001(\tB\016\302\377\024\006\345\272\225\345\233\276\220\301\024@\022#\n\tm_rcharge\030\005 \001(\005B"
     "\020\302\377\024\014\345\205\205\345\200\274\351\242\235\345\272\246\"T\n\023Sheet_WelfareSctype"
     "\022=\n\024E_WelfareSctype_List\030\001 \003(\0132\031.proto_f"
@@ -1408,7 +1408,7 @@ void protobuf_AddDesc_E_5fWelfare_2eproto() {
     "ao\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\"\n\010m_openlv\030\002 \001"
     "(\005B\020\302\377\024\014\345\274\200\345\220\257\347\255\211\347\272\247\022 \n\006m_type\030\003 \001(\005B\020\302\377"
     "\024\014\345\205\205\345\200\274\347\261\273\345\236\213\022\032\n\006m_rank\030\004 \001(\005B\n\302\377\024\006\346\216\222\345"
-    "\272\217\022$\n\nm_opendays\030\005 \001(\005B\020\302\377\024\014\345\274\200\346\234\215\345\244\251\346\225\260"
+    "\272\217\022$\n\nm_openDays\030\005 \001(\005B\020\302\377\024\014\345\274\200\346\234\215\345\244\251\346\225\260"
     "\022\034\n\010m_reward\030\006 \001(\005B\n\302\377\024\006\345\245\226\345\212\261\022#\n\005m_des\030"
     "\007 \001(\tB\024\302\377\024\014\345\200\215\346\225\260\346\217\217\350\277\260\220\301\024@\"Q\n\022Sheet_Wel"
     "fareMibao\022;\n\023E_WelfareMibao_List\030\001 \003(\0132\030"
@@ -1421,8 +1421,8 @@ void protobuf_AddDesc_E_5fWelfare_2eproto() {
     "\0132\035.proto_ff.E_WelfareKfleichongB\004\210\301\024\020\"\346"
     "\001\n\022E_WelfareDailygift\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024"
     "\002id\022 \n\006m_type\030\002 \001(\005B\020\302\377\024\014\347\244\274\345\214\205\347\261\273\345\236\213\022&\n"
-    "\014m_rechargeid\030\003 \001(\005B\020\302\377\024\014\344\273\267\346\240\274\351\223\276\346\216\245\022-\n"
-    "\rm_oneclickbuy\030\004 \001(\005B\026\302\377\024\022\346\230\257\345\220\246\344\270\200\351\224\256\350\264"
+    "\014m_rechargeId\030\003 \001(\005B\020\302\377\024\014\344\273\267\346\240\274\351\223\276\346\216\245\022-\n"
+    "\rm_OneclickBuy\030\004 \001(\005B\026\302\377\024\022\346\230\257\345\220\246\344\270\200\351\224\256\350\264"
     "\255\344\271\260\022\034\n\010m_reward\030\005 \001(\005B\n\302\377\024\006\345\245\226\345\212\261\022#\n\tm_"
     "quality\030\006 \001(\005B\020\302\377\024\014\347\244\274\345\214\205\345\223\201\350\264\250\"]\n\026Sheet"
     "_WelfareDailygift\022C\n\027E_WelfareDailygift_"
@@ -1431,8 +1431,8 @@ void protobuf_AddDesc_E_5fWelfare_2eproto() {
     "B\006\302\377\024\002id\022 \n\006m_type\030\002 \001(\005B\020\302\377\024\014\347\244\274\345\214\205\347\261\273\345"
     "\236\213\022!\n\007m_limit\030\003 \001(\005B\020\302\377\024\014\345\205\205\345\200\274\351\242\235\345\272\246\022 \n"
     "\006m_days\030\004 \001(\005B\020\302\377\024\014\347\264\257\345\205\205\345\244\251\346\225\260\022#\n\tm_sta"
-    "rnum\030\005 \001(\005B\020\302\377\024\014\346\230\237\346\230\237\346\225\260\351\207\217\022\034\n\010m_reward"
-    "\030\006 \001(\005B\n\302\377\024\006\345\245\226\345\212\261\022$\n\nm_showitem\030\007 \001(\005B\020"
+    "rNum\030\005 \001(\005B\020\302\377\024\014\346\230\237\346\230\237\346\225\260\351\207\217\022\034\n\010m_reward"
+    "\030\006 \001(\005B\n\302\377\024\006\345\245\226\345\212\261\022$\n\nm_showItem\030\007 \001(\005B\020"
     "\302\377\024\014\351\201\223\345\205\267\345\261\225\347\244\272\"T\n\023Sheet_WelfareLcgift\022"
     "=\n\024E_WelfareLcgift_List\030\001 \003(\0132\031.proto_ff"
     ".E_WelfareLcgiftB\004\210\301\024 \"\215\001\n\021E_WelfareLcra"
@@ -1445,9 +1445,9 @@ void protobuf_AddDesc_E_5fWelfare_2eproto() {
     "leRaffleDesc\022\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022"
     "\032\n\006m_item\030\002 \001(\005B\n\302\377\024\006\351\201\223\345\205\267\"\376\001\n\024E_Welfar"
     "eLcturntable\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\'\n\rm_"
-    "jackpottype\030\002 \001(\005B\020\302\377\024\014\345\245\226\346\261\240\347\261\273\345\236\213\022-\n\rm"
-    "_raffletimes\030\003 \001(\005B\026\302\377\024\022\347\264\257\347\247\257\346\212\275\345\245\226\346\254\241\346"
-    "\225\260\022,\n\014m_ratimesrew\030\004 \001(\005B\026\302\377\024\022\347\264\257\347\247\257\346\212\275\345"
+    "jackpotType\030\002 \001(\005B\020\302\377\024\014\345\245\226\346\261\240\347\261\273\345\236\213\022-\n\rm"
+    "_raffleTimes\030\003 \001(\005B\026\302\377\024\022\347\264\257\347\247\257\346\212\275\345\245\226\346\254\241\346"
+    "\225\260\022,\n\014m_raTimesRew\030\004 \001(\005B\026\302\377\024\022\347\264\257\347\247\257\346\212\275\345"
     "\245\226\345\245\226\345\212\261\022J\n\010m_raffle\030\005 \003(\0132(.proto_ff.E_"
     "WelfareLcturntableRaffleDescB\016\302\377\024\006\346\212\275\345\245\226"
     "\210\301\024\002\"c\n\030Sheet_WelfareLcturntable\022G\n\031E_We"
@@ -1456,42 +1456,42 @@ void protobuf_AddDesc_E_5fWelfare_2eproto() {
     "ackpot\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022 \n\006m_type\030\002"
     " \001(\005B\020\302\377\024\014\345\245\226\346\261\240\347\261\273\345\236\213\022\032\n\006m_rank\030\003 \001(\005B\n"
     "\302\377\024\006\346\216\222\345\272\217\022\032\n\006m_item\030\004 \001(\005B\n\302\377\024\006\351\201\223\345\205\267\022\035"
-    "\n\tm_itemnum\030\005 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\"\n\010m_weigh"
+    "\n\tm_itemNum\030\005 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\"\n\010m_weigh"
     "t\030\006 \001(\005B\020\302\377\024\014\346\212\275\345\217\226\346\235\203\351\207\215\"W\n\024Sheet_Welfa"
     "reJackpot\022\?\n\025E_WelfareJackpot_List\030\001 \003(\013"
     "2\032.proto_ff.E_WelfareJackpotB\004\210\301\024@\"\271\002\n\024E"
     "_WelfareMonthlycard\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002i"
-    "d\022$\n\nm_cardtype\030\002 \001(\005B\020\302\377\024\014\346\234\210\345\215\241\347\261\273\345\236\213\022"
-    "+\n\013m_cardmoney\030\003 \001(\005B\026\302\377\024\022\346\234\210\345\215\241\350\264\255\344\271\260\351\223"
-    "\276\346\216\245\0223\n\rm_cardbuyitem\030\004 \001(\005B\034\302\377\024\030\346\234\210\345\215\241\350"
-    "\264\255\344\271\260\347\253\213\345\276\227\346\235\220\346\226\231\022/\n\017m_carddailyitem\030\005 \001"
-    "(\005B\026\302\377\024\022\346\234\210\345\215\241\346\257\217\346\227\245\346\235\220\346\226\231\022*\n\nm_cardtime"
-    "\030\006 \001(\005B\026\302\377\024\022\346\234\210\345\215\241\346\214\201\347\273\255\346\227\266\351\227\264\022&\n\014m_flmu"
+    "d\022$\n\nm_cardType\030\002 \001(\005B\020\302\377\024\014\346\234\210\345\215\241\347\261\273\345\236\213\022"
+    "+\n\013m_cardMoney\030\003 \001(\005B\026\302\377\024\022\346\234\210\345\215\241\350\264\255\344\271\260\351\223"
+    "\276\346\216\245\0223\n\rm_cardBuyitem\030\004 \001(\005B\034\302\377\024\030\346\234\210\345\215\241\350"
+    "\264\255\344\271\260\347\253\213\345\276\227\346\235\220\346\226\231\022/\n\017m_cardDailyitem\030\005 \001"
+    "(\005B\026\302\377\024\022\346\234\210\345\215\241\346\257\217\346\227\245\346\235\220\346\226\231\022*\n\nm_cardTime"
+    "\030\006 \001(\005B\026\302\377\024\022\346\234\210\345\215\241\346\214\201\347\273\255\346\227\266\351\227\264\022&\n\014m_Flmu"
     "ltiple\030\007 \001(\005B\020\302\377\024\014\350\277\224\345\210\251\345\200\215\346\225\260\"c\n\030Sheet_"
     "WelfareMonthlycard\022G\n\031E_WelfareMonthlyca"
     "rd_List\030\001 \003(\0132\036.proto_ff.E_WelfareMonthl"
     "ycardB\004\210\301\024\020\"\364\001\n\rE_WelfareGoal\022\024\n\004m_id\030\001 "
     "\001(\005B\006\302\377\024\002id\022&\n\014m_functionid\030\002 \001(\005B\020\302\377\024\014\345"
-    "\205\263\350\201\224\345\274\200\345\205\263\022(\n\013m_taskgroup\030\003 \001(\005B\023\302\377\024\017\344\273"
+    "\205\263\350\201\224\345\274\200\345\205\263\022(\n\013m_taskGroup\030\003 \001(\005B\023\302\377\024\017\344\273"
     "\273\345\212\241\345\210\227\350\241\250\347\273\204\0222\n\tm_tasknum\030\004 \001(\005B\037\302\377\024\033\351\234"
-    "\200\350\246\201\345\256\214\346\210\220\347\232\204\344\273\273\345\212\241\346\225\260\351\207\217\022%\n\013m_rewrditem"
+    "\200\350\246\201\345\256\214\346\210\220\347\232\204\344\273\273\345\212\241\346\225\260\351\207\217\022%\n\013m_rewrdItem"
     "\030\005 \001(\005B\020\302\377\024\014\345\256\214\346\210\220\345\245\226\345\212\261\022 \n\006m_time\030\006 \001(\005"
     "B\020\302\377\024\014\346\214\201\347\273\255\346\227\266\351\227\264\"N\n\021Sheet_WelfareGoal\022"
     "9\n\022E_WelfareGoal_List\030\001 \003(\0132\027.proto_ff.E"
     "_WelfareGoalB\004\210\301\024\002\"\217\002\n\021E_WelfareGoaltask"
-    "\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\"\n\tm_groupid\030\002 \001("
-    "\005B\017\302\377\024\013\344\273\273\345\212\241\347\273\204id\022%\n\013m_eventtype\030\003 \001(\005B"
-    "\020\302\377\024\014\344\272\213\344\273\266\347\261\273\345\236\213\022#\n\014m_reachprice\030\004 \001(\005B"
-    "\r\302\377\024\t\350\276\276\346\210\220\345\200\274\022\"\n\010m_itemid\030\005 \001(\005B\020\302\377\024\014\345\245"
-    "\226\345\212\261\351\201\223\345\205\267\022#\n\tm_itemnum\030\006 \001(\005B\020\302\377\024\014\351\201\223\345\205"
+    "\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\"\n\tm_groupID\030\002 \001("
+    "\005B\017\302\377\024\013\344\273\273\345\212\241\347\273\204id\022%\n\013m_eventType\030\003 \001(\005B"
+    "\020\302\377\024\014\344\272\213\344\273\266\347\261\273\345\236\213\022#\n\014m_reachPrice\030\004 \001(\005B"
+    "\r\302\377\024\t\350\276\276\346\210\220\345\200\274\022\"\n\010m_itemID\030\005 \001(\005B\020\302\377\024\014\345\245"
+    "\226\345\212\261\351\201\223\345\205\267\022#\n\tm_itemNum\030\006 \001(\005B\020\302\377\024\014\351\201\223\345\205"
     "\267\346\225\260\351\207\217\022+\n\007m_param\030\007 \003(\005B\032\302\377\024\022\344\272\213\344\273\266\345\256\214\346"
     "\210\220\345\217\202\346\225\260\210\301\024\003\"Z\n\025Sheet_WelfareGoaltask\022A\n"
     "\026E_WelfareGoaltask_List\030\001 \003(\0132\033.proto_ff"
     ".E_WelfareGoaltaskB\004\210\301\024\020\"\300\001\n\017E_WelfareIn"
     "vest\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022&\n\014m_function"
-    "id\030\002 \001(\005B\020\302\377\024\014\345\274\200\346\224\276\346\235\241\344\273\266\022\033\n\007m_price\030\003 "
-    "\001(\005B\n\302\377\024\006\344\273\267\346\240\274\022&\n\014m_rewarditem\030\004 \001(\005B\020\302"
-    "\377\024\014\345\245\226\345\212\261\351\201\223\345\205\267\022*\n\rm_rewardgroup\030\005 \001(\005B\023"
+    "ID\030\002 \001(\005B\020\302\377\024\014\345\274\200\346\224\276\346\235\241\344\273\266\022\033\n\007m_price\030\003 "
+    "\001(\005B\n\302\377\024\006\344\273\267\346\240\274\022&\n\014m_rewardItem\030\004 \001(\005B\020\302"
+    "\377\024\014\345\245\226\345\212\261\351\201\223\345\205\267\022*\n\rm_rewardGroup\030\005 \001(\005B\023"
     "\302\377\024\017\346\212\225\350\265\204\345\245\226\345\212\261\347\273\204\"T\n\023Sheet_WelfareInve"
     "st\022=\n\024E_WelfareInvest_List\030\001 \003(\0132\031.proto"
     "_ff.E_WelfareInvestB\004\210\301\024\010\"P\n\035E_WelfareIn"
@@ -1499,13 +1499,13 @@ void protobuf_AddDesc_E_5fWelfare_2eproto() {
     "\225\260\351\207\217\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002id\"\270\001\n\025E_Welfar"
     "eInvestreward\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\032\n\007m"
     "_group\030\002 \001(\005B\t\302\377\024\005\347\273\204id\022\036\n\004m_lv\030\003 \001(\005B\020\302"
-    "\377\024\014\351\242\206\345\217\226\347\255\211\347\272\247\022M\n\006m_item\030\004 \003(\0132\'.proto_"
+    "\377\024\014\351\242\206\345\217\226\347\255\211\347\272\247\022M\n\006m_Item\030\004 \003(\0132\'.proto_"
     "ff.E_WelfareInvestrewardItemDescB\024\302\377\024\014\345\245"
     "\226\345\212\261\351\201\223\345\205\267\210\301\024\002\"f\n\031Sheet_WelfareInvestrew"
     "ard\022I\n\032E_WelfareInvestreward_List\030\001 \003(\0132"
     "\037.proto_ff.E_WelfareInvestrewardB\004\210\301\024@\"o"
     "\n\021E_WelfareYttlgift\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002i"
-    "d\022&\n\014m_rechargeid\030\002 \001(\005B\020\302\377\024\014\344\273\267\346\240\274\351\223\276\346\216"
+    "d\022&\n\014m_rechargeId\030\002 \001(\005B\020\302\377\024\014\344\273\267\346\240\274\351\223\276\346\216"
     "\245\022\034\n\010m_reward\030\003 \001(\005B\n\302\377\024\006\345\245\226\345\212\261\"Z\n\025Sheet"
     "_WelfareYttlgift\022A\n\026E_WelfareYttlgift_Li"
     "st\030\001 \003(\0132\033.proto_ff.E_WelfareYttlgiftB\004\210"
@@ -1632,10 +1632,10 @@ struct StaticDescriptorInitializer_E_5fWelfare_2eproto {
 const int E_WelfareSign::kMIdFieldNumber;
 const int E_WelfareSign::kMMonthFieldNumber;
 const int E_WelfareSign::kMDaysFieldNumber;
-const int E_WelfareSign::kMVipFieldNumber;
+const int E_WelfareSign::kMVIPFieldNumber;
 const int E_WelfareSign::kMIconFieldNumber;
 const int E_WelfareSign::kMRewardFieldNumber;
-const int E_WelfareSign::kMRewardnumFieldNumber;
+const int E_WelfareSign::kMRewardNumFieldNumber;
 #endif  // !_MSC_VER
 
 E_WelfareSign::E_WelfareSign()
@@ -1764,15 +1764,15 @@ bool E_WelfareSign::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_vip;
+        if (input->ExpectTag(32)) goto parse_m_VIP;
         break;
       }
 
-      // optional int32 m_vip = 4;
+      // optional int32 m_VIP = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_vip:
+         parse_m_VIP:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_vip_)));
@@ -1813,15 +1813,15 @@ bool E_WelfareSign::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_rewardnum;
+        if (input->ExpectTag(56)) goto parse_m_rewardNum;
         break;
       }
 
-      // optional int32 m_rewardnum = 7;
+      // optional int32 m_rewardNum = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rewardnum:
+         parse_m_rewardNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rewardnum_)));
@@ -1866,7 +1866,7 @@ void E_WelfareSign::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_days(), output);
   }
 
-  // optional int32 m_vip = 4;
+  // optional int32 m_VIP = 4;
   if (has_m_vip()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_vip(), output);
   }
@@ -1885,7 +1885,7 @@ void E_WelfareSign::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_reward(), output);
   }
 
-  // optional int32 m_rewardnum = 7;
+  // optional int32 m_rewardNum = 7;
   if (has_m_rewardnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_rewardnum(), output);
   }
@@ -1913,7 +1913,7 @@ void E_WelfareSign::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_days(), target);
   }
 
-  // optional int32 m_vip = 4;
+  // optional int32 m_VIP = 4;
   if (has_m_vip()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_vip(), target);
   }
@@ -1933,7 +1933,7 @@ void E_WelfareSign::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_reward(), target);
   }
 
-  // optional int32 m_rewardnum = 7;
+  // optional int32 m_rewardNum = 7;
   if (has_m_rewardnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_rewardnum(), target);
   }
@@ -1970,7 +1970,7 @@ int E_WelfareSign::ByteSize() const {
           this->m_days());
     }
 
-    // optional int32 m_vip = 4;
+    // optional int32 m_VIP = 4;
     if (has_m_vip()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1991,7 +1991,7 @@ int E_WelfareSign::ByteSize() const {
           this->m_reward());
     }
 
-    // optional int32 m_rewardnum = 7;
+    // optional int32 m_rewardNum = 7;
     if (has_m_rewardnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2299,9 +2299,9 @@ void Sheet_WelfareSign::Swap(Sheet_WelfareSign* other) {
 #ifndef _MSC_VER
 const int E_WelfareAccruereward::kMIdFieldNumber;
 const int E_WelfareAccruereward::kMMonthFieldNumber;
-const int E_WelfareAccruereward::kMAccruedaysFieldNumber;
+const int E_WelfareAccruereward::kMAccrueDaysFieldNumber;
 const int E_WelfareAccruereward::kMRewardFieldNumber;
-const int E_WelfareAccruereward::kMRewardnumFieldNumber;
+const int E_WelfareAccruereward::kMRewardNumFieldNumber;
 #endif  // !_MSC_VER
 
 E_WelfareAccruereward::E_WelfareAccruereward()
@@ -2403,15 +2403,15 @@ bool E_WelfareAccruereward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_accruedays;
+        if (input->ExpectTag(24)) goto parse_m_accrueDays;
         break;
       }
 
-      // optional int32 m_accruedays = 3;
+      // optional int32 m_accrueDays = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_accruedays:
+         parse_m_accrueDays:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_accruedays_)));
@@ -2435,15 +2435,15 @@ bool E_WelfareAccruereward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_rewardnum;
+        if (input->ExpectTag(40)) goto parse_m_rewardNum;
         break;
       }
 
-      // optional int32 m_rewardnum = 5;
+      // optional int32 m_rewardNum = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rewardnum:
+         parse_m_rewardNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rewardnum_)));
@@ -2483,7 +2483,7 @@ void E_WelfareAccruereward::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_month(), output);
   }
 
-  // optional int32 m_accruedays = 3;
+  // optional int32 m_accrueDays = 3;
   if (has_m_accruedays()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_accruedays(), output);
   }
@@ -2493,7 +2493,7 @@ void E_WelfareAccruereward::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_reward(), output);
   }
 
-  // optional int32 m_rewardnum = 5;
+  // optional int32 m_rewardNum = 5;
   if (has_m_rewardnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_rewardnum(), output);
   }
@@ -2516,7 +2516,7 @@ void E_WelfareAccruereward::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_month(), target);
   }
 
-  // optional int32 m_accruedays = 3;
+  // optional int32 m_accrueDays = 3;
   if (has_m_accruedays()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_accruedays(), target);
   }
@@ -2526,7 +2526,7 @@ void E_WelfareAccruereward::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_reward(), target);
   }
 
-  // optional int32 m_rewardnum = 5;
+  // optional int32 m_rewardNum = 5;
   if (has_m_rewardnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_rewardnum(), target);
   }
@@ -2556,7 +2556,7 @@ int E_WelfareAccruereward::ByteSize() const {
           this->m_month());
     }
 
-    // optional int32 m_accruedays = 3;
+    // optional int32 m_accrueDays = 3;
     if (has_m_accruedays()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2570,7 +2570,7 @@ int E_WelfareAccruereward::ByteSize() const {
           this->m_reward());
     }
 
-    // optional int32 m_rewardnum = 5;
+    // optional int32 m_rewardNum = 5;
     if (has_m_rewardnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2870,9 +2870,9 @@ void Sheet_WelfareAccruereward::Swap(Sheet_WelfareAccruereward* other) {
 #ifndef _MSC_VER
 const int E_WelfareLvreward::kMIdFieldNumber;
 const int E_WelfareLvreward::kMLvFieldNumber;
-const int E_WelfareLvreward::kMLvrewardFieldNumber;
+const int E_WelfareLvreward::kMLvRewardFieldNumber;
 const int E_WelfareLvreward::kMVipFieldNumber;
-const int E_WelfareLvreward::kMViprewardFieldNumber;
+const int E_WelfareLvreward::kMVipRewardFieldNumber;
 #endif  // !_MSC_VER
 
 E_WelfareLvreward::E_WelfareLvreward()
@@ -2974,15 +2974,15 @@ bool E_WelfareLvreward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_lvreward;
+        if (input->ExpectTag(24)) goto parse_m_lvReward;
         break;
       }
 
-      // optional int32 m_lvreward = 3;
+      // optional int32 m_lvReward = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_lvreward:
+         parse_m_lvReward:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_lvreward_)));
@@ -3006,15 +3006,15 @@ bool E_WelfareLvreward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_vipreward;
+        if (input->ExpectTag(40)) goto parse_m_vipReward;
         break;
       }
 
-      // optional int32 m_vipreward = 5;
+      // optional int32 m_vipReward = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_vipreward:
+         parse_m_vipReward:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_vipreward_)));
@@ -3054,7 +3054,7 @@ void E_WelfareLvreward::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_lv(), output);
   }
 
-  // optional int32 m_lvreward = 3;
+  // optional int32 m_lvReward = 3;
   if (has_m_lvreward()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_lvreward(), output);
   }
@@ -3064,7 +3064,7 @@ void E_WelfareLvreward::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_vip(), output);
   }
 
-  // optional int32 m_vipreward = 5;
+  // optional int32 m_vipReward = 5;
   if (has_m_vipreward()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_vipreward(), output);
   }
@@ -3087,7 +3087,7 @@ void E_WelfareLvreward::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_lv(), target);
   }
 
-  // optional int32 m_lvreward = 3;
+  // optional int32 m_lvReward = 3;
   if (has_m_lvreward()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_lvreward(), target);
   }
@@ -3097,7 +3097,7 @@ void E_WelfareLvreward::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_vip(), target);
   }
 
-  // optional int32 m_vipreward = 5;
+  // optional int32 m_vipReward = 5;
   if (has_m_vipreward()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_vipreward(), target);
   }
@@ -3127,7 +3127,7 @@ int E_WelfareLvreward::ByteSize() const {
           this->m_lv());
     }
 
-    // optional int32 m_lvreward = 3;
+    // optional int32 m_lvReward = 3;
     if (has_m_lvreward()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3141,7 +3141,7 @@ int E_WelfareLvreward::ByteSize() const {
           this->m_vip());
     }
 
-    // optional int32 m_vipreward = 5;
+    // optional int32 m_vipReward = 5;
     if (has_m_vipreward()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3440,8 +3440,8 @@ void Sheet_WelfareLvreward::Swap(Sheet_WelfareLvreward* other) {
 
 #ifndef _MSC_VER
 const int E_WelfareOnline::kMIdFieldNumber;
-const int E_WelfareOnline::kMOnlinetimeFieldNumber;
-const int E_WelfareOnline::kMLvrewardFieldNumber;
+const int E_WelfareOnline::kMOnlineTimeFieldNumber;
+const int E_WelfareOnline::kMLvRewardFieldNumber;
 #endif  // !_MSC_VER
 
 E_WelfareOnline::E_WelfareOnline()
@@ -3523,15 +3523,15 @@ bool E_WelfareOnline::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_onlinetime;
+        if (input->ExpectTag(16)) goto parse_m_onlineTime;
         break;
       }
 
-      // optional int32 m_onlinetime = 2;
+      // optional int32 m_onlineTime = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_onlinetime:
+         parse_m_onlineTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_onlinetime_)));
@@ -3539,15 +3539,15 @@ bool E_WelfareOnline::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_lvreward;
+        if (input->ExpectTag(24)) goto parse_m_lvReward;
         break;
       }
 
-      // optional int32 m_lvreward = 3;
+      // optional int32 m_lvReward = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_lvreward:
+         parse_m_lvReward:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_lvreward_)));
@@ -3582,12 +3582,12 @@ void E_WelfareOnline::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_onlinetime = 2;
+  // optional int32 m_onlineTime = 2;
   if (has_m_onlinetime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_onlinetime(), output);
   }
 
-  // optional int32 m_lvreward = 3;
+  // optional int32 m_lvReward = 3;
   if (has_m_lvreward()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_lvreward(), output);
   }
@@ -3605,12 +3605,12 @@ void E_WelfareOnline::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_onlinetime = 2;
+  // optional int32 m_onlineTime = 2;
   if (has_m_onlinetime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_onlinetime(), target);
   }
 
-  // optional int32 m_lvreward = 3;
+  // optional int32 m_lvReward = 3;
   if (has_m_lvreward()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_lvreward(), target);
   }
@@ -3633,14 +3633,14 @@ int E_WelfareOnline::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_onlinetime = 2;
+    // optional int32 m_onlineTime = 2;
     if (has_m_onlinetime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_onlinetime());
     }
 
-    // optional int32 m_lvreward = 3;
+    // optional int32 m_lvReward = 3;
     if (has_m_lvreward()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4439,8 +4439,8 @@ void Sheet_WelfareFraud::Swap(Sheet_WelfareFraud* other) {
 
 #ifndef _MSC_VER
 const int E_WelfareWeekendgift::kMIdFieldNumber;
-const int E_WelfareWeekendgift::kMLvminFieldNumber;
-const int E_WelfareWeekendgift::kMLvmaxFieldNumber;
+const int E_WelfareWeekendgift::kMLvMinFieldNumber;
+const int E_WelfareWeekendgift::kMLvMaxFieldNumber;
 const int E_WelfareWeekendgift::kMDateFieldNumber;
 const int E_WelfareWeekendgift::kMRewardsFieldNumber;
 #endif  // !_MSC_VER
@@ -4527,15 +4527,15 @@ bool E_WelfareWeekendgift::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_lvmin;
+        if (input->ExpectTag(16)) goto parse_m_lvMin;
         break;
       }
 
-      // optional int32 m_lvmin = 2;
+      // optional int32 m_lvMin = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_lvmin:
+         parse_m_lvMin:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_lvmin_)));
@@ -4543,15 +4543,15 @@ bool E_WelfareWeekendgift::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_lvmax;
+        if (input->ExpectTag(24)) goto parse_m_lvMax;
         break;
       }
 
-      // optional int32 m_lvmax = 3;
+      // optional int32 m_lvMax = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_lvmax:
+         parse_m_lvMax:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_lvmax_)));
@@ -4624,12 +4624,12 @@ void E_WelfareWeekendgift::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_lvmin = 2;
+  // optional int32 m_lvMin = 2;
   if (has_m_lvmin()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_lvmin(), output);
   }
 
-  // optional int32 m_lvmax = 3;
+  // optional int32 m_lvMax = 3;
   if (has_m_lvmax()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_lvmax(), output);
   }
@@ -4658,12 +4658,12 @@ void E_WelfareWeekendgift::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_lvmin = 2;
+  // optional int32 m_lvMin = 2;
   if (has_m_lvmin()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_lvmin(), target);
   }
 
-  // optional int32 m_lvmax = 3;
+  // optional int32 m_lvMax = 3;
   if (has_m_lvmax()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_lvmax(), target);
   }
@@ -4697,14 +4697,14 @@ int E_WelfareWeekendgift::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_lvmin = 2;
+    // optional int32 m_lvMin = 2;
     if (has_m_lvmin()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_lvmin());
     }
 
-    // optional int32 m_lvmax = 3;
+    // optional int32 m_lvMax = 3;
     if (has_m_lvmax()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -5018,18 +5018,18 @@ void Sheet_WelfareWeekendgift::Swap(Sheet_WelfareWeekendgift* other) {
 
 #ifndef _MSC_VER
 const int E_WelfareConstant::kMIdFieldNumber;
-const int E_WelfareConstant::kMAddsigncostFieldNumber;
-const int E_WelfareConstant::kMAddsignpriceFieldNumber;
-const int E_WelfareConstant::kMNoticerewardFieldNumber;
-const int E_WelfareConstant::kMWrongminFieldNumber;
-const int E_WelfareConstant::kMWrongmaxFieldNumber;
-const int E_WelfareConstant::kMFraudrewardFieldNumber;
-const int E_WelfareConstant::kMFirstrchargeFieldNumber;
-const int E_WelfareConstant::kMSecondrchargeFieldNumber;
-const int E_WelfareConstant::kMGemmbFieldNumber;
-const int E_WelfareConstant::kMStarmbFieldNumber;
-const int E_WelfareConstant::kMKingmbFieldNumber;
-const int E_WelfareConstant::kMKeyrebateFieldNumber;
+const int E_WelfareConstant::kMAddSigncostFieldNumber;
+const int E_WelfareConstant::kMAddSignpriceFieldNumber;
+const int E_WelfareConstant::kMNoticeRewardFieldNumber;
+const int E_WelfareConstant::kMWrongMinFieldNumber;
+const int E_WelfareConstant::kMWrongMaxFieldNumber;
+const int E_WelfareConstant::kMFraudRewardFieldNumber;
+const int E_WelfareConstant::kMFirstRchargeFieldNumber;
+const int E_WelfareConstant::kMSecondRchargeFieldNumber;
+const int E_WelfareConstant::kMGemMBFieldNumber;
+const int E_WelfareConstant::kMStarMBFieldNumber;
+const int E_WelfareConstant::kMKingMBFieldNumber;
+const int E_WelfareConstant::kMKeyRebateFieldNumber;
 #endif  // !_MSC_VER
 
 E_WelfareConstant::E_WelfareConstant()
@@ -5133,15 +5133,15 @@ bool E_WelfareConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_addsigncost;
+        if (input->ExpectTag(16)) goto parse_m_addSigncost;
         break;
       }
 
-      // optional int32 m_addsigncost = 2;
+      // optional int32 m_addSigncost = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_addsigncost:
+         parse_m_addSigncost:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_addsigncost_)));
@@ -5149,15 +5149,15 @@ bool E_WelfareConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_addsignprice;
+        if (input->ExpectTag(24)) goto parse_m_addSignprice;
         break;
       }
 
-      // optional int32 m_addsignprice = 3;
+      // optional int32 m_addSignprice = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_addsignprice:
+         parse_m_addSignprice:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_addsignprice_)));
@@ -5165,15 +5165,15 @@ bool E_WelfareConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_noticereward;
+        if (input->ExpectTag(32)) goto parse_m_noticeReward;
         break;
       }
 
-      // optional int32 m_noticereward = 4;
+      // optional int32 m_noticeReward = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_noticereward:
+         parse_m_noticeReward:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_noticereward_)));
@@ -5181,15 +5181,15 @@ bool E_WelfareConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_wrongmin;
+        if (input->ExpectTag(40)) goto parse_m_wrongMin;
         break;
       }
 
-      // optional int32 m_wrongmin = 5;
+      // optional int32 m_wrongMin = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_wrongmin:
+         parse_m_wrongMin:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_wrongmin_)));
@@ -5197,15 +5197,15 @@ bool E_WelfareConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_wrongmax;
+        if (input->ExpectTag(48)) goto parse_m_wrongMax;
         break;
       }
 
-      // optional int32 m_wrongmax = 6;
+      // optional int32 m_wrongMax = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_wrongmax:
+         parse_m_wrongMax:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_wrongmax_)));
@@ -5213,15 +5213,15 @@ bool E_WelfareConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_fraudreward;
+        if (input->ExpectTag(56)) goto parse_m_fraudReward;
         break;
       }
 
-      // optional int32 m_fraudreward = 7;
+      // optional int32 m_fraudReward = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_fraudreward:
+         parse_m_fraudReward:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_fraudreward_)));
@@ -5229,15 +5229,15 @@ bool E_WelfareConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_firstrcharge;
+        if (input->ExpectTag(64)) goto parse_m_firstRcharge;
         break;
       }
 
-      // optional int32 m_firstrcharge = 8;
+      // optional int32 m_firstRcharge = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_firstrcharge:
+         parse_m_firstRcharge:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_firstrcharge_)));
@@ -5245,15 +5245,15 @@ bool E_WelfareConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_secondrcharge;
+        if (input->ExpectTag(72)) goto parse_m_secondRcharge;
         break;
       }
 
-      // optional int32 m_secondrcharge = 9;
+      // optional int32 m_secondRcharge = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_secondrcharge:
+         parse_m_secondRcharge:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_secondrcharge_)));
@@ -5261,15 +5261,15 @@ bool E_WelfareConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_gemmb;
+        if (input->ExpectTag(80)) goto parse_m_gemMB;
         break;
       }
 
-      // optional int32 m_gemmb = 10;
+      // optional int32 m_gemMB = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_gemmb:
+         parse_m_gemMB:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_gemmb_)));
@@ -5277,15 +5277,15 @@ bool E_WelfareConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_starmb;
+        if (input->ExpectTag(88)) goto parse_m_starMB;
         break;
       }
 
-      // optional int32 m_starmb = 11;
+      // optional int32 m_starMB = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_starmb:
+         parse_m_starMB:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_starmb_)));
@@ -5293,15 +5293,15 @@ bool E_WelfareConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_kingmb;
+        if (input->ExpectTag(96)) goto parse_m_kingMB;
         break;
       }
 
-      // optional int32 m_kingmb = 12;
+      // optional int32 m_kingMB = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_kingmb:
+         parse_m_kingMB:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_kingmb_)));
@@ -5309,15 +5309,15 @@ bool E_WelfareConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_m_keyrebate;
+        if (input->ExpectTag(104)) goto parse_m_keyRebate;
         break;
       }
 
-      // optional int32 m_keyrebate = 13;
+      // optional int32 m_keyRebate = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_keyrebate:
+         parse_m_keyRebate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_keyrebate_)));
@@ -5352,62 +5352,62 @@ void E_WelfareConstant::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_addsigncost = 2;
+  // optional int32 m_addSigncost = 2;
   if (has_m_addsigncost()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_addsigncost(), output);
   }
 
-  // optional int32 m_addsignprice = 3;
+  // optional int32 m_addSignprice = 3;
   if (has_m_addsignprice()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_addsignprice(), output);
   }
 
-  // optional int32 m_noticereward = 4;
+  // optional int32 m_noticeReward = 4;
   if (has_m_noticereward()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_noticereward(), output);
   }
 
-  // optional int32 m_wrongmin = 5;
+  // optional int32 m_wrongMin = 5;
   if (has_m_wrongmin()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_wrongmin(), output);
   }
 
-  // optional int32 m_wrongmax = 6;
+  // optional int32 m_wrongMax = 6;
   if (has_m_wrongmax()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_wrongmax(), output);
   }
 
-  // optional int32 m_fraudreward = 7;
+  // optional int32 m_fraudReward = 7;
   if (has_m_fraudreward()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_fraudreward(), output);
   }
 
-  // optional int32 m_firstrcharge = 8;
+  // optional int32 m_firstRcharge = 8;
   if (has_m_firstrcharge()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_firstrcharge(), output);
   }
 
-  // optional int32 m_secondrcharge = 9;
+  // optional int32 m_secondRcharge = 9;
   if (has_m_secondrcharge()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_secondrcharge(), output);
   }
 
-  // optional int32 m_gemmb = 10;
+  // optional int32 m_gemMB = 10;
   if (has_m_gemmb()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_gemmb(), output);
   }
 
-  // optional int32 m_starmb = 11;
+  // optional int32 m_starMB = 11;
   if (has_m_starmb()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_starmb(), output);
   }
 
-  // optional int32 m_kingmb = 12;
+  // optional int32 m_kingMB = 12;
   if (has_m_kingmb()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_kingmb(), output);
   }
 
-  // optional int32 m_keyrebate = 13;
+  // optional int32 m_keyRebate = 13;
   if (has_m_keyrebate()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_keyrebate(), output);
   }
@@ -5425,62 +5425,62 @@ void E_WelfareConstant::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_addsigncost = 2;
+  // optional int32 m_addSigncost = 2;
   if (has_m_addsigncost()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_addsigncost(), target);
   }
 
-  // optional int32 m_addsignprice = 3;
+  // optional int32 m_addSignprice = 3;
   if (has_m_addsignprice()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_addsignprice(), target);
   }
 
-  // optional int32 m_noticereward = 4;
+  // optional int32 m_noticeReward = 4;
   if (has_m_noticereward()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_noticereward(), target);
   }
 
-  // optional int32 m_wrongmin = 5;
+  // optional int32 m_wrongMin = 5;
   if (has_m_wrongmin()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_wrongmin(), target);
   }
 
-  // optional int32 m_wrongmax = 6;
+  // optional int32 m_wrongMax = 6;
   if (has_m_wrongmax()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_wrongmax(), target);
   }
 
-  // optional int32 m_fraudreward = 7;
+  // optional int32 m_fraudReward = 7;
   if (has_m_fraudreward()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_fraudreward(), target);
   }
 
-  // optional int32 m_firstrcharge = 8;
+  // optional int32 m_firstRcharge = 8;
   if (has_m_firstrcharge()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_firstrcharge(), target);
   }
 
-  // optional int32 m_secondrcharge = 9;
+  // optional int32 m_secondRcharge = 9;
   if (has_m_secondrcharge()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_secondrcharge(), target);
   }
 
-  // optional int32 m_gemmb = 10;
+  // optional int32 m_gemMB = 10;
   if (has_m_gemmb()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_gemmb(), target);
   }
 
-  // optional int32 m_starmb = 11;
+  // optional int32 m_starMB = 11;
   if (has_m_starmb()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_starmb(), target);
   }
 
-  // optional int32 m_kingmb = 12;
+  // optional int32 m_kingMB = 12;
   if (has_m_kingmb()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_kingmb(), target);
   }
 
-  // optional int32 m_keyrebate = 13;
+  // optional int32 m_keyRebate = 13;
   if (has_m_keyrebate()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_keyrebate(), target);
   }
@@ -5503,49 +5503,49 @@ int E_WelfareConstant::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_addsigncost = 2;
+    // optional int32 m_addSigncost = 2;
     if (has_m_addsigncost()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_addsigncost());
     }
 
-    // optional int32 m_addsignprice = 3;
+    // optional int32 m_addSignprice = 3;
     if (has_m_addsignprice()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_addsignprice());
     }
 
-    // optional int32 m_noticereward = 4;
+    // optional int32 m_noticeReward = 4;
     if (has_m_noticereward()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_noticereward());
     }
 
-    // optional int32 m_wrongmin = 5;
+    // optional int32 m_wrongMin = 5;
     if (has_m_wrongmin()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_wrongmin());
     }
 
-    // optional int32 m_wrongmax = 6;
+    // optional int32 m_wrongMax = 6;
     if (has_m_wrongmax()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_wrongmax());
     }
 
-    // optional int32 m_fraudreward = 7;
+    // optional int32 m_fraudReward = 7;
     if (has_m_fraudreward()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_fraudreward());
     }
 
-    // optional int32 m_firstrcharge = 8;
+    // optional int32 m_firstRcharge = 8;
     if (has_m_firstrcharge()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -5554,35 +5554,35 @@ int E_WelfareConstant::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_secondrcharge = 9;
+    // optional int32 m_secondRcharge = 9;
     if (has_m_secondrcharge()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_secondrcharge());
     }
 
-    // optional int32 m_gemmb = 10;
+    // optional int32 m_gemMB = 10;
     if (has_m_gemmb()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_gemmb());
     }
 
-    // optional int32 m_starmb = 11;
+    // optional int32 m_starMB = 11;
     if (has_m_starmb()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_starmb());
     }
 
-    // optional int32 m_kingmb = 12;
+    // optional int32 m_kingMB = 12;
     if (has_m_kingmb()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_kingmb());
     }
 
-    // optional int32 m_keyrebate = 13;
+    // optional int32 m_keyRebate = 13;
     if (has_m_keyrebate()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -6876,7 +6876,7 @@ void Sheet_WelfareWish::Swap(Sheet_WelfareWish* other) {
 const int E_WelfareLogon::kMDaysFieldNumber;
 const int E_WelfareLogon::kMTypeFieldNumber;
 const int E_WelfareLogon::kMIconFieldNumber;
-const int E_WelfareLogon::kMShowitemFieldNumber;
+const int E_WelfareLogon::kMShowItemFieldNumber;
 const int E_WelfareLogon::kMRewardFieldNumber;
 #endif  // !_MSC_VER
 
@@ -6995,15 +6995,15 @@ bool E_WelfareLogon::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_showitem;
+        if (input->ExpectTag(32)) goto parse_m_showItem;
         break;
       }
 
-      // optional int32 m_showitem = 4;
+      // optional int32 m_showItem = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_showitem:
+         parse_m_showItem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_showitem_)));
@@ -7064,7 +7064,7 @@ void E_WelfareLogon::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_icon(), output);
   }
 
-  // optional int32 m_showitem = 4;
+  // optional int32 m_showItem = 4;
   if (has_m_showitem()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_showitem(), output);
   }
@@ -7097,7 +7097,7 @@ void E_WelfareLogon::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_icon(), target);
   }
 
-  // optional int32 m_showitem = 4;
+  // optional int32 m_showItem = 4;
   if (has_m_showitem()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_showitem(), target);
   }
@@ -7139,7 +7139,7 @@ int E_WelfareLogon::ByteSize() const {
           this->m_icon());
     }
 
-    // optional int32 m_showitem = 4;
+    // optional int32 m_showItem = 4;
     if (has_m_showitem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -7447,11 +7447,11 @@ void Sheet_WelfareLogon::Swap(Sheet_WelfareLogon* other) {
 const int E_WelfareFirstcharge::kMConstantidFieldNumber;
 const int E_WelfareFirstcharge::kMOpenlvFieldNumber;
 const int E_WelfareFirstcharge::kMTypeFieldNumber;
-const int E_WelfareFirstcharge::kMOpendaysFieldNumber;
+const int E_WelfareFirstcharge::kMOpenDaysFieldNumber;
 const int E_WelfareFirstcharge::kMRewardFieldNumber;
 const int E_WelfareFirstcharge::kMModelFieldNumber;
-const int E_WelfareFirstcharge::kMRewardshowFieldNumber;
-const int E_WelfareFirstcharge::kMRewarddesFieldNumber;
+const int E_WelfareFirstcharge::kMRewardShowFieldNumber;
+const int E_WelfareFirstcharge::kMRewardDesFieldNumber;
 #endif  // !_MSC_VER
 
 E_WelfareFirstcharge::E_WelfareFirstcharge()
@@ -7572,15 +7572,15 @@ bool E_WelfareFirstcharge::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_opendays;
+        if (input->ExpectTag(32)) goto parse_m_openDays;
         break;
       }
 
-      // optional int32 m_opendays = 4;
+      // optional int32 m_openDays = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_opendays:
+         parse_m_openDays:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_opendays_)));
@@ -7623,15 +7623,15 @@ bool E_WelfareFirstcharge::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(50)) goto parse_m_model;
-        if (input->ExpectTag(56)) goto parse_m_rewardshow;
+        if (input->ExpectTag(56)) goto parse_m_rewardShow;
         break;
       }
 
-      // repeated int32 m_rewardshow = 7;
+      // repeated int32 m_rewardShow = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rewardshow:
+         parse_m_rewardShow:
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  1, 56, input, this->mutable_m_rewardshow())));
@@ -7644,16 +7644,16 @@ bool E_WelfareFirstcharge::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_rewardshow;
-        if (input->ExpectTag(66)) goto parse_m_rewarddes;
+        if (input->ExpectTag(56)) goto parse_m_rewardShow;
+        if (input->ExpectTag(66)) goto parse_m_rewardDes;
         break;
       }
 
-      // repeated string m_rewarddes = 8;
+      // repeated string m_rewardDes = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_rewarddes:
+         parse_m_rewardDes:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->add_m_rewarddes()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -7663,7 +7663,7 @@ bool E_WelfareFirstcharge::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(66)) goto parse_m_rewarddes;
+        if (input->ExpectTag(66)) goto parse_m_rewardDes;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -7701,7 +7701,7 @@ void E_WelfareFirstcharge::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_type(), output);
   }
 
-  // optional int32 m_opendays = 4;
+  // optional int32 m_openDays = 4;
   if (has_m_opendays()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_opendays(), output);
   }
@@ -7720,13 +7720,13 @@ void E_WelfareFirstcharge::SerializeWithCachedSizes(
       6, this->m_model(i), output);
   }
 
-  // repeated int32 m_rewardshow = 7;
+  // repeated int32 m_rewardShow = 7;
   for (int i = 0; i < this->m_rewardshow_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(
       7, this->m_rewardshow(i), output);
   }
 
-  // repeated string m_rewarddes = 8;
+  // repeated string m_rewardDes = 8;
   for (int i = 0; i < this->m_rewarddes_size(); i++) {
   ::google::protobuf::internal::WireFormat::VerifyUTF8String(
     this->m_rewarddes(i).data(), this->m_rewarddes(i).length(),
@@ -7758,7 +7758,7 @@ void E_WelfareFirstcharge::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_type(), target);
   }
 
-  // optional int32 m_opendays = 4;
+  // optional int32 m_openDays = 4;
   if (has_m_opendays()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_opendays(), target);
   }
@@ -7777,13 +7777,13 @@ void E_WelfareFirstcharge::SerializeWithCachedSizes(
       WriteStringToArray(6, this->m_model(i), target);
   }
 
-  // repeated int32 m_rewardshow = 7;
+  // repeated int32 m_rewardShow = 7;
   for (int i = 0; i < this->m_rewardshow_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteInt32ToArray(7, this->m_rewardshow(i), target);
   }
 
-  // repeated string m_rewarddes = 8;
+  // repeated string m_rewardDes = 8;
   for (int i = 0; i < this->m_rewarddes_size(); i++) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_rewarddes(i).data(), this->m_rewarddes(i).length(),
@@ -7824,7 +7824,7 @@ int E_WelfareFirstcharge::ByteSize() const {
           this->m_type());
     }
 
-    // optional int32 m_opendays = 4;
+    // optional int32 m_openDays = 4;
     if (has_m_opendays()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -7846,7 +7846,7 @@ int E_WelfareFirstcharge::ByteSize() const {
       this->m_model(i));
   }
 
-  // repeated int32 m_rewardshow = 7;
+  // repeated int32 m_rewardShow = 7;
   {
     int data_size = 0;
     for (int i = 0; i < this->m_rewardshow_size(); i++) {
@@ -7856,7 +7856,7 @@ int E_WelfareFirstcharge::ByteSize() const {
     total_size += 1 * this->m_rewardshow_size() + data_size;
   }
 
-  // repeated string m_rewarddes = 8;
+  // repeated string m_rewardDes = 8;
   total_size += 1 * this->m_rewarddes_size();
   for (int i = 0; i < this->m_rewarddes_size(); i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -8162,7 +8162,7 @@ void Sheet_WelfareFirstcharge::Swap(Sheet_WelfareFirstcharge* other) {
 const int E_WelfareSctype::kMIdFieldNumber;
 const int E_WelfareSctype::kMFunctionidFieldNumber;
 const int E_WelfareSctype::kMTitleFieldNumber;
-const int E_WelfareSctype::kMBasemapFieldNumber;
+const int E_WelfareSctype::kMBaseMapFieldNumber;
 const int E_WelfareSctype::kMRchargeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -8296,15 +8296,15 @@ bool E_WelfareSctype::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_basemap;
+        if (input->ExpectTag(34)) goto parse_m_baseMap;
         break;
       }
 
-      // optional string m_basemap = 4;
+      // optional string m_baseMap = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_basemap:
+         parse_m_baseMap:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_basemap()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -8370,7 +8370,7 @@ void E_WelfareSctype::SerializeWithCachedSizes(
       3, this->m_title(), output);
   }
 
-  // optional string m_basemap = 4;
+  // optional string m_baseMap = 4;
   if (has_m_basemap()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_basemap().data(), this->m_basemap().length(),
@@ -8412,7 +8412,7 @@ void E_WelfareSctype::SerializeWithCachedSizes(
         3, this->m_title(), target);
   }
 
-  // optional string m_basemap = 4;
+  // optional string m_baseMap = 4;
   if (has_m_basemap()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_basemap().data(), this->m_basemap().length(),
@@ -8459,7 +8459,7 @@ int E_WelfareSctype::ByteSize() const {
           this->m_title());
     }
 
-    // optional string m_basemap = 4;
+    // optional string m_baseMap = 4;
     if (has_m_basemap()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -8768,7 +8768,7 @@ const int E_WelfareMibao::kMIdFieldNumber;
 const int E_WelfareMibao::kMOpenlvFieldNumber;
 const int E_WelfareMibao::kMTypeFieldNumber;
 const int E_WelfareMibao::kMRankFieldNumber;
-const int E_WelfareMibao::kMOpendaysFieldNumber;
+const int E_WelfareMibao::kMOpenDaysFieldNumber;
 const int E_WelfareMibao::kMRewardFieldNumber;
 const int E_WelfareMibao::kMDesFieldNumber;
 #endif  // !_MSC_VER
@@ -8915,15 +8915,15 @@ bool E_WelfareMibao::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_opendays;
+        if (input->ExpectTag(40)) goto parse_m_openDays;
         break;
       }
 
-      // optional int32 m_opendays = 5;
+      // optional int32 m_openDays = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_opendays:
+         parse_m_openDays:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_opendays_)));
@@ -9006,7 +9006,7 @@ void E_WelfareMibao::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_rank(), output);
   }
 
-  // optional int32 m_opendays = 5;
+  // optional int32 m_openDays = 5;
   if (has_m_opendays()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_opendays(), output);
   }
@@ -9053,7 +9053,7 @@ void E_WelfareMibao::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_rank(), target);
   }
 
-  // optional int32 m_opendays = 5;
+  // optional int32 m_openDays = 5;
   if (has_m_opendays()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_opendays(), target);
   }
@@ -9112,7 +9112,7 @@ int E_WelfareMibao::ByteSize() const {
           this->m_rank());
     }
 
-    // optional int32 m_opendays = 5;
+    // optional int32 m_openDays = 5;
     if (has_m_opendays()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -9965,8 +9965,8 @@ void Sheet_WelfareKfleichong::Swap(Sheet_WelfareKfleichong* other) {
 #ifndef _MSC_VER
 const int E_WelfareDailygift::kMIdFieldNumber;
 const int E_WelfareDailygift::kMTypeFieldNumber;
-const int E_WelfareDailygift::kMRechargeidFieldNumber;
-const int E_WelfareDailygift::kMOneclickbuyFieldNumber;
+const int E_WelfareDailygift::kMRechargeIdFieldNumber;
+const int E_WelfareDailygift::kMOneclickBuyFieldNumber;
 const int E_WelfareDailygift::kMRewardFieldNumber;
 const int E_WelfareDailygift::kMQualityFieldNumber;
 #endif  // !_MSC_VER
@@ -10072,15 +10072,15 @@ bool E_WelfareDailygift::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_rechargeid;
+        if (input->ExpectTag(24)) goto parse_m_rechargeId;
         break;
       }
 
-      // optional int32 m_rechargeid = 3;
+      // optional int32 m_rechargeId = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rechargeid:
+         parse_m_rechargeId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rechargeid_)));
@@ -10088,15 +10088,15 @@ bool E_WelfareDailygift::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_oneclickbuy;
+        if (input->ExpectTag(32)) goto parse_m_OneclickBuy;
         break;
       }
 
-      // optional int32 m_oneclickbuy = 4;
+      // optional int32 m_OneclickBuy = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_oneclickbuy:
+         parse_m_OneclickBuy:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_oneclickbuy_)));
@@ -10168,12 +10168,12 @@ void E_WelfareDailygift::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
   }
 
-  // optional int32 m_rechargeid = 3;
+  // optional int32 m_rechargeId = 3;
   if (has_m_rechargeid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_rechargeid(), output);
   }
 
-  // optional int32 m_oneclickbuy = 4;
+  // optional int32 m_OneclickBuy = 4;
   if (has_m_oneclickbuy()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_oneclickbuy(), output);
   }
@@ -10206,12 +10206,12 @@ void E_WelfareDailygift::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
   }
 
-  // optional int32 m_rechargeid = 3;
+  // optional int32 m_rechargeId = 3;
   if (has_m_rechargeid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_rechargeid(), target);
   }
 
-  // optional int32 m_oneclickbuy = 4;
+  // optional int32 m_OneclickBuy = 4;
   if (has_m_oneclickbuy()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_oneclickbuy(), target);
   }
@@ -10251,14 +10251,14 @@ int E_WelfareDailygift::ByteSize() const {
           this->m_type());
     }
 
-    // optional int32 m_rechargeid = 3;
+    // optional int32 m_rechargeId = 3;
     if (has_m_rechargeid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_rechargeid());
     }
 
-    // optional int32 m_oneclickbuy = 4;
+    // optional int32 m_OneclickBuy = 4;
     if (has_m_oneclickbuy()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -10578,9 +10578,9 @@ const int E_WelfareLcgift::kMIdFieldNumber;
 const int E_WelfareLcgift::kMTypeFieldNumber;
 const int E_WelfareLcgift::kMLimitFieldNumber;
 const int E_WelfareLcgift::kMDaysFieldNumber;
-const int E_WelfareLcgift::kMStarnumFieldNumber;
+const int E_WelfareLcgift::kMStarNumFieldNumber;
 const int E_WelfareLcgift::kMRewardFieldNumber;
-const int E_WelfareLcgift::kMShowitemFieldNumber;
+const int E_WelfareLcgift::kMShowItemFieldNumber;
 #endif  // !_MSC_VER
 
 E_WelfareLcgift::E_WelfareLcgift()
@@ -10718,15 +10718,15 @@ bool E_WelfareLcgift::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_starnum;
+        if (input->ExpectTag(40)) goto parse_m_starNum;
         break;
       }
 
-      // optional int32 m_starnum = 5;
+      // optional int32 m_starNum = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_starnum:
+         parse_m_starNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_starnum_)));
@@ -10750,15 +10750,15 @@ bool E_WelfareLcgift::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_showitem;
+        if (input->ExpectTag(56)) goto parse_m_showItem;
         break;
       }
 
-      // optional int32 m_showitem = 7;
+      // optional int32 m_showItem = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_showitem:
+         parse_m_showItem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_showitem_)));
@@ -10808,7 +10808,7 @@ void E_WelfareLcgift::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_days(), output);
   }
 
-  // optional int32 m_starnum = 5;
+  // optional int32 m_starNum = 5;
   if (has_m_starnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_starnum(), output);
   }
@@ -10818,7 +10818,7 @@ void E_WelfareLcgift::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_reward(), output);
   }
 
-  // optional int32 m_showitem = 7;
+  // optional int32 m_showItem = 7;
   if (has_m_showitem()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_showitem(), output);
   }
@@ -10851,7 +10851,7 @@ void E_WelfareLcgift::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_days(), target);
   }
 
-  // optional int32 m_starnum = 5;
+  // optional int32 m_starNum = 5;
   if (has_m_starnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_starnum(), target);
   }
@@ -10861,7 +10861,7 @@ void E_WelfareLcgift::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_reward(), target);
   }
 
-  // optional int32 m_showitem = 7;
+  // optional int32 m_showItem = 7;
   if (has_m_showitem()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_showitem(), target);
   }
@@ -10905,7 +10905,7 @@ int E_WelfareLcgift::ByteSize() const {
           this->m_days());
     }
 
-    // optional int32 m_starnum = 5;
+    // optional int32 m_starNum = 5;
     if (has_m_starnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -10919,7 +10919,7 @@ int E_WelfareLcgift::ByteSize() const {
           this->m_reward());
     }
 
-    // optional int32 m_showitem = 7;
+    // optional int32 m_showItem = 7;
     if (has_m_showitem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -12005,9 +12005,9 @@ void E_WelfareLcturntableRaffleDesc::Swap(E_WelfareLcturntableRaffleDesc* other)
 
 #ifndef _MSC_VER
 const int E_WelfareLcturntable::kMIdFieldNumber;
-const int E_WelfareLcturntable::kMJackpottypeFieldNumber;
-const int E_WelfareLcturntable::kMRaffletimesFieldNumber;
-const int E_WelfareLcturntable::kMRatimesrewFieldNumber;
+const int E_WelfareLcturntable::kMJackpotTypeFieldNumber;
+const int E_WelfareLcturntable::kMRaffleTimesFieldNumber;
+const int E_WelfareLcturntable::kMRaTimesRewFieldNumber;
 const int E_WelfareLcturntable::kMRaffleFieldNumber;
 #endif  // !_MSC_VER
 
@@ -12093,15 +12093,15 @@ bool E_WelfareLcturntable::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_jackpottype;
+        if (input->ExpectTag(16)) goto parse_m_jackpotType;
         break;
       }
 
-      // optional int32 m_jackpottype = 2;
+      // optional int32 m_jackpotType = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_jackpottype:
+         parse_m_jackpotType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_jackpottype_)));
@@ -12109,15 +12109,15 @@ bool E_WelfareLcturntable::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_raffletimes;
+        if (input->ExpectTag(24)) goto parse_m_raffleTimes;
         break;
       }
 
-      // optional int32 m_raffletimes = 3;
+      // optional int32 m_raffleTimes = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_raffletimes:
+         parse_m_raffleTimes:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_raffletimes_)));
@@ -12125,15 +12125,15 @@ bool E_WelfareLcturntable::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_ratimesrew;
+        if (input->ExpectTag(32)) goto parse_m_raTimesRew;
         break;
       }
 
-      // optional int32 m_ratimesrew = 4;
+      // optional int32 m_raTimesRew = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_ratimesrew:
+         parse_m_raTimesRew:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_ratimesrew_)));
@@ -12183,17 +12183,17 @@ void E_WelfareLcturntable::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_jackpottype = 2;
+  // optional int32 m_jackpotType = 2;
   if (has_m_jackpottype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_jackpottype(), output);
   }
 
-  // optional int32 m_raffletimes = 3;
+  // optional int32 m_raffleTimes = 3;
   if (has_m_raffletimes()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_raffletimes(), output);
   }
 
-  // optional int32 m_ratimesrew = 4;
+  // optional int32 m_raTimesRew = 4;
   if (has_m_ratimesrew()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_ratimesrew(), output);
   }
@@ -12217,17 +12217,17 @@ void E_WelfareLcturntable::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_jackpottype = 2;
+  // optional int32 m_jackpotType = 2;
   if (has_m_jackpottype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_jackpottype(), target);
   }
 
-  // optional int32 m_raffletimes = 3;
+  // optional int32 m_raffleTimes = 3;
   if (has_m_raffletimes()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_raffletimes(), target);
   }
 
-  // optional int32 m_ratimesrew = 4;
+  // optional int32 m_raTimesRew = 4;
   if (has_m_ratimesrew()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_ratimesrew(), target);
   }
@@ -12257,21 +12257,21 @@ int E_WelfareLcturntable::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_jackpottype = 2;
+    // optional int32 m_jackpotType = 2;
     if (has_m_jackpottype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_jackpottype());
     }
 
-    // optional int32 m_raffletimes = 3;
+    // optional int32 m_raffleTimes = 3;
     if (has_m_raffletimes()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_raffletimes());
     }
 
-    // optional int32 m_ratimesrew = 4;
+    // optional int32 m_raTimesRew = 4;
     if (has_m_ratimesrew()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -12579,7 +12579,7 @@ const int E_WelfareJackpot::kMIdFieldNumber;
 const int E_WelfareJackpot::kMTypeFieldNumber;
 const int E_WelfareJackpot::kMRankFieldNumber;
 const int E_WelfareJackpot::kMItemFieldNumber;
-const int E_WelfareJackpot::kMItemnumFieldNumber;
+const int E_WelfareJackpot::kMItemNumFieldNumber;
 const int E_WelfareJackpot::kMWeightFieldNumber;
 #endif  // !_MSC_VER
 
@@ -12716,15 +12716,15 @@ bool E_WelfareJackpot::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_itemnum;
+        if (input->ExpectTag(40)) goto parse_m_itemNum;
         break;
       }
 
-      // optional int32 m_itemnum = 5;
+      // optional int32 m_itemNum = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemnum:
+         parse_m_itemNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itemnum_)));
@@ -12790,7 +12790,7 @@ void E_WelfareJackpot::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_item(), output);
   }
 
-  // optional int32 m_itemnum = 5;
+  // optional int32 m_itemNum = 5;
   if (has_m_itemnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_itemnum(), output);
   }
@@ -12828,7 +12828,7 @@ void E_WelfareJackpot::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_item(), target);
   }
 
-  // optional int32 m_itemnum = 5;
+  // optional int32 m_itemNum = 5;
   if (has_m_itemnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_itemnum(), target);
   }
@@ -12877,7 +12877,7 @@ int E_WelfareJackpot::ByteSize() const {
           this->m_item());
     }
 
-    // optional int32 m_itemnum = 5;
+    // optional int32 m_itemNum = 5;
     if (has_m_itemnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -13187,11 +13187,11 @@ void Sheet_WelfareJackpot::Swap(Sheet_WelfareJackpot* other) {
 
 #ifndef _MSC_VER
 const int E_WelfareMonthlycard::kMIdFieldNumber;
-const int E_WelfareMonthlycard::kMCardtypeFieldNumber;
-const int E_WelfareMonthlycard::kMCardmoneyFieldNumber;
-const int E_WelfareMonthlycard::kMCardbuyitemFieldNumber;
-const int E_WelfareMonthlycard::kMCarddailyitemFieldNumber;
-const int E_WelfareMonthlycard::kMCardtimeFieldNumber;
+const int E_WelfareMonthlycard::kMCardTypeFieldNumber;
+const int E_WelfareMonthlycard::kMCardMoneyFieldNumber;
+const int E_WelfareMonthlycard::kMCardBuyitemFieldNumber;
+const int E_WelfareMonthlycard::kMCardDailyitemFieldNumber;
+const int E_WelfareMonthlycard::kMCardTimeFieldNumber;
 const int E_WelfareMonthlycard::kMFlmultipleFieldNumber;
 #endif  // !_MSC_VER
 
@@ -13282,15 +13282,15 @@ bool E_WelfareMonthlycard::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_cardtype;
+        if (input->ExpectTag(16)) goto parse_m_cardType;
         break;
       }
 
-      // optional int32 m_cardtype = 2;
+      // optional int32 m_cardType = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_cardtype:
+         parse_m_cardType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_cardtype_)));
@@ -13298,15 +13298,15 @@ bool E_WelfareMonthlycard::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_cardmoney;
+        if (input->ExpectTag(24)) goto parse_m_cardMoney;
         break;
       }
 
-      // optional int32 m_cardmoney = 3;
+      // optional int32 m_cardMoney = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_cardmoney:
+         parse_m_cardMoney:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_cardmoney_)));
@@ -13314,15 +13314,15 @@ bool E_WelfareMonthlycard::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_cardbuyitem;
+        if (input->ExpectTag(32)) goto parse_m_cardBuyitem;
         break;
       }
 
-      // optional int32 m_cardbuyitem = 4;
+      // optional int32 m_cardBuyitem = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_cardbuyitem:
+         parse_m_cardBuyitem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_cardbuyitem_)));
@@ -13330,15 +13330,15 @@ bool E_WelfareMonthlycard::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_carddailyitem;
+        if (input->ExpectTag(40)) goto parse_m_cardDailyitem;
         break;
       }
 
-      // optional int32 m_carddailyitem = 5;
+      // optional int32 m_cardDailyitem = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_carddailyitem:
+         parse_m_cardDailyitem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_carddailyitem_)));
@@ -13346,15 +13346,15 @@ bool E_WelfareMonthlycard::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_cardtime;
+        if (input->ExpectTag(48)) goto parse_m_cardTime;
         break;
       }
 
-      // optional int32 m_cardtime = 6;
+      // optional int32 m_cardTime = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_cardtime:
+         parse_m_cardTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_cardtime_)));
@@ -13362,15 +13362,15 @@ bool E_WelfareMonthlycard::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_flmultiple;
+        if (input->ExpectTag(56)) goto parse_m_Flmultiple;
         break;
       }
 
-      // optional int32 m_flmultiple = 7;
+      // optional int32 m_Flmultiple = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_flmultiple:
+         parse_m_Flmultiple:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_flmultiple_)));
@@ -13405,32 +13405,32 @@ void E_WelfareMonthlycard::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_cardtype = 2;
+  // optional int32 m_cardType = 2;
   if (has_m_cardtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_cardtype(), output);
   }
 
-  // optional int32 m_cardmoney = 3;
+  // optional int32 m_cardMoney = 3;
   if (has_m_cardmoney()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_cardmoney(), output);
   }
 
-  // optional int32 m_cardbuyitem = 4;
+  // optional int32 m_cardBuyitem = 4;
   if (has_m_cardbuyitem()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_cardbuyitem(), output);
   }
 
-  // optional int32 m_carddailyitem = 5;
+  // optional int32 m_cardDailyitem = 5;
   if (has_m_carddailyitem()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_carddailyitem(), output);
   }
 
-  // optional int32 m_cardtime = 6;
+  // optional int32 m_cardTime = 6;
   if (has_m_cardtime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_cardtime(), output);
   }
 
-  // optional int32 m_flmultiple = 7;
+  // optional int32 m_Flmultiple = 7;
   if (has_m_flmultiple()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_flmultiple(), output);
   }
@@ -13448,32 +13448,32 @@ void E_WelfareMonthlycard::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_cardtype = 2;
+  // optional int32 m_cardType = 2;
   if (has_m_cardtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_cardtype(), target);
   }
 
-  // optional int32 m_cardmoney = 3;
+  // optional int32 m_cardMoney = 3;
   if (has_m_cardmoney()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_cardmoney(), target);
   }
 
-  // optional int32 m_cardbuyitem = 4;
+  // optional int32 m_cardBuyitem = 4;
   if (has_m_cardbuyitem()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_cardbuyitem(), target);
   }
 
-  // optional int32 m_carddailyitem = 5;
+  // optional int32 m_cardDailyitem = 5;
   if (has_m_carddailyitem()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_carddailyitem(), target);
   }
 
-  // optional int32 m_cardtime = 6;
+  // optional int32 m_cardTime = 6;
   if (has_m_cardtime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_cardtime(), target);
   }
 
-  // optional int32 m_flmultiple = 7;
+  // optional int32 m_Flmultiple = 7;
   if (has_m_flmultiple()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_flmultiple(), target);
   }
@@ -13496,42 +13496,42 @@ int E_WelfareMonthlycard::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_cardtype = 2;
+    // optional int32 m_cardType = 2;
     if (has_m_cardtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_cardtype());
     }
 
-    // optional int32 m_cardmoney = 3;
+    // optional int32 m_cardMoney = 3;
     if (has_m_cardmoney()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_cardmoney());
     }
 
-    // optional int32 m_cardbuyitem = 4;
+    // optional int32 m_cardBuyitem = 4;
     if (has_m_cardbuyitem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_cardbuyitem());
     }
 
-    // optional int32 m_carddailyitem = 5;
+    // optional int32 m_cardDailyitem = 5;
     if (has_m_carddailyitem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_carddailyitem());
     }
 
-    // optional int32 m_cardtime = 6;
+    // optional int32 m_cardTime = 6;
     if (has_m_cardtime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_cardtime());
     }
 
-    // optional int32 m_flmultiple = 7;
+    // optional int32 m_Flmultiple = 7;
     if (has_m_flmultiple()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -13839,9 +13839,9 @@ void Sheet_WelfareMonthlycard::Swap(Sheet_WelfareMonthlycard* other) {
 #ifndef _MSC_VER
 const int E_WelfareGoal::kMIdFieldNumber;
 const int E_WelfareGoal::kMFunctionidFieldNumber;
-const int E_WelfareGoal::kMTaskgroupFieldNumber;
+const int E_WelfareGoal::kMTaskGroupFieldNumber;
 const int E_WelfareGoal::kMTasknumFieldNumber;
-const int E_WelfareGoal::kMRewrditemFieldNumber;
+const int E_WelfareGoal::kMRewrdItemFieldNumber;
 const int E_WelfareGoal::kMTimeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -13946,15 +13946,15 @@ bool E_WelfareGoal::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_taskgroup;
+        if (input->ExpectTag(24)) goto parse_m_taskGroup;
         break;
       }
 
-      // optional int32 m_taskgroup = 3;
+      // optional int32 m_taskGroup = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_taskgroup:
+         parse_m_taskGroup:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_taskgroup_)));
@@ -13978,15 +13978,15 @@ bool E_WelfareGoal::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_rewrditem;
+        if (input->ExpectTag(40)) goto parse_m_rewrdItem;
         break;
       }
 
-      // optional int32 m_rewrditem = 5;
+      // optional int32 m_rewrdItem = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rewrditem:
+         parse_m_rewrdItem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rewrditem_)));
@@ -14042,7 +14042,7 @@ void E_WelfareGoal::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_functionid(), output);
   }
 
-  // optional int32 m_taskgroup = 3;
+  // optional int32 m_taskGroup = 3;
   if (has_m_taskgroup()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_taskgroup(), output);
   }
@@ -14052,7 +14052,7 @@ void E_WelfareGoal::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_tasknum(), output);
   }
 
-  // optional int32 m_rewrditem = 5;
+  // optional int32 m_rewrdItem = 5;
   if (has_m_rewrditem()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_rewrditem(), output);
   }
@@ -14080,7 +14080,7 @@ void E_WelfareGoal::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_functionid(), target);
   }
 
-  // optional int32 m_taskgroup = 3;
+  // optional int32 m_taskGroup = 3;
   if (has_m_taskgroup()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_taskgroup(), target);
   }
@@ -14090,7 +14090,7 @@ void E_WelfareGoal::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_tasknum(), target);
   }
 
-  // optional int32 m_rewrditem = 5;
+  // optional int32 m_rewrdItem = 5;
   if (has_m_rewrditem()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_rewrditem(), target);
   }
@@ -14125,7 +14125,7 @@ int E_WelfareGoal::ByteSize() const {
           this->m_functionid());
     }
 
-    // optional int32 m_taskgroup = 3;
+    // optional int32 m_taskGroup = 3;
     if (has_m_taskgroup()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -14139,7 +14139,7 @@ int E_WelfareGoal::ByteSize() const {
           this->m_tasknum());
     }
 
-    // optional int32 m_rewrditem = 5;
+    // optional int32 m_rewrdItem = 5;
     if (has_m_rewrditem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -14449,11 +14449,11 @@ void Sheet_WelfareGoal::Swap(Sheet_WelfareGoal* other) {
 
 #ifndef _MSC_VER
 const int E_WelfareGoaltask::kMIdFieldNumber;
-const int E_WelfareGoaltask::kMGroupidFieldNumber;
-const int E_WelfareGoaltask::kMEventtypeFieldNumber;
-const int E_WelfareGoaltask::kMReachpriceFieldNumber;
-const int E_WelfareGoaltask::kMItemidFieldNumber;
-const int E_WelfareGoaltask::kMItemnumFieldNumber;
+const int E_WelfareGoaltask::kMGroupIDFieldNumber;
+const int E_WelfareGoaltask::kMEventTypeFieldNumber;
+const int E_WelfareGoaltask::kMReachPriceFieldNumber;
+const int E_WelfareGoaltask::kMItemIDFieldNumber;
+const int E_WelfareGoaltask::kMItemNumFieldNumber;
 const int E_WelfareGoaltask::kMParamFieldNumber;
 #endif  // !_MSC_VER
 
@@ -14543,15 +14543,15 @@ bool E_WelfareGoaltask::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_groupid;
+        if (input->ExpectTag(16)) goto parse_m_groupID;
         break;
       }
 
-      // optional int32 m_groupid = 2;
+      // optional int32 m_groupID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_groupid:
+         parse_m_groupID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_groupid_)));
@@ -14559,15 +14559,15 @@ bool E_WelfareGoaltask::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_eventtype;
+        if (input->ExpectTag(24)) goto parse_m_eventType;
         break;
       }
 
-      // optional int32 m_eventtype = 3;
+      // optional int32 m_eventType = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_eventtype:
+         parse_m_eventType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_eventtype_)));
@@ -14575,15 +14575,15 @@ bool E_WelfareGoaltask::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_reachprice;
+        if (input->ExpectTag(32)) goto parse_m_reachPrice;
         break;
       }
 
-      // optional int32 m_reachprice = 4;
+      // optional int32 m_reachPrice = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_reachprice:
+         parse_m_reachPrice:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_reachprice_)));
@@ -14591,15 +14591,15 @@ bool E_WelfareGoaltask::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_itemid;
+        if (input->ExpectTag(40)) goto parse_m_itemID;
         break;
       }
 
-      // optional int32 m_itemid = 5;
+      // optional int32 m_itemID = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemid:
+         parse_m_itemID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itemid_)));
@@ -14607,15 +14607,15 @@ bool E_WelfareGoaltask::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_itemnum;
+        if (input->ExpectTag(48)) goto parse_m_itemNum;
         break;
       }
 
-      // optional int32 m_itemnum = 6;
+      // optional int32 m_itemNum = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemnum:
+         parse_m_itemNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itemnum_)));
@@ -14672,27 +14672,27 @@ void E_WelfareGoaltask::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   if (has_m_groupid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_groupid(), output);
   }
 
-  // optional int32 m_eventtype = 3;
+  // optional int32 m_eventType = 3;
   if (has_m_eventtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_eventtype(), output);
   }
 
-  // optional int32 m_reachprice = 4;
+  // optional int32 m_reachPrice = 4;
   if (has_m_reachprice()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_reachprice(), output);
   }
 
-  // optional int32 m_itemid = 5;
+  // optional int32 m_itemID = 5;
   if (has_m_itemid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_itemid(), output);
   }
 
-  // optional int32 m_itemnum = 6;
+  // optional int32 m_itemNum = 6;
   if (has_m_itemnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_itemnum(), output);
   }
@@ -14716,27 +14716,27 @@ void E_WelfareGoaltask::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   if (has_m_groupid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_groupid(), target);
   }
 
-  // optional int32 m_eventtype = 3;
+  // optional int32 m_eventType = 3;
   if (has_m_eventtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_eventtype(), target);
   }
 
-  // optional int32 m_reachprice = 4;
+  // optional int32 m_reachPrice = 4;
   if (has_m_reachprice()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_reachprice(), target);
   }
 
-  // optional int32 m_itemid = 5;
+  // optional int32 m_itemID = 5;
   if (has_m_itemid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_itemid(), target);
   }
 
-  // optional int32 m_itemnum = 6;
+  // optional int32 m_itemNum = 6;
   if (has_m_itemnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_itemnum(), target);
   }
@@ -14765,35 +14765,35 @@ int E_WelfareGoaltask::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_groupid = 2;
+    // optional int32 m_groupID = 2;
     if (has_m_groupid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_groupid());
     }
 
-    // optional int32 m_eventtype = 3;
+    // optional int32 m_eventType = 3;
     if (has_m_eventtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_eventtype());
     }
 
-    // optional int32 m_reachprice = 4;
+    // optional int32 m_reachPrice = 4;
     if (has_m_reachprice()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_reachprice());
     }
 
-    // optional int32 m_itemid = 5;
+    // optional int32 m_itemID = 5;
     if (has_m_itemid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_itemid());
     }
 
-    // optional int32 m_itemnum = 6;
+    // optional int32 m_itemNum = 6;
     if (has_m_itemnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -15108,10 +15108,10 @@ void Sheet_WelfareGoaltask::Swap(Sheet_WelfareGoaltask* other) {
 
 #ifndef _MSC_VER
 const int E_WelfareInvest::kMIdFieldNumber;
-const int E_WelfareInvest::kMFunctionidFieldNumber;
+const int E_WelfareInvest::kMFunctionIDFieldNumber;
 const int E_WelfareInvest::kMPriceFieldNumber;
-const int E_WelfareInvest::kMRewarditemFieldNumber;
-const int E_WelfareInvest::kMRewardgroupFieldNumber;
+const int E_WelfareInvest::kMRewardItemFieldNumber;
+const int E_WelfareInvest::kMRewardGroupFieldNumber;
 #endif  // !_MSC_VER
 
 E_WelfareInvest::E_WelfareInvest()
@@ -15197,15 +15197,15 @@ bool E_WelfareInvest::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_functionid;
+        if (input->ExpectTag(16)) goto parse_m_functionID;
         break;
       }
 
-      // optional int32 m_functionid = 2;
+      // optional int32 m_functionID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_functionid:
+         parse_m_functionID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_functionid_)));
@@ -15229,15 +15229,15 @@ bool E_WelfareInvest::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_rewarditem;
+        if (input->ExpectTag(32)) goto parse_m_rewardItem;
         break;
       }
 
-      // optional int32 m_rewarditem = 4;
+      // optional int32 m_rewardItem = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rewarditem:
+         parse_m_rewardItem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rewarditem_)));
@@ -15245,15 +15245,15 @@ bool E_WelfareInvest::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_rewardgroup;
+        if (input->ExpectTag(40)) goto parse_m_rewardGroup;
         break;
       }
 
-      // optional int32 m_rewardgroup = 5;
+      // optional int32 m_rewardGroup = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rewardgroup:
+         parse_m_rewardGroup:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rewardgroup_)));
@@ -15288,7 +15288,7 @@ void E_WelfareInvest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_functionid = 2;
+  // optional int32 m_functionID = 2;
   if (has_m_functionid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_functionid(), output);
   }
@@ -15298,12 +15298,12 @@ void E_WelfareInvest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_price(), output);
   }
 
-  // optional int32 m_rewarditem = 4;
+  // optional int32 m_rewardItem = 4;
   if (has_m_rewarditem()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_rewarditem(), output);
   }
 
-  // optional int32 m_rewardgroup = 5;
+  // optional int32 m_rewardGroup = 5;
   if (has_m_rewardgroup()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_rewardgroup(), output);
   }
@@ -15321,7 +15321,7 @@ void E_WelfareInvest::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_functionid = 2;
+  // optional int32 m_functionID = 2;
   if (has_m_functionid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_functionid(), target);
   }
@@ -15331,12 +15331,12 @@ void E_WelfareInvest::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_price(), target);
   }
 
-  // optional int32 m_rewarditem = 4;
+  // optional int32 m_rewardItem = 4;
   if (has_m_rewarditem()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_rewarditem(), target);
   }
 
-  // optional int32 m_rewardgroup = 5;
+  // optional int32 m_rewardGroup = 5;
   if (has_m_rewardgroup()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_rewardgroup(), target);
   }
@@ -15359,7 +15359,7 @@ int E_WelfareInvest::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_functionid = 2;
+    // optional int32 m_functionID = 2;
     if (has_m_functionid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -15373,14 +15373,14 @@ int E_WelfareInvest::ByteSize() const {
           this->m_price());
     }
 
-    // optional int32 m_rewarditem = 4;
+    // optional int32 m_rewardItem = 4;
     if (has_m_rewarditem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_rewarditem());
     }
 
-    // optional int32 m_rewardgroup = 5;
+    // optional int32 m_rewardGroup = 5;
     if (has_m_rewardgroup()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -16044,21 +16044,21 @@ bool E_WelfareInvestreward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_item;
+        if (input->ExpectTag(34)) goto parse_m_Item;
         break;
       }
 
-      // repeated .proto_ff.E_WelfareInvestrewardItemDesc m_item = 4;
+      // repeated .proto_ff.E_WelfareInvestrewardItemDesc m_Item = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_item:
+         parse_m_Item:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_item()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_item;
+        if (input->ExpectTag(34)) goto parse_m_Item;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -16096,7 +16096,7 @@ void E_WelfareInvestreward::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_lv(), output);
   }
 
-  // repeated .proto_ff.E_WelfareInvestrewardItemDesc m_item = 4;
+  // repeated .proto_ff.E_WelfareInvestrewardItemDesc m_Item = 4;
   for (int i = 0; i < this->m_item_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, this->m_item(i), output);
@@ -16125,7 +16125,7 @@ void E_WelfareInvestreward::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_lv(), target);
   }
 
-  // repeated .proto_ff.E_WelfareInvestrewardItemDesc m_item = 4;
+  // repeated .proto_ff.E_WelfareInvestrewardItemDesc m_Item = 4;
   for (int i = 0; i < this->m_item_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -16165,7 +16165,7 @@ int E_WelfareInvestreward::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.E_WelfareInvestrewardItemDesc m_item = 4;
+  // repeated .proto_ff.E_WelfareInvestrewardItemDesc m_Item = 4;
   total_size += 1 * this->m_item_size();
   for (int i = 0; i < this->m_item_size(); i++) {
     total_size +=
@@ -16458,7 +16458,7 @@ void Sheet_WelfareInvestreward::Swap(Sheet_WelfareInvestreward* other) {
 
 #ifndef _MSC_VER
 const int E_WelfareYttlgift::kMIdFieldNumber;
-const int E_WelfareYttlgift::kMRechargeidFieldNumber;
+const int E_WelfareYttlgift::kMRechargeIdFieldNumber;
 const int E_WelfareYttlgift::kMRewardFieldNumber;
 #endif  // !_MSC_VER
 
@@ -16541,15 +16541,15 @@ bool E_WelfareYttlgift::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_rechargeid;
+        if (input->ExpectTag(16)) goto parse_m_rechargeId;
         break;
       }
 
-      // optional int32 m_rechargeid = 2;
+      // optional int32 m_rechargeId = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rechargeid:
+         parse_m_rechargeId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rechargeid_)));
@@ -16600,7 +16600,7 @@ void E_WelfareYttlgift::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_rechargeid = 2;
+  // optional int32 m_rechargeId = 2;
   if (has_m_rechargeid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_rechargeid(), output);
   }
@@ -16623,7 +16623,7 @@ void E_WelfareYttlgift::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_rechargeid = 2;
+  // optional int32 m_rechargeId = 2;
   if (has_m_rechargeid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_rechargeid(), target);
   }
@@ -16651,7 +16651,7 @@ int E_WelfareYttlgift::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_rechargeid = 2;
+    // optional int32 m_rechargeId = 2;
     if (has_m_rechargeid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

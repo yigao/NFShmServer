@@ -5,8 +5,8 @@ import "yd_fieldoptions.proto";
 
 message E_ConditionConditionConditionDesc
 {
-	optional int32 m_param = 1[(yd_fieldoptions.field_cname) = "参数"];
-	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_Param = 1[(yd_fieldoptions.field_cname) = "参数"];
+	optional int32 m_Type = 2[(yd_fieldoptions.field_cname) = "类型"];
 }
 
 message E_ConditionCondition

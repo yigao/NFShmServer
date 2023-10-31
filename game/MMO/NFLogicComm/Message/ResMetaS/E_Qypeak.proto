@@ -6,7 +6,7 @@ import "yd_fieldoptions.proto";
 message E_QypeakBack
 {
 	optional int32 m_layers = 1[(yd_fieldoptions.field_cname) = "层数"];
-	optional int32 m_skillnum = 2[(yd_fieldoptions.field_cname) = "击杀数量"];
+	optional int32 m_skillNum = 2[(yd_fieldoptions.field_cname) = "击杀数量"];
 	optional int32 m_reward = 3[(yd_fieldoptions.field_cname) = "奖励"];
 }
 
@@ -20,7 +20,7 @@ message E_QypeakConstant
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_mapid = 2[(yd_fieldoptions.field_cname) = "地图id"];
-	optional int32 m_revivalbuff = 3[(yd_fieldoptions.field_cname) = "复活buff"];
+	optional int32 m_revivalBuff = 3[(yd_fieldoptions.field_cname) = "复活buff"];
 	repeated int32 m_rankreward = 4[(yd_fieldoptions.field_cname) = "排名奖励", (yd_fieldoptions.field_arysize) = 3];
 	repeated int32 m_titleshow = 5[(yd_fieldoptions.field_cname) = "称号展示", (yd_fieldoptions.field_arysize) = 3];
 }

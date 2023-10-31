@@ -109,45 +109,45 @@ class E_TalentTalent : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_type() const;
   inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 m_skillid = 3;
+  // optional int32 m_skillID = 3;
   inline bool has_m_skillid() const;
   inline void clear_m_skillid();
-  static const int kMSkillidFieldNumber = 3;
+  static const int kMSkillIDFieldNumber = 3;
   inline ::google::protobuf::int32 m_skillid() const;
   inline void set_m_skillid(::google::protobuf::int32 value);
 
-  // optional int32 m_lvlimit = 4;
+  // optional int32 m_lvLImit = 4;
   inline bool has_m_lvlimit() const;
   inline void clear_m_lvlimit();
-  static const int kMLvlimitFieldNumber = 4;
+  static const int kMLvLImitFieldNumber = 4;
   inline ::google::protobuf::int32 m_lvlimit() const;
   inline void set_m_lvlimit(::google::protobuf::int32 value);
 
-  // optional int32 m_aheadskill = 5;
+  // optional int32 m_aheadSkill = 5;
   inline bool has_m_aheadskill() const;
   inline void clear_m_aheadskill();
-  static const int kMAheadskillFieldNumber = 5;
+  static const int kMAheadSkillFieldNumber = 5;
   inline ::google::protobuf::int32 m_aheadskill() const;
   inline void set_m_aheadskill(::google::protobuf::int32 value);
 
-  // optional int32 m_aheadlv = 6;
+  // optional int32 m_aheadLv = 6;
   inline bool has_m_aheadlv() const;
   inline void clear_m_aheadlv();
-  static const int kMAheadlvFieldNumber = 6;
+  static const int kMAheadLvFieldNumber = 6;
   inline ::google::protobuf::int32 m_aheadlv() const;
   inline void set_m_aheadlv(::google::protobuf::int32 value);
 
-  // optional int32 m_needtype = 7;
+  // optional int32 m_needType = 7;
   inline bool has_m_needtype() const;
   inline void clear_m_needtype();
-  static const int kMNeedtypeFieldNumber = 7;
+  static const int kMNeedTypeFieldNumber = 7;
   inline ::google::protobuf::int32 m_needtype() const;
   inline void set_m_needtype(::google::protobuf::int32 value);
 
-  // optional int32 m_typenum = 8;
+  // optional int32 m_typeNum = 8;
   inline bool has_m_typenum() const;
   inline void clear_m_typenum();
-  static const int kMTypenumFieldNumber = 8;
+  static const int kMTypeNumFieldNumber = 8;
   inline ::google::protobuf::int32 m_typenum() const;
   inline void set_m_typenum(::google::protobuf::int32 value);
 
@@ -504,7 +504,7 @@ inline void E_TalentTalent::set_m_type(::google::protobuf::int32 value) {
   m_type_ = value;
 }
 
-// optional int32 m_skillid = 3;
+// optional int32 m_skillID = 3;
 inline bool E_TalentTalent::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -526,7 +526,7 @@ inline void E_TalentTalent::set_m_skillid(::google::protobuf::int32 value) {
   m_skillid_ = value;
 }
 
-// optional int32 m_lvlimit = 4;
+// optional int32 m_lvLImit = 4;
 inline bool E_TalentTalent::has_m_lvlimit() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -548,7 +548,7 @@ inline void E_TalentTalent::set_m_lvlimit(::google::protobuf::int32 value) {
   m_lvlimit_ = value;
 }
 
-// optional int32 m_aheadskill = 5;
+// optional int32 m_aheadSkill = 5;
 inline bool E_TalentTalent::has_m_aheadskill() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -570,7 +570,7 @@ inline void E_TalentTalent::set_m_aheadskill(::google::protobuf::int32 value) {
   m_aheadskill_ = value;
 }
 
-// optional int32 m_aheadlv = 6;
+// optional int32 m_aheadLv = 6;
 inline bool E_TalentTalent::has_m_aheadlv() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -592,7 +592,7 @@ inline void E_TalentTalent::set_m_aheadlv(::google::protobuf::int32 value) {
   m_aheadlv_ = value;
 }
 
-// optional int32 m_needtype = 7;
+// optional int32 m_needType = 7;
 inline bool E_TalentTalent::has_m_needtype() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -614,7 +614,7 @@ inline void E_TalentTalent::set_m_needtype(::google::protobuf::int32 value) {
   m_needtype_ = value;
 }
 
-// optional int32 m_typenum = 8;
+// optional int32 m_typeNum = 8;
 inline bool E_TalentTalent::has_m_typenum() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }

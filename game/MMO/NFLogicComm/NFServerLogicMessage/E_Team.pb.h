@@ -93,66 +93,66 @@ class E_TeamTeam : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_teamobjectid = 1;
+  // optional int32 m_TeamObjectID = 1;
   inline bool has_m_teamobjectid() const;
   inline void clear_m_teamobjectid();
-  static const int kMTeamobjectidFieldNumber = 1;
+  static const int kMTeamObjectIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_teamobjectid() const;
   inline void set_m_teamobjectid(::google::protobuf::int32 value);
 
-  // optional int32 m_fobjectnameid = 2;
+  // optional int32 m_FObjectNameID = 2;
   inline bool has_m_fobjectnameid() const;
   inline void clear_m_fobjectnameid();
-  static const int kMFobjectnameidFieldNumber = 2;
+  static const int kMFObjectNameIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_fobjectnameid() const;
   inline void set_m_fobjectnameid(::google::protobuf::int32 value);
 
-  // optional int32 m_sobjectnameid = 3;
+  // optional int32 m_SObjectNameID = 3;
   inline bool has_m_sobjectnameid() const;
   inline void clear_m_sobjectnameid();
-  static const int kMSobjectnameidFieldNumber = 3;
+  static const int kMSObjectNameIDFieldNumber = 3;
   inline ::google::protobuf::int32 m_sobjectnameid() const;
   inline void set_m_sobjectnameid(::google::protobuf::int32 value);
 
-  // optional int64 m_duplicateid = 4;
+  // optional int64 m_duplicateId = 4;
   inline bool has_m_duplicateid() const;
   inline void clear_m_duplicateid();
-  static const int kMDuplicateidFieldNumber = 4;
+  static const int kMDuplicateIdFieldNumber = 4;
   inline ::google::protobuf::int64 m_duplicateid() const;
   inline void set_m_duplicateid(::google::protobuf::int64 value);
 
-  // optional int64 m_activityid = 5;
+  // optional int64 m_activityId = 5;
   inline bool has_m_activityid() const;
   inline void clear_m_activityid();
-  static const int kMActivityidFieldNumber = 5;
+  static const int kMActivityIdFieldNumber = 5;
   inline ::google::protobuf::int64 m_activityid() const;
   inline void set_m_activityid(::google::protobuf::int64 value);
 
-  // optional int32 m_lowlv = 6;
+  // optional int32 m_LowLV = 6;
   inline bool has_m_lowlv() const;
   inline void clear_m_lowlv();
-  static const int kMLowlvFieldNumber = 6;
+  static const int kMLowLVFieldNumber = 6;
   inline ::google::protobuf::int32 m_lowlv() const;
   inline void set_m_lowlv(::google::protobuf::int32 value);
 
-  // optional int32 m_uplv = 7;
+  // optional int32 m_UpLV = 7;
   inline bool has_m_uplv() const;
   inline void clear_m_uplv();
-  static const int kMUplvFieldNumber = 7;
+  static const int kMUpLVFieldNumber = 7;
   inline ::google::protobuf::int32 m_uplv() const;
   inline void set_m_uplv(::google::protobuf::int32 value);
 
-  // optional int32 m_isautomatch = 8;
+  // optional int32 m_isAutoMatch = 8;
   inline bool has_m_isautomatch() const;
   inline void clear_m_isautomatch();
-  static const int kMIsautomatchFieldNumber = 8;
+  static const int kMIsAutoMatchFieldNumber = 8;
   inline ::google::protobuf::int32 m_isautomatch() const;
   inline void set_m_isautomatch(::google::protobuf::int32 value);
 
-  // optional int32 m_speakchannel = 9;
+  // optional int32 m_speakChannel = 9;
   inline bool has_m_speakchannel() const;
   inline void clear_m_speakchannel();
-  static const int kMSpeakchannelFieldNumber = 9;
+  static const int kMSpeakChannelFieldNumber = 9;
   inline ::google::protobuf::int32 m_speakchannel() const;
   inline void set_m_speakchannel(::google::protobuf::int32 value);
 
@@ -301,7 +301,7 @@ class Sheet_TeamTeam : public ::google::protobuf::Message {
 
 // E_TeamTeam
 
-// optional int32 m_teamobjectid = 1;
+// optional int32 m_TeamObjectID = 1;
 inline bool E_TeamTeam::has_m_teamobjectid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -323,7 +323,7 @@ inline void E_TeamTeam::set_m_teamobjectid(::google::protobuf::int32 value) {
   m_teamobjectid_ = value;
 }
 
-// optional int32 m_fobjectnameid = 2;
+// optional int32 m_FObjectNameID = 2;
 inline bool E_TeamTeam::has_m_fobjectnameid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -345,7 +345,7 @@ inline void E_TeamTeam::set_m_fobjectnameid(::google::protobuf::int32 value) {
   m_fobjectnameid_ = value;
 }
 
-// optional int32 m_sobjectnameid = 3;
+// optional int32 m_SObjectNameID = 3;
 inline bool E_TeamTeam::has_m_sobjectnameid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -367,7 +367,7 @@ inline void E_TeamTeam::set_m_sobjectnameid(::google::protobuf::int32 value) {
   m_sobjectnameid_ = value;
 }
 
-// optional int64 m_duplicateid = 4;
+// optional int64 m_duplicateId = 4;
 inline bool E_TeamTeam::has_m_duplicateid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -389,7 +389,7 @@ inline void E_TeamTeam::set_m_duplicateid(::google::protobuf::int64 value) {
   m_duplicateid_ = value;
 }
 
-// optional int64 m_activityid = 5;
+// optional int64 m_activityId = 5;
 inline bool E_TeamTeam::has_m_activityid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -411,7 +411,7 @@ inline void E_TeamTeam::set_m_activityid(::google::protobuf::int64 value) {
   m_activityid_ = value;
 }
 
-// optional int32 m_lowlv = 6;
+// optional int32 m_LowLV = 6;
 inline bool E_TeamTeam::has_m_lowlv() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -433,7 +433,7 @@ inline void E_TeamTeam::set_m_lowlv(::google::protobuf::int32 value) {
   m_lowlv_ = value;
 }
 
-// optional int32 m_uplv = 7;
+// optional int32 m_UpLV = 7;
 inline bool E_TeamTeam::has_m_uplv() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -455,7 +455,7 @@ inline void E_TeamTeam::set_m_uplv(::google::protobuf::int32 value) {
   m_uplv_ = value;
 }
 
-// optional int32 m_isautomatch = 8;
+// optional int32 m_isAutoMatch = 8;
 inline bool E_TeamTeam::has_m_isautomatch() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -477,7 +477,7 @@ inline void E_TeamTeam::set_m_isautomatch(::google::protobuf::int32 value) {
   m_isautomatch_ = value;
 }
 
-// optional int32 m_speakchannel = 9;
+// optional int32 m_speakChannel = 9;
 inline bool E_TeamTeam::has_m_speakchannel() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }

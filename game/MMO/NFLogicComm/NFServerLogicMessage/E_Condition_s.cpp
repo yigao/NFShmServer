@@ -11,8 +11,8 @@ E_ConditionConditionConditionDesc_s::E_ConditionConditionConditionDesc_s() {
 }
 
 int E_ConditionConditionConditionDesc_s::CreateInit() {
-	m_param = (int32_t)0;
-	m_type = (int32_t)0;
+	m_Param = (int32_t)0;
+	m_Type = (int32_t)0;
 	return 0;
 }
 
@@ -21,13 +21,13 @@ int E_ConditionConditionConditionDesc_s::ResumeInit() {
 }
 
 void E_ConditionConditionConditionDesc_s::write_to_pbmsg(::proto_ff::E_ConditionConditionConditionDesc & msg) const {
-	msg.set_m_param((int32_t)m_param);
-	msg.set_m_type((int32_t)m_type);
+	msg.set_m_param((int32_t)m_Param);
+	msg.set_m_type((int32_t)m_Type);
 }
 
 void E_ConditionConditionConditionDesc_s::read_from_pbmsg(const ::proto_ff::E_ConditionConditionConditionDesc & msg) {
-	m_param = msg.m_param();
-	m_type = msg.m_type();
+	m_Param = msg.m_param();
+	m_Type = msg.m_type();
 }
 
 E_ConditionCondition_s::E_ConditionCondition_s() {

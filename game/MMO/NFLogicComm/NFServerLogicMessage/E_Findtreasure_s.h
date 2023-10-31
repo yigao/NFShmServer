@@ -30,20 +30,20 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_type;//类型
-		int32_t m_functionunlock;//功能开放
-		int64_t m_costid;//道具id
-		NFShmString<64> m_costnum;//抽奖消耗
-		int32_t m_contitem;//特殊连抽道具
-		NFShmString<64> m_poolgroupid;//奖池id
+		int32_t m_functionUnlock;//功能开放
+		int64_t m_costID;//道具id
+		NFShmString<64> m_costNum;//抽奖消耗
+		int32_t m_ContItem;//特殊连抽道具
+		NFShmString<64> m_poolGroupId;//奖池id
 		int32_t m_loop;//第几个奖池后为循环奖池
-		int32_t m_pooltime;//奖池轮换时间
-		int32_t m_totalgroupid;//累计次数奖励id
-		int32_t m_activegroupid;//活动id
-		int32_t m_protecttime;//保底奖池次数
-		int32_t m_additem;//抽奖额外奖励ID
-		int32_t m_addnum;//抽奖额外奖励数量
-		int32_t m_shopid;//商城Id
-		int32_t m_storehousetype;//仓库类型
+		int32_t m_poolTime;//奖池轮换时间
+		int32_t m_totalGroupID;//累计次数奖励id
+		int32_t m_activeGroupID;//活动id
+		int32_t m_protectTime;//保底奖池次数
+		int32_t m_addItem;//抽奖额外奖励ID
+		int32_t m_addNum;//抽奖额外奖励数量
+		int32_t m_shopID;//商城Id
+		int32_t m_storehouseType;//仓库类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_FindtreasureFindtreasure & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FindtreasureFindtreasure & msg);
@@ -72,14 +72,14 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_groupid;//奖池组ID
-		int32_t m_showorder;//客户端展示
+		int32_t m_groupID;//奖池组ID
+		int32_t m_showOrder;//客户端展示
 		int64_t m_itemid;//物品
 		int32_t m_num;//数量
 		int32_t m_prof;//职业
 		int32_t m_weights;//掉落权重
-		int32_t m_proweights;//保底掉落权重
-		int32_t m_record;//奖励记录稀有度
+		int32_t m_proWeights;//保底掉落权重
+		int32_t m_Record;//奖励记录稀有度
 
 		virtual void write_to_pbmsg(::proto_ff::E_FindtreasureFindpool & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FindtreasureFindpool & msg);
@@ -108,8 +108,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_dragonsevertime;//真龙秘宝开服开启常规刷新时间
-		int32_t m_godsevertime;//神机更换奖池时间
+		int32_t m_dragonSeverTime;//真龙秘宝开服开启常规刷新时间
+		int32_t m_godSeverTime;//神机更换奖池时间
 
 		virtual void write_to_pbmsg(::proto_ff::E_FindtreasureConstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FindtreasureConstant & msg);
@@ -140,7 +140,7 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_groupid;//组id
 		int32_t m_type;//类型
-		int32_t m_itemid;//奖励道具id
+		int32_t m_itemID;//奖励道具id
 		int32_t m_num;//奖励道具数量
 		NFShmVector<int32_t, DEFINE_E_FINDTREASURETOTAL_M_ARG_MAX_NUM> m_arg;//参数
 
@@ -173,10 +173,10 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_groupid;//组id
 		int32_t m_opentime;//活动开启时间
-		int32_t m_durtime;//持续时间
-		int32_t m_closetime;//关闭时间
+		int32_t m_durTime;//持续时间
+		int32_t m_closeTime;//关闭时间
 		int32_t m_type;//活动类型
-		int32_t m_typegroupid;//活动组id
+		int32_t m_typeGroupId;//活动组id
 
 		virtual void write_to_pbmsg(::proto_ff::E_FindtreasureActive & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FindtreasureActive & msg);
@@ -205,10 +205,10 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_groupid;//组id
+		int32_t m_groupID;//组id
 		int32_t m_type;//分类
 		int32_t m_itemid;//物品id
-		int32_t m_proarg;//调整系数
+		int32_t m_proArg;//调整系数
 
 		virtual void write_to_pbmsg(::proto_ff::E_FindtreasureActiveup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FindtreasureActiveup & msg);
@@ -237,10 +237,10 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_groupid;//组id
-		int32_t m_itemid;//道具id
+		int32_t m_itemID;//道具id
 		int32_t m_type;//价格类型
 		int32_t m_price;//价格
-		int32_t m_itemnum;//道具数量
+		int32_t m_itemNum;//道具数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_FindtreasureActivegoods & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FindtreasureActivegoods & msg);
@@ -318,9 +318,9 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_groupid;//组id
-		int32_t m_goodsid;//商品id
-		int32_t m_goodsnum;//商品数量
-		int32_t m_costid;//货币id
+		int32_t m_goodsID;//商品id
+		int32_t m_goodsNum;//商品数量
+		int32_t m_costID;//货币id
 		int32_t m_num;//货币数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_FindtreasureShop & msg) const;

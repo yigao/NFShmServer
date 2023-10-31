@@ -135,24 +135,24 @@ class E_DailyDaily : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_args() const;
   inline void set_m_args(::google::protobuf::int32 value);
 
-  // optional int32 m_playtype = 5;
+  // optional int32 m_playType = 5;
   inline bool has_m_playtype() const;
   inline void clear_m_playtype();
-  static const int kMPlaytypeFieldNumber = 5;
+  static const int kMPlayTypeFieldNumber = 5;
   inline ::google::protobuf::int32 m_playtype() const;
   inline void set_m_playtype(::google::protobuf::int32 value);
 
-  // optional int32 m_playargs = 6;
+  // optional int32 m_playArgs = 6;
   inline bool has_m_playargs() const;
   inline void clear_m_playargs();
-  static const int kMPlayargsFieldNumber = 6;
+  static const int kMPlayArgsFieldNumber = 6;
   inline ::google::protobuf::int32 m_playargs() const;
   inline void set_m_playargs(::google::protobuf::int32 value);
 
-  // optional int64 m_funciontid = 7;
+  // optional int64 m_funciontID = 7;
   inline bool has_m_funciontid() const;
   inline void clear_m_funciontid();
-  static const int kMFunciontidFieldNumber = 7;
+  static const int kMFunciontIDFieldNumber = 7;
   inline ::google::protobuf::int64 m_funciontid() const;
   inline void set_m_funciontid(::google::protobuf::int64 value);
 
@@ -163,10 +163,10 @@ class E_DailyDaily : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_number() const;
   inline void set_m_number(::google::protobuf::int32 value);
 
-  // optional int32 m_eachscore = 9;
+  // optional int32 m_eachScore = 9;
   inline bool has_m_eachscore() const;
   inline void clear_m_eachscore();
-  static const int kMEachscoreFieldNumber = 9;
+  static const int kMEachScoreFieldNumber = 9;
   inline ::google::protobuf::int32 m_eachscore() const;
   inline void set_m_eachscore(::google::protobuf::int32 value);
 
@@ -177,10 +177,10 @@ class E_DailyDaily : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_cycle() const;
   inline void set_m_cycle(::google::protobuf::int32 value);
 
-  // optional int32 m_regreward = 11;
+  // optional int32 m_regReward = 11;
   inline bool has_m_regreward() const;
   inline void clear_m_regreward();
-  static const int kMRegrewardFieldNumber = 11;
+  static const int kMRegRewardFieldNumber = 11;
   inline ::google::protobuf::int32 m_regreward() const;
   inline void set_m_regreward(::google::protobuf::int32 value);
 
@@ -388,24 +388,24 @@ class E_DailyReward : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_type() const;
   inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 m_activescore = 3;
+  // optional int32 m_activeScore = 3;
   inline bool has_m_activescore() const;
   inline void clear_m_activescore();
-  static const int kMActivescoreFieldNumber = 3;
+  static const int kMActiveScoreFieldNumber = 3;
   inline ::google::protobuf::int32 m_activescore() const;
   inline void set_m_activescore(::google::protobuf::int32 value);
 
-  // optional int64 m_rewardid = 4;
+  // optional int64 m_rewardId = 4;
   inline bool has_m_rewardid() const;
   inline void clear_m_rewardid();
-  static const int kMRewardidFieldNumber = 4;
+  static const int kMRewardIdFieldNumber = 4;
   inline ::google::protobuf::int64 m_rewardid() const;
   inline void set_m_rewardid(::google::protobuf::int64 value);
 
-  // optional int32 m_rewardnum = 5;
+  // optional int32 m_rewardNum = 5;
   inline bool has_m_rewardnum() const;
   inline void clear_m_rewardnum();
-  static const int kMRewardnumFieldNumber = 5;
+  static const int kMRewardNumFieldNumber = 5;
   inline ::google::protobuf::int32 m_rewardnum() const;
   inline void set_m_rewardnum(::google::protobuf::int32 value);
 
@@ -581,17 +581,17 @@ class E_DailyCultivateAttributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   inline bool has_m_value() const;
   inline void clear_m_value();
   static const int kMValueFieldNumber = 1;
   inline ::google::protobuf::int32 m_value() const;
   inline void set_m_value(::google::protobuf::int32 value);
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -673,10 +673,10 @@ class E_DailyCultivate : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 1;
+  static const int kMIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -892,17 +892,17 @@ class E_DailySports : public ::google::protobuf::Message {
   inline ::std::string* release_m_name();
   inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional int32 m_functionid = 3;
+  // optional int32 m_functionID = 3;
   inline bool has_m_functionid() const;
   inline void clear_m_functionid();
-  static const int kMFunctionidFieldNumber = 3;
+  static const int kMFunctionIDFieldNumber = 3;
   inline ::google::protobuf::int32 m_functionid() const;
   inline void set_m_functionid(::google::protobuf::int32 value);
 
-  // optional int32 m_peractivityid = 4;
+  // optional int32 m_perActivityid = 4;
   inline bool has_m_peractivityid() const;
   inline void clear_m_peractivityid();
-  static const int kMPeractivityidFieldNumber = 4;
+  static const int kMPerActivityidFieldNumber = 4;
   inline ::google::protobuf::int32 m_peractivityid() const;
   inline void set_m_peractivityid(::google::protobuf::int32 value);
 
@@ -1095,24 +1095,24 @@ class E_DailyHelper : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_helperid = 1;
+  // optional int32 m_helperID = 1;
   inline bool has_m_helperid() const;
   inline void clear_m_helperid();
-  static const int kMHelperidFieldNumber = 1;
+  static const int kMHelperIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_helperid() const;
   inline void set_m_helperid(::google::protobuf::int32 value);
 
-  // optional int32 m_helpertype = 2;
+  // optional int32 m_helperType = 2;
   inline bool has_m_helpertype() const;
   inline void clear_m_helpertype();
-  static const int kMHelpertypeFieldNumber = 2;
+  static const int kMHelperTypeFieldNumber = 2;
   inline ::google::protobuf::int32 m_helpertype() const;
   inline void set_m_helpertype(::google::protobuf::int32 value);
 
-  // optional string m_playid = 3;
+  // optional string m_playID = 3;
   inline bool has_m_playid() const;
   inline void clear_m_playid();
-  static const int kMPlayidFieldNumber = 3;
+  static const int kMPlayIDFieldNumber = 3;
   inline const ::std::string& m_playid() const;
   inline void set_m_playid(const ::std::string& value);
   inline void set_m_playid(const char* value);
@@ -1121,10 +1121,10 @@ class E_DailyHelper : public ::google::protobuf::Message {
   inline ::std::string* release_m_playid();
   inline void set_allocated_m_playid(::std::string* m_playid);
 
-  // optional int32 m_linkid = 4;
+  // optional int32 m_linkId = 4;
   inline bool has_m_linkid() const;
   inline void clear_m_linkid();
-  static const int kMLinkidFieldNumber = 4;
+  static const int kMLinkIdFieldNumber = 4;
   inline ::google::protobuf::int32 m_linkid() const;
   inline void set_m_linkid(::google::protobuf::int32 value);
 
@@ -1414,7 +1414,7 @@ inline void E_DailyDaily::set_m_args(::google::protobuf::int32 value) {
   m_args_ = value;
 }
 
-// optional int32 m_playtype = 5;
+// optional int32 m_playType = 5;
 inline bool E_DailyDaily::has_m_playtype() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1436,7 +1436,7 @@ inline void E_DailyDaily::set_m_playtype(::google::protobuf::int32 value) {
   m_playtype_ = value;
 }
 
-// optional int32 m_playargs = 6;
+// optional int32 m_playArgs = 6;
 inline bool E_DailyDaily::has_m_playargs() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -1458,7 +1458,7 @@ inline void E_DailyDaily::set_m_playargs(::google::protobuf::int32 value) {
   m_playargs_ = value;
 }
 
-// optional int64 m_funciontid = 7;
+// optional int64 m_funciontID = 7;
 inline bool E_DailyDaily::has_m_funciontid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -1502,7 +1502,7 @@ inline void E_DailyDaily::set_m_number(::google::protobuf::int32 value) {
   m_number_ = value;
 }
 
-// optional int32 m_eachscore = 9;
+// optional int32 m_eachScore = 9;
 inline bool E_DailyDaily::has_m_eachscore() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -1546,7 +1546,7 @@ inline void E_DailyDaily::set_m_cycle(::google::protobuf::int32 value) {
   m_cycle_ = value;
 }
 
-// optional int32 m_regreward = 11;
+// optional int32 m_regReward = 11;
 inline bool E_DailyDaily::has_m_regreward() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -1645,7 +1645,7 @@ inline void E_DailyReward::set_m_type(::google::protobuf::int32 value) {
   m_type_ = value;
 }
 
-// optional int32 m_activescore = 3;
+// optional int32 m_activeScore = 3;
 inline bool E_DailyReward::has_m_activescore() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1667,7 +1667,7 @@ inline void E_DailyReward::set_m_activescore(::google::protobuf::int32 value) {
   m_activescore_ = value;
 }
 
-// optional int64 m_rewardid = 4;
+// optional int64 m_rewardId = 4;
 inline bool E_DailyReward::has_m_rewardid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1689,7 +1689,7 @@ inline void E_DailyReward::set_m_rewardid(::google::protobuf::int64 value) {
   m_rewardid_ = value;
 }
 
-// optional int32 m_rewardnum = 5;
+// optional int32 m_rewardNum = 5;
 inline bool E_DailyReward::has_m_rewardnum() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1744,7 +1744,7 @@ Sheet_DailyReward::mutable_e_dailyreward_list() {
 
 // E_DailyCultivateAttributeDesc
 
-// optional int32 m_value = 1;
+// optional int32 m_Value = 1;
 inline bool E_DailyCultivateAttributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1766,7 +1766,7 @@ inline void E_DailyCultivateAttributeDesc::set_m_value(::google::protobuf::int32
   m_value_ = value;
 }
 
-// optional int32 m_id = 2;
+// optional int32 m_ID = 2;
 inline bool E_DailyCultivateAttributeDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1792,7 +1792,7 @@ inline void E_DailyCultivateAttributeDesc::set_m_id(::google::protobuf::int32 va
 
 // E_DailyCultivate
 
-// optional int32 m_id = 1;
+// optional int32 m_ID = 1;
 inline bool E_DailyCultivate::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -2008,7 +2008,7 @@ inline void E_DailySports::set_allocated_m_name(::std::string* m_name) {
   }
 }
 
-// optional int32 m_functionid = 3;
+// optional int32 m_functionID = 3;
 inline bool E_DailySports::has_m_functionid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -2030,7 +2030,7 @@ inline void E_DailySports::set_m_functionid(::google::protobuf::int32 value) {
   m_functionid_ = value;
 }
 
-// optional int32 m_peractivityid = 4;
+// optional int32 m_perActivityid = 4;
 inline bool E_DailySports::has_m_peractivityid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -2129,7 +2129,7 @@ Sheet_DailySports::mutable_e_dailysports_list() {
 
 // E_DailyHelper
 
-// optional int32 m_helperid = 1;
+// optional int32 m_helperID = 1;
 inline bool E_DailyHelper::has_m_helperid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -2151,7 +2151,7 @@ inline void E_DailyHelper::set_m_helperid(::google::protobuf::int32 value) {
   m_helperid_ = value;
 }
 
-// optional int32 m_helpertype = 2;
+// optional int32 m_helperType = 2;
 inline bool E_DailyHelper::has_m_helpertype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -2173,7 +2173,7 @@ inline void E_DailyHelper::set_m_helpertype(::google::protobuf::int32 value) {
   m_helpertype_ = value;
 }
 
-// optional string m_playid = 3;
+// optional string m_playID = 3;
 inline bool E_DailyHelper::has_m_playid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -2243,7 +2243,7 @@ inline void E_DailyHelper::set_allocated_m_playid(::std::string* m_playid) {
   }
 }
 
-// optional int32 m_linkid = 4;
+// optional int32 m_linkId = 4;
 inline bool E_DailyHelper::has_m_linkid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }

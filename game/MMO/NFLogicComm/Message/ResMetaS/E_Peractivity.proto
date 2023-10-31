@@ -5,19 +5,19 @@ import "yd_fieldoptions.proto";
 
 message E_PeractivityPeractivity
 {
-	optional int64 m_activeid = 1[(yd_fieldoptions.field_cname) = "活动ID"];
-	optional string m_activename = 2[(yd_fieldoptions.field_cname) = "活动名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_typeid = 3[(yd_fieldoptions.field_cname) = "类型ID"];
-	optional int32 m_functionid = 4[(yd_fieldoptions.field_cname) = "功能开放ID"];
-	optional string m_opeday = 5[(yd_fieldoptions.field_cname) = "开放日期", (yd_fieldoptions.field_bufsize) = 64];
-	optional string m_closeday = 6[(yd_fieldoptions.field_cname) = "关闭日期", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_serverdelaytime = 7[(yd_fieldoptions.field_cname) = "开服后多少天活动开启"];
-	optional int32 m_servertime = 8[(yd_fieldoptions.field_cname) = "开服后多少活动结束"];
-	optional int32 m_openingtime = 9[(yd_fieldoptions.field_cname) = "开启时长"];
-	optional int32 m_advancetime = 10[(yd_fieldoptions.field_cname) = "提前广播时间"];
-	optional int32 m_intervaltime = 11[(yd_fieldoptions.field_cname) = "广播间隔"];
-	optional int32 m_iscross = 12[(yd_fieldoptions.field_cname) = "是否跨服"];
-	optional int32 m_isfestvial = 13[(yd_fieldoptions.field_cname) = "是否限时活动"];
+	optional int64 m_activeId = 1[(yd_fieldoptions.field_cname) = "活动ID"];
+	optional string m_activeName = 2[(yd_fieldoptions.field_cname) = "活动名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_typeId = 3[(yd_fieldoptions.field_cname) = "类型ID"];
+	optional int32 m_functionID = 4[(yd_fieldoptions.field_cname) = "功能开放ID"];
+	optional string m_opeDay = 5[(yd_fieldoptions.field_cname) = "开放日期", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_closeDay = 6[(yd_fieldoptions.field_cname) = "关闭日期", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_serverdelayTime = 7[(yd_fieldoptions.field_cname) = "开服后多少天活动开启"];
+	optional int32 m_serverTime = 8[(yd_fieldoptions.field_cname) = "开服后多少活动结束"];
+	optional int32 m_openingTime = 9[(yd_fieldoptions.field_cname) = "开启时长"];
+	optional int32 m_advanceTime = 10[(yd_fieldoptions.field_cname) = "提前广播时间"];
+	optional int32 m_intervalTime = 11[(yd_fieldoptions.field_cname) = "广播间隔"];
+	optional int32 m_isCross = 12[(yd_fieldoptions.field_cname) = "是否跨服"];
+	optional int32 m_isFestvial = 13[(yd_fieldoptions.field_cname) = "是否限时活动"];
 }
 
 

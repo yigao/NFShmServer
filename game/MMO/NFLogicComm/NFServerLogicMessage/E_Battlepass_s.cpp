@@ -14,19 +14,19 @@ int E_BattlepassBattlepass_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_reward = (int32_t)0;
 	m_task = (int32_t)0;
-	m_freshcost = (int32_t)0;
+	m_freshCost = (int32_t)0;
 	m_shop = (int32_t)0;
-	m_shopcurrency = (int32_t)0;
-	m_severopentype = (int32_t)0;
-	m_openseverday = (int32_t)0;
-	m_closeseverday = (int32_t)0;
-	m_pricetype = (int32_t)0;
+	m_shopCurrency = (int32_t)0;
+	m_severOpenType = (int32_t)0;
+	m_openSeverDay = (int32_t)0;
+	m_closeSeverDay = (int32_t)0;
+	m_priceType = (int32_t)0;
 	m_price = (int32_t)0;
-	m_pricep = (int32_t)0;
-	m_presentexp = (int32_t)0;
-	m_expcost = (int32_t)0;
-	m_expprice = (int32_t)0;
-	m_expitem = (int32_t)0;
+	m_priceP = (int32_t)0;
+	m_presentExp = (int32_t)0;
+	m_expCost = (int32_t)0;
+	m_expPrice = (int32_t)0;
+	m_expItem = (int32_t)0;
 	return 0;
 }
 
@@ -38,40 +38,40 @@ void E_BattlepassBattlepass_s::write_to_pbmsg(::proto_ff::E_BattlepassBattlepass
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_reward((int32_t)m_reward);
 	msg.set_m_task((int32_t)m_task);
-	msg.set_m_tasknum(m_tasknum.data());
-	msg.set_m_freshcost((int32_t)m_freshcost);
+	msg.set_m_tasknum(m_taskNum.data());
+	msg.set_m_freshcost((int32_t)m_freshCost);
 	msg.set_m_shop((int32_t)m_shop);
-	msg.set_m_shopcurrency((int32_t)m_shopcurrency);
-	msg.set_m_severopentype((int32_t)m_severopentype);
-	msg.set_m_openseverday((int32_t)m_openseverday);
-	msg.set_m_closeseverday((int32_t)m_closeseverday);
-	msg.set_m_pricetype((int32_t)m_pricetype);
+	msg.set_m_shopcurrency((int32_t)m_shopCurrency);
+	msg.set_m_severopentype((int32_t)m_severOpenType);
+	msg.set_m_openseverday((int32_t)m_openSeverDay);
+	msg.set_m_closeseverday((int32_t)m_closeSeverDay);
+	msg.set_m_pricetype((int32_t)m_priceType);
 	msg.set_m_price((int32_t)m_price);
-	msg.set_m_pricep((int32_t)m_pricep);
-	msg.set_m_presentexp((int32_t)m_presentexp);
-	msg.set_m_expcost((int32_t)m_expcost);
-	msg.set_m_expprice((int32_t)m_expprice);
-	msg.set_m_expitem((int32_t)m_expitem);
+	msg.set_m_pricep((int32_t)m_priceP);
+	msg.set_m_presentexp((int32_t)m_presentExp);
+	msg.set_m_expcost((int32_t)m_expCost);
+	msg.set_m_expprice((int32_t)m_expPrice);
+	msg.set_m_expitem((int32_t)m_expItem);
 }
 
 void E_BattlepassBattlepass_s::read_from_pbmsg(const ::proto_ff::E_BattlepassBattlepass & msg) {
 	m_id = msg.m_id();
 	m_reward = msg.m_reward();
 	m_task = msg.m_task();
-	m_tasknum = msg.m_tasknum();
-	m_freshcost = msg.m_freshcost();
+	m_taskNum = msg.m_tasknum();
+	m_freshCost = msg.m_freshcost();
 	m_shop = msg.m_shop();
-	m_shopcurrency = msg.m_shopcurrency();
-	m_severopentype = msg.m_severopentype();
-	m_openseverday = msg.m_openseverday();
-	m_closeseverday = msg.m_closeseverday();
-	m_pricetype = msg.m_pricetype();
+	m_shopCurrency = msg.m_shopcurrency();
+	m_severOpenType = msg.m_severopentype();
+	m_openSeverDay = msg.m_openseverday();
+	m_closeSeverDay = msg.m_closeseverday();
+	m_priceType = msg.m_pricetype();
 	m_price = msg.m_price();
-	m_pricep = msg.m_pricep();
-	m_presentexp = msg.m_presentexp();
-	m_expcost = msg.m_expcost();
-	m_expprice = msg.m_expprice();
-	m_expitem = msg.m_expitem();
+	m_priceP = msg.m_pricep();
+	m_presentExp = msg.m_presentexp();
+	m_expCost = msg.m_expcost();
+	m_expPrice = msg.m_expprice();
+	m_expItem = msg.m_expitem();
 }
 
 Sheet_BattlepassBattlepass_s::Sheet_BattlepassBattlepass_s() {
@@ -174,9 +174,9 @@ int E_BattlepassReward_s::CreateInit() {
 	m_groupid = (int32_t)0;
 	m_lv = (int32_t)0;
 	m_exp = (int32_t)0;
-	m_core = (int32_t)0;
-	m_buylevel = (int32_t)0;
-	m_showitem = (int32_t)0;
+	m_Core = (int32_t)0;
+	m_buyLevel = (int32_t)0;
+	m_showItem = (int32_t)0;
 	return 0;
 }
 
@@ -189,16 +189,16 @@ void E_BattlepassReward_s::write_to_pbmsg(::proto_ff::E_BattlepassReward & msg) 
 	msg.set_m_groupid((int32_t)m_groupid);
 	msg.set_m_lv((int32_t)m_lv);
 	msg.set_m_exp((int32_t)m_exp);
-	msg.set_m_core((int32_t)m_core);
-	msg.set_m_buylevel((int32_t)m_buylevel);
-	msg.set_m_showitem((int32_t)m_showitem);
+	msg.set_m_core((int32_t)m_Core);
+	msg.set_m_buylevel((int32_t)m_buyLevel);
+	msg.set_m_showitem((int32_t)m_showItem);
 	for(int32_t i = 0; i < (int32_t)m_item.size(); ++i) {
 		::proto_ff::E_BattlepassRewardItemDesc* temp_m_item = msg.add_m_item();
 		m_item[i].write_to_pbmsg(*temp_m_item);
 	}
-	for(int32_t i = 0; i < (int32_t)m_proitem.size(); ++i) {
+	for(int32_t i = 0; i < (int32_t)m_proItem.size(); ++i) {
 		::proto_ff::E_BattlepassRewardProitemDesc* temp_m_proitem = msg.add_m_proitem();
-		m_proitem[i].write_to_pbmsg(*temp_m_proitem);
+		m_proItem[i].write_to_pbmsg(*temp_m_proitem);
 	}
 }
 
@@ -207,18 +207,18 @@ void E_BattlepassReward_s::read_from_pbmsg(const ::proto_ff::E_BattlepassReward 
 	m_groupid = msg.m_groupid();
 	m_lv = msg.m_lv();
 	m_exp = msg.m_exp();
-	m_core = msg.m_core();
-	m_buylevel = msg.m_buylevel();
-	m_showitem = msg.m_showitem();
+	m_Core = msg.m_core();
+	m_buyLevel = msg.m_buylevel();
+	m_showItem = msg.m_showitem();
 	m_item.resize((int)msg.m_item_size() > (int)m_item.max_size() ? m_item.max_size() : msg.m_item_size());
 	for(int32_t i = 0; i < (int32_t)m_item.size(); ++i) {
 		const ::proto_ff::E_BattlepassRewardItemDesc & temp_m_item = msg.m_item(i);
 		m_item[i].read_from_pbmsg(temp_m_item);
 	}
-	m_proitem.resize((int)msg.m_proitem_size() > (int)m_proitem.max_size() ? m_proitem.max_size() : msg.m_proitem_size());
-	for(int32_t i = 0; i < (int32_t)m_proitem.size(); ++i) {
+	m_proItem.resize((int)msg.m_proitem_size() > (int)m_proItem.max_size() ? m_proItem.max_size() : msg.m_proitem_size());
+	for(int32_t i = 0; i < (int32_t)m_proItem.size(); ++i) {
 		const ::proto_ff::E_BattlepassRewardProitemDesc & temp_m_proitem = msg.m_proitem(i);
-		m_proitem[i].read_from_pbmsg(temp_m_proitem);
+		m_proItem[i].read_from_pbmsg(temp_m_proitem);
 	}
 }
 
@@ -264,11 +264,11 @@ E_BattlepassTask_s::E_BattlepassTask_s() {
 int E_BattlepassTask_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_group = (int32_t)0;
-	m_taskrefresh = (int32_t)0;
+	m_taskRefresh = (int32_t)0;
 	m_lv = (int32_t)0;
 	m_tag = (int32_t)0;
-	m_eventtype = (int32_t)0;
-	m_reachprice = (int32_t)0;
+	m_eventType = (int32_t)0;
+	m_reachPrice = (int32_t)0;
 	m_link = (int32_t)0;
 	m_exp = (int32_t)0;
 	return 0;
@@ -281,11 +281,11 @@ int E_BattlepassTask_s::ResumeInit() {
 void E_BattlepassTask_s::write_to_pbmsg(::proto_ff::E_BattlepassTask & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_group((int32_t)m_group);
-	msg.set_m_taskrefresh((int32_t)m_taskrefresh);
+	msg.set_m_taskrefresh((int32_t)m_taskRefresh);
 	msg.set_m_lv((int32_t)m_lv);
 	msg.set_m_tag((int32_t)m_tag);
-	msg.set_m_eventtype((int32_t)m_eventtype);
-	msg.set_m_reachprice((int32_t)m_reachprice);
+	msg.set_m_eventtype((int32_t)m_eventType);
+	msg.set_m_reachprice((int32_t)m_reachPrice);
 	msg.set_m_link((int32_t)m_link);
 	msg.set_m_exp((int32_t)m_exp);
 	for(int32_t i = 0; i < (int32_t)m_param.size(); ++i) {
@@ -296,11 +296,11 @@ void E_BattlepassTask_s::write_to_pbmsg(::proto_ff::E_BattlepassTask & msg) cons
 void E_BattlepassTask_s::read_from_pbmsg(const ::proto_ff::E_BattlepassTask & msg) {
 	m_id = msg.m_id();
 	m_group = msg.m_group();
-	m_taskrefresh = msg.m_taskrefresh();
+	m_taskRefresh = msg.m_taskrefresh();
 	m_lv = msg.m_lv();
 	m_tag = msg.m_tag();
-	m_eventtype = msg.m_eventtype();
-	m_reachprice = msg.m_reachprice();
+	m_eventType = msg.m_eventtype();
+	m_reachPrice = msg.m_reachprice();
 	m_link = msg.m_link();
 	m_exp = msg.m_exp();
 	m_param.resize((int)msg.m_param_size() > (int)m_param.max_size() ? m_param.max_size() : msg.m_param_size());
@@ -351,11 +351,11 @@ E_BattlepassShop_s::E_BattlepassShop_s() {
 int E_BattlepassShop_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_group = (int32_t)0;
-	m_itemid = (int32_t)0;
-	m_itemnum = (int32_t)0;
-	m_costitem = (int32_t)0;
-	m_costnum = (int32_t)0;
-	m_numlimit = (int32_t)0;
+	m_itemID = (int32_t)0;
+	m_itemNum = (int32_t)0;
+	m_costItem = (int32_t)0;
+	m_costNum = (int32_t)0;
+	m_numLimit = (int32_t)0;
 	return 0;
 }
 
@@ -366,21 +366,21 @@ int E_BattlepassShop_s::ResumeInit() {
 void E_BattlepassShop_s::write_to_pbmsg(::proto_ff::E_BattlepassShop & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_group((int32_t)m_group);
-	msg.set_m_itemid((int32_t)m_itemid);
-	msg.set_m_itemnum((int32_t)m_itemnum);
-	msg.set_m_costitem((int32_t)m_costitem);
-	msg.set_m_costnum((int32_t)m_costnum);
-	msg.set_m_numlimit((int32_t)m_numlimit);
+	msg.set_m_itemid((int32_t)m_itemID);
+	msg.set_m_itemnum((int32_t)m_itemNum);
+	msg.set_m_costitem((int32_t)m_costItem);
+	msg.set_m_costnum((int32_t)m_costNum);
+	msg.set_m_numlimit((int32_t)m_numLimit);
 }
 
 void E_BattlepassShop_s::read_from_pbmsg(const ::proto_ff::E_BattlepassShop & msg) {
 	m_id = msg.m_id();
 	m_group = msg.m_group();
-	m_itemid = msg.m_itemid();
-	m_itemnum = msg.m_itemnum();
-	m_costitem = msg.m_costitem();
-	m_costnum = msg.m_costnum();
-	m_numlimit = msg.m_numlimit();
+	m_itemID = msg.m_itemid();
+	m_itemNum = msg.m_itemnum();
+	m_costItem = msg.m_costitem();
+	m_costNum = msg.m_costnum();
+	m_numLimit = msg.m_numlimit();
 }
 
 Sheet_BattlepassShop_s::Sheet_BattlepassShop_s() {

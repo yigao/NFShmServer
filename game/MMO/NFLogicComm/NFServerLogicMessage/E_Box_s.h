@@ -22,9 +22,9 @@ namespace proto_ff_s {
 		virtual ~E_BoxBoxBoxdataDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_mintimes;//次数下限
+		int32_t m_minTimes;//次数下限
 		int64_t m_id;//id
-		int32_t m_maxtimes;//次数上限
+		int32_t m_maxTimes;//次数上限
 		int32_t m_weight;//权重
 
 		virtual void write_to_pbmsg(::proto_ff::E_BoxBoxBoxdataDesc & msg) const;
@@ -41,10 +41,10 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t m_id;//id
 		int32_t m_type;//类型
-		int32_t m_rate;//生效概率
-		NFShmString<64> m_mask;//概率调整标签
-		int32_t m_mintimes;//最小次数
-		int32_t m_maxtimes;//最大次数
+		int32_t m_Rate;//生效概率
+		NFShmString<64> m_Mask;//概率调整标签
+		int32_t m_minTimes;//最小次数
+		int32_t m_maxTimes;//最大次数
 		NFShmVector<struct E_BoxBoxBoxdataDesc_s, DEFINE_E_BOXBOX_M_BOXDATA_MAX_NUM> m_boxdata;//掉落
 
 		virtual void write_to_pbmsg(::proto_ff::E_BoxBox & msg) const;
@@ -73,8 +73,8 @@ namespace proto_ff_s {
 		virtual ~E_BoxBoxdataEquipDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_maxnum;//最大数量
-		int32_t m_minnum;//最小数量
+		int32_t m_maxNum;//最大数量
+		int32_t m_minNum;//最小数量
 		int32_t m_isbind;//绑定
 		NFShmString<64> m_id;//id
 		int32_t m_rand;//概率百分比
@@ -92,8 +92,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		NFShmString<64> m_rand;//权重
-		int32_t m_maxnum;//最大数量
-		int32_t m_minnum;//最小数量
+		int32_t m_maxNum;//最大数量
+		int32_t m_minNum;//最小数量
 		NFShmString<64> m_isbind;//标定标记
 		NFShmString<64> m_id;//id
 		int32_t m_rarerand;//概率百分比
@@ -112,14 +112,14 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t m_id;//掉落包ID
 		int32_t m_drop_type;//掉落类型
-		int32_t m_goldminnum;//金币下限
-		int32_t m_goldmaxnum;//金币上限
+		int32_t m_goldminNum;//金币下限
+		int32_t m_goldmaxNum;//金币上限
 		int32_t m_goldrand;//金币掉落率
-		int32_t m_bindjewelminnum;//绑钻下限
-		int32_t m_bindjewelmaxnum;//绑钻上限
+		int32_t m_bindjewelminNum;//绑钻下限
+		int32_t m_bindjewelmaxNum;//绑钻上限
 		int32_t m_bindjewelrand;//绑钻掉落率
-		int32_t m_jewelminnum;//钻石下限
-		int32_t m_jewelmaxnum;//钻石上限
+		int32_t m_jewelminNum;//钻石下限
+		int32_t m_jewelmaxNum;//钻石上限
 		int32_t m_jewelrand;//钻石掉落率
 		NFShmString<64> m_eq_profession;//职业限制
 		NFShmVector<struct E_BoxBoxdataEquipDesc_s, DEFINE_E_BOXBOXDATA_M_EQUIP_MAX_NUM> m_equip;//稀有装备

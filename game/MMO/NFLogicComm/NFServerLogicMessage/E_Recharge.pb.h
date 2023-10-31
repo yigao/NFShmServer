@@ -195,14 +195,14 @@ class E_RechargeRechargeItemDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_num = 1;
+  // optional int32 m_Num = 1;
   inline bool has_m_num() const;
   inline void clear_m_num();
   static const int kMNumFieldNumber = 1;
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int64 m_id = 2;
+  // optional int64 m_Id = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
   static const int kMIdFieldNumber = 2;
@@ -306,10 +306,10 @@ class E_RechargeRecharge : public ::google::protobuf::Message {
   inline ::std::string* release_m_name();
   inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional string m_defaultpoint = 3;
+  // optional string m_defaultPoint = 3;
   inline bool has_m_defaultpoint() const;
   inline void clear_m_defaultpoint();
-  static const int kMDefaultpointFieldNumber = 3;
+  static const int kMDefaultPointFieldNumber = 3;
   inline const ::std::string& m_defaultpoint() const;
   inline void set_m_defaultpoint(const ::std::string& value);
   inline void set_m_defaultpoint(const char* value);
@@ -356,24 +356,24 @@ class E_RechargeRecharge : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_quantity() const;
   inline void set_m_quantity(::google::protobuf::int64 value);
 
-  // optional int32 m_itemnum = 8;
+  // optional int32 m_itemNum = 8;
   inline bool has_m_itemnum() const;
   inline void clear_m_itemnum();
-  static const int kMItemnumFieldNumber = 8;
+  static const int kMItemNumFieldNumber = 8;
   inline ::google::protobuf::int32 m_itemnum() const;
   inline void set_m_itemnum(::google::protobuf::int32 value);
 
-  // optional int64 m_multipletimes = 9;
+  // optional int64 m_multipleTimes = 9;
   inline bool has_m_multipletimes() const;
   inline void clear_m_multipletimes();
-  static const int kMMultipletimesFieldNumber = 9;
+  static const int kMMultipleTimesFieldNumber = 9;
   inline ::google::protobuf::int64 m_multipletimes() const;
   inline void set_m_multipletimes(::google::protobuf::int64 value);
 
-  // optional int64 m_multiplereward = 10;
+  // optional int64 m_multipleReward = 10;
   inline bool has_m_multiplereward() const;
   inline void clear_m_multiplereward();
-  static const int kMMultiplerewardFieldNumber = 10;
+  static const int kMMultipleRewardFieldNumber = 10;
   inline ::google::protobuf::int64 m_multiplereward() const;
   inline void set_m_multiplereward(::google::protobuf::int64 value);
 
@@ -384,24 +384,24 @@ class E_RechargeRecharge : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_zuanshitype() const;
   inline void set_m_zuanshitype(::google::protobuf::int32 value);
 
-  // optional int32 m_vipexp = 12;
+  // optional int32 m_vipExp = 12;
   inline bool has_m_vipexp() const;
   inline void clear_m_vipexp();
-  static const int kMVipexpFieldNumber = 12;
+  static const int kMVipExpFieldNumber = 12;
   inline ::google::protobuf::int32 m_vipexp() const;
   inline void set_m_vipexp(::google::protobuf::int32 value);
 
-  // optional int32 m_vipexplimit = 13;
+  // optional int32 m_vipExpLimit = 13;
   inline bool has_m_vipexplimit() const;
   inline void clear_m_vipexplimit();
-  static const int kMVipexplimitFieldNumber = 13;
+  static const int kMVipExpLimitFieldNumber = 13;
   inline ::google::protobuf::int32 m_vipexplimit() const;
   inline void set_m_vipexplimit(::google::protobuf::int32 value);
 
-  // optional int32 m_activitycount = 14;
+  // optional int32 m_activityCount = 14;
   inline bool has_m_activitycount() const;
   inline void clear_m_activitycount();
-  static const int kMActivitycountFieldNumber = 14;
+  static const int kMActivityCountFieldNumber = 14;
   inline ::google::protobuf::int32 m_activitycount() const;
   inline void set_m_activitycount(::google::protobuf::int32 value);
 
@@ -412,10 +412,10 @@ class E_RechargeRecharge : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_price() const;
   inline void set_m_price(::google::protobuf::int32 value);
 
-  // optional int32 m_presentid = 16;
+  // optional int32 m_presentID = 16;
   inline bool has_m_presentid() const;
   inline void clear_m_presentid();
-  static const int kMPresentidFieldNumber = 16;
+  static const int kMPresentIDFieldNumber = 16;
   inline ::google::protobuf::int32 m_presentid() const;
   inline void set_m_presentid(::google::protobuf::int32 value);
 
@@ -1049,7 +1049,7 @@ inline void E_RechargeRechargeChannelDesc::set_m_id(::google::protobuf::int32 va
 
 // E_RechargeRechargeItemDesc
 
-// optional int32 m_num = 1;
+// optional int32 m_Num = 1;
 inline bool E_RechargeRechargeItemDesc::has_m_num() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1071,7 +1071,7 @@ inline void E_RechargeRechargeItemDesc::set_m_num(::google::protobuf::int32 valu
   m_num_ = value;
 }
 
-// optional int64 m_id = 2;
+// optional int64 m_Id = 2;
 inline bool E_RechargeRechargeItemDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1189,7 +1189,7 @@ inline void E_RechargeRecharge::set_allocated_m_name(::std::string* m_name) {
   }
 }
 
-// optional string m_defaultpoint = 3;
+// optional string m_defaultPoint = 3;
 inline bool E_RechargeRecharge::has_m_defaultpoint() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1443,7 +1443,7 @@ inline void E_RechargeRecharge::set_m_quantity(::google::protobuf::int64 value) 
   m_quantity_ = value;
 }
 
-// optional int32 m_itemnum = 8;
+// optional int32 m_itemNum = 8;
 inline bool E_RechargeRecharge::has_m_itemnum() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -1465,7 +1465,7 @@ inline void E_RechargeRecharge::set_m_itemnum(::google::protobuf::int32 value) {
   m_itemnum_ = value;
 }
 
-// optional int64 m_multipletimes = 9;
+// optional int64 m_multipleTimes = 9;
 inline bool E_RechargeRecharge::has_m_multipletimes() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -1487,7 +1487,7 @@ inline void E_RechargeRecharge::set_m_multipletimes(::google::protobuf::int64 va
   m_multipletimes_ = value;
 }
 
-// optional int64 m_multiplereward = 10;
+// optional int64 m_multipleReward = 10;
 inline bool E_RechargeRecharge::has_m_multiplereward() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -1531,7 +1531,7 @@ inline void E_RechargeRecharge::set_m_zuanshitype(::google::protobuf::int32 valu
   m_zuanshitype_ = value;
 }
 
-// optional int32 m_vipexp = 12;
+// optional int32 m_vipExp = 12;
 inline bool E_RechargeRecharge::has_m_vipexp() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -1553,7 +1553,7 @@ inline void E_RechargeRecharge::set_m_vipexp(::google::protobuf::int32 value) {
   m_vipexp_ = value;
 }
 
-// optional int32 m_vipexplimit = 13;
+// optional int32 m_vipExpLimit = 13;
 inline bool E_RechargeRecharge::has_m_vipexplimit() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -1575,7 +1575,7 @@ inline void E_RechargeRecharge::set_m_vipexplimit(::google::protobuf::int32 valu
   m_vipexplimit_ = value;
 }
 
-// optional int32 m_activitycount = 14;
+// optional int32 m_activityCount = 14;
 inline bool E_RechargeRecharge::has_m_activitycount() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -1619,7 +1619,7 @@ inline void E_RechargeRecharge::set_m_price(::google::protobuf::int32 value) {
   m_price_ = value;
 }
 
-// optional int32 m_presentid = 16;
+// optional int32 m_presentID = 16;
 inline bool E_RechargeRecharge::has_m_presentid() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }

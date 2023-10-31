@@ -21,13 +21,13 @@ namespace proto_ff_s {
 		virtual ~E_RankingRanking_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_rankingid;//排行榜ID
-		NFShmString<64> m_rankingname;//排行名称
+		int32_t m_rankingID;//排行榜ID
+		NFShmString<64> m_rankingName;//排行名称
 		NFShmString<64> m_title;//榜一称号
 		int32_t m_capacity;//实际排多少元素
-		int32_t m_showsize;//显示多少个元素
-		int32_t m_rankhide;//是否在排行榜隐藏
-		NFShmVector<int32_t, DEFINE_E_RANKINGRANKING_M_DATEID_MAX_NUM> m_dateid;//排行数据
+		int32_t m_showSize;//显示多少个元素
+		int32_t m_rankHide;//是否在排行榜隐藏
+		NFShmVector<int32_t, DEFINE_E_RANKINGRANKING_M_DATEID_MAX_NUM> m_dateID;//排行数据
 
 		virtual void write_to_pbmsg(::proto_ff::E_RankingRanking & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RankingRanking & msg);
@@ -55,8 +55,8 @@ namespace proto_ff_s {
 		virtual ~E_RankingDate_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_dateid;//数据ID
-		NFShmString<64> m_datename;//数据名称
+		int32_t m_dateID;//数据ID
+		NFShmString<64> m_dateName;//数据名称
 
 		virtual void write_to_pbmsg(::proto_ff::E_RankingDate & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RankingDate & msg);
@@ -84,8 +84,8 @@ namespace proto_ff_s {
 		virtual ~E_RankingButton_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_buttonid;//数据ID
-		NFShmString<64> m_buttonname;//数据名称
+		int32_t m_buttonID;//数据ID
+		NFShmString<64> m_buttonName;//数据名称
 		int32_t m_display;//是否显示
 
 		virtual void write_to_pbmsg(::proto_ff::E_RankingButton & msg) const;

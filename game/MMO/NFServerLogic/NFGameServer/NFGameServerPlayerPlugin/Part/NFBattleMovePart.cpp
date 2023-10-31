@@ -886,7 +886,7 @@ int NFBattleMovePart::ClientSeatReq(uint32_t msgId, NFDataPackage &packet)
         return -1;
     }
 
-    if (opt == 1 && pMapCfg->m_maptype != 1)
+    if (opt == 1 && pMapCfg->m_mapType != 1)
     {
         rsp.set_ret(proto_ff::RET_PLAYER_SEAT_MAP_NOT_SEAT);
         pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_SEAT_RSP, rsp);

@@ -18,15 +18,15 @@ namespace proto_ff_s {
 		virtual ~E_TeamTeam_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_teamobjectid;//组队目标ID
-		int32_t m_fobjectnameid;//父目标名称ID
-		int32_t m_sobjectnameid;//子目标名称ID
-		int64_t m_duplicateid;//副本ID
-		int64_t m_activityid;//活动ID
-		int32_t m_lowlv;//下限等级
-		int32_t m_uplv;//上限等级
-		int32_t m_isautomatch;//是否自动匹配
-		int32_t m_speakchannel;//喊话频道
+		int32_t m_TeamObjectID;//组队目标ID
+		int32_t m_FObjectNameID;//父目标名称ID
+		int32_t m_SObjectNameID;//子目标名称ID
+		int64_t m_duplicateId;//副本ID
+		int64_t m_activityId;//活动ID
+		int32_t m_LowLV;//下限等级
+		int32_t m_UpLV;//上限等级
+		int32_t m_isAutoMatch;//是否自动匹配
+		int32_t m_speakChannel;//喊话频道
 		int32_t m_teamnumber;//序列
 
 		virtual void write_to_pbmsg(::proto_ff::E_TeamTeam & msg) const;

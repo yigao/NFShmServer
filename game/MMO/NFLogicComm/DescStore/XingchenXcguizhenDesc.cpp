@@ -90,13 +90,13 @@ int XingchenXcguizhenDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		for(int j = 0; j < (int)pDesc->m_gz.size(); j++)
+		for(int j = 0; j < (int)pDesc->m_Gz.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_gz[j].m_type <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_gz[j].m_type)), result, "can't find the gz:{} in the  excel:attribute sheet:attribute", pDesc->m_gz[j].m_type);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_Gz[j].m_type <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_Gz[j].m_type)), result, "can't find the Gz:{} in the  excel:attribute sheet:attribute", pDesc->m_Gz[j].m_type);
 		}
-		for(int j = 0; j < (int)pDesc->m_xx.size(); j++)
+		for(int j = 0; j < (int)pDesc->m_Xx.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_xx[j].m_type <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_xx[j].m_type)), result, "can't find the xx:{} in the  excel:attribute sheet:attribute", pDesc->m_xx[j].m_type);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_Xx[j].m_type <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_Xx[j].m_type)), result, "can't find the Xx:{} in the  excel:attribute sheet:attribute", pDesc->m_Xx[j].m_type);
 		}
 	}
 	return result;

@@ -22,7 +22,7 @@ namespace proto_ff_s {
 		virtual ~E_BossRareitem_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_itemid;//物品ID
+		int64_t m_itemID;//物品ID
 		int32_t m_top;//是否置顶
 
 		virtual void write_to_pbmsg(::proto_ff::E_BossRareitem & msg) const;
@@ -52,21 +52,21 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//bossID
-		int32_t m_bosstype;//BOSS类型
-		int32_t m_monsterid;//怪物ID
-		int32_t m_classorder;//阶次
-		int32_t m_sceneorder;//所属层级
-		int32_t m_duplicateid;//副本ID
-		int32_t m_peacemask;//和平标记
-		int32_t m_pointid;//位置点
-		int32_t m_flashnum;//刷新数量
+		int32_t m_bossType;//BOSS类型
+		int32_t m_monsterID;//怪物ID
+		int32_t m_classOrder;//阶次
+		int32_t m_sceneOrder;//所属层级
+		int32_t m_duplicateID;//副本ID
+		int32_t m_peaceMask;//和平标记
+		int32_t m_pointID;//位置点
+		int32_t m_flashNum;//刷新数量
 		int32_t m_group_type;//组类型
 		int32_t m_ishide;//是否是隐藏boss
-		int32_t m_triggerpro;//触发隐藏的概率
-		int32_t m_flashtime;//刷新间隔
-		int32_t m_retrievegiftid;//找回礼包id
-		int32_t m_notimes;//是否不消耗次数
-		int32_t m_assistprestige;//协助击杀奖励的声望
+		int32_t m_triggerPro;//触发隐藏的概率
+		int32_t m_flashTime;//刷新间隔
+		int32_t m_retrieveGiftID;//找回礼包id
+		int32_t m_noTimes;//是否不消耗次数
+		int32_t m_assistPrestige;//协助击杀奖励的声望
 
 		virtual void write_to_pbmsg(::proto_ff::E_BossBoss & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_BossBoss & msg);
@@ -109,20 +109,20 @@ namespace proto_ff_s {
 		virtual ~E_BossBosstype_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_bosstype;//总类型
-		int32_t m_maptype;//地图类型
-		int32_t m_functionid;//功能解锁ID
-		int32_t m_duplicategroupid;//副本组ID
-		int32_t m_privilegetype;//特权类型
-		int64_t m_callingcardid;//召唤卡id
-		int32_t m_entertimes;//进入次数
+		int32_t m_bossType;//总类型
+		int32_t m_mapType;//地图类型
+		int32_t m_functionId;//功能解锁ID
+		int32_t m_duplicateGroupID;//副本组ID
+		int32_t m_privilegeType;//特权类型
+		int64_t m_callingCardId;//召唤卡id
+		int32_t m_enterTimes;//进入次数
 		int32_t m_costitem;//进入消耗物品
 		NFShmString<64> m_costnum;//进入消耗物品数量
-		int32_t m_bosstimes;//boss次数
-		int32_t m_additemid;//增加次数物品ID
+		int32_t m_bossTimes;//boss次数
+		int32_t m_addItemID;//增加次数物品ID
 		int32_t m_canhelp;//是否可以援助
 		int32_t m_qkill;//是否支持快速击杀
-		int32_t m_retrieveddays;//找回天数
+		int32_t m_retrievedDays;//找回天数
 		int32_t m_skill;//纳入全服首杀
 		NFShmVector<struct E_BossBosstypeGroupDesc_s, DEFINE_E_BOSSBOSSTYPE_M_GROUP_MAX_NUM> m_group;//Boss组
 
@@ -152,13 +152,13 @@ namespace proto_ff_s {
 		virtual ~E_BossLayer_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//id
-		int32_t m_bosstype;//类型
+		int32_t m_ID;//id
+		int32_t m_bossType;//类型
 		int32_t m_order;//排序
-		int32_t m_subtype;//类型
-		NFShmString<64> m_entercondition;//进入条件
-		NFShmString<64> m_unlockcondition;//解锁条件
-		int32_t m_mapid;//地图ID
+		int32_t m_subType;//类型
+		NFShmString<64> m_enterCondition;//进入条件
+		NFShmString<64> m_unlockCondition;//解锁条件
+		int32_t m_mapID;//地图ID
 		int32_t m_maxlv;//最大进入等级
 
 		virtual void write_to_pbmsg(::proto_ff::E_BossLayer & msg) const;

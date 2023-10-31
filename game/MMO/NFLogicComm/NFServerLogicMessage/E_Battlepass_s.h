@@ -27,20 +27,20 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_reward;//奖励组
 		int32_t m_task;//任务组
-		NFShmString<64> m_tasknum;//抽取任务数量
-		int32_t m_freshcost;//刷新消耗
+		NFShmString<64> m_taskNum;//抽取任务数量
+		int32_t m_freshCost;//刷新消耗
 		int32_t m_shop;//店铺组
-		int32_t m_shopcurrency;//商店货币
-		int32_t m_severopentype;//服务器开放类型
-		int32_t m_openseverday;//开始开服时间
-		int32_t m_closeseverday;//关闭时间
-		int32_t m_pricetype;//价格类型
+		int32_t m_shopCurrency;//商店货币
+		int32_t m_severOpenType;//服务器开放类型
+		int32_t m_openSeverDay;//开始开服时间
+		int32_t m_closeSeverDay;//关闭时间
+		int32_t m_priceType;//价格类型
 		int32_t m_price;//普通版价格
-		int32_t m_pricep;//高级版额外价格
-		int32_t m_presentexp;//高级版赠送的经验值
-		int32_t m_expcost;//经验货币
-		int32_t m_expprice;//每货币兑换经验值
-		int32_t m_expitem;//获得道具自动获得经验
+		int32_t m_priceP;//高级版额外价格
+		int32_t m_presentExp;//高级版赠送的经验值
+		int32_t m_expCost;//经验货币
+		int32_t m_expPrice;//每货币兑换经验值
+		int32_t m_expItem;//获得道具自动获得经验
 
 		virtual void write_to_pbmsg(::proto_ff::E_BattlepassBattlepass & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_BattlepassBattlepass & msg);
@@ -102,11 +102,11 @@ namespace proto_ff_s {
 		int32_t m_groupid;//组类型
 		int32_t m_lv;//等级
 		int32_t m_exp;//升级所需经验
-		int32_t m_core;//核心节点标识
-		int32_t m_buylevel;//购买节点标识
-		int32_t m_showitem;//展示物id
+		int32_t m_Core;//核心节点标识
+		int32_t m_buyLevel;//购买节点标识
+		int32_t m_showItem;//展示物id
 		NFShmVector<struct E_BattlepassRewardItemDesc_s, DEFINE_E_BATTLEPASSREWARD_M_ITEM_MAX_NUM> m_item;//奖励物品
-		NFShmVector<struct E_BattlepassRewardProitemDesc_s, DEFINE_E_BATTLEPASSREWARD_M_PROITEM_MAX_NUM> m_proitem;//加强奖励物品
+		NFShmVector<struct E_BattlepassRewardProitemDesc_s, DEFINE_E_BATTLEPASSREWARD_M_PROITEM_MAX_NUM> m_proItem;//加强奖励物品
 
 		virtual void write_to_pbmsg(::proto_ff::E_BattlepassReward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_BattlepassReward & msg);
@@ -136,11 +136,11 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_group;//组id
-		int32_t m_taskrefresh;//任务类型
+		int32_t m_taskRefresh;//任务类型
 		int32_t m_lv;//开放等级
 		int32_t m_tag;//所属页签
-		int32_t m_eventtype;//事件类型
-		int32_t m_reachprice;//达成值
+		int32_t m_eventType;//事件类型
+		int32_t m_reachPrice;//达成值
 		int32_t m_link;//链接
 		int32_t m_exp;//经验
 		NFShmVector<int32_t, DEFINE_E_BATTLEPASSTASK_M_PARAM_MAX_NUM> m_param;//事件完成参数
@@ -173,11 +173,11 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_group;//组id
-		int32_t m_itemid;//物品id
-		int32_t m_itemnum;//物品数量
-		int32_t m_costitem;//花费道具
-		int32_t m_costnum;//花费数量
-		int32_t m_numlimit;//限购数量
+		int32_t m_itemID;//物品id
+		int32_t m_itemNum;//物品数量
+		int32_t m_costItem;//花费道具
+		int32_t m_costNum;//花费数量
+		int32_t m_numLimit;//限购数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_BattlepassShop & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_BattlepassShop & msg);

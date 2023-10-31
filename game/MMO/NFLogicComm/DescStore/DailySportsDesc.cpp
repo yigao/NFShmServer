@@ -91,8 +91,8 @@ int DailySportsDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_peractivityid <= 0 || PeractivityPeractivityDesc::Instance()->GetDesc(pDesc->m_peractivityid)), result, "can't find the peractivityid:{} in the  excel:perActivity sheet:perActivity", pDesc->m_peractivityid);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_functionid <= 0 || FunctionunlockFunctionunlockDesc::Instance()->GetDesc(pDesc->m_functionid)), result, "can't find the functionid:{} in the  excel:functionunlock sheet:functionUnlock", pDesc->m_functionid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_perActivityid <= 0 || PeractivityPeractivityDesc::Instance()->GetDesc(pDesc->m_perActivityid)), result, "can't find the perActivityid:{} in the  excel:perActivity sheet:perActivity", pDesc->m_perActivityid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_functionID <= 0 || FunctionunlockFunctionunlockDesc::Instance()->GetDesc(pDesc->m_functionID)), result, "can't find the functionID:{} in the  excel:functionunlock sheet:functionUnlock", pDesc->m_functionID);
 	}
 	return result;
 }

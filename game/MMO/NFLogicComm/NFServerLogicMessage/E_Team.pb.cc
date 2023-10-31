@@ -111,16 +111,16 @@ void protobuf_AddDesc_E_5fTeam_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\014E_Team.proto\022\010proto_ff\032\025yd_fieldoption"
-    "s.proto\"\241\003\n\nE_TeamTeam\022*\n\016m_teamobjectid"
-    "\030\001 \001(\005B\022\302\377\024\016\347\273\204\351\230\237\347\233\256\346\240\207ID\022.\n\017m_fobjectn"
-    "ameid\030\002 \001(\005B\025\302\377\024\021\347\210\266\347\233\256\346\240\207\345\220\215\347\247\260ID\022.\n\017m_"
-    "sobjectnameid\030\003 \001(\005B\025\302\377\024\021\345\255\220\347\233\256\346\240\207\345\220\215\347\247\260"
-    "ID\022#\n\rm_duplicateid\030\004 \001(\003B\014\302\377\024\010\345\211\257\346\234\254ID\022"
-    "\"\n\014m_activityid\030\005 \001(\003B\014\302\377\024\010\346\264\273\345\212\250ID\022!\n\007m"
-    "_lowlv\030\006 \001(\005B\020\302\377\024\014\344\270\213\351\231\220\347\255\211\347\272\247\022 \n\006m_uplv"
-    "\030\007 \001(\005B\020\302\377\024\014\344\270\212\351\231\220\347\255\211\347\272\247\022-\n\rm_isautomatc"
+    "s.proto\"\241\003\n\nE_TeamTeam\022*\n\016m_TeamObjectID"
+    "\030\001 \001(\005B\022\302\377\024\016\347\273\204\351\230\237\347\233\256\346\240\207ID\022.\n\017m_FObjectN"
+    "ameID\030\002 \001(\005B\025\302\377\024\021\347\210\266\347\233\256\346\240\207\345\220\215\347\247\260ID\022.\n\017m_"
+    "SObjectNameID\030\003 \001(\005B\025\302\377\024\021\345\255\220\347\233\256\346\240\207\345\220\215\347\247\260"
+    "ID\022#\n\rm_duplicateId\030\004 \001(\003B\014\302\377\024\010\345\211\257\346\234\254ID\022"
+    "\"\n\014m_activityId\030\005 \001(\003B\014\302\377\024\010\346\264\273\345\212\250ID\022!\n\007m"
+    "_LowLV\030\006 \001(\005B\020\302\377\024\014\344\270\213\351\231\220\347\255\211\347\272\247\022 \n\006m_UpLV"
+    "\030\007 \001(\005B\020\302\377\024\014\344\270\212\351\231\220\347\255\211\347\272\247\022-\n\rm_isAutoMatc"
     "h\030\010 \001(\005B\026\302\377\024\022\346\230\257\345\220\246\350\207\252\345\212\250\345\214\271\351\205\215\022(\n\016m_spe"
-    "akchannel\030\t \001(\005B\020\302\377\024\014\345\226\212\350\257\235\351\242\221\351\201\223\022 \n\014m_t"
+    "akChannel\030\t \001(\005B\020\302\377\024\014\345\226\212\350\257\235\351\242\221\351\201\223\022 \n\014m_t"
     "eamnumber\030\n \001(\005B\n\302\377\024\006\345\272\217\345\210\227\"E\n\016Sheet_Tea"
     "mTeam\0223\n\017E_TeamTeam_List\030\001 \003(\0132\024.proto_f"
     "f.E_TeamTeamB\004\210\301\024@", 538);
@@ -143,15 +143,15 @@ struct StaticDescriptorInitializer_E_5fTeam_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_TeamTeam::kMTeamobjectidFieldNumber;
-const int E_TeamTeam::kMFobjectnameidFieldNumber;
-const int E_TeamTeam::kMSobjectnameidFieldNumber;
-const int E_TeamTeam::kMDuplicateidFieldNumber;
-const int E_TeamTeam::kMActivityidFieldNumber;
-const int E_TeamTeam::kMLowlvFieldNumber;
-const int E_TeamTeam::kMUplvFieldNumber;
-const int E_TeamTeam::kMIsautomatchFieldNumber;
-const int E_TeamTeam::kMSpeakchannelFieldNumber;
+const int E_TeamTeam::kMTeamObjectIDFieldNumber;
+const int E_TeamTeam::kMFObjectNameIDFieldNumber;
+const int E_TeamTeam::kMSObjectNameIDFieldNumber;
+const int E_TeamTeam::kMDuplicateIdFieldNumber;
+const int E_TeamTeam::kMActivityIdFieldNumber;
+const int E_TeamTeam::kMLowLVFieldNumber;
+const int E_TeamTeam::kMUpLVFieldNumber;
+const int E_TeamTeam::kMIsAutoMatchFieldNumber;
+const int E_TeamTeam::kMSpeakChannelFieldNumber;
 const int E_TeamTeam::kMTeamnumberFieldNumber;
 #endif  // !_MSC_VER
 
@@ -239,7 +239,7 @@ bool E_TeamTeam::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_teamobjectid = 1;
+      // optional int32 m_TeamObjectID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -250,15 +250,15 @@ bool E_TeamTeam::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_fobjectnameid;
+        if (input->ExpectTag(16)) goto parse_m_FObjectNameID;
         break;
       }
 
-      // optional int32 m_fobjectnameid = 2;
+      // optional int32 m_FObjectNameID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_fobjectnameid:
+         parse_m_FObjectNameID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_fobjectnameid_)));
@@ -266,15 +266,15 @@ bool E_TeamTeam::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_sobjectnameid;
+        if (input->ExpectTag(24)) goto parse_m_SObjectNameID;
         break;
       }
 
-      // optional int32 m_sobjectnameid = 3;
+      // optional int32 m_SObjectNameID = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_sobjectnameid:
+         parse_m_SObjectNameID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_sobjectnameid_)));
@@ -282,15 +282,15 @@ bool E_TeamTeam::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_duplicateid;
+        if (input->ExpectTag(32)) goto parse_m_duplicateId;
         break;
       }
 
-      // optional int64 m_duplicateid = 4;
+      // optional int64 m_duplicateId = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_duplicateid:
+         parse_m_duplicateId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_duplicateid_)));
@@ -298,15 +298,15 @@ bool E_TeamTeam::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_activityid;
+        if (input->ExpectTag(40)) goto parse_m_activityId;
         break;
       }
 
-      // optional int64 m_activityid = 5;
+      // optional int64 m_activityId = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_activityid:
+         parse_m_activityId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_activityid_)));
@@ -314,15 +314,15 @@ bool E_TeamTeam::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_lowlv;
+        if (input->ExpectTag(48)) goto parse_m_LowLV;
         break;
       }
 
-      // optional int32 m_lowlv = 6;
+      // optional int32 m_LowLV = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_lowlv:
+         parse_m_LowLV:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_lowlv_)));
@@ -330,15 +330,15 @@ bool E_TeamTeam::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_uplv;
+        if (input->ExpectTag(56)) goto parse_m_UpLV;
         break;
       }
 
-      // optional int32 m_uplv = 7;
+      // optional int32 m_UpLV = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_uplv:
+         parse_m_UpLV:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_uplv_)));
@@ -346,15 +346,15 @@ bool E_TeamTeam::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_isautomatch;
+        if (input->ExpectTag(64)) goto parse_m_isAutoMatch;
         break;
       }
 
-      // optional int32 m_isautomatch = 8;
+      // optional int32 m_isAutoMatch = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_isautomatch:
+         parse_m_isAutoMatch:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_isautomatch_)));
@@ -362,15 +362,15 @@ bool E_TeamTeam::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_speakchannel;
+        if (input->ExpectTag(72)) goto parse_m_speakChannel;
         break;
       }
 
-      // optional int32 m_speakchannel = 9;
+      // optional int32 m_speakChannel = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_speakchannel:
+         parse_m_speakChannel:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_speakchannel_)));
@@ -416,47 +416,47 @@ bool E_TeamTeam::MergePartialFromCodedStream(
 
 void E_TeamTeam::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_teamobjectid = 1;
+  // optional int32 m_TeamObjectID = 1;
   if (has_m_teamobjectid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_teamobjectid(), output);
   }
 
-  // optional int32 m_fobjectnameid = 2;
+  // optional int32 m_FObjectNameID = 2;
   if (has_m_fobjectnameid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_fobjectnameid(), output);
   }
 
-  // optional int32 m_sobjectnameid = 3;
+  // optional int32 m_SObjectNameID = 3;
   if (has_m_sobjectnameid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_sobjectnameid(), output);
   }
 
-  // optional int64 m_duplicateid = 4;
+  // optional int64 m_duplicateId = 4;
   if (has_m_duplicateid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->m_duplicateid(), output);
   }
 
-  // optional int64 m_activityid = 5;
+  // optional int64 m_activityId = 5;
   if (has_m_activityid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(5, this->m_activityid(), output);
   }
 
-  // optional int32 m_lowlv = 6;
+  // optional int32 m_LowLV = 6;
   if (has_m_lowlv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_lowlv(), output);
   }
 
-  // optional int32 m_uplv = 7;
+  // optional int32 m_UpLV = 7;
   if (has_m_uplv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_uplv(), output);
   }
 
-  // optional int32 m_isautomatch = 8;
+  // optional int32 m_isAutoMatch = 8;
   if (has_m_isautomatch()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_isautomatch(), output);
   }
 
-  // optional int32 m_speakchannel = 9;
+  // optional int32 m_speakChannel = 9;
   if (has_m_speakchannel()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_speakchannel(), output);
   }
@@ -474,47 +474,47 @@ void E_TeamTeam::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_TeamTeam::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_teamobjectid = 1;
+  // optional int32 m_TeamObjectID = 1;
   if (has_m_teamobjectid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_teamobjectid(), target);
   }
 
-  // optional int32 m_fobjectnameid = 2;
+  // optional int32 m_FObjectNameID = 2;
   if (has_m_fobjectnameid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_fobjectnameid(), target);
   }
 
-  // optional int32 m_sobjectnameid = 3;
+  // optional int32 m_SObjectNameID = 3;
   if (has_m_sobjectnameid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_sobjectnameid(), target);
   }
 
-  // optional int64 m_duplicateid = 4;
+  // optional int64 m_duplicateId = 4;
   if (has_m_duplicateid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->m_duplicateid(), target);
   }
 
-  // optional int64 m_activityid = 5;
+  // optional int64 m_activityId = 5;
   if (has_m_activityid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(5, this->m_activityid(), target);
   }
 
-  // optional int32 m_lowlv = 6;
+  // optional int32 m_LowLV = 6;
   if (has_m_lowlv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_lowlv(), target);
   }
 
-  // optional int32 m_uplv = 7;
+  // optional int32 m_UpLV = 7;
   if (has_m_uplv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_uplv(), target);
   }
 
-  // optional int32 m_isautomatch = 8;
+  // optional int32 m_isAutoMatch = 8;
   if (has_m_isautomatch()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_isautomatch(), target);
   }
 
-  // optional int32 m_speakchannel = 9;
+  // optional int32 m_speakChannel = 9;
   if (has_m_speakchannel()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_speakchannel(), target);
   }
@@ -535,56 +535,56 @@ int E_TeamTeam::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_teamobjectid = 1;
+    // optional int32 m_TeamObjectID = 1;
     if (has_m_teamobjectid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_teamobjectid());
     }
 
-    // optional int32 m_fobjectnameid = 2;
+    // optional int32 m_FObjectNameID = 2;
     if (has_m_fobjectnameid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_fobjectnameid());
     }
 
-    // optional int32 m_sobjectnameid = 3;
+    // optional int32 m_SObjectNameID = 3;
     if (has_m_sobjectnameid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_sobjectnameid());
     }
 
-    // optional int64 m_duplicateid = 4;
+    // optional int64 m_duplicateId = 4;
     if (has_m_duplicateid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_duplicateid());
     }
 
-    // optional int64 m_activityid = 5;
+    // optional int64 m_activityId = 5;
     if (has_m_activityid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_activityid());
     }
 
-    // optional int32 m_lowlv = 6;
+    // optional int32 m_LowLV = 6;
     if (has_m_lowlv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_lowlv());
     }
 
-    // optional int32 m_uplv = 7;
+    // optional int32 m_UpLV = 7;
     if (has_m_uplv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_uplv());
     }
 
-    // optional int32 m_isautomatch = 8;
+    // optional int32 m_isAutoMatch = 8;
     if (has_m_isautomatch()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -593,7 +593,7 @@ int E_TeamTeam::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_speakchannel = 9;
+    // optional int32 m_speakChannel = 9;
     if (has_m_speakchannel()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

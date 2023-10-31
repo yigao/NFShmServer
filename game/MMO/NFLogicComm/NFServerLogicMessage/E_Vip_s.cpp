@@ -15,10 +15,10 @@ int E_VipVip_s::CreateInit() {
 	m_level = (int32_t)0;
 	m_exp = (int32_t)0;
 	m_privilege_group = (int32_t)0;
-	m_dailybox = (int32_t)0;
-	m_vipgift = (int32_t)0;
-	m_pricetype = (int32_t)0;
-	m_originalprice = (int32_t)0;
+	m_dailyBox = (int32_t)0;
+	m_vipGift = (int32_t)0;
+	m_priceType = (int32_t)0;
+	m_originalPrice = (int32_t)0;
 	m_price = (int32_t)0;
 	return 0;
 }
@@ -32,10 +32,10 @@ void E_VipVip_s::write_to_pbmsg(::proto_ff::E_VipVip & msg) const {
 	msg.set_m_level((int32_t)m_level);
 	msg.set_m_exp((int32_t)m_exp);
 	msg.set_m_privilege_group((int32_t)m_privilege_group);
-	msg.set_m_dailybox((int32_t)m_dailybox);
-	msg.set_m_vipgift((int32_t)m_vipgift);
-	msg.set_m_pricetype((int32_t)m_pricetype);
-	msg.set_m_originalprice((int32_t)m_originalprice);
+	msg.set_m_dailybox((int32_t)m_dailyBox);
+	msg.set_m_vipgift((int32_t)m_vipGift);
+	msg.set_m_pricetype((int32_t)m_priceType);
+	msg.set_m_originalprice((int32_t)m_originalPrice);
 	msg.set_m_price((int32_t)m_price);
 }
 
@@ -44,10 +44,10 @@ void E_VipVip_s::read_from_pbmsg(const ::proto_ff::E_VipVip & msg) {
 	m_level = msg.m_level();
 	m_exp = msg.m_exp();
 	m_privilege_group = msg.m_privilege_group();
-	m_dailybox = msg.m_dailybox();
-	m_vipgift = msg.m_vipgift();
-	m_pricetype = msg.m_pricetype();
-	m_originalprice = msg.m_originalprice();
+	m_dailyBox = msg.m_dailybox();
+	m_vipGift = msg.m_vipgift();
+	m_priceType = msg.m_pricetype();
+	m_originalPrice = msg.m_originalprice();
 	m_price = msg.m_price();
 }
 
@@ -215,15 +215,15 @@ E_VipCosntant_s::E_VipCosntant_s() {
 
 int E_VipCosntant_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_fvipprice = (int32_t)0;
-	m_fviprtime = (int32_t)0;
-	m_fvipprivage = (int32_t)0;
-	m_fviplv = (int32_t)0;
-	m_fvipexp = (int32_t)0;
-	m_vipitemicon = (int32_t)0;
-	m_foreverguide = (int32_t)0;
-	m_unactiveguide = (int32_t)0;
-	m_vipexp = (int32_t)0;
+	m_FVipPrice = (int32_t)0;
+	m_FVipRtime = (int32_t)0;
+	m_FVipPrivage = (int32_t)0;
+	m_Fviplv = (int32_t)0;
+	m_Fvipexp = (int32_t)0;
+	m_VipItemIcon = (int32_t)0;
+	m_foreverGuide = (int32_t)0;
+	m_unActiveGuide = (int32_t)0;
+	m_vipExp = (int32_t)0;
 	return 0;
 }
 
@@ -233,28 +233,28 @@ int E_VipCosntant_s::ResumeInit() {
 
 void E_VipCosntant_s::write_to_pbmsg(::proto_ff::E_VipCosntant & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_fvipprice((int32_t)m_fvipprice);
-	msg.set_m_fviprtime((int32_t)m_fviprtime);
-	msg.set_m_fvipprivage((int32_t)m_fvipprivage);
-	msg.set_m_fviplv((int32_t)m_fviplv);
-	msg.set_m_fvipexp((int32_t)m_fvipexp);
-	msg.set_m_vipitemicon((int32_t)m_vipitemicon);
-	msg.set_m_foreverguide((int32_t)m_foreverguide);
-	msg.set_m_unactiveguide((int32_t)m_unactiveguide);
-	msg.set_m_vipexp((int32_t)m_vipexp);
+	msg.set_m_fvipprice((int32_t)m_FVipPrice);
+	msg.set_m_fviprtime((int32_t)m_FVipRtime);
+	msg.set_m_fvipprivage((int32_t)m_FVipPrivage);
+	msg.set_m_fviplv((int32_t)m_Fviplv);
+	msg.set_m_fvipexp((int32_t)m_Fvipexp);
+	msg.set_m_vipitemicon((int32_t)m_VipItemIcon);
+	msg.set_m_foreverguide((int32_t)m_foreverGuide);
+	msg.set_m_unactiveguide((int32_t)m_unActiveGuide);
+	msg.set_m_vipexp((int32_t)m_vipExp);
 }
 
 void E_VipCosntant_s::read_from_pbmsg(const ::proto_ff::E_VipCosntant & msg) {
 	m_id = msg.m_id();
-	m_fvipprice = msg.m_fvipprice();
-	m_fviprtime = msg.m_fviprtime();
-	m_fvipprivage = msg.m_fvipprivage();
-	m_fviplv = msg.m_fviplv();
-	m_fvipexp = msg.m_fvipexp();
-	m_vipitemicon = msg.m_vipitemicon();
-	m_foreverguide = msg.m_foreverguide();
-	m_unactiveguide = msg.m_unactiveguide();
-	m_vipexp = msg.m_vipexp();
+	m_FVipPrice = msg.m_fvipprice();
+	m_FVipRtime = msg.m_fviprtime();
+	m_FVipPrivage = msg.m_fvipprivage();
+	m_Fviplv = msg.m_fviplv();
+	m_Fvipexp = msg.m_fvipexp();
+	m_VipItemIcon = msg.m_vipitemicon();
+	m_foreverGuide = msg.m_foreverguide();
+	m_unActiveGuide = msg.m_unactiveguide();
+	m_vipExp = msg.m_vipexp();
 }
 
 Sheet_VipCosntant_s::Sheet_VipCosntant_s() {

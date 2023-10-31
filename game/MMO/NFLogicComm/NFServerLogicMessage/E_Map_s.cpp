@@ -11,40 +11,40 @@ E_MapMap_s::E_MapMap_s() {
 }
 
 int E_MapMap_s::CreateInit() {
-	m_mapid = (int64_t)0;
-	m_levellimit = (int32_t)0;
-	m_isdyn = (int32_t)0;
-	m_maptype = (int32_t)0;
-	m_mapsubtype = (int32_t)0;
-	m_clearancetime = (int32_t)0;
-	m_mappkmode = (int32_t)0;
+	m_mapId = (int64_t)0;
+	m_levelLimit = (int32_t)0;
+	m_isDyn = (int32_t)0;
+	m_mapType = (int32_t)0;
+	m_mapSubType = (int32_t)0;
+	m_clearanceTime = (int32_t)0;
+	m_mapPkmode = (int32_t)0;
 	m_pklock = (int32_t)0;
 	m_pk = (int32_t)0;
-	m_killvalue = (int32_t)0;
-	m_bangroup = (int32_t)0;
-	m_revivetime = (int32_t)0;
-	m_mapwide = (int32_t)0;
-	m_mapheight = (int32_t)0;
-	m_reviveskill = (int64_t)0;
-	m_reviveinplacetype = (int32_t)0;
-	m_ishangup = (int32_t)0;
-	m_itemdroptype = (int32_t)0;
-	m_linkoffline = (int64_t)0;
-	m_banonhook = (int32_t)0;
-	m_rewait = (int32_t)0;
-	m_retime = (int32_t)0;
-	m_hreban = (int32_t)0;
-	m_retiered = (int32_t)0;
-	m_reskillid = (int32_t)0;
-	m_reteimes = (int32_t)0;
-	m_drivepoint = (int32_t)0;
-	m_diedp = (int32_t)0;
-	m_timedp = (int32_t)0;
+	m_killValue = (int32_t)0;
+	m_BanGroup = (int32_t)0;
+	m_reviveTime = (int32_t)0;
+	m_mapWide = (int32_t)0;
+	m_mapHeight = (int32_t)0;
+	m_reviveSkill = (int64_t)0;
+	m_reviveInPlaceType = (int32_t)0;
+	m_isHangUp = (int32_t)0;
+	m_itemDropType = (int32_t)0;
+	m_linkOffLine = (int64_t)0;
+	m_banOnHook = (int32_t)0;
+	m_Rewait = (int32_t)0;
+	m_REtime = (int32_t)0;
+	m_HREBan = (int32_t)0;
+	m_Retiered = (int32_t)0;
+	m_REskillid = (int32_t)0;
+	m_Reteimes = (int32_t)0;
+	m_drivePoint = (int32_t)0;
+	m_dieDP = (int32_t)0;
+	m_timeDP = (int32_t)0;
 	m_meditation = (int32_t)0;
-	m_banmount = (int32_t)0;
-	m_banlink = (int32_t)0;
-	m_lvsuppvp = (int32_t)0;
-	m_powersuppvp = (int32_t)0;
+	m_banMount = (int32_t)0;
+	m_banLink = (int32_t)0;
+	m_lvSupPvp = (int32_t)0;
+	m_powerSupPvp = (int32_t)0;
 	return 0;
 }
 
@@ -53,87 +53,87 @@ int E_MapMap_s::ResumeInit() {
 }
 
 void E_MapMap_s::write_to_pbmsg(::proto_ff::E_MapMap & msg) const {
-	msg.set_m_mapid((int64_t)m_mapid);
-	msg.set_m_levellimit((int32_t)m_levellimit);
-	msg.set_m_advicelv(m_advicelv.data());
-	msg.set_m_isdyn((int32_t)m_isdyn);
-	msg.set_m_maptype((int32_t)m_maptype);
-	msg.set_m_mapsubtype((int32_t)m_mapsubtype);
-	msg.set_m_clearancetime((int32_t)m_clearancetime);
-	msg.set_m_mappkmode((int32_t)m_mappkmode);
-	msg.set_m_mappkvalue(m_mappkvalue.data());
+	msg.set_m_mapid((int64_t)m_mapId);
+	msg.set_m_levellimit((int32_t)m_levelLimit);
+	msg.set_m_advicelv(m_adviceLv.data());
+	msg.set_m_isdyn((int32_t)m_isDyn);
+	msg.set_m_maptype((int32_t)m_mapType);
+	msg.set_m_mapsubtype((int32_t)m_mapSubType);
+	msg.set_m_clearancetime((int32_t)m_clearanceTime);
+	msg.set_m_mappkmode((int32_t)m_mapPkmode);
+	msg.set_m_mappkvalue(m_mapPkValue.data());
 	msg.set_m_pklock((int32_t)m_pklock);
 	msg.set_m_pk((int32_t)m_pk);
-	msg.set_m_killvalue((int32_t)m_killvalue);
-	msg.set_m_bangroup((int32_t)m_bangroup);
-	msg.set_m_revivetime((int32_t)m_revivetime);
-	msg.set_m_mapwide((int32_t)m_mapwide);
-	msg.set_m_mapheight((int32_t)m_mapheight);
-	msg.set_m_mapresources(m_mapresources.data());
-	msg.set_m_reviveskill((int64_t)m_reviveskill);
-	msg.set_m_reviveinplacetype((int32_t)m_reviveinplacetype);
-	msg.set_m_ishangup((int32_t)m_ishangup);
-	msg.set_m_itemdroptype((int32_t)m_itemdroptype);
-	msg.set_m_itemdropid(m_itemdropid.data());
-	msg.set_m_linkoffline((int64_t)m_linkoffline);
-	msg.set_m_banonhook((int32_t)m_banonhook);
-	msg.set_m_rewait((int32_t)m_rewait);
-	msg.set_m_retime((int32_t)m_retime);
-	msg.set_m_hreban((int32_t)m_hreban);
-	msg.set_m_retiered((int32_t)m_retiered);
-	msg.set_m_reskillid((int32_t)m_reskillid);
-	msg.set_m_reteimes((int32_t)m_reteimes);
-	msg.set_m_drivepoint((int32_t)m_drivepoint);
-	msg.set_m_diedp((int32_t)m_diedp);
-	msg.set_m_timedp((int32_t)m_timedp);
+	msg.set_m_killvalue((int32_t)m_killValue);
+	msg.set_m_bangroup((int32_t)m_BanGroup);
+	msg.set_m_revivetime((int32_t)m_reviveTime);
+	msg.set_m_mapwide((int32_t)m_mapWide);
+	msg.set_m_mapheight((int32_t)m_mapHeight);
+	msg.set_m_mapresources(m_mapResources.data());
+	msg.set_m_reviveskill((int64_t)m_reviveSkill);
+	msg.set_m_reviveinplacetype((int32_t)m_reviveInPlaceType);
+	msg.set_m_ishangup((int32_t)m_isHangUp);
+	msg.set_m_itemdroptype((int32_t)m_itemDropType);
+	msg.set_m_itemdropid(m_itemDropID.data());
+	msg.set_m_linkoffline((int64_t)m_linkOffLine);
+	msg.set_m_banonhook((int32_t)m_banOnHook);
+	msg.set_m_rewait((int32_t)m_Rewait);
+	msg.set_m_retime((int32_t)m_REtime);
+	msg.set_m_hreban((int32_t)m_HREBan);
+	msg.set_m_retiered((int32_t)m_Retiered);
+	msg.set_m_reskillid((int32_t)m_REskillid);
+	msg.set_m_reteimes((int32_t)m_Reteimes);
+	msg.set_m_drivepoint((int32_t)m_drivePoint);
+	msg.set_m_diedp((int32_t)m_dieDP);
+	msg.set_m_timedp((int32_t)m_timeDP);
 	msg.set_m_meditation((int32_t)m_meditation);
-	msg.set_m_mapbutton(m_mapbutton.data());
-	msg.set_m_banmount((int32_t)m_banmount);
-	msg.set_m_banlink((int32_t)m_banlink);
-	msg.set_m_lvsuppvp((int32_t)m_lvsuppvp);
-	msg.set_m_powersuppvp((int32_t)m_powersuppvp);
+	msg.set_m_mapbutton(m_mapButton.data());
+	msg.set_m_banmount((int32_t)m_banMount);
+	msg.set_m_banlink((int32_t)m_banLink);
+	msg.set_m_lvsuppvp((int32_t)m_lvSupPvp);
+	msg.set_m_powersuppvp((int32_t)m_powerSupPvp);
 }
 
 void E_MapMap_s::read_from_pbmsg(const ::proto_ff::E_MapMap & msg) {
-	m_mapid = msg.m_mapid();
-	m_levellimit = msg.m_levellimit();
-	m_advicelv = msg.m_advicelv();
-	m_isdyn = msg.m_isdyn();
-	m_maptype = msg.m_maptype();
-	m_mapsubtype = msg.m_mapsubtype();
-	m_clearancetime = msg.m_clearancetime();
-	m_mappkmode = msg.m_mappkmode();
-	m_mappkvalue = msg.m_mappkvalue();
+	m_mapId = msg.m_mapid();
+	m_levelLimit = msg.m_levellimit();
+	m_adviceLv = msg.m_advicelv();
+	m_isDyn = msg.m_isdyn();
+	m_mapType = msg.m_maptype();
+	m_mapSubType = msg.m_mapsubtype();
+	m_clearanceTime = msg.m_clearancetime();
+	m_mapPkmode = msg.m_mappkmode();
+	m_mapPkValue = msg.m_mappkvalue();
 	m_pklock = msg.m_pklock();
 	m_pk = msg.m_pk();
-	m_killvalue = msg.m_killvalue();
-	m_bangroup = msg.m_bangroup();
-	m_revivetime = msg.m_revivetime();
-	m_mapwide = msg.m_mapwide();
-	m_mapheight = msg.m_mapheight();
-	m_mapresources = msg.m_mapresources();
-	m_reviveskill = msg.m_reviveskill();
-	m_reviveinplacetype = msg.m_reviveinplacetype();
-	m_ishangup = msg.m_ishangup();
-	m_itemdroptype = msg.m_itemdroptype();
-	m_itemdropid = msg.m_itemdropid();
-	m_linkoffline = msg.m_linkoffline();
-	m_banonhook = msg.m_banonhook();
-	m_rewait = msg.m_rewait();
-	m_retime = msg.m_retime();
-	m_hreban = msg.m_hreban();
-	m_retiered = msg.m_retiered();
-	m_reskillid = msg.m_reskillid();
-	m_reteimes = msg.m_reteimes();
-	m_drivepoint = msg.m_drivepoint();
-	m_diedp = msg.m_diedp();
-	m_timedp = msg.m_timedp();
+	m_killValue = msg.m_killvalue();
+	m_BanGroup = msg.m_bangroup();
+	m_reviveTime = msg.m_revivetime();
+	m_mapWide = msg.m_mapwide();
+	m_mapHeight = msg.m_mapheight();
+	m_mapResources = msg.m_mapresources();
+	m_reviveSkill = msg.m_reviveskill();
+	m_reviveInPlaceType = msg.m_reviveinplacetype();
+	m_isHangUp = msg.m_ishangup();
+	m_itemDropType = msg.m_itemdroptype();
+	m_itemDropID = msg.m_itemdropid();
+	m_linkOffLine = msg.m_linkoffline();
+	m_banOnHook = msg.m_banonhook();
+	m_Rewait = msg.m_rewait();
+	m_REtime = msg.m_retime();
+	m_HREBan = msg.m_hreban();
+	m_Retiered = msg.m_retiered();
+	m_REskillid = msg.m_reskillid();
+	m_Reteimes = msg.m_reteimes();
+	m_drivePoint = msg.m_drivepoint();
+	m_dieDP = msg.m_diedp();
+	m_timeDP = msg.m_timedp();
 	m_meditation = msg.m_meditation();
-	m_mapbutton = msg.m_mapbutton();
-	m_banmount = msg.m_banmount();
-	m_banlink = msg.m_banlink();
-	m_lvsuppvp = msg.m_lvsuppvp();
-	m_powersuppvp = msg.m_powersuppvp();
+	m_mapButton = msg.m_mapbutton();
+	m_banMount = msg.m_banmount();
+	m_banLink = msg.m_banlink();
+	m_lvSupPvp = msg.m_lvsuppvp();
+	m_powerSupPvp = msg.m_powersuppvp();
 }
 
 Sheet_MapMap_s::Sheet_MapMap_s() {
@@ -176,8 +176,8 @@ E_MapItemdrop_s::E_MapItemdrop_s() {
 }
 
 int E_MapItemdrop_s::CreateInit() {
-	m_itemdropid = (int32_t)0;
-	m_droptype = (int32_t)0;
+	m_itemDropID = (int32_t)0;
+	m_dropType = (int32_t)0;
 	m_odds = (int32_t)0;
 	m_dropvaluea = (int32_t)0;
 	m_dropvalueb = (int32_t)0;
@@ -193,8 +193,8 @@ int E_MapItemdrop_s::ResumeInit() {
 }
 
 void E_MapItemdrop_s::write_to_pbmsg(::proto_ff::E_MapItemdrop & msg) const {
-	msg.set_m_itemdropid((int32_t)m_itemdropid);
-	msg.set_m_droptype((int32_t)m_droptype);
+	msg.set_m_itemdropid((int32_t)m_itemDropID);
+	msg.set_m_droptype((int32_t)m_dropType);
 	msg.set_m_odds((int32_t)m_odds);
 	msg.set_m_dropvaluea((int32_t)m_dropvaluea);
 	msg.set_m_dropvalueb((int32_t)m_dropvalueb);
@@ -205,8 +205,8 @@ void E_MapItemdrop_s::write_to_pbmsg(::proto_ff::E_MapItemdrop & msg) const {
 }
 
 void E_MapItemdrop_s::read_from_pbmsg(const ::proto_ff::E_MapItemdrop & msg) {
-	m_itemdropid = msg.m_itemdropid();
-	m_droptype = msg.m_droptype();
+	m_itemDropID = msg.m_itemdropid();
+	m_dropType = msg.m_droptype();
 	m_odds = msg.m_odds();
 	m_dropvaluea = msg.m_dropvaluea();
 	m_dropvalueb = msg.m_dropvalueb();
@@ -256,7 +256,7 @@ E_MapDestroyitem_s::E_MapDestroyitem_s() {
 }
 
 int E_MapDestroyitem_s::CreateInit() {
-	m_destroyitemid = (int64_t)0;
+	m_destroyitemID = (int64_t)0;
 	return 0;
 }
 
@@ -265,11 +265,11 @@ int E_MapDestroyitem_s::ResumeInit() {
 }
 
 void E_MapDestroyitem_s::write_to_pbmsg(::proto_ff::E_MapDestroyitem & msg) const {
-	msg.set_m_destroyitemid((int64_t)m_destroyitemid);
+	msg.set_m_destroyitemid((int64_t)m_destroyitemID);
 }
 
 void E_MapDestroyitem_s::read_from_pbmsg(const ::proto_ff::E_MapDestroyitem & msg) {
-	m_destroyitemid = msg.m_destroyitemid();
+	m_destroyitemID = msg.m_destroyitemid();
 }
 
 Sheet_MapDestroyitem_s::Sheet_MapDestroyitem_s() {
@@ -377,8 +377,8 @@ E_MapInspireRewardDesc_s::E_MapInspireRewardDesc_s() {
 }
 
 int E_MapInspireRewardDesc_s::CreateInit() {
-	m_num = (int32_t)0;
-	m_id = (int32_t)0;
+	m_Num = (int32_t)0;
+	m_Id = (int32_t)0;
 	return 0;
 }
 
@@ -387,13 +387,13 @@ int E_MapInspireRewardDesc_s::ResumeInit() {
 }
 
 void E_MapInspireRewardDesc_s::write_to_pbmsg(::proto_ff::E_MapInspireRewardDesc & msg) const {
-	msg.set_m_num((int32_t)m_num);
-	msg.set_m_id((int32_t)m_id);
+	msg.set_m_num((int32_t)m_Num);
+	msg.set_m_id((int32_t)m_Id);
 }
 
 void E_MapInspireRewardDesc_s::read_from_pbmsg(const ::proto_ff::E_MapInspireRewardDesc & msg) {
-	m_num = msg.m_num();
-	m_id = msg.m_id();
+	m_Num = msg.m_num();
+	m_Id = msg.m_id();
 }
 
 E_MapInspire_s::E_MapInspire_s() {
@@ -407,8 +407,8 @@ E_MapInspire_s::E_MapInspire_s() {
 int E_MapInspire_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_group = (int32_t)0;
-	m_costid = (int32_t)0;
-	m_costnum = (int32_t)0;
+	m_costId = (int32_t)0;
+	m_costNum = (int32_t)0;
 	m_skillid = (int32_t)0;
 	m_times = (int32_t)0;
 	return 0;
@@ -422,8 +422,8 @@ void E_MapInspire_s::write_to_pbmsg(::proto_ff::E_MapInspire & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_group((int32_t)m_group);
 	msg.set_m_name(m_name.data());
-	msg.set_m_costid((int32_t)m_costid);
-	msg.set_m_costnum((int32_t)m_costnum);
+	msg.set_m_costid((int32_t)m_costId);
+	msg.set_m_costnum((int32_t)m_costNum);
 	msg.set_m_skillid((int32_t)m_skillid);
 	msg.set_m_times((int32_t)m_times);
 	for(int32_t i = 0; i < (int32_t)m_reward.size(); ++i) {
@@ -436,8 +436,8 @@ void E_MapInspire_s::read_from_pbmsg(const ::proto_ff::E_MapInspire & msg) {
 	m_id = msg.m_id();
 	m_group = msg.m_group();
 	m_name = msg.m_name();
-	m_costid = msg.m_costid();
-	m_costnum = msg.m_costnum();
+	m_costId = msg.m_costid();
+	m_costNum = msg.m_costnum();
 	m_skillid = msg.m_skillid();
 	m_times = msg.m_times();
 	m_reward.resize((int)msg.m_reward_size() > (int)m_reward.max_size() ? m_reward.max_size() : msg.m_reward_size());

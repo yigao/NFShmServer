@@ -533,46 +533,46 @@ void protobuf_AddDesc_E_5fFindtreasure_2eproto() {
     "\n\024E_Findtreasure.proto\022\010proto_ff\032\025yd_fie"
     "ldoptions.proto\"\254\005\n\032E_FindtreasureFindtr"
     "easure\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\032\n\006m_type\030\002"
-    " \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022*\n\020m_functionunlock\030\003 \001"
-    "(\005B\020\302\377\024\014\345\212\237\350\203\275\345\274\200\346\224\276\022\036\n\010m_costid\030\004 \001(\003B\014"
-    "\302\377\024\010\351\201\223\345\205\267id\022\'\n\tm_costnum\030\005 \001(\tB\024\302\377\024\014\346\212\275"
-    "\345\245\226\346\266\210\350\200\227\220\301\024@\022*\n\nm_contitem\030\006 \001(\005B\026\302\377\024\022\347"
-    "\211\271\346\256\212\350\277\236\346\212\275\351\201\223\345\205\267\022\'\n\rm_poolgroupid\030\007 \001(\t"
+    " \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022*\n\020m_functionUnlock\030\003 \001"
+    "(\005B\020\302\377\024\014\345\212\237\350\203\275\345\274\200\346\224\276\022\036\n\010m_costID\030\004 \001(\003B\014"
+    "\302\377\024\010\351\201\223\345\205\267id\022\'\n\tm_costNum\030\005 \001(\tB\024\302\377\024\014\346\212\275"
+    "\345\245\226\346\266\210\350\200\227\220\301\024@\022*\n\nm_ContItem\030\006 \001(\005B\026\302\377\024\022\347"
+    "\211\271\346\256\212\350\277\236\346\212\275\351\201\223\345\205\267\022\'\n\rm_poolGroupId\030\007 \001(\t"
     "B\020\302\377\024\010\345\245\226\346\261\240id\220\301\024@\0225\n\006m_loop\030\010 \001(\005B%\302\377\024!"
     "\347\254\254\345\207\240\344\270\252\345\245\226\346\261\240\345\220\216\344\270\272\345\276\252\347\216\257\345\245\226\346\261\240\022*\n\nm_p"
-    "ooltime\030\t \001(\005B\026\302\377\024\022\345\245\226\346\261\240\350\275\256\346\215\242\346\227\266\351\227\264\0220\n"
-    "\016m_totalgroupid\030\n \001(\005B\030\302\377\024\024\347\264\257\350\256\241\346\254\241\346\225\260\345"
-    "\245\226\345\212\261id\022%\n\017m_activegroupid\030\013 \001(\005B\014\302\377\024\010\346\264"
-    "\273\345\212\250id\022-\n\rm_protecttime\030\014 \001(\005B\026\302\377\024\022\344\277\235\345\272"
-    "\225\345\245\226\346\261\240\346\254\241\346\225\260\022+\n\tm_additem\030\r \001(\005B\030\302\377\024\024\346\212"
-    "\275\345\245\226\351\242\235\345\244\226\345\245\226\345\212\261ID\022.\n\010m_addnum\030\016 \001(\005B\034\302\377"
-    "\024\030\346\212\275\345\245\226\351\242\235\345\244\226\345\245\226\345\212\261\346\225\260\351\207\217\022\036\n\010m_shopid\030\017"
-    " \001(\005B\014\302\377\024\010\345\225\206\345\237\216Id\022*\n\020m_storehousetype\030\020"
+    "oolTime\030\t \001(\005B\026\302\377\024\022\345\245\226\346\261\240\350\275\256\346\215\242\346\227\266\351\227\264\0220\n"
+    "\016m_totalGroupID\030\n \001(\005B\030\302\377\024\024\347\264\257\350\256\241\346\254\241\346\225\260\345"
+    "\245\226\345\212\261id\022%\n\017m_activeGroupID\030\013 \001(\005B\014\302\377\024\010\346\264"
+    "\273\345\212\250id\022-\n\rm_protectTime\030\014 \001(\005B\026\302\377\024\022\344\277\235\345\272"
+    "\225\345\245\226\346\261\240\346\254\241\346\225\260\022+\n\tm_addItem\030\r \001(\005B\030\302\377\024\024\346\212"
+    "\275\345\245\226\351\242\235\345\244\226\345\245\226\345\212\261ID\022.\n\010m_addNum\030\016 \001(\005B\034\302\377"
+    "\024\030\346\212\275\345\245\226\351\242\235\345\244\226\345\245\226\345\212\261\346\225\260\351\207\217\022\036\n\010m_shopID\030\017"
+    " \001(\005B\014\302\377\024\010\345\225\206\345\237\216Id\022*\n\020m_storehouseType\030\020"
     " \001(\005B\020\302\377\024\014\344\273\223\345\272\223\347\261\273\345\236\213\"u\n\036Sheet_Findtrea"
     "sureFindtreasure\022S\n\037E_FindtreasureFindtr"
     "easure_List\030\001 \003(\0132$.proto_ff.E_Findtreas"
     "ureFindtreasureB\004\210\301\024\020\"\321\002\n\026E_Findtreasure"
     "Findpool\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\"\n\tm_grou"
-    "pid\030\002 \001(\005B\017\302\377\024\013\345\245\226\346\261\240\347\273\204ID\022(\n\013m_showorde"
+    "pID\030\002 \001(\005B\017\302\377\024\013\345\245\226\346\261\240\347\273\204ID\022(\n\013m_showOrde"
     "r\030\003 \001(\005B\023\302\377\024\017\345\256\242\346\210\267\347\253\257\345\261\225\347\244\272\022\034\n\010m_itemid"
     "\030\004 \001(\003B\n\302\377\024\006\347\211\251\345\223\201\022\031\n\005m_num\030\005 \001(\005B\n\302\377\024\006\346"
     "\225\260\351\207\217\022\032\n\006m_prof\030\006 \001(\005B\n\302\377\024\006\350\201\214\344\270\232\022#\n\tm_w"
-    "eights\030\007 \001(\005B\020\302\377\024\014\346\216\211\350\220\275\346\235\203\351\207\215\022,\n\014m_prow"
+    "eights\030\007 \001(\005B\020\302\377\024\014\346\216\211\350\220\275\346\235\203\351\207\215\022,\n\014m_proW"
     "eights\030\010 \001(\005B\026\302\377\024\022\344\277\235\345\272\225\346\216\211\350\220\275\346\235\203\351\207\215\022+\n\010"
-    "m_record\030\t \001(\005B\031\302\377\024\025\345\245\226\345\212\261\350\256\260\345\275\225\347\250\200\346\234\211\345\272"
+    "m_Record\030\t \001(\005B\031\302\377\024\025\345\245\226\345\212\261\350\256\260\345\275\225\347\250\200\346\234\211\345\272"
     "\246\"j\n\032Sheet_FindtreasureFindpool\022L\n\033E_Fin"
     "dtreasureFindpool_List\030\001 \003(\0132 .proto_ff."
     "E_FindtreasureFindpoolB\005\210\301\024\200\002\"\257\001\n\026E_Find"
     "treasureConstant\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022I"
-    "\n\021m_dragonsevertime\030\002 \001(\005B.\302\377\024*\347\234\237\351\276\231\347\247\230"
+    "\n\021m_dragonSeverTime\030\002 \001(\005B.\302\377\024*\347\234\237\351\276\231\347\247\230"
     "\345\256\235\345\274\200\346\234\215\345\274\200\345\220\257\345\270\270\350\247\204\345\210\267\346\226\260\346\227\266\351\227\264\0224\n\016m_g"
-    "odsevertime\030\003 \001(\005B\034\302\377\024\030\347\245\236\346\234\272\346\233\264\346\215\242\345\245\226\346\261"
+    "odSeverTime\030\003 \001(\005B\034\302\377\024\030\347\245\236\346\234\272\346\233\264\346\215\242\345\245\226\346\261"
     "\240\346\227\266\351\227\264\"i\n\032Sheet_FindtreasureConstant\022K\n"
     "\033E_FindtreasureConstant_List\030\001 \003(\0132 .pro"
     "to_ff.E_FindtreasureConstantB\004\210\301\024\002\"\321\001\n\023E"
     "_FindtreasureTotal\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id"
     "\022\034\n\tm_groupid\030\002 \001(\005B\t\302\377\024\005\347\273\204id\022\032\n\006m_type"
-    "\030\003 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022$\n\010m_itemid\030\004 \001(\005B\022\302\377"
+    "\030\003 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022$\n\010m_itemID\030\004 \001(\005B\022\302\377"
     "\024\016\345\245\226\345\212\261\351\201\223\345\205\267id\022%\n\005m_num\030\005 \001(\005B\026\302\377\024\022\345\245\226"
     "\345\212\261\351\201\223\345\205\267\346\225\260\351\207\217\022\035\n\005m_arg\030\006 \003(\005B\016\302\377\024\006\345\217\202\346"
     "\225\260\210\301\024\002\"`\n\027Sheet_FindtreasureTotal\022E\n\030E_F"
@@ -580,25 +580,25 @@ void protobuf_AddDesc_E_5fFindtreasure_2eproto() {
     "_FindtreasureTotalB\004\210\301\024@\"\214\002\n\024E_Findtreas"
     "ureActive\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\tm_gro"
     "upid\030\002 \001(\005B\t\302\377\024\005\347\273\204id\022*\n\nm_opentime\030\003 \001("
-    "\005B\026\302\377\024\022\346\264\273\345\212\250\345\274\200\345\220\257\346\227\266\351\227\264\022#\n\tm_durtime\030\004"
-    " \001(\005B\020\302\377\024\014\346\214\201\347\273\255\346\227\266\351\227\264\022%\n\013m_closetime\030\005 "
+    "\005B\026\302\377\024\022\346\264\273\345\212\250\345\274\200\345\220\257\346\227\266\351\227\264\022#\n\tm_durTime\030\004"
+    " \001(\005B\020\302\377\024\014\346\214\201\347\273\255\346\227\266\351\227\264\022%\n\013m_closeTime\030\005 "
     "\001(\005B\020\302\377\024\014\345\205\263\351\227\255\346\227\266\351\227\264\022 \n\006m_type\030\006 \001(\005B\020\302"
-    "\377\024\014\346\264\273\345\212\250\347\261\273\345\236\213\022&\n\rm_typegroupid\030\007 \001(\005B\017"
+    "\377\024\014\346\264\273\345\212\250\347\261\273\345\236\213\022&\n\rm_typeGroupId\030\007 \001(\005B\017"
     "\302\377\024\013\346\264\273\345\212\250\347\273\204id\"c\n\030Sheet_FindtreasureAct"
     "ive\022G\n\031E_FindtreasureActive_List\030\001 \003(\0132\036"
     ".proto_ff.E_FindtreasureActiveB\004\210\301\024\010\"\254\001\n"
     "\026E_FindtreasureActiveup\022\024\n\004m_id\030\001 \001(\005B\006\302"
-    "\377\024\002id\022\034\n\tm_groupid\030\002 \001(\005B\t\302\377\024\005\347\273\204id\022\032\n\006m"
+    "\377\024\002id\022\034\n\tm_groupID\030\002 \001(\005B\t\302\377\024\005\347\273\204id\022\032\n\006m"
     "_type\030\003 \001(\005B\n\302\377\024\006\345\210\206\347\261\273\022\036\n\010m_itemid\030\004 \001("
-    "\005B\014\302\377\024\010\347\211\251\345\223\201id\022\"\n\010m_proarg\030\005 \001(\005B\020\302\377\024\014\350"
+    "\005B\014\302\377\024\010\347\211\251\345\223\201id\022\"\n\010m_proArg\030\005 \001(\005B\020\302\377\024\014\350"
     "\260\203\346\225\264\347\263\273\346\225\260\"i\n\032Sheet_FindtreasureActiveu"
     "p\022K\n\033E_FindtreasureActiveup_List\030\001 \003(\0132 "
     ".proto_ff.E_FindtreasureActiveupB\004\210\301\024 \"\275"
     "\001\n\031E_FindtreasureActivegoods\022\034\n\tm_groupi"
-    "d\030\001 \001(\005B\t\302\377\024\005\347\273\204id\022\036\n\010m_itemid\030\002 \001(\005B\014\302\377"
+    "d\030\001 \001(\005B\t\302\377\024\005\347\273\204id\022\036\n\010m_itemID\030\002 \001(\005B\014\302\377"
     "\024\010\351\201\223\345\205\267id\022 \n\006m_type\030\003 \001(\005B\020\302\377\024\014\344\273\267\346\240\274\347\261"
     "\273\345\236\213\022\033\n\007m_price\030\004 \001(\005B\n\302\377\024\006\344\273\267\346\240\274\022#\n\tm_i"
-    "temnum\030\005 \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346\225\260\351\207\217\"r\n\035Sheet_"
+    "temNum\030\005 \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346\225\260\351\207\217\"r\n\035Sheet_"
     "FindtreasureActivegoods\022Q\n\036E_Findtreasur"
     "eActivegoods_List\030\001 \003(\0132#.proto_ff.E_Fin"
     "dtreasureActivegoodsB\004\210\301\024\004\"S\n E_Findtrea"
@@ -615,8 +615,8 @@ void protobuf_AddDesc_E_5fFindtreasure_2eproto() {
     "proto_ff.E_FindtreasureActiveshopB\004\210\301\024\004\""
     "\320\001\n\022E_FindtreasureShop\022\024\n\004m_id\030\001 \001(\005B\006\302\377"
     "\024\002id\022\034\n\tm_groupid\030\002 \001(\005B\t\302\377\024\005\347\273\204id\022\037\n\tm_"
-    "goodsid\030\003 \001(\005B\014\302\377\024\010\345\225\206\345\223\201id\022$\n\nm_goodsnu"
-    "m\030\004 \001(\005B\020\302\377\024\014\345\225\206\345\223\201\346\225\260\351\207\217\022\036\n\010m_costid\030\005 "
+    "goodsID\030\003 \001(\005B\014\302\377\024\010\345\225\206\345\223\201id\022$\n\nm_goodsNu"
+    "m\030\004 \001(\005B\020\302\377\024\014\345\225\206\345\223\201\346\225\260\351\207\217\022\036\n\010m_costID\030\005 "
     "\001(\005B\014\302\377\024\010\350\264\247\345\270\201id\022\037\n\005m_num\030\006 \001(\005B\020\302\377\024\014\350\264"
     "\247\345\270\201\346\225\260\351\207\217\"]\n\026Sheet_FindtreasureShop\022C\n\027"
     "E_FindtreasureShop_List\030\001 \003(\0132\034.proto_ff"
@@ -676,20 +676,20 @@ struct StaticDescriptorInitializer_E_5fFindtreasure_2eproto {
 #ifndef _MSC_VER
 const int E_FindtreasureFindtreasure::kMIdFieldNumber;
 const int E_FindtreasureFindtreasure::kMTypeFieldNumber;
-const int E_FindtreasureFindtreasure::kMFunctionunlockFieldNumber;
-const int E_FindtreasureFindtreasure::kMCostidFieldNumber;
-const int E_FindtreasureFindtreasure::kMCostnumFieldNumber;
-const int E_FindtreasureFindtreasure::kMContitemFieldNumber;
-const int E_FindtreasureFindtreasure::kMPoolgroupidFieldNumber;
+const int E_FindtreasureFindtreasure::kMFunctionUnlockFieldNumber;
+const int E_FindtreasureFindtreasure::kMCostIDFieldNumber;
+const int E_FindtreasureFindtreasure::kMCostNumFieldNumber;
+const int E_FindtreasureFindtreasure::kMContItemFieldNumber;
+const int E_FindtreasureFindtreasure::kMPoolGroupIdFieldNumber;
 const int E_FindtreasureFindtreasure::kMLoopFieldNumber;
-const int E_FindtreasureFindtreasure::kMPooltimeFieldNumber;
-const int E_FindtreasureFindtreasure::kMTotalgroupidFieldNumber;
-const int E_FindtreasureFindtreasure::kMActivegroupidFieldNumber;
-const int E_FindtreasureFindtreasure::kMProtecttimeFieldNumber;
-const int E_FindtreasureFindtreasure::kMAdditemFieldNumber;
-const int E_FindtreasureFindtreasure::kMAddnumFieldNumber;
-const int E_FindtreasureFindtreasure::kMShopidFieldNumber;
-const int E_FindtreasureFindtreasure::kMStorehousetypeFieldNumber;
+const int E_FindtreasureFindtreasure::kMPoolTimeFieldNumber;
+const int E_FindtreasureFindtreasure::kMTotalGroupIDFieldNumber;
+const int E_FindtreasureFindtreasure::kMActiveGroupIDFieldNumber;
+const int E_FindtreasureFindtreasure::kMProtectTimeFieldNumber;
+const int E_FindtreasureFindtreasure::kMAddItemFieldNumber;
+const int E_FindtreasureFindtreasure::kMAddNumFieldNumber;
+const int E_FindtreasureFindtreasure::kMShopIDFieldNumber;
+const int E_FindtreasureFindtreasure::kMStorehouseTypeFieldNumber;
 #endif  // !_MSC_VER
 
 E_FindtreasureFindtreasure::E_FindtreasureFindtreasure()
@@ -829,15 +829,15 @@ bool E_FindtreasureFindtreasure::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_functionunlock;
+        if (input->ExpectTag(24)) goto parse_m_functionUnlock;
         break;
       }
 
-      // optional int32 m_functionunlock = 3;
+      // optional int32 m_functionUnlock = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_functionunlock:
+         parse_m_functionUnlock:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_functionunlock_)));
@@ -845,15 +845,15 @@ bool E_FindtreasureFindtreasure::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_costid;
+        if (input->ExpectTag(32)) goto parse_m_costID;
         break;
       }
 
-      // optional int64 m_costid = 4;
+      // optional int64 m_costID = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_costid:
+         parse_m_costID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_costid_)));
@@ -861,15 +861,15 @@ bool E_FindtreasureFindtreasure::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_m_costnum;
+        if (input->ExpectTag(42)) goto parse_m_costNum;
         break;
       }
 
-      // optional string m_costnum = 5;
+      // optional string m_costNum = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_costnum:
+         parse_m_costNum:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_costnum()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -878,15 +878,15 @@ bool E_FindtreasureFindtreasure::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_contitem;
+        if (input->ExpectTag(48)) goto parse_m_ContItem;
         break;
       }
 
-      // optional int32 m_contitem = 6;
+      // optional int32 m_ContItem = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_contitem:
+         parse_m_ContItem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_contitem_)));
@@ -894,15 +894,15 @@ bool E_FindtreasureFindtreasure::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(58)) goto parse_m_poolgroupid;
+        if (input->ExpectTag(58)) goto parse_m_poolGroupId;
         break;
       }
 
-      // optional string m_poolgroupid = 7;
+      // optional string m_poolGroupId = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_poolgroupid:
+         parse_m_poolGroupId:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_poolgroupid()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -927,15 +927,15 @@ bool E_FindtreasureFindtreasure::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_pooltime;
+        if (input->ExpectTag(72)) goto parse_m_poolTime;
         break;
       }
 
-      // optional int32 m_pooltime = 9;
+      // optional int32 m_poolTime = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_pooltime:
+         parse_m_poolTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_pooltime_)));
@@ -943,15 +943,15 @@ bool E_FindtreasureFindtreasure::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_totalgroupid;
+        if (input->ExpectTag(80)) goto parse_m_totalGroupID;
         break;
       }
 
-      // optional int32 m_totalgroupid = 10;
+      // optional int32 m_totalGroupID = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_totalgroupid:
+         parse_m_totalGroupID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_totalgroupid_)));
@@ -959,15 +959,15 @@ bool E_FindtreasureFindtreasure::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_activegroupid;
+        if (input->ExpectTag(88)) goto parse_m_activeGroupID;
         break;
       }
 
-      // optional int32 m_activegroupid = 11;
+      // optional int32 m_activeGroupID = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_activegroupid:
+         parse_m_activeGroupID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_activegroupid_)));
@@ -975,15 +975,15 @@ bool E_FindtreasureFindtreasure::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_protecttime;
+        if (input->ExpectTag(96)) goto parse_m_protectTime;
         break;
       }
 
-      // optional int32 m_protecttime = 12;
+      // optional int32 m_protectTime = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_protecttime:
+         parse_m_protectTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_protecttime_)));
@@ -991,15 +991,15 @@ bool E_FindtreasureFindtreasure::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_m_additem;
+        if (input->ExpectTag(104)) goto parse_m_addItem;
         break;
       }
 
-      // optional int32 m_additem = 13;
+      // optional int32 m_addItem = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_additem:
+         parse_m_addItem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_additem_)));
@@ -1007,15 +1007,15 @@ bool E_FindtreasureFindtreasure::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(112)) goto parse_m_addnum;
+        if (input->ExpectTag(112)) goto parse_m_addNum;
         break;
       }
 
-      // optional int32 m_addnum = 14;
+      // optional int32 m_addNum = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_addnum:
+         parse_m_addNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_addnum_)));
@@ -1023,15 +1023,15 @@ bool E_FindtreasureFindtreasure::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(120)) goto parse_m_shopid;
+        if (input->ExpectTag(120)) goto parse_m_shopID;
         break;
       }
 
-      // optional int32 m_shopid = 15;
+      // optional int32 m_shopID = 15;
       case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_shopid:
+         parse_m_shopID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_shopid_)));
@@ -1039,15 +1039,15 @@ bool E_FindtreasureFindtreasure::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(128)) goto parse_m_storehousetype;
+        if (input->ExpectTag(128)) goto parse_m_storehouseType;
         break;
       }
 
-      // optional int32 m_storehousetype = 16;
+      // optional int32 m_storehouseType = 16;
       case 16: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_storehousetype:
+         parse_m_storehouseType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_storehousetype_)));
@@ -1087,17 +1087,17 @@ void E_FindtreasureFindtreasure::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
   }
 
-  // optional int32 m_functionunlock = 3;
+  // optional int32 m_functionUnlock = 3;
   if (has_m_functionunlock()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_functionunlock(), output);
   }
 
-  // optional int64 m_costid = 4;
+  // optional int64 m_costID = 4;
   if (has_m_costid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->m_costid(), output);
   }
 
-  // optional string m_costnum = 5;
+  // optional string m_costNum = 5;
   if (has_m_costnum()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_costnum().data(), this->m_costnum().length(),
@@ -1106,12 +1106,12 @@ void E_FindtreasureFindtreasure::SerializeWithCachedSizes(
       5, this->m_costnum(), output);
   }
 
-  // optional int32 m_contitem = 6;
+  // optional int32 m_ContItem = 6;
   if (has_m_contitem()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_contitem(), output);
   }
 
-  // optional string m_poolgroupid = 7;
+  // optional string m_poolGroupId = 7;
   if (has_m_poolgroupid()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_poolgroupid().data(), this->m_poolgroupid().length(),
@@ -1125,42 +1125,42 @@ void E_FindtreasureFindtreasure::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_loop(), output);
   }
 
-  // optional int32 m_pooltime = 9;
+  // optional int32 m_poolTime = 9;
   if (has_m_pooltime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_pooltime(), output);
   }
 
-  // optional int32 m_totalgroupid = 10;
+  // optional int32 m_totalGroupID = 10;
   if (has_m_totalgroupid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_totalgroupid(), output);
   }
 
-  // optional int32 m_activegroupid = 11;
+  // optional int32 m_activeGroupID = 11;
   if (has_m_activegroupid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_activegroupid(), output);
   }
 
-  // optional int32 m_protecttime = 12;
+  // optional int32 m_protectTime = 12;
   if (has_m_protecttime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_protecttime(), output);
   }
 
-  // optional int32 m_additem = 13;
+  // optional int32 m_addItem = 13;
   if (has_m_additem()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_additem(), output);
   }
 
-  // optional int32 m_addnum = 14;
+  // optional int32 m_addNum = 14;
   if (has_m_addnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_addnum(), output);
   }
 
-  // optional int32 m_shopid = 15;
+  // optional int32 m_shopID = 15;
   if (has_m_shopid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_shopid(), output);
   }
 
-  // optional int32 m_storehousetype = 16;
+  // optional int32 m_storehouseType = 16;
   if (has_m_storehousetype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->m_storehousetype(), output);
   }
@@ -1183,17 +1183,17 @@ void E_FindtreasureFindtreasure::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
   }
 
-  // optional int32 m_functionunlock = 3;
+  // optional int32 m_functionUnlock = 3;
   if (has_m_functionunlock()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_functionunlock(), target);
   }
 
-  // optional int64 m_costid = 4;
+  // optional int64 m_costID = 4;
   if (has_m_costid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->m_costid(), target);
   }
 
-  // optional string m_costnum = 5;
+  // optional string m_costNum = 5;
   if (has_m_costnum()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_costnum().data(), this->m_costnum().length(),
@@ -1203,12 +1203,12 @@ void E_FindtreasureFindtreasure::SerializeWithCachedSizes(
         5, this->m_costnum(), target);
   }
 
-  // optional int32 m_contitem = 6;
+  // optional int32 m_ContItem = 6;
   if (has_m_contitem()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_contitem(), target);
   }
 
-  // optional string m_poolgroupid = 7;
+  // optional string m_poolGroupId = 7;
   if (has_m_poolgroupid()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_poolgroupid().data(), this->m_poolgroupid().length(),
@@ -1223,42 +1223,42 @@ void E_FindtreasureFindtreasure::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_loop(), target);
   }
 
-  // optional int32 m_pooltime = 9;
+  // optional int32 m_poolTime = 9;
   if (has_m_pooltime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_pooltime(), target);
   }
 
-  // optional int32 m_totalgroupid = 10;
+  // optional int32 m_totalGroupID = 10;
   if (has_m_totalgroupid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_totalgroupid(), target);
   }
 
-  // optional int32 m_activegroupid = 11;
+  // optional int32 m_activeGroupID = 11;
   if (has_m_activegroupid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_activegroupid(), target);
   }
 
-  // optional int32 m_protecttime = 12;
+  // optional int32 m_protectTime = 12;
   if (has_m_protecttime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_protecttime(), target);
   }
 
-  // optional int32 m_additem = 13;
+  // optional int32 m_addItem = 13;
   if (has_m_additem()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_additem(), target);
   }
 
-  // optional int32 m_addnum = 14;
+  // optional int32 m_addNum = 14;
   if (has_m_addnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_addnum(), target);
   }
 
-  // optional int32 m_shopid = 15;
+  // optional int32 m_shopID = 15;
   if (has_m_shopid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_shopid(), target);
   }
 
-  // optional int32 m_storehousetype = 16;
+  // optional int32 m_storehouseType = 16;
   if (has_m_storehousetype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->m_storehousetype(), target);
   }
@@ -1288,35 +1288,35 @@ int E_FindtreasureFindtreasure::ByteSize() const {
           this->m_type());
     }
 
-    // optional int32 m_functionunlock = 3;
+    // optional int32 m_functionUnlock = 3;
     if (has_m_functionunlock()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_functionunlock());
     }
 
-    // optional int64 m_costid = 4;
+    // optional int64 m_costID = 4;
     if (has_m_costid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_costid());
     }
 
-    // optional string m_costnum = 5;
+    // optional string m_costNum = 5;
     if (has_m_costnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_costnum());
     }
 
-    // optional int32 m_contitem = 6;
+    // optional int32 m_ContItem = 6;
     if (has_m_contitem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_contitem());
     }
 
-    // optional string m_poolgroupid = 7;
+    // optional string m_poolGroupId = 7;
     if (has_m_poolgroupid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -1332,56 +1332,56 @@ int E_FindtreasureFindtreasure::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_pooltime = 9;
+    // optional int32 m_poolTime = 9;
     if (has_m_pooltime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_pooltime());
     }
 
-    // optional int32 m_totalgroupid = 10;
+    // optional int32 m_totalGroupID = 10;
     if (has_m_totalgroupid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_totalgroupid());
     }
 
-    // optional int32 m_activegroupid = 11;
+    // optional int32 m_activeGroupID = 11;
     if (has_m_activegroupid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_activegroupid());
     }
 
-    // optional int32 m_protecttime = 12;
+    // optional int32 m_protectTime = 12;
     if (has_m_protecttime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_protecttime());
     }
 
-    // optional int32 m_additem = 13;
+    // optional int32 m_addItem = 13;
     if (has_m_additem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_additem());
     }
 
-    // optional int32 m_addnum = 14;
+    // optional int32 m_addNum = 14;
     if (has_m_addnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_addnum());
     }
 
-    // optional int32 m_shopid = 15;
+    // optional int32 m_shopID = 15;
     if (has_m_shopid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_shopid());
     }
 
-    // optional int32 m_storehousetype = 16;
+    // optional int32 m_storehouseType = 16;
     if (has_m_storehousetype()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1726,13 +1726,13 @@ void Sheet_FindtreasureFindtreasure::Swap(Sheet_FindtreasureFindtreasure* other)
 
 #ifndef _MSC_VER
 const int E_FindtreasureFindpool::kMIdFieldNumber;
-const int E_FindtreasureFindpool::kMGroupidFieldNumber;
-const int E_FindtreasureFindpool::kMShoworderFieldNumber;
+const int E_FindtreasureFindpool::kMGroupIDFieldNumber;
+const int E_FindtreasureFindpool::kMShowOrderFieldNumber;
 const int E_FindtreasureFindpool::kMItemidFieldNumber;
 const int E_FindtreasureFindpool::kMNumFieldNumber;
 const int E_FindtreasureFindpool::kMProfFieldNumber;
 const int E_FindtreasureFindpool::kMWeightsFieldNumber;
-const int E_FindtreasureFindpool::kMProweightsFieldNumber;
+const int E_FindtreasureFindpool::kMProWeightsFieldNumber;
 const int E_FindtreasureFindpool::kMRecordFieldNumber;
 #endif  // !_MSC_VER
 
@@ -1829,15 +1829,15 @@ bool E_FindtreasureFindpool::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_groupid;
+        if (input->ExpectTag(16)) goto parse_m_groupID;
         break;
       }
 
-      // optional int32 m_groupid = 2;
+      // optional int32 m_groupID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_groupid:
+         parse_m_groupID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_groupid_)));
@@ -1845,15 +1845,15 @@ bool E_FindtreasureFindpool::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_showorder;
+        if (input->ExpectTag(24)) goto parse_m_showOrder;
         break;
       }
 
-      // optional int32 m_showorder = 3;
+      // optional int32 m_showOrder = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_showorder:
+         parse_m_showOrder:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_showorder_)));
@@ -1925,15 +1925,15 @@ bool E_FindtreasureFindpool::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_proweights;
+        if (input->ExpectTag(64)) goto parse_m_proWeights;
         break;
       }
 
-      // optional int32 m_proweights = 8;
+      // optional int32 m_proWeights = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_proweights:
+         parse_m_proWeights:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_proweights_)));
@@ -1941,15 +1941,15 @@ bool E_FindtreasureFindpool::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_record;
+        if (input->ExpectTag(72)) goto parse_m_Record;
         break;
       }
 
-      // optional int32 m_record = 9;
+      // optional int32 m_Record = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_record:
+         parse_m_Record:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_record_)));
@@ -1984,12 +1984,12 @@ void E_FindtreasureFindpool::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   if (has_m_groupid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_groupid(), output);
   }
 
-  // optional int32 m_showorder = 3;
+  // optional int32 m_showOrder = 3;
   if (has_m_showorder()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_showorder(), output);
   }
@@ -2014,12 +2014,12 @@ void E_FindtreasureFindpool::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_weights(), output);
   }
 
-  // optional int32 m_proweights = 8;
+  // optional int32 m_proWeights = 8;
   if (has_m_proweights()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_proweights(), output);
   }
 
-  // optional int32 m_record = 9;
+  // optional int32 m_Record = 9;
   if (has_m_record()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_record(), output);
   }
@@ -2037,12 +2037,12 @@ void E_FindtreasureFindpool::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   if (has_m_groupid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_groupid(), target);
   }
 
-  // optional int32 m_showorder = 3;
+  // optional int32 m_showOrder = 3;
   if (has_m_showorder()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_showorder(), target);
   }
@@ -2067,12 +2067,12 @@ void E_FindtreasureFindpool::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_weights(), target);
   }
 
-  // optional int32 m_proweights = 8;
+  // optional int32 m_proWeights = 8;
   if (has_m_proweights()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_proweights(), target);
   }
 
-  // optional int32 m_record = 9;
+  // optional int32 m_Record = 9;
   if (has_m_record()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_record(), target);
   }
@@ -2095,14 +2095,14 @@ int E_FindtreasureFindpool::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_groupid = 2;
+    // optional int32 m_groupID = 2;
     if (has_m_groupid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_groupid());
     }
 
-    // optional int32 m_showorder = 3;
+    // optional int32 m_showOrder = 3;
     if (has_m_showorder()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2137,7 +2137,7 @@ int E_FindtreasureFindpool::ByteSize() const {
           this->m_weights());
     }
 
-    // optional int32 m_proweights = 8;
+    // optional int32 m_proWeights = 8;
     if (has_m_proweights()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2146,7 +2146,7 @@ int E_FindtreasureFindpool::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_record = 9;
+    // optional int32 m_Record = 9;
     if (has_m_record()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2463,8 +2463,8 @@ void Sheet_FindtreasureFindpool::Swap(Sheet_FindtreasureFindpool* other) {
 
 #ifndef _MSC_VER
 const int E_FindtreasureConstant::kMIdFieldNumber;
-const int E_FindtreasureConstant::kMDragonsevertimeFieldNumber;
-const int E_FindtreasureConstant::kMGodsevertimeFieldNumber;
+const int E_FindtreasureConstant::kMDragonSeverTimeFieldNumber;
+const int E_FindtreasureConstant::kMGodSeverTimeFieldNumber;
 #endif  // !_MSC_VER
 
 E_FindtreasureConstant::E_FindtreasureConstant()
@@ -2546,15 +2546,15 @@ bool E_FindtreasureConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_dragonsevertime;
+        if (input->ExpectTag(16)) goto parse_m_dragonSeverTime;
         break;
       }
 
-      // optional int32 m_dragonsevertime = 2;
+      // optional int32 m_dragonSeverTime = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_dragonsevertime:
+         parse_m_dragonSeverTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_dragonsevertime_)));
@@ -2562,15 +2562,15 @@ bool E_FindtreasureConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_godsevertime;
+        if (input->ExpectTag(24)) goto parse_m_godSeverTime;
         break;
       }
 
-      // optional int32 m_godsevertime = 3;
+      // optional int32 m_godSeverTime = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_godsevertime:
+         parse_m_godSeverTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_godsevertime_)));
@@ -2605,12 +2605,12 @@ void E_FindtreasureConstant::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_dragonsevertime = 2;
+  // optional int32 m_dragonSeverTime = 2;
   if (has_m_dragonsevertime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_dragonsevertime(), output);
   }
 
-  // optional int32 m_godsevertime = 3;
+  // optional int32 m_godSeverTime = 3;
   if (has_m_godsevertime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_godsevertime(), output);
   }
@@ -2628,12 +2628,12 @@ void E_FindtreasureConstant::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_dragonsevertime = 2;
+  // optional int32 m_dragonSeverTime = 2;
   if (has_m_dragonsevertime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_dragonsevertime(), target);
   }
 
-  // optional int32 m_godsevertime = 3;
+  // optional int32 m_godSeverTime = 3;
   if (has_m_godsevertime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_godsevertime(), target);
   }
@@ -2656,14 +2656,14 @@ int E_FindtreasureConstant::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_dragonsevertime = 2;
+    // optional int32 m_dragonSeverTime = 2;
     if (has_m_dragonsevertime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_dragonsevertime());
     }
 
-    // optional int32 m_godsevertime = 3;
+    // optional int32 m_godSeverTime = 3;
     if (has_m_godsevertime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2956,7 +2956,7 @@ void Sheet_FindtreasureConstant::Swap(Sheet_FindtreasureConstant* other) {
 const int E_FindtreasureTotal::kMIdFieldNumber;
 const int E_FindtreasureTotal::kMGroupidFieldNumber;
 const int E_FindtreasureTotal::kMTypeFieldNumber;
-const int E_FindtreasureTotal::kMItemidFieldNumber;
+const int E_FindtreasureTotal::kMItemIDFieldNumber;
 const int E_FindtreasureTotal::kMNumFieldNumber;
 const int E_FindtreasureTotal::kMArgFieldNumber;
 #endif  // !_MSC_VER
@@ -3077,15 +3077,15 @@ bool E_FindtreasureTotal::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_itemid;
+        if (input->ExpectTag(32)) goto parse_m_itemID;
         break;
       }
 
-      // optional int32 m_itemid = 4;
+      // optional int32 m_itemID = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemid:
+         parse_m_itemID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itemid_)));
@@ -3168,7 +3168,7 @@ void E_FindtreasureTotal::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_type(), output);
   }
 
-  // optional int32 m_itemid = 4;
+  // optional int32 m_itemID = 4;
   if (has_m_itemid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_itemid(), output);
   }
@@ -3207,7 +3207,7 @@ void E_FindtreasureTotal::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_type(), target);
   }
 
-  // optional int32 m_itemid = 4;
+  // optional int32 m_itemID = 4;
   if (has_m_itemid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_itemid(), target);
   }
@@ -3255,7 +3255,7 @@ int E_FindtreasureTotal::ByteSize() const {
           this->m_type());
     }
 
-    // optional int32 m_itemid = 4;
+    // optional int32 m_itemID = 4;
     if (has_m_itemid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3575,10 +3575,10 @@ void Sheet_FindtreasureTotal::Swap(Sheet_FindtreasureTotal* other) {
 const int E_FindtreasureActive::kMIdFieldNumber;
 const int E_FindtreasureActive::kMGroupidFieldNumber;
 const int E_FindtreasureActive::kMOpentimeFieldNumber;
-const int E_FindtreasureActive::kMDurtimeFieldNumber;
-const int E_FindtreasureActive::kMClosetimeFieldNumber;
+const int E_FindtreasureActive::kMDurTimeFieldNumber;
+const int E_FindtreasureActive::kMCloseTimeFieldNumber;
 const int E_FindtreasureActive::kMTypeFieldNumber;
-const int E_FindtreasureActive::kMTypegroupidFieldNumber;
+const int E_FindtreasureActive::kMTypeGroupIdFieldNumber;
 #endif  // !_MSC_VER
 
 E_FindtreasureActive::E_FindtreasureActive()
@@ -3700,15 +3700,15 @@ bool E_FindtreasureActive::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_durtime;
+        if (input->ExpectTag(32)) goto parse_m_durTime;
         break;
       }
 
-      // optional int32 m_durtime = 4;
+      // optional int32 m_durTime = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_durtime:
+         parse_m_durTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_durtime_)));
@@ -3716,15 +3716,15 @@ bool E_FindtreasureActive::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_closetime;
+        if (input->ExpectTag(40)) goto parse_m_closeTime;
         break;
       }
 
-      // optional int32 m_closetime = 5;
+      // optional int32 m_closeTime = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_closetime:
+         parse_m_closeTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_closetime_)));
@@ -3748,15 +3748,15 @@ bool E_FindtreasureActive::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_typegroupid;
+        if (input->ExpectTag(56)) goto parse_m_typeGroupId;
         break;
       }
 
-      // optional int32 m_typegroupid = 7;
+      // optional int32 m_typeGroupId = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_typegroupid:
+         parse_m_typeGroupId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_typegroupid_)));
@@ -3801,12 +3801,12 @@ void E_FindtreasureActive::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_opentime(), output);
   }
 
-  // optional int32 m_durtime = 4;
+  // optional int32 m_durTime = 4;
   if (has_m_durtime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_durtime(), output);
   }
 
-  // optional int32 m_closetime = 5;
+  // optional int32 m_closeTime = 5;
   if (has_m_closetime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_closetime(), output);
   }
@@ -3816,7 +3816,7 @@ void E_FindtreasureActive::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_type(), output);
   }
 
-  // optional int32 m_typegroupid = 7;
+  // optional int32 m_typeGroupId = 7;
   if (has_m_typegroupid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_typegroupid(), output);
   }
@@ -3844,12 +3844,12 @@ void E_FindtreasureActive::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_opentime(), target);
   }
 
-  // optional int32 m_durtime = 4;
+  // optional int32 m_durTime = 4;
   if (has_m_durtime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_durtime(), target);
   }
 
-  // optional int32 m_closetime = 5;
+  // optional int32 m_closeTime = 5;
   if (has_m_closetime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_closetime(), target);
   }
@@ -3859,7 +3859,7 @@ void E_FindtreasureActive::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_type(), target);
   }
 
-  // optional int32 m_typegroupid = 7;
+  // optional int32 m_typeGroupId = 7;
   if (has_m_typegroupid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_typegroupid(), target);
   }
@@ -3896,14 +3896,14 @@ int E_FindtreasureActive::ByteSize() const {
           this->m_opentime());
     }
 
-    // optional int32 m_durtime = 4;
+    // optional int32 m_durTime = 4;
     if (has_m_durtime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_durtime());
     }
 
-    // optional int32 m_closetime = 5;
+    // optional int32 m_closeTime = 5;
     if (has_m_closetime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3917,7 +3917,7 @@ int E_FindtreasureActive::ByteSize() const {
           this->m_type());
     }
 
-    // optional int32 m_typegroupid = 7;
+    // optional int32 m_typeGroupId = 7;
     if (has_m_typegroupid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4224,10 +4224,10 @@ void Sheet_FindtreasureActive::Swap(Sheet_FindtreasureActive* other) {
 
 #ifndef _MSC_VER
 const int E_FindtreasureActiveup::kMIdFieldNumber;
-const int E_FindtreasureActiveup::kMGroupidFieldNumber;
+const int E_FindtreasureActiveup::kMGroupIDFieldNumber;
 const int E_FindtreasureActiveup::kMTypeFieldNumber;
 const int E_FindtreasureActiveup::kMItemidFieldNumber;
-const int E_FindtreasureActiveup::kMProargFieldNumber;
+const int E_FindtreasureActiveup::kMProArgFieldNumber;
 #endif  // !_MSC_VER
 
 E_FindtreasureActiveup::E_FindtreasureActiveup()
@@ -4313,15 +4313,15 @@ bool E_FindtreasureActiveup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_groupid;
+        if (input->ExpectTag(16)) goto parse_m_groupID;
         break;
       }
 
-      // optional int32 m_groupid = 2;
+      // optional int32 m_groupID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_groupid:
+         parse_m_groupID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_groupid_)));
@@ -4361,15 +4361,15 @@ bool E_FindtreasureActiveup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_proarg;
+        if (input->ExpectTag(40)) goto parse_m_proArg;
         break;
       }
 
-      // optional int32 m_proarg = 5;
+      // optional int32 m_proArg = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_proarg:
+         parse_m_proArg:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_proarg_)));
@@ -4404,7 +4404,7 @@ void E_FindtreasureActiveup::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   if (has_m_groupid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_groupid(), output);
   }
@@ -4419,7 +4419,7 @@ void E_FindtreasureActiveup::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_itemid(), output);
   }
 
-  // optional int32 m_proarg = 5;
+  // optional int32 m_proArg = 5;
   if (has_m_proarg()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_proarg(), output);
   }
@@ -4437,7 +4437,7 @@ void E_FindtreasureActiveup::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   if (has_m_groupid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_groupid(), target);
   }
@@ -4452,7 +4452,7 @@ void E_FindtreasureActiveup::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_itemid(), target);
   }
 
-  // optional int32 m_proarg = 5;
+  // optional int32 m_proArg = 5;
   if (has_m_proarg()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_proarg(), target);
   }
@@ -4475,7 +4475,7 @@ int E_FindtreasureActiveup::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_groupid = 2;
+    // optional int32 m_groupID = 2;
     if (has_m_groupid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4496,7 +4496,7 @@ int E_FindtreasureActiveup::ByteSize() const {
           this->m_itemid());
     }
 
-    // optional int32 m_proarg = 5;
+    // optional int32 m_proArg = 5;
     if (has_m_proarg()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4795,10 +4795,10 @@ void Sheet_FindtreasureActiveup::Swap(Sheet_FindtreasureActiveup* other) {
 
 #ifndef _MSC_VER
 const int E_FindtreasureActivegoods::kMGroupidFieldNumber;
-const int E_FindtreasureActivegoods::kMItemidFieldNumber;
+const int E_FindtreasureActivegoods::kMItemIDFieldNumber;
 const int E_FindtreasureActivegoods::kMTypeFieldNumber;
 const int E_FindtreasureActivegoods::kMPriceFieldNumber;
-const int E_FindtreasureActivegoods::kMItemnumFieldNumber;
+const int E_FindtreasureActivegoods::kMItemNumFieldNumber;
 #endif  // !_MSC_VER
 
 E_FindtreasureActivegoods::E_FindtreasureActivegoods()
@@ -4884,15 +4884,15 @@ bool E_FindtreasureActivegoods::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_itemid;
+        if (input->ExpectTag(16)) goto parse_m_itemID;
         break;
       }
 
-      // optional int32 m_itemid = 2;
+      // optional int32 m_itemID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemid:
+         parse_m_itemID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itemid_)));
@@ -4932,15 +4932,15 @@ bool E_FindtreasureActivegoods::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_itemnum;
+        if (input->ExpectTag(40)) goto parse_m_itemNum;
         break;
       }
 
-      // optional int32 m_itemnum = 5;
+      // optional int32 m_itemNum = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemnum:
+         parse_m_itemNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itemnum_)));
@@ -4975,7 +4975,7 @@ void E_FindtreasureActivegoods::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_groupid(), output);
   }
 
-  // optional int32 m_itemid = 2;
+  // optional int32 m_itemID = 2;
   if (has_m_itemid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_itemid(), output);
   }
@@ -4990,7 +4990,7 @@ void E_FindtreasureActivegoods::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_price(), output);
   }
 
-  // optional int32 m_itemnum = 5;
+  // optional int32 m_itemNum = 5;
   if (has_m_itemnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_itemnum(), output);
   }
@@ -5008,7 +5008,7 @@ void E_FindtreasureActivegoods::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_groupid(), target);
   }
 
-  // optional int32 m_itemid = 2;
+  // optional int32 m_itemID = 2;
   if (has_m_itemid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_itemid(), target);
   }
@@ -5023,7 +5023,7 @@ void E_FindtreasureActivegoods::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_price(), target);
   }
 
-  // optional int32 m_itemnum = 5;
+  // optional int32 m_itemNum = 5;
   if (has_m_itemnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_itemnum(), target);
   }
@@ -5046,7 +5046,7 @@ int E_FindtreasureActivegoods::ByteSize() const {
           this->m_groupid());
     }
 
-    // optional int32 m_itemid = 2;
+    // optional int32 m_itemID = 2;
     if (has_m_itemid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -5067,7 +5067,7 @@ int E_FindtreasureActivegoods::ByteSize() const {
           this->m_price());
     }
 
-    // optional int32 m_itemnum = 5;
+    // optional int32 m_itemNum = 5;
     if (has_m_itemnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -6226,9 +6226,9 @@ void Sheet_FindtreasureActiveshop::Swap(Sheet_FindtreasureActiveshop* other) {
 #ifndef _MSC_VER
 const int E_FindtreasureShop::kMIdFieldNumber;
 const int E_FindtreasureShop::kMGroupidFieldNumber;
-const int E_FindtreasureShop::kMGoodsidFieldNumber;
-const int E_FindtreasureShop::kMGoodsnumFieldNumber;
-const int E_FindtreasureShop::kMCostidFieldNumber;
+const int E_FindtreasureShop::kMGoodsIDFieldNumber;
+const int E_FindtreasureShop::kMGoodsNumFieldNumber;
+const int E_FindtreasureShop::kMCostIDFieldNumber;
 const int E_FindtreasureShop::kMNumFieldNumber;
 #endif  // !_MSC_VER
 
@@ -6333,15 +6333,15 @@ bool E_FindtreasureShop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_goodsid;
+        if (input->ExpectTag(24)) goto parse_m_goodsID;
         break;
       }
 
-      // optional int32 m_goodsid = 3;
+      // optional int32 m_goodsID = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_goodsid:
+         parse_m_goodsID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_goodsid_)));
@@ -6349,15 +6349,15 @@ bool E_FindtreasureShop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_goodsnum;
+        if (input->ExpectTag(32)) goto parse_m_goodsNum;
         break;
       }
 
-      // optional int32 m_goodsnum = 4;
+      // optional int32 m_goodsNum = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_goodsnum:
+         parse_m_goodsNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_goodsnum_)));
@@ -6365,15 +6365,15 @@ bool E_FindtreasureShop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_costid;
+        if (input->ExpectTag(40)) goto parse_m_costID;
         break;
       }
 
-      // optional int32 m_costid = 5;
+      // optional int32 m_costID = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_costid:
+         parse_m_costID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_costid_)));
@@ -6429,17 +6429,17 @@ void E_FindtreasureShop::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_groupid(), output);
   }
 
-  // optional int32 m_goodsid = 3;
+  // optional int32 m_goodsID = 3;
   if (has_m_goodsid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_goodsid(), output);
   }
 
-  // optional int32 m_goodsnum = 4;
+  // optional int32 m_goodsNum = 4;
   if (has_m_goodsnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_goodsnum(), output);
   }
 
-  // optional int32 m_costid = 5;
+  // optional int32 m_costID = 5;
   if (has_m_costid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_costid(), output);
   }
@@ -6467,17 +6467,17 @@ void E_FindtreasureShop::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_groupid(), target);
   }
 
-  // optional int32 m_goodsid = 3;
+  // optional int32 m_goodsID = 3;
   if (has_m_goodsid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_goodsid(), target);
   }
 
-  // optional int32 m_goodsnum = 4;
+  // optional int32 m_goodsNum = 4;
   if (has_m_goodsnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_goodsnum(), target);
   }
 
-  // optional int32 m_costid = 5;
+  // optional int32 m_costID = 5;
   if (has_m_costid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_costid(), target);
   }
@@ -6512,21 +6512,21 @@ int E_FindtreasureShop::ByteSize() const {
           this->m_groupid());
     }
 
-    // optional int32 m_goodsid = 3;
+    // optional int32 m_goodsID = 3;
     if (has_m_goodsid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_goodsid());
     }
 
-    // optional int32 m_goodsnum = 4;
+    // optional int32 m_goodsNum = 4;
     if (has_m_goodsnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_goodsnum());
     }
 
-    // optional int32 m_costid = 5;
+    // optional int32 m_costID = 5;
     if (has_m_costid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

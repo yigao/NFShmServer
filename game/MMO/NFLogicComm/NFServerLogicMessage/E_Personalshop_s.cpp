@@ -12,13 +12,13 @@ E_PersonalshopShopitems_s::E_PersonalshopShopitems_s() {
 
 int E_PersonalshopShopitems_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_shopid = (int32_t)0;
-	m_itemid = (int32_t)0;
+	m_shopId = (int32_t)0;
+	m_itemID = (int32_t)0;
 	m_amount = (int32_t)0;
 	m_currency = (int32_t)0;
 	m_price = (int32_t)0;
 	m_discount = (int32_t)0;
-	m_lvlimit = (int32_t)0;
+	m_lvLimit = (int32_t)0;
 	m_weight = (int32_t)0;
 	return 0;
 }
@@ -29,25 +29,25 @@ int E_PersonalshopShopitems_s::ResumeInit() {
 
 void E_PersonalshopShopitems_s::write_to_pbmsg(::proto_ff::E_PersonalshopShopitems & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_shopid((int32_t)m_shopid);
-	msg.set_m_itemid((int32_t)m_itemid);
+	msg.set_m_shopid((int32_t)m_shopId);
+	msg.set_m_itemid((int32_t)m_itemID);
 	msg.set_m_amount((int32_t)m_amount);
 	msg.set_m_currency((int32_t)m_currency);
 	msg.set_m_price((int32_t)m_price);
 	msg.set_m_discount((int32_t)m_discount);
-	msg.set_m_lvlimit((int32_t)m_lvlimit);
+	msg.set_m_lvlimit((int32_t)m_lvLimit);
 	msg.set_m_weight((int32_t)m_weight);
 }
 
 void E_PersonalshopShopitems_s::read_from_pbmsg(const ::proto_ff::E_PersonalshopShopitems & msg) {
 	m_id = msg.m_id();
-	m_shopid = msg.m_shopid();
-	m_itemid = msg.m_itemid();
+	m_shopId = msg.m_shopid();
+	m_itemID = msg.m_itemid();
 	m_amount = msg.m_amount();
 	m_currency = msg.m_currency();
 	m_price = msg.m_price();
 	m_discount = msg.m_discount();
-	m_lvlimit = msg.m_lvlimit();
+	m_lvLimit = msg.m_lvlimit();
 	m_weight = msg.m_weight();
 }
 
@@ -92,13 +92,13 @@ E_PersonalshopShops_s::E_PersonalshopShops_s() {
 
 int E_PersonalshopShops_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_keeptime = (int32_t)0;
-	m_freetimes = (int32_t)0;
-	m_refreshmoney = (int32_t)0;
-	m_refreshprice = (int32_t)0;
-	m_salelistcount = (int32_t)0;
-	m_addtype = (int32_t)0;
-	m_addtypevalue = (int32_t)0;
+	m_keepTime = (int32_t)0;
+	m_freeTimes = (int32_t)0;
+	m_refreshMoney = (int32_t)0;
+	m_refreshPrice = (int32_t)0;
+	m_saleListCount = (int32_t)0;
+	m_addType = (int32_t)0;
+	m_addTypeValue = (int32_t)0;
 	return 0;
 }
 
@@ -108,24 +108,24 @@ int E_PersonalshopShops_s::ResumeInit() {
 
 void E_PersonalshopShops_s::write_to_pbmsg(::proto_ff::E_PersonalshopShops & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_keeptime((int32_t)m_keeptime);
-	msg.set_m_freetimes((int32_t)m_freetimes);
-	msg.set_m_refreshmoney((int32_t)m_refreshmoney);
-	msg.set_m_refreshprice((int32_t)m_refreshprice);
-	msg.set_m_salelistcount((int32_t)m_salelistcount);
-	msg.set_m_addtype((int32_t)m_addtype);
-	msg.set_m_addtypevalue((int32_t)m_addtypevalue);
+	msg.set_m_keeptime((int32_t)m_keepTime);
+	msg.set_m_freetimes((int32_t)m_freeTimes);
+	msg.set_m_refreshmoney((int32_t)m_refreshMoney);
+	msg.set_m_refreshprice((int32_t)m_refreshPrice);
+	msg.set_m_salelistcount((int32_t)m_saleListCount);
+	msg.set_m_addtype((int32_t)m_addType);
+	msg.set_m_addtypevalue((int32_t)m_addTypeValue);
 }
 
 void E_PersonalshopShops_s::read_from_pbmsg(const ::proto_ff::E_PersonalshopShops & msg) {
 	m_id = msg.m_id();
-	m_keeptime = msg.m_keeptime();
-	m_freetimes = msg.m_freetimes();
-	m_refreshmoney = msg.m_refreshmoney();
-	m_refreshprice = msg.m_refreshprice();
-	m_salelistcount = msg.m_salelistcount();
-	m_addtype = msg.m_addtype();
-	m_addtypevalue = msg.m_addtypevalue();
+	m_keepTime = msg.m_keeptime();
+	m_freeTimes = msg.m_freetimes();
+	m_refreshMoney = msg.m_refreshmoney();
+	m_refreshPrice = msg.m_refreshprice();
+	m_saleListCount = msg.m_salelistcount();
+	m_addType = msg.m_addtype();
+	m_addTypeValue = msg.m_addtypevalue();
 }
 
 Sheet_PersonalshopShops_s::Sheet_PersonalshopShops_s() {

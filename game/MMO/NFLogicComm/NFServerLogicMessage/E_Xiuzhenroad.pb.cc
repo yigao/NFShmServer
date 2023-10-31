@@ -275,40 +275,40 @@ void protobuf_AddDesc_E_5fXiuzhenroad_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\023E_Xiuzhenroad.proto\022\010proto_ff\032\025yd_fiel"
     "doptions.proto\"\221\003\n\021E_XiuzhenroadTask\022\036\n\010"
-    "m_taskid\030\001 \001(\003B\014\302\377\024\010\344\273\273\345\212\241ID\022$\n\nm_taskty"
-    "pe\030\002 \001(\005B\020\302\377\024\014\344\273\273\345\212\241\347\261\273\345\236\213\022%\n\013m_eventtyp"
-    "e\030\003 \001(\005B\020\302\377\024\014\344\272\213\344\273\266\347\261\273\345\236\213\022#\n\014m_reachpric"
+    "m_taskId\030\001 \001(\003B\014\302\377\024\010\344\273\273\345\212\241ID\022$\n\nm_taskTy"
+    "pe\030\002 \001(\005B\020\302\377\024\014\344\273\273\345\212\241\347\261\273\345\236\213\022%\n\013m_eventTyp"
+    "e\030\003 \001(\005B\020\302\377\024\014\344\272\213\344\273\266\347\261\273\345\236\213\022#\n\014m_reachPric"
     "e\030\004 \001(\005B\r\302\377\024\t\350\276\276\346\210\220\345\200\274\022\"\n\010m_reward\030\005 \001(\005"
-    "B\020\302\377\024\014\345\245\226\345\212\261\347\211\251\345\223\201\022.\n\016m_reward_value\030\006 \001"
-    "(\005B\026\302\377\024\022\345\245\226\345\212\261\347\211\251\345\223\201\346\225\260\351\207\217\022 \n\007m_boxid\030\007 "
+    "B\020\302\377\024\014\345\245\226\345\212\261\347\211\251\345\223\201\022.\n\016m_reward_Value\030\006 \001"
+    "(\005B\026\302\377\024\022\345\245\226\345\212\261\347\211\251\345\223\201\346\225\260\351\207\217\022 \n\007m_boxID\030\007 "
     "\001(\005B\017\302\377\024\013box\347\244\274\345\214\205ID\022\'\n\nm_integral\030\010 \001(\005"
     "B\023\302\377\024\017\345\245\226\345\212\261\347\232\204\347\247\257\345\210\206\022\036\n\010m_linkid\030\t \001(\005B"
     "\014\302\377\024\010\350\267\263\350\275\254ID\022+\n\007m_param\030\n \003(\005B\032\302\377\024\022\344\272\213\344"
     "\273\266\345\256\214\346\210\220\345\217\202\346\225\260\210\301\024\003\"[\n\025Sheet_XiuzhenroadT"
     "ask\022B\n\026E_XiuzhenroadTask_List\030\001 \003(\0132\033.pr"
     "oto_ff.E_XiuzhenroadTaskB\005\210\301\024\200\001\"[\n&E_Xiu"
-    "zhenroadBonuspointsTotalitemsDesc\022\033\n\007m_v"
-    "alue\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_id\030\002 \001(\005B\006\302\377"
+    "zhenroadBonuspointsTotalitemsDesc\022\033\n\007m_V"
+    "alue\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_ID\030\002 \001(\005B\006\302\377"
     "\024\002ID\"\323\001\n\030E_XiuzhenroadBonuspoints\022-\n\020m_t"
-    "otalrewardsid\030\001 \001(\005B\023\302\377\024\017\346\200\273\347\247\257\345\210\206\345\245\226\345\212\261"
-    "\022*\n\020m_achievedpoints\030\002 \001(\005B\020\302\377\024\014\350\276\276\346\210\220\347\202"
-    "\271\346\225\260\022\\\n\014m_totalitems\030\003 \003(\01320.proto_ff.E_"
+    "otalRewardsID\030\001 \001(\005B\023\302\377\024\017\346\200\273\347\247\257\345\210\206\345\245\226\345\212\261"
+    "\022*\n\020m_achievedPoints\030\002 \001(\005B\020\302\377\024\014\350\276\276\346\210\220\347\202"
+    "\271\346\225\260\022\\\n\014m_totalItems\030\003 \003(\01320.proto_ff.E_"
     "XiuzhenroadBonuspointsTotalitemsDescB\024\302\377"
     "\024\014\345\245\226\345\212\261\347\211\251\345\223\201\210\301\024\002\"o\n\034Sheet_XiuzhenroadB"
     "onuspoints\022O\n\035E_XiuzhenroadBonuspoints_L"
     "ist\030\001 \003(\0132\".proto_ff.E_XiuzhenroadBonusp"
     "ointsB\004\210\301\024 \"\273\001\n\022E_XiuzhenroadSkill\0220\n\020m_"
-    "activityskills\030\001 \001(\005B\026\302\377\024\022\346\264\273\345\212\250\345\210\206\347\261\273\346\212"
-    "\200\350\203\275\022\037\n\tm_skillid\030\002 \001(\005B\014\302\377\024\010\346\212\200\350\203\275ID\022%\n"
-    "\tm_itenmid\030\003 \001(\005B\022\302\377\024\016\345\261\236\346\200\247\351\201\223\345\205\267ID\022+\n\013"
+    "activitySkills\030\001 \001(\005B\026\302\377\024\022\346\264\273\345\212\250\345\210\206\347\261\273\346\212"
+    "\200\350\203\275\022\037\n\tm_skillID\030\002 \001(\005B\014\302\377\024\010\346\212\200\350\203\275ID\022%\n"
+    "\tm_itenmID\030\003 \001(\005B\022\302\377\024\016\345\261\236\346\200\247\351\201\223\345\205\267ID\022+\n\013"
     "m_attribute\030\004 \001(\005B\026\302\377\024\022\351\201\223\345\205\267\345\242\236\345\212\240\345\261\236\346\200"
     "\247\"]\n\026Sheet_XiuzhenroadSkill\022C\n\027E_Xiuzhen"
     "roadSkill_List\030\001 \003(\0132\034.proto_ff.E_Xiuzhe"
     "nroadSkillB\004\210\301\024 \"\260\001\n\025E_XiuzhenroadClassi"
-    "fy\022$\n\010m_typeid\030\001 \001(\005B\022\302\377\024\016\344\273\273\345\212\241\347\261\273\345\236\213ID"
+    "fy\022$\n\010m_typeID\030\001 \001(\005B\022\302\377\024\016\344\273\273\345\212\241\347\261\273\345\236\213ID"
     "\022$\n\006m_gift\030\002 \001(\tB\024\302\377\024\014\347\244\274\345\214\205\345\220\215\347\247\260\220\301\024@\022\036"
-    "\n\010m_giftid\030\003 \001(\005B\014\302\377\024\010\347\244\274\345\214\205ID\022+\n\014m_rech"
-    "argeid\030\004 \001(\005B\025\302\377\024\021\347\244\274\345\214\205\350\256\241\350\264\271\347\202\271ID\"f\n\031S"
+    "\n\010m_giftID\030\003 \001(\005B\014\302\377\024\010\347\244\274\345\214\205ID\022+\n\014m_rech"
+    "argeID\030\004 \001(\005B\025\302\377\024\021\347\244\274\345\214\205\350\256\241\350\264\271\347\202\271ID\"f\n\031S"
     "heet_XiuzhenroadClassify\022I\n\032E_Xiuzhenroa"
     "dClassify_List\030\001 \003(\0132\037.proto_ff.E_Xiuzhe"
     "nroadClassifyB\004\210\301\024\020", 1539);
@@ -345,13 +345,13 @@ struct StaticDescriptorInitializer_E_5fXiuzhenroad_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_XiuzhenroadTask::kMTaskidFieldNumber;
-const int E_XiuzhenroadTask::kMTasktypeFieldNumber;
-const int E_XiuzhenroadTask::kMEventtypeFieldNumber;
-const int E_XiuzhenroadTask::kMReachpriceFieldNumber;
+const int E_XiuzhenroadTask::kMTaskIdFieldNumber;
+const int E_XiuzhenroadTask::kMTaskTypeFieldNumber;
+const int E_XiuzhenroadTask::kMEventTypeFieldNumber;
+const int E_XiuzhenroadTask::kMReachPriceFieldNumber;
 const int E_XiuzhenroadTask::kMRewardFieldNumber;
 const int E_XiuzhenroadTask::kMRewardValueFieldNumber;
-const int E_XiuzhenroadTask::kMBoxidFieldNumber;
+const int E_XiuzhenroadTask::kMBoxIDFieldNumber;
 const int E_XiuzhenroadTask::kMIntegralFieldNumber;
 const int E_XiuzhenroadTask::kMLinkidFieldNumber;
 const int E_XiuzhenroadTask::kMParamFieldNumber;
@@ -440,7 +440,7 @@ bool E_XiuzhenroadTask::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 m_taskid = 1;
+      // optional int64 m_taskId = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -451,15 +451,15 @@ bool E_XiuzhenroadTask::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_tasktype;
+        if (input->ExpectTag(16)) goto parse_m_taskType;
         break;
       }
 
-      // optional int32 m_tasktype = 2;
+      // optional int32 m_taskType = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_tasktype:
+         parse_m_taskType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_tasktype_)));
@@ -467,15 +467,15 @@ bool E_XiuzhenroadTask::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_eventtype;
+        if (input->ExpectTag(24)) goto parse_m_eventType;
         break;
       }
 
-      // optional int32 m_eventtype = 3;
+      // optional int32 m_eventType = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_eventtype:
+         parse_m_eventType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_eventtype_)));
@@ -483,15 +483,15 @@ bool E_XiuzhenroadTask::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_reachprice;
+        if (input->ExpectTag(32)) goto parse_m_reachPrice;
         break;
       }
 
-      // optional int32 m_reachprice = 4;
+      // optional int32 m_reachPrice = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_reachprice:
+         parse_m_reachPrice:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_reachprice_)));
@@ -515,15 +515,15 @@ bool E_XiuzhenroadTask::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_reward_value;
+        if (input->ExpectTag(48)) goto parse_m_reward_Value;
         break;
       }
 
-      // optional int32 m_reward_value = 6;
+      // optional int32 m_reward_Value = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_reward_value:
+         parse_m_reward_Value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_reward_value_)));
@@ -531,15 +531,15 @@ bool E_XiuzhenroadTask::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_boxid;
+        if (input->ExpectTag(56)) goto parse_m_boxID;
         break;
       }
 
-      // optional int32 m_boxid = 7;
+      // optional int32 m_boxID = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_boxid:
+         parse_m_boxID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_boxid_)));
@@ -623,22 +623,22 @@ bool E_XiuzhenroadTask::MergePartialFromCodedStream(
 
 void E_XiuzhenroadTask::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 m_taskid = 1;
+  // optional int64 m_taskId = 1;
   if (has_m_taskid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_taskid(), output);
   }
 
-  // optional int32 m_tasktype = 2;
+  // optional int32 m_taskType = 2;
   if (has_m_tasktype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_tasktype(), output);
   }
 
-  // optional int32 m_eventtype = 3;
+  // optional int32 m_eventType = 3;
   if (has_m_eventtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_eventtype(), output);
   }
 
-  // optional int32 m_reachprice = 4;
+  // optional int32 m_reachPrice = 4;
   if (has_m_reachprice()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_reachprice(), output);
   }
@@ -648,12 +648,12 @@ void E_XiuzhenroadTask::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_reward(), output);
   }
 
-  // optional int32 m_reward_value = 6;
+  // optional int32 m_reward_Value = 6;
   if (has_m_reward_value()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_reward_value(), output);
   }
 
-  // optional int32 m_boxid = 7;
+  // optional int32 m_boxID = 7;
   if (has_m_boxid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_boxid(), output);
   }
@@ -682,22 +682,22 @@ void E_XiuzhenroadTask::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_XiuzhenroadTask::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 m_taskid = 1;
+  // optional int64 m_taskId = 1;
   if (has_m_taskid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_taskid(), target);
   }
 
-  // optional int32 m_tasktype = 2;
+  // optional int32 m_taskType = 2;
   if (has_m_tasktype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_tasktype(), target);
   }
 
-  // optional int32 m_eventtype = 3;
+  // optional int32 m_eventType = 3;
   if (has_m_eventtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_eventtype(), target);
   }
 
-  // optional int32 m_reachprice = 4;
+  // optional int32 m_reachPrice = 4;
   if (has_m_reachprice()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_reachprice(), target);
   }
@@ -707,12 +707,12 @@ void E_XiuzhenroadTask::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_reward(), target);
   }
 
-  // optional int32 m_reward_value = 6;
+  // optional int32 m_reward_Value = 6;
   if (has_m_reward_value()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_reward_value(), target);
   }
 
-  // optional int32 m_boxid = 7;
+  // optional int32 m_boxID = 7;
   if (has_m_boxid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_boxid(), target);
   }
@@ -744,28 +744,28 @@ int E_XiuzhenroadTask::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 m_taskid = 1;
+    // optional int64 m_taskId = 1;
     if (has_m_taskid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_taskid());
     }
 
-    // optional int32 m_tasktype = 2;
+    // optional int32 m_taskType = 2;
     if (has_m_tasktype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_tasktype());
     }
 
-    // optional int32 m_eventtype = 3;
+    // optional int32 m_eventType = 3;
     if (has_m_eventtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_eventtype());
     }
 
-    // optional int32 m_reachprice = 4;
+    // optional int32 m_reachPrice = 4;
     if (has_m_reachprice()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -779,14 +779,14 @@ int E_XiuzhenroadTask::ByteSize() const {
           this->m_reward());
     }
 
-    // optional int32 m_reward_value = 6;
+    // optional int32 m_reward_Value = 6;
     if (has_m_reward_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_reward_value());
     }
 
-    // optional int32 m_boxid = 7;
+    // optional int32 m_boxID = 7;
     if (has_m_boxid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1131,7 +1131,7 @@ void Sheet_XiuzhenroadTask::Swap(Sheet_XiuzhenroadTask* other) {
 
 #ifndef _MSC_VER
 const int E_XiuzhenroadBonuspointsTotalitemsDesc::kMValueFieldNumber;
-const int E_XiuzhenroadBonuspointsTotalitemsDesc::kMIdFieldNumber;
+const int E_XiuzhenroadBonuspointsTotalitemsDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenroadBonuspointsTotalitemsDesc::E_XiuzhenroadBonuspointsTotalitemsDesc()
@@ -1200,7 +1200,7 @@ bool E_XiuzhenroadBonuspointsTotalitemsDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_value = 1;
+      // optional int32 m_Value = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -1211,15 +1211,15 @@ bool E_XiuzhenroadBonuspointsTotalitemsDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int32 m_id = 2;
+      // optional int32 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_id_)));
@@ -1249,12 +1249,12 @@ bool E_XiuzhenroadBonuspointsTotalitemsDesc::MergePartialFromCodedStream(
 
 void E_XiuzhenroadBonuspointsTotalitemsDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_id(), output);
   }
@@ -1267,12 +1267,12 @@ void E_XiuzhenroadBonuspointsTotalitemsDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_XiuzhenroadBonuspointsTotalitemsDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_id(), target);
   }
@@ -1288,14 +1288,14 @@ int E_XiuzhenroadBonuspointsTotalitemsDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_value = 1;
+    // optional int32 m_Value = 1;
     if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_value());
     }
 
-    // optional int32 m_id = 2;
+    // optional int32 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1378,9 +1378,9 @@ void E_XiuzhenroadBonuspointsTotalitemsDesc::Swap(E_XiuzhenroadBonuspointsTotali
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_XiuzhenroadBonuspoints::kMTotalrewardsidFieldNumber;
-const int E_XiuzhenroadBonuspoints::kMAchievedpointsFieldNumber;
-const int E_XiuzhenroadBonuspoints::kMTotalitemsFieldNumber;
+const int E_XiuzhenroadBonuspoints::kMTotalRewardsIDFieldNumber;
+const int E_XiuzhenroadBonuspoints::kMAchievedPointsFieldNumber;
+const int E_XiuzhenroadBonuspoints::kMTotalItemsFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenroadBonuspoints::E_XiuzhenroadBonuspoints()
@@ -1450,7 +1450,7 @@ bool E_XiuzhenroadBonuspoints::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_totalrewardsid = 1;
+      // optional int32 m_totalRewardsID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -1461,15 +1461,15 @@ bool E_XiuzhenroadBonuspoints::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_achievedpoints;
+        if (input->ExpectTag(16)) goto parse_m_achievedPoints;
         break;
       }
 
-      // optional int32 m_achievedpoints = 2;
+      // optional int32 m_achievedPoints = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_achievedpoints:
+         parse_m_achievedPoints:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_achievedpoints_)));
@@ -1477,21 +1477,21 @@ bool E_XiuzhenroadBonuspoints::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_m_totalitems;
+        if (input->ExpectTag(26)) goto parse_m_totalItems;
         break;
       }
 
-      // repeated .proto_ff.E_XiuzhenroadBonuspointsTotalitemsDesc m_totalitems = 3;
+      // repeated .proto_ff.E_XiuzhenroadBonuspointsTotalitemsDesc m_totalItems = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_totalitems:
+         parse_m_totalItems:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_totalitems()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_m_totalitems;
+        if (input->ExpectTag(26)) goto parse_m_totalItems;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1514,17 +1514,17 @@ bool E_XiuzhenroadBonuspoints::MergePartialFromCodedStream(
 
 void E_XiuzhenroadBonuspoints::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_totalrewardsid = 1;
+  // optional int32 m_totalRewardsID = 1;
   if (has_m_totalrewardsid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_totalrewardsid(), output);
   }
 
-  // optional int32 m_achievedpoints = 2;
+  // optional int32 m_achievedPoints = 2;
   if (has_m_achievedpoints()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_achievedpoints(), output);
   }
 
-  // repeated .proto_ff.E_XiuzhenroadBonuspointsTotalitemsDesc m_totalitems = 3;
+  // repeated .proto_ff.E_XiuzhenroadBonuspointsTotalitemsDesc m_totalItems = 3;
   for (int i = 0; i < this->m_totalitems_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, this->m_totalitems(i), output);
@@ -1538,17 +1538,17 @@ void E_XiuzhenroadBonuspoints::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_XiuzhenroadBonuspoints::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_totalrewardsid = 1;
+  // optional int32 m_totalRewardsID = 1;
   if (has_m_totalrewardsid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_totalrewardsid(), target);
   }
 
-  // optional int32 m_achievedpoints = 2;
+  // optional int32 m_achievedPoints = 2;
   if (has_m_achievedpoints()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_achievedpoints(), target);
   }
 
-  // repeated .proto_ff.E_XiuzhenroadBonuspointsTotalitemsDesc m_totalitems = 3;
+  // repeated .proto_ff.E_XiuzhenroadBonuspointsTotalitemsDesc m_totalItems = 3;
   for (int i = 0; i < this->m_totalitems_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -1566,14 +1566,14 @@ int E_XiuzhenroadBonuspoints::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_totalrewardsid = 1;
+    // optional int32 m_totalRewardsID = 1;
     if (has_m_totalrewardsid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_totalrewardsid());
     }
 
-    // optional int32 m_achievedpoints = 2;
+    // optional int32 m_achievedPoints = 2;
     if (has_m_achievedpoints()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1581,7 +1581,7 @@ int E_XiuzhenroadBonuspoints::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.E_XiuzhenroadBonuspointsTotalitemsDesc m_totalitems = 3;
+  // repeated .proto_ff.E_XiuzhenroadBonuspointsTotalitemsDesc m_totalItems = 3;
   total_size += 1 * this->m_totalitems_size();
   for (int i = 0; i < this->m_totalitems_size(); i++) {
     total_size +=
@@ -1869,9 +1869,9 @@ void Sheet_XiuzhenroadBonuspoints::Swap(Sheet_XiuzhenroadBonuspoints* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_XiuzhenroadSkill::kMActivityskillsFieldNumber;
-const int E_XiuzhenroadSkill::kMSkillidFieldNumber;
-const int E_XiuzhenroadSkill::kMItenmidFieldNumber;
+const int E_XiuzhenroadSkill::kMActivitySkillsFieldNumber;
+const int E_XiuzhenroadSkill::kMSkillIDFieldNumber;
+const int E_XiuzhenroadSkill::kMItenmIDFieldNumber;
 const int E_XiuzhenroadSkill::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -1945,7 +1945,7 @@ bool E_XiuzhenroadSkill::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_activityskills = 1;
+      // optional int32 m_activitySkills = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -1956,15 +1956,15 @@ bool E_XiuzhenroadSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_skillid;
+        if (input->ExpectTag(16)) goto parse_m_skillID;
         break;
       }
 
-      // optional int32 m_skillid = 2;
+      // optional int32 m_skillID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_skillid:
+         parse_m_skillID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_skillid_)));
@@ -1972,15 +1972,15 @@ bool E_XiuzhenroadSkill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_itenmid;
+        if (input->ExpectTag(24)) goto parse_m_itenmID;
         break;
       }
 
-      // optional int32 m_itenmid = 3;
+      // optional int32 m_itenmID = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itenmid:
+         parse_m_itenmID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itenmid_)));
@@ -2026,17 +2026,17 @@ bool E_XiuzhenroadSkill::MergePartialFromCodedStream(
 
 void E_XiuzhenroadSkill::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_activityskills = 1;
+  // optional int32 m_activitySkills = 1;
   if (has_m_activityskills()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_activityskills(), output);
   }
 
-  // optional int32 m_skillid = 2;
+  // optional int32 m_skillID = 2;
   if (has_m_skillid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_skillid(), output);
   }
 
-  // optional int32 m_itenmid = 3;
+  // optional int32 m_itenmID = 3;
   if (has_m_itenmid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_itenmid(), output);
   }
@@ -2054,17 +2054,17 @@ void E_XiuzhenroadSkill::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_XiuzhenroadSkill::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_activityskills = 1;
+  // optional int32 m_activitySkills = 1;
   if (has_m_activityskills()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_activityskills(), target);
   }
 
-  // optional int32 m_skillid = 2;
+  // optional int32 m_skillID = 2;
   if (has_m_skillid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_skillid(), target);
   }
 
-  // optional int32 m_itenmid = 3;
+  // optional int32 m_itenmID = 3;
   if (has_m_itenmid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_itenmid(), target);
   }
@@ -2085,21 +2085,21 @@ int E_XiuzhenroadSkill::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_activityskills = 1;
+    // optional int32 m_activitySkills = 1;
     if (has_m_activityskills()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_activityskills());
     }
 
-    // optional int32 m_skillid = 2;
+    // optional int32 m_skillID = 2;
     if (has_m_skillid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_skillid());
     }
 
-    // optional int32 m_itenmid = 3;
+    // optional int32 m_itenmID = 3;
     if (has_m_itenmid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2400,10 +2400,10 @@ void Sheet_XiuzhenroadSkill::Swap(Sheet_XiuzhenroadSkill* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_XiuzhenroadClassify::kMTypeidFieldNumber;
+const int E_XiuzhenroadClassify::kMTypeIDFieldNumber;
 const int E_XiuzhenroadClassify::kMGiftFieldNumber;
-const int E_XiuzhenroadClassify::kMGiftidFieldNumber;
-const int E_XiuzhenroadClassify::kMRechargeidFieldNumber;
+const int E_XiuzhenroadClassify::kMGiftIDFieldNumber;
+const int E_XiuzhenroadClassify::kMRechargeIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenroadClassify::E_XiuzhenroadClassify()
@@ -2483,7 +2483,7 @@ bool E_XiuzhenroadClassify::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_typeid = 1;
+      // optional int32 m_typeID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -2511,15 +2511,15 @@ bool E_XiuzhenroadClassify::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_giftid;
+        if (input->ExpectTag(24)) goto parse_m_giftID;
         break;
       }
 
-      // optional int32 m_giftid = 3;
+      // optional int32 m_giftID = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_giftid:
+         parse_m_giftID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_giftid_)));
@@ -2527,15 +2527,15 @@ bool E_XiuzhenroadClassify::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_rechargeid;
+        if (input->ExpectTag(32)) goto parse_m_rechargeID;
         break;
       }
 
-      // optional int32 m_rechargeid = 4;
+      // optional int32 m_rechargeID = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rechargeid:
+         parse_m_rechargeID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rechargeid_)));
@@ -2565,7 +2565,7 @@ bool E_XiuzhenroadClassify::MergePartialFromCodedStream(
 
 void E_XiuzhenroadClassify::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_typeid = 1;
+  // optional int32 m_typeID = 1;
   if (has_m_typeid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_typeid(), output);
   }
@@ -2579,12 +2579,12 @@ void E_XiuzhenroadClassify::SerializeWithCachedSizes(
       2, this->m_gift(), output);
   }
 
-  // optional int32 m_giftid = 3;
+  // optional int32 m_giftID = 3;
   if (has_m_giftid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_giftid(), output);
   }
 
-  // optional int32 m_rechargeid = 4;
+  // optional int32 m_rechargeID = 4;
   if (has_m_rechargeid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_rechargeid(), output);
   }
@@ -2597,7 +2597,7 @@ void E_XiuzhenroadClassify::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_XiuzhenroadClassify::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_typeid = 1;
+  // optional int32 m_typeID = 1;
   if (has_m_typeid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_typeid(), target);
   }
@@ -2612,12 +2612,12 @@ void E_XiuzhenroadClassify::SerializeWithCachedSizes(
         2, this->m_gift(), target);
   }
 
-  // optional int32 m_giftid = 3;
+  // optional int32 m_giftID = 3;
   if (has_m_giftid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_giftid(), target);
   }
 
-  // optional int32 m_rechargeid = 4;
+  // optional int32 m_rechargeID = 4;
   if (has_m_rechargeid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_rechargeid(), target);
   }
@@ -2633,7 +2633,7 @@ int E_XiuzhenroadClassify::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_typeid = 1;
+    // optional int32 m_typeID = 1;
     if (has_m_typeid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2647,14 +2647,14 @@ int E_XiuzhenroadClassify::ByteSize() const {
           this->m_gift());
     }
 
-    // optional int32 m_giftid = 3;
+    // optional int32 m_giftID = 3;
     if (has_m_giftid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_giftid());
     }
 
-    // optional int32 m_rechargeid = 4;
+    // optional int32 m_rechargeID = 4;
     if (has_m_rechargeid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

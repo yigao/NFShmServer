@@ -21,10 +21,10 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t m_id;//序号
 		NFShmString<64> m_icon;//显示图标
-		NFShmString<64> m_dbargs;//主参数关联的配置表名称
+		NFShmString<64> m_dbArgs;//主参数关联的配置表名称
 		NFShmString<64> m_argsm;//备选参数
-		int32_t m_functionunlock;//关联功能开放
-		NFShmString<64> m_linknpc;//关联npc
+		int32_t m_functionUnlock;//关联功能开放
+		NFShmString<64> m_linkNpc;//关联npc
 
 		virtual void write_to_pbmsg(::proto_ff::E_LinkLink & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_LinkLink & msg);
@@ -53,8 +53,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_closetype;//关闭条件类型
-		int32_t m_closearg;//关闭条件
+		int32_t m_closeType;//关闭条件类型
+		int32_t m_closeArg;//关闭条件
 
 		virtual void write_to_pbmsg(::proto_ff::E_LinkImagelink & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_LinkImagelink & msg);

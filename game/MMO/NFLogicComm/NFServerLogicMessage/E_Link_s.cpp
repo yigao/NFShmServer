@@ -12,7 +12,7 @@ E_LinkLink_s::E_LinkLink_s() {
 
 int E_LinkLink_s::CreateInit() {
 	m_id = (int64_t)0;
-	m_functionunlock = (int32_t)0;
+	m_functionUnlock = (int32_t)0;
 	return 0;
 }
 
@@ -23,19 +23,19 @@ int E_LinkLink_s::ResumeInit() {
 void E_LinkLink_s::write_to_pbmsg(::proto_ff::E_LinkLink & msg) const {
 	msg.set_m_id((int64_t)m_id);
 	msg.set_m_icon(m_icon.data());
-	msg.set_m_dbargs(m_dbargs.data());
+	msg.set_m_dbargs(m_dbArgs.data());
 	msg.set_m_argsm(m_argsm.data());
-	msg.set_m_functionunlock((int32_t)m_functionunlock);
-	msg.set_m_linknpc(m_linknpc.data());
+	msg.set_m_functionunlock((int32_t)m_functionUnlock);
+	msg.set_m_linknpc(m_linkNpc.data());
 }
 
 void E_LinkLink_s::read_from_pbmsg(const ::proto_ff::E_LinkLink & msg) {
 	m_id = msg.m_id();
 	m_icon = msg.m_icon();
-	m_dbargs = msg.m_dbargs();
+	m_dbArgs = msg.m_dbargs();
 	m_argsm = msg.m_argsm();
-	m_functionunlock = msg.m_functionunlock();
-	m_linknpc = msg.m_linknpc();
+	m_functionUnlock = msg.m_functionunlock();
+	m_linkNpc = msg.m_linknpc();
 }
 
 Sheet_LinkLink_s::Sheet_LinkLink_s() {
@@ -79,8 +79,8 @@ E_LinkImagelink_s::E_LinkImagelink_s() {
 
 int E_LinkImagelink_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_closetype = (int32_t)0;
-	m_closearg = (int32_t)0;
+	m_closeType = (int32_t)0;
+	m_closeArg = (int32_t)0;
 	return 0;
 }
 
@@ -90,14 +90,14 @@ int E_LinkImagelink_s::ResumeInit() {
 
 void E_LinkImagelink_s::write_to_pbmsg(::proto_ff::E_LinkImagelink & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_closetype((int32_t)m_closetype);
-	msg.set_m_closearg((int32_t)m_closearg);
+	msg.set_m_closetype((int32_t)m_closeType);
+	msg.set_m_closearg((int32_t)m_closeArg);
 }
 
 void E_LinkImagelink_s::read_from_pbmsg(const ::proto_ff::E_LinkImagelink & msg) {
 	m_id = msg.m_id();
-	m_closetype = msg.m_closetype();
-	m_closearg = msg.m_closearg();
+	m_closeType = msg.m_closetype();
+	m_closeArg = msg.m_closearg();
 }
 
 Sheet_LinkImagelink_s::Sheet_LinkImagelink_s() {

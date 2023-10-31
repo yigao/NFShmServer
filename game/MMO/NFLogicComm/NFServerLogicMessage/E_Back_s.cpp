@@ -13,19 +13,19 @@ E_BackBack_s::E_BackBack_s() {
 int E_BackBack_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_type = (int32_t)0;
-	m_typeparam = (int32_t)0;
+	m_typeParam = (int32_t)0;
 	m_group = (int32_t)0;
-	m_functionunlock = (int32_t)0;
-	m_levellimit = (int32_t)0;
-	m_pboxid = (int64_t)0;
-	m_boxid = (int64_t)0;
-	m_backday = (int32_t)0;
-	m_costitemid = (int32_t)0;
-	m_costnum = (int32_t)0;
-	m_pcostitemid = (int32_t)0;
-	m_pcostnum = (int32_t)0;
-	m_acostitemid = (int32_t)0;
-	m_acostnum = (int32_t)0;
+	m_functionUnlock = (int32_t)0;
+	m_levelLimit = (int32_t)0;
+	m_PboxId = (int64_t)0;
+	m_boxId = (int64_t)0;
+	m_backDay = (int32_t)0;
+	m_costItemID = (int32_t)0;
+	m_costNum = (int32_t)0;
+	m_PcostItemID = (int32_t)0;
+	m_PcostNum = (int32_t)0;
+	m_AcostItemID = (int32_t)0;
+	m_AcostNum = (int32_t)0;
 	return 0;
 }
 
@@ -36,20 +36,20 @@ int E_BackBack_s::ResumeInit() {
 void E_BackBack_s::write_to_pbmsg(::proto_ff::E_BackBack & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_type((int32_t)m_type);
-	msg.set_m_typeparam((int32_t)m_typeparam);
+	msg.set_m_typeparam((int32_t)m_typeParam);
 	msg.set_m_name(m_name.data());
 	msg.set_m_group((int32_t)m_group);
-	msg.set_m_functionunlock((int32_t)m_functionunlock);
-	msg.set_m_levellimit((int32_t)m_levellimit);
-	msg.set_m_pboxid((int64_t)m_pboxid);
-	msg.set_m_boxid((int64_t)m_boxid);
-	msg.set_m_backday((int32_t)m_backday);
-	msg.set_m_costitemid((int32_t)m_costitemid);
-	msg.set_m_costnum((int32_t)m_costnum);
-	msg.set_m_pcostitemid((int32_t)m_pcostitemid);
-	msg.set_m_pcostnum((int32_t)m_pcostnum);
-	msg.set_m_acostitemid((int32_t)m_acostitemid);
-	msg.set_m_acostnum((int32_t)m_acostnum);
+	msg.set_m_functionunlock((int32_t)m_functionUnlock);
+	msg.set_m_levellimit((int32_t)m_levelLimit);
+	msg.set_m_pboxid((int64_t)m_PboxId);
+	msg.set_m_boxid((int64_t)m_boxId);
+	msg.set_m_backday((int32_t)m_backDay);
+	msg.set_m_costitemid((int32_t)m_costItemID);
+	msg.set_m_costnum((int32_t)m_costNum);
+	msg.set_m_pcostitemid((int32_t)m_PcostItemID);
+	msg.set_m_pcostnum((int32_t)m_PcostNum);
+	msg.set_m_acostitemid((int32_t)m_AcostItemID);
+	msg.set_m_acostnum((int32_t)m_AcostNum);
 	for(int32_t i = 0; i < (int32_t)m_param.size(); ++i) {
 		msg.add_m_param((int32_t)m_param[i]);
 	}
@@ -58,20 +58,20 @@ void E_BackBack_s::write_to_pbmsg(::proto_ff::E_BackBack & msg) const {
 void E_BackBack_s::read_from_pbmsg(const ::proto_ff::E_BackBack & msg) {
 	m_id = msg.m_id();
 	m_type = msg.m_type();
-	m_typeparam = msg.m_typeparam();
+	m_typeParam = msg.m_typeparam();
 	m_name = msg.m_name();
 	m_group = msg.m_group();
-	m_functionunlock = msg.m_functionunlock();
-	m_levellimit = msg.m_levellimit();
-	m_pboxid = msg.m_pboxid();
-	m_boxid = msg.m_boxid();
-	m_backday = msg.m_backday();
-	m_costitemid = msg.m_costitemid();
-	m_costnum = msg.m_costnum();
-	m_pcostitemid = msg.m_pcostitemid();
-	m_pcostnum = msg.m_pcostnum();
-	m_acostitemid = msg.m_acostitemid();
-	m_acostnum = msg.m_acostnum();
+	m_functionUnlock = msg.m_functionunlock();
+	m_levelLimit = msg.m_levellimit();
+	m_PboxId = msg.m_pboxid();
+	m_boxId = msg.m_boxid();
+	m_backDay = msg.m_backday();
+	m_costItemID = msg.m_costitemid();
+	m_costNum = msg.m_costnum();
+	m_PcostItemID = msg.m_pcostitemid();
+	m_PcostNum = msg.m_pcostnum();
+	m_AcostItemID = msg.m_acostitemid();
+	m_AcostNum = msg.m_acostnum();
 	m_param.resize((int)msg.m_param_size() > (int)m_param.max_size() ? m_param.max_size() : msg.m_param_size());
 	for(int32_t i = 0; i < (int32_t)m_param.size(); ++i) {
 		m_param[i] = msg.m_param(i);

@@ -90,8 +90,8 @@ int AvatarChangeDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_starid <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_starid)), result, "can't find the starid:{} in the  excel:item sheet:item", pDesc->m_starid);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_activationitem <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_activationitem)), result, "can't find the activationitem:{} in the  excel:item sheet:item", pDesc->m_activationitem);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_starId <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_starId)), result, "can't find the starId:{} in the  excel:item sheet:item", pDesc->m_starId);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_activationItem <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_activationItem)), result, "can't find the activationItem:{} in the  excel:item sheet:item", pDesc->m_activationItem);
 	}
 	return result;
 }

@@ -13,20 +13,20 @@ E_EquipEquip_s::E_EquipEquip_s() {
 int E_EquipEquip_s::CreateInit() {
 	m_id = (int64_t)0;
 	m_type = (int32_t)0;
-	m_wearquality = (int32_t)0;
+	m_wearQuality = (int32_t)0;
 	m_position = (int32_t)0;
-	m_professionlv = (int32_t)0;
+	m_professionLv = (int32_t)0;
 	m_level = (int32_t)0;
 	m_quality = (int32_t)0;
-	m_attributeid = (int32_t)0;
+	m_attributeID = (int32_t)0;
 	m_star = (int32_t)0;
-	m_notcompose = (int32_t)0;
-	m_iscanbind = (int32_t)0;
-	m_istradebind = (int32_t)0;
-	m_sellprice = (int32_t)0;
+	m_notCompose = (int32_t)0;
+	m_isCanbind = (int32_t)0;
+	m_isTradeBind = (int32_t)0;
+	m_sellPrice = (int32_t)0;
 	m_time = (int32_t)0;
 	m_broadcast = (int32_t)0;
-	m_privilegegroupid = (int32_t)0;
+	m_privilegeGroupId = (int32_t)0;
 	return 0;
 }
 
@@ -38,48 +38,48 @@ void E_EquipEquip_s::write_to_pbmsg(::proto_ff::E_EquipEquip & msg) const {
 	msg.set_m_id((int64_t)m_id);
 	msg.set_m_name(m_name.data());
 	msg.set_m_type((int32_t)m_type);
-	msg.set_m_wearquality((int32_t)m_wearquality);
+	msg.set_m_wearquality((int32_t)m_wearQuality);
 	msg.set_m_position((int32_t)m_position);
 	msg.set_m_profession(m_profession.data());
-	msg.set_m_professionlv((int32_t)m_professionlv);
+	msg.set_m_professionlv((int32_t)m_professionLv);
 	msg.set_m_level((int32_t)m_level);
 	msg.set_m_quality((int32_t)m_quality);
-	msg.set_m_attributeid((int32_t)m_attributeid);
+	msg.set_m_attributeid((int32_t)m_attributeID);
 	msg.set_m_star((int32_t)m_star);
-	msg.set_m_notcompose((int32_t)m_notcompose);
-	msg.set_m_iscanbind((int32_t)m_iscanbind);
-	msg.set_m_istradebind((int32_t)m_istradebind);
-	msg.set_m_sellprice((int32_t)m_sellprice);
+	msg.set_m_notcompose((int32_t)m_notCompose);
+	msg.set_m_iscanbind((int32_t)m_isCanbind);
+	msg.set_m_istradebind((int32_t)m_isTradeBind);
+	msg.set_m_sellprice((int32_t)m_sellPrice);
 	msg.set_m_icon(m_icon.data());
 	msg.set_m_time((int32_t)m_time);
 	msg.set_m_broadcast((int32_t)m_broadcast);
-	msg.set_m_meltingresult(m_meltingresult.data());
-	msg.set_m_skillid(m_skillid.data());
-	msg.set_m_privilegegroupid((int32_t)m_privilegegroupid);
+	msg.set_m_meltingresult(m_meltingResult.data());
+	msg.set_m_skillid(m_skillId.data());
+	msg.set_m_privilegegroupid((int32_t)m_privilegeGroupId);
 }
 
 void E_EquipEquip_s::read_from_pbmsg(const ::proto_ff::E_EquipEquip & msg) {
 	m_id = msg.m_id();
 	m_name = msg.m_name();
 	m_type = msg.m_type();
-	m_wearquality = msg.m_wearquality();
+	m_wearQuality = msg.m_wearquality();
 	m_position = msg.m_position();
 	m_profession = msg.m_profession();
-	m_professionlv = msg.m_professionlv();
+	m_professionLv = msg.m_professionlv();
 	m_level = msg.m_level();
 	m_quality = msg.m_quality();
-	m_attributeid = msg.m_attributeid();
+	m_attributeID = msg.m_attributeid();
 	m_star = msg.m_star();
-	m_notcompose = msg.m_notcompose();
-	m_iscanbind = msg.m_iscanbind();
-	m_istradebind = msg.m_istradebind();
-	m_sellprice = msg.m_sellprice();
+	m_notCompose = msg.m_notcompose();
+	m_isCanbind = msg.m_iscanbind();
+	m_isTradeBind = msg.m_istradebind();
+	m_sellPrice = msg.m_sellprice();
 	m_icon = msg.m_icon();
 	m_time = msg.m_time();
 	m_broadcast = msg.m_broadcast();
-	m_meltingresult = msg.m_meltingresult();
-	m_skillid = msg.m_skillid();
-	m_privilegegroupid = msg.m_privilegegroupid();
+	m_meltingResult = msg.m_meltingresult();
+	m_skillId = msg.m_skillid();
+	m_privilegeGroupId = msg.m_privilegegroupid();
 }
 
 Sheet_EquipEquip_s::Sheet_EquipEquip_s() {
@@ -122,8 +122,8 @@ E_EquipAttributeAttributeDesc_s::E_EquipAttributeAttributeDesc_s() {
 }
 
 int E_EquipAttributeAttributeDesc_s::CreateInit() {
-	m_valuemax = (int32_t)0;
-	m_valuemin = (int32_t)0;
+	m_valueMax = (int32_t)0;
+	m_valueMin = (int32_t)0;
 	m_type = (int32_t)0;
 	return 0;
 }
@@ -133,14 +133,14 @@ int E_EquipAttributeAttributeDesc_s::ResumeInit() {
 }
 
 void E_EquipAttributeAttributeDesc_s::write_to_pbmsg(::proto_ff::E_EquipAttributeAttributeDesc & msg) const {
-	msg.set_m_valuemax((int32_t)m_valuemax);
-	msg.set_m_valuemin((int32_t)m_valuemin);
+	msg.set_m_valuemax((int32_t)m_valueMax);
+	msg.set_m_valuemin((int32_t)m_valueMin);
 	msg.set_m_type((int32_t)m_type);
 }
 
 void E_EquipAttributeAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_EquipAttributeAttributeDesc & msg) {
-	m_valuemax = msg.m_valuemax();
-	m_valuemin = msg.m_valuemin();
+	m_valueMax = msg.m_valuemax();
+	m_valueMin = msg.m_valuemin();
 	m_type = msg.m_type();
 }
 
@@ -154,10 +154,10 @@ E_EquipAttribute_s::E_EquipAttribute_s() {
 
 int E_EquipAttribute_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_bluestarnum = (int32_t)0;
+	m_blueStarNum = (int32_t)0;
 	m_specid = (int32_t)0;
-	m_specialattributedown = (int32_t)0;
-	m_specialattributeup = (int32_t)0;
+	m_specialAttributeDown = (int32_t)0;
+	m_specialAttributeUp = (int32_t)0;
 	return 0;
 }
 
@@ -167,65 +167,65 @@ int E_EquipAttribute_s::ResumeInit() {
 
 void E_EquipAttribute_s::write_to_pbmsg(::proto_ff::E_EquipAttribute & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_bluestarnum((int32_t)m_bluestarnum);
-	msg.set_m_bluestar_type(m_bluestar_type.data());
-	msg.set_m_bluestar_lv(m_bluestar_lv.data());
-	msg.set_m_bluestar_number(m_bluestar_number.data());
+	msg.set_m_bluestarnum((int32_t)m_blueStarNum);
+	msg.set_m_bluestar_type(m_blueStar_type.data());
+	msg.set_m_bluestar_lv(m_blueStar_lv.data());
+	msg.set_m_bluestar_number(m_blueStar_number.data());
 	msg.set_m_specid((int32_t)m_specid);
-	msg.set_m_specialattributedown((int32_t)m_specialattributedown);
-	msg.set_m_specialattributeup((int32_t)m_specialattributeup);
-	msg.set_m_specialattribute_typelibrary(m_specialattribute_typelibrary.data());
-	msg.set_m_specialattribute_valuemin(m_specialattribute_valuemin.data());
-	msg.set_m_specialattribute_valuemax(m_specialattribute_valuemax.data());
-	msg.set_m_godattribute_type(m_godattribute_type.data());
-	msg.set_m_godattribute_valuemin(m_godattribute_valuemin.data());
-	msg.set_m_godattribute_valuemax(m_godattribute_valuemax.data());
-	msg.set_m_silverstarlib(m_silverstarlib.data());
-	msg.set_m_silverstarvalue(m_silverstarvalue.data());
-	msg.set_m_goldstarlib(m_goldstarlib.data());
-	msg.set_m_goldstarvalue(m_goldstarvalue.data());
-	msg.set_m_godeviatt(m_godeviatt.data());
-	msg.set_m_godeviattvalue(m_godeviattvalue.data());
-	msg.set_m_godevilskill(m_godevilskill.data());
+	msg.set_m_specialattributedown((int32_t)m_specialAttributeDown);
+	msg.set_m_specialattributeup((int32_t)m_specialAttributeUp);
+	msg.set_m_specialattribute_typelibrary(m_specialAttribute_typeLibrary.data());
+	msg.set_m_specialattribute_valuemin(m_specialAttribute_valueMin.data());
+	msg.set_m_specialattribute_valuemax(m_specialAttribute_valueMax.data());
+	msg.set_m_godattribute_type(m_godAttribute_type.data());
+	msg.set_m_godattribute_valuemin(m_godAttribute_valueMin.data());
+	msg.set_m_godattribute_valuemax(m_godAttribute_valueMax.data());
+	msg.set_m_silverstarlib(m_silverStarLib.data());
+	msg.set_m_silverstarvalue(m_silverStarValue.data());
+	msg.set_m_goldstarlib(m_goldStarLib.data());
+	msg.set_m_goldstarvalue(m_goldStarValue.data());
+	msg.set_m_godeviatt(m_godeviAtt.data());
+	msg.set_m_godeviattvalue(m_godeviAttValue.data());
+	msg.set_m_godevilskill(m_godevilSkill.data());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_EquipAttributeAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
-	for(int32_t i = 0; i < (int32_t)m_star_library.size(); ++i) {
-		msg.add_m_star_library(m_star_library[i].data());
+	for(int32_t i = 0; i < (int32_t)m_star_Library.size(); ++i) {
+		msg.add_m_star_library(m_star_Library[i].data());
 	}
 }
 
 void E_EquipAttribute_s::read_from_pbmsg(const ::proto_ff::E_EquipAttribute & msg) {
 	m_id = msg.m_id();
-	m_bluestarnum = msg.m_bluestarnum();
-	m_bluestar_type = msg.m_bluestar_type();
-	m_bluestar_lv = msg.m_bluestar_lv();
-	m_bluestar_number = msg.m_bluestar_number();
+	m_blueStarNum = msg.m_bluestarnum();
+	m_blueStar_type = msg.m_bluestar_type();
+	m_blueStar_lv = msg.m_bluestar_lv();
+	m_blueStar_number = msg.m_bluestar_number();
 	m_specid = msg.m_specid();
-	m_specialattributedown = msg.m_specialattributedown();
-	m_specialattributeup = msg.m_specialattributeup();
-	m_specialattribute_typelibrary = msg.m_specialattribute_typelibrary();
-	m_specialattribute_valuemin = msg.m_specialattribute_valuemin();
-	m_specialattribute_valuemax = msg.m_specialattribute_valuemax();
-	m_godattribute_type = msg.m_godattribute_type();
-	m_godattribute_valuemin = msg.m_godattribute_valuemin();
-	m_godattribute_valuemax = msg.m_godattribute_valuemax();
-	m_silverstarlib = msg.m_silverstarlib();
-	m_silverstarvalue = msg.m_silverstarvalue();
-	m_goldstarlib = msg.m_goldstarlib();
-	m_goldstarvalue = msg.m_goldstarvalue();
-	m_godeviatt = msg.m_godeviatt();
-	m_godeviattvalue = msg.m_godeviattvalue();
-	m_godevilskill = msg.m_godevilskill();
+	m_specialAttributeDown = msg.m_specialattributedown();
+	m_specialAttributeUp = msg.m_specialattributeup();
+	m_specialAttribute_typeLibrary = msg.m_specialattribute_typelibrary();
+	m_specialAttribute_valueMin = msg.m_specialattribute_valuemin();
+	m_specialAttribute_valueMax = msg.m_specialattribute_valuemax();
+	m_godAttribute_type = msg.m_godattribute_type();
+	m_godAttribute_valueMin = msg.m_godattribute_valuemin();
+	m_godAttribute_valueMax = msg.m_godattribute_valuemax();
+	m_silverStarLib = msg.m_silverstarlib();
+	m_silverStarValue = msg.m_silverstarvalue();
+	m_goldStarLib = msg.m_goldstarlib();
+	m_goldStarValue = msg.m_goldstarvalue();
+	m_godeviAtt = msg.m_godeviatt();
+	m_godeviAttValue = msg.m_godeviattvalue();
+	m_godevilSkill = msg.m_godevilskill();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_EquipAttributeAttributeDesc & temp_m_attribute = msg.m_attribute(i);
 		m_attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
-	m_star_library.resize((int)msg.m_star_library_size() > (int)m_star_library.max_size() ? m_star_library.max_size() : msg.m_star_library_size());
-	for(int32_t i = 0; i < (int32_t)m_star_library.size(); ++i) {
-		m_star_library[i] = msg.m_star_library(i);
+	m_star_Library.resize((int)msg.m_star_library_size() > (int)m_star_Library.max_size() ? m_star_Library.max_size() : msg.m_star_library_size());
+	for(int32_t i = 0; i < (int32_t)m_star_Library.size(); ++i) {
+		m_star_Library[i] = msg.m_star_library(i);
 	}
 }
 
@@ -311,7 +311,7 @@ void E_EquipSpecatt_s::write_to_pbmsg(::proto_ff::E_EquipSpecatt & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_groupid((int32_t)m_groupid);
 	msg.set_m_lv((int32_t)m_lv);
-	msg.set_m_zlname(m_zlname.data());
+	msg.set_m_zlname(m_Zlname.data());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_EquipSpecattAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
@@ -322,7 +322,7 @@ void E_EquipSpecatt_s::read_from_pbmsg(const ::proto_ff::E_EquipSpecatt & msg) {
 	m_id = msg.m_id();
 	m_groupid = msg.m_groupid();
 	m_lv = msg.m_lv();
-	m_zlname = msg.m_zlname();
+	m_Zlname = msg.m_zlname();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_EquipSpecattAttributeDesc & temp_m_attribute = msg.m_attribute(i);
@@ -399,8 +399,8 @@ E_EquipStrong_s::E_EquipStrong_s() {
 int E_EquipStrong_s::CreateInit() {
 	m_id = (int64_t)0;
 	m_position = (int32_t)0;
-	m_wearquality = (int32_t)0;
-	m_srtongup = (int32_t)0;
+	m_wearQuality = (int32_t)0;
+	m_srtongUp = (int32_t)0;
 	return 0;
 }
 
@@ -411,8 +411,8 @@ int E_EquipStrong_s::ResumeInit() {
 void E_EquipStrong_s::write_to_pbmsg(::proto_ff::E_EquipStrong & msg) const {
 	msg.set_m_id((int64_t)m_id);
 	msg.set_m_position((int32_t)m_position);
-	msg.set_m_wearquality((int32_t)m_wearquality);
-	msg.set_m_srtongup((int32_t)m_srtongup);
+	msg.set_m_wearquality((int32_t)m_wearQuality);
+	msg.set_m_srtongup((int32_t)m_srtongUp);
 	for(int32_t i = 0; i < (int32_t)m_type.size(); ++i) {
 		::proto_ff::E_EquipStrongTypeDesc* temp_m_type = msg.add_m_type();
 		m_type[i].write_to_pbmsg(*temp_m_type);
@@ -422,8 +422,8 @@ void E_EquipStrong_s::write_to_pbmsg(::proto_ff::E_EquipStrong & msg) const {
 void E_EquipStrong_s::read_from_pbmsg(const ::proto_ff::E_EquipStrong & msg) {
 	m_id = msg.m_id();
 	m_position = msg.m_position();
-	m_wearquality = msg.m_wearquality();
-	m_srtongup = msg.m_srtongup();
+	m_wearQuality = msg.m_wearquality();
+	m_srtongUp = msg.m_srtongup();
 	m_type.resize((int)msg.m_type_size() > (int)m_type.max_size() ? m_type.max_size() : msg.m_type_size());
 	for(int32_t i = 0; i < (int32_t)m_type.size(); ++i) {
 		const ::proto_ff::E_EquipStrongTypeDesc & temp_m_type = msg.m_type(i);
@@ -471,8 +471,8 @@ E_EquipStrongexpCostDesc_s::E_EquipStrongexpCostDesc_s() {
 }
 
 int E_EquipStrongexpCostDesc_s::CreateInit() {
-	m_num = (int32_t)0;
-	m_item = (int32_t)0;
+	m_Num = (int32_t)0;
+	m_Item = (int32_t)0;
 	return 0;
 }
 
@@ -481,13 +481,13 @@ int E_EquipStrongexpCostDesc_s::ResumeInit() {
 }
 
 void E_EquipStrongexpCostDesc_s::write_to_pbmsg(::proto_ff::E_EquipStrongexpCostDesc & msg) const {
-	msg.set_m_num((int32_t)m_num);
-	msg.set_m_item((int32_t)m_item);
+	msg.set_m_num((int32_t)m_Num);
+	msg.set_m_item((int32_t)m_Item);
 }
 
 void E_EquipStrongexpCostDesc_s::read_from_pbmsg(const ::proto_ff::E_EquipStrongexpCostDesc & msg) {
-	m_num = msg.m_num();
-	m_item = msg.m_item();
+	m_Num = msg.m_num();
+	m_Item = msg.m_item();
 }
 
 E_EquipStrongexp_s::E_EquipStrongexp_s() {
@@ -499,7 +499,7 @@ E_EquipStrongexp_s::E_EquipStrongexp_s() {
 }
 
 int E_EquipStrongexp_s::CreateInit() {
-	m_lv = (int32_t)0;
+	m_Lv = (int32_t)0;
 	m_gold = (int32_t)0;
 	return 0;
 }
@@ -509,10 +509,10 @@ int E_EquipStrongexp_s::ResumeInit() {
 }
 
 void E_EquipStrongexp_s::write_to_pbmsg(::proto_ff::E_EquipStrongexp & msg) const {
-	msg.set_m_lv((int32_t)m_lv);
+	msg.set_m_lv((int32_t)m_Lv);
 	msg.set_m_gold((int32_t)m_gold);
-	for(int32_t i = 0; i < (int32_t)m_positiontype.size(); ++i) {
-		msg.add_m_positiontype(m_positiontype[i].data());
+	for(int32_t i = 0; i < (int32_t)m_positionType.size(); ++i) {
+		msg.add_m_positiontype(m_positionType[i].data());
 	}
 	for(int32_t i = 0; i < (int32_t)m_cost.size(); ++i) {
 		::proto_ff::E_EquipStrongexpCostDesc* temp_m_cost = msg.add_m_cost();
@@ -521,11 +521,11 @@ void E_EquipStrongexp_s::write_to_pbmsg(::proto_ff::E_EquipStrongexp & msg) cons
 }
 
 void E_EquipStrongexp_s::read_from_pbmsg(const ::proto_ff::E_EquipStrongexp & msg) {
-	m_lv = msg.m_lv();
+	m_Lv = msg.m_lv();
 	m_gold = msg.m_gold();
-	m_positiontype.resize((int)msg.m_positiontype_size() > (int)m_positiontype.max_size() ? m_positiontype.max_size() : msg.m_positiontype_size());
-	for(int32_t i = 0; i < (int32_t)m_positiontype.size(); ++i) {
-		m_positiontype[i] = msg.m_positiontype(i);
+	m_positionType.resize((int)msg.m_positiontype_size() > (int)m_positionType.max_size() ? m_positionType.max_size() : msg.m_positiontype_size());
+	for(int32_t i = 0; i < (int32_t)m_positionType.size(); ++i) {
+		m_positionType[i] = msg.m_positiontype(i);
 	}
 	m_cost.resize((int)msg.m_cost_size() > (int)m_cost.max_size() ? m_cost.max_size() : msg.m_cost_size());
 	for(int32_t i = 0; i < (int32_t)m_cost.size(); ++i) {
@@ -603,8 +603,8 @@ E_EquipBeaststrong_s::E_EquipBeaststrong_s() {
 int E_EquipBeaststrong_s::CreateInit() {
 	m_id = (int64_t)0;
 	m_position = (int32_t)0;
-	m_wearquality = (int32_t)0;
-	m_srtongup = (int32_t)0;
+	m_wearQuality = (int32_t)0;
+	m_srtongUp = (int32_t)0;
 	return 0;
 }
 
@@ -615,8 +615,8 @@ int E_EquipBeaststrong_s::ResumeInit() {
 void E_EquipBeaststrong_s::write_to_pbmsg(::proto_ff::E_EquipBeaststrong & msg) const {
 	msg.set_m_id((int64_t)m_id);
 	msg.set_m_position((int32_t)m_position);
-	msg.set_m_wearquality((int32_t)m_wearquality);
-	msg.set_m_srtongup((int32_t)m_srtongup);
+	msg.set_m_wearquality((int32_t)m_wearQuality);
+	msg.set_m_srtongup((int32_t)m_srtongUp);
 	for(int32_t i = 0; i < (int32_t)m_type.size(); ++i) {
 		::proto_ff::E_EquipBeaststrongTypeDesc* temp_m_type = msg.add_m_type();
 		m_type[i].write_to_pbmsg(*temp_m_type);
@@ -626,8 +626,8 @@ void E_EquipBeaststrong_s::write_to_pbmsg(::proto_ff::E_EquipBeaststrong & msg) 
 void E_EquipBeaststrong_s::read_from_pbmsg(const ::proto_ff::E_EquipBeaststrong & msg) {
 	m_id = msg.m_id();
 	m_position = msg.m_position();
-	m_wearquality = msg.m_wearquality();
-	m_srtongup = msg.m_srtongup();
+	m_wearQuality = msg.m_wearquality();
+	m_srtongUp = msg.m_srtongup();
 	m_type.resize((int)msg.m_type_size() > (int)m_type.max_size() ? m_type.max_size() : msg.m_type_size());
 	for(int32_t i = 0; i < (int32_t)m_type.size(); ++i) {
 		const ::proto_ff::E_EquipBeaststrongTypeDesc & temp_m_type = msg.m_type(i);
@@ -704,8 +704,8 @@ E_EquipStrongtotal_s::E_EquipStrongtotal_s() {
 
 int E_EquipStrongtotal_s::CreateInit() {
 	m_id = (int64_t)0;
-	m_idtype = (int32_t)0;
-	m_idnum = (int32_t)0;
+	m_idType = (int32_t)0;
+	m_idNum = (int32_t)0;
 	return 0;
 }
 
@@ -715,8 +715,8 @@ int E_EquipStrongtotal_s::ResumeInit() {
 
 void E_EquipStrongtotal_s::write_to_pbmsg(::proto_ff::E_EquipStrongtotal & msg) const {
 	msg.set_m_id((int64_t)m_id);
-	msg.set_m_idtype((int32_t)m_idtype);
-	msg.set_m_idnum((int32_t)m_idnum);
+	msg.set_m_idtype((int32_t)m_idType);
+	msg.set_m_idnum((int32_t)m_idNum);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_EquipStrongtotalAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
@@ -725,8 +725,8 @@ void E_EquipStrongtotal_s::write_to_pbmsg(::proto_ff::E_EquipStrongtotal & msg) 
 
 void E_EquipStrongtotal_s::read_from_pbmsg(const ::proto_ff::E_EquipStrongtotal & msg) {
 	m_id = msg.m_id();
-	m_idtype = msg.m_idtype();
-	m_idnum = msg.m_idnum();
+	m_idType = msg.m_idtype();
+	m_idNum = msg.m_idnum();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_EquipStrongtotalAttributeDesc & temp_m_attribute = msg.m_attribute(i);
@@ -775,9 +775,9 @@ E_EquipGem_s::E_EquipGem_s() {
 
 int E_EquipGem_s::CreateInit() {
 	m_position = (int32_t)0;
-	m_speciallygemtype = (int32_t)0;
-	m_payunlockitem = (int32_t)0;
-	m_payunlocknnm = (int32_t)0;
+	m_speciallyGemType = (int32_t)0;
+	m_payUnlockItem = (int32_t)0;
+	m_payUnlockNnm = (int32_t)0;
 	return 0;
 }
 
@@ -787,28 +787,28 @@ int E_EquipGem_s::ResumeInit() {
 
 void E_EquipGem_s::write_to_pbmsg(::proto_ff::E_EquipGem & msg) const {
 	msg.set_m_position((int32_t)m_position);
-	msg.set_m_gemtype(m_gemtype.data());
-	msg.set_m_speciallygemtype((int32_t)m_speciallygemtype);
-	msg.set_m_payunlockitem((int32_t)m_payunlockitem);
-	msg.set_m_payunlocknnm((int32_t)m_payunlocknnm);
-	msg.set_m_commongembuy(m_commongembuy.data());
-	msg.set_m_speciallygembuy(m_speciallygembuy.data());
-	for(int32_t i = 0; i < (int32_t)m_gemunlock.size(); ++i) {
-		msg.add_m_gemunlock((int32_t)m_gemunlock[i]);
+	msg.set_m_gemtype(m_gemType.data());
+	msg.set_m_speciallygemtype((int32_t)m_speciallyGemType);
+	msg.set_m_payunlockitem((int32_t)m_payUnlockItem);
+	msg.set_m_payunlocknnm((int32_t)m_payUnlockNnm);
+	msg.set_m_commongembuy(m_commonGemBuy.data());
+	msg.set_m_speciallygembuy(m_speciallyGemBuy.data());
+	for(int32_t i = 0; i < (int32_t)m_gemUnlock.size(); ++i) {
+		msg.add_m_gemunlock((int32_t)m_gemUnlock[i]);
 	}
 }
 
 void E_EquipGem_s::read_from_pbmsg(const ::proto_ff::E_EquipGem & msg) {
 	m_position = msg.m_position();
-	m_gemtype = msg.m_gemtype();
-	m_speciallygemtype = msg.m_speciallygemtype();
-	m_payunlockitem = msg.m_payunlockitem();
-	m_payunlocknnm = msg.m_payunlocknnm();
-	m_commongembuy = msg.m_commongembuy();
-	m_speciallygembuy = msg.m_speciallygembuy();
-	m_gemunlock.resize((int)msg.m_gemunlock_size() > (int)m_gemunlock.max_size() ? m_gemunlock.max_size() : msg.m_gemunlock_size());
-	for(int32_t i = 0; i < (int32_t)m_gemunlock.size(); ++i) {
-		m_gemunlock[i] = msg.m_gemunlock(i);
+	m_gemType = msg.m_gemtype();
+	m_speciallyGemType = msg.m_speciallygemtype();
+	m_payUnlockItem = msg.m_payunlockitem();
+	m_payUnlockNnm = msg.m_payunlocknnm();
+	m_commonGemBuy = msg.m_commongembuy();
+	m_speciallyGemBuy = msg.m_speciallygembuy();
+	m_gemUnlock.resize((int)msg.m_gemunlock_size() > (int)m_gemUnlock.max_size() ? m_gemUnlock.max_size() : msg.m_gemunlock_size());
+	for(int32_t i = 0; i < (int32_t)m_gemUnlock.size(); ++i) {
+		m_gemUnlock[i] = msg.m_gemunlock(i);
 	}
 }
 
@@ -853,11 +853,11 @@ E_EquipGemlv_s::E_EquipGemlv_s() {
 
 int E_EquipGemlv_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_preid = (int32_t)0;
-	m_nextid = (int32_t)0;
-	m_nextvalue = (int32_t)0;
-	m_costgold = (int32_t)0;
-	m_mallid = (int32_t)0;
+	m_preId = (int32_t)0;
+	m_nextId = (int32_t)0;
+	m_nextValue = (int32_t)0;
+	m_costGold = (int32_t)0;
+	m_mallID = (int32_t)0;
 	return 0;
 }
 
@@ -867,22 +867,22 @@ int E_EquipGemlv_s::ResumeInit() {
 
 void E_EquipGemlv_s::write_to_pbmsg(::proto_ff::E_EquipGemlv & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_preid((int32_t)m_preid);
-	msg.set_m_nextid((int32_t)m_nextid);
+	msg.set_m_preid((int32_t)m_preId);
+	msg.set_m_nextid((int32_t)m_nextId);
 	msg.set_m_numb(m_numb.data());
-	msg.set_m_nextvalue((int32_t)m_nextvalue);
-	msg.set_m_costgold((int32_t)m_costgold);
-	msg.set_m_mallid((int32_t)m_mallid);
+	msg.set_m_nextvalue((int32_t)m_nextValue);
+	msg.set_m_costgold((int32_t)m_costGold);
+	msg.set_m_mallid((int32_t)m_mallID);
 }
 
 void E_EquipGemlv_s::read_from_pbmsg(const ::proto_ff::E_EquipGemlv & msg) {
 	m_id = msg.m_id();
-	m_preid = msg.m_preid();
-	m_nextid = msg.m_nextid();
+	m_preId = msg.m_preid();
+	m_nextId = msg.m_nextid();
 	m_numb = msg.m_numb();
-	m_nextvalue = msg.m_nextvalue();
-	m_costgold = msg.m_costgold();
-	m_mallid = msg.m_mallid();
+	m_nextValue = msg.m_nextvalue();
+	m_costGold = msg.m_costgold();
+	m_mallID = msg.m_mallid();
 }
 
 Sheet_EquipGemlv_s::Sheet_EquipGemlv_s() {
@@ -1021,9 +1021,9 @@ E_EquipStoveexp_s::E_EquipStoveexp_s() {
 }
 
 int E_EquipStoveexp_s::CreateInit() {
-	m_id = (int32_t)0;
+	m_ID = (int32_t)0;
 	m_exp = (int32_t)0;
-	m_wearquality = (int32_t)0;
+	m_wearQuality = (int32_t)0;
 	m_quality = (int32_t)0;
 	return 0;
 }
@@ -1033,16 +1033,16 @@ int E_EquipStoveexp_s::ResumeInit() {
 }
 
 void E_EquipStoveexp_s::write_to_pbmsg(::proto_ff::E_EquipStoveexp & msg) const {
-	msg.set_m_id((int32_t)m_id);
+	msg.set_m_id((int32_t)m_ID);
 	msg.set_m_exp((int32_t)m_exp);
-	msg.set_m_wearquality((int32_t)m_wearquality);
+	msg.set_m_wearquality((int32_t)m_wearQuality);
 	msg.set_m_quality((int32_t)m_quality);
 }
 
 void E_EquipStoveexp_s::read_from_pbmsg(const ::proto_ff::E_EquipStoveexp & msg) {
-	m_id = msg.m_id();
+	m_ID = msg.m_id();
 	m_exp = msg.m_exp();
-	m_wearquality = msg.m_wearquality();
+	m_wearQuality = msg.m_wearquality();
 	m_quality = msg.m_quality();
 }
 
@@ -1086,7 +1086,7 @@ E_EquipGrade_s::E_EquipGrade_s() {
 }
 
 int E_EquipGrade_s::CreateInit() {
-	m_id = (int32_t)0;
+	m_ID = (int32_t)0;
 	return 0;
 }
 
@@ -1095,11 +1095,11 @@ int E_EquipGrade_s::ResumeInit() {
 }
 
 void E_EquipGrade_s::write_to_pbmsg(::proto_ff::E_EquipGrade & msg) const {
-	msg.set_m_id((int32_t)m_id);
+	msg.set_m_id((int32_t)m_ID);
 }
 
 void E_EquipGrade_s::read_from_pbmsg(const ::proto_ff::E_EquipGrade & msg) {
-	m_id = msg.m_id();
+	m_ID = msg.m_id();
 }
 
 Sheet_EquipGrade_s::Sheet_EquipGrade_s() {
@@ -1200,8 +1200,8 @@ E_EquipClear_s::E_EquipClear_s() {
 
 int E_EquipClear_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_unlockitem = (int32_t)0;
-	m_consumeid = (int64_t)0;
+	m_unlockItem = (int32_t)0;
+	m_consumeId = (int64_t)0;
 	return 0;
 }
 
@@ -1212,40 +1212,40 @@ int E_EquipClear_s::ResumeInit() {
 void E_EquipClear_s::write_to_pbmsg(::proto_ff::E_EquipClear & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_value(m_value.data());
-	msg.set_m_unlockitem((int32_t)m_unlockitem);
-	msg.set_m_unlocknum(m_unlocknum.data());
-	msg.set_m_consumeid((int64_t)m_consumeid);
-	msg.set_m_consumenum(m_consumenum.data());
-	msg.set_m_lockingid(m_lockingid.data());
-	msg.set_m_lockingnum(m_lockingnum.data());
+	msg.set_m_unlockitem((int32_t)m_unlockItem);
+	msg.set_m_unlocknum(m_unlockNum.data());
+	msg.set_m_consumeid((int64_t)m_consumeId);
+	msg.set_m_consumenum(m_consumeNum.data());
+	msg.set_m_lockingid(m_lockingId.data());
+	msg.set_m_lockingnum(m_lockingNum.data());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_EquipClearAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
-	for(int32_t i = 0; i < (int32_t)m_section.size(); ++i) {
+	for(int32_t i = 0; i < (int32_t)m_Section.size(); ++i) {
 		::proto_ff::E_EquipClearSectionDesc* temp_m_section = msg.add_m_section();
-		m_section[i].write_to_pbmsg(*temp_m_section);
+		m_Section[i].write_to_pbmsg(*temp_m_section);
 	}
 }
 
 void E_EquipClear_s::read_from_pbmsg(const ::proto_ff::E_EquipClear & msg) {
 	m_id = msg.m_id();
 	m_value = msg.m_value();
-	m_unlockitem = msg.m_unlockitem();
-	m_unlocknum = msg.m_unlocknum();
-	m_consumeid = msg.m_consumeid();
-	m_consumenum = msg.m_consumenum();
-	m_lockingid = msg.m_lockingid();
-	m_lockingnum = msg.m_lockingnum();
+	m_unlockItem = msg.m_unlockitem();
+	m_unlockNum = msg.m_unlocknum();
+	m_consumeId = msg.m_consumeid();
+	m_consumeNum = msg.m_consumenum();
+	m_lockingId = msg.m_lockingid();
+	m_lockingNum = msg.m_lockingnum();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_EquipClearAttributeDesc & temp_m_attribute = msg.m_attribute(i);
 		m_attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
-	m_section.resize((int)msg.m_section_size() > (int)m_section.max_size() ? m_section.max_size() : msg.m_section_size());
-	for(int32_t i = 0; i < (int32_t)m_section.size(); ++i) {
+	m_Section.resize((int)msg.m_section_size() > (int)m_Section.max_size() ? m_Section.max_size() : msg.m_section_size());
+	for(int32_t i = 0; i < (int32_t)m_Section.size(); ++i) {
 		const ::proto_ff::E_EquipClearSectionDesc & temp_m_section = msg.m_section(i);
-		m_section[i].read_from_pbmsg(temp_m_section);
+		m_Section[i].read_from_pbmsg(temp_m_section);
 	}
 }
 
@@ -1318,10 +1318,10 @@ E_EquipSuit_s::E_EquipSuit_s() {
 int E_EquipSuit_s::CreateInit() {
 	m_id = (int64_t)0;
 	m_type = (int32_t)0;
-	m_suitlv = (int32_t)0;
-	m_wearquality = (int32_t)0;
+	m_suitLv = (int32_t)0;
+	m_wearQuality = (int32_t)0;
 	m_colour = (int32_t)0;
-	m_suitevalue = (int32_t)0;
+	m_suiteValue = (int32_t)0;
 	return 0;
 }
 
@@ -1332,43 +1332,43 @@ int E_EquipSuit_s::ResumeInit() {
 void E_EquipSuit_s::write_to_pbmsg(::proto_ff::E_EquipSuit & msg) const {
 	msg.set_m_id((int64_t)m_id);
 	msg.set_m_type((int32_t)m_type);
-	msg.set_m_suitlv((int32_t)m_suitlv);
-	msg.set_m_wearquality((int32_t)m_wearquality);
+	msg.set_m_suitlv((int32_t)m_suitLv);
+	msg.set_m_wearquality((int32_t)m_wearQuality);
 	msg.set_m_colour((int32_t)m_colour);
-	msg.set_m_aftername(m_aftername.data());
-	msg.set_m_suitevalue((int32_t)m_suitevalue);
+	msg.set_m_aftername(m_afterName.data());
+	msg.set_m_suitevalue((int32_t)m_suiteValue);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_EquipSuitAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
-	for(int32_t i = 0; i < (int32_t)m_maleposition.size(); ++i) {
-		msg.add_m_maleposition(m_maleposition[i].data());
+	for(int32_t i = 0; i < (int32_t)m_malePosition.size(); ++i) {
+		msg.add_m_maleposition(m_malePosition[i].data());
 	}
-	for(int32_t i = 0; i < (int32_t)m_femaleposition.size(); ++i) {
-		msg.add_m_femaleposition(m_femaleposition[i].data());
+	for(int32_t i = 0; i < (int32_t)m_femalePosition.size(); ++i) {
+		msg.add_m_femaleposition(m_femalePosition[i].data());
 	}
 }
 
 void E_EquipSuit_s::read_from_pbmsg(const ::proto_ff::E_EquipSuit & msg) {
 	m_id = msg.m_id();
 	m_type = msg.m_type();
-	m_suitlv = msg.m_suitlv();
-	m_wearquality = msg.m_wearquality();
+	m_suitLv = msg.m_suitlv();
+	m_wearQuality = msg.m_wearquality();
 	m_colour = msg.m_colour();
-	m_aftername = msg.m_aftername();
-	m_suitevalue = msg.m_suitevalue();
+	m_afterName = msg.m_aftername();
+	m_suiteValue = msg.m_suitevalue();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_EquipSuitAttributeDesc & temp_m_attribute = msg.m_attribute(i);
 		m_attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
-	m_maleposition.resize((int)msg.m_maleposition_size() > (int)m_maleposition.max_size() ? m_maleposition.max_size() : msg.m_maleposition_size());
-	for(int32_t i = 0; i < (int32_t)m_maleposition.size(); ++i) {
-		m_maleposition[i] = msg.m_maleposition(i);
+	m_malePosition.resize((int)msg.m_maleposition_size() > (int)m_malePosition.max_size() ? m_malePosition.max_size() : msg.m_maleposition_size());
+	for(int32_t i = 0; i < (int32_t)m_malePosition.size(); ++i) {
+		m_malePosition[i] = msg.m_maleposition(i);
 	}
-	m_femaleposition.resize((int)msg.m_femaleposition_size() > (int)m_femaleposition.max_size() ? m_femaleposition.max_size() : msg.m_femaleposition_size());
-	for(int32_t i = 0; i < (int32_t)m_femaleposition.size(); ++i) {
-		m_femaleposition[i] = msg.m_femaleposition(i);
+	m_femalePosition.resize((int)msg.m_femaleposition_size() > (int)m_femalePosition.max_size() ? m_femalePosition.max_size() : msg.m_femaleposition_size());
+	for(int32_t i = 0; i < (int32_t)m_femalePosition.size(); ++i) {
+		m_femalePosition[i] = msg.m_femaleposition(i);
 	}
 }
 
@@ -1412,8 +1412,8 @@ E_EquipBreakBreakDesc_s::E_EquipBreakBreakDesc_s() {
 }
 
 int E_EquipBreakBreakDesc_s::CreateInit() {
-	m_num = (int32_t)0;
-	m_item = (int32_t)0;
+	m_Num = (int32_t)0;
+	m_Item = (int32_t)0;
 	return 0;
 }
 
@@ -1422,13 +1422,13 @@ int E_EquipBreakBreakDesc_s::ResumeInit() {
 }
 
 void E_EquipBreakBreakDesc_s::write_to_pbmsg(::proto_ff::E_EquipBreakBreakDesc & msg) const {
-	msg.set_m_num((int32_t)m_num);
-	msg.set_m_item((int32_t)m_item);
+	msg.set_m_num((int32_t)m_Num);
+	msg.set_m_item((int32_t)m_Item);
 }
 
 void E_EquipBreakBreakDesc_s::read_from_pbmsg(const ::proto_ff::E_EquipBreakBreakDesc & msg) {
-	m_num = msg.m_num();
-	m_item = msg.m_item();
+	m_Num = msg.m_num();
+	m_Item = msg.m_item();
 }
 
 E_EquipBreak_s::E_EquipBreak_s() {
@@ -1440,7 +1440,7 @@ E_EquipBreak_s::E_EquipBreak_s() {
 }
 
 int E_EquipBreak_s::CreateInit() {
-	m_lv = (int32_t)0;
+	m_Lv = (int32_t)0;
 	m_step = (int32_t)0;
 	m_basic = (int32_t)0;
 	m_star = (int32_t)0;
@@ -1452,9 +1452,9 @@ int E_EquipBreak_s::ResumeInit() {
 }
 
 void E_EquipBreak_s::write_to_pbmsg(::proto_ff::E_EquipBreak & msg) const {
-	msg.set_m_lv((int32_t)m_lv);
+	msg.set_m_lv((int32_t)m_Lv);
 	msg.set_m_step((int32_t)m_step);
-	msg.set_m_positiontype(m_positiontype.data());
+	msg.set_m_positiontype(m_positionType.data());
 	msg.set_m_basic((int32_t)m_basic);
 	msg.set_m_star((int32_t)m_star);
 	for(int32_t i = 0; i < (int32_t)m_break.size(); ++i) {
@@ -1464,9 +1464,9 @@ void E_EquipBreak_s::write_to_pbmsg(::proto_ff::E_EquipBreak & msg) const {
 }
 
 void E_EquipBreak_s::read_from_pbmsg(const ::proto_ff::E_EquipBreak & msg) {
-	m_lv = msg.m_lv();
+	m_Lv = msg.m_lv();
 	m_step = msg.m_step();
-	m_positiontype = msg.m_positiontype();
+	m_positionType = msg.m_positiontype();
 	m_basic = msg.m_basic();
 	m_star = msg.m_star();
 	m_break.resize((int)msg.m_break_size() > (int)m_break.max_size() ? m_break.max_size() : msg.m_break_size());

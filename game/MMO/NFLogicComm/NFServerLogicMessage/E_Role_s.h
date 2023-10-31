@@ -72,47 +72,47 @@ namespace proto_ff_s {
 		virtual ~E_RoleBorn_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_bornid;//主键ID
-		int32_t m_professionid;//职业ID
-		NFShmString<64> m_professionname;//职业名称
+		int64_t m_bornID;//主键ID
+		int32_t m_professionID;//职业ID
+		NFShmString<64> m_professionName;//职业名称
 		NFShmString<64> m_placement;//职业介绍
 		int32_t m_gender;//性别
-		int32_t m_bornlevel;//出生等级
-		int32_t m_borntitle;//携带称号
+		int32_t m_bornLevel;//出生等级
+		int32_t m_bornTitle;//携带称号
 		int64_t m_diamond;//携带钻石
-		int64_t m_binddiamond;//携带绑定钻石
+		int64_t m_bindDiamond;//携带绑定钻石
 		int64_t m_gold;//携带金币
-		int64_t m_mapid;//出生地图ID
-		int32_t m_birthface;//出生朝向
+		int64_t m_mapID;//出生地图ID
+		int32_t m_birthFace;//出生朝向
 		NFShmString<64> m_icons;//头像图标
-		NFShmString<64> m_loginavata;//创角界面模型
+		NFShmString<64> m_loginAvata;//创角界面模型
 		NFShmString<64> m_newweapon;//新手副本武器模型
 		NFShmString<64> m_newclothing;//新手副本衣服模型
-		NFShmString<64> m_weaponavata;//出生时武器模型
-		NFShmString<64> m_roleavata;//出生时模型
-		NFShmString<64> m_marryavata;//出生时模型
-		int32_t m_haircolor;//头发色值
-		int32_t m_clothescolor;//衣服色值
-		int32_t m_skincolor;//皮肤色值
-		int64_t m_carryweapons;//装备武器
-		int64_t m_carryarmor;//装备衣服
-		int64_t m_carrycloak;//装备披风
-		int64_t m_carryshoes;//装备鞋子
-		int64_t m_carrynecklace;//装备项链
-		int64_t m_carryamulet;//装备护符
-		int64_t m_carrybracer;//装备护腕
-		int64_t m_carryring;//装备戒指
-		int64_t m_carryfashionweapons;//装备时装（武器）
-		int64_t m_carryfashionarmor;//装备时装（衣服）
-		int64_t m_carrywings;//翅膀
-		int32_t m_mspeed;//初始移动速度
+		NFShmString<64> m_weaponAvata;//出生时武器模型
+		NFShmString<64> m_roleAvata;//出生时模型
+		NFShmString<64> m_marryAvata;//出生时模型
+		int32_t m_hairColor;//头发色值
+		int32_t m_clothesColor;//衣服色值
+		int32_t m_skinColor;//皮肤色值
+		int64_t m_carryWeapons;//装备武器
+		int64_t m_carryArmor;//装备衣服
+		int64_t m_carryCloak;//装备披风
+		int64_t m_carryShoes;//装备鞋子
+		int64_t m_carryNecklace;//装备项链
+		int64_t m_carryAmulet;//装备护符
+		int64_t m_carryBracer;//装备护腕
+		int64_t m_carryRing;//装备戒指
+		int64_t m_carryFashionWeapons;//装备时装（武器）
+		int64_t m_carryFashionArmor;//装备时装（衣服）
+		int64_t m_carryWings;//翅膀
+		int32_t m_mSpeed;//初始移动速度
 		int32_t m_view;//视野
 		int32_t m_radius;//人物半径
 		int32_t m_group;//技能组
 		int64_t m_sheny;//神装衣服
 		int64_t m_shenw;//神装武器
-		NFShmVector<int32_t, DEFINE_E_ROLEBORN_M_ACTBUFF_MAX_NUM> m_actbuff;//生成buff
-		NFShmVector<int64_t, DEFINE_E_ROLEBORN_M_ACTSKILL_MAX_NUM> m_actskill;//生成技能
+		NFShmVector<int32_t, DEFINE_E_ROLEBORN_M_ACTBUFF_MAX_NUM> m_actBuff;//生成buff
+		NFShmVector<int64_t, DEFINE_E_ROLEBORN_M_ACTSKILL_MAX_NUM> m_actSkill;//生成技能
 		NFShmVector<struct E_RoleBornItemDesc_s, DEFINE_E_ROLEBORN_M_ITEM_MAX_NUM> m_item;//背包物品
 		NFShmVector<struct E_RoleBornMailDesc_s, DEFINE_E_ROLEBORN_M_MAIL_MAX_NUM> m_mail;//邮件物品
 
@@ -142,8 +142,8 @@ namespace proto_ff_s {
 		virtual ~E_RoleMastermaleAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_value;//值
-		int32_t m_type;//类型
+		int32_t m_Value;//值
+		int32_t m_Type;//类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleMastermaleAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleMastermaleAttributeDesc & msg);
@@ -158,7 +158,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//玩家等级
-		int32_t m_upgradepoint;//升级获得点数
+		int32_t m_upgradePoint;//升级获得点数
 		NFShmVector<struct E_RoleMastermaleAttributeDesc_s, DEFINE_E_ROLEMASTERMALE_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleMastermale & msg) const;
@@ -187,8 +187,8 @@ namespace proto_ff_s {
 		virtual ~E_RoleMasterfemaleAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_value;//值
-		int32_t m_type;//类型
+		int32_t m_Value;//值
+		int32_t m_Type;//类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleMasterfemaleAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleMasterfemaleAttributeDesc & msg);
@@ -203,7 +203,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//玩家等级
-		int32_t m_upgradepoint;//升级获得点数
+		int32_t m_upgradePoint;//升级获得点数
 		NFShmVector<struct E_RoleMasterfemaleAttributeDesc_s, DEFINE_E_ROLEMASTERFEMALE_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleMasterfemale & msg) const;
@@ -232,8 +232,8 @@ namespace proto_ff_s {
 		virtual ~E_RoleSicklemaleAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_value;//值
-		int32_t m_type;//类型
+		int32_t m_Value;//值
+		int32_t m_Type;//类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleSicklemaleAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleSicklemaleAttributeDesc & msg);
@@ -248,7 +248,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//玩家等级
-		int32_t m_upgradepoint;//升级获得点数
+		int32_t m_upgradePoint;//升级获得点数
 		NFShmVector<struct E_RoleSicklemaleAttributeDesc_s, DEFINE_E_ROLESICKLEMALE_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleSicklemale & msg) const;
@@ -277,8 +277,8 @@ namespace proto_ff_s {
 		virtual ~E_RoleSicklefemaleAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_value;//值
-		int32_t m_type;//类型
+		int32_t m_Value;//值
+		int32_t m_Type;//类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleSicklefemaleAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleSicklefemaleAttributeDesc & msg);
@@ -293,7 +293,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//玩家等级
-		int32_t m_upgradepoint;//升级获得点数
+		int32_t m_upgradePoint;//升级获得点数
 		NFShmVector<struct E_RoleSicklefemaleAttributeDesc_s, DEFINE_E_ROLESICKLEFEMALE_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleSicklefemale & msg) const;
@@ -322,8 +322,8 @@ namespace proto_ff_s {
 		virtual ~E_RoleSwordmaleAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_value;//值
-		int32_t m_type;//类型
+		int32_t m_Value;//值
+		int32_t m_Type;//类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleSwordmaleAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleSwordmaleAttributeDesc & msg);
@@ -338,7 +338,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//玩家等级
-		int32_t m_upgradepoint;//升级获得点数
+		int32_t m_upgradePoint;//升级获得点数
 		NFShmVector<struct E_RoleSwordmaleAttributeDesc_s, DEFINE_E_ROLESWORDMALE_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleSwordmale & msg) const;
@@ -367,8 +367,8 @@ namespace proto_ff_s {
 		virtual ~E_RoleSwordfemaleAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_value;//值
-		int32_t m_type;//类型
+		int32_t m_Value;//值
+		int32_t m_Type;//类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleSwordfemaleAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleSwordfemaleAttributeDesc & msg);
@@ -383,7 +383,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//玩家等级
-		int32_t m_upgradepoint;//升级获得点数
+		int32_t m_upgradePoint;//升级获得点数
 		NFShmVector<struct E_RoleSwordfemaleAttributeDesc_s, DEFINE_E_ROLESWORDFEMALE_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleSwordfemale & msg) const;
@@ -412,8 +412,8 @@ namespace proto_ff_s {
 		virtual ~E_RoleTaidaomaleAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_value;//值
-		int32_t m_type;//类型
+		int32_t m_Value;//值
+		int32_t m_Type;//类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleTaidaomaleAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleTaidaomaleAttributeDesc & msg);
@@ -428,7 +428,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//玩家等级
-		int32_t m_upgradepoint;//升级获得点数
+		int32_t m_upgradePoint;//升级获得点数
 		NFShmVector<struct E_RoleTaidaomaleAttributeDesc_s, DEFINE_E_ROLETAIDAOMALE_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleTaidaomale & msg) const;
@@ -457,8 +457,8 @@ namespace proto_ff_s {
 		virtual ~E_RoleTaidaofemaleAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_value;//值
-		int32_t m_type;//类型
+		int32_t m_Value;//值
+		int32_t m_Type;//类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleTaidaofemaleAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleTaidaofemaleAttributeDesc & msg);
@@ -473,7 +473,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//玩家等级
-		int32_t m_upgradepoint;//升级获得点数
+		int32_t m_upgradePoint;//升级获得点数
 		NFShmVector<struct E_RoleTaidaofemaleAttributeDesc_s, DEFINE_E_ROLETAIDAOFEMALE_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleTaidaofemale & msg) const;
@@ -504,15 +504,15 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_lv;//等级
 		int64_t m_exp;//当前等级升级需要经验
-		int32_t m_skillpoint;//天赋点
-		int32_t m_preparemodedexp;//活动玩法场地动态经验
+		int32_t m_skillPoint;//天赋点
+		int32_t m_prepareModeDexp;//活动玩法场地动态经验
 		int32_t m_fengshen;//封神台
 		int32_t m_pet;//宠物副本
 		int32_t m_dragon;//养龙寺
 		int32_t m_equip;//装备副本
 		int32_t m_arena;//竞技场
 		int32_t m_solo;//单人pk
-		int32_t m_multibattle;//三人组
+		int32_t m_multiBattle;//三人组
 		int32_t m_qingyun;//青云之巅
 		int32_t m_yaochi;//瑶池
 		int32_t m_wedding;//婚礼
@@ -544,8 +544,8 @@ namespace proto_ff_s {
 		virtual ~E_RoleSkilltype_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_skillid;//技能ID
-		int32_t m_skilltype;//技能类型
+		int64_t m_skillId;//技能ID
+		int32_t m_skillType;//技能类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleSkilltype & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleSkilltype & msg);
@@ -573,8 +573,8 @@ namespace proto_ff_s {
 		virtual ~E_RoleAddskill_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//ID
-		int64_t m_skillid;//技能类型
+		int32_t m_Id;//ID
+		int64_t m_skillId;//技能类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleAddskill & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleAddskill & msg);
@@ -603,7 +603,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_lv;//等级差
-		int32_t m_worldexp;//经验加成
+		int32_t m_worldExp;//经验加成
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleWorldexp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleWorldexp & msg);

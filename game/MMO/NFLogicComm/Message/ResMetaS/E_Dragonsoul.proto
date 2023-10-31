@@ -30,8 +30,8 @@ message E_DragonsoulOfferexp
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "材料类型"];
 	optional string m_position = 3[(yd_fieldoptions.field_cname) = "装备位置", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_itemid = 4[(yd_fieldoptions.field_cname) = "道具id"];
-	optional int32 m_itemexp = 5[(yd_fieldoptions.field_cname) = "道具经验值"];
+	optional int32 m_itemId = 4[(yd_fieldoptions.field_cname) = "道具id"];
+	optional int32 m_itemExp = 5[(yd_fieldoptions.field_cname) = "道具经验值"];
 	repeated E_DragonsoulOfferexpQualityDesc m_quality = 6[(yd_fieldoptions.field_cname) = "品质", (yd_fieldoptions.field_arysize) = 2];
 }
 
@@ -68,9 +68,9 @@ message Sheet_DragonsoulFlyexp
 message E_DragonsoulFlyatt
 {
 	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "属性组id"];
-	optional int64 m_attid = 2[(yd_fieldoptions.field_cname) = "属性id"];
+	optional int64 m_attId = 2[(yd_fieldoptions.field_cname) = "属性id"];
 	optional int32 m_count = 3[(yd_fieldoptions.field_cname) = "计算方式"];
-	optional int32 m_atttype = 4[(yd_fieldoptions.field_cname) = "属性类型"];
+	optional int32 m_attType = 4[(yd_fieldoptions.field_cname) = "属性类型"];
 	repeated int32 m_att = 5[(yd_fieldoptions.field_cname) = "属性觉醒", (yd_fieldoptions.field_arysize) = 11];
 }
 
@@ -90,9 +90,9 @@ message E_DragonsoulFly
 {
 	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "部位ID"];
 	optional int32 m_position = 2[(yd_fieldoptions.field_cname) = "装备部位"];
-	optional int32 m_offerexp = 3[(yd_fieldoptions.field_cname) = "提供经验值"];
-	optional int32 m_quality = 4[(yd_fieldoptions.field_cname) = "装备品质"];
-	optional int32 m_srtongup = 5[(yd_fieldoptions.field_cname) = "强化上限"];
+	optional int32 m_offerExp = 3[(yd_fieldoptions.field_cname) = "提供经验值"];
+	optional int32 m_Quality = 4[(yd_fieldoptions.field_cname) = "装备品质"];
+	optional int32 m_srtongUp = 5[(yd_fieldoptions.field_cname) = "强化上限"];
 	repeated E_DragonsoulFlyTypeDesc m_type = 6[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 2];
 	repeated int32 m_flyatt = 7[(yd_fieldoptions.field_cname) = "飞升属性", (yd_fieldoptions.field_arysize) = 32];
 }
@@ -105,8 +105,8 @@ message Sheet_DragonsoulFly
 
 message E_DragonsoulAwakeAwakeDesc
 {
-	optional int32 m_flyaddratio = 1[(yd_fieldoptions.field_cname) = "飞升属性加成百分比"];
-	optional int32 m_lvaddratio = 2[(yd_fieldoptions.field_cname) = "升级属性加成百分比"];
+	optional int32 m_flyAddratio = 1[(yd_fieldoptions.field_cname) = "飞升属性加成百分比"];
+	optional int32 m_lvAddratio = 2[(yd_fieldoptions.field_cname) = "升级属性加成百分比"];
 	optional int32 m_value = 3[(yd_fieldoptions.field_cname) = "属性值"];
 	optional int32 m_att = 4[(yd_fieldoptions.field_cname) = "属性ID"];
 	optional int32 m_num = 5[(yd_fieldoptions.field_cname) = "材料数量"];
@@ -115,7 +115,7 @@ message E_DragonsoulAwakeAwakeDesc
 message E_DragonsoulAwake
 {
 	optional int32 m_position = 1[(yd_fieldoptions.field_cname) = "装备部位"];
-	optional int32 m_awakeitem = 2[(yd_fieldoptions.field_cname) = "觉醒材料"];
+	optional int32 m_awakeItem = 2[(yd_fieldoptions.field_cname) = "觉醒材料"];
 	optional int32 m_awaketoplimit = 3[(yd_fieldoptions.field_cname) = "觉醒上限"];
 	repeated E_DragonsoulAwakeAwakeDesc m_awake = 4[(yd_fieldoptions.field_cname) = "觉醒", (yd_fieldoptions.field_arysize) = 11];
 }

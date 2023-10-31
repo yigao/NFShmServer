@@ -91,7 +91,7 @@ int XiuzhenroadTaskDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_boxid <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_boxid)), result, "can't find the boxid:{} in the  excel:box sheet:box", pDesc->m_boxid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_boxID <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_boxID)), result, "can't find the boxID:{} in the  excel:box sheet:box", pDesc->m_boxID);
 		CHECK_EXPR_MSG_RESULT((pDesc->m_reward <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_reward)), result, "can't find the reward:{} in the  excel:item sheet:item", pDesc->m_reward);
 	}
 	return result;

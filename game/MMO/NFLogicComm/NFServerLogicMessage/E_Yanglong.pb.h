@@ -97,24 +97,24 @@ class E_YanglongYanglong : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_projectid = 1;
+  // optional int32 m_projectID = 1;
   inline bool has_m_projectid() const;
   inline void clear_m_projectid();
-  static const int kMProjectidFieldNumber = 1;
+  static const int kMProjectIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_projectid() const;
   inline void set_m_projectid(::google::protobuf::int32 value);
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 2;
+  static const int kMGroupIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
-  // optional int32 m_dupid = 3;
+  // optional int32 m_dupId = 3;
   inline bool has_m_dupid() const;
   inline void clear_m_dupid();
-  static const int kMDupidFieldNumber = 3;
+  static const int kMDupIdFieldNumber = 3;
   inline ::google::protobuf::int32 m_dupid() const;
   inline void set_m_dupid(::google::protobuf::int32 value);
 
@@ -284,31 +284,31 @@ class E_YanglongZadan : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_taskid = 1;
+  // optional int64 m_taskId = 1;
   inline bool has_m_taskid() const;
   inline void clear_m_taskid();
-  static const int kMTaskidFieldNumber = 1;
+  static const int kMTaskIdFieldNumber = 1;
   inline ::google::protobuf::int64 m_taskid() const;
   inline void set_m_taskid(::google::protobuf::int64 value);
 
-  // optional int32 m_achievementsubtype = 2;
+  // optional int32 m_achievementSubType = 2;
   inline bool has_m_achievementsubtype() const;
   inline void clear_m_achievementsubtype();
-  static const int kMAchievementsubtypeFieldNumber = 2;
+  static const int kMAchievementSubTypeFieldNumber = 2;
   inline ::google::protobuf::int32 m_achievementsubtype() const;
   inline void set_m_achievementsubtype(::google::protobuf::int32 value);
 
-  // optional int32 m_bosstype = 3;
+  // optional int32 m_bossType = 3;
   inline bool has_m_bosstype() const;
   inline void clear_m_bosstype();
-  static const int kMBosstypeFieldNumber = 3;
+  static const int kMBossTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_bosstype() const;
   inline void set_m_bosstype(::google::protobuf::int32 value);
 
-  // optional int32 m_reachprice = 4;
+  // optional int32 m_reachPrice = 4;
   inline bool has_m_reachprice() const;
   inline void clear_m_reachprice();
-  static const int kMReachpriceFieldNumber = 4;
+  static const int kMReachPriceFieldNumber = 4;
   inline ::google::protobuf::int32 m_reachprice() const;
   inline void set_m_reachprice(::google::protobuf::int32 value);
 
@@ -319,17 +319,17 @@ class E_YanglongZadan : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_reward() const;
   inline void set_m_reward(::google::protobuf::int32 value);
 
-  // optional int32 m_reward_value = 6;
+  // optional int32 m_reward_Value = 6;
   inline bool has_m_reward_value() const;
   inline void clear_m_reward_value();
   static const int kMRewardValueFieldNumber = 6;
   inline ::google::protobuf::int32 m_reward_value() const;
   inline void set_m_reward_value(::google::protobuf::int32 value);
 
-  // optional int32 m_linkid = 7;
+  // optional int32 m_linkId = 7;
   inline bool has_m_linkid() const;
   inline void clear_m_linkid();
-  static const int kMLinkidFieldNumber = 7;
+  static const int kMLinkIdFieldNumber = 7;
   inline ::google::protobuf::int32 m_linkid() const;
   inline void set_m_linkid(::google::protobuf::int32 value);
 
@@ -511,10 +511,10 @@ class E_YanglongRanking : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_rankingid = 1;
+  // optional int32 m_rankingID = 1;
   inline bool has_m_rankingid() const;
   inline void clear_m_rankingid();
-  static const int kMRankingidFieldNumber = 1;
+  static const int kMRankingIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_rankingid() const;
   inline void set_m_rankingid(::google::protobuf::int32 value);
 
@@ -525,10 +525,10 @@ class E_YanglongRanking : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_rank() const;
   inline void set_m_rank(::google::protobuf::int32 value);
 
-  // optional int32 m_boxid = 3;
+  // optional int32 m_boxID = 3;
   inline bool has_m_boxid() const;
   inline void clear_m_boxid();
-  static const int kMBoxidFieldNumber = 3;
+  static const int kMBoxIDFieldNumber = 3;
   inline ::google::protobuf::int32 m_boxid() const;
   inline void set_m_boxid(::google::protobuf::int32 value);
 
@@ -649,7 +649,7 @@ class Sheet_YanglongRanking : public ::google::protobuf::Message {
 
 // E_YanglongYanglong
 
-// optional int32 m_projectid = 1;
+// optional int32 m_projectID = 1;
 inline bool E_YanglongYanglong::has_m_projectid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -671,7 +671,7 @@ inline void E_YanglongYanglong::set_m_projectid(::google::protobuf::int32 value)
   m_projectid_ = value;
 }
 
-// optional int32 m_groupid = 2;
+// optional int32 m_groupID = 2;
 inline bool E_YanglongYanglong::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -693,7 +693,7 @@ inline void E_YanglongYanglong::set_m_groupid(::google::protobuf::int32 value) {
   m_groupid_ = value;
 }
 
-// optional int32 m_dupid = 3;
+// optional int32 m_dupId = 3;
 inline bool E_YanglongYanglong::has_m_dupid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -748,7 +748,7 @@ Sheet_YanglongYanglong::mutable_e_yanglongyanglong_list() {
 
 // E_YanglongZadan
 
-// optional int64 m_taskid = 1;
+// optional int64 m_taskId = 1;
 inline bool E_YanglongZadan::has_m_taskid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -770,7 +770,7 @@ inline void E_YanglongZadan::set_m_taskid(::google::protobuf::int64 value) {
   m_taskid_ = value;
 }
 
-// optional int32 m_achievementsubtype = 2;
+// optional int32 m_achievementSubType = 2;
 inline bool E_YanglongZadan::has_m_achievementsubtype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -792,7 +792,7 @@ inline void E_YanglongZadan::set_m_achievementsubtype(::google::protobuf::int32 
   m_achievementsubtype_ = value;
 }
 
-// optional int32 m_bosstype = 3;
+// optional int32 m_bossType = 3;
 inline bool E_YanglongZadan::has_m_bosstype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -814,7 +814,7 @@ inline void E_YanglongZadan::set_m_bosstype(::google::protobuf::int32 value) {
   m_bosstype_ = value;
 }
 
-// optional int32 m_reachprice = 4;
+// optional int32 m_reachPrice = 4;
 inline bool E_YanglongZadan::has_m_reachprice() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -858,7 +858,7 @@ inline void E_YanglongZadan::set_m_reward(::google::protobuf::int32 value) {
   m_reward_ = value;
 }
 
-// optional int32 m_reward_value = 6;
+// optional int32 m_reward_Value = 6;
 inline bool E_YanglongZadan::has_m_reward_value() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -880,7 +880,7 @@ inline void E_YanglongZadan::set_m_reward_value(::google::protobuf::int32 value)
   m_reward_value_ = value;
 }
 
-// optional int32 m_linkid = 7;
+// optional int32 m_linkId = 7;
 inline bool E_YanglongZadan::has_m_linkid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -935,7 +935,7 @@ Sheet_YanglongZadan::mutable_e_yanglongzadan_list() {
 
 // E_YanglongRanking
 
-// optional int32 m_rankingid = 1;
+// optional int32 m_rankingID = 1;
 inline bool E_YanglongRanking::has_m_rankingid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -979,7 +979,7 @@ inline void E_YanglongRanking::set_m_rank(::google::protobuf::int32 value) {
   m_rank_ = value;
 }
 
-// optional int32 m_boxid = 3;
+// optional int32 m_boxID = 3;
 inline bool E_YanglongRanking::has_m_boxid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }

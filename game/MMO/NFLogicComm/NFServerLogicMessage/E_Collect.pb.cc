@@ -204,17 +204,17 @@ void protobuf_AddDesc_E_5fCollect_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\017E_Collect.proto\022\010proto_ff\032\025yd_fieldopt"
     "ions.proto\"O\n\034E_CollectCollectAttributDe"
-    "sc\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002ID\022\031\n\005m_num\030\002 \001(\005B"
+    "sc\022\024\n\004m_ID\030\001 \001(\005B\006\302\377\024\002ID\022\031\n\005m_num\030\002 \001(\005B"
     "\n\302\377\024\006\346\225\260\351\207\217\"\306\003\n\020E_CollectCollect\022\030\n\004m_id"
     "\030\001 \001(\005B\n\302\377\024\006\345\272\217\345\217\267\022$\n\006m_name\030\002 \001(\tB\024\302\377\024\014"
     "\347\234\237\347\224\262\345\220\215\347\247\260\220\301\024@\022\036\n\004m_lv\030\003 \001(\005B\020\302\377\024\014\345\274\200\345"
     "\220\257\347\255\211\347\272\247\022\033\n\007m_group\030\004 \001(\005B\n\302\377\024\006\345\210\206\347\273\204\022*\n"
-    "\014m_stagetitle\030\005 \001(\tB\024\302\377\024\014\351\230\266\346\256\265\346\240\207\351\242\230\220\301\024"
+    "\014m_stageTitle\030\005 \001(\tB\024\302\377\024\014\351\230\266\346\256\265\346\240\207\351\242\230\220\301\024"
     "@\022(\n\nm_position\030\006 \001(\tB\024\302\377\024\014\350\243\205\345\244\207\351\203\250\344\275\215\220"
     "\301\024@\022!\n\007m_grade\030\007 \001(\005B\020\302\377\024\014\350\246\201\346\261\202\351\230\266\346\225\260\022#"
     "\n\tm_quality\030\010 \001(\005B\020\302\377\024\014\350\246\201\346\261\202\345\223\201\350\264\250\022 \n\006m"
     "_star\030\t \001(\005B\020\302\377\024\014\350\246\201\346\261\202\346\230\237\347\272\247\022#\n\tm_skill"
-    "id\030\n \001(\005B\020\302\377\024\014\346\277\200\346\264\273\346\212\200\350\203\275\022P\n\nm_attribut"
+    "ID\030\n \001(\005B\020\302\377\024\014\346\277\200\346\264\273\346\212\200\350\203\275\022P\n\nm_attribut"
     "\030\013 \003(\0132&.proto_ff.E_CollectCollectAttrib"
     "utDescB\024\302\377\024\014\345\245\227\350\243\205\345\261\236\346\200\247\210\301\024\004\"W\n\024Sheet_Co"
     "llectCollect\022\?\n\025E_CollectCollect_List\030\001 "
@@ -255,7 +255,7 @@ struct StaticDescriptorInitializer_E_5fCollect_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_CollectCollectAttributDesc::kMIdFieldNumber;
+const int E_CollectCollectAttributDesc::kMIDFieldNumber;
 const int E_CollectCollectAttributDesc::kMNumFieldNumber;
 #endif  // !_MSC_VER
 
@@ -325,7 +325,7 @@ bool E_CollectCollectAttributDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_id = 1;
+      // optional int32 m_ID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -374,7 +374,7 @@ bool E_CollectCollectAttributDesc::MergePartialFromCodedStream(
 
 void E_CollectCollectAttributDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
@@ -392,7 +392,7 @@ void E_CollectCollectAttributDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_CollectCollectAttributDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
@@ -413,7 +413,7 @@ int E_CollectCollectAttributDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_id = 1;
+    // optional int32 m_ID = 1;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -507,12 +507,12 @@ const int E_CollectCollect::kMIdFieldNumber;
 const int E_CollectCollect::kMNameFieldNumber;
 const int E_CollectCollect::kMLvFieldNumber;
 const int E_CollectCollect::kMGroupFieldNumber;
-const int E_CollectCollect::kMStagetitleFieldNumber;
+const int E_CollectCollect::kMStageTitleFieldNumber;
 const int E_CollectCollect::kMPositionFieldNumber;
 const int E_CollectCollect::kMGradeFieldNumber;
 const int E_CollectCollect::kMQualityFieldNumber;
 const int E_CollectCollect::kMStarFieldNumber;
-const int E_CollectCollect::kMSkillidFieldNumber;
+const int E_CollectCollect::kMSkillIDFieldNumber;
 const int E_CollectCollect::kMAttributFieldNumber;
 #endif  // !_MSC_VER
 
@@ -682,15 +682,15 @@ bool E_CollectCollect::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_m_stagetitle;
+        if (input->ExpectTag(42)) goto parse_m_stageTitle;
         break;
       }
 
-      // optional string m_stagetitle = 5;
+      // optional string m_stageTitle = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_stagetitle:
+         parse_m_stageTitle:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_stagetitle()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -764,15 +764,15 @@ bool E_CollectCollect::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_skillid;
+        if (input->ExpectTag(80)) goto parse_m_skillID;
         break;
       }
 
-      // optional int32 m_skillid = 10;
+      // optional int32 m_skillID = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_skillid:
+         parse_m_skillID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_skillid_)));
@@ -841,7 +841,7 @@ void E_CollectCollect::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_group(), output);
   }
 
-  // optional string m_stagetitle = 5;
+  // optional string m_stageTitle = 5;
   if (has_m_stagetitle()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_stagetitle().data(), this->m_stagetitle().length(),
@@ -874,7 +874,7 @@ void E_CollectCollect::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_star(), output);
   }
 
-  // optional int32 m_skillid = 10;
+  // optional int32 m_skillID = 10;
   if (has_m_skillid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_skillid(), output);
   }
@@ -918,7 +918,7 @@ void E_CollectCollect::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_group(), target);
   }
 
-  // optional string m_stagetitle = 5;
+  // optional string m_stageTitle = 5;
   if (has_m_stagetitle()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_stagetitle().data(), this->m_stagetitle().length(),
@@ -953,7 +953,7 @@ void E_CollectCollect::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_star(), target);
   }
 
-  // optional int32 m_skillid = 10;
+  // optional int32 m_skillID = 10;
   if (has_m_skillid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_skillid(), target);
   }
@@ -1004,7 +1004,7 @@ int E_CollectCollect::ByteSize() const {
           this->m_group());
     }
 
-    // optional string m_stagetitle = 5;
+    // optional string m_stageTitle = 5;
     if (has_m_stagetitle()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -1041,7 +1041,7 @@ int E_CollectCollect::ByteSize() const {
           this->m_star());
     }
 
-    // optional int32 m_skillid = 10;
+    // optional int32 m_skillID = 10;
     if (has_m_skillid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

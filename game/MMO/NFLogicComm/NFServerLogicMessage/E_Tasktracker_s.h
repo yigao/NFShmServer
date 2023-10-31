@@ -18,8 +18,8 @@ namespace proto_ff_s {
 		virtual ~E_TasktrackerTasktracker_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_comid;//完成条件类型ID
-		int32_t m_trueid;//实际完成条件类型ID
+		int32_t m_comID;//完成条件类型ID
+		int32_t m_trueID;//实际完成条件类型ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_TasktrackerTasktracker & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_TasktrackerTasktracker & msg);

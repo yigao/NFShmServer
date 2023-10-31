@@ -21,12 +21,12 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//天赋ID
 		int32_t m_type;//天赋大类
-		int32_t m_skillid;//技能ID
-		int32_t m_lvlimit;//等级上限
-		int32_t m_aheadskill;//前置技能
-		int32_t m_aheadlv;//前置技能等级
-		int32_t m_needtype;//要求天赋类型
-		int32_t m_typenum;//要求天赋点数
+		int32_t m_skillID;//技能ID
+		int32_t m_lvLImit;//等级上限
+		int32_t m_aheadSkill;//前置技能
+		int32_t m_aheadLv;//前置技能等级
+		int32_t m_needType;//要求天赋类型
+		int32_t m_typeNum;//要求天赋点数
 		int32_t m_cost;//升级消耗天赋点
 
 		virtual void write_to_pbmsg(::proto_ff::E_TalentTalent & msg) const;

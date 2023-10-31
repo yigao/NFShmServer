@@ -72,10 +72,10 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		NFShmString<64> m_name;//名字
-		int32_t m_lvitem;//升级所需道具
-		int32_t m_advanceitem;//进阶所需道具
-		int32_t m_sacrificeskill;//牺牲技
-		NFShmString<128> m_skilllv;//牺牲技等级[等级;升级需要的阶级]
+		int32_t m_lvItem;//升级所需道具
+		int32_t m_advanceItem;//进阶所需道具
+		int32_t m_sacrificeSkill;//牺牲技
+		NFShmString<128> m_SkillLv;//牺牲技等级[等级;升级需要的阶级]
 
 		virtual void write_to_pbmsg(::proto_ff::E_SoulSoul & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SoulSoul & msg);
@@ -119,9 +119,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_soulid;//战魂ID
-		int32_t m_soullv;//等级
-		int32_t m_soulexp;//升级所需魂灵
+		int32_t m_soulId;//战魂ID
+		int32_t m_soulLv;//等级
+		int32_t m_soulExp;//升级所需魂灵
 		NFShmVector<struct E_SoulSoulbasicAttributeDesc_s, DEFINE_E_SOULSOULBASIC_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_SoulSoulbasic & msg) const;
@@ -166,9 +166,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_soulid;//战魂ID
-		int32_t m_advancelv;//等级
-		int32_t m_advancenum;//升阶所需道具数量
+		int32_t m_soulId;//战魂ID
+		int32_t m_advanceLv;//等级
+		int32_t m_advanceNum;//升阶所需道具数量
 		NFShmVector<struct E_SoulSouladvanceAttributeDesc_s, DEFINE_E_SOULSOULADVANCE_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_SoulSouladvance & msg) const;
@@ -245,7 +245,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		NFShmString<64> m_activate;//激活条件
-		int32_t m_poolup;//激活提高上限
+		int32_t m_poolUp;//激活提高上限
 		int32_t m_huoyuedu_to_exp;//活跃度兑换
 		int32_t m_meditation_to_exp;//打坐兑换
 		NFShmVector<struct E_SoulPrivilegeAttributeDesc_s, DEFINE_E_SOULPRIVILEGE_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
@@ -276,15 +276,15 @@ namespace proto_ff_s {
 		virtual ~E_SoulCrystal_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_equipid;//装备id
+		int32_t m_equipId;//装备id
 		NFShmString<64> m_name;//魂晶命名
-		int32_t m_crystaltype;//魂晶类型
+		int32_t m_crystalType;//魂晶类型
 		int32_t m_quality;//品质
 		int32_t m_star;//星级
-		int32_t m_dismantletime;//分解获得
-		int32_t m_dismantlenum;//分解数量
+		int32_t m_dismantleTime;//分解获得
+		int32_t m_dismantleNum;//分解数量
 		int32_t m_skill;//技能类型
-		int32_t m_skilllv;//技能等级
+		int32_t m_skillLv;//技能等级
 		int32_t m_handbook;//是否显示图鉴
 
 		virtual void write_to_pbmsg(::proto_ff::E_SoulCrystal & msg) const;
@@ -314,8 +314,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//等级
-		int32_t m_wraithsitem;//道具消耗
-		int32_t m_wraithsmun;//消耗数量
+		int32_t m_wraithsItem;//道具消耗
+		int32_t m_wraithsMun;//消耗数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_SoulCrystallv & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SoulCrystallv & msg);
@@ -358,9 +358,9 @@ namespace proto_ff_s {
 		virtual ~E_SoulCrystaltop_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_toplv;//突破等级
-		int32_t m_wraithsitem;//道具消耗
-		int32_t m_wraithsmun;//消耗数量
+		int32_t m_topLv;//突破等级
+		int32_t m_wraithsItem;//道具消耗
+		int32_t m_wraithsMun;//消耗数量
 		NFShmVector<struct E_SoulCrystaltopAttributeDesc_s, DEFINE_E_SOULCRYSTALTOP_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_SoulCrystaltop & msg) const;
@@ -434,13 +434,13 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_fusiontype;//融合类型
+		int32_t m_fusionType;//融合类型
 		int32_t m_quality;//魂晶品质
 		int32_t m_star;//魂晶星数
 		int32_t m_condition;//是否需要自身材料
-		int32_t m_qualityget;//融合后品质
-		int32_t m_starget;//融合后星级
-		int32_t m_attributeber;//属性提升
+		int32_t m_qualityGet;//融合后品质
+		int32_t m_starGet;//融合后星级
+		int32_t m_attributeBer;//属性提升
 		NFShmVector<struct E_SoulFusionFusionDesc_s, DEFINE_E_SOULFUSION_M_FUSION_MAX_NUM> m_fusion;//融合材料
 
 		virtual void write_to_pbmsg(::proto_ff::E_SoulFusion & msg) const;
@@ -473,9 +473,9 @@ namespace proto_ff_s {
 		int32_t m_position;//装备位置
 		int32_t m_type;//魂骨类型
 		int32_t m_awakening;//觉醒类型
-		int32_t m_awakeningtime;//觉醒消耗
-		int32_t m_awakeningnum;//消耗数量
-		int32_t m_modelid;//模型id
+		int32_t m_awakeningTime;//觉醒消耗
+		int32_t m_awakeningNum;//消耗数量
+		int32_t m_modelId;//模型id
 
 		virtual void write_to_pbmsg(::proto_ff::E_SoulBone & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SoulBone & msg);
@@ -503,7 +503,7 @@ namespace proto_ff_s {
 		virtual ~E_SoulBoneequip_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_equipid;//装备id
+		int32_t m_equipId;//装备id
 		NFShmString<64> m_name;//魂骨命名
 		int32_t m_part;//部位
 		int32_t m_quality;//品质
@@ -535,8 +535,8 @@ namespace proto_ff_s {
 		virtual ~E_SoulBoneskillPassiveDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_lv;//等级
-		int32_t m_skill;//
+		int32_t m_Lv;//等级
+		int32_t m_Skill;//
 
 		virtual void write_to_pbmsg(::proto_ff::E_SoulBoneskillPassiveDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SoulBoneskillPassiveDesc & msg);
@@ -551,11 +551,11 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_boneid;//魂骨部位id
+		int32_t m_boneId;//魂骨部位id
 		int32_t m_quality;//品质
 		int32_t m_star;//星级
-		int32_t m_activeskill;//主动技能
-		int32_t m_activeskilllv;//技能等级
+		int32_t m_ActiveSkill;//主动技能
+		int32_t m_ActiveSkillLv;//技能等级
 		NFShmVector<struct E_SoulBoneskillPassiveDesc_s, DEFINE_E_SOULBONESKILL_M_PASSIVE_MAX_NUM> m_passive;//被动技能
 
 		virtual void write_to_pbmsg(::proto_ff::E_SoulBoneskill & msg) const;
@@ -585,7 +585,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//等级
-		int32_t m_killboss;//击杀魔王数
+		int32_t m_killBoss;//击杀魔王数
 
 		virtual void write_to_pbmsg(::proto_ff::E_SoulBonekill & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SoulBonekill & msg);
@@ -630,7 +630,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_position;//装备部位
-		int32_t m_srtongup;//强化上限
+		int32_t m_srtongUp;//强化上限
 		NFShmVector<struct E_SoulBonestrongTypeDesc_s, DEFINE_E_SOULBONESTRONG_M_TYPE_MAX_NUM> m_type;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_SoulBonestrong & msg) const;

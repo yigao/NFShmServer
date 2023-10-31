@@ -11,10 +11,10 @@ E_RankingRanking_s::E_RankingRanking_s() {
 }
 
 int E_RankingRanking_s::CreateInit() {
-	m_rankingid = (int32_t)0;
+	m_rankingID = (int32_t)0;
 	m_capacity = (int32_t)0;
-	m_showsize = (int32_t)0;
-	m_rankhide = (int32_t)0;
+	m_showSize = (int32_t)0;
+	m_rankHide = (int32_t)0;
 	return 0;
 }
 
@@ -23,27 +23,27 @@ int E_RankingRanking_s::ResumeInit() {
 }
 
 void E_RankingRanking_s::write_to_pbmsg(::proto_ff::E_RankingRanking & msg) const {
-	msg.set_m_rankingid((int32_t)m_rankingid);
-	msg.set_m_rankingname(m_rankingname.data());
+	msg.set_m_rankingid((int32_t)m_rankingID);
+	msg.set_m_rankingname(m_rankingName.data());
 	msg.set_m_title(m_title.data());
 	msg.set_m_capacity((int32_t)m_capacity);
-	msg.set_m_showsize((int32_t)m_showsize);
-	msg.set_m_rankhide((int32_t)m_rankhide);
-	for(int32_t i = 0; i < (int32_t)m_dateid.size(); ++i) {
-		msg.add_m_dateid((int32_t)m_dateid[i]);
+	msg.set_m_showsize((int32_t)m_showSize);
+	msg.set_m_rankhide((int32_t)m_rankHide);
+	for(int32_t i = 0; i < (int32_t)m_dateID.size(); ++i) {
+		msg.add_m_dateid((int32_t)m_dateID[i]);
 	}
 }
 
 void E_RankingRanking_s::read_from_pbmsg(const ::proto_ff::E_RankingRanking & msg) {
-	m_rankingid = msg.m_rankingid();
-	m_rankingname = msg.m_rankingname();
+	m_rankingID = msg.m_rankingid();
+	m_rankingName = msg.m_rankingname();
 	m_title = msg.m_title();
 	m_capacity = msg.m_capacity();
-	m_showsize = msg.m_showsize();
-	m_rankhide = msg.m_rankhide();
-	m_dateid.resize((int)msg.m_dateid_size() > (int)m_dateid.max_size() ? m_dateid.max_size() : msg.m_dateid_size());
-	for(int32_t i = 0; i < (int32_t)m_dateid.size(); ++i) {
-		m_dateid[i] = msg.m_dateid(i);
+	m_showSize = msg.m_showsize();
+	m_rankHide = msg.m_rankhide();
+	m_dateID.resize((int)msg.m_dateid_size() > (int)m_dateID.max_size() ? m_dateID.max_size() : msg.m_dateid_size());
+	for(int32_t i = 0; i < (int32_t)m_dateID.size(); ++i) {
+		m_dateID[i] = msg.m_dateid(i);
 	}
 }
 
@@ -87,7 +87,7 @@ E_RankingDate_s::E_RankingDate_s() {
 }
 
 int E_RankingDate_s::CreateInit() {
-	m_dateid = (int32_t)0;
+	m_dateID = (int32_t)0;
 	return 0;
 }
 
@@ -96,13 +96,13 @@ int E_RankingDate_s::ResumeInit() {
 }
 
 void E_RankingDate_s::write_to_pbmsg(::proto_ff::E_RankingDate & msg) const {
-	msg.set_m_dateid((int32_t)m_dateid);
-	msg.set_m_datename(m_datename.data());
+	msg.set_m_dateid((int32_t)m_dateID);
+	msg.set_m_datename(m_dateName.data());
 }
 
 void E_RankingDate_s::read_from_pbmsg(const ::proto_ff::E_RankingDate & msg) {
-	m_dateid = msg.m_dateid();
-	m_datename = msg.m_datename();
+	m_dateID = msg.m_dateid();
+	m_dateName = msg.m_datename();
 }
 
 Sheet_RankingDate_s::Sheet_RankingDate_s() {
@@ -145,7 +145,7 @@ E_RankingButton_s::E_RankingButton_s() {
 }
 
 int E_RankingButton_s::CreateInit() {
-	m_buttonid = (int32_t)0;
+	m_buttonID = (int32_t)0;
 	m_display = (int32_t)0;
 	return 0;
 }
@@ -155,14 +155,14 @@ int E_RankingButton_s::ResumeInit() {
 }
 
 void E_RankingButton_s::write_to_pbmsg(::proto_ff::E_RankingButton & msg) const {
-	msg.set_m_buttonid((int32_t)m_buttonid);
-	msg.set_m_buttonname(m_buttonname.data());
+	msg.set_m_buttonid((int32_t)m_buttonID);
+	msg.set_m_buttonname(m_buttonName.data());
 	msg.set_m_display((int32_t)m_display);
 }
 
 void E_RankingButton_s::read_from_pbmsg(const ::proto_ff::E_RankingButton & msg) {
-	m_buttonid = msg.m_buttonid();
-	m_buttonname = msg.m_buttonname();
+	m_buttonID = msg.m_buttonid();
+	m_buttonName = msg.m_buttonname();
 	m_display = msg.m_display();
 }
 

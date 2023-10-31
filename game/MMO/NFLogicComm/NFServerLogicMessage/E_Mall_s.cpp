@@ -12,22 +12,22 @@ E_MallMall_s::E_MallMall_s() {
 
 int E_MallMall_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_itemid = (int32_t)0;
-	m_malltype = (int32_t)0;
+	m_itemID = (int32_t)0;
+	m_mallType = (int32_t)0;
 	m_priority = (int32_t)0;
-	m_moneytype = (int32_t)0;
-	m_moneyitem = (int32_t)0;
+	m_moneyType = (int32_t)0;
+	m_moneyItem = (int32_t)0;
 	m_price = (int32_t)0;
-	m_secondarymoneytype = (int32_t)0;
+	m_secondaryMoneyType = (int32_t)0;
 	m_discount = (int32_t)0;
-	m_buylimittype = (int32_t)0;
-	m_buyamount = (int32_t)0;
-	m_viplimit = (int32_t)0;
-	m_lvlimit = (int32_t)0;
-	m_vipunlock = (int32_t)0;
-	m_isclose = (int32_t)0;
-	m_cantbuy = (int32_t)0;
-	m_ismarkbind = (int32_t)0;
+	m_buyLimitType = (int32_t)0;
+	m_buyAmount = (int32_t)0;
+	m_vipLimit = (int32_t)0;
+	m_lvLimit = (int32_t)0;
+	m_vipUnlock = (int32_t)0;
+	m_isClose = (int32_t)0;
+	m_cantBuy = (int32_t)0;
+	m_isMarkBind = (int32_t)0;
 	return 0;
 }
 
@@ -37,42 +37,42 @@ int E_MallMall_s::ResumeInit() {
 
 void E_MallMall_s::write_to_pbmsg(::proto_ff::E_MallMall & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_itemid((int32_t)m_itemid);
-	msg.set_m_malltype((int32_t)m_malltype);
+	msg.set_m_itemid((int32_t)m_itemID);
+	msg.set_m_malltype((int32_t)m_mallType);
 	msg.set_m_priority((int32_t)m_priority);
-	msg.set_m_moneytype((int32_t)m_moneytype);
-	msg.set_m_moneyitem((int32_t)m_moneyitem);
+	msg.set_m_moneytype((int32_t)m_moneyType);
+	msg.set_m_moneyitem((int32_t)m_moneyItem);
 	msg.set_m_price((int32_t)m_price);
-	msg.set_m_secondarymoneytype((int32_t)m_secondarymoneytype);
+	msg.set_m_secondarymoneytype((int32_t)m_secondaryMoneyType);
 	msg.set_m_discount((int32_t)m_discount);
-	msg.set_m_buylimittype((int32_t)m_buylimittype);
-	msg.set_m_buyamount((int32_t)m_buyamount);
-	msg.set_m_viplimit((int32_t)m_viplimit);
-	msg.set_m_lvlimit((int32_t)m_lvlimit);
-	msg.set_m_vipunlock((int32_t)m_vipunlock);
-	msg.set_m_isclose((int32_t)m_isclose);
-	msg.set_m_cantbuy((int32_t)m_cantbuy);
-	msg.set_m_ismarkbind((int32_t)m_ismarkbind);
+	msg.set_m_buylimittype((int32_t)m_buyLimitType);
+	msg.set_m_buyamount((int32_t)m_buyAmount);
+	msg.set_m_viplimit((int32_t)m_vipLimit);
+	msg.set_m_lvlimit((int32_t)m_lvLimit);
+	msg.set_m_vipunlock((int32_t)m_vipUnlock);
+	msg.set_m_isclose((int32_t)m_isClose);
+	msg.set_m_cantbuy((int32_t)m_cantBuy);
+	msg.set_m_ismarkbind((int32_t)m_isMarkBind);
 }
 
 void E_MallMall_s::read_from_pbmsg(const ::proto_ff::E_MallMall & msg) {
 	m_id = msg.m_id();
-	m_itemid = msg.m_itemid();
-	m_malltype = msg.m_malltype();
+	m_itemID = msg.m_itemid();
+	m_mallType = msg.m_malltype();
 	m_priority = msg.m_priority();
-	m_moneytype = msg.m_moneytype();
-	m_moneyitem = msg.m_moneyitem();
+	m_moneyType = msg.m_moneytype();
+	m_moneyItem = msg.m_moneyitem();
 	m_price = msg.m_price();
-	m_secondarymoneytype = msg.m_secondarymoneytype();
+	m_secondaryMoneyType = msg.m_secondarymoneytype();
 	m_discount = msg.m_discount();
-	m_buylimittype = msg.m_buylimittype();
-	m_buyamount = msg.m_buyamount();
-	m_viplimit = msg.m_viplimit();
-	m_lvlimit = msg.m_lvlimit();
-	m_vipunlock = msg.m_vipunlock();
-	m_isclose = msg.m_isclose();
-	m_cantbuy = msg.m_cantbuy();
-	m_ismarkbind = msg.m_ismarkbind();
+	m_buyLimitType = msg.m_buylimittype();
+	m_buyAmount = msg.m_buyamount();
+	m_vipLimit = msg.m_viplimit();
+	m_lvLimit = msg.m_lvlimit();
+	m_vipUnlock = msg.m_vipunlock();
+	m_isClose = msg.m_isclose();
+	m_cantBuy = msg.m_cantbuy();
+	m_isMarkBind = msg.m_ismarkbind();
 }
 
 Sheet_MallMall_s::Sheet_MallMall_s() {
@@ -178,7 +178,7 @@ E_MallMalltype_s::E_MallMalltype_s() {
 
 int E_MallMalltype_s::CreateInit() {
 	m_id = (int64_t)0;
-	m_grouptype = (int32_t)0;
+	m_groupType = (int32_t)0;
 	m_priority = (int32_t)0;
 	m_functionunlock = (int32_t)0;
 	return 0;
@@ -191,7 +191,7 @@ int E_MallMalltype_s::ResumeInit() {
 void E_MallMalltype_s::write_to_pbmsg(::proto_ff::E_MallMalltype & msg) const {
 	msg.set_m_id((int64_t)m_id);
 	msg.set_m_title(m_title.data());
-	msg.set_m_grouptype((int32_t)m_grouptype);
+	msg.set_m_grouptype((int32_t)m_groupType);
 	msg.set_m_priority((int32_t)m_priority);
 	msg.set_m_functionunlock((int32_t)m_functionunlock);
 	msg.set_m_profession(m_profession.data());
@@ -200,7 +200,7 @@ void E_MallMalltype_s::write_to_pbmsg(::proto_ff::E_MallMalltype & msg) const {
 void E_MallMalltype_s::read_from_pbmsg(const ::proto_ff::E_MallMalltype & msg) {
 	m_id = msg.m_id();
 	m_title = msg.m_title();
-	m_grouptype = msg.m_grouptype();
+	m_groupType = msg.m_grouptype();
 	m_priority = msg.m_priority();
 	m_functionunlock = msg.m_functionunlock();
 	m_profession = msg.m_profession();
@@ -247,10 +247,10 @@ E_MallHolybeast_s::E_MallHolybeast_s() {
 
 int E_MallHolybeast_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_mountid = (int32_t)0;
-	m_itemid = (int32_t)0;
-	m_costid = (int32_t)0;
-	m_costnum = (int32_t)0;
+	m_mountId = (int32_t)0;
+	m_itemId = (int32_t)0;
+	m_costId = (int32_t)0;
+	m_costNum = (int32_t)0;
 	return 0;
 }
 
@@ -260,18 +260,18 @@ int E_MallHolybeast_s::ResumeInit() {
 
 void E_MallHolybeast_s::write_to_pbmsg(::proto_ff::E_MallHolybeast & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_mountid((int32_t)m_mountid);
-	msg.set_m_itemid((int32_t)m_itemid);
-	msg.set_m_costid((int32_t)m_costid);
-	msg.set_m_costnum((int32_t)m_costnum);
+	msg.set_m_mountid((int32_t)m_mountId);
+	msg.set_m_itemid((int32_t)m_itemId);
+	msg.set_m_costid((int32_t)m_costId);
+	msg.set_m_costnum((int32_t)m_costNum);
 }
 
 void E_MallHolybeast_s::read_from_pbmsg(const ::proto_ff::E_MallHolybeast & msg) {
 	m_id = msg.m_id();
-	m_mountid = msg.m_mountid();
-	m_itemid = msg.m_itemid();
-	m_costid = msg.m_costid();
-	m_costnum = msg.m_costnum();
+	m_mountId = msg.m_mountid();
+	m_itemId = msg.m_itemid();
+	m_costId = msg.m_costid();
+	m_costNum = msg.m_costnum();
 }
 
 Sheet_MallHolybeast_s::Sheet_MallHolybeast_s() {

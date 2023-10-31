@@ -39,14 +39,14 @@ E_ArenaRobot_s::E_ArenaRobot_s() {
 }
 
 int E_ArenaRobot_s::CreateInit() {
-	m_arenaid = (int32_t)0;
-	m_aiid = (int32_t)0;
-	m_rankid = (int32_t)0;
-	m_robotprofession = (int32_t)0;
-	m_robotlv = (int32_t)0;
+	m_arenaId = (int32_t)0;
+	m_aiId = (int32_t)0;
+	m_rankId = (int32_t)0;
+	m_robotProfession = (int32_t)0;
+	m_robotLv = (int32_t)0;
 	m_sword = (int32_t)0;
-	m_facadeid = (int32_t)0;
-	m_occupationid = (int32_t)0;
+	m_facadeID = (int32_t)0;
+	m_occupationID = (int32_t)0;
 	return 0;
 }
 
@@ -55,15 +55,15 @@ int E_ArenaRobot_s::ResumeInit() {
 }
 
 void E_ArenaRobot_s::write_to_pbmsg(::proto_ff::E_ArenaRobot & msg) const {
-	msg.set_m_arenaid((int32_t)m_arenaid);
+	msg.set_m_arenaid((int32_t)m_arenaId);
 	msg.set_m_robotname(m_robotname.data());
-	msg.set_m_aiid((int32_t)m_aiid);
-	msg.set_m_rankid((int32_t)m_rankid);
-	msg.set_m_robotprofession((int32_t)m_robotprofession);
-	msg.set_m_robotlv((int32_t)m_robotlv);
+	msg.set_m_aiid((int32_t)m_aiId);
+	msg.set_m_rankid((int32_t)m_rankId);
+	msg.set_m_robotprofession((int32_t)m_robotProfession);
+	msg.set_m_robotlv((int32_t)m_robotLv);
 	msg.set_m_sword((int32_t)m_sword);
-	msg.set_m_facadeid((int32_t)m_facadeid);
-	msg.set_m_occupationid((int32_t)m_occupationid);
+	msg.set_m_facadeid((int32_t)m_facadeID);
+	msg.set_m_occupationid((int32_t)m_occupationID);
 	for(int32_t i = 0; i < (int32_t)m_attr.size(); ++i) {
 		::proto_ff::E_ArenaRobotAttrDesc* temp_m_attr = msg.add_m_attr();
 		m_attr[i].write_to_pbmsg(*temp_m_attr);
@@ -71,15 +71,15 @@ void E_ArenaRobot_s::write_to_pbmsg(::proto_ff::E_ArenaRobot & msg) const {
 }
 
 void E_ArenaRobot_s::read_from_pbmsg(const ::proto_ff::E_ArenaRobot & msg) {
-	m_arenaid = msg.m_arenaid();
+	m_arenaId = msg.m_arenaid();
 	m_robotname = msg.m_robotname();
-	m_aiid = msg.m_aiid();
-	m_rankid = msg.m_rankid();
-	m_robotprofession = msg.m_robotprofession();
-	m_robotlv = msg.m_robotlv();
+	m_aiId = msg.m_aiid();
+	m_rankId = msg.m_rankid();
+	m_robotProfession = msg.m_robotprofession();
+	m_robotLv = msg.m_robotlv();
 	m_sword = msg.m_sword();
-	m_facadeid = msg.m_facadeid();
-	m_occupationid = msg.m_occupationid();
+	m_facadeID = msg.m_facadeid();
+	m_occupationID = msg.m_occupationid();
 	m_attr.resize((int)msg.m_attr_size() > (int)m_attr.max_size() ? m_attr.max_size() : msg.m_attr_size());
 	for(int32_t i = 0; i < (int32_t)m_attr.size(); ++i) {
 		const ::proto_ff::E_ArenaRobotAttrDesc & temp_m_attr = msg.m_attr(i);
@@ -223,8 +223,8 @@ E_ArenaArenawardRewardDesc_s::E_ArenaArenawardRewardDesc_s() {
 }
 
 int E_ArenaArenawardRewardDesc_s::CreateInit() {
-	m_value = (int32_t)0;
-	m_id = (int32_t)0;
+	m_Value = (int32_t)0;
+	m_ID = (int32_t)0;
 	return 0;
 }
 
@@ -233,13 +233,13 @@ int E_ArenaArenawardRewardDesc_s::ResumeInit() {
 }
 
 void E_ArenaArenawardRewardDesc_s::write_to_pbmsg(::proto_ff::E_ArenaArenawardRewardDesc & msg) const {
-	msg.set_m_value((int32_t)m_value);
-	msg.set_m_id((int32_t)m_id);
+	msg.set_m_value((int32_t)m_Value);
+	msg.set_m_id((int32_t)m_ID);
 }
 
 void E_ArenaArenawardRewardDesc_s::read_from_pbmsg(const ::proto_ff::E_ArenaArenawardRewardDesc & msg) {
-	m_value = msg.m_value();
-	m_id = msg.m_id();
+	m_Value = msg.m_value();
+	m_ID = msg.m_id();
 }
 
 E_ArenaArenaward_s::E_ArenaArenaward_s() {
@@ -252,8 +252,8 @@ E_ArenaArenaward_s::E_ArenaArenaward_s() {
 
 int E_ArenaArenaward_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_lvdown = (int32_t)0;
-	m_lvup = (int32_t)0;
+	m_lvDown = (int32_t)0;
+	m_lvUp = (int32_t)0;
 	return 0;
 }
 
@@ -263,22 +263,22 @@ int E_ArenaArenaward_s::ResumeInit() {
 
 void E_ArenaArenaward_s::write_to_pbmsg(::proto_ff::E_ArenaArenaward & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_lvdown((int32_t)m_lvdown);
-	msg.set_m_lvup((int32_t)m_lvup);
-	for(int32_t i = 0; i < (int32_t)m_reward.size(); ++i) {
+	msg.set_m_lvdown((int32_t)m_lvDown);
+	msg.set_m_lvup((int32_t)m_lvUp);
+	for(int32_t i = 0; i < (int32_t)m_Reward.size(); ++i) {
 		::proto_ff::E_ArenaArenawardRewardDesc* temp_m_reward = msg.add_m_reward();
-		m_reward[i].write_to_pbmsg(*temp_m_reward);
+		m_Reward[i].write_to_pbmsg(*temp_m_reward);
 	}
 }
 
 void E_ArenaArenaward_s::read_from_pbmsg(const ::proto_ff::E_ArenaArenaward & msg) {
 	m_id = msg.m_id();
-	m_lvdown = msg.m_lvdown();
-	m_lvup = msg.m_lvup();
-	m_reward.resize((int)msg.m_reward_size() > (int)m_reward.max_size() ? m_reward.max_size() : msg.m_reward_size());
-	for(int32_t i = 0; i < (int32_t)m_reward.size(); ++i) {
+	m_lvDown = msg.m_lvdown();
+	m_lvUp = msg.m_lvup();
+	m_Reward.resize((int)msg.m_reward_size() > (int)m_Reward.max_size() ? m_Reward.max_size() : msg.m_reward_size());
+	for(int32_t i = 0; i < (int32_t)m_Reward.size(); ++i) {
 		const ::proto_ff::E_ArenaArenawardRewardDesc & temp_m_reward = msg.m_reward(i);
-		m_reward[i].read_from_pbmsg(temp_m_reward);
+		m_Reward[i].read_from_pbmsg(temp_m_reward);
 	}
 }
 
@@ -322,8 +322,8 @@ E_ArenaRankawardRewardDesc_s::E_ArenaRankawardRewardDesc_s() {
 }
 
 int E_ArenaRankawardRewardDesc_s::CreateInit() {
-	m_value = (int32_t)0;
-	m_id = (int32_t)0;
+	m_Value = (int32_t)0;
+	m_ID = (int32_t)0;
 	return 0;
 }
 
@@ -332,13 +332,13 @@ int E_ArenaRankawardRewardDesc_s::ResumeInit() {
 }
 
 void E_ArenaRankawardRewardDesc_s::write_to_pbmsg(::proto_ff::E_ArenaRankawardRewardDesc & msg) const {
-	msg.set_m_value((int32_t)m_value);
-	msg.set_m_id((int32_t)m_id);
+	msg.set_m_value((int32_t)m_Value);
+	msg.set_m_id((int32_t)m_ID);
 }
 
 void E_ArenaRankawardRewardDesc_s::read_from_pbmsg(const ::proto_ff::E_ArenaRankawardRewardDesc & msg) {
-	m_value = msg.m_value();
-	m_id = msg.m_id();
+	m_Value = msg.m_value();
+	m_ID = msg.m_id();
 }
 
 E_ArenaRankaward_s::E_ArenaRankaward_s() {
@@ -350,9 +350,9 @@ E_ArenaRankaward_s::E_ArenaRankaward_s() {
 }
 
 int E_ArenaRankaward_s::CreateInit() {
-	m_prizeid = (int32_t)0;
-	m_arenadown = (int32_t)0;
-	m_arenaup = (int32_t)0;
+	m_PrizeId = (int32_t)0;
+	m_arenaDown = (int32_t)0;
+	m_arenaUp = (int32_t)0;
 	return 0;
 }
 
@@ -361,23 +361,23 @@ int E_ArenaRankaward_s::ResumeInit() {
 }
 
 void E_ArenaRankaward_s::write_to_pbmsg(::proto_ff::E_ArenaRankaward & msg) const {
-	msg.set_m_prizeid((int32_t)m_prizeid);
-	msg.set_m_arenadown((int32_t)m_arenadown);
-	msg.set_m_arenaup((int32_t)m_arenaup);
-	for(int32_t i = 0; i < (int32_t)m_reward.size(); ++i) {
+	msg.set_m_prizeid((int32_t)m_PrizeId);
+	msg.set_m_arenadown((int32_t)m_arenaDown);
+	msg.set_m_arenaup((int32_t)m_arenaUp);
+	for(int32_t i = 0; i < (int32_t)m_Reward.size(); ++i) {
 		::proto_ff::E_ArenaRankawardRewardDesc* temp_m_reward = msg.add_m_reward();
-		m_reward[i].write_to_pbmsg(*temp_m_reward);
+		m_Reward[i].write_to_pbmsg(*temp_m_reward);
 	}
 }
 
 void E_ArenaRankaward_s::read_from_pbmsg(const ::proto_ff::E_ArenaRankaward & msg) {
-	m_prizeid = msg.m_prizeid();
-	m_arenadown = msg.m_arenadown();
-	m_arenaup = msg.m_arenaup();
-	m_reward.resize((int)msg.m_reward_size() > (int)m_reward.max_size() ? m_reward.max_size() : msg.m_reward_size());
-	for(int32_t i = 0; i < (int32_t)m_reward.size(); ++i) {
+	m_PrizeId = msg.m_prizeid();
+	m_arenaDown = msg.m_arenadown();
+	m_arenaUp = msg.m_arenaup();
+	m_Reward.resize((int)msg.m_reward_size() > (int)m_Reward.max_size() ? m_Reward.max_size() : msg.m_reward_size());
+	for(int32_t i = 0; i < (int32_t)m_Reward.size(); ++i) {
 		const ::proto_ff::E_ArenaRankawardRewardDesc & temp_m_reward = msg.m_reward(i);
-		m_reward[i].read_from_pbmsg(temp_m_reward);
+		m_Reward[i].read_from_pbmsg(temp_m_reward);
 	}
 }
 
@@ -421,8 +421,8 @@ E_ArenaFirstrankRewardDesc_s::E_ArenaFirstrankRewardDesc_s() {
 }
 
 int E_ArenaFirstrankRewardDesc_s::CreateInit() {
-	m_value = (int32_t)0;
-	m_id = (int32_t)0;
+	m_Value = (int32_t)0;
+	m_ID = (int32_t)0;
 	return 0;
 }
 
@@ -431,13 +431,13 @@ int E_ArenaFirstrankRewardDesc_s::ResumeInit() {
 }
 
 void E_ArenaFirstrankRewardDesc_s::write_to_pbmsg(::proto_ff::E_ArenaFirstrankRewardDesc & msg) const {
-	msg.set_m_value((int32_t)m_value);
-	msg.set_m_id((int32_t)m_id);
+	msg.set_m_value((int32_t)m_Value);
+	msg.set_m_id((int32_t)m_ID);
 }
 
 void E_ArenaFirstrankRewardDesc_s::read_from_pbmsg(const ::proto_ff::E_ArenaFirstrankRewardDesc & msg) {
-	m_value = msg.m_value();
-	m_id = msg.m_id();
+	m_Value = msg.m_value();
+	m_ID = msg.m_id();
 }
 
 E_ArenaFirstrank_s::E_ArenaFirstrank_s() {
@@ -450,8 +450,8 @@ E_ArenaFirstrank_s::E_ArenaFirstrank_s() {
 
 int E_ArenaFirstrank_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_rankdown = (int32_t)0;
-	m_rankup = (int32_t)0;
+	m_rankDown = (int32_t)0;
+	m_rankUp = (int32_t)0;
 	return 0;
 }
 
@@ -461,22 +461,22 @@ int E_ArenaFirstrank_s::ResumeInit() {
 
 void E_ArenaFirstrank_s::write_to_pbmsg(::proto_ff::E_ArenaFirstrank & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_rankdown((int32_t)m_rankdown);
-	msg.set_m_rankup((int32_t)m_rankup);
-	for(int32_t i = 0; i < (int32_t)m_reward.size(); ++i) {
+	msg.set_m_rankdown((int32_t)m_rankDown);
+	msg.set_m_rankup((int32_t)m_rankUp);
+	for(int32_t i = 0; i < (int32_t)m_Reward.size(); ++i) {
 		::proto_ff::E_ArenaFirstrankRewardDesc* temp_m_reward = msg.add_m_reward();
-		m_reward[i].write_to_pbmsg(*temp_m_reward);
+		m_Reward[i].write_to_pbmsg(*temp_m_reward);
 	}
 }
 
 void E_ArenaFirstrank_s::read_from_pbmsg(const ::proto_ff::E_ArenaFirstrank & msg) {
 	m_id = msg.m_id();
-	m_rankdown = msg.m_rankdown();
-	m_rankup = msg.m_rankup();
-	m_reward.resize((int)msg.m_reward_size() > (int)m_reward.max_size() ? m_reward.max_size() : msg.m_reward_size());
-	for(int32_t i = 0; i < (int32_t)m_reward.size(); ++i) {
+	m_rankDown = msg.m_rankdown();
+	m_rankUp = msg.m_rankup();
+	m_Reward.resize((int)msg.m_reward_size() > (int)m_Reward.max_size() ? m_Reward.max_size() : msg.m_reward_size());
+	for(int32_t i = 0; i < (int32_t)m_Reward.size(); ++i) {
 		const ::proto_ff::E_ArenaFirstrankRewardDesc & temp_m_reward = msg.m_reward(i);
-		m_reward[i].read_from_pbmsg(temp_m_reward);
+		m_Reward[i].read_from_pbmsg(temp_m_reward);
 	}
 }
 
@@ -521,7 +521,7 @@ E_ArenaBuychallenge_s::E_ArenaBuychallenge_s() {
 
 int E_ArenaBuychallenge_s::CreateInit() {
 	m_count = (int32_t)0;
-	m_costtype = (int32_t)0;
+	m_costType = (int32_t)0;
 	m_cost = (int32_t)0;
 	return 0;
 }
@@ -532,13 +532,13 @@ int E_ArenaBuychallenge_s::ResumeInit() {
 
 void E_ArenaBuychallenge_s::write_to_pbmsg(::proto_ff::E_ArenaBuychallenge & msg) const {
 	msg.set_m_count((int32_t)m_count);
-	msg.set_m_costtype((int32_t)m_costtype);
+	msg.set_m_costtype((int32_t)m_costType);
 	msg.set_m_cost((int32_t)m_cost);
 }
 
 void E_ArenaBuychallenge_s::read_from_pbmsg(const ::proto_ff::E_ArenaBuychallenge & msg) {
 	m_count = msg.m_count();
-	m_costtype = msg.m_costtype();
+	m_costType = msg.m_costtype();
 	m_cost = msg.m_cost();
 }
 

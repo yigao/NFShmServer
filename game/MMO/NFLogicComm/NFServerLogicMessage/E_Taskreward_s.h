@@ -54,11 +54,11 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;//奖励id
-		int32_t m_tasktype;//任务类型
+		int32_t m_taskType;//任务类型
 		int32_t m_lv;//等级
-		int32_t m_guildexp;//公会经验
-		int32_t m_guildpoint;//公会贡献
-		int32_t m_skillid;//技能ID
+		int32_t m_guildExp;//公会经验
+		int32_t m_guildPoint;//公会贡献
+		int32_t m_skillId;//技能ID
 		NFShmVector<struct E_TaskrewardTaskrewardAttrDesc_s, DEFINE_E_TASKREWARDTASKREWARD_M_ATTR_MAX_NUM> m_attr;//属性
 		NFShmVector<struct E_TaskrewardTaskrewardItemDesc_s, DEFINE_E_TASKREWARDTASKREWARD_M_ITEM_MAX_NUM> m_item;//物品
 
@@ -88,7 +88,7 @@ namespace proto_ff_s {
 		virtual ~E_TaskrewardTasktype_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_tasktype;//任务类型
+		int32_t m_taskType;//任务类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_TaskrewardTasktype & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_TaskrewardTasktype & msg);

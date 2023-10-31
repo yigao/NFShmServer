@@ -208,18 +208,18 @@ void protobuf_AddDesc_E_5fTaskreward_2eproto() {
     "m_bind\030\002 \001(\005B\n\302\377\024\006\347\273\221\345\256\232\022\031\n\005m_val\030\003 \001(\005B"
     "\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_id\030\004 \001(\003B\006\302\377\024\002id\"\367\002\n\026E_"
     "TaskrewardTaskreward\022\032\n\004m_id\030\001 \001(\003B\014\302\377\024\010"
-    "\345\245\226\345\212\261id\022$\n\nm_tasktype\030\002 \001(\005B\020\302\377\024\014\344\273\273\345\212\241"
+    "\345\245\226\345\212\261id\022$\n\nm_taskType\030\002 \001(\005B\020\302\377\024\014\344\273\273\345\212\241"
     "\347\261\273\345\236\213\022\030\n\004m_lv\030\003 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022$\n\nm_gu"
-    "ildexp\030\004 \001(\005B\020\302\377\024\014\345\205\254\344\274\232\347\273\217\351\252\214\022&\n\014m_guil"
-    "dpoint\030\005 \001(\005B\020\302\377\024\014\345\205\254\344\274\232\350\264\241\347\214\256\022\037\n\tm_skil"
-    "lid\030\006 \001(\005B\014\302\377\024\010\346\212\200\350\203\275ID\022H\n\006m_attr\030\007 \003(\0132"
+    "ildExp\030\004 \001(\005B\020\302\377\024\014\345\205\254\344\274\232\347\273\217\351\252\214\022&\n\014m_guil"
+    "dPoint\030\005 \001(\005B\020\302\377\024\014\345\205\254\344\274\232\350\264\241\347\214\256\022\037\n\tm_skil"
+    "lId\030\006 \001(\005B\014\302\377\024\010\346\212\200\350\203\275ID\022H\n\006m_attr\030\007 \003(\0132"
     "(.proto_ff.E_TaskrewardTaskrewardAttrDes"
     "cB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\005\022H\n\006m_item\030\010 \003(\0132(.prot"
     "o_ff.E_TaskrewardTaskrewardItemDescB\016\302\377\024"
     "\006\347\211\251\345\223\201\210\301\024\005\"j\n\032Sheet_TaskrewardTaskrewar"
     "d\022L\n\033E_TaskrewardTaskreward_List\030\001 \003(\0132 "
     ".proto_ff.E_TaskrewardTaskrewardB\005\210\301\024\200@\""
-    "<\n\024E_TaskrewardTasktype\022$\n\nm_tasktype\030\001 "
+    "<\n\024E_TaskrewardTasktype\022$\n\nm_taskType\030\001 "
     "\001(\005B\020\302\377\024\014\344\273\273\345\212\241\347\261\273\345\236\213\"c\n\030Sheet_Taskrewar"
     "dTasktype\022G\n\031E_TaskrewardTasktype_List\030\001"
     " \003(\0132\036.proto_ff.E_TaskrewardTasktypeB\004\210\301"
@@ -828,11 +828,11 @@ void E_TaskrewardTaskrewardItemDesc::Swap(E_TaskrewardTaskrewardItemDesc* other)
 
 #ifndef _MSC_VER
 const int E_TaskrewardTaskreward::kMIdFieldNumber;
-const int E_TaskrewardTaskreward::kMTasktypeFieldNumber;
+const int E_TaskrewardTaskreward::kMTaskTypeFieldNumber;
 const int E_TaskrewardTaskreward::kMLvFieldNumber;
-const int E_TaskrewardTaskreward::kMGuildexpFieldNumber;
-const int E_TaskrewardTaskreward::kMGuildpointFieldNumber;
-const int E_TaskrewardTaskreward::kMSkillidFieldNumber;
+const int E_TaskrewardTaskreward::kMGuildExpFieldNumber;
+const int E_TaskrewardTaskreward::kMGuildPointFieldNumber;
+const int E_TaskrewardTaskreward::kMSkillIdFieldNumber;
 const int E_TaskrewardTaskreward::kMAttrFieldNumber;
 const int E_TaskrewardTaskreward::kMItemFieldNumber;
 #endif  // !_MSC_VER
@@ -924,15 +924,15 @@ bool E_TaskrewardTaskreward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_tasktype;
+        if (input->ExpectTag(16)) goto parse_m_taskType;
         break;
       }
 
-      // optional int32 m_tasktype = 2;
+      // optional int32 m_taskType = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_tasktype:
+         parse_m_taskType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_tasktype_)));
@@ -956,15 +956,15 @@ bool E_TaskrewardTaskreward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_guildexp;
+        if (input->ExpectTag(32)) goto parse_m_guildExp;
         break;
       }
 
-      // optional int32 m_guildexp = 4;
+      // optional int32 m_guildExp = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_guildexp:
+         parse_m_guildExp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_guildexp_)));
@@ -972,15 +972,15 @@ bool E_TaskrewardTaskreward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_guildpoint;
+        if (input->ExpectTag(40)) goto parse_m_guildPoint;
         break;
       }
 
-      // optional int32 m_guildpoint = 5;
+      // optional int32 m_guildPoint = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_guildpoint:
+         parse_m_guildPoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_guildpoint_)));
@@ -988,15 +988,15 @@ bool E_TaskrewardTaskreward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_skillid;
+        if (input->ExpectTag(48)) goto parse_m_skillId;
         break;
       }
 
-      // optional int32 m_skillid = 6;
+      // optional int32 m_skillId = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_skillid:
+         parse_m_skillId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_skillid_)));
@@ -1061,7 +1061,7 @@ void E_TaskrewardTaskreward::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
 
-  // optional int32 m_tasktype = 2;
+  // optional int32 m_taskType = 2;
   if (has_m_tasktype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_tasktype(), output);
   }
@@ -1071,17 +1071,17 @@ void E_TaskrewardTaskreward::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_lv(), output);
   }
 
-  // optional int32 m_guildexp = 4;
+  // optional int32 m_guildExp = 4;
   if (has_m_guildexp()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_guildexp(), output);
   }
 
-  // optional int32 m_guildpoint = 5;
+  // optional int32 m_guildPoint = 5;
   if (has_m_guildpoint()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_guildpoint(), output);
   }
 
-  // optional int32 m_skillid = 6;
+  // optional int32 m_skillId = 6;
   if (has_m_skillid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_skillid(), output);
   }
@@ -1111,7 +1111,7 @@ void E_TaskrewardTaskreward::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_tasktype = 2;
+  // optional int32 m_taskType = 2;
   if (has_m_tasktype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_tasktype(), target);
   }
@@ -1121,17 +1121,17 @@ void E_TaskrewardTaskreward::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_lv(), target);
   }
 
-  // optional int32 m_guildexp = 4;
+  // optional int32 m_guildExp = 4;
   if (has_m_guildexp()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_guildexp(), target);
   }
 
-  // optional int32 m_guildpoint = 5;
+  // optional int32 m_guildPoint = 5;
   if (has_m_guildpoint()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_guildpoint(), target);
   }
 
-  // optional int32 m_skillid = 6;
+  // optional int32 m_skillId = 6;
   if (has_m_skillid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_skillid(), target);
   }
@@ -1168,7 +1168,7 @@ int E_TaskrewardTaskreward::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_tasktype = 2;
+    // optional int32 m_taskType = 2;
     if (has_m_tasktype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1182,21 +1182,21 @@ int E_TaskrewardTaskreward::ByteSize() const {
           this->m_lv());
     }
 
-    // optional int32 m_guildexp = 4;
+    // optional int32 m_guildExp = 4;
     if (has_m_guildexp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_guildexp());
     }
 
-    // optional int32 m_guildpoint = 5;
+    // optional int32 m_guildPoint = 5;
     if (has_m_guildpoint()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_guildpoint());
     }
 
-    // optional int32 m_skillid = 6;
+    // optional int32 m_skillId = 6;
     if (has_m_skillid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1518,7 +1518,7 @@ void Sheet_TaskrewardTaskreward::Swap(Sheet_TaskrewardTaskreward* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_TaskrewardTasktype::kMTasktypeFieldNumber;
+const int E_TaskrewardTasktype::kMTaskTypeFieldNumber;
 #endif  // !_MSC_VER
 
 E_TaskrewardTasktype::E_TaskrewardTasktype()
@@ -1585,7 +1585,7 @@ bool E_TaskrewardTasktype::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_tasktype = 1;
+      // optional int32 m_taskType = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -1618,7 +1618,7 @@ bool E_TaskrewardTasktype::MergePartialFromCodedStream(
 
 void E_TaskrewardTasktype::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_tasktype = 1;
+  // optional int32 m_taskType = 1;
   if (has_m_tasktype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_tasktype(), output);
   }
@@ -1631,7 +1631,7 @@ void E_TaskrewardTasktype::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_TaskrewardTasktype::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_tasktype = 1;
+  // optional int32 m_taskType = 1;
   if (has_m_tasktype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_tasktype(), target);
   }
@@ -1647,7 +1647,7 @@ int E_TaskrewardTasktype::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_tasktype = 1;
+    // optional int32 m_taskType = 1;
     if (has_m_tasktype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

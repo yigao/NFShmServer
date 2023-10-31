@@ -21,7 +21,7 @@ namespace proto_ff_s {
 		virtual ~E_CollectCollectAttributDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//ID
+		int32_t m_ID;//ID
 		int32_t m_num;//数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_CollectCollectAttributDesc & msg) const;
@@ -40,12 +40,12 @@ namespace proto_ff_s {
 		NFShmString<64> m_name;//真甲名称
 		int32_t m_lv;//开启等级
 		int32_t m_group;//分组
-		NFShmString<64> m_stagetitle;//阶段标题
+		NFShmString<64> m_stageTitle;//阶段标题
 		NFShmString<64> m_position;//装备部位
 		int32_t m_grade;//要求阶数
 		int32_t m_quality;//要求品质
 		int32_t m_star;//要求星级
-		int32_t m_skillid;//激活技能
+		int32_t m_skillID;//激活技能
 		NFShmVector<struct E_CollectCollectAttributDesc_s, DEFINE_E_COLLECTCOLLECT_M_ATTRIBUT_MAX_NUM> m_attribut;//套装属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_CollectCollect & msg) const;

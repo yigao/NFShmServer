@@ -19,13 +19,13 @@ namespace proto_ff_s {
 		virtual ~E_FunctionunlockFunctionunlock_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_functionid;//功能id
-		int32_t m_opendaily;//开服多少天开放
-		int32_t m_opentype;//开放方式
-		int64_t m_openval;//开放数值
-		int32_t m_defaultclosed;//客户端默认为关闭
-		int32_t m_iconopenval;//提前显示icon参数
-		int32_t m_icondisapearid;//icon消失ID
+		int32_t m_functionId;//功能id
+		int32_t m_openDaily;//开服多少天开放
+		int32_t m_openType;//开放方式
+		int64_t m_openVal;//开放数值
+		int32_t m_defaultClosed;//客户端默认为关闭
+		int32_t m_iconOpenVal;//提前显示icon参数
+		int32_t m_iconDisapearID;//icon消失ID
 		int32_t m_belong;//附属
 
 		virtual void write_to_pbmsg(::proto_ff::E_FunctionunlockFunctionunlock & msg) const;
@@ -54,9 +54,9 @@ namespace proto_ff_s {
 		virtual ~E_FunctionunlockPreview_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_functionid;//功能id
-		int32_t m_rewarditem;//奖励的道具ID
-		int32_t m_rewardnum;//道具的数量
+		int32_t m_functionId;//功能id
+		int32_t m_rewardItem;//奖励的道具ID
+		int32_t m_rewardNum;//道具的数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_FunctionunlockPreview & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FunctionunlockPreview & msg);

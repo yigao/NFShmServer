@@ -15,8 +15,8 @@ int E_GiftFree_s::CreateInit() {
 	m_type = (int32_t)0;
 	m_costid = (int32_t)0;
 	m_price = (int32_t)0;
-	m_freeday = (int32_t)0;
-	m_boxid = (int32_t)0;
+	m_freeDay = (int32_t)0;
+	m_boxID = (int32_t)0;
 	return 0;
 }
 
@@ -29,8 +29,8 @@ void E_GiftFree_s::write_to_pbmsg(::proto_ff::E_GiftFree & msg) const {
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_costid((int32_t)m_costid);
 	msg.set_m_price((int32_t)m_price);
-	msg.set_m_freeday((int32_t)m_freeday);
-	msg.set_m_boxid((int32_t)m_boxid);
+	msg.set_m_freeday((int32_t)m_freeDay);
+	msg.set_m_boxid((int32_t)m_boxID);
 }
 
 void E_GiftFree_s::read_from_pbmsg(const ::proto_ff::E_GiftFree & msg) {
@@ -38,8 +38,8 @@ void E_GiftFree_s::read_from_pbmsg(const ::proto_ff::E_GiftFree & msg) {
 	m_type = msg.m_type();
 	m_costid = msg.m_costid();
 	m_price = msg.m_price();
-	m_freeday = msg.m_freeday();
-	m_boxid = msg.m_boxid();
+	m_freeDay = msg.m_freeday();
+	m_boxID = msg.m_boxid();
 }
 
 Sheet_GiftFree_s::Sheet_GiftFree_s() {
@@ -83,12 +83,12 @@ E_GiftCondition_s::E_GiftCondition_s() {
 
 int E_GiftCondition_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_conditiontype = (int32_t)0;
+	m_conditionType = (int32_t)0;
 	m_arg = (int32_t)0;
 	m_time = (int32_t)0;
-	m_pricetype = (int32_t)0;
+	m_priceType = (int32_t)0;
 	m_price = (int32_t)0;
-	m_boxid = (int32_t)0;
+	m_boxID = (int32_t)0;
 	return 0;
 }
 
@@ -98,22 +98,22 @@ int E_GiftCondition_s::ResumeInit() {
 
 void E_GiftCondition_s::write_to_pbmsg(::proto_ff::E_GiftCondition & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_conditiontype((int32_t)m_conditiontype);
+	msg.set_m_conditiontype((int32_t)m_conditionType);
 	msg.set_m_arg((int32_t)m_arg);
 	msg.set_m_time((int32_t)m_time);
-	msg.set_m_pricetype((int32_t)m_pricetype);
+	msg.set_m_pricetype((int32_t)m_priceType);
 	msg.set_m_price((int32_t)m_price);
-	msg.set_m_boxid((int32_t)m_boxid);
+	msg.set_m_boxid((int32_t)m_boxID);
 }
 
 void E_GiftCondition_s::read_from_pbmsg(const ::proto_ff::E_GiftCondition & msg) {
 	m_id = msg.m_id();
-	m_conditiontype = msg.m_conditiontype();
+	m_conditionType = msg.m_conditiontype();
 	m_arg = msg.m_arg();
 	m_time = msg.m_time();
-	m_pricetype = msg.m_pricetype();
+	m_priceType = msg.m_pricetype();
 	m_price = msg.m_price();
-	m_boxid = msg.m_boxid();
+	m_boxID = msg.m_boxid();
 }
 
 Sheet_GiftCondition_s::Sheet_GiftCondition_s() {
@@ -159,7 +159,7 @@ int E_GiftMust_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_boxid = (int32_t)0;
 	m_original = (int32_t)0;
-	m_pricetype = (int32_t)0;
+	m_priceType = (int32_t)0;
 	m_price = (int32_t)0;
 	return 0;
 }
@@ -172,7 +172,7 @@ void E_GiftMust_s::write_to_pbmsg(::proto_ff::E_GiftMust & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_boxid((int32_t)m_boxid);
 	msg.set_m_original((int32_t)m_original);
-	msg.set_m_pricetype((int32_t)m_pricetype);
+	msg.set_m_pricetype((int32_t)m_priceType);
 	msg.set_m_price((int32_t)m_price);
 }
 
@@ -180,7 +180,7 @@ void E_GiftMust_s::read_from_pbmsg(const ::proto_ff::E_GiftMust & msg) {
 	m_id = msg.m_id();
 	m_boxid = msg.m_boxid();
 	m_original = msg.m_original();
-	m_pricetype = msg.m_pricetype();
+	m_priceType = msg.m_pricetype();
 	m_price = msg.m_price();
 }
 

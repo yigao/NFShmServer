@@ -13,12 +13,12 @@ E_TalentTalent_s::E_TalentTalent_s() {
 int E_TalentTalent_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_type = (int32_t)0;
-	m_skillid = (int32_t)0;
-	m_lvlimit = (int32_t)0;
-	m_aheadskill = (int32_t)0;
-	m_aheadlv = (int32_t)0;
-	m_needtype = (int32_t)0;
-	m_typenum = (int32_t)0;
+	m_skillID = (int32_t)0;
+	m_lvLImit = (int32_t)0;
+	m_aheadSkill = (int32_t)0;
+	m_aheadLv = (int32_t)0;
+	m_needType = (int32_t)0;
+	m_typeNum = (int32_t)0;
 	m_cost = (int32_t)0;
 	return 0;
 }
@@ -30,24 +30,24 @@ int E_TalentTalent_s::ResumeInit() {
 void E_TalentTalent_s::write_to_pbmsg(::proto_ff::E_TalentTalent & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_type((int32_t)m_type);
-	msg.set_m_skillid((int32_t)m_skillid);
-	msg.set_m_lvlimit((int32_t)m_lvlimit);
-	msg.set_m_aheadskill((int32_t)m_aheadskill);
-	msg.set_m_aheadlv((int32_t)m_aheadlv);
-	msg.set_m_needtype((int32_t)m_needtype);
-	msg.set_m_typenum((int32_t)m_typenum);
+	msg.set_m_skillid((int32_t)m_skillID);
+	msg.set_m_lvlimit((int32_t)m_lvLImit);
+	msg.set_m_aheadskill((int32_t)m_aheadSkill);
+	msg.set_m_aheadlv((int32_t)m_aheadLv);
+	msg.set_m_needtype((int32_t)m_needType);
+	msg.set_m_typenum((int32_t)m_typeNum);
 	msg.set_m_cost((int32_t)m_cost);
 }
 
 void E_TalentTalent_s::read_from_pbmsg(const ::proto_ff::E_TalentTalent & msg) {
 	m_id = msg.m_id();
 	m_type = msg.m_type();
-	m_skillid = msg.m_skillid();
-	m_lvlimit = msg.m_lvlimit();
-	m_aheadskill = msg.m_aheadskill();
-	m_aheadlv = msg.m_aheadlv();
-	m_needtype = msg.m_needtype();
-	m_typenum = msg.m_typenum();
+	m_skillID = msg.m_skillid();
+	m_lvLImit = msg.m_lvlimit();
+	m_aheadSkill = msg.m_aheadskill();
+	m_aheadLv = msg.m_aheadlv();
+	m_needType = msg.m_needtype();
+	m_typeNum = msg.m_typenum();
 	m_cost = msg.m_cost();
 }
 

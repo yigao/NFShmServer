@@ -176,10 +176,10 @@ class E_FestivalPeriodindex : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_minorigalday = 1;
+  // optional int32 m_minOrigalDay = 1;
   inline bool has_m_minorigalday() const;
   inline void clear_m_minorigalday();
-  static const int kMMinorigaldayFieldNumber = 1;
+  static const int kMMinOrigalDayFieldNumber = 1;
   inline ::google::protobuf::int32 m_minorigalday() const;
   inline void set_m_minorigalday(::google::protobuf::int32 value);
 
@@ -552,17 +552,17 @@ class E_FestivalTemplate : public ::google::protobuf::Message {
   inline ::std::string* release_m_name();
   inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional int32 m_festivalid = 3;
+  // optional int32 m_festivalId = 3;
   inline bool has_m_festivalid() const;
   inline void clear_m_festivalid();
-  static const int kMFestivalidFieldNumber = 3;
+  static const int kMFestivalIdFieldNumber = 3;
   inline ::google::protobuf::int32 m_festivalid() const;
   inline void set_m_festivalid(::google::protobuf::int32 value);
 
-  // optional int32 m_timetype = 4;
+  // optional int32 m_timeType = 4;
   inline bool has_m_timetype() const;
   inline void clear_m_timetype();
-  static const int kMTimetypeFieldNumber = 4;
+  static const int kMTimeTypeFieldNumber = 4;
   inline ::google::protobuf::int32 m_timetype() const;
   inline void set_m_timetype(::google::protobuf::int32 value);
 
@@ -573,10 +573,10 @@ class E_FestivalTemplate : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_level() const;
   inline void set_m_level(::google::protobuf::int32 value);
 
-  // optional int32 m_viplevel = 6;
+  // optional int32 m_vipLevel = 6;
   inline bool has_m_viplevel() const;
   inline void clear_m_viplevel();
-  static const int kMViplevelFieldNumber = 6;
+  static const int kMVipLevelFieldNumber = 6;
   inline ::google::protobuf::int32 m_viplevel() const;
   inline void set_m_viplevel(::google::protobuf::int32 value);
 
@@ -587,17 +587,17 @@ class E_FestivalTemplate : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_rechange() const;
   inline void set_m_rechange(::google::protobuf::int32 value);
 
-  // optional int32 m_severtype = 8;
+  // optional int32 m_severType = 8;
   inline bool has_m_severtype() const;
   inline void clear_m_severtype();
-  static const int kMSevertypeFieldNumber = 8;
+  static const int kMSeverTypeFieldNumber = 8;
   inline ::google::protobuf::int32 m_severtype() const;
   inline void set_m_severtype(::google::protobuf::int32 value);
 
-  // optional string m_typearg = 9;
+  // optional string m_typeArg = 9;
   inline bool has_m_typearg() const;
   inline void clear_m_typearg();
-  static const int kMTypeargFieldNumber = 9;
+  static const int kMTypeArgFieldNumber = 9;
   inline const ::std::string& m_typearg() const;
   inline void set_m_typearg(const ::std::string& value);
   inline void set_m_typearg(const char* value);
@@ -606,10 +606,10 @@ class E_FestivalTemplate : public ::google::protobuf::Message {
   inline ::std::string* release_m_typearg();
   inline void set_allocated_m_typearg(::std::string* m_typearg);
 
-  // optional int32 m_periodtype = 10;
+  // optional int32 m_periodType = 10;
   inline bool has_m_periodtype() const;
   inline void clear_m_periodtype();
-  static const int kMPeriodtypeFieldNumber = 10;
+  static const int kMPeriodTypeFieldNumber = 10;
   inline ::google::protobuf::int32 m_periodtype() const;
   inline void set_m_periodtype(::google::protobuf::int32 value);
 
@@ -620,24 +620,24 @@ class E_FestivalTemplate : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_period() const;
   inline void set_m_period(::google::protobuf::int32 value);
 
-  // optional int32 m_ifopen = 12;
+  // optional int32 m_ifOpen = 12;
   inline bool has_m_ifopen() const;
   inline void clear_m_ifopen();
-  static const int kMIfopenFieldNumber = 12;
+  static const int kMIfOpenFieldNumber = 12;
   inline ::google::protobuf::int32 m_ifopen() const;
   inline void set_m_ifopen(::google::protobuf::int32 value);
 
-  // optional int32 m_activeid = 13;
+  // optional int32 m_activeID = 13;
   inline bool has_m_activeid() const;
   inline void clear_m_activeid();
-  static const int kMActiveidFieldNumber = 13;
+  static const int kMActiveIDFieldNumber = 13;
   inline ::google::protobuf::int32 m_activeid() const;
   inline void set_m_activeid(::google::protobuf::int32 value);
 
-  // repeated string m_timearg = 14;
+  // repeated string m_timeArg = 14;
   inline int m_timearg_size() const;
   inline void clear_m_timearg();
-  static const int kMTimeargFieldNumber = 14;
+  static const int kMTimeArgFieldNumber = 14;
   inline const ::std::string& m_timearg(int index) const;
   inline ::std::string* mutable_m_timearg(int index);
   inline void set_m_timearg(int index, const ::std::string& value);
@@ -861,10 +861,10 @@ class E_FestivalMuban_login : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_period() const;
   inline void set_m_period(::google::protobuf::int32 value);
 
-  // optional int32 m_loginday = 3;
+  // optional int32 m_loginDay = 3;
   inline bool has_m_loginday() const;
   inline void clear_m_loginday();
-  static const int kMLogindayFieldNumber = 3;
+  static const int kMLoginDayFieldNumber = 3;
   inline ::google::protobuf::int32 m_loginday() const;
   inline void set_m_loginday(::google::protobuf::int32 value);
 
@@ -1275,31 +1275,31 @@ class E_FestivalMuban_love : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_period() const;
   inline void set_m_period(::google::protobuf::int32 value);
 
-  // optional int32 m_taskpointid = 3;
+  // optional int32 m_taskPointID = 3;
   inline bool has_m_taskpointid() const;
   inline void clear_m_taskpointid();
-  static const int kMTaskpointidFieldNumber = 3;
+  static const int kMTaskPointIDFieldNumber = 3;
   inline ::google::protobuf::int32 m_taskpointid() const;
   inline void set_m_taskpointid(::google::protobuf::int32 value);
 
-  // optional int32 m_rankgroup = 4;
+  // optional int32 m_rankGroup = 4;
   inline bool has_m_rankgroup() const;
   inline void clear_m_rankgroup();
-  static const int kMRankgroupFieldNumber = 4;
+  static const int kMRankGroupFieldNumber = 4;
   inline ::google::protobuf::int32 m_rankgroup() const;
   inline void set_m_rankgroup(::google::protobuf::int32 value);
 
-  // optional int32 m_taskgroup = 5;
+  // optional int32 m_taskGroup = 5;
   inline bool has_m_taskgroup() const;
   inline void clear_m_taskgroup();
-  static const int kMTaskgroupFieldNumber = 5;
+  static const int kMTaskGroupFieldNumber = 5;
   inline ::google::protobuf::int32 m_taskgroup() const;
   inline void set_m_taskgroup(::google::protobuf::int32 value);
 
-  // optional int32 m_taskrewardgroup = 6;
+  // optional int32 m_taskRewardGroup = 6;
   inline bool has_m_taskrewardgroup() const;
   inline void clear_m_taskrewardgroup();
-  static const int kMTaskrewardgroupFieldNumber = 6;
+  static const int kMTaskRewardGroupFieldNumber = 6;
   inline ::google::protobuf::int32 m_taskrewardgroup() const;
   inline void set_m_taskrewardgroup(::google::protobuf::int32 value);
 
@@ -1492,24 +1492,24 @@ class E_FestivalMuban_love_rank : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
-  // optional int32 m_rewardshow = 3;
+  // optional int32 m_rewardShow = 3;
   inline bool has_m_rewardshow() const;
   inline void clear_m_rewardshow();
-  static const int kMRewardshowFieldNumber = 3;
+  static const int kMRewardShowFieldNumber = 3;
   inline ::google::protobuf::int32 m_rewardshow() const;
   inline void set_m_rewardshow(::google::protobuf::int32 value);
 
-  // optional int32 m_datagroupid = 4;
+  // optional int32 m_dataGroupID = 4;
   inline bool has_m_datagroupid() const;
   inline void clear_m_datagroupid();
-  static const int kMDatagroupidFieldNumber = 4;
+  static const int kMDataGroupIDFieldNumber = 4;
   inline ::google::protobuf::int32 m_datagroupid() const;
   inline void set_m_datagroupid(::google::protobuf::int32 value);
 
-  // optional int32 m_ranktype = 5;
+  // optional int32 m_rankType = 5;
   inline bool has_m_ranktype() const;
   inline void clear_m_ranktype();
-  static const int kMRanktypeFieldNumber = 5;
+  static const int kMRankTypeFieldNumber = 5;
   inline ::google::protobuf::int32 m_ranktype() const;
   inline void set_m_ranktype(::google::protobuf::int32 value);
 
@@ -1692,38 +1692,38 @@ class E_FestivalMuban_love_rank_data : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 2;
+  static const int kMGroupIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
-  // optional int32 m_maxrank = 3;
+  // optional int32 m_maxRank = 3;
   inline bool has_m_maxrank() const;
   inline void clear_m_maxrank();
-  static const int kMMaxrankFieldNumber = 3;
+  static const int kMMaxRankFieldNumber = 3;
   inline ::google::protobuf::int32 m_maxrank() const;
   inline void set_m_maxrank(::google::protobuf::int32 value);
 
-  // optional int32 m_minrank = 4;
+  // optional int32 m_minRank = 4;
   inline bool has_m_minrank() const;
   inline void clear_m_minrank();
-  static const int kMMinrankFieldNumber = 4;
+  static const int kMMinRankFieldNumber = 4;
   inline ::google::protobuf::int32 m_minrank() const;
   inline void set_m_minrank(::google::protobuf::int32 value);
 
-  // optional int32 m_rankvalue = 5;
+  // optional int32 m_rankValue = 5;
   inline bool has_m_rankvalue() const;
   inline void clear_m_rankvalue();
-  static const int kMRankvalueFieldNumber = 5;
+  static const int kMRankValueFieldNumber = 5;
   inline ::google::protobuf::int32 m_rankvalue() const;
   inline void set_m_rankvalue(::google::protobuf::int32 value);
 
-  // optional int32 m_boxid = 6;
+  // optional int32 m_boxID = 6;
   inline bool has_m_boxid() const;
   inline void clear_m_boxid();
-  static const int kMBoxidFieldNumber = 6;
+  static const int kMBoxIDFieldNumber = 6;
   inline ::google::protobuf::int32 m_boxid() const;
   inline void set_m_boxid(::google::protobuf::int32 value);
 
@@ -1909,24 +1909,24 @@ class E_FestivalMuban_love_task : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 2;
+  static const int kMGroupIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
-  // optional int32 m_eventtype = 3;
+  // optional int32 m_eventType = 3;
   inline bool has_m_eventtype() const;
   inline void clear_m_eventtype();
-  static const int kMEventtypeFieldNumber = 3;
+  static const int kMEventTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_eventtype() const;
   inline void set_m_eventtype(::google::protobuf::int32 value);
 
-  // optional int32 m_reachprice = 4;
+  // optional int32 m_reachPrice = 4;
   inline bool has_m_reachprice() const;
   inline void clear_m_reachprice();
-  static const int kMReachpriceFieldNumber = 4;
+  static const int kMReachPriceFieldNumber = 4;
   inline ::google::protobuf::int32 m_reachprice() const;
   inline void set_m_reachprice(::google::protobuf::int32 value);
 
@@ -1937,10 +1937,10 @@ class E_FestivalMuban_love_task : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_link() const;
   inline void set_m_link(::google::protobuf::int32 value);
 
-  // optional int32 m_rewardtimes = 6;
+  // optional int32 m_rewardTimes = 6;
   inline bool has_m_rewardtimes() const;
   inline void clear_m_rewardtimes();
-  static const int kMRewardtimesFieldNumber = 6;
+  static const int kMRewardTimesFieldNumber = 6;
   inline ::google::protobuf::int32 m_rewardtimes() const;
   inline void set_m_rewardtimes(::google::protobuf::int32 value);
 
@@ -2149,10 +2149,10 @@ class E_FestivalMuban_love_taskreward : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 2;
+  static const int kMGroupIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
@@ -2353,10 +2353,10 @@ class E_FestivalMuban_addbox : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_period() const;
   inline void set_m_period(::google::protobuf::int32 value);
 
-  // optional int32 m_lvlimit = 3;
+  // optional int32 m_lvLimit = 3;
   inline bool has_m_lvlimit() const;
   inline void clear_m_lvlimit();
-  static const int kMLvlimitFieldNumber = 3;
+  static const int kMLvLimitFieldNumber = 3;
   inline ::google::protobuf::int32 m_lvlimit() const;
   inline void set_m_lvlimit(::google::protobuf::int32 value);
 
@@ -2379,10 +2379,10 @@ class E_FestivalMuban_addbox : public ::google::protobuf::Message {
   inline ::std::string* release_m_arg();
   inline void set_allocated_m_arg(::std::string* m_arg);
 
-  // optional int32 m_addboxid = 6;
+  // optional int32 m_addBoxId = 6;
   inline bool has_m_addboxid() const;
   inline void clear_m_addboxid();
-  static const int kMAddboxidFieldNumber = 6;
+  static const int kMAddBoxIdFieldNumber = 6;
   inline ::google::protobuf::int32 m_addboxid() const;
   inline void set_m_addboxid(::google::protobuf::int32 value);
 
@@ -2801,24 +2801,24 @@ class E_FestivalMuban_bossfristkill : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_bossid() const;
   inline void set_m_bossid(::google::protobuf::int32 value);
 
-  // optional int32 m_fristkillreward = 5;
+  // optional int32 m_fristKillReward = 5;
   inline bool has_m_fristkillreward() const;
   inline void clear_m_fristkillreward();
-  static const int kMFristkillrewardFieldNumber = 5;
+  static const int kMFristKillRewardFieldNumber = 5;
   inline ::google::protobuf::int32 m_fristkillreward() const;
   inline void set_m_fristkillreward(::google::protobuf::int32 value);
 
-  // optional int32 m_killreward = 6;
+  // optional int32 m_killReward = 6;
   inline bool has_m_killreward() const;
   inline void clear_m_killreward();
-  static const int kMKillrewardFieldNumber = 6;
+  static const int kMKillRewardFieldNumber = 6;
   inline ::google::protobuf::int32 m_killreward() const;
   inline void set_m_killreward(::google::protobuf::int32 value);
 
-  // optional int32 m_fristkillpacket = 7;
+  // optional int32 m_fristKillPacket = 7;
   inline bool has_m_fristkillpacket() const;
   inline void clear_m_fristkillpacket();
-  static const int kMFristkillpacketFieldNumber = 7;
+  static const int kMFristKillPacketFieldNumber = 7;
   inline ::google::protobuf::int32 m_fristkillpacket() const;
   inline void set_m_fristkillpacket(::google::protobuf::int32 value);
 
@@ -3038,24 +3038,24 @@ class E_FestivalMuban_severrank : public ::google::protobuf::Message {
   inline ::std::string* release_m_name();
   inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional int32 m_openday = 5;
+  // optional int32 m_openDay = 5;
   inline bool has_m_openday() const;
   inline void clear_m_openday();
-  static const int kMOpendayFieldNumber = 5;
+  static const int kMOpenDayFieldNumber = 5;
   inline ::google::protobuf::int32 m_openday() const;
   inline void set_m_openday(::google::protobuf::int32 value);
 
-  // optional int32 m_closeday = 6;
+  // optional int32 m_closeDay = 6;
   inline bool has_m_closeday() const;
   inline void clear_m_closeday();
-  static const int kMClosedayFieldNumber = 6;
+  static const int kMCloseDayFieldNumber = 6;
   inline ::google::protobuf::int32 m_closeday() const;
   inline void set_m_closeday(::google::protobuf::int32 value);
 
-  // optional string m_championtitle = 7;
+  // optional string m_championTitle = 7;
   inline bool has_m_championtitle() const;
   inline void clear_m_championtitle();
-  static const int kMChampiontitleFieldNumber = 7;
+  static const int kMChampionTitleFieldNumber = 7;
   inline const ::std::string& m_championtitle() const;
   inline void set_m_championtitle(const ::std::string& value);
   inline void set_m_championtitle(const char* value);
@@ -3064,31 +3064,31 @@ class E_FestivalMuban_severrank : public ::google::protobuf::Message {
   inline ::std::string* release_m_championtitle();
   inline void set_allocated_m_championtitle(::std::string* m_championtitle);
 
-  // optional int32 m_rewardshow = 8;
+  // optional int32 m_rewardShow = 8;
   inline bool has_m_rewardshow() const;
   inline void clear_m_rewardshow();
-  static const int kMRewardshowFieldNumber = 8;
+  static const int kMRewardShowFieldNumber = 8;
   inline ::google::protobuf::int32 m_rewardshow() const;
   inline void set_m_rewardshow(::google::protobuf::int32 value);
 
-  // optional int32 m_datagroupid = 9;
+  // optional int32 m_dataGroupID = 9;
   inline bool has_m_datagroupid() const;
   inline void clear_m_datagroupid();
-  static const int kMDatagroupidFieldNumber = 9;
+  static const int kMDataGroupIDFieldNumber = 9;
   inline ::google::protobuf::int32 m_datagroupid() const;
   inline void set_m_datagroupid(::google::protobuf::int32 value);
 
-  // optional int32 m_ranktype = 10;
+  // optional int32 m_rankType = 10;
   inline bool has_m_ranktype() const;
   inline void clear_m_ranktype();
-  static const int kMRanktypeFieldNumber = 10;
+  static const int kMRankTypeFieldNumber = 10;
   inline ::google::protobuf::int32 m_ranktype() const;
   inline void set_m_ranktype(::google::protobuf::int32 value);
 
-  // optional string m_rankgift = 11;
+  // optional string m_rankGift = 11;
   inline bool has_m_rankgift() const;
   inline void clear_m_rankgift();
-  static const int kMRankgiftFieldNumber = 11;
+  static const int kMRankGiftFieldNumber = 11;
   inline const ::std::string& m_rankgift() const;
   inline void set_m_rankgift(const ::std::string& value);
   inline void set_m_rankgift(const char* value);
@@ -3097,10 +3097,10 @@ class E_FestivalMuban_severrank : public ::google::protobuf::Message {
   inline ::std::string* release_m_rankgift();
   inline void set_allocated_m_rankgift(::std::string* m_rankgift);
 
-  // optional string m_gifticon = 12;
+  // optional string m_giftIcon = 12;
   inline bool has_m_gifticon() const;
   inline void clear_m_gifticon();
-  static const int kMGifticonFieldNumber = 12;
+  static const int kMGiftIconFieldNumber = 12;
   inline const ::std::string& m_gifticon() const;
   inline void set_m_gifticon(const ::std::string& value);
   inline void set_m_gifticon(const char* value);
@@ -3109,17 +3109,17 @@ class E_FestivalMuban_severrank : public ::google::protobuf::Message {
   inline ::std::string* release_m_gifticon();
   inline void set_allocated_m_gifticon(::std::string* m_gifticon);
 
-  // optional int32 m_giftitemid = 13;
+  // optional int32 m_giftItemId = 13;
   inline bool has_m_giftitemid() const;
   inline void clear_m_giftitemid();
-  static const int kMGiftitemidFieldNumber = 13;
+  static const int kMGiftItemIdFieldNumber = 13;
   inline ::google::protobuf::int32 m_giftitemid() const;
   inline void set_m_giftitemid(::google::protobuf::int32 value);
 
-  // optional int32 m_originalprice = 14;
+  // optional int32 m_originalPrice = 14;
   inline bool has_m_originalprice() const;
   inline void clear_m_originalprice();
-  static const int kMOriginalpriceFieldNumber = 14;
+  static const int kMOriginalPriceFieldNumber = 14;
   inline ::google::protobuf::int32 m_originalprice() const;
   inline void set_m_originalprice(::google::protobuf::int32 value);
 
@@ -3130,17 +3130,17 @@ class E_FestivalMuban_severrank : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_price() const;
   inline void set_m_price(::google::protobuf::int32 value);
 
-  // optional int32 m_ratioshow = 16;
+  // optional int32 m_ratioShow = 16;
   inline bool has_m_ratioshow() const;
   inline void clear_m_ratioshow();
-  static const int kMRatioshowFieldNumber = 16;
+  static const int kMRatioShowFieldNumber = 16;
   inline ::google::protobuf::int32 m_ratioshow() const;
   inline void set_m_ratioshow(::google::protobuf::int32 value);
 
-  // optional int32 m_redpointbox = 17;
+  // optional int32 m_redPointBox = 17;
   inline bool has_m_redpointbox() const;
   inline void clear_m_redpointbox();
-  static const int kMRedpointboxFieldNumber = 17;
+  static const int kMRedPointBoxFieldNumber = 17;
   inline ::google::protobuf::int32 m_redpointbox() const;
   inline void set_m_redpointbox(::google::protobuf::int32 value);
 
@@ -3359,38 +3359,38 @@ class E_FestivalMuban_severrank_data : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 2;
+  static const int kMGroupIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
-  // optional int32 m_maxrank = 3;
+  // optional int32 m_maxRank = 3;
   inline bool has_m_maxrank() const;
   inline void clear_m_maxrank();
-  static const int kMMaxrankFieldNumber = 3;
+  static const int kMMaxRankFieldNumber = 3;
   inline ::google::protobuf::int32 m_maxrank() const;
   inline void set_m_maxrank(::google::protobuf::int32 value);
 
-  // optional int32 m_minrank = 4;
+  // optional int32 m_minRank = 4;
   inline bool has_m_minrank() const;
   inline void clear_m_minrank();
-  static const int kMMinrankFieldNumber = 4;
+  static const int kMMinRankFieldNumber = 4;
   inline ::google::protobuf::int32 m_minrank() const;
   inline void set_m_minrank(::google::protobuf::int32 value);
 
-  // optional int32 m_rankvalue = 5;
+  // optional int32 m_rankValue = 5;
   inline bool has_m_rankvalue() const;
   inline void clear_m_rankvalue();
-  static const int kMRankvalueFieldNumber = 5;
+  static const int kMRankValueFieldNumber = 5;
   inline ::google::protobuf::int32 m_rankvalue() const;
   inline void set_m_rankvalue(::google::protobuf::int32 value);
 
-  // optional string m_unachievedisplay = 6;
+  // optional string m_UnachieveDisplay = 6;
   inline bool has_m_unachievedisplay() const;
   inline void clear_m_unachievedisplay();
-  static const int kMUnachievedisplayFieldNumber = 6;
+  static const int kMUnachieveDisplayFieldNumber = 6;
   inline const ::std::string& m_unachievedisplay() const;
   inline void set_m_unachievedisplay(const ::std::string& value);
   inline void set_m_unachievedisplay(const char* value);
@@ -3399,10 +3399,10 @@ class E_FestivalMuban_severrank_data : public ::google::protobuf::Message {
   inline ::std::string* release_m_unachievedisplay();
   inline void set_allocated_m_unachievedisplay(::std::string* m_unachievedisplay);
 
-  // optional int32 m_boxid = 7;
+  // optional int32 m_boxID = 7;
   inline bool has_m_boxid() const;
   inline void clear_m_boxid();
-  static const int kMBoxidFieldNumber = 7;
+  static const int kMBoxIDFieldNumber = 7;
   inline ::google::protobuf::int32 m_boxid() const;
   inline void set_m_boxid(::google::protobuf::int32 value);
 
@@ -3910,10 +3910,10 @@ class E_FestivalMuban_sign : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_period() const;
   inline void set_m_period(::google::protobuf::int32 value);
 
-  // optional int32 m_boxid = 3;
+  // optional int32 m_boxID = 3;
   inline bool has_m_boxid() const;
   inline void clear_m_boxid();
-  static const int kMBoxidFieldNumber = 3;
+  static const int kMBoxIDFieldNumber = 3;
   inline ::google::protobuf::int32 m_boxid() const;
   inline void set_m_boxid(::google::protobuf::int32 value);
 
@@ -4097,10 +4097,10 @@ class E_FestivalMuban_shop : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_period() const;
   inline void set_m_period(::google::protobuf::int32 value);
 
-  // optional int32 m_viplevel = 3;
+  // optional int32 m_vipLevel = 3;
   inline bool has_m_viplevel() const;
   inline void clear_m_viplevel();
-  static const int kMViplevelFieldNumber = 3;
+  static const int kMVipLevelFieldNumber = 3;
   inline ::google::protobuf::int32 m_viplevel() const;
   inline void set_m_viplevel(::google::protobuf::int32 value);
 
@@ -4111,10 +4111,10 @@ class E_FestivalMuban_shop : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_box() const;
   inline void set_m_box(::google::protobuf::int32 value);
 
-  // optional int32 m_timelimit = 5;
+  // optional int32 m_timeLimit = 5;
   inline bool has_m_timelimit() const;
   inline void clear_m_timelimit();
-  static const int kMTimelimitFieldNumber = 5;
+  static const int kMTimeLimitFieldNumber = 5;
   inline ::google::protobuf::int32 m_timelimit() const;
   inline void set_m_timelimit(::google::protobuf::int32 value);
 
@@ -4125,24 +4125,24 @@ class E_FestivalMuban_shop : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_price() const;
   inline void set_m_price(::google::protobuf::int32 value);
 
-  // optional int32 m_pricetype = 7;
+  // optional int32 m_priceType = 7;
   inline bool has_m_pricetype() const;
   inline void clear_m_pricetype();
-  static const int kMPricetypeFieldNumber = 7;
+  static const int kMPriceTypeFieldNumber = 7;
   inline ::google::protobuf::int32 m_pricetype() const;
   inline void set_m_pricetype(::google::protobuf::int32 value);
 
-  // optional int32 m_startime = 8;
+  // optional int32 m_starTime = 8;
   inline bool has_m_startime() const;
   inline void clear_m_startime();
-  static const int kMStartimeFieldNumber = 8;
+  static const int kMStarTimeFieldNumber = 8;
   inline ::google::protobuf::int32 m_startime() const;
   inline void set_m_startime(::google::protobuf::int32 value);
 
-  // optional int32 m_durtime = 9;
+  // optional int32 m_durTime = 9;
   inline bool has_m_durtime() const;
   inline void clear_m_durtime();
-  static const int kMDurtimeFieldNumber = 9;
+  static const int kMDurTimeFieldNumber = 9;
   inline ::google::protobuf::int32 m_durtime() const;
   inline void set_m_durtime(::google::protobuf::int32 value);
 
@@ -4351,10 +4351,10 @@ class E_FestivalMuban_rechange : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_rebate() const;
   inline void set_m_rebate(::google::protobuf::int32 value);
 
-  // optional int32 m_timelimit = 4;
+  // optional int32 m_timeLimit = 4;
   inline bool has_m_timelimit() const;
   inline void clear_m_timelimit();
-  static const int kMTimelimitFieldNumber = 4;
+  static const int kMTimeLimitFieldNumber = 4;
   inline ::google::protobuf::int32 m_timelimit() const;
   inline void set_m_timelimit(::google::protobuf::int32 value);
 
@@ -4568,10 +4568,10 @@ class E_FestivalMuban_leiji : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_leiji() const;
   inline void set_m_leiji(::google::protobuf::int32 value);
 
-  // optional int32 m_boxid = 4;
+  // optional int32 m_boxID = 4;
   inline bool has_m_boxid() const;
   inline void clear_m_boxid();
-  static const int kMBoxidFieldNumber = 4;
+  static const int kMBoxIDFieldNumber = 4;
   inline ::google::protobuf::int32 m_boxid() const;
   inline void set_m_boxid(::google::protobuf::int32 value);
 
@@ -4968,10 +4968,10 @@ class E_FestivalZadanconstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_period() const;
   inline void set_m_period(::google::protobuf::int32 value);
 
-  // optional int64 m_costitem = 2;
+  // optional int64 m_costItem = 2;
   inline bool has_m_costitem() const;
   inline void clear_m_costitem();
-  static const int kMCostitemFieldNumber = 2;
+  static const int kMCostItemFieldNumber = 2;
   inline ::google::protobuf::int64 m_costitem() const;
   inline void set_m_costitem(::google::protobuf::int64 value);
 
@@ -5182,17 +5182,17 @@ class E_FestivalMuban_turntable : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_period() const;
   inline void set_m_period(::google::protobuf::int32 value);
 
-  // optional int32 m_poolgroup = 3;
+  // optional int32 m_poolGroup = 3;
   inline bool has_m_poolgroup() const;
   inline void clear_m_poolgroup();
-  static const int kMPoolgroupFieldNumber = 3;
+  static const int kMPoolGroupFieldNumber = 3;
   inline ::google::protobuf::int32 m_poolgroup() const;
   inline void set_m_poolgroup(::google::protobuf::int32 value);
 
-  // optional int32 m_taskgroup = 4;
+  // optional int32 m_taskGroup = 4;
   inline bool has_m_taskgroup() const;
   inline void clear_m_taskgroup();
-  static const int kMTaskgroupFieldNumber = 4;
+  static const int kMTaskGroupFieldNumber = 4;
   inline ::google::protobuf::int32 m_taskgroup() const;
   inline void set_m_taskgroup(::google::protobuf::int32 value);
 
@@ -5372,17 +5372,17 @@ class E_FestivalMuban_turntable_pool : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 2;
+  static const int kMGroupIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 3;
+  // optional int32 m_itemID = 3;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 3;
+  static const int kMItemIDFieldNumber = 3;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
@@ -5579,24 +5579,24 @@ class E_FestivalMuban_turntable_task : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 2;
+  static const int kMGroupIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
-  // optional int32 m_eventtype = 3;
+  // optional int32 m_eventType = 3;
   inline bool has_m_eventtype() const;
   inline void clear_m_eventtype();
-  static const int kMEventtypeFieldNumber = 3;
+  static const int kMEventTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_eventtype() const;
   inline void set_m_eventtype(::google::protobuf::int32 value);
 
-  // optional int32 m_reachprice = 4;
+  // optional int32 m_reachPrice = 4;
   inline bool has_m_reachprice() const;
   inline void clear_m_reachprice();
-  static const int kMReachpriceFieldNumber = 4;
+  static const int kMReachPriceFieldNumber = 4;
   inline ::google::protobuf::int32 m_reachprice() const;
   inline void set_m_reachprice(::google::protobuf::int32 value);
 
@@ -5607,10 +5607,10 @@ class E_FestivalMuban_turntable_task : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_link() const;
   inline void set_m_link(::google::protobuf::int32 value);
 
-  // optional int32 m_rewardtimes = 6;
+  // optional int32 m_rewardTimes = 6;
   inline bool has_m_rewardtimes() const;
   inline void clear_m_rewardtimes();
-  static const int kMRewardtimesFieldNumber = 6;
+  static const int kMRewardTimesFieldNumber = 6;
   inline ::google::protobuf::int32 m_rewardtimes() const;
   inline void set_m_rewardtimes(::google::protobuf::int32 value);
 
@@ -5816,38 +5816,38 @@ class E_FestivalMuban_donate : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_period() const;
   inline void set_m_period(::google::protobuf::int32 value);
 
-  // optional int32 m_donateitem = 3;
+  // optional int32 m_donateItem = 3;
   inline bool has_m_donateitem() const;
   inline void clear_m_donateitem();
-  static const int kMDonateitemFieldNumber = 3;
+  static const int kMDonateItemFieldNumber = 3;
   inline ::google::protobuf::int32 m_donateitem() const;
   inline void set_m_donateitem(::google::protobuf::int32 value);
 
-  // optional int32 m_donatereward = 4;
+  // optional int32 m_donateReward = 4;
   inline bool has_m_donatereward() const;
   inline void clear_m_donatereward();
-  static const int kMDonaterewardFieldNumber = 4;
+  static const int kMDonateRewardFieldNumber = 4;
   inline ::google::protobuf::int32 m_donatereward() const;
   inline void set_m_donatereward(::google::protobuf::int32 value);
 
-  // optional int32 m_severreward = 5;
+  // optional int32 m_severReward = 5;
   inline bool has_m_severreward() const;
   inline void clear_m_severreward();
-  static const int kMSeverrewardFieldNumber = 5;
+  static const int kMSeverRewardFieldNumber = 5;
   inline ::google::protobuf::int32 m_severreward() const;
   inline void set_m_severreward(::google::protobuf::int32 value);
 
-  // optional int32 m_singlereward = 6;
+  // optional int32 m_singleReward = 6;
   inline bool has_m_singlereward() const;
   inline void clear_m_singlereward();
-  static const int kMSinglerewardFieldNumber = 6;
+  static const int kMSingleRewardFieldNumber = 6;
   inline ::google::protobuf::int32 m_singlereward() const;
   inline void set_m_singlereward(::google::protobuf::int32 value);
 
-  // optional int32 m_taskgroupid = 7;
+  // optional int32 m_taskGroupID = 7;
   inline bool has_m_taskgroupid() const;
   inline void clear_m_taskgroupid();
-  static const int kMTaskgroupidFieldNumber = 7;
+  static const int kMTaskGroupIDFieldNumber = 7;
   inline ::google::protobuf::int32 m_taskgroupid() const;
   inline void set_m_taskgroupid(::google::protobuf::int32 value);
 
@@ -6036,10 +6036,10 @@ class E_FestivalMuban_donate_sever : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 2;
+  static const int kMGroupIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
@@ -6057,10 +6057,10 @@ class E_FestivalMuban_donate_sever : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_type() const;
   inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional string m_typearg = 5;
+  // optional string m_typeArg = 5;
   inline bool has_m_typearg() const;
   inline void clear_m_typearg();
-  static const int kMTypeargFieldNumber = 5;
+  static const int kMTypeArgFieldNumber = 5;
   inline const ::std::string& m_typearg() const;
   inline void set_m_typearg(const ::std::string& value);
   inline void set_m_typearg(const char* value);
@@ -6273,10 +6273,10 @@ class E_FestivalMuban_donate_single : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 2;
+  static const int kMGroupIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
@@ -6287,10 +6287,10 @@ class E_FestivalMuban_donate_single : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_value() const;
   inline void set_m_value(::google::protobuf::int32 value);
 
-  // optional string m_itemid = 4;
+  // optional string m_itemID = 4;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 4;
+  static const int kMItemIDFieldNumber = 4;
   inline const ::std::string& m_itemid() const;
   inline void set_m_itemid(const ::std::string& value);
   inline void set_m_itemid(const char* value);
@@ -6500,38 +6500,38 @@ class E_FestivalMuban_donate_task : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 2;
+  static const int kMGroupIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
-  // optional int32 m_eventtype = 3;
+  // optional int32 m_eventType = 3;
   inline bool has_m_eventtype() const;
   inline void clear_m_eventtype();
-  static const int kMEventtypeFieldNumber = 3;
+  static const int kMEventTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_eventtype() const;
   inline void set_m_eventtype(::google::protobuf::int32 value);
 
-  // optional int32 m_reachprice = 4;
+  // optional int32 m_reachPrice = 4;
   inline bool has_m_reachprice() const;
   inline void clear_m_reachprice();
-  static const int kMReachpriceFieldNumber = 4;
+  static const int kMReachPriceFieldNumber = 4;
   inline ::google::protobuf::int32 m_reachprice() const;
   inline void set_m_reachprice(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 5;
+  // optional int32 m_itemID = 5;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 5;
+  static const int kMItemIDFieldNumber = 5;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
-  // optional int32 m_itemnum = 6;
+  // optional int32 m_itemNum = 6;
   inline bool has_m_itemnum() const;
   inline void clear_m_itemnum();
-  static const int kMItemnumFieldNumber = 6;
+  static const int kMItemNumFieldNumber = 6;
   inline ::google::protobuf::int32 m_itemnum() const;
   inline void set_m_itemnum(::google::protobuf::int32 value);
 
@@ -6737,10 +6737,10 @@ class E_FestivalMuban_online : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_period() const;
   inline void set_m_period(::google::protobuf::int32 value);
 
-  // optional string m_timestart = 3;
+  // optional string m_timeStart = 3;
   inline bool has_m_timestart() const;
   inline void clear_m_timestart();
-  static const int kMTimestartFieldNumber = 3;
+  static const int kMTimeStartFieldNumber = 3;
   inline const ::std::string& m_timestart() const;
   inline void set_m_timestart(const ::std::string& value);
   inline void set_m_timestart(const char* value);
@@ -6749,10 +6749,10 @@ class E_FestivalMuban_online : public ::google::protobuf::Message {
   inline ::std::string* release_m_timestart();
   inline void set_allocated_m_timestart(::std::string* m_timestart);
 
-  // optional string m_timeend = 4;
+  // optional string m_timeEnd = 4;
   inline bool has_m_timeend() const;
   inline void clear_m_timeend();
-  static const int kMTimeendFieldNumber = 4;
+  static const int kMTimeEndFieldNumber = 4;
   inline const ::std::string& m_timeend() const;
   inline void set_m_timeend(const ::std::string& value);
   inline void set_m_timeend(const char* value);
@@ -6761,17 +6761,17 @@ class E_FestivalMuban_online : public ::google::protobuf::Message {
   inline ::std::string* release_m_timeend();
   inline void set_allocated_m_timeend(::std::string* m_timeend);
 
-  // optional int32 m_itemid = 5;
+  // optional int32 m_itemID = 5;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 5;
+  static const int kMItemIDFieldNumber = 5;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
-  // optional int32 m_itemnum = 6;
+  // optional int32 m_itemNum = 6;
   inline bool has_m_itemnum() const;
   inline void clear_m_itemnum();
-  static const int kMItemnumFieldNumber = 6;
+  static const int kMItemNumFieldNumber = 6;
   inline ::google::protobuf::int32 m_itemnum() const;
   inline void set_m_itemnum(::google::protobuf::int32 value);
 
@@ -6974,10 +6974,10 @@ class E_FestivalMuban_rturntable : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_period() const;
   inline void set_m_period(::google::protobuf::int32 value);
 
-  // optional int32 m_rechargegroupid = 3;
+  // optional int32 m_rechargeGroupID = 3;
   inline bool has_m_rechargegroupid() const;
   inline void clear_m_rechargegroupid();
-  static const int kMRechargegroupidFieldNumber = 3;
+  static const int kMRechargeGroupIDFieldNumber = 3;
   inline ::google::protobuf::int32 m_rechargegroupid() const;
   inline void set_m_rechargegroupid(::google::protobuf::int32 value);
 
@@ -7154,17 +7154,17 @@ class E_FestivalMuban_rturntable_recharge : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 2;
+  static const int kMGroupIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
-  // optional int32 m_rechargeid = 3;
+  // optional int32 m_rechargeID = 3;
   inline bool has_m_rechargeid() const;
   inline void clear_m_rechargeid();
-  static const int kMRechargeidFieldNumber = 3;
+  static const int kMRechargeIDFieldNumber = 3;
   inline ::google::protobuf::int32 m_rechargeid() const;
   inline void set_m_rechargeid(::google::protobuf::int32 value);
 
@@ -7175,10 +7175,10 @@ class E_FestivalMuban_rturntable_recharge : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_limit() const;
   inline void set_m_limit(::google::protobuf::int32 value);
 
-  // optional int32 m_ratiogroupid = 5;
+  // optional int32 m_ratioGroupID = 5;
   inline bool has_m_ratiogroupid() const;
   inline void clear_m_ratiogroupid();
-  static const int kMRatiogroupidFieldNumber = 5;
+  static const int kMRatioGroupIDFieldNumber = 5;
   inline ::google::protobuf::int32 m_ratiogroupid() const;
   inline void set_m_ratiogroupid(::google::protobuf::int32 value);
 
@@ -7361,10 +7361,10 @@ class E_FestivalMuban_rturntable_recharge_ratio : public ::google::protobuf::Mes
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 2;
+  static const int kMGroupIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
@@ -7565,17 +7565,17 @@ class E_FestivalMuban_drawpize : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_period() const;
   inline void set_m_period(::google::protobuf::int32 value);
 
-  // optional int64 m_costid = 3;
+  // optional int64 m_costID = 3;
   inline bool has_m_costid() const;
   inline void clear_m_costid();
-  static const int kMCostidFieldNumber = 3;
+  static const int kMCostIDFieldNumber = 3;
   inline ::google::protobuf::int64 m_costid() const;
   inline void set_m_costid(::google::protobuf::int64 value);
 
-  // optional string m_costnum = 4;
+  // optional string m_costNum = 4;
   inline bool has_m_costnum() const;
   inline void clear_m_costnum();
-  static const int kMCostnumFieldNumber = 4;
+  static const int kMCostNumFieldNumber = 4;
   inline const ::std::string& m_costnum() const;
   inline void set_m_costnum(const ::std::string& value);
   inline void set_m_costnum(const char* value);
@@ -7584,31 +7584,31 @@ class E_FestivalMuban_drawpize : public ::google::protobuf::Message {
   inline ::std::string* release_m_costnum();
   inline void set_allocated_m_costnum(::std::string* m_costnum);
 
-  // optional int32 m_poolgroupid = 5;
+  // optional int32 m_poolGroupId = 5;
   inline bool has_m_poolgroupid() const;
   inline void clear_m_poolgroupid();
-  static const int kMPoolgroupidFieldNumber = 5;
+  static const int kMPoolGroupIdFieldNumber = 5;
   inline ::google::protobuf::int32 m_poolgroupid() const;
   inline void set_m_poolgroupid(::google::protobuf::int32 value);
 
-  // optional int32 m_totalgroupid = 6;
+  // optional int32 m_totalGroupID = 6;
   inline bool has_m_totalgroupid() const;
   inline void clear_m_totalgroupid();
-  static const int kMTotalgroupidFieldNumber = 6;
+  static const int kMTotalGroupIDFieldNumber = 6;
   inline ::google::protobuf::int32 m_totalgroupid() const;
   inline void set_m_totalgroupid(::google::protobuf::int32 value);
 
-  // optional int32 m_severlimit = 7;
+  // optional int32 m_severLimit = 7;
   inline bool has_m_severlimit() const;
   inline void clear_m_severlimit();
-  static const int kMSeverlimitFieldNumber = 7;
+  static const int kMSeverLimitFieldNumber = 7;
   inline ::google::protobuf::int32 m_severlimit() const;
   inline void set_m_severlimit(::google::protobuf::int32 value);
 
-  // optional int32 m_protecttime = 8;
+  // optional int32 m_protectTime = 8;
   inline bool has_m_protecttime() const;
   inline void clear_m_protecttime();
-  static const int kMProtecttimeFieldNumber = 8;
+  static const int kMProtectTimeFieldNumber = 8;
   inline ::google::protobuf::int32 m_protecttime() const;
   inline void set_m_protecttime(::google::protobuf::int32 value);
 
@@ -7800,10 +7800,10 @@ class E_FestivalMuban_drawpize_pool : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 2;
+  static const int kMGroupIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
@@ -7835,21 +7835,21 @@ class E_FestivalMuban_drawpize_pool : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_weights() const;
   inline void set_m_weights(::google::protobuf::int32 value);
 
-  // optional int32 m_proweights = 7;
+  // optional int32 m_proWeights = 7;
   inline bool has_m_proweights() const;
   inline void clear_m_proweights();
-  static const int kMProweightsFieldNumber = 7;
+  static const int kMProWeightsFieldNumber = 7;
   inline ::google::protobuf::int32 m_proweights() const;
   inline void set_m_proweights(::google::protobuf::int32 value);
 
-  // optional int32 m_timelimit = 8;
+  // optional int32 m_timeLimit = 8;
   inline bool has_m_timelimit() const;
   inline void clear_m_timelimit();
-  static const int kMTimelimitFieldNumber = 8;
+  static const int kMTimeLimitFieldNumber = 8;
   inline ::google::protobuf::int32 m_timelimit() const;
   inline void set_m_timelimit(::google::protobuf::int32 value);
 
-  // optional int32 m_record = 9;
+  // optional int32 m_Record = 9;
   inline bool has_m_record() const;
   inline void clear_m_record();
   static const int kMRecordFieldNumber = 9;
@@ -8061,10 +8061,10 @@ class E_FestivalMuban_drawpize_total : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_value() const;
   inline void set_m_value(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 4;
+  // optional int32 m_itemID = 4;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 4;
+  static const int kMItemIDFieldNumber = 4;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
@@ -8655,24 +8655,24 @@ class E_FestivalMuban_play : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_period() const;
   inline void set_m_period(::google::protobuf::int32 value);
 
-  // optional int32 m_rewardgroup = 3;
+  // optional int32 m_rewardGroup = 3;
   inline bool has_m_rewardgroup() const;
   inline void clear_m_rewardgroup();
-  static const int kMRewardgroupFieldNumber = 3;
+  static const int kMRewardGroupFieldNumber = 3;
   inline ::google::protobuf::int32 m_rewardgroup() const;
   inline void set_m_rewardgroup(::google::protobuf::int32 value);
 
-  // optional int32 m_gamegroup = 4;
+  // optional int32 m_gameGroup = 4;
   inline bool has_m_gamegroup() const;
   inline void clear_m_gamegroup();
-  static const int kMGamegroupFieldNumber = 4;
+  static const int kMGameGroupFieldNumber = 4;
   inline ::google::protobuf::int32 m_gamegroup() const;
   inline void set_m_gamegroup(::google::protobuf::int32 value);
 
-  // repeated string m_opentime = 5;
+  // repeated string m_openTime = 5;
   inline int m_opentime_size() const;
   inline void clear_m_opentime();
-  static const int kMOpentimeFieldNumber = 5;
+  static const int kMOpenTimeFieldNumber = 5;
   inline const ::std::string& m_opentime(int index) const;
   inline ::std::string* mutable_m_opentime(int index);
   inline void set_m_opentime(int index, const ::std::string& value);
@@ -8862,10 +8862,10 @@ class E_FestivalMuban_play_reward : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 2;
+  static const int kMGroupIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
@@ -8876,10 +8876,10 @@ class E_FestivalMuban_play_reward : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_points() const;
   inline void set_m_points(::google::protobuf::int32 value);
 
-  // optional int32 m_boxid = 4;
+  // optional int32 m_boxID = 4;
   inline bool has_m_boxid() const;
   inline void clear_m_boxid();
-  static const int kMBoxidFieldNumber = 4;
+  static const int kMBoxIDFieldNumber = 4;
   inline ::google::protobuf::int32 m_boxid() const;
   inline void set_m_boxid(::google::protobuf::int32 value);
 
@@ -9059,10 +9059,10 @@ class E_FestivalMuban_play_game : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 2;
+  static const int kMGroupIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
@@ -9073,10 +9073,10 @@ class E_FestivalMuban_play_game : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_order() const;
   inline void set_m_order(::google::protobuf::int32 value);
 
-  // optional int32 m_playtype = 4;
+  // optional int32 m_playType = 4;
   inline bool has_m_playtype() const;
   inline void clear_m_playtype();
-  static const int kMPlaytypeFieldNumber = 4;
+  static const int kMPlayTypeFieldNumber = 4;
   inline ::google::protobuf::int32 m_playtype() const;
   inline void set_m_playtype(::google::protobuf::int32 value);
 
@@ -9092,24 +9092,24 @@ class E_FestivalMuban_play_game : public ::google::protobuf::Message {
   inline ::std::string* release_m_arg();
   inline void set_allocated_m_arg(::std::string* m_arg);
 
-  // optional int32 m_rewardbox = 6;
+  // optional int32 m_rewardBox = 6;
   inline bool has_m_rewardbox() const;
   inline void clear_m_rewardbox();
-  static const int kMRewardboxFieldNumber = 6;
+  static const int kMRewardBoxFieldNumber = 6;
   inline ::google::protobuf::int32 m_rewardbox() const;
   inline void set_m_rewardbox(::google::protobuf::int32 value);
 
-  // optional int32 m_pretime = 7;
+  // optional int32 m_preTime = 7;
   inline bool has_m_pretime() const;
   inline void clear_m_pretime();
-  static const int kMPretimeFieldNumber = 7;
+  static const int kMPreTimeFieldNumber = 7;
   inline ::google::protobuf::int32 m_pretime() const;
   inline void set_m_pretime(::google::protobuf::int32 value);
 
-  // repeated string m_playarg = 8;
+  // repeated string m_playArg = 8;
   inline int m_playarg_size() const;
   inline void clear_m_playarg();
-  static const int kMPlayargFieldNumber = 8;
+  static const int kMPlayArgFieldNumber = 8;
   inline const ::std::string& m_playarg(int index) const;
   inline ::std::string* mutable_m_playarg(int index);
   inline void set_m_playarg(int index, const ::std::string& value);
@@ -9454,7 +9454,7 @@ class Sheet_FestivalMuban_play_score : public ::google::protobuf::Message {
 
 // E_FestivalPeriodindex
 
-// optional int32 m_minorigalday = 1;
+// optional int32 m_minOrigalDay = 1;
 inline bool E_FestivalPeriodindex::has_m_minorigalday() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -9703,7 +9703,7 @@ inline void E_FestivalTemplate::set_allocated_m_name(::std::string* m_name) {
   }
 }
 
-// optional int32 m_festivalid = 3;
+// optional int32 m_festivalId = 3;
 inline bool E_FestivalTemplate::has_m_festivalid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -9725,7 +9725,7 @@ inline void E_FestivalTemplate::set_m_festivalid(::google::protobuf::int32 value
   m_festivalid_ = value;
 }
 
-// optional int32 m_timetype = 4;
+// optional int32 m_timeType = 4;
 inline bool E_FestivalTemplate::has_m_timetype() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -9769,7 +9769,7 @@ inline void E_FestivalTemplate::set_m_level(::google::protobuf::int32 value) {
   m_level_ = value;
 }
 
-// optional int32 m_viplevel = 6;
+// optional int32 m_vipLevel = 6;
 inline bool E_FestivalTemplate::has_m_viplevel() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -9813,7 +9813,7 @@ inline void E_FestivalTemplate::set_m_rechange(::google::protobuf::int32 value) 
   m_rechange_ = value;
 }
 
-// optional int32 m_severtype = 8;
+// optional int32 m_severType = 8;
 inline bool E_FestivalTemplate::has_m_severtype() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -9835,7 +9835,7 @@ inline void E_FestivalTemplate::set_m_severtype(::google::protobuf::int32 value)
   m_severtype_ = value;
 }
 
-// optional string m_typearg = 9;
+// optional string m_typeArg = 9;
 inline bool E_FestivalTemplate::has_m_typearg() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -9905,7 +9905,7 @@ inline void E_FestivalTemplate::set_allocated_m_typearg(::std::string* m_typearg
   }
 }
 
-// optional int32 m_periodtype = 10;
+// optional int32 m_periodType = 10;
 inline bool E_FestivalTemplate::has_m_periodtype() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -9949,7 +9949,7 @@ inline void E_FestivalTemplate::set_m_period(::google::protobuf::int32 value) {
   m_period_ = value;
 }
 
-// optional int32 m_ifopen = 12;
+// optional int32 m_ifOpen = 12;
 inline bool E_FestivalTemplate::has_m_ifopen() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -9971,7 +9971,7 @@ inline void E_FestivalTemplate::set_m_ifopen(::google::protobuf::int32 value) {
   m_ifopen_ = value;
 }
 
-// optional int32 m_activeid = 13;
+// optional int32 m_activeID = 13;
 inline bool E_FestivalTemplate::has_m_activeid() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -9993,7 +9993,7 @@ inline void E_FestivalTemplate::set_m_activeid(::google::protobuf::int32 value) 
   m_activeid_ = value;
 }
 
-// repeated string m_timearg = 14;
+// repeated string m_timeArg = 14;
 inline int E_FestivalTemplate::m_timearg_size() const {
   return m_timearg_.size();
 }
@@ -10114,7 +10114,7 @@ inline void E_FestivalMuban_login::set_m_period(::google::protobuf::int32 value)
   m_period_ = value;
 }
 
-// optional int32 m_loginday = 3;
+// optional int32 m_loginDay = 3;
 inline bool E_FestivalMuban_login::has_m_loginday() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -10400,7 +10400,7 @@ inline void E_FestivalMuban_love::set_m_period(::google::protobuf::int32 value) 
   m_period_ = value;
 }
 
-// optional int32 m_taskpointid = 3;
+// optional int32 m_taskPointID = 3;
 inline bool E_FestivalMuban_love::has_m_taskpointid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -10422,7 +10422,7 @@ inline void E_FestivalMuban_love::set_m_taskpointid(::google::protobuf::int32 va
   m_taskpointid_ = value;
 }
 
-// optional int32 m_rankgroup = 4;
+// optional int32 m_rankGroup = 4;
 inline bool E_FestivalMuban_love::has_m_rankgroup() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -10444,7 +10444,7 @@ inline void E_FestivalMuban_love::set_m_rankgroup(::google::protobuf::int32 valu
   m_rankgroup_ = value;
 }
 
-// optional int32 m_taskgroup = 5;
+// optional int32 m_taskGroup = 5;
 inline bool E_FestivalMuban_love::has_m_taskgroup() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -10466,7 +10466,7 @@ inline void E_FestivalMuban_love::set_m_taskgroup(::google::protobuf::int32 valu
   m_taskgroup_ = value;
 }
 
-// optional int32 m_taskrewardgroup = 6;
+// optional int32 m_taskRewardGroup = 6;
 inline bool E_FestivalMuban_love::has_m_taskrewardgroup() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -10565,7 +10565,7 @@ inline void E_FestivalMuban_love_rank::set_m_groupid(::google::protobuf::int32 v
   m_groupid_ = value;
 }
 
-// optional int32 m_rewardshow = 3;
+// optional int32 m_rewardShow = 3;
 inline bool E_FestivalMuban_love_rank::has_m_rewardshow() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -10587,7 +10587,7 @@ inline void E_FestivalMuban_love_rank::set_m_rewardshow(::google::protobuf::int3
   m_rewardshow_ = value;
 }
 
-// optional int32 m_datagroupid = 4;
+// optional int32 m_dataGroupID = 4;
 inline bool E_FestivalMuban_love_rank::has_m_datagroupid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -10609,7 +10609,7 @@ inline void E_FestivalMuban_love_rank::set_m_datagroupid(::google::protobuf::int
   m_datagroupid_ = value;
 }
 
-// optional int32 m_ranktype = 5;
+// optional int32 m_rankType = 5;
 inline bool E_FestivalMuban_love_rank::has_m_ranktype() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -10686,7 +10686,7 @@ inline void E_FestivalMuban_love_rank_data::set_m_id(::google::protobuf::int32 v
   m_id_ = value;
 }
 
-// optional int32 m_groupid = 2;
+// optional int32 m_groupID = 2;
 inline bool E_FestivalMuban_love_rank_data::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -10708,7 +10708,7 @@ inline void E_FestivalMuban_love_rank_data::set_m_groupid(::google::protobuf::in
   m_groupid_ = value;
 }
 
-// optional int32 m_maxrank = 3;
+// optional int32 m_maxRank = 3;
 inline bool E_FestivalMuban_love_rank_data::has_m_maxrank() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -10730,7 +10730,7 @@ inline void E_FestivalMuban_love_rank_data::set_m_maxrank(::google::protobuf::in
   m_maxrank_ = value;
 }
 
-// optional int32 m_minrank = 4;
+// optional int32 m_minRank = 4;
 inline bool E_FestivalMuban_love_rank_data::has_m_minrank() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -10752,7 +10752,7 @@ inline void E_FestivalMuban_love_rank_data::set_m_minrank(::google::protobuf::in
   m_minrank_ = value;
 }
 
-// optional int32 m_rankvalue = 5;
+// optional int32 m_rankValue = 5;
 inline bool E_FestivalMuban_love_rank_data::has_m_rankvalue() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -10774,7 +10774,7 @@ inline void E_FestivalMuban_love_rank_data::set_m_rankvalue(::google::protobuf::
   m_rankvalue_ = value;
 }
 
-// optional int32 m_boxid = 6;
+// optional int32 m_boxID = 6;
 inline bool E_FestivalMuban_love_rank_data::has_m_boxid() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -10851,7 +10851,7 @@ inline void E_FestivalMuban_love_task::set_m_id(::google::protobuf::int32 value)
   m_id_ = value;
 }
 
-// optional int32 m_groupid = 2;
+// optional int32 m_groupID = 2;
 inline bool E_FestivalMuban_love_task::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -10873,7 +10873,7 @@ inline void E_FestivalMuban_love_task::set_m_groupid(::google::protobuf::int32 v
   m_groupid_ = value;
 }
 
-// optional int32 m_eventtype = 3;
+// optional int32 m_eventType = 3;
 inline bool E_FestivalMuban_love_task::has_m_eventtype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -10895,7 +10895,7 @@ inline void E_FestivalMuban_love_task::set_m_eventtype(::google::protobuf::int32
   m_eventtype_ = value;
 }
 
-// optional int32 m_reachprice = 4;
+// optional int32 m_reachPrice = 4;
 inline bool E_FestivalMuban_love_task::has_m_reachprice() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -10939,7 +10939,7 @@ inline void E_FestivalMuban_love_task::set_m_link(::google::protobuf::int32 valu
   m_link_ = value;
 }
 
-// optional int32 m_rewardtimes = 6;
+// optional int32 m_rewardTimes = 6;
 inline bool E_FestivalMuban_love_task::has_m_rewardtimes() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -11063,7 +11063,7 @@ inline void E_FestivalMuban_love_taskreward::set_m_id(::google::protobuf::int32 
   m_id_ = value;
 }
 
-// optional int32 m_groupid = 2;
+// optional int32 m_groupID = 2;
 inline bool E_FestivalMuban_love_taskreward::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -11206,7 +11206,7 @@ inline void E_FestivalMuban_addbox::set_m_period(::google::protobuf::int32 value
   m_period_ = value;
 }
 
-// optional int32 m_lvlimit = 3;
+// optional int32 m_lvLimit = 3;
 inline bool E_FestivalMuban_addbox::has_m_lvlimit() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -11320,7 +11320,7 @@ inline void E_FestivalMuban_addbox::set_allocated_m_arg(::std::string* m_arg) {
   }
 }
 
-// optional int32 m_addboxid = 6;
+// optional int32 m_addBoxId = 6;
 inline bool E_FestivalMuban_addbox::has_m_addboxid() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -11654,7 +11654,7 @@ inline void E_FestivalMuban_bossfristkill::set_m_bossid(::google::protobuf::int3
   m_bossid_ = value;
 }
 
-// optional int32 m_fristkillreward = 5;
+// optional int32 m_fristKillReward = 5;
 inline bool E_FestivalMuban_bossfristkill::has_m_fristkillreward() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -11676,7 +11676,7 @@ inline void E_FestivalMuban_bossfristkill::set_m_fristkillreward(::google::proto
   m_fristkillreward_ = value;
 }
 
-// optional int32 m_killreward = 6;
+// optional int32 m_killReward = 6;
 inline bool E_FestivalMuban_bossfristkill::has_m_killreward() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -11698,7 +11698,7 @@ inline void E_FestivalMuban_bossfristkill::set_m_killreward(::google::protobuf::
   m_killreward_ = value;
 }
 
-// optional int32 m_fristkillpacket = 7;
+// optional int32 m_fristKillPacket = 7;
 inline bool E_FestivalMuban_bossfristkill::has_m_fristkillpacket() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -11937,7 +11937,7 @@ inline void E_FestivalMuban_severrank::set_allocated_m_name(::std::string* m_nam
   }
 }
 
-// optional int32 m_openday = 5;
+// optional int32 m_openDay = 5;
 inline bool E_FestivalMuban_severrank::has_m_openday() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -11959,7 +11959,7 @@ inline void E_FestivalMuban_severrank::set_m_openday(::google::protobuf::int32 v
   m_openday_ = value;
 }
 
-// optional int32 m_closeday = 6;
+// optional int32 m_closeDay = 6;
 inline bool E_FestivalMuban_severrank::has_m_closeday() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -11981,7 +11981,7 @@ inline void E_FestivalMuban_severrank::set_m_closeday(::google::protobuf::int32 
   m_closeday_ = value;
 }
 
-// optional string m_championtitle = 7;
+// optional string m_championTitle = 7;
 inline bool E_FestivalMuban_severrank::has_m_championtitle() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -12051,7 +12051,7 @@ inline void E_FestivalMuban_severrank::set_allocated_m_championtitle(::std::stri
   }
 }
 
-// optional int32 m_rewardshow = 8;
+// optional int32 m_rewardShow = 8;
 inline bool E_FestivalMuban_severrank::has_m_rewardshow() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -12073,7 +12073,7 @@ inline void E_FestivalMuban_severrank::set_m_rewardshow(::google::protobuf::int3
   m_rewardshow_ = value;
 }
 
-// optional int32 m_datagroupid = 9;
+// optional int32 m_dataGroupID = 9;
 inline bool E_FestivalMuban_severrank::has_m_datagroupid() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -12095,7 +12095,7 @@ inline void E_FestivalMuban_severrank::set_m_datagroupid(::google::protobuf::int
   m_datagroupid_ = value;
 }
 
-// optional int32 m_ranktype = 10;
+// optional int32 m_rankType = 10;
 inline bool E_FestivalMuban_severrank::has_m_ranktype() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -12117,7 +12117,7 @@ inline void E_FestivalMuban_severrank::set_m_ranktype(::google::protobuf::int32 
   m_ranktype_ = value;
 }
 
-// optional string m_rankgift = 11;
+// optional string m_rankGift = 11;
 inline bool E_FestivalMuban_severrank::has_m_rankgift() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -12187,7 +12187,7 @@ inline void E_FestivalMuban_severrank::set_allocated_m_rankgift(::std::string* m
   }
 }
 
-// optional string m_gifticon = 12;
+// optional string m_giftIcon = 12;
 inline bool E_FestivalMuban_severrank::has_m_gifticon() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -12257,7 +12257,7 @@ inline void E_FestivalMuban_severrank::set_allocated_m_gifticon(::std::string* m
   }
 }
 
-// optional int32 m_giftitemid = 13;
+// optional int32 m_giftItemId = 13;
 inline bool E_FestivalMuban_severrank::has_m_giftitemid() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -12279,7 +12279,7 @@ inline void E_FestivalMuban_severrank::set_m_giftitemid(::google::protobuf::int3
   m_giftitemid_ = value;
 }
 
-// optional int32 m_originalprice = 14;
+// optional int32 m_originalPrice = 14;
 inline bool E_FestivalMuban_severrank::has_m_originalprice() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -12323,7 +12323,7 @@ inline void E_FestivalMuban_severrank::set_m_price(::google::protobuf::int32 val
   m_price_ = value;
 }
 
-// optional int32 m_ratioshow = 16;
+// optional int32 m_ratioShow = 16;
 inline bool E_FestivalMuban_severrank::has_m_ratioshow() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
@@ -12345,7 +12345,7 @@ inline void E_FestivalMuban_severrank::set_m_ratioshow(::google::protobuf::int32
   m_ratioshow_ = value;
 }
 
-// optional int32 m_redpointbox = 17;
+// optional int32 m_redPointBox = 17;
 inline bool E_FestivalMuban_severrank::has_m_redpointbox() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
@@ -12422,7 +12422,7 @@ inline void E_FestivalMuban_severrank_data::set_m_id(::google::protobuf::int32 v
   m_id_ = value;
 }
 
-// optional int32 m_groupid = 2;
+// optional int32 m_groupID = 2;
 inline bool E_FestivalMuban_severrank_data::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -12444,7 +12444,7 @@ inline void E_FestivalMuban_severrank_data::set_m_groupid(::google::protobuf::in
   m_groupid_ = value;
 }
 
-// optional int32 m_maxrank = 3;
+// optional int32 m_maxRank = 3;
 inline bool E_FestivalMuban_severrank_data::has_m_maxrank() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -12466,7 +12466,7 @@ inline void E_FestivalMuban_severrank_data::set_m_maxrank(::google::protobuf::in
   m_maxrank_ = value;
 }
 
-// optional int32 m_minrank = 4;
+// optional int32 m_minRank = 4;
 inline bool E_FestivalMuban_severrank_data::has_m_minrank() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -12488,7 +12488,7 @@ inline void E_FestivalMuban_severrank_data::set_m_minrank(::google::protobuf::in
   m_minrank_ = value;
 }
 
-// optional int32 m_rankvalue = 5;
+// optional int32 m_rankValue = 5;
 inline bool E_FestivalMuban_severrank_data::has_m_rankvalue() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -12510,7 +12510,7 @@ inline void E_FestivalMuban_severrank_data::set_m_rankvalue(::google::protobuf::
   m_rankvalue_ = value;
 }
 
-// optional string m_unachievedisplay = 6;
+// optional string m_UnachieveDisplay = 6;
 inline bool E_FestivalMuban_severrank_data::has_m_unachievedisplay() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -12580,7 +12580,7 @@ inline void E_FestivalMuban_severrank_data::set_allocated_m_unachievedisplay(::s
   }
 }
 
-// optional int32 m_boxid = 7;
+// optional int32 m_boxID = 7;
 inline bool E_FestivalMuban_severrank_data::has_m_boxid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -12895,7 +12895,7 @@ inline void E_FestivalMuban_sign::set_m_period(::google::protobuf::int32 value) 
   m_period_ = value;
 }
 
-// optional int32 m_boxid = 3;
+// optional int32 m_boxID = 3;
 inline bool E_FestivalMuban_sign::has_m_boxid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -12994,7 +12994,7 @@ inline void E_FestivalMuban_shop::set_m_period(::google::protobuf::int32 value) 
   m_period_ = value;
 }
 
-// optional int32 m_viplevel = 3;
+// optional int32 m_vipLevel = 3;
 inline bool E_FestivalMuban_shop::has_m_viplevel() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -13038,7 +13038,7 @@ inline void E_FestivalMuban_shop::set_m_box(::google::protobuf::int32 value) {
   m_box_ = value;
 }
 
-// optional int32 m_timelimit = 5;
+// optional int32 m_timeLimit = 5;
 inline bool E_FestivalMuban_shop::has_m_timelimit() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -13082,7 +13082,7 @@ inline void E_FestivalMuban_shop::set_m_price(::google::protobuf::int32 value) {
   m_price_ = value;
 }
 
-// optional int32 m_pricetype = 7;
+// optional int32 m_priceType = 7;
 inline bool E_FestivalMuban_shop::has_m_pricetype() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -13104,7 +13104,7 @@ inline void E_FestivalMuban_shop::set_m_pricetype(::google::protobuf::int32 valu
   m_pricetype_ = value;
 }
 
-// optional int32 m_startime = 8;
+// optional int32 m_starTime = 8;
 inline bool E_FestivalMuban_shop::has_m_startime() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -13126,7 +13126,7 @@ inline void E_FestivalMuban_shop::set_m_startime(::google::protobuf::int32 value
   m_startime_ = value;
 }
 
-// optional int32 m_durtime = 9;
+// optional int32 m_durTime = 9;
 inline bool E_FestivalMuban_shop::has_m_durtime() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -13247,7 +13247,7 @@ inline void E_FestivalMuban_rechange::set_m_rebate(::google::protobuf::int32 val
   m_rebate_ = value;
 }
 
-// optional int32 m_timelimit = 4;
+// optional int32 m_timeLimit = 4;
 inline bool E_FestivalMuban_rechange::has_m_timelimit() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -13412,7 +13412,7 @@ inline void E_FestivalMuban_leiji::set_m_leiji(::google::protobuf::int32 value) 
   m_leiji_ = value;
 }
 
-// optional int32 m_boxid = 4;
+// optional int32 m_boxID = 4;
 inline bool E_FestivalMuban_leiji::has_m_boxid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -13654,7 +13654,7 @@ inline void E_FestivalZadanconstant::set_m_period(::google::protobuf::int32 valu
   m_period_ = value;
 }
 
-// optional int64 m_costitem = 2;
+// optional int64 m_costItem = 2;
 inline bool E_FestivalZadanconstant::has_m_costitem() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -13819,7 +13819,7 @@ inline void E_FestivalMuban_turntable::set_m_period(::google::protobuf::int32 va
   m_period_ = value;
 }
 
-// optional int32 m_poolgroup = 3;
+// optional int32 m_poolGroup = 3;
 inline bool E_FestivalMuban_turntable::has_m_poolgroup() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -13841,7 +13841,7 @@ inline void E_FestivalMuban_turntable::set_m_poolgroup(::google::protobuf::int32
   m_poolgroup_ = value;
 }
 
-// optional int32 m_taskgroup = 4;
+// optional int32 m_taskGroup = 4;
 inline bool E_FestivalMuban_turntable::has_m_taskgroup() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -13918,7 +13918,7 @@ inline void E_FestivalMuban_turntable_pool::set_m_id(::google::protobuf::int32 v
   m_id_ = value;
 }
 
-// optional int32 m_groupid = 2;
+// optional int32 m_groupID = 2;
 inline bool E_FestivalMuban_turntable_pool::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -13940,7 +13940,7 @@ inline void E_FestivalMuban_turntable_pool::set_m_groupid(::google::protobuf::in
   m_groupid_ = value;
 }
 
-// optional int32 m_itemid = 3;
+// optional int32 m_itemID = 3;
 inline bool E_FestivalMuban_turntable_pool::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -14061,7 +14061,7 @@ inline void E_FestivalMuban_turntable_task::set_m_id(::google::protobuf::int32 v
   m_id_ = value;
 }
 
-// optional int32 m_groupid = 2;
+// optional int32 m_groupID = 2;
 inline bool E_FestivalMuban_turntable_task::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -14083,7 +14083,7 @@ inline void E_FestivalMuban_turntable_task::set_m_groupid(::google::protobuf::in
   m_groupid_ = value;
 }
 
-// optional int32 m_eventtype = 3;
+// optional int32 m_eventType = 3;
 inline bool E_FestivalMuban_turntable_task::has_m_eventtype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -14105,7 +14105,7 @@ inline void E_FestivalMuban_turntable_task::set_m_eventtype(::google::protobuf::
   m_eventtype_ = value;
 }
 
-// optional int32 m_reachprice = 4;
+// optional int32 m_reachPrice = 4;
 inline bool E_FestivalMuban_turntable_task::has_m_reachprice() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -14149,7 +14149,7 @@ inline void E_FestivalMuban_turntable_task::set_m_link(::google::protobuf::int32
   m_link_ = value;
 }
 
-// optional int32 m_rewardtimes = 6;
+// optional int32 m_rewardTimes = 6;
 inline bool E_FestivalMuban_turntable_task::has_m_rewardtimes() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -14273,7 +14273,7 @@ inline void E_FestivalMuban_donate::set_m_period(::google::protobuf::int32 value
   m_period_ = value;
 }
 
-// optional int32 m_donateitem = 3;
+// optional int32 m_donateItem = 3;
 inline bool E_FestivalMuban_donate::has_m_donateitem() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -14295,7 +14295,7 @@ inline void E_FestivalMuban_donate::set_m_donateitem(::google::protobuf::int32 v
   m_donateitem_ = value;
 }
 
-// optional int32 m_donatereward = 4;
+// optional int32 m_donateReward = 4;
 inline bool E_FestivalMuban_donate::has_m_donatereward() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -14317,7 +14317,7 @@ inline void E_FestivalMuban_donate::set_m_donatereward(::google::protobuf::int32
   m_donatereward_ = value;
 }
 
-// optional int32 m_severreward = 5;
+// optional int32 m_severReward = 5;
 inline bool E_FestivalMuban_donate::has_m_severreward() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -14339,7 +14339,7 @@ inline void E_FestivalMuban_donate::set_m_severreward(::google::protobuf::int32 
   m_severreward_ = value;
 }
 
-// optional int32 m_singlereward = 6;
+// optional int32 m_singleReward = 6;
 inline bool E_FestivalMuban_donate::has_m_singlereward() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -14361,7 +14361,7 @@ inline void E_FestivalMuban_donate::set_m_singlereward(::google::protobuf::int32
   m_singlereward_ = value;
 }
 
-// optional int32 m_taskgroupid = 7;
+// optional int32 m_taskGroupID = 7;
 inline bool E_FestivalMuban_donate::has_m_taskgroupid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -14438,7 +14438,7 @@ inline void E_FestivalMuban_donate_sever::set_m_id(::google::protobuf::int32 val
   m_id_ = value;
 }
 
-// optional int32 m_groupid = 2;
+// optional int32 m_groupID = 2;
 inline bool E_FestivalMuban_donate_sever::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -14504,7 +14504,7 @@ inline void E_FestivalMuban_donate_sever::set_m_type(::google::protobuf::int32 v
   m_type_ = value;
 }
 
-// optional string m_typearg = 5;
+// optional string m_typeArg = 5;
 inline bool E_FestivalMuban_donate_sever::has_m_typearg() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -14721,7 +14721,7 @@ inline void E_FestivalMuban_donate_single::set_m_id(::google::protobuf::int32 va
   m_id_ = value;
 }
 
-// optional int32 m_groupid = 2;
+// optional int32 m_groupID = 2;
 inline bool E_FestivalMuban_donate_single::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -14765,7 +14765,7 @@ inline void E_FestivalMuban_donate_single::set_m_value(::google::protobuf::int32
   m_value_ = value;
 }
 
-// optional string m_itemid = 4;
+// optional string m_itemID = 4;
 inline bool E_FestivalMuban_donate_single::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -14982,7 +14982,7 @@ inline void E_FestivalMuban_donate_task::set_m_id(::google::protobuf::int32 valu
   m_id_ = value;
 }
 
-// optional int32 m_groupid = 2;
+// optional int32 m_groupID = 2;
 inline bool E_FestivalMuban_donate_task::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -15004,7 +15004,7 @@ inline void E_FestivalMuban_donate_task::set_m_groupid(::google::protobuf::int32
   m_groupid_ = value;
 }
 
-// optional int32 m_eventtype = 3;
+// optional int32 m_eventType = 3;
 inline bool E_FestivalMuban_donate_task::has_m_eventtype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -15026,7 +15026,7 @@ inline void E_FestivalMuban_donate_task::set_m_eventtype(::google::protobuf::int
   m_eventtype_ = value;
 }
 
-// optional int32 m_reachprice = 4;
+// optional int32 m_reachPrice = 4;
 inline bool E_FestivalMuban_donate_task::has_m_reachprice() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -15048,7 +15048,7 @@ inline void E_FestivalMuban_donate_task::set_m_reachprice(::google::protobuf::in
   m_reachprice_ = value;
 }
 
-// optional int32 m_itemid = 5;
+// optional int32 m_itemID = 5;
 inline bool E_FestivalMuban_donate_task::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -15070,7 +15070,7 @@ inline void E_FestivalMuban_donate_task::set_m_itemid(::google::protobuf::int32 
   m_itemid_ = value;
 }
 
-// optional int32 m_itemnum = 6;
+// optional int32 m_itemNum = 6;
 inline bool E_FestivalMuban_donate_task::has_m_itemnum() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -15194,7 +15194,7 @@ inline void E_FestivalMuban_online::set_m_period(::google::protobuf::int32 value
   m_period_ = value;
 }
 
-// optional string m_timestart = 3;
+// optional string m_timeStart = 3;
 inline bool E_FestivalMuban_online::has_m_timestart() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -15264,7 +15264,7 @@ inline void E_FestivalMuban_online::set_allocated_m_timestart(::std::string* m_t
   }
 }
 
-// optional string m_timeend = 4;
+// optional string m_timeEnd = 4;
 inline bool E_FestivalMuban_online::has_m_timeend() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -15334,7 +15334,7 @@ inline void E_FestivalMuban_online::set_allocated_m_timeend(::std::string* m_tim
   }
 }
 
-// optional int32 m_itemid = 5;
+// optional int32 m_itemID = 5;
 inline bool E_FestivalMuban_online::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -15356,7 +15356,7 @@ inline void E_FestivalMuban_online::set_m_itemid(::google::protobuf::int32 value
   m_itemid_ = value;
 }
 
-// optional int32 m_itemnum = 6;
+// optional int32 m_itemNum = 6;
 inline bool E_FestivalMuban_online::has_m_itemnum() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -15477,7 +15477,7 @@ inline void E_FestivalMuban_rturntable::set_m_period(::google::protobuf::int32 v
   m_period_ = value;
 }
 
-// optional int32 m_rechargegroupid = 3;
+// optional int32 m_rechargeGroupID = 3;
 inline bool E_FestivalMuban_rturntable::has_m_rechargegroupid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -15554,7 +15554,7 @@ inline void E_FestivalMuban_rturntable_recharge::set_m_id(::google::protobuf::in
   m_id_ = value;
 }
 
-// optional int32 m_groupid = 2;
+// optional int32 m_groupID = 2;
 inline bool E_FestivalMuban_rturntable_recharge::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -15576,7 +15576,7 @@ inline void E_FestivalMuban_rturntable_recharge::set_m_groupid(::google::protobu
   m_groupid_ = value;
 }
 
-// optional int32 m_rechargeid = 3;
+// optional int32 m_rechargeID = 3;
 inline bool E_FestivalMuban_rturntable_recharge::has_m_rechargeid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -15620,7 +15620,7 @@ inline void E_FestivalMuban_rturntable_recharge::set_m_limit(::google::protobuf:
   m_limit_ = value;
 }
 
-// optional int32 m_ratiogroupid = 5;
+// optional int32 m_ratioGroupID = 5;
 inline bool E_FestivalMuban_rturntable_recharge::has_m_ratiogroupid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -15697,7 +15697,7 @@ inline void E_FestivalMuban_rturntable_recharge_ratio::set_m_id(::google::protob
   m_id_ = value;
 }
 
-// optional int32 m_groupid = 2;
+// optional int32 m_groupID = 2;
 inline bool E_FestivalMuban_rturntable_recharge_ratio::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -15840,7 +15840,7 @@ inline void E_FestivalMuban_drawpize::set_m_period(::google::protobuf::int32 val
   m_period_ = value;
 }
 
-// optional int64 m_costid = 3;
+// optional int64 m_costID = 3;
 inline bool E_FestivalMuban_drawpize::has_m_costid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -15862,7 +15862,7 @@ inline void E_FestivalMuban_drawpize::set_m_costid(::google::protobuf::int64 val
   m_costid_ = value;
 }
 
-// optional string m_costnum = 4;
+// optional string m_costNum = 4;
 inline bool E_FestivalMuban_drawpize::has_m_costnum() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -15932,7 +15932,7 @@ inline void E_FestivalMuban_drawpize::set_allocated_m_costnum(::std::string* m_c
   }
 }
 
-// optional int32 m_poolgroupid = 5;
+// optional int32 m_poolGroupId = 5;
 inline bool E_FestivalMuban_drawpize::has_m_poolgroupid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -15954,7 +15954,7 @@ inline void E_FestivalMuban_drawpize::set_m_poolgroupid(::google::protobuf::int3
   m_poolgroupid_ = value;
 }
 
-// optional int32 m_totalgroupid = 6;
+// optional int32 m_totalGroupID = 6;
 inline bool E_FestivalMuban_drawpize::has_m_totalgroupid() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -15976,7 +15976,7 @@ inline void E_FestivalMuban_drawpize::set_m_totalgroupid(::google::protobuf::int
   m_totalgroupid_ = value;
 }
 
-// optional int32 m_severlimit = 7;
+// optional int32 m_severLimit = 7;
 inline bool E_FestivalMuban_drawpize::has_m_severlimit() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -15998,7 +15998,7 @@ inline void E_FestivalMuban_drawpize::set_m_severlimit(::google::protobuf::int32
   m_severlimit_ = value;
 }
 
-// optional int32 m_protecttime = 8;
+// optional int32 m_protectTime = 8;
 inline bool E_FestivalMuban_drawpize::has_m_protecttime() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -16075,7 +16075,7 @@ inline void E_FestivalMuban_drawpize_pool::set_m_id(::google::protobuf::int32 va
   m_id_ = value;
 }
 
-// optional int32 m_groupid = 2;
+// optional int32 m_groupID = 2;
 inline bool E_FestivalMuban_drawpize_pool::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -16185,7 +16185,7 @@ inline void E_FestivalMuban_drawpize_pool::set_m_weights(::google::protobuf::int
   m_weights_ = value;
 }
 
-// optional int32 m_proweights = 7;
+// optional int32 m_proWeights = 7;
 inline bool E_FestivalMuban_drawpize_pool::has_m_proweights() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -16207,7 +16207,7 @@ inline void E_FestivalMuban_drawpize_pool::set_m_proweights(::google::protobuf::
   m_proweights_ = value;
 }
 
-// optional int32 m_timelimit = 8;
+// optional int32 m_timeLimit = 8;
 inline bool E_FestivalMuban_drawpize_pool::has_m_timelimit() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -16229,7 +16229,7 @@ inline void E_FestivalMuban_drawpize_pool::set_m_timelimit(::google::protobuf::i
   m_timelimit_ = value;
 }
 
-// optional int32 m_record = 9;
+// optional int32 m_Record = 9;
 inline bool E_FestivalMuban_drawpize_pool::has_m_record() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -16350,7 +16350,7 @@ inline void E_FestivalMuban_drawpize_total::set_m_value(::google::protobuf::int3
   m_value_ = value;
 }
 
-// optional int32 m_itemid = 4;
+// optional int32 m_itemID = 4;
 inline bool E_FestivalMuban_drawpize_total::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -16713,7 +16713,7 @@ inline void E_FestivalMuban_play::set_m_period(::google::protobuf::int32 value) 
   m_period_ = value;
 }
 
-// optional int32 m_rewardgroup = 3;
+// optional int32 m_rewardGroup = 3;
 inline bool E_FestivalMuban_play::has_m_rewardgroup() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -16735,7 +16735,7 @@ inline void E_FestivalMuban_play::set_m_rewardgroup(::google::protobuf::int32 va
   m_rewardgroup_ = value;
 }
 
-// optional int32 m_gamegroup = 4;
+// optional int32 m_gameGroup = 4;
 inline bool E_FestivalMuban_play::has_m_gamegroup() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -16757,7 +16757,7 @@ inline void E_FestivalMuban_play::set_m_gamegroup(::google::protobuf::int32 valu
   m_gamegroup_ = value;
 }
 
-// repeated string m_opentime = 5;
+// repeated string m_openTime = 5;
 inline int E_FestivalMuban_play::m_opentime_size() const {
   return m_opentime_.size();
 }
@@ -16856,7 +16856,7 @@ inline void E_FestivalMuban_play_reward::set_m_id(::google::protobuf::int32 valu
   m_id_ = value;
 }
 
-// optional int32 m_groupid = 2;
+// optional int32 m_groupID = 2;
 inline bool E_FestivalMuban_play_reward::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -16900,7 +16900,7 @@ inline void E_FestivalMuban_play_reward::set_m_points(::google::protobuf::int32 
   m_points_ = value;
 }
 
-// optional int32 m_boxid = 4;
+// optional int32 m_boxID = 4;
 inline bool E_FestivalMuban_play_reward::has_m_boxid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -16977,7 +16977,7 @@ inline void E_FestivalMuban_play_game::set_m_id(::google::protobuf::int32 value)
   m_id_ = value;
 }
 
-// optional int32 m_groupid = 2;
+// optional int32 m_groupID = 2;
 inline bool E_FestivalMuban_play_game::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -17021,7 +17021,7 @@ inline void E_FestivalMuban_play_game::set_m_order(::google::protobuf::int32 val
   m_order_ = value;
 }
 
-// optional int32 m_playtype = 4;
+// optional int32 m_playType = 4;
 inline bool E_FestivalMuban_play_game::has_m_playtype() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -17113,7 +17113,7 @@ inline void E_FestivalMuban_play_game::set_allocated_m_arg(::std::string* m_arg)
   }
 }
 
-// optional int32 m_rewardbox = 6;
+// optional int32 m_rewardBox = 6;
 inline bool E_FestivalMuban_play_game::has_m_rewardbox() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -17135,7 +17135,7 @@ inline void E_FestivalMuban_play_game::set_m_rewardbox(::google::protobuf::int32
   m_rewardbox_ = value;
 }
 
-// optional int32 m_pretime = 7;
+// optional int32 m_preTime = 7;
 inline bool E_FestivalMuban_play_game::has_m_pretime() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -17157,7 +17157,7 @@ inline void E_FestivalMuban_play_game::set_m_pretime(::google::protobuf::int32 v
   m_pretime_ = value;
 }
 
-// repeated string m_playarg = 8;
+// repeated string m_playArg = 8;
 inline int E_FestivalMuban_play_game::m_playarg_size() const {
   return m_playarg_.size();
 }

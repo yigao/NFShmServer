@@ -23,45 +23,45 @@ namespace proto_ff_s {
 		virtual ~E_MapMap_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_mapid;//地图id
-		int32_t m_levellimit;//地图等级限制
-		NFShmString<64> m_advicelv;//地图推荐等级段
-		int32_t m_isdyn;//是否动态地图
-		int32_t m_maptype;//地图类型
-		int32_t m_mapsubtype;//地图子类型
-		int32_t m_clearancetime;//地图清场时间（秒）
-		int32_t m_mappkmode;//地图pk模式
-		NFShmString<64> m_mappkvalue;//地图可用的PK模式
+		int64_t m_mapId;//地图id
+		int32_t m_levelLimit;//地图等级限制
+		NFShmString<64> m_adviceLv;//地图推荐等级段
+		int32_t m_isDyn;//是否动态地图
+		int32_t m_mapType;//地图类型
+		int32_t m_mapSubType;//地图子类型
+		int32_t m_clearanceTime;//地图清场时间（秒）
+		int32_t m_mapPkmode;//地图pk模式
+		NFShmString<64> m_mapPkValue;//地图可用的PK模式
 		int32_t m_pklock;//地图是否允许切换PK模式
 		int32_t m_pk;//地图是否允许pk
-		int32_t m_killvalue;//地图杀人是否增加杀戮值且地图死亡后是否清除杀戮值
-		int32_t m_bangroup;//禁止组队进入邀请
-		int32_t m_revivetime;//场景复活倒计时长
-		int32_t m_mapwide;//地图宽度
-		int32_t m_mapheight;//地图高度
-		NFShmString<64> m_mapresources;//地图资源名
-		int64_t m_reviveskill;//复活无敌
-		int32_t m_reviveinplacetype;//原地复活类型
-		int32_t m_ishangup;//是否能自动挂机
-		int32_t m_itemdroptype;//死亡掉落类型
-		NFShmString<64> m_itemdropid;//触发掉落组ID
-		int64_t m_linkoffline;//下线后回到地图
-		int32_t m_banonhook;//是否禁止原地挂机
-		int32_t m_rewait;//普通复活等待时间
-		int32_t m_retime;//自动普通复活倒计时
-		int32_t m_hreban;//禁止原地复活
-		int32_t m_retiered;//是否疲劳复活
-		int32_t m_reskillid;//复活后获得的技能
-		int32_t m_reteimes;//复活次数限制
-		int32_t m_drivepoint;//驱赶值
-		int32_t m_diedp;//死亡增加驱赶值
-		int32_t m_timedp;//每分钟增加驱赶值
+		int32_t m_killValue;//地图杀人是否增加杀戮值且地图死亡后是否清除杀戮值
+		int32_t m_BanGroup;//禁止组队进入邀请
+		int32_t m_reviveTime;//场景复活倒计时长
+		int32_t m_mapWide;//地图宽度
+		int32_t m_mapHeight;//地图高度
+		NFShmString<64> m_mapResources;//地图资源名
+		int64_t m_reviveSkill;//复活无敌
+		int32_t m_reviveInPlaceType;//原地复活类型
+		int32_t m_isHangUp;//是否能自动挂机
+		int32_t m_itemDropType;//死亡掉落类型
+		NFShmString<64> m_itemDropID;//触发掉落组ID
+		int64_t m_linkOffLine;//下线后回到地图
+		int32_t m_banOnHook;//是否禁止原地挂机
+		int32_t m_Rewait;//普通复活等待时间
+		int32_t m_REtime;//自动普通复活倒计时
+		int32_t m_HREBan;//禁止原地复活
+		int32_t m_Retiered;//是否疲劳复活
+		int32_t m_REskillid;//复活后获得的技能
+		int32_t m_Reteimes;//复活次数限制
+		int32_t m_drivePoint;//驱赶值
+		int32_t m_dieDP;//死亡增加驱赶值
+		int32_t m_timeDP;//每分钟增加驱赶值
 		int32_t m_meditation;//是否允许打坐
-		NFShmString<64> m_mapbutton;//地图按钮
-		int32_t m_banmount;//禁用坐骑
-		int32_t m_banlink;//禁用link
-		int32_t m_lvsuppvp;//等级压制
-		int32_t m_powersuppvp;//战力压制
+		NFShmString<64> m_mapButton;//地图按钮
+		int32_t m_banMount;//禁用坐骑
+		int32_t m_banLink;//禁用link
+		int32_t m_lvSupPvp;//等级压制
+		int32_t m_powerSupPvp;//战力压制
 
 		virtual void write_to_pbmsg(::proto_ff::E_MapMap & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MapMap & msg);
@@ -89,8 +89,8 @@ namespace proto_ff_s {
 		virtual ~E_MapItemdrop_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_itemdropid;//掉落ID
-		int32_t m_droptype;//掉落类型
+		int32_t m_itemDropID;//掉落ID
+		int32_t m_dropType;//掉落类型
 		int32_t m_odds;//触发几率
 		int32_t m_dropvaluea;//掉落参数a
 		int32_t m_dropvalueb;//掉落参数b
@@ -125,7 +125,7 @@ namespace proto_ff_s {
 		virtual ~E_MapDestroyitem_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_destroyitemid;//触发摧毁道具ID
+		int64_t m_destroyitemID;//触发摧毁道具ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_MapDestroyitem & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MapDestroyitem & msg);
@@ -184,8 +184,8 @@ namespace proto_ff_s {
 		virtual ~E_MapInspireRewardDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_num;//数量
-		int32_t m_id;//id
+		int32_t m_Num;//数量
+		int32_t m_Id;//id
 
 		virtual void write_to_pbmsg(::proto_ff::E_MapInspireRewardDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MapInspireRewardDesc & msg);
@@ -202,8 +202,8 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_group;//组
 		NFShmString<64> m_name;//名称
-		int32_t m_costid;//花费id
-		int32_t m_costnum;//花费数量
+		int32_t m_costId;//花费id
+		int32_t m_costNum;//花费数量
 		int32_t m_skillid;//技能id
 		int32_t m_times;//次数
 		NFShmVector<struct E_MapInspireRewardDesc_s, DEFINE_E_MAPINSPIRE_M_REWARD_MAX_NUM> m_reward;//奖励

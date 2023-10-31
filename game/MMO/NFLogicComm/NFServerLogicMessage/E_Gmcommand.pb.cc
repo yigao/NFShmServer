@@ -106,9 +106,9 @@ void protobuf_AddDesc_E_5fGmcommand_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\021E_Gmcommand.proto\022\010proto_ff\032\025yd_fieldo"
     "ptions.proto\"\245\001\n\024E_GmcommandGmcommand\022\036\n"
-    "\004m_id\030\001 \001(\005B\020\302\377\024\014\345\221\275\344\273\244\347\264\242\345\274\225\022&\n\005m_key\030\002"
-    " \001(\tB\027\302\377\024\017\345\221\275\344\273\244\345\205\263\351\224\256\345\255\227\220\301\024@\022&\n\014m_param"
-    "count\030\003 \001(\005B\020\302\377\024\014\345\217\202\346\225\260\346\225\260\351\207\217\022\035\n\005m_des\030\004"
+    "\004m_ID\030\001 \001(\005B\020\302\377\024\014\345\221\275\344\273\244\347\264\242\345\274\225\022&\n\005m_Key\030\002"
+    " \001(\tB\027\302\377\024\017\345\221\275\344\273\244\345\205\263\351\224\256\345\255\227\220\301\024@\022&\n\014m_Param"
+    "Count\030\003 \001(\005B\020\302\377\024\014\345\217\202\346\225\260\346\225\260\351\207\217\022\035\n\005m_Des\030\004"
     " \001(\tB\016\302\377\024\006\346\217\217\350\277\260\220\301\024@\"c\n\030Sheet_GmcommandG"
     "mcommand\022G\n\031E_GmcommandGmcommand_List\030\001 "
     "\003(\0132\036.proto_ff.E_GmcommandGmcommandB\004\210\301\024"
@@ -132,9 +132,9 @@ struct StaticDescriptorInitializer_E_5fGmcommand_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_GmcommandGmcommand::kMIdFieldNumber;
+const int E_GmcommandGmcommand::kMIDFieldNumber;
 const int E_GmcommandGmcommand::kMKeyFieldNumber;
-const int E_GmcommandGmcommand::kMParamcountFieldNumber;
+const int E_GmcommandGmcommand::kMParamCountFieldNumber;
 const int E_GmcommandGmcommand::kMDesFieldNumber;
 #endif  // !_MSC_VER
 
@@ -222,7 +222,7 @@ bool E_GmcommandGmcommand::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_id = 1;
+      // optional int32 m_ID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -233,15 +233,15 @@ bool E_GmcommandGmcommand::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_m_key;
+        if (input->ExpectTag(18)) goto parse_m_Key;
         break;
       }
 
-      // optional string m_key = 2;
+      // optional string m_Key = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_key:
+         parse_m_Key:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_key()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -250,15 +250,15 @@ bool E_GmcommandGmcommand::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_paramcount;
+        if (input->ExpectTag(24)) goto parse_m_ParamCount;
         break;
       }
 
-      // optional int32 m_paramcount = 3;
+      // optional int32 m_ParamCount = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_paramcount:
+         parse_m_ParamCount:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_paramcount_)));
@@ -266,15 +266,15 @@ bool E_GmcommandGmcommand::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_des;
+        if (input->ExpectTag(34)) goto parse_m_Des;
         break;
       }
 
-      // optional string m_des = 4;
+      // optional string m_Des = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_des:
+         parse_m_Des:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_des()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -305,12 +305,12 @@ bool E_GmcommandGmcommand::MergePartialFromCodedStream(
 
 void E_GmcommandGmcommand::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional string m_key = 2;
+  // optional string m_Key = 2;
   if (has_m_key()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_key().data(), this->m_key().length(),
@@ -319,12 +319,12 @@ void E_GmcommandGmcommand::SerializeWithCachedSizes(
       2, this->m_key(), output);
   }
 
-  // optional int32 m_paramcount = 3;
+  // optional int32 m_ParamCount = 3;
   if (has_m_paramcount()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_paramcount(), output);
   }
 
-  // optional string m_des = 4;
+  // optional string m_Des = 4;
   if (has_m_des()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_des().data(), this->m_des().length(),
@@ -341,12 +341,12 @@ void E_GmcommandGmcommand::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_GmcommandGmcommand::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional string m_key = 2;
+  // optional string m_Key = 2;
   if (has_m_key()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_key().data(), this->m_key().length(),
@@ -356,12 +356,12 @@ void E_GmcommandGmcommand::SerializeWithCachedSizes(
         2, this->m_key(), target);
   }
 
-  // optional int32 m_paramcount = 3;
+  // optional int32 m_ParamCount = 3;
   if (has_m_paramcount()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_paramcount(), target);
   }
 
-  // optional string m_des = 4;
+  // optional string m_Des = 4;
   if (has_m_des()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_des().data(), this->m_des().length(),
@@ -382,28 +382,28 @@ int E_GmcommandGmcommand::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_id = 1;
+    // optional int32 m_ID = 1;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_id());
     }
 
-    // optional string m_key = 2;
+    // optional string m_Key = 2;
     if (has_m_key()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_key());
     }
 
-    // optional int32 m_paramcount = 3;
+    // optional int32 m_ParamCount = 3;
     if (has_m_paramcount()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_paramcount());
     }
 
-    // optional string m_des = 4;
+    // optional string m_Des = 4;
     if (has_m_des()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(

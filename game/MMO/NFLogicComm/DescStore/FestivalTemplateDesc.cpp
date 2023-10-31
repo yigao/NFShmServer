@@ -90,7 +90,7 @@ int FestivalTemplateDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_festivalid <= 0 || FestivalFestivalDesc::Instance()->GetDesc(pDesc->m_festivalid)), result, "can't find the festivalid:{} in the  excel:festival sheet:festival", pDesc->m_festivalid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_festivalId <= 0 || FestivalFestivalDesc::Instance()->GetDesc(pDesc->m_festivalId)), result, "can't find the festivalId:{} in the  excel:festival sheet:festival", pDesc->m_festivalId);
 	}
 	return result;
 }

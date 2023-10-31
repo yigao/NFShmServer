@@ -14,9 +14,9 @@ int E_WelfareSign_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_month = (int32_t)0;
 	m_days = (int32_t)0;
-	m_vip = (int32_t)0;
+	m_VIP = (int32_t)0;
 	m_reward = (int32_t)0;
-	m_rewardnum = (int32_t)0;
+	m_rewardNum = (int32_t)0;
 	return 0;
 }
 
@@ -28,20 +28,20 @@ void E_WelfareSign_s::write_to_pbmsg(::proto_ff::E_WelfareSign & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_month((int32_t)m_month);
 	msg.set_m_days((int32_t)m_days);
-	msg.set_m_vip((int32_t)m_vip);
+	msg.set_m_vip((int32_t)m_VIP);
 	msg.set_m_icon(m_icon.data());
 	msg.set_m_reward((int32_t)m_reward);
-	msg.set_m_rewardnum((int32_t)m_rewardnum);
+	msg.set_m_rewardnum((int32_t)m_rewardNum);
 }
 
 void E_WelfareSign_s::read_from_pbmsg(const ::proto_ff::E_WelfareSign & msg) {
 	m_id = msg.m_id();
 	m_month = msg.m_month();
 	m_days = msg.m_days();
-	m_vip = msg.m_vip();
+	m_VIP = msg.m_vip();
 	m_icon = msg.m_icon();
 	m_reward = msg.m_reward();
-	m_rewardnum = msg.m_rewardnum();
+	m_rewardNum = msg.m_rewardnum();
 }
 
 Sheet_WelfareSign_s::Sheet_WelfareSign_s() {
@@ -86,9 +86,9 @@ E_WelfareAccruereward_s::E_WelfareAccruereward_s() {
 int E_WelfareAccruereward_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_month = (int32_t)0;
-	m_accruedays = (int32_t)0;
+	m_accrueDays = (int32_t)0;
 	m_reward = (int32_t)0;
-	m_rewardnum = (int32_t)0;
+	m_rewardNum = (int32_t)0;
 	return 0;
 }
 
@@ -99,17 +99,17 @@ int E_WelfareAccruereward_s::ResumeInit() {
 void E_WelfareAccruereward_s::write_to_pbmsg(::proto_ff::E_WelfareAccruereward & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_month((int32_t)m_month);
-	msg.set_m_accruedays((int32_t)m_accruedays);
+	msg.set_m_accruedays((int32_t)m_accrueDays);
 	msg.set_m_reward((int32_t)m_reward);
-	msg.set_m_rewardnum((int32_t)m_rewardnum);
+	msg.set_m_rewardnum((int32_t)m_rewardNum);
 }
 
 void E_WelfareAccruereward_s::read_from_pbmsg(const ::proto_ff::E_WelfareAccruereward & msg) {
 	m_id = msg.m_id();
 	m_month = msg.m_month();
-	m_accruedays = msg.m_accruedays();
+	m_accrueDays = msg.m_accruedays();
 	m_reward = msg.m_reward();
-	m_rewardnum = msg.m_rewardnum();
+	m_rewardNum = msg.m_rewardnum();
 }
 
 Sheet_WelfareAccruereward_s::Sheet_WelfareAccruereward_s() {
@@ -154,9 +154,9 @@ E_WelfareLvreward_s::E_WelfareLvreward_s() {
 int E_WelfareLvreward_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_lv = (int32_t)0;
-	m_lvreward = (int32_t)0;
+	m_lvReward = (int32_t)0;
 	m_vip = (int32_t)0;
-	m_vipreward = (int32_t)0;
+	m_vipReward = (int32_t)0;
 	return 0;
 }
 
@@ -167,17 +167,17 @@ int E_WelfareLvreward_s::ResumeInit() {
 void E_WelfareLvreward_s::write_to_pbmsg(::proto_ff::E_WelfareLvreward & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_lv((int32_t)m_lv);
-	msg.set_m_lvreward((int32_t)m_lvreward);
+	msg.set_m_lvreward((int32_t)m_lvReward);
 	msg.set_m_vip((int32_t)m_vip);
-	msg.set_m_vipreward((int32_t)m_vipreward);
+	msg.set_m_vipreward((int32_t)m_vipReward);
 }
 
 void E_WelfareLvreward_s::read_from_pbmsg(const ::proto_ff::E_WelfareLvreward & msg) {
 	m_id = msg.m_id();
 	m_lv = msg.m_lv();
-	m_lvreward = msg.m_lvreward();
+	m_lvReward = msg.m_lvreward();
 	m_vip = msg.m_vip();
-	m_vipreward = msg.m_vipreward();
+	m_vipReward = msg.m_vipreward();
 }
 
 Sheet_WelfareLvreward_s::Sheet_WelfareLvreward_s() {
@@ -221,8 +221,8 @@ E_WelfareOnline_s::E_WelfareOnline_s() {
 
 int E_WelfareOnline_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_onlinetime = (int32_t)0;
-	m_lvreward = (int32_t)0;
+	m_onlineTime = (int32_t)0;
+	m_lvReward = (int32_t)0;
 	return 0;
 }
 
@@ -232,14 +232,14 @@ int E_WelfareOnline_s::ResumeInit() {
 
 void E_WelfareOnline_s::write_to_pbmsg(::proto_ff::E_WelfareOnline & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_onlinetime((int32_t)m_onlinetime);
-	msg.set_m_lvreward((int32_t)m_lvreward);
+	msg.set_m_onlinetime((int32_t)m_onlineTime);
+	msg.set_m_lvreward((int32_t)m_lvReward);
 }
 
 void E_WelfareOnline_s::read_from_pbmsg(const ::proto_ff::E_WelfareOnline & msg) {
 	m_id = msg.m_id();
-	m_onlinetime = msg.m_onlinetime();
-	m_lvreward = msg.m_lvreward();
+	m_onlineTime = msg.m_onlinetime();
+	m_lvReward = msg.m_lvreward();
 }
 
 Sheet_WelfareOnline_s::Sheet_WelfareOnline_s() {
@@ -344,8 +344,8 @@ E_WelfareWeekendgift_s::E_WelfareWeekendgift_s() {
 
 int E_WelfareWeekendgift_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_lvmin = (int32_t)0;
-	m_lvmax = (int32_t)0;
+	m_lvMin = (int32_t)0;
+	m_lvMax = (int32_t)0;
 	m_date = (int32_t)0;
 	return 0;
 }
@@ -356,8 +356,8 @@ int E_WelfareWeekendgift_s::ResumeInit() {
 
 void E_WelfareWeekendgift_s::write_to_pbmsg(::proto_ff::E_WelfareWeekendgift & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_lvmin((int32_t)m_lvmin);
-	msg.set_m_lvmax((int32_t)m_lvmax);
+	msg.set_m_lvmin((int32_t)m_lvMin);
+	msg.set_m_lvmax((int32_t)m_lvMax);
 	msg.set_m_date((int32_t)m_date);
 	for(int32_t i = 0; i < (int32_t)m_rewards.size(); ++i) {
 		msg.add_m_rewards((int32_t)m_rewards[i]);
@@ -366,8 +366,8 @@ void E_WelfareWeekendgift_s::write_to_pbmsg(::proto_ff::E_WelfareWeekendgift & m
 
 void E_WelfareWeekendgift_s::read_from_pbmsg(const ::proto_ff::E_WelfareWeekendgift & msg) {
 	m_id = msg.m_id();
-	m_lvmin = msg.m_lvmin();
-	m_lvmax = msg.m_lvmax();
+	m_lvMin = msg.m_lvmin();
+	m_lvMax = msg.m_lvmax();
 	m_date = msg.m_date();
 	m_rewards.resize((int)msg.m_rewards_size() > (int)m_rewards.max_size() ? m_rewards.max_size() : msg.m_rewards_size());
 	for(int32_t i = 0; i < (int32_t)m_rewards.size(); ++i) {
@@ -416,18 +416,18 @@ E_WelfareConstant_s::E_WelfareConstant_s() {
 
 int E_WelfareConstant_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_addsigncost = (int32_t)0;
-	m_addsignprice = (int32_t)0;
-	m_noticereward = (int32_t)0;
-	m_wrongmin = (int32_t)0;
-	m_wrongmax = (int32_t)0;
-	m_fraudreward = (int32_t)0;
-	m_firstrcharge = (int32_t)0;
-	m_secondrcharge = (int32_t)0;
-	m_gemmb = (int32_t)0;
-	m_starmb = (int32_t)0;
-	m_kingmb = (int32_t)0;
-	m_keyrebate = (int32_t)0;
+	m_addSigncost = (int32_t)0;
+	m_addSignprice = (int32_t)0;
+	m_noticeReward = (int32_t)0;
+	m_wrongMin = (int32_t)0;
+	m_wrongMax = (int32_t)0;
+	m_fraudReward = (int32_t)0;
+	m_firstRcharge = (int32_t)0;
+	m_secondRcharge = (int32_t)0;
+	m_gemMB = (int32_t)0;
+	m_starMB = (int32_t)0;
+	m_kingMB = (int32_t)0;
+	m_keyRebate = (int32_t)0;
 	return 0;
 }
 
@@ -437,34 +437,34 @@ int E_WelfareConstant_s::ResumeInit() {
 
 void E_WelfareConstant_s::write_to_pbmsg(::proto_ff::E_WelfareConstant & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_addsigncost((int32_t)m_addsigncost);
-	msg.set_m_addsignprice((int32_t)m_addsignprice);
-	msg.set_m_noticereward((int32_t)m_noticereward);
-	msg.set_m_wrongmin((int32_t)m_wrongmin);
-	msg.set_m_wrongmax((int32_t)m_wrongmax);
-	msg.set_m_fraudreward((int32_t)m_fraudreward);
-	msg.set_m_firstrcharge((int32_t)m_firstrcharge);
-	msg.set_m_secondrcharge((int32_t)m_secondrcharge);
-	msg.set_m_gemmb((int32_t)m_gemmb);
-	msg.set_m_starmb((int32_t)m_starmb);
-	msg.set_m_kingmb((int32_t)m_kingmb);
-	msg.set_m_keyrebate((int32_t)m_keyrebate);
+	msg.set_m_addsigncost((int32_t)m_addSigncost);
+	msg.set_m_addsignprice((int32_t)m_addSignprice);
+	msg.set_m_noticereward((int32_t)m_noticeReward);
+	msg.set_m_wrongmin((int32_t)m_wrongMin);
+	msg.set_m_wrongmax((int32_t)m_wrongMax);
+	msg.set_m_fraudreward((int32_t)m_fraudReward);
+	msg.set_m_firstrcharge((int32_t)m_firstRcharge);
+	msg.set_m_secondrcharge((int32_t)m_secondRcharge);
+	msg.set_m_gemmb((int32_t)m_gemMB);
+	msg.set_m_starmb((int32_t)m_starMB);
+	msg.set_m_kingmb((int32_t)m_kingMB);
+	msg.set_m_keyrebate((int32_t)m_keyRebate);
 }
 
 void E_WelfareConstant_s::read_from_pbmsg(const ::proto_ff::E_WelfareConstant & msg) {
 	m_id = msg.m_id();
-	m_addsigncost = msg.m_addsigncost();
-	m_addsignprice = msg.m_addsignprice();
-	m_noticereward = msg.m_noticereward();
-	m_wrongmin = msg.m_wrongmin();
-	m_wrongmax = msg.m_wrongmax();
-	m_fraudreward = msg.m_fraudreward();
-	m_firstrcharge = msg.m_firstrcharge();
-	m_secondrcharge = msg.m_secondrcharge();
-	m_gemmb = msg.m_gemmb();
-	m_starmb = msg.m_starmb();
-	m_kingmb = msg.m_kingmb();
-	m_keyrebate = msg.m_keyrebate();
+	m_addSigncost = msg.m_addsigncost();
+	m_addSignprice = msg.m_addsignprice();
+	m_noticeReward = msg.m_noticereward();
+	m_wrongMin = msg.m_wrongmin();
+	m_wrongMax = msg.m_wrongmax();
+	m_fraudReward = msg.m_fraudreward();
+	m_firstRcharge = msg.m_firstrcharge();
+	m_secondRcharge = msg.m_secondrcharge();
+	m_gemMB = msg.m_gemmb();
+	m_starMB = msg.m_starmb();
+	m_kingMB = msg.m_kingmb();
+	m_keyRebate = msg.m_keyrebate();
 }
 
 Sheet_WelfareConstant_s::Sheet_WelfareConstant_s() {
@@ -630,7 +630,7 @@ int E_WelfareLogon_s::CreateInit() {
 	m_days = (int32_t)0;
 	m_type = (int32_t)0;
 	m_icon = (int32_t)0;
-	m_showitem = (int32_t)0;
+	m_showItem = (int32_t)0;
 	m_reward = (int32_t)0;
 	return 0;
 }
@@ -643,7 +643,7 @@ void E_WelfareLogon_s::write_to_pbmsg(::proto_ff::E_WelfareLogon & msg) const {
 	msg.set_m_days((int32_t)m_days);
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_icon((int32_t)m_icon);
-	msg.set_m_showitem((int32_t)m_showitem);
+	msg.set_m_showitem((int32_t)m_showItem);
 	msg.set_m_reward((int32_t)m_reward);
 }
 
@@ -651,7 +651,7 @@ void E_WelfareLogon_s::read_from_pbmsg(const ::proto_ff::E_WelfareLogon & msg) {
 	m_days = msg.m_days();
 	m_type = msg.m_type();
 	m_icon = msg.m_icon();
-	m_showitem = msg.m_showitem();
+	m_showItem = msg.m_showitem();
 	m_reward = msg.m_reward();
 }
 
@@ -698,7 +698,7 @@ int E_WelfareFirstcharge_s::CreateInit() {
 	m_constantid = (int32_t)0;
 	m_openlv = (int32_t)0;
 	m_type = (int32_t)0;
-	m_opendays = (int32_t)0;
+	m_openDays = (int32_t)0;
 	m_reward = (int32_t)0;
 	return 0;
 }
@@ -711,16 +711,16 @@ void E_WelfareFirstcharge_s::write_to_pbmsg(::proto_ff::E_WelfareFirstcharge & m
 	msg.set_m_constantid((int32_t)m_constantid);
 	msg.set_m_openlv((int32_t)m_openlv);
 	msg.set_m_type((int32_t)m_type);
-	msg.set_m_opendays((int32_t)m_opendays);
+	msg.set_m_opendays((int32_t)m_openDays);
 	msg.set_m_reward((int32_t)m_reward);
 	for(int32_t i = 0; i < (int32_t)m_model.size(); ++i) {
 		msg.add_m_model(m_model[i].data());
 	}
-	for(int32_t i = 0; i < (int32_t)m_rewardshow.size(); ++i) {
-		msg.add_m_rewardshow((int32_t)m_rewardshow[i]);
+	for(int32_t i = 0; i < (int32_t)m_rewardShow.size(); ++i) {
+		msg.add_m_rewardshow((int32_t)m_rewardShow[i]);
 	}
-	for(int32_t i = 0; i < (int32_t)m_rewarddes.size(); ++i) {
-		msg.add_m_rewarddes(m_rewarddes[i].data());
+	for(int32_t i = 0; i < (int32_t)m_rewardDes.size(); ++i) {
+		msg.add_m_rewarddes(m_rewardDes[i].data());
 	}
 }
 
@@ -728,19 +728,19 @@ void E_WelfareFirstcharge_s::read_from_pbmsg(const ::proto_ff::E_WelfareFirstcha
 	m_constantid = msg.m_constantid();
 	m_openlv = msg.m_openlv();
 	m_type = msg.m_type();
-	m_opendays = msg.m_opendays();
+	m_openDays = msg.m_opendays();
 	m_reward = msg.m_reward();
 	m_model.resize((int)msg.m_model_size() > (int)m_model.max_size() ? m_model.max_size() : msg.m_model_size());
 	for(int32_t i = 0; i < (int32_t)m_model.size(); ++i) {
 		m_model[i] = msg.m_model(i);
 	}
-	m_rewardshow.resize((int)msg.m_rewardshow_size() > (int)m_rewardshow.max_size() ? m_rewardshow.max_size() : msg.m_rewardshow_size());
-	for(int32_t i = 0; i < (int32_t)m_rewardshow.size(); ++i) {
-		m_rewardshow[i] = msg.m_rewardshow(i);
+	m_rewardShow.resize((int)msg.m_rewardshow_size() > (int)m_rewardShow.max_size() ? m_rewardShow.max_size() : msg.m_rewardshow_size());
+	for(int32_t i = 0; i < (int32_t)m_rewardShow.size(); ++i) {
+		m_rewardShow[i] = msg.m_rewardshow(i);
 	}
-	m_rewarddes.resize((int)msg.m_rewarddes_size() > (int)m_rewarddes.max_size() ? m_rewarddes.max_size() : msg.m_rewarddes_size());
-	for(int32_t i = 0; i < (int32_t)m_rewarddes.size(); ++i) {
-		m_rewarddes[i] = msg.m_rewarddes(i);
+	m_rewardDes.resize((int)msg.m_rewarddes_size() > (int)m_rewardDes.max_size() ? m_rewardDes.max_size() : msg.m_rewarddes_size());
+	for(int32_t i = 0; i < (int32_t)m_rewardDes.size(); ++i) {
+		m_rewardDes[i] = msg.m_rewarddes(i);
 	}
 }
 
@@ -798,7 +798,7 @@ void E_WelfareSctype_s::write_to_pbmsg(::proto_ff::E_WelfareSctype & msg) const 
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_functionid((int32_t)m_functionid);
 	msg.set_m_title(m_title.data());
-	msg.set_m_basemap(m_basemap.data());
+	msg.set_m_basemap(m_baseMap.data());
 	msg.set_m_rcharge((int32_t)m_rcharge);
 }
 
@@ -806,7 +806,7 @@ void E_WelfareSctype_s::read_from_pbmsg(const ::proto_ff::E_WelfareSctype & msg)
 	m_id = msg.m_id();
 	m_functionid = msg.m_functionid();
 	m_title = msg.m_title();
-	m_basemap = msg.m_basemap();
+	m_baseMap = msg.m_basemap();
 	m_rcharge = msg.m_rcharge();
 }
 
@@ -854,7 +854,7 @@ int E_WelfareMibao_s::CreateInit() {
 	m_openlv = (int32_t)0;
 	m_type = (int32_t)0;
 	m_rank = (int32_t)0;
-	m_opendays = (int32_t)0;
+	m_openDays = (int32_t)0;
 	m_reward = (int32_t)0;
 	return 0;
 }
@@ -868,7 +868,7 @@ void E_WelfareMibao_s::write_to_pbmsg(::proto_ff::E_WelfareMibao & msg) const {
 	msg.set_m_openlv((int32_t)m_openlv);
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_rank((int32_t)m_rank);
-	msg.set_m_opendays((int32_t)m_opendays);
+	msg.set_m_opendays((int32_t)m_openDays);
 	msg.set_m_reward((int32_t)m_reward);
 	msg.set_m_des(m_des.data());
 }
@@ -878,7 +878,7 @@ void E_WelfareMibao_s::read_from_pbmsg(const ::proto_ff::E_WelfareMibao & msg) {
 	m_openlv = msg.m_openlv();
 	m_type = msg.m_type();
 	m_rank = msg.m_rank();
-	m_opendays = msg.m_opendays();
+	m_openDays = msg.m_opendays();
 	m_reward = msg.m_reward();
 	m_des = msg.m_des();
 }
@@ -990,8 +990,8 @@ E_WelfareDailygift_s::E_WelfareDailygift_s() {
 int E_WelfareDailygift_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_type = (int32_t)0;
-	m_rechargeid = (int32_t)0;
-	m_oneclickbuy = (int32_t)0;
+	m_rechargeId = (int32_t)0;
+	m_OneclickBuy = (int32_t)0;
 	m_reward = (int32_t)0;
 	m_quality = (int32_t)0;
 	return 0;
@@ -1004,8 +1004,8 @@ int E_WelfareDailygift_s::ResumeInit() {
 void E_WelfareDailygift_s::write_to_pbmsg(::proto_ff::E_WelfareDailygift & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_type((int32_t)m_type);
-	msg.set_m_rechargeid((int32_t)m_rechargeid);
-	msg.set_m_oneclickbuy((int32_t)m_oneclickbuy);
+	msg.set_m_rechargeid((int32_t)m_rechargeId);
+	msg.set_m_oneclickbuy((int32_t)m_OneclickBuy);
 	msg.set_m_reward((int32_t)m_reward);
 	msg.set_m_quality((int32_t)m_quality);
 }
@@ -1013,8 +1013,8 @@ void E_WelfareDailygift_s::write_to_pbmsg(::proto_ff::E_WelfareDailygift & msg) 
 void E_WelfareDailygift_s::read_from_pbmsg(const ::proto_ff::E_WelfareDailygift & msg) {
 	m_id = msg.m_id();
 	m_type = msg.m_type();
-	m_rechargeid = msg.m_rechargeid();
-	m_oneclickbuy = msg.m_oneclickbuy();
+	m_rechargeId = msg.m_rechargeid();
+	m_OneclickBuy = msg.m_oneclickbuy();
 	m_reward = msg.m_reward();
 	m_quality = msg.m_quality();
 }
@@ -1063,9 +1063,9 @@ int E_WelfareLcgift_s::CreateInit() {
 	m_type = (int32_t)0;
 	m_limit = (int32_t)0;
 	m_days = (int32_t)0;
-	m_starnum = (int32_t)0;
+	m_starNum = (int32_t)0;
 	m_reward = (int32_t)0;
-	m_showitem = (int32_t)0;
+	m_showItem = (int32_t)0;
 	return 0;
 }
 
@@ -1078,9 +1078,9 @@ void E_WelfareLcgift_s::write_to_pbmsg(::proto_ff::E_WelfareLcgift & msg) const 
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_limit((int32_t)m_limit);
 	msg.set_m_days((int32_t)m_days);
-	msg.set_m_starnum((int32_t)m_starnum);
+	msg.set_m_starnum((int32_t)m_starNum);
 	msg.set_m_reward((int32_t)m_reward);
-	msg.set_m_showitem((int32_t)m_showitem);
+	msg.set_m_showitem((int32_t)m_showItem);
 }
 
 void E_WelfareLcgift_s::read_from_pbmsg(const ::proto_ff::E_WelfareLcgift & msg) {
@@ -1088,9 +1088,9 @@ void E_WelfareLcgift_s::read_from_pbmsg(const ::proto_ff::E_WelfareLcgift & msg)
 	m_type = msg.m_type();
 	m_limit = msg.m_limit();
 	m_days = msg.m_days();
-	m_starnum = msg.m_starnum();
+	m_starNum = msg.m_starnum();
 	m_reward = msg.m_reward();
-	m_showitem = msg.m_showitem();
+	m_showItem = msg.m_showitem();
 }
 
 Sheet_WelfareLcgift_s::Sheet_WelfareLcgift_s() {
@@ -1227,9 +1227,9 @@ E_WelfareLcturntable_s::E_WelfareLcturntable_s() {
 
 int E_WelfareLcturntable_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_jackpottype = (int32_t)0;
-	m_raffletimes = (int32_t)0;
-	m_ratimesrew = (int32_t)0;
+	m_jackpotType = (int32_t)0;
+	m_raffleTimes = (int32_t)0;
+	m_raTimesRew = (int32_t)0;
 	return 0;
 }
 
@@ -1239,9 +1239,9 @@ int E_WelfareLcturntable_s::ResumeInit() {
 
 void E_WelfareLcturntable_s::write_to_pbmsg(::proto_ff::E_WelfareLcturntable & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_jackpottype((int32_t)m_jackpottype);
-	msg.set_m_raffletimes((int32_t)m_raffletimes);
-	msg.set_m_ratimesrew((int32_t)m_ratimesrew);
+	msg.set_m_jackpottype((int32_t)m_jackpotType);
+	msg.set_m_raffletimes((int32_t)m_raffleTimes);
+	msg.set_m_ratimesrew((int32_t)m_raTimesRew);
 	for(int32_t i = 0; i < (int32_t)m_raffle.size(); ++i) {
 		::proto_ff::E_WelfareLcturntableRaffleDesc* temp_m_raffle = msg.add_m_raffle();
 		m_raffle[i].write_to_pbmsg(*temp_m_raffle);
@@ -1250,9 +1250,9 @@ void E_WelfareLcturntable_s::write_to_pbmsg(::proto_ff::E_WelfareLcturntable & m
 
 void E_WelfareLcturntable_s::read_from_pbmsg(const ::proto_ff::E_WelfareLcturntable & msg) {
 	m_id = msg.m_id();
-	m_jackpottype = msg.m_jackpottype();
-	m_raffletimes = msg.m_raffletimes();
-	m_ratimesrew = msg.m_ratimesrew();
+	m_jackpotType = msg.m_jackpottype();
+	m_raffleTimes = msg.m_raffletimes();
+	m_raTimesRew = msg.m_ratimesrew();
 	m_raffle.resize((int)msg.m_raffle_size() > (int)m_raffle.max_size() ? m_raffle.max_size() : msg.m_raffle_size());
 	for(int32_t i = 0; i < (int32_t)m_raffle.size(); ++i) {
 		const ::proto_ff::E_WelfareLcturntableRaffleDesc & temp_m_raffle = msg.m_raffle(i);
@@ -1304,7 +1304,7 @@ int E_WelfareJackpot_s::CreateInit() {
 	m_type = (int32_t)0;
 	m_rank = (int32_t)0;
 	m_item = (int32_t)0;
-	m_itemnum = (int32_t)0;
+	m_itemNum = (int32_t)0;
 	m_weight = (int32_t)0;
 	return 0;
 }
@@ -1318,7 +1318,7 @@ void E_WelfareJackpot_s::write_to_pbmsg(::proto_ff::E_WelfareJackpot & msg) cons
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_rank((int32_t)m_rank);
 	msg.set_m_item((int32_t)m_item);
-	msg.set_m_itemnum((int32_t)m_itemnum);
+	msg.set_m_itemnum((int32_t)m_itemNum);
 	msg.set_m_weight((int32_t)m_weight);
 }
 
@@ -1327,7 +1327,7 @@ void E_WelfareJackpot_s::read_from_pbmsg(const ::proto_ff::E_WelfareJackpot & ms
 	m_type = msg.m_type();
 	m_rank = msg.m_rank();
 	m_item = msg.m_item();
-	m_itemnum = msg.m_itemnum();
+	m_itemNum = msg.m_itemnum();
 	m_weight = msg.m_weight();
 }
 
@@ -1372,12 +1372,12 @@ E_WelfareMonthlycard_s::E_WelfareMonthlycard_s() {
 
 int E_WelfareMonthlycard_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_cardtype = (int32_t)0;
-	m_cardmoney = (int32_t)0;
-	m_cardbuyitem = (int32_t)0;
-	m_carddailyitem = (int32_t)0;
-	m_cardtime = (int32_t)0;
-	m_flmultiple = (int32_t)0;
+	m_cardType = (int32_t)0;
+	m_cardMoney = (int32_t)0;
+	m_cardBuyitem = (int32_t)0;
+	m_cardDailyitem = (int32_t)0;
+	m_cardTime = (int32_t)0;
+	m_Flmultiple = (int32_t)0;
 	return 0;
 }
 
@@ -1387,22 +1387,22 @@ int E_WelfareMonthlycard_s::ResumeInit() {
 
 void E_WelfareMonthlycard_s::write_to_pbmsg(::proto_ff::E_WelfareMonthlycard & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_cardtype((int32_t)m_cardtype);
-	msg.set_m_cardmoney((int32_t)m_cardmoney);
-	msg.set_m_cardbuyitem((int32_t)m_cardbuyitem);
-	msg.set_m_carddailyitem((int32_t)m_carddailyitem);
-	msg.set_m_cardtime((int32_t)m_cardtime);
-	msg.set_m_flmultiple((int32_t)m_flmultiple);
+	msg.set_m_cardtype((int32_t)m_cardType);
+	msg.set_m_cardmoney((int32_t)m_cardMoney);
+	msg.set_m_cardbuyitem((int32_t)m_cardBuyitem);
+	msg.set_m_carddailyitem((int32_t)m_cardDailyitem);
+	msg.set_m_cardtime((int32_t)m_cardTime);
+	msg.set_m_flmultiple((int32_t)m_Flmultiple);
 }
 
 void E_WelfareMonthlycard_s::read_from_pbmsg(const ::proto_ff::E_WelfareMonthlycard & msg) {
 	m_id = msg.m_id();
-	m_cardtype = msg.m_cardtype();
-	m_cardmoney = msg.m_cardmoney();
-	m_cardbuyitem = msg.m_cardbuyitem();
-	m_carddailyitem = msg.m_carddailyitem();
-	m_cardtime = msg.m_cardtime();
-	m_flmultiple = msg.m_flmultiple();
+	m_cardType = msg.m_cardtype();
+	m_cardMoney = msg.m_cardmoney();
+	m_cardBuyitem = msg.m_cardbuyitem();
+	m_cardDailyitem = msg.m_carddailyitem();
+	m_cardTime = msg.m_cardtime();
+	m_Flmultiple = msg.m_flmultiple();
 }
 
 Sheet_WelfareMonthlycard_s::Sheet_WelfareMonthlycard_s() {
@@ -1447,9 +1447,9 @@ E_WelfareGoal_s::E_WelfareGoal_s() {
 int E_WelfareGoal_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_functionid = (int32_t)0;
-	m_taskgroup = (int32_t)0;
+	m_taskGroup = (int32_t)0;
 	m_tasknum = (int32_t)0;
-	m_rewrditem = (int32_t)0;
+	m_rewrdItem = (int32_t)0;
 	m_time = (int32_t)0;
 	return 0;
 }
@@ -1461,18 +1461,18 @@ int E_WelfareGoal_s::ResumeInit() {
 void E_WelfareGoal_s::write_to_pbmsg(::proto_ff::E_WelfareGoal & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_functionid((int32_t)m_functionid);
-	msg.set_m_taskgroup((int32_t)m_taskgroup);
+	msg.set_m_taskgroup((int32_t)m_taskGroup);
 	msg.set_m_tasknum((int32_t)m_tasknum);
-	msg.set_m_rewrditem((int32_t)m_rewrditem);
+	msg.set_m_rewrditem((int32_t)m_rewrdItem);
 	msg.set_m_time((int32_t)m_time);
 }
 
 void E_WelfareGoal_s::read_from_pbmsg(const ::proto_ff::E_WelfareGoal & msg) {
 	m_id = msg.m_id();
 	m_functionid = msg.m_functionid();
-	m_taskgroup = msg.m_taskgroup();
+	m_taskGroup = msg.m_taskgroup();
 	m_tasknum = msg.m_tasknum();
-	m_rewrditem = msg.m_rewrditem();
+	m_rewrdItem = msg.m_rewrditem();
 	m_time = msg.m_time();
 }
 
@@ -1517,11 +1517,11 @@ E_WelfareGoaltask_s::E_WelfareGoaltask_s() {
 
 int E_WelfareGoaltask_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_groupid = (int32_t)0;
-	m_eventtype = (int32_t)0;
-	m_reachprice = (int32_t)0;
-	m_itemid = (int32_t)0;
-	m_itemnum = (int32_t)0;
+	m_groupID = (int32_t)0;
+	m_eventType = (int32_t)0;
+	m_reachPrice = (int32_t)0;
+	m_itemID = (int32_t)0;
+	m_itemNum = (int32_t)0;
 	return 0;
 }
 
@@ -1531,11 +1531,11 @@ int E_WelfareGoaltask_s::ResumeInit() {
 
 void E_WelfareGoaltask_s::write_to_pbmsg(::proto_ff::E_WelfareGoaltask & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_groupid((int32_t)m_groupid);
-	msg.set_m_eventtype((int32_t)m_eventtype);
-	msg.set_m_reachprice((int32_t)m_reachprice);
-	msg.set_m_itemid((int32_t)m_itemid);
-	msg.set_m_itemnum((int32_t)m_itemnum);
+	msg.set_m_groupid((int32_t)m_groupID);
+	msg.set_m_eventtype((int32_t)m_eventType);
+	msg.set_m_reachprice((int32_t)m_reachPrice);
+	msg.set_m_itemid((int32_t)m_itemID);
+	msg.set_m_itemnum((int32_t)m_itemNum);
 	for(int32_t i = 0; i < (int32_t)m_param.size(); ++i) {
 		msg.add_m_param((int32_t)m_param[i]);
 	}
@@ -1543,11 +1543,11 @@ void E_WelfareGoaltask_s::write_to_pbmsg(::proto_ff::E_WelfareGoaltask & msg) co
 
 void E_WelfareGoaltask_s::read_from_pbmsg(const ::proto_ff::E_WelfareGoaltask & msg) {
 	m_id = msg.m_id();
-	m_groupid = msg.m_groupid();
-	m_eventtype = msg.m_eventtype();
-	m_reachprice = msg.m_reachprice();
-	m_itemid = msg.m_itemid();
-	m_itemnum = msg.m_itemnum();
+	m_groupID = msg.m_groupid();
+	m_eventType = msg.m_eventtype();
+	m_reachPrice = msg.m_reachprice();
+	m_itemID = msg.m_itemid();
+	m_itemNum = msg.m_itemnum();
 	m_param.resize((int)msg.m_param_size() > (int)m_param.max_size() ? m_param.max_size() : msg.m_param_size());
 	for(int32_t i = 0; i < (int32_t)m_param.size(); ++i) {
 		m_param[i] = msg.m_param(i);
@@ -1595,10 +1595,10 @@ E_WelfareInvest_s::E_WelfareInvest_s() {
 
 int E_WelfareInvest_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_functionid = (int32_t)0;
+	m_functionID = (int32_t)0;
 	m_price = (int32_t)0;
-	m_rewarditem = (int32_t)0;
-	m_rewardgroup = (int32_t)0;
+	m_rewardItem = (int32_t)0;
+	m_rewardGroup = (int32_t)0;
 	return 0;
 }
 
@@ -1608,18 +1608,18 @@ int E_WelfareInvest_s::ResumeInit() {
 
 void E_WelfareInvest_s::write_to_pbmsg(::proto_ff::E_WelfareInvest & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_functionid((int32_t)m_functionid);
+	msg.set_m_functionid((int32_t)m_functionID);
 	msg.set_m_price((int32_t)m_price);
-	msg.set_m_rewarditem((int32_t)m_rewarditem);
-	msg.set_m_rewardgroup((int32_t)m_rewardgroup);
+	msg.set_m_rewarditem((int32_t)m_rewardItem);
+	msg.set_m_rewardgroup((int32_t)m_rewardGroup);
 }
 
 void E_WelfareInvest_s::read_from_pbmsg(const ::proto_ff::E_WelfareInvest & msg) {
 	m_id = msg.m_id();
-	m_functionid = msg.m_functionid();
+	m_functionID = msg.m_functionid();
 	m_price = msg.m_price();
-	m_rewarditem = msg.m_rewarditem();
-	m_rewardgroup = msg.m_rewardgroup();
+	m_rewardItem = msg.m_rewarditem();
+	m_rewardGroup = msg.m_rewardgroup();
 }
 
 Sheet_WelfareInvest_s::Sheet_WelfareInvest_s() {
@@ -1704,9 +1704,9 @@ void E_WelfareInvestreward_s::write_to_pbmsg(::proto_ff::E_WelfareInvestreward &
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_group((int32_t)m_group);
 	msg.set_m_lv((int32_t)m_lv);
-	for(int32_t i = 0; i < (int32_t)m_item.size(); ++i) {
+	for(int32_t i = 0; i < (int32_t)m_Item.size(); ++i) {
 		::proto_ff::E_WelfareInvestrewardItemDesc* temp_m_item = msg.add_m_item();
-		m_item[i].write_to_pbmsg(*temp_m_item);
+		m_Item[i].write_to_pbmsg(*temp_m_item);
 	}
 }
 
@@ -1714,10 +1714,10 @@ void E_WelfareInvestreward_s::read_from_pbmsg(const ::proto_ff::E_WelfareInvestr
 	m_id = msg.m_id();
 	m_group = msg.m_group();
 	m_lv = msg.m_lv();
-	m_item.resize((int)msg.m_item_size() > (int)m_item.max_size() ? m_item.max_size() : msg.m_item_size());
-	for(int32_t i = 0; i < (int32_t)m_item.size(); ++i) {
+	m_Item.resize((int)msg.m_item_size() > (int)m_Item.max_size() ? m_Item.max_size() : msg.m_item_size());
+	for(int32_t i = 0; i < (int32_t)m_Item.size(); ++i) {
 		const ::proto_ff::E_WelfareInvestrewardItemDesc & temp_m_item = msg.m_item(i);
-		m_item[i].read_from_pbmsg(temp_m_item);
+		m_Item[i].read_from_pbmsg(temp_m_item);
 	}
 }
 
@@ -1762,7 +1762,7 @@ E_WelfareYttlgift_s::E_WelfareYttlgift_s() {
 
 int E_WelfareYttlgift_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_rechargeid = (int32_t)0;
+	m_rechargeId = (int32_t)0;
 	m_reward = (int32_t)0;
 	return 0;
 }
@@ -1773,13 +1773,13 @@ int E_WelfareYttlgift_s::ResumeInit() {
 
 void E_WelfareYttlgift_s::write_to_pbmsg(::proto_ff::E_WelfareYttlgift & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_rechargeid((int32_t)m_rechargeid);
+	msg.set_m_rechargeid((int32_t)m_rechargeId);
 	msg.set_m_reward((int32_t)m_reward);
 }
 
 void E_WelfareYttlgift_s::read_from_pbmsg(const ::proto_ff::E_WelfareYttlgift & msg) {
 	m_id = msg.m_id();
-	m_rechargeid = msg.m_rechargeid();
+	m_rechargeId = msg.m_rechargeid();
 	m_reward = msg.m_reward();
 }
 

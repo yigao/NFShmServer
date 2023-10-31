@@ -162,25 +162,25 @@ void protobuf_AddDesc_E_5fPersonalshop_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\024E_Personalshop.proto\022\010proto_ff\032\025yd_fie"
     "ldoptions.proto\"\301\002\n\027E_PersonalshopShopit"
-    "ems\022\030\n\004m_id\030\001 \001(\005B\n\302\377\024\006\345\272\217\345\217\267\022\"\n\010m_shopi"
-    "d\030\002 \001(\005B\020\302\377\024\014\345\225\206\345\272\227\347\261\273\345\236\213\022\036\n\010m_itemid\030\003 "
+    "ems\022\030\n\004m_id\030\001 \001(\005B\n\302\377\024\006\345\272\217\345\217\267\022\"\n\010m_shopI"
+    "d\030\002 \001(\005B\020\302\377\024\014\345\225\206\345\272\227\347\261\273\345\236\213\022\036\n\010m_itemID\030\003 "
     "\001(\005B\014\302\377\024\010\347\211\251\345\223\201ID\022\"\n\010m_amount\030\004 \001(\005B\020\302\377\024"
     "\014\347\211\251\345\223\201\346\225\260\351\207\217\022$\n\nm_currency\030\005 \001(\005B\020\302\377\024\014\350"
     "\264\247\345\270\201\347\261\273\345\236\213\022\033\n\007m_price\030\006 \001(\005B\n\302\377\024\006\344\273\267\346\240\274"
     "\022\036\n\nm_discount\030\007 \001(\005B\n\302\377\024\006\346\212\230\346\211\243\022#\n\tm_lv"
-    "limit\030\010 \001(\005B\020\302\377\024\014\347\255\211\347\272\247\351\231\220\345\210\266\022\034\n\010m_weigh"
+    "Limit\030\010 \001(\005B\020\302\377\024\014\347\255\211\347\272\247\351\231\220\345\210\266\022\034\n\010m_weigh"
     "t\030\t \001(\005B\n\302\377\024\006\346\235\203\351\207\215\"m\n\033Sheet_Personalsho"
     "pShopitems\022N\n\034E_PersonalshopShopitems_Li"
     "st\030\001 \003(\0132!.proto_ff.E_PersonalshopShopit"
     "emsB\005\210\301\024\200\010\"\324\002\n\023E_PersonalshopShops\022\032\n\004m_"
-    "id\030\001 \001(\005B\014\302\377\024\010\345\225\206\345\272\227id\022*\n\nm_keeptime\030\002 \001"
-    "(\005B\026\302\377\024\022\345\225\206\345\272\227\346\214\201\347\273\255\346\227\266\351\227\264\022+\n\013m_freetime"
+    "id\030\001 \001(\005B\014\302\377\024\010\345\225\206\345\272\227id\022*\n\nm_keepTime\030\002 \001"
+    "(\005B\026\302\377\024\022\345\225\206\345\272\227\346\214\201\347\273\255\346\227\266\351\227\264\022+\n\013m_freeTime"
     "s\030\003 \001(\005B\026\302\377\024\022\345\205\215\350\264\271\345\210\267\346\226\260\346\254\241\346\225\260\022*\n\016m_ref"
-    "reshmoney\030\004 \001(\005B\022\302\377\024\016\345\210\267\346\226\260\350\264\247\345\270\201id\022(\n\016m"
-    "_refreshprice\030\005 \001(\005B\020\302\377\024\014\345\210\267\346\226\260\344\273\267\346\240\274\022)\n"
-    "\017m_salelistcount\030\006 \001(\005B\020\302\377\024\014\345\207\272\345\224\256\346\225\260\351\207\217"
-    "\022#\n\tm_addtype\030\007 \001(\005B\020\302\377\024\014\346\267\273\345\212\240\347\261\273\345\236\213\022\"\n"
-    "\016m_addtypevalue\030\010 \001(\005B\n\302\377\024\006\345\217\230\351\207\217\"`\n\027She"
+    "reshMoney\030\004 \001(\005B\022\302\377\024\016\345\210\267\346\226\260\350\264\247\345\270\201id\022(\n\016m"
+    "_refreshPrice\030\005 \001(\005B\020\302\377\024\014\345\210\267\346\226\260\344\273\267\346\240\274\022)\n"
+    "\017m_saleListCount\030\006 \001(\005B\020\302\377\024\014\345\207\272\345\224\256\346\225\260\351\207\217"
+    "\022#\n\tm_addType\030\007 \001(\005B\020\302\377\024\014\346\267\273\345\212\240\347\261\273\345\236\213\022\"\n"
+    "\016m_addTypeValue\030\010 \001(\005B\n\302\377\024\006\345\217\230\351\207\217\"`\n\027She"
     "et_PersonalshopShops\022E\n\030E_PersonalshopSh"
     "ops_List\030\001 \003(\0132\035.proto_ff.E_Personalshop"
     "ShopsB\004\210\301\024\002", 931);
@@ -208,13 +208,13 @@ struct StaticDescriptorInitializer_E_5fPersonalshop_2eproto {
 
 #ifndef _MSC_VER
 const int E_PersonalshopShopitems::kMIdFieldNumber;
-const int E_PersonalshopShopitems::kMShopidFieldNumber;
-const int E_PersonalshopShopitems::kMItemidFieldNumber;
+const int E_PersonalshopShopitems::kMShopIdFieldNumber;
+const int E_PersonalshopShopitems::kMItemIDFieldNumber;
 const int E_PersonalshopShopitems::kMAmountFieldNumber;
 const int E_PersonalshopShopitems::kMCurrencyFieldNumber;
 const int E_PersonalshopShopitems::kMPriceFieldNumber;
 const int E_PersonalshopShopitems::kMDiscountFieldNumber;
-const int E_PersonalshopShopitems::kMLvlimitFieldNumber;
+const int E_PersonalshopShopitems::kMLvLimitFieldNumber;
 const int E_PersonalshopShopitems::kMWeightFieldNumber;
 #endif  // !_MSC_VER
 
@@ -311,15 +311,15 @@ bool E_PersonalshopShopitems::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_shopid;
+        if (input->ExpectTag(16)) goto parse_m_shopId;
         break;
       }
 
-      // optional int32 m_shopid = 2;
+      // optional int32 m_shopId = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_shopid:
+         parse_m_shopId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_shopid_)));
@@ -327,15 +327,15 @@ bool E_PersonalshopShopitems::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_itemid;
+        if (input->ExpectTag(24)) goto parse_m_itemID;
         break;
       }
 
-      // optional int32 m_itemid = 3;
+      // optional int32 m_itemID = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemid:
+         parse_m_itemID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itemid_)));
@@ -407,15 +407,15 @@ bool E_PersonalshopShopitems::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_lvlimit;
+        if (input->ExpectTag(64)) goto parse_m_lvLimit;
         break;
       }
 
-      // optional int32 m_lvlimit = 8;
+      // optional int32 m_lvLimit = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_lvlimit:
+         parse_m_lvLimit:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_lvlimit_)));
@@ -466,12 +466,12 @@ void E_PersonalshopShopitems::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_shopid = 2;
+  // optional int32 m_shopId = 2;
   if (has_m_shopid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_shopid(), output);
   }
 
-  // optional int32 m_itemid = 3;
+  // optional int32 m_itemID = 3;
   if (has_m_itemid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_itemid(), output);
   }
@@ -496,7 +496,7 @@ void E_PersonalshopShopitems::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_discount(), output);
   }
 
-  // optional int32 m_lvlimit = 8;
+  // optional int32 m_lvLimit = 8;
   if (has_m_lvlimit()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_lvlimit(), output);
   }
@@ -519,12 +519,12 @@ void E_PersonalshopShopitems::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_shopid = 2;
+  // optional int32 m_shopId = 2;
   if (has_m_shopid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_shopid(), target);
   }
 
-  // optional int32 m_itemid = 3;
+  // optional int32 m_itemID = 3;
   if (has_m_itemid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_itemid(), target);
   }
@@ -549,7 +549,7 @@ void E_PersonalshopShopitems::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_discount(), target);
   }
 
-  // optional int32 m_lvlimit = 8;
+  // optional int32 m_lvLimit = 8;
   if (has_m_lvlimit()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_lvlimit(), target);
   }
@@ -577,14 +577,14 @@ int E_PersonalshopShopitems::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_shopid = 2;
+    // optional int32 m_shopId = 2;
     if (has_m_shopid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_shopid());
     }
 
-    // optional int32 m_itemid = 3;
+    // optional int32 m_itemID = 3;
     if (has_m_itemid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -619,7 +619,7 @@ int E_PersonalshopShopitems::ByteSize() const {
           this->m_discount());
     }
 
-    // optional int32 m_lvlimit = 8;
+    // optional int32 m_lvLimit = 8;
     if (has_m_lvlimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -945,13 +945,13 @@ void Sheet_PersonalshopShopitems::Swap(Sheet_PersonalshopShopitems* other) {
 
 #ifndef _MSC_VER
 const int E_PersonalshopShops::kMIdFieldNumber;
-const int E_PersonalshopShops::kMKeeptimeFieldNumber;
-const int E_PersonalshopShops::kMFreetimesFieldNumber;
-const int E_PersonalshopShops::kMRefreshmoneyFieldNumber;
-const int E_PersonalshopShops::kMRefreshpriceFieldNumber;
-const int E_PersonalshopShops::kMSalelistcountFieldNumber;
-const int E_PersonalshopShops::kMAddtypeFieldNumber;
-const int E_PersonalshopShops::kMAddtypevalueFieldNumber;
+const int E_PersonalshopShops::kMKeepTimeFieldNumber;
+const int E_PersonalshopShops::kMFreeTimesFieldNumber;
+const int E_PersonalshopShops::kMRefreshMoneyFieldNumber;
+const int E_PersonalshopShops::kMRefreshPriceFieldNumber;
+const int E_PersonalshopShops::kMSaleListCountFieldNumber;
+const int E_PersonalshopShops::kMAddTypeFieldNumber;
+const int E_PersonalshopShops::kMAddTypeValueFieldNumber;
 #endif  // !_MSC_VER
 
 E_PersonalshopShops::E_PersonalshopShops()
@@ -1043,15 +1043,15 @@ bool E_PersonalshopShops::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_keeptime;
+        if (input->ExpectTag(16)) goto parse_m_keepTime;
         break;
       }
 
-      // optional int32 m_keeptime = 2;
+      // optional int32 m_keepTime = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_keeptime:
+         parse_m_keepTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_keeptime_)));
@@ -1059,15 +1059,15 @@ bool E_PersonalshopShops::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_freetimes;
+        if (input->ExpectTag(24)) goto parse_m_freeTimes;
         break;
       }
 
-      // optional int32 m_freetimes = 3;
+      // optional int32 m_freeTimes = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_freetimes:
+         parse_m_freeTimes:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_freetimes_)));
@@ -1075,15 +1075,15 @@ bool E_PersonalshopShops::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_refreshmoney;
+        if (input->ExpectTag(32)) goto parse_m_refreshMoney;
         break;
       }
 
-      // optional int32 m_refreshmoney = 4;
+      // optional int32 m_refreshMoney = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_refreshmoney:
+         parse_m_refreshMoney:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_refreshmoney_)));
@@ -1091,15 +1091,15 @@ bool E_PersonalshopShops::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_refreshprice;
+        if (input->ExpectTag(40)) goto parse_m_refreshPrice;
         break;
       }
 
-      // optional int32 m_refreshprice = 5;
+      // optional int32 m_refreshPrice = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_refreshprice:
+         parse_m_refreshPrice:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_refreshprice_)));
@@ -1107,15 +1107,15 @@ bool E_PersonalshopShops::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_salelistcount;
+        if (input->ExpectTag(48)) goto parse_m_saleListCount;
         break;
       }
 
-      // optional int32 m_salelistcount = 6;
+      // optional int32 m_saleListCount = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_salelistcount:
+         parse_m_saleListCount:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_salelistcount_)));
@@ -1123,15 +1123,15 @@ bool E_PersonalshopShops::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_addtype;
+        if (input->ExpectTag(56)) goto parse_m_addType;
         break;
       }
 
-      // optional int32 m_addtype = 7;
+      // optional int32 m_addType = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_addtype:
+         parse_m_addType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_addtype_)));
@@ -1139,15 +1139,15 @@ bool E_PersonalshopShops::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_addtypevalue;
+        if (input->ExpectTag(64)) goto parse_m_addTypeValue;
         break;
       }
 
-      // optional int32 m_addtypevalue = 8;
+      // optional int32 m_addTypeValue = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_addtypevalue:
+         parse_m_addTypeValue:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_addtypevalue_)));
@@ -1182,37 +1182,37 @@ void E_PersonalshopShops::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_keeptime = 2;
+  // optional int32 m_keepTime = 2;
   if (has_m_keeptime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_keeptime(), output);
   }
 
-  // optional int32 m_freetimes = 3;
+  // optional int32 m_freeTimes = 3;
   if (has_m_freetimes()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_freetimes(), output);
   }
 
-  // optional int32 m_refreshmoney = 4;
+  // optional int32 m_refreshMoney = 4;
   if (has_m_refreshmoney()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_refreshmoney(), output);
   }
 
-  // optional int32 m_refreshprice = 5;
+  // optional int32 m_refreshPrice = 5;
   if (has_m_refreshprice()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_refreshprice(), output);
   }
 
-  // optional int32 m_salelistcount = 6;
+  // optional int32 m_saleListCount = 6;
   if (has_m_salelistcount()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_salelistcount(), output);
   }
 
-  // optional int32 m_addtype = 7;
+  // optional int32 m_addType = 7;
   if (has_m_addtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_addtype(), output);
   }
 
-  // optional int32 m_addtypevalue = 8;
+  // optional int32 m_addTypeValue = 8;
   if (has_m_addtypevalue()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_addtypevalue(), output);
   }
@@ -1230,37 +1230,37 @@ void E_PersonalshopShops::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_keeptime = 2;
+  // optional int32 m_keepTime = 2;
   if (has_m_keeptime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_keeptime(), target);
   }
 
-  // optional int32 m_freetimes = 3;
+  // optional int32 m_freeTimes = 3;
   if (has_m_freetimes()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_freetimes(), target);
   }
 
-  // optional int32 m_refreshmoney = 4;
+  // optional int32 m_refreshMoney = 4;
   if (has_m_refreshmoney()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_refreshmoney(), target);
   }
 
-  // optional int32 m_refreshprice = 5;
+  // optional int32 m_refreshPrice = 5;
   if (has_m_refreshprice()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_refreshprice(), target);
   }
 
-  // optional int32 m_salelistcount = 6;
+  // optional int32 m_saleListCount = 6;
   if (has_m_salelistcount()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_salelistcount(), target);
   }
 
-  // optional int32 m_addtype = 7;
+  // optional int32 m_addType = 7;
   if (has_m_addtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_addtype(), target);
   }
 
-  // optional int32 m_addtypevalue = 8;
+  // optional int32 m_addTypeValue = 8;
   if (has_m_addtypevalue()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_addtypevalue(), target);
   }
@@ -1283,49 +1283,49 @@ int E_PersonalshopShops::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_keeptime = 2;
+    // optional int32 m_keepTime = 2;
     if (has_m_keeptime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_keeptime());
     }
 
-    // optional int32 m_freetimes = 3;
+    // optional int32 m_freeTimes = 3;
     if (has_m_freetimes()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_freetimes());
     }
 
-    // optional int32 m_refreshmoney = 4;
+    // optional int32 m_refreshMoney = 4;
     if (has_m_refreshmoney()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_refreshmoney());
     }
 
-    // optional int32 m_refreshprice = 5;
+    // optional int32 m_refreshPrice = 5;
     if (has_m_refreshprice()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_refreshprice());
     }
 
-    // optional int32 m_salelistcount = 6;
+    // optional int32 m_saleListCount = 6;
     if (has_m_salelistcount()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_salelistcount());
     }
 
-    // optional int32 m_addtype = 7;
+    // optional int32 m_addType = 7;
     if (has_m_addtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_addtype());
     }
 
-    // optional int32 m_addtypevalue = 8;
+    // optional int32 m_addTypeValue = 8;
     if (has_m_addtypevalue()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

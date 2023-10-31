@@ -6,8 +6,8 @@ import "yd_fieldoptions.proto";
 message E_CloudpeakRankrewards
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "唯一id"];
-	optional int32 m_rewarditem = 2[(yd_fieldoptions.field_cname) = "奖励道具"];
-	optional int64 m_itemnum = 3[(yd_fieldoptions.field_cname) = "道具数量"];
+	optional int32 m_rewardItem = 2[(yd_fieldoptions.field_cname) = "奖励道具"];
+	optional int64 m_itemNum = 3[(yd_fieldoptions.field_cname) = "道具数量"];
 }
 
 
@@ -25,23 +25,23 @@ message E_CloudpeakConstantBuffDesc
 message E_CloudpeakConstant
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_revivalbuff = 2[(yd_fieldoptions.field_cname) = "复活buff"];
+	optional int32 m_revivalBuff = 2[(yd_fieldoptions.field_cname) = "复活buff"];
 	optional int32 m_refresh = 3[(yd_fieldoptions.field_cname) = "buff刷新时间"];
-	optional int32 m_victoryreward = 4[(yd_fieldoptions.field_cname) = "阵营胜利奖励"];
-	optional int32 m_failurereward = 5[(yd_fieldoptions.field_cname) = "阵营失败奖励"];
+	optional int32 m_victoryReward = 4[(yd_fieldoptions.field_cname) = "阵营胜利奖励"];
+	optional int32 m_failureReward = 5[(yd_fieldoptions.field_cname) = "阵营失败奖励"];
 	optional int32 m_round = 6[(yd_fieldoptions.field_cname) = "比赛轮数"];
-	optional int32 m_roundtime = 7[(yd_fieldoptions.field_cname) = "每轮持续时间"];
-	optional int32 m_initialscoring = 8[(yd_fieldoptions.field_cname) = "初始积分"];
+	optional int32 m_roundTime = 7[(yd_fieldoptions.field_cname) = "每轮持续时间"];
+	optional int32 m_initialScoring = 8[(yd_fieldoptions.field_cname) = "初始积分"];
 	optional int32 m_getscoring = 9[(yd_fieldoptions.field_cname) = "获得积分"];
-	optional int32 m_assistscoring = 10[(yd_fieldoptions.field_cname) = "助攻积分"];
-	optional int32 m_matchtime = 11[(yd_fieldoptions.field_cname) = "匹配时间"];
-	optional int32 m_matchentry = 12[(yd_fieldoptions.field_cname) = "匹配地图出生位置"];
-	optional int64 m_mapid = 13[(yd_fieldoptions.field_cname) = "所在地图"];
-	optional int32 m_playersmax = 14[(yd_fieldoptions.field_cname) = "每个房间最多人数"];
-	optional int32 m_rebotid = 15[(yd_fieldoptions.field_cname) = "机器人id"];
-	optional int32 m_rebotcount = 16[(yd_fieldoptions.field_cname) = "机器人数量"];
-	optional int32 m_actid = 17[(yd_fieldoptions.field_cname) = "活动ID"];
-	repeated int32 m_revivalpoint = 18[(yd_fieldoptions.field_cname) = "复活点", (yd_fieldoptions.field_arysize) = 8];
+	optional int32 m_assistScoring = 10[(yd_fieldoptions.field_cname) = "助攻积分"];
+	optional int32 m_matchTime = 11[(yd_fieldoptions.field_cname) = "匹配时间"];
+	optional int32 m_matchEntry = 12[(yd_fieldoptions.field_cname) = "匹配地图出生位置"];
+	optional int64 m_mapId = 13[(yd_fieldoptions.field_cname) = "所在地图"];
+	optional int32 m_playersMax = 14[(yd_fieldoptions.field_cname) = "每个房间最多人数"];
+	optional int32 m_rebotId = 15[(yd_fieldoptions.field_cname) = "机器人id"];
+	optional int32 m_rebotCount = 16[(yd_fieldoptions.field_cname) = "机器人数量"];
+	optional int32 m_actId = 17[(yd_fieldoptions.field_cname) = "活动ID"];
+	repeated int32 m_revivalPoint = 18[(yd_fieldoptions.field_cname) = "复活点", (yd_fieldoptions.field_arysize) = 8];
 	repeated E_CloudpeakConstantBuffDesc m_buff = 19[(yd_fieldoptions.field_cname) = "增益", (yd_fieldoptions.field_arysize) = 8];
 	repeated int32 m_rebot_id = 20[(yd_fieldoptions.field_cname) = "机器人id", (yd_fieldoptions.field_arysize) = 10];
 }
@@ -55,7 +55,7 @@ message Sheet_CloudpeakConstant
 message E_CloudpeakExp
 {
 	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
-	optional int32 m_getexp = 2[(yd_fieldoptions.field_cname) = "活动经验"];
+	optional int32 m_getExp = 2[(yd_fieldoptions.field_cname) = "活动经验"];
 }
 
 

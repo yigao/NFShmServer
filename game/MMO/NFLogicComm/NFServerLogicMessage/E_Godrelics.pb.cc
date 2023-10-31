@@ -156,17 +156,17 @@ void protobuf_AddDesc_E_5fGodrelics_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\021E_Godrelics.proto\022\010proto_ff\032\025yd_fieldo"
     "ptions.proto\"\235\001\n\024E_GodrelicsGodrelics\022\024\n"
-    "\004m_id\030\001 \001(\005B\006\302\377\024\002id\022(\n\014m_functionid\030\002 \001("
+    "\004m_id\030\001 \001(\005B\006\302\377\024\002id\022(\n\014m_functionId\030\002 \001("
     "\005B\022\302\377\024\016\345\212\237\350\203\275\345\274\200\346\224\276id\022 \n\007m_group\030\003 \001(\005B\017"
-    "\302\377\024\013\346\235\241\344\273\266\347\273\204ID\022#\n\tm_skillid\030\004 \001(\005B\020\302\377\024\014"
+    "\302\377\024\013\346\235\241\344\273\266\347\273\204ID\022#\n\tm_skillID\030\004 \001(\005B\020\302\377\024\014"
     "\346\277\200\346\264\273\346\212\200\350\203\275\"c\n\030Sheet_GodrelicsGodrelics"
     "\022G\n\031E_GodrelicsGodrelics_List\030\001 \003(\0132\036.pr"
     "oto_ff.E_GodrelicsGodrelicsB\004\210\301\024\020\"\234\002\n\024E_"
     "GodrelicsCondition\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id"
     "\022 \n\007m_group\030\002 \001(\005B\017\302\377\024\013\346\235\241\344\273\266\347\273\204id\022$\n\nm_"
     "conditon\030\003 \001(\005B\020\302\377\024\014\346\235\241\344\273\266\347\261\273\345\236\213\022!\n\007m_co"
-    "unt\030\004 \001(\005B\020\302\377\024\014\345\256\214\346\210\220\346\254\241\346\225\260\022&\n\014m_rewardi"
-    "tem\030\005 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\351\201\223\345\205\267\022.\n\016m_rewardn"
+    "unt\030\004 \001(\005B\020\302\377\024\014\345\256\214\346\210\220\346\254\241\346\225\260\022&\n\014m_rewardI"
+    "tem\030\005 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\351\201\223\345\205\267\022.\n\016m_rewardN"
     "umber\030\006 \001(\005B\026\302\377\024\022\345\245\226\345\212\261\351\201\223\345\205\267\346\225\260\351\207\217\022+\n\007m"
     "_param\030\007 \003(\005B\032\302\377\024\022\344\272\213\344\273\266\345\256\214\346\210\220\345\217\202\346\225\260\210\301\024\003"
     "\"d\n\030Sheet_GodrelicsCondition\022H\n\031E_Godrel"
@@ -196,9 +196,9 @@ struct StaticDescriptorInitializer_E_5fGodrelics_2eproto {
 
 #ifndef _MSC_VER
 const int E_GodrelicsGodrelics::kMIdFieldNumber;
-const int E_GodrelicsGodrelics::kMFunctionidFieldNumber;
+const int E_GodrelicsGodrelics::kMFunctionIdFieldNumber;
 const int E_GodrelicsGodrelics::kMGroupFieldNumber;
-const int E_GodrelicsGodrelics::kMSkillidFieldNumber;
+const int E_GodrelicsGodrelics::kMSkillIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_GodrelicsGodrelics::E_GodrelicsGodrelics()
@@ -282,15 +282,15 @@ bool E_GodrelicsGodrelics::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_functionid;
+        if (input->ExpectTag(16)) goto parse_m_functionId;
         break;
       }
 
-      // optional int32 m_functionid = 2;
+      // optional int32 m_functionId = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_functionid:
+         parse_m_functionId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_functionid_)));
@@ -314,15 +314,15 @@ bool E_GodrelicsGodrelics::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_skillid;
+        if (input->ExpectTag(32)) goto parse_m_skillID;
         break;
       }
 
-      // optional int32 m_skillid = 4;
+      // optional int32 m_skillID = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_skillid:
+         parse_m_skillID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_skillid_)));
@@ -357,7 +357,7 @@ void E_GodrelicsGodrelics::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_functionid = 2;
+  // optional int32 m_functionId = 2;
   if (has_m_functionid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_functionid(), output);
   }
@@ -367,7 +367,7 @@ void E_GodrelicsGodrelics::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_group(), output);
   }
 
-  // optional int32 m_skillid = 4;
+  // optional int32 m_skillID = 4;
   if (has_m_skillid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_skillid(), output);
   }
@@ -385,7 +385,7 @@ void E_GodrelicsGodrelics::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_functionid = 2;
+  // optional int32 m_functionId = 2;
   if (has_m_functionid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_functionid(), target);
   }
@@ -395,7 +395,7 @@ void E_GodrelicsGodrelics::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_group(), target);
   }
 
-  // optional int32 m_skillid = 4;
+  // optional int32 m_skillID = 4;
   if (has_m_skillid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_skillid(), target);
   }
@@ -418,7 +418,7 @@ int E_GodrelicsGodrelics::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_functionid = 2;
+    // optional int32 m_functionId = 2;
     if (has_m_functionid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -432,7 +432,7 @@ int E_GodrelicsGodrelics::ByteSize() const {
           this->m_group());
     }
 
-    // optional int32 m_skillid = 4;
+    // optional int32 m_skillID = 4;
     if (has_m_skillid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -730,8 +730,8 @@ const int E_GodrelicsCondition::kMIdFieldNumber;
 const int E_GodrelicsCondition::kMGroupFieldNumber;
 const int E_GodrelicsCondition::kMConditonFieldNumber;
 const int E_GodrelicsCondition::kMCountFieldNumber;
-const int E_GodrelicsCondition::kMRewarditemFieldNumber;
-const int E_GodrelicsCondition::kMRewardnumberFieldNumber;
+const int E_GodrelicsCondition::kMRewardItemFieldNumber;
+const int E_GodrelicsCondition::kMRewardNumberFieldNumber;
 const int E_GodrelicsCondition::kMParamFieldNumber;
 #endif  // !_MSC_VER
 
@@ -869,15 +869,15 @@ bool E_GodrelicsCondition::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_rewarditem;
+        if (input->ExpectTag(40)) goto parse_m_rewardItem;
         break;
       }
 
-      // optional int32 m_rewarditem = 5;
+      // optional int32 m_rewardItem = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rewarditem:
+         parse_m_rewardItem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rewarditem_)));
@@ -885,15 +885,15 @@ bool E_GodrelicsCondition::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_rewardnumber;
+        if (input->ExpectTag(48)) goto parse_m_rewardNumber;
         break;
       }
 
-      // optional int32 m_rewardnumber = 6;
+      // optional int32 m_rewardNumber = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rewardnumber:
+         parse_m_rewardNumber:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rewardnumber_)));
@@ -965,12 +965,12 @@ void E_GodrelicsCondition::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_count(), output);
   }
 
-  // optional int32 m_rewarditem = 5;
+  // optional int32 m_rewardItem = 5;
   if (has_m_rewarditem()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_rewarditem(), output);
   }
 
-  // optional int32 m_rewardnumber = 6;
+  // optional int32 m_rewardNumber = 6;
   if (has_m_rewardnumber()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_rewardnumber(), output);
   }
@@ -1009,12 +1009,12 @@ void E_GodrelicsCondition::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_count(), target);
   }
 
-  // optional int32 m_rewarditem = 5;
+  // optional int32 m_rewardItem = 5;
   if (has_m_rewarditem()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_rewarditem(), target);
   }
 
-  // optional int32 m_rewardnumber = 6;
+  // optional int32 m_rewardNumber = 6;
   if (has_m_rewardnumber()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_rewardnumber(), target);
   }
@@ -1064,14 +1064,14 @@ int E_GodrelicsCondition::ByteSize() const {
           this->m_count());
     }
 
-    // optional int32 m_rewarditem = 5;
+    // optional int32 m_rewardItem = 5;
     if (has_m_rewarditem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_rewarditem());
     }
 
-    // optional int32 m_rewardnumber = 6;
+    // optional int32 m_rewardNumber = 6;
     if (has_m_rewardnumber()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

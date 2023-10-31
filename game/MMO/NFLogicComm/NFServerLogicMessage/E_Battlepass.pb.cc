@@ -322,21 +322,21 @@ void protobuf_AddDesc_E_5fBattlepass_2eproto() {
     "options.proto\"\333\005\n\026E_BattlepassBattlepass"
     "\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\037\n\010m_reward\030\002 \001(\005"
     "B\r\302\377\024\t\345\245\226\345\212\261\347\273\204\022\035\n\006m_task\030\003 \001(\005B\r\302\377\024\t\344\273\273"
-    "\345\212\241\347\273\204\022-\n\tm_tasknum\030\004 \001(\tB\032\302\377\024\022\346\212\275\345\217\226\344\273\273"
-    "\345\212\241\346\225\260\351\207\217\220\301\024@\022%\n\013m_freshcost\030\005 \001(\005B\020\302\377\024\014"
+    "\345\212\241\347\273\204\022-\n\tm_taskNum\030\004 \001(\tB\032\302\377\024\022\346\212\275\345\217\226\344\273\273"
+    "\345\212\241\346\225\260\351\207\217\220\301\024@\022%\n\013m_freshCost\030\005 \001(\005B\020\302\377\024\014"
     "\345\210\267\346\226\260\346\266\210\350\200\227\022\035\n\006m_shop\030\006 \001(\005B\r\302\377\024\t\345\272\227\351\223\272"
-    "\347\273\204\022(\n\016m_shopcurrency\030\007 \001(\005B\020\302\377\024\014\345\225\206\345\272\227\350"
-    "\264\247\345\270\201\0222\n\017m_severopentype\030\010 \001(\005B\031\302\377\024\025\346\234\215\345"
-    "\212\241\345\231\250\345\274\200\346\224\276\347\261\273\345\236\213\022.\n\016m_openseverday\030\t \001("
-    "\005B\026\302\377\024\022\345\274\200\345\247\213\345\274\200\346\234\215\346\227\266\351\227\264\022)\n\017m_closeseve"
-    "rday\030\n \001(\005B\020\302\377\024\014\345\205\263\351\227\255\346\227\266\351\227\264\022%\n\013m_pricet"
+    "\347\273\204\022(\n\016m_shopCurrency\030\007 \001(\005B\020\302\377\024\014\345\225\206\345\272\227\350"
+    "\264\247\345\270\201\0222\n\017m_severOpenType\030\010 \001(\005B\031\302\377\024\025\346\234\215\345"
+    "\212\241\345\231\250\345\274\200\346\224\276\347\261\273\345\236\213\022.\n\016m_openSeverDay\030\t \001("
+    "\005B\026\302\377\024\022\345\274\200\345\247\213\345\274\200\346\234\215\346\227\266\351\227\264\022)\n\017m_closeSeve"
+    "rDay\030\n \001(\005B\020\302\377\024\014\345\205\263\351\227\255\346\227\266\351\227\264\022%\n\013m_priceT"
     "ype\030\013 \001(\005B\020\302\377\024\014\344\273\267\346\240\274\347\261\273\345\236\213\022$\n\007m_price\030\014"
-    " \001(\005B\023\302\377\024\017\346\231\256\351\200\232\347\211\210\344\273\267\346\240\274\022+\n\010m_pricep\030\r "
+    " \001(\005B\023\302\377\024\017\346\231\256\351\200\232\347\211\210\344\273\267\346\240\274\022+\n\010m_priceP\030\r "
     "\001(\005B\031\302\377\024\025\351\253\230\347\272\247\347\211\210\351\242\235\345\244\226\344\273\267\346\240\274\0225\n\014m_pres"
-    "entexp\030\016 \001(\005B\037\302\377\024\033\351\253\230\347\272\247\347\211\210\350\265\240\351\200\201\347\232\204\347\273\217\351"
-    "\252\214\345\200\274\022#\n\tm_expcost\030\017 \001(\005B\020\302\377\024\014\347\273\217\351\252\214\350\264\247\345"
-    "\270\201\0220\n\nm_expprice\030\020 \001(\005B\034\302\377\024\030\346\257\217\350\264\247\345\270\201\345\205\221"
-    "\346\215\242\347\273\217\351\252\214\345\200\274\0225\n\tm_expitem\030\021 \001(\005B\"\302\377\024\036\350\216\267"
+    "entExp\030\016 \001(\005B\037\302\377\024\033\351\253\230\347\272\247\347\211\210\350\265\240\351\200\201\347\232\204\347\273\217\351"
+    "\252\214\345\200\274\022#\n\tm_expCost\030\017 \001(\005B\020\302\377\024\014\347\273\217\351\252\214\350\264\247\345"
+    "\270\201\0220\n\nm_expPrice\030\020 \001(\005B\034\302\377\024\030\346\257\217\350\264\247\345\270\201\345\205\221"
+    "\346\215\242\347\273\217\351\252\214\345\200\274\0225\n\tm_expItem\030\021 \001(\005B\"\302\377\024\036\350\216\267"
     "\345\276\227\351\201\223\345\205\267\350\207\252\345\212\250\350\216\267\345\276\227\347\273\217\351\252\214\"i\n\032Sheet_Bat"
     "tlepassBattlepass\022K\n\033E_BattlepassBattlep"
     "ass_List\030\001 \003(\0132 .proto_ff.E_BattlepassBa"
@@ -348,33 +348,33 @@ void protobuf_AddDesc_E_5fBattlepass_2eproto() {
     "\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022 \n\tm_groupid\030\002 \001(\005B"
     "\r\302\377\024\t\347\273\204\347\261\273\345\236\213\022\030\n\004m_lv\030\003 \001(\005B\n\302\377\024\006\347\255\211\347\272\247"
     "\022%\n\005m_exp\030\004 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\346\211\200\351\234\200\347\273\217\351\252\214\022"
-    "&\n\006m_core\030\005 \001(\005B\026\302\377\024\022\346\240\270\345\277\203\350\212\202\347\202\271\346\240\207\350\257\206\022"
-    "*\n\nm_buylevel\030\006 \001(\005B\026\302\377\024\022\350\264\255\344\271\260\350\212\202\347\202\271\346\240\207"
-    "\350\257\206\022#\n\nm_showitem\030\007 \001(\005B\017\302\377\024\013\345\261\225\347\244\272\347\211\251id"
+    "&\n\006m_Core\030\005 \001(\005B\026\302\377\024\022\346\240\270\345\277\203\350\212\202\347\202\271\346\240\207\350\257\206\022"
+    "*\n\nm_buyLevel\030\006 \001(\005B\026\302\377\024\022\350\264\255\344\271\260\350\212\202\347\202\271\346\240\207"
+    "\350\257\206\022#\n\nm_showItem\030\007 \001(\005B\017\302\377\024\013\345\261\225\347\244\272\347\211\251id"
     "\022J\n\006m_item\030\010 \003(\0132$.proto_ff.E_Battlepass"
     "RewardItemDescB\024\302\377\024\014\345\245\226\345\212\261\347\211\251\345\223\201\210\301\024\001\022V\n\t"
-    "m_proitem\030\t \003(\0132\'.proto_ff.E_BattlepassR"
+    "m_proItem\030\t \003(\0132\'.proto_ff.E_BattlepassR"
     "ewardProitemDescB\032\302\377\024\022\345\212\240\345\274\272\345\245\226\345\212\261\347\211\251\345\223\201"
     "\210\301\024\002\"^\n\026Sheet_BattlepassReward\022D\n\027E_Batt"
     "lepassReward_List\030\001 \003(\0132\034.proto_ff.E_Bat"
     "tlepassRewardB\005\210\301\024\200\020\"\336\002\n\020E_BattlepassTas"
     "k\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\032\n\007m_group\030\002 \001(\005"
-    "B\t\302\377\024\005\347\273\204id\022\'\n\rm_taskrefresh\030\003 \001(\005B\020\302\377\024\014"
+    "B\t\302\377\024\005\347\273\204id\022\'\n\rm_taskRefresh\030\003 \001(\005B\020\302\377\024\014"
     "\344\273\273\345\212\241\347\261\273\345\236\213\022\036\n\004m_lv\030\004 \001(\005B\020\302\377\024\014\345\274\200\346\224\276\347\255"
     "\211\347\272\247\022\037\n\005m_tag\030\005 \001(\005B\020\302\377\024\014\346\211\200\345\261\236\351\241\265\347\255\276\022%\n"
-    "\013m_eventtype\030\006 \001(\005B\020\302\377\024\014\344\272\213\344\273\266\347\261\273\345\236\213\022#\n\014"
-    "m_reachprice\030\007 \001(\005B\r\302\377\024\t\350\276\276\346\210\220\345\200\274\022\032\n\006m_l"
+    "\013m_eventType\030\006 \001(\005B\020\302\377\024\014\344\272\213\344\273\266\347\261\273\345\236\213\022#\n\014"
+    "m_reachPrice\030\007 \001(\005B\r\302\377\024\t\350\276\276\346\210\220\345\200\274\022\032\n\006m_l"
     "ink\030\010 \001(\005B\n\302\377\024\006\351\223\276\346\216\245\022\031\n\005m_exp\030\t \001(\005B\n\302\377"
     "\024\006\347\273\217\351\252\214\022+\n\007m_param\030\n \003(\005B\032\302\377\024\022\344\272\213\344\273\266\345\256\214"
     "\346\210\220\345\217\202\346\225\260\210\301\024\002\"W\n\024Sheet_BattlepassTask\022\?\n"
     "\025E_BattlepassTask_List\030\001 \003(\0132\032.proto_ff."
     "E_BattlepassTaskB\004\210\301\024 \"\372\001\n\020E_BattlepassS"
     "hop\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\032\n\007m_group\030\002 \001"
-    "(\005B\t\302\377\024\005\347\273\204id\022\036\n\010m_itemid\030\003 \001(\005B\014\302\377\024\010\347\211\251"
-    "\345\223\201id\022#\n\tm_itemnum\030\004 \001(\005B\020\302\377\024\014\347\211\251\345\223\201\346\225\260\351"
-    "\207\217\022$\n\nm_costitem\030\005 \001(\005B\020\302\377\024\014\350\212\261\350\264\271\351\201\223\345\205\267"
-    "\022#\n\tm_costnum\030\006 \001(\005B\020\302\377\024\014\350\212\261\350\264\271\346\225\260\351\207\217\022$\n"
-    "\nm_numlimit\030\007 \001(\005B\020\302\377\024\014\351\231\220\350\264\255\346\225\260\351\207\217\"W\n\024S"
+    "(\005B\t\302\377\024\005\347\273\204id\022\036\n\010m_itemID\030\003 \001(\005B\014\302\377\024\010\347\211\251"
+    "\345\223\201id\022#\n\tm_itemNum\030\004 \001(\005B\020\302\377\024\014\347\211\251\345\223\201\346\225\260\351"
+    "\207\217\022$\n\nm_costItem\030\005 \001(\005B\020\302\377\024\014\350\212\261\350\264\271\351\201\223\345\205\267"
+    "\022#\n\tm_costNum\030\006 \001(\005B\020\302\377\024\014\350\212\261\350\264\271\346\225\260\351\207\217\022$\n"
+    "\nm_numLimit\030\007 \001(\005B\020\302\377\024\014\351\231\220\350\264\255\346\225\260\351\207\217\"W\n\024S"
     "heet_BattlepassShop\022\?\n\025E_BattlepassShop_"
     "List\030\001 \003(\0132\032.proto_ff.E_BattlepassShopB\004"
     "\210\301\024 ", 2364);
@@ -416,20 +416,20 @@ struct StaticDescriptorInitializer_E_5fBattlepass_2eproto {
 const int E_BattlepassBattlepass::kMIdFieldNumber;
 const int E_BattlepassBattlepass::kMRewardFieldNumber;
 const int E_BattlepassBattlepass::kMTaskFieldNumber;
-const int E_BattlepassBattlepass::kMTasknumFieldNumber;
-const int E_BattlepassBattlepass::kMFreshcostFieldNumber;
+const int E_BattlepassBattlepass::kMTaskNumFieldNumber;
+const int E_BattlepassBattlepass::kMFreshCostFieldNumber;
 const int E_BattlepassBattlepass::kMShopFieldNumber;
-const int E_BattlepassBattlepass::kMShopcurrencyFieldNumber;
-const int E_BattlepassBattlepass::kMSeveropentypeFieldNumber;
-const int E_BattlepassBattlepass::kMOpenseverdayFieldNumber;
-const int E_BattlepassBattlepass::kMCloseseverdayFieldNumber;
-const int E_BattlepassBattlepass::kMPricetypeFieldNumber;
+const int E_BattlepassBattlepass::kMShopCurrencyFieldNumber;
+const int E_BattlepassBattlepass::kMSeverOpenTypeFieldNumber;
+const int E_BattlepassBattlepass::kMOpenSeverDayFieldNumber;
+const int E_BattlepassBattlepass::kMCloseSeverDayFieldNumber;
+const int E_BattlepassBattlepass::kMPriceTypeFieldNumber;
 const int E_BattlepassBattlepass::kMPriceFieldNumber;
-const int E_BattlepassBattlepass::kMPricepFieldNumber;
-const int E_BattlepassBattlepass::kMPresentexpFieldNumber;
-const int E_BattlepassBattlepass::kMExpcostFieldNumber;
-const int E_BattlepassBattlepass::kMExppriceFieldNumber;
-const int E_BattlepassBattlepass::kMExpitemFieldNumber;
+const int E_BattlepassBattlepass::kMPricePFieldNumber;
+const int E_BattlepassBattlepass::kMPresentExpFieldNumber;
+const int E_BattlepassBattlepass::kMExpCostFieldNumber;
+const int E_BattlepassBattlepass::kMExpPriceFieldNumber;
+const int E_BattlepassBattlepass::kMExpItemFieldNumber;
 #endif  // !_MSC_VER
 
 E_BattlepassBattlepass::E_BattlepassBattlepass()
@@ -582,15 +582,15 @@ bool E_BattlepassBattlepass::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_tasknum;
+        if (input->ExpectTag(34)) goto parse_m_taskNum;
         break;
       }
 
-      // optional string m_tasknum = 4;
+      // optional string m_taskNum = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_tasknum:
+         parse_m_taskNum:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_tasknum()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -599,15 +599,15 @@ bool E_BattlepassBattlepass::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_freshcost;
+        if (input->ExpectTag(40)) goto parse_m_freshCost;
         break;
       }
 
-      // optional int32 m_freshcost = 5;
+      // optional int32 m_freshCost = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_freshcost:
+         parse_m_freshCost:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_freshcost_)));
@@ -631,15 +631,15 @@ bool E_BattlepassBattlepass::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_shopcurrency;
+        if (input->ExpectTag(56)) goto parse_m_shopCurrency;
         break;
       }
 
-      // optional int32 m_shopcurrency = 7;
+      // optional int32 m_shopCurrency = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_shopcurrency:
+         parse_m_shopCurrency:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_shopcurrency_)));
@@ -647,15 +647,15 @@ bool E_BattlepassBattlepass::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_severopentype;
+        if (input->ExpectTag(64)) goto parse_m_severOpenType;
         break;
       }
 
-      // optional int32 m_severopentype = 8;
+      // optional int32 m_severOpenType = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_severopentype:
+         parse_m_severOpenType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_severopentype_)));
@@ -663,15 +663,15 @@ bool E_BattlepassBattlepass::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_openseverday;
+        if (input->ExpectTag(72)) goto parse_m_openSeverDay;
         break;
       }
 
-      // optional int32 m_openseverday = 9;
+      // optional int32 m_openSeverDay = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_openseverday:
+         parse_m_openSeverDay:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_openseverday_)));
@@ -679,15 +679,15 @@ bool E_BattlepassBattlepass::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_closeseverday;
+        if (input->ExpectTag(80)) goto parse_m_closeSeverDay;
         break;
       }
 
-      // optional int32 m_closeseverday = 10;
+      // optional int32 m_closeSeverDay = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_closeseverday:
+         parse_m_closeSeverDay:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_closeseverday_)));
@@ -695,15 +695,15 @@ bool E_BattlepassBattlepass::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_pricetype;
+        if (input->ExpectTag(88)) goto parse_m_priceType;
         break;
       }
 
-      // optional int32 m_pricetype = 11;
+      // optional int32 m_priceType = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_pricetype:
+         parse_m_priceType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_pricetype_)));
@@ -727,15 +727,15 @@ bool E_BattlepassBattlepass::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_m_pricep;
+        if (input->ExpectTag(104)) goto parse_m_priceP;
         break;
       }
 
-      // optional int32 m_pricep = 13;
+      // optional int32 m_priceP = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_pricep:
+         parse_m_priceP:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_pricep_)));
@@ -743,15 +743,15 @@ bool E_BattlepassBattlepass::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(112)) goto parse_m_presentexp;
+        if (input->ExpectTag(112)) goto parse_m_presentExp;
         break;
       }
 
-      // optional int32 m_presentexp = 14;
+      // optional int32 m_presentExp = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_presentexp:
+         parse_m_presentExp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_presentexp_)));
@@ -759,15 +759,15 @@ bool E_BattlepassBattlepass::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(120)) goto parse_m_expcost;
+        if (input->ExpectTag(120)) goto parse_m_expCost;
         break;
       }
 
-      // optional int32 m_expcost = 15;
+      // optional int32 m_expCost = 15;
       case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_expcost:
+         parse_m_expCost:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_expcost_)));
@@ -775,15 +775,15 @@ bool E_BattlepassBattlepass::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(128)) goto parse_m_expprice;
+        if (input->ExpectTag(128)) goto parse_m_expPrice;
         break;
       }
 
-      // optional int32 m_expprice = 16;
+      // optional int32 m_expPrice = 16;
       case 16: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_expprice:
+         parse_m_expPrice:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_expprice_)));
@@ -791,15 +791,15 @@ bool E_BattlepassBattlepass::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(136)) goto parse_m_expitem;
+        if (input->ExpectTag(136)) goto parse_m_expItem;
         break;
       }
 
-      // optional int32 m_expitem = 17;
+      // optional int32 m_expItem = 17;
       case 17: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_expitem:
+         parse_m_expItem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_expitem_)));
@@ -844,7 +844,7 @@ void E_BattlepassBattlepass::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_task(), output);
   }
 
-  // optional string m_tasknum = 4;
+  // optional string m_taskNum = 4;
   if (has_m_tasknum()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_tasknum().data(), this->m_tasknum().length(),
@@ -853,7 +853,7 @@ void E_BattlepassBattlepass::SerializeWithCachedSizes(
       4, this->m_tasknum(), output);
   }
 
-  // optional int32 m_freshcost = 5;
+  // optional int32 m_freshCost = 5;
   if (has_m_freshcost()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_freshcost(), output);
   }
@@ -863,27 +863,27 @@ void E_BattlepassBattlepass::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_shop(), output);
   }
 
-  // optional int32 m_shopcurrency = 7;
+  // optional int32 m_shopCurrency = 7;
   if (has_m_shopcurrency()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_shopcurrency(), output);
   }
 
-  // optional int32 m_severopentype = 8;
+  // optional int32 m_severOpenType = 8;
   if (has_m_severopentype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_severopentype(), output);
   }
 
-  // optional int32 m_openseverday = 9;
+  // optional int32 m_openSeverDay = 9;
   if (has_m_openseverday()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_openseverday(), output);
   }
 
-  // optional int32 m_closeseverday = 10;
+  // optional int32 m_closeSeverDay = 10;
   if (has_m_closeseverday()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_closeseverday(), output);
   }
 
-  // optional int32 m_pricetype = 11;
+  // optional int32 m_priceType = 11;
   if (has_m_pricetype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_pricetype(), output);
   }
@@ -893,27 +893,27 @@ void E_BattlepassBattlepass::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_price(), output);
   }
 
-  // optional int32 m_pricep = 13;
+  // optional int32 m_priceP = 13;
   if (has_m_pricep()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_pricep(), output);
   }
 
-  // optional int32 m_presentexp = 14;
+  // optional int32 m_presentExp = 14;
   if (has_m_presentexp()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_presentexp(), output);
   }
 
-  // optional int32 m_expcost = 15;
+  // optional int32 m_expCost = 15;
   if (has_m_expcost()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_expcost(), output);
   }
 
-  // optional int32 m_expprice = 16;
+  // optional int32 m_expPrice = 16;
   if (has_m_expprice()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->m_expprice(), output);
   }
 
-  // optional int32 m_expitem = 17;
+  // optional int32 m_expItem = 17;
   if (has_m_expitem()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(17, this->m_expitem(), output);
   }
@@ -941,7 +941,7 @@ void E_BattlepassBattlepass::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_task(), target);
   }
 
-  // optional string m_tasknum = 4;
+  // optional string m_taskNum = 4;
   if (has_m_tasknum()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_tasknum().data(), this->m_tasknum().length(),
@@ -951,7 +951,7 @@ void E_BattlepassBattlepass::SerializeWithCachedSizes(
         4, this->m_tasknum(), target);
   }
 
-  // optional int32 m_freshcost = 5;
+  // optional int32 m_freshCost = 5;
   if (has_m_freshcost()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_freshcost(), target);
   }
@@ -961,27 +961,27 @@ void E_BattlepassBattlepass::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_shop(), target);
   }
 
-  // optional int32 m_shopcurrency = 7;
+  // optional int32 m_shopCurrency = 7;
   if (has_m_shopcurrency()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_shopcurrency(), target);
   }
 
-  // optional int32 m_severopentype = 8;
+  // optional int32 m_severOpenType = 8;
   if (has_m_severopentype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_severopentype(), target);
   }
 
-  // optional int32 m_openseverday = 9;
+  // optional int32 m_openSeverDay = 9;
   if (has_m_openseverday()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_openseverday(), target);
   }
 
-  // optional int32 m_closeseverday = 10;
+  // optional int32 m_closeSeverDay = 10;
   if (has_m_closeseverday()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_closeseverday(), target);
   }
 
-  // optional int32 m_pricetype = 11;
+  // optional int32 m_priceType = 11;
   if (has_m_pricetype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_pricetype(), target);
   }
@@ -991,27 +991,27 @@ void E_BattlepassBattlepass::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_price(), target);
   }
 
-  // optional int32 m_pricep = 13;
+  // optional int32 m_priceP = 13;
   if (has_m_pricep()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_pricep(), target);
   }
 
-  // optional int32 m_presentexp = 14;
+  // optional int32 m_presentExp = 14;
   if (has_m_presentexp()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_presentexp(), target);
   }
 
-  // optional int32 m_expcost = 15;
+  // optional int32 m_expCost = 15;
   if (has_m_expcost()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_expcost(), target);
   }
 
-  // optional int32 m_expprice = 16;
+  // optional int32 m_expPrice = 16;
   if (has_m_expprice()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->m_expprice(), target);
   }
 
-  // optional int32 m_expitem = 17;
+  // optional int32 m_expItem = 17;
   if (has_m_expitem()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(17, this->m_expitem(), target);
   }
@@ -1048,14 +1048,14 @@ int E_BattlepassBattlepass::ByteSize() const {
           this->m_task());
     }
 
-    // optional string m_tasknum = 4;
+    // optional string m_taskNum = 4;
     if (has_m_tasknum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_tasknum());
     }
 
-    // optional int32 m_freshcost = 5;
+    // optional int32 m_freshCost = 5;
     if (has_m_freshcost()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1069,14 +1069,14 @@ int E_BattlepassBattlepass::ByteSize() const {
           this->m_shop());
     }
 
-    // optional int32 m_shopcurrency = 7;
+    // optional int32 m_shopCurrency = 7;
     if (has_m_shopcurrency()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_shopcurrency());
     }
 
-    // optional int32 m_severopentype = 8;
+    // optional int32 m_severOpenType = 8;
     if (has_m_severopentype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1085,21 +1085,21 @@ int E_BattlepassBattlepass::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_openseverday = 9;
+    // optional int32 m_openSeverDay = 9;
     if (has_m_openseverday()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_openseverday());
     }
 
-    // optional int32 m_closeseverday = 10;
+    // optional int32 m_closeSeverDay = 10;
     if (has_m_closeseverday()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_closeseverday());
     }
 
-    // optional int32 m_pricetype = 11;
+    // optional int32 m_priceType = 11;
     if (has_m_pricetype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1113,28 +1113,28 @@ int E_BattlepassBattlepass::ByteSize() const {
           this->m_price());
     }
 
-    // optional int32 m_pricep = 13;
+    // optional int32 m_priceP = 13;
     if (has_m_pricep()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_pricep());
     }
 
-    // optional int32 m_presentexp = 14;
+    // optional int32 m_presentExp = 14;
     if (has_m_presentexp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_presentexp());
     }
 
-    // optional int32 m_expcost = 15;
+    // optional int32 m_expCost = 15;
     if (has_m_expcost()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_expcost());
     }
 
-    // optional int32 m_expprice = 16;
+    // optional int32 m_expPrice = 16;
     if (has_m_expprice()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1143,7 +1143,7 @@ int E_BattlepassBattlepass::ByteSize() const {
 
   }
   if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    // optional int32 m_expitem = 17;
+    // optional int32 m_expItem = 17;
     if (has_m_expitem()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1994,10 +1994,10 @@ const int E_BattlepassReward::kMGroupidFieldNumber;
 const int E_BattlepassReward::kMLvFieldNumber;
 const int E_BattlepassReward::kMExpFieldNumber;
 const int E_BattlepassReward::kMCoreFieldNumber;
-const int E_BattlepassReward::kMBuylevelFieldNumber;
-const int E_BattlepassReward::kMShowitemFieldNumber;
+const int E_BattlepassReward::kMBuyLevelFieldNumber;
+const int E_BattlepassReward::kMShowItemFieldNumber;
 const int E_BattlepassReward::kMItemFieldNumber;
-const int E_BattlepassReward::kMProitemFieldNumber;
+const int E_BattlepassReward::kMProItemFieldNumber;
 #endif  // !_MSC_VER
 
 E_BattlepassReward::E_BattlepassReward()
@@ -2137,15 +2137,15 @@ bool E_BattlepassReward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_core;
+        if (input->ExpectTag(40)) goto parse_m_Core;
         break;
       }
 
-      // optional int32 m_core = 5;
+      // optional int32 m_Core = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_core:
+         parse_m_Core:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_core_)));
@@ -2153,15 +2153,15 @@ bool E_BattlepassReward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_buylevel;
+        if (input->ExpectTag(48)) goto parse_m_buyLevel;
         break;
       }
 
-      // optional int32 m_buylevel = 6;
+      // optional int32 m_buyLevel = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_buylevel:
+         parse_m_buyLevel:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_buylevel_)));
@@ -2169,15 +2169,15 @@ bool E_BattlepassReward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_showitem;
+        if (input->ExpectTag(56)) goto parse_m_showItem;
         break;
       }
 
-      // optional int32 m_showitem = 7;
+      // optional int32 m_showItem = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_showitem:
+         parse_m_showItem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_showitem_)));
@@ -2200,21 +2200,21 @@ bool E_BattlepassReward::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(66)) goto parse_m_item;
-        if (input->ExpectTag(74)) goto parse_m_proitem;
+        if (input->ExpectTag(74)) goto parse_m_proItem;
         break;
       }
 
-      // repeated .proto_ff.E_BattlepassRewardProitemDesc m_proitem = 9;
+      // repeated .proto_ff.E_BattlepassRewardProitemDesc m_proItem = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_proitem:
+         parse_m_proItem:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_proitem()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(74)) goto parse_m_proitem;
+        if (input->ExpectTag(74)) goto parse_m_proItem;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2257,17 +2257,17 @@ void E_BattlepassReward::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_exp(), output);
   }
 
-  // optional int32 m_core = 5;
+  // optional int32 m_Core = 5;
   if (has_m_core()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_core(), output);
   }
 
-  // optional int32 m_buylevel = 6;
+  // optional int32 m_buyLevel = 6;
   if (has_m_buylevel()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_buylevel(), output);
   }
 
-  // optional int32 m_showitem = 7;
+  // optional int32 m_showItem = 7;
   if (has_m_showitem()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_showitem(), output);
   }
@@ -2278,7 +2278,7 @@ void E_BattlepassReward::SerializeWithCachedSizes(
       8, this->m_item(i), output);
   }
 
-  // repeated .proto_ff.E_BattlepassRewardProitemDesc m_proitem = 9;
+  // repeated .proto_ff.E_BattlepassRewardProitemDesc m_proItem = 9;
   for (int i = 0; i < this->m_proitem_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       9, this->m_proitem(i), output);
@@ -2312,17 +2312,17 @@ void E_BattlepassReward::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_exp(), target);
   }
 
-  // optional int32 m_core = 5;
+  // optional int32 m_Core = 5;
   if (has_m_core()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_core(), target);
   }
 
-  // optional int32 m_buylevel = 6;
+  // optional int32 m_buyLevel = 6;
   if (has_m_buylevel()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_buylevel(), target);
   }
 
-  // optional int32 m_showitem = 7;
+  // optional int32 m_showItem = 7;
   if (has_m_showitem()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_showitem(), target);
   }
@@ -2334,7 +2334,7 @@ void E_BattlepassReward::SerializeWithCachedSizes(
         8, this->m_item(i), target);
   }
 
-  // repeated .proto_ff.E_BattlepassRewardProitemDesc m_proitem = 9;
+  // repeated .proto_ff.E_BattlepassRewardProitemDesc m_proItem = 9;
   for (int i = 0; i < this->m_proitem_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -2380,21 +2380,21 @@ int E_BattlepassReward::ByteSize() const {
           this->m_exp());
     }
 
-    // optional int32 m_core = 5;
+    // optional int32 m_Core = 5;
     if (has_m_core()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_core());
     }
 
-    // optional int32 m_buylevel = 6;
+    // optional int32 m_buyLevel = 6;
     if (has_m_buylevel()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_buylevel());
     }
 
-    // optional int32 m_showitem = 7;
+    // optional int32 m_showItem = 7;
     if (has_m_showitem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2410,7 +2410,7 @@ int E_BattlepassReward::ByteSize() const {
         this->m_item(i));
   }
 
-  // repeated .proto_ff.E_BattlepassRewardProitemDesc m_proitem = 9;
+  // repeated .proto_ff.E_BattlepassRewardProitemDesc m_proItem = 9;
   total_size += 1 * this->m_proitem_size();
   for (int i = 0; i < this->m_proitem_size(); i++) {
     total_size +=
@@ -2722,11 +2722,11 @@ void Sheet_BattlepassReward::Swap(Sheet_BattlepassReward* other) {
 #ifndef _MSC_VER
 const int E_BattlepassTask::kMIdFieldNumber;
 const int E_BattlepassTask::kMGroupFieldNumber;
-const int E_BattlepassTask::kMTaskrefreshFieldNumber;
+const int E_BattlepassTask::kMTaskRefreshFieldNumber;
 const int E_BattlepassTask::kMLvFieldNumber;
 const int E_BattlepassTask::kMTagFieldNumber;
-const int E_BattlepassTask::kMEventtypeFieldNumber;
-const int E_BattlepassTask::kMReachpriceFieldNumber;
+const int E_BattlepassTask::kMEventTypeFieldNumber;
+const int E_BattlepassTask::kMReachPriceFieldNumber;
 const int E_BattlepassTask::kMLinkFieldNumber;
 const int E_BattlepassTask::kMExpFieldNumber;
 const int E_BattlepassTask::kMParamFieldNumber;
@@ -2842,15 +2842,15 @@ bool E_BattlepassTask::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_taskrefresh;
+        if (input->ExpectTag(24)) goto parse_m_taskRefresh;
         break;
       }
 
-      // optional int32 m_taskrefresh = 3;
+      // optional int32 m_taskRefresh = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_taskrefresh:
+         parse_m_taskRefresh:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_taskrefresh_)));
@@ -2890,15 +2890,15 @@ bool E_BattlepassTask::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_eventtype;
+        if (input->ExpectTag(48)) goto parse_m_eventType;
         break;
       }
 
-      // optional int32 m_eventtype = 6;
+      // optional int32 m_eventType = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_eventtype:
+         parse_m_eventType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_eventtype_)));
@@ -2906,15 +2906,15 @@ bool E_BattlepassTask::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_reachprice;
+        if (input->ExpectTag(56)) goto parse_m_reachPrice;
         break;
       }
 
-      // optional int32 m_reachprice = 7;
+      // optional int32 m_reachPrice = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_reachprice:
+         parse_m_reachPrice:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_reachprice_)));
@@ -3008,7 +3008,7 @@ void E_BattlepassTask::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_group(), output);
   }
 
-  // optional int32 m_taskrefresh = 3;
+  // optional int32 m_taskRefresh = 3;
   if (has_m_taskrefresh()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_taskrefresh(), output);
   }
@@ -3023,12 +3023,12 @@ void E_BattlepassTask::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_tag(), output);
   }
 
-  // optional int32 m_eventtype = 6;
+  // optional int32 m_eventType = 6;
   if (has_m_eventtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_eventtype(), output);
   }
 
-  // optional int32 m_reachprice = 7;
+  // optional int32 m_reachPrice = 7;
   if (has_m_reachprice()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_reachprice(), output);
   }
@@ -3067,7 +3067,7 @@ void E_BattlepassTask::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_group(), target);
   }
 
-  // optional int32 m_taskrefresh = 3;
+  // optional int32 m_taskRefresh = 3;
   if (has_m_taskrefresh()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_taskrefresh(), target);
   }
@@ -3082,12 +3082,12 @@ void E_BattlepassTask::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_tag(), target);
   }
 
-  // optional int32 m_eventtype = 6;
+  // optional int32 m_eventType = 6;
   if (has_m_eventtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_eventtype(), target);
   }
 
-  // optional int32 m_reachprice = 7;
+  // optional int32 m_reachPrice = 7;
   if (has_m_reachprice()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_reachprice(), target);
   }
@@ -3133,7 +3133,7 @@ int E_BattlepassTask::ByteSize() const {
           this->m_group());
     }
 
-    // optional int32 m_taskrefresh = 3;
+    // optional int32 m_taskRefresh = 3;
     if (has_m_taskrefresh()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3154,14 +3154,14 @@ int E_BattlepassTask::ByteSize() const {
           this->m_tag());
     }
 
-    // optional int32 m_eventtype = 6;
+    // optional int32 m_eventType = 6;
     if (has_m_eventtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_eventtype());
     }
 
-    // optional int32 m_reachprice = 7;
+    // optional int32 m_reachPrice = 7;
     if (has_m_reachprice()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3507,11 +3507,11 @@ void Sheet_BattlepassTask::Swap(Sheet_BattlepassTask* other) {
 #ifndef _MSC_VER
 const int E_BattlepassShop::kMIdFieldNumber;
 const int E_BattlepassShop::kMGroupFieldNumber;
-const int E_BattlepassShop::kMItemidFieldNumber;
-const int E_BattlepassShop::kMItemnumFieldNumber;
-const int E_BattlepassShop::kMCostitemFieldNumber;
-const int E_BattlepassShop::kMCostnumFieldNumber;
-const int E_BattlepassShop::kMNumlimitFieldNumber;
+const int E_BattlepassShop::kMItemIDFieldNumber;
+const int E_BattlepassShop::kMItemNumFieldNumber;
+const int E_BattlepassShop::kMCostItemFieldNumber;
+const int E_BattlepassShop::kMCostNumFieldNumber;
+const int E_BattlepassShop::kMNumLimitFieldNumber;
 #endif  // !_MSC_VER
 
 E_BattlepassShop::E_BattlepassShop()
@@ -3617,15 +3617,15 @@ bool E_BattlepassShop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_itemid;
+        if (input->ExpectTag(24)) goto parse_m_itemID;
         break;
       }
 
-      // optional int32 m_itemid = 3;
+      // optional int32 m_itemID = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemid:
+         parse_m_itemID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itemid_)));
@@ -3633,15 +3633,15 @@ bool E_BattlepassShop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_itemnum;
+        if (input->ExpectTag(32)) goto parse_m_itemNum;
         break;
       }
 
-      // optional int32 m_itemnum = 4;
+      // optional int32 m_itemNum = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemnum:
+         parse_m_itemNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itemnum_)));
@@ -3649,15 +3649,15 @@ bool E_BattlepassShop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_costitem;
+        if (input->ExpectTag(40)) goto parse_m_costItem;
         break;
       }
 
-      // optional int32 m_costitem = 5;
+      // optional int32 m_costItem = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_costitem:
+         parse_m_costItem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_costitem_)));
@@ -3665,15 +3665,15 @@ bool E_BattlepassShop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_costnum;
+        if (input->ExpectTag(48)) goto parse_m_costNum;
         break;
       }
 
-      // optional int32 m_costnum = 6;
+      // optional int32 m_costNum = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_costnum:
+         parse_m_costNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_costnum_)));
@@ -3681,15 +3681,15 @@ bool E_BattlepassShop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_numlimit;
+        if (input->ExpectTag(56)) goto parse_m_numLimit;
         break;
       }
 
-      // optional int32 m_numlimit = 7;
+      // optional int32 m_numLimit = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_numlimit:
+         parse_m_numLimit:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_numlimit_)));
@@ -3729,27 +3729,27 @@ void E_BattlepassShop::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_group(), output);
   }
 
-  // optional int32 m_itemid = 3;
+  // optional int32 m_itemID = 3;
   if (has_m_itemid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_itemid(), output);
   }
 
-  // optional int32 m_itemnum = 4;
+  // optional int32 m_itemNum = 4;
   if (has_m_itemnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_itemnum(), output);
   }
 
-  // optional int32 m_costitem = 5;
+  // optional int32 m_costItem = 5;
   if (has_m_costitem()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_costitem(), output);
   }
 
-  // optional int32 m_costnum = 6;
+  // optional int32 m_costNum = 6;
   if (has_m_costnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_costnum(), output);
   }
 
-  // optional int32 m_numlimit = 7;
+  // optional int32 m_numLimit = 7;
   if (has_m_numlimit()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_numlimit(), output);
   }
@@ -3772,27 +3772,27 @@ void E_BattlepassShop::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_group(), target);
   }
 
-  // optional int32 m_itemid = 3;
+  // optional int32 m_itemID = 3;
   if (has_m_itemid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_itemid(), target);
   }
 
-  // optional int32 m_itemnum = 4;
+  // optional int32 m_itemNum = 4;
   if (has_m_itemnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_itemnum(), target);
   }
 
-  // optional int32 m_costitem = 5;
+  // optional int32 m_costItem = 5;
   if (has_m_costitem()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_costitem(), target);
   }
 
-  // optional int32 m_costnum = 6;
+  // optional int32 m_costNum = 6;
   if (has_m_costnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_costnum(), target);
   }
 
-  // optional int32 m_numlimit = 7;
+  // optional int32 m_numLimit = 7;
   if (has_m_numlimit()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_numlimit(), target);
   }
@@ -3822,35 +3822,35 @@ int E_BattlepassShop::ByteSize() const {
           this->m_group());
     }
 
-    // optional int32 m_itemid = 3;
+    // optional int32 m_itemID = 3;
     if (has_m_itemid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_itemid());
     }
 
-    // optional int32 m_itemnum = 4;
+    // optional int32 m_itemNum = 4;
     if (has_m_itemnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_itemnum());
     }
 
-    // optional int32 m_costitem = 5;
+    // optional int32 m_costItem = 5;
     if (has_m_costitem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_costitem());
     }
 
-    // optional int32 m_costnum = 6;
+    // optional int32 m_costNum = 6;
     if (has_m_costnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_costnum());
     }
 
-    // optional int32 m_numlimit = 7;
+    // optional int32 m_numLimit = 7;
     if (has_m_numlimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

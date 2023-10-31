@@ -21,8 +21,8 @@ namespace proto_ff_s {
 		virtual ~E_AchievementAchievementItemrewardDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_value;//数量
-		int64_t m_id;//ID
+		int32_t m_Value;//数量
+		int64_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_AchievementAchievementItemrewardDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_AchievementAchievementItemrewardDesc & msg);
@@ -36,18 +36,18 @@ namespace proto_ff_s {
 		virtual ~E_AchievementAchievement_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_achievementid;//成就ID
-		int32_t m_achievementlevel;//成就触发等级
-		int32_t m_achievementtype;//成就类型
-		int32_t m_achievementsubtype;//事件类型
-		int32_t m_subtype;//事件细分
-		int32_t m_achievementobjectvalue;//事件目标完成值
-		NFShmString<64> m_typename;//类型名称
+		int32_t m_achievementId;//成就ID
+		int32_t m_achievementLevel;//成就触发等级
+		int32_t m_achievementType;//成就类型
+		int32_t m_achievementSubType;//事件类型
+		int32_t m_SubType;//事件细分
+		int32_t m_achievementObjectValue;//事件目标完成值
+		NFShmString<64> m_typeName;//类型名称
 		NFShmString<64> m_label;//二级标签
-		int32_t m_achievementpoint;//获取成就点数量
-		int32_t m_overview;//是否进入总览进度
+		int32_t m_achievementPoint;//获取成就点数量
+		int32_t m_Overview;//是否进入总览进度
 		NFShmVector<int32_t, DEFINE_E_ACHIEVEMENTACHIEVEMENT_M_PARAM_MAX_NUM> m_param;//事件完成参数
-		NFShmVector<struct E_AchievementAchievementItemrewardDesc_s, DEFINE_E_ACHIEVEMENTACHIEVEMENT_M_ITEMREWARD_MAX_NUM> m_itemreward;//获得物品
+		NFShmVector<struct E_AchievementAchievementItemrewardDesc_s, DEFINE_E_ACHIEVEMENTACHIEVEMENT_M_ITEMREWARD_MAX_NUM> m_itemReward;//获得物品
 
 		virtual void write_to_pbmsg(::proto_ff::E_AchievementAchievement & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_AchievementAchievement & msg);
@@ -75,11 +75,11 @@ namespace proto_ff_s {
 		virtual ~E_AchievementTotalachievements_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_totalsum;//总额成就ID
-		NFShmString<64> m_totalachievementname;//总览成就名
-		int32_t m_achievedpoints;//达成点数
-		int32_t m_totalitems;//总览奖励物品
-		int32_t m_rewardvalue;//奖励物品数量
+		int32_t m_totalSum;//总额成就ID
+		NFShmString<64> m_totalAchievementName;//总览成就名
+		int32_t m_achievedPoints;//达成点数
+		int32_t m_totalItems;//总览奖励物品
+		int32_t m_RewardValue;//奖励物品数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_AchievementTotalachievements & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_AchievementTotalachievements & msg);

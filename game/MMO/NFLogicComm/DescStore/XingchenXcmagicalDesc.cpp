@@ -90,8 +90,8 @@ int XingchenXcmagicalDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_hhstar <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_hhstar)), result, "can't find the hhstar:{} in the  excel:item sheet:item", pDesc->m_hhstar);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_hhact <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_hhact)), result, "can't find the hhact:{} in the  excel:item sheet:item", pDesc->m_hhact);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_HhStar <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_HhStar)), result, "can't find the HhStar:{} in the  excel:item sheet:item", pDesc->m_HhStar);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_HhAct <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_HhAct)), result, "can't find the HhAct:{} in the  excel:item sheet:item", pDesc->m_HhAct);
 	}
 	return result;
 }

@@ -38,11 +38,11 @@ namespace proto_ff_s {
 		int32_t m_id;//序号ID
 		int32_t m_type;//类型
 		int32_t m_modeltype;//所属阶段
-		int32_t m_starttask;//任务ID
-		int32_t m_endtask;//结束任务ID
+		int32_t m_startTask;//任务ID
+		int32_t m_endTask;//结束任务ID
 		int32_t m_condition;//条件
 		int32_t m_value;//条件值
-		int32_t m_rewardid;//奖励ID
+		int32_t m_rewardID;//奖励ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_GodevilPreposetask & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GodevilPreposetask & msg);
@@ -87,8 +87,8 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t m_id;//等级
 		int64_t m_exp;//下级经验
-		int64_t m_explimit;//经验上限
-		int32_t m_itemid;//突破材料
+		int64_t m_expLimit;//经验上限
+		int32_t m_itemID;//突破材料
 		int32_t m_num;//材料数量
 		NFShmVector<struct E_GodevilGodevillvAttributeDesc_s, DEFINE_E_GODEVILGODEVILLV_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
 
@@ -119,15 +119,15 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;//id
-		int32_t m_oldprice;//原价元
-		int32_t m_newprice;//现价
-		int32_t m_rechargid;//计费点
+		int32_t m_oldPrice;//原价元
+		int32_t m_newPrice;//现价
+		int32_t m_rechargID;//计费点
 		int32_t m_type;//特权类型
 		int32_t m_lv;//特权等级
-		int32_t m_functiontype;//功能类型
+		int32_t m_functionType;//功能类型
 		int32_t m_parama;//参数
-		int32_t m_equipmentid;//获取装备道具ID
-		int32_t m_itemid;//赠送的装备道具ID
+		int32_t m_equipmentID;//获取装备道具ID
+		int32_t m_itemID;//赠送的装备道具ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_GodevilGodevilprivilege & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GodevilGodevilprivilege & msg);
@@ -155,7 +155,7 @@ namespace proto_ff_s {
 		virtual ~E_GodevilStrongStDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmString<64> m_typeid;//提升属性类型
+		NFShmString<64> m_typeID;//提升属性类型
 		NFShmString<64> m_quality;//品质
 		NFShmString<64> m_position;//部位
 
@@ -174,7 +174,7 @@ namespace proto_ff_s {
 		int32_t m_lv;//强化等级
 		int32_t m_exp;//经验值
 		int32_t m_type_num;//属性提升系数
-		int32_t m_godevillv;//需求神魔等级
+		int32_t m_godevilLv;//需求神魔等级
 		NFShmVector<struct E_GodevilStrongStDesc_s, DEFINE_E_GODEVILSTRONG_M_ST_MAX_NUM> m_st;//装备
 
 		virtual void write_to_pbmsg(::proto_ff::E_GodevilStrong & msg) const;
@@ -206,7 +206,7 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_type;//类型
 		int32_t m_parama;//影响值
-		int32_t m_strongexp;//经验值
+		int32_t m_strongExp;//经验值
 
 		virtual void write_to_pbmsg(::proto_ff::E_GodevilStrongexp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GodevilStrongexp & msg);
@@ -234,7 +234,7 @@ namespace proto_ff_s {
 		virtual ~E_GodevilAdvancelvAdDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_godevillv;//需求神魔等级
+		int32_t m_godevilLv;//需求神魔等级
 		int32_t m_exp;//下级经验值
 		NFShmString<64> m_position;//
 
@@ -250,7 +250,7 @@ namespace proto_ff_s {
 		virtual ~E_GodevilAdvancelv_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_wearlv;//装备品阶
+		int32_t m_wearLv;//装备品阶
 		NFShmVector<struct E_GodevilAdvancelvAdDesc_s, DEFINE_E_GODEVILADVANCELV_M_AD_MAX_NUM> m_ad;//部位
 
 		virtual void write_to_pbmsg(::proto_ff::E_GodevilAdvancelv & msg) const;
@@ -280,11 +280,11 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_wearlv;//装备品阶
+		int32_t m_wearLv;//装备品阶
 		NFShmString<64> m_position;//部位
-		int32_t m_lvparama;//阶数系数
-		int32_t m_goldparama;//黄星系数
-		int32_t m_silverparama;//白星系数
+		int32_t m_lvParama;//阶数系数
+		int32_t m_goldParama;//黄星系数
+		int32_t m_silverParama;//白星系数
 		int32_t m_quality6;//红品系数
 		int32_t m_quality7;//粉品系数
 		int32_t m_quality8;//彩品系数
@@ -318,7 +318,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_num;//数量
-		int32_t m_id;//ID
+		int32_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_GodevilQualitylvItemDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GodevilQualitylvItemDesc & msg);
@@ -334,11 +334,11 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_quality;//品质
-		int32_t m_wearlv;//需求装备阶数
+		int32_t m_wearLv;//需求装备阶数
 		int32_t m_percent;//下级成功率
 		NFShmString<64> m_position;//部位
-		int32_t m_costwuxiongitem;//消耗神品悟性道具
-		int32_t m_costnumber;//数量
+		int32_t m_costwuxiongItem;//消耗神品悟性道具
+		int32_t m_costNumber;//数量
 		NFShmVector<struct E_GodevilQualitylvItemDesc_s, DEFINE_E_GODEVILQUALITYLV_M_ITEM_MAX_NUM> m_item;//材料
 
 		virtual void write_to_pbmsg(::proto_ff::E_GodevilQualitylv & msg) const;
@@ -369,7 +369,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_position;//部位id
 		int32_t m_day;//解锁天数
-		int32_t m_godevillv;//神魔等级
+		int32_t m_godevilLv;//神魔等级
 
 		virtual void write_to_pbmsg(::proto_ff::E_GodevilPositionunlock & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GodevilPositionunlock & msg);
@@ -397,8 +397,8 @@ namespace proto_ff_s {
 		virtual ~E_GodevilBlacksmithItemDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_num;//数量
-		int32_t m_id;//id
+		int32_t m_Num;//数量
+		int32_t m_ID;//id
 
 		virtual void write_to_pbmsg(::proto_ff::E_GodevilBlacksmithItemDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GodevilBlacksmithItemDesc & msg);
@@ -413,7 +413,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_probability;//概率
-		int32_t m_id;//ID
+		int32_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_GodevilBlacksmithSkillDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GodevilBlacksmithSkillDesc & msg);
@@ -432,16 +432,16 @@ namespace proto_ff_s {
 		int32_t m_position;//装备部位
 		int32_t m_quality;//装备品质
 		int32_t m_probability;//出现概率
-		NFShmString<64> m_godpoint;//悟性随机
-		NFShmString<64> m_starsprobability;//词条数和概率
+		NFShmString<64> m_godPoint;//悟性随机
+		NFShmString<64> m_starsProbability;//词条数和概率
 		int32_t m_gold;//黄星概率
 		int32_t m_silver;//白星概率
-		int32_t m_paperid;//图纸ID
-		int32_t m_papernum;//图纸数量
-		int32_t m_substituteitem;//缺省道具
+		int32_t m_paperID;//图纸ID
+		int32_t m_paperNum;//图纸数量
+		int32_t m_substituteItem;//缺省道具
 		int32_t m_number;//缺省道具数量
-		int32_t m_godevilskill;//神魔技能ID
-		NFShmString<64> m_skillset;//被动技能概率
+		int32_t m_godevilSkill;//神魔技能ID
+		NFShmString<64> m_skillSet;//被动技能概率
 		NFShmVector<struct E_GodevilBlacksmithItemDesc_s, DEFINE_E_GODEVILBLACKSMITH_M_ITEM_MAX_NUM> m_item;//道具
 		NFShmVector<struct E_GodevilBlacksmithSkillDesc_s, DEFINE_E_GODEVILBLACKSMITH_M_SKILL_MAX_NUM> m_skill;//被动技能
 
@@ -471,8 +471,8 @@ namespace proto_ff_s {
 		virtual ~E_GodevilGodevilskill_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_godevilskill;//神魔技能ID
-		int32_t m_goldstars;//金星星数
+		int32_t m_godevilSkill;//神魔技能ID
+		int32_t m_goldStars;//金星星数
 
 		virtual void write_to_pbmsg(::proto_ff::E_GodevilGodevilskill & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GodevilGodevilskill & msg);

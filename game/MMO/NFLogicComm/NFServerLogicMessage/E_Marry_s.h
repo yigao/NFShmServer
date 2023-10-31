@@ -44,16 +44,16 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		NFShmString<64> m_weddingname;//婚礼名称
+		NFShmString<64> m_weddingName;//婚礼名称
 		int32_t m_banquet;//是否宴会
 		int32_t m_cruise;//是否巡游
 		int32_t m_money;//货币
 		int32_t m_price;//价格
-		int32_t m_firstboxid;//首次奖励组id
-		int32_t m_firstaddpower;//首次增加战力
-		int32_t m_repeatboxid;//多次奖励组id
-		int32_t m_repeataddpower;//多次增加战力
-		int32_t m_titleid;//称号
+		int32_t m_firstboxID;//首次奖励组id
+		int32_t m_firstaddPower;//首次增加战力
+		int32_t m_repeatboxID;//多次奖励组id
+		int32_t m_repeataddPower;//多次增加战力
+		int32_t m_titleID;//称号
 		int32_t m_equip;//同心锁
 		int32_t m_freeprice;//免费席位
 
@@ -84,8 +84,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		NFShmString<64> m_begintime;//宴会开始时间
-		NFShmString<64> m_finishtime;//宴会结束时间
+		NFShmString<64> m_beginTime;//宴会开始时间
+		NFShmString<64> m_finishTime;//宴会结束时间
 		int32_t m_pre_broad_sec;//提前广播时间
 		int32_t m_broad_inter_sec;//广播间隔
 
@@ -147,8 +147,8 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_lv;//星级
-		int32_t m_exp;//升级需要经验
-		NFShmVector<struct E_MarryLocklvAttributeDesc_s, DEFINE_E_MARRYLOCKLV_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
+		int32_t m_Exp;//升级需要经验
+		NFShmVector<struct E_MarryLocklvAttributeDesc_s, DEFINE_E_MARRYLOCKLV_M_ATTRIBUTE_MAX_NUM> m_Attribute;//属性
 		NFShmVector<struct E_MarryLocklvSkillDesc_s, DEFINE_E_MARRYLOCKLV_M_SKILL_MAX_NUM> m_skill;//技能
 
 		virtual void write_to_pbmsg(::proto_ff::E_MarryLocklv & msg) const;
@@ -253,17 +253,17 @@ namespace proto_ff_s {
 		virtual ~E_MarryChild_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_childid;//仙娃id
-		int64_t m_itemid;//激活物品id
-		NFShmString<64> m_childname;//仙娃名称
-		int32_t m_childquality;//仙娃品质
-		int32_t m_handz;//仙娃组
-		NFShmString<64> m_handzname;//仙娃组名称
-		NFShmString<64> m_skillid;//解锁技能组
-		int64_t m_starid;//升星道具id
-		NFShmString<64> m_starnum;//升星道具数量
+		int64_t m_childID;//仙娃id
+		int64_t m_itemId;//激活物品id
+		NFShmString<64> m_childName;//仙娃名称
+		int32_t m_childQuality;//仙娃品质
+		int32_t m_handZ;//仙娃组
+		NFShmString<64> m_handZName;//仙娃组名称
+		NFShmString<64> m_skillID;//解锁技能组
+		int64_t m_starId;//升星道具id
+		NFShmString<64> m_starNum;//升星道具数量
 		NFShmVector<struct E_MarryChildAttributeDesc_s, DEFINE_E_MARRYCHILD_M_ATTRIBUTE_MAX_NUM> m_attribute;//激活属性
-		NFShmVector<struct E_MarryChildStariattributeDesc_s, DEFINE_E_MARRYCHILD_M_STARIATTRIBUTE_MAX_NUM> m_stariattribute;//升星属性
+		NFShmVector<struct E_MarryChildStariattributeDesc_s, DEFINE_E_MARRYCHILD_M_STARIATTRIBUTE_MAX_NUM> m_starIattribute;//升星属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_MarryChild & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MarryChild & msg);
@@ -292,7 +292,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;//属性组ID
-		NFShmVector<int32_t, DEFINE_E_MARRYCHILDVALUE_M_LVVALUE_MAX_NUM> m_lvvalue;//等级值
+		NFShmVector<int32_t, DEFINE_E_MARRYCHILDVALUE_M_LVVALUE_MAX_NUM> m_lvValue;//等级值
 
 		virtual void write_to_pbmsg(::proto_ff::E_MarryChildvalue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MarryChildvalue & msg);
@@ -336,7 +336,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//阶级
-		NFShmVector<struct E_MarryChildexpGradeDesc_s, DEFINE_E_MARRYCHILDEXP_M_GRADE_MAX_NUM> m_grade;//品阶
+		NFShmVector<struct E_MarryChildexpGradeDesc_s, DEFINE_E_MARRYCHILDEXP_M_GRADE_MAX_NUM> m_Grade;//品阶
 
 		virtual void write_to_pbmsg(::proto_ff::E_MarryChildexp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MarryChildexp & msg);
@@ -380,8 +380,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//等级
-		int32_t m_exp;//升级需要经验
-		NFShmVector<struct E_MarryExpressAttributeDesc_s, DEFINE_E_MARRYEXPRESS_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
+		int32_t m_Exp;//升级需要经验
+		NFShmVector<struct E_MarryExpressAttributeDesc_s, DEFINE_E_MARRYEXPRESS_M_ATTRIBUTE_MAX_NUM> m_Attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_MarryExpress & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MarryExpress & msg);
@@ -443,7 +443,7 @@ namespace proto_ff_s {
 		int32_t m_exp;//增加表白值
 		int32_t m_expto;//被表白经验值
 		int32_t m_broadcastid;//广播id
-		int32_t m_effectid;//表白特效ID
+		int32_t m_effectId;//表白特效ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_MarryExpressshop & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MarryExpressshop & msg);
@@ -497,37 +497,37 @@ namespace proto_ff_s {
 		int32_t m_scale;//表白分享属性比例
 		int32_t m_giveboy;//赠送男仙娃
 		int32_t m_givegirl;//赠送女仙娃
-		int32_t m_xytime;//巡游提前宴会开始时间
+		int32_t m_Xytime;//巡游提前宴会开始时间
 		int32_t m_free;//副本免费次数
-		int32_t m_buynum;//可购买次数
+		int32_t m_buyNum;//可购买次数
 		int32_t m_consume;//消耗货币
-		int32_t m_consumenum;//价格
+		int32_t m_consumeNum;//价格
 		int32_t m_marrylv;//结缘等级
 		int32_t m_childtime;//仙娃领取时间
 		int32_t m_lockitem;//信物养成道具
-		int32_t m_lockitemexp;//信物经验值
+		int32_t m_lockitemExp;//信物经验值
 		int32_t m_childitem;//仙娃养成道具
-		int32_t m_childitemexp;//仙娃经验值
+		int32_t m_childitemExp;//仙娃经验值
 		int32_t m_guestprice;//席位货币
 		int32_t m_guestpricenum;//席位价格
 		int32_t m_asklimit;//申请列表上限
-		int32_t m_hyreward;//婚宴奖励展示
-		int32_t m_toursceneid;//巡游场景id
-		int32_t m_tourfollowindex;//巡游挂点怪
-		NFShmString<64> m_hyicon;//婚宴icon
-		NFShmString<64> m_hyname;//婚宴名称
-		NFShmString<64> m_xyicon;//巡游icon
-		NFShmString<64> m_xyname;//巡游名称
-		int32_t m_redbagnum;//巡游免费红包数量
-		int32_t m_redmoney;//红包购买货币
-		int32_t m_redprice;//红包购买价格
-		int32_t m_sendredreward;//发红包奖励货币
-		int32_t m_sendrednum;//发红包奖励价格
+		int32_t m_HyReward;//婚宴奖励展示
+		int32_t m_tourSceneId;//巡游场景id
+		int32_t m_tourFollowIndex;//巡游挂点怪
+		NFShmString<64> m_Hyicon;//婚宴icon
+		NFShmString<64> m_Hyname;//婚宴名称
+		NFShmString<64> m_Xyicon;//巡游icon
+		NFShmString<64> m_Xyname;//巡游名称
+		int32_t m_redbagNum;//巡游免费红包数量
+		int32_t m_redMoney;//红包购买货币
+		int32_t m_redPrice;//红包购买价格
+		int32_t m_sendredReward;//发红包奖励货币
+		int32_t m_sendredNum;//发红包奖励价格
 		int32_t m_redcollect;//红包采集物
-		int32_t m_redcollectnum;//红包采集物数量
-		int32_t m_cakemonster;//婚宴蛋糕模型
-		int32_t m_hymonster;//宴席模型
-		NFShmVector<struct E_MarryConstantTourmonsterDesc_s, DEFINE_E_MARRYCONSTANT_M_TOURMONSTER_MAX_NUM> m_tourmonster;//巡游怪物
+		int32_t m_redcollectNum;//红包采集物数量
+		int32_t m_cakeMonster;//婚宴蛋糕模型
+		int32_t m_HyMonster;//宴席模型
+		NFShmVector<struct E_MarryConstantTourmonsterDesc_s, DEFINE_E_MARRYCONSTANT_M_TOURMONSTER_MAX_NUM> m_tourMonster;//巡游怪物
 
 		virtual void write_to_pbmsg(::proto_ff::E_MarryConstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MarryConstant & msg);
@@ -628,25 +628,25 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_signreward;//签到奖励
-		int32_t m_signdaynum;//每日签到奖励次数
-		int32_t m_cakereftime;//蛋糕采集物
-		int32_t m_cakenum;//蛋糕数量
+		int32_t m_signReward;//签到奖励
+		int32_t m_signDaynum;//每日签到奖励次数
+		int32_t m_cakeReftime;//蛋糕采集物
+		int32_t m_cakeNum;//蛋糕数量
 		int32_t m_cake;//蛋糕刷新时间
 		NFShmString<64> m_model;//变身模型
 		int32_t m_modeltime;//变身持续时间
-		int32_t m_cakereward;//采集奖励
-		int32_t m_signcakenum;//每日采集蛋糕奖励次数
+		int32_t m_cakeReward;//采集奖励
+		int32_t m_signCakenum;//每日采集蛋糕奖励次数
 		int32_t m_monster;//亲友怪物id
-		int32_t m_monsternum;//亲友怪物数量
+		int32_t m_monsterNum;//亲友怪物数量
 		int32_t m_monstertime;//怪物击杀时间
 		int32_t m_npcid;//亲友npcid
-		int32_t m_npcnum;//亲友npc数量
-		int32_t m_monsterreward;//亲友奖励
-		int32_t m_monsterdaynum;//每日亲友奖励次数
-		int32_t m_feastid;//宴席采集物id
-		int32_t m_feastreward;//宴席采集奖励
-		int32_t m_feastnum;//单场宴席采集次数
+		int32_t m_npcNum;//亲友npc数量
+		int32_t m_monsterReward;//亲友奖励
+		int32_t m_monsterDaynum;//每日亲友奖励次数
+		int32_t m_feastId;//宴席采集物id
+		int32_t m_feastReward;//宴席采集奖励
+		int32_t m_feastNum;//单场宴席采集次数
 		int32_t m_interval;//获得经验间隔
 		int32_t m_skillid;//丢蛋糕技能id
 		NFShmVector<struct E_MarryWeddingStageDesc_s, DEFINE_E_MARRYWEDDING_M_STAGE_MAX_NUM> m_stage;//第
@@ -680,8 +680,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//等级
-		int32_t m_weddingexp;//婚宴经验
-		int32_t m_dayexpmax;//每日最大经验值
+		int32_t m_weddingExp;//婚宴经验
+		int32_t m_dayExpmax;//每日最大经验值
 
 		virtual void write_to_pbmsg(::proto_ff::E_MarryExp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MarryExp & msg);

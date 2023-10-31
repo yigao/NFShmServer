@@ -90,7 +90,7 @@ int FestivalMuban_rturntable_rechargeDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_rechargeid <= 0 || RechargeRechargeDesc::Instance()->GetDesc(pDesc->m_rechargeid)), result, "can't find the rechargeid:{} in the  excel:recharge sheet:recharge", pDesc->m_rechargeid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_rechargeID <= 0 || RechargeRechargeDesc::Instance()->GetDesc(pDesc->m_rechargeID)), result, "can't find the rechargeID:{} in the  excel:recharge sheet:recharge", pDesc->m_rechargeID);
 	}
 	return result;
 }

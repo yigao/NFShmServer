@@ -74,9 +74,9 @@ E_SoulSoul_s::E_SoulSoul_s() {
 
 int E_SoulSoul_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_lvitem = (int32_t)0;
-	m_advanceitem = (int32_t)0;
-	m_sacrificeskill = (int32_t)0;
+	m_lvItem = (int32_t)0;
+	m_advanceItem = (int32_t)0;
+	m_sacrificeSkill = (int32_t)0;
 	return 0;
 }
 
@@ -87,19 +87,19 @@ int E_SoulSoul_s::ResumeInit() {
 void E_SoulSoul_s::write_to_pbmsg(::proto_ff::E_SoulSoul & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_name(m_name.data());
-	msg.set_m_lvitem((int32_t)m_lvitem);
-	msg.set_m_advanceitem((int32_t)m_advanceitem);
-	msg.set_m_sacrificeskill((int32_t)m_sacrificeskill);
-	msg.set_m_skilllv(m_skilllv.data());
+	msg.set_m_lvitem((int32_t)m_lvItem);
+	msg.set_m_advanceitem((int32_t)m_advanceItem);
+	msg.set_m_sacrificeskill((int32_t)m_sacrificeSkill);
+	msg.set_m_skilllv(m_SkillLv.data());
 }
 
 void E_SoulSoul_s::read_from_pbmsg(const ::proto_ff::E_SoulSoul & msg) {
 	m_id = msg.m_id();
 	m_name = msg.m_name();
-	m_lvitem = msg.m_lvitem();
-	m_advanceitem = msg.m_advanceitem();
-	m_sacrificeskill = msg.m_sacrificeskill();
-	m_skilllv = msg.m_skilllv();
+	m_lvItem = msg.m_lvitem();
+	m_advanceItem = msg.m_advanceitem();
+	m_sacrificeSkill = msg.m_sacrificeskill();
+	m_SkillLv = msg.m_skilllv();
 }
 
 Sheet_SoulSoul_s::Sheet_SoulSoul_s() {
@@ -171,9 +171,9 @@ E_SoulSoulbasic_s::E_SoulSoulbasic_s() {
 
 int E_SoulSoulbasic_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_soulid = (int32_t)0;
-	m_soullv = (int32_t)0;
-	m_soulexp = (int32_t)0;
+	m_soulId = (int32_t)0;
+	m_soulLv = (int32_t)0;
+	m_soulExp = (int32_t)0;
 	return 0;
 }
 
@@ -183,9 +183,9 @@ int E_SoulSoulbasic_s::ResumeInit() {
 
 void E_SoulSoulbasic_s::write_to_pbmsg(::proto_ff::E_SoulSoulbasic & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_soulid((int32_t)m_soulid);
-	msg.set_m_soullv((int32_t)m_soullv);
-	msg.set_m_soulexp((int32_t)m_soulexp);
+	msg.set_m_soulid((int32_t)m_soulId);
+	msg.set_m_soullv((int32_t)m_soulLv);
+	msg.set_m_soulexp((int32_t)m_soulExp);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_SoulSoulbasicAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
@@ -194,9 +194,9 @@ void E_SoulSoulbasic_s::write_to_pbmsg(::proto_ff::E_SoulSoulbasic & msg) const 
 
 void E_SoulSoulbasic_s::read_from_pbmsg(const ::proto_ff::E_SoulSoulbasic & msg) {
 	m_id = msg.m_id();
-	m_soulid = msg.m_soulid();
-	m_soullv = msg.m_soullv();
-	m_soulexp = msg.m_soulexp();
+	m_soulId = msg.m_soulid();
+	m_soulLv = msg.m_soullv();
+	m_soulExp = msg.m_soulexp();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_SoulSoulbasicAttributeDesc & temp_m_attribute = msg.m_attribute(i);
@@ -273,9 +273,9 @@ E_SoulSouladvance_s::E_SoulSouladvance_s() {
 
 int E_SoulSouladvance_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_soulid = (int32_t)0;
-	m_advancelv = (int32_t)0;
-	m_advancenum = (int32_t)0;
+	m_soulId = (int32_t)0;
+	m_advanceLv = (int32_t)0;
+	m_advanceNum = (int32_t)0;
 	return 0;
 }
 
@@ -285,9 +285,9 @@ int E_SoulSouladvance_s::ResumeInit() {
 
 void E_SoulSouladvance_s::write_to_pbmsg(::proto_ff::E_SoulSouladvance & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_soulid((int32_t)m_soulid);
-	msg.set_m_advancelv((int32_t)m_advancelv);
-	msg.set_m_advancenum((int32_t)m_advancenum);
+	msg.set_m_soulid((int32_t)m_soulId);
+	msg.set_m_advancelv((int32_t)m_advanceLv);
+	msg.set_m_advancenum((int32_t)m_advanceNum);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_SoulSouladvanceAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
@@ -296,9 +296,9 @@ void E_SoulSouladvance_s::write_to_pbmsg(::proto_ff::E_SoulSouladvance & msg) co
 
 void E_SoulSouladvance_s::read_from_pbmsg(const ::proto_ff::E_SoulSouladvance & msg) {
 	m_id = msg.m_id();
-	m_soulid = msg.m_soulid();
-	m_advancelv = msg.m_advancelv();
-	m_advancenum = msg.m_advancenum();
+	m_soulId = msg.m_soulid();
+	m_advanceLv = msg.m_advancelv();
+	m_advanceNum = msg.m_advancenum();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_SoulSouladvanceAttributeDesc & temp_m_attribute = msg.m_attribute(i);
@@ -440,7 +440,7 @@ E_SoulPrivilege_s::E_SoulPrivilege_s() {
 
 int E_SoulPrivilege_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_poolup = (int32_t)0;
+	m_poolUp = (int32_t)0;
 	m_huoyuedu_to_exp = (int32_t)0;
 	m_meditation_to_exp = (int32_t)0;
 	return 0;
@@ -453,7 +453,7 @@ int E_SoulPrivilege_s::ResumeInit() {
 void E_SoulPrivilege_s::write_to_pbmsg(::proto_ff::E_SoulPrivilege & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_activate(m_activate.data());
-	msg.set_m_poolup((int32_t)m_poolup);
+	msg.set_m_poolup((int32_t)m_poolUp);
 	msg.set_m_huoyuedu_to_exp((int32_t)m_huoyuedu_to_exp);
 	msg.set_m_meditation_to_exp((int32_t)m_meditation_to_exp);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
@@ -465,7 +465,7 @@ void E_SoulPrivilege_s::write_to_pbmsg(::proto_ff::E_SoulPrivilege & msg) const 
 void E_SoulPrivilege_s::read_from_pbmsg(const ::proto_ff::E_SoulPrivilege & msg) {
 	m_id = msg.m_id();
 	m_activate = msg.m_activate();
-	m_poolup = msg.m_poolup();
+	m_poolUp = msg.m_poolup();
 	m_huoyuedu_to_exp = msg.m_huoyuedu_to_exp();
 	m_meditation_to_exp = msg.m_meditation_to_exp();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
@@ -515,14 +515,14 @@ E_SoulCrystal_s::E_SoulCrystal_s() {
 }
 
 int E_SoulCrystal_s::CreateInit() {
-	m_equipid = (int32_t)0;
-	m_crystaltype = (int32_t)0;
+	m_equipId = (int32_t)0;
+	m_crystalType = (int32_t)0;
 	m_quality = (int32_t)0;
 	m_star = (int32_t)0;
-	m_dismantletime = (int32_t)0;
-	m_dismantlenum = (int32_t)0;
+	m_dismantleTime = (int32_t)0;
+	m_dismantleNum = (int32_t)0;
 	m_skill = (int32_t)0;
-	m_skilllv = (int32_t)0;
+	m_skillLv = (int32_t)0;
 	m_handbook = (int32_t)0;
 	return 0;
 }
@@ -532,28 +532,28 @@ int E_SoulCrystal_s::ResumeInit() {
 }
 
 void E_SoulCrystal_s::write_to_pbmsg(::proto_ff::E_SoulCrystal & msg) const {
-	msg.set_m_equipid((int32_t)m_equipid);
+	msg.set_m_equipid((int32_t)m_equipId);
 	msg.set_m_name(m_name.data());
-	msg.set_m_crystaltype((int32_t)m_crystaltype);
+	msg.set_m_crystaltype((int32_t)m_crystalType);
 	msg.set_m_quality((int32_t)m_quality);
 	msg.set_m_star((int32_t)m_star);
-	msg.set_m_dismantletime((int32_t)m_dismantletime);
-	msg.set_m_dismantlenum((int32_t)m_dismantlenum);
+	msg.set_m_dismantletime((int32_t)m_dismantleTime);
+	msg.set_m_dismantlenum((int32_t)m_dismantleNum);
 	msg.set_m_skill((int32_t)m_skill);
-	msg.set_m_skilllv((int32_t)m_skilllv);
+	msg.set_m_skilllv((int32_t)m_skillLv);
 	msg.set_m_handbook((int32_t)m_handbook);
 }
 
 void E_SoulCrystal_s::read_from_pbmsg(const ::proto_ff::E_SoulCrystal & msg) {
-	m_equipid = msg.m_equipid();
+	m_equipId = msg.m_equipid();
 	m_name = msg.m_name();
-	m_crystaltype = msg.m_crystaltype();
+	m_crystalType = msg.m_crystaltype();
 	m_quality = msg.m_quality();
 	m_star = msg.m_star();
-	m_dismantletime = msg.m_dismantletime();
-	m_dismantlenum = msg.m_dismantlenum();
+	m_dismantleTime = msg.m_dismantletime();
+	m_dismantleNum = msg.m_dismantlenum();
 	m_skill = msg.m_skill();
-	m_skilllv = msg.m_skilllv();
+	m_skillLv = msg.m_skilllv();
 	m_handbook = msg.m_handbook();
 }
 
@@ -598,8 +598,8 @@ E_SoulCrystallv_s::E_SoulCrystallv_s() {
 
 int E_SoulCrystallv_s::CreateInit() {
 	m_lv = (int32_t)0;
-	m_wraithsitem = (int32_t)0;
-	m_wraithsmun = (int32_t)0;
+	m_wraithsItem = (int32_t)0;
+	m_wraithsMun = (int32_t)0;
 	return 0;
 }
 
@@ -609,14 +609,14 @@ int E_SoulCrystallv_s::ResumeInit() {
 
 void E_SoulCrystallv_s::write_to_pbmsg(::proto_ff::E_SoulCrystallv & msg) const {
 	msg.set_m_lv((int32_t)m_lv);
-	msg.set_m_wraithsitem((int32_t)m_wraithsitem);
-	msg.set_m_wraithsmun((int32_t)m_wraithsmun);
+	msg.set_m_wraithsitem((int32_t)m_wraithsItem);
+	msg.set_m_wraithsmun((int32_t)m_wraithsMun);
 }
 
 void E_SoulCrystallv_s::read_from_pbmsg(const ::proto_ff::E_SoulCrystallv & msg) {
 	m_lv = msg.m_lv();
-	m_wraithsitem = msg.m_wraithsitem();
-	m_wraithsmun = msg.m_wraithsmun();
+	m_wraithsItem = msg.m_wraithsitem();
+	m_wraithsMun = msg.m_wraithsmun();
 }
 
 Sheet_SoulCrystallv_s::Sheet_SoulCrystallv_s() {
@@ -687,9 +687,9 @@ E_SoulCrystaltop_s::E_SoulCrystaltop_s() {
 }
 
 int E_SoulCrystaltop_s::CreateInit() {
-	m_toplv = (int32_t)0;
-	m_wraithsitem = (int32_t)0;
-	m_wraithsmun = (int32_t)0;
+	m_topLv = (int32_t)0;
+	m_wraithsItem = (int32_t)0;
+	m_wraithsMun = (int32_t)0;
 	return 0;
 }
 
@@ -698,9 +698,9 @@ int E_SoulCrystaltop_s::ResumeInit() {
 }
 
 void E_SoulCrystaltop_s::write_to_pbmsg(::proto_ff::E_SoulCrystaltop & msg) const {
-	msg.set_m_toplv((int32_t)m_toplv);
-	msg.set_m_wraithsitem((int32_t)m_wraithsitem);
-	msg.set_m_wraithsmun((int32_t)m_wraithsmun);
+	msg.set_m_toplv((int32_t)m_topLv);
+	msg.set_m_wraithsitem((int32_t)m_wraithsItem);
+	msg.set_m_wraithsmun((int32_t)m_wraithsMun);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_SoulCrystaltopAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
@@ -708,9 +708,9 @@ void E_SoulCrystaltop_s::write_to_pbmsg(::proto_ff::E_SoulCrystaltop & msg) cons
 }
 
 void E_SoulCrystaltop_s::read_from_pbmsg(const ::proto_ff::E_SoulCrystaltop & msg) {
-	m_toplv = msg.m_toplv();
-	m_wraithsitem = msg.m_wraithsitem();
-	m_wraithsmun = msg.m_wraithsmun();
+	m_topLv = msg.m_toplv();
+	m_wraithsItem = msg.m_wraithsitem();
+	m_wraithsMun = msg.m_wraithsmun();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_SoulCrystaltopAttributeDesc & temp_m_attribute = msg.m_attribute(i);
@@ -845,13 +845,13 @@ E_SoulFusion_s::E_SoulFusion_s() {
 
 int E_SoulFusion_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_fusiontype = (int32_t)0;
+	m_fusionType = (int32_t)0;
 	m_quality = (int32_t)0;
 	m_star = (int32_t)0;
 	m_condition = (int32_t)0;
-	m_qualityget = (int32_t)0;
-	m_starget = (int32_t)0;
-	m_attributeber = (int32_t)0;
+	m_qualityGet = (int32_t)0;
+	m_starGet = (int32_t)0;
+	m_attributeBer = (int32_t)0;
 	return 0;
 }
 
@@ -861,13 +861,13 @@ int E_SoulFusion_s::ResumeInit() {
 
 void E_SoulFusion_s::write_to_pbmsg(::proto_ff::E_SoulFusion & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_fusiontype((int32_t)m_fusiontype);
+	msg.set_m_fusiontype((int32_t)m_fusionType);
 	msg.set_m_quality((int32_t)m_quality);
 	msg.set_m_star((int32_t)m_star);
 	msg.set_m_condition((int32_t)m_condition);
-	msg.set_m_qualityget((int32_t)m_qualityget);
-	msg.set_m_starget((int32_t)m_starget);
-	msg.set_m_attributeber((int32_t)m_attributeber);
+	msg.set_m_qualityget((int32_t)m_qualityGet);
+	msg.set_m_starget((int32_t)m_starGet);
+	msg.set_m_attributeber((int32_t)m_attributeBer);
 	for(int32_t i = 0; i < (int32_t)m_fusion.size(); ++i) {
 		::proto_ff::E_SoulFusionFusionDesc* temp_m_fusion = msg.add_m_fusion();
 		m_fusion[i].write_to_pbmsg(*temp_m_fusion);
@@ -876,13 +876,13 @@ void E_SoulFusion_s::write_to_pbmsg(::proto_ff::E_SoulFusion & msg) const {
 
 void E_SoulFusion_s::read_from_pbmsg(const ::proto_ff::E_SoulFusion & msg) {
 	m_id = msg.m_id();
-	m_fusiontype = msg.m_fusiontype();
+	m_fusionType = msg.m_fusiontype();
 	m_quality = msg.m_quality();
 	m_star = msg.m_star();
 	m_condition = msg.m_condition();
-	m_qualityget = msg.m_qualityget();
-	m_starget = msg.m_starget();
-	m_attributeber = msg.m_attributeber();
+	m_qualityGet = msg.m_qualityget();
+	m_starGet = msg.m_starget();
+	m_attributeBer = msg.m_attributeber();
 	m_fusion.resize((int)msg.m_fusion_size() > (int)m_fusion.max_size() ? m_fusion.max_size() : msg.m_fusion_size());
 	for(int32_t i = 0; i < (int32_t)m_fusion.size(); ++i) {
 		const ::proto_ff::E_SoulFusionFusionDesc & temp_m_fusion = msg.m_fusion(i);
@@ -934,9 +934,9 @@ int E_SoulBone_s::CreateInit() {
 	m_position = (int32_t)0;
 	m_type = (int32_t)0;
 	m_awakening = (int32_t)0;
-	m_awakeningtime = (int32_t)0;
-	m_awakeningnum = (int32_t)0;
-	m_modelid = (int32_t)0;
+	m_awakeningTime = (int32_t)0;
+	m_awakeningNum = (int32_t)0;
+	m_modelId = (int32_t)0;
 	return 0;
 }
 
@@ -949,9 +949,9 @@ void E_SoulBone_s::write_to_pbmsg(::proto_ff::E_SoulBone & msg) const {
 	msg.set_m_position((int32_t)m_position);
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_awakening((int32_t)m_awakening);
-	msg.set_m_awakeningtime((int32_t)m_awakeningtime);
-	msg.set_m_awakeningnum((int32_t)m_awakeningnum);
-	msg.set_m_modelid((int32_t)m_modelid);
+	msg.set_m_awakeningtime((int32_t)m_awakeningTime);
+	msg.set_m_awakeningnum((int32_t)m_awakeningNum);
+	msg.set_m_modelid((int32_t)m_modelId);
 }
 
 void E_SoulBone_s::read_from_pbmsg(const ::proto_ff::E_SoulBone & msg) {
@@ -959,9 +959,9 @@ void E_SoulBone_s::read_from_pbmsg(const ::proto_ff::E_SoulBone & msg) {
 	m_position = msg.m_position();
 	m_type = msg.m_type();
 	m_awakening = msg.m_awakening();
-	m_awakeningtime = msg.m_awakeningtime();
-	m_awakeningnum = msg.m_awakeningnum();
-	m_modelid = msg.m_modelid();
+	m_awakeningTime = msg.m_awakeningtime();
+	m_awakeningNum = msg.m_awakeningnum();
+	m_modelId = msg.m_modelid();
 }
 
 Sheet_SoulBone_s::Sheet_SoulBone_s() {
@@ -1004,7 +1004,7 @@ E_SoulBoneequip_s::E_SoulBoneequip_s() {
 }
 
 int E_SoulBoneequip_s::CreateInit() {
-	m_equipid = (int32_t)0;
+	m_equipId = (int32_t)0;
 	m_part = (int32_t)0;
 	m_quality = (int32_t)0;
 	m_star = (int32_t)0;
@@ -1016,7 +1016,7 @@ int E_SoulBoneequip_s::ResumeInit() {
 }
 
 void E_SoulBoneequip_s::write_to_pbmsg(::proto_ff::E_SoulBoneequip & msg) const {
-	msg.set_m_equipid((int32_t)m_equipid);
+	msg.set_m_equipid((int32_t)m_equipId);
 	msg.set_m_name(m_name.data());
 	msg.set_m_part((int32_t)m_part);
 	msg.set_m_quality((int32_t)m_quality);
@@ -1024,7 +1024,7 @@ void E_SoulBoneequip_s::write_to_pbmsg(::proto_ff::E_SoulBoneequip & msg) const 
 }
 
 void E_SoulBoneequip_s::read_from_pbmsg(const ::proto_ff::E_SoulBoneequip & msg) {
-	m_equipid = msg.m_equipid();
+	m_equipId = msg.m_equipid();
 	m_name = msg.m_name();
 	m_part = msg.m_part();
 	m_quality = msg.m_quality();
@@ -1071,8 +1071,8 @@ E_SoulBoneskillPassiveDesc_s::E_SoulBoneskillPassiveDesc_s() {
 }
 
 int E_SoulBoneskillPassiveDesc_s::CreateInit() {
-	m_lv = (int32_t)0;
-	m_skill = (int32_t)0;
+	m_Lv = (int32_t)0;
+	m_Skill = (int32_t)0;
 	return 0;
 }
 
@@ -1081,13 +1081,13 @@ int E_SoulBoneskillPassiveDesc_s::ResumeInit() {
 }
 
 void E_SoulBoneskillPassiveDesc_s::write_to_pbmsg(::proto_ff::E_SoulBoneskillPassiveDesc & msg) const {
-	msg.set_m_lv((int32_t)m_lv);
-	msg.set_m_skill((int32_t)m_skill);
+	msg.set_m_lv((int32_t)m_Lv);
+	msg.set_m_skill((int32_t)m_Skill);
 }
 
 void E_SoulBoneskillPassiveDesc_s::read_from_pbmsg(const ::proto_ff::E_SoulBoneskillPassiveDesc & msg) {
-	m_lv = msg.m_lv();
-	m_skill = msg.m_skill();
+	m_Lv = msg.m_lv();
+	m_Skill = msg.m_skill();
 }
 
 E_SoulBoneskill_s::E_SoulBoneskill_s() {
@@ -1100,11 +1100,11 @@ E_SoulBoneskill_s::E_SoulBoneskill_s() {
 
 int E_SoulBoneskill_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_boneid = (int32_t)0;
+	m_boneId = (int32_t)0;
 	m_quality = (int32_t)0;
 	m_star = (int32_t)0;
-	m_activeskill = (int32_t)0;
-	m_activeskilllv = (int32_t)0;
+	m_ActiveSkill = (int32_t)0;
+	m_ActiveSkillLv = (int32_t)0;
 	return 0;
 }
 
@@ -1114,11 +1114,11 @@ int E_SoulBoneskill_s::ResumeInit() {
 
 void E_SoulBoneskill_s::write_to_pbmsg(::proto_ff::E_SoulBoneskill & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_boneid((int32_t)m_boneid);
+	msg.set_m_boneid((int32_t)m_boneId);
 	msg.set_m_quality((int32_t)m_quality);
 	msg.set_m_star((int32_t)m_star);
-	msg.set_m_activeskill((int32_t)m_activeskill);
-	msg.set_m_activeskilllv((int32_t)m_activeskilllv);
+	msg.set_m_activeskill((int32_t)m_ActiveSkill);
+	msg.set_m_activeskilllv((int32_t)m_ActiveSkillLv);
 	for(int32_t i = 0; i < (int32_t)m_passive.size(); ++i) {
 		::proto_ff::E_SoulBoneskillPassiveDesc* temp_m_passive = msg.add_m_passive();
 		m_passive[i].write_to_pbmsg(*temp_m_passive);
@@ -1127,11 +1127,11 @@ void E_SoulBoneskill_s::write_to_pbmsg(::proto_ff::E_SoulBoneskill & msg) const 
 
 void E_SoulBoneskill_s::read_from_pbmsg(const ::proto_ff::E_SoulBoneskill & msg) {
 	m_id = msg.m_id();
-	m_boneid = msg.m_boneid();
+	m_boneId = msg.m_boneid();
 	m_quality = msg.m_quality();
 	m_star = msg.m_star();
-	m_activeskill = msg.m_activeskill();
-	m_activeskilllv = msg.m_activeskilllv();
+	m_ActiveSkill = msg.m_activeskill();
+	m_ActiveSkillLv = msg.m_activeskilllv();
 	m_passive.resize((int)msg.m_passive_size() > (int)m_passive.max_size() ? m_passive.max_size() : msg.m_passive_size());
 	for(int32_t i = 0; i < (int32_t)m_passive.size(); ++i) {
 		const ::proto_ff::E_SoulBoneskillPassiveDesc & temp_m_passive = msg.m_passive(i);
@@ -1180,7 +1180,7 @@ E_SoulBonekill_s::E_SoulBonekill_s() {
 
 int E_SoulBonekill_s::CreateInit() {
 	m_lv = (int32_t)0;
-	m_killboss = (int32_t)0;
+	m_killBoss = (int32_t)0;
 	return 0;
 }
 
@@ -1190,12 +1190,12 @@ int E_SoulBonekill_s::ResumeInit() {
 
 void E_SoulBonekill_s::write_to_pbmsg(::proto_ff::E_SoulBonekill & msg) const {
 	msg.set_m_lv((int32_t)m_lv);
-	msg.set_m_killboss((int32_t)m_killboss);
+	msg.set_m_killboss((int32_t)m_killBoss);
 }
 
 void E_SoulBonekill_s::read_from_pbmsg(const ::proto_ff::E_SoulBonekill & msg) {
 	m_lv = msg.m_lv();
-	m_killboss = msg.m_killboss();
+	m_killBoss = msg.m_killboss();
 }
 
 Sheet_SoulBonekill_s::Sheet_SoulBonekill_s() {
@@ -1267,7 +1267,7 @@ E_SoulBonestrong_s::E_SoulBonestrong_s() {
 int E_SoulBonestrong_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_position = (int32_t)0;
-	m_srtongup = (int32_t)0;
+	m_srtongUp = (int32_t)0;
 	return 0;
 }
 
@@ -1278,7 +1278,7 @@ int E_SoulBonestrong_s::ResumeInit() {
 void E_SoulBonestrong_s::write_to_pbmsg(::proto_ff::E_SoulBonestrong & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_position((int32_t)m_position);
-	msg.set_m_srtongup((int32_t)m_srtongup);
+	msg.set_m_srtongup((int32_t)m_srtongUp);
 	for(int32_t i = 0; i < (int32_t)m_type.size(); ++i) {
 		::proto_ff::E_SoulBonestrongTypeDesc* temp_m_type = msg.add_m_type();
 		m_type[i].write_to_pbmsg(*temp_m_type);
@@ -1288,7 +1288,7 @@ void E_SoulBonestrong_s::write_to_pbmsg(::proto_ff::E_SoulBonestrong & msg) cons
 void E_SoulBonestrong_s::read_from_pbmsg(const ::proto_ff::E_SoulBonestrong & msg) {
 	m_id = msg.m_id();
 	m_position = msg.m_position();
-	m_srtongup = msg.m_srtongup();
+	m_srtongUp = msg.m_srtongup();
 	m_type.resize((int)msg.m_type_size() > (int)m_type.max_size() ? m_type.max_size() : msg.m_type_size());
 	for(int32_t i = 0; i < (int32_t)m_type.size(); ++i) {
 		const ::proto_ff::E_SoulBonestrongTypeDesc & temp_m_type = msg.m_type(i);

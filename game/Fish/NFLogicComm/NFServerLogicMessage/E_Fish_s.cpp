@@ -12,7 +12,7 @@ E_FishRoom_s::E_FishRoom_s() {
 
 int E_FishRoom_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_roomid = (int32_t)0;
+	m_RoomId = (int32_t)0;
 	m_gameid = (int32_t)0;
 	m_roomtype = (int32_t)0;
 	m_roomlevel = (int32_t)0;
@@ -34,7 +34,7 @@ int E_FishRoom_s::ResumeInit() {
 
 void E_FishRoom_s::write_to_pbmsg(::proto_ff::E_FishRoom & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_roomid((int32_t)m_roomid);
+	msg.set_m_roomid((int32_t)m_RoomId);
 	msg.set_m_gameid((int32_t)m_gameid);
 	msg.set_m_gamename(m_gamename.data());
 	msg.set_m_roomtype((int32_t)m_roomtype);
@@ -53,7 +53,7 @@ void E_FishRoom_s::write_to_pbmsg(::proto_ff::E_FishRoom & msg) const {
 
 void E_FishRoom_s::read_from_pbmsg(const ::proto_ff::E_FishRoom & msg) {
 	m_id = msg.m_id();
-	m_roomid = msg.m_roomid();
+	m_RoomId = msg.m_roomid();
 	m_gameid = msg.m_gameid();
 	m_gamename = msg.m_gamename();
 	m_roomtype = msg.m_roomtype();

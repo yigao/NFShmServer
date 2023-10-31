@@ -12,22 +12,22 @@ E_ItemItem_s::E_ItemItem_s() {
 
 int E_ItemItem_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_itemtype = (int32_t)0;
-	m_subtype = (int32_t)0;
-	m_functiontype = (int32_t)0;
-	m_waiguanlink = (int64_t)0;
+	m_itemType = (int32_t)0;
+	m_subType = (int32_t)0;
+	m_functionType = (int32_t)0;
+	m_waiguanLink = (int64_t)0;
 	m_level = (int32_t)0;
 	m_quality = (int32_t)0;
-	m_levelrequest = (int32_t)0;
-	m_bindtype = (int32_t)0;
-	m_istradebind = (int32_t)0;
-	m_dropnum = (int32_t)0;
-	m_stacklimit = (int32_t)0;
-	m_sellprice = (int32_t)0;
-	m_sellbox = (int64_t)0;
+	m_levelRequest = (int32_t)0;
+	m_bindType = (int32_t)0;
+	m_isTradeBind = (int32_t)0;
+	m_dropNum = (int32_t)0;
+	m_stackLimit = (int32_t)0;
+	m_sellPrice = (int32_t)0;
+	m_sellBox = (int64_t)0;
 	m_broadcast = (int32_t)0;
-	m_iscanbatchuse = (int32_t)0;
-	m_dayuse = (int32_t)0;
+	m_isCanBatchUse = (int32_t)0;
+	m_dayUse = (int32_t)0;
 	m_time = (int32_t)0;
 	return 0;
 }
@@ -39,53 +39,53 @@ int E_ItemItem_s::ResumeInit() {
 void E_ItemItem_s::write_to_pbmsg(::proto_ff::E_ItemItem & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_name(m_name.data());
-	msg.set_m_itemtype((int32_t)m_itemtype);
-	msg.set_m_subtype((int32_t)m_subtype);
-	msg.set_m_functiontype((int32_t)m_functiontype);
-	msg.set_m_functionvalue(m_functionvalue.data());
+	msg.set_m_itemtype((int32_t)m_itemType);
+	msg.set_m_subtype((int32_t)m_subType);
+	msg.set_m_functiontype((int32_t)m_functionType);
+	msg.set_m_functionvalue(m_functionValue.data());
 	msg.set_m_usecondition(m_usecondition.data());
-	msg.set_m_waiguanlink((int64_t)m_waiguanlink);
+	msg.set_m_waiguanlink((int64_t)m_waiguanLink);
 	msg.set_m_level((int32_t)m_level);
 	msg.set_m_quality((int32_t)m_quality);
-	msg.set_m_levelrequest((int32_t)m_levelrequest);
+	msg.set_m_levelrequest((int32_t)m_levelRequest);
 	msg.set_m_profession(m_profession.data());
-	msg.set_m_bindtype((int32_t)m_bindtype);
-	msg.set_m_istradebind((int32_t)m_istradebind);
-	msg.set_m_dropnum((int32_t)m_dropnum);
-	msg.set_m_stacklimit((int32_t)m_stacklimit);
-	msg.set_m_sellprice((int32_t)m_sellprice);
-	msg.set_m_sellbox((int64_t)m_sellbox);
+	msg.set_m_bindtype((int32_t)m_bindType);
+	msg.set_m_istradebind((int32_t)m_isTradeBind);
+	msg.set_m_dropnum((int32_t)m_dropNum);
+	msg.set_m_stacklimit((int32_t)m_stackLimit);
+	msg.set_m_sellprice((int32_t)m_sellPrice);
+	msg.set_m_sellbox((int64_t)m_sellBox);
 	msg.set_m_broadcast((int32_t)m_broadcast);
-	msg.set_m_iscanbatchuse((int32_t)m_iscanbatchuse);
-	msg.set_m_dayuse((int32_t)m_dayuse);
+	msg.set_m_iscanbatchuse((int32_t)m_isCanBatchUse);
+	msg.set_m_dayuse((int32_t)m_dayUse);
 	msg.set_m_time((int32_t)m_time);
-	msg.set_m_uselimit(m_uselimit.data());
+	msg.set_m_uselimit(m_useLimit.data());
 }
 
 void E_ItemItem_s::read_from_pbmsg(const ::proto_ff::E_ItemItem & msg) {
 	m_id = msg.m_id();
 	m_name = msg.m_name();
-	m_itemtype = msg.m_itemtype();
-	m_subtype = msg.m_subtype();
-	m_functiontype = msg.m_functiontype();
-	m_functionvalue = msg.m_functionvalue();
+	m_itemType = msg.m_itemtype();
+	m_subType = msg.m_subtype();
+	m_functionType = msg.m_functiontype();
+	m_functionValue = msg.m_functionvalue();
 	m_usecondition = msg.m_usecondition();
-	m_waiguanlink = msg.m_waiguanlink();
+	m_waiguanLink = msg.m_waiguanlink();
 	m_level = msg.m_level();
 	m_quality = msg.m_quality();
-	m_levelrequest = msg.m_levelrequest();
+	m_levelRequest = msg.m_levelrequest();
 	m_profession = msg.m_profession();
-	m_bindtype = msg.m_bindtype();
-	m_istradebind = msg.m_istradebind();
-	m_dropnum = msg.m_dropnum();
-	m_stacklimit = msg.m_stacklimit();
-	m_sellprice = msg.m_sellprice();
-	m_sellbox = msg.m_sellbox();
+	m_bindType = msg.m_bindtype();
+	m_isTradeBind = msg.m_istradebind();
+	m_dropNum = msg.m_dropnum();
+	m_stackLimit = msg.m_stacklimit();
+	m_sellPrice = msg.m_sellprice();
+	m_sellBox = msg.m_sellbox();
 	m_broadcast = msg.m_broadcast();
-	m_iscanbatchuse = msg.m_iscanbatchuse();
-	m_dayuse = msg.m_dayuse();
+	m_isCanBatchUse = msg.m_iscanbatchuse();
+	m_dayUse = msg.m_dayuse();
 	m_time = msg.m_time();
-	m_uselimit = msg.m_uselimit();
+	m_useLimit = msg.m_uselimit();
 }
 
 Sheet_ItemItem_s::Sheet_ItemItem_s() {

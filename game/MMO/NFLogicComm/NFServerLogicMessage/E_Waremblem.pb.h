@@ -213,17 +213,17 @@ class E_WaremblemWaremblem : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_order() const;
   inline void set_m_order(::google::protobuf::int32 value);
 
-  // optional int32 m_lvindex = 4;
+  // optional int32 m_lvIndex = 4;
   inline bool has_m_lvindex() const;
   inline void clear_m_lvindex();
-  static const int kMLvindexFieldNumber = 4;
+  static const int kMLvIndexFieldNumber = 4;
   inline ::google::protobuf::int32 m_lvindex() const;
   inline void set_m_lvindex(::google::protobuf::int32 value);
 
-  // optional int32 m_starindex = 5;
+  // optional int32 m_starIndex = 5;
   inline bool has_m_starindex() const;
   inline void clear_m_starindex();
-  static const int kMStarindexFieldNumber = 5;
+  static const int kMStarIndexFieldNumber = 5;
   inline ::google::protobuf::int32 m_starindex() const;
   inline void set_m_starindex(::google::protobuf::int32 value);
 
@@ -525,24 +525,24 @@ class E_WaremblemLv : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_classbonus = 4;
+  // optional int32 m_classBonus = 4;
   inline bool has_m_classbonus() const;
   inline void clear_m_classbonus();
-  static const int kMClassbonusFieldNumber = 4;
+  static const int kMClassBonusFieldNumber = 4;
   inline ::google::protobuf::int32 m_classbonus() const;
   inline void set_m_classbonus(::google::protobuf::int32 value);
 
-  // optional int32 m_costid = 5;
+  // optional int32 m_costId = 5;
   inline bool has_m_costid() const;
   inline void clear_m_costid();
-  static const int kMCostidFieldNumber = 5;
+  static const int kMCostIdFieldNumber = 5;
   inline ::google::protobuf::int32 m_costid() const;
   inline void set_m_costid(::google::protobuf::int32 value);
 
-  // optional int32 m_costnum = 6;
+  // optional int32 m_costNum = 6;
   inline bool has_m_costnum() const;
   inline void clear_m_costnum();
-  static const int kMCostnumFieldNumber = 6;
+  static const int kMCostNumFieldNumber = 6;
   inline ::google::protobuf::int32 m_costnum() const;
   inline void set_m_costnum(::google::protobuf::int32 value);
 
@@ -847,17 +847,17 @@ class E_WaremblemStar : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_star() const;
   inline void set_m_star(::google::protobuf::int32 value);
 
-  // optional int32 m_costid = 4;
+  // optional int32 m_costId = 4;
   inline bool has_m_costid() const;
   inline void clear_m_costid();
-  static const int kMCostidFieldNumber = 4;
+  static const int kMCostIdFieldNumber = 4;
   inline ::google::protobuf::int32 m_costid() const;
   inline void set_m_costid(::google::protobuf::int32 value);
 
-  // optional int32 m_costnum = 5;
+  // optional int32 m_costNum = 5;
   inline bool has_m_costnum() const;
   inline void clear_m_costnum();
-  static const int kMCostnumFieldNumber = 5;
+  static const int kMCostNumFieldNumber = 5;
   inline ::google::protobuf::int32 m_costnum() const;
   inline void set_m_costnum(::google::protobuf::int32 value);
 
@@ -1121,7 +1121,7 @@ inline void E_WaremblemWaremblem::set_m_order(::google::protobuf::int32 value) {
   m_order_ = value;
 }
 
-// optional int32 m_lvindex = 4;
+// optional int32 m_lvIndex = 4;
 inline bool E_WaremblemWaremblem::has_m_lvindex() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1143,7 +1143,7 @@ inline void E_WaremblemWaremblem::set_m_lvindex(::google::protobuf::int32 value)
   m_lvindex_ = value;
 }
 
-// optional int32 m_starindex = 5;
+// optional int32 m_starIndex = 5;
 inline bool E_WaremblemWaremblem::has_m_starindex() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1337,7 +1337,7 @@ inline void E_WaremblemLv::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional int32 m_classbonus = 4;
+// optional int32 m_classBonus = 4;
 inline bool E_WaremblemLv::has_m_classbonus() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1359,7 +1359,7 @@ inline void E_WaremblemLv::set_m_classbonus(::google::protobuf::int32 value) {
   m_classbonus_ = value;
 }
 
-// optional int32 m_costid = 5;
+// optional int32 m_costId = 5;
 inline bool E_WaremblemLv::has_m_costid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1381,7 +1381,7 @@ inline void E_WaremblemLv::set_m_costid(::google::protobuf::int32 value) {
   m_costid_ = value;
 }
 
-// optional int32 m_costnum = 6;
+// optional int32 m_costNum = 6;
 inline bool E_WaremblemLv::has_m_costnum() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -1575,7 +1575,7 @@ inline void E_WaremblemStar::set_m_star(::google::protobuf::int32 value) {
   m_star_ = value;
 }
 
-// optional int32 m_costid = 4;
+// optional int32 m_costId = 4;
 inline bool E_WaremblemStar::has_m_costid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1597,7 +1597,7 @@ inline void E_WaremblemStar::set_m_costid(::google::protobuf::int32 value) {
   m_costid_ = value;
 }
 
-// optional int32 m_costnum = 5;
+// optional int32 m_costNum = 5;
 inline bool E_WaremblemStar::has_m_costnum() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }

@@ -42,9 +42,9 @@ namespace proto_ff_s {
 		virtual ~E_DragonFragment_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_fragmentid;//碎片ID
+		int64_t m_fragmentID;//碎片ID
 		int64_t m_item;//物品ID
-		int32_t m_itemnum;//碎片使用上限
+		int32_t m_itemNum;//碎片使用上限
 		NFShmVector<struct E_DragonFragmentAttributeDesc_s, DEFINE_E_DRAGONFRAGMENT_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_DragonFragment & msg) const;
@@ -89,17 +89,17 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_funid;//功能开放
-		int32_t m_uplvtype;//升级参考类型
-		int32_t m_lvmax;//等级上限
-		NFShmString<64> m_skillid;//解锁技能组
-		NFShmString<64> m_exskillid;//解锁专属技能组
-		int32_t m_staritem;//升星道具
-		int32_t m_upstartype;//升星参考类型
-		int32_t m_starup;//星星上限
+		int32_t m_funId;//功能开放
+		int32_t m_UpLvType;//升级参考类型
+		int32_t m_LvMax;//等级上限
+		NFShmString<64> m_skillID;//解锁技能组
+		NFShmString<64> m_exSkillID;//解锁专属技能组
+		int32_t m_starItem;//升星道具
+		int32_t m_UpStarType;//升星参考类型
+		int32_t m_starUp;//星星上限
 		int32_t m_luck;//每幸运值增加的成功率
 		NFShmVector<struct E_DragonDisplayMaterialDesc_s, DEFINE_E_DRAGONDISPLAY_M_MATERIAL_MAX_NUM> m_material;//升级材料
-		NFShmVector<int64_t, DEFINE_E_DRAGONDISPLAY_M_FRAGMENTID_MAX_NUM> m_fragmentid;//关联碎片ID
+		NFShmVector<int64_t, DEFINE_E_DRAGONDISPLAY_M_FRAGMENTID_MAX_NUM> m_fragmentID;//关联碎片ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_DragonDisplay & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_DragonDisplay & msg);
@@ -129,14 +129,14 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_funid;//功能开放
-		NFShmString<64> m_skillid;//解锁技能组
-		NFShmString<64> m_exskillid;//解锁专属技能组
-		NFShmString<64> m_fxid;//幻化特效
-		int32_t m_starmax;//星星上限
-		int32_t m_startype;//星级数值类型
-		int32_t m_activationitem;//激活需要的道具
-		int32_t m_activationnum;//激活需要的道具数量
-		int32_t m_starid;//升星需要道具ID
+		NFShmString<64> m_skillID;//解锁技能组
+		NFShmString<64> m_exSkillID;//解锁专属技能组
+		NFShmString<64> m_fxID;//幻化特效
+		int32_t m_starMax;//星星上限
+		int32_t m_starType;//星级数值类型
+		int32_t m_activationItem;//激活需要的道具
+		int32_t m_activationNum;//激活需要的道具数量
+		int32_t m_starId;//升星需要道具ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_DragonChange & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_DragonChange & msg);
@@ -180,9 +180,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//等级
-		int32_t m_exp;//升级需要经验
+		int32_t m_Exp;//升级需要经验
 		int32_t m_gold;//花费金币
-		int32_t m_starlimit;//星级要求
+		int32_t m_starLimit;//星级要求
 		NFShmVector<struct E_DragonLvvalueAttributeDesc_s, DEFINE_E_DRAGONLVVALUE_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_DragonLvvalue & msg) const;
@@ -230,9 +230,9 @@ namespace proto_ff_s {
 		int32_t m_type;//类型
 		int32_t m_star;//星级
 		int32_t m_gold;//金币
-		int32_t m_starnum;//升星消耗
+		int32_t m_starNum;//升星消耗
 		int32_t m_sucess;//升级基础成功率
-		int32_t m_luckmax;//幸运值上限
+		int32_t m_luckMax;//幸运值上限
 		int32_t m_failluck;//失败幸运值
 		int32_t m_model;//模型
 		NFShmVector<struct E_DragonStarvalueAttributeDesc_s, DEFINE_E_DRAGONSTARVALUE_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性

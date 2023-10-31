@@ -102,87 +102,87 @@ class E_WashpartyWashparty : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_collectid = 2;
+  // optional int32 m_collectId = 2;
   inline bool has_m_collectid() const;
   inline void clear_m_collectid();
-  static const int kMCollectidFieldNumber = 2;
+  static const int kMCollectIdFieldNumber = 2;
   inline ::google::protobuf::int32 m_collectid() const;
   inline void set_m_collectid(::google::protobuf::int32 value);
 
-  // optional int32 m_collectnum = 3;
+  // optional int32 m_collectNum = 3;
   inline bool has_m_collectnum() const;
   inline void clear_m_collectnum();
-  static const int kMCollectnumFieldNumber = 3;
+  static const int kMCollectNumFieldNumber = 3;
   inline ::google::protobuf::int32 m_collectnum() const;
   inline void set_m_collectnum(::google::protobuf::int32 value);
 
-  // optional int32 m_collectposid = 4;
+  // optional int32 m_collectPosId = 4;
   inline bool has_m_collectposid() const;
   inline void clear_m_collectposid();
-  static const int kMCollectposidFieldNumber = 4;
+  static const int kMCollectPosIdFieldNumber = 4;
   inline ::google::protobuf::int32 m_collectposid() const;
   inline void set_m_collectposid(::google::protobuf::int32 value);
 
-  // optional int32 m_collectgeninterval = 5;
+  // optional int32 m_collectGenInterval = 5;
   inline bool has_m_collectgeninterval() const;
   inline void clear_m_collectgeninterval();
-  static const int kMCollectgenintervalFieldNumber = 5;
+  static const int kMCollectGenIntervalFieldNumber = 5;
   inline ::google::protobuf::int32 m_collectgeninterval() const;
   inline void set_m_collectgeninterval(::google::protobuf::int32 value);
 
-  // optional int32 m_collectmax = 6;
+  // optional int32 m_collectMax = 6;
   inline bool has_m_collectmax() const;
   inline void clear_m_collectmax();
-  static const int kMCollectmaxFieldNumber = 6;
+  static const int kMCollectMaxFieldNumber = 6;
   inline ::google::protobuf::int32 m_collectmax() const;
   inline void set_m_collectmax(::google::protobuf::int32 value);
 
-  // optional int32 m_splashnum = 7;
+  // optional int32 m_splashNum = 7;
   inline bool has_m_splashnum() const;
   inline void clear_m_splashnum();
-  static const int kMSplashnumFieldNumber = 7;
+  static const int kMSplashNumFieldNumber = 7;
   inline ::google::protobuf::int32 m_splashnum() const;
   inline void set_m_splashnum(::google::protobuf::int32 value);
 
-  // optional int32 m_splashreward = 8;
+  // optional int32 m_splashReward = 8;
   inline bool has_m_splashreward() const;
   inline void clear_m_splashreward();
-  static const int kMSplashrewardFieldNumber = 8;
+  static const int kMSplashRewardFieldNumber = 8;
   inline ::google::protobuf::int32 m_splashreward() const;
   inline void set_m_splashreward(::google::protobuf::int32 value);
 
-  // optional int32 m_massagenum = 9;
+  // optional int32 m_massageNum = 9;
   inline bool has_m_massagenum() const;
   inline void clear_m_massagenum();
-  static const int kMMassagenumFieldNumber = 9;
+  static const int kMMassageNumFieldNumber = 9;
   inline ::google::protobuf::int32 m_massagenum() const;
   inline void set_m_massagenum(::google::protobuf::int32 value);
 
-  // optional int32 m_massagetime = 10;
+  // optional int32 m_massageTime = 10;
   inline bool has_m_massagetime() const;
   inline void clear_m_massagetime();
-  static const int kMMassagetimeFieldNumber = 10;
+  static const int kMMassageTimeFieldNumber = 10;
   inline ::google::protobuf::int32 m_massagetime() const;
   inline void set_m_massagetime(::google::protobuf::int32 value);
 
-  // optional int32 m_massagereward = 11;
+  // optional int32 m_massageReward = 11;
   inline bool has_m_massagereward() const;
   inline void clear_m_massagereward();
-  static const int kMMassagerewardFieldNumber = 11;
+  static const int kMMassageRewardFieldNumber = 11;
   inline ::google::protobuf::int32 m_massagereward() const;
   inline void set_m_massagereward(::google::protobuf::int32 value);
 
-  // optional int32 m_pairexpaddition = 12;
+  // optional int32 m_pairExpAddition = 12;
   inline bool has_m_pairexpaddition() const;
   inline void clear_m_pairexpaddition();
-  static const int kMPairexpadditionFieldNumber = 12;
+  static const int kMPairExpAdditionFieldNumber = 12;
   inline ::google::protobuf::int32 m_pairexpaddition() const;
   inline void set_m_pairexpaddition(::google::protobuf::int32 value);
 
-  // optional int32 m_mapid = 13;
+  // optional int32 m_mapId = 13;
   inline bool has_m_mapid() const;
   inline void clear_m_mapid();
-  static const int kMMapidFieldNumber = 13;
+  static const int kMMapIdFieldNumber = 13;
   inline ::google::protobuf::int32 m_mapid() const;
   inline void set_m_mapid(::google::protobuf::int32 value);
 
@@ -193,31 +193,31 @@ class E_WashpartyWashparty : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_duration() const;
   inline void set_m_duration(::google::protobuf::int32 value);
 
-  // optional int32 m_expaddinterval = 15;
+  // optional int32 m_expAddInterval = 15;
   inline bool has_m_expaddinterval() const;
   inline void clear_m_expaddinterval();
-  static const int kMExpaddintervalFieldNumber = 15;
+  static const int kMExpAddIntervalFieldNumber = 15;
   inline ::google::protobuf::int32 m_expaddinterval() const;
   inline void set_m_expaddinterval(::google::protobuf::int32 value);
 
-  // optional int32 m_splashsi = 16;
+  // optional int32 m_splashSI = 16;
   inline bool has_m_splashsi() const;
   inline void clear_m_splashsi();
-  static const int kMSplashsiFieldNumber = 16;
+  static const int kMSplashSIFieldNumber = 16;
   inline ::google::protobuf::int32 m_splashsi() const;
   inline void set_m_splashsi(::google::protobuf::int32 value);
 
-  // optional int32 m_birthareaid = 17;
+  // optional int32 m_birthAreaId = 17;
   inline bool has_m_birthareaid() const;
   inline void clear_m_birthareaid();
-  static const int kMBirthareaidFieldNumber = 17;
+  static const int kMBirthAreaIdFieldNumber = 17;
   inline ::google::protobuf::int32 m_birthareaid() const;
   inline void set_m_birthareaid(::google::protobuf::int32 value);
 
-  // optional int32 m_actid = 18;
+  // optional int32 m_actId = 18;
   inline bool has_m_actid() const;
   inline void clear_m_actid();
-  static const int kMActidFieldNumber = 18;
+  static const int kMActIdFieldNumber = 18;
   inline ::google::protobuf::int32 m_actid() const;
   inline void set_m_actid(::google::protobuf::int32 value);
 
@@ -439,10 +439,10 @@ class E_WashpartyExp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_washexp = 2;
+  // optional int32 m_washExp = 2;
   inline bool has_m_washexp() const;
   inline void clear_m_washexp();
-  static const int kMWashexpFieldNumber = 2;
+  static const int kMWashExpFieldNumber = 2;
   inline ::google::protobuf::int32 m_washexp() const;
   inline void set_m_washexp(::google::protobuf::int32 value);
 
@@ -582,7 +582,7 @@ inline void E_WashpartyWashparty::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_collectid = 2;
+// optional int32 m_collectId = 2;
 inline bool E_WashpartyWashparty::has_m_collectid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -604,7 +604,7 @@ inline void E_WashpartyWashparty::set_m_collectid(::google::protobuf::int32 valu
   m_collectid_ = value;
 }
 
-// optional int32 m_collectnum = 3;
+// optional int32 m_collectNum = 3;
 inline bool E_WashpartyWashparty::has_m_collectnum() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -626,7 +626,7 @@ inline void E_WashpartyWashparty::set_m_collectnum(::google::protobuf::int32 val
   m_collectnum_ = value;
 }
 
-// optional int32 m_collectposid = 4;
+// optional int32 m_collectPosId = 4;
 inline bool E_WashpartyWashparty::has_m_collectposid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -648,7 +648,7 @@ inline void E_WashpartyWashparty::set_m_collectposid(::google::protobuf::int32 v
   m_collectposid_ = value;
 }
 
-// optional int32 m_collectgeninterval = 5;
+// optional int32 m_collectGenInterval = 5;
 inline bool E_WashpartyWashparty::has_m_collectgeninterval() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -670,7 +670,7 @@ inline void E_WashpartyWashparty::set_m_collectgeninterval(::google::protobuf::i
   m_collectgeninterval_ = value;
 }
 
-// optional int32 m_collectmax = 6;
+// optional int32 m_collectMax = 6;
 inline bool E_WashpartyWashparty::has_m_collectmax() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -692,7 +692,7 @@ inline void E_WashpartyWashparty::set_m_collectmax(::google::protobuf::int32 val
   m_collectmax_ = value;
 }
 
-// optional int32 m_splashnum = 7;
+// optional int32 m_splashNum = 7;
 inline bool E_WashpartyWashparty::has_m_splashnum() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -714,7 +714,7 @@ inline void E_WashpartyWashparty::set_m_splashnum(::google::protobuf::int32 valu
   m_splashnum_ = value;
 }
 
-// optional int32 m_splashreward = 8;
+// optional int32 m_splashReward = 8;
 inline bool E_WashpartyWashparty::has_m_splashreward() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -736,7 +736,7 @@ inline void E_WashpartyWashparty::set_m_splashreward(::google::protobuf::int32 v
   m_splashreward_ = value;
 }
 
-// optional int32 m_massagenum = 9;
+// optional int32 m_massageNum = 9;
 inline bool E_WashpartyWashparty::has_m_massagenum() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -758,7 +758,7 @@ inline void E_WashpartyWashparty::set_m_massagenum(::google::protobuf::int32 val
   m_massagenum_ = value;
 }
 
-// optional int32 m_massagetime = 10;
+// optional int32 m_massageTime = 10;
 inline bool E_WashpartyWashparty::has_m_massagetime() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -780,7 +780,7 @@ inline void E_WashpartyWashparty::set_m_massagetime(::google::protobuf::int32 va
   m_massagetime_ = value;
 }
 
-// optional int32 m_massagereward = 11;
+// optional int32 m_massageReward = 11;
 inline bool E_WashpartyWashparty::has_m_massagereward() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -802,7 +802,7 @@ inline void E_WashpartyWashparty::set_m_massagereward(::google::protobuf::int32 
   m_massagereward_ = value;
 }
 
-// optional int32 m_pairexpaddition = 12;
+// optional int32 m_pairExpAddition = 12;
 inline bool E_WashpartyWashparty::has_m_pairexpaddition() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -824,7 +824,7 @@ inline void E_WashpartyWashparty::set_m_pairexpaddition(::google::protobuf::int3
   m_pairexpaddition_ = value;
 }
 
-// optional int32 m_mapid = 13;
+// optional int32 m_mapId = 13;
 inline bool E_WashpartyWashparty::has_m_mapid() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -868,7 +868,7 @@ inline void E_WashpartyWashparty::set_m_duration(::google::protobuf::int32 value
   m_duration_ = value;
 }
 
-// optional int32 m_expaddinterval = 15;
+// optional int32 m_expAddInterval = 15;
 inline bool E_WashpartyWashparty::has_m_expaddinterval() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
@@ -890,7 +890,7 @@ inline void E_WashpartyWashparty::set_m_expaddinterval(::google::protobuf::int32
   m_expaddinterval_ = value;
 }
 
-// optional int32 m_splashsi = 16;
+// optional int32 m_splashSI = 16;
 inline bool E_WashpartyWashparty::has_m_splashsi() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
@@ -912,7 +912,7 @@ inline void E_WashpartyWashparty::set_m_splashsi(::google::protobuf::int32 value
   m_splashsi_ = value;
 }
 
-// optional int32 m_birthareaid = 17;
+// optional int32 m_birthAreaId = 17;
 inline bool E_WashpartyWashparty::has_m_birthareaid() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
@@ -934,7 +934,7 @@ inline void E_WashpartyWashparty::set_m_birthareaid(::google::protobuf::int32 va
   m_birthareaid_ = value;
 }
 
-// optional int32 m_actid = 18;
+// optional int32 m_actId = 18;
 inline bool E_WashpartyWashparty::has_m_actid() const {
   return (_has_bits_[0] & 0x00020000u) != 0;
 }
@@ -1011,7 +1011,7 @@ inline void E_WashpartyExp::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional int32 m_washexp = 2;
+// optional int32 m_washExp = 2;
 inline bool E_WashpartyExp::has_m_washexp() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }

@@ -243,40 +243,40 @@ void protobuf_AddDesc_E_5fBox_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\013E_Box.proto\022\010proto_ff\032\025yd_fieldoptions"
-    ".proto\"\225\001\n\023E_BoxBoxBoxdataDesc\022$\n\nm_mint"
+    ".proto\"\225\001\n\023E_BoxBoxBoxdataDesc\022$\n\nm_minT"
     "imes\030\001 \001(\005B\020\302\377\024\014\346\254\241\346\225\260\344\270\213\351\231\220\022\024\n\004m_id\030\002 \001"
-    "(\003B\006\302\377\024\002id\022$\n\nm_maxtimes\030\003 \001(\005B\020\302\377\024\014\346\254\241\346"
+    "(\003B\006\302\377\024\002id\022$\n\nm_maxTimes\030\003 \001(\005B\020\302\377\024\014\346\254\241\346"
     "\225\260\344\270\212\351\231\220\022\034\n\010m_weight\030\004 \001(\005B\n\302\377\024\006\346\235\203\351\207\215\"\230"
     "\002\n\010E_BoxBox\022\024\n\004m_id\030\001 \001(\003B\006\302\377\024\002id\022\032\n\006m_t"
-    "ype\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022 \n\006m_rate\030\003 \001(\005B\020\302"
-    "\377\024\014\347\224\237\346\225\210\346\246\202\347\216\207\022*\n\006m_mask\030\004 \001(\tB\032\302\377\024\022\346\246\202"
-    "\347\216\207\350\260\203\346\225\264\346\240\207\347\255\276\220\301\024@\022$\n\nm_mintimes\030\005 \001(\005B"
-    "\020\302\377\024\014\346\234\200\345\260\217\346\254\241\346\225\260\022$\n\nm_maxtimes\030\006 \001(\005B\020\302"
+    "ype\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022 \n\006m_Rate\030\003 \001(\005B\020\302"
+    "\377\024\014\347\224\237\346\225\210\346\246\202\347\216\207\022*\n\006m_Mask\030\004 \001(\tB\032\302\377\024\022\346\246\202"
+    "\347\216\207\350\260\203\346\225\264\346\240\207\347\255\276\220\301\024@\022$\n\nm_minTimes\030\005 \001(\005B"
+    "\020\302\377\024\014\346\234\200\345\260\217\346\254\241\346\225\260\022$\n\nm_maxTimes\030\006 \001(\005B\020\302"
     "\377\024\014\346\234\200\345\244\247\346\254\241\346\225\260\022@\n\tm_boxdata\030\007 \003(\0132\035.pro"
     "to_ff.E_BoxBoxBoxdataDescB\016\302\377\024\006\346\216\211\350\220\275\210\301\024"
     "\014\"@\n\014Sheet_BoxBox\0220\n\rE_BoxBox_List\030\001 \003(\013"
     "2\022.proto_ff.E_BoxBoxB\005\210\301\024\200 \"\274\001\n\025E_BoxBox"
-    "dataEquipDesc\022\"\n\010m_maxnum\030\001 \001(\005B\020\302\377\024\014\346\234\200"
-    "\345\244\247\346\225\260\351\207\217\022\"\n\010m_minnum\030\002 \001(\005B\020\302\377\024\014\346\234\200\345\260\217\346"
+    "dataEquipDesc\022\"\n\010m_maxNum\030\001 \001(\005B\020\302\377\024\014\346\234\200"
+    "\345\244\247\346\225\260\351\207\217\022\"\n\010m_minNum\030\002 \001(\005B\020\302\377\024\014\346\234\200\345\260\217\346"
     "\225\260\351\207\217\022\034\n\010m_isbind\030\003 \001(\005B\n\302\377\024\006\347\273\221\345\256\232\022\030\n\004m"
     "_id\030\004 \001(\tB\n\302\377\024\002id\220\301\024@\022#\n\006m_rand\030\005 \001(\005B\023\302"
     "\377\024\017\346\246\202\347\216\207\347\231\276\345\210\206\346\257\224\"\351\001\n\024E_BoxBoxdataItemD"
     "esc\022\036\n\006m_rand\030\001 \001(\tB\016\302\377\024\006\346\235\203\351\207\215\220\301\024@\022\"\n\010m"
-    "_maxnum\030\002 \001(\005B\020\302\377\024\014\346\234\200\345\244\247\346\225\260\351\207\217\022\"\n\010m_min"
-    "num\030\003 \001(\005B\020\302\377\024\014\346\234\200\345\260\217\346\225\260\351\207\217\022&\n\010m_isbind\030"
+    "_maxNum\030\002 \001(\005B\020\302\377\024\014\346\234\200\345\244\247\346\225\260\351\207\217\022\"\n\010m_min"
+    "Num\030\003 \001(\005B\020\302\377\024\014\346\234\200\345\260\217\346\225\260\351\207\217\022&\n\010m_isbind\030"
     "\004 \001(\tB\024\302\377\024\014\346\240\207\345\256\232\346\240\207\350\256\260\220\301\024@\022\030\n\004m_id\030\005 \001("
     "\tB\n\302\377\024\002id\220\301\024@\022\'\n\nm_rarerand\030\006 \001(\005B\023\302\377\024\017\346"
     "\246\202\347\216\207\347\231\276\345\210\206\346\257\224\"\216\005\n\014E_BoxBoxdata\022\035\n\004m_id\030"
     "\001 \001(\003B\017\302\377\024\013\346\216\211\350\220\275\345\214\205ID\022%\n\013m_drop_type\030\002 "
-    "\001(\005B\020\302\377\024\014\346\216\211\350\220\275\347\261\273\345\236\213\022&\n\014m_goldminnum\030\003 "
-    "\001(\005B\020\302\377\024\014\351\207\221\345\270\201\344\270\213\351\231\220\022&\n\014m_goldmaxnum\030\004 "
+    "\001(\005B\020\302\377\024\014\346\216\211\350\220\275\347\261\273\345\236\213\022&\n\014m_goldminNum\030\003 "
+    "\001(\005B\020\302\377\024\014\351\207\221\345\270\201\344\270\213\351\231\220\022&\n\014m_goldmaxNum\030\004 "
     "\001(\005B\020\302\377\024\014\351\207\221\345\270\201\344\270\212\351\231\220\022\'\n\nm_goldrand\030\005 \001("
     "\005B\023\302\377\024\017\351\207\221\345\270\201\346\216\211\350\220\275\347\216\207\022+\n\021m_bindjewelmin"
-    "num\030\006 \001(\005B\020\302\377\024\014\347\273\221\351\222\273\344\270\213\351\231\220\022+\n\021m_bindjew"
-    "elmaxnum\030\007 \001(\005B\020\302\377\024\014\347\273\221\351\222\273\344\270\212\351\231\220\022,\n\017m_bi"
+    "Num\030\006 \001(\005B\020\302\377\024\014\347\273\221\351\222\273\344\270\213\351\231\220\022+\n\021m_bindjew"
+    "elmaxNum\030\007 \001(\005B\020\302\377\024\014\347\273\221\351\222\273\344\270\212\351\231\220\022,\n\017m_bi"
     "ndjewelrand\030\010 \001(\005B\023\302\377\024\017\347\273\221\351\222\273\346\216\211\350\220\275\347\216\207\022\'"
-    "\n\rm_jewelminnum\030\t \001(\005B\020\302\377\024\014\351\222\273\347\237\263\344\270\213\351\231\220\022"
-    "\'\n\rm_jewelmaxnum\030\n \001(\005B\020\302\377\024\014\351\222\273\347\237\263\344\270\212\351\231\220"
+    "\n\rm_jewelminNum\030\t \001(\005B\020\302\377\024\014\351\222\273\347\237\263\344\270\213\351\231\220\022"
+    "\'\n\rm_jewelmaxNum\030\n \001(\005B\020\302\377\024\014\351\222\273\347\237\263\344\270\212\351\231\220"
     "\022(\n\013m_jewelrand\030\013 \001(\005B\023\302\377\024\017\351\222\273\347\237\263\346\216\211\350\220\275\347"
     "\216\207\022-\n\017m_eq_profession\030\014 \001(\tB\024\302\377\024\014\350\201\214\344\270\232\351"
     "\231\220\345\210\266\220\301\024@\022F\n\007m_equip\030\r \003(\0132\037.proto_ff.E_"
@@ -314,9 +314,9 @@ struct StaticDescriptorInitializer_E_5fBox_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_BoxBoxBoxdataDesc::kMMintimesFieldNumber;
+const int E_BoxBoxBoxdataDesc::kMMinTimesFieldNumber;
 const int E_BoxBoxBoxdataDesc::kMIdFieldNumber;
-const int E_BoxBoxBoxdataDesc::kMMaxtimesFieldNumber;
+const int E_BoxBoxBoxdataDesc::kMMaxTimesFieldNumber;
 const int E_BoxBoxBoxdataDesc::kMWeightFieldNumber;
 #endif  // !_MSC_VER
 
@@ -390,7 +390,7 @@ bool E_BoxBoxBoxdataDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_mintimes = 1;
+      // optional int32 m_minTimes = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -417,15 +417,15 @@ bool E_BoxBoxBoxdataDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_maxtimes;
+        if (input->ExpectTag(24)) goto parse_m_maxTimes;
         break;
       }
 
-      // optional int32 m_maxtimes = 3;
+      // optional int32 m_maxTimes = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_maxtimes:
+         parse_m_maxTimes:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_maxtimes_)));
@@ -471,7 +471,7 @@ bool E_BoxBoxBoxdataDesc::MergePartialFromCodedStream(
 
 void E_BoxBoxBoxdataDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_mintimes = 1;
+  // optional int32 m_minTimes = 1;
   if (has_m_mintimes()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_mintimes(), output);
   }
@@ -481,7 +481,7 @@ void E_BoxBoxBoxdataDesc::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_id(), output);
   }
 
-  // optional int32 m_maxtimes = 3;
+  // optional int32 m_maxTimes = 3;
   if (has_m_maxtimes()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_maxtimes(), output);
   }
@@ -499,7 +499,7 @@ void E_BoxBoxBoxdataDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_BoxBoxBoxdataDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_mintimes = 1;
+  // optional int32 m_minTimes = 1;
   if (has_m_mintimes()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_mintimes(), target);
   }
@@ -509,7 +509,7 @@ void E_BoxBoxBoxdataDesc::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_id(), target);
   }
 
-  // optional int32 m_maxtimes = 3;
+  // optional int32 m_maxTimes = 3;
   if (has_m_maxtimes()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_maxtimes(), target);
   }
@@ -530,7 +530,7 @@ int E_BoxBoxBoxdataDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_mintimes = 1;
+    // optional int32 m_minTimes = 1;
     if (has_m_mintimes()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -544,7 +544,7 @@ int E_BoxBoxBoxdataDesc::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_maxtimes = 3;
+    // optional int32 m_maxTimes = 3;
     if (has_m_maxtimes()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -646,8 +646,8 @@ const int E_BoxBox::kMIdFieldNumber;
 const int E_BoxBox::kMTypeFieldNumber;
 const int E_BoxBox::kMRateFieldNumber;
 const int E_BoxBox::kMMaskFieldNumber;
-const int E_BoxBox::kMMintimesFieldNumber;
-const int E_BoxBox::kMMaxtimesFieldNumber;
+const int E_BoxBox::kMMinTimesFieldNumber;
+const int E_BoxBox::kMMaxTimesFieldNumber;
 const int E_BoxBox::kMBoxdataFieldNumber;
 #endif  // !_MSC_VER
 
@@ -760,15 +760,15 @@ bool E_BoxBox::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_rate;
+        if (input->ExpectTag(24)) goto parse_m_Rate;
         break;
       }
 
-      // optional int32 m_rate = 3;
+      // optional int32 m_Rate = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rate:
+         parse_m_Rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rate_)));
@@ -776,15 +776,15 @@ bool E_BoxBox::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_mask;
+        if (input->ExpectTag(34)) goto parse_m_Mask;
         break;
       }
 
-      // optional string m_mask = 4;
+      // optional string m_Mask = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_mask:
+         parse_m_Mask:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_mask()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -793,15 +793,15 @@ bool E_BoxBox::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_mintimes;
+        if (input->ExpectTag(40)) goto parse_m_minTimes;
         break;
       }
 
-      // optional int32 m_mintimes = 5;
+      // optional int32 m_minTimes = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_mintimes:
+         parse_m_minTimes:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_mintimes_)));
@@ -809,15 +809,15 @@ bool E_BoxBox::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_maxtimes;
+        if (input->ExpectTag(48)) goto parse_m_maxTimes;
         break;
       }
 
-      // optional int32 m_maxtimes = 6;
+      // optional int32 m_maxTimes = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_maxtimes:
+         parse_m_maxTimes:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_maxtimes_)));
@@ -872,12 +872,12 @@ void E_BoxBox::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
   }
 
-  // optional int32 m_rate = 3;
+  // optional int32 m_Rate = 3;
   if (has_m_rate()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_rate(), output);
   }
 
-  // optional string m_mask = 4;
+  // optional string m_Mask = 4;
   if (has_m_mask()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_mask().data(), this->m_mask().length(),
@@ -886,12 +886,12 @@ void E_BoxBox::SerializeWithCachedSizes(
       4, this->m_mask(), output);
   }
 
-  // optional int32 m_mintimes = 5;
+  // optional int32 m_minTimes = 5;
   if (has_m_mintimes()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_mintimes(), output);
   }
 
-  // optional int32 m_maxtimes = 6;
+  // optional int32 m_maxTimes = 6;
   if (has_m_maxtimes()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_maxtimes(), output);
   }
@@ -920,12 +920,12 @@ void E_BoxBox::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
   }
 
-  // optional int32 m_rate = 3;
+  // optional int32 m_Rate = 3;
   if (has_m_rate()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_rate(), target);
   }
 
-  // optional string m_mask = 4;
+  // optional string m_Mask = 4;
   if (has_m_mask()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_mask().data(), this->m_mask().length(),
@@ -935,12 +935,12 @@ void E_BoxBox::SerializeWithCachedSizes(
         4, this->m_mask(), target);
   }
 
-  // optional int32 m_mintimes = 5;
+  // optional int32 m_minTimes = 5;
   if (has_m_mintimes()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_mintimes(), target);
   }
 
-  // optional int32 m_maxtimes = 6;
+  // optional int32 m_maxTimes = 6;
   if (has_m_maxtimes()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_maxtimes(), target);
   }
@@ -977,28 +977,28 @@ int E_BoxBox::ByteSize() const {
           this->m_type());
     }
 
-    // optional int32 m_rate = 3;
+    // optional int32 m_Rate = 3;
     if (has_m_rate()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_rate());
     }
 
-    // optional string m_mask = 4;
+    // optional string m_Mask = 4;
     if (has_m_mask()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_mask());
     }
 
-    // optional int32 m_mintimes = 5;
+    // optional int32 m_minTimes = 5;
     if (has_m_mintimes()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_mintimes());
     }
 
-    // optional int32 m_maxtimes = 6;
+    // optional int32 m_maxTimes = 6;
     if (has_m_maxtimes()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1310,8 +1310,8 @@ void Sheet_BoxBox::Swap(Sheet_BoxBox* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_BoxBoxdataEquipDesc::kMMaxnumFieldNumber;
-const int E_BoxBoxdataEquipDesc::kMMinnumFieldNumber;
+const int E_BoxBoxdataEquipDesc::kMMaxNumFieldNumber;
+const int E_BoxBoxdataEquipDesc::kMMinNumFieldNumber;
 const int E_BoxBoxdataEquipDesc::kMIsbindFieldNumber;
 const int E_BoxBoxdataEquipDesc::kMIdFieldNumber;
 const int E_BoxBoxdataEquipDesc::kMRandFieldNumber;
@@ -1396,7 +1396,7 @@ bool E_BoxBoxdataEquipDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_maxnum = 1;
+      // optional int32 m_maxNum = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -1407,15 +1407,15 @@ bool E_BoxBoxdataEquipDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_minnum;
+        if (input->ExpectTag(16)) goto parse_m_minNum;
         break;
       }
 
-      // optional int32 m_minnum = 2;
+      // optional int32 m_minNum = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_minnum:
+         parse_m_minNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_minnum_)));
@@ -1494,12 +1494,12 @@ bool E_BoxBoxdataEquipDesc::MergePartialFromCodedStream(
 
 void E_BoxBoxdataEquipDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_maxnum = 1;
+  // optional int32 m_maxNum = 1;
   if (has_m_maxnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_maxnum(), output);
   }
 
-  // optional int32 m_minnum = 2;
+  // optional int32 m_minNum = 2;
   if (has_m_minnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_minnum(), output);
   }
@@ -1531,12 +1531,12 @@ void E_BoxBoxdataEquipDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_BoxBoxdataEquipDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_maxnum = 1;
+  // optional int32 m_maxNum = 1;
   if (has_m_maxnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_maxnum(), target);
   }
 
-  // optional int32 m_minnum = 2;
+  // optional int32 m_minNum = 2;
   if (has_m_minnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_minnum(), target);
   }
@@ -1572,14 +1572,14 @@ int E_BoxBoxdataEquipDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_maxnum = 1;
+    // optional int32 m_maxNum = 1;
     if (has_m_maxnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_maxnum());
     }
 
-    // optional int32 m_minnum = 2;
+    // optional int32 m_minNum = 2;
     if (has_m_minnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1696,8 +1696,8 @@ void E_BoxBoxdataEquipDesc::Swap(E_BoxBoxdataEquipDesc* other) {
 
 #ifndef _MSC_VER
 const int E_BoxBoxdataItemDesc::kMRandFieldNumber;
-const int E_BoxBoxdataItemDesc::kMMaxnumFieldNumber;
-const int E_BoxBoxdataItemDesc::kMMinnumFieldNumber;
+const int E_BoxBoxdataItemDesc::kMMaxNumFieldNumber;
+const int E_BoxBoxdataItemDesc::kMMinNumFieldNumber;
 const int E_BoxBoxdataItemDesc::kMIsbindFieldNumber;
 const int E_BoxBoxdataItemDesc::kMIdFieldNumber;
 const int E_BoxBoxdataItemDesc::kMRarerandFieldNumber;
@@ -1810,15 +1810,15 @@ bool E_BoxBoxdataItemDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_maxnum;
+        if (input->ExpectTag(16)) goto parse_m_maxNum;
         break;
       }
 
-      // optional int32 m_maxnum = 2;
+      // optional int32 m_maxNum = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_maxnum:
+         parse_m_maxNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_maxnum_)));
@@ -1826,15 +1826,15 @@ bool E_BoxBoxdataItemDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_minnum;
+        if (input->ExpectTag(24)) goto parse_m_minNum;
         break;
       }
 
-      // optional int32 m_minnum = 3;
+      // optional int32 m_minNum = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_minnum:
+         parse_m_minNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_minnum_)));
@@ -1923,12 +1923,12 @@ void E_BoxBoxdataItemDesc::SerializeWithCachedSizes(
       1, this->m_rand(), output);
   }
 
-  // optional int32 m_maxnum = 2;
+  // optional int32 m_maxNum = 2;
   if (has_m_maxnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_maxnum(), output);
   }
 
-  // optional int32 m_minnum = 3;
+  // optional int32 m_minNum = 3;
   if (has_m_minnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_minnum(), output);
   }
@@ -1974,12 +1974,12 @@ void E_BoxBoxdataItemDesc::SerializeWithCachedSizes(
         1, this->m_rand(), target);
   }
 
-  // optional int32 m_maxnum = 2;
+  // optional int32 m_maxNum = 2;
   if (has_m_maxnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_maxnum(), target);
   }
 
-  // optional int32 m_minnum = 3;
+  // optional int32 m_minNum = 3;
   if (has_m_minnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_minnum(), target);
   }
@@ -2027,14 +2027,14 @@ int E_BoxBoxdataItemDesc::ByteSize() const {
           this->m_rand());
     }
 
-    // optional int32 m_maxnum = 2;
+    // optional int32 m_maxNum = 2;
     if (has_m_maxnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_maxnum());
     }
 
-    // optional int32 m_minnum = 3;
+    // optional int32 m_minNum = 3;
     if (has_m_minnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2156,14 +2156,14 @@ void E_BoxBoxdataItemDesc::Swap(E_BoxBoxdataItemDesc* other) {
 #ifndef _MSC_VER
 const int E_BoxBoxdata::kMIdFieldNumber;
 const int E_BoxBoxdata::kMDropTypeFieldNumber;
-const int E_BoxBoxdata::kMGoldminnumFieldNumber;
-const int E_BoxBoxdata::kMGoldmaxnumFieldNumber;
+const int E_BoxBoxdata::kMGoldminNumFieldNumber;
+const int E_BoxBoxdata::kMGoldmaxNumFieldNumber;
 const int E_BoxBoxdata::kMGoldrandFieldNumber;
-const int E_BoxBoxdata::kMBindjewelminnumFieldNumber;
-const int E_BoxBoxdata::kMBindjewelmaxnumFieldNumber;
+const int E_BoxBoxdata::kMBindjewelminNumFieldNumber;
+const int E_BoxBoxdata::kMBindjewelmaxNumFieldNumber;
 const int E_BoxBoxdata::kMBindjewelrandFieldNumber;
-const int E_BoxBoxdata::kMJewelminnumFieldNumber;
-const int E_BoxBoxdata::kMJewelmaxnumFieldNumber;
+const int E_BoxBoxdata::kMJewelminNumFieldNumber;
+const int E_BoxBoxdata::kMJewelmaxNumFieldNumber;
 const int E_BoxBoxdata::kMJewelrandFieldNumber;
 const int E_BoxBoxdata::kMEqProfessionFieldNumber;
 const int E_BoxBoxdata::kMEquipFieldNumber;
@@ -2294,15 +2294,15 @@ bool E_BoxBoxdata::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_goldminnum;
+        if (input->ExpectTag(24)) goto parse_m_goldminNum;
         break;
       }
 
-      // optional int32 m_goldminnum = 3;
+      // optional int32 m_goldminNum = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_goldminnum:
+         parse_m_goldminNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_goldminnum_)));
@@ -2310,15 +2310,15 @@ bool E_BoxBoxdata::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_goldmaxnum;
+        if (input->ExpectTag(32)) goto parse_m_goldmaxNum;
         break;
       }
 
-      // optional int32 m_goldmaxnum = 4;
+      // optional int32 m_goldmaxNum = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_goldmaxnum:
+         parse_m_goldmaxNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_goldmaxnum_)));
@@ -2342,15 +2342,15 @@ bool E_BoxBoxdata::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_bindjewelminnum;
+        if (input->ExpectTag(48)) goto parse_m_bindjewelminNum;
         break;
       }
 
-      // optional int32 m_bindjewelminnum = 6;
+      // optional int32 m_bindjewelminNum = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_bindjewelminnum:
+         parse_m_bindjewelminNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_bindjewelminnum_)));
@@ -2358,15 +2358,15 @@ bool E_BoxBoxdata::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_bindjewelmaxnum;
+        if (input->ExpectTag(56)) goto parse_m_bindjewelmaxNum;
         break;
       }
 
-      // optional int32 m_bindjewelmaxnum = 7;
+      // optional int32 m_bindjewelmaxNum = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_bindjewelmaxnum:
+         parse_m_bindjewelmaxNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_bindjewelmaxnum_)));
@@ -2390,15 +2390,15 @@ bool E_BoxBoxdata::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_jewelminnum;
+        if (input->ExpectTag(72)) goto parse_m_jewelminNum;
         break;
       }
 
-      // optional int32 m_jewelminnum = 9;
+      // optional int32 m_jewelminNum = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_jewelminnum:
+         parse_m_jewelminNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_jewelminnum_)));
@@ -2406,15 +2406,15 @@ bool E_BoxBoxdata::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_jewelmaxnum;
+        if (input->ExpectTag(80)) goto parse_m_jewelmaxNum;
         break;
       }
 
-      // optional int32 m_jewelmaxnum = 10;
+      // optional int32 m_jewelmaxNum = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_jewelmaxnum:
+         parse_m_jewelmaxNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_jewelmaxnum_)));
@@ -2517,12 +2517,12 @@ void E_BoxBoxdata::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_drop_type(), output);
   }
 
-  // optional int32 m_goldminnum = 3;
+  // optional int32 m_goldminNum = 3;
   if (has_m_goldminnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_goldminnum(), output);
   }
 
-  // optional int32 m_goldmaxnum = 4;
+  // optional int32 m_goldmaxNum = 4;
   if (has_m_goldmaxnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_goldmaxnum(), output);
   }
@@ -2532,12 +2532,12 @@ void E_BoxBoxdata::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_goldrand(), output);
   }
 
-  // optional int32 m_bindjewelminnum = 6;
+  // optional int32 m_bindjewelminNum = 6;
   if (has_m_bindjewelminnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_bindjewelminnum(), output);
   }
 
-  // optional int32 m_bindjewelmaxnum = 7;
+  // optional int32 m_bindjewelmaxNum = 7;
   if (has_m_bindjewelmaxnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_bindjewelmaxnum(), output);
   }
@@ -2547,12 +2547,12 @@ void E_BoxBoxdata::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_bindjewelrand(), output);
   }
 
-  // optional int32 m_jewelminnum = 9;
+  // optional int32 m_jewelminNum = 9;
   if (has_m_jewelminnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_jewelminnum(), output);
   }
 
-  // optional int32 m_jewelmaxnum = 10;
+  // optional int32 m_jewelmaxNum = 10;
   if (has_m_jewelmaxnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_jewelmaxnum(), output);
   }
@@ -2601,12 +2601,12 @@ void E_BoxBoxdata::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_drop_type(), target);
   }
 
-  // optional int32 m_goldminnum = 3;
+  // optional int32 m_goldminNum = 3;
   if (has_m_goldminnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_goldminnum(), target);
   }
 
-  // optional int32 m_goldmaxnum = 4;
+  // optional int32 m_goldmaxNum = 4;
   if (has_m_goldmaxnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_goldmaxnum(), target);
   }
@@ -2616,12 +2616,12 @@ void E_BoxBoxdata::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_goldrand(), target);
   }
 
-  // optional int32 m_bindjewelminnum = 6;
+  // optional int32 m_bindjewelminNum = 6;
   if (has_m_bindjewelminnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_bindjewelminnum(), target);
   }
 
-  // optional int32 m_bindjewelmaxnum = 7;
+  // optional int32 m_bindjewelmaxNum = 7;
   if (has_m_bindjewelmaxnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_bindjewelmaxnum(), target);
   }
@@ -2631,12 +2631,12 @@ void E_BoxBoxdata::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_bindjewelrand(), target);
   }
 
-  // optional int32 m_jewelminnum = 9;
+  // optional int32 m_jewelminNum = 9;
   if (has_m_jewelminnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_jewelminnum(), target);
   }
 
-  // optional int32 m_jewelmaxnum = 10;
+  // optional int32 m_jewelmaxNum = 10;
   if (has_m_jewelmaxnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_jewelmaxnum(), target);
   }
@@ -2695,14 +2695,14 @@ int E_BoxBoxdata::ByteSize() const {
           this->m_drop_type());
     }
 
-    // optional int32 m_goldminnum = 3;
+    // optional int32 m_goldminNum = 3;
     if (has_m_goldminnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_goldminnum());
     }
 
-    // optional int32 m_goldmaxnum = 4;
+    // optional int32 m_goldmaxNum = 4;
     if (has_m_goldmaxnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2716,14 +2716,14 @@ int E_BoxBoxdata::ByteSize() const {
           this->m_goldrand());
     }
 
-    // optional int32 m_bindjewelminnum = 6;
+    // optional int32 m_bindjewelminNum = 6;
     if (has_m_bindjewelminnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_bindjewelminnum());
     }
 
-    // optional int32 m_bindjewelmaxnum = 7;
+    // optional int32 m_bindjewelmaxNum = 7;
     if (has_m_bindjewelmaxnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2739,14 +2739,14 @@ int E_BoxBoxdata::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_jewelminnum = 9;
+    // optional int32 m_jewelminNum = 9;
     if (has_m_jewelminnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_jewelminnum());
     }
 
-    // optional int32 m_jewelmaxnum = 10;
+    // optional int32 m_jewelmaxNum = 10;
     if (has_m_jewelmaxnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

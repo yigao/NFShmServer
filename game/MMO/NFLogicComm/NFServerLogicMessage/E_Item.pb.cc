@@ -126,28 +126,28 @@ void protobuf_AddDesc_E_5fItem_2eproto() {
     "\n\014E_Item.proto\022\010proto_ff\032\025yd_fieldoption"
     "s.proto\"\303\007\n\nE_ItemItem\022\032\n\004m_id\030\001 \001(\005B\014\302\377"
     "\024\010\347\211\251\345\223\201ID\022$\n\006m_name\030\002 \001(\tB\024\302\377\024\014\347\211\251\345\223\201\345\220"
-    "\215\347\247\260\220\301\024@\022$\n\nm_itemtype\030\003 \001(\005B\020\302\377\024\014\347\211\251\345\223\201"
-    "\347\261\273\345\236\213\022 \n\tm_subtype\030\004 \001(\005B\r\302\377\024\t\345\255\220\347\261\273\345\236\213"
-    "\022.\n\016m_functiontype\030\005 \001(\005B\026\302\377\024\022\347\211\251\345\223\201\345\212\237\350"
-    "\203\275\347\261\273\345\236\213\0223\n\017m_functionvalue\030\006 \001(\tB\032\302\377\024\022\347"
+    "\215\347\247\260\220\301\024@\022$\n\nm_itemType\030\003 \001(\005B\020\302\377\024\014\347\211\251\345\223\201"
+    "\347\261\273\345\236\213\022 \n\tm_subType\030\004 \001(\005B\r\302\377\024\t\345\255\220\347\261\273\345\236\213"
+    "\022.\n\016m_functionType\030\005 \001(\005B\026\302\377\024\022\347\211\251\345\223\201\345\212\237\350"
+    "\203\275\347\261\273\345\236\213\0223\n\017m_functionValue\030\006 \001(\tB\032\302\377\024\022\347"
     "\211\251\345\223\201\345\212\237\350\203\275\345\217\202\346\225\260\220\301\024@\022,\n\016m_usecondition\030"
     "\007 \001(\tB\024\302\377\024\014\344\275\277\347\224\250\346\235\241\344\273\266\220\301\024@\022#\n\rm_waiguan"
-    "link\030\010 \001(\003B\014\302\377\024\010\345\244\226\350\247\202id\022!\n\007m_level\030\t \001("
+    "Link\030\010 \001(\003B\014\302\377\024\010\345\244\226\350\247\202id\022!\n\007m_level\030\t \001("
     "\005B\020\302\377\024\014\347\211\251\345\223\201\347\255\211\347\272\247\022#\n\tm_quality\030\n \001(\005B\020"
-    "\302\377\024\014\347\211\251\345\223\201\345\223\201\350\264\250\022(\n\016m_levelrequest\030\013 \001(\005"
+    "\302\377\024\014\347\211\251\345\223\201\345\223\201\350\264\250\022(\n\016m_levelRequest\030\013 \001(\005"
     "B\020\302\377\024\014\344\275\277\347\224\250\347\255\211\347\272\247\022*\n\014m_profession\030\014 \001(\t"
-    "B\024\302\377\024\014\344\275\277\347\224\250\350\201\214\344\270\232\220\301\024@\022$\n\nm_bindtype\030\r \001"
-    "(\005B\020\302\377\024\014\347\273\221\345\256\232\347\261\273\345\236\213\022-\n\rm_istradebind\030\016 "
-    "\001(\005B\026\302\377\024\022\346\230\257\345\220\246\344\272\244\346\230\223\347\273\221\345\256\232\022)\n\tm_dropnum"
+    "B\024\302\377\024\014\344\275\277\347\224\250\350\201\214\344\270\232\220\301\024@\022$\n\nm_bindType\030\r \001"
+    "(\005B\020\302\377\024\014\347\273\221\345\256\232\347\261\273\345\236\213\022-\n\rm_isTradeBind\030\016 "
+    "\001(\005B\026\302\377\024\022\346\230\257\345\220\246\344\272\244\346\230\223\347\273\221\345\256\232\022)\n\tm_dropNum"
     "\030\017 \001(\005B\026\302\377\024\022\346\257\217\346\227\245\346\216\211\350\220\275\344\270\212\351\231\220\022&\n\014m_stac"
-    "klimit\030\020 \001(\005B\020\302\377\024\014\345\240\206\345\217\240\344\270\212\351\231\220\022%\n\013m_sell"
-    "price\030\021 \001(\005B\020\302\377\024\014\345\207\272\345\224\256\344\273\267\346\240\274\022#\n\tm_sellb"
+    "kLimit\030\020 \001(\005B\020\302\377\024\014\345\240\206\345\217\240\344\270\212\351\231\220\022%\n\013m_sell"
+    "Price\030\021 \001(\005B\020\302\377\024\014\345\207\272\345\224\256\344\273\267\346\240\274\022#\n\tm_sellB"
     "ox\030\022 \001(\003B\020\302\377\024\014\345\207\272\345\224\256\346\216\211\350\220\275\022.\n\013m_broadcas"
     "t\030\023 \001(\005B\031\302\377\024\025\346\230\257\345\220\246\350\267\221\351\251\254\347\201\257\345\271\277\346\222\255\0222\n\017m_"
-    "iscanbatchuse\030\024 \001(\005B\031\302\377\024\025\346\230\257\345\220\246\345\217\257\346\211\271\351\207\217"
-    "\344\275\277\347\224\250\022(\n\010m_dayuse\030\025 \001(\005B\026\302\377\024\022\346\257\217\346\227\245\344\275\277\347"
+    "isCanBatchUse\030\024 \001(\005B\031\302\377\024\025\346\230\257\345\220\246\345\217\257\346\211\271\351\207\217"
+    "\344\275\277\347\224\250\022(\n\010m_dayUse\030\025 \001(\005B\026\302\377\024\022\346\257\217\346\227\245\344\275\277\347"
     "\224\250\346\254\241\346\225\260\022 \n\006m_time\030\026 \001(\005B\020\302\377\024\014\351\231\220\346\227\266\351\201\223\345"
-    "\205\267\0221\n\nm_uselimit\030\027 \001(\tB\035\302\377\024\025\347\246\201\347\224\250\346\234\254\351\201\223"
+    "\205\267\0221\n\nm_useLimit\030\027 \001(\tB\035\302\377\024\025\347\246\201\347\224\250\346\234\254\351\201\223"
     "\345\205\267\345\234\260\345\233\276\220\301\024@\"F\n\016Sheet_ItemItem\0224\n\017E_Ite"
     "mItem_List\030\001 \003(\0132\024.proto_ff.E_ItemItemB\005"
     "\210\301\024\200 ", 1085);
@@ -172,27 +172,27 @@ struct StaticDescriptorInitializer_E_5fItem_2eproto {
 #ifndef _MSC_VER
 const int E_ItemItem::kMIdFieldNumber;
 const int E_ItemItem::kMNameFieldNumber;
-const int E_ItemItem::kMItemtypeFieldNumber;
-const int E_ItemItem::kMSubtypeFieldNumber;
-const int E_ItemItem::kMFunctiontypeFieldNumber;
-const int E_ItemItem::kMFunctionvalueFieldNumber;
+const int E_ItemItem::kMItemTypeFieldNumber;
+const int E_ItemItem::kMSubTypeFieldNumber;
+const int E_ItemItem::kMFunctionTypeFieldNumber;
+const int E_ItemItem::kMFunctionValueFieldNumber;
 const int E_ItemItem::kMUseconditionFieldNumber;
-const int E_ItemItem::kMWaiguanlinkFieldNumber;
+const int E_ItemItem::kMWaiguanLinkFieldNumber;
 const int E_ItemItem::kMLevelFieldNumber;
 const int E_ItemItem::kMQualityFieldNumber;
-const int E_ItemItem::kMLevelrequestFieldNumber;
+const int E_ItemItem::kMLevelRequestFieldNumber;
 const int E_ItemItem::kMProfessionFieldNumber;
-const int E_ItemItem::kMBindtypeFieldNumber;
-const int E_ItemItem::kMIstradebindFieldNumber;
-const int E_ItemItem::kMDropnumFieldNumber;
-const int E_ItemItem::kMStacklimitFieldNumber;
-const int E_ItemItem::kMSellpriceFieldNumber;
-const int E_ItemItem::kMSellboxFieldNumber;
+const int E_ItemItem::kMBindTypeFieldNumber;
+const int E_ItemItem::kMIsTradeBindFieldNumber;
+const int E_ItemItem::kMDropNumFieldNumber;
+const int E_ItemItem::kMStackLimitFieldNumber;
+const int E_ItemItem::kMSellPriceFieldNumber;
+const int E_ItemItem::kMSellBoxFieldNumber;
 const int E_ItemItem::kMBroadcastFieldNumber;
-const int E_ItemItem::kMIscanbatchuseFieldNumber;
-const int E_ItemItem::kMDayuseFieldNumber;
+const int E_ItemItem::kMIsCanBatchUseFieldNumber;
+const int E_ItemItem::kMDayUseFieldNumber;
 const int E_ItemItem::kMTimeFieldNumber;
-const int E_ItemItem::kMUselimitFieldNumber;
+const int E_ItemItem::kMUseLimitFieldNumber;
 #endif  // !_MSC_VER
 
 E_ItemItem::E_ItemItem()
@@ -370,15 +370,15 @@ bool E_ItemItem::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_itemtype;
+        if (input->ExpectTag(24)) goto parse_m_itemType;
         break;
       }
 
-      // optional int32 m_itemtype = 3;
+      // optional int32 m_itemType = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemtype:
+         parse_m_itemType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itemtype_)));
@@ -386,15 +386,15 @@ bool E_ItemItem::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_subtype;
+        if (input->ExpectTag(32)) goto parse_m_subType;
         break;
       }
 
-      // optional int32 m_subtype = 4;
+      // optional int32 m_subType = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_subtype:
+         parse_m_subType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_subtype_)));
@@ -402,15 +402,15 @@ bool E_ItemItem::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_functiontype;
+        if (input->ExpectTag(40)) goto parse_m_functionType;
         break;
       }
 
-      // optional int32 m_functiontype = 5;
+      // optional int32 m_functionType = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_functiontype:
+         parse_m_functionType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_functiontype_)));
@@ -418,15 +418,15 @@ bool E_ItemItem::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(50)) goto parse_m_functionvalue;
+        if (input->ExpectTag(50)) goto parse_m_functionValue;
         break;
       }
 
-      // optional string m_functionvalue = 6;
+      // optional string m_functionValue = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_functionvalue:
+         parse_m_functionValue:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_functionvalue()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -452,15 +452,15 @@ bool E_ItemItem::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_waiguanlink;
+        if (input->ExpectTag(64)) goto parse_m_waiguanLink;
         break;
       }
 
-      // optional int64 m_waiguanlink = 8;
+      // optional int64 m_waiguanLink = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_waiguanlink:
+         parse_m_waiguanLink:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_waiguanlink_)));
@@ -500,15 +500,15 @@ bool E_ItemItem::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_levelrequest;
+        if (input->ExpectTag(88)) goto parse_m_levelRequest;
         break;
       }
 
-      // optional int32 m_levelrequest = 11;
+      // optional int32 m_levelRequest = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_levelrequest:
+         parse_m_levelRequest:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_levelrequest_)));
@@ -533,15 +533,15 @@ bool E_ItemItem::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_m_bindtype;
+        if (input->ExpectTag(104)) goto parse_m_bindType;
         break;
       }
 
-      // optional int32 m_bindtype = 13;
+      // optional int32 m_bindType = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_bindtype:
+         parse_m_bindType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_bindtype_)));
@@ -549,15 +549,15 @@ bool E_ItemItem::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(112)) goto parse_m_istradebind;
+        if (input->ExpectTag(112)) goto parse_m_isTradeBind;
         break;
       }
 
-      // optional int32 m_istradebind = 14;
+      // optional int32 m_isTradeBind = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_istradebind:
+         parse_m_isTradeBind:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_istradebind_)));
@@ -565,15 +565,15 @@ bool E_ItemItem::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(120)) goto parse_m_dropnum;
+        if (input->ExpectTag(120)) goto parse_m_dropNum;
         break;
       }
 
-      // optional int32 m_dropnum = 15;
+      // optional int32 m_dropNum = 15;
       case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_dropnum:
+         parse_m_dropNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_dropnum_)));
@@ -581,15 +581,15 @@ bool E_ItemItem::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(128)) goto parse_m_stacklimit;
+        if (input->ExpectTag(128)) goto parse_m_stackLimit;
         break;
       }
 
-      // optional int32 m_stacklimit = 16;
+      // optional int32 m_stackLimit = 16;
       case 16: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_stacklimit:
+         parse_m_stackLimit:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_stacklimit_)));
@@ -597,15 +597,15 @@ bool E_ItemItem::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(136)) goto parse_m_sellprice;
+        if (input->ExpectTag(136)) goto parse_m_sellPrice;
         break;
       }
 
-      // optional int32 m_sellprice = 17;
+      // optional int32 m_sellPrice = 17;
       case 17: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_sellprice:
+         parse_m_sellPrice:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_sellprice_)));
@@ -613,15 +613,15 @@ bool E_ItemItem::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(144)) goto parse_m_sellbox;
+        if (input->ExpectTag(144)) goto parse_m_sellBox;
         break;
       }
 
-      // optional int64 m_sellbox = 18;
+      // optional int64 m_sellBox = 18;
       case 18: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_sellbox:
+         parse_m_sellBox:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_sellbox_)));
@@ -645,15 +645,15 @@ bool E_ItemItem::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(160)) goto parse_m_iscanbatchuse;
+        if (input->ExpectTag(160)) goto parse_m_isCanBatchUse;
         break;
       }
 
-      // optional int32 m_iscanbatchuse = 20;
+      // optional int32 m_isCanBatchUse = 20;
       case 20: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_iscanbatchuse:
+         parse_m_isCanBatchUse:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_iscanbatchuse_)));
@@ -661,15 +661,15 @@ bool E_ItemItem::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(168)) goto parse_m_dayuse;
+        if (input->ExpectTag(168)) goto parse_m_dayUse;
         break;
       }
 
-      // optional int32 m_dayuse = 21;
+      // optional int32 m_dayUse = 21;
       case 21: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_dayuse:
+         parse_m_dayUse:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_dayuse_)));
@@ -693,15 +693,15 @@ bool E_ItemItem::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(186)) goto parse_m_uselimit;
+        if (input->ExpectTag(186)) goto parse_m_useLimit;
         break;
       }
 
-      // optional string m_uselimit = 23;
+      // optional string m_useLimit = 23;
       case 23: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_uselimit:
+         parse_m_useLimit:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_uselimit()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -746,22 +746,22 @@ void E_ItemItem::SerializeWithCachedSizes(
       2, this->m_name(), output);
   }
 
-  // optional int32 m_itemtype = 3;
+  // optional int32 m_itemType = 3;
   if (has_m_itemtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_itemtype(), output);
   }
 
-  // optional int32 m_subtype = 4;
+  // optional int32 m_subType = 4;
   if (has_m_subtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_subtype(), output);
   }
 
-  // optional int32 m_functiontype = 5;
+  // optional int32 m_functionType = 5;
   if (has_m_functiontype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_functiontype(), output);
   }
 
-  // optional string m_functionvalue = 6;
+  // optional string m_functionValue = 6;
   if (has_m_functionvalue()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_functionvalue().data(), this->m_functionvalue().length(),
@@ -779,7 +779,7 @@ void E_ItemItem::SerializeWithCachedSizes(
       7, this->m_usecondition(), output);
   }
 
-  // optional int64 m_waiguanlink = 8;
+  // optional int64 m_waiguanLink = 8;
   if (has_m_waiguanlink()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(8, this->m_waiguanlink(), output);
   }
@@ -794,7 +794,7 @@ void E_ItemItem::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_quality(), output);
   }
 
-  // optional int32 m_levelrequest = 11;
+  // optional int32 m_levelRequest = 11;
   if (has_m_levelrequest()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_levelrequest(), output);
   }
@@ -808,32 +808,32 @@ void E_ItemItem::SerializeWithCachedSizes(
       12, this->m_profession(), output);
   }
 
-  // optional int32 m_bindtype = 13;
+  // optional int32 m_bindType = 13;
   if (has_m_bindtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_bindtype(), output);
   }
 
-  // optional int32 m_istradebind = 14;
+  // optional int32 m_isTradeBind = 14;
   if (has_m_istradebind()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_istradebind(), output);
   }
 
-  // optional int32 m_dropnum = 15;
+  // optional int32 m_dropNum = 15;
   if (has_m_dropnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_dropnum(), output);
   }
 
-  // optional int32 m_stacklimit = 16;
+  // optional int32 m_stackLimit = 16;
   if (has_m_stacklimit()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->m_stacklimit(), output);
   }
 
-  // optional int32 m_sellprice = 17;
+  // optional int32 m_sellPrice = 17;
   if (has_m_sellprice()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(17, this->m_sellprice(), output);
   }
 
-  // optional int64 m_sellbox = 18;
+  // optional int64 m_sellBox = 18;
   if (has_m_sellbox()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(18, this->m_sellbox(), output);
   }
@@ -843,12 +843,12 @@ void E_ItemItem::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(19, this->m_broadcast(), output);
   }
 
-  // optional int32 m_iscanbatchuse = 20;
+  // optional int32 m_isCanBatchUse = 20;
   if (has_m_iscanbatchuse()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(20, this->m_iscanbatchuse(), output);
   }
 
-  // optional int32 m_dayuse = 21;
+  // optional int32 m_dayUse = 21;
   if (has_m_dayuse()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(21, this->m_dayuse(), output);
   }
@@ -858,7 +858,7 @@ void E_ItemItem::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(22, this->m_time(), output);
   }
 
-  // optional string m_uselimit = 23;
+  // optional string m_useLimit = 23;
   if (has_m_uselimit()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_uselimit().data(), this->m_uselimit().length(),
@@ -890,22 +890,22 @@ void E_ItemItem::SerializeWithCachedSizes(
         2, this->m_name(), target);
   }
 
-  // optional int32 m_itemtype = 3;
+  // optional int32 m_itemType = 3;
   if (has_m_itemtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_itemtype(), target);
   }
 
-  // optional int32 m_subtype = 4;
+  // optional int32 m_subType = 4;
   if (has_m_subtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_subtype(), target);
   }
 
-  // optional int32 m_functiontype = 5;
+  // optional int32 m_functionType = 5;
   if (has_m_functiontype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_functiontype(), target);
   }
 
-  // optional string m_functionvalue = 6;
+  // optional string m_functionValue = 6;
   if (has_m_functionvalue()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_functionvalue().data(), this->m_functionvalue().length(),
@@ -925,7 +925,7 @@ void E_ItemItem::SerializeWithCachedSizes(
         7, this->m_usecondition(), target);
   }
 
-  // optional int64 m_waiguanlink = 8;
+  // optional int64 m_waiguanLink = 8;
   if (has_m_waiguanlink()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(8, this->m_waiguanlink(), target);
   }
@@ -940,7 +940,7 @@ void E_ItemItem::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_quality(), target);
   }
 
-  // optional int32 m_levelrequest = 11;
+  // optional int32 m_levelRequest = 11;
   if (has_m_levelrequest()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_levelrequest(), target);
   }
@@ -955,32 +955,32 @@ void E_ItemItem::SerializeWithCachedSizes(
         12, this->m_profession(), target);
   }
 
-  // optional int32 m_bindtype = 13;
+  // optional int32 m_bindType = 13;
   if (has_m_bindtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_bindtype(), target);
   }
 
-  // optional int32 m_istradebind = 14;
+  // optional int32 m_isTradeBind = 14;
   if (has_m_istradebind()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_istradebind(), target);
   }
 
-  // optional int32 m_dropnum = 15;
+  // optional int32 m_dropNum = 15;
   if (has_m_dropnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_dropnum(), target);
   }
 
-  // optional int32 m_stacklimit = 16;
+  // optional int32 m_stackLimit = 16;
   if (has_m_stacklimit()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->m_stacklimit(), target);
   }
 
-  // optional int32 m_sellprice = 17;
+  // optional int32 m_sellPrice = 17;
   if (has_m_sellprice()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(17, this->m_sellprice(), target);
   }
 
-  // optional int64 m_sellbox = 18;
+  // optional int64 m_sellBox = 18;
   if (has_m_sellbox()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(18, this->m_sellbox(), target);
   }
@@ -990,12 +990,12 @@ void E_ItemItem::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(19, this->m_broadcast(), target);
   }
 
-  // optional int32 m_iscanbatchuse = 20;
+  // optional int32 m_isCanBatchUse = 20;
   if (has_m_iscanbatchuse()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(20, this->m_iscanbatchuse(), target);
   }
 
-  // optional int32 m_dayuse = 21;
+  // optional int32 m_dayUse = 21;
   if (has_m_dayuse()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(21, this->m_dayuse(), target);
   }
@@ -1005,7 +1005,7 @@ void E_ItemItem::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(22, this->m_time(), target);
   }
 
-  // optional string m_uselimit = 23;
+  // optional string m_useLimit = 23;
   if (has_m_uselimit()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_uselimit().data(), this->m_uselimit().length(),
@@ -1040,28 +1040,28 @@ int E_ItemItem::ByteSize() const {
           this->m_name());
     }
 
-    // optional int32 m_itemtype = 3;
+    // optional int32 m_itemType = 3;
     if (has_m_itemtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_itemtype());
     }
 
-    // optional int32 m_subtype = 4;
+    // optional int32 m_subType = 4;
     if (has_m_subtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_subtype());
     }
 
-    // optional int32 m_functiontype = 5;
+    // optional int32 m_functionType = 5;
     if (has_m_functiontype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_functiontype());
     }
 
-    // optional string m_functionvalue = 6;
+    // optional string m_functionValue = 6;
     if (has_m_functionvalue()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -1075,7 +1075,7 @@ int E_ItemItem::ByteSize() const {
           this->m_usecondition());
     }
 
-    // optional int64 m_waiguanlink = 8;
+    // optional int64 m_waiguanLink = 8;
     if (has_m_waiguanlink()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -1098,7 +1098,7 @@ int E_ItemItem::ByteSize() const {
           this->m_quality());
     }
 
-    // optional int32 m_levelrequest = 11;
+    // optional int32 m_levelRequest = 11;
     if (has_m_levelrequest()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1112,28 +1112,28 @@ int E_ItemItem::ByteSize() const {
           this->m_profession());
     }
 
-    // optional int32 m_bindtype = 13;
+    // optional int32 m_bindType = 13;
     if (has_m_bindtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_bindtype());
     }
 
-    // optional int32 m_istradebind = 14;
+    // optional int32 m_isTradeBind = 14;
     if (has_m_istradebind()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_istradebind());
     }
 
-    // optional int32 m_dropnum = 15;
+    // optional int32 m_dropNum = 15;
     if (has_m_dropnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_dropnum());
     }
 
-    // optional int32 m_stacklimit = 16;
+    // optional int32 m_stackLimit = 16;
     if (has_m_stacklimit()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1142,14 +1142,14 @@ int E_ItemItem::ByteSize() const {
 
   }
   if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    // optional int32 m_sellprice = 17;
+    // optional int32 m_sellPrice = 17;
     if (has_m_sellprice()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_sellprice());
     }
 
-    // optional int64 m_sellbox = 18;
+    // optional int64 m_sellBox = 18;
     if (has_m_sellbox()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -1163,14 +1163,14 @@ int E_ItemItem::ByteSize() const {
           this->m_broadcast());
     }
 
-    // optional int32 m_iscanbatchuse = 20;
+    // optional int32 m_isCanBatchUse = 20;
     if (has_m_iscanbatchuse()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_iscanbatchuse());
     }
 
-    // optional int32 m_dayuse = 21;
+    // optional int32 m_dayUse = 21;
     if (has_m_dayuse()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1184,7 +1184,7 @@ int E_ItemItem::ByteSize() const {
           this->m_time());
     }
 
-    // optional string m_uselimit = 23;
+    // optional string m_useLimit = 23;
     if (has_m_uselimit()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(

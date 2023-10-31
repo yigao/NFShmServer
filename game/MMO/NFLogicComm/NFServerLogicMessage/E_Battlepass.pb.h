@@ -122,10 +122,10 @@ class E_BattlepassBattlepass : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_task() const;
   inline void set_m_task(::google::protobuf::int32 value);
 
-  // optional string m_tasknum = 4;
+  // optional string m_taskNum = 4;
   inline bool has_m_tasknum() const;
   inline void clear_m_tasknum();
-  static const int kMTasknumFieldNumber = 4;
+  static const int kMTaskNumFieldNumber = 4;
   inline const ::std::string& m_tasknum() const;
   inline void set_m_tasknum(const ::std::string& value);
   inline void set_m_tasknum(const char* value);
@@ -134,10 +134,10 @@ class E_BattlepassBattlepass : public ::google::protobuf::Message {
   inline ::std::string* release_m_tasknum();
   inline void set_allocated_m_tasknum(::std::string* m_tasknum);
 
-  // optional int32 m_freshcost = 5;
+  // optional int32 m_freshCost = 5;
   inline bool has_m_freshcost() const;
   inline void clear_m_freshcost();
-  static const int kMFreshcostFieldNumber = 5;
+  static const int kMFreshCostFieldNumber = 5;
   inline ::google::protobuf::int32 m_freshcost() const;
   inline void set_m_freshcost(::google::protobuf::int32 value);
 
@@ -148,38 +148,38 @@ class E_BattlepassBattlepass : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_shop() const;
   inline void set_m_shop(::google::protobuf::int32 value);
 
-  // optional int32 m_shopcurrency = 7;
+  // optional int32 m_shopCurrency = 7;
   inline bool has_m_shopcurrency() const;
   inline void clear_m_shopcurrency();
-  static const int kMShopcurrencyFieldNumber = 7;
+  static const int kMShopCurrencyFieldNumber = 7;
   inline ::google::protobuf::int32 m_shopcurrency() const;
   inline void set_m_shopcurrency(::google::protobuf::int32 value);
 
-  // optional int32 m_severopentype = 8;
+  // optional int32 m_severOpenType = 8;
   inline bool has_m_severopentype() const;
   inline void clear_m_severopentype();
-  static const int kMSeveropentypeFieldNumber = 8;
+  static const int kMSeverOpenTypeFieldNumber = 8;
   inline ::google::protobuf::int32 m_severopentype() const;
   inline void set_m_severopentype(::google::protobuf::int32 value);
 
-  // optional int32 m_openseverday = 9;
+  // optional int32 m_openSeverDay = 9;
   inline bool has_m_openseverday() const;
   inline void clear_m_openseverday();
-  static const int kMOpenseverdayFieldNumber = 9;
+  static const int kMOpenSeverDayFieldNumber = 9;
   inline ::google::protobuf::int32 m_openseverday() const;
   inline void set_m_openseverday(::google::protobuf::int32 value);
 
-  // optional int32 m_closeseverday = 10;
+  // optional int32 m_closeSeverDay = 10;
   inline bool has_m_closeseverday() const;
   inline void clear_m_closeseverday();
-  static const int kMCloseseverdayFieldNumber = 10;
+  static const int kMCloseSeverDayFieldNumber = 10;
   inline ::google::protobuf::int32 m_closeseverday() const;
   inline void set_m_closeseverday(::google::protobuf::int32 value);
 
-  // optional int32 m_pricetype = 11;
+  // optional int32 m_priceType = 11;
   inline bool has_m_pricetype() const;
   inline void clear_m_pricetype();
-  static const int kMPricetypeFieldNumber = 11;
+  static const int kMPriceTypeFieldNumber = 11;
   inline ::google::protobuf::int32 m_pricetype() const;
   inline void set_m_pricetype(::google::protobuf::int32 value);
 
@@ -190,38 +190,38 @@ class E_BattlepassBattlepass : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_price() const;
   inline void set_m_price(::google::protobuf::int32 value);
 
-  // optional int32 m_pricep = 13;
+  // optional int32 m_priceP = 13;
   inline bool has_m_pricep() const;
   inline void clear_m_pricep();
-  static const int kMPricepFieldNumber = 13;
+  static const int kMPricePFieldNumber = 13;
   inline ::google::protobuf::int32 m_pricep() const;
   inline void set_m_pricep(::google::protobuf::int32 value);
 
-  // optional int32 m_presentexp = 14;
+  // optional int32 m_presentExp = 14;
   inline bool has_m_presentexp() const;
   inline void clear_m_presentexp();
-  static const int kMPresentexpFieldNumber = 14;
+  static const int kMPresentExpFieldNumber = 14;
   inline ::google::protobuf::int32 m_presentexp() const;
   inline void set_m_presentexp(::google::protobuf::int32 value);
 
-  // optional int32 m_expcost = 15;
+  // optional int32 m_expCost = 15;
   inline bool has_m_expcost() const;
   inline void clear_m_expcost();
-  static const int kMExpcostFieldNumber = 15;
+  static const int kMExpCostFieldNumber = 15;
   inline ::google::protobuf::int32 m_expcost() const;
   inline void set_m_expcost(::google::protobuf::int32 value);
 
-  // optional int32 m_expprice = 16;
+  // optional int32 m_expPrice = 16;
   inline bool has_m_expprice() const;
   inline void clear_m_expprice();
-  static const int kMExppriceFieldNumber = 16;
+  static const int kMExpPriceFieldNumber = 16;
   inline ::google::protobuf::int32 m_expprice() const;
   inline void set_m_expprice(::google::protobuf::int32 value);
 
-  // optional int32 m_expitem = 17;
+  // optional int32 m_expItem = 17;
   inline bool has_m_expitem() const;
   inline void clear_m_expitem();
-  static const int kMExpitemFieldNumber = 17;
+  static const int kMExpItemFieldNumber = 17;
   inline ::google::protobuf::int32 m_expitem() const;
   inline void set_m_expitem(::google::protobuf::int32 value);
 
@@ -645,24 +645,24 @@ class E_BattlepassReward : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_exp() const;
   inline void set_m_exp(::google::protobuf::int32 value);
 
-  // optional int32 m_core = 5;
+  // optional int32 m_Core = 5;
   inline bool has_m_core() const;
   inline void clear_m_core();
   static const int kMCoreFieldNumber = 5;
   inline ::google::protobuf::int32 m_core() const;
   inline void set_m_core(::google::protobuf::int32 value);
 
-  // optional int32 m_buylevel = 6;
+  // optional int32 m_buyLevel = 6;
   inline bool has_m_buylevel() const;
   inline void clear_m_buylevel();
-  static const int kMBuylevelFieldNumber = 6;
+  static const int kMBuyLevelFieldNumber = 6;
   inline ::google::protobuf::int32 m_buylevel() const;
   inline void set_m_buylevel(::google::protobuf::int32 value);
 
-  // optional int32 m_showitem = 7;
+  // optional int32 m_showItem = 7;
   inline bool has_m_showitem() const;
   inline void clear_m_showitem();
-  static const int kMShowitemFieldNumber = 7;
+  static const int kMShowItemFieldNumber = 7;
   inline ::google::protobuf::int32 m_showitem() const;
   inline void set_m_showitem(::google::protobuf::int32 value);
 
@@ -678,10 +678,10 @@ class E_BattlepassReward : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_BattlepassRewardItemDesc >*
       mutable_m_item();
 
-  // repeated .proto_ff.E_BattlepassRewardProitemDesc m_proitem = 9;
+  // repeated .proto_ff.E_BattlepassRewardProitemDesc m_proItem = 9;
   inline int m_proitem_size() const;
   inline void clear_m_proitem();
-  static const int kMProitemFieldNumber = 9;
+  static const int kMProItemFieldNumber = 9;
   inline const ::proto_ff::E_BattlepassRewardProitemDesc& m_proitem(int index) const;
   inline ::proto_ff::E_BattlepassRewardProitemDesc* mutable_m_proitem(int index);
   inline ::proto_ff::E_BattlepassRewardProitemDesc* add_m_proitem();
@@ -884,10 +884,10 @@ class E_BattlepassTask : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_group() const;
   inline void set_m_group(::google::protobuf::int32 value);
 
-  // optional int32 m_taskrefresh = 3;
+  // optional int32 m_taskRefresh = 3;
   inline bool has_m_taskrefresh() const;
   inline void clear_m_taskrefresh();
-  static const int kMTaskrefreshFieldNumber = 3;
+  static const int kMTaskRefreshFieldNumber = 3;
   inline ::google::protobuf::int32 m_taskrefresh() const;
   inline void set_m_taskrefresh(::google::protobuf::int32 value);
 
@@ -905,17 +905,17 @@ class E_BattlepassTask : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_tag() const;
   inline void set_m_tag(::google::protobuf::int32 value);
 
-  // optional int32 m_eventtype = 6;
+  // optional int32 m_eventType = 6;
   inline bool has_m_eventtype() const;
   inline void clear_m_eventtype();
-  static const int kMEventtypeFieldNumber = 6;
+  static const int kMEventTypeFieldNumber = 6;
   inline ::google::protobuf::int32 m_eventtype() const;
   inline void set_m_eventtype(::google::protobuf::int32 value);
 
-  // optional int32 m_reachprice = 7;
+  // optional int32 m_reachPrice = 7;
   inline bool has_m_reachprice() const;
   inline void clear_m_reachprice();
-  static const int kMReachpriceFieldNumber = 7;
+  static const int kMReachPriceFieldNumber = 7;
   inline ::google::protobuf::int32 m_reachprice() const;
   inline void set_m_reachprice(::google::protobuf::int32 value);
 
@@ -1144,38 +1144,38 @@ class E_BattlepassShop : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_group() const;
   inline void set_m_group(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 3;
+  // optional int32 m_itemID = 3;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 3;
+  static const int kMItemIDFieldNumber = 3;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
-  // optional int32 m_itemnum = 4;
+  // optional int32 m_itemNum = 4;
   inline bool has_m_itemnum() const;
   inline void clear_m_itemnum();
-  static const int kMItemnumFieldNumber = 4;
+  static const int kMItemNumFieldNumber = 4;
   inline ::google::protobuf::int32 m_itemnum() const;
   inline void set_m_itemnum(::google::protobuf::int32 value);
 
-  // optional int32 m_costitem = 5;
+  // optional int32 m_costItem = 5;
   inline bool has_m_costitem() const;
   inline void clear_m_costitem();
-  static const int kMCostitemFieldNumber = 5;
+  static const int kMCostItemFieldNumber = 5;
   inline ::google::protobuf::int32 m_costitem() const;
   inline void set_m_costitem(::google::protobuf::int32 value);
 
-  // optional int32 m_costnum = 6;
+  // optional int32 m_costNum = 6;
   inline bool has_m_costnum() const;
   inline void clear_m_costnum();
-  static const int kMCostnumFieldNumber = 6;
+  static const int kMCostNumFieldNumber = 6;
   inline ::google::protobuf::int32 m_costnum() const;
   inline void set_m_costnum(::google::protobuf::int32 value);
 
-  // optional int32 m_numlimit = 7;
+  // optional int32 m_numLimit = 7;
   inline bool has_m_numlimit() const;
   inline void clear_m_numlimit();
-  static const int kMNumlimitFieldNumber = 7;
+  static const int kMNumLimitFieldNumber = 7;
   inline ::google::protobuf::int32 m_numlimit() const;
   inline void set_m_numlimit(::google::protobuf::int32 value);
 
@@ -1374,7 +1374,7 @@ inline void E_BattlepassBattlepass::set_m_task(::google::protobuf::int32 value) 
   m_task_ = value;
 }
 
-// optional string m_tasknum = 4;
+// optional string m_taskNum = 4;
 inline bool E_BattlepassBattlepass::has_m_tasknum() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1444,7 +1444,7 @@ inline void E_BattlepassBattlepass::set_allocated_m_tasknum(::std::string* m_tas
   }
 }
 
-// optional int32 m_freshcost = 5;
+// optional int32 m_freshCost = 5;
 inline bool E_BattlepassBattlepass::has_m_freshcost() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1488,7 +1488,7 @@ inline void E_BattlepassBattlepass::set_m_shop(::google::protobuf::int32 value) 
   m_shop_ = value;
 }
 
-// optional int32 m_shopcurrency = 7;
+// optional int32 m_shopCurrency = 7;
 inline bool E_BattlepassBattlepass::has_m_shopcurrency() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -1510,7 +1510,7 @@ inline void E_BattlepassBattlepass::set_m_shopcurrency(::google::protobuf::int32
   m_shopcurrency_ = value;
 }
 
-// optional int32 m_severopentype = 8;
+// optional int32 m_severOpenType = 8;
 inline bool E_BattlepassBattlepass::has_m_severopentype() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -1532,7 +1532,7 @@ inline void E_BattlepassBattlepass::set_m_severopentype(::google::protobuf::int3
   m_severopentype_ = value;
 }
 
-// optional int32 m_openseverday = 9;
+// optional int32 m_openSeverDay = 9;
 inline bool E_BattlepassBattlepass::has_m_openseverday() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -1554,7 +1554,7 @@ inline void E_BattlepassBattlepass::set_m_openseverday(::google::protobuf::int32
   m_openseverday_ = value;
 }
 
-// optional int32 m_closeseverday = 10;
+// optional int32 m_closeSeverDay = 10;
 inline bool E_BattlepassBattlepass::has_m_closeseverday() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -1576,7 +1576,7 @@ inline void E_BattlepassBattlepass::set_m_closeseverday(::google::protobuf::int3
   m_closeseverday_ = value;
 }
 
-// optional int32 m_pricetype = 11;
+// optional int32 m_priceType = 11;
 inline bool E_BattlepassBattlepass::has_m_pricetype() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -1620,7 +1620,7 @@ inline void E_BattlepassBattlepass::set_m_price(::google::protobuf::int32 value)
   m_price_ = value;
 }
 
-// optional int32 m_pricep = 13;
+// optional int32 m_priceP = 13;
 inline bool E_BattlepassBattlepass::has_m_pricep() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -1642,7 +1642,7 @@ inline void E_BattlepassBattlepass::set_m_pricep(::google::protobuf::int32 value
   m_pricep_ = value;
 }
 
-// optional int32 m_presentexp = 14;
+// optional int32 m_presentExp = 14;
 inline bool E_BattlepassBattlepass::has_m_presentexp() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -1664,7 +1664,7 @@ inline void E_BattlepassBattlepass::set_m_presentexp(::google::protobuf::int32 v
   m_presentexp_ = value;
 }
 
-// optional int32 m_expcost = 15;
+// optional int32 m_expCost = 15;
 inline bool E_BattlepassBattlepass::has_m_expcost() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
@@ -1686,7 +1686,7 @@ inline void E_BattlepassBattlepass::set_m_expcost(::google::protobuf::int32 valu
   m_expcost_ = value;
 }
 
-// optional int32 m_expprice = 16;
+// optional int32 m_expPrice = 16;
 inline bool E_BattlepassBattlepass::has_m_expprice() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
@@ -1708,7 +1708,7 @@ inline void E_BattlepassBattlepass::set_m_expprice(::google::protobuf::int32 val
   m_expprice_ = value;
 }
 
-// optional int32 m_expitem = 17;
+// optional int32 m_expItem = 17;
 inline bool E_BattlepassBattlepass::has_m_expitem() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
@@ -1947,7 +1947,7 @@ inline void E_BattlepassReward::set_m_exp(::google::protobuf::int32 value) {
   m_exp_ = value;
 }
 
-// optional int32 m_core = 5;
+// optional int32 m_Core = 5;
 inline bool E_BattlepassReward::has_m_core() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1969,7 +1969,7 @@ inline void E_BattlepassReward::set_m_core(::google::protobuf::int32 value) {
   m_core_ = value;
 }
 
-// optional int32 m_buylevel = 6;
+// optional int32 m_buyLevel = 6;
 inline bool E_BattlepassReward::has_m_buylevel() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -1991,7 +1991,7 @@ inline void E_BattlepassReward::set_m_buylevel(::google::protobuf::int32 value) 
   m_buylevel_ = value;
 }
 
-// optional int32 m_showitem = 7;
+// optional int32 m_showItem = 7;
 inline bool E_BattlepassReward::has_m_showitem() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -2038,7 +2038,7 @@ E_BattlepassReward::mutable_m_item() {
   return &m_item_;
 }
 
-// repeated .proto_ff.E_BattlepassRewardProitemDesc m_proitem = 9;
+// repeated .proto_ff.E_BattlepassRewardProitemDesc m_proItem = 9;
 inline int E_BattlepassReward::m_proitem_size() const {
   return m_proitem_.size();
 }
@@ -2140,7 +2140,7 @@ inline void E_BattlepassTask::set_m_group(::google::protobuf::int32 value) {
   m_group_ = value;
 }
 
-// optional int32 m_taskrefresh = 3;
+// optional int32 m_taskRefresh = 3;
 inline bool E_BattlepassTask::has_m_taskrefresh() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -2206,7 +2206,7 @@ inline void E_BattlepassTask::set_m_tag(::google::protobuf::int32 value) {
   m_tag_ = value;
 }
 
-// optional int32 m_eventtype = 6;
+// optional int32 m_eventType = 6;
 inline bool E_BattlepassTask::has_m_eventtype() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -2228,7 +2228,7 @@ inline void E_BattlepassTask::set_m_eventtype(::google::protobuf::int32 value) {
   m_eventtype_ = value;
 }
 
-// optional int32 m_reachprice = 7;
+// optional int32 m_reachPrice = 7;
 inline bool E_BattlepassTask::has_m_reachprice() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -2396,7 +2396,7 @@ inline void E_BattlepassShop::set_m_group(::google::protobuf::int32 value) {
   m_group_ = value;
 }
 
-// optional int32 m_itemid = 3;
+// optional int32 m_itemID = 3;
 inline bool E_BattlepassShop::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -2418,7 +2418,7 @@ inline void E_BattlepassShop::set_m_itemid(::google::protobuf::int32 value) {
   m_itemid_ = value;
 }
 
-// optional int32 m_itemnum = 4;
+// optional int32 m_itemNum = 4;
 inline bool E_BattlepassShop::has_m_itemnum() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -2440,7 +2440,7 @@ inline void E_BattlepassShop::set_m_itemnum(::google::protobuf::int32 value) {
   m_itemnum_ = value;
 }
 
-// optional int32 m_costitem = 5;
+// optional int32 m_costItem = 5;
 inline bool E_BattlepassShop::has_m_costitem() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -2462,7 +2462,7 @@ inline void E_BattlepassShop::set_m_costitem(::google::protobuf::int32 value) {
   m_costitem_ = value;
 }
 
-// optional int32 m_costnum = 6;
+// optional int32 m_costNum = 6;
 inline bool E_BattlepassShop::has_m_costnum() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -2484,7 +2484,7 @@ inline void E_BattlepassShop::set_m_costnum(::google::protobuf::int32 value) {
   m_costnum_ = value;
 }
 
-// optional int32 m_numlimit = 7;
+// optional int32 m_numLimit = 7;
 inline bool E_BattlepassShop::has_m_numlimit() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }

@@ -5,9 +5,9 @@ import "yd_fieldoptions.proto";
 
 message E_YanglongYanglong
 {
-	optional int32 m_projectid = 1[(yd_fieldoptions.field_cname) = "项目ID"];
-	optional int32 m_groupid = 2[(yd_fieldoptions.field_cname) = "副本组ID"];
-	optional int32 m_dupid = 3[(yd_fieldoptions.field_cname) = "副本ID"];
+	optional int32 m_projectID = 1[(yd_fieldoptions.field_cname) = "项目ID"];
+	optional int32 m_groupID = 2[(yd_fieldoptions.field_cname) = "副本组ID"];
+	optional int32 m_dupId = 3[(yd_fieldoptions.field_cname) = "副本ID"];
 }
 
 
@@ -18,13 +18,13 @@ message Sheet_YanglongYanglong
 
 message E_YanglongZadan
 {
-	optional int64 m_taskid = 1[(yd_fieldoptions.field_cname) = "任务ID"];
-	optional int32 m_achievementsubtype = 2[(yd_fieldoptions.field_cname) = "事件类型"];
-	optional int32 m_bosstype = 3[(yd_fieldoptions.field_cname) = "BOSS分类"];
-	optional int32 m_reachprice = 4[(yd_fieldoptions.field_cname) = "达成值"];
+	optional int64 m_taskId = 1[(yd_fieldoptions.field_cname) = "任务ID"];
+	optional int32 m_achievementSubType = 2[(yd_fieldoptions.field_cname) = "事件类型"];
+	optional int32 m_bossType = 3[(yd_fieldoptions.field_cname) = "BOSS分类"];
+	optional int32 m_reachPrice = 4[(yd_fieldoptions.field_cname) = "达成值"];
 	optional int32 m_reward = 5[(yd_fieldoptions.field_cname) = "奖励物品"];
-	optional int32 m_reward_value = 6[(yd_fieldoptions.field_cname) = "奖励物品数量"];
-	optional int32 m_linkid = 7[(yd_fieldoptions.field_cname) = "跳转ID"];
+	optional int32 m_reward_Value = 6[(yd_fieldoptions.field_cname) = "奖励物品数量"];
+	optional int32 m_linkId = 7[(yd_fieldoptions.field_cname) = "跳转ID"];
 }
 
 
@@ -35,9 +35,9 @@ message Sheet_YanglongZadan
 
 message E_YanglongRanking
 {
-	optional int32 m_rankingid = 1[(yd_fieldoptions.field_cname) = "排名礼包ID"];
+	optional int32 m_rankingID = 1[(yd_fieldoptions.field_cname) = "排名礼包ID"];
 	optional int32 m_rank = 2[(yd_fieldoptions.field_cname) = "排名条件"];
-	optional int32 m_boxid = 3[(yd_fieldoptions.field_cname) = "boxl礼包ID"];
+	optional int32 m_boxID = 3[(yd_fieldoptions.field_cname) = "boxl礼包ID"];
 }
 
 

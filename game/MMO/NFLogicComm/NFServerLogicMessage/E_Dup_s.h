@@ -32,33 +32,33 @@ namespace proto_ff_s {
 		virtual ~E_DupDup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//副本ID
-		int32_t m_scripid;//刷怪脚本ID
-		int32_t m_scriptype;//刷怪脚本类型
-		int32_t m_duplevel;//副本等级
-		int32_t m_scripmontype;//脚本怪物类型
-		NFShmString<64> m_scripmonid;//脚本怪物id
-		int32_t m_groupid;//所属副本组ID
-		int32_t m_subtype;//子类型
+		int32_t m_ID;//副本ID
+		int32_t m_scripID;//刷怪脚本ID
+		int32_t m_scripType;//刷怪脚本类型
+		int32_t m_dupLevel;//副本等级
+		int32_t m_scripMonType;//脚本怪物类型
+		NFShmString<64> m_scripMonID;//脚本怪物id
+		int32_t m_groupID;//所属副本组ID
+		int32_t m_subType;//子类型
 		int32_t m_layer;//层级
-		int32_t m_recommendpower;//推荐战力
-		int32_t m_duplicatetype;//副本内容类型
-		int64_t m_mapid;//场景ID
-		int32_t m_levellimit;//等级要求下限
-		int32_t m_functionid;//额外功能开放要求
+		int32_t m_recommendPower;//推荐战力
+		int32_t m_duplicateType;//副本内容类型
+		int64_t m_mapID;//场景ID
+		int32_t m_levelLimit;//等级要求下限
+		int32_t m_functionID;//额外功能开放要求
 		int32_t m_pre;//前置副本要求
-		int32_t m_isautofight;//是否允许自动战斗
+		int32_t m_isAutoFight;//是否允许自动战斗
 		NFShmString<64> m_condition;//副本胜利条件类型
-		int32_t m_revivemaxtimes;//复活次数上限
-		int32_t m_teamobjectid;//组队目标ID
-		NFShmString<64> m_gradecondition;//星级时间
-		int64_t m_sweeprewardboxid;//扫荡奖励BOXID
-		int32_t m_sweeprewardexp;//扫荡经验奖励
-		int32_t m_sweepexptype;//扫荡经验类型
+		int32_t m_reviveMaxTimes;//复活次数上限
+		int32_t m_TeamObjectID;//组队目标ID
+		NFShmString<64> m_gradeCondition;//星级时间
+		int64_t m_sweepRewardBoxID;//扫荡奖励BOXID
+		int32_t m_sweepRewardExp;//扫荡经验奖励
+		int32_t m_sweepExpType;//扫荡经验类型
 		NFShmString<64> m_trackpoint;//副本寻路点
-		NFShmString<64> m_pathofmonster;//副本寻路点对应怪物
-		int32_t m_ispatrol;//寻路前是否巡敌
-		int32_t m_failurebox;//失败奖励
+		NFShmString<64> m_pathOfmonster;//副本寻路点对应怪物
+		int32_t m_isPatrol;//寻路前是否巡敌
+		int32_t m_failureBox;//失败奖励
 		int32_t m_planes;//位面
 		NFShmVector<int32_t, DEFINE_E_DUPDUP_M_BOX_MAX_NUM> m_box;//奖励组
 
@@ -89,8 +89,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//等级
-		NFShmVector<int64_t, DEFINE_E_DUPBPLEVEL_M_BGDUP_MAX_NUM> m_bgdup;//八卦本
-		NFShmVector<int64_t, DEFINE_E_DUPBPLEVEL_M_BGDUPSWEEP_MAX_NUM> m_bgdupsweep;//八卦本
+		NFShmVector<int64_t, DEFINE_E_DUPBPLEVEL_M_BGDUP_MAX_NUM> m_Bgdup;//八卦本
+		NFShmVector<int64_t, DEFINE_E_DUPBPLEVEL_M_BGDUPSWEEP_MAX_NUM> m_BgdupSweep;//八卦本
 
 		virtual void write_to_pbmsg(::proto_ff::E_DupBplevel & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_DupBplevel & msg);
@@ -134,16 +134,16 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//波id
-		int32_t m_scripid;//刷怪脚本ID
-		NFShmString<64> m_scripgid;//刷怪脚本类型
-		int32_t m_scriptype;//刷怪脚本类型
-		int32_t m_duplevel;//副本等级
-		int32_t m_scripmontype;//脚本怪物类型
-		NFShmString<64> m_scripmonid;//脚本怪物id
-		int32_t m_recommendpower;//推荐战力
+		int32_t m_scripID;//刷怪脚本ID
+		NFShmString<64> m_scripGid;//刷怪脚本类型
+		int32_t m_scripType;//刷怪脚本类型
+		int32_t m_dupLevel;//副本等级
+		int32_t m_scripMonType;//脚本怪物类型
+		NFShmString<64> m_scripMonID;//脚本怪物id
+		int32_t m_recommendPower;//推荐战力
 		int32_t m_reward;//结算奖励
-		int32_t m_firstpass;//首通奖励
-		int32_t m_bp;//平均战力
+		int32_t m_firstPass;//首通奖励
+		int32_t m_BP;//平均战力
 		NFShmVector<struct E_DupTtowerwaveClearDesc_s, DEFINE_E_DUPTTOWERWAVE_M_CLEAR_MAX_NUM> m_clear;//通关
 
 		virtual void write_to_pbmsg(::proto_ff::E_DupTtowerwave & msg) const;
@@ -175,7 +175,7 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_type;//类型
 		int32_t m_cond;//领取条件
-		int32_t m_boxid;//box
+		int32_t m_boxID;//box
 
 		virtual void write_to_pbmsg(::proto_ff::E_DupTowerreward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_DupTowerreward & msg);
@@ -205,26 +205,26 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//副本组ID
 		NFShmString<64> m_name;//副本组名
-		int32_t m_privilegetype;//特权类型
+		int32_t m_privilegeType;//特权类型
 		int32_t m_dynamiclevel;//是否动态等级
-		int32_t m_grouptimestype;//组次数类型
-		int32_t m_resetcycle;//重置周期
-		int32_t m_grouptimes;//次数上限值
-		int32_t m_enteritemid;//副本进入道具
-		int32_t m_sweeptype;//扫荡类型
-		int32_t m_sweepcondition;//扫荡条件
-		int32_t m_mergecondition;//合并条件
-		int32_t m_additemid;//增加次数物品ID
-		int32_t m_buytype;//购买次数消耗货币
-		int32_t m_buyitemid;//购买次数消耗物品
-		NFShmString<64> m_buycost;//购买进入次数消耗
-		int32_t m_countdown;//倒计时时间
-		int32_t m_enddown;//结束倒计时
-		int32_t m_accountdown;//结算倒计时
-		int32_t m_funcionid;//功能ID
-		int32_t m_closefuncionid;//关闭功能ID
+		int32_t m_groupTimesType;//组次数类型
+		int32_t m_resetCycle;//重置周期
+		int32_t m_groupTimes;//次数上限值
+		int32_t m_enterItemID;//副本进入道具
+		int32_t m_sweepType;//扫荡类型
+		int32_t m_sweepCondition;//扫荡条件
+		int32_t m_mergeCondition;//合并条件
+		int32_t m_addItemID;//增加次数物品ID
+		int32_t m_buyType;//购买次数消耗货币
+		int32_t m_buyItemId;//购买次数消耗物品
+		NFShmString<64> m_buyCost;//购买进入次数消耗
+		int32_t m_countDown;//倒计时时间
+		int32_t m_endDown;//结束倒计时
+		int32_t m_accountDown;//结算倒计时
+		int32_t m_funcionID;//功能ID
+		int32_t m_closeFuncionID;//关闭功能ID
 		int64_t m_link;//副本结束打开界面
-		int32_t m_festvialtype;//活动id
+		int32_t m_festvialType;//活动id
 
 		virtual void write_to_pbmsg(::proto_ff::E_DupGroup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_DupGroup & msg);
@@ -252,11 +252,11 @@ namespace proto_ff_s {
 		virtual ~E_DupSweepmonsternum_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//ID
-		int32_t m_sweepexptype;//扫荡类型
-		int32_t m_minlevel;//玩家等极下限
-		int32_t m_maxlevel;//玩家等极上限
-		int32_t m_killnumber;//杀怪标准数量
+		int32_t m_ID;//ID
+		int32_t m_sweepExpType;//扫荡类型
+		int32_t m_minLevel;//玩家等极下限
+		int32_t m_maxLevel;//玩家等极上限
+		int32_t m_killNumber;//杀怪标准数量
 		int32_t m_monstervaluetype;//怪物数值类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_DupSweepmonsternum & msg) const;
@@ -286,10 +286,10 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_groupid;//副本组id
+		int32_t m_groupID;//副本组id
 		int32_t m_lvtype;//世界等级类型
-		int32_t m_lvmin;//世界等级下限
-		int32_t m_failurebox;//失败奖励
+		int32_t m_lvMin;//世界等级下限
+		int32_t m_failureBox;//失败奖励
 		NFShmVector<int32_t, DEFINE_E_DUPWORLDLVREWARD_M_BOX_MAX_NUM> m_box;//星奖励
 
 		virtual void write_to_pbmsg(::proto_ff::E_DupWorldlvreward & msg) const;
@@ -319,9 +319,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;//位面id
-		int32_t m_planestype;//位面类型
-		NFShmString<64> m_typeargs;//类型参数
-		int32_t m_areaid;//区域id
+		int32_t m_planesType;//位面类型
+		NFShmString<64> m_typeArgs;//类型参数
+		int32_t m_areaId;//区域id
 
 		virtual void write_to_pbmsg(::proto_ff::E_DupPlanes & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_DupPlanes & msg);
@@ -367,12 +367,12 @@ namespace proto_ff_s {
 		int32_t m_id;//副本id
 		int32_t m_layer;//所属层级
 		int32_t m_stage;//关卡等级
-		int32_t m_recommendlv;//推荐等级
-		int32_t m_recommendyk;//推荐妖抗
+		int32_t m_recommendLv;//推荐等级
+		int32_t m_recommendYK;//推荐妖抗
 		int32_t m_reward;//结算奖励
-		int32_t m_firstpass;//首通奖励
-		int32_t m_overlordbox;//霸主奖励
-		int32_t m_overlordtime;//霸主时间
+		int32_t m_firstPass;//首通奖励
+		int32_t m_overlordBox;//霸主奖励
+		int32_t m_overlordTime;//霸主时间
 		NFShmVector<struct E_DupYt_dupClearDesc_s, DEFINE_E_DUPYT_DUP_M_CLEAR_MAX_NUM> m_clear;//通关
 
 		virtual void write_to_pbmsg(::proto_ff::E_DupYt_dup & msg) const;

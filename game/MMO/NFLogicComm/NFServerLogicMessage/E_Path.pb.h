@@ -100,10 +100,10 @@ class E_PathPath : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int64 m_belongtosceneid = 2;
+  // optional int64 m_belongToSceneID = 2;
   inline bool has_m_belongtosceneid() const;
   inline void clear_m_belongtosceneid();
-  static const int kMBelongtosceneidFieldNumber = 2;
+  static const int kMBelongToSceneIDFieldNumber = 2;
   inline ::google::protobuf::int64 m_belongtosceneid() const;
   inline void set_m_belongtosceneid(::google::protobuf::int64 value);
 
@@ -243,7 +243,7 @@ inline void E_PathPath::set_m_id(::google::protobuf::int64 value) {
   m_id_ = value;
 }
 
-// optional int64 m_belongtosceneid = 2;
+// optional int64 m_belongToSceneID = 2;
 inline bool E_PathPath::has_m_belongtosceneid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }

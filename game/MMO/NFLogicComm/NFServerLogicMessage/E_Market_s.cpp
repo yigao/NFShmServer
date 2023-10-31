@@ -11,19 +11,19 @@ E_MarketMarket_s::E_MarketMarket_s() {
 }
 
 int E_MarketMarket_s::CreateInit() {
-	m_itemid = (int32_t)0;
+	m_itemId = (int32_t)0;
 	m_type = (int32_t)0;
 	m_order = (int32_t)0;
-	m_readytime = (int32_t)0;
-	m_sjtime = (int32_t)0;
-	m_endtime = (int32_t)0;
-	m_pricetype = (int32_t)0;
-	m_vietype = (int32_t)0;
-	m_startprice = (int32_t)0;
-	m_onceprice = (int32_t)0;
-	m_directprice = (int32_t)0;
-	m_gztype = (int32_t)0;
-	m_recoverytype = (int32_t)0;
+	m_readyTime = (int32_t)0;
+	m_sjTime = (int32_t)0;
+	m_endTime = (int32_t)0;
+	m_priceType = (int32_t)0;
+	m_vieType = (int32_t)0;
+	m_startPrice = (int32_t)0;
+	m_oncePrice = (int32_t)0;
+	m_directPrice = (int32_t)0;
+	m_gzType = (int32_t)0;
+	m_recoveryType = (int32_t)0;
 	return 0;
 }
 
@@ -32,37 +32,37 @@ int E_MarketMarket_s::ResumeInit() {
 }
 
 void E_MarketMarket_s::write_to_pbmsg(::proto_ff::E_MarketMarket & msg) const {
-	msg.set_m_itemid((int32_t)m_itemid);
+	msg.set_m_itemid((int32_t)m_itemId);
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_order((int32_t)m_order);
-	msg.set_m_readytime((int32_t)m_readytime);
-	msg.set_m_sjtime((int32_t)m_sjtime);
-	msg.set_m_endtime((int32_t)m_endtime);
-	msg.set_m_pricetype((int32_t)m_pricetype);
-	msg.set_m_vietype((int32_t)m_vietype);
-	msg.set_m_startprice((int32_t)m_startprice);
-	msg.set_m_onceprice((int32_t)m_onceprice);
-	msg.set_m_directprice((int32_t)m_directprice);
-	msg.set_m_gztype((int32_t)m_gztype);
-	msg.set_m_gztutype(m_gztutype.data());
-	msg.set_m_recoverytype((int32_t)m_recoverytype);
+	msg.set_m_readytime((int32_t)m_readyTime);
+	msg.set_m_sjtime((int32_t)m_sjTime);
+	msg.set_m_endtime((int32_t)m_endTime);
+	msg.set_m_pricetype((int32_t)m_priceType);
+	msg.set_m_vietype((int32_t)m_vieType);
+	msg.set_m_startprice((int32_t)m_startPrice);
+	msg.set_m_onceprice((int32_t)m_oncePrice);
+	msg.set_m_directprice((int32_t)m_directPrice);
+	msg.set_m_gztype((int32_t)m_gzType);
+	msg.set_m_gztutype(m_gztuType.data());
+	msg.set_m_recoverytype((int32_t)m_recoveryType);
 }
 
 void E_MarketMarket_s::read_from_pbmsg(const ::proto_ff::E_MarketMarket & msg) {
-	m_itemid = msg.m_itemid();
+	m_itemId = msg.m_itemid();
 	m_type = msg.m_type();
 	m_order = msg.m_order();
-	m_readytime = msg.m_readytime();
-	m_sjtime = msg.m_sjtime();
-	m_endtime = msg.m_endtime();
-	m_pricetype = msg.m_pricetype();
-	m_vietype = msg.m_vietype();
-	m_startprice = msg.m_startprice();
-	m_onceprice = msg.m_onceprice();
-	m_directprice = msg.m_directprice();
-	m_gztype = msg.m_gztype();
-	m_gztutype = msg.m_gztutype();
-	m_recoverytype = msg.m_recoverytype();
+	m_readyTime = msg.m_readytime();
+	m_sjTime = msg.m_sjtime();
+	m_endTime = msg.m_endtime();
+	m_priceType = msg.m_pricetype();
+	m_vieType = msg.m_vietype();
+	m_startPrice = msg.m_startprice();
+	m_oncePrice = msg.m_onceprice();
+	m_directPrice = msg.m_directprice();
+	m_gzType = msg.m_gztype();
+	m_gztuType = msg.m_gztutype();
+	m_recoveryType = msg.m_recoverytype();
 }
 
 Sheet_MarketMarket_s::Sheet_MarketMarket_s() {
@@ -116,13 +116,13 @@ int E_MarketBig_s::ResumeInit() {
 
 void E_MarketBig_s::write_to_pbmsg(::proto_ff::E_MarketBig & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_bigname(m_bigname.data());
+	msg.set_m_bigname(m_bigName.data());
 	msg.set_m_xb((int32_t)m_xb);
 }
 
 void E_MarketBig_s::read_from_pbmsg(const ::proto_ff::E_MarketBig & msg) {
 	m_id = msg.m_id();
-	m_bigname = msg.m_bigname();
+	m_bigName = msg.m_bigname();
 	m_xb = msg.m_xb();
 }
 
@@ -167,7 +167,7 @@ E_MarketSmall_s::E_MarketSmall_s() {
 
 int E_MarketSmall_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_openlevel = (int32_t)0;
+	m_openLevel = (int32_t)0;
 	m_bigid = (int32_t)0;
 	return 0;
 }
@@ -178,15 +178,15 @@ int E_MarketSmall_s::ResumeInit() {
 
 void E_MarketSmall_s::write_to_pbmsg(::proto_ff::E_MarketSmall & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_smallname(m_smallname.data());
-	msg.set_m_openlevel((int32_t)m_openlevel);
+	msg.set_m_smallname(m_smallName.data());
+	msg.set_m_openlevel((int32_t)m_openLevel);
 	msg.set_m_bigid((int32_t)m_bigid);
 }
 
 void E_MarketSmall_s::read_from_pbmsg(const ::proto_ff::E_MarketSmall & msg) {
 	m_id = msg.m_id();
-	m_smallname = msg.m_smallname();
-	m_openlevel = msg.m_openlevel();
+	m_smallName = msg.m_smallname();
+	m_openLevel = msg.m_openlevel();
 	m_bigid = msg.m_bigid();
 }
 
@@ -231,10 +231,10 @@ E_MarketConstant_s::E_MarketConstant_s() {
 
 int E_MarketConstant_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_taxrate = (int32_t)0;
-	m_bpselltime = (int32_t)0;
-	m_sellnum = (int32_t)0;
-	m_recyclenum = (int32_t)0;
+	m_taxRate = (int32_t)0;
+	m_BPsellTime = (int32_t)0;
+	m_sellNum = (int32_t)0;
+	m_recycleNum = (int32_t)0;
 	m_gz = (int32_t)0;
 	m_dh = (int32_t)0;
 	return 0;
@@ -246,23 +246,23 @@ int E_MarketConstant_s::ResumeInit() {
 
 void E_MarketConstant_s::write_to_pbmsg(::proto_ff::E_MarketConstant & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_taxrate((int32_t)m_taxrate);
-	msg.set_m_bpselltime((int32_t)m_bpselltime);
-	msg.set_m_sellnum((int32_t)m_sellnum);
-	msg.set_m_recyclenum((int32_t)m_recyclenum);
+	msg.set_m_taxrate((int32_t)m_taxRate);
+	msg.set_m_bpselltime((int32_t)m_BPsellTime);
+	msg.set_m_sellnum((int32_t)m_sellNum);
+	msg.set_m_recyclenum((int32_t)m_recycleNum);
 	msg.set_m_gz((int32_t)m_gz);
-	msg.set_m_epackagetype(m_epackagetype.data());
+	msg.set_m_epackagetype(m_EpackageType.data());
 	msg.set_m_dh((int32_t)m_dh);
 }
 
 void E_MarketConstant_s::read_from_pbmsg(const ::proto_ff::E_MarketConstant & msg) {
 	m_id = msg.m_id();
-	m_taxrate = msg.m_taxrate();
-	m_bpselltime = msg.m_bpselltime();
-	m_sellnum = msg.m_sellnum();
-	m_recyclenum = msg.m_recyclenum();
+	m_taxRate = msg.m_taxrate();
+	m_BPsellTime = msg.m_bpselltime();
+	m_sellNum = msg.m_sellnum();
+	m_recycleNum = msg.m_recyclenum();
 	m_gz = msg.m_gz();
-	m_epackagetype = msg.m_epackagetype();
+	m_EpackageType = msg.m_epackagetype();
 	m_dh = msg.m_dh();
 }
 

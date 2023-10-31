@@ -67,7 +67,7 @@ namespace proto_ff_s {
 		virtual ~E_FestivalPeriodindex_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_minorigalday;//最小原始开服时间
+		int32_t m_minOrigalDay;//最小原始开服时间
 		NFShmVector<int32_t, DEFINE_E_FESTIVALPERIODINDEX_M_PERIOD_MAX_NUM> m_period;//期数类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalPeriodindex & msg) const;
@@ -127,18 +127,18 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//活动ID
 		NFShmString<64> m_name;//模板名称
-		int32_t m_festivalid;//引用主体
-		int32_t m_timetype;//时间类型
+		int32_t m_festivalId;//引用主体
+		int32_t m_timeType;//时间类型
 		int32_t m_level;//等级要求
-		int32_t m_viplevel;//vip等级要求
+		int32_t m_vipLevel;//vip等级要求
 		int32_t m_rechange;//充值要求高级运营活动计数
-		int32_t m_severtype;//服务器活动类型
-		NFShmString<64> m_typearg;//模板特殊参数
-		int32_t m_periodtype;//期数类型
+		int32_t m_severType;//服务器活动类型
+		NFShmString<64> m_typeArg;//模板特殊参数
+		int32_t m_periodType;//期数类型
 		int32_t m_period;//期数参数
-		int32_t m_ifopen;//活动开关
-		int32_t m_activeid;//激活活动ID
-		NFShmVector<NFShmString<64>, DEFINE_E_FESTIVALTEMPLATE_M_TIMEARG_MAX_NUM> m_timearg;//时间参数
+		int32_t m_ifOpen;//活动开关
+		int32_t m_activeID;//激活活动ID
+		NFShmVector<NFShmString<64>, DEFINE_E_FESTIVALTEMPLATE_M_TIMEARG_MAX_NUM> m_timeArg;//时间参数
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalTemplate & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalTemplate & msg);
@@ -168,7 +168,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_period;//期数
-		int32_t m_loginday;//天数要求
+		int32_t m_loginDay;//天数要求
 		int32_t m_boxid;//奖励
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_login & msg) const;
@@ -232,10 +232,10 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_period;//期数
-		int32_t m_taskpointid;//任务进度道具id
-		int32_t m_rankgroup;//排行组
-		int32_t m_taskgroup;//任务组
-		int32_t m_taskrewardgroup;//任务奖励组
+		int32_t m_taskPointID;//任务进度道具id
+		int32_t m_rankGroup;//排行组
+		int32_t m_taskGroup;//任务组
+		int32_t m_taskRewardGroup;//任务奖励组
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_love & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_love & msg);
@@ -265,9 +265,9 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_groupid;//组ID
-		int32_t m_rewardshow;//第一名的展示资源
-		int32_t m_datagroupid;//排行数据组id
-		int32_t m_ranktype;//排行类型
+		int32_t m_rewardShow;//第一名的展示资源
+		int32_t m_dataGroupID;//排行数据组id
+		int32_t m_rankType;//排行类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_love_rank & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_love_rank & msg);
@@ -296,11 +296,11 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_groupid;//组id
-		int32_t m_maxrank;//排名上限
-		int32_t m_minrank;//排名下限
-		int32_t m_rankvalue;//最低排行值数值要求
-		int32_t m_boxid;//奖励内容
+		int32_t m_groupID;//组id
+		int32_t m_maxRank;//排名上限
+		int32_t m_minRank;//排名下限
+		int32_t m_rankValue;//最低排行值数值要求
+		int32_t m_boxID;//奖励内容
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_love_rank_data & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_love_rank_data & msg);
@@ -329,11 +329,11 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_groupid;//组id
-		int32_t m_eventtype;//事件类型
-		int32_t m_reachprice;//达成值
+		int32_t m_groupID;//组id
+		int32_t m_eventType;//事件类型
+		int32_t m_reachPrice;//达成值
 		int32_t m_link;//连接
-		int32_t m_rewardtimes;//奖励心数
+		int32_t m_rewardTimes;//奖励心数
 		int32_t m_reward;//奖励内容
 		NFShmVector<int32_t, DEFINE_E_FESTIVALMUBAN_LOVE_TASK_M_PARAM_MAX_NUM> m_param;//事件完成参数
 
@@ -364,7 +364,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_groupid;//组id
+		int32_t m_groupID;//组id
 		int32_t m_value;//进度值
 		int32_t m_box;//奖励
 
@@ -396,10 +396,10 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//序号
 		int32_t m_period;//期数
-		int32_t m_lvlimit;//最低的怪物等级
+		int32_t m_lvLimit;//最低的怪物等级
 		int32_t m_type;//类型
 		NFShmString<64> m_arg;//参数
-		int32_t m_addboxid;//附加的boxid
+		int32_t m_addBoxId;//附加的boxid
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_addbox & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_addbox & msg);
@@ -463,9 +463,9 @@ namespace proto_ff_s {
 		int32_t m_period;//期数
 		int32_t m_type;//类型
 		int32_t m_bossid;//bossid
-		int32_t m_fristkillreward;//首杀奖励
-		int32_t m_killreward;//击杀奖励
-		int32_t m_fristkillpacket;//首杀红包
+		int32_t m_fristKillReward;//首杀奖励
+		int32_t m_killReward;//击杀奖励
+		int32_t m_fristKillPacket;//首杀红包
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_bossfristkill & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_bossfristkill & msg);
@@ -497,19 +497,19 @@ namespace proto_ff_s {
 		int32_t m_period;//期数
 		NFShmString<64> m_order;//排序
 		NFShmString<64> m_name;//名称
-		int32_t m_openday;//开放天数
-		int32_t m_closeday;//结束天数
-		NFShmString<64> m_championtitle;//第一名的title
-		int32_t m_rewardshow;//第一名的展示资源
-		int32_t m_datagroupid;//排行数据组id
-		int32_t m_ranktype;//排行类型
-		NFShmString<64> m_rankgift;//冲榜宝箱名称
-		NFShmString<64> m_gifticon;//宝箱Icon
-		int32_t m_giftitemid;//宝箱itemid
-		int32_t m_originalprice;//宝箱原价
+		int32_t m_openDay;//开放天数
+		int32_t m_closeDay;//结束天数
+		NFShmString<64> m_championTitle;//第一名的title
+		int32_t m_rewardShow;//第一名的展示资源
+		int32_t m_dataGroupID;//排行数据组id
+		int32_t m_rankType;//排行类型
+		NFShmString<64> m_rankGift;//冲榜宝箱名称
+		NFShmString<64> m_giftIcon;//宝箱Icon
+		int32_t m_giftItemId;//宝箱itemid
+		int32_t m_originalPrice;//宝箱原价
 		int32_t m_price;//宝箱现价
-		int32_t m_ratioshow;//宝箱倍率
-		int32_t m_redpointbox;//红点礼包奖励box
+		int32_t m_ratioShow;//宝箱倍率
+		int32_t m_redPointBox;//红点礼包奖励box
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_severrank & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_severrank & msg);
@@ -538,12 +538,12 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_groupid;//组id
-		int32_t m_maxrank;//排名上限
-		int32_t m_minrank;//排名下限
-		int32_t m_rankvalue;//最低排行值数值要求
-		NFShmString<64> m_unachievedisplay;//未满足的排行显示
-		int32_t m_boxid;//奖励内容
+		int32_t m_groupID;//组id
+		int32_t m_maxRank;//排名上限
+		int32_t m_minRank;//排名下限
+		int32_t m_rankValue;//最低排行值数值要求
+		NFShmString<64> m_UnachieveDisplay;//未满足的排行显示
+		int32_t m_boxID;//奖励内容
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_severrank_data & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_severrank_data & msg);
@@ -621,7 +621,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_period;//期数
-		int32_t m_boxid;//礼包内容
+		int32_t m_boxID;//礼包内容
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_sign & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_sign & msg);
@@ -651,13 +651,13 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_period;//期数
-		int32_t m_viplevel;//判断vip等级
+		int32_t m_vipLevel;//判断vip等级
 		int32_t m_box;//礼包内容
-		int32_t m_timelimit;//限购次数
+		int32_t m_timeLimit;//限购次数
 		int32_t m_price;//价格参数
-		int32_t m_pricetype;//价格类型
-		int32_t m_startime;//礼包出现时间
-		int32_t m_durtime;//持续时间
+		int32_t m_priceType;//价格类型
+		int32_t m_starTime;//礼包出现时间
+		int32_t m_durTime;//持续时间
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_shop & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_shop & msg);
@@ -688,7 +688,7 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_period;//期数
 		int32_t m_rebate;//返利
-		int32_t m_timelimit;//限购次数
+		int32_t m_timeLimit;//限购次数
 		int32_t m_price;//价格参数
 		int32_t m_typer;//礼包类型
 
@@ -721,7 +721,7 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_period;//期数
 		int32_t m_leiji;//伤害累计
-		int32_t m_boxid;//奖励ID
+		int32_t m_boxID;//奖励ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_leiji & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_leiji & msg);
@@ -783,7 +783,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_period;//期数
-		int64_t m_costitem;//抽奖消耗的物id
+		int64_t m_costItem;//抽奖消耗的物id
 		int32_t m_number;//物品数量
 		int32_t m_free;//免费重置次数
 		int32_t m_currency;//消耗钻石重置
@@ -816,8 +816,8 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_period;//期数
-		int32_t m_poolgroup;//奖池组
-		int32_t m_taskgroup;//任务组
+		int32_t m_poolGroup;//奖池组
+		int32_t m_taskGroup;//任务组
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_turntable & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_turntable & msg);
@@ -846,8 +846,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_groupid;//组ID
-		int32_t m_itemid;//物品
+		int32_t m_groupID;//组ID
+		int32_t m_itemID;//物品
 		int32_t m_num;//数量
 		int32_t m_weight;//权重
 
@@ -878,11 +878,11 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_groupid;//组id
-		int32_t m_eventtype;//事件类型
-		int32_t m_reachprice;//达成值
+		int32_t m_groupID;//组id
+		int32_t m_eventType;//事件类型
+		int32_t m_reachPrice;//达成值
 		int32_t m_link;//连接
-		int32_t m_rewardtimes;//奖励次数
+		int32_t m_rewardTimes;//奖励次数
 		NFShmVector<int32_t, DEFINE_E_FESTIVALMUBAN_TURNTABLE_TASK_M_PARAM_MAX_NUM> m_param;//事件完成参数
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_turntable_task & msg) const;
@@ -913,11 +913,11 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_period;//期数
-		int32_t m_donateitem;//捐献道具
-		int32_t m_donatereward;//捐献获得奖励
-		int32_t m_severreward;//服务器奖励组
-		int32_t m_singlereward;//个人奖励组
-		int32_t m_taskgroupid;//任务组
+		int32_t m_donateItem;//捐献道具
+		int32_t m_donateReward;//捐献获得奖励
+		int32_t m_severReward;//服务器奖励组
+		int32_t m_singleReward;//个人奖励组
+		int32_t m_taskGroupID;//任务组
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_donate & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_donate & msg);
@@ -946,10 +946,10 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_groupid;//组id
+		int32_t m_groupID;//组id
 		int32_t m_value;//进度值
 		int32_t m_type;//奖励类型
-		NFShmString<64> m_typearg;//奖励参数
+		NFShmString<64> m_typeArg;//奖励参数
 		NFShmString<64> m_pro;//职业
 		int32_t m_num;//数量
 
@@ -980,9 +980,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_groupid;//组id
+		int32_t m_groupID;//组id
 		int32_t m_value;//进度值
-		NFShmString<64> m_itemid;//物品ID
+		NFShmString<64> m_itemID;//物品ID
 		NFShmString<64> m_pro;//职业
 		int32_t m_num;//数量
 
@@ -1013,11 +1013,11 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_groupid;//组id
-		int32_t m_eventtype;//事件类型
-		int32_t m_reachprice;//达成值
-		int32_t m_itemid;//奖励道具id
-		int32_t m_itemnum;//奖励道具数量
+		int32_t m_groupID;//组id
+		int32_t m_eventType;//事件类型
+		int32_t m_reachPrice;//达成值
+		int32_t m_itemID;//奖励道具id
+		int32_t m_itemNum;//奖励道具数量
 		NFShmVector<int32_t, DEFINE_E_FESTIVALMUBAN_DONATE_TASK_M_PARAM_MAX_NUM> m_param;//事件完成参数
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_donate_task & msg) const;
@@ -1048,10 +1048,10 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_period;//期数
-		NFShmString<64> m_timestart;//开始时间
-		NFShmString<64> m_timeend;//结束时间
-		int32_t m_itemid;//奖励道具
-		int32_t m_itemnum;//奖励数量
+		NFShmString<64> m_timeStart;//开始时间
+		NFShmString<64> m_timeEnd;//结束时间
+		int32_t m_itemID;//奖励道具
+		int32_t m_itemNum;//奖励数量
 		int32_t m_vip;//补领要求vip等级
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_online & msg) const;
@@ -1082,7 +1082,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_period;//期数
-		int32_t m_rechargegroupid;//充值组ID
+		int32_t m_rechargeGroupID;//充值组ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_rturntable & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_rturntable & msg);
@@ -1111,10 +1111,10 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_groupid;//组
-		int32_t m_rechargeid;//充值档位
+		int32_t m_groupID;//组
+		int32_t m_rechargeID;//充值档位
 		int32_t m_limit;//限制次数
-		int32_t m_ratiogroupid;//使用充值倍率组
+		int32_t m_ratioGroupID;//使用充值倍率组
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_rturntable_recharge & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_rturntable_recharge & msg);
@@ -1143,7 +1143,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_groupid;//组
+		int32_t m_groupID;//组
 		int32_t m_ratio;//倍率
 		int32_t m_weight;//权重
 
@@ -1175,12 +1175,12 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_period;//期数
-		int64_t m_costid;//道具id
-		NFShmString<64> m_costnum;//抽奖消耗
-		int32_t m_poolgroupid;//奖池id
-		int32_t m_totalgroupid;//累计次数奖励id
-		int32_t m_severlimit;//全服次数限制
-		int32_t m_protecttime;//保底奖池次数
+		int64_t m_costID;//道具id
+		NFShmString<64> m_costNum;//抽奖消耗
+		int32_t m_poolGroupId;//奖池id
+		int32_t m_totalGroupID;//累计次数奖励id
+		int32_t m_severLimit;//全服次数限制
+		int32_t m_protectTime;//保底奖池次数
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_drawpize & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_drawpize & msg);
@@ -1209,14 +1209,14 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_groupid;//奖池组ID
+		int32_t m_groupID;//奖池组ID
 		int64_t m_itemid;//物品
 		int32_t m_num;//数量
 		int32_t m_prof;//职业
 		int32_t m_weights;//掉落权重
-		int32_t m_proweights;//保底掉落权重
-		int32_t m_timelimit;//限制抽奖次数
-		int32_t m_record;//奖励记录稀有度
+		int32_t m_proWeights;//保底掉落权重
+		int32_t m_timeLimit;//限制抽奖次数
+		int32_t m_Record;//奖励记录稀有度
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_drawpize_pool & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_drawpize_pool & msg);
@@ -1247,7 +1247,7 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_groupid;//组id
 		int32_t m_value;//条件值
-		int32_t m_itemid;//奖励道具id
+		int32_t m_itemID;//奖励道具id
 		int32_t m_num;//奖励道具数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_drawpize_total & msg) const;
@@ -1340,9 +1340,9 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_period;//期数
-		int32_t m_rewardgroup;//奖励组
-		int32_t m_gamegroup;//玩法组
-		NFShmVector<NFShmString<64>, DEFINE_E_FESTIVALMUBAN_PLAY_M_OPENTIME_MAX_NUM> m_opentime;//开启时间
+		int32_t m_rewardGroup;//奖励组
+		int32_t m_gameGroup;//玩法组
+		NFShmVector<NFShmString<64>, DEFINE_E_FESTIVALMUBAN_PLAY_M_OPENTIME_MAX_NUM> m_openTime;//开启时间
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_play & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_play & msg);
@@ -1371,9 +1371,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//ID
-		int32_t m_groupid;//奖励组id
+		int32_t m_groupID;//奖励组id
 		int32_t m_points;//积分要求
-		int32_t m_boxid;//奖励box
+		int32_t m_boxID;//奖励box
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_play_reward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_play_reward & msg);
@@ -1402,13 +1402,13 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//ID
-		int32_t m_groupid;//玩法组id
+		int32_t m_groupID;//玩法组id
 		int32_t m_order;//玩法排序
-		int32_t m_playtype;//玩法类型
+		int32_t m_playType;//玩法类型
 		NFShmString<64> m_arg;//玩法参数
-		int32_t m_rewardbox;//活动奖励
-		int32_t m_pretime;//活动开始准备时间
-		NFShmVector<NFShmString<128>, DEFINE_E_FESTIVALMUBAN_PLAY_GAME_M_PLAYARG_MAX_NUM> m_playarg;//玩法参数
+		int32_t m_rewardBox;//活动奖励
+		int32_t m_preTime;//活动开始准备时间
+		NFShmVector<NFShmString<128>, DEFINE_E_FESTIVALMUBAN_PLAY_GAME_M_PLAYARG_MAX_NUM> m_playArg;//玩法参数
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_play_game & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_play_game & msg);

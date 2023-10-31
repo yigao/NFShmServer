@@ -97,17 +97,17 @@ class E_RankingRanking : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_rankingid = 1;
+  // optional int32 m_rankingID = 1;
   inline bool has_m_rankingid() const;
   inline void clear_m_rankingid();
-  static const int kMRankingidFieldNumber = 1;
+  static const int kMRankingIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_rankingid() const;
   inline void set_m_rankingid(::google::protobuf::int32 value);
 
-  // optional string m_rankingname = 2;
+  // optional string m_rankingName = 2;
   inline bool has_m_rankingname() const;
   inline void clear_m_rankingname();
-  static const int kMRankingnameFieldNumber = 2;
+  static const int kMRankingNameFieldNumber = 2;
   inline const ::std::string& m_rankingname() const;
   inline void set_m_rankingname(const ::std::string& value);
   inline void set_m_rankingname(const char* value);
@@ -135,24 +135,24 @@ class E_RankingRanking : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_capacity() const;
   inline void set_m_capacity(::google::protobuf::int32 value);
 
-  // optional int32 m_showsize = 5;
+  // optional int32 m_showSize = 5;
   inline bool has_m_showsize() const;
   inline void clear_m_showsize();
-  static const int kMShowsizeFieldNumber = 5;
+  static const int kMShowSizeFieldNumber = 5;
   inline ::google::protobuf::int32 m_showsize() const;
   inline void set_m_showsize(::google::protobuf::int32 value);
 
-  // optional int32 m_rankhide = 6;
+  // optional int32 m_rankHide = 6;
   inline bool has_m_rankhide() const;
   inline void clear_m_rankhide();
-  static const int kMRankhideFieldNumber = 6;
+  static const int kMRankHideFieldNumber = 6;
   inline ::google::protobuf::int32 m_rankhide() const;
   inline void set_m_rankhide(::google::protobuf::int32 value);
 
-  // repeated int32 m_dateid = 7;
+  // repeated int32 m_dateID = 7;
   inline int m_dateid_size() const;
   inline void clear_m_dateid();
-  static const int kMDateidFieldNumber = 7;
+  static const int kMDateIDFieldNumber = 7;
   inline ::google::protobuf::int32 m_dateid(int index) const;
   inline void set_m_dateid(int index, ::google::protobuf::int32 value);
   inline void add_m_dateid(::google::protobuf::int32 value);
@@ -337,17 +337,17 @@ class E_RankingDate : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_dateid = 1;
+  // optional int32 m_dateID = 1;
   inline bool has_m_dateid() const;
   inline void clear_m_dateid();
-  static const int kMDateidFieldNumber = 1;
+  static const int kMDateIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_dateid() const;
   inline void set_m_dateid(::google::protobuf::int32 value);
 
-  // optional string m_datename = 2;
+  // optional string m_dateName = 2;
   inline bool has_m_datename() const;
   inline void clear_m_datename();
-  static const int kMDatenameFieldNumber = 2;
+  static const int kMDateNameFieldNumber = 2;
   inline const ::std::string& m_datename() const;
   inline void set_m_datename(const ::std::string& value);
   inline void set_m_datename(const char* value);
@@ -519,17 +519,17 @@ class E_RankingButton : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_buttonid = 1;
+  // optional int32 m_buttonID = 1;
   inline bool has_m_buttonid() const;
   inline void clear_m_buttonid();
-  static const int kMButtonidFieldNumber = 1;
+  static const int kMButtonIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_buttonid() const;
   inline void set_m_buttonid(::google::protobuf::int32 value);
 
-  // optional string m_buttonname = 2;
+  // optional string m_buttonName = 2;
   inline bool has_m_buttonname() const;
   inline void clear_m_buttonname();
-  static const int kMButtonnameFieldNumber = 2;
+  static const int kMButtonNameFieldNumber = 2;
   inline const ::std::string& m_buttonname() const;
   inline void set_m_buttonname(const ::std::string& value);
   inline void set_m_buttonname(const char* value);
@@ -662,7 +662,7 @@ class Sheet_RankingButton : public ::google::protobuf::Message {
 
 // E_RankingRanking
 
-// optional int32 m_rankingid = 1;
+// optional int32 m_rankingID = 1;
 inline bool E_RankingRanking::has_m_rankingid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -684,7 +684,7 @@ inline void E_RankingRanking::set_m_rankingid(::google::protobuf::int32 value) {
   m_rankingid_ = value;
 }
 
-// optional string m_rankingname = 2;
+// optional string m_rankingName = 2;
 inline bool E_RankingRanking::has_m_rankingname() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -846,7 +846,7 @@ inline void E_RankingRanking::set_m_capacity(::google::protobuf::int32 value) {
   m_capacity_ = value;
 }
 
-// optional int32 m_showsize = 5;
+// optional int32 m_showSize = 5;
 inline bool E_RankingRanking::has_m_showsize() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -868,7 +868,7 @@ inline void E_RankingRanking::set_m_showsize(::google::protobuf::int32 value) {
   m_showsize_ = value;
 }
 
-// optional int32 m_rankhide = 6;
+// optional int32 m_rankHide = 6;
 inline bool E_RankingRanking::has_m_rankhide() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -890,7 +890,7 @@ inline void E_RankingRanking::set_m_rankhide(::google::protobuf::int32 value) {
   m_rankhide_ = value;
 }
 
-// repeated int32 m_dateid = 7;
+// repeated int32 m_dateID = 7;
 inline int E_RankingRanking::m_dateid_size() const {
   return m_dateid_.size();
 }
@@ -948,7 +948,7 @@ Sheet_RankingRanking::mutable_e_rankingranking_list() {
 
 // E_RankingDate
 
-// optional int32 m_dateid = 1;
+// optional int32 m_dateID = 1;
 inline bool E_RankingDate::has_m_dateid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -970,7 +970,7 @@ inline void E_RankingDate::set_m_dateid(::google::protobuf::int32 value) {
   m_dateid_ = value;
 }
 
-// optional string m_datename = 2;
+// optional string m_dateName = 2;
 inline bool E_RankingDate::has_m_datename() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1073,7 +1073,7 @@ Sheet_RankingDate::mutable_e_rankingdate_list() {
 
 // E_RankingButton
 
-// optional int32 m_buttonid = 1;
+// optional int32 m_buttonID = 1;
 inline bool E_RankingButton::has_m_buttonid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1095,7 +1095,7 @@ inline void E_RankingButton::set_m_buttonid(::google::protobuf::int32 value) {
   m_buttonid_ = value;
 }
 
-// optional string m_buttonname = 2;
+// optional string m_buttonName = 2;
 inline bool E_RankingButton::has_m_buttonname() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }

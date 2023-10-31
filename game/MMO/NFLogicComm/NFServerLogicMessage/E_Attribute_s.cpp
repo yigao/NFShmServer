@@ -14,7 +14,7 @@ int E_AttributeAttribute_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_percent = (int32_t)0;
 	m_power = (float)0;
-	m_systemtype = (int32_t)0;
+	m_systemType = (int32_t)0;
 	return 0;
 }
 
@@ -26,14 +26,14 @@ void E_AttributeAttribute_s::write_to_pbmsg(::proto_ff::E_AttributeAttribute & m
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_percent((int32_t)m_percent);
 	msg.set_m_power((float)m_power);
-	msg.set_m_systemtype((int32_t)m_systemtype);
+	msg.set_m_systemtype((int32_t)m_systemType);
 }
 
 void E_AttributeAttribute_s::read_from_pbmsg(const ::proto_ff::E_AttributeAttribute & msg) {
 	m_id = msg.m_id();
 	m_percent = msg.m_percent();
 	m_power = msg.m_power();
-	m_systemtype = msg.m_systemtype();
+	m_systemType = msg.m_systemtype();
 }
 
 Sheet_AttributeAttribute_s::Sheet_AttributeAttribute_s() {
@@ -76,17 +76,17 @@ E_AttributeSuppress_s::E_AttributeSuppress_s() {
 }
 
 int E_AttributeSuppress_s::CreateInit() {
-	m_lvldiff = (int32_t)0;
-	m_hitsuppve = (int32_t)0;
-	m_critsuppve = (int32_t)0;
-	m_killsuppve = (int32_t)0;
-	m_statesuppve = (int32_t)0;
-	m_lvsuppve = (int32_t)0;
-	m_hitsuppvp = (int32_t)0;
-	m_critsuppvp = (int32_t)0;
-	m_killsuppvp = (int32_t)0;
-	m_statesuppvp = (int32_t)0;
-	m_lvsuppvp = (int32_t)0;
+	m_lvlDiff = (int32_t)0;
+	m_hitSupPve = (int32_t)0;
+	m_critSupPve = (int32_t)0;
+	m_killSupPve = (int32_t)0;
+	m_stateSupPve = (int32_t)0;
+	m_lvSupPve = (int32_t)0;
+	m_hitSupPvp = (int32_t)0;
+	m_critSupPvp = (int32_t)0;
+	m_killSupPvp = (int32_t)0;
+	m_stateSupPvp = (int32_t)0;
+	m_lvSupPvp = (int32_t)0;
 	return 0;
 }
 
@@ -95,31 +95,31 @@ int E_AttributeSuppress_s::ResumeInit() {
 }
 
 void E_AttributeSuppress_s::write_to_pbmsg(::proto_ff::E_AttributeSuppress & msg) const {
-	msg.set_m_lvldiff((int32_t)m_lvldiff);
-	msg.set_m_hitsuppve((int32_t)m_hitsuppve);
-	msg.set_m_critsuppve((int32_t)m_critsuppve);
-	msg.set_m_killsuppve((int32_t)m_killsuppve);
-	msg.set_m_statesuppve((int32_t)m_statesuppve);
-	msg.set_m_lvsuppve((int32_t)m_lvsuppve);
-	msg.set_m_hitsuppvp((int32_t)m_hitsuppvp);
-	msg.set_m_critsuppvp((int32_t)m_critsuppvp);
-	msg.set_m_killsuppvp((int32_t)m_killsuppvp);
-	msg.set_m_statesuppvp((int32_t)m_statesuppvp);
-	msg.set_m_lvsuppvp((int32_t)m_lvsuppvp);
+	msg.set_m_lvldiff((int32_t)m_lvlDiff);
+	msg.set_m_hitsuppve((int32_t)m_hitSupPve);
+	msg.set_m_critsuppve((int32_t)m_critSupPve);
+	msg.set_m_killsuppve((int32_t)m_killSupPve);
+	msg.set_m_statesuppve((int32_t)m_stateSupPve);
+	msg.set_m_lvsuppve((int32_t)m_lvSupPve);
+	msg.set_m_hitsuppvp((int32_t)m_hitSupPvp);
+	msg.set_m_critsuppvp((int32_t)m_critSupPvp);
+	msg.set_m_killsuppvp((int32_t)m_killSupPvp);
+	msg.set_m_statesuppvp((int32_t)m_stateSupPvp);
+	msg.set_m_lvsuppvp((int32_t)m_lvSupPvp);
 }
 
 void E_AttributeSuppress_s::read_from_pbmsg(const ::proto_ff::E_AttributeSuppress & msg) {
-	m_lvldiff = msg.m_lvldiff();
-	m_hitsuppve = msg.m_hitsuppve();
-	m_critsuppve = msg.m_critsuppve();
-	m_killsuppve = msg.m_killsuppve();
-	m_statesuppve = msg.m_statesuppve();
-	m_lvsuppve = msg.m_lvsuppve();
-	m_hitsuppvp = msg.m_hitsuppvp();
-	m_critsuppvp = msg.m_critsuppvp();
-	m_killsuppvp = msg.m_killsuppvp();
-	m_statesuppvp = msg.m_statesuppvp();
-	m_lvsuppvp = msg.m_lvsuppvp();
+	m_lvlDiff = msg.m_lvldiff();
+	m_hitSupPve = msg.m_hitsuppve();
+	m_critSupPve = msg.m_critsuppve();
+	m_killSupPve = msg.m_killsuppve();
+	m_stateSupPve = msg.m_statesuppve();
+	m_lvSupPve = msg.m_lvsuppve();
+	m_hitSupPvp = msg.m_hitsuppvp();
+	m_critSupPvp = msg.m_critsuppvp();
+	m_killSupPvp = msg.m_killsuppvp();
+	m_stateSupPvp = msg.m_statesuppvp();
+	m_lvSupPvp = msg.m_lvsuppvp();
 }
 
 Sheet_AttributeSuppress_s::Sheet_AttributeSuppress_s() {
@@ -162,9 +162,9 @@ E_AttributePowersup_s::E_AttributePowersup_s() {
 }
 
 int E_AttributePowersup_s::CreateInit() {
-	m_powerdiff = (int32_t)0;
-	m_powersuppve = (int32_t)0;
-	m_powersuppvp = (int32_t)0;
+	m_powerDiff = (int32_t)0;
+	m_powerSupPve = (int32_t)0;
+	m_powerSupPvp = (int32_t)0;
 	return 0;
 }
 
@@ -173,15 +173,15 @@ int E_AttributePowersup_s::ResumeInit() {
 }
 
 void E_AttributePowersup_s::write_to_pbmsg(::proto_ff::E_AttributePowersup & msg) const {
-	msg.set_m_powerdiff((int32_t)m_powerdiff);
-	msg.set_m_powersuppve((int32_t)m_powersuppve);
-	msg.set_m_powersuppvp((int32_t)m_powersuppvp);
+	msg.set_m_powerdiff((int32_t)m_powerDiff);
+	msg.set_m_powersuppve((int32_t)m_powerSupPve);
+	msg.set_m_powersuppvp((int32_t)m_powerSupPvp);
 }
 
 void E_AttributePowersup_s::read_from_pbmsg(const ::proto_ff::E_AttributePowersup & msg) {
-	m_powerdiff = msg.m_powerdiff();
-	m_powersuppve = msg.m_powersuppve();
-	m_powersuppvp = msg.m_powersuppvp();
+	m_powerDiff = msg.m_powerdiff();
+	m_powerSupPve = msg.m_powersuppve();
+	m_powerSupPvp = msg.m_powersuppvp();
 }
 
 Sheet_AttributePowersup_s::Sheet_AttributePowersup_s() {

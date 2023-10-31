@@ -38,8 +38,8 @@ E_RechargeRechargeItemDesc_s::E_RechargeRechargeItemDesc_s() {
 }
 
 int E_RechargeRechargeItemDesc_s::CreateInit() {
-	m_num = (int32_t)0;
-	m_id = (int64_t)0;
+	m_Num = (int32_t)0;
+	m_Id = (int64_t)0;
 	return 0;
 }
 
@@ -48,13 +48,13 @@ int E_RechargeRechargeItemDesc_s::ResumeInit() {
 }
 
 void E_RechargeRechargeItemDesc_s::write_to_pbmsg(::proto_ff::E_RechargeRechargeItemDesc & msg) const {
-	msg.set_m_num((int32_t)m_num);
-	msg.set_m_id((int64_t)m_id);
+	msg.set_m_num((int32_t)m_Num);
+	msg.set_m_id((int64_t)m_Id);
 }
 
 void E_RechargeRechargeItemDesc_s::read_from_pbmsg(const ::proto_ff::E_RechargeRechargeItemDesc & msg) {
-	m_num = msg.m_num();
-	m_id = msg.m_id();
+	m_Num = msg.m_num();
+	m_Id = msg.m_id();
 }
 
 E_RechargeRecharge_s::E_RechargeRecharge_s() {
@@ -69,15 +69,15 @@ int E_RechargeRecharge_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_type = (int32_t)0;
 	m_quantity = (int64_t)0;
-	m_itemnum = (int32_t)0;
-	m_multipletimes = (int64_t)0;
-	m_multiplereward = (int64_t)0;
+	m_itemNum = (int32_t)0;
+	m_multipleTimes = (int64_t)0;
+	m_multipleReward = (int64_t)0;
 	m_zuanshitype = (int32_t)0;
-	m_vipexp = (int32_t)0;
-	m_vipexplimit = (int32_t)0;
-	m_activitycount = (int32_t)0;
+	m_vipExp = (int32_t)0;
+	m_vipExpLimit = (int32_t)0;
+	m_activityCount = (int32_t)0;
 	m_price = (int32_t)0;
-	m_presentid = (int32_t)0;
+	m_presentID = (int32_t)0;
 	m_fristpresent = (int32_t)0;
 	return 0;
 }
@@ -89,20 +89,20 @@ int E_RechargeRecharge_s::ResumeInit() {
 void E_RechargeRecharge_s::write_to_pbmsg(::proto_ff::E_RechargeRecharge & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_name(m_name.data());
-	msg.set_m_defaultpoint(m_defaultpoint.data());
+	msg.set_m_defaultpoint(m_defaultPoint.data());
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_unit(m_unit.data());
 	msg.set_m_beizhu(m_beizhu.data());
 	msg.set_m_quantity((int64_t)m_quantity);
-	msg.set_m_itemnum((int32_t)m_itemnum);
-	msg.set_m_multipletimes((int64_t)m_multipletimes);
-	msg.set_m_multiplereward((int64_t)m_multiplereward);
+	msg.set_m_itemnum((int32_t)m_itemNum);
+	msg.set_m_multipletimes((int64_t)m_multipleTimes);
+	msg.set_m_multiplereward((int64_t)m_multipleReward);
 	msg.set_m_zuanshitype((int32_t)m_zuanshitype);
-	msg.set_m_vipexp((int32_t)m_vipexp);
-	msg.set_m_vipexplimit((int32_t)m_vipexplimit);
-	msg.set_m_activitycount((int32_t)m_activitycount);
+	msg.set_m_vipexp((int32_t)m_vipExp);
+	msg.set_m_vipexplimit((int32_t)m_vipExpLimit);
+	msg.set_m_activitycount((int32_t)m_activityCount);
 	msg.set_m_price((int32_t)m_price);
-	msg.set_m_presentid((int32_t)m_presentid);
+	msg.set_m_presentid((int32_t)m_presentID);
 	msg.set_m_fristpresent((int32_t)m_fristpresent);
 	msg.set_m_icon(m_icon.data());
 	for(int32_t i = 0; i < (int32_t)m_channel.size(); ++i) {
@@ -118,20 +118,20 @@ void E_RechargeRecharge_s::write_to_pbmsg(::proto_ff::E_RechargeRecharge & msg) 
 void E_RechargeRecharge_s::read_from_pbmsg(const ::proto_ff::E_RechargeRecharge & msg) {
 	m_id = msg.m_id();
 	m_name = msg.m_name();
-	m_defaultpoint = msg.m_defaultpoint();
+	m_defaultPoint = msg.m_defaultpoint();
 	m_type = msg.m_type();
 	m_unit = msg.m_unit();
 	m_beizhu = msg.m_beizhu();
 	m_quantity = msg.m_quantity();
-	m_itemnum = msg.m_itemnum();
-	m_multipletimes = msg.m_multipletimes();
-	m_multiplereward = msg.m_multiplereward();
+	m_itemNum = msg.m_itemnum();
+	m_multipleTimes = msg.m_multipletimes();
+	m_multipleReward = msg.m_multiplereward();
 	m_zuanshitype = msg.m_zuanshitype();
-	m_vipexp = msg.m_vipexp();
-	m_vipexplimit = msg.m_vipexplimit();
-	m_activitycount = msg.m_activitycount();
+	m_vipExp = msg.m_vipexp();
+	m_vipExpLimit = msg.m_vipexplimit();
+	m_activityCount = msg.m_activitycount();
 	m_price = msg.m_price();
-	m_presentid = msg.m_presentid();
+	m_presentID = msg.m_presentid();
 	m_fristpresent = msg.m_fristpresent();
 	m_icon = msg.m_icon();
 	m_channel.resize((int)msg.m_channel_size() > (int)m_channel.max_size() ? m_channel.max_size() : msg.m_channel_size());

@@ -24,8 +24,8 @@ namespace proto_ff_s {
 		int32_t m_type;//类型
 		int32_t m_costid;//货币id
 		int32_t m_price;//价格
-		int32_t m_freeday;//返还服务器天数
-		int32_t m_boxid;//礼包内容box
+		int32_t m_freeDay;//返还服务器天数
+		int32_t m_boxID;//礼包内容box
 
 		virtual void write_to_pbmsg(::proto_ff::E_GiftFree & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GiftFree & msg);
@@ -54,12 +54,12 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_conditiontype;//类型
+		int32_t m_conditionType;//类型
 		int32_t m_arg;//参数
 		int32_t m_time;//礼包持续时间
-		int32_t m_pricetype;//价格类型
+		int32_t m_priceType;//价格类型
 		int32_t m_price;//价格
-		int32_t m_boxid;//礼包内容box
+		int32_t m_boxID;//礼包内容box
 
 		virtual void write_to_pbmsg(::proto_ff::E_GiftCondition & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GiftCondition & msg);
@@ -90,7 +90,7 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_boxid;//boxid
 		int32_t m_original;//原价
-		int32_t m_pricetype;//价格类型
+		int32_t m_priceType;//价格类型
 		int32_t m_price;//现价
 
 		virtual void write_to_pbmsg(::proto_ff::E_GiftMust & msg) const;

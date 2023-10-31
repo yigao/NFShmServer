@@ -20,10 +20,10 @@ message E_SoulSoul
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional string m_name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_lvitem = 3[(yd_fieldoptions.field_cname) = "升级所需道具"];
-	optional int32 m_advanceitem = 4[(yd_fieldoptions.field_cname) = "进阶所需道具"];
-	optional int32 m_sacrificeskill = 5[(yd_fieldoptions.field_cname) = "牺牲技"];
-	optional string m_skilllv = 6[(yd_fieldoptions.field_cname) = "牺牲技等级[等级;升级需要的阶级]", (yd_fieldoptions.field_bufsize) = 128];
+	optional int32 m_lvItem = 3[(yd_fieldoptions.field_cname) = "升级所需道具"];
+	optional int32 m_advanceItem = 4[(yd_fieldoptions.field_cname) = "进阶所需道具"];
+	optional int32 m_sacrificeSkill = 5[(yd_fieldoptions.field_cname) = "牺牲技"];
+	optional string m_SkillLv = 6[(yd_fieldoptions.field_cname) = "牺牲技等级[等级;升级需要的阶级]", (yd_fieldoptions.field_bufsize) = 128];
 }
 
 
@@ -41,9 +41,9 @@ message E_SoulSoulbasicAttributeDesc
 message E_SoulSoulbasic
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_soulid = 2[(yd_fieldoptions.field_cname) = "战魂ID"];
-	optional int32 m_soullv = 3[(yd_fieldoptions.field_cname) = "等级"];
-	optional int32 m_soulexp = 4[(yd_fieldoptions.field_cname) = "升级所需魂灵"];
+	optional int32 m_soulId = 2[(yd_fieldoptions.field_cname) = "战魂ID"];
+	optional int32 m_soulLv = 3[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_soulExp = 4[(yd_fieldoptions.field_cname) = "升级所需魂灵"];
 	repeated E_SoulSoulbasicAttributeDesc m_attribute = 5[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 6];
 }
 
@@ -62,9 +62,9 @@ message E_SoulSouladvanceAttributeDesc
 message E_SoulSouladvance
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_soulid = 2[(yd_fieldoptions.field_cname) = "战魂ID"];
-	optional int32 m_advancelv = 3[(yd_fieldoptions.field_cname) = "等级"];
-	optional int32 m_advancenum = 4[(yd_fieldoptions.field_cname) = "升阶所需道具数量"];
+	optional int32 m_soulId = 2[(yd_fieldoptions.field_cname) = "战魂ID"];
+	optional int32 m_advanceLv = 3[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_advanceNum = 4[(yd_fieldoptions.field_cname) = "升阶所需道具数量"];
 	repeated E_SoulSouladvanceAttributeDesc m_attribute = 5[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 6];
 }
 
@@ -98,7 +98,7 @@ message E_SoulPrivilege
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional string m_activate = 2[(yd_fieldoptions.field_cname) = "激活条件", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_poolup = 3[(yd_fieldoptions.field_cname) = "激活提高上限"];
+	optional int32 m_poolUp = 3[(yd_fieldoptions.field_cname) = "激活提高上限"];
 	optional int32 m_huoyuedu_to_exp = 4[(yd_fieldoptions.field_cname) = "活跃度兑换"];
 	optional int32 m_meditation_to_exp = 5[(yd_fieldoptions.field_cname) = "打坐兑换"];
 	repeated E_SoulPrivilegeAttributeDesc m_attribute = 6[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 4];
@@ -112,15 +112,15 @@ message Sheet_SoulPrivilege
 
 message E_SoulCrystal
 {
-	optional int32 m_equipid = 1[(yd_fieldoptions.field_cname) = "装备id"];
+	optional int32 m_equipId = 1[(yd_fieldoptions.field_cname) = "装备id"];
 	optional string m_name = 2[(yd_fieldoptions.field_cname) = "魂晶命名", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_crystaltype = 3[(yd_fieldoptions.field_cname) = "魂晶类型"];
+	optional int32 m_crystalType = 3[(yd_fieldoptions.field_cname) = "魂晶类型"];
 	optional int32 m_quality = 4[(yd_fieldoptions.field_cname) = "品质"];
 	optional int32 m_star = 5[(yd_fieldoptions.field_cname) = "星级"];
-	optional int32 m_dismantletime = 6[(yd_fieldoptions.field_cname) = "分解获得"];
-	optional int32 m_dismantlenum = 7[(yd_fieldoptions.field_cname) = "分解数量"];
+	optional int32 m_dismantleTime = 6[(yd_fieldoptions.field_cname) = "分解获得"];
+	optional int32 m_dismantleNum = 7[(yd_fieldoptions.field_cname) = "分解数量"];
 	optional int32 m_skill = 8[(yd_fieldoptions.field_cname) = "技能类型"];
-	optional int32 m_skilllv = 9[(yd_fieldoptions.field_cname) = "技能等级"];
+	optional int32 m_skillLv = 9[(yd_fieldoptions.field_cname) = "技能等级"];
 	optional int32 m_handbook = 10[(yd_fieldoptions.field_cname) = "是否显示图鉴"];
 }
 
@@ -133,8 +133,8 @@ message Sheet_SoulCrystal
 message E_SoulCrystallv
 {
 	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
-	optional int32 m_wraithsitem = 2[(yd_fieldoptions.field_cname) = "道具消耗"];
-	optional int32 m_wraithsmun = 3[(yd_fieldoptions.field_cname) = "消耗数量"];
+	optional int32 m_wraithsItem = 2[(yd_fieldoptions.field_cname) = "道具消耗"];
+	optional int32 m_wraithsMun = 3[(yd_fieldoptions.field_cname) = "消耗数量"];
 }
 
 
@@ -151,9 +151,9 @@ message E_SoulCrystaltopAttributeDesc
 
 message E_SoulCrystaltop
 {
-	optional int32 m_toplv = 1[(yd_fieldoptions.field_cname) = "突破等级"];
-	optional int32 m_wraithsitem = 2[(yd_fieldoptions.field_cname) = "道具消耗"];
-	optional int32 m_wraithsmun = 3[(yd_fieldoptions.field_cname) = "消耗数量"];
+	optional int32 m_topLv = 1[(yd_fieldoptions.field_cname) = "突破等级"];
+	optional int32 m_wraithsItem = 2[(yd_fieldoptions.field_cname) = "道具消耗"];
+	optional int32 m_wraithsMun = 3[(yd_fieldoptions.field_cname) = "消耗数量"];
 	repeated E_SoulCrystaltopAttributeDesc m_attribute = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
 }
 
@@ -184,13 +184,13 @@ message E_SoulFusionFusionDesc
 message E_SoulFusion
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_fusiontype = 2[(yd_fieldoptions.field_cname) = "融合类型"];
+	optional int32 m_fusionType = 2[(yd_fieldoptions.field_cname) = "融合类型"];
 	optional int32 m_quality = 3[(yd_fieldoptions.field_cname) = "魂晶品质"];
 	optional int32 m_star = 4[(yd_fieldoptions.field_cname) = "魂晶星数"];
 	optional int32 m_condition = 5[(yd_fieldoptions.field_cname) = "是否需要自身材料"];
-	optional int32 m_qualityget = 6[(yd_fieldoptions.field_cname) = "融合后品质"];
-	optional int32 m_starget = 7[(yd_fieldoptions.field_cname) = "融合后星级"];
-	optional int32 m_attributeber = 8[(yd_fieldoptions.field_cname) = "属性提升"];
+	optional int32 m_qualityGet = 6[(yd_fieldoptions.field_cname) = "融合后品质"];
+	optional int32 m_starGet = 7[(yd_fieldoptions.field_cname) = "融合后星级"];
+	optional int32 m_attributeBer = 8[(yd_fieldoptions.field_cname) = "属性提升"];
 	repeated E_SoulFusionFusionDesc m_fusion = 9[(yd_fieldoptions.field_cname) = "融合材料", (yd_fieldoptions.field_arysize) = 2];
 }
 
@@ -206,9 +206,9 @@ message E_SoulBone
 	optional int32 m_position = 2[(yd_fieldoptions.field_cname) = "装备位置"];
 	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "魂骨类型"];
 	optional int32 m_awakening = 4[(yd_fieldoptions.field_cname) = "觉醒类型"];
-	optional int32 m_awakeningtime = 5[(yd_fieldoptions.field_cname) = "觉醒消耗"];
-	optional int32 m_awakeningnum = 6[(yd_fieldoptions.field_cname) = "消耗数量"];
-	optional int32 m_modelid = 7[(yd_fieldoptions.field_cname) = "模型id"];
+	optional int32 m_awakeningTime = 5[(yd_fieldoptions.field_cname) = "觉醒消耗"];
+	optional int32 m_awakeningNum = 6[(yd_fieldoptions.field_cname) = "消耗数量"];
+	optional int32 m_modelId = 7[(yd_fieldoptions.field_cname) = "模型id"];
 }
 
 
@@ -219,7 +219,7 @@ message Sheet_SoulBone
 
 message E_SoulBoneequip
 {
-	optional int32 m_equipid = 1[(yd_fieldoptions.field_cname) = "装备id"];
+	optional int32 m_equipId = 1[(yd_fieldoptions.field_cname) = "装备id"];
 	optional string m_name = 2[(yd_fieldoptions.field_cname) = "魂骨命名", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_part = 3[(yd_fieldoptions.field_cname) = "部位"];
 	optional int32 m_quality = 4[(yd_fieldoptions.field_cname) = "品质"];
@@ -234,18 +234,18 @@ message Sheet_SoulBoneequip
 
 message E_SoulBoneskillPassiveDesc
 {
-	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
-	optional int32 m_skill = 2[(yd_fieldoptions.field_cname) = ""];
+	optional int32 m_Lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_Skill = 2[(yd_fieldoptions.field_cname) = ""];
 }
 
 message E_SoulBoneskill
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_boneid = 2[(yd_fieldoptions.field_cname) = "魂骨部位id"];
+	optional int32 m_boneId = 2[(yd_fieldoptions.field_cname) = "魂骨部位id"];
 	optional int32 m_quality = 3[(yd_fieldoptions.field_cname) = "品质"];
 	optional int32 m_star = 4[(yd_fieldoptions.field_cname) = "星级"];
-	optional int32 m_activeskill = 5[(yd_fieldoptions.field_cname) = "主动技能"];
-	optional int32 m_activeskilllv = 6[(yd_fieldoptions.field_cname) = "技能等级"];
+	optional int32 m_ActiveSkill = 5[(yd_fieldoptions.field_cname) = "主动技能"];
+	optional int32 m_ActiveSkillLv = 6[(yd_fieldoptions.field_cname) = "技能等级"];
 	repeated E_SoulBoneskillPassiveDesc m_passive = 7[(yd_fieldoptions.field_cname) = "被动技能", (yd_fieldoptions.field_arysize) = 4];
 }
 
@@ -258,7 +258,7 @@ message Sheet_SoulBoneskill
 message E_SoulBonekill
 {
 	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
-	optional int32 m_killboss = 2[(yd_fieldoptions.field_cname) = "击杀魔王数"];
+	optional int32 m_killBoss = 2[(yd_fieldoptions.field_cname) = "击杀魔王数"];
 }
 
 
@@ -277,7 +277,7 @@ message E_SoulBonestrong
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_position = 2[(yd_fieldoptions.field_cname) = "装备部位"];
-	optional int32 m_srtongup = 3[(yd_fieldoptions.field_cname) = "强化上限"];
+	optional int32 m_srtongUp = 3[(yd_fieldoptions.field_cname) = "强化上限"];
 	repeated E_SoulBonestrongTypeDesc m_type = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 4];
 }
 

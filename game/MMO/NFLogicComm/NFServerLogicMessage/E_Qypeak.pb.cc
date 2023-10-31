@@ -153,13 +153,13 @@ void protobuf_AddDesc_E_5fQypeak_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\016E_Qypeak.proto\022\010proto_ff\032\025yd_fieldopti"
     "ons.proto\"p\n\014E_QypeakBack\022\034\n\010m_layers\030\001 "
-    "\001(\005B\n\302\377\024\006\345\261\202\346\225\260\022$\n\nm_skillnum\030\002 \001(\005B\020\302\377\024"
+    "\001(\005B\n\302\377\024\006\345\261\202\346\225\260\022$\n\nm_skillNum\030\002 \001(\005B\020\302\377\024"
     "\014\345\207\273\346\235\200\346\225\260\351\207\217\022\034\n\010m_reward\030\003 \001(\005B\n\302\377\024\006\345\245\226"
     "\345\212\261\"K\n\020Sheet_QypeakBack\0227\n\021E_QypeakBack_"
     "List\030\001 \003(\0132\026.proto_ff.E_QypeakBackB\004\210\301\024\020"
     "\"\305\001\n\020E_QypeakConstant\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024"
     "\002id\022\035\n\007m_mapid\030\002 \001(\005B\014\302\377\024\010\345\234\260\345\233\276id\022%\n\rm_"
-    "revivalbuff\030\003 \001(\005B\016\302\377\024\n\345\244\215\346\264\273buff\022*\n\014m_r"
+    "revivalBuff\030\003 \001(\005B\016\302\377\024\n\345\244\215\346\264\273buff\022*\n\014m_r"
     "ankreward\030\004 \003(\005B\024\302\377\024\014\346\216\222\345\220\215\345\245\226\345\212\261\210\301\024\003\022)\n"
     "\013m_titleshow\030\005 \003(\005B\024\302\377\024\014\347\247\260\345\217\267\345\261\225\347\244\272\210\301\024\003"
     "\"W\n\024Sheet_QypeakConstant\022\?\n\025E_QypeakCons"
@@ -189,7 +189,7 @@ struct StaticDescriptorInitializer_E_5fQypeak_2eproto {
 
 #ifndef _MSC_VER
 const int E_QypeakBack::kMLayersFieldNumber;
-const int E_QypeakBack::kMSkillnumFieldNumber;
+const int E_QypeakBack::kMSkillNumFieldNumber;
 const int E_QypeakBack::kMRewardFieldNumber;
 #endif  // !_MSC_VER
 
@@ -272,15 +272,15 @@ bool E_QypeakBack::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_skillnum;
+        if (input->ExpectTag(16)) goto parse_m_skillNum;
         break;
       }
 
-      // optional int32 m_skillnum = 2;
+      // optional int32 m_skillNum = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_skillnum:
+         parse_m_skillNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_skillnum_)));
@@ -331,7 +331,7 @@ void E_QypeakBack::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_layers(), output);
   }
 
-  // optional int32 m_skillnum = 2;
+  // optional int32 m_skillNum = 2;
   if (has_m_skillnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_skillnum(), output);
   }
@@ -354,7 +354,7 @@ void E_QypeakBack::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_layers(), target);
   }
 
-  // optional int32 m_skillnum = 2;
+  // optional int32 m_skillNum = 2;
   if (has_m_skillnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_skillnum(), target);
   }
@@ -382,7 +382,7 @@ int E_QypeakBack::ByteSize() const {
           this->m_layers());
     }
 
-    // optional int32 m_skillnum = 2;
+    // optional int32 m_skillNum = 2;
     if (has_m_skillnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -681,7 +681,7 @@ void Sheet_QypeakBack::Swap(Sheet_QypeakBack* other) {
 #ifndef _MSC_VER
 const int E_QypeakConstant::kMIdFieldNumber;
 const int E_QypeakConstant::kMMapidFieldNumber;
-const int E_QypeakConstant::kMRevivalbuffFieldNumber;
+const int E_QypeakConstant::kMRevivalBuffFieldNumber;
 const int E_QypeakConstant::kMRankrewardFieldNumber;
 const int E_QypeakConstant::kMTitleshowFieldNumber;
 #endif  // !_MSC_VER
@@ -783,15 +783,15 @@ bool E_QypeakConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_revivalbuff;
+        if (input->ExpectTag(24)) goto parse_m_revivalBuff;
         break;
       }
 
-      // optional int32 m_revivalbuff = 3;
+      // optional int32 m_revivalBuff = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_revivalbuff:
+         parse_m_revivalBuff:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_revivalbuff_)));
@@ -875,7 +875,7 @@ void E_QypeakConstant::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_mapid(), output);
   }
 
-  // optional int32 m_revivalbuff = 3;
+  // optional int32 m_revivalBuff = 3;
   if (has_m_revivalbuff()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_revivalbuff(), output);
   }
@@ -910,7 +910,7 @@ void E_QypeakConstant::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_mapid(), target);
   }
 
-  // optional int32 m_revivalbuff = 3;
+  // optional int32 m_revivalBuff = 3;
   if (has_m_revivalbuff()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_revivalbuff(), target);
   }
@@ -952,7 +952,7 @@ int E_QypeakConstant::ByteSize() const {
           this->m_mapid());
     }
 
-    // optional int32 m_revivalbuff = 3;
+    // optional int32 m_revivalBuff = 3;
     if (has_m_revivalbuff()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

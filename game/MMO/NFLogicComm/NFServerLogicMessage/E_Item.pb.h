@@ -112,31 +112,31 @@ class E_ItemItem : public ::google::protobuf::Message {
   inline ::std::string* release_m_name();
   inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional int32 m_itemtype = 3;
+  // optional int32 m_itemType = 3;
   inline bool has_m_itemtype() const;
   inline void clear_m_itemtype();
-  static const int kMItemtypeFieldNumber = 3;
+  static const int kMItemTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_itemtype() const;
   inline void set_m_itemtype(::google::protobuf::int32 value);
 
-  // optional int32 m_subtype = 4;
+  // optional int32 m_subType = 4;
   inline bool has_m_subtype() const;
   inline void clear_m_subtype();
-  static const int kMSubtypeFieldNumber = 4;
+  static const int kMSubTypeFieldNumber = 4;
   inline ::google::protobuf::int32 m_subtype() const;
   inline void set_m_subtype(::google::protobuf::int32 value);
 
-  // optional int32 m_functiontype = 5;
+  // optional int32 m_functionType = 5;
   inline bool has_m_functiontype() const;
   inline void clear_m_functiontype();
-  static const int kMFunctiontypeFieldNumber = 5;
+  static const int kMFunctionTypeFieldNumber = 5;
   inline ::google::protobuf::int32 m_functiontype() const;
   inline void set_m_functiontype(::google::protobuf::int32 value);
 
-  // optional string m_functionvalue = 6;
+  // optional string m_functionValue = 6;
   inline bool has_m_functionvalue() const;
   inline void clear_m_functionvalue();
-  static const int kMFunctionvalueFieldNumber = 6;
+  static const int kMFunctionValueFieldNumber = 6;
   inline const ::std::string& m_functionvalue() const;
   inline void set_m_functionvalue(const ::std::string& value);
   inline void set_m_functionvalue(const char* value);
@@ -157,10 +157,10 @@ class E_ItemItem : public ::google::protobuf::Message {
   inline ::std::string* release_m_usecondition();
   inline void set_allocated_m_usecondition(::std::string* m_usecondition);
 
-  // optional int64 m_waiguanlink = 8;
+  // optional int64 m_waiguanLink = 8;
   inline bool has_m_waiguanlink() const;
   inline void clear_m_waiguanlink();
-  static const int kMWaiguanlinkFieldNumber = 8;
+  static const int kMWaiguanLinkFieldNumber = 8;
   inline ::google::protobuf::int64 m_waiguanlink() const;
   inline void set_m_waiguanlink(::google::protobuf::int64 value);
 
@@ -178,10 +178,10 @@ class E_ItemItem : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_quality() const;
   inline void set_m_quality(::google::protobuf::int32 value);
 
-  // optional int32 m_levelrequest = 11;
+  // optional int32 m_levelRequest = 11;
   inline bool has_m_levelrequest() const;
   inline void clear_m_levelrequest();
-  static const int kMLevelrequestFieldNumber = 11;
+  static const int kMLevelRequestFieldNumber = 11;
   inline ::google::protobuf::int32 m_levelrequest() const;
   inline void set_m_levelrequest(::google::protobuf::int32 value);
 
@@ -197,45 +197,45 @@ class E_ItemItem : public ::google::protobuf::Message {
   inline ::std::string* release_m_profession();
   inline void set_allocated_m_profession(::std::string* m_profession);
 
-  // optional int32 m_bindtype = 13;
+  // optional int32 m_bindType = 13;
   inline bool has_m_bindtype() const;
   inline void clear_m_bindtype();
-  static const int kMBindtypeFieldNumber = 13;
+  static const int kMBindTypeFieldNumber = 13;
   inline ::google::protobuf::int32 m_bindtype() const;
   inline void set_m_bindtype(::google::protobuf::int32 value);
 
-  // optional int32 m_istradebind = 14;
+  // optional int32 m_isTradeBind = 14;
   inline bool has_m_istradebind() const;
   inline void clear_m_istradebind();
-  static const int kMIstradebindFieldNumber = 14;
+  static const int kMIsTradeBindFieldNumber = 14;
   inline ::google::protobuf::int32 m_istradebind() const;
   inline void set_m_istradebind(::google::protobuf::int32 value);
 
-  // optional int32 m_dropnum = 15;
+  // optional int32 m_dropNum = 15;
   inline bool has_m_dropnum() const;
   inline void clear_m_dropnum();
-  static const int kMDropnumFieldNumber = 15;
+  static const int kMDropNumFieldNumber = 15;
   inline ::google::protobuf::int32 m_dropnum() const;
   inline void set_m_dropnum(::google::protobuf::int32 value);
 
-  // optional int32 m_stacklimit = 16;
+  // optional int32 m_stackLimit = 16;
   inline bool has_m_stacklimit() const;
   inline void clear_m_stacklimit();
-  static const int kMStacklimitFieldNumber = 16;
+  static const int kMStackLimitFieldNumber = 16;
   inline ::google::protobuf::int32 m_stacklimit() const;
   inline void set_m_stacklimit(::google::protobuf::int32 value);
 
-  // optional int32 m_sellprice = 17;
+  // optional int32 m_sellPrice = 17;
   inline bool has_m_sellprice() const;
   inline void clear_m_sellprice();
-  static const int kMSellpriceFieldNumber = 17;
+  static const int kMSellPriceFieldNumber = 17;
   inline ::google::protobuf::int32 m_sellprice() const;
   inline void set_m_sellprice(::google::protobuf::int32 value);
 
-  // optional int64 m_sellbox = 18;
+  // optional int64 m_sellBox = 18;
   inline bool has_m_sellbox() const;
   inline void clear_m_sellbox();
-  static const int kMSellboxFieldNumber = 18;
+  static const int kMSellBoxFieldNumber = 18;
   inline ::google::protobuf::int64 m_sellbox() const;
   inline void set_m_sellbox(::google::protobuf::int64 value);
 
@@ -246,17 +246,17 @@ class E_ItemItem : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_broadcast() const;
   inline void set_m_broadcast(::google::protobuf::int32 value);
 
-  // optional int32 m_iscanbatchuse = 20;
+  // optional int32 m_isCanBatchUse = 20;
   inline bool has_m_iscanbatchuse() const;
   inline void clear_m_iscanbatchuse();
-  static const int kMIscanbatchuseFieldNumber = 20;
+  static const int kMIsCanBatchUseFieldNumber = 20;
   inline ::google::protobuf::int32 m_iscanbatchuse() const;
   inline void set_m_iscanbatchuse(::google::protobuf::int32 value);
 
-  // optional int32 m_dayuse = 21;
+  // optional int32 m_dayUse = 21;
   inline bool has_m_dayuse() const;
   inline void clear_m_dayuse();
-  static const int kMDayuseFieldNumber = 21;
+  static const int kMDayUseFieldNumber = 21;
   inline ::google::protobuf::int32 m_dayuse() const;
   inline void set_m_dayuse(::google::protobuf::int32 value);
 
@@ -267,10 +267,10 @@ class E_ItemItem : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_time() const;
   inline void set_m_time(::google::protobuf::int32 value);
 
-  // optional string m_uselimit = 23;
+  // optional string m_useLimit = 23;
   inline bool has_m_uselimit() const;
   inline void clear_m_uselimit();
-  static const int kMUselimitFieldNumber = 23;
+  static const int kMUseLimitFieldNumber = 23;
   inline const ::std::string& m_uselimit() const;
   inline void set_m_uselimit(const ::std::string& value);
   inline void set_m_uselimit(const char* value);
@@ -548,7 +548,7 @@ inline void E_ItemItem::set_allocated_m_name(::std::string* m_name) {
   }
 }
 
-// optional int32 m_itemtype = 3;
+// optional int32 m_itemType = 3;
 inline bool E_ItemItem::has_m_itemtype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -570,7 +570,7 @@ inline void E_ItemItem::set_m_itemtype(::google::protobuf::int32 value) {
   m_itemtype_ = value;
 }
 
-// optional int32 m_subtype = 4;
+// optional int32 m_subType = 4;
 inline bool E_ItemItem::has_m_subtype() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -592,7 +592,7 @@ inline void E_ItemItem::set_m_subtype(::google::protobuf::int32 value) {
   m_subtype_ = value;
 }
 
-// optional int32 m_functiontype = 5;
+// optional int32 m_functionType = 5;
 inline bool E_ItemItem::has_m_functiontype() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -614,7 +614,7 @@ inline void E_ItemItem::set_m_functiontype(::google::protobuf::int32 value) {
   m_functiontype_ = value;
 }
 
-// optional string m_functionvalue = 6;
+// optional string m_functionValue = 6;
 inline bool E_ItemItem::has_m_functionvalue() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -754,7 +754,7 @@ inline void E_ItemItem::set_allocated_m_usecondition(::std::string* m_useconditi
   }
 }
 
-// optional int64 m_waiguanlink = 8;
+// optional int64 m_waiguanLink = 8;
 inline bool E_ItemItem::has_m_waiguanlink() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -820,7 +820,7 @@ inline void E_ItemItem::set_m_quality(::google::protobuf::int32 value) {
   m_quality_ = value;
 }
 
-// optional int32 m_levelrequest = 11;
+// optional int32 m_levelRequest = 11;
 inline bool E_ItemItem::has_m_levelrequest() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -912,7 +912,7 @@ inline void E_ItemItem::set_allocated_m_profession(::std::string* m_profession) 
   }
 }
 
-// optional int32 m_bindtype = 13;
+// optional int32 m_bindType = 13;
 inline bool E_ItemItem::has_m_bindtype() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -934,7 +934,7 @@ inline void E_ItemItem::set_m_bindtype(::google::protobuf::int32 value) {
   m_bindtype_ = value;
 }
 
-// optional int32 m_istradebind = 14;
+// optional int32 m_isTradeBind = 14;
 inline bool E_ItemItem::has_m_istradebind() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -956,7 +956,7 @@ inline void E_ItemItem::set_m_istradebind(::google::protobuf::int32 value) {
   m_istradebind_ = value;
 }
 
-// optional int32 m_dropnum = 15;
+// optional int32 m_dropNum = 15;
 inline bool E_ItemItem::has_m_dropnum() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
@@ -978,7 +978,7 @@ inline void E_ItemItem::set_m_dropnum(::google::protobuf::int32 value) {
   m_dropnum_ = value;
 }
 
-// optional int32 m_stacklimit = 16;
+// optional int32 m_stackLimit = 16;
 inline bool E_ItemItem::has_m_stacklimit() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
@@ -1000,7 +1000,7 @@ inline void E_ItemItem::set_m_stacklimit(::google::protobuf::int32 value) {
   m_stacklimit_ = value;
 }
 
-// optional int32 m_sellprice = 17;
+// optional int32 m_sellPrice = 17;
 inline bool E_ItemItem::has_m_sellprice() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
@@ -1022,7 +1022,7 @@ inline void E_ItemItem::set_m_sellprice(::google::protobuf::int32 value) {
   m_sellprice_ = value;
 }
 
-// optional int64 m_sellbox = 18;
+// optional int64 m_sellBox = 18;
 inline bool E_ItemItem::has_m_sellbox() const {
   return (_has_bits_[0] & 0x00020000u) != 0;
 }
@@ -1066,7 +1066,7 @@ inline void E_ItemItem::set_m_broadcast(::google::protobuf::int32 value) {
   m_broadcast_ = value;
 }
 
-// optional int32 m_iscanbatchuse = 20;
+// optional int32 m_isCanBatchUse = 20;
 inline bool E_ItemItem::has_m_iscanbatchuse() const {
   return (_has_bits_[0] & 0x00080000u) != 0;
 }
@@ -1088,7 +1088,7 @@ inline void E_ItemItem::set_m_iscanbatchuse(::google::protobuf::int32 value) {
   m_iscanbatchuse_ = value;
 }
 
-// optional int32 m_dayuse = 21;
+// optional int32 m_dayUse = 21;
 inline bool E_ItemItem::has_m_dayuse() const {
   return (_has_bits_[0] & 0x00100000u) != 0;
 }
@@ -1132,7 +1132,7 @@ inline void E_ItemItem::set_m_time(::google::protobuf::int32 value) {
   m_time_ = value;
 }
 
-// optional string m_uselimit = 23;
+// optional string m_useLimit = 23;
 inline bool E_ItemItem::has_m_uselimit() const {
   return (_has_bits_[0] & 0x00400000u) != 0;
 }

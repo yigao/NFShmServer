@@ -210,24 +210,24 @@ class E_ConflateEquip : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_openlv = 2;
+  // optional int32 m_openLv = 2;
   inline bool has_m_openlv() const;
   inline void clear_m_openlv();
-  static const int kMOpenlvFieldNumber = 2;
+  static const int kMOpenLvFieldNumber = 2;
   inline ::google::protobuf::int32 m_openlv() const;
   inline void set_m_openlv(::google::protobuf::int32 value);
 
-  // optional int32 m_grouptype = 3;
+  // optional int32 m_groupType = 3;
   inline bool has_m_grouptype() const;
   inline void clear_m_grouptype();
-  static const int kMGrouptypeFieldNumber = 3;
+  static const int kMGroupTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_grouptype() const;
   inline void set_m_grouptype(::google::protobuf::int32 value);
 
-  // optional int32 m_subtype = 4;
+  // optional int32 m_subType = 4;
   inline bool has_m_subtype() const;
   inline void clear_m_subtype();
-  static const int kMSubtypeFieldNumber = 4;
+  static const int kMSubTypeFieldNumber = 4;
   inline ::google::protobuf::int32 m_subtype() const;
   inline void set_m_subtype(::google::protobuf::int32 value);
 
@@ -252,31 +252,31 @@ class E_ConflateEquip : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_quality() const;
   inline void set_m_quality(::google::protobuf::int32 value);
 
-  // optional int32 m_wearquality = 8;
+  // optional int32 m_wearQuality = 8;
   inline bool has_m_wearquality() const;
   inline void clear_m_wearquality();
-  static const int kMWearqualityFieldNumber = 8;
+  static const int kMWearQualityFieldNumber = 8;
   inline ::google::protobuf::int32 m_wearquality() const;
   inline void set_m_wearquality(::google::protobuf::int32 value);
 
-  // optional int32 m_elemstar = 9;
+  // optional int32 m_elemStar = 9;
   inline bool has_m_elemstar() const;
   inline void clear_m_elemstar();
-  static const int kMElemstarFieldNumber = 9;
+  static const int kMElemStarFieldNumber = 9;
   inline ::google::protobuf::int32 m_elemstar() const;
   inline void set_m_elemstar(::google::protobuf::int32 value);
 
-  // optional int32 m_elemquality = 10;
+  // optional int32 m_elemQuality = 10;
   inline bool has_m_elemquality() const;
   inline void clear_m_elemquality();
-  static const int kMElemqualityFieldNumber = 10;
+  static const int kMElemQualityFieldNumber = 10;
   inline ::google::protobuf::int32 m_elemquality() const;
   inline void set_m_elemquality(::google::protobuf::int32 value);
 
-  // optional int32 m_elemwearquality = 11;
+  // optional int32 m_elemWearQuality = 11;
   inline bool has_m_elemwearquality() const;
   inline void clear_m_elemwearquality();
-  static const int kMElemwearqualityFieldNumber = 11;
+  static const int kMElemWearQualityFieldNumber = 11;
   inline ::google::protobuf::int32 m_elemwearquality() const;
   inline void set_m_elemwearquality(::google::protobuf::int32 value);
 
@@ -308,31 +308,31 @@ class E_ConflateEquip : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_maxsuccessrate() const;
   inline void set_m_maxsuccessrate(::google::protobuf::int32 value);
 
-  // optional int32 m_muststar = 16;
+  // optional int32 m_mustStar = 16;
   inline bool has_m_muststar() const;
   inline void clear_m_muststar();
-  static const int kMMuststarFieldNumber = 16;
+  static const int kMMustStarFieldNumber = 16;
   inline ::google::protobuf::int32 m_muststar() const;
   inline void set_m_muststar(::google::protobuf::int32 value);
 
-  // optional int32 m_mustquality = 17;
+  // optional int32 m_mustQuality = 17;
   inline bool has_m_mustquality() const;
   inline void clear_m_mustquality();
-  static const int kMMustqualityFieldNumber = 17;
+  static const int kMMustQualityFieldNumber = 17;
   inline ::google::protobuf::int32 m_mustquality() const;
   inline void set_m_mustquality(::google::protobuf::int32 value);
 
-  // optional int32 m_mustwearquality = 18;
+  // optional int32 m_mustWearQuality = 18;
   inline bool has_m_mustwearquality() const;
   inline void clear_m_mustwearquality();
-  static const int kMMustwearqualityFieldNumber = 18;
+  static const int kMMustWearQualityFieldNumber = 18;
   inline ::google::protobuf::int32 m_mustwearquality() const;
   inline void set_m_mustwearquality(::google::protobuf::int32 value);
 
-  // optional int32 m_mustnum = 19;
+  // optional int32 m_mustNum = 19;
   inline bool has_m_mustnum() const;
   inline void clear_m_mustnum();
-  static const int kMMustnumFieldNumber = 19;
+  static const int kMMustNumFieldNumber = 19;
   inline ::google::protobuf::int32 m_mustnum() const;
   inline void set_m_mustnum(::google::protobuf::int32 value);
 
@@ -614,10 +614,10 @@ class E_ConflateGrouptype : public ::google::protobuf::Message {
   inline ::std::string* release_m_profession();
   inline void set_allocated_m_profession(::std::string* m_profession);
 
-  // optional string m_typename = 4;
+  // optional string m_typeName = 4;
   inline bool has_m_typename() const;
   inline void clear_m_typename();
-  static const int kMTypenameFieldNumber = 4;
+  static const int kMTypeNameFieldNumber = 4;
   inline const ::std::string& m_typename() const;
   inline void set_m_typename(const ::std::string& value);
   inline void set_m_typename(const char* value);
@@ -626,10 +626,10 @@ class E_ConflateGrouptype : public ::google::protobuf::Message {
   inline ::std::string* release_m_typename();
   inline void set_allocated_m_typename(::std::string* m_typename);
 
-  // optional int32 m_unlockid = 5;
+  // optional int32 m_unlockId = 5;
   inline bool has_m_unlockid() const;
   inline void clear_m_unlockid();
-  static const int kMUnlockidFieldNumber = 5;
+  static const int kMUnlockIdFieldNumber = 5;
   inline ::google::protobuf::int32 m_unlockid() const;
   inline void set_m_unlockid(::google::protobuf::int32 value);
 
@@ -832,10 +832,10 @@ class E_ConflateSubtype : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional string m_subname = 2;
+  // optional string m_subName = 2;
   inline bool has_m_subname() const;
   inline void clear_m_subname();
-  static const int kMSubnameFieldNumber = 2;
+  static const int kMSubNameFieldNumber = 2;
   inline const ::std::string& m_subname() const;
   inline void set_m_subname(const ::std::string& value);
   inline void set_m_subname(const char* value);
@@ -851,10 +851,10 @@ class E_ConflateSubtype : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
-  // optional int32 m_openlv = 4;
+  // optional int32 m_openLv = 4;
   inline bool has_m_openlv() const;
   inline void clear_m_openlv();
-  static const int kMOpenlvFieldNumber = 4;
+  static const int kMOpenLvFieldNumber = 4;
   inline ::google::protobuf::int32 m_openlv() const;
   inline void set_m_openlv(::google::protobuf::int32 value);
 
@@ -1027,7 +1027,7 @@ class E_ConflatePropReplaceDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_num = 1;
+  // optional int32 m_Num = 1;
   inline bool has_m_num() const;
   inline void clear_m_num();
   static const int kMNumFieldNumber = 1;
@@ -1218,17 +1218,17 @@ class E_ConflateProp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_target() const;
   inline void set_m_target(::google::protobuf::int32 value);
 
-  // optional int32 m_openlv = 2;
+  // optional int32 m_openLv = 2;
   inline bool has_m_openlv() const;
   inline void clear_m_openlv();
-  static const int kMOpenlvFieldNumber = 2;
+  static const int kMOpenLvFieldNumber = 2;
   inline ::google::protobuf::int32 m_openlv() const;
   inline void set_m_openlv(::google::protobuf::int32 value);
 
-  // optional int32 m_subtype = 3;
+  // optional int32 m_subType = 3;
   inline bool has_m_subtype() const;
   inline void clear_m_subtype();
-  static const int kMSubtypeFieldNumber = 3;
+  static const int kMSubTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_subtype() const;
   inline void set_m_subtype(::google::protobuf::int32 value);
 
@@ -1253,10 +1253,10 @@ class E_ConflateProp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_display() const;
   inline void set_m_display(::google::protobuf::int32 value);
 
-  // optional int32 m_replacetype = 7;
+  // optional int32 m_replaceType = 7;
   inline bool has_m_replacetype() const;
   inline void clear_m_replacetype();
-  static const int kMReplacetypeFieldNumber = 7;
+  static const int kMReplaceTypeFieldNumber = 7;
   inline ::google::protobuf::int32 m_replacetype() const;
   inline void set_m_replacetype(::google::protobuf::int32 value);
 
@@ -1593,17 +1593,17 @@ class E_ConflateJewelry_sp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_grouptype = 2;
+  // optional int32 m_groupType = 2;
   inline bool has_m_grouptype() const;
   inline void clear_m_grouptype();
-  static const int kMGrouptypeFieldNumber = 2;
+  static const int kMGroupTypeFieldNumber = 2;
   inline ::google::protobuf::int32 m_grouptype() const;
   inline void set_m_grouptype(::google::protobuf::int32 value);
 
-  // optional int32 m_openwearquality = 3;
+  // optional int32 m_openwearQuality = 3;
   inline bool has_m_openwearquality() const;
   inline void clear_m_openwearquality();
-  static const int kMOpenwearqualityFieldNumber = 3;
+  static const int kMOpenwearQualityFieldNumber = 3;
   inline ::google::protobuf::int32 m_openwearquality() const;
   inline void set_m_openwearquality(::google::protobuf::int32 value);
 
@@ -1942,10 +1942,10 @@ class E_ConflateJewelry_zl : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_openquality() const;
   inline void set_m_openquality(::google::protobuf::int32 value);
 
-  // optional int32 m_grouptype = 3;
+  // optional int32 m_groupType = 3;
   inline bool has_m_grouptype() const;
   inline void clear_m_grouptype();
-  static const int kMGrouptypeFieldNumber = 3;
+  static const int kMGroupTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_grouptype() const;
   inline void set_m_grouptype(::google::protobuf::int32 value);
 
@@ -1956,7 +1956,7 @@ class E_ConflateJewelry_zl : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_position() const;
   inline void set_m_position(::google::protobuf::int32 value);
 
-  // optional int32 m_zllv = 5;
+  // optional int32 m_Zllv = 5;
   inline bool has_m_zllv() const;
   inline void clear_m_zllv();
   static const int kMZllvFieldNumber = 5;
@@ -1970,7 +1970,7 @@ class E_ConflateJewelry_zl : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_next() const;
   inline void set_m_next(::google::protobuf::int32 value);
 
-  // optional string m_zlname = 7;
+  // optional string m_Zlname = 7;
   inline bool has_m_zlname() const;
   inline void clear_m_zlname();
   static const int kMZlnameFieldNumber = 7;
@@ -2272,10 +2272,10 @@ class E_ConflateJewelry_sj : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_grouptype = 2;
+  // optional int32 m_groupType = 2;
   inline bool has_m_grouptype() const;
   inline void clear_m_grouptype();
-  static const int kMGrouptypeFieldNumber = 2;
+  static const int kMGroupTypeFieldNumber = 2;
   inline ::google::protobuf::int32 m_grouptype() const;
   inline void set_m_grouptype(::google::protobuf::int32 value);
 
@@ -2286,10 +2286,10 @@ class E_ConflateJewelry_sj : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_position() const;
   inline void set_m_position(::google::protobuf::int32 value);
 
-  // optional int32 m_wearquality = 4;
+  // optional int32 m_wearQuality = 4;
   inline bool has_m_wearquality() const;
   inline void clear_m_wearquality();
-  static const int kMWearqualityFieldNumber = 4;
+  static const int kMWearQualityFieldNumber = 4;
   inline ::google::protobuf::int32 m_wearquality() const;
   inline void set_m_wearquality(::google::protobuf::int32 value);
 
@@ -2300,10 +2300,10 @@ class E_ConflateJewelry_sj : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_next() const;
   inline void set_m_next(::google::protobuf::int32 value);
 
-  // optional int32 m_openlv = 6;
+  // optional int32 m_openLv = 6;
   inline bool has_m_openlv() const;
   inline void clear_m_openlv();
-  static const int kMOpenlvFieldNumber = 6;
+  static const int kMOpenLvFieldNumber = 6;
   inline ::google::protobuf::int32 m_openlv() const;
   inline void set_m_openlv(::google::protobuf::int32 value);
 
@@ -2516,7 +2516,7 @@ inline void E_ConflateEquip::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_openlv = 2;
+// optional int32 m_openLv = 2;
 inline bool E_ConflateEquip::has_m_openlv() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -2538,7 +2538,7 @@ inline void E_ConflateEquip::set_m_openlv(::google::protobuf::int32 value) {
   m_openlv_ = value;
 }
 
-// optional int32 m_grouptype = 3;
+// optional int32 m_groupType = 3;
 inline bool E_ConflateEquip::has_m_grouptype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -2560,7 +2560,7 @@ inline void E_ConflateEquip::set_m_grouptype(::google::protobuf::int32 value) {
   m_grouptype_ = value;
 }
 
-// optional int32 m_subtype = 4;
+// optional int32 m_subType = 4;
 inline bool E_ConflateEquip::has_m_subtype() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -2648,7 +2648,7 @@ inline void E_ConflateEquip::set_m_quality(::google::protobuf::int32 value) {
   m_quality_ = value;
 }
 
-// optional int32 m_wearquality = 8;
+// optional int32 m_wearQuality = 8;
 inline bool E_ConflateEquip::has_m_wearquality() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -2670,7 +2670,7 @@ inline void E_ConflateEquip::set_m_wearquality(::google::protobuf::int32 value) 
   m_wearquality_ = value;
 }
 
-// optional int32 m_elemstar = 9;
+// optional int32 m_elemStar = 9;
 inline bool E_ConflateEquip::has_m_elemstar() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -2692,7 +2692,7 @@ inline void E_ConflateEquip::set_m_elemstar(::google::protobuf::int32 value) {
   m_elemstar_ = value;
 }
 
-// optional int32 m_elemquality = 10;
+// optional int32 m_elemQuality = 10;
 inline bool E_ConflateEquip::has_m_elemquality() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -2714,7 +2714,7 @@ inline void E_ConflateEquip::set_m_elemquality(::google::protobuf::int32 value) 
   m_elemquality_ = value;
 }
 
-// optional int32 m_elemwearquality = 11;
+// optional int32 m_elemWearQuality = 11;
 inline bool E_ConflateEquip::has_m_elemwearquality() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -2824,7 +2824,7 @@ inline void E_ConflateEquip::set_m_maxsuccessrate(::google::protobuf::int32 valu
   m_maxsuccessrate_ = value;
 }
 
-// optional int32 m_muststar = 16;
+// optional int32 m_mustStar = 16;
 inline bool E_ConflateEquip::has_m_muststar() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
@@ -2846,7 +2846,7 @@ inline void E_ConflateEquip::set_m_muststar(::google::protobuf::int32 value) {
   m_muststar_ = value;
 }
 
-// optional int32 m_mustquality = 17;
+// optional int32 m_mustQuality = 17;
 inline bool E_ConflateEquip::has_m_mustquality() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
@@ -2868,7 +2868,7 @@ inline void E_ConflateEquip::set_m_mustquality(::google::protobuf::int32 value) 
   m_mustquality_ = value;
 }
 
-// optional int32 m_mustwearquality = 18;
+// optional int32 m_mustWearQuality = 18;
 inline bool E_ConflateEquip::has_m_mustwearquality() const {
   return (_has_bits_[0] & 0x00020000u) != 0;
 }
@@ -2890,7 +2890,7 @@ inline void E_ConflateEquip::set_m_mustwearquality(::google::protobuf::int32 val
   m_mustwearquality_ = value;
 }
 
-// optional int32 m_mustnum = 19;
+// optional int32 m_mustNum = 19;
 inline bool E_ConflateEquip::has_m_mustnum() const {
   return (_has_bits_[0] & 0x00040000u) != 0;
 }
@@ -3176,7 +3176,7 @@ inline void E_ConflateGrouptype::set_allocated_m_profession(::std::string* m_pro
   }
 }
 
-// optional string m_typename = 4;
+// optional string m_typeName = 4;
 inline bool E_ConflateGrouptype::has_m_typename() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -3246,7 +3246,7 @@ inline void E_ConflateGrouptype::set_allocated_m_typename(::std::string* m_typen
   }
 }
 
-// optional int32 m_unlockid = 5;
+// optional int32 m_unlockId = 5;
 inline bool E_ConflateGrouptype::has_m_unlockid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -3367,7 +3367,7 @@ inline void E_ConflateSubtype::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional string m_subname = 2;
+// optional string m_subName = 2;
 inline bool E_ConflateSubtype::has_m_subname() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -3459,7 +3459,7 @@ inline void E_ConflateSubtype::set_m_groupid(::google::protobuf::int32 value) {
   m_groupid_ = value;
 }
 
-// optional int32 m_openlv = 4;
+// optional int32 m_openLv = 4;
 inline bool E_ConflateSubtype::has_m_openlv() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -3514,7 +3514,7 @@ Sheet_ConflateSubtype::mutable_e_conflatesubtype_list() {
 
 // E_ConflatePropReplaceDesc
 
-// optional int32 m_num = 1;
+// optional int32 m_Num = 1;
 inline bool E_ConflatePropReplaceDesc::has_m_num() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -3632,7 +3632,7 @@ inline void E_ConflateProp::set_m_target(::google::protobuf::int32 value) {
   m_target_ = value;
 }
 
-// optional int32 m_openlv = 2;
+// optional int32 m_openLv = 2;
 inline bool E_ConflateProp::has_m_openlv() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -3654,7 +3654,7 @@ inline void E_ConflateProp::set_m_openlv(::google::protobuf::int32 value) {
   m_openlv_ = value;
 }
 
-// optional int32 m_subtype = 3;
+// optional int32 m_subType = 3;
 inline bool E_ConflateProp::has_m_subtype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -3742,7 +3742,7 @@ inline void E_ConflateProp::set_m_display(::google::protobuf::int32 value) {
   m_display_ = value;
 }
 
-// optional int32 m_replacetype = 7;
+// optional int32 m_replaceType = 7;
 inline bool E_ConflateProp::has_m_replacetype() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -3983,7 +3983,7 @@ inline void E_ConflateJewelry_sp::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_grouptype = 2;
+// optional int32 m_groupType = 2;
 inline bool E_ConflateJewelry_sp::has_m_grouptype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -4005,7 +4005,7 @@ inline void E_ConflateJewelry_sp::set_m_grouptype(::google::protobuf::int32 valu
   m_grouptype_ = value;
 }
 
-// optional int32 m_openwearquality = 3;
+// optional int32 m_openwearQuality = 3;
 inline bool E_ConflateJewelry_sp::has_m_openwearquality() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -4287,7 +4287,7 @@ inline void E_ConflateJewelry_zl::set_m_openquality(::google::protobuf::int32 va
   m_openquality_ = value;
 }
 
-// optional int32 m_grouptype = 3;
+// optional int32 m_groupType = 3;
 inline bool E_ConflateJewelry_zl::has_m_grouptype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -4331,7 +4331,7 @@ inline void E_ConflateJewelry_zl::set_m_position(::google::protobuf::int32 value
   m_position_ = value;
 }
 
-// optional int32 m_zllv = 5;
+// optional int32 m_Zllv = 5;
 inline bool E_ConflateJewelry_zl::has_m_zllv() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -4375,7 +4375,7 @@ inline void E_ConflateJewelry_zl::set_m_next(::google::protobuf::int32 value) {
   m_next_ = value;
 }
 
-// optional string m_zlname = 7;
+// optional string m_Zlname = 7;
 inline bool E_ConflateJewelry_zl::has_m_zlname() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -4573,7 +4573,7 @@ inline void E_ConflateJewelry_sj::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_grouptype = 2;
+// optional int32 m_groupType = 2;
 inline bool E_ConflateJewelry_sj::has_m_grouptype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -4617,7 +4617,7 @@ inline void E_ConflateJewelry_sj::set_m_position(::google::protobuf::int32 value
   m_position_ = value;
 }
 
-// optional int32 m_wearquality = 4;
+// optional int32 m_wearQuality = 4;
 inline bool E_ConflateJewelry_sj::has_m_wearquality() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -4661,7 +4661,7 @@ inline void E_ConflateJewelry_sj::set_m_next(::google::protobuf::int32 value) {
   m_next_ = value;
 }
 
-// optional int32 m_openlv = 6;
+// optional int32 m_openLv = 6;
 inline bool E_ConflateJewelry_sj::has_m_openlv() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }

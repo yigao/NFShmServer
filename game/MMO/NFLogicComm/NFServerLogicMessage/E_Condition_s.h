@@ -19,8 +19,8 @@ namespace proto_ff_s {
 		virtual ~E_ConditionConditionConditionDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_param;//参数
-		int32_t m_type;//类型
+		int32_t m_Param;//参数
+		int32_t m_Type;//类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_ConditionConditionConditionDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ConditionConditionConditionDesc & msg);

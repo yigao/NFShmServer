@@ -8,11 +8,11 @@ message E_GodevilPreposetask
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号ID"];
 	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
 	optional int32 m_modeltype = 3[(yd_fieldoptions.field_cname) = "所属阶段"];
-	optional int32 m_starttask = 4[(yd_fieldoptions.field_cname) = "任务ID"];
-	optional int32 m_endtask = 5[(yd_fieldoptions.field_cname) = "结束任务ID"];
+	optional int32 m_startTask = 4[(yd_fieldoptions.field_cname) = "任务ID"];
+	optional int32 m_endTask = 5[(yd_fieldoptions.field_cname) = "结束任务ID"];
 	optional int32 m_condition = 6[(yd_fieldoptions.field_cname) = "条件"];
 	optional int32 m_value = 7[(yd_fieldoptions.field_cname) = "条件值"];
-	optional int32 m_rewardid = 8[(yd_fieldoptions.field_cname) = "奖励ID"];
+	optional int32 m_rewardID = 8[(yd_fieldoptions.field_cname) = "奖励ID"];
 }
 
 
@@ -31,8 +31,8 @@ message E_GodevilGodevillv
 {
 	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "等级"];
 	optional int64 m_exp = 2[(yd_fieldoptions.field_cname) = "下级经验"];
-	optional int64 m_explimit = 3[(yd_fieldoptions.field_cname) = "经验上限"];
-	optional int32 m_itemid = 4[(yd_fieldoptions.field_cname) = "突破材料"];
+	optional int64 m_expLimit = 3[(yd_fieldoptions.field_cname) = "经验上限"];
+	optional int32 m_itemID = 4[(yd_fieldoptions.field_cname) = "突破材料"];
 	optional int32 m_num = 5[(yd_fieldoptions.field_cname) = "材料数量"];
 	repeated E_GodevilGodevillvAttributeDesc m_attribute = 6[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 7];
 }
@@ -46,15 +46,15 @@ message Sheet_GodevilGodevillv
 message E_GodevilGodevilprivilege
 {
 	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_oldprice = 2[(yd_fieldoptions.field_cname) = "原价元"];
-	optional int32 m_newprice = 3[(yd_fieldoptions.field_cname) = "现价"];
-	optional int32 m_rechargid = 4[(yd_fieldoptions.field_cname) = "计费点"];
+	optional int32 m_oldPrice = 2[(yd_fieldoptions.field_cname) = "原价元"];
+	optional int32 m_newPrice = 3[(yd_fieldoptions.field_cname) = "现价"];
+	optional int32 m_rechargID = 4[(yd_fieldoptions.field_cname) = "计费点"];
 	optional int32 m_type = 5[(yd_fieldoptions.field_cname) = "特权类型"];
 	optional int32 m_lv = 6[(yd_fieldoptions.field_cname) = "特权等级"];
-	optional int32 m_functiontype = 7[(yd_fieldoptions.field_cname) = "功能类型"];
+	optional int32 m_functionType = 7[(yd_fieldoptions.field_cname) = "功能类型"];
 	optional int32 m_parama = 8[(yd_fieldoptions.field_cname) = "参数"];
-	optional int32 m_equipmentid = 9[(yd_fieldoptions.field_cname) = "获取装备道具ID"];
-	optional int32 m_itemid = 10[(yd_fieldoptions.field_cname) = "赠送的装备道具ID"];
+	optional int32 m_equipmentID = 9[(yd_fieldoptions.field_cname) = "获取装备道具ID"];
+	optional int32 m_itemID = 10[(yd_fieldoptions.field_cname) = "赠送的装备道具ID"];
 }
 
 
@@ -65,7 +65,7 @@ message Sheet_GodevilGodevilprivilege
 
 message E_GodevilStrongStDesc
 {
-	optional string m_typeid = 1[(yd_fieldoptions.field_cname) = "提升属性类型", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_typeID = 1[(yd_fieldoptions.field_cname) = "提升属性类型", (yd_fieldoptions.field_bufsize) = 64];
 	optional string m_quality = 2[(yd_fieldoptions.field_cname) = "品质", (yd_fieldoptions.field_bufsize) = 64];
 	optional string m_position = 3[(yd_fieldoptions.field_cname) = "部位", (yd_fieldoptions.field_bufsize) = 64];
 }
@@ -75,7 +75,7 @@ message E_GodevilStrong
 	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "强化等级"];
 	optional int32 m_exp = 2[(yd_fieldoptions.field_cname) = "经验值"];
 	optional int32 m_type_num = 3[(yd_fieldoptions.field_cname) = "属性提升系数"];
-	optional int32 m_godevillv = 4[(yd_fieldoptions.field_cname) = "需求神魔等级"];
+	optional int32 m_godevilLv = 4[(yd_fieldoptions.field_cname) = "需求神魔等级"];
 	repeated E_GodevilStrongStDesc m_st = 5[(yd_fieldoptions.field_cname) = "装备", (yd_fieldoptions.field_arysize) = 5];
 }
 
@@ -90,7 +90,7 @@ message E_GodevilStrongexp
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
 	optional int32 m_parama = 3[(yd_fieldoptions.field_cname) = "影响值"];
-	optional int32 m_strongexp = 4[(yd_fieldoptions.field_cname) = "经验值"];
+	optional int32 m_strongExp = 4[(yd_fieldoptions.field_cname) = "经验值"];
 }
 
 
@@ -101,14 +101,14 @@ message Sheet_GodevilStrongexp
 
 message E_GodevilAdvancelvAdDesc
 {
-	optional int32 m_godevillv = 1[(yd_fieldoptions.field_cname) = "需求神魔等级"];
+	optional int32 m_godevilLv = 1[(yd_fieldoptions.field_cname) = "需求神魔等级"];
 	optional int32 m_exp = 2[(yd_fieldoptions.field_cname) = "下级经验值"];
 	optional string m_position = 3[(yd_fieldoptions.field_cname) = "", (yd_fieldoptions.field_bufsize) = 64];
 }
 
 message E_GodevilAdvancelv
 {
-	optional int32 m_wearlv = 1[(yd_fieldoptions.field_cname) = "装备品阶"];
+	optional int32 m_wearLv = 1[(yd_fieldoptions.field_cname) = "装备品阶"];
 	repeated E_GodevilAdvancelvAdDesc m_ad = 2[(yd_fieldoptions.field_cname) = "部位", (yd_fieldoptions.field_arysize) = 2];
 }
 
@@ -121,11 +121,11 @@ message Sheet_GodevilAdvancelv
 message E_GodevilAdvanceexp
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_wearlv = 2[(yd_fieldoptions.field_cname) = "装备品阶"];
+	optional int32 m_wearLv = 2[(yd_fieldoptions.field_cname) = "装备品阶"];
 	optional string m_position = 3[(yd_fieldoptions.field_cname) = "部位", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_lvparama = 4[(yd_fieldoptions.field_cname) = "阶数系数"];
-	optional int32 m_goldparama = 5[(yd_fieldoptions.field_cname) = "黄星系数"];
-	optional int32 m_silverparama = 6[(yd_fieldoptions.field_cname) = "白星系数"];
+	optional int32 m_lvParama = 4[(yd_fieldoptions.field_cname) = "阶数系数"];
+	optional int32 m_goldParama = 5[(yd_fieldoptions.field_cname) = "黄星系数"];
+	optional int32 m_silverParama = 6[(yd_fieldoptions.field_cname) = "白星系数"];
 	optional int32 m_quality6 = 7[(yd_fieldoptions.field_cname) = "红品系数"];
 	optional int32 m_quality7 = 8[(yd_fieldoptions.field_cname) = "粉品系数"];
 	optional int32 m_quality8 = 9[(yd_fieldoptions.field_cname) = "彩品系数"];
@@ -142,18 +142,18 @@ message Sheet_GodevilAdvanceexp
 message E_GodevilQualitylvItemDesc
 {
 	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
-	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_ID = 2[(yd_fieldoptions.field_cname) = "ID"];
 }
 
 message E_GodevilQualitylv
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_quality = 2[(yd_fieldoptions.field_cname) = "品质"];
-	optional int32 m_wearlv = 3[(yd_fieldoptions.field_cname) = "需求装备阶数"];
+	optional int32 m_wearLv = 3[(yd_fieldoptions.field_cname) = "需求装备阶数"];
 	optional int32 m_percent = 4[(yd_fieldoptions.field_cname) = "下级成功率"];
 	optional string m_position = 5[(yd_fieldoptions.field_cname) = "部位", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_costwuxiongitem = 6[(yd_fieldoptions.field_cname) = "消耗神品悟性道具"];
-	optional int32 m_costnumber = 7[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_costwuxiongItem = 6[(yd_fieldoptions.field_cname) = "消耗神品悟性道具"];
+	optional int32 m_costNumber = 7[(yd_fieldoptions.field_cname) = "数量"];
 	repeated E_GodevilQualitylvItemDesc m_item = 8[(yd_fieldoptions.field_cname) = "材料", (yd_fieldoptions.field_arysize) = 3];
 }
 
@@ -167,7 +167,7 @@ message E_GodevilPositionunlock
 {
 	optional int32 m_position = 1[(yd_fieldoptions.field_cname) = "部位id"];
 	optional int32 m_day = 2[(yd_fieldoptions.field_cname) = "解锁天数"];
-	optional int32 m_godevillv = 3[(yd_fieldoptions.field_cname) = "神魔等级"];
+	optional int32 m_godevilLv = 3[(yd_fieldoptions.field_cname) = "神魔等级"];
 }
 
 
@@ -178,14 +178,14 @@ message Sheet_GodevilPositionunlock
 
 message E_GodevilBlacksmithItemDesc
 {
-	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
-	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_ID = 2[(yd_fieldoptions.field_cname) = "id"];
 }
 
 message E_GodevilBlacksmithSkillDesc
 {
 	optional int32 m_probability = 1[(yd_fieldoptions.field_cname) = "概率"];
-	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_ID = 2[(yd_fieldoptions.field_cname) = "ID"];
 }
 
 message E_GodevilBlacksmith
@@ -195,16 +195,16 @@ message E_GodevilBlacksmith
 	optional int32 m_position = 3[(yd_fieldoptions.field_cname) = "装备部位"];
 	optional int32 m_quality = 4[(yd_fieldoptions.field_cname) = "装备品质"];
 	optional int32 m_probability = 5[(yd_fieldoptions.field_cname) = "出现概率"];
-	optional string m_godpoint = 6[(yd_fieldoptions.field_cname) = "悟性随机", (yd_fieldoptions.field_bufsize) = 64];
-	optional string m_starsprobability = 7[(yd_fieldoptions.field_cname) = "词条数和概率", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_godPoint = 6[(yd_fieldoptions.field_cname) = "悟性随机", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_starsProbability = 7[(yd_fieldoptions.field_cname) = "词条数和概率", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_gold = 8[(yd_fieldoptions.field_cname) = "黄星概率"];
 	optional int32 m_silver = 9[(yd_fieldoptions.field_cname) = "白星概率"];
-	optional int32 m_paperid = 10[(yd_fieldoptions.field_cname) = "图纸ID"];
-	optional int32 m_papernum = 11[(yd_fieldoptions.field_cname) = "图纸数量"];
-	optional int32 m_substituteitem = 12[(yd_fieldoptions.field_cname) = "缺省道具"];
+	optional int32 m_paperID = 10[(yd_fieldoptions.field_cname) = "图纸ID"];
+	optional int32 m_paperNum = 11[(yd_fieldoptions.field_cname) = "图纸数量"];
+	optional int32 m_substituteItem = 12[(yd_fieldoptions.field_cname) = "缺省道具"];
 	optional int32 m_number = 13[(yd_fieldoptions.field_cname) = "缺省道具数量"];
-	optional int32 m_godevilskill = 14[(yd_fieldoptions.field_cname) = "神魔技能ID"];
-	optional string m_skillset = 15[(yd_fieldoptions.field_cname) = "被动技能概率", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_godevilSkill = 14[(yd_fieldoptions.field_cname) = "神魔技能ID"];
+	optional string m_skillSet = 15[(yd_fieldoptions.field_cname) = "被动技能概率", (yd_fieldoptions.field_bufsize) = 64];
 	repeated E_GodevilBlacksmithItemDesc m_item = 16[(yd_fieldoptions.field_cname) = "道具", (yd_fieldoptions.field_arysize) = 3];
 	repeated E_GodevilBlacksmithSkillDesc m_skill = 17[(yd_fieldoptions.field_cname) = "被动技能", (yd_fieldoptions.field_arysize) = 12];
 }
@@ -217,8 +217,8 @@ message Sheet_GodevilBlacksmith
 
 message E_GodevilGodevilskill
 {
-	optional int32 m_godevilskill = 1[(yd_fieldoptions.field_cname) = "神魔技能ID"];
-	optional int32 m_goldstars = 2[(yd_fieldoptions.field_cname) = "金星星数"];
+	optional int32 m_godevilSkill = 1[(yd_fieldoptions.field_cname) = "神魔技能ID"];
+	optional int32 m_goldStars = 2[(yd_fieldoptions.field_cname) = "金星星数"];
 }
 
 

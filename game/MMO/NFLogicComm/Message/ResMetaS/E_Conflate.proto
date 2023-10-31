@@ -12,24 +12,24 @@ message E_ConflateEquipElemDesc
 message E_ConflateEquip
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "合成id"];
-	optional int32 m_openlv = 2[(yd_fieldoptions.field_cname) = "显示等级"];
-	optional int32 m_grouptype = 3[(yd_fieldoptions.field_cname) = "装备类型"];
-	optional int32 m_subtype = 4[(yd_fieldoptions.field_cname) = "装备组id"];
+	optional int32 m_openLv = 2[(yd_fieldoptions.field_cname) = "显示等级"];
+	optional int32 m_groupType = 3[(yd_fieldoptions.field_cname) = "装备类型"];
+	optional int32 m_subType = 4[(yd_fieldoptions.field_cname) = "装备组id"];
 	optional int32 m_needsameposition = 5[(yd_fieldoptions.field_cname) = "是否同部位"];
 	optional int32 m_star = 6[(yd_fieldoptions.field_cname) = "装备星级"];
 	optional int32 m_quality = 7[(yd_fieldoptions.field_cname) = "装备品质"];
-	optional int32 m_wearquality = 8[(yd_fieldoptions.field_cname) = "装备品阶"];
-	optional int32 m_elemstar = 9[(yd_fieldoptions.field_cname) = "素材星级"];
-	optional int32 m_elemquality = 10[(yd_fieldoptions.field_cname) = "素材品质"];
-	optional int32 m_elemwearquality = 11[(yd_fieldoptions.field_cname) = "素材品阶"];
+	optional int32 m_wearQuality = 8[(yd_fieldoptions.field_cname) = "装备品阶"];
+	optional int32 m_elemStar = 9[(yd_fieldoptions.field_cname) = "素材星级"];
+	optional int32 m_elemQuality = 10[(yd_fieldoptions.field_cname) = "素材品质"];
+	optional int32 m_elemWearQuality = 11[(yd_fieldoptions.field_cname) = "素材品阶"];
 	optional int32 m_minimum = 12[(yd_fieldoptions.field_cname) = "最小装备数量"];
 	optional int32 m_minisuccessrate = 13[(yd_fieldoptions.field_cname) = "最少装备成功率"];
 	optional int32 m_maxmum = 14[(yd_fieldoptions.field_cname) = "最大装备数量"];
 	optional int32 m_maxsuccessrate = 15[(yd_fieldoptions.field_cname) = "最大装备成功率"];
-	optional int32 m_muststar = 16[(yd_fieldoptions.field_cname) = "同阶星级"];
-	optional int32 m_mustquality = 17[(yd_fieldoptions.field_cname) = "同阶品质"];
-	optional int32 m_mustwearquality = 18[(yd_fieldoptions.field_cname) = "同阶品阶"];
-	optional int32 m_mustnum = 19[(yd_fieldoptions.field_cname) = "同阶装备数量"];
+	optional int32 m_mustStar = 16[(yd_fieldoptions.field_cname) = "同阶星级"];
+	optional int32 m_mustQuality = 17[(yd_fieldoptions.field_cname) = "同阶品质"];
+	optional int32 m_mustWearQuality = 18[(yd_fieldoptions.field_cname) = "同阶品阶"];
+	optional int32 m_mustNum = 19[(yd_fieldoptions.field_cname) = "同阶装备数量"];
 	optional int32 m_usemoney = 20[(yd_fieldoptions.field_cname) = "合成消耗货币"];
 	optional int32 m_cost = 21[(yd_fieldoptions.field_cname) = "货币数量"];
 	repeated E_ConflateEquipElemDesc m_elem = 22[(yd_fieldoptions.field_cname) = "素材", (yd_fieldoptions.field_arysize) = 3];
@@ -46,8 +46,8 @@ message E_ConflateGrouptype
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "合成id"];
 	optional string m_position = 2[(yd_fieldoptions.field_cname) = "装备部位", (yd_fieldoptions.field_bufsize) = 64];
 	optional string m_profession = 3[(yd_fieldoptions.field_cname) = "职业限制", (yd_fieldoptions.field_bufsize) = 64];
-	optional string m_typename = 4[(yd_fieldoptions.field_cname) = "类型名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_unlockid = 5[(yd_fieldoptions.field_cname) = "开启条件"];
+	optional string m_typeName = 4[(yd_fieldoptions.field_cname) = "类型名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_unlockId = 5[(yd_fieldoptions.field_cname) = "开启条件"];
 	optional int32 m_entry = 6[(yd_fieldoptions.field_cname) = "入口id"];
 	optional int32 m_rule = 7[(yd_fieldoptions.field_cname) = "规则"];
 }
@@ -61,9 +61,9 @@ message Sheet_ConflateGrouptype
 message E_ConflateSubtype
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "装备组id"];
-	optional string m_subname = 2[(yd_fieldoptions.field_cname) = "组名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_subName = 2[(yd_fieldoptions.field_cname) = "组名称", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_groupid = 3[(yd_fieldoptions.field_cname) = "装备类型"];
-	optional int32 m_openlv = 4[(yd_fieldoptions.field_cname) = "显示等级"];
+	optional int32 m_openLv = 4[(yd_fieldoptions.field_cname) = "显示等级"];
 }
 
 
@@ -74,7 +74,7 @@ message Sheet_ConflateSubtype
 
 message E_ConflatePropReplaceDesc
 {
-	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "素材数量"];
+	optional int32 m_Num = 1[(yd_fieldoptions.field_cname) = "素材数量"];
 	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "素材"];
 }
 
@@ -87,12 +87,12 @@ message E_ConflatePropElemDesc
 message E_ConflateProp
 {
 	optional int32 m_target = 1[(yd_fieldoptions.field_cname) = "合成目标"];
-	optional int32 m_openlv = 2[(yd_fieldoptions.field_cname) = "显示等级"];
-	optional int32 m_subtype = 3[(yd_fieldoptions.field_cname) = "条目"];
+	optional int32 m_openLv = 2[(yd_fieldoptions.field_cname) = "显示等级"];
+	optional int32 m_subType = 3[(yd_fieldoptions.field_cname) = "条目"];
 	optional int32 m_order = 4[(yd_fieldoptions.field_cname) = "排序"];
 	optional int32 m_activate = 5[(yd_fieldoptions.field_cname) = "是否激活后不可合成"];
 	optional int32 m_display = 6[(yd_fieldoptions.field_cname) = "是否显示合成数量"];
-	optional int32 m_replacetype = 7[(yd_fieldoptions.field_cname) = "是否可替代"];
+	optional int32 m_replaceType = 7[(yd_fieldoptions.field_cname) = "是否可替代"];
 	optional int32 m_culture = 8[(yd_fieldoptions.field_cname) = "是否养成"];
 	optional int32 m_usemoney = 9[(yd_fieldoptions.field_cname) = "合成消耗货币"];
 	optional int32 m_cost = 10[(yd_fieldoptions.field_cname) = "货币数量"];
@@ -115,8 +115,8 @@ message E_ConflateJewelry_spElemDesc
 message E_ConflateJewelry_sp
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "合成id"];
-	optional int32 m_grouptype = 2[(yd_fieldoptions.field_cname) = "组类型"];
-	optional int32 m_openwearquality = 3[(yd_fieldoptions.field_cname) = "装备品阶要求"];
+	optional int32 m_groupType = 2[(yd_fieldoptions.field_cname) = "组类型"];
+	optional int32 m_openwearQuality = 3[(yd_fieldoptions.field_cname) = "装备品阶要求"];
 	optional int32 m_openspecial = 4[(yd_fieldoptions.field_cname) = "真炼要求"];
 	optional int32 m_position = 5[(yd_fieldoptions.field_cname) = "装备位置"];
 	optional int32 m_quality = 6[(yd_fieldoptions.field_cname) = "装备品质要求"];
@@ -141,11 +141,11 @@ message E_ConflateJewelry_zl
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "合成id"];
 	optional int32 m_openquality = 2[(yd_fieldoptions.field_cname) = "品质要求"];
-	optional int32 m_grouptype = 3[(yd_fieldoptions.field_cname) = "组类型"];
+	optional int32 m_groupType = 3[(yd_fieldoptions.field_cname) = "组类型"];
 	optional int32 m_position = 4[(yd_fieldoptions.field_cname) = "装备部位"];
-	optional int32 m_zllv = 5[(yd_fieldoptions.field_cname) = "真炼等级"];
+	optional int32 m_Zllv = 5[(yd_fieldoptions.field_cname) = "真炼等级"];
 	optional int32 m_next = 6[(yd_fieldoptions.field_cname) = "下一级"];
-	optional string m_zlname = 7[(yd_fieldoptions.field_cname) = "等级描述", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_Zlname = 7[(yd_fieldoptions.field_cname) = "等级描述", (yd_fieldoptions.field_bufsize) = 64];
 	repeated E_ConflateJewelry_zlElemDesc m_elem = 8[(yd_fieldoptions.field_cname) = "素材", (yd_fieldoptions.field_arysize) = 4];
 }
 
@@ -164,11 +164,11 @@ message E_ConflateJewelry_sjElemDesc
 message E_ConflateJewelry_sj
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "合成id"];
-	optional int32 m_grouptype = 2[(yd_fieldoptions.field_cname) = "组类型"];
+	optional int32 m_groupType = 2[(yd_fieldoptions.field_cname) = "组类型"];
 	optional int32 m_position = 3[(yd_fieldoptions.field_cname) = "装备位置"];
-	optional int32 m_wearquality = 4[(yd_fieldoptions.field_cname) = "装备品阶"];
+	optional int32 m_wearQuality = 4[(yd_fieldoptions.field_cname) = "装备品阶"];
 	optional int32 m_next = 5[(yd_fieldoptions.field_cname) = "下一级"];
-	optional int32 m_openlv = 6[(yd_fieldoptions.field_cname) = "升阶等级"];
+	optional int32 m_openLv = 6[(yd_fieldoptions.field_cname) = "升阶等级"];
 	repeated E_ConflateJewelry_sjElemDesc m_elem = 7[(yd_fieldoptions.field_cname) = "素材", (yd_fieldoptions.field_arysize) = 4];
 }
 

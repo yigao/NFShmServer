@@ -66,18 +66,18 @@ namespace proto_ff_s {
 		int64_t m_id;//称号ID
 		NFShmString<64> m_name;//称号名称
 		int32_t m_type;//称号类型
-		int32_t m_subtype;//获取条件类型
-		NFShmString<64> m_eventvalue;//获取条件值
+		int32_t m_subType;//获取条件类型
+		NFShmString<64> m_eventValue;//获取条件值
 		NFShmString<256> m_describe;//获取条件描述
-		int32_t m_addtime;//自动延期
-		int32_t m_timetpye;//时间类型
-		int32_t m_lifetime;//生效时间
-		int64_t m_activationitem;//激活道具ID
-		int32_t m_activationnum;//激活道具数量
-		int64_t m_starid;//升星道具id
-		NFShmString<256> m_starnum;//升星道具数量
-		int32_t m_starup;//升星等级上限
-		int32_t m_starber;//每次升星属性增加的万分比值
+		int32_t m_addTime;//自动延期
+		int32_t m_timeTpye;//时间类型
+		int32_t m_lifeTime;//生效时间
+		int64_t m_activationItem;//激活道具ID
+		int32_t m_activationNum;//激活道具数量
+		int64_t m_starId;//升星道具id
+		NFShmString<256> m_starNum;//升星道具数量
+		int32_t m_starUp;//升星等级上限
+		int32_t m_starBer;//每次升星属性增加的万分比值
 		NFShmVector<struct E_TitleTitleAttributeDesc_s, DEFINE_E_TITLETITLE_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_TitleTitle & msg) const;

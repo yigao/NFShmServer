@@ -41,7 +41,7 @@ E_FacadeDisplay_s::E_FacadeDisplay_s() {
 int E_FacadeDisplay_s::CreateInit() {
 	m_id = (int64_t)0;
 	m_type = (int32_t)0;
-	m_souliid = (int32_t)0;
+	m_soulIID = (int32_t)0;
 	return 0;
 }
 
@@ -54,16 +54,16 @@ void E_FacadeDisplay_s::write_to_pbmsg(::proto_ff::E_FacadeDisplay & msg) const 
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_resource(m_resource.data());
 	msg.set_m_name(m_name.data());
-	msg.set_m_activedesc(m_activedesc.data());
-	msg.set_m_professionid(m_professionid.data());
-	msg.set_m_skillid(m_skillid.data());
-	msg.set_m_souliid((int32_t)m_souliid);
+	msg.set_m_activedesc(m_activeDesc.data());
+	msg.set_m_professionid(m_professionID.data());
+	msg.set_m_skillid(m_skillID.data());
+	msg.set_m_souliid((int32_t)m_soulIID);
 	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
 		::proto_ff::E_FacadeDisplayMaterialDesc* temp_m_material = msg.add_m_material();
 		m_material[i].write_to_pbmsg(*temp_m_material);
 	}
-	for(int32_t i = 0; i < (int32_t)m_fragmentid.size(); ++i) {
-		msg.add_m_fragmentid((int64_t)m_fragmentid[i]);
+	for(int32_t i = 0; i < (int32_t)m_fragmentID.size(); ++i) {
+		msg.add_m_fragmentid((int64_t)m_fragmentID[i]);
 	}
 }
 
@@ -72,18 +72,18 @@ void E_FacadeDisplay_s::read_from_pbmsg(const ::proto_ff::E_FacadeDisplay & msg)
 	m_type = msg.m_type();
 	m_resource = msg.m_resource();
 	m_name = msg.m_name();
-	m_activedesc = msg.m_activedesc();
-	m_professionid = msg.m_professionid();
-	m_skillid = msg.m_skillid();
-	m_souliid = msg.m_souliid();
+	m_activeDesc = msg.m_activedesc();
+	m_professionID = msg.m_professionid();
+	m_skillID = msg.m_skillid();
+	m_soulIID = msg.m_souliid();
 	m_material.resize((int)msg.m_material_size() > (int)m_material.max_size() ? m_material.max_size() : msg.m_material_size());
 	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
 		const ::proto_ff::E_FacadeDisplayMaterialDesc & temp_m_material = msg.m_material(i);
 		m_material[i].read_from_pbmsg(temp_m_material);
 	}
-	m_fragmentid.resize((int)msg.m_fragmentid_size() > (int)m_fragmentid.max_size() ? m_fragmentid.max_size() : msg.m_fragmentid_size());
-	for(int32_t i = 0; i < (int32_t)m_fragmentid.size(); ++i) {
-		m_fragmentid[i] = msg.m_fragmentid(i);
+	m_fragmentID.resize((int)msg.m_fragmentid_size() > (int)m_fragmentID.max_size() ? m_fragmentID.max_size() : msg.m_fragmentid_size());
+	for(int32_t i = 0; i < (int32_t)m_fragmentID.size(); ++i) {
+		m_fragmentID[i] = msg.m_fragmentid(i);
 	}
 }
 
@@ -240,10 +240,10 @@ E_FacadeValue_s::E_FacadeValue_s() {
 
 int E_FacadeValue_s::CreateInit() {
 	m_lv = (int32_t)0;
-	m_wingexp = (int64_t)0;
-	m_treasureexp = (int64_t)0;
-	m_artifactexp = (int64_t)0;
-	m_bladeexp = (int64_t)0;
+	m_wingExp = (int64_t)0;
+	m_treasureExp = (int64_t)0;
+	m_ArtifactExp = (int64_t)0;
+	m_BladeExp = (int64_t)0;
 	return 0;
 }
 
@@ -253,53 +253,53 @@ int E_FacadeValue_s::ResumeInit() {
 
 void E_FacadeValue_s::write_to_pbmsg(::proto_ff::E_FacadeValue & msg) const {
 	msg.set_m_lv((int32_t)m_lv);
-	msg.set_m_wingexp((int64_t)m_wingexp);
-	msg.set_m_treasureexp((int64_t)m_treasureexp);
-	msg.set_m_artifactexp((int64_t)m_artifactexp);
-	msg.set_m_bladeexp((int64_t)m_bladeexp);
-	for(int32_t i = 0; i < (int32_t)m_wingattribute.size(); ++i) {
+	msg.set_m_wingexp((int64_t)m_wingExp);
+	msg.set_m_treasureexp((int64_t)m_treasureExp);
+	msg.set_m_artifactexp((int64_t)m_ArtifactExp);
+	msg.set_m_bladeexp((int64_t)m_BladeExp);
+	for(int32_t i = 0; i < (int32_t)m_wingAttribute.size(); ++i) {
 		::proto_ff::E_FacadeValueWingattributeDesc* temp_m_wingattribute = msg.add_m_wingattribute();
-		m_wingattribute[i].write_to_pbmsg(*temp_m_wingattribute);
+		m_wingAttribute[i].write_to_pbmsg(*temp_m_wingattribute);
 	}
-	for(int32_t i = 0; i < (int32_t)m_treasureattribute.size(); ++i) {
+	for(int32_t i = 0; i < (int32_t)m_treasureAttribute.size(); ++i) {
 		::proto_ff::E_FacadeValueTreasureattributeDesc* temp_m_treasureattribute = msg.add_m_treasureattribute();
-		m_treasureattribute[i].write_to_pbmsg(*temp_m_treasureattribute);
+		m_treasureAttribute[i].write_to_pbmsg(*temp_m_treasureattribute);
 	}
-	for(int32_t i = 0; i < (int32_t)m_artifactattribute.size(); ++i) {
+	for(int32_t i = 0; i < (int32_t)m_ArtifactAttribute.size(); ++i) {
 		::proto_ff::E_FacadeValueArtifactattributeDesc* temp_m_artifactattribute = msg.add_m_artifactattribute();
-		m_artifactattribute[i].write_to_pbmsg(*temp_m_artifactattribute);
+		m_ArtifactAttribute[i].write_to_pbmsg(*temp_m_artifactattribute);
 	}
-	for(int32_t i = 0; i < (int32_t)m_bladeattribute.size(); ++i) {
+	for(int32_t i = 0; i < (int32_t)m_BladeAttribute.size(); ++i) {
 		::proto_ff::E_FacadeValueBladeattributeDesc* temp_m_bladeattribute = msg.add_m_bladeattribute();
-		m_bladeattribute[i].write_to_pbmsg(*temp_m_bladeattribute);
+		m_BladeAttribute[i].write_to_pbmsg(*temp_m_bladeattribute);
 	}
 }
 
 void E_FacadeValue_s::read_from_pbmsg(const ::proto_ff::E_FacadeValue & msg) {
 	m_lv = msg.m_lv();
-	m_wingexp = msg.m_wingexp();
-	m_treasureexp = msg.m_treasureexp();
-	m_artifactexp = msg.m_artifactexp();
-	m_bladeexp = msg.m_bladeexp();
-	m_wingattribute.resize((int)msg.m_wingattribute_size() > (int)m_wingattribute.max_size() ? m_wingattribute.max_size() : msg.m_wingattribute_size());
-	for(int32_t i = 0; i < (int32_t)m_wingattribute.size(); ++i) {
+	m_wingExp = msg.m_wingexp();
+	m_treasureExp = msg.m_treasureexp();
+	m_ArtifactExp = msg.m_artifactexp();
+	m_BladeExp = msg.m_bladeexp();
+	m_wingAttribute.resize((int)msg.m_wingattribute_size() > (int)m_wingAttribute.max_size() ? m_wingAttribute.max_size() : msg.m_wingattribute_size());
+	for(int32_t i = 0; i < (int32_t)m_wingAttribute.size(); ++i) {
 		const ::proto_ff::E_FacadeValueWingattributeDesc & temp_m_wingattribute = msg.m_wingattribute(i);
-		m_wingattribute[i].read_from_pbmsg(temp_m_wingattribute);
+		m_wingAttribute[i].read_from_pbmsg(temp_m_wingattribute);
 	}
-	m_treasureattribute.resize((int)msg.m_treasureattribute_size() > (int)m_treasureattribute.max_size() ? m_treasureattribute.max_size() : msg.m_treasureattribute_size());
-	for(int32_t i = 0; i < (int32_t)m_treasureattribute.size(); ++i) {
+	m_treasureAttribute.resize((int)msg.m_treasureattribute_size() > (int)m_treasureAttribute.max_size() ? m_treasureAttribute.max_size() : msg.m_treasureattribute_size());
+	for(int32_t i = 0; i < (int32_t)m_treasureAttribute.size(); ++i) {
 		const ::proto_ff::E_FacadeValueTreasureattributeDesc & temp_m_treasureattribute = msg.m_treasureattribute(i);
-		m_treasureattribute[i].read_from_pbmsg(temp_m_treasureattribute);
+		m_treasureAttribute[i].read_from_pbmsg(temp_m_treasureattribute);
 	}
-	m_artifactattribute.resize((int)msg.m_artifactattribute_size() > (int)m_artifactattribute.max_size() ? m_artifactattribute.max_size() : msg.m_artifactattribute_size());
-	for(int32_t i = 0; i < (int32_t)m_artifactattribute.size(); ++i) {
+	m_ArtifactAttribute.resize((int)msg.m_artifactattribute_size() > (int)m_ArtifactAttribute.max_size() ? m_ArtifactAttribute.max_size() : msg.m_artifactattribute_size());
+	for(int32_t i = 0; i < (int32_t)m_ArtifactAttribute.size(); ++i) {
 		const ::proto_ff::E_FacadeValueArtifactattributeDesc & temp_m_artifactattribute = msg.m_artifactattribute(i);
-		m_artifactattribute[i].read_from_pbmsg(temp_m_artifactattribute);
+		m_ArtifactAttribute[i].read_from_pbmsg(temp_m_artifactattribute);
 	}
-	m_bladeattribute.resize((int)msg.m_bladeattribute_size() > (int)m_bladeattribute.max_size() ? m_bladeattribute.max_size() : msg.m_bladeattribute_size());
-	for(int32_t i = 0; i < (int32_t)m_bladeattribute.size(); ++i) {
+	m_BladeAttribute.resize((int)msg.m_bladeattribute_size() > (int)m_BladeAttribute.max_size() ? m_BladeAttribute.max_size() : msg.m_bladeattribute_size());
+	for(int32_t i = 0; i < (int32_t)m_BladeAttribute.size(); ++i) {
 		const ::proto_ff::E_FacadeValueBladeattributeDesc & temp_m_bladeattribute = msg.m_bladeattribute(i);
-		m_bladeattribute[i].read_from_pbmsg(temp_m_bladeattribute);
+		m_BladeAttribute[i].read_from_pbmsg(temp_m_bladeattribute);
 	}
 }
 
@@ -353,12 +353,12 @@ int E_FacadeType_s::ResumeInit() {
 
 void E_FacadeType_s::write_to_pbmsg(::proto_ff::E_FacadeType & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_soucename(m_soucename.data());
+	msg.set_m_soucename(m_souceName.data());
 }
 
 void E_FacadeType_s::read_from_pbmsg(const ::proto_ff::E_FacadeType & msg) {
 	m_id = msg.m_id();
-	m_soucename = msg.m_soucename();
+	m_souceName = msg.m_soucename();
 }
 
 Sheet_FacadeType_s::Sheet_FacadeType_s() {
@@ -429,9 +429,9 @@ E_FacadeFragment_s::E_FacadeFragment_s() {
 }
 
 int E_FacadeFragment_s::CreateInit() {
-	m_fragmentid = (int64_t)0;
+	m_fragmentID = (int64_t)0;
 	m_item = (int64_t)0;
-	m_itemnum = (int32_t)0;
+	m_itemNum = (int32_t)0;
 	return 0;
 }
 
@@ -440,9 +440,9 @@ int E_FacadeFragment_s::ResumeInit() {
 }
 
 void E_FacadeFragment_s::write_to_pbmsg(::proto_ff::E_FacadeFragment & msg) const {
-	msg.set_m_fragmentid((int64_t)m_fragmentid);
+	msg.set_m_fragmentid((int64_t)m_fragmentID);
 	msg.set_m_item((int64_t)m_item);
-	msg.set_m_itemnum((int32_t)m_itemnum);
+	msg.set_m_itemnum((int32_t)m_itemNum);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_FacadeFragmentAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
@@ -450,9 +450,9 @@ void E_FacadeFragment_s::write_to_pbmsg(::proto_ff::E_FacadeFragment & msg) cons
 }
 
 void E_FacadeFragment_s::read_from_pbmsg(const ::proto_ff::E_FacadeFragment & msg) {
-	m_fragmentid = msg.m_fragmentid();
+	m_fragmentID = msg.m_fragmentid();
 	m_item = msg.m_item();
-	m_itemnum = msg.m_itemnum();
+	m_itemNum = msg.m_itemnum();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_FacadeFragmentAttributeDesc & temp_m_attribute = msg.m_attribute(i);
@@ -559,13 +559,13 @@ int E_FacadeChange_s::CreateInit() {
 	m_id = (int64_t)0;
 	m_type = (int32_t)0;
 	m_quality = (int32_t)0;
-	m_activationitem = (int64_t)0;
-	m_activationnum = (int32_t)0;
-	m_starid = (int64_t)0;
-	m_starup = (int32_t)0;
-	m_starber = (int32_t)0;
-	m_upattributeid = (int64_t)0;
-	m_activeskill = (int32_t)0;
+	m_activationItem = (int64_t)0;
+	m_activationNum = (int32_t)0;
+	m_starId = (int64_t)0;
+	m_starUp = (int32_t)0;
+	m_starBer = (int32_t)0;
+	m_upAttributeId = (int64_t)0;
+	m_activeSkill = (int32_t)0;
 	return 0;
 }
 
@@ -577,25 +577,25 @@ void E_FacadeChange_s::write_to_pbmsg(::proto_ff::E_FacadeChange & msg) const {
 	msg.set_m_id((int64_t)m_id);
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_resource(m_resource.data());
-	msg.set_m_professionid(m_professionid.data());
+	msg.set_m_professionid(m_professionID.data());
 	msg.set_m_name(m_name.data());
-	msg.set_m_activedesc(m_activedesc.data());
+	msg.set_m_activedesc(m_activeDesc.data());
 	msg.set_m_quality((int32_t)m_quality);
-	msg.set_m_activationitem((int64_t)m_activationitem);
-	msg.set_m_activationnum((int32_t)m_activationnum);
-	msg.set_m_starid((int64_t)m_starid);
-	msg.set_m_starnum(m_starnum.data());
-	msg.set_m_starup((int32_t)m_starup);
-	msg.set_m_starber((int32_t)m_starber);
-	msg.set_m_upattributeid((int64_t)m_upattributeid);
-	msg.set_m_activeskill((int32_t)m_activeskill);
+	msg.set_m_activationitem((int64_t)m_activationItem);
+	msg.set_m_activationnum((int32_t)m_activationNum);
+	msg.set_m_starid((int64_t)m_starId);
+	msg.set_m_starnum(m_starNum.data());
+	msg.set_m_starup((int32_t)m_starUp);
+	msg.set_m_starber((int32_t)m_starBer);
+	msg.set_m_upattributeid((int64_t)m_upAttributeId);
+	msg.set_m_activeskill((int32_t)m_activeSkill);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_FacadeChangeAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
-	for(int32_t i = 0; i < (int32_t)m_activeattribute.size(); ++i) {
+	for(int32_t i = 0; i < (int32_t)m_ActiveAttribute.size(); ++i) {
 		::proto_ff::E_FacadeChangeActiveattributeDesc* temp_m_activeattribute = msg.add_m_activeattribute();
-		m_activeattribute[i].write_to_pbmsg(*temp_m_activeattribute);
+		m_ActiveAttribute[i].write_to_pbmsg(*temp_m_activeattribute);
 	}
 }
 
@@ -603,27 +603,27 @@ void E_FacadeChange_s::read_from_pbmsg(const ::proto_ff::E_FacadeChange & msg) {
 	m_id = msg.m_id();
 	m_type = msg.m_type();
 	m_resource = msg.m_resource();
-	m_professionid = msg.m_professionid();
+	m_professionID = msg.m_professionid();
 	m_name = msg.m_name();
-	m_activedesc = msg.m_activedesc();
+	m_activeDesc = msg.m_activedesc();
 	m_quality = msg.m_quality();
-	m_activationitem = msg.m_activationitem();
-	m_activationnum = msg.m_activationnum();
-	m_starid = msg.m_starid();
-	m_starnum = msg.m_starnum();
-	m_starup = msg.m_starup();
-	m_starber = msg.m_starber();
-	m_upattributeid = msg.m_upattributeid();
-	m_activeskill = msg.m_activeskill();
+	m_activationItem = msg.m_activationitem();
+	m_activationNum = msg.m_activationnum();
+	m_starId = msg.m_starid();
+	m_starNum = msg.m_starnum();
+	m_starUp = msg.m_starup();
+	m_starBer = msg.m_starber();
+	m_upAttributeId = msg.m_upattributeid();
+	m_activeSkill = msg.m_activeskill();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_FacadeChangeAttributeDesc & temp_m_attribute = msg.m_attribute(i);
 		m_attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
-	m_activeattribute.resize((int)msg.m_activeattribute_size() > (int)m_activeattribute.max_size() ? m_activeattribute.max_size() : msg.m_activeattribute_size());
-	for(int32_t i = 0; i < (int32_t)m_activeattribute.size(); ++i) {
+	m_ActiveAttribute.resize((int)msg.m_activeattribute_size() > (int)m_ActiveAttribute.max_size() ? m_ActiveAttribute.max_size() : msg.m_activeattribute_size());
+	for(int32_t i = 0; i < (int32_t)m_ActiveAttribute.size(); ++i) {
 		const ::proto_ff::E_FacadeChangeActiveattributeDesc & temp_m_activeattribute = msg.m_activeattribute(i);
-		m_activeattribute[i].read_from_pbmsg(temp_m_activeattribute);
+		m_ActiveAttribute[i].read_from_pbmsg(temp_m_activeattribute);
 	}
 }
 
@@ -695,10 +695,10 @@ E_FacadeStarup_s::E_FacadeStarup_s() {
 }
 
 int E_FacadeStarup_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_upattributeid = (int64_t)0;
-	m_starid = (int32_t)0;
-	m_skillid = (int32_t)0;
+	m_ID = (int32_t)0;
+	m_upAttributeId = (int64_t)0;
+	m_starID = (int32_t)0;
+	m_skillID = (int32_t)0;
 	return 0;
 }
 
@@ -707,25 +707,25 @@ int E_FacadeStarup_s::ResumeInit() {
 }
 
 void E_FacadeStarup_s::write_to_pbmsg(::proto_ff::E_FacadeStarup & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_upattributeid((int64_t)m_upattributeid);
-	msg.set_m_starid((int32_t)m_starid);
-	msg.set_m_skillid((int32_t)m_skillid);
-	for(int32_t i = 0; i < (int32_t)m_upattribute.size(); ++i) {
+	msg.set_m_id((int32_t)m_ID);
+	msg.set_m_upattributeid((int64_t)m_upAttributeId);
+	msg.set_m_starid((int32_t)m_starID);
+	msg.set_m_skillid((int32_t)m_skillID);
+	for(int32_t i = 0; i < (int32_t)m_upAttribute.size(); ++i) {
 		::proto_ff::E_FacadeStarupUpattributeDesc* temp_m_upattribute = msg.add_m_upattribute();
-		m_upattribute[i].write_to_pbmsg(*temp_m_upattribute);
+		m_upAttribute[i].write_to_pbmsg(*temp_m_upattribute);
 	}
 }
 
 void E_FacadeStarup_s::read_from_pbmsg(const ::proto_ff::E_FacadeStarup & msg) {
-	m_id = msg.m_id();
-	m_upattributeid = msg.m_upattributeid();
-	m_starid = msg.m_starid();
-	m_skillid = msg.m_skillid();
-	m_upattribute.resize((int)msg.m_upattribute_size() > (int)m_upattribute.max_size() ? m_upattribute.max_size() : msg.m_upattribute_size());
-	for(int32_t i = 0; i < (int32_t)m_upattribute.size(); ++i) {
+	m_ID = msg.m_id();
+	m_upAttributeId = msg.m_upattributeid();
+	m_starID = msg.m_starid();
+	m_skillID = msg.m_skillid();
+	m_upAttribute.resize((int)msg.m_upattribute_size() > (int)m_upAttribute.max_size() ? m_upAttribute.max_size() : msg.m_upattribute_size());
+	for(int32_t i = 0; i < (int32_t)m_upAttribute.size(); ++i) {
 		const ::proto_ff::E_FacadeStarupUpattributeDesc & temp_m_upattribute = msg.m_upattribute(i);
-		m_upattribute[i].read_from_pbmsg(temp_m_upattribute);
+		m_upAttribute[i].read_from_pbmsg(temp_m_upattribute);
 	}
 }
 
@@ -798,8 +798,8 @@ E_FacadeSoul_s::E_FacadeSoul_s() {
 
 int E_FacadeSoul_s::CreateInit() {
 	m_id = (int64_t)0;
-	m_rechargeid = (int32_t)0;
-	m_mainskill = (int32_t)0;
+	m_rechargeID = (int32_t)0;
+	m_mainSkill = (int32_t)0;
 	return 0;
 }
 
@@ -809,11 +809,11 @@ int E_FacadeSoul_s::ResumeInit() {
 
 void E_FacadeSoul_s::write_to_pbmsg(::proto_ff::E_FacadeSoul & msg) const {
 	msg.set_m_id((int64_t)m_id);
-	msg.set_m_rechargeid((int32_t)m_rechargeid);
-	msg.set_m_mainskill((int32_t)m_mainskill);
-	msg.set_m_attributetype(m_attributetype.data());
-	for(int32_t i = 0; i < (int32_t)m_minorskill.size(); ++i) {
-		msg.add_m_minorskill((int32_t)m_minorskill[i]);
+	msg.set_m_rechargeid((int32_t)m_rechargeID);
+	msg.set_m_mainskill((int32_t)m_mainSkill);
+	msg.set_m_attributetype(m_attributeType.data());
+	for(int32_t i = 0; i < (int32_t)m_minorSkill.size(); ++i) {
+		msg.add_m_minorskill((int32_t)m_minorSkill[i]);
 	}
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_FacadeSoulAttributeDesc* temp_m_attribute = msg.add_m_attribute();
@@ -823,12 +823,12 @@ void E_FacadeSoul_s::write_to_pbmsg(::proto_ff::E_FacadeSoul & msg) const {
 
 void E_FacadeSoul_s::read_from_pbmsg(const ::proto_ff::E_FacadeSoul & msg) {
 	m_id = msg.m_id();
-	m_rechargeid = msg.m_rechargeid();
-	m_mainskill = msg.m_mainskill();
-	m_attributetype = msg.m_attributetype();
-	m_minorskill.resize((int)msg.m_minorskill_size() > (int)m_minorskill.max_size() ? m_minorskill.max_size() : msg.m_minorskill_size());
-	for(int32_t i = 0; i < (int32_t)m_minorskill.size(); ++i) {
-		m_minorskill[i] = msg.m_minorskill(i);
+	m_rechargeID = msg.m_rechargeid();
+	m_mainSkill = msg.m_mainskill();
+	m_attributeType = msg.m_attributetype();
+	m_minorSkill.resize((int)msg.m_minorskill_size() > (int)m_minorSkill.max_size() ? m_minorSkill.max_size() : msg.m_minorskill_size());
+	for(int32_t i = 0; i < (int32_t)m_minorSkill.size(); ++i) {
+		m_minorSkill[i] = msg.m_minorskill(i);
 	}
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
@@ -998,12 +998,12 @@ E_FacadeSoullv_s::E_FacadeSoullv_s() {
 
 int E_FacadeSoullv_s::CreateInit() {
 	m_id = (int64_t)0;
-	m_soulllv = (int32_t)0;
-	m_soulid = (int32_t)0;
-	m_itemid = (int32_t)0;
+	m_soullLv = (int32_t)0;
+	m_soulID = (int32_t)0;
+	m_itemID = (int32_t)0;
 	m_num = (int32_t)0;
-	m_successrate = (int32_t)0;
-	m_downlv = (int32_t)0;
+	m_successRate = (int32_t)0;
+	m_downLv = (int32_t)0;
 	return 0;
 }
 
@@ -1013,12 +1013,12 @@ int E_FacadeSoullv_s::ResumeInit() {
 
 void E_FacadeSoullv_s::write_to_pbmsg(::proto_ff::E_FacadeSoullv & msg) const {
 	msg.set_m_id((int64_t)m_id);
-	msg.set_m_soulllv((int32_t)m_soulllv);
-	msg.set_m_soulid((int32_t)m_soulid);
-	msg.set_m_itemid((int32_t)m_itemid);
+	msg.set_m_soulllv((int32_t)m_soullLv);
+	msg.set_m_soulid((int32_t)m_soulID);
+	msg.set_m_itemid((int32_t)m_itemID);
 	msg.set_m_num((int32_t)m_num);
-	msg.set_m_successrate((int32_t)m_successrate);
-	msg.set_m_downlv((int32_t)m_downlv);
+	msg.set_m_successrate((int32_t)m_successRate);
+	msg.set_m_downlv((int32_t)m_downLv);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_FacadeSoullvAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
@@ -1027,12 +1027,12 @@ void E_FacadeSoullv_s::write_to_pbmsg(::proto_ff::E_FacadeSoullv & msg) const {
 
 void E_FacadeSoullv_s::read_from_pbmsg(const ::proto_ff::E_FacadeSoullv & msg) {
 	m_id = msg.m_id();
-	m_soulllv = msg.m_soulllv();
-	m_soulid = msg.m_soulid();
-	m_itemid = msg.m_itemid();
+	m_soullLv = msg.m_soulllv();
+	m_soulID = msg.m_soulid();
+	m_itemID = msg.m_itemid();
 	m_num = msg.m_num();
-	m_successrate = msg.m_successrate();
-	m_downlv = msg.m_downlv();
+	m_successRate = msg.m_successrate();
+	m_downLv = msg.m_downlv();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_FacadeSoullvAttributeDesc & temp_m_attribute = msg.m_attribute(i);
@@ -1081,10 +1081,10 @@ E_FacadeSoulachievement_s::E_FacadeSoulachievement_s() {
 
 int E_FacadeSoulachievement_s::CreateInit() {
 	m_id = (int64_t)0;
-	m_soulid = (int32_t)0;
+	m_soulID = (int32_t)0;
 	m_type = (int32_t)0;
 	m_parama = (int32_t)0;
-	m_itemid = (int32_t)0;
+	m_itemID = (int32_t)0;
 	m_num = (int32_t)0;
 	return 0;
 }
@@ -1095,19 +1095,19 @@ int E_FacadeSoulachievement_s::ResumeInit() {
 
 void E_FacadeSoulachievement_s::write_to_pbmsg(::proto_ff::E_FacadeSoulachievement & msg) const {
 	msg.set_m_id((int64_t)m_id);
-	msg.set_m_soulid((int32_t)m_soulid);
+	msg.set_m_soulid((int32_t)m_soulID);
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_parama((int32_t)m_parama);
-	msg.set_m_itemid((int32_t)m_itemid);
+	msg.set_m_itemid((int32_t)m_itemID);
 	msg.set_m_num((int32_t)m_num);
 }
 
 void E_FacadeSoulachievement_s::read_from_pbmsg(const ::proto_ff::E_FacadeSoulachievement & msg) {
 	m_id = msg.m_id();
-	m_soulid = msg.m_soulid();
+	m_soulID = msg.m_soulid();
 	m_type = msg.m_type();
 	m_parama = msg.m_parama();
-	m_itemid = msg.m_itemid();
+	m_itemID = msg.m_itemid();
 	m_num = msg.m_num();
 }
 

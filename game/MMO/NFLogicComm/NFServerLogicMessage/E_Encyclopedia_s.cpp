@@ -67,14 +67,14 @@ E_EncyclopediaHandbook_s::E_EncyclopediaHandbook_s() {
 }
 
 int E_EncyclopediaHandbook_s::CreateInit() {
-	m_handbookid = (int64_t)0;
-	m_itemid = (int64_t)0;
-	m_handbookquality = (int32_t)0;
-	m_handbooktype = (int32_t)0;
-	m_handz = (int32_t)0;
-	m_handbooklv = (int32_t)0;
-	m_lvid = (int64_t)0;
-	m_starid = (int64_t)0;
+	m_handbookID = (int64_t)0;
+	m_itemId = (int64_t)0;
+	m_handbookQuality = (int32_t)0;
+	m_handbookType = (int32_t)0;
+	m_handZ = (int32_t)0;
+	m_handbookLv = (int32_t)0;
+	m_LvId = (int64_t)0;
+	m_starId = (int64_t)0;
 	return 0;
 }
 
@@ -83,59 +83,59 @@ int E_EncyclopediaHandbook_s::ResumeInit() {
 }
 
 void E_EncyclopediaHandbook_s::write_to_pbmsg(::proto_ff::E_EncyclopediaHandbook & msg) const {
-	msg.set_m_handbookid((int64_t)m_handbookid);
-	msg.set_m_itemid((int64_t)m_itemid);
-	msg.set_m_handbookname(m_handbookname.data());
-	msg.set_m_handbookquality((int32_t)m_handbookquality);
-	msg.set_m_handbooktype((int32_t)m_handbooktype);
-	msg.set_m_handbooktype_name(m_handbooktype_name.data());
-	msg.set_m_handz((int32_t)m_handz);
-	msg.set_m_handzname(m_handzname.data());
-	msg.set_m_handbooklv((int32_t)m_handbooklv);
-	msg.set_m_lvid((int64_t)m_lvid);
-	msg.set_m_lvnum(m_lvnum.data());
-	msg.set_m_starid((int64_t)m_starid);
-	msg.set_m_starnum(m_starnum.data());
-	for(int32_t i = 0; i < (int32_t)m_lviattribute.size(); ++i) {
+	msg.set_m_handbookid((int64_t)m_handbookID);
+	msg.set_m_itemid((int64_t)m_itemId);
+	msg.set_m_handbookname(m_handbookName.data());
+	msg.set_m_handbookquality((int32_t)m_handbookQuality);
+	msg.set_m_handbooktype((int32_t)m_handbookType);
+	msg.set_m_handbooktype_name(m_handbookType_name.data());
+	msg.set_m_handz((int32_t)m_handZ);
+	msg.set_m_handzname(m_handZName.data());
+	msg.set_m_handbooklv((int32_t)m_handbookLv);
+	msg.set_m_lvid((int64_t)m_LvId);
+	msg.set_m_lvnum(m_LvNum.data());
+	msg.set_m_starid((int64_t)m_starId);
+	msg.set_m_starnum(m_starNum.data());
+	for(int32_t i = 0; i < (int32_t)m_LvIattribute.size(); ++i) {
 		::proto_ff::E_EncyclopediaHandbookLviattributeDesc* temp_m_lviattribute = msg.add_m_lviattribute();
-		m_lviattribute[i].write_to_pbmsg(*temp_m_lviattribute);
+		m_LvIattribute[i].write_to_pbmsg(*temp_m_lviattribute);
 	}
-	for(int32_t i = 0; i < (int32_t)m_awakeskill.size(); ++i) {
-		msg.add_m_awakeskill((int32_t)m_awakeskill[i]);
+	for(int32_t i = 0; i < (int32_t)m_awakeSkill.size(); ++i) {
+		msg.add_m_awakeskill((int32_t)m_awakeSkill[i]);
 	}
-	for(int32_t i = 0; i < (int32_t)m_stariattribute.size(); ++i) {
+	for(int32_t i = 0; i < (int32_t)m_starIattribute.size(); ++i) {
 		::proto_ff::E_EncyclopediaHandbookStariattributeDesc* temp_m_stariattribute = msg.add_m_stariattribute();
-		m_stariattribute[i].write_to_pbmsg(*temp_m_stariattribute);
+		m_starIattribute[i].write_to_pbmsg(*temp_m_stariattribute);
 	}
 }
 
 void E_EncyclopediaHandbook_s::read_from_pbmsg(const ::proto_ff::E_EncyclopediaHandbook & msg) {
-	m_handbookid = msg.m_handbookid();
-	m_itemid = msg.m_itemid();
-	m_handbookname = msg.m_handbookname();
-	m_handbookquality = msg.m_handbookquality();
-	m_handbooktype = msg.m_handbooktype();
-	m_handbooktype_name = msg.m_handbooktype_name();
-	m_handz = msg.m_handz();
-	m_handzname = msg.m_handzname();
-	m_handbooklv = msg.m_handbooklv();
-	m_lvid = msg.m_lvid();
-	m_lvnum = msg.m_lvnum();
-	m_starid = msg.m_starid();
-	m_starnum = msg.m_starnum();
-	m_lviattribute.resize((int)msg.m_lviattribute_size() > (int)m_lviattribute.max_size() ? m_lviattribute.max_size() : msg.m_lviattribute_size());
-	for(int32_t i = 0; i < (int32_t)m_lviattribute.size(); ++i) {
+	m_handbookID = msg.m_handbookid();
+	m_itemId = msg.m_itemid();
+	m_handbookName = msg.m_handbookname();
+	m_handbookQuality = msg.m_handbookquality();
+	m_handbookType = msg.m_handbooktype();
+	m_handbookType_name = msg.m_handbooktype_name();
+	m_handZ = msg.m_handz();
+	m_handZName = msg.m_handzname();
+	m_handbookLv = msg.m_handbooklv();
+	m_LvId = msg.m_lvid();
+	m_LvNum = msg.m_lvnum();
+	m_starId = msg.m_starid();
+	m_starNum = msg.m_starnum();
+	m_LvIattribute.resize((int)msg.m_lviattribute_size() > (int)m_LvIattribute.max_size() ? m_LvIattribute.max_size() : msg.m_lviattribute_size());
+	for(int32_t i = 0; i < (int32_t)m_LvIattribute.size(); ++i) {
 		const ::proto_ff::E_EncyclopediaHandbookLviattributeDesc & temp_m_lviattribute = msg.m_lviattribute(i);
-		m_lviattribute[i].read_from_pbmsg(temp_m_lviattribute);
+		m_LvIattribute[i].read_from_pbmsg(temp_m_lviattribute);
 	}
-	m_awakeskill.resize((int)msg.m_awakeskill_size() > (int)m_awakeskill.max_size() ? m_awakeskill.max_size() : msg.m_awakeskill_size());
-	for(int32_t i = 0; i < (int32_t)m_awakeskill.size(); ++i) {
-		m_awakeskill[i] = msg.m_awakeskill(i);
+	m_awakeSkill.resize((int)msg.m_awakeskill_size() > (int)m_awakeSkill.max_size() ? m_awakeSkill.max_size() : msg.m_awakeskill_size());
+	for(int32_t i = 0; i < (int32_t)m_awakeSkill.size(); ++i) {
+		m_awakeSkill[i] = msg.m_awakeskill(i);
 	}
-	m_stariattribute.resize((int)msg.m_stariattribute_size() > (int)m_stariattribute.max_size() ? m_stariattribute.max_size() : msg.m_stariattribute_size());
-	for(int32_t i = 0; i < (int32_t)m_stariattribute.size(); ++i) {
+	m_starIattribute.resize((int)msg.m_stariattribute_size() > (int)m_starIattribute.max_size() ? m_starIattribute.max_size() : msg.m_stariattribute_size());
+	for(int32_t i = 0; i < (int32_t)m_starIattribute.size(); ++i) {
 		const ::proto_ff::E_EncyclopediaHandbookStariattributeDesc & temp_m_stariattribute = msg.m_stariattribute(i);
-		m_stariattribute[i].read_from_pbmsg(temp_m_stariattribute);
+		m_starIattribute[i].read_from_pbmsg(temp_m_stariattribute);
 	}
 }
 
@@ -207,8 +207,8 @@ E_EncyclopediaHandbookfate_s::E_EncyclopediaHandbookfate_s() {
 }
 
 int E_EncyclopediaHandbookfate_s::CreateInit() {
-	m_fateid = (int64_t)0;
-	m_fatequality = (int32_t)0;
+	m_fateID = (int64_t)0;
+	m_fateQuality = (int32_t)0;
 	return 0;
 }
 
@@ -217,11 +217,11 @@ int E_EncyclopediaHandbookfate_s::ResumeInit() {
 }
 
 void E_EncyclopediaHandbookfate_s::write_to_pbmsg(::proto_ff::E_EncyclopediaHandbookfate & msg) const {
-	msg.set_m_fateid((int64_t)m_fateid);
-	msg.set_m_fatename(m_fatename.data());
-	msg.set_m_fatequality((int32_t)m_fatequality);
-	for(int32_t i = 0; i < (int32_t)m_fatehand.size(); ++i) {
-		msg.add_m_fatehand((int64_t)m_fatehand[i]);
+	msg.set_m_fateid((int64_t)m_fateID);
+	msg.set_m_fatename(m_fateName.data());
+	msg.set_m_fatequality((int32_t)m_fateQuality);
+	for(int32_t i = 0; i < (int32_t)m_fateHand.size(); ++i) {
+		msg.add_m_fatehand((int64_t)m_fateHand[i]);
 	}
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_EncyclopediaHandbookfateAttributeDesc* temp_m_attribute = msg.add_m_attribute();
@@ -230,12 +230,12 @@ void E_EncyclopediaHandbookfate_s::write_to_pbmsg(::proto_ff::E_EncyclopediaHand
 }
 
 void E_EncyclopediaHandbookfate_s::read_from_pbmsg(const ::proto_ff::E_EncyclopediaHandbookfate & msg) {
-	m_fateid = msg.m_fateid();
-	m_fatename = msg.m_fatename();
-	m_fatequality = msg.m_fatequality();
-	m_fatehand.resize((int)msg.m_fatehand_size() > (int)m_fatehand.max_size() ? m_fatehand.max_size() : msg.m_fatehand_size());
-	for(int32_t i = 0; i < (int32_t)m_fatehand.size(); ++i) {
-		m_fatehand[i] = msg.m_fatehand(i);
+	m_fateID = msg.m_fateid();
+	m_fateName = msg.m_fatename();
+	m_fateQuality = msg.m_fatequality();
+	m_fateHand.resize((int)msg.m_fatehand_size() > (int)m_fateHand.max_size() ? m_fateHand.max_size() : msg.m_fatehand_size());
+	for(int32_t i = 0; i < (int32_t)m_fateHand.size(); ++i) {
+		m_fateHand[i] = msg.m_fatehand(i);
 	}
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
@@ -284,9 +284,9 @@ E_EncyclopediaHandbookresolve_s::E_EncyclopediaHandbookresolve_s() {
 }
 
 int E_EncyclopediaHandbookresolve_s::CreateInit() {
-	m_handbookquality = (int32_t)0;
-	m_resolveitem = (int32_t)0;
-	m_resolvenum = (int32_t)0;
+	m_handbookQuality = (int32_t)0;
+	m_resolveItem = (int32_t)0;
+	m_resolveNum = (int32_t)0;
 	return 0;
 }
 
@@ -295,15 +295,15 @@ int E_EncyclopediaHandbookresolve_s::ResumeInit() {
 }
 
 void E_EncyclopediaHandbookresolve_s::write_to_pbmsg(::proto_ff::E_EncyclopediaHandbookresolve & msg) const {
-	msg.set_m_handbookquality((int32_t)m_handbookquality);
-	msg.set_m_resolveitem((int32_t)m_resolveitem);
-	msg.set_m_resolvenum((int32_t)m_resolvenum);
+	msg.set_m_handbookquality((int32_t)m_handbookQuality);
+	msg.set_m_resolveitem((int32_t)m_resolveItem);
+	msg.set_m_resolvenum((int32_t)m_resolveNum);
 }
 
 void E_EncyclopediaHandbookresolve_s::read_from_pbmsg(const ::proto_ff::E_EncyclopediaHandbookresolve & msg) {
-	m_handbookquality = msg.m_handbookquality();
-	m_resolveitem = msg.m_resolveitem();
-	m_resolvenum = msg.m_resolvenum();
+	m_handbookQuality = msg.m_handbookquality();
+	m_resolveItem = msg.m_resolveitem();
+	m_resolveNum = msg.m_resolvenum();
 }
 
 Sheet_EncyclopediaHandbookresolve_s::Sheet_EncyclopediaHandbookresolve_s() {
@@ -346,7 +346,7 @@ E_EncyclopediaHandbooklv_attr_s::E_EncyclopediaHandbooklv_attr_s() {
 }
 
 int E_EncyclopediaHandbooklv_attr_s::CreateInit() {
-	m_attid = (int64_t)0;
+	m_attID = (int64_t)0;
 	return 0;
 }
 
@@ -355,14 +355,14 @@ int E_EncyclopediaHandbooklv_attr_s::ResumeInit() {
 }
 
 void E_EncyclopediaHandbooklv_attr_s::write_to_pbmsg(::proto_ff::E_EncyclopediaHandbooklv_attr & msg) const {
-	msg.set_m_attid((int64_t)m_attid);
+	msg.set_m_attid((int64_t)m_attID);
 	for(int32_t i = 0; i < (int32_t)m_att.size(); ++i) {
 		msg.add_m_att((int32_t)m_att[i]);
 	}
 }
 
 void E_EncyclopediaHandbooklv_attr_s::read_from_pbmsg(const ::proto_ff::E_EncyclopediaHandbooklv_attr & msg) {
-	m_attid = msg.m_attid();
+	m_attID = msg.m_attid();
 	m_att.resize((int)msg.m_att_size() > (int)m_att.max_size() ? m_att.max_size() : msg.m_att_size());
 	for(int32_t i = 0; i < (int32_t)m_att.size(); ++i) {
 		m_att[i] = msg.m_att(i);
@@ -409,7 +409,7 @@ E_EncyclopediaHandbookstar_attr_s::E_EncyclopediaHandbookstar_attr_s() {
 }
 
 int E_EncyclopediaHandbookstar_attr_s::CreateInit() {
-	m_attid = (int64_t)0;
+	m_attID = (int64_t)0;
 	return 0;
 }
 
@@ -418,14 +418,14 @@ int E_EncyclopediaHandbookstar_attr_s::ResumeInit() {
 }
 
 void E_EncyclopediaHandbookstar_attr_s::write_to_pbmsg(::proto_ff::E_EncyclopediaHandbookstar_attr & msg) const {
-	msg.set_m_attid((int64_t)m_attid);
+	msg.set_m_attid((int64_t)m_attID);
 	for(int32_t i = 0; i < (int32_t)m_att.size(); ++i) {
 		msg.add_m_att((int32_t)m_att[i]);
 	}
 }
 
 void E_EncyclopediaHandbookstar_attr_s::read_from_pbmsg(const ::proto_ff::E_EncyclopediaHandbookstar_attr & msg) {
-	m_attid = msg.m_attid();
+	m_attID = msg.m_attid();
 	m_att.resize((int)msg.m_att_size() > (int)m_att.max_size() ? m_att.max_size() : msg.m_att_size());
 	for(int32_t i = 0; i < (int32_t)m_att.size(); ++i) {
 		m_att[i] = msg.m_att(i);
@@ -641,8 +641,8 @@ int E_EncyclopediaEquipexpvalue_s::CreateInit() {
 	m_type = (int64_t)0;
 	m_exp = (int32_t)0;
 	m_link = (int64_t)0;
-	m_goldattall = (int32_t)0;
-	m_goldatt = (int32_t)0;
+	m_goldAttAll = (int32_t)0;
+	m_goldAtt = (int32_t)0;
 	return 0;
 }
 
@@ -656,15 +656,15 @@ void E_EncyclopediaEquipexpvalue_s::write_to_pbmsg(::proto_ff::E_EncyclopediaEqu
 	msg.set_m_name(m_name.data());
 	msg.set_m_exp((int32_t)m_exp);
 	msg.set_m_link((int64_t)m_link);
-	msg.set_m_goldattall((int32_t)m_goldattall);
-	msg.set_m_goldatt((int32_t)m_goldatt);
-	for(int32_t i = 0; i < (int32_t)m_beaststar.size(); ++i) {
+	msg.set_m_goldattall((int32_t)m_goldAttAll);
+	msg.set_m_goldatt((int32_t)m_goldAtt);
+	for(int32_t i = 0; i < (int32_t)m_beastStar.size(); ++i) {
 		::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc* temp_m_beaststar = msg.add_m_beaststar();
-		m_beaststar[i].write_to_pbmsg(*temp_m_beaststar);
+		m_beastStar[i].write_to_pbmsg(*temp_m_beaststar);
 	}
-	for(int32_t i = 0; i < (int32_t)m_goldstar.size(); ++i) {
+	for(int32_t i = 0; i < (int32_t)m_goldStar.size(); ++i) {
 		::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc* temp_m_goldstar = msg.add_m_goldstar();
-		m_goldstar[i].write_to_pbmsg(*temp_m_goldstar);
+		m_goldStar[i].write_to_pbmsg(*temp_m_goldstar);
 	}
 }
 
@@ -674,17 +674,17 @@ void E_EncyclopediaEquipexpvalue_s::read_from_pbmsg(const ::proto_ff::E_Encyclop
 	m_name = msg.m_name();
 	m_exp = msg.m_exp();
 	m_link = msg.m_link();
-	m_goldattall = msg.m_goldattall();
-	m_goldatt = msg.m_goldatt();
-	m_beaststar.resize((int)msg.m_beaststar_size() > (int)m_beaststar.max_size() ? m_beaststar.max_size() : msg.m_beaststar_size());
-	for(int32_t i = 0; i < (int32_t)m_beaststar.size(); ++i) {
+	m_goldAttAll = msg.m_goldattall();
+	m_goldAtt = msg.m_goldatt();
+	m_beastStar.resize((int)msg.m_beaststar_size() > (int)m_beastStar.max_size() ? m_beastStar.max_size() : msg.m_beaststar_size());
+	for(int32_t i = 0; i < (int32_t)m_beastStar.size(); ++i) {
 		const ::proto_ff::E_EncyclopediaEquipexpvalueBeaststarDesc & temp_m_beaststar = msg.m_beaststar(i);
-		m_beaststar[i].read_from_pbmsg(temp_m_beaststar);
+		m_beastStar[i].read_from_pbmsg(temp_m_beaststar);
 	}
-	m_goldstar.resize((int)msg.m_goldstar_size() > (int)m_goldstar.max_size() ? m_goldstar.max_size() : msg.m_goldstar_size());
-	for(int32_t i = 0; i < (int32_t)m_goldstar.size(); ++i) {
+	m_goldStar.resize((int)msg.m_goldstar_size() > (int)m_goldStar.max_size() ? m_goldStar.max_size() : msg.m_goldstar_size());
+	for(int32_t i = 0; i < (int32_t)m_goldStar.size(); ++i) {
 		const ::proto_ff::E_EncyclopediaEquipexpvalueGoldstarDesc & temp_m_goldstar = msg.m_goldstar(i);
-		m_goldstar[i].read_from_pbmsg(temp_m_goldstar);
+		m_goldStar[i].read_from_pbmsg(temp_m_goldstar);
 	}
 }
 
@@ -821,9 +821,9 @@ E_EncyclopediaBeastprivilege_s::E_EncyclopediaBeastprivilege_s() {
 }
 
 int E_EncyclopediaBeastprivilege_s::CreateInit() {
-	m_privilegetype = (int32_t)0;
+	m_privilegeType = (int32_t)0;
 	m_price = (int32_t)0;
-	m_expaddition = (int64_t)0;
+	m_expAddition = (int64_t)0;
 	return 0;
 }
 
@@ -832,10 +832,10 @@ int E_EncyclopediaBeastprivilege_s::ResumeInit() {
 }
 
 void E_EncyclopediaBeastprivilege_s::write_to_pbmsg(::proto_ff::E_EncyclopediaBeastprivilege & msg) const {
-	msg.set_m_privilegetype((int32_t)m_privilegetype);
+	msg.set_m_privilegetype((int32_t)m_privilegeType);
 	msg.set_m_name(m_name.data());
 	msg.set_m_price((int32_t)m_price);
-	msg.set_m_expaddition((int64_t)m_expaddition);
+	msg.set_m_expaddition((int64_t)m_expAddition);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_EncyclopediaBeastprivilegeAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
@@ -843,10 +843,10 @@ void E_EncyclopediaBeastprivilege_s::write_to_pbmsg(::proto_ff::E_EncyclopediaBe
 }
 
 void E_EncyclopediaBeastprivilege_s::read_from_pbmsg(const ::proto_ff::E_EncyclopediaBeastprivilege & msg) {
-	m_privilegetype = msg.m_privilegetype();
+	m_privilegeType = msg.m_privilegetype();
 	m_name = msg.m_name();
 	m_price = msg.m_price();
-	m_expaddition = msg.m_expaddition();
+	m_expAddition = msg.m_expaddition();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_EncyclopediaBeastprivilegeAttributeDesc & temp_m_attribute = msg.m_attribute(i);
@@ -981,12 +981,12 @@ E_EncyclopediaEmploy_s::E_EncyclopediaEmploy_s() {
 }
 
 int E_EncyclopediaEmploy_s::CreateInit() {
-	m_employid = (int64_t)0;
+	m_employID = (int64_t)0;
 	m_type = (int64_t)0;
-	m_itemid = (int64_t)0;
-	m_employquality = (int32_t)0;
-	m_employtype = (int32_t)0;
-	m_employz = (int32_t)0;
+	m_itemId = (int64_t)0;
+	m_employQuality = (int32_t)0;
+	m_employType = (int32_t)0;
+	m_employZ = (int32_t)0;
 	return 0;
 }
 
@@ -995,35 +995,35 @@ int E_EncyclopediaEmploy_s::ResumeInit() {
 }
 
 void E_EncyclopediaEmploy_s::write_to_pbmsg(::proto_ff::E_EncyclopediaEmploy & msg) const {
-	msg.set_m_employid((int64_t)m_employid);
+	msg.set_m_employid((int64_t)m_employID);
 	msg.set_m_type((int64_t)m_type);
-	msg.set_m_itemid((int64_t)m_itemid);
-	msg.set_m_employname(m_employname.data());
-	msg.set_m_employquality((int32_t)m_employquality);
-	msg.set_m_employtype((int32_t)m_employtype);
-	msg.set_m_employtype_name(m_employtype_name.data());
-	msg.set_m_employz((int32_t)m_employz);
-	msg.set_m_employzname(m_employzname.data());
-	for(int32_t i = 0; i < (int32_t)m_lviattribute.size(); ++i) {
+	msg.set_m_itemid((int64_t)m_itemId);
+	msg.set_m_employname(m_employName.data());
+	msg.set_m_employquality((int32_t)m_employQuality);
+	msg.set_m_employtype((int32_t)m_employType);
+	msg.set_m_employtype_name(m_employType_name.data());
+	msg.set_m_employz((int32_t)m_employZ);
+	msg.set_m_employzname(m_employZName.data());
+	for(int32_t i = 0; i < (int32_t)m_LvIattribute.size(); ++i) {
 		::proto_ff::E_EncyclopediaEmployLviattributeDesc* temp_m_lviattribute = msg.add_m_lviattribute();
-		m_lviattribute[i].write_to_pbmsg(*temp_m_lviattribute);
+		m_LvIattribute[i].write_to_pbmsg(*temp_m_lviattribute);
 	}
 }
 
 void E_EncyclopediaEmploy_s::read_from_pbmsg(const ::proto_ff::E_EncyclopediaEmploy & msg) {
-	m_employid = msg.m_employid();
+	m_employID = msg.m_employid();
 	m_type = msg.m_type();
-	m_itemid = msg.m_itemid();
-	m_employname = msg.m_employname();
-	m_employquality = msg.m_employquality();
-	m_employtype = msg.m_employtype();
-	m_employtype_name = msg.m_employtype_name();
-	m_employz = msg.m_employz();
-	m_employzname = msg.m_employzname();
-	m_lviattribute.resize((int)msg.m_lviattribute_size() > (int)m_lviattribute.max_size() ? m_lviattribute.max_size() : msg.m_lviattribute_size());
-	for(int32_t i = 0; i < (int32_t)m_lviattribute.size(); ++i) {
+	m_itemId = msg.m_itemid();
+	m_employName = msg.m_employname();
+	m_employQuality = msg.m_employquality();
+	m_employType = msg.m_employtype();
+	m_employType_name = msg.m_employtype_name();
+	m_employZ = msg.m_employz();
+	m_employZName = msg.m_employzname();
+	m_LvIattribute.resize((int)msg.m_lviattribute_size() > (int)m_LvIattribute.max_size() ? m_LvIattribute.max_size() : msg.m_lviattribute_size());
+	for(int32_t i = 0; i < (int32_t)m_LvIattribute.size(); ++i) {
 		const ::proto_ff::E_EncyclopediaEmployLviattributeDesc & temp_m_lviattribute = msg.m_lviattribute(i);
-		m_lviattribute[i].read_from_pbmsg(temp_m_lviattribute);
+		m_LvIattribute[i].read_from_pbmsg(temp_m_lviattribute);
 	}
 }
 
@@ -1095,7 +1095,7 @@ E_EncyclopediaTable_s::E_EncyclopediaTable_s() {
 }
 
 int E_EncyclopediaTable_s::CreateInit() {
-	m_id = (int64_t)0;
+	m_ID = (int64_t)0;
 	m_tableid = (int64_t)0;
 	return 0;
 }
@@ -1105,23 +1105,23 @@ int E_EncyclopediaTable_s::ResumeInit() {
 }
 
 void E_EncyclopediaTable_s::write_to_pbmsg(::proto_ff::E_EncyclopediaTable & msg) const {
-	msg.set_m_id((int64_t)m_id);
+	msg.set_m_id((int64_t)m_ID);
 	msg.set_m_tableid((int64_t)m_tableid);
-	msg.set_m_tablename(m_tablename.data());
-	for(int32_t i = 0; i < (int32_t)m_lviattribute.size(); ++i) {
+	msg.set_m_tablename(m_tableName.data());
+	for(int32_t i = 0; i < (int32_t)m_LvIattribute.size(); ++i) {
 		::proto_ff::E_EncyclopediaTableLviattributeDesc* temp_m_lviattribute = msg.add_m_lviattribute();
-		m_lviattribute[i].write_to_pbmsg(*temp_m_lviattribute);
+		m_LvIattribute[i].write_to_pbmsg(*temp_m_lviattribute);
 	}
 }
 
 void E_EncyclopediaTable_s::read_from_pbmsg(const ::proto_ff::E_EncyclopediaTable & msg) {
-	m_id = msg.m_id();
+	m_ID = msg.m_id();
 	m_tableid = msg.m_tableid();
-	m_tablename = msg.m_tablename();
-	m_lviattribute.resize((int)msg.m_lviattribute_size() > (int)m_lviattribute.max_size() ? m_lviattribute.max_size() : msg.m_lviattribute_size());
-	for(int32_t i = 0; i < (int32_t)m_lviattribute.size(); ++i) {
+	m_tableName = msg.m_tablename();
+	m_LvIattribute.resize((int)msg.m_lviattribute_size() > (int)m_LvIattribute.max_size() ? m_LvIattribute.max_size() : msg.m_lviattribute_size());
+	for(int32_t i = 0; i < (int32_t)m_LvIattribute.size(); ++i) {
 		const ::proto_ff::E_EncyclopediaTableLviattributeDesc & temp_m_lviattribute = msg.m_lviattribute(i);
-		m_lviattribute[i].read_from_pbmsg(temp_m_lviattribute);
+		m_LvIattribute[i].read_from_pbmsg(temp_m_lviattribute);
 	}
 }
 

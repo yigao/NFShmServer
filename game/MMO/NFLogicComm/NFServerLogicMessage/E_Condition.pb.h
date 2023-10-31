@@ -94,14 +94,14 @@ class E_ConditionConditionConditionDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_param = 1;
+  // optional int32 m_Param = 1;
   inline bool has_m_param() const;
   inline void clear_m_param();
   static const int kMParamFieldNumber = 1;
   inline ::google::protobuf::int32 m_param() const;
   inline void set_m_param(::google::protobuf::int32 value);
 
-  // optional int32 m_type = 2;
+  // optional int32 m_Type = 2;
   inline bool has_m_type() const;
   inline void clear_m_type();
   static const int kMTypeFieldNumber = 2;
@@ -317,7 +317,7 @@ class Sheet_ConditionCondition : public ::google::protobuf::Message {
 
 // E_ConditionConditionConditionDesc
 
-// optional int32 m_param = 1;
+// optional int32 m_Param = 1;
 inline bool E_ConditionConditionConditionDesc::has_m_param() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -339,7 +339,7 @@ inline void E_ConditionConditionConditionDesc::set_m_param(::google::protobuf::i
   m_param_ = value;
 }
 
-// optional int32 m_type = 2;
+// optional int32 m_Type = 2;
 inline bool E_ConditionConditionConditionDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }

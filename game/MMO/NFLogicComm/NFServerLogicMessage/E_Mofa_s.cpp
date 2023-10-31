@@ -39,15 +39,15 @@ E_MofaSetup_s::E_MofaSetup_s() {
 }
 
 int E_MofaSetup_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_positionid = (int32_t)0;
-	m_unlock = (int32_t)0;
-	m_zyatt = (int32_t)0;
-	m_bless = (int32_t)0;
-	m_blessbonus = (int32_t)0;
-	m_jxzyatt = (int32_t)0;
-	m_jxblessbonus = (int32_t)0;
-	m_jxblessatt = (int32_t)0;
+	m_ID = (int32_t)0;
+	m_PositionID = (int32_t)0;
+	m_Unlock = (int32_t)0;
+	m_ZyAtt = (int32_t)0;
+	m_Bless = (int32_t)0;
+	m_BlessBonus = (int32_t)0;
+	m_JxZyAtt = (int32_t)0;
+	m_JxBlessBonus = (int32_t)0;
+	m_JxBlessAtt = (int32_t)0;
 	return 0;
 }
 
@@ -56,35 +56,35 @@ int E_MofaSetup_s::ResumeInit() {
 }
 
 void E_MofaSetup_s::write_to_pbmsg(::proto_ff::E_MofaSetup & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_positionid((int32_t)m_positionid);
-	msg.set_m_unlock((int32_t)m_unlock);
-	msg.set_m_zyatt((int32_t)m_zyatt);
-	msg.set_m_bless((int32_t)m_bless);
-	msg.set_m_blessbonus((int32_t)m_blessbonus);
-	msg.set_m_jxzyatt((int32_t)m_jxzyatt);
-	msg.set_m_jxblessbonus((int32_t)m_jxblessbonus);
-	msg.set_m_jxblessatt((int32_t)m_jxblessatt);
-	for(int32_t i = 0; i < (int32_t)m_zf.size(); ++i) {
+	msg.set_m_id((int32_t)m_ID);
+	msg.set_m_positionid((int32_t)m_PositionID);
+	msg.set_m_unlock((int32_t)m_Unlock);
+	msg.set_m_zyatt((int32_t)m_ZyAtt);
+	msg.set_m_bless((int32_t)m_Bless);
+	msg.set_m_blessbonus((int32_t)m_BlessBonus);
+	msg.set_m_jxzyatt((int32_t)m_JxZyAtt);
+	msg.set_m_jxblessbonus((int32_t)m_JxBlessBonus);
+	msg.set_m_jxblessatt((int32_t)m_JxBlessAtt);
+	for(int32_t i = 0; i < (int32_t)m_ZF.size(); ++i) {
 		::proto_ff::E_MofaSetupZfDesc* temp_m_zf = msg.add_m_zf();
-		m_zf[i].write_to_pbmsg(*temp_m_zf);
+		m_ZF[i].write_to_pbmsg(*temp_m_zf);
 	}
 }
 
 void E_MofaSetup_s::read_from_pbmsg(const ::proto_ff::E_MofaSetup & msg) {
-	m_id = msg.m_id();
-	m_positionid = msg.m_positionid();
-	m_unlock = msg.m_unlock();
-	m_zyatt = msg.m_zyatt();
-	m_bless = msg.m_bless();
-	m_blessbonus = msg.m_blessbonus();
-	m_jxzyatt = msg.m_jxzyatt();
-	m_jxblessbonus = msg.m_jxblessbonus();
-	m_jxblessatt = msg.m_jxblessatt();
-	m_zf.resize((int)msg.m_zf_size() > (int)m_zf.max_size() ? m_zf.max_size() : msg.m_zf_size());
-	for(int32_t i = 0; i < (int32_t)m_zf.size(); ++i) {
+	m_ID = msg.m_id();
+	m_PositionID = msg.m_positionid();
+	m_Unlock = msg.m_unlock();
+	m_ZyAtt = msg.m_zyatt();
+	m_Bless = msg.m_bless();
+	m_BlessBonus = msg.m_blessbonus();
+	m_JxZyAtt = msg.m_jxzyatt();
+	m_JxBlessBonus = msg.m_jxblessbonus();
+	m_JxBlessAtt = msg.m_jxblessatt();
+	m_ZF.resize((int)msg.m_zf_size() > (int)m_ZF.max_size() ? m_ZF.max_size() : msg.m_zf_size());
+	for(int32_t i = 0; i < (int32_t)m_ZF.size(); ++i) {
 		const ::proto_ff::E_MofaSetupZfDesc & temp_m_zf = msg.m_zf(i);
-		m_zf[i].read_from_pbmsg(temp_m_zf);
+		m_ZF[i].read_from_pbmsg(temp_m_zf);
 	}
 }
 
@@ -156,7 +156,7 @@ E_MofaYuansuAwakenDesc_s::E_MofaYuansuAwakenDesc_s() {
 }
 
 int E_MofaYuansuAwakenDesc_s::CreateInit() {
-	m_lvaddratio = (int32_t)0;
+	m_lvAddratio = (int32_t)0;
 	m_num = (int32_t)0;
 	return 0;
 }
@@ -166,12 +166,12 @@ int E_MofaYuansuAwakenDesc_s::ResumeInit() {
 }
 
 void E_MofaYuansuAwakenDesc_s::write_to_pbmsg(::proto_ff::E_MofaYuansuAwakenDesc & msg) const {
-	msg.set_m_lvaddratio((int32_t)m_lvaddratio);
+	msg.set_m_lvaddratio((int32_t)m_lvAddratio);
 	msg.set_m_num((int32_t)m_num);
 }
 
 void E_MofaYuansuAwakenDesc_s::read_from_pbmsg(const ::proto_ff::E_MofaYuansuAwakenDesc & msg) {
-	m_lvaddratio = msg.m_lvaddratio();
+	m_lvAddratio = msg.m_lvaddratio();
 	m_num = msg.m_num();
 }
 
@@ -184,12 +184,12 @@ E_MofaYuansu_s::E_MofaYuansu_s() {
 }
 
 int E_MofaYuansu_s::CreateInit() {
-	m_itemid = (int32_t)0;
-	m_attritype = (int32_t)0;
+	m_ItemID = (int32_t)0;
+	m_AttriType = (int32_t)0;
 	m_mosaic = (int32_t)0;
-	m_lvitem = (int32_t)0;
+	m_LvItem = (int32_t)0;
 	m_awaken_can = (int32_t)0;
-	m_awaken_lvmax = (int32_t)0;
+	m_awaken_Lvmax = (int32_t)0;
 	m_awaken_item = (int32_t)0;
 	return 0;
 }
@@ -199,12 +199,12 @@ int E_MofaYuansu_s::ResumeInit() {
 }
 
 void E_MofaYuansu_s::write_to_pbmsg(::proto_ff::E_MofaYuansu & msg) const {
-	msg.set_m_itemid((int32_t)m_itemid);
-	msg.set_m_attritype((int32_t)m_attritype);
+	msg.set_m_itemid((int32_t)m_ItemID);
+	msg.set_m_attritype((int32_t)m_AttriType);
 	msg.set_m_mosaic((int32_t)m_mosaic);
-	msg.set_m_lvitem((int32_t)m_lvitem);
+	msg.set_m_lvitem((int32_t)m_LvItem);
 	msg.set_m_awaken_can((int32_t)m_awaken_can);
-	msg.set_m_awaken_lvmax((int32_t)m_awaken_lvmax);
+	msg.set_m_awaken_lvmax((int32_t)m_awaken_Lvmax);
 	msg.set_m_awaken_item((int32_t)m_awaken_item);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_MofaYuansuAttributeDesc* temp_m_attribute = msg.add_m_attribute();
@@ -217,12 +217,12 @@ void E_MofaYuansu_s::write_to_pbmsg(::proto_ff::E_MofaYuansu & msg) const {
 }
 
 void E_MofaYuansu_s::read_from_pbmsg(const ::proto_ff::E_MofaYuansu & msg) {
-	m_itemid = msg.m_itemid();
-	m_attritype = msg.m_attritype();
+	m_ItemID = msg.m_itemid();
+	m_AttriType = msg.m_attritype();
 	m_mosaic = msg.m_mosaic();
-	m_lvitem = msg.m_lvitem();
+	m_LvItem = msg.m_lvitem();
 	m_awaken_can = msg.m_awaken_can();
-	m_awaken_lvmax = msg.m_awaken_lvmax();
+	m_awaken_Lvmax = msg.m_awaken_lvmax();
 	m_awaken_item = msg.m_awaken_item();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
@@ -276,10 +276,10 @@ E_MofaDecompose_s::E_MofaDecompose_s() {
 }
 
 int E_MofaDecompose_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_dpqua = (int32_t)0;
-	m_dpitem = (int32_t)0;
-	m_dpess = (int32_t)0;
+	m_Id = (int32_t)0;
+	m_DpQua = (int32_t)0;
+	m_DpItem = (int32_t)0;
+	m_DpEss = (int32_t)0;
 	return 0;
 }
 
@@ -288,17 +288,17 @@ int E_MofaDecompose_s::ResumeInit() {
 }
 
 void E_MofaDecompose_s::write_to_pbmsg(::proto_ff::E_MofaDecompose & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_dpqua((int32_t)m_dpqua);
-	msg.set_m_dpitem((int32_t)m_dpitem);
-	msg.set_m_dpess((int32_t)m_dpess);
+	msg.set_m_id((int32_t)m_Id);
+	msg.set_m_dpqua((int32_t)m_DpQua);
+	msg.set_m_dpitem((int32_t)m_DpItem);
+	msg.set_m_dpess((int32_t)m_DpEss);
 }
 
 void E_MofaDecompose_s::read_from_pbmsg(const ::proto_ff::E_MofaDecompose & msg) {
-	m_id = msg.m_id();
-	m_dpqua = msg.m_dpqua();
-	m_dpitem = msg.m_dpitem();
-	m_dpess = msg.m_dpess();
+	m_Id = msg.m_id();
+	m_DpQua = msg.m_dpqua();
+	m_DpItem = msg.m_dpitem();
+	m_DpEss = msg.m_dpess();
 }
 
 Sheet_MofaDecompose_s::Sheet_MofaDecompose_s() {
@@ -400,7 +400,7 @@ E_MofaLvatt_s::E_MofaLvatt_s() {
 }
 
 int E_MofaLvatt_s::CreateInit() {
-	m_attid = (int64_t)0;
+	m_attId = (int64_t)0;
 	return 0;
 }
 
@@ -409,14 +409,14 @@ int E_MofaLvatt_s::ResumeInit() {
 }
 
 void E_MofaLvatt_s::write_to_pbmsg(::proto_ff::E_MofaLvatt & msg) const {
-	msg.set_m_attid((int64_t)m_attid);
+	msg.set_m_attid((int64_t)m_attId);
 	for(int32_t i = 0; i < (int32_t)m_att.size(); ++i) {
 		msg.add_m_att((int32_t)m_att[i]);
 	}
 }
 
 void E_MofaLvatt_s::read_from_pbmsg(const ::proto_ff::E_MofaLvatt & msg) {
-	m_attid = msg.m_attid();
+	m_attId = msg.m_attid();
 	m_att.resize((int)msg.m_att_size() > (int)m_att.max_size() ? m_att.max_size() : msg.m_att_size());
 	for(int32_t i = 0; i < (int32_t)m_att.size(); ++i) {
 		m_att[i] = msg.m_att(i);
@@ -491,8 +491,8 @@ E_MofaZyatt_s::E_MofaZyatt_s() {
 }
 
 int E_MofaZyatt_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_attid = (int64_t)0;
+	m_ID = (int32_t)0;
+	m_AttID = (int64_t)0;
 	m_quality = (int32_t)0;
 	return 0;
 }
@@ -502,23 +502,23 @@ int E_MofaZyatt_s::ResumeInit() {
 }
 
 void E_MofaZyatt_s::write_to_pbmsg(::proto_ff::E_MofaZyatt & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_attid((int64_t)m_attid);
+	msg.set_m_id((int32_t)m_ID);
+	msg.set_m_attid((int64_t)m_AttID);
 	msg.set_m_quality((int32_t)m_quality);
-	for(int32_t i = 0; i < (int32_t)m_zy.size(); ++i) {
+	for(int32_t i = 0; i < (int32_t)m_ZY.size(); ++i) {
 		::proto_ff::E_MofaZyattZyDesc* temp_m_zy = msg.add_m_zy();
-		m_zy[i].write_to_pbmsg(*temp_m_zy);
+		m_ZY[i].write_to_pbmsg(*temp_m_zy);
 	}
 }
 
 void E_MofaZyatt_s::read_from_pbmsg(const ::proto_ff::E_MofaZyatt & msg) {
-	m_id = msg.m_id();
-	m_attid = msg.m_attid();
+	m_ID = msg.m_id();
+	m_AttID = msg.m_attid();
 	m_quality = msg.m_quality();
-	m_zy.resize((int)msg.m_zy_size() > (int)m_zy.max_size() ? m_zy.max_size() : msg.m_zy_size());
-	for(int32_t i = 0; i < (int32_t)m_zy.size(); ++i) {
+	m_ZY.resize((int)msg.m_zy_size() > (int)m_ZY.max_size() ? m_ZY.max_size() : msg.m_zy_size());
+	for(int32_t i = 0; i < (int32_t)m_ZY.size(); ++i) {
 		const ::proto_ff::E_MofaZyattZyDesc & temp_m_zy = msg.m_zy(i);
-		m_zy[i].read_from_pbmsg(temp_m_zy);
+		m_ZY[i].read_from_pbmsg(temp_m_zy);
 	}
 }
 
@@ -590,9 +590,9 @@ E_MofaZyjxatt_s::E_MofaZyjxatt_s() {
 }
 
 int E_MofaZyjxatt_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_attid = (int64_t)0;
-	m_jxlv = (int32_t)0;
+	m_ID = (int32_t)0;
+	m_AttID = (int64_t)0;
+	m_JxLv = (int32_t)0;
 	return 0;
 }
 
@@ -601,23 +601,23 @@ int E_MofaZyjxatt_s::ResumeInit() {
 }
 
 void E_MofaZyjxatt_s::write_to_pbmsg(::proto_ff::E_MofaZyjxatt & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_attid((int64_t)m_attid);
-	msg.set_m_jxlv((int32_t)m_jxlv);
-	for(int32_t i = 0; i < (int32_t)m_zyjx.size(); ++i) {
+	msg.set_m_id((int32_t)m_ID);
+	msg.set_m_attid((int64_t)m_AttID);
+	msg.set_m_jxlv((int32_t)m_JxLv);
+	for(int32_t i = 0; i < (int32_t)m_ZyJx.size(); ++i) {
 		::proto_ff::E_MofaZyjxattZyjxDesc* temp_m_zyjx = msg.add_m_zyjx();
-		m_zyjx[i].write_to_pbmsg(*temp_m_zyjx);
+		m_ZyJx[i].write_to_pbmsg(*temp_m_zyjx);
 	}
 }
 
 void E_MofaZyjxatt_s::read_from_pbmsg(const ::proto_ff::E_MofaZyjxatt & msg) {
-	m_id = msg.m_id();
-	m_attid = msg.m_attid();
-	m_jxlv = msg.m_jxlv();
-	m_zyjx.resize((int)msg.m_zyjx_size() > (int)m_zyjx.max_size() ? m_zyjx.max_size() : msg.m_zyjx_size());
-	for(int32_t i = 0; i < (int32_t)m_zyjx.size(); ++i) {
+	m_ID = msg.m_id();
+	m_AttID = msg.m_attid();
+	m_JxLv = msg.m_jxlv();
+	m_ZyJx.resize((int)msg.m_zyjx_size() > (int)m_ZyJx.max_size() ? m_ZyJx.max_size() : msg.m_zyjx_size());
+	for(int32_t i = 0; i < (int32_t)m_ZyJx.size(); ++i) {
 		const ::proto_ff::E_MofaZyjxattZyjxDesc & temp_m_zyjx = msg.m_zyjx(i);
-		m_zyjx[i].read_from_pbmsg(temp_m_zyjx);
+		m_ZyJx[i].read_from_pbmsg(temp_m_zyjx);
 	}
 }
 
@@ -689,9 +689,9 @@ E_MofaZyjxzfatt_s::E_MofaZyjxzfatt_s() {
 }
 
 int E_MofaZyjxzfatt_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_attid = (int64_t)0;
-	m_jxlv = (int32_t)0;
+	m_ID = (int32_t)0;
+	m_AttID = (int64_t)0;
+	m_JxLv = (int32_t)0;
 	return 0;
 }
 
@@ -700,23 +700,23 @@ int E_MofaZyjxzfatt_s::ResumeInit() {
 }
 
 void E_MofaZyjxzfatt_s::write_to_pbmsg(::proto_ff::E_MofaZyjxzfatt & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_attid((int64_t)m_attid);
-	msg.set_m_jxlv((int32_t)m_jxlv);
-	for(int32_t i = 0; i < (int32_t)m_zyjxzf.size(); ++i) {
+	msg.set_m_id((int32_t)m_ID);
+	msg.set_m_attid((int64_t)m_AttID);
+	msg.set_m_jxlv((int32_t)m_JxLv);
+	for(int32_t i = 0; i < (int32_t)m_ZyJxZf.size(); ++i) {
 		::proto_ff::E_MofaZyjxzfattZyjxzfDesc* temp_m_zyjxzf = msg.add_m_zyjxzf();
-		m_zyjxzf[i].write_to_pbmsg(*temp_m_zyjxzf);
+		m_ZyJxZf[i].write_to_pbmsg(*temp_m_zyjxzf);
 	}
 }
 
 void E_MofaZyjxzfatt_s::read_from_pbmsg(const ::proto_ff::E_MofaZyjxzfatt & msg) {
-	m_id = msg.m_id();
-	m_attid = msg.m_attid();
-	m_jxlv = msg.m_jxlv();
-	m_zyjxzf.resize((int)msg.m_zyjxzf_size() > (int)m_zyjxzf.max_size() ? m_zyjxzf.max_size() : msg.m_zyjxzf_size());
-	for(int32_t i = 0; i < (int32_t)m_zyjxzf.size(); ++i) {
+	m_ID = msg.m_id();
+	m_AttID = msg.m_attid();
+	m_JxLv = msg.m_jxlv();
+	m_ZyJxZf.resize((int)msg.m_zyjxzf_size() > (int)m_ZyJxZf.max_size() ? m_ZyJxZf.max_size() : msg.m_zyjxzf_size());
+	for(int32_t i = 0; i < (int32_t)m_ZyJxZf.size(); ++i) {
 		const ::proto_ff::E_MofaZyjxzfattZyjxzfDesc & temp_m_zyjxzf = msg.m_zyjxzf(i);
-		m_zyjxzf[i].read_from_pbmsg(temp_m_zyjxzf);
+		m_ZyJxZf[i].read_from_pbmsg(temp_m_zyjxzf);
 	}
 }
 
@@ -760,10 +760,10 @@ E_MofaExchange_s::E_MofaExchange_s() {
 }
 
 int E_MofaExchange_s::CreateInit() {
-	m_itemid = (int32_t)0;
+	m_ItemID = (int32_t)0;
 	m_quality = (int32_t)0;
-	m_ecitem = (int32_t)0;
-	m_ecnum = (int32_t)0;
+	m_EcItem = (int32_t)0;
+	m_EcNum = (int32_t)0;
 	return 0;
 }
 
@@ -772,17 +772,17 @@ int E_MofaExchange_s::ResumeInit() {
 }
 
 void E_MofaExchange_s::write_to_pbmsg(::proto_ff::E_MofaExchange & msg) const {
-	msg.set_m_itemid((int32_t)m_itemid);
+	msg.set_m_itemid((int32_t)m_ItemID);
 	msg.set_m_quality((int32_t)m_quality);
-	msg.set_m_ecitem((int32_t)m_ecitem);
-	msg.set_m_ecnum((int32_t)m_ecnum);
+	msg.set_m_ecitem((int32_t)m_EcItem);
+	msg.set_m_ecnum((int32_t)m_EcNum);
 }
 
 void E_MofaExchange_s::read_from_pbmsg(const ::proto_ff::E_MofaExchange & msg) {
-	m_itemid = msg.m_itemid();
+	m_ItemID = msg.m_itemid();
 	m_quality = msg.m_quality();
-	m_ecitem = msg.m_ecitem();
-	m_ecnum = msg.m_ecnum();
+	m_EcItem = msg.m_ecitem();
+	m_EcNum = msg.m_ecnum();
 }
 
 Sheet_MofaExchange_s::Sheet_MofaExchange_s() {

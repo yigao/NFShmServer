@@ -49,16 +49,16 @@ namespace proto_ff_s {
 		virtual ~E_MofaSetup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//排序
-		int32_t m_positionid;//部位id
-		int32_t m_unlock;//解锁道具
-		int32_t m_zyatt;//阵眼属性组
-		int32_t m_bless;//祝福道具
-		int32_t m_blessbonus;//祝福属性加成
-		int32_t m_jxzyatt;//觉醒阵眼属性组
-		int32_t m_jxblessbonus;//觉醒祝福属性加成
-		int32_t m_jxblessatt;//觉醒祝福属性组
-		NFShmVector<struct E_MofaSetupZfDesc_s, DEFINE_E_MOFASETUP_M_ZF_MAX_NUM> m_zf;//祝福属性
+		int32_t m_ID;//排序
+		int32_t m_PositionID;//部位id
+		int32_t m_Unlock;//解锁道具
+		int32_t m_ZyAtt;//阵眼属性组
+		int32_t m_Bless;//祝福道具
+		int32_t m_BlessBonus;//祝福属性加成
+		int32_t m_JxZyAtt;//觉醒阵眼属性组
+		int32_t m_JxBlessBonus;//觉醒祝福属性加成
+		int32_t m_JxBlessAtt;//觉醒祝福属性组
+		NFShmVector<struct E_MofaSetupZfDesc_s, DEFINE_E_MOFASETUP_M_ZF_MAX_NUM> m_ZF;//祝福属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_MofaSetup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MofaSetup & msg);
@@ -101,7 +101,7 @@ namespace proto_ff_s {
 		virtual ~E_MofaYuansuAwakenDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_lvaddratio;//升级属性加成百分比
+		int32_t m_lvAddratio;//升级属性加成百分比
 		int32_t m_num;//材料数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_MofaYuansuAwakenDesc & msg) const;
@@ -116,12 +116,12 @@ namespace proto_ff_s {
 		virtual ~E_MofaYuansu_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_itemid;//道具ID
-		int32_t m_attritype;//物品类型排序
+		int32_t m_ItemID;//道具ID
+		int32_t m_AttriType;//物品类型排序
 		int32_t m_mosaic;//可镶嵌部位
-		int32_t m_lvitem;//升级道具
+		int32_t m_LvItem;//升级道具
 		int32_t m_awaken_can;//是否可觉醒
-		int32_t m_awaken_lvmax;//觉醒上限
+		int32_t m_awaken_Lvmax;//觉醒上限
 		int32_t m_awaken_item;//觉醒材料
 		NFShmVector<struct E_MofaYuansuAttributeDesc_s, DEFINE_E_MOFAYUANSU_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 		NFShmVector<struct E_MofaYuansuAwakenDesc_s, DEFINE_E_MOFAYUANSU_M_AWAKEN_MAX_NUM> m_awaken;//觉醒
@@ -152,10 +152,10 @@ namespace proto_ff_s {
 		virtual ~E_MofaDecompose_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//id
-		int32_t m_dpqua;//分解品质
-		int32_t m_dpitem;//分解返还道具
-		int32_t m_dpess;//分解精华
+		int32_t m_Id;//id
+		int32_t m_DpQua;//分解品质
+		int32_t m_DpItem;//分解返还道具
+		int32_t m_DpEss;//分解精华
 
 		virtual void write_to_pbmsg(::proto_ff::E_MofaDecompose & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MofaDecompose & msg);
@@ -212,7 +212,7 @@ namespace proto_ff_s {
 		virtual ~E_MofaLvatt_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_attid;//属性组id
+		int64_t m_attId;//属性组id
 		NFShmVector<int32_t, DEFINE_E_MOFALVATT_M_ATT_MAX_NUM> m_att;//属性等级
 
 		virtual void write_to_pbmsg(::proto_ff::E_MofaLvatt & msg) const;
@@ -256,10 +256,10 @@ namespace proto_ff_s {
 		virtual ~E_MofaZyatt_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//排序
-		int64_t m_attid;//属性ID
+		int32_t m_ID;//排序
+		int64_t m_AttID;//属性ID
 		int32_t m_quality;//品质
-		NFShmVector<struct E_MofaZyattZyDesc_s, DEFINE_E_MOFAZYATT_M_ZY_MAX_NUM> m_zy;//属性
+		NFShmVector<struct E_MofaZyattZyDesc_s, DEFINE_E_MOFAZYATT_M_ZY_MAX_NUM> m_ZY;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_MofaZyatt & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MofaZyatt & msg);
@@ -302,10 +302,10 @@ namespace proto_ff_s {
 		virtual ~E_MofaZyjxatt_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//排序
-		int64_t m_attid;//属性ID
-		int32_t m_jxlv;//觉醒需求
-		NFShmVector<struct E_MofaZyjxattZyjxDesc_s, DEFINE_E_MOFAZYJXATT_M_ZYJX_MAX_NUM> m_zyjx;//属性
+		int32_t m_ID;//排序
+		int64_t m_AttID;//属性ID
+		int32_t m_JxLv;//觉醒需求
+		NFShmVector<struct E_MofaZyjxattZyjxDesc_s, DEFINE_E_MOFAZYJXATT_M_ZYJX_MAX_NUM> m_ZyJx;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_MofaZyjxatt & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MofaZyjxatt & msg);
@@ -348,10 +348,10 @@ namespace proto_ff_s {
 		virtual ~E_MofaZyjxzfatt_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//排序
-		int64_t m_attid;//属性ID
-		int32_t m_jxlv;//觉醒需求
-		NFShmVector<struct E_MofaZyjxzfattZyjxzfDesc_s, DEFINE_E_MOFAZYJXZFATT_M_ZYJXZF_MAX_NUM> m_zyjxzf;//属性
+		int32_t m_ID;//排序
+		int64_t m_AttID;//属性ID
+		int32_t m_JxLv;//觉醒需求
+		NFShmVector<struct E_MofaZyjxzfattZyjxzfDesc_s, DEFINE_E_MOFAZYJXZFATT_M_ZYJXZF_MAX_NUM> m_ZyJxZf;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_MofaZyjxzfatt & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MofaZyjxzfatt & msg);
@@ -379,10 +379,10 @@ namespace proto_ff_s {
 		virtual ~E_MofaExchange_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_itemid;//道具ID
+		int32_t m_ItemID;//道具ID
 		int32_t m_quality;//品质
-		int32_t m_ecitem;//兑换道具
-		int32_t m_ecnum;//兑换道具数量
+		int32_t m_EcItem;//兑换道具
+		int32_t m_EcNum;//兑换道具数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_MofaExchange & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MofaExchange & msg);

@@ -92,7 +92,7 @@ int DailyCultivateDesc::CheckWhenAllDataLoaded()
 		auto pDesc = &iter->second;
 		for(int j = 0; j < (int)pDesc->m_attribute.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_attribute[j].m_id <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_attribute[j].m_id)), result, "can't find the attribute:{} in the  excel:attribute sheet:attribute", pDesc->m_attribute[j].m_id);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_attribute[j].m_ID <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_attribute[j].m_ID)), result, "can't find the attribute:{} in the  excel:attribute sheet:attribute", pDesc->m_attribute[j].m_ID);
 		}
 	}
 	return result;

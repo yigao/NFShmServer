@@ -63,15 +63,15 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_quality;//品阶
 		NFShmString<64> m_position;//装备部位
-		int32_t m_wearqualitylimit;//装备品阶下限
+		int32_t m_wearQualityLimit;//装备品阶下限
 		int32_t m_star;//星级等级
 		int32_t m_starnum;//星级星数
 		int32_t m_success;//升星基础成功率
 		int32_t m_luckid;//幸运道具id
 		int32_t m_lucksuccess;//加成成功率
 		int32_t m_lucknum;//幸运道具数量
-		int32_t m_qualityatt;//品阶属性
-		int32_t m_qualityvalue;//品阶属性值
+		int32_t m_qualityAtt;//品阶属性
+		int32_t m_qualityValue;//品阶属性值
 		NFShmVector<struct E_EquipimproveUpqualityMaterialDesc_s, DEFINE_E_EQUIPIMPROVEUPQUALITY_M_MATERIAL_MAX_NUM> m_material;//升星材料
 		NFShmVector<struct E_EquipimproveUpqualityAttributeDesc_s, DEFINE_E_EQUIPIMPROVEUPQUALITY_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
@@ -134,10 +134,10 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_quality;//品阶
 		NFShmString<64> m_position;//装备部位
-		int32_t m_wearqualitylimit;//装备品阶下限
-		int32_t m_qualitylimit;//装备品质下限
-		int32_t m_wearstarlimit;//装备星级下限
-		int32_t m_awakenlv;//觉醒等级
+		int32_t m_wearQualityLimit;//装备品阶下限
+		int32_t m_qualityLimit;//装备品质下限
+		int32_t m_wearStarLimit;//装备星级下限
+		int32_t m_awakenLv;//觉醒等级
 		int32_t m_material_id;//觉醒材料ID
 		int32_t m_material_num;//觉醒材料数量
 		int32_t m_break_id;//突破材料ID
@@ -236,12 +236,12 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//印符物品id
-		NFShmString<64> m_sealposition;//印符镶嵌部位
+		NFShmString<64> m_sealPosition;//印符镶嵌部位
 		int32_t m_seallv;//印符品阶
-		int32_t m_preid;//上阶印符ID
-		int32_t m_nextid;//下阶印符ID
+		int32_t m_preId;//上阶印符ID
+		int32_t m_nextId;//下阶印符ID
 		NFShmString<64> m_numb;//对应一阶印符数量
-		int32_t m_nextvalue;//下级差值
+		int32_t m_nextValue;//下级差值
 		NFShmVector<struct E_EquipimproveSealSealDesc_s, DEFINE_E_EQUIPIMPROVESEAL_M_SEAL_MAX_NUM> m_seal;//印符属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipimproveSeal & msg) const;

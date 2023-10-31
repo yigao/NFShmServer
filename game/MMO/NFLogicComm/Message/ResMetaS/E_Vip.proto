@@ -9,10 +9,10 @@ message E_VipVip
 	optional int32 m_level = 2[(yd_fieldoptions.field_cname) = "vip等级"];
 	optional int32 m_exp = 3[(yd_fieldoptions.field_cname) = "经验值"];
 	optional int32 m_privilege_group = 4[(yd_fieldoptions.field_cname) = "特权组"];
-	optional int32 m_dailybox = 5[(yd_fieldoptions.field_cname) = "每日福利奖励"];
-	optional int32 m_vipgift = 6[(yd_fieldoptions.field_cname) = "专属礼包box"];
-	optional int32 m_pricetype = 7[(yd_fieldoptions.field_cname) = "专属礼包价格类型"];
-	optional int32 m_originalprice = 8[(yd_fieldoptions.field_cname) = "专属礼包原价"];
+	optional int32 m_dailyBox = 5[(yd_fieldoptions.field_cname) = "每日福利奖励"];
+	optional int32 m_vipGift = 6[(yd_fieldoptions.field_cname) = "专属礼包box"];
+	optional int32 m_priceType = 7[(yd_fieldoptions.field_cname) = "专属礼包价格类型"];
+	optional int32 m_originalPrice = 8[(yd_fieldoptions.field_cname) = "专属礼包原价"];
 	optional int32 m_price = 9[(yd_fieldoptions.field_cname) = "专属礼包价格"];
 }
 
@@ -51,15 +51,15 @@ message Sheet_VipChat
 message E_VipCosntant
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_fvipprice = 2[(yd_fieldoptions.field_cname) = "零元vip的价格"];
-	optional int32 m_fviprtime = 3[(yd_fieldoptions.field_cname) = "零元vip的返还开服时间"];
-	optional int32 m_fvipprivage = 4[(yd_fieldoptions.field_cname) = "零元VIP的特权"];
-	optional int32 m_fviplv = 5[(yd_fieldoptions.field_cname) = "零元vip对应的vip等级"];
-	optional int32 m_fvipexp = 6[(yd_fieldoptions.field_cname) = "获得的vip经验"];
-	optional int32 m_vipitemicon = 7[(yd_fieldoptions.field_cname) = "vip道具图标"];
-	optional int32 m_foreverguide = 8[(yd_fieldoptions.field_cname) = "永久玩法映射"];
-	optional int32 m_unactiveguide = 9[(yd_fieldoptions.field_cname) = "临时玩法映射"];
-	optional int32 m_vipexp = 10[(yd_fieldoptions.field_cname) = "vip消费经验"];
+	optional int32 m_FVipPrice = 2[(yd_fieldoptions.field_cname) = "零元vip的价格"];
+	optional int32 m_FVipRtime = 3[(yd_fieldoptions.field_cname) = "零元vip的返还开服时间"];
+	optional int32 m_FVipPrivage = 4[(yd_fieldoptions.field_cname) = "零元VIP的特权"];
+	optional int32 m_Fviplv = 5[(yd_fieldoptions.field_cname) = "零元vip对应的vip等级"];
+	optional int32 m_Fvipexp = 6[(yd_fieldoptions.field_cname) = "获得的vip经验"];
+	optional int32 m_VipItemIcon = 7[(yd_fieldoptions.field_cname) = "vip道具图标"];
+	optional int32 m_foreverGuide = 8[(yd_fieldoptions.field_cname) = "永久玩法映射"];
+	optional int32 m_unActiveGuide = 9[(yd_fieldoptions.field_cname) = "临时玩法映射"];
+	optional int32 m_vipExp = 10[(yd_fieldoptions.field_cname) = "vip消费经验"];
 }
 
 

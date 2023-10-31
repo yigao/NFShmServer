@@ -104,17 +104,17 @@ class E_MonsterMonster : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_monsterid = 1;
+  // optional int64 m_monsterID = 1;
   inline bool has_m_monsterid() const;
   inline void clear_m_monsterid();
-  static const int kMMonsteridFieldNumber = 1;
+  static const int kMMonsterIDFieldNumber = 1;
   inline ::google::protobuf::int64 m_monsterid() const;
   inline void set_m_monsterid(::google::protobuf::int64 value);
 
-  // optional string m_monstername = 2;
+  // optional string m_monsterName = 2;
   inline bool has_m_monstername() const;
   inline void clear_m_monstername();
-  static const int kMMonsternameFieldNumber = 2;
+  static const int kMMonsterNameFieldNumber = 2;
   inline const ::std::string& m_monstername() const;
   inline void set_m_monstername(const ::std::string& value);
   inline void set_m_monstername(const char* value);
@@ -135,24 +135,24 @@ class E_MonsterMonster : public ::google::protobuf::Message {
   inline ::std::string* release_m_mask();
   inline void set_allocated_m_mask(::std::string* m_mask);
 
-  // optional int32 m_functiontype = 4;
+  // optional int32 m_functionType = 4;
   inline bool has_m_functiontype() const;
   inline void clear_m_functiontype();
-  static const int kMFunctiontypeFieldNumber = 4;
+  static const int kMFunctionTypeFieldNumber = 4;
   inline ::google::protobuf::int32 m_functiontype() const;
   inline void set_m_functiontype(::google::protobuf::int32 value);
 
-  // optional int64 m_functionvalue = 5;
+  // optional int64 m_functionValue = 5;
   inline bool has_m_functionvalue() const;
   inline void clear_m_functionvalue();
-  static const int kMFunctionvalueFieldNumber = 5;
+  static const int kMFunctionValueFieldNumber = 5;
   inline ::google::protobuf::int64 m_functionvalue() const;
   inline void set_m_functionvalue(::google::protobuf::int64 value);
 
-  // optional int32 m_tasktype = 6;
+  // optional int32 m_taskType = 6;
   inline bool has_m_tasktype() const;
   inline void clear_m_tasktype();
-  static const int kMTasktypeFieldNumber = 6;
+  static const int kMTaskTypeFieldNumber = 6;
   inline ::google::protobuf::int32 m_tasktype() const;
   inline void set_m_tasktype(::google::protobuf::int32 value);
 
@@ -163,24 +163,24 @@ class E_MonsterMonster : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_profession() const;
   inline void set_m_profession(::google::protobuf::int32 value);
 
-  // optional int32 m_subprofession = 8;
+  // optional int32 m_subProfession = 8;
   inline bool has_m_subprofession() const;
   inline void clear_m_subprofession();
-  static const int kMSubprofessionFieldNumber = 8;
+  static const int kMSubProfessionFieldNumber = 8;
   inline ::google::protobuf::int32 m_subprofession() const;
   inline void set_m_subprofession(::google::protobuf::int32 value);
 
-  // optional int32 m_damageaddtype = 9;
+  // optional int32 m_damageAddType = 9;
   inline bool has_m_damageaddtype() const;
   inline void clear_m_damageaddtype();
-  static const int kMDamageaddtypeFieldNumber = 9;
+  static const int kMDamageAddTypeFieldNumber = 9;
   inline ::google::protobuf::int32 m_damageaddtype() const;
   inline void set_m_damageaddtype(::google::protobuf::int32 value);
 
-  // optional int32 m_monsterlv = 10;
+  // optional int32 m_monsterLV = 10;
   inline bool has_m_monsterlv() const;
   inline void clear_m_monsterlv();
-  static const int kMMonsterlvFieldNumber = 10;
+  static const int kMMonsterLVFieldNumber = 10;
   inline ::google::protobuf::int32 m_monsterlv() const;
   inline void set_m_monsterlv(::google::protobuf::int32 value);
 
@@ -191,17 +191,17 @@ class E_MonsterMonster : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_droplimit() const;
   inline void set_m_droplimit(::google::protobuf::int32 value);
 
-  // optional int64 m_displayid = 12;
+  // optional int64 m_displayID = 12;
   inline bool has_m_displayid() const;
   inline void clear_m_displayid();
-  static const int kMDisplayidFieldNumber = 12;
+  static const int kMDisplayIDFieldNumber = 12;
   inline ::google::protobuf::int64 m_displayid() const;
   inline void set_m_displayid(::google::protobuf::int64 value);
 
-  // optional int32 m_bossid = 13;
+  // optional int32 m_bossID = 13;
   inline bool has_m_bossid() const;
   inline void clear_m_bossid();
-  static const int kMBossidFieldNumber = 13;
+  static const int kMBossIDFieldNumber = 13;
   inline ::google::protobuf::int32 m_bossid() const;
   inline void set_m_bossid(::google::protobuf::int32 value);
 
@@ -212,52 +212,52 @@ class E_MonsterMonster : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_valuetype() const;
   inline void set_m_valuetype(::google::protobuf::int64 value);
 
-  // optional int32 m_valueparam = 15;
+  // optional int32 m_valueParam = 15;
   inline bool has_m_valueparam() const;
   inline void clear_m_valueparam();
-  static const int kMValueparamFieldNumber = 15;
+  static const int kMValueParamFieldNumber = 15;
   inline ::google::protobuf::int32 m_valueparam() const;
   inline void set_m_valueparam(::google::protobuf::int32 value);
 
-  // optional int64 m_aiid = 16;
+  // optional int64 m_aiId = 16;
   inline bool has_m_aiid() const;
   inline void clear_m_aiid();
-  static const int kMAiidFieldNumber = 16;
+  static const int kMAiIdFieldNumber = 16;
   inline ::google::protobuf::int64 m_aiid() const;
   inline void set_m_aiid(::google::protobuf::int64 value);
 
-  // optional int32 m_hpsectionnum = 17;
+  // optional int32 m_hpSectionNum = 17;
   inline bool has_m_hpsectionnum() const;
   inline void clear_m_hpsectionnum();
-  static const int kMHpsectionnumFieldNumber = 17;
+  static const int kMHpSectionNumFieldNumber = 17;
   inline ::google::protobuf::int32 m_hpsectionnum() const;
   inline void set_m_hpsectionnum(::google::protobuf::int32 value);
 
-  // optional int32 m_breedprob = 18;
+  // optional int32 m_breedProb = 18;
   inline bool has_m_breedprob() const;
   inline void clear_m_breedprob();
-  static const int kMBreedprobFieldNumber = 18;
+  static const int kMBreedProbFieldNumber = 18;
   inline ::google::protobuf::int32 m_breedprob() const;
   inline void set_m_breedprob(::google::protobuf::int32 value);
 
-  // optional int64 m_breedmonid = 19;
+  // optional int64 m_breedMonID = 19;
   inline bool has_m_breedmonid() const;
   inline void clear_m_breedmonid();
-  static const int kMBreedmonidFieldNumber = 19;
+  static const int kMBreedMonIDFieldNumber = 19;
   inline ::google::protobuf::int64 m_breedmonid() const;
   inline void set_m_breedmonid(::google::protobuf::int64 value);
 
-  // optional int32 m_breedmonlive = 20;
+  // optional int32 m_breedMonLive = 20;
   inline bool has_m_breedmonlive() const;
   inline void clear_m_breedmonlive();
-  static const int kMBreedmonliveFieldNumber = 20;
+  static const int kMBreedMonLiveFieldNumber = 20;
   inline ::google::protobuf::int32 m_breedmonlive() const;
   inline void set_m_breedmonlive(::google::protobuf::int32 value);
 
-  // optional string m_itemcost = 21;
+  // optional string m_itemCost = 21;
   inline bool has_m_itemcost() const;
   inline void clear_m_itemcost();
-  static const int kMItemcostFieldNumber = 21;
+  static const int kMItemCostFieldNumber = 21;
   inline const ::std::string& m_itemcost() const;
   inline void set_m_itemcost(const ::std::string& value);
   inline void set_m_itemcost(const char* value);
@@ -266,10 +266,10 @@ class E_MonsterMonster : public ::google::protobuf::Message {
   inline ::std::string* release_m_itemcost();
   inline void set_allocated_m_itemcost(::std::string* m_itemcost);
 
-  // optional int32 m_isbornactionon = 22;
+  // optional int32 m_isBornActionOn = 22;
   inline bool has_m_isbornactionon() const;
   inline void clear_m_isbornactionon();
-  static const int kMIsbornactiononFieldNumber = 22;
+  static const int kMIsBornActionOnFieldNumber = 22;
   inline ::google::protobuf::int32 m_isbornactionon() const;
   inline void set_m_isbornactionon(::google::protobuf::int32 value);
 
@@ -280,10 +280,10 @@ class E_MonsterMonster : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_belongshow() const;
   inline void set_m_belongshow(::google::protobuf::int32 value);
 
-  // optional int32 m_dropgroupid = 24;
+  // optional int32 m_dropGroupID = 24;
   inline bool has_m_dropgroupid() const;
   inline void clear_m_dropgroupid();
-  static const int kMDropgroupidFieldNumber = 24;
+  static const int kMDropGroupIDFieldNumber = 24;
   inline ::google::protobuf::int32 m_dropgroupid() const;
   inline void set_m_dropgroupid(::google::protobuf::int32 value);
 
@@ -301,31 +301,31 @@ class E_MonsterMonster : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_joninper() const;
   inline void set_m_joninper(::google::protobuf::int32 value);
 
-  // optional int32 m_btnrange = 27;
+  // optional int32 m_btnRange = 27;
   inline bool has_m_btnrange() const;
   inline void clear_m_btnrange();
-  static const int kMBtnrangeFieldNumber = 27;
+  static const int kMBtnRangeFieldNumber = 27;
   inline ::google::protobuf::int32 m_btnrange() const;
   inline void set_m_btnrange(::google::protobuf::int32 value);
 
-  // optional int64 m_btnid = 28;
+  // optional int64 m_btnId = 28;
   inline bool has_m_btnid() const;
   inline void clear_m_btnid();
-  static const int kMBtnidFieldNumber = 28;
+  static const int kMBtnIdFieldNumber = 28;
   inline ::google::protobuf::int64 m_btnid() const;
   inline void set_m_btnid(::google::protobuf::int64 value);
 
-  // optional int32 m_drivepoint = 29;
+  // optional int32 m_drivePoint = 29;
   inline bool has_m_drivepoint() const;
   inline void clear_m_drivepoint();
-  static const int kMDrivepointFieldNumber = 29;
+  static const int kMDrivePointFieldNumber = 29;
   inline ::google::protobuf::int32 m_drivepoint() const;
   inline void set_m_drivepoint(::google::protobuf::int32 value);
 
-  // optional int32 m_corpseid = 30;
+  // optional int32 m_corpseID = 30;
   inline bool has_m_corpseid() const;
   inline void clear_m_corpseid();
-  static const int kMCorpseidFieldNumber = 30;
+  static const int kMCorpseIDFieldNumber = 30;
   inline ::google::protobuf::int32 m_corpseid() const;
   inline void set_m_corpseid(::google::protobuf::int32 value);
 
@@ -336,17 +336,17 @@ class E_MonsterMonster : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_battle() const;
   inline void set_m_battle(::google::protobuf::int64 value);
 
-  // optional int32 m_lvsuppve = 32;
+  // optional int32 m_lvSupPve = 32;
   inline bool has_m_lvsuppve() const;
   inline void clear_m_lvsuppve();
-  static const int kMLvsuppveFieldNumber = 32;
+  static const int kMLvSupPveFieldNumber = 32;
   inline ::google::protobuf::int32 m_lvsuppve() const;
   inline void set_m_lvsuppve(::google::protobuf::int32 value);
 
-  // optional int32 m_powersuppve = 33;
+  // optional int32 m_powerSupPve = 33;
   inline bool has_m_powersuppve() const;
   inline void clear_m_powersuppve();
-  static const int kMPowersuppveFieldNumber = 33;
+  static const int kMPowerSupPveFieldNumber = 33;
   inline ::google::protobuf::int32 m_powersuppve() const;
   inline void set_m_powersuppve(::google::protobuf::int32 value);
 
@@ -688,59 +688,59 @@ class E_MonsterDisplay : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_displayid = 1;
+  // optional int64 m_displayID = 1;
   inline bool has_m_displayid() const;
   inline void clear_m_displayid();
-  static const int kMDisplayidFieldNumber = 1;
+  static const int kMDisplayIDFieldNumber = 1;
   inline ::google::protobuf::int64 m_displayid() const;
   inline void set_m_displayid(::google::protobuf::int64 value);
 
-  // optional int32 m_modeloffsetsx = 2;
+  // optional int32 m_modelOffsetsX = 2;
   inline bool has_m_modeloffsetsx() const;
   inline void clear_m_modeloffsetsx();
-  static const int kMModeloffsetsxFieldNumber = 2;
+  static const int kMModelOffsetsXFieldNumber = 2;
   inline ::google::protobuf::int32 m_modeloffsetsx() const;
   inline void set_m_modeloffsetsx(::google::protobuf::int32 value);
 
-  // optional int32 m_modeloffsetsy = 3;
+  // optional int32 m_modelOffsetsY = 3;
   inline bool has_m_modeloffsetsy() const;
   inline void clear_m_modeloffsetsy();
-  static const int kMModeloffsetsyFieldNumber = 3;
+  static const int kMModelOffsetsYFieldNumber = 3;
   inline ::google::protobuf::int32 m_modeloffsetsy() const;
   inline void set_m_modeloffsetsy(::google::protobuf::int32 value);
 
-  // optional int32 m_modelscale = 4;
+  // optional int32 m_modelScale = 4;
   inline bool has_m_modelscale() const;
   inline void clear_m_modelscale();
-  static const int kMModelscaleFieldNumber = 4;
+  static const int kMModelScaleFieldNumber = 4;
   inline ::google::protobuf::int32 m_modelscale() const;
   inline void set_m_modelscale(::google::protobuf::int32 value);
 
-  // optional int32 m_modelradius = 5;
+  // optional int32 m_modelRadius = 5;
   inline bool has_m_modelradius() const;
   inline void clear_m_modelradius();
-  static const int kMModelradiusFieldNumber = 5;
+  static const int kMModelRadiusFieldNumber = 5;
   inline ::google::protobuf::int32 m_modelradius() const;
   inline void set_m_modelradius(::google::protobuf::int32 value);
 
-  // optional int32 m_pathradius = 6;
+  // optional int32 m_pathRadius = 6;
   inline bool has_m_pathradius() const;
   inline void clear_m_pathradius();
-  static const int kMPathradiusFieldNumber = 6;
+  static const int kMPathRadiusFieldNumber = 6;
   inline ::google::protobuf::int32 m_pathradius() const;
   inline void set_m_pathradius(::google::protobuf::int32 value);
 
-  // optional int32 m_collisionradius = 7;
+  // optional int32 m_collisionRadius = 7;
   inline bool has_m_collisionradius() const;
   inline void clear_m_collisionradius();
-  static const int kMCollisionradiusFieldNumber = 7;
+  static const int kMCollisionRadiusFieldNumber = 7;
   inline ::google::protobuf::int32 m_collisionradius() const;
   inline void set_m_collisionradius(::google::protobuf::int32 value);
 
-  // optional int32 m_rspeed = 8;
+  // optional int32 m_rSpeed = 8;
   inline bool has_m_rspeed() const;
   inline void clear_m_rspeed();
-  static const int kMRspeedFieldNumber = 8;
+  static const int kMRSpeedFieldNumber = 8;
   inline ::google::protobuf::int32 m_rspeed() const;
   inline void set_m_rspeed(::google::protobuf::int32 value);
 
@@ -938,10 +938,10 @@ class E_MonsterValue : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_id = 1;
+  // optional int64 m_ID = 1;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 1;
+  static const int kMIDFieldNumber = 1;
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
@@ -952,14 +952,14 @@ class E_MonsterValue : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_type() const;
   inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 m_monsterlv = 3;
+  // optional int32 m_monsterLV = 3;
   inline bool has_m_monsterlv() const;
   inline void clear_m_monsterlv();
-  static const int kMMonsterlvFieldNumber = 3;
+  static const int kMMonsterLVFieldNumber = 3;
   inline ::google::protobuf::int32 m_monsterlv() const;
   inline void set_m_monsterlv(::google::protobuf::int32 value);
 
-  // optional int64 m_max_hp = 4;
+  // optional int64 m_max_Hp = 4;
   inline bool has_m_max_hp() const;
   inline void clear_m_max_hp();
   static const int kMMaxHpFieldNumber = 4;
@@ -980,35 +980,35 @@ class E_MonsterValue : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_def() const;
   inline void set_m_def(::google::protobuf::int64 value);
 
-  // optional int64 m_brk_armor = 7;
+  // optional int64 m_brk_Armor = 7;
   inline bool has_m_brk_armor() const;
   inline void clear_m_brk_armor();
   static const int kMBrkArmorFieldNumber = 7;
   inline ::google::protobuf::int64 m_brk_armor() const;
   inline void set_m_brk_armor(::google::protobuf::int64 value);
 
-  // optional int64 m_five_dam = 8;
+  // optional int64 m_five_Dam = 8;
   inline bool has_m_five_dam() const;
   inline void clear_m_five_dam();
   static const int kMFiveDamFieldNumber = 8;
   inline ::google::protobuf::int64 m_five_dam() const;
   inline void set_m_five_dam(::google::protobuf::int64 value);
 
-  // optional int64 m_five_armor = 9;
+  // optional int64 m_five_Armor = 9;
   inline bool has_m_five_armor() const;
   inline void clear_m_five_armor();
   static const int kMFiveArmorFieldNumber = 9;
   inline ::google::protobuf::int64 m_five_armor() const;
   inline void set_m_five_armor(::google::protobuf::int64 value);
 
-  // optional int64 m_thump_rate = 10;
+  // optional int64 m_thump_Rate = 10;
   inline bool has_m_thump_rate() const;
   inline void clear_m_thump_rate();
   static const int kMThumpRateFieldNumber = 10;
   inline ::google::protobuf::int64 m_thump_rate() const;
   inline void set_m_thump_rate(::google::protobuf::int64 value);
 
-  // optional int64 m_thump_resist = 11;
+  // optional int64 m_thump_Resist = 11;
   inline bool has_m_thump_resist() const;
   inline void clear_m_thump_resist();
   static const int kMThumpResistFieldNumber = 11;
@@ -1022,427 +1022,427 @@ class E_MonsterValue : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_sky() const;
   inline void set_m_sky(::google::protobuf::int64 value);
 
-  // optional int64 m_sky_dam = 13;
+  // optional int64 m_sky_Dam = 13;
   inline bool has_m_sky_dam() const;
   inline void clear_m_sky_dam();
   static const int kMSkyDamFieldNumber = 13;
   inline ::google::protobuf::int64 m_sky_dam() const;
   inline void set_m_sky_dam(::google::protobuf::int64 value);
 
-  // optional int64 m_sky_redu_resist = 14;
+  // optional int64 m_sky_Redu_Resist = 14;
   inline bool has_m_sky_redu_resist() const;
   inline void clear_m_sky_redu_resist();
   static const int kMSkyReduResistFieldNumber = 14;
   inline ::google::protobuf::int64 m_sky_redu_resist() const;
   inline void set_m_sky_redu_resist(::google::protobuf::int64 value);
 
-  // optional int64 m_sky_resist = 15;
+  // optional int64 m_sky_Resist = 15;
   inline bool has_m_sky_resist() const;
   inline void clear_m_sky_resist();
   static const int kMSkyResistFieldNumber = 15;
   inline ::google::protobuf::int64 m_sky_resist() const;
   inline void set_m_sky_resist(::google::protobuf::int64 value);
 
-  // optional int64 m_kill_god = 16;
+  // optional int64 m_kill_God = 16;
   inline bool has_m_kill_god() const;
   inline void clear_m_kill_god();
   static const int kMKillGodFieldNumber = 16;
   inline ::google::protobuf::int64 m_kill_god() const;
   inline void set_m_kill_god(::google::protobuf::int64 value);
 
-  // optional int64 m_god_body = 17;
+  // optional int64 m_god_Body = 17;
   inline bool has_m_god_body() const;
   inline void clear_m_god_body();
   static const int kMGodBodyFieldNumber = 17;
   inline ::google::protobuf::int64 m_god_body() const;
   inline void set_m_god_body(::google::protobuf::int64 value);
 
-  // optional int64 m_mortal_rate = 18;
+  // optional int64 m_mortal_Rate = 18;
   inline bool has_m_mortal_rate() const;
   inline void clear_m_mortal_rate();
   static const int kMMortalRateFieldNumber = 18;
   inline ::google::protobuf::int64 m_mortal_rate() const;
   inline void set_m_mortal_rate(::google::protobuf::int64 value);
 
-  // optional int64 m_mortal_resist = 19;
+  // optional int64 m_mortal_Resist = 19;
   inline bool has_m_mortal_resist() const;
   inline void clear_m_mortal_resist();
   static const int kMMortalResistFieldNumber = 19;
   inline ::google::protobuf::int64 m_mortal_resist() const;
   inline void set_m_mortal_resist(::google::protobuf::int64 value);
 
-  // optional int64 m_fairy_rate = 20;
+  // optional int64 m_fairy_Rate = 20;
   inline bool has_m_fairy_rate() const;
   inline void clear_m_fairy_rate();
   static const int kMFairyRateFieldNumber = 20;
   inline ::google::protobuf::int64 m_fairy_rate() const;
   inline void set_m_fairy_rate(::google::protobuf::int64 value);
 
-  // optional int64 m_fairy_resist = 21;
+  // optional int64 m_fairy_Resist = 21;
   inline bool has_m_fairy_resist() const;
   inline void clear_m_fairy_resist();
   static const int kMFairyResistFieldNumber = 21;
   inline ::google::protobuf::int64 m_fairy_resist() const;
   inline void set_m_fairy_resist(::google::protobuf::int64 value);
 
-  // optional int64 m_god_rate = 22;
+  // optional int64 m_god_Rate = 22;
   inline bool has_m_god_rate() const;
   inline void clear_m_god_rate();
   static const int kMGodRateFieldNumber = 22;
   inline ::google::protobuf::int64 m_god_rate() const;
   inline void set_m_god_rate(::google::protobuf::int64 value);
 
-  // optional int64 m_god_resist = 23;
+  // optional int64 m_god_Resist = 23;
   inline bool has_m_god_resist() const;
   inline void clear_m_god_resist();
   static const int kMGodResistFieldNumber = 23;
   inline ::google::protobuf::int64 m_god_resist() const;
   inline void set_m_god_resist(::google::protobuf::int64 value);
 
-  // optional int64 m_crit_rate = 24;
+  // optional int64 m_crit_Rate = 24;
   inline bool has_m_crit_rate() const;
   inline void clear_m_crit_rate();
   static const int kMCritRateFieldNumber = 24;
   inline ::google::protobuf::int64 m_crit_rate() const;
   inline void set_m_crit_rate(::google::protobuf::int64 value);
 
-  // optional int64 m_crit_resit_rate = 25;
+  // optional int64 m_crit_resit_Rate = 25;
   inline bool has_m_crit_resit_rate() const;
   inline void clear_m_crit_resit_rate();
   static const int kMCritResitRateFieldNumber = 25;
   inline ::google::protobuf::int64 m_crit_resit_rate() const;
   inline void set_m_crit_resit_rate(::google::protobuf::int64 value);
 
-  // optional int64 m_crit_dam = 26;
+  // optional int64 m_crit_Dam = 26;
   inline bool has_m_crit_dam() const;
   inline void clear_m_crit_dam();
   static const int kMCritDamFieldNumber = 26;
   inline ::google::protobuf::int64 m_crit_dam() const;
   inline void set_m_crit_dam(::google::protobuf::int64 value);
 
-  // optional int64 m_crit_redu = 27;
+  // optional int64 m_crit_Redu = 27;
   inline bool has_m_crit_redu() const;
   inline void clear_m_crit_redu();
   static const int kMCritReduFieldNumber = 27;
   inline ::google::protobuf::int64 m_crit_redu() const;
   inline void set_m_crit_redu(::google::protobuf::int64 value);
 
-  // optional int64 m_batter_rate = 28;
+  // optional int64 m_batter_Rate = 28;
   inline bool has_m_batter_rate() const;
   inline void clear_m_batter_rate();
   static const int kMBatterRateFieldNumber = 28;
   inline ::google::protobuf::int64 m_batter_rate() const;
   inline void set_m_batter_rate(::google::protobuf::int64 value);
 
-  // optional int64 m_batter_resist = 29;
+  // optional int64 m_batter_Resist = 29;
   inline bool has_m_batter_resist() const;
   inline void clear_m_batter_resist();
   static const int kMBatterResistFieldNumber = 29;
   inline ::google::protobuf::int64 m_batter_resist() const;
   inline void set_m_batter_resist(::google::protobuf::int64 value);
 
-  // optional int64 m_batter_dam = 30;
+  // optional int64 m_batter_Dam = 30;
   inline bool has_m_batter_dam() const;
   inline void clear_m_batter_dam();
   static const int kMBatterDamFieldNumber = 30;
   inline ::google::protobuf::int64 m_batter_dam() const;
   inline void set_m_batter_dam(::google::protobuf::int64 value);
 
-  // optional int64 m_batter_redu = 31;
+  // optional int64 m_batter_Redu = 31;
   inline bool has_m_batter_redu() const;
   inline void clear_m_batter_redu();
   static const int kMBatterReduFieldNumber = 31;
   inline ::google::protobuf::int64 m_batter_redu() const;
   inline void set_m_batter_redu(::google::protobuf::int64 value);
 
-  // optional int64 m_brkdown_rate = 32;
+  // optional int64 m_brkdown_Rate = 32;
   inline bool has_m_brkdown_rate() const;
   inline void clear_m_brkdown_rate();
   static const int kMBrkdownRateFieldNumber = 32;
   inline ::google::protobuf::int64 m_brkdown_rate() const;
   inline void set_m_brkdown_rate(::google::protobuf::int64 value);
 
-  // optional int64 m_brkdown_resist = 33;
+  // optional int64 m_brkdown_Resist = 33;
   inline bool has_m_brkdown_resist() const;
   inline void clear_m_brkdown_resist();
   static const int kMBrkdownResistFieldNumber = 33;
   inline ::google::protobuf::int64 m_brkdown_resist() const;
   inline void set_m_brkdown_resist(::google::protobuf::int64 value);
 
-  // optional int64 m_dam_add = 34;
+  // optional int64 m_dam_Add = 34;
   inline bool has_m_dam_add() const;
   inline void clear_m_dam_add();
   static const int kMDamAddFieldNumber = 34;
   inline ::google::protobuf::int64 m_dam_add() const;
   inline void set_m_dam_add(::google::protobuf::int64 value);
 
-  // optional int64 m_dam_redu = 35;
+  // optional int64 m_dam_Redu = 35;
   inline bool has_m_dam_redu() const;
   inline void clear_m_dam_redu();
   static const int kMDamReduFieldNumber = 35;
   inline ::google::protobuf::int64 m_dam_redu() const;
   inline void set_m_dam_redu(::google::protobuf::int64 value);
 
-  // optional int64 m_all_add = 36;
+  // optional int64 m_all_Add = 36;
   inline bool has_m_all_add() const;
   inline void clear_m_all_add();
   static const int kMAllAddFieldNumber = 36;
   inline ::google::protobuf::int64 m_all_add() const;
   inline void set_m_all_add(::google::protobuf::int64 value);
 
-  // optional int64 m_all_redu = 37;
+  // optional int64 m_all_Redu = 37;
   inline bool has_m_all_redu() const;
   inline void clear_m_all_redu();
   static const int kMAllReduFieldNumber = 37;
   inline ::google::protobuf::int64 m_all_redu() const;
   inline void set_m_all_redu(::google::protobuf::int64 value);
 
-  // optional int64 m_skill_add = 38;
+  // optional int64 m_skill_Add = 38;
   inline bool has_m_skill_add() const;
   inline void clear_m_skill_add();
   static const int kMSkillAddFieldNumber = 38;
   inline ::google::protobuf::int64 m_skill_add() const;
   inline void set_m_skill_add(::google::protobuf::int64 value);
 
-  // optional int64 m_skill_redu = 39;
+  // optional int64 m_skill_Redu = 39;
   inline bool has_m_skill_redu() const;
   inline void clear_m_skill_redu();
   static const int kMSkillReduFieldNumber = 39;
   inline ::google::protobuf::int64 m_skill_redu() const;
   inline void set_m_skill_redu(::google::protobuf::int64 value);
 
-  // optional int64 m_rebound_dam = 40;
+  // optional int64 m_rebound_Dam = 40;
   inline bool has_m_rebound_dam() const;
   inline void clear_m_rebound_dam();
   static const int kMReboundDamFieldNumber = 40;
   inline ::google::protobuf::int64 m_rebound_dam() const;
   inline void set_m_rebound_dam(::google::protobuf::int64 value);
 
-  // optional int64 m_hp_steal = 41;
+  // optional int64 m_hp_Steal = 41;
   inline bool has_m_hp_steal() const;
   inline void clear_m_hp_steal();
   static const int kMHpStealFieldNumber = 41;
   inline ::google::protobuf::int64 m_hp_steal() const;
   inline void set_m_hp_steal(::google::protobuf::int64 value);
 
-  // optional int64 m_dodge_rate = 42;
+  // optional int64 m_dodge_Rate = 42;
   inline bool has_m_dodge_rate() const;
   inline void clear_m_dodge_rate();
   static const int kMDodgeRateFieldNumber = 42;
   inline ::google::protobuf::int64 m_dodge_rate() const;
   inline void set_m_dodge_rate(::google::protobuf::int64 value);
 
-  // optional int64 m_hit_rate = 43;
+  // optional int64 m_hit_Rate = 43;
   inline bool has_m_hit_rate() const;
   inline void clear_m_hit_rate();
   static const int kMHitRateFieldNumber = 43;
   inline ::google::protobuf::int64 m_hit_rate() const;
   inline void set_m_hit_rate(::google::protobuf::int64 value);
 
-  // optional int64 m_blk_rate = 44;
+  // optional int64 m_blk_Rate = 44;
   inline bool has_m_blk_rate() const;
   inline void clear_m_blk_rate();
   static const int kMBlkRateFieldNumber = 44;
   inline ::google::protobuf::int64 m_blk_rate() const;
   inline void set_m_blk_rate(::google::protobuf::int64 value);
 
-  // optional int64 m_brk_blk_rate = 45;
+  // optional int64 m_brk_blk_Rate = 45;
   inline bool has_m_brk_blk_rate() const;
   inline void clear_m_brk_blk_rate();
   static const int kMBrkBlkRateFieldNumber = 45;
   inline ::google::protobuf::int64 m_brk_blk_rate() const;
   inline void set_m_brk_blk_rate(::google::protobuf::int64 value);
 
-  // optional int64 m_blk_free = 46;
+  // optional int64 m_blk_Free = 46;
   inline bool has_m_blk_free() const;
   inline void clear_m_blk_free();
   static const int kMBlkFreeFieldNumber = 46;
   inline ::google::protobuf::int64 m_blk_free() const;
   inline void set_m_blk_free(::google::protobuf::int64 value);
 
-  // optional int64 m_blk_pierce = 47;
+  // optional int64 m_blk_Pierce = 47;
   inline bool has_m_blk_pierce() const;
   inline void clear_m_blk_pierce();
   static const int kMBlkPierceFieldNumber = 47;
   inline ::google::protobuf::int64 m_blk_pierce() const;
   inline void set_m_blk_pierce(::google::protobuf::int64 value);
 
-  // optional int64 m_rel_armor = 48;
+  // optional int64 m_rel_Armor = 48;
   inline bool has_m_rel_armor() const;
   inline void clear_m_rel_armor();
   static const int kMRelArmorFieldNumber = 48;
   inline ::google::protobuf::int64 m_rel_armor() const;
   inline void set_m_rel_armor(::google::protobuf::int64 value);
 
-  // optional int64 m_rel_dam = 49;
+  // optional int64 m_rel_Dam = 49;
   inline bool has_m_rel_dam() const;
   inline void clear_m_rel_dam();
   static const int kMRelDamFieldNumber = 49;
   inline ::google::protobuf::int64 m_rel_dam() const;
   inline void set_m_rel_dam(::google::protobuf::int64 value);
 
-  // optional int64 m_five_resist = 50;
+  // optional int64 m_five_Resist = 50;
   inline bool has_m_five_resist() const;
   inline void clear_m_five_resist();
   static const int kMFiveResistFieldNumber = 50;
   inline ::google::protobuf::int64 m_five_resist() const;
   inline void set_m_five_resist(::google::protobuf::int64 value);
 
-  // optional int64 m_five_resist_redu = 51;
+  // optional int64 m_five_resist_Redu = 51;
   inline bool has_m_five_resist_redu() const;
   inline void clear_m_five_resist_redu();
   static const int kMFiveResistReduFieldNumber = 51;
   inline ::google::protobuf::int64 m_five_resist_redu() const;
   inline void set_m_five_resist_redu(::google::protobuf::int64 value);
 
-  // optional int64 m_fire_add = 52;
+  // optional int64 m_fire_Add = 52;
   inline bool has_m_fire_add() const;
   inline void clear_m_fire_add();
   static const int kMFireAddFieldNumber = 52;
   inline ::google::protobuf::int64 m_fire_add() const;
   inline void set_m_fire_add(::google::protobuf::int64 value);
 
-  // optional int64 m_fire_redu = 53;
+  // optional int64 m_fire_Redu = 53;
   inline bool has_m_fire_redu() const;
   inline void clear_m_fire_redu();
   static const int kMFireReduFieldNumber = 53;
   inline ::google::protobuf::int64 m_fire_redu() const;
   inline void set_m_fire_redu(::google::protobuf::int64 value);
 
-  // optional int64 m_ice_add = 54;
+  // optional int64 m_ice_Add = 54;
   inline bool has_m_ice_add() const;
   inline void clear_m_ice_add();
   static const int kMIceAddFieldNumber = 54;
   inline ::google::protobuf::int64 m_ice_add() const;
   inline void set_m_ice_add(::google::protobuf::int64 value);
 
-  // optional int64 m_ice_redu = 55;
+  // optional int64 m_ice_Redu = 55;
   inline bool has_m_ice_redu() const;
   inline void clear_m_ice_redu();
   static const int kMIceReduFieldNumber = 55;
   inline ::google::protobuf::int64 m_ice_redu() const;
   inline void set_m_ice_redu(::google::protobuf::int64 value);
 
-  // optional int64 m_thunder_add = 56;
+  // optional int64 m_thunder_Add = 56;
   inline bool has_m_thunder_add() const;
   inline void clear_m_thunder_add();
   static const int kMThunderAddFieldNumber = 56;
   inline ::google::protobuf::int64 m_thunder_add() const;
   inline void set_m_thunder_add(::google::protobuf::int64 value);
 
-  // optional int64 m_thunder_rdu = 57;
+  // optional int64 m_thunder_Rdu = 57;
   inline bool has_m_thunder_rdu() const;
   inline void clear_m_thunder_rdu();
   static const int kMThunderRduFieldNumber = 57;
   inline ::google::protobuf::int64 m_thunder_rdu() const;
   inline void set_m_thunder_rdu(::google::protobuf::int64 value);
 
-  // optional int64 m_player_add = 58;
+  // optional int64 m_player_Add = 58;
   inline bool has_m_player_add() const;
   inline void clear_m_player_add();
   static const int kMPlayerAddFieldNumber = 58;
   inline ::google::protobuf::int64 m_player_add() const;
   inline void set_m_player_add(::google::protobuf::int64 value);
 
-  // optional int64 m_player_redu = 59;
+  // optional int64 m_player_Redu = 59;
   inline bool has_m_player_redu() const;
   inline void clear_m_player_redu();
   static const int kMPlayerReduFieldNumber = 59;
   inline ::google::protobuf::int64 m_player_redu() const;
   inline void set_m_player_redu(::google::protobuf::int64 value);
 
-  // optional int64 m_leader_add = 60;
+  // optional int64 m_leader_Add = 60;
   inline bool has_m_leader_add() const;
   inline void clear_m_leader_add();
   static const int kMLeaderAddFieldNumber = 60;
   inline ::google::protobuf::int64 m_leader_add() const;
   inline void set_m_leader_add(::google::protobuf::int64 value);
 
-  // optional int64 m_leader_redu = 61;
+  // optional int64 m_leader_Redu = 61;
   inline bool has_m_leader_redu() const;
   inline void clear_m_leader_redu();
   static const int kMLeaderReduFieldNumber = 61;
   inline ::google::protobuf::int64 m_leader_redu() const;
   inline void set_m_leader_redu(::google::protobuf::int64 value);
 
-  // optional int64 m_mon_add = 62;
+  // optional int64 m_mon_Add = 62;
   inline bool has_m_mon_add() const;
   inline void clear_m_mon_add();
   static const int kMMonAddFieldNumber = 62;
   inline ::google::protobuf::int64 m_mon_add() const;
   inline void set_m_mon_add(::google::protobuf::int64 value);
 
-  // optional int64 m_mon_redu = 63;
+  // optional int64 m_mon_Redu = 63;
   inline bool has_m_mon_redu() const;
   inline void clear_m_mon_redu();
   static const int kMMonReduFieldNumber = 63;
   inline ::google::protobuf::int64 m_mon_redu() const;
   inline void set_m_mon_redu(::google::protobuf::int64 value);
 
-  // optional int64 m_var_redu = 64;
+  // optional int64 m_var_Redu = 64;
   inline bool has_m_var_redu() const;
   inline void clear_m_var_redu();
   static const int kMVarReduFieldNumber = 64;
   inline ::google::protobuf::int64 m_var_redu() const;
   inline void set_m_var_redu(::google::protobuf::int64 value);
 
-  // optional int64 m_var_add = 65;
+  // optional int64 m_var_Add = 65;
   inline bool has_m_var_add() const;
   inline void clear_m_var_add();
   static const int kMVarAddFieldNumber = 65;
   inline ::google::protobuf::int64 m_var_add() const;
   inline void set_m_var_add(::google::protobuf::int64 value);
 
-  // optional int64 m_unusual_resist = 66;
+  // optional int64 m_unusual_Resist = 66;
   inline bool has_m_unusual_resist() const;
   inline void clear_m_unusual_resist();
   static const int kMUnusualResistFieldNumber = 66;
   inline ::google::protobuf::int64 m_unusual_resist() const;
   inline void set_m_unusual_resist(::google::protobuf::int64 value);
 
-  // optional int64 m_unusual_hit = 67;
+  // optional int64 m_unusual_Hit = 67;
   inline bool has_m_unusual_hit() const;
   inline void clear_m_unusual_hit();
   static const int kMUnusualHitFieldNumber = 67;
   inline ::google::protobuf::int64 m_unusual_hit() const;
   inline void set_m_unusual_hit(::google::protobuf::int64 value);
 
-  // optional int64 m_hp_recover = 68;
+  // optional int64 m_hp_Recover = 68;
   inline bool has_m_hp_recover() const;
   inline void clear_m_hp_recover();
   static const int kMHpRecoverFieldNumber = 68;
   inline ::google::protobuf::int64 m_hp_recover() const;
   inline void set_m_hp_recover(::google::protobuf::int64 value);
 
-  // optional int64 m_unusual_add = 69;
+  // optional int64 m_unusual_Add = 69;
   inline bool has_m_unusual_add() const;
   inline void clear_m_unusual_add();
   static const int kMUnusualAddFieldNumber = 69;
   inline ::google::protobuf::int64 m_unusual_add() const;
   inline void set_m_unusual_add(::google::protobuf::int64 value);
 
-  // optional int64 m_fix_recover = 70;
+  // optional int64 m_fix_Recover = 70;
   inline bool has_m_fix_recover() const;
   inline void clear_m_fix_recover();
   static const int kMFixRecoverFieldNumber = 70;
   inline ::google::protobuf::int64 m_fix_recover() const;
   inline void set_m_fix_recover(::google::protobuf::int64 value);
 
-  // optional int64 m_high_hp_add = 71;
+  // optional int64 m_high_hp_Add = 71;
   inline bool has_m_high_hp_add() const;
   inline void clear_m_high_hp_add();
   static const int kMHighHpAddFieldNumber = 71;
   inline ::google::protobuf::int64 m_high_hp_add() const;
   inline void set_m_high_hp_add(::google::protobuf::int64 value);
 
-  // optional int64 m_recover_hp_add = 72;
+  // optional int64 m_recover_hp_Add = 72;
   inline bool has_m_recover_hp_add() const;
   inline void clear_m_recover_hp_add();
   static const int kMRecoverHpAddFieldNumber = 72;
   inline ::google::protobuf::int64 m_recover_hp_add() const;
   inline void set_m_recover_hp_add(::google::protobuf::int64 value);
 
-  // optional int64 m_week_add = 73;
+  // optional int64 m_week_Add = 73;
   inline bool has_m_week_add() const;
   inline void clear_m_week_add();
   static const int kMWeekAddFieldNumber = 73;
@@ -1852,490 +1852,490 @@ class E_MonsterValueparam : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_p_max_hp = 2;
+  // optional int32 m_P_max_Hp = 2;
   inline bool has_m_p_max_hp() const;
   inline void clear_m_p_max_hp();
   static const int kMPMaxHpFieldNumber = 2;
   inline ::google::protobuf::int32 m_p_max_hp() const;
   inline void set_m_p_max_hp(::google::protobuf::int32 value);
 
-  // optional int32 m_p_atk = 3;
+  // optional int32 m_P_atk = 3;
   inline bool has_m_p_atk() const;
   inline void clear_m_p_atk();
   static const int kMPAtkFieldNumber = 3;
   inline ::google::protobuf::int32 m_p_atk() const;
   inline void set_m_p_atk(::google::protobuf::int32 value);
 
-  // optional int32 m_p_def = 4;
+  // optional int32 m_P_def = 4;
   inline bool has_m_p_def() const;
   inline void clear_m_p_def();
   static const int kMPDefFieldNumber = 4;
   inline ::google::protobuf::int32 m_p_def() const;
   inline void set_m_p_def(::google::protobuf::int32 value);
 
-  // optional int32 m_p_brk_armor = 5;
+  // optional int32 m_P_brk_Armor = 5;
   inline bool has_m_p_brk_armor() const;
   inline void clear_m_p_brk_armor();
   static const int kMPBrkArmorFieldNumber = 5;
   inline ::google::protobuf::int32 m_p_brk_armor() const;
   inline void set_m_p_brk_armor(::google::protobuf::int32 value);
 
-  // optional int32 m_p_five_dam = 6;
+  // optional int32 m_P_five_Dam = 6;
   inline bool has_m_p_five_dam() const;
   inline void clear_m_p_five_dam();
   static const int kMPFiveDamFieldNumber = 6;
   inline ::google::protobuf::int32 m_p_five_dam() const;
   inline void set_m_p_five_dam(::google::protobuf::int32 value);
 
-  // optional int32 m_p_five_armor = 7;
+  // optional int32 m_P_five_Armor = 7;
   inline bool has_m_p_five_armor() const;
   inline void clear_m_p_five_armor();
   static const int kMPFiveArmorFieldNumber = 7;
   inline ::google::protobuf::int32 m_p_five_armor() const;
   inline void set_m_p_five_armor(::google::protobuf::int32 value);
 
-  // optional int32 m_p_thump_rate = 8;
+  // optional int32 m_P_thump_Rate = 8;
   inline bool has_m_p_thump_rate() const;
   inline void clear_m_p_thump_rate();
   static const int kMPThumpRateFieldNumber = 8;
   inline ::google::protobuf::int32 m_p_thump_rate() const;
   inline void set_m_p_thump_rate(::google::protobuf::int32 value);
 
-  // optional int32 m_p_thump_resist = 9;
+  // optional int32 m_P_thump_Resist = 9;
   inline bool has_m_p_thump_resist() const;
   inline void clear_m_p_thump_resist();
   static const int kMPThumpResistFieldNumber = 9;
   inline ::google::protobuf::int32 m_p_thump_resist() const;
   inline void set_m_p_thump_resist(::google::protobuf::int32 value);
 
-  // optional int32 m_p_sky = 10;
+  // optional int32 m_P_sky = 10;
   inline bool has_m_p_sky() const;
   inline void clear_m_p_sky();
   static const int kMPSkyFieldNumber = 10;
   inline ::google::protobuf::int32 m_p_sky() const;
   inline void set_m_p_sky(::google::protobuf::int32 value);
 
-  // optional int32 m_p_sky_dam = 11;
+  // optional int32 m_P_sky_Dam = 11;
   inline bool has_m_p_sky_dam() const;
   inline void clear_m_p_sky_dam();
   static const int kMPSkyDamFieldNumber = 11;
   inline ::google::protobuf::int32 m_p_sky_dam() const;
   inline void set_m_p_sky_dam(::google::protobuf::int32 value);
 
-  // optional int32 m_p_sky_redu_resist = 12;
+  // optional int32 m_P_sky_Redu_Resist = 12;
   inline bool has_m_p_sky_redu_resist() const;
   inline void clear_m_p_sky_redu_resist();
   static const int kMPSkyReduResistFieldNumber = 12;
   inline ::google::protobuf::int32 m_p_sky_redu_resist() const;
   inline void set_m_p_sky_redu_resist(::google::protobuf::int32 value);
 
-  // optional int32 m_p_sky_resist = 13;
+  // optional int32 m_P_sky_Resist = 13;
   inline bool has_m_p_sky_resist() const;
   inline void clear_m_p_sky_resist();
   static const int kMPSkyResistFieldNumber = 13;
   inline ::google::protobuf::int32 m_p_sky_resist() const;
   inline void set_m_p_sky_resist(::google::protobuf::int32 value);
 
-  // optional int32 m_p_kill_god = 14;
+  // optional int32 m_P_kill_God = 14;
   inline bool has_m_p_kill_god() const;
   inline void clear_m_p_kill_god();
   static const int kMPKillGodFieldNumber = 14;
   inline ::google::protobuf::int32 m_p_kill_god() const;
   inline void set_m_p_kill_god(::google::protobuf::int32 value);
 
-  // optional int32 m_p_god_body = 15;
+  // optional int32 m_P_god_Body = 15;
   inline bool has_m_p_god_body() const;
   inline void clear_m_p_god_body();
   static const int kMPGodBodyFieldNumber = 15;
   inline ::google::protobuf::int32 m_p_god_body() const;
   inline void set_m_p_god_body(::google::protobuf::int32 value);
 
-  // optional int32 m_p_mortal_rate = 16;
+  // optional int32 m_P_mortal_Rate = 16;
   inline bool has_m_p_mortal_rate() const;
   inline void clear_m_p_mortal_rate();
   static const int kMPMortalRateFieldNumber = 16;
   inline ::google::protobuf::int32 m_p_mortal_rate() const;
   inline void set_m_p_mortal_rate(::google::protobuf::int32 value);
 
-  // optional int32 m_p_mortal_resist = 17;
+  // optional int32 m_P_mortal_Resist = 17;
   inline bool has_m_p_mortal_resist() const;
   inline void clear_m_p_mortal_resist();
   static const int kMPMortalResistFieldNumber = 17;
   inline ::google::protobuf::int32 m_p_mortal_resist() const;
   inline void set_m_p_mortal_resist(::google::protobuf::int32 value);
 
-  // optional int32 m_p_fairy_rate = 18;
+  // optional int32 m_P_fairy_Rate = 18;
   inline bool has_m_p_fairy_rate() const;
   inline void clear_m_p_fairy_rate();
   static const int kMPFairyRateFieldNumber = 18;
   inline ::google::protobuf::int32 m_p_fairy_rate() const;
   inline void set_m_p_fairy_rate(::google::protobuf::int32 value);
 
-  // optional int32 m_p_fairy_resist = 19;
+  // optional int32 m_P_fairy_Resist = 19;
   inline bool has_m_p_fairy_resist() const;
   inline void clear_m_p_fairy_resist();
   static const int kMPFairyResistFieldNumber = 19;
   inline ::google::protobuf::int32 m_p_fairy_resist() const;
   inline void set_m_p_fairy_resist(::google::protobuf::int32 value);
 
-  // optional int32 m_p_god_rate = 20;
+  // optional int32 m_P_god_Rate = 20;
   inline bool has_m_p_god_rate() const;
   inline void clear_m_p_god_rate();
   static const int kMPGodRateFieldNumber = 20;
   inline ::google::protobuf::int32 m_p_god_rate() const;
   inline void set_m_p_god_rate(::google::protobuf::int32 value);
 
-  // optional int32 m_p_god_resist = 21;
+  // optional int32 m_P_god_Resist = 21;
   inline bool has_m_p_god_resist() const;
   inline void clear_m_p_god_resist();
   static const int kMPGodResistFieldNumber = 21;
   inline ::google::protobuf::int32 m_p_god_resist() const;
   inline void set_m_p_god_resist(::google::protobuf::int32 value);
 
-  // optional int32 m_p_crit_rate = 22;
+  // optional int32 m_P_crit_Rate = 22;
   inline bool has_m_p_crit_rate() const;
   inline void clear_m_p_crit_rate();
   static const int kMPCritRateFieldNumber = 22;
   inline ::google::protobuf::int32 m_p_crit_rate() const;
   inline void set_m_p_crit_rate(::google::protobuf::int32 value);
 
-  // optional int32 m_p_crit_resit_rate = 23;
+  // optional int32 m_P_crit_resit_Rate = 23;
   inline bool has_m_p_crit_resit_rate() const;
   inline void clear_m_p_crit_resit_rate();
   static const int kMPCritResitRateFieldNumber = 23;
   inline ::google::protobuf::int32 m_p_crit_resit_rate() const;
   inline void set_m_p_crit_resit_rate(::google::protobuf::int32 value);
 
-  // optional int32 m_p_crit_dam = 24;
+  // optional int32 m_P_crit_Dam = 24;
   inline bool has_m_p_crit_dam() const;
   inline void clear_m_p_crit_dam();
   static const int kMPCritDamFieldNumber = 24;
   inline ::google::protobuf::int32 m_p_crit_dam() const;
   inline void set_m_p_crit_dam(::google::protobuf::int32 value);
 
-  // optional int32 m_p_crit_redu = 25;
+  // optional int32 m_P_crit_Redu = 25;
   inline bool has_m_p_crit_redu() const;
   inline void clear_m_p_crit_redu();
   static const int kMPCritReduFieldNumber = 25;
   inline ::google::protobuf::int32 m_p_crit_redu() const;
   inline void set_m_p_crit_redu(::google::protobuf::int32 value);
 
-  // optional int32 m_p_batter_rate = 26;
+  // optional int32 m_P_batter_Rate = 26;
   inline bool has_m_p_batter_rate() const;
   inline void clear_m_p_batter_rate();
   static const int kMPBatterRateFieldNumber = 26;
   inline ::google::protobuf::int32 m_p_batter_rate() const;
   inline void set_m_p_batter_rate(::google::protobuf::int32 value);
 
-  // optional int32 m_p_batter_resist = 27;
+  // optional int32 m_P_batter_Resist = 27;
   inline bool has_m_p_batter_resist() const;
   inline void clear_m_p_batter_resist();
   static const int kMPBatterResistFieldNumber = 27;
   inline ::google::protobuf::int32 m_p_batter_resist() const;
   inline void set_m_p_batter_resist(::google::protobuf::int32 value);
 
-  // optional int32 m_p_batter_dam = 28;
+  // optional int32 m_P_batter_Dam = 28;
   inline bool has_m_p_batter_dam() const;
   inline void clear_m_p_batter_dam();
   static const int kMPBatterDamFieldNumber = 28;
   inline ::google::protobuf::int32 m_p_batter_dam() const;
   inline void set_m_p_batter_dam(::google::protobuf::int32 value);
 
-  // optional int32 m_p_batter_redu = 29;
+  // optional int32 m_P_batter_Redu = 29;
   inline bool has_m_p_batter_redu() const;
   inline void clear_m_p_batter_redu();
   static const int kMPBatterReduFieldNumber = 29;
   inline ::google::protobuf::int32 m_p_batter_redu() const;
   inline void set_m_p_batter_redu(::google::protobuf::int32 value);
 
-  // optional int32 m_p_brkdown_rate = 30;
+  // optional int32 m_P_brkdown_Rate = 30;
   inline bool has_m_p_brkdown_rate() const;
   inline void clear_m_p_brkdown_rate();
   static const int kMPBrkdownRateFieldNumber = 30;
   inline ::google::protobuf::int32 m_p_brkdown_rate() const;
   inline void set_m_p_brkdown_rate(::google::protobuf::int32 value);
 
-  // optional int32 m_p_brkdown_resist = 31;
+  // optional int32 m_P_brkdown_Resist = 31;
   inline bool has_m_p_brkdown_resist() const;
   inline void clear_m_p_brkdown_resist();
   static const int kMPBrkdownResistFieldNumber = 31;
   inline ::google::protobuf::int32 m_p_brkdown_resist() const;
   inline void set_m_p_brkdown_resist(::google::protobuf::int32 value);
 
-  // optional int32 m_p_dam_add = 32;
+  // optional int32 m_P_dam_Add = 32;
   inline bool has_m_p_dam_add() const;
   inline void clear_m_p_dam_add();
   static const int kMPDamAddFieldNumber = 32;
   inline ::google::protobuf::int32 m_p_dam_add() const;
   inline void set_m_p_dam_add(::google::protobuf::int32 value);
 
-  // optional int32 m_p_dam_redu = 33;
+  // optional int32 m_P_dam_Redu = 33;
   inline bool has_m_p_dam_redu() const;
   inline void clear_m_p_dam_redu();
   static const int kMPDamReduFieldNumber = 33;
   inline ::google::protobuf::int32 m_p_dam_redu() const;
   inline void set_m_p_dam_redu(::google::protobuf::int32 value);
 
-  // optional int32 m_p_all_add = 34;
+  // optional int32 m_P_all_Add = 34;
   inline bool has_m_p_all_add() const;
   inline void clear_m_p_all_add();
   static const int kMPAllAddFieldNumber = 34;
   inline ::google::protobuf::int32 m_p_all_add() const;
   inline void set_m_p_all_add(::google::protobuf::int32 value);
 
-  // optional int32 m_p_all_redu = 35;
+  // optional int32 m_P_all_Redu = 35;
   inline bool has_m_p_all_redu() const;
   inline void clear_m_p_all_redu();
   static const int kMPAllReduFieldNumber = 35;
   inline ::google::protobuf::int32 m_p_all_redu() const;
   inline void set_m_p_all_redu(::google::protobuf::int32 value);
 
-  // optional int32 m_p_skill_add = 36;
+  // optional int32 m_P_skill_Add = 36;
   inline bool has_m_p_skill_add() const;
   inline void clear_m_p_skill_add();
   static const int kMPSkillAddFieldNumber = 36;
   inline ::google::protobuf::int32 m_p_skill_add() const;
   inline void set_m_p_skill_add(::google::protobuf::int32 value);
 
-  // optional int32 m_p_skill_redu = 37;
+  // optional int32 m_P_skill_Redu = 37;
   inline bool has_m_p_skill_redu() const;
   inline void clear_m_p_skill_redu();
   static const int kMPSkillReduFieldNumber = 37;
   inline ::google::protobuf::int32 m_p_skill_redu() const;
   inline void set_m_p_skill_redu(::google::protobuf::int32 value);
 
-  // optional int32 m_p_rebound_dam = 38;
+  // optional int32 m_P_rebound_Dam = 38;
   inline bool has_m_p_rebound_dam() const;
   inline void clear_m_p_rebound_dam();
   static const int kMPReboundDamFieldNumber = 38;
   inline ::google::protobuf::int32 m_p_rebound_dam() const;
   inline void set_m_p_rebound_dam(::google::protobuf::int32 value);
 
-  // optional int32 m_p_hp_steal = 39;
+  // optional int32 m_P_hp_Steal = 39;
   inline bool has_m_p_hp_steal() const;
   inline void clear_m_p_hp_steal();
   static const int kMPHpStealFieldNumber = 39;
   inline ::google::protobuf::int32 m_p_hp_steal() const;
   inline void set_m_p_hp_steal(::google::protobuf::int32 value);
 
-  // optional int32 m_p_dodge_rate = 40;
+  // optional int32 m_P_dodge_Rate = 40;
   inline bool has_m_p_dodge_rate() const;
   inline void clear_m_p_dodge_rate();
   static const int kMPDodgeRateFieldNumber = 40;
   inline ::google::protobuf::int32 m_p_dodge_rate() const;
   inline void set_m_p_dodge_rate(::google::protobuf::int32 value);
 
-  // optional int32 m_p_hit_rate = 41;
+  // optional int32 m_P_hit_Rate = 41;
   inline bool has_m_p_hit_rate() const;
   inline void clear_m_p_hit_rate();
   static const int kMPHitRateFieldNumber = 41;
   inline ::google::protobuf::int32 m_p_hit_rate() const;
   inline void set_m_p_hit_rate(::google::protobuf::int32 value);
 
-  // optional int32 m_p_blk_rate = 42;
+  // optional int32 m_P_blk_Rate = 42;
   inline bool has_m_p_blk_rate() const;
   inline void clear_m_p_blk_rate();
   static const int kMPBlkRateFieldNumber = 42;
   inline ::google::protobuf::int32 m_p_blk_rate() const;
   inline void set_m_p_blk_rate(::google::protobuf::int32 value);
 
-  // optional int32 m_p_brk_blk_rate = 43;
+  // optional int32 m_P_brk_blk_Rate = 43;
   inline bool has_m_p_brk_blk_rate() const;
   inline void clear_m_p_brk_blk_rate();
   static const int kMPBrkBlkRateFieldNumber = 43;
   inline ::google::protobuf::int32 m_p_brk_blk_rate() const;
   inline void set_m_p_brk_blk_rate(::google::protobuf::int32 value);
 
-  // optional int32 m_p_blk_free = 44;
+  // optional int32 m_P_blk_Free = 44;
   inline bool has_m_p_blk_free() const;
   inline void clear_m_p_blk_free();
   static const int kMPBlkFreeFieldNumber = 44;
   inline ::google::protobuf::int32 m_p_blk_free() const;
   inline void set_m_p_blk_free(::google::protobuf::int32 value);
 
-  // optional int32 m_p_blk_pierce = 45;
+  // optional int32 m_P_blk_Pierce = 45;
   inline bool has_m_p_blk_pierce() const;
   inline void clear_m_p_blk_pierce();
   static const int kMPBlkPierceFieldNumber = 45;
   inline ::google::protobuf::int32 m_p_blk_pierce() const;
   inline void set_m_p_blk_pierce(::google::protobuf::int32 value);
 
-  // optional int32 m_p_rel_armor = 46;
+  // optional int32 m_P_rel_Armor = 46;
   inline bool has_m_p_rel_armor() const;
   inline void clear_m_p_rel_armor();
   static const int kMPRelArmorFieldNumber = 46;
   inline ::google::protobuf::int32 m_p_rel_armor() const;
   inline void set_m_p_rel_armor(::google::protobuf::int32 value);
 
-  // optional int32 m_p_rel_dam = 47;
+  // optional int32 m_P_rel_Dam = 47;
   inline bool has_m_p_rel_dam() const;
   inline void clear_m_p_rel_dam();
   static const int kMPRelDamFieldNumber = 47;
   inline ::google::protobuf::int32 m_p_rel_dam() const;
   inline void set_m_p_rel_dam(::google::protobuf::int32 value);
 
-  // optional int32 m_p_five_resist = 48;
+  // optional int32 m_P_five_Resist = 48;
   inline bool has_m_p_five_resist() const;
   inline void clear_m_p_five_resist();
   static const int kMPFiveResistFieldNumber = 48;
   inline ::google::protobuf::int32 m_p_five_resist() const;
   inline void set_m_p_five_resist(::google::protobuf::int32 value);
 
-  // optional int32 m_p_five_resist_redu = 49;
+  // optional int32 m_P_five_resist_Redu = 49;
   inline bool has_m_p_five_resist_redu() const;
   inline void clear_m_p_five_resist_redu();
   static const int kMPFiveResistReduFieldNumber = 49;
   inline ::google::protobuf::int32 m_p_five_resist_redu() const;
   inline void set_m_p_five_resist_redu(::google::protobuf::int32 value);
 
-  // optional int32 m_p_fire_add = 50;
+  // optional int32 m_P_fire_Add = 50;
   inline bool has_m_p_fire_add() const;
   inline void clear_m_p_fire_add();
   static const int kMPFireAddFieldNumber = 50;
   inline ::google::protobuf::int32 m_p_fire_add() const;
   inline void set_m_p_fire_add(::google::protobuf::int32 value);
 
-  // optional int32 m_p_fire_redu = 51;
+  // optional int32 m_P_fire_Redu = 51;
   inline bool has_m_p_fire_redu() const;
   inline void clear_m_p_fire_redu();
   static const int kMPFireReduFieldNumber = 51;
   inline ::google::protobuf::int32 m_p_fire_redu() const;
   inline void set_m_p_fire_redu(::google::protobuf::int32 value);
 
-  // optional int32 m_p_ice_add = 52;
+  // optional int32 m_P_ice_Add = 52;
   inline bool has_m_p_ice_add() const;
   inline void clear_m_p_ice_add();
   static const int kMPIceAddFieldNumber = 52;
   inline ::google::protobuf::int32 m_p_ice_add() const;
   inline void set_m_p_ice_add(::google::protobuf::int32 value);
 
-  // optional int32 m_p_ice_redu = 53;
+  // optional int32 m_P_ice_Redu = 53;
   inline bool has_m_p_ice_redu() const;
   inline void clear_m_p_ice_redu();
   static const int kMPIceReduFieldNumber = 53;
   inline ::google::protobuf::int32 m_p_ice_redu() const;
   inline void set_m_p_ice_redu(::google::protobuf::int32 value);
 
-  // optional int32 m_p_thunder_add = 54;
+  // optional int32 m_P_thunder_Add = 54;
   inline bool has_m_p_thunder_add() const;
   inline void clear_m_p_thunder_add();
   static const int kMPThunderAddFieldNumber = 54;
   inline ::google::protobuf::int32 m_p_thunder_add() const;
   inline void set_m_p_thunder_add(::google::protobuf::int32 value);
 
-  // optional int32 m_p_thunder_rdu = 55;
+  // optional int32 m_P_thunder_Rdu = 55;
   inline bool has_m_p_thunder_rdu() const;
   inline void clear_m_p_thunder_rdu();
   static const int kMPThunderRduFieldNumber = 55;
   inline ::google::protobuf::int32 m_p_thunder_rdu() const;
   inline void set_m_p_thunder_rdu(::google::protobuf::int32 value);
 
-  // optional int32 m_p_player_add = 56;
+  // optional int32 m_P_player_Add = 56;
   inline bool has_m_p_player_add() const;
   inline void clear_m_p_player_add();
   static const int kMPPlayerAddFieldNumber = 56;
   inline ::google::protobuf::int32 m_p_player_add() const;
   inline void set_m_p_player_add(::google::protobuf::int32 value);
 
-  // optional int32 m_p_player_redu = 57;
+  // optional int32 m_P_player_Redu = 57;
   inline bool has_m_p_player_redu() const;
   inline void clear_m_p_player_redu();
   static const int kMPPlayerReduFieldNumber = 57;
   inline ::google::protobuf::int32 m_p_player_redu() const;
   inline void set_m_p_player_redu(::google::protobuf::int32 value);
 
-  // optional int32 m_p_leader_add = 58;
+  // optional int32 m_P_leader_Add = 58;
   inline bool has_m_p_leader_add() const;
   inline void clear_m_p_leader_add();
   static const int kMPLeaderAddFieldNumber = 58;
   inline ::google::protobuf::int32 m_p_leader_add() const;
   inline void set_m_p_leader_add(::google::protobuf::int32 value);
 
-  // optional int32 m_p_leader_redu = 59;
+  // optional int32 m_P_leader_Redu = 59;
   inline bool has_m_p_leader_redu() const;
   inline void clear_m_p_leader_redu();
   static const int kMPLeaderReduFieldNumber = 59;
   inline ::google::protobuf::int32 m_p_leader_redu() const;
   inline void set_m_p_leader_redu(::google::protobuf::int32 value);
 
-  // optional int32 m_p_mon_add = 60;
+  // optional int32 m_P_mon_Add = 60;
   inline bool has_m_p_mon_add() const;
   inline void clear_m_p_mon_add();
   static const int kMPMonAddFieldNumber = 60;
   inline ::google::protobuf::int32 m_p_mon_add() const;
   inline void set_m_p_mon_add(::google::protobuf::int32 value);
 
-  // optional int32 m_p_mon_redu = 61;
+  // optional int32 m_P_mon_Redu = 61;
   inline bool has_m_p_mon_redu() const;
   inline void clear_m_p_mon_redu();
   static const int kMPMonReduFieldNumber = 61;
   inline ::google::protobuf::int32 m_p_mon_redu() const;
   inline void set_m_p_mon_redu(::google::protobuf::int32 value);
 
-  // optional int32 m_p_var_redu = 62;
+  // optional int32 m_P_var_Redu = 62;
   inline bool has_m_p_var_redu() const;
   inline void clear_m_p_var_redu();
   static const int kMPVarReduFieldNumber = 62;
   inline ::google::protobuf::int32 m_p_var_redu() const;
   inline void set_m_p_var_redu(::google::protobuf::int32 value);
 
-  // optional int32 m_p_var_add = 63;
+  // optional int32 m_P_var_Add = 63;
   inline bool has_m_p_var_add() const;
   inline void clear_m_p_var_add();
   static const int kMPVarAddFieldNumber = 63;
   inline ::google::protobuf::int32 m_p_var_add() const;
   inline void set_m_p_var_add(::google::protobuf::int32 value);
 
-  // optional int32 m_p_unusual_resist = 64;
+  // optional int32 m_P_unusual_Resist = 64;
   inline bool has_m_p_unusual_resist() const;
   inline void clear_m_p_unusual_resist();
   static const int kMPUnusualResistFieldNumber = 64;
   inline ::google::protobuf::int32 m_p_unusual_resist() const;
   inline void set_m_p_unusual_resist(::google::protobuf::int32 value);
 
-  // optional int32 m_p_unusual_hit = 65;
+  // optional int32 m_P_unusual_Hit = 65;
   inline bool has_m_p_unusual_hit() const;
   inline void clear_m_p_unusual_hit();
   static const int kMPUnusualHitFieldNumber = 65;
   inline ::google::protobuf::int32 m_p_unusual_hit() const;
   inline void set_m_p_unusual_hit(::google::protobuf::int32 value);
 
-  // optional int32 m_p_hp_recover = 66;
+  // optional int32 m_P_hp_Recover = 66;
   inline bool has_m_p_hp_recover() const;
   inline void clear_m_p_hp_recover();
   static const int kMPHpRecoverFieldNumber = 66;
   inline ::google::protobuf::int32 m_p_hp_recover() const;
   inline void set_m_p_hp_recover(::google::protobuf::int32 value);
 
-  // optional int32 m_p_unusual_add = 67;
+  // optional int32 m_P_unusual_Add = 67;
   inline bool has_m_p_unusual_add() const;
   inline void clear_m_p_unusual_add();
   static const int kMPUnusualAddFieldNumber = 67;
   inline ::google::protobuf::int32 m_p_unusual_add() const;
   inline void set_m_p_unusual_add(::google::protobuf::int32 value);
 
-  // optional int32 m_p_fix_recover = 68;
+  // optional int32 m_P_fix_Recover = 68;
   inline bool has_m_p_fix_recover() const;
   inline void clear_m_p_fix_recover();
   static const int kMPFixRecoverFieldNumber = 68;
   inline ::google::protobuf::int32 m_p_fix_recover() const;
   inline void set_m_p_fix_recover(::google::protobuf::int32 value);
 
-  // optional int32 m_p_high_hp_add = 69;
+  // optional int32 m_P_high_hp_Add = 69;
   inline bool has_m_p_high_hp_add() const;
   inline void clear_m_p_high_hp_add();
   static const int kMPHighHpAddFieldNumber = 69;
   inline ::google::protobuf::int32 m_p_high_hp_add() const;
   inline void set_m_p_high_hp_add(::google::protobuf::int32 value);
 
-  // optional int32 m_p_recover_hp_add = 70;
+  // optional int32 m_P_recover_hp_Add = 70;
   inline bool has_m_p_recover_hp_add() const;
   inline void clear_m_p_recover_hp_add();
   static const int kMPRecoverHpAddFieldNumber = 70;
   inline ::google::protobuf::int32 m_p_recover_hp_add() const;
   inline void set_m_p_recover_hp_add(::google::protobuf::int32 value);
 
-  // optional int32 m_p_week_add = 71;
+  // optional int32 m_P_week_Add = 71;
   inline bool has_m_p_week_add() const;
   inline void clear_m_p_week_add();
   static const int kMPWeekAddFieldNumber = 71;
@@ -2760,10 +2760,10 @@ class E_MonsterDrop : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_type() const;
   inline void set_m_type(::google::protobuf::int32 value);
 
-  // repeated int64 m_boxid = 5;
+  // repeated int64 m_boxID = 5;
   inline int m_boxid_size() const;
   inline void clear_m_boxid();
-  static const int kMBoxidFieldNumber = 5;
+  static const int kMBoxIDFieldNumber = 5;
   inline ::google::protobuf::int64 m_boxid(int index) const;
   inline void set_m_boxid(int index, ::google::protobuf::int64 value);
   inline void add_m_boxid(::google::protobuf::int64 value);
@@ -2942,10 +2942,10 @@ class E_MonsterCollect : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 1;
+  static const int kMIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -2963,17 +2963,17 @@ class E_MonsterCollect : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int32 m_breakdown = 4;
+  // optional int32 m_breakDown = 4;
   inline bool has_m_breakdown() const;
   inline void clear_m_breakdown();
-  static const int kMBreakdownFieldNumber = 4;
+  static const int kMBreakDownFieldNumber = 4;
   inline ::google::protobuf::int32 m_breakdown() const;
   inline void set_m_breakdown(::google::protobuf::int32 value);
 
-  // optional int32 m_dropgroupid = 5;
+  // optional int32 m_dropGroupID = 5;
   inline bool has_m_dropgroupid() const;
   inline void clear_m_dropgroupid();
-  static const int kMDropgroupidFieldNumber = 5;
+  static const int kMDropGroupIDFieldNumber = 5;
   inline ::google::protobuf::int32 m_dropgroupid() const;
   inline void set_m_dropgroupid(::google::protobuf::int32 value);
 
@@ -2984,38 +2984,38 @@ class E_MonsterCollect : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_time() const;
   inline void set_m_time(::google::protobuf::int32 value);
 
-  // optional int32 m_gettype = 7;
+  // optional int32 m_getType = 7;
   inline bool has_m_gettype() const;
   inline void clear_m_gettype();
-  static const int kMGettypeFieldNumber = 7;
+  static const int kMGetTypeFieldNumber = 7;
   inline ::google::protobuf::int32 m_gettype() const;
   inline void set_m_gettype(::google::protobuf::int32 value);
 
-  // optional int32 m_skilltime = 8;
+  // optional int32 m_skillTime = 8;
   inline bool has_m_skilltime() const;
   inline void clear_m_skilltime();
-  static const int kMSkilltimeFieldNumber = 8;
+  static const int kMSkillTimeFieldNumber = 8;
   inline ::google::protobuf::int32 m_skilltime() const;
   inline void set_m_skilltime(::google::protobuf::int32 value);
 
-  // optional int32 m_skillid = 9;
+  // optional int32 m_skillID = 9;
   inline bool has_m_skillid() const;
   inline void clear_m_skillid();
-  static const int kMSkillidFieldNumber = 9;
+  static const int kMSkillIDFieldNumber = 9;
   inline ::google::protobuf::int32 m_skillid() const;
   inline void set_m_skillid(::google::protobuf::int32 value);
 
-  // optional int32 m_dupid = 10;
+  // optional int32 m_dupID = 10;
   inline bool has_m_dupid() const;
   inline void clear_m_dupid();
-  static const int kMDupidFieldNumber = 10;
+  static const int kMDupIDFieldNumber = 10;
   inline ::google::protobuf::int32 m_dupid() const;
   inline void set_m_dupid(::google::protobuf::int32 value);
 
-  // optional int32 m_monsteid = 11;
+  // optional int32 m_monsteID = 11;
   inline bool has_m_monsteid() const;
   inline void clear_m_monsteid();
-  static const int kMMonsteidFieldNumber = 11;
+  static const int kMMonsteIDFieldNumber = 11;
   inline ::google::protobuf::int32 m_monsteid() const;
   inline void set_m_monsteid(::google::protobuf::int32 value);
 
@@ -3160,7 +3160,7 @@ class Sheet_MonsterCollect : public ::google::protobuf::Message {
 
 // E_MonsterMonster
 
-// optional int64 m_monsterid = 1;
+// optional int64 m_monsterID = 1;
 inline bool E_MonsterMonster::has_m_monsterid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -3182,7 +3182,7 @@ inline void E_MonsterMonster::set_m_monsterid(::google::protobuf::int64 value) {
   m_monsterid_ = value;
 }
 
-// optional string m_monstername = 2;
+// optional string m_monsterName = 2;
 inline bool E_MonsterMonster::has_m_monstername() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -3322,7 +3322,7 @@ inline void E_MonsterMonster::set_allocated_m_mask(::std::string* m_mask) {
   }
 }
 
-// optional int32 m_functiontype = 4;
+// optional int32 m_functionType = 4;
 inline bool E_MonsterMonster::has_m_functiontype() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -3344,7 +3344,7 @@ inline void E_MonsterMonster::set_m_functiontype(::google::protobuf::int32 value
   m_functiontype_ = value;
 }
 
-// optional int64 m_functionvalue = 5;
+// optional int64 m_functionValue = 5;
 inline bool E_MonsterMonster::has_m_functionvalue() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -3366,7 +3366,7 @@ inline void E_MonsterMonster::set_m_functionvalue(::google::protobuf::int64 valu
   m_functionvalue_ = value;
 }
 
-// optional int32 m_tasktype = 6;
+// optional int32 m_taskType = 6;
 inline bool E_MonsterMonster::has_m_tasktype() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -3410,7 +3410,7 @@ inline void E_MonsterMonster::set_m_profession(::google::protobuf::int32 value) 
   m_profession_ = value;
 }
 
-// optional int32 m_subprofession = 8;
+// optional int32 m_subProfession = 8;
 inline bool E_MonsterMonster::has_m_subprofession() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -3432,7 +3432,7 @@ inline void E_MonsterMonster::set_m_subprofession(::google::protobuf::int32 valu
   m_subprofession_ = value;
 }
 
-// optional int32 m_damageaddtype = 9;
+// optional int32 m_damageAddType = 9;
 inline bool E_MonsterMonster::has_m_damageaddtype() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -3454,7 +3454,7 @@ inline void E_MonsterMonster::set_m_damageaddtype(::google::protobuf::int32 valu
   m_damageaddtype_ = value;
 }
 
-// optional int32 m_monsterlv = 10;
+// optional int32 m_monsterLV = 10;
 inline bool E_MonsterMonster::has_m_monsterlv() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -3498,7 +3498,7 @@ inline void E_MonsterMonster::set_m_droplimit(::google::protobuf::int32 value) {
   m_droplimit_ = value;
 }
 
-// optional int64 m_displayid = 12;
+// optional int64 m_displayID = 12;
 inline bool E_MonsterMonster::has_m_displayid() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -3520,7 +3520,7 @@ inline void E_MonsterMonster::set_m_displayid(::google::protobuf::int64 value) {
   m_displayid_ = value;
 }
 
-// optional int32 m_bossid = 13;
+// optional int32 m_bossID = 13;
 inline bool E_MonsterMonster::has_m_bossid() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -3564,7 +3564,7 @@ inline void E_MonsterMonster::set_m_valuetype(::google::protobuf::int64 value) {
   m_valuetype_ = value;
 }
 
-// optional int32 m_valueparam = 15;
+// optional int32 m_valueParam = 15;
 inline bool E_MonsterMonster::has_m_valueparam() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
@@ -3586,7 +3586,7 @@ inline void E_MonsterMonster::set_m_valueparam(::google::protobuf::int32 value) 
   m_valueparam_ = value;
 }
 
-// optional int64 m_aiid = 16;
+// optional int64 m_aiId = 16;
 inline bool E_MonsterMonster::has_m_aiid() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
@@ -3608,7 +3608,7 @@ inline void E_MonsterMonster::set_m_aiid(::google::protobuf::int64 value) {
   m_aiid_ = value;
 }
 
-// optional int32 m_hpsectionnum = 17;
+// optional int32 m_hpSectionNum = 17;
 inline bool E_MonsterMonster::has_m_hpsectionnum() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
@@ -3630,7 +3630,7 @@ inline void E_MonsterMonster::set_m_hpsectionnum(::google::protobuf::int32 value
   m_hpsectionnum_ = value;
 }
 
-// optional int32 m_breedprob = 18;
+// optional int32 m_breedProb = 18;
 inline bool E_MonsterMonster::has_m_breedprob() const {
   return (_has_bits_[0] & 0x00020000u) != 0;
 }
@@ -3652,7 +3652,7 @@ inline void E_MonsterMonster::set_m_breedprob(::google::protobuf::int32 value) {
   m_breedprob_ = value;
 }
 
-// optional int64 m_breedmonid = 19;
+// optional int64 m_breedMonID = 19;
 inline bool E_MonsterMonster::has_m_breedmonid() const {
   return (_has_bits_[0] & 0x00040000u) != 0;
 }
@@ -3674,7 +3674,7 @@ inline void E_MonsterMonster::set_m_breedmonid(::google::protobuf::int64 value) 
   m_breedmonid_ = value;
 }
 
-// optional int32 m_breedmonlive = 20;
+// optional int32 m_breedMonLive = 20;
 inline bool E_MonsterMonster::has_m_breedmonlive() const {
   return (_has_bits_[0] & 0x00080000u) != 0;
 }
@@ -3696,7 +3696,7 @@ inline void E_MonsterMonster::set_m_breedmonlive(::google::protobuf::int32 value
   m_breedmonlive_ = value;
 }
 
-// optional string m_itemcost = 21;
+// optional string m_itemCost = 21;
 inline bool E_MonsterMonster::has_m_itemcost() const {
   return (_has_bits_[0] & 0x00100000u) != 0;
 }
@@ -3766,7 +3766,7 @@ inline void E_MonsterMonster::set_allocated_m_itemcost(::std::string* m_itemcost
   }
 }
 
-// optional int32 m_isbornactionon = 22;
+// optional int32 m_isBornActionOn = 22;
 inline bool E_MonsterMonster::has_m_isbornactionon() const {
   return (_has_bits_[0] & 0x00200000u) != 0;
 }
@@ -3810,7 +3810,7 @@ inline void E_MonsterMonster::set_m_belongshow(::google::protobuf::int32 value) 
   m_belongshow_ = value;
 }
 
-// optional int32 m_dropgroupid = 24;
+// optional int32 m_dropGroupID = 24;
 inline bool E_MonsterMonster::has_m_dropgroupid() const {
   return (_has_bits_[0] & 0x00800000u) != 0;
 }
@@ -3876,7 +3876,7 @@ inline void E_MonsterMonster::set_m_joninper(::google::protobuf::int32 value) {
   m_joninper_ = value;
 }
 
-// optional int32 m_btnrange = 27;
+// optional int32 m_btnRange = 27;
 inline bool E_MonsterMonster::has_m_btnrange() const {
   return (_has_bits_[0] & 0x04000000u) != 0;
 }
@@ -3898,7 +3898,7 @@ inline void E_MonsterMonster::set_m_btnrange(::google::protobuf::int32 value) {
   m_btnrange_ = value;
 }
 
-// optional int64 m_btnid = 28;
+// optional int64 m_btnId = 28;
 inline bool E_MonsterMonster::has_m_btnid() const {
   return (_has_bits_[0] & 0x08000000u) != 0;
 }
@@ -3920,7 +3920,7 @@ inline void E_MonsterMonster::set_m_btnid(::google::protobuf::int64 value) {
   m_btnid_ = value;
 }
 
-// optional int32 m_drivepoint = 29;
+// optional int32 m_drivePoint = 29;
 inline bool E_MonsterMonster::has_m_drivepoint() const {
   return (_has_bits_[0] & 0x10000000u) != 0;
 }
@@ -3942,7 +3942,7 @@ inline void E_MonsterMonster::set_m_drivepoint(::google::protobuf::int32 value) 
   m_drivepoint_ = value;
 }
 
-// optional int32 m_corpseid = 30;
+// optional int32 m_corpseID = 30;
 inline bool E_MonsterMonster::has_m_corpseid() const {
   return (_has_bits_[0] & 0x20000000u) != 0;
 }
@@ -3986,7 +3986,7 @@ inline void E_MonsterMonster::set_m_battle(::google::protobuf::int64 value) {
   m_battle_ = value;
 }
 
-// optional int32 m_lvsuppve = 32;
+// optional int32 m_lvSupPve = 32;
 inline bool E_MonsterMonster::has_m_lvsuppve() const {
   return (_has_bits_[0] & 0x80000000u) != 0;
 }
@@ -4008,7 +4008,7 @@ inline void E_MonsterMonster::set_m_lvsuppve(::google::protobuf::int32 value) {
   m_lvsuppve_ = value;
 }
 
-// optional int32 m_powersuppve = 33;
+// optional int32 m_powerSupPve = 33;
 inline bool E_MonsterMonster::has_m_powersuppve() const {
   return (_has_bits_[1] & 0x00000001u) != 0;
 }
@@ -4089,7 +4089,7 @@ inline void E_MonsterDisplaySkillDesc::set_m_id(::google::protobuf::int64 value)
 
 // E_MonsterDisplay
 
-// optional int64 m_displayid = 1;
+// optional int64 m_displayID = 1;
 inline bool E_MonsterDisplay::has_m_displayid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -4111,7 +4111,7 @@ inline void E_MonsterDisplay::set_m_displayid(::google::protobuf::int64 value) {
   m_displayid_ = value;
 }
 
-// optional int32 m_modeloffsetsx = 2;
+// optional int32 m_modelOffsetsX = 2;
 inline bool E_MonsterDisplay::has_m_modeloffsetsx() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -4133,7 +4133,7 @@ inline void E_MonsterDisplay::set_m_modeloffsetsx(::google::protobuf::int32 valu
   m_modeloffsetsx_ = value;
 }
 
-// optional int32 m_modeloffsetsy = 3;
+// optional int32 m_modelOffsetsY = 3;
 inline bool E_MonsterDisplay::has_m_modeloffsetsy() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -4155,7 +4155,7 @@ inline void E_MonsterDisplay::set_m_modeloffsetsy(::google::protobuf::int32 valu
   m_modeloffsetsy_ = value;
 }
 
-// optional int32 m_modelscale = 4;
+// optional int32 m_modelScale = 4;
 inline bool E_MonsterDisplay::has_m_modelscale() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -4177,7 +4177,7 @@ inline void E_MonsterDisplay::set_m_modelscale(::google::protobuf::int32 value) 
   m_modelscale_ = value;
 }
 
-// optional int32 m_modelradius = 5;
+// optional int32 m_modelRadius = 5;
 inline bool E_MonsterDisplay::has_m_modelradius() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -4199,7 +4199,7 @@ inline void E_MonsterDisplay::set_m_modelradius(::google::protobuf::int32 value)
   m_modelradius_ = value;
 }
 
-// optional int32 m_pathradius = 6;
+// optional int32 m_pathRadius = 6;
 inline bool E_MonsterDisplay::has_m_pathradius() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -4221,7 +4221,7 @@ inline void E_MonsterDisplay::set_m_pathradius(::google::protobuf::int32 value) 
   m_pathradius_ = value;
 }
 
-// optional int32 m_collisionradius = 7;
+// optional int32 m_collisionRadius = 7;
 inline bool E_MonsterDisplay::has_m_collisionradius() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -4243,7 +4243,7 @@ inline void E_MonsterDisplay::set_m_collisionradius(::google::protobuf::int32 va
   m_collisionradius_ = value;
 }
 
-// optional int32 m_rspeed = 8;
+// optional int32 m_rSpeed = 8;
 inline bool E_MonsterDisplay::has_m_rspeed() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -4323,7 +4323,7 @@ Sheet_MonsterDisplay::mutable_e_monsterdisplay_list() {
 
 // E_MonsterValue
 
-// optional int64 m_id = 1;
+// optional int64 m_ID = 1;
 inline bool E_MonsterValue::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -4367,7 +4367,7 @@ inline void E_MonsterValue::set_m_type(::google::protobuf::int32 value) {
   m_type_ = value;
 }
 
-// optional int32 m_monsterlv = 3;
+// optional int32 m_monsterLV = 3;
 inline bool E_MonsterValue::has_m_monsterlv() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -4389,7 +4389,7 @@ inline void E_MonsterValue::set_m_monsterlv(::google::protobuf::int32 value) {
   m_monsterlv_ = value;
 }
 
-// optional int64 m_max_hp = 4;
+// optional int64 m_max_Hp = 4;
 inline bool E_MonsterValue::has_m_max_hp() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -4455,7 +4455,7 @@ inline void E_MonsterValue::set_m_def(::google::protobuf::int64 value) {
   m_def_ = value;
 }
 
-// optional int64 m_brk_armor = 7;
+// optional int64 m_brk_Armor = 7;
 inline bool E_MonsterValue::has_m_brk_armor() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -4477,7 +4477,7 @@ inline void E_MonsterValue::set_m_brk_armor(::google::protobuf::int64 value) {
   m_brk_armor_ = value;
 }
 
-// optional int64 m_five_dam = 8;
+// optional int64 m_five_Dam = 8;
 inline bool E_MonsterValue::has_m_five_dam() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -4499,7 +4499,7 @@ inline void E_MonsterValue::set_m_five_dam(::google::protobuf::int64 value) {
   m_five_dam_ = value;
 }
 
-// optional int64 m_five_armor = 9;
+// optional int64 m_five_Armor = 9;
 inline bool E_MonsterValue::has_m_five_armor() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -4521,7 +4521,7 @@ inline void E_MonsterValue::set_m_five_armor(::google::protobuf::int64 value) {
   m_five_armor_ = value;
 }
 
-// optional int64 m_thump_rate = 10;
+// optional int64 m_thump_Rate = 10;
 inline bool E_MonsterValue::has_m_thump_rate() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -4543,7 +4543,7 @@ inline void E_MonsterValue::set_m_thump_rate(::google::protobuf::int64 value) {
   m_thump_rate_ = value;
 }
 
-// optional int64 m_thump_resist = 11;
+// optional int64 m_thump_Resist = 11;
 inline bool E_MonsterValue::has_m_thump_resist() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -4587,7 +4587,7 @@ inline void E_MonsterValue::set_m_sky(::google::protobuf::int64 value) {
   m_sky_ = value;
 }
 
-// optional int64 m_sky_dam = 13;
+// optional int64 m_sky_Dam = 13;
 inline bool E_MonsterValue::has_m_sky_dam() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -4609,7 +4609,7 @@ inline void E_MonsterValue::set_m_sky_dam(::google::protobuf::int64 value) {
   m_sky_dam_ = value;
 }
 
-// optional int64 m_sky_redu_resist = 14;
+// optional int64 m_sky_Redu_Resist = 14;
 inline bool E_MonsterValue::has_m_sky_redu_resist() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -4631,7 +4631,7 @@ inline void E_MonsterValue::set_m_sky_redu_resist(::google::protobuf::int64 valu
   m_sky_redu_resist_ = value;
 }
 
-// optional int64 m_sky_resist = 15;
+// optional int64 m_sky_Resist = 15;
 inline bool E_MonsterValue::has_m_sky_resist() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
@@ -4653,7 +4653,7 @@ inline void E_MonsterValue::set_m_sky_resist(::google::protobuf::int64 value) {
   m_sky_resist_ = value;
 }
 
-// optional int64 m_kill_god = 16;
+// optional int64 m_kill_God = 16;
 inline bool E_MonsterValue::has_m_kill_god() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
@@ -4675,7 +4675,7 @@ inline void E_MonsterValue::set_m_kill_god(::google::protobuf::int64 value) {
   m_kill_god_ = value;
 }
 
-// optional int64 m_god_body = 17;
+// optional int64 m_god_Body = 17;
 inline bool E_MonsterValue::has_m_god_body() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
@@ -4697,7 +4697,7 @@ inline void E_MonsterValue::set_m_god_body(::google::protobuf::int64 value) {
   m_god_body_ = value;
 }
 
-// optional int64 m_mortal_rate = 18;
+// optional int64 m_mortal_Rate = 18;
 inline bool E_MonsterValue::has_m_mortal_rate() const {
   return (_has_bits_[0] & 0x00020000u) != 0;
 }
@@ -4719,7 +4719,7 @@ inline void E_MonsterValue::set_m_mortal_rate(::google::protobuf::int64 value) {
   m_mortal_rate_ = value;
 }
 
-// optional int64 m_mortal_resist = 19;
+// optional int64 m_mortal_Resist = 19;
 inline bool E_MonsterValue::has_m_mortal_resist() const {
   return (_has_bits_[0] & 0x00040000u) != 0;
 }
@@ -4741,7 +4741,7 @@ inline void E_MonsterValue::set_m_mortal_resist(::google::protobuf::int64 value)
   m_mortal_resist_ = value;
 }
 
-// optional int64 m_fairy_rate = 20;
+// optional int64 m_fairy_Rate = 20;
 inline bool E_MonsterValue::has_m_fairy_rate() const {
   return (_has_bits_[0] & 0x00080000u) != 0;
 }
@@ -4763,7 +4763,7 @@ inline void E_MonsterValue::set_m_fairy_rate(::google::protobuf::int64 value) {
   m_fairy_rate_ = value;
 }
 
-// optional int64 m_fairy_resist = 21;
+// optional int64 m_fairy_Resist = 21;
 inline bool E_MonsterValue::has_m_fairy_resist() const {
   return (_has_bits_[0] & 0x00100000u) != 0;
 }
@@ -4785,7 +4785,7 @@ inline void E_MonsterValue::set_m_fairy_resist(::google::protobuf::int64 value) 
   m_fairy_resist_ = value;
 }
 
-// optional int64 m_god_rate = 22;
+// optional int64 m_god_Rate = 22;
 inline bool E_MonsterValue::has_m_god_rate() const {
   return (_has_bits_[0] & 0x00200000u) != 0;
 }
@@ -4807,7 +4807,7 @@ inline void E_MonsterValue::set_m_god_rate(::google::protobuf::int64 value) {
   m_god_rate_ = value;
 }
 
-// optional int64 m_god_resist = 23;
+// optional int64 m_god_Resist = 23;
 inline bool E_MonsterValue::has_m_god_resist() const {
   return (_has_bits_[0] & 0x00400000u) != 0;
 }
@@ -4829,7 +4829,7 @@ inline void E_MonsterValue::set_m_god_resist(::google::protobuf::int64 value) {
   m_god_resist_ = value;
 }
 
-// optional int64 m_crit_rate = 24;
+// optional int64 m_crit_Rate = 24;
 inline bool E_MonsterValue::has_m_crit_rate() const {
   return (_has_bits_[0] & 0x00800000u) != 0;
 }
@@ -4851,7 +4851,7 @@ inline void E_MonsterValue::set_m_crit_rate(::google::protobuf::int64 value) {
   m_crit_rate_ = value;
 }
 
-// optional int64 m_crit_resit_rate = 25;
+// optional int64 m_crit_resit_Rate = 25;
 inline bool E_MonsterValue::has_m_crit_resit_rate() const {
   return (_has_bits_[0] & 0x01000000u) != 0;
 }
@@ -4873,7 +4873,7 @@ inline void E_MonsterValue::set_m_crit_resit_rate(::google::protobuf::int64 valu
   m_crit_resit_rate_ = value;
 }
 
-// optional int64 m_crit_dam = 26;
+// optional int64 m_crit_Dam = 26;
 inline bool E_MonsterValue::has_m_crit_dam() const {
   return (_has_bits_[0] & 0x02000000u) != 0;
 }
@@ -4895,7 +4895,7 @@ inline void E_MonsterValue::set_m_crit_dam(::google::protobuf::int64 value) {
   m_crit_dam_ = value;
 }
 
-// optional int64 m_crit_redu = 27;
+// optional int64 m_crit_Redu = 27;
 inline bool E_MonsterValue::has_m_crit_redu() const {
   return (_has_bits_[0] & 0x04000000u) != 0;
 }
@@ -4917,7 +4917,7 @@ inline void E_MonsterValue::set_m_crit_redu(::google::protobuf::int64 value) {
   m_crit_redu_ = value;
 }
 
-// optional int64 m_batter_rate = 28;
+// optional int64 m_batter_Rate = 28;
 inline bool E_MonsterValue::has_m_batter_rate() const {
   return (_has_bits_[0] & 0x08000000u) != 0;
 }
@@ -4939,7 +4939,7 @@ inline void E_MonsterValue::set_m_batter_rate(::google::protobuf::int64 value) {
   m_batter_rate_ = value;
 }
 
-// optional int64 m_batter_resist = 29;
+// optional int64 m_batter_Resist = 29;
 inline bool E_MonsterValue::has_m_batter_resist() const {
   return (_has_bits_[0] & 0x10000000u) != 0;
 }
@@ -4961,7 +4961,7 @@ inline void E_MonsterValue::set_m_batter_resist(::google::protobuf::int64 value)
   m_batter_resist_ = value;
 }
 
-// optional int64 m_batter_dam = 30;
+// optional int64 m_batter_Dam = 30;
 inline bool E_MonsterValue::has_m_batter_dam() const {
   return (_has_bits_[0] & 0x20000000u) != 0;
 }
@@ -4983,7 +4983,7 @@ inline void E_MonsterValue::set_m_batter_dam(::google::protobuf::int64 value) {
   m_batter_dam_ = value;
 }
 
-// optional int64 m_batter_redu = 31;
+// optional int64 m_batter_Redu = 31;
 inline bool E_MonsterValue::has_m_batter_redu() const {
   return (_has_bits_[0] & 0x40000000u) != 0;
 }
@@ -5005,7 +5005,7 @@ inline void E_MonsterValue::set_m_batter_redu(::google::protobuf::int64 value) {
   m_batter_redu_ = value;
 }
 
-// optional int64 m_brkdown_rate = 32;
+// optional int64 m_brkdown_Rate = 32;
 inline bool E_MonsterValue::has_m_brkdown_rate() const {
   return (_has_bits_[0] & 0x80000000u) != 0;
 }
@@ -5027,7 +5027,7 @@ inline void E_MonsterValue::set_m_brkdown_rate(::google::protobuf::int64 value) 
   m_brkdown_rate_ = value;
 }
 
-// optional int64 m_brkdown_resist = 33;
+// optional int64 m_brkdown_Resist = 33;
 inline bool E_MonsterValue::has_m_brkdown_resist() const {
   return (_has_bits_[1] & 0x00000001u) != 0;
 }
@@ -5049,7 +5049,7 @@ inline void E_MonsterValue::set_m_brkdown_resist(::google::protobuf::int64 value
   m_brkdown_resist_ = value;
 }
 
-// optional int64 m_dam_add = 34;
+// optional int64 m_dam_Add = 34;
 inline bool E_MonsterValue::has_m_dam_add() const {
   return (_has_bits_[1] & 0x00000002u) != 0;
 }
@@ -5071,7 +5071,7 @@ inline void E_MonsterValue::set_m_dam_add(::google::protobuf::int64 value) {
   m_dam_add_ = value;
 }
 
-// optional int64 m_dam_redu = 35;
+// optional int64 m_dam_Redu = 35;
 inline bool E_MonsterValue::has_m_dam_redu() const {
   return (_has_bits_[1] & 0x00000004u) != 0;
 }
@@ -5093,7 +5093,7 @@ inline void E_MonsterValue::set_m_dam_redu(::google::protobuf::int64 value) {
   m_dam_redu_ = value;
 }
 
-// optional int64 m_all_add = 36;
+// optional int64 m_all_Add = 36;
 inline bool E_MonsterValue::has_m_all_add() const {
   return (_has_bits_[1] & 0x00000008u) != 0;
 }
@@ -5115,7 +5115,7 @@ inline void E_MonsterValue::set_m_all_add(::google::protobuf::int64 value) {
   m_all_add_ = value;
 }
 
-// optional int64 m_all_redu = 37;
+// optional int64 m_all_Redu = 37;
 inline bool E_MonsterValue::has_m_all_redu() const {
   return (_has_bits_[1] & 0x00000010u) != 0;
 }
@@ -5137,7 +5137,7 @@ inline void E_MonsterValue::set_m_all_redu(::google::protobuf::int64 value) {
   m_all_redu_ = value;
 }
 
-// optional int64 m_skill_add = 38;
+// optional int64 m_skill_Add = 38;
 inline bool E_MonsterValue::has_m_skill_add() const {
   return (_has_bits_[1] & 0x00000020u) != 0;
 }
@@ -5159,7 +5159,7 @@ inline void E_MonsterValue::set_m_skill_add(::google::protobuf::int64 value) {
   m_skill_add_ = value;
 }
 
-// optional int64 m_skill_redu = 39;
+// optional int64 m_skill_Redu = 39;
 inline bool E_MonsterValue::has_m_skill_redu() const {
   return (_has_bits_[1] & 0x00000040u) != 0;
 }
@@ -5181,7 +5181,7 @@ inline void E_MonsterValue::set_m_skill_redu(::google::protobuf::int64 value) {
   m_skill_redu_ = value;
 }
 
-// optional int64 m_rebound_dam = 40;
+// optional int64 m_rebound_Dam = 40;
 inline bool E_MonsterValue::has_m_rebound_dam() const {
   return (_has_bits_[1] & 0x00000080u) != 0;
 }
@@ -5203,7 +5203,7 @@ inline void E_MonsterValue::set_m_rebound_dam(::google::protobuf::int64 value) {
   m_rebound_dam_ = value;
 }
 
-// optional int64 m_hp_steal = 41;
+// optional int64 m_hp_Steal = 41;
 inline bool E_MonsterValue::has_m_hp_steal() const {
   return (_has_bits_[1] & 0x00000100u) != 0;
 }
@@ -5225,7 +5225,7 @@ inline void E_MonsterValue::set_m_hp_steal(::google::protobuf::int64 value) {
   m_hp_steal_ = value;
 }
 
-// optional int64 m_dodge_rate = 42;
+// optional int64 m_dodge_Rate = 42;
 inline bool E_MonsterValue::has_m_dodge_rate() const {
   return (_has_bits_[1] & 0x00000200u) != 0;
 }
@@ -5247,7 +5247,7 @@ inline void E_MonsterValue::set_m_dodge_rate(::google::protobuf::int64 value) {
   m_dodge_rate_ = value;
 }
 
-// optional int64 m_hit_rate = 43;
+// optional int64 m_hit_Rate = 43;
 inline bool E_MonsterValue::has_m_hit_rate() const {
   return (_has_bits_[1] & 0x00000400u) != 0;
 }
@@ -5269,7 +5269,7 @@ inline void E_MonsterValue::set_m_hit_rate(::google::protobuf::int64 value) {
   m_hit_rate_ = value;
 }
 
-// optional int64 m_blk_rate = 44;
+// optional int64 m_blk_Rate = 44;
 inline bool E_MonsterValue::has_m_blk_rate() const {
   return (_has_bits_[1] & 0x00000800u) != 0;
 }
@@ -5291,7 +5291,7 @@ inline void E_MonsterValue::set_m_blk_rate(::google::protobuf::int64 value) {
   m_blk_rate_ = value;
 }
 
-// optional int64 m_brk_blk_rate = 45;
+// optional int64 m_brk_blk_Rate = 45;
 inline bool E_MonsterValue::has_m_brk_blk_rate() const {
   return (_has_bits_[1] & 0x00001000u) != 0;
 }
@@ -5313,7 +5313,7 @@ inline void E_MonsterValue::set_m_brk_blk_rate(::google::protobuf::int64 value) 
   m_brk_blk_rate_ = value;
 }
 
-// optional int64 m_blk_free = 46;
+// optional int64 m_blk_Free = 46;
 inline bool E_MonsterValue::has_m_blk_free() const {
   return (_has_bits_[1] & 0x00002000u) != 0;
 }
@@ -5335,7 +5335,7 @@ inline void E_MonsterValue::set_m_blk_free(::google::protobuf::int64 value) {
   m_blk_free_ = value;
 }
 
-// optional int64 m_blk_pierce = 47;
+// optional int64 m_blk_Pierce = 47;
 inline bool E_MonsterValue::has_m_blk_pierce() const {
   return (_has_bits_[1] & 0x00004000u) != 0;
 }
@@ -5357,7 +5357,7 @@ inline void E_MonsterValue::set_m_blk_pierce(::google::protobuf::int64 value) {
   m_blk_pierce_ = value;
 }
 
-// optional int64 m_rel_armor = 48;
+// optional int64 m_rel_Armor = 48;
 inline bool E_MonsterValue::has_m_rel_armor() const {
   return (_has_bits_[1] & 0x00008000u) != 0;
 }
@@ -5379,7 +5379,7 @@ inline void E_MonsterValue::set_m_rel_armor(::google::protobuf::int64 value) {
   m_rel_armor_ = value;
 }
 
-// optional int64 m_rel_dam = 49;
+// optional int64 m_rel_Dam = 49;
 inline bool E_MonsterValue::has_m_rel_dam() const {
   return (_has_bits_[1] & 0x00010000u) != 0;
 }
@@ -5401,7 +5401,7 @@ inline void E_MonsterValue::set_m_rel_dam(::google::protobuf::int64 value) {
   m_rel_dam_ = value;
 }
 
-// optional int64 m_five_resist = 50;
+// optional int64 m_five_Resist = 50;
 inline bool E_MonsterValue::has_m_five_resist() const {
   return (_has_bits_[1] & 0x00020000u) != 0;
 }
@@ -5423,7 +5423,7 @@ inline void E_MonsterValue::set_m_five_resist(::google::protobuf::int64 value) {
   m_five_resist_ = value;
 }
 
-// optional int64 m_five_resist_redu = 51;
+// optional int64 m_five_resist_Redu = 51;
 inline bool E_MonsterValue::has_m_five_resist_redu() const {
   return (_has_bits_[1] & 0x00040000u) != 0;
 }
@@ -5445,7 +5445,7 @@ inline void E_MonsterValue::set_m_five_resist_redu(::google::protobuf::int64 val
   m_five_resist_redu_ = value;
 }
 
-// optional int64 m_fire_add = 52;
+// optional int64 m_fire_Add = 52;
 inline bool E_MonsterValue::has_m_fire_add() const {
   return (_has_bits_[1] & 0x00080000u) != 0;
 }
@@ -5467,7 +5467,7 @@ inline void E_MonsterValue::set_m_fire_add(::google::protobuf::int64 value) {
   m_fire_add_ = value;
 }
 
-// optional int64 m_fire_redu = 53;
+// optional int64 m_fire_Redu = 53;
 inline bool E_MonsterValue::has_m_fire_redu() const {
   return (_has_bits_[1] & 0x00100000u) != 0;
 }
@@ -5489,7 +5489,7 @@ inline void E_MonsterValue::set_m_fire_redu(::google::protobuf::int64 value) {
   m_fire_redu_ = value;
 }
 
-// optional int64 m_ice_add = 54;
+// optional int64 m_ice_Add = 54;
 inline bool E_MonsterValue::has_m_ice_add() const {
   return (_has_bits_[1] & 0x00200000u) != 0;
 }
@@ -5511,7 +5511,7 @@ inline void E_MonsterValue::set_m_ice_add(::google::protobuf::int64 value) {
   m_ice_add_ = value;
 }
 
-// optional int64 m_ice_redu = 55;
+// optional int64 m_ice_Redu = 55;
 inline bool E_MonsterValue::has_m_ice_redu() const {
   return (_has_bits_[1] & 0x00400000u) != 0;
 }
@@ -5533,7 +5533,7 @@ inline void E_MonsterValue::set_m_ice_redu(::google::protobuf::int64 value) {
   m_ice_redu_ = value;
 }
 
-// optional int64 m_thunder_add = 56;
+// optional int64 m_thunder_Add = 56;
 inline bool E_MonsterValue::has_m_thunder_add() const {
   return (_has_bits_[1] & 0x00800000u) != 0;
 }
@@ -5555,7 +5555,7 @@ inline void E_MonsterValue::set_m_thunder_add(::google::protobuf::int64 value) {
   m_thunder_add_ = value;
 }
 
-// optional int64 m_thunder_rdu = 57;
+// optional int64 m_thunder_Rdu = 57;
 inline bool E_MonsterValue::has_m_thunder_rdu() const {
   return (_has_bits_[1] & 0x01000000u) != 0;
 }
@@ -5577,7 +5577,7 @@ inline void E_MonsterValue::set_m_thunder_rdu(::google::protobuf::int64 value) {
   m_thunder_rdu_ = value;
 }
 
-// optional int64 m_player_add = 58;
+// optional int64 m_player_Add = 58;
 inline bool E_MonsterValue::has_m_player_add() const {
   return (_has_bits_[1] & 0x02000000u) != 0;
 }
@@ -5599,7 +5599,7 @@ inline void E_MonsterValue::set_m_player_add(::google::protobuf::int64 value) {
   m_player_add_ = value;
 }
 
-// optional int64 m_player_redu = 59;
+// optional int64 m_player_Redu = 59;
 inline bool E_MonsterValue::has_m_player_redu() const {
   return (_has_bits_[1] & 0x04000000u) != 0;
 }
@@ -5621,7 +5621,7 @@ inline void E_MonsterValue::set_m_player_redu(::google::protobuf::int64 value) {
   m_player_redu_ = value;
 }
 
-// optional int64 m_leader_add = 60;
+// optional int64 m_leader_Add = 60;
 inline bool E_MonsterValue::has_m_leader_add() const {
   return (_has_bits_[1] & 0x08000000u) != 0;
 }
@@ -5643,7 +5643,7 @@ inline void E_MonsterValue::set_m_leader_add(::google::protobuf::int64 value) {
   m_leader_add_ = value;
 }
 
-// optional int64 m_leader_redu = 61;
+// optional int64 m_leader_Redu = 61;
 inline bool E_MonsterValue::has_m_leader_redu() const {
   return (_has_bits_[1] & 0x10000000u) != 0;
 }
@@ -5665,7 +5665,7 @@ inline void E_MonsterValue::set_m_leader_redu(::google::protobuf::int64 value) {
   m_leader_redu_ = value;
 }
 
-// optional int64 m_mon_add = 62;
+// optional int64 m_mon_Add = 62;
 inline bool E_MonsterValue::has_m_mon_add() const {
   return (_has_bits_[1] & 0x20000000u) != 0;
 }
@@ -5687,7 +5687,7 @@ inline void E_MonsterValue::set_m_mon_add(::google::protobuf::int64 value) {
   m_mon_add_ = value;
 }
 
-// optional int64 m_mon_redu = 63;
+// optional int64 m_mon_Redu = 63;
 inline bool E_MonsterValue::has_m_mon_redu() const {
   return (_has_bits_[1] & 0x40000000u) != 0;
 }
@@ -5709,7 +5709,7 @@ inline void E_MonsterValue::set_m_mon_redu(::google::protobuf::int64 value) {
   m_mon_redu_ = value;
 }
 
-// optional int64 m_var_redu = 64;
+// optional int64 m_var_Redu = 64;
 inline bool E_MonsterValue::has_m_var_redu() const {
   return (_has_bits_[1] & 0x80000000u) != 0;
 }
@@ -5731,7 +5731,7 @@ inline void E_MonsterValue::set_m_var_redu(::google::protobuf::int64 value) {
   m_var_redu_ = value;
 }
 
-// optional int64 m_var_add = 65;
+// optional int64 m_var_Add = 65;
 inline bool E_MonsterValue::has_m_var_add() const {
   return (_has_bits_[2] & 0x00000001u) != 0;
 }
@@ -5753,7 +5753,7 @@ inline void E_MonsterValue::set_m_var_add(::google::protobuf::int64 value) {
   m_var_add_ = value;
 }
 
-// optional int64 m_unusual_resist = 66;
+// optional int64 m_unusual_Resist = 66;
 inline bool E_MonsterValue::has_m_unusual_resist() const {
   return (_has_bits_[2] & 0x00000002u) != 0;
 }
@@ -5775,7 +5775,7 @@ inline void E_MonsterValue::set_m_unusual_resist(::google::protobuf::int64 value
   m_unusual_resist_ = value;
 }
 
-// optional int64 m_unusual_hit = 67;
+// optional int64 m_unusual_Hit = 67;
 inline bool E_MonsterValue::has_m_unusual_hit() const {
   return (_has_bits_[2] & 0x00000004u) != 0;
 }
@@ -5797,7 +5797,7 @@ inline void E_MonsterValue::set_m_unusual_hit(::google::protobuf::int64 value) {
   m_unusual_hit_ = value;
 }
 
-// optional int64 m_hp_recover = 68;
+// optional int64 m_hp_Recover = 68;
 inline bool E_MonsterValue::has_m_hp_recover() const {
   return (_has_bits_[2] & 0x00000008u) != 0;
 }
@@ -5819,7 +5819,7 @@ inline void E_MonsterValue::set_m_hp_recover(::google::protobuf::int64 value) {
   m_hp_recover_ = value;
 }
 
-// optional int64 m_unusual_add = 69;
+// optional int64 m_unusual_Add = 69;
 inline bool E_MonsterValue::has_m_unusual_add() const {
   return (_has_bits_[2] & 0x00000010u) != 0;
 }
@@ -5841,7 +5841,7 @@ inline void E_MonsterValue::set_m_unusual_add(::google::protobuf::int64 value) {
   m_unusual_add_ = value;
 }
 
-// optional int64 m_fix_recover = 70;
+// optional int64 m_fix_Recover = 70;
 inline bool E_MonsterValue::has_m_fix_recover() const {
   return (_has_bits_[2] & 0x00000020u) != 0;
 }
@@ -5863,7 +5863,7 @@ inline void E_MonsterValue::set_m_fix_recover(::google::protobuf::int64 value) {
   m_fix_recover_ = value;
 }
 
-// optional int64 m_high_hp_add = 71;
+// optional int64 m_high_hp_Add = 71;
 inline bool E_MonsterValue::has_m_high_hp_add() const {
   return (_has_bits_[2] & 0x00000040u) != 0;
 }
@@ -5885,7 +5885,7 @@ inline void E_MonsterValue::set_m_high_hp_add(::google::protobuf::int64 value) {
   m_high_hp_add_ = value;
 }
 
-// optional int64 m_recover_hp_add = 72;
+// optional int64 m_recover_hp_Add = 72;
 inline bool E_MonsterValue::has_m_recover_hp_add() const {
   return (_has_bits_[2] & 0x00000080u) != 0;
 }
@@ -5907,7 +5907,7 @@ inline void E_MonsterValue::set_m_recover_hp_add(::google::protobuf::int64 value
   m_recover_hp_add_ = value;
 }
 
-// optional int64 m_week_add = 73;
+// optional int64 m_week_Add = 73;
 inline bool E_MonsterValue::has_m_week_add() const {
   return (_has_bits_[2] & 0x00000100u) != 0;
 }
@@ -6028,7 +6028,7 @@ inline void E_MonsterValueparam::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_p_max_hp = 2;
+// optional int32 m_P_max_Hp = 2;
 inline bool E_MonsterValueparam::has_m_p_max_hp() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -6050,7 +6050,7 @@ inline void E_MonsterValueparam::set_m_p_max_hp(::google::protobuf::int32 value)
   m_p_max_hp_ = value;
 }
 
-// optional int32 m_p_atk = 3;
+// optional int32 m_P_atk = 3;
 inline bool E_MonsterValueparam::has_m_p_atk() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -6072,7 +6072,7 @@ inline void E_MonsterValueparam::set_m_p_atk(::google::protobuf::int32 value) {
   m_p_atk_ = value;
 }
 
-// optional int32 m_p_def = 4;
+// optional int32 m_P_def = 4;
 inline bool E_MonsterValueparam::has_m_p_def() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -6094,7 +6094,7 @@ inline void E_MonsterValueparam::set_m_p_def(::google::protobuf::int32 value) {
   m_p_def_ = value;
 }
 
-// optional int32 m_p_brk_armor = 5;
+// optional int32 m_P_brk_Armor = 5;
 inline bool E_MonsterValueparam::has_m_p_brk_armor() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -6116,7 +6116,7 @@ inline void E_MonsterValueparam::set_m_p_brk_armor(::google::protobuf::int32 val
   m_p_brk_armor_ = value;
 }
 
-// optional int32 m_p_five_dam = 6;
+// optional int32 m_P_five_Dam = 6;
 inline bool E_MonsterValueparam::has_m_p_five_dam() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -6138,7 +6138,7 @@ inline void E_MonsterValueparam::set_m_p_five_dam(::google::protobuf::int32 valu
   m_p_five_dam_ = value;
 }
 
-// optional int32 m_p_five_armor = 7;
+// optional int32 m_P_five_Armor = 7;
 inline bool E_MonsterValueparam::has_m_p_five_armor() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -6160,7 +6160,7 @@ inline void E_MonsterValueparam::set_m_p_five_armor(::google::protobuf::int32 va
   m_p_five_armor_ = value;
 }
 
-// optional int32 m_p_thump_rate = 8;
+// optional int32 m_P_thump_Rate = 8;
 inline bool E_MonsterValueparam::has_m_p_thump_rate() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -6182,7 +6182,7 @@ inline void E_MonsterValueparam::set_m_p_thump_rate(::google::protobuf::int32 va
   m_p_thump_rate_ = value;
 }
 
-// optional int32 m_p_thump_resist = 9;
+// optional int32 m_P_thump_Resist = 9;
 inline bool E_MonsterValueparam::has_m_p_thump_resist() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -6204,7 +6204,7 @@ inline void E_MonsterValueparam::set_m_p_thump_resist(::google::protobuf::int32 
   m_p_thump_resist_ = value;
 }
 
-// optional int32 m_p_sky = 10;
+// optional int32 m_P_sky = 10;
 inline bool E_MonsterValueparam::has_m_p_sky() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -6226,7 +6226,7 @@ inline void E_MonsterValueparam::set_m_p_sky(::google::protobuf::int32 value) {
   m_p_sky_ = value;
 }
 
-// optional int32 m_p_sky_dam = 11;
+// optional int32 m_P_sky_Dam = 11;
 inline bool E_MonsterValueparam::has_m_p_sky_dam() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -6248,7 +6248,7 @@ inline void E_MonsterValueparam::set_m_p_sky_dam(::google::protobuf::int32 value
   m_p_sky_dam_ = value;
 }
 
-// optional int32 m_p_sky_redu_resist = 12;
+// optional int32 m_P_sky_Redu_Resist = 12;
 inline bool E_MonsterValueparam::has_m_p_sky_redu_resist() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -6270,7 +6270,7 @@ inline void E_MonsterValueparam::set_m_p_sky_redu_resist(::google::protobuf::int
   m_p_sky_redu_resist_ = value;
 }
 
-// optional int32 m_p_sky_resist = 13;
+// optional int32 m_P_sky_Resist = 13;
 inline bool E_MonsterValueparam::has_m_p_sky_resist() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -6292,7 +6292,7 @@ inline void E_MonsterValueparam::set_m_p_sky_resist(::google::protobuf::int32 va
   m_p_sky_resist_ = value;
 }
 
-// optional int32 m_p_kill_god = 14;
+// optional int32 m_P_kill_God = 14;
 inline bool E_MonsterValueparam::has_m_p_kill_god() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -6314,7 +6314,7 @@ inline void E_MonsterValueparam::set_m_p_kill_god(::google::protobuf::int32 valu
   m_p_kill_god_ = value;
 }
 
-// optional int32 m_p_god_body = 15;
+// optional int32 m_P_god_Body = 15;
 inline bool E_MonsterValueparam::has_m_p_god_body() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
@@ -6336,7 +6336,7 @@ inline void E_MonsterValueparam::set_m_p_god_body(::google::protobuf::int32 valu
   m_p_god_body_ = value;
 }
 
-// optional int32 m_p_mortal_rate = 16;
+// optional int32 m_P_mortal_Rate = 16;
 inline bool E_MonsterValueparam::has_m_p_mortal_rate() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
@@ -6358,7 +6358,7 @@ inline void E_MonsterValueparam::set_m_p_mortal_rate(::google::protobuf::int32 v
   m_p_mortal_rate_ = value;
 }
 
-// optional int32 m_p_mortal_resist = 17;
+// optional int32 m_P_mortal_Resist = 17;
 inline bool E_MonsterValueparam::has_m_p_mortal_resist() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
@@ -6380,7 +6380,7 @@ inline void E_MonsterValueparam::set_m_p_mortal_resist(::google::protobuf::int32
   m_p_mortal_resist_ = value;
 }
 
-// optional int32 m_p_fairy_rate = 18;
+// optional int32 m_P_fairy_Rate = 18;
 inline bool E_MonsterValueparam::has_m_p_fairy_rate() const {
   return (_has_bits_[0] & 0x00020000u) != 0;
 }
@@ -6402,7 +6402,7 @@ inline void E_MonsterValueparam::set_m_p_fairy_rate(::google::protobuf::int32 va
   m_p_fairy_rate_ = value;
 }
 
-// optional int32 m_p_fairy_resist = 19;
+// optional int32 m_P_fairy_Resist = 19;
 inline bool E_MonsterValueparam::has_m_p_fairy_resist() const {
   return (_has_bits_[0] & 0x00040000u) != 0;
 }
@@ -6424,7 +6424,7 @@ inline void E_MonsterValueparam::set_m_p_fairy_resist(::google::protobuf::int32 
   m_p_fairy_resist_ = value;
 }
 
-// optional int32 m_p_god_rate = 20;
+// optional int32 m_P_god_Rate = 20;
 inline bool E_MonsterValueparam::has_m_p_god_rate() const {
   return (_has_bits_[0] & 0x00080000u) != 0;
 }
@@ -6446,7 +6446,7 @@ inline void E_MonsterValueparam::set_m_p_god_rate(::google::protobuf::int32 valu
   m_p_god_rate_ = value;
 }
 
-// optional int32 m_p_god_resist = 21;
+// optional int32 m_P_god_Resist = 21;
 inline bool E_MonsterValueparam::has_m_p_god_resist() const {
   return (_has_bits_[0] & 0x00100000u) != 0;
 }
@@ -6468,7 +6468,7 @@ inline void E_MonsterValueparam::set_m_p_god_resist(::google::protobuf::int32 va
   m_p_god_resist_ = value;
 }
 
-// optional int32 m_p_crit_rate = 22;
+// optional int32 m_P_crit_Rate = 22;
 inline bool E_MonsterValueparam::has_m_p_crit_rate() const {
   return (_has_bits_[0] & 0x00200000u) != 0;
 }
@@ -6490,7 +6490,7 @@ inline void E_MonsterValueparam::set_m_p_crit_rate(::google::protobuf::int32 val
   m_p_crit_rate_ = value;
 }
 
-// optional int32 m_p_crit_resit_rate = 23;
+// optional int32 m_P_crit_resit_Rate = 23;
 inline bool E_MonsterValueparam::has_m_p_crit_resit_rate() const {
   return (_has_bits_[0] & 0x00400000u) != 0;
 }
@@ -6512,7 +6512,7 @@ inline void E_MonsterValueparam::set_m_p_crit_resit_rate(::google::protobuf::int
   m_p_crit_resit_rate_ = value;
 }
 
-// optional int32 m_p_crit_dam = 24;
+// optional int32 m_P_crit_Dam = 24;
 inline bool E_MonsterValueparam::has_m_p_crit_dam() const {
   return (_has_bits_[0] & 0x00800000u) != 0;
 }
@@ -6534,7 +6534,7 @@ inline void E_MonsterValueparam::set_m_p_crit_dam(::google::protobuf::int32 valu
   m_p_crit_dam_ = value;
 }
 
-// optional int32 m_p_crit_redu = 25;
+// optional int32 m_P_crit_Redu = 25;
 inline bool E_MonsterValueparam::has_m_p_crit_redu() const {
   return (_has_bits_[0] & 0x01000000u) != 0;
 }
@@ -6556,7 +6556,7 @@ inline void E_MonsterValueparam::set_m_p_crit_redu(::google::protobuf::int32 val
   m_p_crit_redu_ = value;
 }
 
-// optional int32 m_p_batter_rate = 26;
+// optional int32 m_P_batter_Rate = 26;
 inline bool E_MonsterValueparam::has_m_p_batter_rate() const {
   return (_has_bits_[0] & 0x02000000u) != 0;
 }
@@ -6578,7 +6578,7 @@ inline void E_MonsterValueparam::set_m_p_batter_rate(::google::protobuf::int32 v
   m_p_batter_rate_ = value;
 }
 
-// optional int32 m_p_batter_resist = 27;
+// optional int32 m_P_batter_Resist = 27;
 inline bool E_MonsterValueparam::has_m_p_batter_resist() const {
   return (_has_bits_[0] & 0x04000000u) != 0;
 }
@@ -6600,7 +6600,7 @@ inline void E_MonsterValueparam::set_m_p_batter_resist(::google::protobuf::int32
   m_p_batter_resist_ = value;
 }
 
-// optional int32 m_p_batter_dam = 28;
+// optional int32 m_P_batter_Dam = 28;
 inline bool E_MonsterValueparam::has_m_p_batter_dam() const {
   return (_has_bits_[0] & 0x08000000u) != 0;
 }
@@ -6622,7 +6622,7 @@ inline void E_MonsterValueparam::set_m_p_batter_dam(::google::protobuf::int32 va
   m_p_batter_dam_ = value;
 }
 
-// optional int32 m_p_batter_redu = 29;
+// optional int32 m_P_batter_Redu = 29;
 inline bool E_MonsterValueparam::has_m_p_batter_redu() const {
   return (_has_bits_[0] & 0x10000000u) != 0;
 }
@@ -6644,7 +6644,7 @@ inline void E_MonsterValueparam::set_m_p_batter_redu(::google::protobuf::int32 v
   m_p_batter_redu_ = value;
 }
 
-// optional int32 m_p_brkdown_rate = 30;
+// optional int32 m_P_brkdown_Rate = 30;
 inline bool E_MonsterValueparam::has_m_p_brkdown_rate() const {
   return (_has_bits_[0] & 0x20000000u) != 0;
 }
@@ -6666,7 +6666,7 @@ inline void E_MonsterValueparam::set_m_p_brkdown_rate(::google::protobuf::int32 
   m_p_brkdown_rate_ = value;
 }
 
-// optional int32 m_p_brkdown_resist = 31;
+// optional int32 m_P_brkdown_Resist = 31;
 inline bool E_MonsterValueparam::has_m_p_brkdown_resist() const {
   return (_has_bits_[0] & 0x40000000u) != 0;
 }
@@ -6688,7 +6688,7 @@ inline void E_MonsterValueparam::set_m_p_brkdown_resist(::google::protobuf::int3
   m_p_brkdown_resist_ = value;
 }
 
-// optional int32 m_p_dam_add = 32;
+// optional int32 m_P_dam_Add = 32;
 inline bool E_MonsterValueparam::has_m_p_dam_add() const {
   return (_has_bits_[0] & 0x80000000u) != 0;
 }
@@ -6710,7 +6710,7 @@ inline void E_MonsterValueparam::set_m_p_dam_add(::google::protobuf::int32 value
   m_p_dam_add_ = value;
 }
 
-// optional int32 m_p_dam_redu = 33;
+// optional int32 m_P_dam_Redu = 33;
 inline bool E_MonsterValueparam::has_m_p_dam_redu() const {
   return (_has_bits_[1] & 0x00000001u) != 0;
 }
@@ -6732,7 +6732,7 @@ inline void E_MonsterValueparam::set_m_p_dam_redu(::google::protobuf::int32 valu
   m_p_dam_redu_ = value;
 }
 
-// optional int32 m_p_all_add = 34;
+// optional int32 m_P_all_Add = 34;
 inline bool E_MonsterValueparam::has_m_p_all_add() const {
   return (_has_bits_[1] & 0x00000002u) != 0;
 }
@@ -6754,7 +6754,7 @@ inline void E_MonsterValueparam::set_m_p_all_add(::google::protobuf::int32 value
   m_p_all_add_ = value;
 }
 
-// optional int32 m_p_all_redu = 35;
+// optional int32 m_P_all_Redu = 35;
 inline bool E_MonsterValueparam::has_m_p_all_redu() const {
   return (_has_bits_[1] & 0x00000004u) != 0;
 }
@@ -6776,7 +6776,7 @@ inline void E_MonsterValueparam::set_m_p_all_redu(::google::protobuf::int32 valu
   m_p_all_redu_ = value;
 }
 
-// optional int32 m_p_skill_add = 36;
+// optional int32 m_P_skill_Add = 36;
 inline bool E_MonsterValueparam::has_m_p_skill_add() const {
   return (_has_bits_[1] & 0x00000008u) != 0;
 }
@@ -6798,7 +6798,7 @@ inline void E_MonsterValueparam::set_m_p_skill_add(::google::protobuf::int32 val
   m_p_skill_add_ = value;
 }
 
-// optional int32 m_p_skill_redu = 37;
+// optional int32 m_P_skill_Redu = 37;
 inline bool E_MonsterValueparam::has_m_p_skill_redu() const {
   return (_has_bits_[1] & 0x00000010u) != 0;
 }
@@ -6820,7 +6820,7 @@ inline void E_MonsterValueparam::set_m_p_skill_redu(::google::protobuf::int32 va
   m_p_skill_redu_ = value;
 }
 
-// optional int32 m_p_rebound_dam = 38;
+// optional int32 m_P_rebound_Dam = 38;
 inline bool E_MonsterValueparam::has_m_p_rebound_dam() const {
   return (_has_bits_[1] & 0x00000020u) != 0;
 }
@@ -6842,7 +6842,7 @@ inline void E_MonsterValueparam::set_m_p_rebound_dam(::google::protobuf::int32 v
   m_p_rebound_dam_ = value;
 }
 
-// optional int32 m_p_hp_steal = 39;
+// optional int32 m_P_hp_Steal = 39;
 inline bool E_MonsterValueparam::has_m_p_hp_steal() const {
   return (_has_bits_[1] & 0x00000040u) != 0;
 }
@@ -6864,7 +6864,7 @@ inline void E_MonsterValueparam::set_m_p_hp_steal(::google::protobuf::int32 valu
   m_p_hp_steal_ = value;
 }
 
-// optional int32 m_p_dodge_rate = 40;
+// optional int32 m_P_dodge_Rate = 40;
 inline bool E_MonsterValueparam::has_m_p_dodge_rate() const {
   return (_has_bits_[1] & 0x00000080u) != 0;
 }
@@ -6886,7 +6886,7 @@ inline void E_MonsterValueparam::set_m_p_dodge_rate(::google::protobuf::int32 va
   m_p_dodge_rate_ = value;
 }
 
-// optional int32 m_p_hit_rate = 41;
+// optional int32 m_P_hit_Rate = 41;
 inline bool E_MonsterValueparam::has_m_p_hit_rate() const {
   return (_has_bits_[1] & 0x00000100u) != 0;
 }
@@ -6908,7 +6908,7 @@ inline void E_MonsterValueparam::set_m_p_hit_rate(::google::protobuf::int32 valu
   m_p_hit_rate_ = value;
 }
 
-// optional int32 m_p_blk_rate = 42;
+// optional int32 m_P_blk_Rate = 42;
 inline bool E_MonsterValueparam::has_m_p_blk_rate() const {
   return (_has_bits_[1] & 0x00000200u) != 0;
 }
@@ -6930,7 +6930,7 @@ inline void E_MonsterValueparam::set_m_p_blk_rate(::google::protobuf::int32 valu
   m_p_blk_rate_ = value;
 }
 
-// optional int32 m_p_brk_blk_rate = 43;
+// optional int32 m_P_brk_blk_Rate = 43;
 inline bool E_MonsterValueparam::has_m_p_brk_blk_rate() const {
   return (_has_bits_[1] & 0x00000400u) != 0;
 }
@@ -6952,7 +6952,7 @@ inline void E_MonsterValueparam::set_m_p_brk_blk_rate(::google::protobuf::int32 
   m_p_brk_blk_rate_ = value;
 }
 
-// optional int32 m_p_blk_free = 44;
+// optional int32 m_P_blk_Free = 44;
 inline bool E_MonsterValueparam::has_m_p_blk_free() const {
   return (_has_bits_[1] & 0x00000800u) != 0;
 }
@@ -6974,7 +6974,7 @@ inline void E_MonsterValueparam::set_m_p_blk_free(::google::protobuf::int32 valu
   m_p_blk_free_ = value;
 }
 
-// optional int32 m_p_blk_pierce = 45;
+// optional int32 m_P_blk_Pierce = 45;
 inline bool E_MonsterValueparam::has_m_p_blk_pierce() const {
   return (_has_bits_[1] & 0x00001000u) != 0;
 }
@@ -6996,7 +6996,7 @@ inline void E_MonsterValueparam::set_m_p_blk_pierce(::google::protobuf::int32 va
   m_p_blk_pierce_ = value;
 }
 
-// optional int32 m_p_rel_armor = 46;
+// optional int32 m_P_rel_Armor = 46;
 inline bool E_MonsterValueparam::has_m_p_rel_armor() const {
   return (_has_bits_[1] & 0x00002000u) != 0;
 }
@@ -7018,7 +7018,7 @@ inline void E_MonsterValueparam::set_m_p_rel_armor(::google::protobuf::int32 val
   m_p_rel_armor_ = value;
 }
 
-// optional int32 m_p_rel_dam = 47;
+// optional int32 m_P_rel_Dam = 47;
 inline bool E_MonsterValueparam::has_m_p_rel_dam() const {
   return (_has_bits_[1] & 0x00004000u) != 0;
 }
@@ -7040,7 +7040,7 @@ inline void E_MonsterValueparam::set_m_p_rel_dam(::google::protobuf::int32 value
   m_p_rel_dam_ = value;
 }
 
-// optional int32 m_p_five_resist = 48;
+// optional int32 m_P_five_Resist = 48;
 inline bool E_MonsterValueparam::has_m_p_five_resist() const {
   return (_has_bits_[1] & 0x00008000u) != 0;
 }
@@ -7062,7 +7062,7 @@ inline void E_MonsterValueparam::set_m_p_five_resist(::google::protobuf::int32 v
   m_p_five_resist_ = value;
 }
 
-// optional int32 m_p_five_resist_redu = 49;
+// optional int32 m_P_five_resist_Redu = 49;
 inline bool E_MonsterValueparam::has_m_p_five_resist_redu() const {
   return (_has_bits_[1] & 0x00010000u) != 0;
 }
@@ -7084,7 +7084,7 @@ inline void E_MonsterValueparam::set_m_p_five_resist_redu(::google::protobuf::in
   m_p_five_resist_redu_ = value;
 }
 
-// optional int32 m_p_fire_add = 50;
+// optional int32 m_P_fire_Add = 50;
 inline bool E_MonsterValueparam::has_m_p_fire_add() const {
   return (_has_bits_[1] & 0x00020000u) != 0;
 }
@@ -7106,7 +7106,7 @@ inline void E_MonsterValueparam::set_m_p_fire_add(::google::protobuf::int32 valu
   m_p_fire_add_ = value;
 }
 
-// optional int32 m_p_fire_redu = 51;
+// optional int32 m_P_fire_Redu = 51;
 inline bool E_MonsterValueparam::has_m_p_fire_redu() const {
   return (_has_bits_[1] & 0x00040000u) != 0;
 }
@@ -7128,7 +7128,7 @@ inline void E_MonsterValueparam::set_m_p_fire_redu(::google::protobuf::int32 val
   m_p_fire_redu_ = value;
 }
 
-// optional int32 m_p_ice_add = 52;
+// optional int32 m_P_ice_Add = 52;
 inline bool E_MonsterValueparam::has_m_p_ice_add() const {
   return (_has_bits_[1] & 0x00080000u) != 0;
 }
@@ -7150,7 +7150,7 @@ inline void E_MonsterValueparam::set_m_p_ice_add(::google::protobuf::int32 value
   m_p_ice_add_ = value;
 }
 
-// optional int32 m_p_ice_redu = 53;
+// optional int32 m_P_ice_Redu = 53;
 inline bool E_MonsterValueparam::has_m_p_ice_redu() const {
   return (_has_bits_[1] & 0x00100000u) != 0;
 }
@@ -7172,7 +7172,7 @@ inline void E_MonsterValueparam::set_m_p_ice_redu(::google::protobuf::int32 valu
   m_p_ice_redu_ = value;
 }
 
-// optional int32 m_p_thunder_add = 54;
+// optional int32 m_P_thunder_Add = 54;
 inline bool E_MonsterValueparam::has_m_p_thunder_add() const {
   return (_has_bits_[1] & 0x00200000u) != 0;
 }
@@ -7194,7 +7194,7 @@ inline void E_MonsterValueparam::set_m_p_thunder_add(::google::protobuf::int32 v
   m_p_thunder_add_ = value;
 }
 
-// optional int32 m_p_thunder_rdu = 55;
+// optional int32 m_P_thunder_Rdu = 55;
 inline bool E_MonsterValueparam::has_m_p_thunder_rdu() const {
   return (_has_bits_[1] & 0x00400000u) != 0;
 }
@@ -7216,7 +7216,7 @@ inline void E_MonsterValueparam::set_m_p_thunder_rdu(::google::protobuf::int32 v
   m_p_thunder_rdu_ = value;
 }
 
-// optional int32 m_p_player_add = 56;
+// optional int32 m_P_player_Add = 56;
 inline bool E_MonsterValueparam::has_m_p_player_add() const {
   return (_has_bits_[1] & 0x00800000u) != 0;
 }
@@ -7238,7 +7238,7 @@ inline void E_MonsterValueparam::set_m_p_player_add(::google::protobuf::int32 va
   m_p_player_add_ = value;
 }
 
-// optional int32 m_p_player_redu = 57;
+// optional int32 m_P_player_Redu = 57;
 inline bool E_MonsterValueparam::has_m_p_player_redu() const {
   return (_has_bits_[1] & 0x01000000u) != 0;
 }
@@ -7260,7 +7260,7 @@ inline void E_MonsterValueparam::set_m_p_player_redu(::google::protobuf::int32 v
   m_p_player_redu_ = value;
 }
 
-// optional int32 m_p_leader_add = 58;
+// optional int32 m_P_leader_Add = 58;
 inline bool E_MonsterValueparam::has_m_p_leader_add() const {
   return (_has_bits_[1] & 0x02000000u) != 0;
 }
@@ -7282,7 +7282,7 @@ inline void E_MonsterValueparam::set_m_p_leader_add(::google::protobuf::int32 va
   m_p_leader_add_ = value;
 }
 
-// optional int32 m_p_leader_redu = 59;
+// optional int32 m_P_leader_Redu = 59;
 inline bool E_MonsterValueparam::has_m_p_leader_redu() const {
   return (_has_bits_[1] & 0x04000000u) != 0;
 }
@@ -7304,7 +7304,7 @@ inline void E_MonsterValueparam::set_m_p_leader_redu(::google::protobuf::int32 v
   m_p_leader_redu_ = value;
 }
 
-// optional int32 m_p_mon_add = 60;
+// optional int32 m_P_mon_Add = 60;
 inline bool E_MonsterValueparam::has_m_p_mon_add() const {
   return (_has_bits_[1] & 0x08000000u) != 0;
 }
@@ -7326,7 +7326,7 @@ inline void E_MonsterValueparam::set_m_p_mon_add(::google::protobuf::int32 value
   m_p_mon_add_ = value;
 }
 
-// optional int32 m_p_mon_redu = 61;
+// optional int32 m_P_mon_Redu = 61;
 inline bool E_MonsterValueparam::has_m_p_mon_redu() const {
   return (_has_bits_[1] & 0x10000000u) != 0;
 }
@@ -7348,7 +7348,7 @@ inline void E_MonsterValueparam::set_m_p_mon_redu(::google::protobuf::int32 valu
   m_p_mon_redu_ = value;
 }
 
-// optional int32 m_p_var_redu = 62;
+// optional int32 m_P_var_Redu = 62;
 inline bool E_MonsterValueparam::has_m_p_var_redu() const {
   return (_has_bits_[1] & 0x20000000u) != 0;
 }
@@ -7370,7 +7370,7 @@ inline void E_MonsterValueparam::set_m_p_var_redu(::google::protobuf::int32 valu
   m_p_var_redu_ = value;
 }
 
-// optional int32 m_p_var_add = 63;
+// optional int32 m_P_var_Add = 63;
 inline bool E_MonsterValueparam::has_m_p_var_add() const {
   return (_has_bits_[1] & 0x40000000u) != 0;
 }
@@ -7392,7 +7392,7 @@ inline void E_MonsterValueparam::set_m_p_var_add(::google::protobuf::int32 value
   m_p_var_add_ = value;
 }
 
-// optional int32 m_p_unusual_resist = 64;
+// optional int32 m_P_unusual_Resist = 64;
 inline bool E_MonsterValueparam::has_m_p_unusual_resist() const {
   return (_has_bits_[1] & 0x80000000u) != 0;
 }
@@ -7414,7 +7414,7 @@ inline void E_MonsterValueparam::set_m_p_unusual_resist(::google::protobuf::int3
   m_p_unusual_resist_ = value;
 }
 
-// optional int32 m_p_unusual_hit = 65;
+// optional int32 m_P_unusual_Hit = 65;
 inline bool E_MonsterValueparam::has_m_p_unusual_hit() const {
   return (_has_bits_[2] & 0x00000001u) != 0;
 }
@@ -7436,7 +7436,7 @@ inline void E_MonsterValueparam::set_m_p_unusual_hit(::google::protobuf::int32 v
   m_p_unusual_hit_ = value;
 }
 
-// optional int32 m_p_hp_recover = 66;
+// optional int32 m_P_hp_Recover = 66;
 inline bool E_MonsterValueparam::has_m_p_hp_recover() const {
   return (_has_bits_[2] & 0x00000002u) != 0;
 }
@@ -7458,7 +7458,7 @@ inline void E_MonsterValueparam::set_m_p_hp_recover(::google::protobuf::int32 va
   m_p_hp_recover_ = value;
 }
 
-// optional int32 m_p_unusual_add = 67;
+// optional int32 m_P_unusual_Add = 67;
 inline bool E_MonsterValueparam::has_m_p_unusual_add() const {
   return (_has_bits_[2] & 0x00000004u) != 0;
 }
@@ -7480,7 +7480,7 @@ inline void E_MonsterValueparam::set_m_p_unusual_add(::google::protobuf::int32 v
   m_p_unusual_add_ = value;
 }
 
-// optional int32 m_p_fix_recover = 68;
+// optional int32 m_P_fix_Recover = 68;
 inline bool E_MonsterValueparam::has_m_p_fix_recover() const {
   return (_has_bits_[2] & 0x00000008u) != 0;
 }
@@ -7502,7 +7502,7 @@ inline void E_MonsterValueparam::set_m_p_fix_recover(::google::protobuf::int32 v
   m_p_fix_recover_ = value;
 }
 
-// optional int32 m_p_high_hp_add = 69;
+// optional int32 m_P_high_hp_Add = 69;
 inline bool E_MonsterValueparam::has_m_p_high_hp_add() const {
   return (_has_bits_[2] & 0x00000010u) != 0;
 }
@@ -7524,7 +7524,7 @@ inline void E_MonsterValueparam::set_m_p_high_hp_add(::google::protobuf::int32 v
   m_p_high_hp_add_ = value;
 }
 
-// optional int32 m_p_recover_hp_add = 70;
+// optional int32 m_P_recover_hp_Add = 70;
 inline bool E_MonsterValueparam::has_m_p_recover_hp_add() const {
   return (_has_bits_[2] & 0x00000020u) != 0;
 }
@@ -7546,7 +7546,7 @@ inline void E_MonsterValueparam::set_m_p_recover_hp_add(::google::protobuf::int3
   m_p_recover_hp_add_ = value;
 }
 
-// optional int32 m_p_week_add = 71;
+// optional int32 m_P_week_Add = 71;
 inline bool E_MonsterValueparam::has_m_p_week_add() const {
   return (_has_bits_[2] & 0x00000040u) != 0;
 }
@@ -7733,7 +7733,7 @@ inline void E_MonsterDrop::set_m_type(::google::protobuf::int32 value) {
   m_type_ = value;
 }
 
-// repeated int64 m_boxid = 5;
+// repeated int64 m_boxID = 5;
 inline int E_MonsterDrop::m_boxid_size() const {
   return m_boxid_.size();
 }
@@ -7791,7 +7791,7 @@ Sheet_MonsterDrop::mutable_e_monsterdrop_list() {
 
 // E_MonsterCollect
 
-// optional int32 m_id = 1;
+// optional int32 m_ID = 1;
 inline bool E_MonsterCollect::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -7857,7 +7857,7 @@ inline void E_MonsterCollect::set_m_num(::google::protobuf::int32 value) {
   m_num_ = value;
 }
 
-// optional int32 m_breakdown = 4;
+// optional int32 m_breakDown = 4;
 inline bool E_MonsterCollect::has_m_breakdown() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -7879,7 +7879,7 @@ inline void E_MonsterCollect::set_m_breakdown(::google::protobuf::int32 value) {
   m_breakdown_ = value;
 }
 
-// optional int32 m_dropgroupid = 5;
+// optional int32 m_dropGroupID = 5;
 inline bool E_MonsterCollect::has_m_dropgroupid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -7923,7 +7923,7 @@ inline void E_MonsterCollect::set_m_time(::google::protobuf::int32 value) {
   m_time_ = value;
 }
 
-// optional int32 m_gettype = 7;
+// optional int32 m_getType = 7;
 inline bool E_MonsterCollect::has_m_gettype() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -7945,7 +7945,7 @@ inline void E_MonsterCollect::set_m_gettype(::google::protobuf::int32 value) {
   m_gettype_ = value;
 }
 
-// optional int32 m_skilltime = 8;
+// optional int32 m_skillTime = 8;
 inline bool E_MonsterCollect::has_m_skilltime() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -7967,7 +7967,7 @@ inline void E_MonsterCollect::set_m_skilltime(::google::protobuf::int32 value) {
   m_skilltime_ = value;
 }
 
-// optional int32 m_skillid = 9;
+// optional int32 m_skillID = 9;
 inline bool E_MonsterCollect::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -7989,7 +7989,7 @@ inline void E_MonsterCollect::set_m_skillid(::google::protobuf::int32 value) {
   m_skillid_ = value;
 }
 
-// optional int32 m_dupid = 10;
+// optional int32 m_dupID = 10;
 inline bool E_MonsterCollect::has_m_dupid() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -8011,7 +8011,7 @@ inline void E_MonsterCollect::set_m_dupid(::google::protobuf::int32 value) {
   m_dupid_ = value;
 }
 
-// optional int32 m_monsteid = 11;
+// optional int32 m_monsteID = 11;
 inline bool E_MonsterCollect::has_m_monsteid() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }

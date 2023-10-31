@@ -92,7 +92,7 @@ int AncientgodAncientgodDesc::CheckWhenAllDataLoaded()
 		auto pDesc = &iter->second;
 		for(int j = 0; j < (int)pDesc->m_fra.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_fra[j].m_attid <= 0 || AncientgodAttDesc::Instance()->GetDesc(pDesc->m_fra[j].m_attid)), result, "can't find the fra:{} in the  excel:ancientgod sheet:att", pDesc->m_fra[j].m_attid);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_fra[j].m_attID <= 0 || AncientgodAttDesc::Instance()->GetDesc(pDesc->m_fra[j].m_attID)), result, "can't find the fra:{} in the  excel:ancientgod sheet:att", pDesc->m_fra[j].m_attID);
 		}
 	}
 	return result;

@@ -19,10 +19,10 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;//区域ID
-		int32_t m_subtype;//细分类型
-		int64_t m_belongtosceneid;//所属场景
-		int32_t m_shapetype;//形状类型
-		int32_t m_isnotice;//是否进出提示
+		int32_t m_subType;//细分类型
+		int64_t m_belongToSceneID;//所属场景
+		int32_t m_shapeType;//形状类型
+		int32_t m_isNotice;//是否进出提示
 
 		virtual void write_to_pbmsg(::proto_ff::E_AreaArea & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_AreaArea & msg);

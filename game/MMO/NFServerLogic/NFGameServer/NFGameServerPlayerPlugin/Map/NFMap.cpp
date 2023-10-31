@@ -92,8 +92,8 @@ int NFMap::Init()
         return -1;
     }
 
-    retCode = LoadNavMesh(pMapCfg->m_mapresources.ToString());
-    CHECK_RET(retCode, "_LoadNavMesh Failed, mapId:{} mapResource:{}", m_mapId, pMapCfg->m_mapresources.ToString());
+    retCode = LoadNavMesh(pMapCfg->m_mapResources.data());
+    CHECK_RET(retCode, "_LoadNavMesh Failed, mapId:{} mapResource:{}", m_mapId, pMapCfg->m_mapResources.data());
 
     //关闭所有行走开发
     m_normalFilter->setIncludeFlags(0);
@@ -221,28 +221,28 @@ uint32_t NFMap::GetWidth() const
 {
     auto pCfg = GetMapCfg();
     CHECK_EXPR(pCfg, 0, "");
-    return pCfg->m_mapwide;
+    return pCfg->m_mapWide;
 }
 
 uint32_t NFMap::GetHeight() const
 {
     auto pCfg = GetMapCfg();
     CHECK_EXPR(pCfg, 0, "");
-    return pCfg->m_mapheight;
+    return pCfg->m_mapHeight;
 }
 
 uint32_t NFMap::GetMapType() const
 {
     auto pCfg = GetMapCfg();
     CHECK_EXPR(pCfg, 0, "");
-    return pCfg->m_maptype;
+    return pCfg->m_mapType;
 }
 
 uint32_t NFMap::GetMapSubType() const
 {
     auto pCfg = GetMapCfg();
     CHECK_EXPR(pCfg, 0, "");
-    return pCfg->m_mapsubtype;
+    return pCfg->m_mapSubType;
 }
 
 bool NFMap::IsDynamic() const

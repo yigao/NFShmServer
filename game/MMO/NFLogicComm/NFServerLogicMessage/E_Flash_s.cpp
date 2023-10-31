@@ -11,8 +11,8 @@ E_FlashFlashMonsterDesc_s::E_FlashFlashMonsterDesc_s() {
 }
 
 int E_FlashFlashMonsterDesc_s::CreateInit() {
-	m_num = (int32_t)0;
-	m_id = (int64_t)0;
+	m_Num = (int32_t)0;
+	m_ID = (int64_t)0;
 	return 0;
 }
 
@@ -21,13 +21,13 @@ int E_FlashFlashMonsterDesc_s::ResumeInit() {
 }
 
 void E_FlashFlashMonsterDesc_s::write_to_pbmsg(::proto_ff::E_FlashFlashMonsterDesc & msg) const {
-	msg.set_m_num((int32_t)m_num);
-	msg.set_m_id((int64_t)m_id);
+	msg.set_m_num((int32_t)m_Num);
+	msg.set_m_id((int64_t)m_ID);
 }
 
 void E_FlashFlashMonsterDesc_s::read_from_pbmsg(const ::proto_ff::E_FlashFlashMonsterDesc & msg) {
-	m_num = msg.m_num();
-	m_id = msg.m_id();
+	m_Num = msg.m_num();
+	m_ID = msg.m_id();
 }
 
 E_FlashFlash_s::E_FlashFlash_s() {
@@ -40,12 +40,12 @@ E_FlashFlash_s::E_FlashFlash_s() {
 
 int E_FlashFlash_s::CreateInit() {
 	m_id = (int64_t)0;
-	m_isleveldynamic = (int32_t)0;
-	m_minilevel = (int32_t)0;
-	m_levelcheck = (int32_t)0;
-	m_pointid = (int64_t)0;
-	m_monster_type = (int32_t)0;
-	m_monsterrefreshtime = (int32_t)0;
+	m_isLevelDynamic = (int32_t)0;
+	m_miniLevel = (int32_t)0;
+	m_levelCheck = (int32_t)0;
+	m_pointID = (int64_t)0;
+	m_monster_Type = (int32_t)0;
+	m_monsterRefreshTime = (int32_t)0;
 	return 0;
 }
 
@@ -55,12 +55,12 @@ int E_FlashFlash_s::ResumeInit() {
 
 void E_FlashFlash_s::write_to_pbmsg(::proto_ff::E_FlashFlash & msg) const {
 	msg.set_m_id((int64_t)m_id);
-	msg.set_m_isleveldynamic((int32_t)m_isleveldynamic);
-	msg.set_m_minilevel((int32_t)m_minilevel);
-	msg.set_m_levelcheck((int32_t)m_levelcheck);
-	msg.set_m_pointid((int64_t)m_pointid);
-	msg.set_m_monster_type((int32_t)m_monster_type);
-	msg.set_m_monsterrefreshtime((int32_t)m_monsterrefreshtime);
+	msg.set_m_isleveldynamic((int32_t)m_isLevelDynamic);
+	msg.set_m_minilevel((int32_t)m_miniLevel);
+	msg.set_m_levelcheck((int32_t)m_levelCheck);
+	msg.set_m_pointid((int64_t)m_pointID);
+	msg.set_m_monster_type((int32_t)m_monster_Type);
+	msg.set_m_monsterrefreshtime((int32_t)m_monsterRefreshTime);
 	for(int32_t i = 0; i < (int32_t)m_monster.size(); ++i) {
 		::proto_ff::E_FlashFlashMonsterDesc* temp_m_monster = msg.add_m_monster();
 		m_monster[i].write_to_pbmsg(*temp_m_monster);
@@ -69,12 +69,12 @@ void E_FlashFlash_s::write_to_pbmsg(::proto_ff::E_FlashFlash & msg) const {
 
 void E_FlashFlash_s::read_from_pbmsg(const ::proto_ff::E_FlashFlash & msg) {
 	m_id = msg.m_id();
-	m_isleveldynamic = msg.m_isleveldynamic();
-	m_minilevel = msg.m_minilevel();
-	m_levelcheck = msg.m_levelcheck();
-	m_pointid = msg.m_pointid();
-	m_monster_type = msg.m_monster_type();
-	m_monsterrefreshtime = msg.m_monsterrefreshtime();
+	m_isLevelDynamic = msg.m_isleveldynamic();
+	m_miniLevel = msg.m_minilevel();
+	m_levelCheck = msg.m_levelcheck();
+	m_pointID = msg.m_pointid();
+	m_monster_Type = msg.m_monster_type();
+	m_monsterRefreshTime = msg.m_monsterrefreshtime();
 	m_monster.resize((int)msg.m_monster_size() > (int)m_monster.max_size() ? m_monster.max_size() : msg.m_monster_size());
 	for(int32_t i = 0; i < (int32_t)m_monster.size(); ++i) {
 		const ::proto_ff::E_FlashFlashMonsterDesc & temp_m_monster = msg.m_monster(i);
@@ -123,7 +123,7 @@ E_FlashItemflashMonsterDesc_s::E_FlashItemflashMonsterDesc_s() {
 
 int E_FlashItemflashMonsterDesc_s::CreateInit() {
 	m_weight = (int32_t)0;
-	m_id = (int64_t)0;
+	m_Id = (int64_t)0;
 	return 0;
 }
 
@@ -133,12 +133,12 @@ int E_FlashItemflashMonsterDesc_s::ResumeInit() {
 
 void E_FlashItemflashMonsterDesc_s::write_to_pbmsg(::proto_ff::E_FlashItemflashMonsterDesc & msg) const {
 	msg.set_m_weight((int32_t)m_weight);
-	msg.set_m_id((int64_t)m_id);
+	msg.set_m_id((int64_t)m_Id);
 }
 
 void E_FlashItemflashMonsterDesc_s::read_from_pbmsg(const ::proto_ff::E_FlashItemflashMonsterDesc & msg) {
 	m_weight = msg.m_weight();
-	m_id = msg.m_id();
+	m_Id = msg.m_id();
 }
 
 E_FlashItemflash_s::E_FlashItemflash_s() {
@@ -153,7 +153,7 @@ int E_FlashItemflash_s::CreateInit() {
 	m_id = (int64_t)0;
 	m_live = (int32_t)0;
 	m_levelwave = (int32_t)0;
-	m_flashnum = (int32_t)0;
+	m_flashNum = (int32_t)0;
 	return 0;
 }
 
@@ -163,10 +163,10 @@ int E_FlashItemflash_s::ResumeInit() {
 
 void E_FlashItemflash_s::write_to_pbmsg(::proto_ff::E_FlashItemflash & msg) const {
 	msg.set_m_id((int64_t)m_id);
-	msg.set_m_usemap(m_usemap.data());
+	msg.set_m_usemap(m_useMap.data());
 	msg.set_m_live((int32_t)m_live);
 	msg.set_m_levelwave((int32_t)m_levelwave);
-	msg.set_m_flashnum((int32_t)m_flashnum);
+	msg.set_m_flashnum((int32_t)m_flashNum);
 	for(int32_t i = 0; i < (int32_t)m_monster.size(); ++i) {
 		::proto_ff::E_FlashItemflashMonsterDesc* temp_m_monster = msg.add_m_monster();
 		m_monster[i].write_to_pbmsg(*temp_m_monster);
@@ -175,10 +175,10 @@ void E_FlashItemflash_s::write_to_pbmsg(::proto_ff::E_FlashItemflash & msg) cons
 
 void E_FlashItemflash_s::read_from_pbmsg(const ::proto_ff::E_FlashItemflash & msg) {
 	m_id = msg.m_id();
-	m_usemap = msg.m_usemap();
+	m_useMap = msg.m_usemap();
 	m_live = msg.m_live();
 	m_levelwave = msg.m_levelwave();
-	m_flashnum = msg.m_flashnum();
+	m_flashNum = msg.m_flashnum();
 	m_monster.resize((int)msg.m_monster_size() > (int)m_monster.max_size() ? m_monster.max_size() : msg.m_monster_size());
 	for(int32_t i = 0; i < (int32_t)m_monster.size(); ++i) {
 		const ::proto_ff::E_FlashItemflashMonsterDesc & temp_m_monster = msg.m_monster(i);

@@ -201,23 +201,23 @@ void protobuf_AddDesc_E_5fYanglong_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\020E_Yanglong.proto\022\010proto_ff\032\025yd_fieldop"
     "tions.proto\"z\n\022E_YanglongYanglong\022!\n\013m_p"
-    "rojectid\030\001 \001(\005B\014\302\377\024\010\351\241\271\347\233\256ID\022\"\n\tm_groupi"
-    "d\030\002 \001(\005B\017\302\377\024\013\345\211\257\346\234\254\347\273\204ID\022\035\n\007m_dupid\030\003 \001("
+    "rojectID\030\001 \001(\005B\014\302\377\024\010\351\241\271\347\233\256ID\022\"\n\tm_groupI"
+    "D\030\002 \001(\005B\017\302\377\024\013\345\211\257\346\234\254\347\273\204ID\022\035\n\007m_dupId\030\003 \001("
     "\005B\014\302\377\024\010\345\211\257\346\234\254ID\"]\n\026Sheet_YanglongYanglon"
     "g\022C\n\027E_YanglongYanglong_List\030\001 \003(\0132\034.pro"
     "to_ff.E_YanglongYanglongB\004\210\301\024\020\"\236\002\n\017E_Yan"
-    "glongZadan\022\036\n\010m_taskid\030\001 \001(\003B\014\302\377\024\010\344\273\273\345\212\241"
-    "ID\022.\n\024m_achievementsubtype\030\002 \001(\005B\020\302\377\024\014\344\272"
-    "\213\344\273\266\347\261\273\345\236\213\022\"\n\nm_bosstype\030\003 \001(\005B\016\302\377\024\nBOSS"
-    "\345\210\206\347\261\273\022#\n\014m_reachprice\030\004 \001(\005B\r\302\377\024\t\350\276\276\346\210\220"
+    "glongZadan\022\036\n\010m_taskId\030\001 \001(\003B\014\302\377\024\010\344\273\273\345\212\241"
+    "ID\022.\n\024m_achievementSubType\030\002 \001(\005B\020\302\377\024\014\344\272"
+    "\213\344\273\266\347\261\273\345\236\213\022\"\n\nm_bossType\030\003 \001(\005B\016\302\377\024\nBOSS"
+    "\345\210\206\347\261\273\022#\n\014m_reachPrice\030\004 \001(\005B\r\302\377\024\t\350\276\276\346\210\220"
     "\345\200\274\022\"\n\010m_reward\030\005 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\347\211\251\345\223\201\022"
-    ".\n\016m_reward_value\030\006 \001(\005B\026\302\377\024\022\345\245\226\345\212\261\347\211\251\345\223"
-    "\201\346\225\260\351\207\217\022\036\n\010m_linkid\030\007 \001(\005B\014\302\377\024\010\350\267\263\350\275\254ID\""
+    ".\n\016m_reward_Value\030\006 \001(\005B\026\302\377\024\022\345\245\226\345\212\261\347\211\251\345\223"
+    "\201\346\225\260\351\207\217\022\036\n\010m_linkId\030\007 \001(\005B\014\302\377\024\010\350\267\263\350\275\254ID\""
     "T\n\023Sheet_YanglongZadan\022=\n\024E_YanglongZada"
     "n_List\030\001 \003(\0132\031.proto_ff.E_YanglongZadanB"
     "\004\210\301\024\020\"\201\001\n\021E_YanglongRanking\022\'\n\013m_ranking"
-    "id\030\001 \001(\005B\022\302\377\024\016\346\216\222\345\220\215\347\244\274\345\214\205ID\022 \n\006m_rank\030\002"
-    " \001(\005B\020\302\377\024\014\346\216\222\345\220\215\346\235\241\344\273\266\022!\n\007m_boxid\030\003 \001(\005B"
+    "ID\030\001 \001(\005B\022\302\377\024\016\346\216\222\345\220\215\347\244\274\345\214\205ID\022 \n\006m_rank\030\002"
+    " \001(\005B\020\302\377\024\014\346\216\222\345\220\215\346\235\241\344\273\266\022!\n\007m_boxID\030\003 \001(\005B"
     "\020\302\377\024\014boxl\347\244\274\345\214\205ID\"Z\n\025Sheet_YanglongRanki"
     "ng\022A\n\026E_YanglongRanking_List\030\001 \003(\0132\033.pro"
     "to_ff.E_YanglongRankingB\004\210\301\024\010", 869);
@@ -248,9 +248,9 @@ struct StaticDescriptorInitializer_E_5fYanglong_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_YanglongYanglong::kMProjectidFieldNumber;
-const int E_YanglongYanglong::kMGroupidFieldNumber;
-const int E_YanglongYanglong::kMDupidFieldNumber;
+const int E_YanglongYanglong::kMProjectIDFieldNumber;
+const int E_YanglongYanglong::kMGroupIDFieldNumber;
+const int E_YanglongYanglong::kMDupIdFieldNumber;
 #endif  // !_MSC_VER
 
 E_YanglongYanglong::E_YanglongYanglong()
@@ -321,7 +321,7 @@ bool E_YanglongYanglong::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_projectid = 1;
+      // optional int32 m_projectID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -332,15 +332,15 @@ bool E_YanglongYanglong::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_groupid;
+        if (input->ExpectTag(16)) goto parse_m_groupID;
         break;
       }
 
-      // optional int32 m_groupid = 2;
+      // optional int32 m_groupID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_groupid:
+         parse_m_groupID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_groupid_)));
@@ -348,15 +348,15 @@ bool E_YanglongYanglong::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_dupid;
+        if (input->ExpectTag(24)) goto parse_m_dupId;
         break;
       }
 
-      // optional int32 m_dupid = 3;
+      // optional int32 m_dupId = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_dupid:
+         parse_m_dupId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_dupid_)));
@@ -386,17 +386,17 @@ bool E_YanglongYanglong::MergePartialFromCodedStream(
 
 void E_YanglongYanglong::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_projectid = 1;
+  // optional int32 m_projectID = 1;
   if (has_m_projectid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_projectid(), output);
   }
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   if (has_m_groupid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_groupid(), output);
   }
 
-  // optional int32 m_dupid = 3;
+  // optional int32 m_dupId = 3;
   if (has_m_dupid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_dupid(), output);
   }
@@ -409,17 +409,17 @@ void E_YanglongYanglong::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_YanglongYanglong::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_projectid = 1;
+  // optional int32 m_projectID = 1;
   if (has_m_projectid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_projectid(), target);
   }
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   if (has_m_groupid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_groupid(), target);
   }
 
-  // optional int32 m_dupid = 3;
+  // optional int32 m_dupId = 3;
   if (has_m_dupid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_dupid(), target);
   }
@@ -435,21 +435,21 @@ int E_YanglongYanglong::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_projectid = 1;
+    // optional int32 m_projectID = 1;
     if (has_m_projectid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_projectid());
     }
 
-    // optional int32 m_groupid = 2;
+    // optional int32 m_groupID = 2;
     if (has_m_groupid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_groupid());
     }
 
-    // optional int32 m_dupid = 3;
+    // optional int32 m_dupId = 3;
     if (has_m_dupid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -739,13 +739,13 @@ void Sheet_YanglongYanglong::Swap(Sheet_YanglongYanglong* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_YanglongZadan::kMTaskidFieldNumber;
-const int E_YanglongZadan::kMAchievementsubtypeFieldNumber;
-const int E_YanglongZadan::kMBosstypeFieldNumber;
-const int E_YanglongZadan::kMReachpriceFieldNumber;
+const int E_YanglongZadan::kMTaskIdFieldNumber;
+const int E_YanglongZadan::kMAchievementSubTypeFieldNumber;
+const int E_YanglongZadan::kMBossTypeFieldNumber;
+const int E_YanglongZadan::kMReachPriceFieldNumber;
 const int E_YanglongZadan::kMRewardFieldNumber;
 const int E_YanglongZadan::kMRewardValueFieldNumber;
-const int E_YanglongZadan::kMLinkidFieldNumber;
+const int E_YanglongZadan::kMLinkIdFieldNumber;
 #endif  // !_MSC_VER
 
 E_YanglongZadan::E_YanglongZadan()
@@ -824,7 +824,7 @@ bool E_YanglongZadan::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 m_taskid = 1;
+      // optional int64 m_taskId = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -835,15 +835,15 @@ bool E_YanglongZadan::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_achievementsubtype;
+        if (input->ExpectTag(16)) goto parse_m_achievementSubType;
         break;
       }
 
-      // optional int32 m_achievementsubtype = 2;
+      // optional int32 m_achievementSubType = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_achievementsubtype:
+         parse_m_achievementSubType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_achievementsubtype_)));
@@ -851,15 +851,15 @@ bool E_YanglongZadan::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_bosstype;
+        if (input->ExpectTag(24)) goto parse_m_bossType;
         break;
       }
 
-      // optional int32 m_bosstype = 3;
+      // optional int32 m_bossType = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_bosstype:
+         parse_m_bossType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_bosstype_)));
@@ -867,15 +867,15 @@ bool E_YanglongZadan::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_reachprice;
+        if (input->ExpectTag(32)) goto parse_m_reachPrice;
         break;
       }
 
-      // optional int32 m_reachprice = 4;
+      // optional int32 m_reachPrice = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_reachprice:
+         parse_m_reachPrice:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_reachprice_)));
@@ -899,15 +899,15 @@ bool E_YanglongZadan::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_reward_value;
+        if (input->ExpectTag(48)) goto parse_m_reward_Value;
         break;
       }
 
-      // optional int32 m_reward_value = 6;
+      // optional int32 m_reward_Value = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_reward_value:
+         parse_m_reward_Value:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_reward_value_)));
@@ -915,15 +915,15 @@ bool E_YanglongZadan::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_linkid;
+        if (input->ExpectTag(56)) goto parse_m_linkId;
         break;
       }
 
-      // optional int32 m_linkid = 7;
+      // optional int32 m_linkId = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_linkid:
+         parse_m_linkId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_linkid_)));
@@ -953,22 +953,22 @@ bool E_YanglongZadan::MergePartialFromCodedStream(
 
 void E_YanglongZadan::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 m_taskid = 1;
+  // optional int64 m_taskId = 1;
   if (has_m_taskid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_taskid(), output);
   }
 
-  // optional int32 m_achievementsubtype = 2;
+  // optional int32 m_achievementSubType = 2;
   if (has_m_achievementsubtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_achievementsubtype(), output);
   }
 
-  // optional int32 m_bosstype = 3;
+  // optional int32 m_bossType = 3;
   if (has_m_bosstype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_bosstype(), output);
   }
 
-  // optional int32 m_reachprice = 4;
+  // optional int32 m_reachPrice = 4;
   if (has_m_reachprice()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_reachprice(), output);
   }
@@ -978,12 +978,12 @@ void E_YanglongZadan::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_reward(), output);
   }
 
-  // optional int32 m_reward_value = 6;
+  // optional int32 m_reward_Value = 6;
   if (has_m_reward_value()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_reward_value(), output);
   }
 
-  // optional int32 m_linkid = 7;
+  // optional int32 m_linkId = 7;
   if (has_m_linkid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_linkid(), output);
   }
@@ -996,22 +996,22 @@ void E_YanglongZadan::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_YanglongZadan::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 m_taskid = 1;
+  // optional int64 m_taskId = 1;
   if (has_m_taskid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_taskid(), target);
   }
 
-  // optional int32 m_achievementsubtype = 2;
+  // optional int32 m_achievementSubType = 2;
   if (has_m_achievementsubtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_achievementsubtype(), target);
   }
 
-  // optional int32 m_bosstype = 3;
+  // optional int32 m_bossType = 3;
   if (has_m_bosstype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_bosstype(), target);
   }
 
-  // optional int32 m_reachprice = 4;
+  // optional int32 m_reachPrice = 4;
   if (has_m_reachprice()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_reachprice(), target);
   }
@@ -1021,12 +1021,12 @@ void E_YanglongZadan::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_reward(), target);
   }
 
-  // optional int32 m_reward_value = 6;
+  // optional int32 m_reward_Value = 6;
   if (has_m_reward_value()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_reward_value(), target);
   }
 
-  // optional int32 m_linkid = 7;
+  // optional int32 m_linkId = 7;
   if (has_m_linkid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_linkid(), target);
   }
@@ -1042,28 +1042,28 @@ int E_YanglongZadan::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 m_taskid = 1;
+    // optional int64 m_taskId = 1;
     if (has_m_taskid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_taskid());
     }
 
-    // optional int32 m_achievementsubtype = 2;
+    // optional int32 m_achievementSubType = 2;
     if (has_m_achievementsubtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_achievementsubtype());
     }
 
-    // optional int32 m_bosstype = 3;
+    // optional int32 m_bossType = 3;
     if (has_m_bosstype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_bosstype());
     }
 
-    // optional int32 m_reachprice = 4;
+    // optional int32 m_reachPrice = 4;
     if (has_m_reachprice()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1077,14 +1077,14 @@ int E_YanglongZadan::ByteSize() const {
           this->m_reward());
     }
 
-    // optional int32 m_reward_value = 6;
+    // optional int32 m_reward_Value = 6;
     if (has_m_reward_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_reward_value());
     }
 
-    // optional int32 m_linkid = 7;
+    // optional int32 m_linkId = 7;
     if (has_m_linkid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1390,9 +1390,9 @@ void Sheet_YanglongZadan::Swap(Sheet_YanglongZadan* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_YanglongRanking::kMRankingidFieldNumber;
+const int E_YanglongRanking::kMRankingIDFieldNumber;
 const int E_YanglongRanking::kMRankFieldNumber;
-const int E_YanglongRanking::kMBoxidFieldNumber;
+const int E_YanglongRanking::kMBoxIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_YanglongRanking::E_YanglongRanking()
@@ -1463,7 +1463,7 @@ bool E_YanglongRanking::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_rankingid = 1;
+      // optional int32 m_rankingID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -1490,15 +1490,15 @@ bool E_YanglongRanking::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_boxid;
+        if (input->ExpectTag(24)) goto parse_m_boxID;
         break;
       }
 
-      // optional int32 m_boxid = 3;
+      // optional int32 m_boxID = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_boxid:
+         parse_m_boxID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_boxid_)));
@@ -1528,7 +1528,7 @@ bool E_YanglongRanking::MergePartialFromCodedStream(
 
 void E_YanglongRanking::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_rankingid = 1;
+  // optional int32 m_rankingID = 1;
   if (has_m_rankingid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_rankingid(), output);
   }
@@ -1538,7 +1538,7 @@ void E_YanglongRanking::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_rank(), output);
   }
 
-  // optional int32 m_boxid = 3;
+  // optional int32 m_boxID = 3;
   if (has_m_boxid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_boxid(), output);
   }
@@ -1551,7 +1551,7 @@ void E_YanglongRanking::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_YanglongRanking::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_rankingid = 1;
+  // optional int32 m_rankingID = 1;
   if (has_m_rankingid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_rankingid(), target);
   }
@@ -1561,7 +1561,7 @@ void E_YanglongRanking::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_rank(), target);
   }
 
-  // optional int32 m_boxid = 3;
+  // optional int32 m_boxID = 3;
   if (has_m_boxid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_boxid(), target);
   }
@@ -1577,7 +1577,7 @@ int E_YanglongRanking::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_rankingid = 1;
+    // optional int32 m_rankingID = 1;
     if (has_m_rankingid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1591,7 +1591,7 @@ int E_YanglongRanking::ByteSize() const {
           this->m_rank());
     }
 
-    // optional int32 m_boxid = 3;
+    // optional int32 m_boxID = 3;
     if (has_m_boxid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

@@ -21,8 +21,8 @@ namespace proto_ff_s {
 		virtual ~E_FlashFlashMonsterDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_num;//数量
-		int64_t m_id;//ID
+		int32_t m_Num;//数量
+		int64_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_FlashFlashMonsterDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FlashFlashMonsterDesc & msg);
@@ -37,12 +37,12 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;//刷新ID
-		int32_t m_isleveldynamic;//是否动态等级
-		int32_t m_minilevel;//动态初始等级
-		int32_t m_levelcheck;//动态等级校正
-		int64_t m_pointid;//路径ID
-		int32_t m_monster_type;//怪物类型
-		int32_t m_monsterrefreshtime;//怪物刷新时间
+		int32_t m_isLevelDynamic;//是否动态等级
+		int32_t m_miniLevel;//动态初始等级
+		int32_t m_levelCheck;//动态等级校正
+		int64_t m_pointID;//路径ID
+		int32_t m_monster_Type;//怪物类型
+		int32_t m_monsterRefreshTime;//怪物刷新时间
 		NFShmVector<struct E_FlashFlashMonsterDesc_s, DEFINE_E_FLASHFLASH_M_MONSTER_MAX_NUM> m_monster;//怪物
 
 		virtual void write_to_pbmsg(::proto_ff::E_FlashFlash & msg) const;
@@ -72,7 +72,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_weight;//权重
-		int64_t m_id;//ID
+		int64_t m_Id;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_FlashItemflashMonsterDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FlashItemflashMonsterDesc & msg);
@@ -87,10 +87,10 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;//刷新ID
-		NFShmString<64> m_usemap;//可使用地图
+		NFShmString<64> m_useMap;//可使用地图
 		int32_t m_live;//怪物存在时间
 		int32_t m_levelwave;//是否动态等级
-		int32_t m_flashnum;//刷新怪物数量
+		int32_t m_flashNum;//刷新怪物数量
 		NFShmVector<struct E_FlashItemflashMonsterDesc_s, DEFINE_E_FLASHITEMFLASH_M_MONSTER_MAX_NUM> m_monster;//怪物
 
 		virtual void write_to_pbmsg(::proto_ff::E_FlashItemflash & msg) const;

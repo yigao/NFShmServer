@@ -6,7 +6,7 @@ import "yd_fieldoptions.proto";
 message E_OfflineOffline
 {
 	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "角色等级"];
-	optional int64 m_offlineexp = 2[(yd_fieldoptions.field_cname) = "离线基础经验"];
+	optional int64 m_offlineExp = 2[(yd_fieldoptions.field_cname) = "离线基础经验"];
 }
 
 
@@ -17,16 +17,16 @@ message Sheet_OfflineOffline
 
 message E_OfflineItemlistItemDesc
 {
-	optional int32 m_vle = 1[(yd_fieldoptions.field_cname) = "权重"];
-	optional int32 m_num = 2[(yd_fieldoptions.field_cname) = "数量"];
-	optional int64 m_id = 3[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_Vle = 1[(yd_fieldoptions.field_cname) = "权重"];
+	optional int32 m_Num = 2[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 m_ID = 3[(yd_fieldoptions.field_cname) = "ID"];
 }
 
 message E_OfflineItemlist
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
-	optional int32 m_lvdown = 2[(yd_fieldoptions.field_cname) = "等级下限"];
-	optional int32 m_lvup = 3[(yd_fieldoptions.field_cname) = "等级上限"];
+	optional int32 m_Lvdown = 2[(yd_fieldoptions.field_cname) = "等级下限"];
+	optional int32 m_Lvup = 3[(yd_fieldoptions.field_cname) = "等级上限"];
 	optional int32 m_daoju = 4[(yd_fieldoptions.field_cname) = "道具类型库"];
 	repeated E_OfflineItemlistItemDesc m_item = 5[(yd_fieldoptions.field_cname) = "道具", (yd_fieldoptions.field_arysize) = 22];
 }

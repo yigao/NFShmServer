@@ -412,7 +412,7 @@ int NFBattlePlayer::CanTrans(uint64_t dstSceneId, uint64_t dstMapId, const NFPoi
         return proto_ff::RET_CONFIG_ERROR;
     }
 
-    if (GetAttr(proto_ff::A_LEVEL) < (int64_t) pMapCfgInfo->m_levellimit)
+    if (GetAttr(proto_ff::A_LEVEL) < (int64_t) pMapCfgInfo->m_levelLimit)
     {
         return proto_ff::RET_LEVEL_LACK;
     }

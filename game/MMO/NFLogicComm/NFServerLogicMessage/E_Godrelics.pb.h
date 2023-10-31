@@ -102,10 +102,10 @@ class E_GodrelicsGodrelics : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_functionid = 2;
+  // optional int32 m_functionId = 2;
   inline bool has_m_functionid() const;
   inline void clear_m_functionid();
-  static const int kMFunctionidFieldNumber = 2;
+  static const int kMFunctionIdFieldNumber = 2;
   inline ::google::protobuf::int32 m_functionid() const;
   inline void set_m_functionid(::google::protobuf::int32 value);
 
@@ -116,10 +116,10 @@ class E_GodrelicsGodrelics : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_group() const;
   inline void set_m_group(::google::protobuf::int32 value);
 
-  // optional int32 m_skillid = 4;
+  // optional int32 m_skillID = 4;
   inline bool has_m_skillid() const;
   inline void clear_m_skillid();
-  static const int kMSkillidFieldNumber = 4;
+  static const int kMSkillIDFieldNumber = 4;
   inline ::google::protobuf::int32 m_skillid() const;
   inline void set_m_skillid(::google::protobuf::int32 value);
 
@@ -320,17 +320,17 @@ class E_GodrelicsCondition : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_count() const;
   inline void set_m_count(::google::protobuf::int32 value);
 
-  // optional int32 m_rewarditem = 5;
+  // optional int32 m_rewardItem = 5;
   inline bool has_m_rewarditem() const;
   inline void clear_m_rewarditem();
-  static const int kMRewarditemFieldNumber = 5;
+  static const int kMRewardItemFieldNumber = 5;
   inline ::google::protobuf::int32 m_rewarditem() const;
   inline void set_m_rewarditem(::google::protobuf::int32 value);
 
-  // optional int32 m_rewardnumber = 6;
+  // optional int32 m_rewardNumber = 6;
   inline bool has_m_rewardnumber() const;
   inline void clear_m_rewardnumber();
-  static const int kMRewardnumberFieldNumber = 6;
+  static const int kMRewardNumberFieldNumber = 6;
   inline ::google::protobuf::int32 m_rewardnumber() const;
   inline void set_m_rewardnumber(::google::protobuf::int32 value);
 
@@ -495,7 +495,7 @@ inline void E_GodrelicsGodrelics::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_functionid = 2;
+// optional int32 m_functionId = 2;
 inline bool E_GodrelicsGodrelics::has_m_functionid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -539,7 +539,7 @@ inline void E_GodrelicsGodrelics::set_m_group(::google::protobuf::int32 value) {
   m_group_ = value;
 }
 
-// optional int32 m_skillid = 4;
+// optional int32 m_skillID = 4;
 inline bool E_GodrelicsGodrelics::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -682,7 +682,7 @@ inline void E_GodrelicsCondition::set_m_count(::google::protobuf::int32 value) {
   m_count_ = value;
 }
 
-// optional int32 m_rewarditem = 5;
+// optional int32 m_rewardItem = 5;
 inline bool E_GodrelicsCondition::has_m_rewarditem() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -704,7 +704,7 @@ inline void E_GodrelicsCondition::set_m_rewarditem(::google::protobuf::int32 val
   m_rewarditem_ = value;
 }
 
-// optional int32 m_rewardnumber = 6;
+// optional int32 m_rewardNumber = 6;
 inline bool E_GodrelicsCondition::has_m_rewardnumber() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }

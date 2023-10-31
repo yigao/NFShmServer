@@ -146,38 +146,38 @@ class E_XingchenXcsetup : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_xsid = 1;
+  // optional int32 m_XsId = 1;
   inline bool has_m_xsid() const;
   inline void clear_m_xsid();
-  static const int kMXsidFieldNumber = 1;
+  static const int kMXsIdFieldNumber = 1;
   inline ::google::protobuf::int32 m_xsid() const;
   inline void set_m_xsid(::google::protobuf::int32 value);
 
-  // optional int32 m_unlockdj = 2;
+  // optional int32 m_UnlockDj = 2;
   inline bool has_m_unlockdj() const;
   inline void clear_m_unlockdj();
-  static const int kMUnlockdjFieldNumber = 2;
+  static const int kMUnlockDjFieldNumber = 2;
   inline ::google::protobuf::int32 m_unlockdj() const;
   inline void set_m_unlockdj(::google::protobuf::int32 value);
 
-  // optional int32 m_unlockpf = 3;
+  // optional int32 m_UnlockPf = 3;
   inline bool has_m_unlockpf() const;
   inline void clear_m_unlockpf();
-  static const int kMUnlockpfFieldNumber = 3;
+  static const int kMUnlockPfFieldNumber = 3;
   inline ::google::protobuf::int32 m_unlockpf() const;
   inline void set_m_unlockpf(::google::protobuf::int32 value);
 
-  // optional int32 m_xstype = 4;
+  // optional int32 m_XSType = 4;
   inline bool has_m_xstype() const;
   inline void clear_m_xstype();
-  static const int kMXstypeFieldNumber = 4;
+  static const int kMXSTypeFieldNumber = 4;
   inline ::google::protobuf::int32 m_xstype() const;
   inline void set_m_xstype(::google::protobuf::int32 value);
 
-  // optional int32 m_xssubtype = 5;
+  // optional int32 m_XSSubType = 5;
   inline bool has_m_xssubtype() const;
   inline void clear_m_xssubtype();
-  static const int kMXssubtypeFieldNumber = 5;
+  static const int kMXSSubTypeFieldNumber = 5;
   inline ::google::protobuf::int32 m_xssubtype() const;
   inline void set_m_xssubtype(::google::protobuf::int32 value);
 
@@ -353,17 +353,17 @@ class E_XingchenXcmosaic : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_positionnum = 1;
+  // optional int32 m_PositionNum = 1;
   inline bool has_m_positionnum() const;
   inline void clear_m_positionnum();
-  static const int kMPositionnumFieldNumber = 1;
+  static const int kMPositionNumFieldNumber = 1;
   inline ::google::protobuf::int32 m_positionnum() const;
   inline void set_m_positionnum(::google::protobuf::int32 value);
 
-  // optional int32 m_positionid = 2;
+  // optional int32 m_PositionID = 2;
   inline bool has_m_positionid() const;
   inline void clear_m_positionid();
-  static const int kMPositionidFieldNumber = 2;
+  static const int kMPositionIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_positionid() const;
   inline void set_m_positionid(::google::protobuf::int32 value);
 
@@ -662,31 +662,31 @@ class E_XingchenXcmaterial : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_id = 1;
+  // optional int32 m_Id = 1;
   inline bool has_m_id() const;
   inline void clear_m_id();
   static const int kMIdFieldNumber = 1;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_materialtype = 2;
+  // optional int32 m_MaterialType = 2;
   inline bool has_m_materialtype() const;
   inline void clear_m_materialtype();
-  static const int kMMaterialtypeFieldNumber = 2;
+  static const int kMMaterialTypeFieldNumber = 2;
   inline ::google::protobuf::int32 m_materialtype() const;
   inline void set_m_materialtype(::google::protobuf::int32 value);
 
-  // optional int32 m_functiontype = 3;
+  // optional int32 m_FunctionType = 3;
   inline bool has_m_functiontype() const;
   inline void clear_m_functiontype();
-  static const int kMFunctiontypeFieldNumber = 3;
+  static const int kMFunctionTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_functiontype() const;
   inline void set_m_functiontype(::google::protobuf::int32 value);
 
-  // optional string m_xcposition = 4;
+  // optional string m_XcPosition = 4;
   inline bool has_m_xcposition() const;
   inline void clear_m_xcposition();
-  static const int kMXcpositionFieldNumber = 4;
+  static const int kMXcPositionFieldNumber = 4;
   inline const ::std::string& m_xcposition() const;
   inline void set_m_xcposition(const ::std::string& value);
   inline void set_m_xcposition(const char* value);
@@ -695,17 +695,17 @@ class E_XingchenXcmaterial : public ::google::protobuf::Message {
   inline ::std::string* release_m_xcposition();
   inline void set_allocated_m_xcposition(::std::string* m_xcposition);
 
-  // optional int32 m_itemid = 5;
+  // optional int32 m_itemId = 5;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 5;
+  static const int kMItemIdFieldNumber = 5;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
-  // optional int32 m_itemexp = 6;
+  // optional int32 m_itemExp = 6;
   inline bool has_m_itemexp() const;
   inline void clear_m_itemexp();
-  static const int kMItemexpFieldNumber = 6;
+  static const int kMItemExpFieldNumber = 6;
   inline ::google::protobuf::int32 m_itemexp() const;
   inline void set_m_itemexp(::google::protobuf::int32 value);
 
@@ -989,10 +989,10 @@ class E_XingchenXinchen : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_xcequip = 1;
+  // optional int32 m_XcEquip = 1;
   inline bool has_m_xcequip() const;
   inline void clear_m_xcequip();
-  static const int kMXcequipFieldNumber = 1;
+  static const int kMXcEquipFieldNumber = 1;
   inline ::google::protobuf::int32 m_xcequip() const;
   inline void set_m_xcequip(::google::protobuf::int32 value);
 
@@ -1169,10 +1169,10 @@ class E_XingchenXclvatt : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_attid = 1;
+  // optional int64 m_attId = 1;
   inline bool has_m_attid() const;
   inline void clear_m_attid();
-  static const int kMAttidFieldNumber = 1;
+  static const int kMAttIdFieldNumber = 1;
   inline ::google::protobuf::int64 m_attid() const;
   inline void set_m_attid(::google::protobuf::int64 value);
 
@@ -1625,31 +1625,31 @@ class E_XingchenXctp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_positionid = 2;
+  // optional int32 m_PositionID = 2;
   inline bool has_m_positionid() const;
   inline void clear_m_positionid();
-  static const int kMPositionidFieldNumber = 2;
+  static const int kMPositionIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_positionid() const;
   inline void set_m_positionid(::google::protobuf::int32 value);
 
-  // optional int32 m_xcquality = 3;
+  // optional int32 m_XcQuality = 3;
   inline bool has_m_xcquality() const;
   inline void clear_m_xcquality();
-  static const int kMXcqualityFieldNumber = 3;
+  static const int kMXcQualityFieldNumber = 3;
   inline ::google::protobuf::int32 m_xcquality() const;
   inline void set_m_xcquality(::google::protobuf::int32 value);
 
-  // optional int32 m_xclvmax = 4;
+  // optional int32 m_XcLvmax = 4;
   inline bool has_m_xclvmax() const;
   inline void clear_m_xclvmax();
-  static const int kMXclvmaxFieldNumber = 4;
+  static const int kMXcLvmaxFieldNumber = 4;
   inline ::google::protobuf::int32 m_xclvmax() const;
   inline void set_m_xclvmax(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_XingchenXctpTpDesc m_tp = 5;
+  // repeated .proto_ff.E_XingchenXctpTpDesc m_TP = 5;
   inline int m_tp_size() const;
   inline void clear_m_tp();
-  static const int kMTpFieldNumber = 5;
+  static const int kMTPFieldNumber = 5;
   inline const ::proto_ff::E_XingchenXctpTpDesc& m_tp(int index) const;
   inline ::proto_ff::E_XingchenXctpTpDesc* mutable_m_tp(int index);
   inline ::proto_ff::E_XingchenXctpTpDesc* add_m_tp();
@@ -1848,7 +1848,7 @@ class E_XingchenXctpexp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional string m_lvdisplay = 2;
+  // optional string m_Lvdisplay = 2;
   inline bool has_m_lvdisplay() const;
   inline void clear_m_lvdisplay();
   static const int kMLvdisplayFieldNumber = 2;
@@ -2040,10 +2040,10 @@ class E_XingchenXctpaddi : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int64 m_attid = 2;
+  // optional int64 m_attId = 2;
   inline bool has_m_attid() const;
   inline void clear_m_attid();
-  static const int kMAttidFieldNumber = 2;
+  static const int kMAttIdFieldNumber = 2;
   inline ::google::protobuf::int64 m_attid() const;
   inline void set_m_attid(::google::protobuf::int64 value);
 
@@ -2054,10 +2054,10 @@ class E_XingchenXctpaddi : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_count() const;
   inline void set_m_count(::google::protobuf::int32 value);
 
-  // optional int32 m_atttype = 4;
+  // optional int32 m_attType = 4;
   inline bool has_m_atttype() const;
   inline void clear_m_atttype();
-  static const int kMAtttypeFieldNumber = 4;
+  static const int kMAttTypeFieldNumber = 4;
   inline ::google::protobuf::int32 m_atttype() const;
   inline void set_m_atttype(::google::protobuf::int32 value);
 
@@ -2240,10 +2240,10 @@ class E_XingchenXctpatt : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_attid = 1;
+  // optional int64 m_attID = 1;
   inline bool has_m_attid() const;
   inline void clear_m_attid();
-  static const int kMAttidFieldNumber = 1;
+  static const int kMAttIDFieldNumber = 1;
   inline ::google::protobuf::int64 m_attid() const;
   inline void set_m_attid(::google::protobuf::int64 value);
 
@@ -2512,10 +2512,10 @@ class E_XingchenXcstar : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_starlv = 1;
+  // optional int32 m_StarLv = 1;
   inline bool has_m_starlv() const;
   inline void clear_m_starlv();
-  static const int kMStarlvFieldNumber = 1;
+  static const int kMStarLvFieldNumber = 1;
   inline ::google::protobuf::int32 m_starlv() const;
   inline void set_m_starlv(::google::protobuf::int32 value);
 
@@ -2702,17 +2702,17 @@ class E_XingchenXcawakenAwakenDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_tpaddratio = 1;
+  // optional int32 m_TPAddratio = 1;
   inline bool has_m_tpaddratio() const;
   inline void clear_m_tpaddratio();
-  static const int kMTpaddratioFieldNumber = 1;
+  static const int kMTPAddratioFieldNumber = 1;
   inline ::google::protobuf::int32 m_tpaddratio() const;
   inline void set_m_tpaddratio(::google::protobuf::int32 value);
 
-  // optional int32 m_lvaddratio = 2;
+  // optional int32 m_lvAddratio = 2;
   inline bool has_m_lvaddratio() const;
   inline void clear_m_lvaddratio();
-  static const int kMLvaddratioFieldNumber = 2;
+  static const int kMLvAddratioFieldNumber = 2;
   inline ::google::protobuf::int32 m_lvaddratio() const;
   inline void set_m_lvaddratio(::google::protobuf::int32 value);
 
@@ -2804,17 +2804,17 @@ class E_XingchenXcawaken : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_positionnum = 1;
+  // optional int32 m_PositionNum = 1;
   inline bool has_m_positionnum() const;
   inline void clear_m_positionnum();
-  static const int kMPositionnumFieldNumber = 1;
+  static const int kMPositionNumFieldNumber = 1;
   inline ::google::protobuf::int32 m_positionnum() const;
   inline void set_m_positionnum(::google::protobuf::int32 value);
 
-  // optional int32 m_positionid = 2;
+  // optional int32 m_PositionID = 2;
   inline bool has_m_positionid() const;
   inline void clear_m_positionid();
-  static const int kMPositionidFieldNumber = 2;
+  static const int kMPositionIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_positionid() const;
   inline void set_m_positionid(::google::protobuf::int32 value);
 
@@ -2825,7 +2825,7 @@ class E_XingchenXcawaken : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_awaken_quality() const;
   inline void set_m_awaken_quality(::google::protobuf::int32 value);
 
-  // optional int32 m_awaken_lvmax = 4;
+  // optional int32 m_awaken_Lvmax = 4;
   inline bool has_m_awaken_lvmax() const;
   inline void clear_m_awaken_lvmax();
   static const int kMAwakenLvmaxFieldNumber = 4;
@@ -3123,42 +3123,42 @@ class E_XingchenXcmagical : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_hhquality = 2;
+  // optional int32 m_HhQuality = 2;
   inline bool has_m_hhquality() const;
   inline void clear_m_hhquality();
-  static const int kMHhqualityFieldNumber = 2;
+  static const int kMHhQualityFieldNumber = 2;
   inline ::google::protobuf::int32 m_hhquality() const;
   inline void set_m_hhquality(::google::protobuf::int32 value);
 
-  // optional int32 m_isadvanced = 3;
+  // optional int32 m_isAdvanced = 3;
   inline bool has_m_isadvanced() const;
   inline void clear_m_isadvanced();
-  static const int kMIsadvancedFieldNumber = 3;
+  static const int kMIsAdvancedFieldNumber = 3;
   inline ::google::protobuf::int32 m_isadvanced() const;
   inline void set_m_isadvanced(::google::protobuf::int32 value);
 
-  // optional int32 m_hhact = 4;
+  // optional int32 m_HhAct = 4;
   inline bool has_m_hhact() const;
   inline void clear_m_hhact();
-  static const int kMHhactFieldNumber = 4;
+  static const int kMHhActFieldNumber = 4;
   inline ::google::protobuf::int32 m_hhact() const;
   inline void set_m_hhact(::google::protobuf::int32 value);
 
-  // optional int32 m_hhstar = 5;
+  // optional int32 m_HhStar = 5;
   inline bool has_m_hhstar() const;
   inline void clear_m_hhstar();
-  static const int kMHhstarFieldNumber = 5;
+  static const int kMHhStarFieldNumber = 5;
   inline ::google::protobuf::int32 m_hhstar() const;
   inline void set_m_hhstar(::google::protobuf::int32 value);
 
-  // optional int32 m_advskill = 6;
+  // optional int32 m_AdvSkill = 6;
   inline bool has_m_advskill() const;
   inline void clear_m_advskill();
-  static const int kMAdvskillFieldNumber = 6;
+  static const int kMAdvSkillFieldNumber = 6;
   inline ::google::protobuf::int32 m_advskill() const;
   inline void set_m_advskill(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_XingchenXcmagicalHhDesc m_hh = 7;
+  // repeated .proto_ff.E_XingchenXcmagicalHhDesc m_Hh = 7;
   inline int m_hh_size() const;
   inline void clear_m_hh();
   static const int kMHhFieldNumber = 7;
@@ -3346,10 +3346,10 @@ class E_XingchenXcmagatt : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_attid = 1;
+  // optional int64 m_attID = 1;
   inline bool has_m_attid() const;
   inline void clear_m_attid();
-  static const int kMAttidFieldNumber = 1;
+  static const int kMAttIDFieldNumber = 1;
   inline ::google::protobuf::int64 m_attid() const;
   inline void set_m_attid(::google::protobuf::int64 value);
 
@@ -3618,52 +3618,52 @@ class E_XingchenXcadvatt : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 1;
+  static const int kMIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int64 m_upattributeid = 2;
+  // optional int64 m_upAttributeId = 2;
   inline bool has_m_upattributeid() const;
   inline void clear_m_upattributeid();
-  static const int kMUpattributeidFieldNumber = 2;
+  static const int kMUpAttributeIdFieldNumber = 2;
   inline ::google::protobuf::int64 m_upattributeid() const;
   inline void set_m_upattributeid(::google::protobuf::int64 value);
 
-  // optional int32 m_classlv = 3;
+  // optional int32 m_ClassLv = 3;
   inline bool has_m_classlv() const;
   inline void clear_m_classlv();
-  static const int kMClasslvFieldNumber = 3;
+  static const int kMClassLvFieldNumber = 3;
   inline ::google::protobuf::int32 m_classlv() const;
   inline void set_m_classlv(::google::protobuf::int32 value);
 
-  // optional int32 m_starid = 4;
+  // optional int32 m_starID = 4;
   inline bool has_m_starid() const;
   inline void clear_m_starid();
-  static const int kMStaridFieldNumber = 4;
+  static const int kMStarIDFieldNumber = 4;
   inline ::google::protobuf::int32 m_starid() const;
   inline void set_m_starid(::google::protobuf::int32 value);
 
-  // optional int32 m_skillid = 5;
+  // optional int32 m_skillID = 5;
   inline bool has_m_skillid() const;
   inline void clear_m_skillid();
-  static const int kMSkillidFieldNumber = 5;
+  static const int kMSkillIDFieldNumber = 5;
   inline ::google::protobuf::int32 m_skillid() const;
   inline void set_m_skillid(::google::protobuf::int32 value);
 
-  // optional int32 m_activeskillidlv = 6;
+  // optional int32 m_activeSkillIDLv = 6;
   inline bool has_m_activeskillidlv() const;
   inline void clear_m_activeskillidlv();
-  static const int kMActiveskillidlvFieldNumber = 6;
+  static const int kMActiveSkillIDLvFieldNumber = 6;
   inline ::google::protobuf::int32 m_activeskillidlv() const;
   inline void set_m_activeskillidlv(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_XingchenXcadvattUpattributeDesc m_upattribute = 7;
+  // repeated .proto_ff.E_XingchenXcadvattUpattributeDesc m_upAttribute = 7;
   inline int m_upattribute_size() const;
   inline void clear_m_upattribute();
-  static const int kMUpattributeFieldNumber = 7;
+  static const int kMUpAttributeFieldNumber = 7;
   inline const ::proto_ff::E_XingchenXcadvattUpattributeDesc& m_upattribute(int index) const;
   inline ::proto_ff::E_XingchenXcadvattUpattributeDesc* mutable_m_upattribute(int index);
   inline ::proto_ff::E_XingchenXcadvattUpattributeDesc* add_m_upattribute();
@@ -4032,42 +4032,42 @@ class E_XingchenXcguizhen : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 1;
+  static const int kMIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_xsid = 2;
+  // optional int32 m_XsId = 2;
   inline bool has_m_xsid() const;
   inline void clear_m_xsid();
-  static const int kMXsidFieldNumber = 2;
+  static const int kMXsIdFieldNumber = 2;
   inline ::google::protobuf::int32 m_xsid() const;
   inline void set_m_xsid(::google::protobuf::int32 value);
 
-  // optional int32 m_gzquality = 3;
+  // optional int32 m_GzQuality = 3;
   inline bool has_m_gzquality() const;
   inline void clear_m_gzquality();
-  static const int kMGzqualityFieldNumber = 3;
+  static const int kMGzQualityFieldNumber = 3;
   inline ::google::protobuf::int32 m_gzquality() const;
   inline void set_m_gzquality(::google::protobuf::int32 value);
 
-  // optional int32 m_gznum = 4;
+  // optional int32 m_GzNum = 4;
   inline bool has_m_gznum() const;
   inline void clear_m_gznum();
-  static const int kMGznumFieldNumber = 4;
+  static const int kMGzNumFieldNumber = 4;
   inline ::google::protobuf::int32 m_gznum() const;
   inline void set_m_gznum(::google::protobuf::int32 value);
 
-  // optional int32 m_gzxh = 5;
+  // optional int32 m_GzXh = 5;
   inline bool has_m_gzxh() const;
   inline void clear_m_gzxh();
-  static const int kMGzxhFieldNumber = 5;
+  static const int kMGzXhFieldNumber = 5;
   inline ::google::protobuf::int32 m_gzxh() const;
   inline void set_m_gzxh(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_XingchenXcguizhenXxDesc m_xx = 6;
+  // repeated .proto_ff.E_XingchenXcguizhenXxDesc m_Xx = 6;
   inline int m_xx_size() const;
   inline void clear_m_xx();
   static const int kMXxFieldNumber = 6;
@@ -4079,7 +4079,7 @@ class E_XingchenXcguizhen : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_XingchenXcguizhenXxDesc >*
       mutable_m_xx();
 
-  // repeated .proto_ff.E_XingchenXcguizhenGzDesc m_gz = 7;
+  // repeated .proto_ff.E_XingchenXcguizhenGzDesc m_Gz = 7;
   inline int m_gz_size() const;
   inline void clear_m_gz();
   static const int kMGzFieldNumber = 7;
@@ -4265,14 +4265,14 @@ class E_XingchenXingjunActDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 1;
+  static const int kMIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_num = 2;
+  // optional int32 m_Num = 2;
   inline bool has_m_num() const;
   inline void clear_m_num();
   static const int kMNumFieldNumber = 2;
@@ -4357,28 +4357,28 @@ class E_XingchenXingjun : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 1;
+  static const int kMIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_xstype = 2;
+  // optional int32 m_XSType = 2;
   inline bool has_m_xstype() const;
   inline void clear_m_xstype();
-  static const int kMXstypeFieldNumber = 2;
+  static const int kMXSTypeFieldNumber = 2;
   inline ::google::protobuf::int32 m_xstype() const;
   inline void set_m_xstype(::google::protobuf::int32 value);
 
-  // optional int32 m_xjquality = 3;
+  // optional int32 m_XJQuality = 3;
   inline bool has_m_xjquality() const;
   inline void clear_m_xjquality();
-  static const int kMXjqualityFieldNumber = 3;
+  static const int kMXJQualityFieldNumber = 3;
   inline ::google::protobuf::int32 m_xjquality() const;
   inline void set_m_xjquality(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_XingchenXingjunActDesc m_act = 4;
+  // repeated .proto_ff.E_XingchenXingjunActDesc m_Act = 4;
   inline int m_act_size() const;
   inline void clear_m_act();
   static const int kMActFieldNumber = 4;
@@ -4649,17 +4649,17 @@ class E_XingchenXjatt : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_attid = 1;
+  // optional int64 m_AttId = 1;
   inline bool has_m_attid() const;
   inline void clear_m_attid();
-  static const int kMAttidFieldNumber = 1;
+  static const int kMAttIdFieldNumber = 1;
   inline ::google::protobuf::int64 m_attid() const;
   inline void set_m_attid(::google::protobuf::int64 value);
 
-  // repeated .proto_ff.E_XingchenXjattXjDesc m_xj = 2;
+  // repeated .proto_ff.E_XingchenXjattXjDesc m_XJ = 2;
   inline int m_xj_size() const;
   inline void clear_m_xj();
-  static const int kMXjFieldNumber = 2;
+  static const int kMXJFieldNumber = 2;
   inline const ::proto_ff::E_XingchenXjattXjDesc& m_xj(int index) const;
   inline ::proto_ff::E_XingchenXjattXjDesc* mutable_m_xj(int index);
   inline ::proto_ff::E_XingchenXjattXjDesc* add_m_xj();
@@ -4829,35 +4829,35 @@ class E_XingchenXingji : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_xjid = 1;
+  // optional int32 m_XJId = 1;
   inline bool has_m_xjid() const;
   inline void clear_m_xjid();
-  static const int kMXjidFieldNumber = 1;
+  static const int kMXJIdFieldNumber = 1;
   inline ::google::protobuf::int32 m_xjid() const;
   inline void set_m_xjid(::google::protobuf::int32 value);
 
-  // optional int32 m_xjclass = 2;
+  // optional int32 m_XJClass = 2;
   inline bool has_m_xjclass() const;
   inline void clear_m_xjclass();
-  static const int kMXjclassFieldNumber = 2;
+  static const int kMXJClassFieldNumber = 2;
   inline ::google::protobuf::int32 m_xjclass() const;
   inline void set_m_xjclass(::google::protobuf::int32 value);
 
-  // optional int32 m_xjskill = 3;
+  // optional int32 m_XJSkill = 3;
   inline bool has_m_xjskill() const;
   inline void clear_m_xjskill();
-  static const int kMXjskillFieldNumber = 3;
+  static const int kMXJSkillFieldNumber = 3;
   inline ::google::protobuf::int32 m_xjskill() const;
   inline void set_m_xjskill(::google::protobuf::int32 value);
 
-  // optional int32 m_skillid = 4;
+  // optional int32 m_SkillId = 4;
   inline bool has_m_skillid() const;
   inline void clear_m_skillid();
-  static const int kMSkillidFieldNumber = 4;
+  static const int kMSkillIdFieldNumber = 4;
   inline ::google::protobuf::int32 m_skillid() const;
   inline void set_m_skillid(::google::protobuf::int32 value);
 
-  // repeated int32 m_unlock = 5;
+  // repeated int32 m_Unlock = 5;
   inline int m_unlock_size() const;
   inline void clear_m_unlock();
   static const int kMUnlockFieldNumber = 5;
@@ -4869,10 +4869,10 @@ class E_XingchenXingji : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_m_unlock();
 
-  // repeated int32 m_unlocklv = 6;
+  // repeated int32 m_UnlockLV = 6;
   inline int m_unlocklv_size() const;
   inline void clear_m_unlocklv();
-  static const int kMUnlocklvFieldNumber = 6;
+  static const int kMUnlockLVFieldNumber = 6;
   inline ::google::protobuf::int32 m_unlocklv(int index) const;
   inline void set_m_unlocklv(int index, ::google::protobuf::int32 value);
   inline void add_m_unlocklv(::google::protobuf::int32 value);
@@ -5052,21 +5052,21 @@ class E_XingchenXjcw : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_xjslot = 1;
+  // optional int32 m_XjSlot = 1;
   inline bool has_m_xjslot() const;
   inline void clear_m_xjslot();
-  static const int kMXjslotFieldNumber = 1;
+  static const int kMXjSlotFieldNumber = 1;
   inline ::google::protobuf::int32 m_xjslot() const;
   inline void set_m_xjslot(::google::protobuf::int32 value);
 
-  // optional int32 m_unlock = 2;
+  // optional int32 m_Unlock = 2;
   inline bool has_m_unlock() const;
   inline void clear_m_unlock();
   static const int kMUnlockFieldNumber = 2;
   inline ::google::protobuf::int32 m_unlock() const;
   inline void set_m_unlock(::google::protobuf::int32 value);
 
-  // optional int32 m_num = 3;
+  // optional int32 m_Num = 3;
   inline bool has_m_num() const;
   inline void clear_m_num();
   static const int kMNumFieldNumber = 3;
@@ -5426,45 +5426,45 @@ class E_XingchenZbshop : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_shopid = 1;
+  // optional int32 m_ShopId = 1;
   inline bool has_m_shopid() const;
   inline void clear_m_shopid();
-  static const int kMShopidFieldNumber = 1;
+  static const int kMShopIdFieldNumber = 1;
   inline ::google::protobuf::int32 m_shopid() const;
   inline void set_m_shopid(::google::protobuf::int32 value);
 
-  // optional int32 m_shopitem = 2;
+  // optional int32 m_ShopItem = 2;
   inline bool has_m_shopitem() const;
   inline void clear_m_shopitem();
-  static const int kMShopitemFieldNumber = 2;
+  static const int kMShopItemFieldNumber = 2;
   inline ::google::protobuf::int32 m_shopitem() const;
   inline void set_m_shopitem(::google::protobuf::int32 value);
 
-  // optional int32 m_shopquota = 3;
+  // optional int32 m_ShopQuota = 3;
   inline bool has_m_shopquota() const;
   inline void clear_m_shopquota();
-  static const int kMShopquotaFieldNumber = 3;
+  static const int kMShopQuotaFieldNumber = 3;
   inline ::google::protobuf::int32 m_shopquota() const;
   inline void set_m_shopquota(::google::protobuf::int32 value);
 
-  // optional int32 m_shopnum = 4;
+  // optional int32 m_ShopNum = 4;
   inline bool has_m_shopnum() const;
   inline void clear_m_shopnum();
-  static const int kMShopnumFieldNumber = 4;
+  static const int kMShopNumFieldNumber = 4;
   inline ::google::protobuf::int32 m_shopnum() const;
   inline void set_m_shopnum(::google::protobuf::int32 value);
 
-  // optional int32 m_buyconsume = 5;
+  // optional int32 m_BuyConsume = 5;
   inline bool has_m_buyconsume() const;
   inline void clear_m_buyconsume();
-  static const int kMBuyconsumeFieldNumber = 5;
+  static const int kMBuyConsumeFieldNumber = 5;
   inline ::google::protobuf::int32 m_buyconsume() const;
   inline void set_m_buyconsume(::google::protobuf::int32 value);
 
-  // optional int32 m_buynum = 6;
+  // optional int32 m_BuyNum = 6;
   inline bool has_m_buynum() const;
   inline void clear_m_buynum();
-  static const int kMBuynumFieldNumber = 6;
+  static const int kMBuyNumFieldNumber = 6;
   inline ::google::protobuf::int32 m_buynum() const;
   inline void set_m_buynum(::google::protobuf::int32 value);
 
@@ -5594,7 +5594,7 @@ class Sheet_XingchenZbshop : public ::google::protobuf::Message {
 
 // E_XingchenXcsetup
 
-// optional int32 m_xsid = 1;
+// optional int32 m_XsId = 1;
 inline bool E_XingchenXcsetup::has_m_xsid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -5616,7 +5616,7 @@ inline void E_XingchenXcsetup::set_m_xsid(::google::protobuf::int32 value) {
   m_xsid_ = value;
 }
 
-// optional int32 m_unlockdj = 2;
+// optional int32 m_UnlockDj = 2;
 inline bool E_XingchenXcsetup::has_m_unlockdj() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -5638,7 +5638,7 @@ inline void E_XingchenXcsetup::set_m_unlockdj(::google::protobuf::int32 value) {
   m_unlockdj_ = value;
 }
 
-// optional int32 m_unlockpf = 3;
+// optional int32 m_UnlockPf = 3;
 inline bool E_XingchenXcsetup::has_m_unlockpf() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -5660,7 +5660,7 @@ inline void E_XingchenXcsetup::set_m_unlockpf(::google::protobuf::int32 value) {
   m_unlockpf_ = value;
 }
 
-// optional int32 m_xstype = 4;
+// optional int32 m_XSType = 4;
 inline bool E_XingchenXcsetup::has_m_xstype() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -5682,7 +5682,7 @@ inline void E_XingchenXcsetup::set_m_xstype(::google::protobuf::int32 value) {
   m_xstype_ = value;
 }
 
-// optional int32 m_xssubtype = 5;
+// optional int32 m_XSSubType = 5;
 inline bool E_XingchenXcsetup::has_m_xssubtype() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -5737,7 +5737,7 @@ Sheet_XingchenXcsetup::mutable_e_xingchenxcsetup_list() {
 
 // E_XingchenXcmosaic
 
-// optional int32 m_positionnum = 1;
+// optional int32 m_PositionNum = 1;
 inline bool E_XingchenXcmosaic::has_m_positionnum() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -5759,7 +5759,7 @@ inline void E_XingchenXcmosaic::set_m_positionnum(::google::protobuf::int32 valu
   m_positionnum_ = value;
 }
 
-// optional int32 m_positionid = 2;
+// optional int32 m_PositionID = 2;
 inline bool E_XingchenXcmosaic::has_m_positionid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -5950,7 +5950,7 @@ inline void E_XingchenXcmaterialQualityDesc::set_m_type(::google::protobuf::int3
 
 // E_XingchenXcmaterial
 
-// optional int32 m_id = 1;
+// optional int32 m_Id = 1;
 inline bool E_XingchenXcmaterial::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -5972,7 +5972,7 @@ inline void E_XingchenXcmaterial::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_materialtype = 2;
+// optional int32 m_MaterialType = 2;
 inline bool E_XingchenXcmaterial::has_m_materialtype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -5994,7 +5994,7 @@ inline void E_XingchenXcmaterial::set_m_materialtype(::google::protobuf::int32 v
   m_materialtype_ = value;
 }
 
-// optional int32 m_functiontype = 3;
+// optional int32 m_FunctionType = 3;
 inline bool E_XingchenXcmaterial::has_m_functiontype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -6016,7 +6016,7 @@ inline void E_XingchenXcmaterial::set_m_functiontype(::google::protobuf::int32 v
   m_functiontype_ = value;
 }
 
-// optional string m_xcposition = 4;
+// optional string m_XcPosition = 4;
 inline bool E_XingchenXcmaterial::has_m_xcposition() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -6086,7 +6086,7 @@ inline void E_XingchenXcmaterial::set_allocated_m_xcposition(::std::string* m_xc
   }
 }
 
-// optional int32 m_itemid = 5;
+// optional int32 m_itemId = 5;
 inline bool E_XingchenXcmaterial::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -6108,7 +6108,7 @@ inline void E_XingchenXcmaterial::set_m_itemid(::google::protobuf::int32 value) 
   m_itemid_ = value;
 }
 
-// optional int32 m_itemexp = 6;
+// optional int32 m_itemExp = 6;
 inline bool E_XingchenXcmaterial::has_m_itemexp() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -6236,7 +6236,7 @@ inline void E_XingchenXinchenAttributeDesc::set_m_type(::google::protobuf::int32
 
 // E_XingchenXinchen
 
-// optional int32 m_xcequip = 1;
+// optional int32 m_XcEquip = 1;
 inline bool E_XingchenXinchen::has_m_xcequip() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -6316,7 +6316,7 @@ Sheet_XingchenXinchen::mutable_e_xingchenxinchen_list() {
 
 // E_XingchenXclvatt
 
-// optional int64 m_attid = 1;
+// optional int64 m_attId = 1;
 inline bool E_XingchenXclvatt::has_m_attid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -6543,7 +6543,7 @@ inline void E_XingchenXctp::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_positionid = 2;
+// optional int32 m_PositionID = 2;
 inline bool E_XingchenXctp::has_m_positionid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -6565,7 +6565,7 @@ inline void E_XingchenXctp::set_m_positionid(::google::protobuf::int32 value) {
   m_positionid_ = value;
 }
 
-// optional int32 m_xcquality = 3;
+// optional int32 m_XcQuality = 3;
 inline bool E_XingchenXctp::has_m_xcquality() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -6587,7 +6587,7 @@ inline void E_XingchenXctp::set_m_xcquality(::google::protobuf::int32 value) {
   m_xcquality_ = value;
 }
 
-// optional int32 m_xclvmax = 4;
+// optional int32 m_XcLvmax = 4;
 inline bool E_XingchenXctp::has_m_xclvmax() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -6609,7 +6609,7 @@ inline void E_XingchenXctp::set_m_xclvmax(::google::protobuf::int32 value) {
   m_xclvmax_ = value;
 }
 
-// repeated .proto_ff.E_XingchenXctpTpDesc m_tp = 5;
+// repeated .proto_ff.E_XingchenXctpTpDesc m_TP = 5;
 inline int E_XingchenXctp::m_tp_size() const {
   return m_tp_.size();
 }
@@ -6714,7 +6714,7 @@ inline void E_XingchenXctpexp::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional string m_lvdisplay = 2;
+// optional string m_Lvdisplay = 2;
 inline bool E_XingchenXctpexp::has_m_lvdisplay() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -6861,7 +6861,7 @@ inline void E_XingchenXctpaddi::set_m_id(::google::protobuf::int64 value) {
   m_id_ = value;
 }
 
-// optional int64 m_attid = 2;
+// optional int64 m_attId = 2;
 inline bool E_XingchenXctpaddi::has_m_attid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -6905,7 +6905,7 @@ inline void E_XingchenXctpaddi::set_m_count(::google::protobuf::int32 value) {
   m_count_ = value;
 }
 
-// optional int32 m_atttype = 4;
+// optional int32 m_attType = 4;
 inline bool E_XingchenXctpaddi::has_m_atttype() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -6982,7 +6982,7 @@ Sheet_XingchenXctpaddi::mutable_e_xingchenxctpaddi_list() {
 
 // E_XingchenXctpatt
 
-// optional int64 m_attid = 1;
+// optional int64 m_attID = 1;
 inline bool E_XingchenXctpatt::has_m_attid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -7110,7 +7110,7 @@ inline void E_XingchenXcstarAttributeDesc::set_m_type(::google::protobuf::int32 
 
 // E_XingchenXcstar
 
-// optional int32 m_starlv = 1;
+// optional int32 m_StarLv = 1;
 inline bool E_XingchenXcstar::has_m_starlv() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -7212,7 +7212,7 @@ Sheet_XingchenXcstar::mutable_e_xingchenxcstar_list() {
 
 // E_XingchenXcawakenAwakenDesc
 
-// optional int32 m_tpaddratio = 1;
+// optional int32 m_TPAddratio = 1;
 inline bool E_XingchenXcawakenAwakenDesc::has_m_tpaddratio() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -7234,7 +7234,7 @@ inline void E_XingchenXcawakenAwakenDesc::set_m_tpaddratio(::google::protobuf::i
   m_tpaddratio_ = value;
 }
 
-// optional int32 m_lvaddratio = 2;
+// optional int32 m_lvAddratio = 2;
 inline bool E_XingchenXcawakenAwakenDesc::has_m_lvaddratio() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -7282,7 +7282,7 @@ inline void E_XingchenXcawakenAwakenDesc::set_m_num(::google::protobuf::int32 va
 
 // E_XingchenXcawaken
 
-// optional int32 m_positionnum = 1;
+// optional int32 m_PositionNum = 1;
 inline bool E_XingchenXcawaken::has_m_positionnum() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -7304,7 +7304,7 @@ inline void E_XingchenXcawaken::set_m_positionnum(::google::protobuf::int32 valu
   m_positionnum_ = value;
 }
 
-// optional int32 m_positionid = 2;
+// optional int32 m_PositionID = 2;
 inline bool E_XingchenXcawaken::has_m_positionid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -7348,7 +7348,7 @@ inline void E_XingchenXcawaken::set_m_awaken_quality(::google::protobuf::int32 v
   m_awaken_quality_ = value;
 }
 
-// optional int32 m_awaken_lvmax = 4;
+// optional int32 m_awaken_Lvmax = 4;
 inline bool E_XingchenXcawaken::has_m_awaken_lvmax() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -7520,7 +7520,7 @@ inline void E_XingchenXcmagical::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_hhquality = 2;
+// optional int32 m_HhQuality = 2;
 inline bool E_XingchenXcmagical::has_m_hhquality() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -7542,7 +7542,7 @@ inline void E_XingchenXcmagical::set_m_hhquality(::google::protobuf::int32 value
   m_hhquality_ = value;
 }
 
-// optional int32 m_isadvanced = 3;
+// optional int32 m_isAdvanced = 3;
 inline bool E_XingchenXcmagical::has_m_isadvanced() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -7564,7 +7564,7 @@ inline void E_XingchenXcmagical::set_m_isadvanced(::google::protobuf::int32 valu
   m_isadvanced_ = value;
 }
 
-// optional int32 m_hhact = 4;
+// optional int32 m_HhAct = 4;
 inline bool E_XingchenXcmagical::has_m_hhact() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -7586,7 +7586,7 @@ inline void E_XingchenXcmagical::set_m_hhact(::google::protobuf::int32 value) {
   m_hhact_ = value;
 }
 
-// optional int32 m_hhstar = 5;
+// optional int32 m_HhStar = 5;
 inline bool E_XingchenXcmagical::has_m_hhstar() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -7608,7 +7608,7 @@ inline void E_XingchenXcmagical::set_m_hhstar(::google::protobuf::int32 value) {
   m_hhstar_ = value;
 }
 
-// optional int32 m_advskill = 6;
+// optional int32 m_AdvSkill = 6;
 inline bool E_XingchenXcmagical::has_m_advskill() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -7630,7 +7630,7 @@ inline void E_XingchenXcmagical::set_m_advskill(::google::protobuf::int32 value)
   m_advskill_ = value;
 }
 
-// repeated .proto_ff.E_XingchenXcmagicalHhDesc m_hh = 7;
+// repeated .proto_ff.E_XingchenXcmagicalHhDesc m_Hh = 7;
 inline int E_XingchenXcmagical::m_hh_size() const {
   return m_hh_.size();
 }
@@ -7688,7 +7688,7 @@ Sheet_XingchenXcmagical::mutable_e_xingchenxcmagical_list() {
 
 // E_XingchenXcmagatt
 
-// optional int64 m_attid = 1;
+// optional int64 m_attID = 1;
 inline bool E_XingchenXcmagatt::has_m_attid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -7816,7 +7816,7 @@ inline void E_XingchenXcadvattUpattributeDesc::set_m_type(::google::protobuf::in
 
 // E_XingchenXcadvatt
 
-// optional int32 m_id = 1;
+// optional int32 m_ID = 1;
 inline bool E_XingchenXcadvatt::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -7838,7 +7838,7 @@ inline void E_XingchenXcadvatt::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int64 m_upattributeid = 2;
+// optional int64 m_upAttributeId = 2;
 inline bool E_XingchenXcadvatt::has_m_upattributeid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -7860,7 +7860,7 @@ inline void E_XingchenXcadvatt::set_m_upattributeid(::google::protobuf::int64 va
   m_upattributeid_ = value;
 }
 
-// optional int32 m_classlv = 3;
+// optional int32 m_ClassLv = 3;
 inline bool E_XingchenXcadvatt::has_m_classlv() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -7882,7 +7882,7 @@ inline void E_XingchenXcadvatt::set_m_classlv(::google::protobuf::int32 value) {
   m_classlv_ = value;
 }
 
-// optional int32 m_starid = 4;
+// optional int32 m_starID = 4;
 inline bool E_XingchenXcadvatt::has_m_starid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -7904,7 +7904,7 @@ inline void E_XingchenXcadvatt::set_m_starid(::google::protobuf::int32 value) {
   m_starid_ = value;
 }
 
-// optional int32 m_skillid = 5;
+// optional int32 m_skillID = 5;
 inline bool E_XingchenXcadvatt::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -7926,7 +7926,7 @@ inline void E_XingchenXcadvatt::set_m_skillid(::google::protobuf::int32 value) {
   m_skillid_ = value;
 }
 
-// optional int32 m_activeskillidlv = 6;
+// optional int32 m_activeSkillIDLv = 6;
 inline bool E_XingchenXcadvatt::has_m_activeskillidlv() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -7948,7 +7948,7 @@ inline void E_XingchenXcadvatt::set_m_activeskillidlv(::google::protobuf::int32 
   m_activeskillidlv_ = value;
 }
 
-// repeated .proto_ff.E_XingchenXcadvattUpattributeDesc m_upattribute = 7;
+// repeated .proto_ff.E_XingchenXcadvattUpattributeDesc m_upAttribute = 7;
 inline int E_XingchenXcadvatt::m_upattribute_size() const {
   return m_upattribute_.size();
 }
@@ -8102,7 +8102,7 @@ inline void E_XingchenXcguizhenGzDesc::set_m_type(::google::protobuf::int32 valu
 
 // E_XingchenXcguizhen
 
-// optional int32 m_id = 1;
+// optional int32 m_ID = 1;
 inline bool E_XingchenXcguizhen::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -8124,7 +8124,7 @@ inline void E_XingchenXcguizhen::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_xsid = 2;
+// optional int32 m_XsId = 2;
 inline bool E_XingchenXcguizhen::has_m_xsid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -8146,7 +8146,7 @@ inline void E_XingchenXcguizhen::set_m_xsid(::google::protobuf::int32 value) {
   m_xsid_ = value;
 }
 
-// optional int32 m_gzquality = 3;
+// optional int32 m_GzQuality = 3;
 inline bool E_XingchenXcguizhen::has_m_gzquality() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -8168,7 +8168,7 @@ inline void E_XingchenXcguizhen::set_m_gzquality(::google::protobuf::int32 value
   m_gzquality_ = value;
 }
 
-// optional int32 m_gznum = 4;
+// optional int32 m_GzNum = 4;
 inline bool E_XingchenXcguizhen::has_m_gznum() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -8190,7 +8190,7 @@ inline void E_XingchenXcguizhen::set_m_gznum(::google::protobuf::int32 value) {
   m_gznum_ = value;
 }
 
-// optional int32 m_gzxh = 5;
+// optional int32 m_GzXh = 5;
 inline bool E_XingchenXcguizhen::has_m_gzxh() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -8212,7 +8212,7 @@ inline void E_XingchenXcguizhen::set_m_gzxh(::google::protobuf::int32 value) {
   m_gzxh_ = value;
 }
 
-// repeated .proto_ff.E_XingchenXcguizhenXxDesc m_xx = 6;
+// repeated .proto_ff.E_XingchenXcguizhenXxDesc m_Xx = 6;
 inline int E_XingchenXcguizhen::m_xx_size() const {
   return m_xx_.size();
 }
@@ -8237,7 +8237,7 @@ E_XingchenXcguizhen::mutable_m_xx() {
   return &m_xx_;
 }
 
-// repeated .proto_ff.E_XingchenXcguizhenGzDesc m_gz = 7;
+// repeated .proto_ff.E_XingchenXcguizhenGzDesc m_Gz = 7;
 inline int E_XingchenXcguizhen::m_gz_size() const {
   return m_gz_.size();
 }
@@ -8295,7 +8295,7 @@ Sheet_XingchenXcguizhen::mutable_e_xingchenxcguizhen_list() {
 
 // E_XingchenXingjunActDesc
 
-// optional int32 m_id = 1;
+// optional int32 m_ID = 1;
 inline bool E_XingchenXingjunActDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -8317,7 +8317,7 @@ inline void E_XingchenXingjunActDesc::set_m_id(::google::protobuf::int32 value) 
   m_id_ = value;
 }
 
-// optional int32 m_num = 2;
+// optional int32 m_Num = 2;
 inline bool E_XingchenXingjunActDesc::has_m_num() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -8343,7 +8343,7 @@ inline void E_XingchenXingjunActDesc::set_m_num(::google::protobuf::int32 value)
 
 // E_XingchenXingjun
 
-// optional int32 m_id = 1;
+// optional int32 m_ID = 1;
 inline bool E_XingchenXingjun::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -8365,7 +8365,7 @@ inline void E_XingchenXingjun::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_xstype = 2;
+// optional int32 m_XSType = 2;
 inline bool E_XingchenXingjun::has_m_xstype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -8387,7 +8387,7 @@ inline void E_XingchenXingjun::set_m_xstype(::google::protobuf::int32 value) {
   m_xstype_ = value;
 }
 
-// optional int32 m_xjquality = 3;
+// optional int32 m_XJQuality = 3;
 inline bool E_XingchenXingjun::has_m_xjquality() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -8409,7 +8409,7 @@ inline void E_XingchenXingjun::set_m_xjquality(::google::protobuf::int32 value) 
   m_xjquality_ = value;
 }
 
-// repeated .proto_ff.E_XingchenXingjunActDesc m_act = 4;
+// repeated .proto_ff.E_XingchenXingjunActDesc m_Act = 4;
 inline int E_XingchenXingjun::m_act_size() const {
   return m_act_.size();
 }
@@ -8515,7 +8515,7 @@ inline void E_XingchenXjattXjDesc::set_m_type(::google::protobuf::int32 value) {
 
 // E_XingchenXjatt
 
-// optional int64 m_attid = 1;
+// optional int64 m_AttId = 1;
 inline bool E_XingchenXjatt::has_m_attid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -8537,7 +8537,7 @@ inline void E_XingchenXjatt::set_m_attid(::google::protobuf::int64 value) {
   m_attid_ = value;
 }
 
-// repeated .proto_ff.E_XingchenXjattXjDesc m_xj = 2;
+// repeated .proto_ff.E_XingchenXjattXjDesc m_XJ = 2;
 inline int E_XingchenXjatt::m_xj_size() const {
   return m_xj_.size();
 }
@@ -8595,7 +8595,7 @@ Sheet_XingchenXjatt::mutable_e_xingchenxjatt_list() {
 
 // E_XingchenXingji
 
-// optional int32 m_xjid = 1;
+// optional int32 m_XJId = 1;
 inline bool E_XingchenXingji::has_m_xjid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -8617,7 +8617,7 @@ inline void E_XingchenXingji::set_m_xjid(::google::protobuf::int32 value) {
   m_xjid_ = value;
 }
 
-// optional int32 m_xjclass = 2;
+// optional int32 m_XJClass = 2;
 inline bool E_XingchenXingji::has_m_xjclass() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -8639,7 +8639,7 @@ inline void E_XingchenXingji::set_m_xjclass(::google::protobuf::int32 value) {
   m_xjclass_ = value;
 }
 
-// optional int32 m_xjskill = 3;
+// optional int32 m_XJSkill = 3;
 inline bool E_XingchenXingji::has_m_xjskill() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -8661,7 +8661,7 @@ inline void E_XingchenXingji::set_m_xjskill(::google::protobuf::int32 value) {
   m_xjskill_ = value;
 }
 
-// optional int32 m_skillid = 4;
+// optional int32 m_SkillId = 4;
 inline bool E_XingchenXingji::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -8683,7 +8683,7 @@ inline void E_XingchenXingji::set_m_skillid(::google::protobuf::int32 value) {
   m_skillid_ = value;
 }
 
-// repeated int32 m_unlock = 5;
+// repeated int32 m_Unlock = 5;
 inline int E_XingchenXingji::m_unlock_size() const {
   return m_unlock_.size();
 }
@@ -8708,7 +8708,7 @@ E_XingchenXingji::mutable_m_unlock() {
   return &m_unlock_;
 }
 
-// repeated int32 m_unlocklv = 6;
+// repeated int32 m_UnlockLV = 6;
 inline int E_XingchenXingji::m_unlocklv_size() const {
   return m_unlocklv_.size();
 }
@@ -8766,7 +8766,7 @@ Sheet_XingchenXingji::mutable_e_xingchenxingji_list() {
 
 // E_XingchenXjcw
 
-// optional int32 m_xjslot = 1;
+// optional int32 m_XjSlot = 1;
 inline bool E_XingchenXjcw::has_m_xjslot() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -8788,7 +8788,7 @@ inline void E_XingchenXjcw::set_m_xjslot(::google::protobuf::int32 value) {
   m_xjslot_ = value;
 }
 
-// optional int32 m_unlock = 2;
+// optional int32 m_Unlock = 2;
 inline bool E_XingchenXjcw::has_m_unlock() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -8810,7 +8810,7 @@ inline void E_XingchenXjcw::set_m_unlock(::google::protobuf::int32 value) {
   m_unlock_ = value;
 }
 
-// optional int32 m_num = 3;
+// optional int32 m_Num = 3;
 inline bool E_XingchenXjcw::has_m_num() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -8964,7 +8964,7 @@ Sheet_XingchenXjlvexp::mutable_e_xingchenxjlvexp_list() {
 
 // E_XingchenZbshop
 
-// optional int32 m_shopid = 1;
+// optional int32 m_ShopId = 1;
 inline bool E_XingchenZbshop::has_m_shopid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -8986,7 +8986,7 @@ inline void E_XingchenZbshop::set_m_shopid(::google::protobuf::int32 value) {
   m_shopid_ = value;
 }
 
-// optional int32 m_shopitem = 2;
+// optional int32 m_ShopItem = 2;
 inline bool E_XingchenZbshop::has_m_shopitem() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -9008,7 +9008,7 @@ inline void E_XingchenZbshop::set_m_shopitem(::google::protobuf::int32 value) {
   m_shopitem_ = value;
 }
 
-// optional int32 m_shopquota = 3;
+// optional int32 m_ShopQuota = 3;
 inline bool E_XingchenZbshop::has_m_shopquota() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -9030,7 +9030,7 @@ inline void E_XingchenZbshop::set_m_shopquota(::google::protobuf::int32 value) {
   m_shopquota_ = value;
 }
 
-// optional int32 m_shopnum = 4;
+// optional int32 m_ShopNum = 4;
 inline bool E_XingchenZbshop::has_m_shopnum() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -9052,7 +9052,7 @@ inline void E_XingchenZbshop::set_m_shopnum(::google::protobuf::int32 value) {
   m_shopnum_ = value;
 }
 
-// optional int32 m_buyconsume = 5;
+// optional int32 m_BuyConsume = 5;
 inline bool E_XingchenZbshop::has_m_buyconsume() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -9074,7 +9074,7 @@ inline void E_XingchenZbshop::set_m_buyconsume(::google::protobuf::int32 value) 
   m_buyconsume_ = value;
 }
 
-// optional int32 m_buynum = 6;
+// optional int32 m_BuyNum = 6;
 inline bool E_XingchenZbshop::has_m_buynum() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }

@@ -1361,18 +1361,18 @@ void protobuf_AddDesc_E_5fXiuzhen_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\017E_Xiuzhen.proto\022\010proto_ff\032\025yd_fieldopt"
     "ions.proto\"J\n\027E_XiuzhenStagesItemDesc\022\031\n"
-    "\005m_num\030\001 \001(\003B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_id\030\002 \001(\005B\006"
+    "\005m_num\030\001 \001(\003B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_ID\030\002 \001(\005B\006"
     "\302\377\024\002ID\"J\n\030E_XiuzhenStagesSkillDesc\022\030\n\004m_"
-    "lv\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002"
+    "Lv\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022\024\n\004m_ID\030\002 \001(\005B\006\302\377\024\002"
     "ID\"N\n\034E_XiuzhenStagesAttributeDesc\022\030\n\007m_"
-    "value\030\001 \001(\003B\007\302\377\024\003\345\200\274\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002"
+    "value\030\001 \001(\003B\007\302\377\024\003\345\200\274\022\024\n\004m_ID\030\002 \001(\005B\006\302\377\024\002"
     "ID\"\326\002\n\017E_XiuzhenStages\022\030\n\004m_id\030\001 \001(\005B\n\302\377"
-    "\024\006\347\255\211\347\272\247\022%\n\016m_success_rate\030\002 \001(\005B\r\302\377\024\t\346\210"
+    "\024\006\347\255\211\347\272\247\022%\n\016m_Success_rate\030\002 \001(\005B\r\302\377\024\t\346\210"
     "\220\345\212\237\347\216\207\022-\n\nm_blessing\030\003 \001(\005B\031\302\377\024\025\345\244\261\350\264\245\345"
     "\242\236\345\212\240\347\245\235\347\246\217\345\200\274\022A\n\006m_item\030\004 \003(\0132!.proto_f"
     "f.E_XiuzhenStagesItemDescB\016\302\377\024\006\346\235\220\346\226\231\210\301\024"
-    "\003\022C\n\007m_skill\030\005 \003(\0132\".proto_ff.E_XiuzhenS"
-    "tagesSkillDescB\016\302\377\024\006\346\212\200\350\203\275\210\301\024\005\022K\n\013m_attr"
+    "\003\022C\n\007m_Skill\030\005 \003(\0132\".proto_ff.E_XiuzhenS"
+    "tagesSkillDescB\016\302\377\024\006\346\212\200\350\203\275\210\301\024\005\022K\n\013m_Attr"
     "ibute\030\006 \003(\0132&.proto_ff.E_XiuzhenStagesAt"
     "tributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\005\"U\n\023Sheet_Xiu"
     "zhenStages\022>\n\024E_XiuzhenStages_List\030\001 \003(\013"
@@ -1390,56 +1390,56 @@ void protobuf_AddDesc_E_5fXiuzhen_2eproto() {
     "\351\232\224\346\217\220\345\215\207\344\277\256\344\270\272\346\234\200\345\244\232\0225\n\014m_energy_min\030\n "
     "\001(\005B\037\302\377\024\033\345\244\247\351\231\206\350\216\267\345\276\227\347\232\204\346\234\200\345\260\217\344\277\256\344\270\272\022&\n\014"
     "m_energy_max\030\013 \001(\005B\020\302\377\024\014\346\234\200\345\244\247\344\277\256\344\270\272\022%\n\013"
-    "m_eventrate\030\014 \001(\005B\020\302\377\024\014\344\272\213\344\273\266\346\246\202\347\216\207\022:\n\024m"
-    "_eventrateenergyadd\030\r \001(\005B\034\302\377\024\030\344\272\213\344\273\266\344\277\256"
-    "\344\270\272\347\210\206\345\242\236\346\246\202\347\216\207\022<\n\023m_eventgetitemsrate\030\016"
+    "m_eventRate\030\014 \001(\005B\020\302\377\024\014\344\272\213\344\273\266\346\246\202\347\216\207\022:\n\024m"
+    "_eventRateEnergyAdd\030\r \001(\005B\034\302\377\024\030\344\272\213\344\273\266\344\277\256"
+    "\344\270\272\347\210\206\345\242\236\346\246\202\347\216\207\022<\n\023m_eventGetItemsRate\030\016"
     " \001(\005B\037\302\377\024\033\344\272\213\344\273\266\350\216\267\345\276\227\351\201\223\345\205\267\347\232\204\346\246\202\347\216\207\"Z\n"
     "\025Sheet_XiuzhenGb_areas\022A\n\026E_XiuzhenGb_ar"
     "eas_List\030\001 \003(\0132\033.proto_ff.E_XiuzhenGb_ar"
     "easB\004\210\301\024@\"O\n\037E_XiuzhenGb_area_eventsItem"
-    "Desc\022\026\n\005m_num\030\001 \001(\005B\007\302\377\024\003Num\022\024\n\004m_id\030\002 \001"
+    "Desc\022\026\n\005m_Num\030\001 \001(\005B\007\302\377\024\003Num\022\024\n\004m_ID\030\002 \001"
     "(\003B\006\302\377\024\002ID\"\353\003\n\027E_XiuzhenGb_area_events\022\030"
-    "\n\004m_id\030\001 \001(\003B\n\302\377\024\006\345\272\217\345\217\267\022\"\n\010m_areaid\030\002 \001"
+    "\n\004m_id\030\001 \001(\003B\n\302\377\024\006\345\272\217\345\217\267\022\"\n\010m_areaId\030\002 \001"
     "(\003B\020\302\377\024\014\346\211\200\345\234\250\345\214\272\345\237\237\022 \n\006m_rate\030\003 \001(\005B\020\302\377"
     "\024\014\351\232\217\346\234\272\346\246\202\347\216\207\022\032\n\006m_type\030\004 \001(\005B\n\302\377\024\006\347\261\273\345"
-    "\236\213\022)\n\tm_bodylvl\030\005 \001(\005B\026\302\377\024\022\351\234\200\350\246\201\350\202\211\350\272\253\347"
-    "\255\211\347\272\247\022)\n\013m_chattitle\030\006 \001(\tB\024\302\377\024\014\346\226\207\345\255\227\346\240"
+    "\236\213\022)\n\tm_bodyLvl\030\005 \001(\005B\026\302\377\024\022\351\234\200\350\246\201\350\202\211\350\272\253\347"
+    "\255\211\347\272\247\022)\n\013m_chatTitle\030\006 \001(\tB\024\302\377\024\014\346\226\207\345\255\227\346\240"
     "\207\351\242\230\220\301\024@\022%\n\007m_chats\030\007 \001(\tB\024\302\377\024\014\346\226\207\345\255\227\345\206\205"
-    "\345\256\271\220\301\024@\022*\n\tm_chatbgf\030\010 \001(\tB\027\302\377\024\017\346\226\207\345\255\227\350\203"
-    "\214\346\231\257\345\245\263\220\301\024@\022*\n\tm_chatbgm\030\t \001(\tB\027\302\377\024\017\346\226\207\345"
-    "\255\227\350\203\214\346\231\257\347\224\267\220\301\024@\022.\n\013m_energyadd\030\n \001(\005B\031\302\377"
+    "\345\256\271\220\301\024@\022*\n\tm_chatBGF\030\010 \001(\tB\027\302\377\024\017\346\226\207\345\255\227\350\203"
+    "\214\346\231\257\345\245\263\220\301\024@\022*\n\tm_chatBGM\030\t \001(\tB\027\302\377\024\017\346\226\207\345"
+    "\255\227\350\203\214\346\231\257\347\224\267\220\301\024@\022.\n\013m_energyAdd\030\n \001(\005B\031\302\377"
     "\024\025\344\277\256\344\270\272\347\210\206\345\242\236\347\231\276\345\210\206\346\257\224\022O\n\006m_item\030\013 \003(\0132"
     ").proto_ff.E_XiuzhenGb_area_eventsItemDe"
     "scB\024\302\377\024\014\350\216\267\345\276\227\351\201\223\345\205\267\210\301\024\002\"l\n\033Sheet_Xiuzhe"
     "nGb_area_events\022M\n\034E_XiuzhenGb_area_even"
     "ts_List\030\001 \003(\0132!.proto_ff.E_XiuzhenGb_are"
     "a_eventsB\004\210\301\024 \"L\n\031E_XiuzhenGb_lvlupItemD"
-    "esc\022\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_id\030\002"
+    "esc\022\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_ID\030\002"
     " \001(\005B\006\302\377\024\002ID\"P\n\036E_XiuzhenGb_lvlupAttribu"
-    "teDesc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\024\n\004m_id"
+    "teDesc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\024\n\004m_ID"
     "\030\002 \001(\005B\006\302\377\024\002ID\"\357\001\n\021E_XiuzhenGb_lvlup\022\030\n\004"
-    "m_id\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022,\n\014m_needenergy\030\002"
+    "m_id\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022,\n\014m_needEnergy\030\002"
     " \001(\005B\026\302\377\024\022\345\215\207\347\272\247\351\234\200\350\246\201\344\277\256\344\270\272\022C\n\006m_item\030\003"
     " \003(\0132#.proto_ff.E_XiuzhenGb_lvlupItemDes"
-    "cB\016\302\377\024\006\346\235\220\346\226\231\210\301\024\001\022M\n\013m_attribute\030\004 \003(\0132("
+    "cB\016\302\377\024\006\346\235\220\346\226\231\210\301\024\001\022M\n\013m_Attribute\030\004 \003(\0132("
     ".proto_ff.E_XiuzhenGb_lvlupAttributeDesc"
     "B\016\302\377\024\006\345\261\236\346\200\247\210\301\024\006\"[\n\025Sheet_XiuzhenGb_lvlu"
     "p\022B\n\026E_XiuzhenGb_lvlup_List\030\001 \003(\0132\033.prot"
     "o_ff.E_XiuzhenGb_lvlupB\005\210\301\024\200\020\"J\n\027E_Xiuzh"
     "enEvolveItemDesc\022\031\n\005m_num\030\001 \001(\003B\n\302\377\024\006\346\225\260"
-    "\351\207\217\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002ID\"N\n\034E_XiuzhenEv"
+    "\351\207\217\022\024\n\004m_ID\030\002 \001(\005B\006\302\377\024\002ID\"N\n\034E_XiuzhenEv"
     "olveAttributeDesc\022\030\n\007m_value\030\001 \001(\003B\007\302\377\024\003"
-    "\345\200\274\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002ID\"\301\003\n\017E_XiuzhenE"
+    "\345\200\274\022\024\n\004m_ID\030\002 \001(\005B\006\302\377\024\002ID\"\301\003\n\017E_XiuzhenE"
     "volve\022\030\n\004m_id\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022(\n\010m_nee"
-    "dxw\030\002 \001(\003B\026\302\377\024\022\345\215\207\347\272\247\346\266\210\350\200\227\344\277\256\344\270\272\022%\n\016m_s"
+    "dXW\030\002 \001(\003B\026\302\377\024\022\345\215\207\347\272\247\346\266\210\350\200\227\344\277\256\344\270\272\022%\n\016m_S"
     "uccess_rate\030\003 \001(\005B\r\302\377\024\t\346\210\220\345\212\237\347\216\207\022-\n\nm_bl"
     "essing\030\004 \001(\005B\031\302\377\024\025\345\244\261\350\264\245\345\242\236\345\212\240\347\245\235\347\246\217\345\200\274\022"
-    "*\n\020m_specialattriid\030\005 \001(\005B\020\302\377\024\014\347\211\271\346\256\212\345\261\236"
-    "\346\200\247\0220\n\023m_specialattrivalue\030\006 \001(\003B\023\302\377\024\017\347\211"
+    "*\n\020m_specialAttriId\030\005 \001(\005B\020\302\377\024\014\347\211\271\346\256\212\345\261\236"
+    "\346\200\247\0220\n\023m_specialAttriValue\030\006 \001(\003B\023\302\377\024\017\347\211"
     "\271\346\256\212\345\261\236\346\200\247\345\200\274\022&\n\tm_linggen\030\007 \001(\005B\023\302\377\024\017\345\205"
     "\250\347\201\265\346\240\271\345\212\240\346\210\220\022A\n\006m_item\030\010 \003(\0132!.proto_ff"
     ".E_XiuzhenEvolveItemDescB\016\302\377\024\006\346\235\220\346\226\231\210\301\024\003"
-    "\022K\n\013m_attribute\030\t \003(\0132&.proto_ff.E_Xiuzh"
+    "\022K\n\013m_Attribute\030\t \003(\0132&.proto_ff.E_Xiuzh"
     "enEvolveAttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\014\"U\n"
     "\023Sheet_XiuzhenEvolve\022>\n\024E_XiuzhenEvolve_"
     "List\030\001 \003(\0132\031.proto_ff.E_XiuzhenEvolveB\005\210"
@@ -1451,26 +1451,26 @@ void protobuf_AddDesc_E_5fXiuzhen_2eproto() {
     "\n\302\377\024\006\351\230\210\345\200\274\022\032\n\006m_type\030\003 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\""
     "\242\004\n\020E_XiuzhenLgtypes\022\036\n\004m_id\030\001 \001(\005B\020\302\377\024\014"
     "\347\201\265\346\240\271\347\261\273\345\236\213\022\036\n\006m_name\030\002 \001(\tB\016\302\377\024\006\345\220\215\347\247\260"
-    "\220\301\024@\022#\n\013m_shortname\030\003 \001(\tB\016\302\377\024\006\345\220\215\347\247\260\220\301\024"
-    "@\0229\n\013m_namecolor\030\004 \001(\tB$\302\377\024\034tips\344\277\241\346\201\257\344\270"
-    "\255\345\220\215\347\247\260\347\232\204\351\242\234\350\211\262\220\301\024@\022&\n\013m_bookmodel\030\005 \001("
-    "\tB\021\302\377\024\t\351\224\201\346\250\241\345\236\213\220\301\024@\022)\n\013m_bodymodel\030\006 \001("
-    "\tB\024\302\377\024\014\347\201\265\346\240\271\346\250\241\345\236\213\220\301\024@\022/\n\014m_unlockbook\030"
+    "\220\301\024@\022#\n\013m_shortName\030\003 \001(\tB\016\302\377\024\006\345\220\215\347\247\260\220\301\024"
+    "@\0229\n\013m_nameColor\030\004 \001(\tB$\302\377\024\034tips\344\277\241\346\201\257\344\270"
+    "\255\345\220\215\347\247\260\347\232\204\351\242\234\350\211\262\220\301\024@\022&\n\013m_bookModel\030\005 \001("
+    "\tB\021\302\377\024\t\351\224\201\346\250\241\345\236\213\220\301\024@\022)\n\013m_bodyModel\030\006 \001("
+    "\tB\024\302\377\024\014\347\201\265\346\240\271\346\250\241\345\236\213\220\301\024@\022/\n\014m_unlockBook\030"
     "\007 \001(\005B\031\302\377\024\025\350\247\243\351\224\201\351\234\200\350\246\201\347\232\204\345\277\203\346\263\225\022%\n\013m_bo"
-    "okcount\030\010 \001(\005B\020\302\377\024\014\345\277\203\346\263\225\346\225\260\351\207\217\0221\n\013m_add"
-    "points\030\t \001(\005B\034\302\377\024\030\346\257\217\345\215\207\344\270\200\347\272\247\345\212\240\345\244\232\345\260\221\347"
+    "okCount\030\010 \001(\005B\020\302\377\024\014\345\277\203\346\263\225\346\225\260\351\207\217\0221\n\013m_add"
+    "Points\030\t \001(\005B\034\302\377\024\030\346\257\217\345\215\207\344\270\200\347\272\247\345\212\240\345\244\232\345\260\221\347"
     "\202\271\022D\n\007m_attri\030\n \003(\0132#.proto_ff.E_Xiuzhen"
-    "LgtypesAttriDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\003\022J\n\007m_lg"
+    "LgtypesAttriDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\003\022J\n\007m_LG"
     "att\030\013 \003(\0132#.proto_ff.E_XiuzhenLgtypesLga"
     "ttDescB\024\302\377\024\014\347\201\265\346\240\271\345\261\236\346\200\247\210\301\024\007\"W\n\024Sheet_Xi"
     "uzhenLgtypes\022\?\n\025E_XiuzhenLgtypes_List\030\001 "
     "\003(\0132\032.proto_ff.E_XiuzhenLgtypesB\004\210\301\024\010\"P\n"
     "\020E_XiuzhenLglvlup\022\030\n\004m_id\030\001 \001(\005B\n\302\377\024\006\347\255\211"
-    "\347\272\247\022\"\n\010m_needxw\030\002 \001(\003B\020\302\377\024\014\346\266\210\350\200\227\344\277\256\344\270\272\""
+    "\347\272\247\022\"\n\010m_needXW\030\002 \001(\003B\020\302\377\024\014\346\266\210\350\200\227\344\277\256\344\270\272\""
     "X\n\024Sheet_XiuzhenLglvlup\022@\n\025E_XiuzhenLglv"
     "lup_List\030\001 \003(\0132\032.proto_ff.E_XiuzhenLglvl"
     "upB\005\210\301\024\200\010\"P\n\030E_XiuzhenLgpotionsLgDesc\022\030\n"
-    "\007m_value\030\001 \001(\003B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B"
+    "\007m_Value\030\001 \001(\003B\007\302\377\024\003\345\200\274\022\032\n\006m_Type\030\002 \001(\005B"
     "\n\302\377\024\006\347\261\273\345\236\213\"r\n\022E_XiuzhenLgpotions\022\032\n\004m_i"
     "d\030\001 \001(\003B\014\302\377\024\010\347\211\251\345\223\201id\022@\n\004m_lg\030\002 \003(\0132\".pr"
     "oto_ff.E_XiuzhenLgpotionsLgDescB\016\302\377\024\006\345\212\240"
@@ -1480,46 +1480,46 @@ void protobuf_AddDesc_E_5fXiuzhen_2eproto() {
     "pes\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022 \n\006m_type\030\002 \001("
     "\005B\020\302\377\024\014\345\212\237\346\263\225\347\261\273\345\236\213\022$\n\006m_name\030\003 \001(\tB\024\302\377\024"
     "\014\345\212\237\346\263\225\345\220\215\347\247\260\220\301\024@\022$\n\006m_icon\030\004 \001(\tB\024\302\377\024\014\345"
-    "\212\237\346\263\225\345\233\276\346\240\207\220\301\024@\0220\n\020m_activationitem\030\005 \001("
-    "\005B\026\302\377\024\022\346\277\200\346\264\273\346\266\210\350\200\227\351\201\223\345\205\267\022#\n\tm_itemnum\030\006"
-    " \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346\225\260\351\207\217\022!\n\007m_buylv\030\007 \001(\005B"
-    "\020\302\377\024\014\350\264\255\344\271\260\347\255\211\347\272\247\022\"\n\014m_rechargeid\030\010 \001(\005B"
-    "\014\302\377\024\010\345\205\205\345\200\274id\022&\n\013m_bookmodel\030\t \001(\tB\021\302\377\024\t"
+    "\212\237\346\263\225\345\233\276\346\240\207\220\301\024@\0220\n\020m_activationItem\030\005 \001("
+    "\005B\026\302\377\024\022\346\277\200\346\264\273\346\266\210\350\200\227\351\201\223\345\205\267\022#\n\tm_itemNum\030\006"
+    " \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346\225\260\351\207\217\022!\n\007m_buyLv\030\007 \001(\005B"
+    "\020\302\377\024\014\350\264\255\344\271\260\347\255\211\347\272\247\022\"\n\014m_rechargeId\030\010 \001(\005B"
+    "\014\302\377\024\010\345\205\205\345\200\274id\022&\n\013m_bookModel\030\t \001(\tB\021\302\377\024\t"
     "\344\271\246\346\250\241\345\236\213\220\301\024@\"W\n\024Sheet_XiuzhenGftypes\022\?\n"
     "\025E_XiuzhenGftypes_List\030\001 \003(\0132\032.proto_ff."
     "E_XiuzhenGftypesB\004\210\301\024 \"O\n\035E_XiuzhenGflvl"
     "upAttributeDesc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200"
-    "\274\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002ID\"\341\004\n\020E_XiuzhenGfl"
+    "\274\022\024\n\004m_ID\030\002 \001(\005B\006\302\377\024\002ID\"\341\004\n\020E_XiuzhenGfl"
     "vlup\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022 \n\006m_type\030\002 \001"
     "(\005B\020\302\377\024\014\345\212\237\346\263\225\347\261\273\345\236\213\022*\n\rm_first_level\030\003 "
     "\001(\005B\023\302\377\024\017\345\260\217\345\221\250\345\244\251\347\255\211\347\272\247\022+\n\016m_middle_lev"
     "el\030\004 \001(\005B\023\302\377\024\017\345\244\247\345\221\250\345\244\251\347\255\211\347\272\247\022#\n\014m_high_"
     "level\030\005 \001(\005B\r\302\377\024\t\345\207\240\351\207\215\345\244\251\022/\n\017m_roushen_"
     "level\030\006 \001(\005B\026\302\377\024\022\346\211\200\351\234\200\350\202\211\350\272\253\347\255\211\347\272\247\022\036\n\010m"
-    "_itemid\030\007 \001(\005B\014\302\377\024\010\346\235\220\346\226\231ID\022\035\n\tm_itemnum"
+    "_itemID\030\007 \001(\005B\014\302\377\024\010\346\235\220\346\226\231ID\022\035\n\tm_itemNum"
     "\030\010 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\036\n\004m_xw\030\t \001(\005B\020\302\377\024\014\351\234"
-    "\200\350\246\201\344\277\256\344\270\272\022&\n\014m_awakeskill\030\n \001(\005B\020\302\377\024\014\350\247"
-    "\211\351\206\222\346\212\200\350\203\275\022/\n\017m_awakeskilllvl\030\013 \001(\005B\026\302\377\024"
-    "\022\350\247\211\351\206\222\346\212\200\350\203\275\347\255\211\347\272\247\022,\n\020m_specialattriid\030"
-    "\014 \001(\005B\022\302\377\024\016specialAttriId\0222\n\023m_specialat"
-    "trivalue\030\r \001(\005B\025\302\377\024\021specialAttriValue\022L\n"
-    "\013m_attribute\030\016 \003(\0132\'.proto_ff.E_XiuzhenG"
+    "\200\350\246\201\344\277\256\344\270\272\022&\n\014m_awakeSkill\030\n \001(\005B\020\302\377\024\014\350\247"
+    "\211\351\206\222\346\212\200\350\203\275\022/\n\017m_awakeSkillLvl\030\013 \001(\005B\026\302\377\024"
+    "\022\350\247\211\351\206\222\346\212\200\350\203\275\347\255\211\347\272\247\022,\n\020m_specialAttriId\030"
+    "\014 \001(\005B\022\302\377\024\016specialAttriId\0222\n\023m_specialAt"
+    "triValue\030\r \001(\005B\025\302\377\024\021specialAttriValue\022L\n"
+    "\013m_Attribute\030\016 \003(\0132\'.proto_ff.E_XiuzhenG"
     "flvlupAttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\007\"Y\n\024S"
     "heet_XiuzhenGflvlup\022A\n\025E_XiuzhenGflvlup_"
     "List\030\001 \003(\0132\032.proto_ff.E_XiuzhenGflvlupB\006"
     "\210\301\024\200\200\001\"Q\n\037E_XiuzhenGfstageupAttributeDes"
-    "c\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\024\n\004m_id\030\002 \001("
+    "c\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\024\n\004m_ID\030\002 \001("
     "\005B\006\302\377\024\002ID\"\343\003\n\022E_XiuzhenGfstageup\022\024\n\004m_id"
     "\030\001 \001(\005B\006\302\377\024\002id\022 \n\006m_type\030\002 \001(\005B\020\302\377\024\014\345\212\237\346"
     "\263\225\347\261\273\345\236\213\022 \n\014m_high_level\030\003 \001(\005B\n\302\377\024\006\351\230\266\347"
     "\272\247\022.\n\020m_highlevel_icon\030\004 \001(\tB\024\302\377\024\014\351\230\266\347\272\247"
-    "\345\233\276\346\240\207\220\301\024@\022\036\n\010m_itemid\030\005 \001(\005B\014\302\377\024\010\346\235\220\346\226\231"
-    "ID\022\035\n\tm_itemnum\030\006 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\'\n\rm_a"
-    "wakeskill1\030\007 \001(\005B\020\302\377\024\014\350\247\211\351\206\222\346\212\200\350\203\275\0220\n\020m_"
-    "awakeskilllvl1\030\010 \001(\005B\026\302\377\024\022\350\247\211\351\206\222\346\212\200\350\203\275\347\255"
-    "\211\347\272\247\022\'\n\rm_awakeskill2\030\t \001(\005B\020\302\377\024\014\350\247\211\351\206\222\346"
-    "\212\200\350\203\275\0220\n\020m_awakeskilllvl2\030\n \001(\005B\026\302\377\024\022\350\247\211"
-    "\351\206\222\346\212\200\350\203\275\347\255\211\347\272\247\022N\n\013m_attribute\030\013 \003(\0132).p"
+    "\345\233\276\346\240\207\220\301\024@\022\036\n\010m_itemID\030\005 \001(\005B\014\302\377\024\010\346\235\220\346\226\231"
+    "ID\022\035\n\tm_itemNum\030\006 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\'\n\rm_a"
+    "wakeSkill1\030\007 \001(\005B\020\302\377\024\014\350\247\211\351\206\222\346\212\200\350\203\275\0220\n\020m_"
+    "awakeSkillLvl1\030\010 \001(\005B\026\302\377\024\022\350\247\211\351\206\222\346\212\200\350\203\275\347\255"
+    "\211\347\272\247\022\'\n\rm_awakeSkill2\030\t \001(\005B\020\302\377\024\014\350\247\211\351\206\222\346"
+    "\212\200\350\203\275\0220\n\020m_awakeSkillLvl2\030\n \001(\005B\026\302\377\024\022\350\247\211"
+    "\351\206\222\346\212\200\350\203\275\347\255\211\347\272\247\022N\n\013m_Attribute\030\013 \003(\0132).p"
     "roto_ff.E_XiuzhenGfstageupAttributeDescB"
     "\016\302\377\024\006\345\261\236\346\200\247\210\301\024\010\"]\n\026Sheet_XiuzhenGfstageu"
     "p\022C\n\027E_XiuzhenGfstageup_List\030\001 \003(\0132\034.pro"
@@ -1529,16 +1529,16 @@ void protobuf_AddDesc_E_5fXiuzhen_2eproto() {
     "t_XiuzhenJmtypes\022\?\n\025E_XiuzhenJmtypes_Lis"
     "t\030\001 \003(\0132\032.proto_ff.E_XiuzhenJmtypesB\004\210\301\024"
     "\020\"K\n\030E_XiuzhenJmlvlupItemDesc\022\031\n\005m_num\030\001"
-    " \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002ID\"O"
+    " \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_ID\030\002 \001(\005B\006\302\377\024\002ID\"O"
     "\n\035E_XiuzhenJmlvlupAttributeDesc\022\030\n\007m_val"
-    "ue\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002ID\""
+    "ue\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\024\n\004m_ID\030\002 \001(\005B\006\302\377\024\002ID\""
     "\245\003\n\020E_XiuzhenJmlvlup\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002"
     "id\022 \n\006m_type\030\002 \001(\005B\020\302\377\024\014\347\273\217\350\204\211\347\261\273\345\236\213\022\031\n\005"
-    "m_lvl\030\003 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022\"\n\010m_needxw\030\004 \001("
-    "\003B\020\302\377\024\014\346\266\210\350\200\227\344\277\256\344\270\272\022%\n\016m_success_rate\030\005 "
-    "\001(\005B\r\302\377\024\t\346\210\220\345\212\237\347\216\207\022,\n\020m_specialattriid\030\006"
-    " \001(\005B\022\302\377\024\016\347\211\271\346\256\212\345\261\236\346\200\247id\0223\n\023m_specialatt"
-    "rivalue\030\007 \001(\005B\026\302\377\024\022\347\211\271\346\256\212\345\261\236\346\200\247\345\217\230\351\207\217\022B\n"
+    "m_lvl\030\003 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022\"\n\010m_needXW\030\004 \001("
+    "\003B\020\302\377\024\014\346\266\210\350\200\227\344\277\256\344\270\272\022%\n\016m_Success_rate\030\005 "
+    "\001(\005B\r\302\377\024\t\346\210\220\345\212\237\347\216\207\022,\n\020m_specialAttriId\030\006"
+    " \001(\005B\022\302\377\024\016\347\211\271\346\256\212\345\261\236\346\200\247id\0223\n\023m_specialAtt"
+    "riValue\030\007 \001(\005B\026\302\377\024\022\347\211\271\346\256\212\345\261\236\346\200\247\345\217\230\351\207\217\022B\n"
     "\006m_item\030\010 \003(\0132\".proto_ff.E_XiuzhenJmlvlu"
     "pItemDescB\016\302\377\024\006\346\235\220\346\226\231\210\301\024\002\022L\n\013m_attribute"
     "\030\t \003(\0132\'.proto_ff.E_XiuzhenJmlvlupAttrib"
@@ -1546,18 +1546,18 @@ void protobuf_AddDesc_E_5fXiuzhen_2eproto() {
     "Jmlvlup\022@\n\025E_XiuzhenJmlvlup_List\030\001 \003(\0132\032"
     ".proto_ff.E_XiuzhenJmlvlupB\005\210\301\024\200@\"M\n\032E_X"
     "iuzhenJmstageupItemDesc\022\031\n\005m_num\030\001 \001(\005B\n"
-    "\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002ID\"Q\n\037E_Xi"
+    "\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_ID\030\002 \001(\005B\006\302\377\024\002ID\"Q\n\037E_Xi"
     "uzhenJmstageupAttributeDesc\022\030\n\007m_value\030\001"
-    " \001(\005B\007\302\377\024\003\345\200\274\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002ID\"\202\004\n\022"
+    " \001(\005B\007\302\377\024\003\345\200\274\022\024\n\004m_ID\030\002 \001(\005B\006\302\377\024\002ID\"\202\004\n\022"
     "E_XiuzhenJmstageup\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id"
     "\022 \n\006m_type\030\002 \001(\005B\020\302\377\024\014\347\273\217\350\204\211\347\261\273\345\236\213\022\033\n\007m_"
     "stage\030\003 \001(\005B\n\302\377\024\006\345\223\201\351\230\266\022\036\n\006m_name\030\004 \001(\tB"
-    "\016\302\377\024\006\345\220\215\347\247\260\220\301\024@\0220\n\016m_needgfunlock\030\005 \001(\005B"
-    "\030\302\377\024\024\351\234\200\350\246\201\350\247\243\351\224\201\345\212\237\346\263\225ID\022%\n\016m_success_r"
+    "\016\302\377\024\006\345\220\215\347\247\260\220\301\024@\0220\n\016m_needGFUnlock\030\005 \001(\005B"
+    "\030\302\377\024\024\351\234\200\350\246\201\350\247\243\351\224\201\345\212\237\346\263\225ID\022%\n\016m_Success_r"
     "ate\030\006 \001(\005B\r\302\377\024\t\346\210\220\345\212\237\347\216\207\022-\n\nm_blessing\030\007"
     " \001(\005B\031\302\377\024\025\345\244\261\350\264\245\345\242\236\345\212\240\347\245\235\347\246\217\345\200\274\022(\n\016m_awa"
-    "keskillid\030\010 \001(\005B\020\302\377\024\014\350\247\211\351\206\222\346\212\200\350\203\275\022/\n\017m_a"
-    "wakeskilllvl\030\t \001(\005B\026\302\377\024\022\350\247\211\351\206\222\346\212\200\350\203\275\347\255\211\347"
+    "keSkillID\030\010 \001(\005B\020\302\377\024\014\350\247\211\351\206\222\346\212\200\350\203\275\022/\n\017m_a"
+    "wakeSkillLvl\030\t \001(\005B\026\302\377\024\022\350\247\211\351\206\222\346\212\200\350\203\275\347\255\211\347"
     "\272\247\022D\n\006m_item\030\n \003(\0132$.proto_ff.E_XiuzhenJ"
     "mstageupItemDescB\016\302\377\024\006\346\235\220\346\226\231\210\301\024\002\022N\n\013m_at"
     "tribute\030\013 \003(\0132).proto_ff.E_XiuzhenJmstag"
@@ -1568,11 +1568,11 @@ void protobuf_AddDesc_E_5fXiuzhen_2eproto() {
     "m_stage\030\001 \001(\005B\n\302\377\024\006\345\223\201\351\230\266\022\032\n\006m_type\030\002 \001("
     "\005B\n\302\377\024\006\347\261\273\345\236\213\"Q\n\037E_XiuzhenJmmergeupAttri"
     "buteDesc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\024\n\004m_"
-    "id\030\002 \001(\005B\006\302\377\024\002ID\"\300\002\n\022E_XiuzhenJmmergeup\022"
+    "ID\030\002 \001(\005B\006\302\377\024\002ID\"\300\002\n\022E_XiuzhenJmmergeup\022"
     "\036\n\004m_id\030\001 \001(\005B\020\302\377\024\014\345\220\210\344\277\261\345\223\201\347\272\247\022#\n\tm_gf_"
-    "type\030\002 \001(\005B\020\302\377\024\014\345\212\237\346\263\225\347\261\273\345\236\213\022(\n\016m_awakes"
-    "killid\030\003 \001(\005B\020\302\377\024\014\350\247\211\351\206\222\346\212\200\350\203\275\022#\n\017m_awak"
-    "eskilllvl\030\004 \001(\005B\n\302\377\024\006asdfas\022F\n\004m_cs\030\005 \003("
+    "type\030\002 \001(\005B\020\302\377\024\014\345\212\237\346\263\225\347\261\273\345\236\213\022(\n\016m_awakeS"
+    "killID\030\003 \001(\005B\020\302\377\024\014\350\247\211\351\206\222\346\212\200\350\203\275\022#\n\017m_awak"
+    "eSkillLvl\030\004 \001(\005B\n\302\377\024\006asdfas\022F\n\004m_cs\030\005 \003("
     "\0132\".proto_ff.E_XiuzhenJmmergeupCsDescB\024\302"
     "\377\024\014\351\234\200\350\246\201\345\223\201\351\230\266\210\301\024\002\022N\n\013m_attribute\030\006 \003(\013"
     "2).proto_ff.E_XiuzhenJmmergeupAttributeD"
@@ -1585,9 +1585,9 @@ void protobuf_AddDesc_E_5fXiuzhen_2eproto() {
     "vilegeAttriDesc\022\024\n\003m_v\030\001 \001(\003B\007\302\377\024\003\345\200\274\022\027\n"
     "\003m_t\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"\264\002\n\022E_XiuzhenPriv"
     "ilege\022\030\n\004m_id\030\001 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\033\n\007m_pri"
-    "ce\030\002 \001(\005B\n\302\377\024\006\344\273\267\346\240\274\022(\n\016m_activeavatar\030\003"
-    " \001(\005B\020\302\377\024\014\346\277\200\346\264\273\345\244\226\350\247\202\022\'\n\014m_avatarname\030\004"
-    " \001(\tB\021\302\377\024\t\345\244\226\350\247\202\345\220\215\220\301\024@\022L\n\007m_ptadd\030\005 \003(\013"
+    "ce\030\002 \001(\005B\n\302\377\024\006\344\273\267\346\240\274\022(\n\016m_activeAvatar\030\003"
+    " \001(\005B\020\302\377\024\014\346\277\200\346\264\273\345\244\226\350\247\202\022\'\n\014m_avatarName\030\004"
+    " \001(\tB\021\302\377\024\t\345\244\226\350\247\202\345\220\215\220\301\024@\022L\n\007m_ptAdd\030\005 \003(\013"
     "2%.proto_ff.E_XiuzhenPrivilegePtaddDescB"
     "\024\302\377\024\014\344\277\256\347\234\237\346\233\276\347\233\212\210\301\024\003\022F\n\007m_attri\030\006 \003(\0132%"
     ".proto_ff.E_XiuzhenPrivilegeAttriDescB\016\302"
@@ -1716,7 +1716,7 @@ struct StaticDescriptorInitializer_E_5fXiuzhen_2eproto {
 
 #ifndef _MSC_VER
 const int E_XiuzhenStagesItemDesc::kMNumFieldNumber;
-const int E_XiuzhenStagesItemDesc::kMIdFieldNumber;
+const int E_XiuzhenStagesItemDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenStagesItemDesc::E_XiuzhenStagesItemDesc()
@@ -1796,15 +1796,15 @@ bool E_XiuzhenStagesItemDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int32 m_id = 2;
+      // optional int32 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_id_)));
@@ -1839,7 +1839,7 @@ void E_XiuzhenStagesItemDesc::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_num(), output);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_id(), output);
   }
@@ -1857,7 +1857,7 @@ void E_XiuzhenStagesItemDesc::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_num(), target);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_id(), target);
   }
@@ -1880,7 +1880,7 @@ int E_XiuzhenStagesItemDesc::ByteSize() const {
           this->m_num());
     }
 
-    // optional int32 m_id = 2;
+    // optional int32 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1964,7 +1964,7 @@ void E_XiuzhenStagesItemDesc::Swap(E_XiuzhenStagesItemDesc* other) {
 
 #ifndef _MSC_VER
 const int E_XiuzhenStagesSkillDesc::kMLvFieldNumber;
-const int E_XiuzhenStagesSkillDesc::kMIdFieldNumber;
+const int E_XiuzhenStagesSkillDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenStagesSkillDesc::E_XiuzhenStagesSkillDesc()
@@ -2033,7 +2033,7 @@ bool E_XiuzhenStagesSkillDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_lv = 1;
+      // optional int32 m_Lv = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -2044,15 +2044,15 @@ bool E_XiuzhenStagesSkillDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int32 m_id = 2;
+      // optional int32 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_id_)));
@@ -2082,12 +2082,12 @@ bool E_XiuzhenStagesSkillDesc::MergePartialFromCodedStream(
 
 void E_XiuzhenStagesSkillDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_lv = 1;
+  // optional int32 m_Lv = 1;
   if (has_m_lv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_id(), output);
   }
@@ -2100,12 +2100,12 @@ void E_XiuzhenStagesSkillDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_XiuzhenStagesSkillDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_lv = 1;
+  // optional int32 m_Lv = 1;
   if (has_m_lv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_id(), target);
   }
@@ -2121,14 +2121,14 @@ int E_XiuzhenStagesSkillDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_lv = 1;
+    // optional int32 m_Lv = 1;
     if (has_m_lv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_lv());
     }
 
-    // optional int32 m_id = 2;
+    // optional int32 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2212,7 +2212,7 @@ void E_XiuzhenStagesSkillDesc::Swap(E_XiuzhenStagesSkillDesc* other) {
 
 #ifndef _MSC_VER
 const int E_XiuzhenStagesAttributeDesc::kMValueFieldNumber;
-const int E_XiuzhenStagesAttributeDesc::kMIdFieldNumber;
+const int E_XiuzhenStagesAttributeDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenStagesAttributeDesc::E_XiuzhenStagesAttributeDesc()
@@ -2292,15 +2292,15 @@ bool E_XiuzhenStagesAttributeDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int32 m_id = 2;
+      // optional int32 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_id_)));
@@ -2335,7 +2335,7 @@ void E_XiuzhenStagesAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_value(), output);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_id(), output);
   }
@@ -2353,7 +2353,7 @@ void E_XiuzhenStagesAttributeDesc::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_id(), target);
   }
@@ -2376,7 +2376,7 @@ int E_XiuzhenStagesAttributeDesc::ByteSize() const {
           this->m_value());
     }
 
-    // optional int32 m_id = 2;
+    // optional int32 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2549,15 +2549,15 @@ bool E_XiuzhenStages::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_success_rate;
+        if (input->ExpectTag(16)) goto parse_m_Success_rate;
         break;
       }
 
-      // optional int32 m_success_rate = 2;
+      // optional int32 m_Success_rate = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_success_rate:
+         parse_m_Success_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_success_rate_)));
@@ -2596,36 +2596,36 @@ bool E_XiuzhenStages::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(34)) goto parse_m_item;
-        if (input->ExpectTag(42)) goto parse_m_skill;
+        if (input->ExpectTag(42)) goto parse_m_Skill;
         break;
       }
 
-      // repeated .proto_ff.E_XiuzhenStagesSkillDesc m_skill = 5;
+      // repeated .proto_ff.E_XiuzhenStagesSkillDesc m_Skill = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_skill:
+         parse_m_Skill:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_skill()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_m_skill;
-        if (input->ExpectTag(50)) goto parse_m_attribute;
+        if (input->ExpectTag(42)) goto parse_m_Skill;
+        if (input->ExpectTag(50)) goto parse_m_Attribute;
         break;
       }
 
-      // repeated .proto_ff.E_XiuzhenStagesAttributeDesc m_attribute = 6;
+      // repeated .proto_ff.E_XiuzhenStagesAttributeDesc m_Attribute = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_attribute:
+         parse_m_Attribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(50)) goto parse_m_attribute;
+        if (input->ExpectTag(50)) goto parse_m_Attribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2653,7 +2653,7 @@ void E_XiuzhenStages::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_success_rate = 2;
+  // optional int32 m_Success_rate = 2;
   if (has_m_success_rate()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_success_rate(), output);
   }
@@ -2669,13 +2669,13 @@ void E_XiuzhenStages::SerializeWithCachedSizes(
       4, this->m_item(i), output);
   }
 
-  // repeated .proto_ff.E_XiuzhenStagesSkillDesc m_skill = 5;
+  // repeated .proto_ff.E_XiuzhenStagesSkillDesc m_Skill = 5;
   for (int i = 0; i < this->m_skill_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       5, this->m_skill(i), output);
   }
 
-  // repeated .proto_ff.E_XiuzhenStagesAttributeDesc m_attribute = 6;
+  // repeated .proto_ff.E_XiuzhenStagesAttributeDesc m_Attribute = 6;
   for (int i = 0; i < this->m_attribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       6, this->m_attribute(i), output);
@@ -2694,7 +2694,7 @@ void E_XiuzhenStages::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_success_rate = 2;
+  // optional int32 m_Success_rate = 2;
   if (has_m_success_rate()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_success_rate(), target);
   }
@@ -2711,14 +2711,14 @@ void E_XiuzhenStages::SerializeWithCachedSizes(
         4, this->m_item(i), target);
   }
 
-  // repeated .proto_ff.E_XiuzhenStagesSkillDesc m_skill = 5;
+  // repeated .proto_ff.E_XiuzhenStagesSkillDesc m_Skill = 5;
   for (int i = 0; i < this->m_skill_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         5, this->m_skill(i), target);
   }
 
-  // repeated .proto_ff.E_XiuzhenStagesAttributeDesc m_attribute = 6;
+  // repeated .proto_ff.E_XiuzhenStagesAttributeDesc m_Attribute = 6;
   for (int i = 0; i < this->m_attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -2743,7 +2743,7 @@ int E_XiuzhenStages::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_success_rate = 2;
+    // optional int32 m_Success_rate = 2;
     if (has_m_success_rate()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2766,7 +2766,7 @@ int E_XiuzhenStages::ByteSize() const {
         this->m_item(i));
   }
 
-  // repeated .proto_ff.E_XiuzhenStagesSkillDesc m_skill = 5;
+  // repeated .proto_ff.E_XiuzhenStagesSkillDesc m_Skill = 5;
   total_size += 1 * this->m_skill_size();
   for (int i = 0; i < this->m_skill_size(); i++) {
     total_size +=
@@ -2774,7 +2774,7 @@ int E_XiuzhenStages::ByteSize() const {
         this->m_skill(i));
   }
 
-  // repeated .proto_ff.E_XiuzhenStagesAttributeDesc m_attribute = 6;
+  // repeated .proto_ff.E_XiuzhenStagesAttributeDesc m_Attribute = 6;
   total_size += 1 * this->m_attribute_size();
   for (int i = 0; i < this->m_attribute_size(); i++) {
     total_size +=
@@ -3081,9 +3081,9 @@ const int E_XiuzhenGb_areas::kMEnergyAddminFieldNumber;
 const int E_XiuzhenGb_areas::kMEnergyAddmaxFieldNumber;
 const int E_XiuzhenGb_areas::kMEnergyMinFieldNumber;
 const int E_XiuzhenGb_areas::kMEnergyMaxFieldNumber;
-const int E_XiuzhenGb_areas::kMEventrateFieldNumber;
-const int E_XiuzhenGb_areas::kMEventrateenergyaddFieldNumber;
-const int E_XiuzhenGb_areas::kMEventgetitemsrateFieldNumber;
+const int E_XiuzhenGb_areas::kMEventRateFieldNumber;
+const int E_XiuzhenGb_areas::kMEventRateEnergyAddFieldNumber;
+const int E_XiuzhenGb_areas::kMEventGetItemsRateFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenGb_areas::E_XiuzhenGb_areas()
@@ -3365,15 +3365,15 @@ bool E_XiuzhenGb_areas::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_eventrate;
+        if (input->ExpectTag(96)) goto parse_m_eventRate;
         break;
       }
 
-      // optional int32 m_eventrate = 12;
+      // optional int32 m_eventRate = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_eventrate:
+         parse_m_eventRate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_eventrate_)));
@@ -3381,15 +3381,15 @@ bool E_XiuzhenGb_areas::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_m_eventrateenergyadd;
+        if (input->ExpectTag(104)) goto parse_m_eventRateEnergyAdd;
         break;
       }
 
-      // optional int32 m_eventrateenergyadd = 13;
+      // optional int32 m_eventRateEnergyAdd = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_eventrateenergyadd:
+         parse_m_eventRateEnergyAdd:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_eventrateenergyadd_)));
@@ -3397,15 +3397,15 @@ bool E_XiuzhenGb_areas::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(112)) goto parse_m_eventgetitemsrate;
+        if (input->ExpectTag(112)) goto parse_m_eventGetItemsRate;
         break;
       }
 
-      // optional int32 m_eventgetitemsrate = 14;
+      // optional int32 m_eventGetItemsRate = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_eventgetitemsrate:
+         parse_m_eventGetItemsRate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_eventgetitemsrate_)));
@@ -3498,17 +3498,17 @@ void E_XiuzhenGb_areas::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_energy_max(), output);
   }
 
-  // optional int32 m_eventrate = 12;
+  // optional int32 m_eventRate = 12;
   if (has_m_eventrate()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_eventrate(), output);
   }
 
-  // optional int32 m_eventrateenergyadd = 13;
+  // optional int32 m_eventRateEnergyAdd = 13;
   if (has_m_eventrateenergyadd()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_eventrateenergyadd(), output);
   }
 
-  // optional int32 m_eventgetitemsrate = 14;
+  // optional int32 m_eventGetItemsRate = 14;
   if (has_m_eventgetitemsrate()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_eventgetitemsrate(), output);
   }
@@ -3586,17 +3586,17 @@ void E_XiuzhenGb_areas::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_energy_max(), target);
   }
 
-  // optional int32 m_eventrate = 12;
+  // optional int32 m_eventRate = 12;
   if (has_m_eventrate()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_eventrate(), target);
   }
 
-  // optional int32 m_eventrateenergyadd = 13;
+  // optional int32 m_eventRateEnergyAdd = 13;
   if (has_m_eventrateenergyadd()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_eventrateenergyadd(), target);
   }
 
-  // optional int32 m_eventgetitemsrate = 14;
+  // optional int32 m_eventGetItemsRate = 14;
   if (has_m_eventgetitemsrate()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_eventgetitemsrate(), target);
   }
@@ -3691,21 +3691,21 @@ int E_XiuzhenGb_areas::ByteSize() const {
           this->m_energy_max());
     }
 
-    // optional int32 m_eventrate = 12;
+    // optional int32 m_eventRate = 12;
     if (has_m_eventrate()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_eventrate());
     }
 
-    // optional int32 m_eventrateenergyadd = 13;
+    // optional int32 m_eventRateEnergyAdd = 13;
     if (has_m_eventrateenergyadd()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_eventrateenergyadd());
     }
 
-    // optional int32 m_eventgetitemsrate = 14;
+    // optional int32 m_eventGetItemsRate = 14;
     if (has_m_eventgetitemsrate()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4042,7 +4042,7 @@ void Sheet_XiuzhenGb_areas::Swap(Sheet_XiuzhenGb_areas* other) {
 
 #ifndef _MSC_VER
 const int E_XiuzhenGb_area_eventsItemDesc::kMNumFieldNumber;
-const int E_XiuzhenGb_area_eventsItemDesc::kMIdFieldNumber;
+const int E_XiuzhenGb_area_eventsItemDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenGb_area_eventsItemDesc::E_XiuzhenGb_area_eventsItemDesc()
@@ -4111,7 +4111,7 @@ bool E_XiuzhenGb_area_eventsItemDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_num = 1;
+      // optional int32 m_Num = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -4122,15 +4122,15 @@ bool E_XiuzhenGb_area_eventsItemDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int64 m_id = 2;
+      // optional int64 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_id_)));
@@ -4160,12 +4160,12 @@ bool E_XiuzhenGb_area_eventsItemDesc::MergePartialFromCodedStream(
 
 void E_XiuzhenGb_area_eventsItemDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_num = 1;
+  // optional int32 m_Num = 1;
   if (has_m_num()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_num(), output);
   }
 
-  // optional int64 m_id = 2;
+  // optional int64 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_id(), output);
   }
@@ -4178,12 +4178,12 @@ void E_XiuzhenGb_area_eventsItemDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_XiuzhenGb_area_eventsItemDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_num = 1;
+  // optional int32 m_Num = 1;
   if (has_m_num()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_num(), target);
   }
 
-  // optional int64 m_id = 2;
+  // optional int64 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_id(), target);
   }
@@ -4199,14 +4199,14 @@ int E_XiuzhenGb_area_eventsItemDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_num = 1;
+    // optional int32 m_Num = 1;
     if (has_m_num()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_num());
     }
 
-    // optional int64 m_id = 2;
+    // optional int64 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -4290,15 +4290,15 @@ void E_XiuzhenGb_area_eventsItemDesc::Swap(E_XiuzhenGb_area_eventsItemDesc* othe
 
 #ifndef _MSC_VER
 const int E_XiuzhenGb_area_events::kMIdFieldNumber;
-const int E_XiuzhenGb_area_events::kMAreaidFieldNumber;
+const int E_XiuzhenGb_area_events::kMAreaIdFieldNumber;
 const int E_XiuzhenGb_area_events::kMRateFieldNumber;
 const int E_XiuzhenGb_area_events::kMTypeFieldNumber;
-const int E_XiuzhenGb_area_events::kMBodylvlFieldNumber;
-const int E_XiuzhenGb_area_events::kMChattitleFieldNumber;
+const int E_XiuzhenGb_area_events::kMBodyLvlFieldNumber;
+const int E_XiuzhenGb_area_events::kMChatTitleFieldNumber;
 const int E_XiuzhenGb_area_events::kMChatsFieldNumber;
-const int E_XiuzhenGb_area_events::kMChatbgfFieldNumber;
-const int E_XiuzhenGb_area_events::kMChatbgmFieldNumber;
-const int E_XiuzhenGb_area_events::kMEnergyaddFieldNumber;
+const int E_XiuzhenGb_area_events::kMChatBGFFieldNumber;
+const int E_XiuzhenGb_area_events::kMChatBGMFieldNumber;
+const int E_XiuzhenGb_area_events::kMEnergyAddFieldNumber;
 const int E_XiuzhenGb_area_events::kMItemFieldNumber;
 #endif  // !_MSC_VER
 
@@ -4426,15 +4426,15 @@ bool E_XiuzhenGb_area_events::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_areaid;
+        if (input->ExpectTag(16)) goto parse_m_areaId;
         break;
       }
 
-      // optional int64 m_areaid = 2;
+      // optional int64 m_areaId = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_areaid:
+         parse_m_areaId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_areaid_)));
@@ -4474,15 +4474,15 @@ bool E_XiuzhenGb_area_events::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_bodylvl;
+        if (input->ExpectTag(40)) goto parse_m_bodyLvl;
         break;
       }
 
-      // optional int32 m_bodylvl = 5;
+      // optional int32 m_bodyLvl = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_bodylvl:
+         parse_m_bodyLvl:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_bodylvl_)));
@@ -4490,15 +4490,15 @@ bool E_XiuzhenGb_area_events::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(50)) goto parse_m_chattitle;
+        if (input->ExpectTag(50)) goto parse_m_chatTitle;
         break;
       }
 
-      // optional string m_chattitle = 6;
+      // optional string m_chatTitle = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_chattitle:
+         parse_m_chatTitle:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_chattitle()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -4524,15 +4524,15 @@ bool E_XiuzhenGb_area_events::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(66)) goto parse_m_chatbgf;
+        if (input->ExpectTag(66)) goto parse_m_chatBGF;
         break;
       }
 
-      // optional string m_chatbgf = 8;
+      // optional string m_chatBGF = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_chatbgf:
+         parse_m_chatBGF:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_chatbgf()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -4541,15 +4541,15 @@ bool E_XiuzhenGb_area_events::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(74)) goto parse_m_chatbgm;
+        if (input->ExpectTag(74)) goto parse_m_chatBGM;
         break;
       }
 
-      // optional string m_chatbgm = 9;
+      // optional string m_chatBGM = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_chatbgm:
+         parse_m_chatBGM:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_chatbgm()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -4558,15 +4558,15 @@ bool E_XiuzhenGb_area_events::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_energyadd;
+        if (input->ExpectTag(80)) goto parse_m_energyAdd;
         break;
       }
 
-      // optional int32 m_energyadd = 10;
+      // optional int32 m_energyAdd = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_energyadd:
+         parse_m_energyAdd:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_energyadd_)));
@@ -4616,7 +4616,7 @@ void E_XiuzhenGb_area_events::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
 
-  // optional int64 m_areaid = 2;
+  // optional int64 m_areaId = 2;
   if (has_m_areaid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_areaid(), output);
   }
@@ -4631,12 +4631,12 @@ void E_XiuzhenGb_area_events::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_type(), output);
   }
 
-  // optional int32 m_bodylvl = 5;
+  // optional int32 m_bodyLvl = 5;
   if (has_m_bodylvl()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_bodylvl(), output);
   }
 
-  // optional string m_chattitle = 6;
+  // optional string m_chatTitle = 6;
   if (has_m_chattitle()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_chattitle().data(), this->m_chattitle().length(),
@@ -4654,7 +4654,7 @@ void E_XiuzhenGb_area_events::SerializeWithCachedSizes(
       7, this->m_chats(), output);
   }
 
-  // optional string m_chatbgf = 8;
+  // optional string m_chatBGF = 8;
   if (has_m_chatbgf()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_chatbgf().data(), this->m_chatbgf().length(),
@@ -4663,7 +4663,7 @@ void E_XiuzhenGb_area_events::SerializeWithCachedSizes(
       8, this->m_chatbgf(), output);
   }
 
-  // optional string m_chatbgm = 9;
+  // optional string m_chatBGM = 9;
   if (has_m_chatbgm()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_chatbgm().data(), this->m_chatbgm().length(),
@@ -4672,7 +4672,7 @@ void E_XiuzhenGb_area_events::SerializeWithCachedSizes(
       9, this->m_chatbgm(), output);
   }
 
-  // optional int32 m_energyadd = 10;
+  // optional int32 m_energyAdd = 10;
   if (has_m_energyadd()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_energyadd(), output);
   }
@@ -4696,7 +4696,7 @@ void E_XiuzhenGb_area_events::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
 
-  // optional int64 m_areaid = 2;
+  // optional int64 m_areaId = 2;
   if (has_m_areaid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_areaid(), target);
   }
@@ -4711,12 +4711,12 @@ void E_XiuzhenGb_area_events::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_type(), target);
   }
 
-  // optional int32 m_bodylvl = 5;
+  // optional int32 m_bodyLvl = 5;
   if (has_m_bodylvl()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_bodylvl(), target);
   }
 
-  // optional string m_chattitle = 6;
+  // optional string m_chatTitle = 6;
   if (has_m_chattitle()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_chattitle().data(), this->m_chattitle().length(),
@@ -4736,7 +4736,7 @@ void E_XiuzhenGb_area_events::SerializeWithCachedSizes(
         7, this->m_chats(), target);
   }
 
-  // optional string m_chatbgf = 8;
+  // optional string m_chatBGF = 8;
   if (has_m_chatbgf()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_chatbgf().data(), this->m_chatbgf().length(),
@@ -4746,7 +4746,7 @@ void E_XiuzhenGb_area_events::SerializeWithCachedSizes(
         8, this->m_chatbgf(), target);
   }
 
-  // optional string m_chatbgm = 9;
+  // optional string m_chatBGM = 9;
   if (has_m_chatbgm()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_chatbgm().data(), this->m_chatbgm().length(),
@@ -4756,7 +4756,7 @@ void E_XiuzhenGb_area_events::SerializeWithCachedSizes(
         9, this->m_chatbgm(), target);
   }
 
-  // optional int32 m_energyadd = 10;
+  // optional int32 m_energyAdd = 10;
   if (has_m_energyadd()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_energyadd(), target);
   }
@@ -4786,7 +4786,7 @@ int E_XiuzhenGb_area_events::ByteSize() const {
           this->m_id());
     }
 
-    // optional int64 m_areaid = 2;
+    // optional int64 m_areaId = 2;
     if (has_m_areaid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -4807,14 +4807,14 @@ int E_XiuzhenGb_area_events::ByteSize() const {
           this->m_type());
     }
 
-    // optional int32 m_bodylvl = 5;
+    // optional int32 m_bodyLvl = 5;
     if (has_m_bodylvl()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_bodylvl());
     }
 
-    // optional string m_chattitle = 6;
+    // optional string m_chatTitle = 6;
     if (has_m_chattitle()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -4828,7 +4828,7 @@ int E_XiuzhenGb_area_events::ByteSize() const {
           this->m_chats());
     }
 
-    // optional string m_chatbgf = 8;
+    // optional string m_chatBGF = 8;
     if (has_m_chatbgf()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -4837,14 +4837,14 @@ int E_XiuzhenGb_area_events::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional string m_chatbgm = 9;
+    // optional string m_chatBGM = 9;
     if (has_m_chatbgm()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_chatbgm());
     }
 
-    // optional int32 m_energyadd = 10;
+    // optional int32 m_energyAdd = 10;
     if (has_m_energyadd()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -5175,7 +5175,7 @@ void Sheet_XiuzhenGb_area_events::Swap(Sheet_XiuzhenGb_area_events* other) {
 
 #ifndef _MSC_VER
 const int E_XiuzhenGb_lvlupItemDesc::kMNumFieldNumber;
-const int E_XiuzhenGb_lvlupItemDesc::kMIdFieldNumber;
+const int E_XiuzhenGb_lvlupItemDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenGb_lvlupItemDesc::E_XiuzhenGb_lvlupItemDesc()
@@ -5255,15 +5255,15 @@ bool E_XiuzhenGb_lvlupItemDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int32 m_id = 2;
+      // optional int32 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_id_)));
@@ -5298,7 +5298,7 @@ void E_XiuzhenGb_lvlupItemDesc::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_num(), output);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_id(), output);
   }
@@ -5316,7 +5316,7 @@ void E_XiuzhenGb_lvlupItemDesc::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_num(), target);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_id(), target);
   }
@@ -5339,7 +5339,7 @@ int E_XiuzhenGb_lvlupItemDesc::ByteSize() const {
           this->m_num());
     }
 
-    // optional int32 m_id = 2;
+    // optional int32 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -5423,7 +5423,7 @@ void E_XiuzhenGb_lvlupItemDesc::Swap(E_XiuzhenGb_lvlupItemDesc* other) {
 
 #ifndef _MSC_VER
 const int E_XiuzhenGb_lvlupAttributeDesc::kMValueFieldNumber;
-const int E_XiuzhenGb_lvlupAttributeDesc::kMIdFieldNumber;
+const int E_XiuzhenGb_lvlupAttributeDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenGb_lvlupAttributeDesc::E_XiuzhenGb_lvlupAttributeDesc()
@@ -5503,15 +5503,15 @@ bool E_XiuzhenGb_lvlupAttributeDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int32 m_id = 2;
+      // optional int32 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_id_)));
@@ -5546,7 +5546,7 @@ void E_XiuzhenGb_lvlupAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_id(), output);
   }
@@ -5564,7 +5564,7 @@ void E_XiuzhenGb_lvlupAttributeDesc::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_id(), target);
   }
@@ -5587,7 +5587,7 @@ int E_XiuzhenGb_lvlupAttributeDesc::ByteSize() const {
           this->m_value());
     }
 
-    // optional int32 m_id = 2;
+    // optional int32 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -5671,7 +5671,7 @@ void E_XiuzhenGb_lvlupAttributeDesc::Swap(E_XiuzhenGb_lvlupAttributeDesc* other)
 
 #ifndef _MSC_VER
 const int E_XiuzhenGb_lvlup::kMIdFieldNumber;
-const int E_XiuzhenGb_lvlup::kMNeedenergyFieldNumber;
+const int E_XiuzhenGb_lvlup::kMNeedEnergyFieldNumber;
 const int E_XiuzhenGb_lvlup::kMItemFieldNumber;
 const int E_XiuzhenGb_lvlup::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
@@ -5755,15 +5755,15 @@ bool E_XiuzhenGb_lvlup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_needenergy;
+        if (input->ExpectTag(16)) goto parse_m_needEnergy;
         break;
       }
 
-      // optional int32 m_needenergy = 2;
+      // optional int32 m_needEnergy = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_needenergy:
+         parse_m_needEnergy:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_needenergy_)));
@@ -5786,21 +5786,21 @@ bool E_XiuzhenGb_lvlup::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(26)) goto parse_m_item;
-        if (input->ExpectTag(34)) goto parse_m_attribute;
+        if (input->ExpectTag(34)) goto parse_m_Attribute;
         break;
       }
 
-      // repeated .proto_ff.E_XiuzhenGb_lvlupAttributeDesc m_attribute = 4;
+      // repeated .proto_ff.E_XiuzhenGb_lvlupAttributeDesc m_Attribute = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_attribute:
+         parse_m_Attribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_attribute;
+        if (input->ExpectTag(34)) goto parse_m_Attribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -5828,7 +5828,7 @@ void E_XiuzhenGb_lvlup::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_needenergy = 2;
+  // optional int32 m_needEnergy = 2;
   if (has_m_needenergy()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_needenergy(), output);
   }
@@ -5839,7 +5839,7 @@ void E_XiuzhenGb_lvlup::SerializeWithCachedSizes(
       3, this->m_item(i), output);
   }
 
-  // repeated .proto_ff.E_XiuzhenGb_lvlupAttributeDesc m_attribute = 4;
+  // repeated .proto_ff.E_XiuzhenGb_lvlupAttributeDesc m_Attribute = 4;
   for (int i = 0; i < this->m_attribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, this->m_attribute(i), output);
@@ -5858,7 +5858,7 @@ void E_XiuzhenGb_lvlup::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_needenergy = 2;
+  // optional int32 m_needEnergy = 2;
   if (has_m_needenergy()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_needenergy(), target);
   }
@@ -5870,7 +5870,7 @@ void E_XiuzhenGb_lvlup::SerializeWithCachedSizes(
         3, this->m_item(i), target);
   }
 
-  // repeated .proto_ff.E_XiuzhenGb_lvlupAttributeDesc m_attribute = 4;
+  // repeated .proto_ff.E_XiuzhenGb_lvlupAttributeDesc m_Attribute = 4;
   for (int i = 0; i < this->m_attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -5895,7 +5895,7 @@ int E_XiuzhenGb_lvlup::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_needenergy = 2;
+    // optional int32 m_needEnergy = 2;
     if (has_m_needenergy()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -5911,7 +5911,7 @@ int E_XiuzhenGb_lvlup::ByteSize() const {
         this->m_item(i));
   }
 
-  // repeated .proto_ff.E_XiuzhenGb_lvlupAttributeDesc m_attribute = 4;
+  // repeated .proto_ff.E_XiuzhenGb_lvlupAttributeDesc m_Attribute = 4;
   total_size += 1 * this->m_attribute_size();
   for (int i = 0; i < this->m_attribute_size(); i++) {
     total_size +=
@@ -6202,7 +6202,7 @@ void Sheet_XiuzhenGb_lvlup::Swap(Sheet_XiuzhenGb_lvlup* other) {
 
 #ifndef _MSC_VER
 const int E_XiuzhenEvolveItemDesc::kMNumFieldNumber;
-const int E_XiuzhenEvolveItemDesc::kMIdFieldNumber;
+const int E_XiuzhenEvolveItemDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenEvolveItemDesc::E_XiuzhenEvolveItemDesc()
@@ -6282,15 +6282,15 @@ bool E_XiuzhenEvolveItemDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int32 m_id = 2;
+      // optional int32 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_id_)));
@@ -6325,7 +6325,7 @@ void E_XiuzhenEvolveItemDesc::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_num(), output);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_id(), output);
   }
@@ -6343,7 +6343,7 @@ void E_XiuzhenEvolveItemDesc::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_num(), target);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_id(), target);
   }
@@ -6366,7 +6366,7 @@ int E_XiuzhenEvolveItemDesc::ByteSize() const {
           this->m_num());
     }
 
-    // optional int32 m_id = 2;
+    // optional int32 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -6450,7 +6450,7 @@ void E_XiuzhenEvolveItemDesc::Swap(E_XiuzhenEvolveItemDesc* other) {
 
 #ifndef _MSC_VER
 const int E_XiuzhenEvolveAttributeDesc::kMValueFieldNumber;
-const int E_XiuzhenEvolveAttributeDesc::kMIdFieldNumber;
+const int E_XiuzhenEvolveAttributeDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenEvolveAttributeDesc::E_XiuzhenEvolveAttributeDesc()
@@ -6530,15 +6530,15 @@ bool E_XiuzhenEvolveAttributeDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int32 m_id = 2;
+      // optional int32 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_id_)));
@@ -6573,7 +6573,7 @@ void E_XiuzhenEvolveAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_value(), output);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_id(), output);
   }
@@ -6591,7 +6591,7 @@ void E_XiuzhenEvolveAttributeDesc::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_id(), target);
   }
@@ -6614,7 +6614,7 @@ int E_XiuzhenEvolveAttributeDesc::ByteSize() const {
           this->m_value());
     }
 
-    // optional int32 m_id = 2;
+    // optional int32 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -6698,11 +6698,11 @@ void E_XiuzhenEvolveAttributeDesc::Swap(E_XiuzhenEvolveAttributeDesc* other) {
 
 #ifndef _MSC_VER
 const int E_XiuzhenEvolve::kMIdFieldNumber;
-const int E_XiuzhenEvolve::kMNeedxwFieldNumber;
+const int E_XiuzhenEvolve::kMNeedXWFieldNumber;
 const int E_XiuzhenEvolve::kMSuccessRateFieldNumber;
 const int E_XiuzhenEvolve::kMBlessingFieldNumber;
-const int E_XiuzhenEvolve::kMSpecialattriidFieldNumber;
-const int E_XiuzhenEvolve::kMSpecialattrivalueFieldNumber;
+const int E_XiuzhenEvolve::kMSpecialAttriIdFieldNumber;
+const int E_XiuzhenEvolve::kMSpecialAttriValueFieldNumber;
 const int E_XiuzhenEvolve::kMLinggenFieldNumber;
 const int E_XiuzhenEvolve::kMItemFieldNumber;
 const int E_XiuzhenEvolve::kMAttributeFieldNumber;
@@ -6797,15 +6797,15 @@ bool E_XiuzhenEvolve::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_needxw;
+        if (input->ExpectTag(16)) goto parse_m_needXW;
         break;
       }
 
-      // optional int64 m_needxw = 2;
+      // optional int64 m_needXW = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_needxw:
+         parse_m_needXW:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_needxw_)));
@@ -6813,15 +6813,15 @@ bool E_XiuzhenEvolve::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_success_rate;
+        if (input->ExpectTag(24)) goto parse_m_Success_rate;
         break;
       }
 
-      // optional int32 m_success_rate = 3;
+      // optional int32 m_Success_rate = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_success_rate:
+         parse_m_Success_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_success_rate_)));
@@ -6845,15 +6845,15 @@ bool E_XiuzhenEvolve::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_specialattriid;
+        if (input->ExpectTag(40)) goto parse_m_specialAttriId;
         break;
       }
 
-      // optional int32 m_specialattriid = 5;
+      // optional int32 m_specialAttriId = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_specialattriid:
+         parse_m_specialAttriId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_specialattriid_)));
@@ -6861,15 +6861,15 @@ bool E_XiuzhenEvolve::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_specialattrivalue;
+        if (input->ExpectTag(48)) goto parse_m_specialAttriValue;
         break;
       }
 
-      // optional int64 m_specialattrivalue = 6;
+      // optional int64 m_specialAttriValue = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_specialattrivalue:
+         parse_m_specialAttriValue:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_specialattrivalue_)));
@@ -6908,21 +6908,21 @@ bool E_XiuzhenEvolve::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(66)) goto parse_m_item;
-        if (input->ExpectTag(74)) goto parse_m_attribute;
+        if (input->ExpectTag(74)) goto parse_m_Attribute;
         break;
       }
 
-      // repeated .proto_ff.E_XiuzhenEvolveAttributeDesc m_attribute = 9;
+      // repeated .proto_ff.E_XiuzhenEvolveAttributeDesc m_Attribute = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_attribute:
+         parse_m_Attribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(74)) goto parse_m_attribute;
+        if (input->ExpectTag(74)) goto parse_m_Attribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -6950,12 +6950,12 @@ void E_XiuzhenEvolve::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int64 m_needxw = 2;
+  // optional int64 m_needXW = 2;
   if (has_m_needxw()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_needxw(), output);
   }
 
-  // optional int32 m_success_rate = 3;
+  // optional int32 m_Success_rate = 3;
   if (has_m_success_rate()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_success_rate(), output);
   }
@@ -6965,12 +6965,12 @@ void E_XiuzhenEvolve::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_blessing(), output);
   }
 
-  // optional int32 m_specialattriid = 5;
+  // optional int32 m_specialAttriId = 5;
   if (has_m_specialattriid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_specialattriid(), output);
   }
 
-  // optional int64 m_specialattrivalue = 6;
+  // optional int64 m_specialAttriValue = 6;
   if (has_m_specialattrivalue()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(6, this->m_specialattrivalue(), output);
   }
@@ -6986,7 +6986,7 @@ void E_XiuzhenEvolve::SerializeWithCachedSizes(
       8, this->m_item(i), output);
   }
 
-  // repeated .proto_ff.E_XiuzhenEvolveAttributeDesc m_attribute = 9;
+  // repeated .proto_ff.E_XiuzhenEvolveAttributeDesc m_Attribute = 9;
   for (int i = 0; i < this->m_attribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       9, this->m_attribute(i), output);
@@ -7005,12 +7005,12 @@ void E_XiuzhenEvolve::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int64 m_needxw = 2;
+  // optional int64 m_needXW = 2;
   if (has_m_needxw()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_needxw(), target);
   }
 
-  // optional int32 m_success_rate = 3;
+  // optional int32 m_Success_rate = 3;
   if (has_m_success_rate()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_success_rate(), target);
   }
@@ -7020,12 +7020,12 @@ void E_XiuzhenEvolve::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_blessing(), target);
   }
 
-  // optional int32 m_specialattriid = 5;
+  // optional int32 m_specialAttriId = 5;
   if (has_m_specialattriid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_specialattriid(), target);
   }
 
-  // optional int64 m_specialattrivalue = 6;
+  // optional int64 m_specialAttriValue = 6;
   if (has_m_specialattrivalue()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(6, this->m_specialattrivalue(), target);
   }
@@ -7042,7 +7042,7 @@ void E_XiuzhenEvolve::SerializeWithCachedSizes(
         8, this->m_item(i), target);
   }
 
-  // repeated .proto_ff.E_XiuzhenEvolveAttributeDesc m_attribute = 9;
+  // repeated .proto_ff.E_XiuzhenEvolveAttributeDesc m_Attribute = 9;
   for (int i = 0; i < this->m_attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -7067,14 +7067,14 @@ int E_XiuzhenEvolve::ByteSize() const {
           this->m_id());
     }
 
-    // optional int64 m_needxw = 2;
+    // optional int64 m_needXW = 2;
     if (has_m_needxw()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_needxw());
     }
 
-    // optional int32 m_success_rate = 3;
+    // optional int32 m_Success_rate = 3;
     if (has_m_success_rate()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -7088,14 +7088,14 @@ int E_XiuzhenEvolve::ByteSize() const {
           this->m_blessing());
     }
 
-    // optional int32 m_specialattriid = 5;
+    // optional int32 m_specialAttriId = 5;
     if (has_m_specialattriid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_specialattriid());
     }
 
-    // optional int64 m_specialattrivalue = 6;
+    // optional int64 m_specialAttriValue = 6;
     if (has_m_specialattrivalue()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -7118,7 +7118,7 @@ int E_XiuzhenEvolve::ByteSize() const {
         this->m_item(i));
   }
 
-  // repeated .proto_ff.E_XiuzhenEvolveAttributeDesc m_attribute = 9;
+  // repeated .proto_ff.E_XiuzhenEvolveAttributeDesc m_Attribute = 9;
   total_size += 1 * this->m_attribute_size();
   for (int i = 0; i < this->m_attribute_size(); i++) {
     total_size +=
@@ -8046,15 +8046,15 @@ void E_XiuzhenLgtypesLgattDesc::Swap(E_XiuzhenLgtypesLgattDesc* other) {
 #ifndef _MSC_VER
 const int E_XiuzhenLgtypes::kMIdFieldNumber;
 const int E_XiuzhenLgtypes::kMNameFieldNumber;
-const int E_XiuzhenLgtypes::kMShortnameFieldNumber;
-const int E_XiuzhenLgtypes::kMNamecolorFieldNumber;
-const int E_XiuzhenLgtypes::kMBookmodelFieldNumber;
-const int E_XiuzhenLgtypes::kMBodymodelFieldNumber;
-const int E_XiuzhenLgtypes::kMUnlockbookFieldNumber;
-const int E_XiuzhenLgtypes::kMBookcountFieldNumber;
-const int E_XiuzhenLgtypes::kMAddpointsFieldNumber;
+const int E_XiuzhenLgtypes::kMShortNameFieldNumber;
+const int E_XiuzhenLgtypes::kMNameColorFieldNumber;
+const int E_XiuzhenLgtypes::kMBookModelFieldNumber;
+const int E_XiuzhenLgtypes::kMBodyModelFieldNumber;
+const int E_XiuzhenLgtypes::kMUnlockBookFieldNumber;
+const int E_XiuzhenLgtypes::kMBookCountFieldNumber;
+const int E_XiuzhenLgtypes::kMAddPointsFieldNumber;
 const int E_XiuzhenLgtypes::kMAttriFieldNumber;
-const int E_XiuzhenLgtypes::kMLgattFieldNumber;
+const int E_XiuzhenLgtypes::kMLGattFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenLgtypes::E_XiuzhenLgtypes()
@@ -8204,15 +8204,15 @@ bool E_XiuzhenLgtypes::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_m_shortname;
+        if (input->ExpectTag(26)) goto parse_m_shortName;
         break;
       }
 
-      // optional string m_shortname = 3;
+      // optional string m_shortName = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_shortname:
+         parse_m_shortName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_shortname()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -8221,15 +8221,15 @@ bool E_XiuzhenLgtypes::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_namecolor;
+        if (input->ExpectTag(34)) goto parse_m_nameColor;
         break;
       }
 
-      // optional string m_namecolor = 4;
+      // optional string m_nameColor = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_namecolor:
+         parse_m_nameColor:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_namecolor()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -8238,15 +8238,15 @@ bool E_XiuzhenLgtypes::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_m_bookmodel;
+        if (input->ExpectTag(42)) goto parse_m_bookModel;
         break;
       }
 
-      // optional string m_bookmodel = 5;
+      // optional string m_bookModel = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_bookmodel:
+         parse_m_bookModel:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_bookmodel()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -8255,15 +8255,15 @@ bool E_XiuzhenLgtypes::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(50)) goto parse_m_bodymodel;
+        if (input->ExpectTag(50)) goto parse_m_bodyModel;
         break;
       }
 
-      // optional string m_bodymodel = 6;
+      // optional string m_bodyModel = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_bodymodel:
+         parse_m_bodyModel:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_bodymodel()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -8272,15 +8272,15 @@ bool E_XiuzhenLgtypes::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_unlockbook;
+        if (input->ExpectTag(56)) goto parse_m_unlockBook;
         break;
       }
 
-      // optional int32 m_unlockbook = 7;
+      // optional int32 m_unlockBook = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_unlockbook:
+         parse_m_unlockBook:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_unlockbook_)));
@@ -8288,15 +8288,15 @@ bool E_XiuzhenLgtypes::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_bookcount;
+        if (input->ExpectTag(64)) goto parse_m_bookCount;
         break;
       }
 
-      // optional int32 m_bookcount = 8;
+      // optional int32 m_bookCount = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_bookcount:
+         parse_m_bookCount:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_bookcount_)));
@@ -8304,15 +8304,15 @@ bool E_XiuzhenLgtypes::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_addpoints;
+        if (input->ExpectTag(72)) goto parse_m_addPoints;
         break;
       }
 
-      // optional int32 m_addpoints = 9;
+      // optional int32 m_addPoints = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_addpoints:
+         parse_m_addPoints:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_addpoints_)));
@@ -8335,21 +8335,21 @@ bool E_XiuzhenLgtypes::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(82)) goto parse_m_attri;
-        if (input->ExpectTag(90)) goto parse_m_lgatt;
+        if (input->ExpectTag(90)) goto parse_m_LGatt;
         break;
       }
 
-      // repeated .proto_ff.E_XiuzhenLgtypesLgattDesc m_lgatt = 11;
+      // repeated .proto_ff.E_XiuzhenLgtypesLgattDesc m_LGatt = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_lgatt:
+         parse_m_LGatt:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_lgatt()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(90)) goto parse_m_lgatt;
+        if (input->ExpectTag(90)) goto parse_m_LGatt;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -8386,7 +8386,7 @@ void E_XiuzhenLgtypes::SerializeWithCachedSizes(
       2, this->m_name(), output);
   }
 
-  // optional string m_shortname = 3;
+  // optional string m_shortName = 3;
   if (has_m_shortname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_shortname().data(), this->m_shortname().length(),
@@ -8395,7 +8395,7 @@ void E_XiuzhenLgtypes::SerializeWithCachedSizes(
       3, this->m_shortname(), output);
   }
 
-  // optional string m_namecolor = 4;
+  // optional string m_nameColor = 4;
   if (has_m_namecolor()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_namecolor().data(), this->m_namecolor().length(),
@@ -8404,7 +8404,7 @@ void E_XiuzhenLgtypes::SerializeWithCachedSizes(
       4, this->m_namecolor(), output);
   }
 
-  // optional string m_bookmodel = 5;
+  // optional string m_bookModel = 5;
   if (has_m_bookmodel()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_bookmodel().data(), this->m_bookmodel().length(),
@@ -8413,7 +8413,7 @@ void E_XiuzhenLgtypes::SerializeWithCachedSizes(
       5, this->m_bookmodel(), output);
   }
 
-  // optional string m_bodymodel = 6;
+  // optional string m_bodyModel = 6;
   if (has_m_bodymodel()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_bodymodel().data(), this->m_bodymodel().length(),
@@ -8422,17 +8422,17 @@ void E_XiuzhenLgtypes::SerializeWithCachedSizes(
       6, this->m_bodymodel(), output);
   }
 
-  // optional int32 m_unlockbook = 7;
+  // optional int32 m_unlockBook = 7;
   if (has_m_unlockbook()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_unlockbook(), output);
   }
 
-  // optional int32 m_bookcount = 8;
+  // optional int32 m_bookCount = 8;
   if (has_m_bookcount()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_bookcount(), output);
   }
 
-  // optional int32 m_addpoints = 9;
+  // optional int32 m_addPoints = 9;
   if (has_m_addpoints()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_addpoints(), output);
   }
@@ -8443,7 +8443,7 @@ void E_XiuzhenLgtypes::SerializeWithCachedSizes(
       10, this->m_attri(i), output);
   }
 
-  // repeated .proto_ff.E_XiuzhenLgtypesLgattDesc m_lgatt = 11;
+  // repeated .proto_ff.E_XiuzhenLgtypesLgattDesc m_LGatt = 11;
   for (int i = 0; i < this->m_lgatt_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       11, this->m_lgatt(i), output);
@@ -8472,7 +8472,7 @@ void E_XiuzhenLgtypes::SerializeWithCachedSizes(
         2, this->m_name(), target);
   }
 
-  // optional string m_shortname = 3;
+  // optional string m_shortName = 3;
   if (has_m_shortname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_shortname().data(), this->m_shortname().length(),
@@ -8482,7 +8482,7 @@ void E_XiuzhenLgtypes::SerializeWithCachedSizes(
         3, this->m_shortname(), target);
   }
 
-  // optional string m_namecolor = 4;
+  // optional string m_nameColor = 4;
   if (has_m_namecolor()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_namecolor().data(), this->m_namecolor().length(),
@@ -8492,7 +8492,7 @@ void E_XiuzhenLgtypes::SerializeWithCachedSizes(
         4, this->m_namecolor(), target);
   }
 
-  // optional string m_bookmodel = 5;
+  // optional string m_bookModel = 5;
   if (has_m_bookmodel()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_bookmodel().data(), this->m_bookmodel().length(),
@@ -8502,7 +8502,7 @@ void E_XiuzhenLgtypes::SerializeWithCachedSizes(
         5, this->m_bookmodel(), target);
   }
 
-  // optional string m_bodymodel = 6;
+  // optional string m_bodyModel = 6;
   if (has_m_bodymodel()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_bodymodel().data(), this->m_bodymodel().length(),
@@ -8512,17 +8512,17 @@ void E_XiuzhenLgtypes::SerializeWithCachedSizes(
         6, this->m_bodymodel(), target);
   }
 
-  // optional int32 m_unlockbook = 7;
+  // optional int32 m_unlockBook = 7;
   if (has_m_unlockbook()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_unlockbook(), target);
   }
 
-  // optional int32 m_bookcount = 8;
+  // optional int32 m_bookCount = 8;
   if (has_m_bookcount()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_bookcount(), target);
   }
 
-  // optional int32 m_addpoints = 9;
+  // optional int32 m_addPoints = 9;
   if (has_m_addpoints()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_addpoints(), target);
   }
@@ -8534,7 +8534,7 @@ void E_XiuzhenLgtypes::SerializeWithCachedSizes(
         10, this->m_attri(i), target);
   }
 
-  // repeated .proto_ff.E_XiuzhenLgtypesLgattDesc m_lgatt = 11;
+  // repeated .proto_ff.E_XiuzhenLgtypesLgattDesc m_LGatt = 11;
   for (int i = 0; i < this->m_lgatt_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -8566,42 +8566,42 @@ int E_XiuzhenLgtypes::ByteSize() const {
           this->m_name());
     }
 
-    // optional string m_shortname = 3;
+    // optional string m_shortName = 3;
     if (has_m_shortname()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_shortname());
     }
 
-    // optional string m_namecolor = 4;
+    // optional string m_nameColor = 4;
     if (has_m_namecolor()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_namecolor());
     }
 
-    // optional string m_bookmodel = 5;
+    // optional string m_bookModel = 5;
     if (has_m_bookmodel()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_bookmodel());
     }
 
-    // optional string m_bodymodel = 6;
+    // optional string m_bodyModel = 6;
     if (has_m_bodymodel()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_bodymodel());
     }
 
-    // optional int32 m_unlockbook = 7;
+    // optional int32 m_unlockBook = 7;
     if (has_m_unlockbook()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_unlockbook());
     }
 
-    // optional int32 m_bookcount = 8;
+    // optional int32 m_bookCount = 8;
     if (has_m_bookcount()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -8610,7 +8610,7 @@ int E_XiuzhenLgtypes::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_addpoints = 9;
+    // optional int32 m_addPoints = 9;
     if (has_m_addpoints()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -8626,7 +8626,7 @@ int E_XiuzhenLgtypes::ByteSize() const {
         this->m_attri(i));
   }
 
-  // repeated .proto_ff.E_XiuzhenLgtypesLgattDesc m_lgatt = 11;
+  // repeated .proto_ff.E_XiuzhenLgtypesLgattDesc m_LGatt = 11;
   total_size += 1 * this->m_lgatt_size();
   for (int i = 0; i < this->m_lgatt_size(); i++) {
     total_size +=
@@ -8947,7 +8947,7 @@ void Sheet_XiuzhenLgtypes::Swap(Sheet_XiuzhenLgtypes* other) {
 
 #ifndef _MSC_VER
 const int E_XiuzhenLglvlup::kMIdFieldNumber;
-const int E_XiuzhenLglvlup::kMNeedxwFieldNumber;
+const int E_XiuzhenLglvlup::kMNeedXWFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenLglvlup::E_XiuzhenLglvlup()
@@ -9027,15 +9027,15 @@ bool E_XiuzhenLglvlup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_needxw;
+        if (input->ExpectTag(16)) goto parse_m_needXW;
         break;
       }
 
-      // optional int64 m_needxw = 2;
+      // optional int64 m_needXW = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_needxw:
+         parse_m_needXW:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_needxw_)));
@@ -9070,7 +9070,7 @@ void E_XiuzhenLglvlup::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int64 m_needxw = 2;
+  // optional int64 m_needXW = 2;
   if (has_m_needxw()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_needxw(), output);
   }
@@ -9088,7 +9088,7 @@ void E_XiuzhenLglvlup::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int64 m_needxw = 2;
+  // optional int64 m_needXW = 2;
   if (has_m_needxw()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_needxw(), target);
   }
@@ -9111,7 +9111,7 @@ int E_XiuzhenLglvlup::ByteSize() const {
           this->m_id());
     }
 
-    // optional int64 m_needxw = 2;
+    // optional int64 m_needXW = 2;
     if (has_m_needxw()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -9467,7 +9467,7 @@ bool E_XiuzhenLgpotionsLgDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 m_value = 1;
+      // optional int64 m_Value = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -9478,15 +9478,15 @@ bool E_XiuzhenLgpotionsLgDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_type;
+        if (input->ExpectTag(16)) goto parse_m_Type;
         break;
       }
 
-      // optional int32 m_type = 2;
+      // optional int32 m_Type = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_type:
+         parse_m_Type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_type_)));
@@ -9516,12 +9516,12 @@ bool E_XiuzhenLgpotionsLgDesc::MergePartialFromCodedStream(
 
 void E_XiuzhenLgpotionsLgDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 m_value = 1;
+  // optional int64 m_Value = 1;
   if (has_m_value()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_value(), output);
   }
 
-  // optional int32 m_type = 2;
+  // optional int32 m_Type = 2;
   if (has_m_type()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
   }
@@ -9534,12 +9534,12 @@ void E_XiuzhenLgpotionsLgDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_XiuzhenLgpotionsLgDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 m_value = 1;
+  // optional int64 m_Value = 1;
   if (has_m_value()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_type = 2;
+  // optional int32 m_Type = 2;
   if (has_m_type()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
   }
@@ -9555,14 +9555,14 @@ int E_XiuzhenLgpotionsLgDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 m_value = 1;
+    // optional int64 m_Value = 1;
     if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_value());
     }
 
-    // optional int32 m_type = 2;
+    // optional int32 m_Type = 2;
     if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -10100,11 +10100,11 @@ const int E_XiuzhenGftypes::kMIdFieldNumber;
 const int E_XiuzhenGftypes::kMTypeFieldNumber;
 const int E_XiuzhenGftypes::kMNameFieldNumber;
 const int E_XiuzhenGftypes::kMIconFieldNumber;
-const int E_XiuzhenGftypes::kMActivationitemFieldNumber;
-const int E_XiuzhenGftypes::kMItemnumFieldNumber;
-const int E_XiuzhenGftypes::kMBuylvFieldNumber;
-const int E_XiuzhenGftypes::kMRechargeidFieldNumber;
-const int E_XiuzhenGftypes::kMBookmodelFieldNumber;
+const int E_XiuzhenGftypes::kMActivationItemFieldNumber;
+const int E_XiuzhenGftypes::kMItemNumFieldNumber;
+const int E_XiuzhenGftypes::kMBuyLvFieldNumber;
+const int E_XiuzhenGftypes::kMRechargeIdFieldNumber;
+const int E_XiuzhenGftypes::kMBookModelFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenGftypes::E_XiuzhenGftypes()
@@ -10271,15 +10271,15 @@ bool E_XiuzhenGftypes::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_activationitem;
+        if (input->ExpectTag(40)) goto parse_m_activationItem;
         break;
       }
 
-      // optional int32 m_activationitem = 5;
+      // optional int32 m_activationItem = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_activationitem:
+         parse_m_activationItem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_activationitem_)));
@@ -10287,15 +10287,15 @@ bool E_XiuzhenGftypes::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_itemnum;
+        if (input->ExpectTag(48)) goto parse_m_itemNum;
         break;
       }
 
-      // optional int32 m_itemnum = 6;
+      // optional int32 m_itemNum = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemnum:
+         parse_m_itemNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itemnum_)));
@@ -10303,15 +10303,15 @@ bool E_XiuzhenGftypes::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_buylv;
+        if (input->ExpectTag(56)) goto parse_m_buyLv;
         break;
       }
 
-      // optional int32 m_buylv = 7;
+      // optional int32 m_buyLv = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_buylv:
+         parse_m_buyLv:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_buylv_)));
@@ -10319,15 +10319,15 @@ bool E_XiuzhenGftypes::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_rechargeid;
+        if (input->ExpectTag(64)) goto parse_m_rechargeId;
         break;
       }
 
-      // optional int32 m_rechargeid = 8;
+      // optional int32 m_rechargeId = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rechargeid:
+         parse_m_rechargeId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rechargeid_)));
@@ -10335,15 +10335,15 @@ bool E_XiuzhenGftypes::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(74)) goto parse_m_bookmodel;
+        if (input->ExpectTag(74)) goto parse_m_bookModel;
         break;
       }
 
-      // optional string m_bookmodel = 9;
+      // optional string m_bookModel = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_bookmodel:
+         parse_m_bookModel:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_bookmodel()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -10402,27 +10402,27 @@ void E_XiuzhenGftypes::SerializeWithCachedSizes(
       4, this->m_icon(), output);
   }
 
-  // optional int32 m_activationitem = 5;
+  // optional int32 m_activationItem = 5;
   if (has_m_activationitem()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_activationitem(), output);
   }
 
-  // optional int32 m_itemnum = 6;
+  // optional int32 m_itemNum = 6;
   if (has_m_itemnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_itemnum(), output);
   }
 
-  // optional int32 m_buylv = 7;
+  // optional int32 m_buyLv = 7;
   if (has_m_buylv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_buylv(), output);
   }
 
-  // optional int32 m_rechargeid = 8;
+  // optional int32 m_rechargeId = 8;
   if (has_m_rechargeid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_rechargeid(), output);
   }
 
-  // optional string m_bookmodel = 9;
+  // optional string m_bookModel = 9;
   if (has_m_bookmodel()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_bookmodel().data(), this->m_bookmodel().length(),
@@ -10469,27 +10469,27 @@ void E_XiuzhenGftypes::SerializeWithCachedSizes(
         4, this->m_icon(), target);
   }
 
-  // optional int32 m_activationitem = 5;
+  // optional int32 m_activationItem = 5;
   if (has_m_activationitem()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_activationitem(), target);
   }
 
-  // optional int32 m_itemnum = 6;
+  // optional int32 m_itemNum = 6;
   if (has_m_itemnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_itemnum(), target);
   }
 
-  // optional int32 m_buylv = 7;
+  // optional int32 m_buyLv = 7;
   if (has_m_buylv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_buylv(), target);
   }
 
-  // optional int32 m_rechargeid = 8;
+  // optional int32 m_rechargeId = 8;
   if (has_m_rechargeid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_rechargeid(), target);
   }
 
-  // optional string m_bookmodel = 9;
+  // optional string m_bookModel = 9;
   if (has_m_bookmodel()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_bookmodel().data(), this->m_bookmodel().length(),
@@ -10538,28 +10538,28 @@ int E_XiuzhenGftypes::ByteSize() const {
           this->m_icon());
     }
 
-    // optional int32 m_activationitem = 5;
+    // optional int32 m_activationItem = 5;
     if (has_m_activationitem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_activationitem());
     }
 
-    // optional int32 m_itemnum = 6;
+    // optional int32 m_itemNum = 6;
     if (has_m_itemnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_itemnum());
     }
 
-    // optional int32 m_buylv = 7;
+    // optional int32 m_buyLv = 7;
     if (has_m_buylv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_buylv());
     }
 
-    // optional int32 m_rechargeid = 8;
+    // optional int32 m_rechargeId = 8;
     if (has_m_rechargeid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -10568,7 +10568,7 @@ int E_XiuzhenGftypes::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional string m_bookmodel = 9;
+    // optional string m_bookModel = 9;
     if (has_m_bookmodel()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -10885,7 +10885,7 @@ void Sheet_XiuzhenGftypes::Swap(Sheet_XiuzhenGftypes* other) {
 
 #ifndef _MSC_VER
 const int E_XiuzhenGflvlupAttributeDesc::kMValueFieldNumber;
-const int E_XiuzhenGflvlupAttributeDesc::kMIdFieldNumber;
+const int E_XiuzhenGflvlupAttributeDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenGflvlupAttributeDesc::E_XiuzhenGflvlupAttributeDesc()
@@ -10965,15 +10965,15 @@ bool E_XiuzhenGflvlupAttributeDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int32 m_id = 2;
+      // optional int32 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_id_)));
@@ -11008,7 +11008,7 @@ void E_XiuzhenGflvlupAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_id(), output);
   }
@@ -11026,7 +11026,7 @@ void E_XiuzhenGflvlupAttributeDesc::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_id(), target);
   }
@@ -11049,7 +11049,7 @@ int E_XiuzhenGflvlupAttributeDesc::ByteSize() const {
           this->m_value());
     }
 
-    // optional int32 m_id = 2;
+    // optional int32 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -11138,13 +11138,13 @@ const int E_XiuzhenGflvlup::kMFirstLevelFieldNumber;
 const int E_XiuzhenGflvlup::kMMiddleLevelFieldNumber;
 const int E_XiuzhenGflvlup::kMHighLevelFieldNumber;
 const int E_XiuzhenGflvlup::kMRoushenLevelFieldNumber;
-const int E_XiuzhenGflvlup::kMItemidFieldNumber;
-const int E_XiuzhenGflvlup::kMItemnumFieldNumber;
+const int E_XiuzhenGflvlup::kMItemIDFieldNumber;
+const int E_XiuzhenGflvlup::kMItemNumFieldNumber;
 const int E_XiuzhenGflvlup::kMXwFieldNumber;
-const int E_XiuzhenGflvlup::kMAwakeskillFieldNumber;
-const int E_XiuzhenGflvlup::kMAwakeskilllvlFieldNumber;
-const int E_XiuzhenGflvlup::kMSpecialattriidFieldNumber;
-const int E_XiuzhenGflvlup::kMSpecialattrivalueFieldNumber;
+const int E_XiuzhenGflvlup::kMAwakeSkillFieldNumber;
+const int E_XiuzhenGflvlup::kMAwakeSkillLvlFieldNumber;
+const int E_XiuzhenGflvlup::kMSpecialAttriIdFieldNumber;
+const int E_XiuzhenGflvlup::kMSpecialAttriValueFieldNumber;
 const int E_XiuzhenGflvlup::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -11330,15 +11330,15 @@ bool E_XiuzhenGflvlup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_itemid;
+        if (input->ExpectTag(56)) goto parse_m_itemID;
         break;
       }
 
-      // optional int32 m_itemid = 7;
+      // optional int32 m_itemID = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemid:
+         parse_m_itemID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itemid_)));
@@ -11346,15 +11346,15 @@ bool E_XiuzhenGflvlup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_itemnum;
+        if (input->ExpectTag(64)) goto parse_m_itemNum;
         break;
       }
 
-      // optional int32 m_itemnum = 8;
+      // optional int32 m_itemNum = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemnum:
+         parse_m_itemNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itemnum_)));
@@ -11378,15 +11378,15 @@ bool E_XiuzhenGflvlup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_awakeskill;
+        if (input->ExpectTag(80)) goto parse_m_awakeSkill;
         break;
       }
 
-      // optional int32 m_awakeskill = 10;
+      // optional int32 m_awakeSkill = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_awakeskill:
+         parse_m_awakeSkill:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_awakeskill_)));
@@ -11394,15 +11394,15 @@ bool E_XiuzhenGflvlup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_awakeskilllvl;
+        if (input->ExpectTag(88)) goto parse_m_awakeSkillLvl;
         break;
       }
 
-      // optional int32 m_awakeskilllvl = 11;
+      // optional int32 m_awakeSkillLvl = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_awakeskilllvl:
+         parse_m_awakeSkillLvl:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_awakeskilllvl_)));
@@ -11410,15 +11410,15 @@ bool E_XiuzhenGflvlup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_specialattriid;
+        if (input->ExpectTag(96)) goto parse_m_specialAttriId;
         break;
       }
 
-      // optional int32 m_specialattriid = 12;
+      // optional int32 m_specialAttriId = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_specialattriid:
+         parse_m_specialAttriId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_specialattriid_)));
@@ -11426,15 +11426,15 @@ bool E_XiuzhenGflvlup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_m_specialattrivalue;
+        if (input->ExpectTag(104)) goto parse_m_specialAttriValue;
         break;
       }
 
-      // optional int32 m_specialattrivalue = 13;
+      // optional int32 m_specialAttriValue = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_specialattrivalue:
+         parse_m_specialAttriValue:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_specialattrivalue_)));
@@ -11442,21 +11442,21 @@ bool E_XiuzhenGflvlup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(114)) goto parse_m_attribute;
+        if (input->ExpectTag(114)) goto parse_m_Attribute;
         break;
       }
 
-      // repeated .proto_ff.E_XiuzhenGflvlupAttributeDesc m_attribute = 14;
+      // repeated .proto_ff.E_XiuzhenGflvlupAttributeDesc m_Attribute = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_attribute:
+         parse_m_Attribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(114)) goto parse_m_attribute;
+        if (input->ExpectTag(114)) goto parse_m_Attribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -11509,12 +11509,12 @@ void E_XiuzhenGflvlup::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_roushen_level(), output);
   }
 
-  // optional int32 m_itemid = 7;
+  // optional int32 m_itemID = 7;
   if (has_m_itemid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_itemid(), output);
   }
 
-  // optional int32 m_itemnum = 8;
+  // optional int32 m_itemNum = 8;
   if (has_m_itemnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_itemnum(), output);
   }
@@ -11524,27 +11524,27 @@ void E_XiuzhenGflvlup::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_xw(), output);
   }
 
-  // optional int32 m_awakeskill = 10;
+  // optional int32 m_awakeSkill = 10;
   if (has_m_awakeskill()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_awakeskill(), output);
   }
 
-  // optional int32 m_awakeskilllvl = 11;
+  // optional int32 m_awakeSkillLvl = 11;
   if (has_m_awakeskilllvl()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_awakeskilllvl(), output);
   }
 
-  // optional int32 m_specialattriid = 12;
+  // optional int32 m_specialAttriId = 12;
   if (has_m_specialattriid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_specialattriid(), output);
   }
 
-  // optional int32 m_specialattrivalue = 13;
+  // optional int32 m_specialAttriValue = 13;
   if (has_m_specialattrivalue()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_specialattrivalue(), output);
   }
 
-  // repeated .proto_ff.E_XiuzhenGflvlupAttributeDesc m_attribute = 14;
+  // repeated .proto_ff.E_XiuzhenGflvlupAttributeDesc m_Attribute = 14;
   for (int i = 0; i < this->m_attribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       14, this->m_attribute(i), output);
@@ -11588,12 +11588,12 @@ void E_XiuzhenGflvlup::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_roushen_level(), target);
   }
 
-  // optional int32 m_itemid = 7;
+  // optional int32 m_itemID = 7;
   if (has_m_itemid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_itemid(), target);
   }
 
-  // optional int32 m_itemnum = 8;
+  // optional int32 m_itemNum = 8;
   if (has_m_itemnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_itemnum(), target);
   }
@@ -11603,27 +11603,27 @@ void E_XiuzhenGflvlup::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_xw(), target);
   }
 
-  // optional int32 m_awakeskill = 10;
+  // optional int32 m_awakeSkill = 10;
   if (has_m_awakeskill()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_awakeskill(), target);
   }
 
-  // optional int32 m_awakeskilllvl = 11;
+  // optional int32 m_awakeSkillLvl = 11;
   if (has_m_awakeskilllvl()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_awakeskilllvl(), target);
   }
 
-  // optional int32 m_specialattriid = 12;
+  // optional int32 m_specialAttriId = 12;
   if (has_m_specialattriid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_specialattriid(), target);
   }
 
-  // optional int32 m_specialattrivalue = 13;
+  // optional int32 m_specialAttriValue = 13;
   if (has_m_specialattrivalue()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_specialattrivalue(), target);
   }
 
-  // repeated .proto_ff.E_XiuzhenGflvlupAttributeDesc m_attribute = 14;
+  // repeated .proto_ff.E_XiuzhenGflvlupAttributeDesc m_Attribute = 14;
   for (int i = 0; i < this->m_attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -11683,14 +11683,14 @@ int E_XiuzhenGflvlup::ByteSize() const {
           this->m_roushen_level());
     }
 
-    // optional int32 m_itemid = 7;
+    // optional int32 m_itemID = 7;
     if (has_m_itemid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_itemid());
     }
 
-    // optional int32 m_itemnum = 8;
+    // optional int32 m_itemNum = 8;
     if (has_m_itemnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -11706,28 +11706,28 @@ int E_XiuzhenGflvlup::ByteSize() const {
           this->m_xw());
     }
 
-    // optional int32 m_awakeskill = 10;
+    // optional int32 m_awakeSkill = 10;
     if (has_m_awakeskill()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_awakeskill());
     }
 
-    // optional int32 m_awakeskilllvl = 11;
+    // optional int32 m_awakeSkillLvl = 11;
     if (has_m_awakeskilllvl()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_awakeskilllvl());
     }
 
-    // optional int32 m_specialattriid = 12;
+    // optional int32 m_specialAttriId = 12;
     if (has_m_specialattriid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_specialattriid());
     }
 
-    // optional int32 m_specialattrivalue = 13;
+    // optional int32 m_specialAttriValue = 13;
     if (has_m_specialattrivalue()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -11735,7 +11735,7 @@ int E_XiuzhenGflvlup::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.E_XiuzhenGflvlupAttributeDesc m_attribute = 14;
+  // repeated .proto_ff.E_XiuzhenGflvlupAttributeDesc m_Attribute = 14;
   total_size += 1 * this->m_attribute_size();
   for (int i = 0; i < this->m_attribute_size(); i++) {
     total_size +=
@@ -12070,7 +12070,7 @@ void Sheet_XiuzhenGflvlup::Swap(Sheet_XiuzhenGflvlup* other) {
 
 #ifndef _MSC_VER
 const int E_XiuzhenGfstageupAttributeDesc::kMValueFieldNumber;
-const int E_XiuzhenGfstageupAttributeDesc::kMIdFieldNumber;
+const int E_XiuzhenGfstageupAttributeDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenGfstageupAttributeDesc::E_XiuzhenGfstageupAttributeDesc()
@@ -12150,15 +12150,15 @@ bool E_XiuzhenGfstageupAttributeDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int32 m_id = 2;
+      // optional int32 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_id_)));
@@ -12193,7 +12193,7 @@ void E_XiuzhenGfstageupAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_id(), output);
   }
@@ -12211,7 +12211,7 @@ void E_XiuzhenGfstageupAttributeDesc::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_id(), target);
   }
@@ -12234,7 +12234,7 @@ int E_XiuzhenGfstageupAttributeDesc::ByteSize() const {
           this->m_value());
     }
 
-    // optional int32 m_id = 2;
+    // optional int32 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -12321,12 +12321,12 @@ const int E_XiuzhenGfstageup::kMIdFieldNumber;
 const int E_XiuzhenGfstageup::kMTypeFieldNumber;
 const int E_XiuzhenGfstageup::kMHighLevelFieldNumber;
 const int E_XiuzhenGfstageup::kMHighlevelIconFieldNumber;
-const int E_XiuzhenGfstageup::kMItemidFieldNumber;
-const int E_XiuzhenGfstageup::kMItemnumFieldNumber;
-const int E_XiuzhenGfstageup::kMAwakeskill1FieldNumber;
-const int E_XiuzhenGfstageup::kMAwakeskilllvl1FieldNumber;
-const int E_XiuzhenGfstageup::kMAwakeskill2FieldNumber;
-const int E_XiuzhenGfstageup::kMAwakeskilllvl2FieldNumber;
+const int E_XiuzhenGfstageup::kMItemIDFieldNumber;
+const int E_XiuzhenGfstageup::kMItemNumFieldNumber;
+const int E_XiuzhenGfstageup::kMAwakeSkill1FieldNumber;
+const int E_XiuzhenGfstageup::kMAwakeSkillLvl1FieldNumber;
+const int E_XiuzhenGfstageup::kMAwakeSkill2FieldNumber;
+const int E_XiuzhenGfstageup::kMAwakeSkillLvl2FieldNumber;
 const int E_XiuzhenGfstageup::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -12482,15 +12482,15 @@ bool E_XiuzhenGfstageup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_itemid;
+        if (input->ExpectTag(40)) goto parse_m_itemID;
         break;
       }
 
-      // optional int32 m_itemid = 5;
+      // optional int32 m_itemID = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemid:
+         parse_m_itemID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itemid_)));
@@ -12498,15 +12498,15 @@ bool E_XiuzhenGfstageup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_itemnum;
+        if (input->ExpectTag(48)) goto parse_m_itemNum;
         break;
       }
 
-      // optional int32 m_itemnum = 6;
+      // optional int32 m_itemNum = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemnum:
+         parse_m_itemNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itemnum_)));
@@ -12514,15 +12514,15 @@ bool E_XiuzhenGfstageup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_awakeskill1;
+        if (input->ExpectTag(56)) goto parse_m_awakeSkill1;
         break;
       }
 
-      // optional int32 m_awakeskill1 = 7;
+      // optional int32 m_awakeSkill1 = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_awakeskill1:
+         parse_m_awakeSkill1:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_awakeskill1_)));
@@ -12530,15 +12530,15 @@ bool E_XiuzhenGfstageup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_awakeskilllvl1;
+        if (input->ExpectTag(64)) goto parse_m_awakeSkillLvl1;
         break;
       }
 
-      // optional int32 m_awakeskilllvl1 = 8;
+      // optional int32 m_awakeSkillLvl1 = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_awakeskilllvl1:
+         parse_m_awakeSkillLvl1:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_awakeskilllvl1_)));
@@ -12546,15 +12546,15 @@ bool E_XiuzhenGfstageup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_awakeskill2;
+        if (input->ExpectTag(72)) goto parse_m_awakeSkill2;
         break;
       }
 
-      // optional int32 m_awakeskill2 = 9;
+      // optional int32 m_awakeSkill2 = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_awakeskill2:
+         parse_m_awakeSkill2:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_awakeskill2_)));
@@ -12562,15 +12562,15 @@ bool E_XiuzhenGfstageup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_awakeskilllvl2;
+        if (input->ExpectTag(80)) goto parse_m_awakeSkillLvl2;
         break;
       }
 
-      // optional int32 m_awakeskilllvl2 = 10;
+      // optional int32 m_awakeSkillLvl2 = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_awakeskilllvl2:
+         parse_m_awakeSkillLvl2:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_awakeskilllvl2_)));
@@ -12578,21 +12578,21 @@ bool E_XiuzhenGfstageup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(90)) goto parse_m_attribute;
+        if (input->ExpectTag(90)) goto parse_m_Attribute;
         break;
       }
 
-      // repeated .proto_ff.E_XiuzhenGfstageupAttributeDesc m_attribute = 11;
+      // repeated .proto_ff.E_XiuzhenGfstageupAttributeDesc m_Attribute = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_attribute:
+         parse_m_Attribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_attribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(90)) goto parse_m_attribute;
+        if (input->ExpectTag(90)) goto parse_m_Attribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -12639,37 +12639,37 @@ void E_XiuzhenGfstageup::SerializeWithCachedSizes(
       4, this->m_highlevel_icon(), output);
   }
 
-  // optional int32 m_itemid = 5;
+  // optional int32 m_itemID = 5;
   if (has_m_itemid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_itemid(), output);
   }
 
-  // optional int32 m_itemnum = 6;
+  // optional int32 m_itemNum = 6;
   if (has_m_itemnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_itemnum(), output);
   }
 
-  // optional int32 m_awakeskill1 = 7;
+  // optional int32 m_awakeSkill1 = 7;
   if (has_m_awakeskill1()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_awakeskill1(), output);
   }
 
-  // optional int32 m_awakeskilllvl1 = 8;
+  // optional int32 m_awakeSkillLvl1 = 8;
   if (has_m_awakeskilllvl1()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_awakeskilllvl1(), output);
   }
 
-  // optional int32 m_awakeskill2 = 9;
+  // optional int32 m_awakeSkill2 = 9;
   if (has_m_awakeskill2()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_awakeskill2(), output);
   }
 
-  // optional int32 m_awakeskilllvl2 = 10;
+  // optional int32 m_awakeSkillLvl2 = 10;
   if (has_m_awakeskilllvl2()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_awakeskilllvl2(), output);
   }
 
-  // repeated .proto_ff.E_XiuzhenGfstageupAttributeDesc m_attribute = 11;
+  // repeated .proto_ff.E_XiuzhenGfstageupAttributeDesc m_Attribute = 11;
   for (int i = 0; i < this->m_attribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       11, this->m_attribute(i), output);
@@ -12708,37 +12708,37 @@ void E_XiuzhenGfstageup::SerializeWithCachedSizes(
         4, this->m_highlevel_icon(), target);
   }
 
-  // optional int32 m_itemid = 5;
+  // optional int32 m_itemID = 5;
   if (has_m_itemid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_itemid(), target);
   }
 
-  // optional int32 m_itemnum = 6;
+  // optional int32 m_itemNum = 6;
   if (has_m_itemnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_itemnum(), target);
   }
 
-  // optional int32 m_awakeskill1 = 7;
+  // optional int32 m_awakeSkill1 = 7;
   if (has_m_awakeskill1()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_awakeskill1(), target);
   }
 
-  // optional int32 m_awakeskilllvl1 = 8;
+  // optional int32 m_awakeSkillLvl1 = 8;
   if (has_m_awakeskilllvl1()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_awakeskilllvl1(), target);
   }
 
-  // optional int32 m_awakeskill2 = 9;
+  // optional int32 m_awakeSkill2 = 9;
   if (has_m_awakeskill2()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_awakeskill2(), target);
   }
 
-  // optional int32 m_awakeskilllvl2 = 10;
+  // optional int32 m_awakeSkillLvl2 = 10;
   if (has_m_awakeskilllvl2()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_awakeskilllvl2(), target);
   }
 
-  // repeated .proto_ff.E_XiuzhenGfstageupAttributeDesc m_attribute = 11;
+  // repeated .proto_ff.E_XiuzhenGfstageupAttributeDesc m_Attribute = 11;
   for (int i = 0; i < this->m_attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -12784,28 +12784,28 @@ int E_XiuzhenGfstageup::ByteSize() const {
           this->m_highlevel_icon());
     }
 
-    // optional int32 m_itemid = 5;
+    // optional int32 m_itemID = 5;
     if (has_m_itemid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_itemid());
     }
 
-    // optional int32 m_itemnum = 6;
+    // optional int32 m_itemNum = 6;
     if (has_m_itemnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_itemnum());
     }
 
-    // optional int32 m_awakeskill1 = 7;
+    // optional int32 m_awakeSkill1 = 7;
     if (has_m_awakeskill1()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_awakeskill1());
     }
 
-    // optional int32 m_awakeskilllvl1 = 8;
+    // optional int32 m_awakeSkillLvl1 = 8;
     if (has_m_awakeskilllvl1()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -12814,14 +12814,14 @@ int E_XiuzhenGfstageup::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_awakeskill2 = 9;
+    // optional int32 m_awakeSkill2 = 9;
     if (has_m_awakeskill2()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_awakeskill2());
     }
 
-    // optional int32 m_awakeskilllvl2 = 10;
+    // optional int32 m_awakeSkillLvl2 = 10;
     if (has_m_awakeskilllvl2()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -12829,7 +12829,7 @@ int E_XiuzhenGfstageup::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.E_XiuzhenGfstageupAttributeDesc m_attribute = 11;
+  // repeated .proto_ff.E_XiuzhenGfstageupAttributeDesc m_Attribute = 11;
   total_size += 1 * this->m_attribute_size();
   for (int i = 0; i < this->m_attribute_size(); i++) {
     total_size +=
@@ -13603,7 +13603,7 @@ void Sheet_XiuzhenJmtypes::Swap(Sheet_XiuzhenJmtypes* other) {
 
 #ifndef _MSC_VER
 const int E_XiuzhenJmlvlupItemDesc::kMNumFieldNumber;
-const int E_XiuzhenJmlvlupItemDesc::kMIdFieldNumber;
+const int E_XiuzhenJmlvlupItemDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenJmlvlupItemDesc::E_XiuzhenJmlvlupItemDesc()
@@ -13683,15 +13683,15 @@ bool E_XiuzhenJmlvlupItemDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int32 m_id = 2;
+      // optional int32 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_id_)));
@@ -13726,7 +13726,7 @@ void E_XiuzhenJmlvlupItemDesc::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_num(), output);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_id(), output);
   }
@@ -13744,7 +13744,7 @@ void E_XiuzhenJmlvlupItemDesc::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_num(), target);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_id(), target);
   }
@@ -13767,7 +13767,7 @@ int E_XiuzhenJmlvlupItemDesc::ByteSize() const {
           this->m_num());
     }
 
-    // optional int32 m_id = 2;
+    // optional int32 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -13851,7 +13851,7 @@ void E_XiuzhenJmlvlupItemDesc::Swap(E_XiuzhenJmlvlupItemDesc* other) {
 
 #ifndef _MSC_VER
 const int E_XiuzhenJmlvlupAttributeDesc::kMValueFieldNumber;
-const int E_XiuzhenJmlvlupAttributeDesc::kMIdFieldNumber;
+const int E_XiuzhenJmlvlupAttributeDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenJmlvlupAttributeDesc::E_XiuzhenJmlvlupAttributeDesc()
@@ -13931,15 +13931,15 @@ bool E_XiuzhenJmlvlupAttributeDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int32 m_id = 2;
+      // optional int32 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_id_)));
@@ -13974,7 +13974,7 @@ void E_XiuzhenJmlvlupAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_id(), output);
   }
@@ -13992,7 +13992,7 @@ void E_XiuzhenJmlvlupAttributeDesc::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_id(), target);
   }
@@ -14015,7 +14015,7 @@ int E_XiuzhenJmlvlupAttributeDesc::ByteSize() const {
           this->m_value());
     }
 
-    // optional int32 m_id = 2;
+    // optional int32 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -14101,10 +14101,10 @@ void E_XiuzhenJmlvlupAttributeDesc::Swap(E_XiuzhenJmlvlupAttributeDesc* other) {
 const int E_XiuzhenJmlvlup::kMIdFieldNumber;
 const int E_XiuzhenJmlvlup::kMTypeFieldNumber;
 const int E_XiuzhenJmlvlup::kMLvlFieldNumber;
-const int E_XiuzhenJmlvlup::kMNeedxwFieldNumber;
+const int E_XiuzhenJmlvlup::kMNeedXWFieldNumber;
 const int E_XiuzhenJmlvlup::kMSuccessRateFieldNumber;
-const int E_XiuzhenJmlvlup::kMSpecialattriidFieldNumber;
-const int E_XiuzhenJmlvlup::kMSpecialattrivalueFieldNumber;
+const int E_XiuzhenJmlvlup::kMSpecialAttriIdFieldNumber;
+const int E_XiuzhenJmlvlup::kMSpecialAttriValueFieldNumber;
 const int E_XiuzhenJmlvlup::kMItemFieldNumber;
 const int E_XiuzhenJmlvlup::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
@@ -14230,15 +14230,15 @@ bool E_XiuzhenJmlvlup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_needxw;
+        if (input->ExpectTag(32)) goto parse_m_needXW;
         break;
       }
 
-      // optional int64 m_needxw = 4;
+      // optional int64 m_needXW = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_needxw:
+         parse_m_needXW:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_needxw_)));
@@ -14246,15 +14246,15 @@ bool E_XiuzhenJmlvlup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_success_rate;
+        if (input->ExpectTag(40)) goto parse_m_Success_rate;
         break;
       }
 
-      // optional int32 m_success_rate = 5;
+      // optional int32 m_Success_rate = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_success_rate:
+         parse_m_Success_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_success_rate_)));
@@ -14262,15 +14262,15 @@ bool E_XiuzhenJmlvlup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_specialattriid;
+        if (input->ExpectTag(48)) goto parse_m_specialAttriId;
         break;
       }
 
-      // optional int32 m_specialattriid = 6;
+      // optional int32 m_specialAttriId = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_specialattriid:
+         parse_m_specialAttriId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_specialattriid_)));
@@ -14278,15 +14278,15 @@ bool E_XiuzhenJmlvlup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_specialattrivalue;
+        if (input->ExpectTag(56)) goto parse_m_specialAttriValue;
         break;
       }
 
-      // optional int32 m_specialattrivalue = 7;
+      // optional int32 m_specialAttriValue = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_specialattrivalue:
+         parse_m_specialAttriValue:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_specialattrivalue_)));
@@ -14361,22 +14361,22 @@ void E_XiuzhenJmlvlup::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_lvl(), output);
   }
 
-  // optional int64 m_needxw = 4;
+  // optional int64 m_needXW = 4;
   if (has_m_needxw()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->m_needxw(), output);
   }
 
-  // optional int32 m_success_rate = 5;
+  // optional int32 m_Success_rate = 5;
   if (has_m_success_rate()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_success_rate(), output);
   }
 
-  // optional int32 m_specialattriid = 6;
+  // optional int32 m_specialAttriId = 6;
   if (has_m_specialattriid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_specialattriid(), output);
   }
 
-  // optional int32 m_specialattrivalue = 7;
+  // optional int32 m_specialAttriValue = 7;
   if (has_m_specialattrivalue()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_specialattrivalue(), output);
   }
@@ -14416,22 +14416,22 @@ void E_XiuzhenJmlvlup::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_lvl(), target);
   }
 
-  // optional int64 m_needxw = 4;
+  // optional int64 m_needXW = 4;
   if (has_m_needxw()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->m_needxw(), target);
   }
 
-  // optional int32 m_success_rate = 5;
+  // optional int32 m_Success_rate = 5;
   if (has_m_success_rate()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_success_rate(), target);
   }
 
-  // optional int32 m_specialattriid = 6;
+  // optional int32 m_specialAttriId = 6;
   if (has_m_specialattriid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_specialattriid(), target);
   }
 
-  // optional int32 m_specialattrivalue = 7;
+  // optional int32 m_specialAttriValue = 7;
   if (has_m_specialattrivalue()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_specialattrivalue(), target);
   }
@@ -14482,28 +14482,28 @@ int E_XiuzhenJmlvlup::ByteSize() const {
           this->m_lvl());
     }
 
-    // optional int64 m_needxw = 4;
+    // optional int64 m_needXW = 4;
     if (has_m_needxw()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_needxw());
     }
 
-    // optional int32 m_success_rate = 5;
+    // optional int32 m_Success_rate = 5;
     if (has_m_success_rate()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_success_rate());
     }
 
-    // optional int32 m_specialattriid = 6;
+    // optional int32 m_specialAttriId = 6;
     if (has_m_specialattriid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_specialattriid());
     }
 
-    // optional int32 m_specialattrivalue = 7;
+    // optional int32 m_specialAttriValue = 7;
     if (has_m_specialattrivalue()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -14830,7 +14830,7 @@ void Sheet_XiuzhenJmlvlup::Swap(Sheet_XiuzhenJmlvlup* other) {
 
 #ifndef _MSC_VER
 const int E_XiuzhenJmstageupItemDesc::kMNumFieldNumber;
-const int E_XiuzhenJmstageupItemDesc::kMIdFieldNumber;
+const int E_XiuzhenJmstageupItemDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenJmstageupItemDesc::E_XiuzhenJmstageupItemDesc()
@@ -14910,15 +14910,15 @@ bool E_XiuzhenJmstageupItemDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int32 m_id = 2;
+      // optional int32 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_id_)));
@@ -14953,7 +14953,7 @@ void E_XiuzhenJmstageupItemDesc::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_num(), output);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_id(), output);
   }
@@ -14971,7 +14971,7 @@ void E_XiuzhenJmstageupItemDesc::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_num(), target);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_id(), target);
   }
@@ -14994,7 +14994,7 @@ int E_XiuzhenJmstageupItemDesc::ByteSize() const {
           this->m_num());
     }
 
-    // optional int32 m_id = 2;
+    // optional int32 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -15078,7 +15078,7 @@ void E_XiuzhenJmstageupItemDesc::Swap(E_XiuzhenJmstageupItemDesc* other) {
 
 #ifndef _MSC_VER
 const int E_XiuzhenJmstageupAttributeDesc::kMValueFieldNumber;
-const int E_XiuzhenJmstageupAttributeDesc::kMIdFieldNumber;
+const int E_XiuzhenJmstageupAttributeDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenJmstageupAttributeDesc::E_XiuzhenJmstageupAttributeDesc()
@@ -15158,15 +15158,15 @@ bool E_XiuzhenJmstageupAttributeDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int32 m_id = 2;
+      // optional int32 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_id_)));
@@ -15201,7 +15201,7 @@ void E_XiuzhenJmstageupAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_id(), output);
   }
@@ -15219,7 +15219,7 @@ void E_XiuzhenJmstageupAttributeDesc::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_id(), target);
   }
@@ -15242,7 +15242,7 @@ int E_XiuzhenJmstageupAttributeDesc::ByteSize() const {
           this->m_value());
     }
 
-    // optional int32 m_id = 2;
+    // optional int32 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -15329,11 +15329,11 @@ const int E_XiuzhenJmstageup::kMIdFieldNumber;
 const int E_XiuzhenJmstageup::kMTypeFieldNumber;
 const int E_XiuzhenJmstageup::kMStageFieldNumber;
 const int E_XiuzhenJmstageup::kMNameFieldNumber;
-const int E_XiuzhenJmstageup::kMNeedgfunlockFieldNumber;
+const int E_XiuzhenJmstageup::kMNeedGFUnlockFieldNumber;
 const int E_XiuzhenJmstageup::kMSuccessRateFieldNumber;
 const int E_XiuzhenJmstageup::kMBlessingFieldNumber;
-const int E_XiuzhenJmstageup::kMAwakeskillidFieldNumber;
-const int E_XiuzhenJmstageup::kMAwakeskilllvlFieldNumber;
+const int E_XiuzhenJmstageup::kMAwakeSkillIDFieldNumber;
+const int E_XiuzhenJmstageup::kMAwakeSkillLvlFieldNumber;
 const int E_XiuzhenJmstageup::kMItemFieldNumber;
 const int E_XiuzhenJmstageup::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
@@ -15489,15 +15489,15 @@ bool E_XiuzhenJmstageup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_needgfunlock;
+        if (input->ExpectTag(40)) goto parse_m_needGFUnlock;
         break;
       }
 
-      // optional int32 m_needgfunlock = 5;
+      // optional int32 m_needGFUnlock = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_needgfunlock:
+         parse_m_needGFUnlock:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_needgfunlock_)));
@@ -15505,15 +15505,15 @@ bool E_XiuzhenJmstageup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_success_rate;
+        if (input->ExpectTag(48)) goto parse_m_Success_rate;
         break;
       }
 
-      // optional int32 m_success_rate = 6;
+      // optional int32 m_Success_rate = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_success_rate:
+         parse_m_Success_rate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_success_rate_)));
@@ -15537,15 +15537,15 @@ bool E_XiuzhenJmstageup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_awakeskillid;
+        if (input->ExpectTag(64)) goto parse_m_awakeSkillID;
         break;
       }
 
-      // optional int32 m_awakeskillid = 8;
+      // optional int32 m_awakeSkillID = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_awakeskillid:
+         parse_m_awakeSkillID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_awakeskillid_)));
@@ -15553,15 +15553,15 @@ bool E_XiuzhenJmstageup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_awakeskilllvl;
+        if (input->ExpectTag(72)) goto parse_m_awakeSkillLvl;
         break;
       }
 
-      // optional int32 m_awakeskilllvl = 9;
+      // optional int32 m_awakeSkillLvl = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_awakeskilllvl:
+         parse_m_awakeSkillLvl:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_awakeskilllvl_)));
@@ -15645,12 +15645,12 @@ void E_XiuzhenJmstageup::SerializeWithCachedSizes(
       4, this->m_name(), output);
   }
 
-  // optional int32 m_needgfunlock = 5;
+  // optional int32 m_needGFUnlock = 5;
   if (has_m_needgfunlock()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_needgfunlock(), output);
   }
 
-  // optional int32 m_success_rate = 6;
+  // optional int32 m_Success_rate = 6;
   if (has_m_success_rate()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_success_rate(), output);
   }
@@ -15660,12 +15660,12 @@ void E_XiuzhenJmstageup::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_blessing(), output);
   }
 
-  // optional int32 m_awakeskillid = 8;
+  // optional int32 m_awakeSkillID = 8;
   if (has_m_awakeskillid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_awakeskillid(), output);
   }
 
-  // optional int32 m_awakeskilllvl = 9;
+  // optional int32 m_awakeSkillLvl = 9;
   if (has_m_awakeskilllvl()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_awakeskilllvl(), output);
   }
@@ -15715,12 +15715,12 @@ void E_XiuzhenJmstageup::SerializeWithCachedSizes(
         4, this->m_name(), target);
   }
 
-  // optional int32 m_needgfunlock = 5;
+  // optional int32 m_needGFUnlock = 5;
   if (has_m_needgfunlock()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_needgfunlock(), target);
   }
 
-  // optional int32 m_success_rate = 6;
+  // optional int32 m_Success_rate = 6;
   if (has_m_success_rate()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_success_rate(), target);
   }
@@ -15730,12 +15730,12 @@ void E_XiuzhenJmstageup::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_blessing(), target);
   }
 
-  // optional int32 m_awakeskillid = 8;
+  // optional int32 m_awakeSkillID = 8;
   if (has_m_awakeskillid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_awakeskillid(), target);
   }
 
-  // optional int32 m_awakeskilllvl = 9;
+  // optional int32 m_awakeSkillLvl = 9;
   if (has_m_awakeskilllvl()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_awakeskilllvl(), target);
   }
@@ -15793,14 +15793,14 @@ int E_XiuzhenJmstageup::ByteSize() const {
           this->m_name());
     }
 
-    // optional int32 m_needgfunlock = 5;
+    // optional int32 m_needGFUnlock = 5;
     if (has_m_needgfunlock()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_needgfunlock());
     }
 
-    // optional int32 m_success_rate = 6;
+    // optional int32 m_Success_rate = 6;
     if (has_m_success_rate()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -15814,7 +15814,7 @@ int E_XiuzhenJmstageup::ByteSize() const {
           this->m_blessing());
     }
 
-    // optional int32 m_awakeskillid = 8;
+    // optional int32 m_awakeSkillID = 8;
     if (has_m_awakeskillid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -15823,7 +15823,7 @@ int E_XiuzhenJmstageup::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_awakeskilllvl = 9;
+    // optional int32 m_awakeSkillLvl = 9;
     if (has_m_awakeskilllvl()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -16408,7 +16408,7 @@ void E_XiuzhenJmmergeupCsDesc::Swap(E_XiuzhenJmmergeupCsDesc* other) {
 
 #ifndef _MSC_VER
 const int E_XiuzhenJmmergeupAttributeDesc::kMValueFieldNumber;
-const int E_XiuzhenJmmergeupAttributeDesc::kMIdFieldNumber;
+const int E_XiuzhenJmmergeupAttributeDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_XiuzhenJmmergeupAttributeDesc::E_XiuzhenJmmergeupAttributeDesc()
@@ -16488,15 +16488,15 @@ bool E_XiuzhenJmmergeupAttributeDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int32 m_id = 2;
+      // optional int32 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_id_)));
@@ -16531,7 +16531,7 @@ void E_XiuzhenJmmergeupAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_id(), output);
   }
@@ -16549,7 +16549,7 @@ void E_XiuzhenJmmergeupAttributeDesc::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_id(), target);
   }
@@ -16572,7 +16572,7 @@ int E_XiuzhenJmmergeupAttributeDesc::ByteSize() const {
           this->m_value());
     }
 
-    // optional int32 m_id = 2;
+    // optional int32 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -16657,8 +16657,8 @@ void E_XiuzhenJmmergeupAttributeDesc::Swap(E_XiuzhenJmmergeupAttributeDesc* othe
 #ifndef _MSC_VER
 const int E_XiuzhenJmmergeup::kMIdFieldNumber;
 const int E_XiuzhenJmmergeup::kMGfTypeFieldNumber;
-const int E_XiuzhenJmmergeup::kMAwakeskillidFieldNumber;
-const int E_XiuzhenJmmergeup::kMAwakeskilllvlFieldNumber;
+const int E_XiuzhenJmmergeup::kMAwakeSkillIDFieldNumber;
+const int E_XiuzhenJmmergeup::kMAwakeSkillLvlFieldNumber;
 const int E_XiuzhenJmmergeup::kMCsFieldNumber;
 const int E_XiuzhenJmmergeup::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
@@ -16762,15 +16762,15 @@ bool E_XiuzhenJmmergeup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_awakeskillid;
+        if (input->ExpectTag(24)) goto parse_m_awakeSkillID;
         break;
       }
 
-      // optional int32 m_awakeskillid = 3;
+      // optional int32 m_awakeSkillID = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_awakeskillid:
+         parse_m_awakeSkillID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_awakeskillid_)));
@@ -16778,15 +16778,15 @@ bool E_XiuzhenJmmergeup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_awakeskilllvl;
+        if (input->ExpectTag(32)) goto parse_m_awakeSkillLvl;
         break;
       }
 
-      // optional int32 m_awakeskilllvl = 4;
+      // optional int32 m_awakeSkillLvl = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_awakeskilllvl:
+         parse_m_awakeSkillLvl:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_awakeskilllvl_)));
@@ -16856,12 +16856,12 @@ void E_XiuzhenJmmergeup::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_gf_type(), output);
   }
 
-  // optional int32 m_awakeskillid = 3;
+  // optional int32 m_awakeSkillID = 3;
   if (has_m_awakeskillid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_awakeskillid(), output);
   }
 
-  // optional int32 m_awakeskilllvl = 4;
+  // optional int32 m_awakeSkillLvl = 4;
   if (has_m_awakeskilllvl()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_awakeskilllvl(), output);
   }
@@ -16896,12 +16896,12 @@ void E_XiuzhenJmmergeup::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_gf_type(), target);
   }
 
-  // optional int32 m_awakeskillid = 3;
+  // optional int32 m_awakeSkillID = 3;
   if (has_m_awakeskillid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_awakeskillid(), target);
   }
 
-  // optional int32 m_awakeskilllvl = 4;
+  // optional int32 m_awakeSkillLvl = 4;
   if (has_m_awakeskilllvl()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_awakeskilllvl(), target);
   }
@@ -16945,14 +16945,14 @@ int E_XiuzhenJmmergeup::ByteSize() const {
           this->m_gf_type());
     }
 
-    // optional int32 m_awakeskillid = 3;
+    // optional int32 m_awakeSkillID = 3;
     if (has_m_awakeskillid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_awakeskillid());
     }
 
-    // optional int32 m_awakeskilllvl = 4;
+    // optional int32 m_awakeSkillLvl = 4;
     if (has_m_awakeskilllvl()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -17821,9 +17821,9 @@ void E_XiuzhenPrivilegeAttriDesc::Swap(E_XiuzhenPrivilegeAttriDesc* other) {
 #ifndef _MSC_VER
 const int E_XiuzhenPrivilege::kMIdFieldNumber;
 const int E_XiuzhenPrivilege::kMPriceFieldNumber;
-const int E_XiuzhenPrivilege::kMActiveavatarFieldNumber;
-const int E_XiuzhenPrivilege::kMAvatarnameFieldNumber;
-const int E_XiuzhenPrivilege::kMPtaddFieldNumber;
+const int E_XiuzhenPrivilege::kMActiveAvatarFieldNumber;
+const int E_XiuzhenPrivilege::kMAvatarNameFieldNumber;
+const int E_XiuzhenPrivilege::kMPtAddFieldNumber;
 const int E_XiuzhenPrivilege::kMAttriFieldNumber;
 #endif  // !_MSC_VER
 
@@ -17933,15 +17933,15 @@ bool E_XiuzhenPrivilege::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_activeavatar;
+        if (input->ExpectTag(24)) goto parse_m_activeAvatar;
         break;
       }
 
-      // optional int32 m_activeavatar = 3;
+      // optional int32 m_activeAvatar = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_activeavatar:
+         parse_m_activeAvatar:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_activeavatar_)));
@@ -17949,15 +17949,15 @@ bool E_XiuzhenPrivilege::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_avatarname;
+        if (input->ExpectTag(34)) goto parse_m_avatarName;
         break;
       }
 
-      // optional string m_avatarname = 4;
+      // optional string m_avatarName = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_avatarname:
+         parse_m_avatarName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_avatarname()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -17966,21 +17966,21 @@ bool E_XiuzhenPrivilege::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_m_ptadd;
+        if (input->ExpectTag(42)) goto parse_m_ptAdd;
         break;
       }
 
-      // repeated .proto_ff.E_XiuzhenPrivilegePtaddDesc m_ptadd = 5;
+      // repeated .proto_ff.E_XiuzhenPrivilegePtaddDesc m_ptAdd = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_ptadd:
+         parse_m_ptAdd:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_ptadd()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_m_ptadd;
+        if (input->ExpectTag(42)) goto parse_m_ptAdd;
         if (input->ExpectTag(50)) goto parse_m_attri;
         break;
       }
@@ -18028,12 +18028,12 @@ void E_XiuzhenPrivilege::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_price(), output);
   }
 
-  // optional int32 m_activeavatar = 3;
+  // optional int32 m_activeAvatar = 3;
   if (has_m_activeavatar()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_activeavatar(), output);
   }
 
-  // optional string m_avatarname = 4;
+  // optional string m_avatarName = 4;
   if (has_m_avatarname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_avatarname().data(), this->m_avatarname().length(),
@@ -18042,7 +18042,7 @@ void E_XiuzhenPrivilege::SerializeWithCachedSizes(
       4, this->m_avatarname(), output);
   }
 
-  // repeated .proto_ff.E_XiuzhenPrivilegePtaddDesc m_ptadd = 5;
+  // repeated .proto_ff.E_XiuzhenPrivilegePtaddDesc m_ptAdd = 5;
   for (int i = 0; i < this->m_ptadd_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       5, this->m_ptadd(i), output);
@@ -18072,12 +18072,12 @@ void E_XiuzhenPrivilege::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_price(), target);
   }
 
-  // optional int32 m_activeavatar = 3;
+  // optional int32 m_activeAvatar = 3;
   if (has_m_activeavatar()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_activeavatar(), target);
   }
 
-  // optional string m_avatarname = 4;
+  // optional string m_avatarName = 4;
   if (has_m_avatarname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_avatarname().data(), this->m_avatarname().length(),
@@ -18087,7 +18087,7 @@ void E_XiuzhenPrivilege::SerializeWithCachedSizes(
         4, this->m_avatarname(), target);
   }
 
-  // repeated .proto_ff.E_XiuzhenPrivilegePtaddDesc m_ptadd = 5;
+  // repeated .proto_ff.E_XiuzhenPrivilegePtaddDesc m_ptAdd = 5;
   for (int i = 0; i < this->m_ptadd_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -18126,14 +18126,14 @@ int E_XiuzhenPrivilege::ByteSize() const {
           this->m_price());
     }
 
-    // optional int32 m_activeavatar = 3;
+    // optional int32 m_activeAvatar = 3;
     if (has_m_activeavatar()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_activeavatar());
     }
 
-    // optional string m_avatarname = 4;
+    // optional string m_avatarName = 4;
     if (has_m_avatarname()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -18141,7 +18141,7 @@ int E_XiuzhenPrivilege::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.E_XiuzhenPrivilegePtaddDesc m_ptadd = 5;
+  // repeated .proto_ff.E_XiuzhenPrivilegePtaddDesc m_ptAdd = 5;
   total_size += 1 * this->m_ptadd_size();
   for (int i = 0; i < this->m_ptadd_size(); i++) {
     total_size +=

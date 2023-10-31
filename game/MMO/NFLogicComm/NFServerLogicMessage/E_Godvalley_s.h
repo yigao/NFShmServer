@@ -23,39 +23,39 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;//序号
-		int32_t m_roomplayersmax;//一个房间最大人数
+		int32_t m_roomPlayersMax;//一个房间最大人数
 		NFShmString<64> m_team1n;//组名
 		NFShmString<64> m_team2n;//组名
 		NFShmString<64> m_name1;//名称
 		NFShmString<64> m_name2;//名称
-		int32_t m_winscore;//胜利的资源点
-		int32_t m_timescore;//时间增加积分
-		int32_t m_killscore;//杀人得积分
-		int32_t m_killkeepscore;//连杀得积分
-		int32_t m_breakkillkeepscore;//打断别人连杀得积分
-		int32_t m_killmonsterscore;//杀怪得积分
-		int32_t m_crystalpoints;//运水晶加资源点
-		int32_t m_crystalscore;//运水晶加个人积分
-		int32_t m_interceptpoints;//拦截水晶增加资源点
-		int32_t m_interceptscore;//拦截水晶增加个人积分
-		int32_t m_crystalreborntime;//水晶刷新时间（秒
-		int32_t m_crystalmonsterid;//水晶采集物id
-		NFShmString<64> m_crystalpos;//水晶位置
+		int32_t m_winScore;//胜利的资源点
+		int32_t m_timeScore;//时间增加积分
+		int32_t m_killScore;//杀人得积分
+		int32_t m_killKeepScore;//连杀得积分
+		int32_t m_breakKillKeepScore;//打断别人连杀得积分
+		int32_t m_killMonsterScore;//杀怪得积分
+		int32_t m_crystalPoints;//运水晶加资源点
+		int32_t m_crystalScore;//运水晶加个人积分
+		int32_t m_interceptPoints;//拦截水晶增加资源点
+		int32_t m_interceptScore;//拦截水晶增加个人积分
+		int32_t m_crystalReBornTime;//水晶刷新时间（秒
+		int32_t m_crystalMonsterId;//水晶采集物id
+		NFShmString<64> m_crystalPos;//水晶位置
 		int32_t m_match_s;//匹配时间
 		int32_t m_duration_s;//打多久
-		NFShmString<64> m_matchmapentry;//匹配地图出生位置
+		NFShmString<64> m_matchMapEntry;//匹配地图出生位置
 		int64_t m_mapid;//所在地图
-		NFShmString<64> m_mapentry1;//青云起始位置
-		NFShmString<64> m_mapentry2;//蜀山起始位置
+		NFShmString<64> m_mapEntry1;//青云起始位置
+		NFShmString<64> m_mapEntry2;//蜀山起始位置
 		NFShmString<64> m_monster1;//青云怪物
-		NFShmString<64> m_revivalpoint1;//青云怪物复活点
+		NFShmString<64> m_revivalPoint1;//青云怪物复活点
 		NFShmString<64> m_monster2;//妖龙之末怪物
-		NFShmString<64> m_revivalpoint2;//妖龙之末怪物复活点
+		NFShmString<64> m_revivalPoint2;//妖龙之末怪物复活点
 		NFShmString<64> m_monster3;//蜀山怪物
-		NFShmString<64> m_revivalpoint3;//蜀山怪物复活点
+		NFShmString<64> m_revivalPoint3;//蜀山怪物复活点
 		NFShmString<64> m_npc1pos;//青云神匠
 		NFShmString<64> m_npc2pos;//蜀山神匠
-		int32_t m_actid;//所在活动ID
+		int32_t m_actId;//所在活动ID
 		int32_t m_skill;//模版技能
 
 		virtual void write_to_pbmsg(::proto_ff::E_GodvalleyBattle & msg) const;
@@ -84,8 +84,8 @@ namespace proto_ff_s {
 		virtual ~E_GodvalleyRewardsRewardDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_num;//数量
-		int64_t m_id;//ID
+		int32_t m_Num;//数量
+		int64_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_GodvalleyRewardsRewardDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GodvalleyRewardsRewardDesc & msg);
@@ -129,8 +129,8 @@ namespace proto_ff_s {
 		virtual ~E_GodvalleyAttributeAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_value;//值
-		int32_t m_type;//类型
+		int32_t m_Value;//值
+		int32_t m_Type;//类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_GodvalleyAttributeAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GodvalleyAttributeAttributeDesc & msg);

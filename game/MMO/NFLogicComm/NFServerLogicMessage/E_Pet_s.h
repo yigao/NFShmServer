@@ -81,36 +81,36 @@ namespace proto_ff_s {
 		int64_t m_id;//外观ID
 		NFShmString<64> m_name;//名字
 		int32_t m_quality;//宠物品质
-		int32_t m_isstar;//是否可升星
+		int32_t m_isStar;//是否可升星
 		NFShmString<64> m_grade;//评级
-		int64_t m_monsterid;//怪物表ID
-		int32_t m_activeskillid;//主动技能
-		NFShmString<64> m_exclusiveskillid;//专属技能
-		NFShmString<64> m_passiveskillid;//被动技能
-		int32_t m_activeattribute;//初始获得属性模板
-		int32_t m_growatt;//升级属性模板
-		float m_activeparama;//初值值系数
-		float m_growattparama;//升级属性系数
-		float m_growstandarda;//标准值系数A
-		float m_growstandardb;//标准值系数B
-		float m_growstandard;//资质标准值
-		float m_growmin;//初始资质下限
-		float m_growmax;//初始资质上限
-		float m_growstar;//升星资质提升系数
-		int32_t m_advanceattribute;//进阶值模板
-		int32_t m_advancetype;//进阶类型
-		int32_t m_pettag;//是否神宠
-		NFShmString<64> m_pettagskill;//神宠技能
-		int32_t m_starattribute;//升星属性模板
-		int32_t m_starpercent;//升星属性加成
-		int32_t m_starllimit;//升星上限
-		int64_t m_staritem;//升星道具
-		NFShmString<64> m_starnum;//升星道具数量
-		int64_t m_starpetid;//升星宠物ID
-		NFShmString<64> m_starpetnum;//升星宠物数量
+		int64_t m_monsterId;//怪物表ID
+		int32_t m_activeSkillID;//主动技能
+		NFShmString<64> m_exclusiveSkillID;//专属技能
+		NFShmString<64> m_passiveSkillID;//被动技能
+		int32_t m_activeAttribute;//初始获得属性模板
+		int32_t m_growAtt;//升级属性模板
+		float m_activeParama;//初值值系数
+		float m_growAttParama;//升级属性系数
+		float m_growStandardA;//标准值系数A
+		float m_growStandardB;//标准值系数B
+		float m_growStandard;//资质标准值
+		float m_growMin;//初始资质下限
+		float m_growMax;//初始资质上限
+		float m_growStar;//升星资质提升系数
+		int32_t m_advanceAttribute;//进阶值模板
+		int32_t m_advanceType;//进阶类型
+		int32_t m_petTag;//是否神宠
+		NFShmString<64> m_petTagSkill;//神宠技能
+		int32_t m_starAttribute;//升星属性模板
+		int32_t m_starPercent;//升星属性加成
+		int32_t m_starLlimit;//升星上限
+		int64_t m_starItem;//升星道具
+		NFShmString<64> m_starNum;//升星道具数量
+		int64_t m_starPetID;//升星宠物ID
+		NFShmString<64> m_starPetNum;//升星宠物数量
 		int32_t m_weapon;//专属武器
-		int64_t m_upattributeid;//升星属性组ID
-		int32_t m_fettersid;//羁绊ID
+		int64_t m_upAttributeId;//升星属性组ID
+		int32_t m_fettersID;//羁绊ID
 		NFShmString<64> m_suit;//套装
 		NFShmVector<struct E_PetDisplayMaterialDesc_s, DEFINE_E_PETDISPLAY_M_MATERIAL_MAX_NUM> m_material;//升级材料
 
@@ -230,8 +230,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//等级
-		int32_t m_advanceitem;//进阶消耗道具
-		int32_t m_advancenum;//消耗数量
+		int32_t m_advanceItem;//进阶消耗道具
+		int32_t m_advanceNum;//消耗数量
 		NFShmVector<struct E_PetAdvancelvAdvanceDesc_s, DEFINE_E_PETADVANCELV_M_ADVANCE_MAX_NUM> m_advance;//进阶
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetAdvancelv & msg) const;
@@ -275,12 +275,12 @@ namespace proto_ff_s {
 		virtual ~E_PetStarup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//唯一ID
-		int64_t m_upattributeid;//升星属性组ID
-		int32_t m_starid;//星级
-		int32_t m_skillid;//技能id
-		int32_t m_activeskillidlv;//主动技能等级
-		NFShmVector<struct E_PetStarupUpattributeDesc_s, DEFINE_E_PETSTARUP_M_UPATTRIBUTE_MAX_NUM> m_upattribute;//激活属性
+		int32_t m_ID;//唯一ID
+		int64_t m_upAttributeId;//升星属性组ID
+		int32_t m_starID;//星级
+		int32_t m_skillID;//技能id
+		int32_t m_activeSkillIDLv;//主动技能等级
+		NFShmVector<struct E_PetStarupUpattributeDesc_s, DEFINE_E_PETSTARUP_M_UPATTRIBUTE_MAX_NUM> m_upAttribute;//激活属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetStarup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PetStarup & msg);
@@ -353,7 +353,7 @@ namespace proto_ff_s {
 		virtual ~E_PetDecomposeDecomposeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_boxid;//boxID
+		int32_t m_boxID;//boxID
 		int32_t m_type;//type
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetDecomposeDecomposeDesc & msg) const;
@@ -415,9 +415,9 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_quality;//羁绊品质
-		NFShmVector<int32_t, DEFINE_E_PETFETTERS_M_PETID_MAX_NUM> m_petid;//羁绊宠物ID
+		NFShmVector<int32_t, DEFINE_E_PETFETTERS_M_PETID_MAX_NUM> m_petID;//羁绊宠物ID
 		NFShmVector<struct E_PetFettersAttributeDesc_s, DEFINE_E_PETFETTERS_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
-		NFShmVector<int32_t, DEFINE_E_PETFETTERS_M_ATCTIVE_SKILLID_MAX_NUM> m_atctive_skillid;//激活技能
+		NFShmVector<int32_t, DEFINE_E_PETFETTERS_M_ATCTIVE_SKILLID_MAX_NUM> m_atctive_skillID;//激活技能
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetFetters & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PetFetters & msg);
@@ -445,8 +445,8 @@ namespace proto_ff_s {
 		virtual ~E_PetPetequipActDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_mun;//数量
-		int32_t m_time;//材料
+		int32_t m_Mun;//数量
+		int32_t m_Time;//材料
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetPetequipActDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PetPetequipActDesc & msg);
@@ -461,11 +461,11 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_pet;//对应宠物
-		int32_t m_orderid;//排序Id
+		int32_t m_orderId;//排序Id
 		NFShmString<64> m_name;//备注
-		int32_t m_qeuiditem;//专属物品
-		int32_t m_equipqualitymin;//初始品质
-		int32_t m_equipmodelid;//模型资源Id
+		int32_t m_qeuidItem;//专属物品
+		int32_t m_equipQualityMin;//初始品质
+		int32_t m_equipModelId;//模型资源Id
 		int32_t m_forging;//锻造类型
 		int32_t m_star;//升星类型
 		NFShmString<64> m_skill;//天赋技能
@@ -528,14 +528,14 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_equipvalue;//属性类型
-		int32_t m_equiplv;//阶数
+		int32_t m_equipValue;//属性类型
+		int32_t m_equipLv;//阶数
 		int32_t m_item;//阶数物品
-		int32_t m_winprob;//锻造成功概率
-		int32_t m_equipitem;//道具消耗
-		int32_t m_equipmun;//消耗数量
-		int32_t m_failmax;//锻造保底次数
-		NFShmVector<struct E_PetEquipvalueAttributeDesc_s, DEFINE_E_PETEQUIPVALUE_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
+		int32_t m_winProb;//锻造成功概率
+		int32_t m_equipItem;//道具消耗
+		int32_t m_equipMun;//消耗数量
+		int32_t m_failMax;//锻造保底次数
+		NFShmVector<struct E_PetEquipvalueAttributeDesc_s, DEFINE_E_PETEQUIPVALUE_M_ATTRIBUTE_MAX_NUM> m_Attribute;//属性
 		NFShmVector<struct E_PetEquipvalueExtraDesc_s, DEFINE_E_PETEQUIPVALUE_M_EXTRA_MAX_NUM> m_extra;//额外属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetEquipvalue & msg) const;
@@ -579,8 +579,8 @@ namespace proto_ff_s {
 		virtual ~E_PetStarvalueEquipDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_mun;//数量
-		int32_t m_item;//消耗
+		int32_t m_Mun;//数量
+		int32_t m_Item;//消耗
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetStarvalueEquipDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PetStarvalueEquipDesc & msg);
@@ -595,10 +595,10 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_starvalue;//属性类型
-		int32_t m_starlv;//星级
-		NFShmVector<struct E_PetStarvalueAttributeDesc_s, DEFINE_E_PETSTARVALUE_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
-		NFShmVector<NFShmString<64>, DEFINE_E_PETSTARVALUE_M_ADVANCE_TYPE_MAX_NUM> m_advance_type;//额外属性
+		int32_t m_starValue;//属性类型
+		int32_t m_starLv;//星级
+		NFShmVector<struct E_PetStarvalueAttributeDesc_s, DEFINE_E_PETSTARVALUE_M_ATTRIBUTE_MAX_NUM> m_Attribute;//属性
+		NFShmVector<NFShmString<64>, DEFINE_E_PETSTARVALUE_M_ADVANCE_TYPE_MAX_NUM> m_advance_Type;//额外属性
 		NFShmVector<struct E_PetStarvalueEquipDesc_s, DEFINE_E_PETSTARVALUE_M_EQUIP_MAX_NUM> m_equip;//道具
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetStarvalue & msg) const;
@@ -663,10 +663,10 @@ namespace proto_ff_s {
 		int32_t m_position;//妖魂部位
 		int32_t m_quality;//妖魂品质
 		int32_t m_star;//妖魂星级
-		int32_t m_propertylv;//升级类型
-		int32_t m_propertytop;//突破类型
+		int32_t m_propertyLv;//升级类型
+		int32_t m_propertyTop;//突破类型
 		NFShmVector<struct E_PetWraithsAttributeDesc_s, DEFINE_E_PETWRAITHS_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
-		NFShmVector<struct E_PetWraithsAttributebctDesc_s, DEFINE_E_PETWRAITHS_M_ATTRIBUTEBCT_MAX_NUM> m_attributebct;//额外属性
+		NFShmVector<struct E_PetWraithsAttributebctDesc_s, DEFINE_E_PETWRAITHS_M_ATTRIBUTEBCT_MAX_NUM> m_attributeBct;//额外属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetWraiths & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PetWraiths & msg);
@@ -711,11 +711,11 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_value;//属性类型
-		int32_t m_advancelv;//进阶等级
+		int32_t m_advanceLv;//进阶等级
 		int32_t m_lv;//等级
-		int32_t m_wraithsitem;//道具消耗
-		int32_t m_wraithsmun;//消耗数量
-		int32_t m_lvexp;//升级所需经验
+		int32_t m_wraithsItem;//道具消耗
+		int32_t m_wraithsMun;//消耗数量
+		int32_t m_lvExp;//升级所需经验
 		NFShmVector<struct E_PetWraithslvAttributeDesc_s, DEFINE_E_PETWRAITHSLV_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetWraithslv & msg) const;
@@ -744,8 +744,8 @@ namespace proto_ff_s {
 		virtual ~E_PetSmeltItemDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_maxnum;//最大数量
-		int32_t m_minnum;//最小数量
+		int32_t m_maxNum;//最大数量
+		int32_t m_minNum;//最小数量
 		int32_t m_rarerand;//概率
 		int32_t m_id;//道具
 
@@ -764,9 +764,9 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_quality;//品质
 		int32_t m_star;//星级
-		int32_t m_putmun;//放入妖魂数
-		int32_t m_smeltexp;//获得经验
-		int32_t m_monsternum;//妖气获得数量
+		int32_t m_putMun;//放入妖魂数
+		int32_t m_smeltExp;//获得经验
+		int32_t m_monsterNum;//妖气获得数量
 		NFShmVector<struct E_PetSmeltItemDesc_s, DEFINE_E_PETSMELT_M_ITEM_MAX_NUM> m_item;//获得
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetSmelt & msg) const;
@@ -891,11 +891,11 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_quality;//妖魂品质
 		int32_t m_star;//妖魂星级
-		int32_t m_wraithsquality;//妖魂需求
+		int32_t m_wraithsQuality;//妖魂需求
 		int32_t m_piece;//套装件数
-		int32_t m_resonancetype;//共鸣属性
-		int32_t m_resonancevalue;//共鸣属性值
-		NFShmVector<struct E_PetSuitAttributeDesc_s, DEFINE_E_PETSUIT_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
+		int32_t m_resonanceType;//共鸣属性
+		int32_t m_resonanceValue;//共鸣属性值
+		NFShmVector<struct E_PetSuitAttributeDesc_s, DEFINE_E_PETSUIT_M_ATTRIBUTE_MAX_NUM> m_Attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetSuit & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PetSuit & msg);
@@ -1001,9 +1001,9 @@ namespace proto_ff_s {
 		virtual ~E_PetTop_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_toptype;//突破类型
+		int32_t m_topType;//突破类型
 		NFShmVector<struct E_PetTopAttributeDesc_s, DEFINE_E_PETTOP_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
-		NFShmVector<struct E_PetTopStarattDesc_s, DEFINE_E_PETTOP_M_STARATT_MAX_NUM> m_staratt;//星级属性
+		NFShmVector<struct E_PetTopStarattDesc_s, DEFINE_E_PETTOP_M_STARATT_MAX_NUM> m_starAtt;//星级属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetTop & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PetTop & msg);
@@ -1078,8 +1078,8 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		NFShmString<64> m_activate;//激活条件
-		int32_t m_doubleitem;//道具翻倍
-		int32_t m_experienceexp;//经验加成
+		int32_t m_doubleItem;//道具翻倍
+		int32_t m_experienceExp;//经验加成
 		NFShmVector<struct E_PetPrivilegePrivilegeDesc_s, DEFINE_E_PETPRIVILEGE_M_PRIVILEGE_MAX_NUM> m_privilege;//基础属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetPrivilege & msg) const;

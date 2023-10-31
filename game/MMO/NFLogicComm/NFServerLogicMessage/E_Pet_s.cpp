@@ -41,30 +41,30 @@ E_PetDisplay_s::E_PetDisplay_s() {
 int E_PetDisplay_s::CreateInit() {
 	m_id = (int64_t)0;
 	m_quality = (int32_t)0;
-	m_isstar = (int32_t)0;
-	m_monsterid = (int64_t)0;
-	m_activeskillid = (int32_t)0;
-	m_activeattribute = (int32_t)0;
-	m_growatt = (int32_t)0;
-	m_activeparama = (float)0;
-	m_growattparama = (float)0;
-	m_growstandarda = (float)0;
-	m_growstandardb = (float)0;
-	m_growstandard = (float)0;
-	m_growmin = (float)0;
-	m_growmax = (float)0;
-	m_growstar = (float)0;
-	m_advanceattribute = (int32_t)0;
-	m_advancetype = (int32_t)0;
-	m_pettag = (int32_t)0;
-	m_starattribute = (int32_t)0;
-	m_starpercent = (int32_t)0;
-	m_starllimit = (int32_t)0;
-	m_staritem = (int64_t)0;
-	m_starpetid = (int64_t)0;
+	m_isStar = (int32_t)0;
+	m_monsterId = (int64_t)0;
+	m_activeSkillID = (int32_t)0;
+	m_activeAttribute = (int32_t)0;
+	m_growAtt = (int32_t)0;
+	m_activeParama = (float)0;
+	m_growAttParama = (float)0;
+	m_growStandardA = (float)0;
+	m_growStandardB = (float)0;
+	m_growStandard = (float)0;
+	m_growMin = (float)0;
+	m_growMax = (float)0;
+	m_growStar = (float)0;
+	m_advanceAttribute = (int32_t)0;
+	m_advanceType = (int32_t)0;
+	m_petTag = (int32_t)0;
+	m_starAttribute = (int32_t)0;
+	m_starPercent = (int32_t)0;
+	m_starLlimit = (int32_t)0;
+	m_starItem = (int64_t)0;
+	m_starPetID = (int64_t)0;
 	m_weapon = (int32_t)0;
-	m_upattributeid = (int64_t)0;
-	m_fettersid = (int32_t)0;
+	m_upAttributeId = (int64_t)0;
+	m_fettersID = (int32_t)0;
 	return 0;
 }
 
@@ -76,36 +76,36 @@ void E_PetDisplay_s::write_to_pbmsg(::proto_ff::E_PetDisplay & msg) const {
 	msg.set_m_id((int64_t)m_id);
 	msg.set_m_name(m_name.data());
 	msg.set_m_quality((int32_t)m_quality);
-	msg.set_m_isstar((int32_t)m_isstar);
+	msg.set_m_isstar((int32_t)m_isStar);
 	msg.set_m_grade(m_grade.data());
-	msg.set_m_monsterid((int64_t)m_monsterid);
-	msg.set_m_activeskillid((int32_t)m_activeskillid);
-	msg.set_m_exclusiveskillid(m_exclusiveskillid.data());
-	msg.set_m_passiveskillid(m_passiveskillid.data());
-	msg.set_m_activeattribute((int32_t)m_activeattribute);
-	msg.set_m_growatt((int32_t)m_growatt);
-	msg.set_m_activeparama((float)m_activeparama);
-	msg.set_m_growattparama((float)m_growattparama);
-	msg.set_m_growstandarda((float)m_growstandarda);
-	msg.set_m_growstandardb((float)m_growstandardb);
-	msg.set_m_growstandard((float)m_growstandard);
-	msg.set_m_growmin((float)m_growmin);
-	msg.set_m_growmax((float)m_growmax);
-	msg.set_m_growstar((float)m_growstar);
-	msg.set_m_advanceattribute((int32_t)m_advanceattribute);
-	msg.set_m_advancetype((int32_t)m_advancetype);
-	msg.set_m_pettag((int32_t)m_pettag);
-	msg.set_m_pettagskill(m_pettagskill.data());
-	msg.set_m_starattribute((int32_t)m_starattribute);
-	msg.set_m_starpercent((int32_t)m_starpercent);
-	msg.set_m_starllimit((int32_t)m_starllimit);
-	msg.set_m_staritem((int64_t)m_staritem);
-	msg.set_m_starnum(m_starnum.data());
-	msg.set_m_starpetid((int64_t)m_starpetid);
-	msg.set_m_starpetnum(m_starpetnum.data());
+	msg.set_m_monsterid((int64_t)m_monsterId);
+	msg.set_m_activeskillid((int32_t)m_activeSkillID);
+	msg.set_m_exclusiveskillid(m_exclusiveSkillID.data());
+	msg.set_m_passiveskillid(m_passiveSkillID.data());
+	msg.set_m_activeattribute((int32_t)m_activeAttribute);
+	msg.set_m_growatt((int32_t)m_growAtt);
+	msg.set_m_activeparama((float)m_activeParama);
+	msg.set_m_growattparama((float)m_growAttParama);
+	msg.set_m_growstandarda((float)m_growStandardA);
+	msg.set_m_growstandardb((float)m_growStandardB);
+	msg.set_m_growstandard((float)m_growStandard);
+	msg.set_m_growmin((float)m_growMin);
+	msg.set_m_growmax((float)m_growMax);
+	msg.set_m_growstar((float)m_growStar);
+	msg.set_m_advanceattribute((int32_t)m_advanceAttribute);
+	msg.set_m_advancetype((int32_t)m_advanceType);
+	msg.set_m_pettag((int32_t)m_petTag);
+	msg.set_m_pettagskill(m_petTagSkill.data());
+	msg.set_m_starattribute((int32_t)m_starAttribute);
+	msg.set_m_starpercent((int32_t)m_starPercent);
+	msg.set_m_starllimit((int32_t)m_starLlimit);
+	msg.set_m_staritem((int64_t)m_starItem);
+	msg.set_m_starnum(m_starNum.data());
+	msg.set_m_starpetid((int64_t)m_starPetID);
+	msg.set_m_starpetnum(m_starPetNum.data());
 	msg.set_m_weapon((int32_t)m_weapon);
-	msg.set_m_upattributeid((int64_t)m_upattributeid);
-	msg.set_m_fettersid((int32_t)m_fettersid);
+	msg.set_m_upattributeid((int64_t)m_upAttributeId);
+	msg.set_m_fettersid((int32_t)m_fettersID);
 	msg.set_m_suit(m_suit.data());
 	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
 		::proto_ff::E_PetDisplayMaterialDesc* temp_m_material = msg.add_m_material();
@@ -117,36 +117,36 @@ void E_PetDisplay_s::read_from_pbmsg(const ::proto_ff::E_PetDisplay & msg) {
 	m_id = msg.m_id();
 	m_name = msg.m_name();
 	m_quality = msg.m_quality();
-	m_isstar = msg.m_isstar();
+	m_isStar = msg.m_isstar();
 	m_grade = msg.m_grade();
-	m_monsterid = msg.m_monsterid();
-	m_activeskillid = msg.m_activeskillid();
-	m_exclusiveskillid = msg.m_exclusiveskillid();
-	m_passiveskillid = msg.m_passiveskillid();
-	m_activeattribute = msg.m_activeattribute();
-	m_growatt = msg.m_growatt();
-	m_activeparama = msg.m_activeparama();
-	m_growattparama = msg.m_growattparama();
-	m_growstandarda = msg.m_growstandarda();
-	m_growstandardb = msg.m_growstandardb();
-	m_growstandard = msg.m_growstandard();
-	m_growmin = msg.m_growmin();
-	m_growmax = msg.m_growmax();
-	m_growstar = msg.m_growstar();
-	m_advanceattribute = msg.m_advanceattribute();
-	m_advancetype = msg.m_advancetype();
-	m_pettag = msg.m_pettag();
-	m_pettagskill = msg.m_pettagskill();
-	m_starattribute = msg.m_starattribute();
-	m_starpercent = msg.m_starpercent();
-	m_starllimit = msg.m_starllimit();
-	m_staritem = msg.m_staritem();
-	m_starnum = msg.m_starnum();
-	m_starpetid = msg.m_starpetid();
-	m_starpetnum = msg.m_starpetnum();
+	m_monsterId = msg.m_monsterid();
+	m_activeSkillID = msg.m_activeskillid();
+	m_exclusiveSkillID = msg.m_exclusiveskillid();
+	m_passiveSkillID = msg.m_passiveskillid();
+	m_activeAttribute = msg.m_activeattribute();
+	m_growAtt = msg.m_growatt();
+	m_activeParama = msg.m_activeparama();
+	m_growAttParama = msg.m_growattparama();
+	m_growStandardA = msg.m_growstandarda();
+	m_growStandardB = msg.m_growstandardb();
+	m_growStandard = msg.m_growstandard();
+	m_growMin = msg.m_growmin();
+	m_growMax = msg.m_growmax();
+	m_growStar = msg.m_growstar();
+	m_advanceAttribute = msg.m_advanceattribute();
+	m_advanceType = msg.m_advancetype();
+	m_petTag = msg.m_pettag();
+	m_petTagSkill = msg.m_pettagskill();
+	m_starAttribute = msg.m_starattribute();
+	m_starPercent = msg.m_starpercent();
+	m_starLlimit = msg.m_starllimit();
+	m_starItem = msg.m_staritem();
+	m_starNum = msg.m_starnum();
+	m_starPetID = msg.m_starpetid();
+	m_starPetNum = msg.m_starpetnum();
 	m_weapon = msg.m_weapon();
-	m_upattributeid = msg.m_upattributeid();
-	m_fettersid = msg.m_fettersid();
+	m_upAttributeId = msg.m_upattributeid();
+	m_fettersID = msg.m_fettersid();
 	m_suit = msg.m_suit();
 	m_material.resize((int)msg.m_material_size() > (int)m_material.max_size() ? m_material.max_size() : msg.m_material_size());
 	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
@@ -379,8 +379,8 @@ E_PetAdvancelv_s::E_PetAdvancelv_s() {
 
 int E_PetAdvancelv_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_advanceitem = (int32_t)0;
-	m_advancenum = (int32_t)0;
+	m_advanceItem = (int32_t)0;
+	m_advanceNum = (int32_t)0;
 	return 0;
 }
 
@@ -390,8 +390,8 @@ int E_PetAdvancelv_s::ResumeInit() {
 
 void E_PetAdvancelv_s::write_to_pbmsg(::proto_ff::E_PetAdvancelv & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_advanceitem((int32_t)m_advanceitem);
-	msg.set_m_advancenum((int32_t)m_advancenum);
+	msg.set_m_advanceitem((int32_t)m_advanceItem);
+	msg.set_m_advancenum((int32_t)m_advanceNum);
 	for(int32_t i = 0; i < (int32_t)m_advance.size(); ++i) {
 		::proto_ff::E_PetAdvancelvAdvanceDesc* temp_m_advance = msg.add_m_advance();
 		m_advance[i].write_to_pbmsg(*temp_m_advance);
@@ -400,8 +400,8 @@ void E_PetAdvancelv_s::write_to_pbmsg(::proto_ff::E_PetAdvancelv & msg) const {
 
 void E_PetAdvancelv_s::read_from_pbmsg(const ::proto_ff::E_PetAdvancelv & msg) {
 	m_id = msg.m_id();
-	m_advanceitem = msg.m_advanceitem();
-	m_advancenum = msg.m_advancenum();
+	m_advanceItem = msg.m_advanceitem();
+	m_advanceNum = msg.m_advancenum();
 	m_advance.resize((int)msg.m_advance_size() > (int)m_advance.max_size() ? m_advance.max_size() : msg.m_advance_size());
 	for(int32_t i = 0; i < (int32_t)m_advance.size(); ++i) {
 		const ::proto_ff::E_PetAdvancelvAdvanceDesc & temp_m_advance = msg.m_advance(i);
@@ -477,11 +477,11 @@ E_PetStarup_s::E_PetStarup_s() {
 }
 
 int E_PetStarup_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_upattributeid = (int64_t)0;
-	m_starid = (int32_t)0;
-	m_skillid = (int32_t)0;
-	m_activeskillidlv = (int32_t)0;
+	m_ID = (int32_t)0;
+	m_upAttributeId = (int64_t)0;
+	m_starID = (int32_t)0;
+	m_skillID = (int32_t)0;
+	m_activeSkillIDLv = (int32_t)0;
 	return 0;
 }
 
@@ -490,27 +490,27 @@ int E_PetStarup_s::ResumeInit() {
 }
 
 void E_PetStarup_s::write_to_pbmsg(::proto_ff::E_PetStarup & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_upattributeid((int64_t)m_upattributeid);
-	msg.set_m_starid((int32_t)m_starid);
-	msg.set_m_skillid((int32_t)m_skillid);
-	msg.set_m_activeskillidlv((int32_t)m_activeskillidlv);
-	for(int32_t i = 0; i < (int32_t)m_upattribute.size(); ++i) {
+	msg.set_m_id((int32_t)m_ID);
+	msg.set_m_upattributeid((int64_t)m_upAttributeId);
+	msg.set_m_starid((int32_t)m_starID);
+	msg.set_m_skillid((int32_t)m_skillID);
+	msg.set_m_activeskillidlv((int32_t)m_activeSkillIDLv);
+	for(int32_t i = 0; i < (int32_t)m_upAttribute.size(); ++i) {
 		::proto_ff::E_PetStarupUpattributeDesc* temp_m_upattribute = msg.add_m_upattribute();
-		m_upattribute[i].write_to_pbmsg(*temp_m_upattribute);
+		m_upAttribute[i].write_to_pbmsg(*temp_m_upattribute);
 	}
 }
 
 void E_PetStarup_s::read_from_pbmsg(const ::proto_ff::E_PetStarup & msg) {
-	m_id = msg.m_id();
-	m_upattributeid = msg.m_upattributeid();
-	m_starid = msg.m_starid();
-	m_skillid = msg.m_skillid();
-	m_activeskillidlv = msg.m_activeskillidlv();
-	m_upattribute.resize((int)msg.m_upattribute_size() > (int)m_upattribute.max_size() ? m_upattribute.max_size() : msg.m_upattribute_size());
-	for(int32_t i = 0; i < (int32_t)m_upattribute.size(); ++i) {
+	m_ID = msg.m_id();
+	m_upAttributeId = msg.m_upattributeid();
+	m_starID = msg.m_starid();
+	m_skillID = msg.m_skillid();
+	m_activeSkillIDLv = msg.m_activeskillidlv();
+	m_upAttribute.resize((int)msg.m_upattribute_size() > (int)m_upAttribute.max_size() ? m_upAttribute.max_size() : msg.m_upattribute_size());
+	for(int32_t i = 0; i < (int32_t)m_upAttribute.size(); ++i) {
 		const ::proto_ff::E_PetStarupUpattributeDesc & temp_m_upattribute = msg.m_upattribute(i);
-		m_upattribute[i].read_from_pbmsg(temp_m_upattribute);
+		m_upAttribute[i].read_from_pbmsg(temp_m_upattribute);
 	}
 }
 
@@ -650,7 +650,7 @@ E_PetDecomposeDecomposeDesc_s::E_PetDecomposeDecomposeDesc_s() {
 }
 
 int E_PetDecomposeDecomposeDesc_s::CreateInit() {
-	m_boxid = (int32_t)0;
+	m_boxID = (int32_t)0;
 	m_type = (int32_t)0;
 	return 0;
 }
@@ -660,12 +660,12 @@ int E_PetDecomposeDecomposeDesc_s::ResumeInit() {
 }
 
 void E_PetDecomposeDecomposeDesc_s::write_to_pbmsg(::proto_ff::E_PetDecomposeDecomposeDesc & msg) const {
-	msg.set_m_boxid((int32_t)m_boxid);
+	msg.set_m_boxid((int32_t)m_boxID);
 	msg.set_m_type((int32_t)m_type);
 }
 
 void E_PetDecomposeDecomposeDesc_s::read_from_pbmsg(const ::proto_ff::E_PetDecomposeDecomposeDesc & msg) {
-	m_boxid = msg.m_boxid();
+	m_boxID = msg.m_boxid();
 	m_type = msg.m_type();
 }
 
@@ -786,33 +786,33 @@ int E_PetFetters_s::ResumeInit() {
 void E_PetFetters_s::write_to_pbmsg(::proto_ff::E_PetFetters & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_quality((int32_t)m_quality);
-	for(int32_t i = 0; i < (int32_t)m_petid.size(); ++i) {
-		msg.add_m_petid((int32_t)m_petid[i]);
+	for(int32_t i = 0; i < (int32_t)m_petID.size(); ++i) {
+		msg.add_m_petid((int32_t)m_petID[i]);
 	}
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_PetFettersAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
-	for(int32_t i = 0; i < (int32_t)m_atctive_skillid.size(); ++i) {
-		msg.add_m_atctive_skillid((int32_t)m_atctive_skillid[i]);
+	for(int32_t i = 0; i < (int32_t)m_atctive_skillID.size(); ++i) {
+		msg.add_m_atctive_skillid((int32_t)m_atctive_skillID[i]);
 	}
 }
 
 void E_PetFetters_s::read_from_pbmsg(const ::proto_ff::E_PetFetters & msg) {
 	m_id = msg.m_id();
 	m_quality = msg.m_quality();
-	m_petid.resize((int)msg.m_petid_size() > (int)m_petid.max_size() ? m_petid.max_size() : msg.m_petid_size());
-	for(int32_t i = 0; i < (int32_t)m_petid.size(); ++i) {
-		m_petid[i] = msg.m_petid(i);
+	m_petID.resize((int)msg.m_petid_size() > (int)m_petID.max_size() ? m_petID.max_size() : msg.m_petid_size());
+	for(int32_t i = 0; i < (int32_t)m_petID.size(); ++i) {
+		m_petID[i] = msg.m_petid(i);
 	}
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_PetFettersAttributeDesc & temp_m_attribute = msg.m_attribute(i);
 		m_attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
-	m_atctive_skillid.resize((int)msg.m_atctive_skillid_size() > (int)m_atctive_skillid.max_size() ? m_atctive_skillid.max_size() : msg.m_atctive_skillid_size());
-	for(int32_t i = 0; i < (int32_t)m_atctive_skillid.size(); ++i) {
-		m_atctive_skillid[i] = msg.m_atctive_skillid(i);
+	m_atctive_skillID.resize((int)msg.m_atctive_skillid_size() > (int)m_atctive_skillID.max_size() ? m_atctive_skillID.max_size() : msg.m_atctive_skillid_size());
+	for(int32_t i = 0; i < (int32_t)m_atctive_skillID.size(); ++i) {
+		m_atctive_skillID[i] = msg.m_atctive_skillid(i);
 	}
 }
 
@@ -856,8 +856,8 @@ E_PetPetequipActDesc_s::E_PetPetequipActDesc_s() {
 }
 
 int E_PetPetequipActDesc_s::CreateInit() {
-	m_mun = (int32_t)0;
-	m_time = (int32_t)0;
+	m_Mun = (int32_t)0;
+	m_Time = (int32_t)0;
 	return 0;
 }
 
@@ -866,13 +866,13 @@ int E_PetPetequipActDesc_s::ResumeInit() {
 }
 
 void E_PetPetequipActDesc_s::write_to_pbmsg(::proto_ff::E_PetPetequipActDesc & msg) const {
-	msg.set_m_mun((int32_t)m_mun);
-	msg.set_m_time((int32_t)m_time);
+	msg.set_m_mun((int32_t)m_Mun);
+	msg.set_m_time((int32_t)m_Time);
 }
 
 void E_PetPetequipActDesc_s::read_from_pbmsg(const ::proto_ff::E_PetPetequipActDesc & msg) {
-	m_mun = msg.m_mun();
-	m_time = msg.m_time();
+	m_Mun = msg.m_mun();
+	m_Time = msg.m_time();
 }
 
 E_PetPetequip_s::E_PetPetequip_s() {
@@ -885,10 +885,10 @@ E_PetPetequip_s::E_PetPetequip_s() {
 
 int E_PetPetequip_s::CreateInit() {
 	m_pet = (int32_t)0;
-	m_orderid = (int32_t)0;
-	m_qeuiditem = (int32_t)0;
-	m_equipqualitymin = (int32_t)0;
-	m_equipmodelid = (int32_t)0;
+	m_orderId = (int32_t)0;
+	m_qeuidItem = (int32_t)0;
+	m_equipQualityMin = (int32_t)0;
+	m_equipModelId = (int32_t)0;
 	m_forging = (int32_t)0;
 	m_star = (int32_t)0;
 	return 0;
@@ -900,11 +900,11 @@ int E_PetPetequip_s::ResumeInit() {
 
 void E_PetPetequip_s::write_to_pbmsg(::proto_ff::E_PetPetequip & msg) const {
 	msg.set_m_pet((int32_t)m_pet);
-	msg.set_m_orderid((int32_t)m_orderid);
+	msg.set_m_orderid((int32_t)m_orderId);
 	msg.set_m_name(m_name.data());
-	msg.set_m_qeuiditem((int32_t)m_qeuiditem);
-	msg.set_m_equipqualitymin((int32_t)m_equipqualitymin);
-	msg.set_m_equipmodelid((int32_t)m_equipmodelid);
+	msg.set_m_qeuiditem((int32_t)m_qeuidItem);
+	msg.set_m_equipqualitymin((int32_t)m_equipQualityMin);
+	msg.set_m_equipmodelid((int32_t)m_equipModelId);
 	msg.set_m_forging((int32_t)m_forging);
 	msg.set_m_star((int32_t)m_star);
 	msg.set_m_skill(m_skill.data());
@@ -916,11 +916,11 @@ void E_PetPetequip_s::write_to_pbmsg(::proto_ff::E_PetPetequip & msg) const {
 
 void E_PetPetequip_s::read_from_pbmsg(const ::proto_ff::E_PetPetequip & msg) {
 	m_pet = msg.m_pet();
-	m_orderid = msg.m_orderid();
+	m_orderId = msg.m_orderid();
 	m_name = msg.m_name();
-	m_qeuiditem = msg.m_qeuiditem();
-	m_equipqualitymin = msg.m_equipqualitymin();
-	m_equipmodelid = msg.m_equipmodelid();
+	m_qeuidItem = msg.m_qeuiditem();
+	m_equipQualityMin = msg.m_equipqualitymin();
+	m_equipModelId = msg.m_equipmodelid();
 	m_forging = msg.m_forging();
 	m_star = msg.m_star();
 	m_skill = msg.m_skill();
@@ -1028,13 +1028,13 @@ E_PetEquipvalue_s::E_PetEquipvalue_s() {
 
 int E_PetEquipvalue_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_equipvalue = (int32_t)0;
-	m_equiplv = (int32_t)0;
+	m_equipValue = (int32_t)0;
+	m_equipLv = (int32_t)0;
 	m_item = (int32_t)0;
-	m_winprob = (int32_t)0;
-	m_equipitem = (int32_t)0;
-	m_equipmun = (int32_t)0;
-	m_failmax = (int32_t)0;
+	m_winProb = (int32_t)0;
+	m_equipItem = (int32_t)0;
+	m_equipMun = (int32_t)0;
+	m_failMax = (int32_t)0;
 	return 0;
 }
 
@@ -1044,16 +1044,16 @@ int E_PetEquipvalue_s::ResumeInit() {
 
 void E_PetEquipvalue_s::write_to_pbmsg(::proto_ff::E_PetEquipvalue & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_equipvalue((int32_t)m_equipvalue);
-	msg.set_m_equiplv((int32_t)m_equiplv);
+	msg.set_m_equipvalue((int32_t)m_equipValue);
+	msg.set_m_equiplv((int32_t)m_equipLv);
 	msg.set_m_item((int32_t)m_item);
-	msg.set_m_winprob((int32_t)m_winprob);
-	msg.set_m_equipitem((int32_t)m_equipitem);
-	msg.set_m_equipmun((int32_t)m_equipmun);
-	msg.set_m_failmax((int32_t)m_failmax);
-	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+	msg.set_m_winprob((int32_t)m_winProb);
+	msg.set_m_equipitem((int32_t)m_equipItem);
+	msg.set_m_equipmun((int32_t)m_equipMun);
+	msg.set_m_failmax((int32_t)m_failMax);
+	for(int32_t i = 0; i < (int32_t)m_Attribute.size(); ++i) {
 		::proto_ff::E_PetEquipvalueAttributeDesc* temp_m_attribute = msg.add_m_attribute();
-		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
+		m_Attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
 	for(int32_t i = 0; i < (int32_t)m_extra.size(); ++i) {
 		::proto_ff::E_PetEquipvalueExtraDesc* temp_m_extra = msg.add_m_extra();
@@ -1063,17 +1063,17 @@ void E_PetEquipvalue_s::write_to_pbmsg(::proto_ff::E_PetEquipvalue & msg) const 
 
 void E_PetEquipvalue_s::read_from_pbmsg(const ::proto_ff::E_PetEquipvalue & msg) {
 	m_id = msg.m_id();
-	m_equipvalue = msg.m_equipvalue();
-	m_equiplv = msg.m_equiplv();
+	m_equipValue = msg.m_equipvalue();
+	m_equipLv = msg.m_equiplv();
 	m_item = msg.m_item();
-	m_winprob = msg.m_winprob();
-	m_equipitem = msg.m_equipitem();
-	m_equipmun = msg.m_equipmun();
-	m_failmax = msg.m_failmax();
-	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
-	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+	m_winProb = msg.m_winprob();
+	m_equipItem = msg.m_equipitem();
+	m_equipMun = msg.m_equipmun();
+	m_failMax = msg.m_failmax();
+	m_Attribute.resize((int)msg.m_attribute_size() > (int)m_Attribute.max_size() ? m_Attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_Attribute.size(); ++i) {
 		const ::proto_ff::E_PetEquipvalueAttributeDesc & temp_m_attribute = msg.m_attribute(i);
-		m_attribute[i].read_from_pbmsg(temp_m_attribute);
+		m_Attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
 	m_extra.resize((int)msg.m_extra_size() > (int)m_extra.max_size() ? m_extra.max_size() : msg.m_extra_size());
 	for(int32_t i = 0; i < (int32_t)m_extra.size(); ++i) {
@@ -1150,8 +1150,8 @@ E_PetStarvalueEquipDesc_s::E_PetStarvalueEquipDesc_s() {
 }
 
 int E_PetStarvalueEquipDesc_s::CreateInit() {
-	m_mun = (int32_t)0;
-	m_item = (int32_t)0;
+	m_Mun = (int32_t)0;
+	m_Item = (int32_t)0;
 	return 0;
 }
 
@@ -1160,13 +1160,13 @@ int E_PetStarvalueEquipDesc_s::ResumeInit() {
 }
 
 void E_PetStarvalueEquipDesc_s::write_to_pbmsg(::proto_ff::E_PetStarvalueEquipDesc & msg) const {
-	msg.set_m_mun((int32_t)m_mun);
-	msg.set_m_item((int32_t)m_item);
+	msg.set_m_mun((int32_t)m_Mun);
+	msg.set_m_item((int32_t)m_Item);
 }
 
 void E_PetStarvalueEquipDesc_s::read_from_pbmsg(const ::proto_ff::E_PetStarvalueEquipDesc & msg) {
-	m_mun = msg.m_mun();
-	m_item = msg.m_item();
+	m_Mun = msg.m_mun();
+	m_Item = msg.m_item();
 }
 
 E_PetStarvalue_s::E_PetStarvalue_s() {
@@ -1179,8 +1179,8 @@ E_PetStarvalue_s::E_PetStarvalue_s() {
 
 int E_PetStarvalue_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_starvalue = (int32_t)0;
-	m_starlv = (int32_t)0;
+	m_starValue = (int32_t)0;
+	m_starLv = (int32_t)0;
 	return 0;
 }
 
@@ -1190,14 +1190,14 @@ int E_PetStarvalue_s::ResumeInit() {
 
 void E_PetStarvalue_s::write_to_pbmsg(::proto_ff::E_PetStarvalue & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_starvalue((int32_t)m_starvalue);
-	msg.set_m_starlv((int32_t)m_starlv);
-	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+	msg.set_m_starvalue((int32_t)m_starValue);
+	msg.set_m_starlv((int32_t)m_starLv);
+	for(int32_t i = 0; i < (int32_t)m_Attribute.size(); ++i) {
 		::proto_ff::E_PetStarvalueAttributeDesc* temp_m_attribute = msg.add_m_attribute();
-		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
+		m_Attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
-	for(int32_t i = 0; i < (int32_t)m_advance_type.size(); ++i) {
-		msg.add_m_advance_type(m_advance_type[i].data());
+	for(int32_t i = 0; i < (int32_t)m_advance_Type.size(); ++i) {
+		msg.add_m_advance_type(m_advance_Type[i].data());
 	}
 	for(int32_t i = 0; i < (int32_t)m_equip.size(); ++i) {
 		::proto_ff::E_PetStarvalueEquipDesc* temp_m_equip = msg.add_m_equip();
@@ -1207,16 +1207,16 @@ void E_PetStarvalue_s::write_to_pbmsg(::proto_ff::E_PetStarvalue & msg) const {
 
 void E_PetStarvalue_s::read_from_pbmsg(const ::proto_ff::E_PetStarvalue & msg) {
 	m_id = msg.m_id();
-	m_starvalue = msg.m_starvalue();
-	m_starlv = msg.m_starlv();
-	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
-	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+	m_starValue = msg.m_starvalue();
+	m_starLv = msg.m_starlv();
+	m_Attribute.resize((int)msg.m_attribute_size() > (int)m_Attribute.max_size() ? m_Attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_Attribute.size(); ++i) {
 		const ::proto_ff::E_PetStarvalueAttributeDesc & temp_m_attribute = msg.m_attribute(i);
-		m_attribute[i].read_from_pbmsg(temp_m_attribute);
+		m_Attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
-	m_advance_type.resize((int)msg.m_advance_type_size() > (int)m_advance_type.max_size() ? m_advance_type.max_size() : msg.m_advance_type_size());
-	for(int32_t i = 0; i < (int32_t)m_advance_type.size(); ++i) {
-		m_advance_type[i] = msg.m_advance_type(i);
+	m_advance_Type.resize((int)msg.m_advance_type_size() > (int)m_advance_Type.max_size() ? m_advance_Type.max_size() : msg.m_advance_type_size());
+	for(int32_t i = 0; i < (int32_t)m_advance_Type.size(); ++i) {
+		m_advance_Type[i] = msg.m_advance_type(i);
 	}
 	m_equip.resize((int)msg.m_equip_size() > (int)m_equip.max_size() ? m_equip.max_size() : msg.m_equip_size());
 	for(int32_t i = 0; i < (int32_t)m_equip.size(); ++i) {
@@ -1327,8 +1327,8 @@ int E_PetWraiths_s::CreateInit() {
 	m_position = (int32_t)0;
 	m_quality = (int32_t)0;
 	m_star = (int32_t)0;
-	m_propertylv = (int32_t)0;
-	m_propertytop = (int32_t)0;
+	m_propertyLv = (int32_t)0;
+	m_propertyTop = (int32_t)0;
 	return 0;
 }
 
@@ -1343,15 +1343,15 @@ void E_PetWraiths_s::write_to_pbmsg(::proto_ff::E_PetWraiths & msg) const {
 	msg.set_m_position((int32_t)m_position);
 	msg.set_m_quality((int32_t)m_quality);
 	msg.set_m_star((int32_t)m_star);
-	msg.set_m_propertylv((int32_t)m_propertylv);
-	msg.set_m_propertytop((int32_t)m_propertytop);
+	msg.set_m_propertylv((int32_t)m_propertyLv);
+	msg.set_m_propertytop((int32_t)m_propertyTop);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_PetWraithsAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
-	for(int32_t i = 0; i < (int32_t)m_attributebct.size(); ++i) {
+	for(int32_t i = 0; i < (int32_t)m_attributeBct.size(); ++i) {
 		::proto_ff::E_PetWraithsAttributebctDesc* temp_m_attributebct = msg.add_m_attributebct();
-		m_attributebct[i].write_to_pbmsg(*temp_m_attributebct);
+		m_attributeBct[i].write_to_pbmsg(*temp_m_attributebct);
 	}
 }
 
@@ -1362,17 +1362,17 @@ void E_PetWraiths_s::read_from_pbmsg(const ::proto_ff::E_PetWraiths & msg) {
 	m_position = msg.m_position();
 	m_quality = msg.m_quality();
 	m_star = msg.m_star();
-	m_propertylv = msg.m_propertylv();
-	m_propertytop = msg.m_propertytop();
+	m_propertyLv = msg.m_propertylv();
+	m_propertyTop = msg.m_propertytop();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_PetWraithsAttributeDesc & temp_m_attribute = msg.m_attribute(i);
 		m_attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
-	m_attributebct.resize((int)msg.m_attributebct_size() > (int)m_attributebct.max_size() ? m_attributebct.max_size() : msg.m_attributebct_size());
-	for(int32_t i = 0; i < (int32_t)m_attributebct.size(); ++i) {
+	m_attributeBct.resize((int)msg.m_attributebct_size() > (int)m_attributeBct.max_size() ? m_attributeBct.max_size() : msg.m_attributebct_size());
+	for(int32_t i = 0; i < (int32_t)m_attributeBct.size(); ++i) {
 		const ::proto_ff::E_PetWraithsAttributebctDesc & temp_m_attributebct = msg.m_attributebct(i);
-		m_attributebct[i].read_from_pbmsg(temp_m_attributebct);
+		m_attributeBct[i].read_from_pbmsg(temp_m_attributebct);
 	}
 }
 
@@ -1446,11 +1446,11 @@ E_PetWraithslv_s::E_PetWraithslv_s() {
 int E_PetWraithslv_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_value = (int32_t)0;
-	m_advancelv = (int32_t)0;
+	m_advanceLv = (int32_t)0;
 	m_lv = (int32_t)0;
-	m_wraithsitem = (int32_t)0;
-	m_wraithsmun = (int32_t)0;
-	m_lvexp = (int32_t)0;
+	m_wraithsItem = (int32_t)0;
+	m_wraithsMun = (int32_t)0;
+	m_lvExp = (int32_t)0;
 	return 0;
 }
 
@@ -1461,11 +1461,11 @@ int E_PetWraithslv_s::ResumeInit() {
 void E_PetWraithslv_s::write_to_pbmsg(::proto_ff::E_PetWraithslv & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_value((int32_t)m_value);
-	msg.set_m_advancelv((int32_t)m_advancelv);
+	msg.set_m_advancelv((int32_t)m_advanceLv);
 	msg.set_m_lv((int32_t)m_lv);
-	msg.set_m_wraithsitem((int32_t)m_wraithsitem);
-	msg.set_m_wraithsmun((int32_t)m_wraithsmun);
-	msg.set_m_lvexp((int32_t)m_lvexp);
+	msg.set_m_wraithsitem((int32_t)m_wraithsItem);
+	msg.set_m_wraithsmun((int32_t)m_wraithsMun);
+	msg.set_m_lvexp((int32_t)m_lvExp);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_PetWraithslvAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
@@ -1475,11 +1475,11 @@ void E_PetWraithslv_s::write_to_pbmsg(::proto_ff::E_PetWraithslv & msg) const {
 void E_PetWraithslv_s::read_from_pbmsg(const ::proto_ff::E_PetWraithslv & msg) {
 	m_id = msg.m_id();
 	m_value = msg.m_value();
-	m_advancelv = msg.m_advancelv();
+	m_advanceLv = msg.m_advancelv();
 	m_lv = msg.m_lv();
-	m_wraithsitem = msg.m_wraithsitem();
-	m_wraithsmun = msg.m_wraithsmun();
-	m_lvexp = msg.m_lvexp();
+	m_wraithsItem = msg.m_wraithsitem();
+	m_wraithsMun = msg.m_wraithsmun();
+	m_lvExp = msg.m_lvexp();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_PetWraithslvAttributeDesc & temp_m_attribute = msg.m_attribute(i);
@@ -1527,8 +1527,8 @@ E_PetSmeltItemDesc_s::E_PetSmeltItemDesc_s() {
 }
 
 int E_PetSmeltItemDesc_s::CreateInit() {
-	m_maxnum = (int32_t)0;
-	m_minnum = (int32_t)0;
+	m_maxNum = (int32_t)0;
+	m_minNum = (int32_t)0;
 	m_rarerand = (int32_t)0;
 	m_id = (int32_t)0;
 	return 0;
@@ -1539,15 +1539,15 @@ int E_PetSmeltItemDesc_s::ResumeInit() {
 }
 
 void E_PetSmeltItemDesc_s::write_to_pbmsg(::proto_ff::E_PetSmeltItemDesc & msg) const {
-	msg.set_m_maxnum((int32_t)m_maxnum);
-	msg.set_m_minnum((int32_t)m_minnum);
+	msg.set_m_maxnum((int32_t)m_maxNum);
+	msg.set_m_minnum((int32_t)m_minNum);
 	msg.set_m_rarerand((int32_t)m_rarerand);
 	msg.set_m_id((int32_t)m_id);
 }
 
 void E_PetSmeltItemDesc_s::read_from_pbmsg(const ::proto_ff::E_PetSmeltItemDesc & msg) {
-	m_maxnum = msg.m_maxnum();
-	m_minnum = msg.m_minnum();
+	m_maxNum = msg.m_maxnum();
+	m_minNum = msg.m_minnum();
 	m_rarerand = msg.m_rarerand();
 	m_id = msg.m_id();
 }
@@ -1564,9 +1564,9 @@ int E_PetSmelt_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_quality = (int32_t)0;
 	m_star = (int32_t)0;
-	m_putmun = (int32_t)0;
-	m_smeltexp = (int32_t)0;
-	m_monsternum = (int32_t)0;
+	m_putMun = (int32_t)0;
+	m_smeltExp = (int32_t)0;
+	m_monsterNum = (int32_t)0;
 	return 0;
 }
 
@@ -1578,9 +1578,9 @@ void E_PetSmelt_s::write_to_pbmsg(::proto_ff::E_PetSmelt & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_quality((int32_t)m_quality);
 	msg.set_m_star((int32_t)m_star);
-	msg.set_m_putmun((int32_t)m_putmun);
-	msg.set_m_smeltexp((int32_t)m_smeltexp);
-	msg.set_m_monsternum((int32_t)m_monsternum);
+	msg.set_m_putmun((int32_t)m_putMun);
+	msg.set_m_smeltexp((int32_t)m_smeltExp);
+	msg.set_m_monsternum((int32_t)m_monsterNum);
 	for(int32_t i = 0; i < (int32_t)m_item.size(); ++i) {
 		::proto_ff::E_PetSmeltItemDesc* temp_m_item = msg.add_m_item();
 		m_item[i].write_to_pbmsg(*temp_m_item);
@@ -1591,9 +1591,9 @@ void E_PetSmelt_s::read_from_pbmsg(const ::proto_ff::E_PetSmelt & msg) {
 	m_id = msg.m_id();
 	m_quality = msg.m_quality();
 	m_star = msg.m_star();
-	m_putmun = msg.m_putmun();
-	m_smeltexp = msg.m_smeltexp();
-	m_monsternum = msg.m_monsternum();
+	m_putMun = msg.m_putmun();
+	m_smeltExp = msg.m_smeltexp();
+	m_monsterNum = msg.m_monsternum();
 	m_item.resize((int)msg.m_item_size() > (int)m_item.max_size() ? m_item.max_size() : msg.m_item_size());
 	for(int32_t i = 0; i < (int32_t)m_item.size(); ++i) {
 		const ::proto_ff::E_PetSmeltItemDesc & temp_m_item = msg.m_item(i);
@@ -1839,10 +1839,10 @@ int E_PetSuit_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_quality = (int32_t)0;
 	m_star = (int32_t)0;
-	m_wraithsquality = (int32_t)0;
+	m_wraithsQuality = (int32_t)0;
 	m_piece = (int32_t)0;
-	m_resonancetype = (int32_t)0;
-	m_resonancevalue = (int32_t)0;
+	m_resonanceType = (int32_t)0;
+	m_resonanceValue = (int32_t)0;
 	return 0;
 }
 
@@ -1854,13 +1854,13 @@ void E_PetSuit_s::write_to_pbmsg(::proto_ff::E_PetSuit & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_quality((int32_t)m_quality);
 	msg.set_m_star((int32_t)m_star);
-	msg.set_m_wraithsquality((int32_t)m_wraithsquality);
+	msg.set_m_wraithsquality((int32_t)m_wraithsQuality);
 	msg.set_m_piece((int32_t)m_piece);
-	msg.set_m_resonancetype((int32_t)m_resonancetype);
-	msg.set_m_resonancevalue((int32_t)m_resonancevalue);
-	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+	msg.set_m_resonancetype((int32_t)m_resonanceType);
+	msg.set_m_resonancevalue((int32_t)m_resonanceValue);
+	for(int32_t i = 0; i < (int32_t)m_Attribute.size(); ++i) {
 		::proto_ff::E_PetSuitAttributeDesc* temp_m_attribute = msg.add_m_attribute();
-		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
+		m_Attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
 }
 
@@ -1868,14 +1868,14 @@ void E_PetSuit_s::read_from_pbmsg(const ::proto_ff::E_PetSuit & msg) {
 	m_id = msg.m_id();
 	m_quality = msg.m_quality();
 	m_star = msg.m_star();
-	m_wraithsquality = msg.m_wraithsquality();
+	m_wraithsQuality = msg.m_wraithsquality();
 	m_piece = msg.m_piece();
-	m_resonancetype = msg.m_resonancetype();
-	m_resonancevalue = msg.m_resonancevalue();
-	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
-	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+	m_resonanceType = msg.m_resonancetype();
+	m_resonanceValue = msg.m_resonancevalue();
+	m_Attribute.resize((int)msg.m_attribute_size() > (int)m_Attribute.max_size() ? m_Attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_Attribute.size(); ++i) {
 		const ::proto_ff::E_PetSuitAttributeDesc & temp_m_attribute = msg.m_attribute(i);
-		m_attribute[i].read_from_pbmsg(temp_m_attribute);
+		m_Attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
 }
 
@@ -2080,7 +2080,7 @@ E_PetTop_s::E_PetTop_s() {
 }
 
 int E_PetTop_s::CreateInit() {
-	m_toptype = (int32_t)0;
+	m_topType = (int32_t)0;
 	return 0;
 }
 
@@ -2089,28 +2089,28 @@ int E_PetTop_s::ResumeInit() {
 }
 
 void E_PetTop_s::write_to_pbmsg(::proto_ff::E_PetTop & msg) const {
-	msg.set_m_toptype((int32_t)m_toptype);
+	msg.set_m_toptype((int32_t)m_topType);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_PetTopAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
-	for(int32_t i = 0; i < (int32_t)m_staratt.size(); ++i) {
+	for(int32_t i = 0; i < (int32_t)m_starAtt.size(); ++i) {
 		::proto_ff::E_PetTopStarattDesc* temp_m_staratt = msg.add_m_staratt();
-		m_staratt[i].write_to_pbmsg(*temp_m_staratt);
+		m_starAtt[i].write_to_pbmsg(*temp_m_staratt);
 	}
 }
 
 void E_PetTop_s::read_from_pbmsg(const ::proto_ff::E_PetTop & msg) {
-	m_toptype = msg.m_toptype();
+	m_topType = msg.m_toptype();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_PetTopAttributeDesc & temp_m_attribute = msg.m_attribute(i);
 		m_attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
-	m_staratt.resize((int)msg.m_staratt_size() > (int)m_staratt.max_size() ? m_staratt.max_size() : msg.m_staratt_size());
-	for(int32_t i = 0; i < (int32_t)m_staratt.size(); ++i) {
+	m_starAtt.resize((int)msg.m_staratt_size() > (int)m_starAtt.max_size() ? m_starAtt.max_size() : msg.m_staratt_size());
+	for(int32_t i = 0; i < (int32_t)m_starAtt.size(); ++i) {
 		const ::proto_ff::E_PetTopStarattDesc & temp_m_staratt = msg.m_staratt(i);
-		m_staratt[i].read_from_pbmsg(temp_m_staratt);
+		m_starAtt[i].read_from_pbmsg(temp_m_staratt);
 	}
 }
 
@@ -2245,8 +2245,8 @@ E_PetPrivilege_s::E_PetPrivilege_s() {
 
 int E_PetPrivilege_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_doubleitem = (int32_t)0;
-	m_experienceexp = (int32_t)0;
+	m_doubleItem = (int32_t)0;
+	m_experienceExp = (int32_t)0;
 	return 0;
 }
 
@@ -2257,8 +2257,8 @@ int E_PetPrivilege_s::ResumeInit() {
 void E_PetPrivilege_s::write_to_pbmsg(::proto_ff::E_PetPrivilege & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_activate(m_activate.data());
-	msg.set_m_doubleitem((int32_t)m_doubleitem);
-	msg.set_m_experienceexp((int32_t)m_experienceexp);
+	msg.set_m_doubleitem((int32_t)m_doubleItem);
+	msg.set_m_experienceexp((int32_t)m_experienceExp);
 	for(int32_t i = 0; i < (int32_t)m_privilege.size(); ++i) {
 		::proto_ff::E_PetPrivilegePrivilegeDesc* temp_m_privilege = msg.add_m_privilege();
 		m_privilege[i].write_to_pbmsg(*temp_m_privilege);
@@ -2268,8 +2268,8 @@ void E_PetPrivilege_s::write_to_pbmsg(::proto_ff::E_PetPrivilege & msg) const {
 void E_PetPrivilege_s::read_from_pbmsg(const ::proto_ff::E_PetPrivilege & msg) {
 	m_id = msg.m_id();
 	m_activate = msg.m_activate();
-	m_doubleitem = msg.m_doubleitem();
-	m_experienceexp = msg.m_experienceexp();
+	m_doubleItem = msg.m_doubleitem();
+	m_experienceExp = msg.m_experienceexp();
 	m_privilege.resize((int)msg.m_privilege_size() > (int)m_privilege.max_size() ? m_privilege.max_size() : msg.m_privilege_size());
 	for(int32_t i = 0; i < (int32_t)m_privilege.size(); ++i) {
 		const ::proto_ff::E_PetPrivilegePrivilegeDesc & temp_m_privilege = msg.m_privilege(i);

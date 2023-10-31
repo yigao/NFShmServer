@@ -97,10 +97,10 @@ class E_CollectCollectAttributDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 1;
+  static const int kMIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -222,10 +222,10 @@ class E_CollectCollect : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_group() const;
   inline void set_m_group(::google::protobuf::int32 value);
 
-  // optional string m_stagetitle = 5;
+  // optional string m_stageTitle = 5;
   inline bool has_m_stagetitle() const;
   inline void clear_m_stagetitle();
-  static const int kMStagetitleFieldNumber = 5;
+  static const int kMStageTitleFieldNumber = 5;
   inline const ::std::string& m_stagetitle() const;
   inline void set_m_stagetitle(const ::std::string& value);
   inline void set_m_stagetitle(const char* value);
@@ -267,10 +267,10 @@ class E_CollectCollect : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_star() const;
   inline void set_m_star(::google::protobuf::int32 value);
 
-  // optional int32 m_skillid = 10;
+  // optional int32 m_skillID = 10;
   inline bool has_m_skillid() const;
   inline void clear_m_skillid();
-  static const int kMSkillidFieldNumber = 10;
+  static const int kMSkillIDFieldNumber = 10;
   inline ::google::protobuf::int32 m_skillid() const;
   inline void set_m_skillid(::google::protobuf::int32 value);
 
@@ -697,7 +697,7 @@ class Sheet_CollectAttributetpye : public ::google::protobuf::Message {
 
 // E_CollectCollectAttributDesc
 
-// optional int32 m_id = 1;
+// optional int32 m_ID = 1;
 inline bool E_CollectCollectAttributDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -881,7 +881,7 @@ inline void E_CollectCollect::set_m_group(::google::protobuf::int32 value) {
   m_group_ = value;
 }
 
-// optional string m_stagetitle = 5;
+// optional string m_stageTitle = 5;
 inline bool E_CollectCollect::has_m_stagetitle() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1087,7 +1087,7 @@ inline void E_CollectCollect::set_m_star(::google::protobuf::int32 value) {
   m_star_ = value;
 }
 
-// optional int32 m_skillid = 10;
+// optional int32 m_skillID = 10;
 inline bool E_CollectCollect::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }

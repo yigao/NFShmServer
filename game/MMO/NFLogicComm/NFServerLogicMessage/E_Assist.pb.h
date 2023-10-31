@@ -473,45 +473,45 @@ class E_AssistConst : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_sendergift = 2;
+  // optional int32 m_senderGift = 2;
   inline bool has_m_sendergift() const;
   inline void clear_m_sendergift();
-  static const int kMSendergiftFieldNumber = 2;
+  static const int kMSenderGiftFieldNumber = 2;
   inline ::google::protobuf::int32 m_sendergift() const;
   inline void set_m_sendergift(::google::protobuf::int32 value);
 
-  // optional int32 m_sendergiftnum = 3;
+  // optional int32 m_senderGiftNum = 3;
   inline bool has_m_sendergiftnum() const;
   inline void clear_m_sendergiftnum();
-  static const int kMSendergiftnumFieldNumber = 3;
+  static const int kMSenderGiftNumFieldNumber = 3;
   inline ::google::protobuf::int32 m_sendergiftnum() const;
   inline void set_m_sendergiftnum(::google::protobuf::int32 value);
 
-  // optional int32 m_helpergift = 4;
+  // optional int32 m_helperGift = 4;
   inline bool has_m_helpergift() const;
   inline void clear_m_helpergift();
-  static const int kMHelpergiftFieldNumber = 4;
+  static const int kMHelperGiftFieldNumber = 4;
   inline ::google::protobuf::int32 m_helpergift() const;
   inline void set_m_helpergift(::google::protobuf::int32 value);
 
-  // optional int32 m_helpergiftnum = 5;
+  // optional int32 m_helperGiftNum = 5;
   inline bool has_m_helpergiftnum() const;
   inline void clear_m_helpergiftnum();
-  static const int kMHelpergiftnumFieldNumber = 5;
+  static const int kMHelperGiftNumFieldNumber = 5;
   inline ::google::protobuf::int32 m_helpergiftnum() const;
   inline void set_m_helpergiftnum(::google::protobuf::int32 value);
 
-  // optional int32 m_prestigedaylimit = 6;
+  // optional int32 m_prestigeDaylimit = 6;
   inline bool has_m_prestigedaylimit() const;
   inline void clear_m_prestigedaylimit();
-  static const int kMPrestigedaylimitFieldNumber = 6;
+  static const int kMPrestigeDaylimitFieldNumber = 6;
   inline ::google::protobuf::int32 m_prestigedaylimit() const;
   inline void set_m_prestigedaylimit(::google::protobuf::int32 value);
 
-  // optional int32 m_prestigedaybosslimit = 7;
+  // optional int32 m_prestigeDayBosslimit = 7;
   inline bool has_m_prestigedaybosslimit() const;
   inline void clear_m_prestigedaybosslimit();
-  static const int kMPrestigedaybosslimitFieldNumber = 7;
+  static const int kMPrestigeDayBosslimitFieldNumber = 7;
   inline ::google::protobuf::int32 m_prestigedaybosslimit() const;
   inline void set_m_prestigedaybosslimit(::google::protobuf::int32 value);
 
@@ -890,7 +890,7 @@ inline void E_AssistConst::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_sendergift = 2;
+// optional int32 m_senderGift = 2;
 inline bool E_AssistConst::has_m_sendergift() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -912,7 +912,7 @@ inline void E_AssistConst::set_m_sendergift(::google::protobuf::int32 value) {
   m_sendergift_ = value;
 }
 
-// optional int32 m_sendergiftnum = 3;
+// optional int32 m_senderGiftNum = 3;
 inline bool E_AssistConst::has_m_sendergiftnum() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -934,7 +934,7 @@ inline void E_AssistConst::set_m_sendergiftnum(::google::protobuf::int32 value) 
   m_sendergiftnum_ = value;
 }
 
-// optional int32 m_helpergift = 4;
+// optional int32 m_helperGift = 4;
 inline bool E_AssistConst::has_m_helpergift() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -956,7 +956,7 @@ inline void E_AssistConst::set_m_helpergift(::google::protobuf::int32 value) {
   m_helpergift_ = value;
 }
 
-// optional int32 m_helpergiftnum = 5;
+// optional int32 m_helperGiftNum = 5;
 inline bool E_AssistConst::has_m_helpergiftnum() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -978,7 +978,7 @@ inline void E_AssistConst::set_m_helpergiftnum(::google::protobuf::int32 value) 
   m_helpergiftnum_ = value;
 }
 
-// optional int32 m_prestigedaylimit = 6;
+// optional int32 m_prestigeDaylimit = 6;
 inline bool E_AssistConst::has_m_prestigedaylimit() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -1000,7 +1000,7 @@ inline void E_AssistConst::set_m_prestigedaylimit(::google::protobuf::int32 valu
   m_prestigedaylimit_ = value;
 }
 
-// optional int32 m_prestigedaybosslimit = 7;
+// optional int32 m_prestigeDayBosslimit = 7;
 inline bool E_AssistConst::has_m_prestigedaybosslimit() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }

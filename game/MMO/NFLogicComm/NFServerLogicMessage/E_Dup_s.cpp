@@ -11,28 +11,28 @@ E_DupDup_s::E_DupDup_s() {
 }
 
 int E_DupDup_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_scripid = (int32_t)0;
-	m_scriptype = (int32_t)0;
-	m_duplevel = (int32_t)0;
-	m_scripmontype = (int32_t)0;
-	m_groupid = (int32_t)0;
-	m_subtype = (int32_t)0;
+	m_ID = (int32_t)0;
+	m_scripID = (int32_t)0;
+	m_scripType = (int32_t)0;
+	m_dupLevel = (int32_t)0;
+	m_scripMonType = (int32_t)0;
+	m_groupID = (int32_t)0;
+	m_subType = (int32_t)0;
 	m_layer = (int32_t)0;
-	m_recommendpower = (int32_t)0;
-	m_duplicatetype = (int32_t)0;
-	m_mapid = (int64_t)0;
-	m_levellimit = (int32_t)0;
-	m_functionid = (int32_t)0;
+	m_recommendPower = (int32_t)0;
+	m_duplicateType = (int32_t)0;
+	m_mapID = (int64_t)0;
+	m_levelLimit = (int32_t)0;
+	m_functionID = (int32_t)0;
 	m_pre = (int32_t)0;
-	m_isautofight = (int32_t)0;
-	m_revivemaxtimes = (int32_t)0;
-	m_teamobjectid = (int32_t)0;
-	m_sweeprewardboxid = (int64_t)0;
-	m_sweeprewardexp = (int32_t)0;
-	m_sweepexptype = (int32_t)0;
-	m_ispatrol = (int32_t)0;
-	m_failurebox = (int32_t)0;
+	m_isAutoFight = (int32_t)0;
+	m_reviveMaxTimes = (int32_t)0;
+	m_TeamObjectID = (int32_t)0;
+	m_sweepRewardBoxID = (int64_t)0;
+	m_sweepRewardExp = (int32_t)0;
+	m_sweepExpType = (int32_t)0;
+	m_isPatrol = (int32_t)0;
+	m_failureBox = (int32_t)0;
 	m_planes = (int32_t)0;
 	return 0;
 }
@@ -42,33 +42,33 @@ int E_DupDup_s::ResumeInit() {
 }
 
 void E_DupDup_s::write_to_pbmsg(::proto_ff::E_DupDup & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_scripid((int32_t)m_scripid);
-	msg.set_m_scriptype((int32_t)m_scriptype);
-	msg.set_m_duplevel((int32_t)m_duplevel);
-	msg.set_m_scripmontype((int32_t)m_scripmontype);
-	msg.set_m_scripmonid(m_scripmonid.data());
-	msg.set_m_groupid((int32_t)m_groupid);
-	msg.set_m_subtype((int32_t)m_subtype);
+	msg.set_m_id((int32_t)m_ID);
+	msg.set_m_scripid((int32_t)m_scripID);
+	msg.set_m_scriptype((int32_t)m_scripType);
+	msg.set_m_duplevel((int32_t)m_dupLevel);
+	msg.set_m_scripmontype((int32_t)m_scripMonType);
+	msg.set_m_scripmonid(m_scripMonID.data());
+	msg.set_m_groupid((int32_t)m_groupID);
+	msg.set_m_subtype((int32_t)m_subType);
 	msg.set_m_layer((int32_t)m_layer);
-	msg.set_m_recommendpower((int32_t)m_recommendpower);
-	msg.set_m_duplicatetype((int32_t)m_duplicatetype);
-	msg.set_m_mapid((int64_t)m_mapid);
-	msg.set_m_levellimit((int32_t)m_levellimit);
-	msg.set_m_functionid((int32_t)m_functionid);
+	msg.set_m_recommendpower((int32_t)m_recommendPower);
+	msg.set_m_duplicatetype((int32_t)m_duplicateType);
+	msg.set_m_mapid((int64_t)m_mapID);
+	msg.set_m_levellimit((int32_t)m_levelLimit);
+	msg.set_m_functionid((int32_t)m_functionID);
 	msg.set_m_pre((int32_t)m_pre);
-	msg.set_m_isautofight((int32_t)m_isautofight);
+	msg.set_m_isautofight((int32_t)m_isAutoFight);
 	msg.set_m_condition(m_condition.data());
-	msg.set_m_revivemaxtimes((int32_t)m_revivemaxtimes);
-	msg.set_m_teamobjectid((int32_t)m_teamobjectid);
-	msg.set_m_gradecondition(m_gradecondition.data());
-	msg.set_m_sweeprewardboxid((int64_t)m_sweeprewardboxid);
-	msg.set_m_sweeprewardexp((int32_t)m_sweeprewardexp);
-	msg.set_m_sweepexptype((int32_t)m_sweepexptype);
+	msg.set_m_revivemaxtimes((int32_t)m_reviveMaxTimes);
+	msg.set_m_teamobjectid((int32_t)m_TeamObjectID);
+	msg.set_m_gradecondition(m_gradeCondition.data());
+	msg.set_m_sweeprewardboxid((int64_t)m_sweepRewardBoxID);
+	msg.set_m_sweeprewardexp((int32_t)m_sweepRewardExp);
+	msg.set_m_sweepexptype((int32_t)m_sweepExpType);
 	msg.set_m_trackpoint(m_trackpoint.data());
-	msg.set_m_pathofmonster(m_pathofmonster.data());
-	msg.set_m_ispatrol((int32_t)m_ispatrol);
-	msg.set_m_failurebox((int32_t)m_failurebox);
+	msg.set_m_pathofmonster(m_pathOfmonster.data());
+	msg.set_m_ispatrol((int32_t)m_isPatrol);
+	msg.set_m_failurebox((int32_t)m_failureBox);
 	msg.set_m_planes((int32_t)m_planes);
 	for(int32_t i = 0; i < (int32_t)m_box.size(); ++i) {
 		msg.add_m_box((int32_t)m_box[i]);
@@ -76,33 +76,33 @@ void E_DupDup_s::write_to_pbmsg(::proto_ff::E_DupDup & msg) const {
 }
 
 void E_DupDup_s::read_from_pbmsg(const ::proto_ff::E_DupDup & msg) {
-	m_id = msg.m_id();
-	m_scripid = msg.m_scripid();
-	m_scriptype = msg.m_scriptype();
-	m_duplevel = msg.m_duplevel();
-	m_scripmontype = msg.m_scripmontype();
-	m_scripmonid = msg.m_scripmonid();
-	m_groupid = msg.m_groupid();
-	m_subtype = msg.m_subtype();
+	m_ID = msg.m_id();
+	m_scripID = msg.m_scripid();
+	m_scripType = msg.m_scriptype();
+	m_dupLevel = msg.m_duplevel();
+	m_scripMonType = msg.m_scripmontype();
+	m_scripMonID = msg.m_scripmonid();
+	m_groupID = msg.m_groupid();
+	m_subType = msg.m_subtype();
 	m_layer = msg.m_layer();
-	m_recommendpower = msg.m_recommendpower();
-	m_duplicatetype = msg.m_duplicatetype();
-	m_mapid = msg.m_mapid();
-	m_levellimit = msg.m_levellimit();
-	m_functionid = msg.m_functionid();
+	m_recommendPower = msg.m_recommendpower();
+	m_duplicateType = msg.m_duplicatetype();
+	m_mapID = msg.m_mapid();
+	m_levelLimit = msg.m_levellimit();
+	m_functionID = msg.m_functionid();
 	m_pre = msg.m_pre();
-	m_isautofight = msg.m_isautofight();
+	m_isAutoFight = msg.m_isautofight();
 	m_condition = msg.m_condition();
-	m_revivemaxtimes = msg.m_revivemaxtimes();
-	m_teamobjectid = msg.m_teamobjectid();
-	m_gradecondition = msg.m_gradecondition();
-	m_sweeprewardboxid = msg.m_sweeprewardboxid();
-	m_sweeprewardexp = msg.m_sweeprewardexp();
-	m_sweepexptype = msg.m_sweepexptype();
+	m_reviveMaxTimes = msg.m_revivemaxtimes();
+	m_TeamObjectID = msg.m_teamobjectid();
+	m_gradeCondition = msg.m_gradecondition();
+	m_sweepRewardBoxID = msg.m_sweeprewardboxid();
+	m_sweepRewardExp = msg.m_sweeprewardexp();
+	m_sweepExpType = msg.m_sweepexptype();
 	m_trackpoint = msg.m_trackpoint();
-	m_pathofmonster = msg.m_pathofmonster();
-	m_ispatrol = msg.m_ispatrol();
-	m_failurebox = msg.m_failurebox();
+	m_pathOfmonster = msg.m_pathofmonster();
+	m_isPatrol = msg.m_ispatrol();
+	m_failureBox = msg.m_failurebox();
 	m_planes = msg.m_planes();
 	m_box.resize((int)msg.m_box_size() > (int)m_box.max_size() ? m_box.max_size() : msg.m_box_size());
 	for(int32_t i = 0; i < (int32_t)m_box.size(); ++i) {
@@ -160,23 +160,23 @@ int E_DupBplevel_s::ResumeInit() {
 
 void E_DupBplevel_s::write_to_pbmsg(::proto_ff::E_DupBplevel & msg) const {
 	msg.set_m_lv((int32_t)m_lv);
-	for(int32_t i = 0; i < (int32_t)m_bgdup.size(); ++i) {
-		msg.add_m_bgdup((int64_t)m_bgdup[i]);
+	for(int32_t i = 0; i < (int32_t)m_Bgdup.size(); ++i) {
+		msg.add_m_bgdup((int64_t)m_Bgdup[i]);
 	}
-	for(int32_t i = 0; i < (int32_t)m_bgdupsweep.size(); ++i) {
-		msg.add_m_bgdupsweep((int64_t)m_bgdupsweep[i]);
+	for(int32_t i = 0; i < (int32_t)m_BgdupSweep.size(); ++i) {
+		msg.add_m_bgdupsweep((int64_t)m_BgdupSweep[i]);
 	}
 }
 
 void E_DupBplevel_s::read_from_pbmsg(const ::proto_ff::E_DupBplevel & msg) {
 	m_lv = msg.m_lv();
-	m_bgdup.resize((int)msg.m_bgdup_size() > (int)m_bgdup.max_size() ? m_bgdup.max_size() : msg.m_bgdup_size());
-	for(int32_t i = 0; i < (int32_t)m_bgdup.size(); ++i) {
-		m_bgdup[i] = msg.m_bgdup(i);
+	m_Bgdup.resize((int)msg.m_bgdup_size() > (int)m_Bgdup.max_size() ? m_Bgdup.max_size() : msg.m_bgdup_size());
+	for(int32_t i = 0; i < (int32_t)m_Bgdup.size(); ++i) {
+		m_Bgdup[i] = msg.m_bgdup(i);
 	}
-	m_bgdupsweep.resize((int)msg.m_bgdupsweep_size() > (int)m_bgdupsweep.max_size() ? m_bgdupsweep.max_size() : msg.m_bgdupsweep_size());
-	for(int32_t i = 0; i < (int32_t)m_bgdupsweep.size(); ++i) {
-		m_bgdupsweep[i] = msg.m_bgdupsweep(i);
+	m_BgdupSweep.resize((int)msg.m_bgdupsweep_size() > (int)m_BgdupSweep.max_size() ? m_BgdupSweep.max_size() : msg.m_bgdupsweep_size());
+	for(int32_t i = 0; i < (int32_t)m_BgdupSweep.size(); ++i) {
+		m_BgdupSweep[i] = msg.m_bgdupsweep(i);
 	}
 }
 
@@ -249,14 +249,14 @@ E_DupTtowerwave_s::E_DupTtowerwave_s() {
 
 int E_DupTtowerwave_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_scripid = (int32_t)0;
-	m_scriptype = (int32_t)0;
-	m_duplevel = (int32_t)0;
-	m_scripmontype = (int32_t)0;
-	m_recommendpower = (int32_t)0;
+	m_scripID = (int32_t)0;
+	m_scripType = (int32_t)0;
+	m_dupLevel = (int32_t)0;
+	m_scripMonType = (int32_t)0;
+	m_recommendPower = (int32_t)0;
 	m_reward = (int32_t)0;
-	m_firstpass = (int32_t)0;
-	m_bp = (int32_t)0;
+	m_firstPass = (int32_t)0;
+	m_BP = (int32_t)0;
 	return 0;
 }
 
@@ -266,16 +266,16 @@ int E_DupTtowerwave_s::ResumeInit() {
 
 void E_DupTtowerwave_s::write_to_pbmsg(::proto_ff::E_DupTtowerwave & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_scripid((int32_t)m_scripid);
-	msg.set_m_scripgid(m_scripgid.data());
-	msg.set_m_scriptype((int32_t)m_scriptype);
-	msg.set_m_duplevel((int32_t)m_duplevel);
-	msg.set_m_scripmontype((int32_t)m_scripmontype);
-	msg.set_m_scripmonid(m_scripmonid.data());
-	msg.set_m_recommendpower((int32_t)m_recommendpower);
+	msg.set_m_scripid((int32_t)m_scripID);
+	msg.set_m_scripgid(m_scripGid.data());
+	msg.set_m_scriptype((int32_t)m_scripType);
+	msg.set_m_duplevel((int32_t)m_dupLevel);
+	msg.set_m_scripmontype((int32_t)m_scripMonType);
+	msg.set_m_scripmonid(m_scripMonID.data());
+	msg.set_m_recommendpower((int32_t)m_recommendPower);
 	msg.set_m_reward((int32_t)m_reward);
-	msg.set_m_firstpass((int32_t)m_firstpass);
-	msg.set_m_bp((int32_t)m_bp);
+	msg.set_m_firstpass((int32_t)m_firstPass);
+	msg.set_m_bp((int32_t)m_BP);
 	for(int32_t i = 0; i < (int32_t)m_clear.size(); ++i) {
 		::proto_ff::E_DupTtowerwaveClearDesc* temp_m_clear = msg.add_m_clear();
 		m_clear[i].write_to_pbmsg(*temp_m_clear);
@@ -284,16 +284,16 @@ void E_DupTtowerwave_s::write_to_pbmsg(::proto_ff::E_DupTtowerwave & msg) const 
 
 void E_DupTtowerwave_s::read_from_pbmsg(const ::proto_ff::E_DupTtowerwave & msg) {
 	m_id = msg.m_id();
-	m_scripid = msg.m_scripid();
-	m_scripgid = msg.m_scripgid();
-	m_scriptype = msg.m_scriptype();
-	m_duplevel = msg.m_duplevel();
-	m_scripmontype = msg.m_scripmontype();
-	m_scripmonid = msg.m_scripmonid();
-	m_recommendpower = msg.m_recommendpower();
+	m_scripID = msg.m_scripid();
+	m_scripGid = msg.m_scripgid();
+	m_scripType = msg.m_scriptype();
+	m_dupLevel = msg.m_duplevel();
+	m_scripMonType = msg.m_scripmontype();
+	m_scripMonID = msg.m_scripmonid();
+	m_recommendPower = msg.m_recommendpower();
 	m_reward = msg.m_reward();
-	m_firstpass = msg.m_firstpass();
-	m_bp = msg.m_bp();
+	m_firstPass = msg.m_firstpass();
+	m_BP = msg.m_bp();
 	m_clear.resize((int)msg.m_clear_size() > (int)m_clear.max_size() ? m_clear.max_size() : msg.m_clear_size());
 	for(int32_t i = 0; i < (int32_t)m_clear.size(); ++i) {
 		const ::proto_ff::E_DupTtowerwaveClearDesc & temp_m_clear = msg.m_clear(i);
@@ -344,7 +344,7 @@ int E_DupTowerreward_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_type = (int32_t)0;
 	m_cond = (int32_t)0;
-	m_boxid = (int32_t)0;
+	m_boxID = (int32_t)0;
 	return 0;
 }
 
@@ -356,14 +356,14 @@ void E_DupTowerreward_s::write_to_pbmsg(::proto_ff::E_DupTowerreward & msg) cons
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_cond((int32_t)m_cond);
-	msg.set_m_boxid((int32_t)m_boxid);
+	msg.set_m_boxid((int32_t)m_boxID);
 }
 
 void E_DupTowerreward_s::read_from_pbmsg(const ::proto_ff::E_DupTowerreward & msg) {
 	m_id = msg.m_id();
 	m_type = msg.m_type();
 	m_cond = msg.m_cond();
-	m_boxid = msg.m_boxid();
+	m_boxID = msg.m_boxid();
 }
 
 Sheet_DupTowerreward_s::Sheet_DupTowerreward_s() {
@@ -407,25 +407,25 @@ E_DupGroup_s::E_DupGroup_s() {
 
 int E_DupGroup_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_privilegetype = (int32_t)0;
+	m_privilegeType = (int32_t)0;
 	m_dynamiclevel = (int32_t)0;
-	m_grouptimestype = (int32_t)0;
-	m_resetcycle = (int32_t)0;
-	m_grouptimes = (int32_t)0;
-	m_enteritemid = (int32_t)0;
-	m_sweeptype = (int32_t)0;
-	m_sweepcondition = (int32_t)0;
-	m_mergecondition = (int32_t)0;
-	m_additemid = (int32_t)0;
-	m_buytype = (int32_t)0;
-	m_buyitemid = (int32_t)0;
-	m_countdown = (int32_t)0;
-	m_enddown = (int32_t)0;
-	m_accountdown = (int32_t)0;
-	m_funcionid = (int32_t)0;
-	m_closefuncionid = (int32_t)0;
+	m_groupTimesType = (int32_t)0;
+	m_resetCycle = (int32_t)0;
+	m_groupTimes = (int32_t)0;
+	m_enterItemID = (int32_t)0;
+	m_sweepType = (int32_t)0;
+	m_sweepCondition = (int32_t)0;
+	m_mergeCondition = (int32_t)0;
+	m_addItemID = (int32_t)0;
+	m_buyType = (int32_t)0;
+	m_buyItemId = (int32_t)0;
+	m_countDown = (int32_t)0;
+	m_endDown = (int32_t)0;
+	m_accountDown = (int32_t)0;
+	m_funcionID = (int32_t)0;
+	m_closeFuncionID = (int32_t)0;
 	m_link = (int64_t)0;
-	m_festvialtype = (int32_t)0;
+	m_festvialType = (int32_t)0;
 	return 0;
 }
 
@@ -436,51 +436,51 @@ int E_DupGroup_s::ResumeInit() {
 void E_DupGroup_s::write_to_pbmsg(::proto_ff::E_DupGroup & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_name(m_name.data());
-	msg.set_m_privilegetype((int32_t)m_privilegetype);
+	msg.set_m_privilegetype((int32_t)m_privilegeType);
 	msg.set_m_dynamiclevel((int32_t)m_dynamiclevel);
-	msg.set_m_grouptimestype((int32_t)m_grouptimestype);
-	msg.set_m_resetcycle((int32_t)m_resetcycle);
-	msg.set_m_grouptimes((int32_t)m_grouptimes);
-	msg.set_m_enteritemid((int32_t)m_enteritemid);
-	msg.set_m_sweeptype((int32_t)m_sweeptype);
-	msg.set_m_sweepcondition((int32_t)m_sweepcondition);
-	msg.set_m_mergecondition((int32_t)m_mergecondition);
-	msg.set_m_additemid((int32_t)m_additemid);
-	msg.set_m_buytype((int32_t)m_buytype);
-	msg.set_m_buyitemid((int32_t)m_buyitemid);
-	msg.set_m_buycost(m_buycost.data());
-	msg.set_m_countdown((int32_t)m_countdown);
-	msg.set_m_enddown((int32_t)m_enddown);
-	msg.set_m_accountdown((int32_t)m_accountdown);
-	msg.set_m_funcionid((int32_t)m_funcionid);
-	msg.set_m_closefuncionid((int32_t)m_closefuncionid);
+	msg.set_m_grouptimestype((int32_t)m_groupTimesType);
+	msg.set_m_resetcycle((int32_t)m_resetCycle);
+	msg.set_m_grouptimes((int32_t)m_groupTimes);
+	msg.set_m_enteritemid((int32_t)m_enterItemID);
+	msg.set_m_sweeptype((int32_t)m_sweepType);
+	msg.set_m_sweepcondition((int32_t)m_sweepCondition);
+	msg.set_m_mergecondition((int32_t)m_mergeCondition);
+	msg.set_m_additemid((int32_t)m_addItemID);
+	msg.set_m_buytype((int32_t)m_buyType);
+	msg.set_m_buyitemid((int32_t)m_buyItemId);
+	msg.set_m_buycost(m_buyCost.data());
+	msg.set_m_countdown((int32_t)m_countDown);
+	msg.set_m_enddown((int32_t)m_endDown);
+	msg.set_m_accountdown((int32_t)m_accountDown);
+	msg.set_m_funcionid((int32_t)m_funcionID);
+	msg.set_m_closefuncionid((int32_t)m_closeFuncionID);
 	msg.set_m_link((int64_t)m_link);
-	msg.set_m_festvialtype((int32_t)m_festvialtype);
+	msg.set_m_festvialtype((int32_t)m_festvialType);
 }
 
 void E_DupGroup_s::read_from_pbmsg(const ::proto_ff::E_DupGroup & msg) {
 	m_id = msg.m_id();
 	m_name = msg.m_name();
-	m_privilegetype = msg.m_privilegetype();
+	m_privilegeType = msg.m_privilegetype();
 	m_dynamiclevel = msg.m_dynamiclevel();
-	m_grouptimestype = msg.m_grouptimestype();
-	m_resetcycle = msg.m_resetcycle();
-	m_grouptimes = msg.m_grouptimes();
-	m_enteritemid = msg.m_enteritemid();
-	m_sweeptype = msg.m_sweeptype();
-	m_sweepcondition = msg.m_sweepcondition();
-	m_mergecondition = msg.m_mergecondition();
-	m_additemid = msg.m_additemid();
-	m_buytype = msg.m_buytype();
-	m_buyitemid = msg.m_buyitemid();
-	m_buycost = msg.m_buycost();
-	m_countdown = msg.m_countdown();
-	m_enddown = msg.m_enddown();
-	m_accountdown = msg.m_accountdown();
-	m_funcionid = msg.m_funcionid();
-	m_closefuncionid = msg.m_closefuncionid();
+	m_groupTimesType = msg.m_grouptimestype();
+	m_resetCycle = msg.m_resetcycle();
+	m_groupTimes = msg.m_grouptimes();
+	m_enterItemID = msg.m_enteritemid();
+	m_sweepType = msg.m_sweeptype();
+	m_sweepCondition = msg.m_sweepcondition();
+	m_mergeCondition = msg.m_mergecondition();
+	m_addItemID = msg.m_additemid();
+	m_buyType = msg.m_buytype();
+	m_buyItemId = msg.m_buyitemid();
+	m_buyCost = msg.m_buycost();
+	m_countDown = msg.m_countdown();
+	m_endDown = msg.m_enddown();
+	m_accountDown = msg.m_accountdown();
+	m_funcionID = msg.m_funcionid();
+	m_closeFuncionID = msg.m_closefuncionid();
 	m_link = msg.m_link();
-	m_festvialtype = msg.m_festvialtype();
+	m_festvialType = msg.m_festvialtype();
 }
 
 Sheet_DupGroup_s::Sheet_DupGroup_s() {
@@ -523,11 +523,11 @@ E_DupSweepmonsternum_s::E_DupSweepmonsternum_s() {
 }
 
 int E_DupSweepmonsternum_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_sweepexptype = (int32_t)0;
-	m_minlevel = (int32_t)0;
-	m_maxlevel = (int32_t)0;
-	m_killnumber = (int32_t)0;
+	m_ID = (int32_t)0;
+	m_sweepExpType = (int32_t)0;
+	m_minLevel = (int32_t)0;
+	m_maxLevel = (int32_t)0;
+	m_killNumber = (int32_t)0;
 	m_monstervaluetype = (int32_t)0;
 	return 0;
 }
@@ -537,20 +537,20 @@ int E_DupSweepmonsternum_s::ResumeInit() {
 }
 
 void E_DupSweepmonsternum_s::write_to_pbmsg(::proto_ff::E_DupSweepmonsternum & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_sweepexptype((int32_t)m_sweepexptype);
-	msg.set_m_minlevel((int32_t)m_minlevel);
-	msg.set_m_maxlevel((int32_t)m_maxlevel);
-	msg.set_m_killnumber((int32_t)m_killnumber);
+	msg.set_m_id((int32_t)m_ID);
+	msg.set_m_sweepexptype((int32_t)m_sweepExpType);
+	msg.set_m_minlevel((int32_t)m_minLevel);
+	msg.set_m_maxlevel((int32_t)m_maxLevel);
+	msg.set_m_killnumber((int32_t)m_killNumber);
 	msg.set_m_monstervaluetype((int32_t)m_monstervaluetype);
 }
 
 void E_DupSweepmonsternum_s::read_from_pbmsg(const ::proto_ff::E_DupSweepmonsternum & msg) {
-	m_id = msg.m_id();
-	m_sweepexptype = msg.m_sweepexptype();
-	m_minlevel = msg.m_minlevel();
-	m_maxlevel = msg.m_maxlevel();
-	m_killnumber = msg.m_killnumber();
+	m_ID = msg.m_id();
+	m_sweepExpType = msg.m_sweepexptype();
+	m_minLevel = msg.m_minlevel();
+	m_maxLevel = msg.m_maxlevel();
+	m_killNumber = msg.m_killnumber();
 	m_monstervaluetype = msg.m_monstervaluetype();
 }
 
@@ -595,10 +595,10 @@ E_DupWorldlvreward_s::E_DupWorldlvreward_s() {
 
 int E_DupWorldlvreward_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_groupid = (int32_t)0;
+	m_groupID = (int32_t)0;
 	m_lvtype = (int32_t)0;
-	m_lvmin = (int32_t)0;
-	m_failurebox = (int32_t)0;
+	m_lvMin = (int32_t)0;
+	m_failureBox = (int32_t)0;
 	return 0;
 }
 
@@ -608,10 +608,10 @@ int E_DupWorldlvreward_s::ResumeInit() {
 
 void E_DupWorldlvreward_s::write_to_pbmsg(::proto_ff::E_DupWorldlvreward & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_groupid((int32_t)m_groupid);
+	msg.set_m_groupid((int32_t)m_groupID);
 	msg.set_m_lvtype((int32_t)m_lvtype);
-	msg.set_m_lvmin((int32_t)m_lvmin);
-	msg.set_m_failurebox((int32_t)m_failurebox);
+	msg.set_m_lvmin((int32_t)m_lvMin);
+	msg.set_m_failurebox((int32_t)m_failureBox);
 	for(int32_t i = 0; i < (int32_t)m_box.size(); ++i) {
 		msg.add_m_box((int32_t)m_box[i]);
 	}
@@ -619,10 +619,10 @@ void E_DupWorldlvreward_s::write_to_pbmsg(::proto_ff::E_DupWorldlvreward & msg) 
 
 void E_DupWorldlvreward_s::read_from_pbmsg(const ::proto_ff::E_DupWorldlvreward & msg) {
 	m_id = msg.m_id();
-	m_groupid = msg.m_groupid();
+	m_groupID = msg.m_groupid();
 	m_lvtype = msg.m_lvtype();
-	m_lvmin = msg.m_lvmin();
-	m_failurebox = msg.m_failurebox();
+	m_lvMin = msg.m_lvmin();
+	m_failureBox = msg.m_failurebox();
 	m_box.resize((int)msg.m_box_size() > (int)m_box.max_size() ? m_box.max_size() : msg.m_box_size());
 	for(int32_t i = 0; i < (int32_t)m_box.size(); ++i) {
 		m_box[i] = msg.m_box(i);
@@ -670,8 +670,8 @@ E_DupPlanes_s::E_DupPlanes_s() {
 
 int E_DupPlanes_s::CreateInit() {
 	m_id = (int64_t)0;
-	m_planestype = (int32_t)0;
-	m_areaid = (int32_t)0;
+	m_planesType = (int32_t)0;
+	m_areaId = (int32_t)0;
 	return 0;
 }
 
@@ -681,16 +681,16 @@ int E_DupPlanes_s::ResumeInit() {
 
 void E_DupPlanes_s::write_to_pbmsg(::proto_ff::E_DupPlanes & msg) const {
 	msg.set_m_id((int64_t)m_id);
-	msg.set_m_planestype((int32_t)m_planestype);
-	msg.set_m_typeargs(m_typeargs.data());
-	msg.set_m_areaid((int32_t)m_areaid);
+	msg.set_m_planestype((int32_t)m_planesType);
+	msg.set_m_typeargs(m_typeArgs.data());
+	msg.set_m_areaid((int32_t)m_areaId);
 }
 
 void E_DupPlanes_s::read_from_pbmsg(const ::proto_ff::E_DupPlanes & msg) {
 	m_id = msg.m_id();
-	m_planestype = msg.m_planestype();
-	m_typeargs = msg.m_typeargs();
-	m_areaid = msg.m_areaid();
+	m_planesType = msg.m_planestype();
+	m_typeArgs = msg.m_typeargs();
+	m_areaId = msg.m_areaid();
 }
 
 Sheet_DupPlanes_s::Sheet_DupPlanes_s() {
@@ -764,12 +764,12 @@ int E_DupYt_dup_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_layer = (int32_t)0;
 	m_stage = (int32_t)0;
-	m_recommendlv = (int32_t)0;
-	m_recommendyk = (int32_t)0;
+	m_recommendLv = (int32_t)0;
+	m_recommendYK = (int32_t)0;
 	m_reward = (int32_t)0;
-	m_firstpass = (int32_t)0;
-	m_overlordbox = (int32_t)0;
-	m_overlordtime = (int32_t)0;
+	m_firstPass = (int32_t)0;
+	m_overlordBox = (int32_t)0;
+	m_overlordTime = (int32_t)0;
 	return 0;
 }
 
@@ -781,12 +781,12 @@ void E_DupYt_dup_s::write_to_pbmsg(::proto_ff::E_DupYt_dup & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_layer((int32_t)m_layer);
 	msg.set_m_stage((int32_t)m_stage);
-	msg.set_m_recommendlv((int32_t)m_recommendlv);
-	msg.set_m_recommendyk((int32_t)m_recommendyk);
+	msg.set_m_recommendlv((int32_t)m_recommendLv);
+	msg.set_m_recommendyk((int32_t)m_recommendYK);
 	msg.set_m_reward((int32_t)m_reward);
-	msg.set_m_firstpass((int32_t)m_firstpass);
-	msg.set_m_overlordbox((int32_t)m_overlordbox);
-	msg.set_m_overlordtime((int32_t)m_overlordtime);
+	msg.set_m_firstpass((int32_t)m_firstPass);
+	msg.set_m_overlordbox((int32_t)m_overlordBox);
+	msg.set_m_overlordtime((int32_t)m_overlordTime);
 	for(int32_t i = 0; i < (int32_t)m_clear.size(); ++i) {
 		::proto_ff::E_DupYt_dupClearDesc* temp_m_clear = msg.add_m_clear();
 		m_clear[i].write_to_pbmsg(*temp_m_clear);
@@ -797,12 +797,12 @@ void E_DupYt_dup_s::read_from_pbmsg(const ::proto_ff::E_DupYt_dup & msg) {
 	m_id = msg.m_id();
 	m_layer = msg.m_layer();
 	m_stage = msg.m_stage();
-	m_recommendlv = msg.m_recommendlv();
-	m_recommendyk = msg.m_recommendyk();
+	m_recommendLv = msg.m_recommendlv();
+	m_recommendYK = msg.m_recommendyk();
 	m_reward = msg.m_reward();
-	m_firstpass = msg.m_firstpass();
-	m_overlordbox = msg.m_overlordbox();
-	m_overlordtime = msg.m_overlordtime();
+	m_firstPass = msg.m_firstpass();
+	m_overlordBox = msg.m_overlordbox();
+	m_overlordTime = msg.m_overlordtime();
 	m_clear.resize((int)msg.m_clear_size() > (int)m_clear.max_size() ? m_clear.max_size() : msg.m_clear_size());
 	for(int32_t i = 0; i < (int32_t)m_clear.size(); ++i) {
 		const ::proto_ff::E_DupYt_dupClearDesc & temp_m_clear = msg.m_clear(i);

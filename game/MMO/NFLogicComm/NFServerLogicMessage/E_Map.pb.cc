@@ -357,56 +357,56 @@ void protobuf_AddDesc_E_5fMap_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\013E_Map.proto\022\010proto_ff\032\025yd_fieldoptions"
-    ".proto\"\240\016\n\010E_MapMap\022\035\n\007m_mapid\030\001 \001(\003B\014\302\377"
-    "\024\010\345\234\260\345\233\276id\022,\n\014m_levellimit\030\002 \001(\005B\026\302\377\024\022\345\234"
-    "\260\345\233\276\347\255\211\347\272\247\351\231\220\345\210\266\0221\n\nm_advicelv\030\003 \001(\tB\035\302\377"
-    "\024\025\345\234\260\345\233\276\346\216\250\350\215\220\347\255\211\347\272\247\346\256\265\220\301\024@\022\'\n\007m_isdyn\030\004"
-    " \001(\005B\026\302\377\024\022\346\230\257\345\220\246\345\212\250\346\200\201\345\234\260\345\233\276\022#\n\tm_maptyp"
-    "e\030\005 \001(\005B\020\302\377\024\014\345\234\260\345\233\276\347\261\273\345\236\213\022)\n\014m_mapsubtyp"
+    ".proto\"\240\016\n\010E_MapMap\022\035\n\007m_mapId\030\001 \001(\003B\014\302\377"
+    "\024\010\345\234\260\345\233\276id\022,\n\014m_levelLimit\030\002 \001(\005B\026\302\377\024\022\345\234"
+    "\260\345\233\276\347\255\211\347\272\247\351\231\220\345\210\266\0221\n\nm_adviceLv\030\003 \001(\tB\035\302\377"
+    "\024\025\345\234\260\345\233\276\346\216\250\350\215\220\347\255\211\347\272\247\346\256\265\220\301\024@\022\'\n\007m_isDyn\030\004"
+    " \001(\005B\026\302\377\024\022\346\230\257\345\220\246\345\212\250\346\200\201\345\234\260\345\233\276\022#\n\tm_mapTyp"
+    "e\030\005 \001(\005B\020\302\377\024\014\345\234\260\345\233\276\347\261\273\345\236\213\022)\n\014m_mapSubTyp"
     "e\030\006 \001(\005B\023\302\377\024\017\345\234\260\345\233\276\345\255\220\347\261\273\345\236\213\0228\n\017m_cleara"
-    "ncetime\030\007 \001(\005B\037\302\377\024\033\345\234\260\345\233\276\346\270\205\345\234\272\346\227\266\351\227\264\357\274\210"
-    "\347\247\222\357\274\211\022\'\n\013m_mappkmode\030\010 \001(\005B\022\302\377\024\016\345\234\260\345\233\276p"
-    "k\346\250\241\345\274\217\0225\n\014m_mappkvalue\030\t \001(\tB\037\302\377\024\027\345\234\260\345\233"
+    "nceTime\030\007 \001(\005B\037\302\377\024\033\345\234\260\345\233\276\346\270\205\345\234\272\346\227\266\351\227\264\357\274\210"
+    "\347\247\222\357\274\211\022\'\n\013m_mapPkmode\030\010 \001(\005B\022\302\377\024\016\345\234\260\345\233\276p"
+    "k\346\250\241\345\274\217\0225\n\014m_mapPkValue\030\t \001(\tB\037\302\377\024\027\345\234\260\345\233"
     "\276\345\217\257\347\224\250\347\232\204PK\346\250\241\345\274\217\220\301\024@\0226\n\010m_pklock\030\n \001(\005"
     "B$\302\377\024 \345\234\260\345\233\276\346\230\257\345\220\246\345\205\201\350\256\270\345\210\207\346\215\242PK\346\250\241\345\274\217\022&"
     "\n\004m_pk\030\013 \001(\005B\030\302\377\024\024\345\234\260\345\233\276\346\230\257\345\220\246\345\205\201\350\256\270pk\022a"
-    "\n\013m_killvalue\030\014 \001(\005BL\302\377\024H\345\234\260\345\233\276\346\235\200\344\272\272\346\230\257"
+    "\n\013m_killValue\030\014 \001(\005BL\302\377\024H\345\234\260\345\233\276\346\235\200\344\272\272\346\230\257"
     "\345\220\246\345\242\236\345\212\240\346\235\200\346\210\256\345\200\274\344\270\224\345\234\260\345\233\276\346\255\273\344\272\241\345\220\216\346\230\257\345"
-    "\220\246\346\270\205\351\231\244\346\235\200\346\210\256\345\200\274\0220\n\nm_bangroup\030\r \001(\005B\034\302"
-    "\377\024\030\347\246\201\346\255\242\347\273\204\351\230\237\350\277\233\345\205\245\351\202\200\350\257\267\0222\n\014m_revivet"
+    "\220\246\346\270\205\351\231\244\346\235\200\346\210\256\345\200\274\0220\n\nm_BanGroup\030\r \001(\005B\034\302"
+    "\377\024\030\347\246\201\346\255\242\347\273\204\351\230\237\350\277\233\345\205\245\351\202\200\350\257\267\0222\n\014m_reviveT"
     "ime\030\016 \001(\005B\034\302\377\024\030\345\234\272\346\231\257\345\244\215\346\264\273\345\200\222\350\256\241\346\227\266\351\225\277\022"
-    "#\n\tm_mapwide\030\017 \001(\005B\020\302\377\024\014\345\234\260\345\233\276\345\256\275\345\272\246\022%\n\013"
-    "m_mapheight\030\020 \001(\005B\020\302\377\024\014\345\234\260\345\233\276\351\253\230\345\272\246\022/\n\016m"
-    "_mapresources\030\021 \001(\tB\027\302\377\024\017\345\234\260\345\233\276\350\265\204\346\272\220\345\220\215"
-    "\220\301\024@\022\'\n\rm_reviveskill\030\022 \001(\003B\020\302\377\024\014\345\244\215\346\264\273\346"
-    "\227\240\346\225\214\0223\n\023m_reviveinplacetype\030\023 \001(\005B\026\302\377\024\022"
-    "\345\216\237\345\234\260\345\244\215\346\264\273\347\261\273\345\236\213\022-\n\nm_ishangup\030\024 \001(\005B\031"
-    "\302\377\024\025\346\230\257\345\220\246\350\203\275\350\207\252\345\212\250\346\214\202\346\234\272\022.\n\016m_itemdropt"
+    "#\n\tm_mapWide\030\017 \001(\005B\020\302\377\024\014\345\234\260\345\233\276\345\256\275\345\272\246\022%\n\013"
+    "m_mapHeight\030\020 \001(\005B\020\302\377\024\014\345\234\260\345\233\276\351\253\230\345\272\246\022/\n\016m"
+    "_mapResources\030\021 \001(\tB\027\302\377\024\017\345\234\260\345\233\276\350\265\204\346\272\220\345\220\215"
+    "\220\301\024@\022\'\n\rm_reviveSkill\030\022 \001(\003B\020\302\377\024\014\345\244\215\346\264\273\346"
+    "\227\240\346\225\214\0223\n\023m_reviveInPlaceType\030\023 \001(\005B\026\302\377\024\022"
+    "\345\216\237\345\234\260\345\244\215\346\264\273\347\261\273\345\236\213\022-\n\nm_isHangUp\030\024 \001(\005B\031"
+    "\302\377\024\025\346\230\257\345\220\246\350\203\275\350\207\252\345\212\250\346\214\202\346\234\272\022.\n\016m_itemDropT"
     "ype\030\025 \001(\005B\026\302\377\024\022\346\255\273\344\272\241\346\216\211\350\220\275\347\261\273\345\236\213\022/\n\014m_i"
-    "temdropid\030\026 \001(\tB\031\302\377\024\021\350\247\246\345\217\221\346\216\211\350\220\275\347\273\204ID\220\301"
-    "\024@\0220\n\rm_linkoffline\030\027 \001(\003B\031\302\377\024\025\344\270\213\347\272\277\345\220\216"
-    "\345\233\236\345\210\260\345\234\260\345\233\276\0221\n\013m_banonhook\030\030 \001(\005B\034\302\377\024\030\346"
-    "\230\257\345\220\246\347\246\201\346\255\242\345\216\237\345\234\260\346\214\202\346\234\272\022.\n\010m_rewait\030\031 \001("
-    "\005B\034\302\377\024\030\346\231\256\351\200\232\345\244\215\346\264\273\347\255\211\345\276\205\346\227\266\351\227\264\0221\n\010m_ret"
+    "temDropID\030\026 \001(\tB\031\302\377\024\021\350\247\246\345\217\221\346\216\211\350\220\275\347\273\204ID\220\301"
+    "\024@\0220\n\rm_linkOffLine\030\027 \001(\003B\031\302\377\024\025\344\270\213\347\272\277\345\220\216"
+    "\345\233\236\345\210\260\345\234\260\345\233\276\0221\n\013m_banOnHook\030\030 \001(\005B\034\302\377\024\030\346"
+    "\230\257\345\220\246\347\246\201\346\255\242\345\216\237\345\234\260\346\214\202\346\234\272\022.\n\010m_Rewait\030\031 \001("
+    "\005B\034\302\377\024\030\346\231\256\351\200\232\345\244\215\346\264\273\347\255\211\345\276\205\346\227\266\351\227\264\0221\n\010m_REt"
     "ime\030\032 \001(\005B\037\302\377\024\033\350\207\252\345\212\250\346\231\256\351\200\232\345\244\215\346\264\273\345\200\222\350\256\241\346"
-    "\227\266\022(\n\010m_hreban\030\033 \001(\005B\026\302\377\024\022\347\246\201\346\255\242\345\216\237\345\234\260\345\244"
-    "\215\346\264\273\022*\n\nm_retiered\030\034 \001(\005B\026\302\377\024\022\346\230\257\345\220\246\347\226\262\345"
-    "\212\263\345\244\215\346\264\273\0221\n\013m_reskillid\030\035 \001(\005B\034\302\377\024\030\345\244\215\346\264"
-    "\273\345\220\216\350\216\267\345\276\227\347\232\204\346\212\200\350\203\275\022*\n\nm_reteimes\030\036 \001(\005B"
-    "\026\302\377\024\022\345\244\215\346\264\273\346\254\241\346\225\260\351\231\220\345\210\266\022#\n\014m_drivepoint\030"
-    "\037 \001(\005B\r\302\377\024\t\351\251\261\350\265\266\345\200\274\022*\n\007m_diedp\030  \001(\005B\031\302"
-    "\377\024\025\346\255\273\344\272\241\345\242\236\345\212\240\351\251\261\350\265\266\345\200\274\022.\n\010m_timedp\030! \001"
+    "\227\266\022(\n\010m_HREBan\030\033 \001(\005B\026\302\377\024\022\347\246\201\346\255\242\345\216\237\345\234\260\345\244"
+    "\215\346\264\273\022*\n\nm_Retiered\030\034 \001(\005B\026\302\377\024\022\346\230\257\345\220\246\347\226\262\345"
+    "\212\263\345\244\215\346\264\273\0221\n\013m_REskillid\030\035 \001(\005B\034\302\377\024\030\345\244\215\346\264"
+    "\273\345\220\216\350\216\267\345\276\227\347\232\204\346\212\200\350\203\275\022*\n\nm_Reteimes\030\036 \001(\005B"
+    "\026\302\377\024\022\345\244\215\346\264\273\346\254\241\346\225\260\351\231\220\345\210\266\022#\n\014m_drivePoint\030"
+    "\037 \001(\005B\r\302\377\024\t\351\251\261\350\265\266\345\200\274\022*\n\007m_dieDP\030  \001(\005B\031\302"
+    "\377\024\025\346\255\273\344\272\241\345\242\236\345\212\240\351\251\261\350\265\266\345\200\274\022.\n\010m_timeDP\030! \001"
     "(\005B\034\302\377\024\030\346\257\217\345\210\206\351\222\237\345\242\236\345\212\240\351\251\261\350\265\266\345\200\274\022,\n\014m_me"
     "ditation\030\" \001(\005B\026\302\377\024\022\346\230\257\345\220\246\345\205\201\350\256\270\346\211\223\345\235\220\022)"
-    "\n\013m_mapbutton\030# \001(\tB\024\302\377\024\014\345\234\260\345\233\276\346\214\211\351\222\256\220\301\024"
-    "@\022$\n\nm_banmount\030$ \001(\005B\020\302\377\024\014\347\246\201\347\224\250\345\235\220\351\252\221\022"
-    "!\n\tm_banlink\030% \001(\005B\016\302\377\024\n\347\246\201\347\224\250link\022$\n\nm_"
-    "lvsuppvp\030& \001(\005B\020\302\377\024\014\347\255\211\347\272\247\345\216\213\345\210\266\022\'\n\rm_po"
-    "wersuppvp\030\' \001(\005B\020\302\377\024\014\346\210\230\345\212\233\345\216\213\345\210\266\"@\n\014She"
+    "\n\013m_mapButton\030# \001(\tB\024\302\377\024\014\345\234\260\345\233\276\346\214\211\351\222\256\220\301\024"
+    "@\022$\n\nm_banMount\030$ \001(\005B\020\302\377\024\014\347\246\201\347\224\250\345\235\220\351\252\221\022"
+    "!\n\tm_banLink\030% \001(\005B\016\302\377\024\n\347\246\201\347\224\250link\022$\n\nm_"
+    "lvSupPvp\030& \001(\005B\020\302\377\024\014\347\255\211\347\272\247\345\216\213\345\210\266\022\'\n\rm_po"
+    "werSupPvp\030\' \001(\005B\020\302\377\024\014\346\210\230\345\212\233\345\216\213\345\210\266\"@\n\014She"
     "et_MapMap\0220\n\rE_MapMap_List\030\001 \003(\0132\022.proto"
     "_ff.E_MapMapB\005\210\301\024\200\001\"\361\002\n\rE_MapItemdrop\022\"\n"
-    "\014m_itemdropid\030\001 \001(\005B\014\302\377\024\010\346\216\211\350\220\275ID\022$\n\nm_d"
-    "roptype\030\002 \001(\005B\020\302\377\024\014\346\216\211\350\220\275\347\261\273\345\236\213\022 \n\006m_odd"
+    "\014m_itemDropID\030\001 \001(\005B\014\302\377\024\010\346\216\211\350\220\275ID\022$\n\nm_d"
+    "ropType\030\002 \001(\005B\020\302\377\024\014\346\216\211\350\220\275\347\261\273\345\236\213\022 \n\006m_odd"
     "s\030\003 \001(\005B\020\302\377\024\014\350\247\246\345\217\221\345\207\240\347\216\207\022\'\n\014m_dropvalue"
     "a\030\004 \001(\005B\021\302\377\024\r\346\216\211\350\220\275\345\217\202\346\225\260a\022\'\n\014m_dropvalu"
     "eb\030\005 \001(\005B\021\302\377\024\r\346\216\211\350\220\275\345\217\202\346\225\260b\022\'\n\014m_dropval"
@@ -416,7 +416,7 @@ void protobuf_AddDesc_E_5fMap_2eproto() {
     "valuef\030\t \001(\005B\021\302\377\024\r\346\216\211\350\220\275\345\217\202\346\225\260f\"N\n\021Sheet"
     "_MapItemdrop\0229\n\022E_MapItemdrop_List\030\001 \003(\013"
     "2\027.proto_ff.E_MapItemdropB\004\210\301\024 \"E\n\020E_Map"
-    "Destroyitem\0221\n\017m_destroyitemid\030\001 \001(\003B\030\302\377"
+    "Destroyitem\0221\n\017m_destroyitemID\030\001 \001(\003B\030\302\377"
     "\024\024\350\247\246\345\217\221\346\221\247\346\257\201\351\201\223\345\205\267ID\"X\n\024Sheet_MapDestr"
     "oyitem\022@\n\025E_MapDestroyitem_List\030\001 \003(\0132\032."
     "proto_ff.E_MapDestroyitemB\005\210\301\024\200\002\"}\n\013E_Ma"
@@ -425,12 +425,12 @@ void protobuf_AddDesc_E_5fMap_2eproto() {
     "\n\302\377\024\006\345\217\202\346\225\260\022\032\n\006m_arg2\030\004 \001(\005B\n\302\377\024\006\345\217\202\346\225\260\""
     "H\n\017Sheet_MapButton\0225\n\020E_MapButton_List\030\001"
     " \003(\0132\025.proto_ff.E_MapButtonB\004\210\301\024 \"I\n\026E_M"
-    "apInspireRewardDesc\022\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006"
-    "\346\225\260\351\207\217\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002id\"\245\002\n\014E_MapIn"
+    "apInspireRewardDesc\022\031\n\005m_Num\030\001 \001(\005B\n\302\377\024\006"
+    "\346\225\260\351\207\217\022\024\n\004m_Id\030\002 \001(\005B\006\302\377\024\002id\"\245\002\n\014E_MapIn"
     "spire\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\030\n\007m_group\030\002"
     " \001(\005B\007\302\377\024\003\347\273\204\022\036\n\006m_name\030\003 \001(\tB\016\302\377\024\006\345\220\215\347\247"
-    "\260\220\301\024@\022\036\n\010m_costid\030\004 \001(\005B\014\302\377\024\010\350\212\261\350\264\271id\022#\n"
-    "\tm_costnum\030\005 \001(\005B\020\302\377\024\014\350\212\261\350\264\271\346\225\260\351\207\217\022\037\n\tm_"
+    "\260\220\301\024@\022\036\n\010m_costId\030\004 \001(\005B\014\302\377\024\010\350\212\261\350\264\271id\022#\n"
+    "\tm_costNum\030\005 \001(\005B\020\302\377\024\014\350\212\261\350\264\271\346\225\260\351\207\217\022\037\n\tm_"
     "skillid\030\006 \001(\005B\014\302\377\024\010\346\212\200\350\203\275id\022\033\n\007m_times\030\007"
     " \001(\005B\n\302\377\024\006\346\254\241\346\225\260\022B\n\010m_reward\030\010 \003(\0132 .pro"
     "to_ff.E_MapInspireRewardDescB\016\302\377\024\006\345\245\226\345\212\261"
@@ -474,45 +474,45 @@ struct StaticDescriptorInitializer_E_5fMap_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_MapMap::kMMapidFieldNumber;
-const int E_MapMap::kMLevellimitFieldNumber;
-const int E_MapMap::kMAdvicelvFieldNumber;
-const int E_MapMap::kMIsdynFieldNumber;
-const int E_MapMap::kMMaptypeFieldNumber;
-const int E_MapMap::kMMapsubtypeFieldNumber;
-const int E_MapMap::kMClearancetimeFieldNumber;
-const int E_MapMap::kMMappkmodeFieldNumber;
-const int E_MapMap::kMMappkvalueFieldNumber;
+const int E_MapMap::kMMapIdFieldNumber;
+const int E_MapMap::kMLevelLimitFieldNumber;
+const int E_MapMap::kMAdviceLvFieldNumber;
+const int E_MapMap::kMIsDynFieldNumber;
+const int E_MapMap::kMMapTypeFieldNumber;
+const int E_MapMap::kMMapSubTypeFieldNumber;
+const int E_MapMap::kMClearanceTimeFieldNumber;
+const int E_MapMap::kMMapPkmodeFieldNumber;
+const int E_MapMap::kMMapPkValueFieldNumber;
 const int E_MapMap::kMPklockFieldNumber;
 const int E_MapMap::kMPkFieldNumber;
-const int E_MapMap::kMKillvalueFieldNumber;
-const int E_MapMap::kMBangroupFieldNumber;
-const int E_MapMap::kMRevivetimeFieldNumber;
-const int E_MapMap::kMMapwideFieldNumber;
-const int E_MapMap::kMMapheightFieldNumber;
-const int E_MapMap::kMMapresourcesFieldNumber;
-const int E_MapMap::kMReviveskillFieldNumber;
-const int E_MapMap::kMReviveinplacetypeFieldNumber;
-const int E_MapMap::kMIshangupFieldNumber;
-const int E_MapMap::kMItemdroptypeFieldNumber;
-const int E_MapMap::kMItemdropidFieldNumber;
-const int E_MapMap::kMLinkofflineFieldNumber;
-const int E_MapMap::kMBanonhookFieldNumber;
+const int E_MapMap::kMKillValueFieldNumber;
+const int E_MapMap::kMBanGroupFieldNumber;
+const int E_MapMap::kMReviveTimeFieldNumber;
+const int E_MapMap::kMMapWideFieldNumber;
+const int E_MapMap::kMMapHeightFieldNumber;
+const int E_MapMap::kMMapResourcesFieldNumber;
+const int E_MapMap::kMReviveSkillFieldNumber;
+const int E_MapMap::kMReviveInPlaceTypeFieldNumber;
+const int E_MapMap::kMIsHangUpFieldNumber;
+const int E_MapMap::kMItemDropTypeFieldNumber;
+const int E_MapMap::kMItemDropIDFieldNumber;
+const int E_MapMap::kMLinkOffLineFieldNumber;
+const int E_MapMap::kMBanOnHookFieldNumber;
 const int E_MapMap::kMRewaitFieldNumber;
-const int E_MapMap::kMRetimeFieldNumber;
-const int E_MapMap::kMHrebanFieldNumber;
+const int E_MapMap::kMREtimeFieldNumber;
+const int E_MapMap::kMHREBanFieldNumber;
 const int E_MapMap::kMRetieredFieldNumber;
-const int E_MapMap::kMReskillidFieldNumber;
+const int E_MapMap::kMREskillidFieldNumber;
 const int E_MapMap::kMReteimesFieldNumber;
-const int E_MapMap::kMDrivepointFieldNumber;
-const int E_MapMap::kMDiedpFieldNumber;
-const int E_MapMap::kMTimedpFieldNumber;
+const int E_MapMap::kMDrivePointFieldNumber;
+const int E_MapMap::kMDieDPFieldNumber;
+const int E_MapMap::kMTimeDPFieldNumber;
 const int E_MapMap::kMMeditationFieldNumber;
-const int E_MapMap::kMMapbuttonFieldNumber;
-const int E_MapMap::kMBanmountFieldNumber;
-const int E_MapMap::kMBanlinkFieldNumber;
-const int E_MapMap::kMLvsuppvpFieldNumber;
-const int E_MapMap::kMPowersuppvpFieldNumber;
+const int E_MapMap::kMMapButtonFieldNumber;
+const int E_MapMap::kMBanMountFieldNumber;
+const int E_MapMap::kMBanLinkFieldNumber;
+const int E_MapMap::kMLvSupPvpFieldNumber;
+const int E_MapMap::kMPowerSupPvpFieldNumber;
 #endif  // !_MSC_VER
 
 E_MapMap::E_MapMap()
@@ -698,7 +698,7 @@ bool E_MapMap::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 m_mapid = 1;
+      // optional int64 m_mapId = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -709,15 +709,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_levellimit;
+        if (input->ExpectTag(16)) goto parse_m_levelLimit;
         break;
       }
 
-      // optional int32 m_levellimit = 2;
+      // optional int32 m_levelLimit = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_levellimit:
+         parse_m_levelLimit:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_levellimit_)));
@@ -725,15 +725,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_m_advicelv;
+        if (input->ExpectTag(26)) goto parse_m_adviceLv;
         break;
       }
 
-      // optional string m_advicelv = 3;
+      // optional string m_adviceLv = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_advicelv:
+         parse_m_adviceLv:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_advicelv()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -742,15 +742,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_isdyn;
+        if (input->ExpectTag(32)) goto parse_m_isDyn;
         break;
       }
 
-      // optional int32 m_isdyn = 4;
+      // optional int32 m_isDyn = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_isdyn:
+         parse_m_isDyn:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_isdyn_)));
@@ -758,15 +758,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_maptype;
+        if (input->ExpectTag(40)) goto parse_m_mapType;
         break;
       }
 
-      // optional int32 m_maptype = 5;
+      // optional int32 m_mapType = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_maptype:
+         parse_m_mapType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_maptype_)));
@@ -774,15 +774,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_mapsubtype;
+        if (input->ExpectTag(48)) goto parse_m_mapSubType;
         break;
       }
 
-      // optional int32 m_mapsubtype = 6;
+      // optional int32 m_mapSubType = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_mapsubtype:
+         parse_m_mapSubType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_mapsubtype_)));
@@ -790,15 +790,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_clearancetime;
+        if (input->ExpectTag(56)) goto parse_m_clearanceTime;
         break;
       }
 
-      // optional int32 m_clearancetime = 7;
+      // optional int32 m_clearanceTime = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_clearancetime:
+         parse_m_clearanceTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_clearancetime_)));
@@ -806,15 +806,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_mappkmode;
+        if (input->ExpectTag(64)) goto parse_m_mapPkmode;
         break;
       }
 
-      // optional int32 m_mappkmode = 8;
+      // optional int32 m_mapPkmode = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_mappkmode:
+         parse_m_mapPkmode:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_mappkmode_)));
@@ -822,15 +822,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(74)) goto parse_m_mappkvalue;
+        if (input->ExpectTag(74)) goto parse_m_mapPkValue;
         break;
       }
 
-      // optional string m_mappkvalue = 9;
+      // optional string m_mapPkValue = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_mappkvalue:
+         parse_m_mapPkValue:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_mappkvalue()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -871,15 +871,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_killvalue;
+        if (input->ExpectTag(96)) goto parse_m_killValue;
         break;
       }
 
-      // optional int32 m_killvalue = 12;
+      // optional int32 m_killValue = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_killvalue:
+         parse_m_killValue:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_killvalue_)));
@@ -887,15 +887,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_m_bangroup;
+        if (input->ExpectTag(104)) goto parse_m_BanGroup;
         break;
       }
 
-      // optional int32 m_bangroup = 13;
+      // optional int32 m_BanGroup = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_bangroup:
+         parse_m_BanGroup:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_bangroup_)));
@@ -903,15 +903,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(112)) goto parse_m_revivetime;
+        if (input->ExpectTag(112)) goto parse_m_reviveTime;
         break;
       }
 
-      // optional int32 m_revivetime = 14;
+      // optional int32 m_reviveTime = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_revivetime:
+         parse_m_reviveTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_revivetime_)));
@@ -919,15 +919,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(120)) goto parse_m_mapwide;
+        if (input->ExpectTag(120)) goto parse_m_mapWide;
         break;
       }
 
-      // optional int32 m_mapwide = 15;
+      // optional int32 m_mapWide = 15;
       case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_mapwide:
+         parse_m_mapWide:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_mapwide_)));
@@ -935,15 +935,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(128)) goto parse_m_mapheight;
+        if (input->ExpectTag(128)) goto parse_m_mapHeight;
         break;
       }
 
-      // optional int32 m_mapheight = 16;
+      // optional int32 m_mapHeight = 16;
       case 16: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_mapheight:
+         parse_m_mapHeight:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_mapheight_)));
@@ -951,15 +951,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(138)) goto parse_m_mapresources;
+        if (input->ExpectTag(138)) goto parse_m_mapResources;
         break;
       }
 
-      // optional string m_mapresources = 17;
+      // optional string m_mapResources = 17;
       case 17: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_mapresources:
+         parse_m_mapResources:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_mapresources()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -968,15 +968,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(144)) goto parse_m_reviveskill;
+        if (input->ExpectTag(144)) goto parse_m_reviveSkill;
         break;
       }
 
-      // optional int64 m_reviveskill = 18;
+      // optional int64 m_reviveSkill = 18;
       case 18: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_reviveskill:
+         parse_m_reviveSkill:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_reviveskill_)));
@@ -984,15 +984,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(152)) goto parse_m_reviveinplacetype;
+        if (input->ExpectTag(152)) goto parse_m_reviveInPlaceType;
         break;
       }
 
-      // optional int32 m_reviveinplacetype = 19;
+      // optional int32 m_reviveInPlaceType = 19;
       case 19: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_reviveinplacetype:
+         parse_m_reviveInPlaceType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_reviveinplacetype_)));
@@ -1000,15 +1000,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(160)) goto parse_m_ishangup;
+        if (input->ExpectTag(160)) goto parse_m_isHangUp;
         break;
       }
 
-      // optional int32 m_ishangup = 20;
+      // optional int32 m_isHangUp = 20;
       case 20: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_ishangup:
+         parse_m_isHangUp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_ishangup_)));
@@ -1016,15 +1016,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(168)) goto parse_m_itemdroptype;
+        if (input->ExpectTag(168)) goto parse_m_itemDropType;
         break;
       }
 
-      // optional int32 m_itemdroptype = 21;
+      // optional int32 m_itemDropType = 21;
       case 21: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemdroptype:
+         parse_m_itemDropType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itemdroptype_)));
@@ -1032,15 +1032,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(178)) goto parse_m_itemdropid;
+        if (input->ExpectTag(178)) goto parse_m_itemDropID;
         break;
       }
 
-      // optional string m_itemdropid = 22;
+      // optional string m_itemDropID = 22;
       case 22: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_itemdropid:
+         parse_m_itemDropID:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_itemdropid()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1049,15 +1049,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(184)) goto parse_m_linkoffline;
+        if (input->ExpectTag(184)) goto parse_m_linkOffLine;
         break;
       }
 
-      // optional int64 m_linkoffline = 23;
+      // optional int64 m_linkOffLine = 23;
       case 23: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_linkoffline:
+         parse_m_linkOffLine:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_linkoffline_)));
@@ -1065,15 +1065,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(192)) goto parse_m_banonhook;
+        if (input->ExpectTag(192)) goto parse_m_banOnHook;
         break;
       }
 
-      // optional int32 m_banonhook = 24;
+      // optional int32 m_banOnHook = 24;
       case 24: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_banonhook:
+         parse_m_banOnHook:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_banonhook_)));
@@ -1081,15 +1081,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(200)) goto parse_m_rewait;
+        if (input->ExpectTag(200)) goto parse_m_Rewait;
         break;
       }
 
-      // optional int32 m_rewait = 25;
+      // optional int32 m_Rewait = 25;
       case 25: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rewait:
+         parse_m_Rewait:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rewait_)));
@@ -1097,15 +1097,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(208)) goto parse_m_retime;
+        if (input->ExpectTag(208)) goto parse_m_REtime;
         break;
       }
 
-      // optional int32 m_retime = 26;
+      // optional int32 m_REtime = 26;
       case 26: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_retime:
+         parse_m_REtime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_retime_)));
@@ -1113,15 +1113,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(216)) goto parse_m_hreban;
+        if (input->ExpectTag(216)) goto parse_m_HREBan;
         break;
       }
 
-      // optional int32 m_hreban = 27;
+      // optional int32 m_HREBan = 27;
       case 27: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_hreban:
+         parse_m_HREBan:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_hreban_)));
@@ -1129,15 +1129,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(224)) goto parse_m_retiered;
+        if (input->ExpectTag(224)) goto parse_m_Retiered;
         break;
       }
 
-      // optional int32 m_retiered = 28;
+      // optional int32 m_Retiered = 28;
       case 28: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_retiered:
+         parse_m_Retiered:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_retiered_)));
@@ -1145,15 +1145,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(232)) goto parse_m_reskillid;
+        if (input->ExpectTag(232)) goto parse_m_REskillid;
         break;
       }
 
-      // optional int32 m_reskillid = 29;
+      // optional int32 m_REskillid = 29;
       case 29: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_reskillid:
+         parse_m_REskillid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_reskillid_)));
@@ -1161,15 +1161,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(240)) goto parse_m_reteimes;
+        if (input->ExpectTag(240)) goto parse_m_Reteimes;
         break;
       }
 
-      // optional int32 m_reteimes = 30;
+      // optional int32 m_Reteimes = 30;
       case 30: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_reteimes:
+         parse_m_Reteimes:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_reteimes_)));
@@ -1177,15 +1177,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(248)) goto parse_m_drivepoint;
+        if (input->ExpectTag(248)) goto parse_m_drivePoint;
         break;
       }
 
-      // optional int32 m_drivepoint = 31;
+      // optional int32 m_drivePoint = 31;
       case 31: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_drivepoint:
+         parse_m_drivePoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_drivepoint_)));
@@ -1193,15 +1193,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(256)) goto parse_m_diedp;
+        if (input->ExpectTag(256)) goto parse_m_dieDP;
         break;
       }
 
-      // optional int32 m_diedp = 32;
+      // optional int32 m_dieDP = 32;
       case 32: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_diedp:
+         parse_m_dieDP:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_diedp_)));
@@ -1209,15 +1209,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(264)) goto parse_m_timedp;
+        if (input->ExpectTag(264)) goto parse_m_timeDP;
         break;
       }
 
-      // optional int32 m_timedp = 33;
+      // optional int32 m_timeDP = 33;
       case 33: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_timedp:
+         parse_m_timeDP:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_timedp_)));
@@ -1241,15 +1241,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(282)) goto parse_m_mapbutton;
+        if (input->ExpectTag(282)) goto parse_m_mapButton;
         break;
       }
 
-      // optional string m_mapbutton = 35;
+      // optional string m_mapButton = 35;
       case 35: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_mapbutton:
+         parse_m_mapButton:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_mapbutton()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1258,15 +1258,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(288)) goto parse_m_banmount;
+        if (input->ExpectTag(288)) goto parse_m_banMount;
         break;
       }
 
-      // optional int32 m_banmount = 36;
+      // optional int32 m_banMount = 36;
       case 36: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_banmount:
+         parse_m_banMount:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_banmount_)));
@@ -1274,15 +1274,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(296)) goto parse_m_banlink;
+        if (input->ExpectTag(296)) goto parse_m_banLink;
         break;
       }
 
-      // optional int32 m_banlink = 37;
+      // optional int32 m_banLink = 37;
       case 37: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_banlink:
+         parse_m_banLink:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_banlink_)));
@@ -1290,15 +1290,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(304)) goto parse_m_lvsuppvp;
+        if (input->ExpectTag(304)) goto parse_m_lvSupPvp;
         break;
       }
 
-      // optional int32 m_lvsuppvp = 38;
+      // optional int32 m_lvSupPvp = 38;
       case 38: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_lvsuppvp:
+         parse_m_lvSupPvp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_lvsuppvp_)));
@@ -1306,15 +1306,15 @@ bool E_MapMap::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(312)) goto parse_m_powersuppvp;
+        if (input->ExpectTag(312)) goto parse_m_powerSupPvp;
         break;
       }
 
-      // optional int32 m_powersuppvp = 39;
+      // optional int32 m_powerSupPvp = 39;
       case 39: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_powersuppvp:
+         parse_m_powerSupPvp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_powersuppvp_)));
@@ -1344,17 +1344,17 @@ bool E_MapMap::MergePartialFromCodedStream(
 
 void E_MapMap::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 m_mapid = 1;
+  // optional int64 m_mapId = 1;
   if (has_m_mapid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_mapid(), output);
   }
 
-  // optional int32 m_levellimit = 2;
+  // optional int32 m_levelLimit = 2;
   if (has_m_levellimit()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_levellimit(), output);
   }
 
-  // optional string m_advicelv = 3;
+  // optional string m_adviceLv = 3;
   if (has_m_advicelv()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_advicelv().data(), this->m_advicelv().length(),
@@ -1363,32 +1363,32 @@ void E_MapMap::SerializeWithCachedSizes(
       3, this->m_advicelv(), output);
   }
 
-  // optional int32 m_isdyn = 4;
+  // optional int32 m_isDyn = 4;
   if (has_m_isdyn()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_isdyn(), output);
   }
 
-  // optional int32 m_maptype = 5;
+  // optional int32 m_mapType = 5;
   if (has_m_maptype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_maptype(), output);
   }
 
-  // optional int32 m_mapsubtype = 6;
+  // optional int32 m_mapSubType = 6;
   if (has_m_mapsubtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_mapsubtype(), output);
   }
 
-  // optional int32 m_clearancetime = 7;
+  // optional int32 m_clearanceTime = 7;
   if (has_m_clearancetime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_clearancetime(), output);
   }
 
-  // optional int32 m_mappkmode = 8;
+  // optional int32 m_mapPkmode = 8;
   if (has_m_mappkmode()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_mappkmode(), output);
   }
 
-  // optional string m_mappkvalue = 9;
+  // optional string m_mapPkValue = 9;
   if (has_m_mappkvalue()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_mappkvalue().data(), this->m_mappkvalue().length(),
@@ -1407,32 +1407,32 @@ void E_MapMap::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_pk(), output);
   }
 
-  // optional int32 m_killvalue = 12;
+  // optional int32 m_killValue = 12;
   if (has_m_killvalue()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_killvalue(), output);
   }
 
-  // optional int32 m_bangroup = 13;
+  // optional int32 m_BanGroup = 13;
   if (has_m_bangroup()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_bangroup(), output);
   }
 
-  // optional int32 m_revivetime = 14;
+  // optional int32 m_reviveTime = 14;
   if (has_m_revivetime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_revivetime(), output);
   }
 
-  // optional int32 m_mapwide = 15;
+  // optional int32 m_mapWide = 15;
   if (has_m_mapwide()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_mapwide(), output);
   }
 
-  // optional int32 m_mapheight = 16;
+  // optional int32 m_mapHeight = 16;
   if (has_m_mapheight()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->m_mapheight(), output);
   }
 
-  // optional string m_mapresources = 17;
+  // optional string m_mapResources = 17;
   if (has_m_mapresources()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_mapresources().data(), this->m_mapresources().length(),
@@ -1441,27 +1441,27 @@ void E_MapMap::SerializeWithCachedSizes(
       17, this->m_mapresources(), output);
   }
 
-  // optional int64 m_reviveskill = 18;
+  // optional int64 m_reviveSkill = 18;
   if (has_m_reviveskill()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(18, this->m_reviveskill(), output);
   }
 
-  // optional int32 m_reviveinplacetype = 19;
+  // optional int32 m_reviveInPlaceType = 19;
   if (has_m_reviveinplacetype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(19, this->m_reviveinplacetype(), output);
   }
 
-  // optional int32 m_ishangup = 20;
+  // optional int32 m_isHangUp = 20;
   if (has_m_ishangup()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(20, this->m_ishangup(), output);
   }
 
-  // optional int32 m_itemdroptype = 21;
+  // optional int32 m_itemDropType = 21;
   if (has_m_itemdroptype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(21, this->m_itemdroptype(), output);
   }
 
-  // optional string m_itemdropid = 22;
+  // optional string m_itemDropID = 22;
   if (has_m_itemdropid()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_itemdropid().data(), this->m_itemdropid().length(),
@@ -1470,57 +1470,57 @@ void E_MapMap::SerializeWithCachedSizes(
       22, this->m_itemdropid(), output);
   }
 
-  // optional int64 m_linkoffline = 23;
+  // optional int64 m_linkOffLine = 23;
   if (has_m_linkoffline()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(23, this->m_linkoffline(), output);
   }
 
-  // optional int32 m_banonhook = 24;
+  // optional int32 m_banOnHook = 24;
   if (has_m_banonhook()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(24, this->m_banonhook(), output);
   }
 
-  // optional int32 m_rewait = 25;
+  // optional int32 m_Rewait = 25;
   if (has_m_rewait()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(25, this->m_rewait(), output);
   }
 
-  // optional int32 m_retime = 26;
+  // optional int32 m_REtime = 26;
   if (has_m_retime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(26, this->m_retime(), output);
   }
 
-  // optional int32 m_hreban = 27;
+  // optional int32 m_HREBan = 27;
   if (has_m_hreban()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(27, this->m_hreban(), output);
   }
 
-  // optional int32 m_retiered = 28;
+  // optional int32 m_Retiered = 28;
   if (has_m_retiered()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(28, this->m_retiered(), output);
   }
 
-  // optional int32 m_reskillid = 29;
+  // optional int32 m_REskillid = 29;
   if (has_m_reskillid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(29, this->m_reskillid(), output);
   }
 
-  // optional int32 m_reteimes = 30;
+  // optional int32 m_Reteimes = 30;
   if (has_m_reteimes()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(30, this->m_reteimes(), output);
   }
 
-  // optional int32 m_drivepoint = 31;
+  // optional int32 m_drivePoint = 31;
   if (has_m_drivepoint()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(31, this->m_drivepoint(), output);
   }
 
-  // optional int32 m_diedp = 32;
+  // optional int32 m_dieDP = 32;
   if (has_m_diedp()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(32, this->m_diedp(), output);
   }
 
-  // optional int32 m_timedp = 33;
+  // optional int32 m_timeDP = 33;
   if (has_m_timedp()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(33, this->m_timedp(), output);
   }
@@ -1530,7 +1530,7 @@ void E_MapMap::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(34, this->m_meditation(), output);
   }
 
-  // optional string m_mapbutton = 35;
+  // optional string m_mapButton = 35;
   if (has_m_mapbutton()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_mapbutton().data(), this->m_mapbutton().length(),
@@ -1539,22 +1539,22 @@ void E_MapMap::SerializeWithCachedSizes(
       35, this->m_mapbutton(), output);
   }
 
-  // optional int32 m_banmount = 36;
+  // optional int32 m_banMount = 36;
   if (has_m_banmount()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(36, this->m_banmount(), output);
   }
 
-  // optional int32 m_banlink = 37;
+  // optional int32 m_banLink = 37;
   if (has_m_banlink()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(37, this->m_banlink(), output);
   }
 
-  // optional int32 m_lvsuppvp = 38;
+  // optional int32 m_lvSupPvp = 38;
   if (has_m_lvsuppvp()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(38, this->m_lvsuppvp(), output);
   }
 
-  // optional int32 m_powersuppvp = 39;
+  // optional int32 m_powerSupPvp = 39;
   if (has_m_powersuppvp()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(39, this->m_powersuppvp(), output);
   }
@@ -1567,17 +1567,17 @@ void E_MapMap::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_MapMap::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 m_mapid = 1;
+  // optional int64 m_mapId = 1;
   if (has_m_mapid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_mapid(), target);
   }
 
-  // optional int32 m_levellimit = 2;
+  // optional int32 m_levelLimit = 2;
   if (has_m_levellimit()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_levellimit(), target);
   }
 
-  // optional string m_advicelv = 3;
+  // optional string m_adviceLv = 3;
   if (has_m_advicelv()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_advicelv().data(), this->m_advicelv().length(),
@@ -1587,32 +1587,32 @@ void E_MapMap::SerializeWithCachedSizes(
         3, this->m_advicelv(), target);
   }
 
-  // optional int32 m_isdyn = 4;
+  // optional int32 m_isDyn = 4;
   if (has_m_isdyn()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_isdyn(), target);
   }
 
-  // optional int32 m_maptype = 5;
+  // optional int32 m_mapType = 5;
   if (has_m_maptype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_maptype(), target);
   }
 
-  // optional int32 m_mapsubtype = 6;
+  // optional int32 m_mapSubType = 6;
   if (has_m_mapsubtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_mapsubtype(), target);
   }
 
-  // optional int32 m_clearancetime = 7;
+  // optional int32 m_clearanceTime = 7;
   if (has_m_clearancetime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_clearancetime(), target);
   }
 
-  // optional int32 m_mappkmode = 8;
+  // optional int32 m_mapPkmode = 8;
   if (has_m_mappkmode()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_mappkmode(), target);
   }
 
-  // optional string m_mappkvalue = 9;
+  // optional string m_mapPkValue = 9;
   if (has_m_mappkvalue()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_mappkvalue().data(), this->m_mappkvalue().length(),
@@ -1632,32 +1632,32 @@ void E_MapMap::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_pk(), target);
   }
 
-  // optional int32 m_killvalue = 12;
+  // optional int32 m_killValue = 12;
   if (has_m_killvalue()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_killvalue(), target);
   }
 
-  // optional int32 m_bangroup = 13;
+  // optional int32 m_BanGroup = 13;
   if (has_m_bangroup()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_bangroup(), target);
   }
 
-  // optional int32 m_revivetime = 14;
+  // optional int32 m_reviveTime = 14;
   if (has_m_revivetime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_revivetime(), target);
   }
 
-  // optional int32 m_mapwide = 15;
+  // optional int32 m_mapWide = 15;
   if (has_m_mapwide()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_mapwide(), target);
   }
 
-  // optional int32 m_mapheight = 16;
+  // optional int32 m_mapHeight = 16;
   if (has_m_mapheight()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->m_mapheight(), target);
   }
 
-  // optional string m_mapresources = 17;
+  // optional string m_mapResources = 17;
   if (has_m_mapresources()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_mapresources().data(), this->m_mapresources().length(),
@@ -1667,27 +1667,27 @@ void E_MapMap::SerializeWithCachedSizes(
         17, this->m_mapresources(), target);
   }
 
-  // optional int64 m_reviveskill = 18;
+  // optional int64 m_reviveSkill = 18;
   if (has_m_reviveskill()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(18, this->m_reviveskill(), target);
   }
 
-  // optional int32 m_reviveinplacetype = 19;
+  // optional int32 m_reviveInPlaceType = 19;
   if (has_m_reviveinplacetype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(19, this->m_reviveinplacetype(), target);
   }
 
-  // optional int32 m_ishangup = 20;
+  // optional int32 m_isHangUp = 20;
   if (has_m_ishangup()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(20, this->m_ishangup(), target);
   }
 
-  // optional int32 m_itemdroptype = 21;
+  // optional int32 m_itemDropType = 21;
   if (has_m_itemdroptype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(21, this->m_itemdroptype(), target);
   }
 
-  // optional string m_itemdropid = 22;
+  // optional string m_itemDropID = 22;
   if (has_m_itemdropid()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_itemdropid().data(), this->m_itemdropid().length(),
@@ -1697,57 +1697,57 @@ void E_MapMap::SerializeWithCachedSizes(
         22, this->m_itemdropid(), target);
   }
 
-  // optional int64 m_linkoffline = 23;
+  // optional int64 m_linkOffLine = 23;
   if (has_m_linkoffline()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(23, this->m_linkoffline(), target);
   }
 
-  // optional int32 m_banonhook = 24;
+  // optional int32 m_banOnHook = 24;
   if (has_m_banonhook()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(24, this->m_banonhook(), target);
   }
 
-  // optional int32 m_rewait = 25;
+  // optional int32 m_Rewait = 25;
   if (has_m_rewait()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(25, this->m_rewait(), target);
   }
 
-  // optional int32 m_retime = 26;
+  // optional int32 m_REtime = 26;
   if (has_m_retime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(26, this->m_retime(), target);
   }
 
-  // optional int32 m_hreban = 27;
+  // optional int32 m_HREBan = 27;
   if (has_m_hreban()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(27, this->m_hreban(), target);
   }
 
-  // optional int32 m_retiered = 28;
+  // optional int32 m_Retiered = 28;
   if (has_m_retiered()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(28, this->m_retiered(), target);
   }
 
-  // optional int32 m_reskillid = 29;
+  // optional int32 m_REskillid = 29;
   if (has_m_reskillid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(29, this->m_reskillid(), target);
   }
 
-  // optional int32 m_reteimes = 30;
+  // optional int32 m_Reteimes = 30;
   if (has_m_reteimes()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(30, this->m_reteimes(), target);
   }
 
-  // optional int32 m_drivepoint = 31;
+  // optional int32 m_drivePoint = 31;
   if (has_m_drivepoint()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(31, this->m_drivepoint(), target);
   }
 
-  // optional int32 m_diedp = 32;
+  // optional int32 m_dieDP = 32;
   if (has_m_diedp()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(32, this->m_diedp(), target);
   }
 
-  // optional int32 m_timedp = 33;
+  // optional int32 m_timeDP = 33;
   if (has_m_timedp()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(33, this->m_timedp(), target);
   }
@@ -1757,7 +1757,7 @@ void E_MapMap::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(34, this->m_meditation(), target);
   }
 
-  // optional string m_mapbutton = 35;
+  // optional string m_mapButton = 35;
   if (has_m_mapbutton()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_mapbutton().data(), this->m_mapbutton().length(),
@@ -1767,22 +1767,22 @@ void E_MapMap::SerializeWithCachedSizes(
         35, this->m_mapbutton(), target);
   }
 
-  // optional int32 m_banmount = 36;
+  // optional int32 m_banMount = 36;
   if (has_m_banmount()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(36, this->m_banmount(), target);
   }
 
-  // optional int32 m_banlink = 37;
+  // optional int32 m_banLink = 37;
   if (has_m_banlink()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(37, this->m_banlink(), target);
   }
 
-  // optional int32 m_lvsuppvp = 38;
+  // optional int32 m_lvSupPvp = 38;
   if (has_m_lvsuppvp()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(38, this->m_lvsuppvp(), target);
   }
 
-  // optional int32 m_powersuppvp = 39;
+  // optional int32 m_powerSupPvp = 39;
   if (has_m_powersuppvp()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(39, this->m_powersuppvp(), target);
   }
@@ -1798,56 +1798,56 @@ int E_MapMap::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 m_mapid = 1;
+    // optional int64 m_mapId = 1;
     if (has_m_mapid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_mapid());
     }
 
-    // optional int32 m_levellimit = 2;
+    // optional int32 m_levelLimit = 2;
     if (has_m_levellimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_levellimit());
     }
 
-    // optional string m_advicelv = 3;
+    // optional string m_adviceLv = 3;
     if (has_m_advicelv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_advicelv());
     }
 
-    // optional int32 m_isdyn = 4;
+    // optional int32 m_isDyn = 4;
     if (has_m_isdyn()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_isdyn());
     }
 
-    // optional int32 m_maptype = 5;
+    // optional int32 m_mapType = 5;
     if (has_m_maptype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_maptype());
     }
 
-    // optional int32 m_mapsubtype = 6;
+    // optional int32 m_mapSubType = 6;
     if (has_m_mapsubtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_mapsubtype());
     }
 
-    // optional int32 m_clearancetime = 7;
+    // optional int32 m_clearanceTime = 7;
     if (has_m_clearancetime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_clearancetime());
     }
 
-    // optional int32 m_mappkmode = 8;
+    // optional int32 m_mapPkmode = 8;
     if (has_m_mappkmode()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1856,7 +1856,7 @@ int E_MapMap::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional string m_mappkvalue = 9;
+    // optional string m_mapPkValue = 9;
     if (has_m_mappkvalue()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -1877,35 +1877,35 @@ int E_MapMap::ByteSize() const {
           this->m_pk());
     }
 
-    // optional int32 m_killvalue = 12;
+    // optional int32 m_killValue = 12;
     if (has_m_killvalue()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_killvalue());
     }
 
-    // optional int32 m_bangroup = 13;
+    // optional int32 m_BanGroup = 13;
     if (has_m_bangroup()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_bangroup());
     }
 
-    // optional int32 m_revivetime = 14;
+    // optional int32 m_reviveTime = 14;
     if (has_m_revivetime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_revivetime());
     }
 
-    // optional int32 m_mapwide = 15;
+    // optional int32 m_mapWide = 15;
     if (has_m_mapwide()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_mapwide());
     }
 
-    // optional int32 m_mapheight = 16;
+    // optional int32 m_mapHeight = 16;
     if (has_m_mapheight()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1914,56 +1914,56 @@ int E_MapMap::ByteSize() const {
 
   }
   if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    // optional string m_mapresources = 17;
+    // optional string m_mapResources = 17;
     if (has_m_mapresources()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_mapresources());
     }
 
-    // optional int64 m_reviveskill = 18;
+    // optional int64 m_reviveSkill = 18;
     if (has_m_reviveskill()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_reviveskill());
     }
 
-    // optional int32 m_reviveinplacetype = 19;
+    // optional int32 m_reviveInPlaceType = 19;
     if (has_m_reviveinplacetype()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_reviveinplacetype());
     }
 
-    // optional int32 m_ishangup = 20;
+    // optional int32 m_isHangUp = 20;
     if (has_m_ishangup()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_ishangup());
     }
 
-    // optional int32 m_itemdroptype = 21;
+    // optional int32 m_itemDropType = 21;
     if (has_m_itemdroptype()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_itemdroptype());
     }
 
-    // optional string m_itemdropid = 22;
+    // optional string m_itemDropID = 22;
     if (has_m_itemdropid()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_itemdropid());
     }
 
-    // optional int64 m_linkoffline = 23;
+    // optional int64 m_linkOffLine = 23;
     if (has_m_linkoffline()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_linkoffline());
     }
 
-    // optional int32 m_banonhook = 24;
+    // optional int32 m_banOnHook = 24;
     if (has_m_banonhook()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1972,56 +1972,56 @@ int E_MapMap::ByteSize() const {
 
   }
   if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
-    // optional int32 m_rewait = 25;
+    // optional int32 m_Rewait = 25;
     if (has_m_rewait()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_rewait());
     }
 
-    // optional int32 m_retime = 26;
+    // optional int32 m_REtime = 26;
     if (has_m_retime()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_retime());
     }
 
-    // optional int32 m_hreban = 27;
+    // optional int32 m_HREBan = 27;
     if (has_m_hreban()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_hreban());
     }
 
-    // optional int32 m_retiered = 28;
+    // optional int32 m_Retiered = 28;
     if (has_m_retiered()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_retiered());
     }
 
-    // optional int32 m_reskillid = 29;
+    // optional int32 m_REskillid = 29;
     if (has_m_reskillid()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_reskillid());
     }
 
-    // optional int32 m_reteimes = 30;
+    // optional int32 m_Reteimes = 30;
     if (has_m_reteimes()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_reteimes());
     }
 
-    // optional int32 m_drivepoint = 31;
+    // optional int32 m_drivePoint = 31;
     if (has_m_drivepoint()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_drivepoint());
     }
 
-    // optional int32 m_diedp = 32;
+    // optional int32 m_dieDP = 32;
     if (has_m_diedp()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2030,7 +2030,7 @@ int E_MapMap::ByteSize() const {
 
   }
   if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
-    // optional int32 m_timedp = 33;
+    // optional int32 m_timeDP = 33;
     if (has_m_timedp()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2044,35 +2044,35 @@ int E_MapMap::ByteSize() const {
           this->m_meditation());
     }
 
-    // optional string m_mapbutton = 35;
+    // optional string m_mapButton = 35;
     if (has_m_mapbutton()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_mapbutton());
     }
 
-    // optional int32 m_banmount = 36;
+    // optional int32 m_banMount = 36;
     if (has_m_banmount()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_banmount());
     }
 
-    // optional int32 m_banlink = 37;
+    // optional int32 m_banLink = 37;
     if (has_m_banlink()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_banlink());
     }
 
-    // optional int32 m_lvsuppvp = 38;
+    // optional int32 m_lvSupPvp = 38;
     if (has_m_lvsuppvp()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_lvsuppvp());
     }
 
-    // optional int32 m_powersuppvp = 39;
+    // optional int32 m_powerSupPvp = 39;
     if (has_m_powersuppvp()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2515,8 +2515,8 @@ void Sheet_MapMap::Swap(Sheet_MapMap* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_MapItemdrop::kMItemdropidFieldNumber;
-const int E_MapItemdrop::kMDroptypeFieldNumber;
+const int E_MapItemdrop::kMItemDropIDFieldNumber;
+const int E_MapItemdrop::kMDropTypeFieldNumber;
 const int E_MapItemdrop::kMOddsFieldNumber;
 const int E_MapItemdrop::kMDropvalueaFieldNumber;
 const int E_MapItemdrop::kMDropvaluebFieldNumber;
@@ -2608,7 +2608,7 @@ bool E_MapItemdrop::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_itemdropid = 1;
+      // optional int32 m_itemDropID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -2619,15 +2619,15 @@ bool E_MapItemdrop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_droptype;
+        if (input->ExpectTag(16)) goto parse_m_dropType;
         break;
       }
 
-      // optional int32 m_droptype = 2;
+      // optional int32 m_dropType = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_droptype:
+         parse_m_dropType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_droptype_)));
@@ -2769,12 +2769,12 @@ bool E_MapItemdrop::MergePartialFromCodedStream(
 
 void E_MapItemdrop::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_itemdropid = 1;
+  // optional int32 m_itemDropID = 1;
   if (has_m_itemdropid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_itemdropid(), output);
   }
 
-  // optional int32 m_droptype = 2;
+  // optional int32 m_dropType = 2;
   if (has_m_droptype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_droptype(), output);
   }
@@ -2822,12 +2822,12 @@ void E_MapItemdrop::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_MapItemdrop::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_itemdropid = 1;
+  // optional int32 m_itemDropID = 1;
   if (has_m_itemdropid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_itemdropid(), target);
   }
 
-  // optional int32 m_droptype = 2;
+  // optional int32 m_dropType = 2;
   if (has_m_droptype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_droptype(), target);
   }
@@ -2878,14 +2878,14 @@ int E_MapItemdrop::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_itemdropid = 1;
+    // optional int32 m_itemDropID = 1;
     if (has_m_itemdropid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_itemdropid());
     }
 
-    // optional int32 m_droptype = 2;
+    // optional int32 m_dropType = 2;
     if (has_m_droptype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3252,7 +3252,7 @@ void Sheet_MapItemdrop::Swap(Sheet_MapItemdrop* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_MapDestroyitem::kMDestroyitemidFieldNumber;
+const int E_MapDestroyitem::kMDestroyitemIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_MapDestroyitem::E_MapDestroyitem()
@@ -3319,7 +3319,7 @@ bool E_MapDestroyitem::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 m_destroyitemid = 1;
+      // optional int64 m_destroyitemID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -3352,7 +3352,7 @@ bool E_MapDestroyitem::MergePartialFromCodedStream(
 
 void E_MapDestroyitem::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 m_destroyitemid = 1;
+  // optional int64 m_destroyitemID = 1;
   if (has_m_destroyitemid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_destroyitemid(), output);
   }
@@ -3365,7 +3365,7 @@ void E_MapDestroyitem::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_MapDestroyitem::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 m_destroyitemid = 1;
+  // optional int64 m_destroyitemID = 1;
   if (has_m_destroyitemid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_destroyitemid(), target);
   }
@@ -3381,7 +3381,7 @@ int E_MapDestroyitem::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 m_destroyitemid = 1;
+    // optional int64 m_destroyitemID = 1;
     if (has_m_destroyitemid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -4264,7 +4264,7 @@ bool E_MapInspireRewardDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_num = 1;
+      // optional int32 m_Num = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -4275,15 +4275,15 @@ bool E_MapInspireRewardDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_Id;
         break;
       }
 
-      // optional int32 m_id = 2;
+      // optional int32 m_Id = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_Id:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_id_)));
@@ -4313,12 +4313,12 @@ bool E_MapInspireRewardDesc::MergePartialFromCodedStream(
 
 void E_MapInspireRewardDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_num = 1;
+  // optional int32 m_Num = 1;
   if (has_m_num()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_num(), output);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_Id = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_id(), output);
   }
@@ -4331,12 +4331,12 @@ void E_MapInspireRewardDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_MapInspireRewardDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_num = 1;
+  // optional int32 m_Num = 1;
   if (has_m_num()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_num(), target);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_Id = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_id(), target);
   }
@@ -4352,14 +4352,14 @@ int E_MapInspireRewardDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_num = 1;
+    // optional int32 m_Num = 1;
     if (has_m_num()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_num());
     }
 
-    // optional int32 m_id = 2;
+    // optional int32 m_Id = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4445,8 +4445,8 @@ void E_MapInspireRewardDesc::Swap(E_MapInspireRewardDesc* other) {
 const int E_MapInspire::kMIdFieldNumber;
 const int E_MapInspire::kMGroupFieldNumber;
 const int E_MapInspire::kMNameFieldNumber;
-const int E_MapInspire::kMCostidFieldNumber;
-const int E_MapInspire::kMCostnumFieldNumber;
+const int E_MapInspire::kMCostIdFieldNumber;
+const int E_MapInspire::kMCostNumFieldNumber;
 const int E_MapInspire::kMSkillidFieldNumber;
 const int E_MapInspire::kMTimesFieldNumber;
 const int E_MapInspire::kMRewardFieldNumber;
@@ -4580,15 +4580,15 @@ bool E_MapInspire::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_costid;
+        if (input->ExpectTag(32)) goto parse_m_costId;
         break;
       }
 
-      // optional int32 m_costid = 4;
+      // optional int32 m_costId = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_costid:
+         parse_m_costId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_costid_)));
@@ -4596,15 +4596,15 @@ bool E_MapInspire::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_costnum;
+        if (input->ExpectTag(40)) goto parse_m_costNum;
         break;
       }
 
-      // optional int32 m_costnum = 5;
+      // optional int32 m_costNum = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_costnum:
+         parse_m_costNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_costnum_)));
@@ -4700,12 +4700,12 @@ void E_MapInspire::SerializeWithCachedSizes(
       3, this->m_name(), output);
   }
 
-  // optional int32 m_costid = 4;
+  // optional int32 m_costId = 4;
   if (has_m_costid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_costid(), output);
   }
 
-  // optional int32 m_costnum = 5;
+  // optional int32 m_costNum = 5;
   if (has_m_costnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_costnum(), output);
   }
@@ -4754,12 +4754,12 @@ void E_MapInspire::SerializeWithCachedSizes(
         3, this->m_name(), target);
   }
 
-  // optional int32 m_costid = 4;
+  // optional int32 m_costId = 4;
   if (has_m_costid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_costid(), target);
   }
 
-  // optional int32 m_costnum = 5;
+  // optional int32 m_costNum = 5;
   if (has_m_costnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_costnum(), target);
   }
@@ -4813,14 +4813,14 @@ int E_MapInspire::ByteSize() const {
           this->m_name());
     }
 
-    // optional int32 m_costid = 4;
+    // optional int32 m_costId = 4;
     if (has_m_costid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_costid());
     }
 
-    // optional int32 m_costnum = 5;
+    // optional int32 m_costNum = 5;
     if (has_m_costnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

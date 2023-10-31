@@ -22,22 +22,22 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//商品ID
-		int32_t m_itemid;//物品ID
-		int32_t m_malltype;//商城分类
+		int32_t m_itemID;//物品ID
+		int32_t m_mallType;//商城分类
 		int32_t m_priority;//优先级
-		int32_t m_moneytype;//货币类型
-		int32_t m_moneyitem;//货币道具id
+		int32_t m_moneyType;//货币类型
+		int32_t m_moneyItem;//货币道具id
 		int32_t m_price;//价格
-		int32_t m_secondarymoneytype;//次级货币
+		int32_t m_secondaryMoneyType;//次级货币
 		int32_t m_discount;//折扣
-		int32_t m_buylimittype;//限制购买类型
-		int32_t m_buyamount;//购买数量
-		int32_t m_viplimit;//VIP等级解锁
-		int32_t m_lvlimit;//等级限制
-		int32_t m_vipunlock;//vip或等级解锁
-		int32_t m_isclose;//是否下架
-		int32_t m_cantbuy;//下架情况下是否能购买
-		int32_t m_ismarkbind;//是否标记为已绑定
+		int32_t m_buyLimitType;//限制购买类型
+		int32_t m_buyAmount;//购买数量
+		int32_t m_vipLimit;//VIP等级解锁
+		int32_t m_lvLimit;//等级限制
+		int32_t m_vipUnlock;//vip或等级解锁
+		int32_t m_isClose;//是否下架
+		int32_t m_cantBuy;//下架情况下是否能购买
+		int32_t m_isMarkBind;//是否标记为已绑定
 
 		virtual void write_to_pbmsg(::proto_ff::E_MallMall & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MallMall & msg);
@@ -97,7 +97,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int64_t m_id;//组ID
 		NFShmString<64> m_title;//商店名
-		int32_t m_grouptype;//组类型
+		int32_t m_groupType;//组类型
 		int32_t m_priority;//优先级
 		int32_t m_functionunlock;//开启条件
 		NFShmString<64> m_profession;//职业类型
@@ -129,10 +129,10 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_mountid;//坐骑id
-		int32_t m_itemid;//商品id
-		int32_t m_costid;//兑换道具
-		int32_t m_costnum;//道具数量
+		int32_t m_mountId;//坐骑id
+		int32_t m_itemId;//商品id
+		int32_t m_costId;//兑换道具
+		int32_t m_costNum;//道具数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_MallHolybeast & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MallHolybeast & msg);

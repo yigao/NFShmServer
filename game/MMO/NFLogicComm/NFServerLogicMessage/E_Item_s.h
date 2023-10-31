@@ -20,27 +20,27 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//物品ID
 		NFShmString<64> m_name;//物品名称
-		int32_t m_itemtype;//物品类型
-		int32_t m_subtype;//子类型
-		int32_t m_functiontype;//物品功能类型
-		NFShmString<64> m_functionvalue;//物品功能参数
+		int32_t m_itemType;//物品类型
+		int32_t m_subType;//子类型
+		int32_t m_functionType;//物品功能类型
+		NFShmString<64> m_functionValue;//物品功能参数
 		NFShmString<64> m_usecondition;//使用条件
-		int64_t m_waiguanlink;//外观id
+		int64_t m_waiguanLink;//外观id
 		int32_t m_level;//物品等级
 		int32_t m_quality;//物品品质
-		int32_t m_levelrequest;//使用等级
+		int32_t m_levelRequest;//使用等级
 		NFShmString<64> m_profession;//使用职业
-		int32_t m_bindtype;//绑定类型
-		int32_t m_istradebind;//是否交易绑定
-		int32_t m_dropnum;//每日掉落上限
-		int32_t m_stacklimit;//堆叠上限
-		int32_t m_sellprice;//出售价格
-		int64_t m_sellbox;//出售掉落
+		int32_t m_bindType;//绑定类型
+		int32_t m_isTradeBind;//是否交易绑定
+		int32_t m_dropNum;//每日掉落上限
+		int32_t m_stackLimit;//堆叠上限
+		int32_t m_sellPrice;//出售价格
+		int64_t m_sellBox;//出售掉落
 		int32_t m_broadcast;//是否跑马灯广播
-		int32_t m_iscanbatchuse;//是否可批量使用
-		int32_t m_dayuse;//每日使用次数
+		int32_t m_isCanBatchUse;//是否可批量使用
+		int32_t m_dayUse;//每日使用次数
 		int32_t m_time;//限时道具
-		NFShmString<64> m_uselimit;//禁用本道具地图
+		NFShmString<64> m_useLimit;//禁用本道具地图
 
 		virtual void write_to_pbmsg(::proto_ff::E_ItemItem & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ItemItem & msg);

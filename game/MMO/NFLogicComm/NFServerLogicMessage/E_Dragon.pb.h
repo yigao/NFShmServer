@@ -197,10 +197,10 @@ class E_DragonFragment : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_fragmentid = 1;
+  // optional int64 m_fragmentID = 1;
   inline bool has_m_fragmentid() const;
   inline void clear_m_fragmentid();
-  static const int kMFragmentidFieldNumber = 1;
+  static const int kMFragmentIDFieldNumber = 1;
   inline ::google::protobuf::int64 m_fragmentid() const;
   inline void set_m_fragmentid(::google::protobuf::int64 value);
 
@@ -211,10 +211,10 @@ class E_DragonFragment : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_item() const;
   inline void set_m_item(::google::protobuf::int64 value);
 
-  // optional int32 m_itemnum = 3;
+  // optional int32 m_itemNum = 3;
   inline bool has_m_itemnum() const;
   inline void clear_m_itemnum();
-  static const int kMItemnumFieldNumber = 3;
+  static const int kMItemNumFieldNumber = 3;
   inline ::google::protobuf::int32 m_itemnum() const;
   inline void set_m_itemnum(::google::protobuf::int32 value);
 
@@ -496,31 +496,31 @@ class E_DragonDisplay : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_funid = 2;
+  // optional int32 m_funId = 2;
   inline bool has_m_funid() const;
   inline void clear_m_funid();
-  static const int kMFunidFieldNumber = 2;
+  static const int kMFunIdFieldNumber = 2;
   inline ::google::protobuf::int32 m_funid() const;
   inline void set_m_funid(::google::protobuf::int32 value);
 
-  // optional int32 m_uplvtype = 3;
+  // optional int32 m_UpLvType = 3;
   inline bool has_m_uplvtype() const;
   inline void clear_m_uplvtype();
-  static const int kMUplvtypeFieldNumber = 3;
+  static const int kMUpLvTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_uplvtype() const;
   inline void set_m_uplvtype(::google::protobuf::int32 value);
 
-  // optional int32 m_lvmax = 4;
+  // optional int32 m_LvMax = 4;
   inline bool has_m_lvmax() const;
   inline void clear_m_lvmax();
-  static const int kMLvmaxFieldNumber = 4;
+  static const int kMLvMaxFieldNumber = 4;
   inline ::google::protobuf::int32 m_lvmax() const;
   inline void set_m_lvmax(::google::protobuf::int32 value);
 
-  // optional string m_skillid = 5;
+  // optional string m_skillID = 5;
   inline bool has_m_skillid() const;
   inline void clear_m_skillid();
-  static const int kMSkillidFieldNumber = 5;
+  static const int kMSkillIDFieldNumber = 5;
   inline const ::std::string& m_skillid() const;
   inline void set_m_skillid(const ::std::string& value);
   inline void set_m_skillid(const char* value);
@@ -529,10 +529,10 @@ class E_DragonDisplay : public ::google::protobuf::Message {
   inline ::std::string* release_m_skillid();
   inline void set_allocated_m_skillid(::std::string* m_skillid);
 
-  // optional string m_exskillid = 6;
+  // optional string m_exSkillID = 6;
   inline bool has_m_exskillid() const;
   inline void clear_m_exskillid();
-  static const int kMExskillidFieldNumber = 6;
+  static const int kMExSkillIDFieldNumber = 6;
   inline const ::std::string& m_exskillid() const;
   inline void set_m_exskillid(const ::std::string& value);
   inline void set_m_exskillid(const char* value);
@@ -541,24 +541,24 @@ class E_DragonDisplay : public ::google::protobuf::Message {
   inline ::std::string* release_m_exskillid();
   inline void set_allocated_m_exskillid(::std::string* m_exskillid);
 
-  // optional int32 m_staritem = 7;
+  // optional int32 m_starItem = 7;
   inline bool has_m_staritem() const;
   inline void clear_m_staritem();
-  static const int kMStaritemFieldNumber = 7;
+  static const int kMStarItemFieldNumber = 7;
   inline ::google::protobuf::int32 m_staritem() const;
   inline void set_m_staritem(::google::protobuf::int32 value);
 
-  // optional int32 m_upstartype = 8;
+  // optional int32 m_UpStarType = 8;
   inline bool has_m_upstartype() const;
   inline void clear_m_upstartype();
-  static const int kMUpstartypeFieldNumber = 8;
+  static const int kMUpStarTypeFieldNumber = 8;
   inline ::google::protobuf::int32 m_upstartype() const;
   inline void set_m_upstartype(::google::protobuf::int32 value);
 
-  // optional int32 m_starup = 9;
+  // optional int32 m_starUp = 9;
   inline bool has_m_starup() const;
   inline void clear_m_starup();
-  static const int kMStarupFieldNumber = 9;
+  static const int kMStarUpFieldNumber = 9;
   inline ::google::protobuf::int32 m_starup() const;
   inline void set_m_starup(::google::protobuf::int32 value);
 
@@ -581,10 +581,10 @@ class E_DragonDisplay : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_DragonDisplayMaterialDesc >*
       mutable_m_material();
 
-  // repeated int64 m_fragmentid = 12;
+  // repeated int64 m_fragmentID = 12;
   inline int m_fragmentid_size() const;
   inline void clear_m_fragmentid();
-  static const int kMFragmentidFieldNumber = 12;
+  static const int kMFragmentIDFieldNumber = 12;
   inline ::google::protobuf::int64 m_fragmentid(int index) const;
   inline void set_m_fragmentid(int index, ::google::protobuf::int64 value);
   inline void add_m_fragmentid(::google::protobuf::int64 value);
@@ -796,10 +796,10 @@ class E_DragonChange : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_funid() const;
   inline void set_m_funid(::google::protobuf::int32 value);
 
-  // optional string m_skillid = 3;
+  // optional string m_skillID = 3;
   inline bool has_m_skillid() const;
   inline void clear_m_skillid();
-  static const int kMSkillidFieldNumber = 3;
+  static const int kMSkillIDFieldNumber = 3;
   inline const ::std::string& m_skillid() const;
   inline void set_m_skillid(const ::std::string& value);
   inline void set_m_skillid(const char* value);
@@ -808,10 +808,10 @@ class E_DragonChange : public ::google::protobuf::Message {
   inline ::std::string* release_m_skillid();
   inline void set_allocated_m_skillid(::std::string* m_skillid);
 
-  // optional string m_exskillid = 4;
+  // optional string m_exSkillID = 4;
   inline bool has_m_exskillid() const;
   inline void clear_m_exskillid();
-  static const int kMExskillidFieldNumber = 4;
+  static const int kMExSkillIDFieldNumber = 4;
   inline const ::std::string& m_exskillid() const;
   inline void set_m_exskillid(const ::std::string& value);
   inline void set_m_exskillid(const char* value);
@@ -820,10 +820,10 @@ class E_DragonChange : public ::google::protobuf::Message {
   inline ::std::string* release_m_exskillid();
   inline void set_allocated_m_exskillid(::std::string* m_exskillid);
 
-  // optional string m_fxid = 5;
+  // optional string m_fxID = 5;
   inline bool has_m_fxid() const;
   inline void clear_m_fxid();
-  static const int kMFxidFieldNumber = 5;
+  static const int kMFxIDFieldNumber = 5;
   inline const ::std::string& m_fxid() const;
   inline void set_m_fxid(const ::std::string& value);
   inline void set_m_fxid(const char* value);
@@ -832,38 +832,38 @@ class E_DragonChange : public ::google::protobuf::Message {
   inline ::std::string* release_m_fxid();
   inline void set_allocated_m_fxid(::std::string* m_fxid);
 
-  // optional int32 m_starmax = 6;
+  // optional int32 m_starMax = 6;
   inline bool has_m_starmax() const;
   inline void clear_m_starmax();
-  static const int kMStarmaxFieldNumber = 6;
+  static const int kMStarMaxFieldNumber = 6;
   inline ::google::protobuf::int32 m_starmax() const;
   inline void set_m_starmax(::google::protobuf::int32 value);
 
-  // optional int32 m_startype = 7;
+  // optional int32 m_starType = 7;
   inline bool has_m_startype() const;
   inline void clear_m_startype();
-  static const int kMStartypeFieldNumber = 7;
+  static const int kMStarTypeFieldNumber = 7;
   inline ::google::protobuf::int32 m_startype() const;
   inline void set_m_startype(::google::protobuf::int32 value);
 
-  // optional int32 m_activationitem = 8;
+  // optional int32 m_activationItem = 8;
   inline bool has_m_activationitem() const;
   inline void clear_m_activationitem();
-  static const int kMActivationitemFieldNumber = 8;
+  static const int kMActivationItemFieldNumber = 8;
   inline ::google::protobuf::int32 m_activationitem() const;
   inline void set_m_activationitem(::google::protobuf::int32 value);
 
-  // optional int32 m_activationnum = 9;
+  // optional int32 m_activationNum = 9;
   inline bool has_m_activationnum() const;
   inline void clear_m_activationnum();
-  static const int kMActivationnumFieldNumber = 9;
+  static const int kMActivationNumFieldNumber = 9;
   inline ::google::protobuf::int32 m_activationnum() const;
   inline void set_m_activationnum(::google::protobuf::int32 value);
 
-  // optional int32 m_starid = 10;
+  // optional int32 m_starId = 10;
   inline bool has_m_starid() const;
   inline void clear_m_starid();
-  static const int kMStaridFieldNumber = 10;
+  static const int kMStarIdFieldNumber = 10;
   inline ::google::protobuf::int32 m_starid() const;
   inline void set_m_starid(::google::protobuf::int32 value);
 
@@ -1153,7 +1153,7 @@ class E_DragonLvvalue : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_exp = 2;
+  // optional int32 m_Exp = 2;
   inline bool has_m_exp() const;
   inline void clear_m_exp();
   static const int kMExpFieldNumber = 2;
@@ -1167,10 +1167,10 @@ class E_DragonLvvalue : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_gold() const;
   inline void set_m_gold(::google::protobuf::int32 value);
 
-  // optional int32 m_starlimit = 4;
+  // optional int32 m_starLimit = 4;
   inline bool has_m_starlimit() const;
   inline void clear_m_starlimit();
-  static const int kMStarlimitFieldNumber = 4;
+  static const int kMStarLimitFieldNumber = 4;
   inline ::google::protobuf::int32 m_starlimit() const;
   inline void set_m_starlimit(::google::protobuf::int32 value);
 
@@ -1476,10 +1476,10 @@ class E_DragonStarvalue : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_gold() const;
   inline void set_m_gold(::google::protobuf::int32 value);
 
-  // optional int32 m_starnum = 5;
+  // optional int32 m_starNum = 5;
   inline bool has_m_starnum() const;
   inline void clear_m_starnum();
-  static const int kMStarnumFieldNumber = 5;
+  static const int kMStarNumFieldNumber = 5;
   inline ::google::protobuf::int32 m_starnum() const;
   inline void set_m_starnum(::google::protobuf::int32 value);
 
@@ -1490,10 +1490,10 @@ class E_DragonStarvalue : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_sucess() const;
   inline void set_m_sucess(::google::protobuf::int32 value);
 
-  // optional int32 m_luckmax = 7;
+  // optional int32 m_luckMax = 7;
   inline bool has_m_luckmax() const;
   inline void clear_m_luckmax();
-  static const int kMLuckmaxFieldNumber = 7;
+  static const int kMLuckMaxFieldNumber = 7;
   inline ::google::protobuf::int32 m_luckmax() const;
   inline void set_m_luckmax(::google::protobuf::int32 value);
 
@@ -1707,7 +1707,7 @@ inline void E_DragonFragmentAttributeDesc::set_m_type(::google::protobuf::int32 
 
 // E_DragonFragment
 
-// optional int64 m_fragmentid = 1;
+// optional int64 m_fragmentID = 1;
 inline bool E_DragonFragment::has_m_fragmentid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1751,7 +1751,7 @@ inline void E_DragonFragment::set_m_item(::google::protobuf::int64 value) {
   m_item_ = value;
 }
 
-// optional int32 m_itemnum = 3;
+// optional int32 m_itemNum = 3;
 inline bool E_DragonFragment::has_m_itemnum() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1901,7 +1901,7 @@ inline void E_DragonDisplay::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_funid = 2;
+// optional int32 m_funId = 2;
 inline bool E_DragonDisplay::has_m_funid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1923,7 +1923,7 @@ inline void E_DragonDisplay::set_m_funid(::google::protobuf::int32 value) {
   m_funid_ = value;
 }
 
-// optional int32 m_uplvtype = 3;
+// optional int32 m_UpLvType = 3;
 inline bool E_DragonDisplay::has_m_uplvtype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1945,7 +1945,7 @@ inline void E_DragonDisplay::set_m_uplvtype(::google::protobuf::int32 value) {
   m_uplvtype_ = value;
 }
 
-// optional int32 m_lvmax = 4;
+// optional int32 m_LvMax = 4;
 inline bool E_DragonDisplay::has_m_lvmax() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1967,7 +1967,7 @@ inline void E_DragonDisplay::set_m_lvmax(::google::protobuf::int32 value) {
   m_lvmax_ = value;
 }
 
-// optional string m_skillid = 5;
+// optional string m_skillID = 5;
 inline bool E_DragonDisplay::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -2037,7 +2037,7 @@ inline void E_DragonDisplay::set_allocated_m_skillid(::std::string* m_skillid) {
   }
 }
 
-// optional string m_exskillid = 6;
+// optional string m_exSkillID = 6;
 inline bool E_DragonDisplay::has_m_exskillid() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -2107,7 +2107,7 @@ inline void E_DragonDisplay::set_allocated_m_exskillid(::std::string* m_exskilli
   }
 }
 
-// optional int32 m_staritem = 7;
+// optional int32 m_starItem = 7;
 inline bool E_DragonDisplay::has_m_staritem() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -2129,7 +2129,7 @@ inline void E_DragonDisplay::set_m_staritem(::google::protobuf::int32 value) {
   m_staritem_ = value;
 }
 
-// optional int32 m_upstartype = 8;
+// optional int32 m_UpStarType = 8;
 inline bool E_DragonDisplay::has_m_upstartype() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -2151,7 +2151,7 @@ inline void E_DragonDisplay::set_m_upstartype(::google::protobuf::int32 value) {
   m_upstartype_ = value;
 }
 
-// optional int32 m_starup = 9;
+// optional int32 m_starUp = 9;
 inline bool E_DragonDisplay::has_m_starup() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -2220,7 +2220,7 @@ E_DragonDisplay::mutable_m_material() {
   return &m_material_;
 }
 
-// repeated int64 m_fragmentid = 12;
+// repeated int64 m_fragmentID = 12;
 inline int E_DragonDisplay::m_fragmentid_size() const {
   return m_fragmentid_.size();
 }
@@ -2322,7 +2322,7 @@ inline void E_DragonChange::set_m_funid(::google::protobuf::int32 value) {
   m_funid_ = value;
 }
 
-// optional string m_skillid = 3;
+// optional string m_skillID = 3;
 inline bool E_DragonChange::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -2392,7 +2392,7 @@ inline void E_DragonChange::set_allocated_m_skillid(::std::string* m_skillid) {
   }
 }
 
-// optional string m_exskillid = 4;
+// optional string m_exSkillID = 4;
 inline bool E_DragonChange::has_m_exskillid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -2462,7 +2462,7 @@ inline void E_DragonChange::set_allocated_m_exskillid(::std::string* m_exskillid
   }
 }
 
-// optional string m_fxid = 5;
+// optional string m_fxID = 5;
 inline bool E_DragonChange::has_m_fxid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -2532,7 +2532,7 @@ inline void E_DragonChange::set_allocated_m_fxid(::std::string* m_fxid) {
   }
 }
 
-// optional int32 m_starmax = 6;
+// optional int32 m_starMax = 6;
 inline bool E_DragonChange::has_m_starmax() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -2554,7 +2554,7 @@ inline void E_DragonChange::set_m_starmax(::google::protobuf::int32 value) {
   m_starmax_ = value;
 }
 
-// optional int32 m_startype = 7;
+// optional int32 m_starType = 7;
 inline bool E_DragonChange::has_m_startype() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -2576,7 +2576,7 @@ inline void E_DragonChange::set_m_startype(::google::protobuf::int32 value) {
   m_startype_ = value;
 }
 
-// optional int32 m_activationitem = 8;
+// optional int32 m_activationItem = 8;
 inline bool E_DragonChange::has_m_activationitem() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -2598,7 +2598,7 @@ inline void E_DragonChange::set_m_activationitem(::google::protobuf::int32 value
   m_activationitem_ = value;
 }
 
-// optional int32 m_activationnum = 9;
+// optional int32 m_activationNum = 9;
 inline bool E_DragonChange::has_m_activationnum() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -2620,7 +2620,7 @@ inline void E_DragonChange::set_m_activationnum(::google::protobuf::int32 value)
   m_activationnum_ = value;
 }
 
-// optional int32 m_starid = 10;
+// optional int32 m_starId = 10;
 inline bool E_DragonChange::has_m_starid() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -2745,7 +2745,7 @@ inline void E_DragonLvvalue::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional int32 m_exp = 2;
+// optional int32 m_Exp = 2;
 inline bool E_DragonLvvalue::has_m_exp() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -2789,7 +2789,7 @@ inline void E_DragonLvvalue::set_m_gold(::google::protobuf::int32 value) {
   m_gold_ = value;
 }
 
-// optional int32 m_starlimit = 4;
+// optional int32 m_starLimit = 4;
 inline bool E_DragonLvvalue::has_m_starlimit() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -3005,7 +3005,7 @@ inline void E_DragonStarvalue::set_m_gold(::google::protobuf::int32 value) {
   m_gold_ = value;
 }
 
-// optional int32 m_starnum = 5;
+// optional int32 m_starNum = 5;
 inline bool E_DragonStarvalue::has_m_starnum() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -3049,7 +3049,7 @@ inline void E_DragonStarvalue::set_m_sucess(::google::protobuf::int32 value) {
   m_sucess_ = value;
 }
 
-// optional int32 m_luckmax = 7;
+// optional int32 m_luckMax = 7;
 inline bool E_DragonStarvalue::has_m_luckmax() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }

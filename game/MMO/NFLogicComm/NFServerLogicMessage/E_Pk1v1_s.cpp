@@ -13,13 +13,13 @@ E_Pk1v1Rank_s::E_Pk1v1Rank_s() {
 int E_Pk1v1Rank_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_mark = (int32_t)0;
-	m_scoremin = (int32_t)0;
-	m_scoremax = (int32_t)0;
-	m_sucessscore = (int32_t)0;
-	m_defeatscore = (int32_t)0;
-	m_sucessbox = (int32_t)0;
-	m_defeatbox = (int32_t)0;
-	m_tiebox = (int32_t)0;
+	m_scoreMin = (int32_t)0;
+	m_scoreMax = (int32_t)0;
+	m_sucessScore = (int32_t)0;
+	m_defeatScore = (int32_t)0;
+	m_sucessBox = (int32_t)0;
+	m_defeatBox = (int32_t)0;
+	m_tieBox = (int32_t)0;
 	return 0;
 }
 
@@ -30,25 +30,25 @@ int E_Pk1v1Rank_s::ResumeInit() {
 void E_Pk1v1Rank_s::write_to_pbmsg(::proto_ff::E_Pk1v1Rank & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_mark((int32_t)m_mark);
-	msg.set_m_scoremin((int32_t)m_scoremin);
-	msg.set_m_scoremax((int32_t)m_scoremax);
-	msg.set_m_sucessscore((int32_t)m_sucessscore);
-	msg.set_m_defeatscore((int32_t)m_defeatscore);
-	msg.set_m_sucessbox((int32_t)m_sucessbox);
-	msg.set_m_defeatbox((int32_t)m_defeatbox);
-	msg.set_m_tiebox((int32_t)m_tiebox);
+	msg.set_m_scoremin((int32_t)m_scoreMin);
+	msg.set_m_scoremax((int32_t)m_scoreMax);
+	msg.set_m_sucessscore((int32_t)m_sucessScore);
+	msg.set_m_defeatscore((int32_t)m_defeatScore);
+	msg.set_m_sucessbox((int32_t)m_sucessBox);
+	msg.set_m_defeatbox((int32_t)m_defeatBox);
+	msg.set_m_tiebox((int32_t)m_tieBox);
 }
 
 void E_Pk1v1Rank_s::read_from_pbmsg(const ::proto_ff::E_Pk1v1Rank & msg) {
 	m_id = msg.m_id();
 	m_mark = msg.m_mark();
-	m_scoremin = msg.m_scoremin();
-	m_scoremax = msg.m_scoremax();
-	m_sucessscore = msg.m_sucessscore();
-	m_defeatscore = msg.m_defeatscore();
-	m_sucessbox = msg.m_sucessbox();
-	m_defeatbox = msg.m_defeatbox();
-	m_tiebox = msg.m_tiebox();
+	m_scoreMin = msg.m_scoremin();
+	m_scoreMax = msg.m_scoremax();
+	m_sucessScore = msg.m_sucessscore();
+	m_defeatScore = msg.m_defeatscore();
+	m_sucessBox = msg.m_sucessbox();
+	m_defeatBox = msg.m_defeatbox();
+	m_tieBox = msg.m_tiebox();
 }
 
 Sheet_Pk1v1Rank_s::Sheet_Pk1v1Rank_s() {
@@ -105,8 +105,8 @@ void E_Pk1v1Reward_s::write_to_pbmsg(::proto_ff::E_Pk1v1Reward & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_boxid((int32_t)m_boxid);
-	for(int32_t i = 0; i < (int32_t)m_typearg.size(); ++i) {
-		msg.add_m_typearg((int32_t)m_typearg[i]);
+	for(int32_t i = 0; i < (int32_t)m_typeArg.size(); ++i) {
+		msg.add_m_typearg((int32_t)m_typeArg[i]);
 	}
 }
 
@@ -114,9 +114,9 @@ void E_Pk1v1Reward_s::read_from_pbmsg(const ::proto_ff::E_Pk1v1Reward & msg) {
 	m_id = msg.m_id();
 	m_type = msg.m_type();
 	m_boxid = msg.m_boxid();
-	m_typearg.resize((int)msg.m_typearg_size() > (int)m_typearg.max_size() ? m_typearg.max_size() : msg.m_typearg_size());
-	for(int32_t i = 0; i < (int32_t)m_typearg.size(); ++i) {
-		m_typearg[i] = msg.m_typearg(i);
+	m_typeArg.resize((int)msg.m_typearg_size() > (int)m_typeArg.max_size() ? m_typeArg.max_size() : msg.m_typearg_size());
+	for(int32_t i = 0; i < (int32_t)m_typeArg.size(); ++i) {
+		m_typeArg[i] = msg.m_typearg(i);
 	}
 }
 

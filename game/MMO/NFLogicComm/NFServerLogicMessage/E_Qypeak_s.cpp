@@ -12,7 +12,7 @@ E_QypeakBack_s::E_QypeakBack_s() {
 
 int E_QypeakBack_s::CreateInit() {
 	m_layers = (int32_t)0;
-	m_skillnum = (int32_t)0;
+	m_skillNum = (int32_t)0;
 	m_reward = (int32_t)0;
 	return 0;
 }
@@ -23,13 +23,13 @@ int E_QypeakBack_s::ResumeInit() {
 
 void E_QypeakBack_s::write_to_pbmsg(::proto_ff::E_QypeakBack & msg) const {
 	msg.set_m_layers((int32_t)m_layers);
-	msg.set_m_skillnum((int32_t)m_skillnum);
+	msg.set_m_skillnum((int32_t)m_skillNum);
 	msg.set_m_reward((int32_t)m_reward);
 }
 
 void E_QypeakBack_s::read_from_pbmsg(const ::proto_ff::E_QypeakBack & msg) {
 	m_layers = msg.m_layers();
-	m_skillnum = msg.m_skillnum();
+	m_skillNum = msg.m_skillnum();
 	m_reward = msg.m_reward();
 }
 
@@ -75,7 +75,7 @@ E_QypeakConstant_s::E_QypeakConstant_s() {
 int E_QypeakConstant_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_mapid = (int32_t)0;
-	m_revivalbuff = (int32_t)0;
+	m_revivalBuff = (int32_t)0;
 	return 0;
 }
 
@@ -86,7 +86,7 @@ int E_QypeakConstant_s::ResumeInit() {
 void E_QypeakConstant_s::write_to_pbmsg(::proto_ff::E_QypeakConstant & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_mapid((int32_t)m_mapid);
-	msg.set_m_revivalbuff((int32_t)m_revivalbuff);
+	msg.set_m_revivalbuff((int32_t)m_revivalBuff);
 	for(int32_t i = 0; i < (int32_t)m_rankreward.size(); ++i) {
 		msg.add_m_rankreward((int32_t)m_rankreward[i]);
 	}
@@ -98,7 +98,7 @@ void E_QypeakConstant_s::write_to_pbmsg(::proto_ff::E_QypeakConstant & msg) cons
 void E_QypeakConstant_s::read_from_pbmsg(const ::proto_ff::E_QypeakConstant & msg) {
 	m_id = msg.m_id();
 	m_mapid = msg.m_mapid();
-	m_revivalbuff = msg.m_revivalbuff();
+	m_revivalBuff = msg.m_revivalbuff();
 	m_rankreward.resize((int)msg.m_rankreward_size() > (int)m_rankreward.max_size() ? m_rankreward.max_size() : msg.m_rankreward_size());
 	for(int32_t i = 0; i < (int32_t)m_rankreward.size(); ++i) {
 		m_rankreward[i] = msg.m_rankreward(i);

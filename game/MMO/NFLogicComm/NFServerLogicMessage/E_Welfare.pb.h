@@ -164,10 +164,10 @@ class E_WelfareSign : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_days() const;
   inline void set_m_days(::google::protobuf::int32 value);
 
-  // optional int32 m_vip = 4;
+  // optional int32 m_VIP = 4;
   inline bool has_m_vip() const;
   inline void clear_m_vip();
-  static const int kMVipFieldNumber = 4;
+  static const int kMVIPFieldNumber = 4;
   inline ::google::protobuf::int32 m_vip() const;
   inline void set_m_vip(::google::protobuf::int32 value);
 
@@ -190,10 +190,10 @@ class E_WelfareSign : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_reward() const;
   inline void set_m_reward(::google::protobuf::int32 value);
 
-  // optional int32 m_rewardnum = 7;
+  // optional int32 m_rewardNum = 7;
   inline bool has_m_rewardnum() const;
   inline void clear_m_rewardnum();
-  static const int kMRewardnumFieldNumber = 7;
+  static const int kMRewardNumFieldNumber = 7;
   inline ::google::protobuf::int32 m_rewardnum() const;
   inline void set_m_rewardnum(::google::protobuf::int32 value);
 
@@ -389,10 +389,10 @@ class E_WelfareAccruereward : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_month() const;
   inline void set_m_month(::google::protobuf::int32 value);
 
-  // optional int32 m_accruedays = 3;
+  // optional int32 m_accrueDays = 3;
   inline bool has_m_accruedays() const;
   inline void clear_m_accruedays();
-  static const int kMAccruedaysFieldNumber = 3;
+  static const int kMAccrueDaysFieldNumber = 3;
   inline ::google::protobuf::int32 m_accruedays() const;
   inline void set_m_accruedays(::google::protobuf::int32 value);
 
@@ -403,10 +403,10 @@ class E_WelfareAccruereward : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_reward() const;
   inline void set_m_reward(::google::protobuf::int32 value);
 
-  // optional int32 m_rewardnum = 5;
+  // optional int32 m_rewardNum = 5;
   inline bool has_m_rewardnum() const;
   inline void clear_m_rewardnum();
-  static const int kMRewardnumFieldNumber = 5;
+  static const int kMRewardNumFieldNumber = 5;
   inline ::google::protobuf::int32 m_rewardnum() const;
   inline void set_m_rewardnum(::google::protobuf::int32 value);
 
@@ -596,10 +596,10 @@ class E_WelfareLvreward : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_lvreward = 3;
+  // optional int32 m_lvReward = 3;
   inline bool has_m_lvreward() const;
   inline void clear_m_lvreward();
-  static const int kMLvrewardFieldNumber = 3;
+  static const int kMLvRewardFieldNumber = 3;
   inline ::google::protobuf::int32 m_lvreward() const;
   inline void set_m_lvreward(::google::protobuf::int32 value);
 
@@ -610,10 +610,10 @@ class E_WelfareLvreward : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_vip() const;
   inline void set_m_vip(::google::protobuf::int32 value);
 
-  // optional int32 m_vipreward = 5;
+  // optional int32 m_vipReward = 5;
   inline bool has_m_vipreward() const;
   inline void clear_m_vipreward();
-  static const int kMViprewardFieldNumber = 5;
+  static const int kMVipRewardFieldNumber = 5;
   inline ::google::protobuf::int32 m_vipreward() const;
   inline void set_m_vipreward(::google::protobuf::int32 value);
 
@@ -796,17 +796,17 @@ class E_WelfareOnline : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_onlinetime = 2;
+  // optional int32 m_onlineTime = 2;
   inline bool has_m_onlinetime() const;
   inline void clear_m_onlinetime();
-  static const int kMOnlinetimeFieldNumber = 2;
+  static const int kMOnlineTimeFieldNumber = 2;
   inline ::google::protobuf::int32 m_onlinetime() const;
   inline void set_m_onlinetime(::google::protobuf::int32 value);
 
-  // optional int32 m_lvreward = 3;
+  // optional int32 m_lvReward = 3;
   inline bool has_m_lvreward() const;
   inline void clear_m_lvreward();
-  static const int kMLvrewardFieldNumber = 3;
+  static const int kMLvRewardFieldNumber = 3;
   inline ::google::protobuf::int32 m_lvreward() const;
   inline void set_m_lvreward(::google::protobuf::int32 value);
 
@@ -1175,17 +1175,17 @@ class E_WelfareWeekendgift : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_lvmin = 2;
+  // optional int32 m_lvMin = 2;
   inline bool has_m_lvmin() const;
   inline void clear_m_lvmin();
-  static const int kMLvminFieldNumber = 2;
+  static const int kMLvMinFieldNumber = 2;
   inline ::google::protobuf::int32 m_lvmin() const;
   inline void set_m_lvmin(::google::protobuf::int32 value);
 
-  // optional int32 m_lvmax = 3;
+  // optional int32 m_lvMax = 3;
   inline bool has_m_lvmax() const;
   inline void clear_m_lvmax();
-  static const int kMLvmaxFieldNumber = 3;
+  static const int kMLvMaxFieldNumber = 3;
   inline ::google::protobuf::int32 m_lvmax() const;
   inline void set_m_lvmax(::google::protobuf::int32 value);
 
@@ -1385,87 +1385,87 @@ class E_WelfareConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_addsigncost = 2;
+  // optional int32 m_addSigncost = 2;
   inline bool has_m_addsigncost() const;
   inline void clear_m_addsigncost();
-  static const int kMAddsigncostFieldNumber = 2;
+  static const int kMAddSigncostFieldNumber = 2;
   inline ::google::protobuf::int32 m_addsigncost() const;
   inline void set_m_addsigncost(::google::protobuf::int32 value);
 
-  // optional int32 m_addsignprice = 3;
+  // optional int32 m_addSignprice = 3;
   inline bool has_m_addsignprice() const;
   inline void clear_m_addsignprice();
-  static const int kMAddsignpriceFieldNumber = 3;
+  static const int kMAddSignpriceFieldNumber = 3;
   inline ::google::protobuf::int32 m_addsignprice() const;
   inline void set_m_addsignprice(::google::protobuf::int32 value);
 
-  // optional int32 m_noticereward = 4;
+  // optional int32 m_noticeReward = 4;
   inline bool has_m_noticereward() const;
   inline void clear_m_noticereward();
-  static const int kMNoticerewardFieldNumber = 4;
+  static const int kMNoticeRewardFieldNumber = 4;
   inline ::google::protobuf::int32 m_noticereward() const;
   inline void set_m_noticereward(::google::protobuf::int32 value);
 
-  // optional int32 m_wrongmin = 5;
+  // optional int32 m_wrongMin = 5;
   inline bool has_m_wrongmin() const;
   inline void clear_m_wrongmin();
-  static const int kMWrongminFieldNumber = 5;
+  static const int kMWrongMinFieldNumber = 5;
   inline ::google::protobuf::int32 m_wrongmin() const;
   inline void set_m_wrongmin(::google::protobuf::int32 value);
 
-  // optional int32 m_wrongmax = 6;
+  // optional int32 m_wrongMax = 6;
   inline bool has_m_wrongmax() const;
   inline void clear_m_wrongmax();
-  static const int kMWrongmaxFieldNumber = 6;
+  static const int kMWrongMaxFieldNumber = 6;
   inline ::google::protobuf::int32 m_wrongmax() const;
   inline void set_m_wrongmax(::google::protobuf::int32 value);
 
-  // optional int32 m_fraudreward = 7;
+  // optional int32 m_fraudReward = 7;
   inline bool has_m_fraudreward() const;
   inline void clear_m_fraudreward();
-  static const int kMFraudrewardFieldNumber = 7;
+  static const int kMFraudRewardFieldNumber = 7;
   inline ::google::protobuf::int32 m_fraudreward() const;
   inline void set_m_fraudreward(::google::protobuf::int32 value);
 
-  // optional int32 m_firstrcharge = 8;
+  // optional int32 m_firstRcharge = 8;
   inline bool has_m_firstrcharge() const;
   inline void clear_m_firstrcharge();
-  static const int kMFirstrchargeFieldNumber = 8;
+  static const int kMFirstRchargeFieldNumber = 8;
   inline ::google::protobuf::int32 m_firstrcharge() const;
   inline void set_m_firstrcharge(::google::protobuf::int32 value);
 
-  // optional int32 m_secondrcharge = 9;
+  // optional int32 m_secondRcharge = 9;
   inline bool has_m_secondrcharge() const;
   inline void clear_m_secondrcharge();
-  static const int kMSecondrchargeFieldNumber = 9;
+  static const int kMSecondRchargeFieldNumber = 9;
   inline ::google::protobuf::int32 m_secondrcharge() const;
   inline void set_m_secondrcharge(::google::protobuf::int32 value);
 
-  // optional int32 m_gemmb = 10;
+  // optional int32 m_gemMB = 10;
   inline bool has_m_gemmb() const;
   inline void clear_m_gemmb();
-  static const int kMGemmbFieldNumber = 10;
+  static const int kMGemMBFieldNumber = 10;
   inline ::google::protobuf::int32 m_gemmb() const;
   inline void set_m_gemmb(::google::protobuf::int32 value);
 
-  // optional int32 m_starmb = 11;
+  // optional int32 m_starMB = 11;
   inline bool has_m_starmb() const;
   inline void clear_m_starmb();
-  static const int kMStarmbFieldNumber = 11;
+  static const int kMStarMBFieldNumber = 11;
   inline ::google::protobuf::int32 m_starmb() const;
   inline void set_m_starmb(::google::protobuf::int32 value);
 
-  // optional int32 m_kingmb = 12;
+  // optional int32 m_kingMB = 12;
   inline bool has_m_kingmb() const;
   inline void clear_m_kingmb();
-  static const int kMKingmbFieldNumber = 12;
+  static const int kMKingMBFieldNumber = 12;
   inline ::google::protobuf::int32 m_kingmb() const;
   inline void set_m_kingmb(::google::protobuf::int32 value);
 
-  // optional int32 m_keyrebate = 13;
+  // optional int32 m_keyRebate = 13;
   inline bool has_m_keyrebate() const;
   inline void clear_m_keyrebate();
-  static const int kMKeyrebateFieldNumber = 13;
+  static const int kMKeyRebateFieldNumber = 13;
   inline ::google::protobuf::int32 m_keyrebate() const;
   inline void set_m_keyrebate(::google::protobuf::int32 value);
 
@@ -2055,10 +2055,10 @@ class E_WelfareLogon : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_icon() const;
   inline void set_m_icon(::google::protobuf::int32 value);
 
-  // optional int32 m_showitem = 4;
+  // optional int32 m_showItem = 4;
   inline bool has_m_showitem() const;
   inline void clear_m_showitem();
-  static const int kMShowitemFieldNumber = 4;
+  static const int kMShowItemFieldNumber = 4;
   inline ::google::protobuf::int32 m_showitem() const;
   inline void set_m_showitem(::google::protobuf::int32 value);
 
@@ -2262,10 +2262,10 @@ class E_WelfareFirstcharge : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_type() const;
   inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 m_opendays = 4;
+  // optional int32 m_openDays = 4;
   inline bool has_m_opendays() const;
   inline void clear_m_opendays();
-  static const int kMOpendaysFieldNumber = 4;
+  static const int kMOpenDaysFieldNumber = 4;
   inline ::google::protobuf::int32 m_opendays() const;
   inline void set_m_opendays(::google::protobuf::int32 value);
 
@@ -2292,10 +2292,10 @@ class E_WelfareFirstcharge : public ::google::protobuf::Message {
   inline const ::google::protobuf::RepeatedPtrField< ::std::string>& m_model() const;
   inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_m_model();
 
-  // repeated int32 m_rewardshow = 7;
+  // repeated int32 m_rewardShow = 7;
   inline int m_rewardshow_size() const;
   inline void clear_m_rewardshow();
-  static const int kMRewardshowFieldNumber = 7;
+  static const int kMRewardShowFieldNumber = 7;
   inline ::google::protobuf::int32 m_rewardshow(int index) const;
   inline void set_m_rewardshow(int index, ::google::protobuf::int32 value);
   inline void add_m_rewardshow(::google::protobuf::int32 value);
@@ -2304,10 +2304,10 @@ class E_WelfareFirstcharge : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_m_rewardshow();
 
-  // repeated string m_rewarddes = 8;
+  // repeated string m_rewardDes = 8;
   inline int m_rewarddes_size() const;
   inline void clear_m_rewarddes();
-  static const int kMRewarddesFieldNumber = 8;
+  static const int kMRewardDesFieldNumber = 8;
   inline const ::std::string& m_rewarddes(int index) const;
   inline ::std::string* mutable_m_rewarddes(int index);
   inline void set_m_rewarddes(int index, const ::std::string& value);
@@ -2521,10 +2521,10 @@ class E_WelfareSctype : public ::google::protobuf::Message {
   inline ::std::string* release_m_title();
   inline void set_allocated_m_title(::std::string* m_title);
 
-  // optional string m_basemap = 4;
+  // optional string m_baseMap = 4;
   inline bool has_m_basemap() const;
   inline void clear_m_basemap();
-  static const int kMBasemapFieldNumber = 4;
+  static const int kMBaseMapFieldNumber = 4;
   inline const ::std::string& m_basemap() const;
   inline void set_m_basemap(const ::std::string& value);
   inline void set_m_basemap(const char* value);
@@ -2740,10 +2740,10 @@ class E_WelfareMibao : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_rank() const;
   inline void set_m_rank(::google::protobuf::int32 value);
 
-  // optional int32 m_opendays = 5;
+  // optional int32 m_openDays = 5;
   inline bool has_m_opendays() const;
   inline void clear_m_opendays();
-  static const int kMOpendaysFieldNumber = 5;
+  static const int kMOpenDaysFieldNumber = 5;
   inline ::google::protobuf::int32 m_opendays() const;
   inline void set_m_opendays(::google::protobuf::int32 value);
 
@@ -3155,17 +3155,17 @@ class E_WelfareDailygift : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_type() const;
   inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 m_rechargeid = 3;
+  // optional int32 m_rechargeId = 3;
   inline bool has_m_rechargeid() const;
   inline void clear_m_rechargeid();
-  static const int kMRechargeidFieldNumber = 3;
+  static const int kMRechargeIdFieldNumber = 3;
   inline ::google::protobuf::int32 m_rechargeid() const;
   inline void set_m_rechargeid(::google::protobuf::int32 value);
 
-  // optional int32 m_oneclickbuy = 4;
+  // optional int32 m_OneclickBuy = 4;
   inline bool has_m_oneclickbuy() const;
   inline void clear_m_oneclickbuy();
-  static const int kMOneclickbuyFieldNumber = 4;
+  static const int kMOneclickBuyFieldNumber = 4;
   inline ::google::protobuf::int32 m_oneclickbuy() const;
   inline void set_m_oneclickbuy(::google::protobuf::int32 value);
 
@@ -3386,10 +3386,10 @@ class E_WelfareLcgift : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_days() const;
   inline void set_m_days(::google::protobuf::int32 value);
 
-  // optional int32 m_starnum = 5;
+  // optional int32 m_starNum = 5;
   inline bool has_m_starnum() const;
   inline void clear_m_starnum();
-  static const int kMStarnumFieldNumber = 5;
+  static const int kMStarNumFieldNumber = 5;
   inline ::google::protobuf::int32 m_starnum() const;
   inline void set_m_starnum(::google::protobuf::int32 value);
 
@@ -3400,10 +3400,10 @@ class E_WelfareLcgift : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_reward() const;
   inline void set_m_reward(::google::protobuf::int32 value);
 
-  // optional int32 m_showitem = 7;
+  // optional int32 m_showItem = 7;
   inline bool has_m_showitem() const;
   inline void clear_m_showitem();
-  static const int kMShowitemFieldNumber = 7;
+  static const int kMShowItemFieldNumber = 7;
   inline ::google::protobuf::int32 m_showitem() const;
   inline void set_m_showitem(::google::protobuf::int32 value);
 
@@ -3881,24 +3881,24 @@ class E_WelfareLcturntable : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_jackpottype = 2;
+  // optional int32 m_jackpotType = 2;
   inline bool has_m_jackpottype() const;
   inline void clear_m_jackpottype();
-  static const int kMJackpottypeFieldNumber = 2;
+  static const int kMJackpotTypeFieldNumber = 2;
   inline ::google::protobuf::int32 m_jackpottype() const;
   inline void set_m_jackpottype(::google::protobuf::int32 value);
 
-  // optional int32 m_raffletimes = 3;
+  // optional int32 m_raffleTimes = 3;
   inline bool has_m_raffletimes() const;
   inline void clear_m_raffletimes();
-  static const int kMRaffletimesFieldNumber = 3;
+  static const int kMRaffleTimesFieldNumber = 3;
   inline ::google::protobuf::int32 m_raffletimes() const;
   inline void set_m_raffletimes(::google::protobuf::int32 value);
 
-  // optional int32 m_ratimesrew = 4;
+  // optional int32 m_raTimesRew = 4;
   inline bool has_m_ratimesrew() const;
   inline void clear_m_ratimesrew();
-  static const int kMRatimesrewFieldNumber = 4;
+  static const int kMRaTimesRewFieldNumber = 4;
   inline ::google::protobuf::int32 m_ratimesrew() const;
   inline void set_m_ratimesrew(::google::protobuf::int32 value);
 
@@ -4112,10 +4112,10 @@ class E_WelfareJackpot : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_item() const;
   inline void set_m_item(::google::protobuf::int32 value);
 
-  // optional int32 m_itemnum = 5;
+  // optional int32 m_itemNum = 5;
   inline bool has_m_itemnum() const;
   inline void clear_m_itemnum();
-  static const int kMItemnumFieldNumber = 5;
+  static const int kMItemNumFieldNumber = 5;
   inline ::google::protobuf::int32 m_itemnum() const;
   inline void set_m_itemnum(::google::protobuf::int32 value);
 
@@ -4308,42 +4308,42 @@ class E_WelfareMonthlycard : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_cardtype = 2;
+  // optional int32 m_cardType = 2;
   inline bool has_m_cardtype() const;
   inline void clear_m_cardtype();
-  static const int kMCardtypeFieldNumber = 2;
+  static const int kMCardTypeFieldNumber = 2;
   inline ::google::protobuf::int32 m_cardtype() const;
   inline void set_m_cardtype(::google::protobuf::int32 value);
 
-  // optional int32 m_cardmoney = 3;
+  // optional int32 m_cardMoney = 3;
   inline bool has_m_cardmoney() const;
   inline void clear_m_cardmoney();
-  static const int kMCardmoneyFieldNumber = 3;
+  static const int kMCardMoneyFieldNumber = 3;
   inline ::google::protobuf::int32 m_cardmoney() const;
   inline void set_m_cardmoney(::google::protobuf::int32 value);
 
-  // optional int32 m_cardbuyitem = 4;
+  // optional int32 m_cardBuyitem = 4;
   inline bool has_m_cardbuyitem() const;
   inline void clear_m_cardbuyitem();
-  static const int kMCardbuyitemFieldNumber = 4;
+  static const int kMCardBuyitemFieldNumber = 4;
   inline ::google::protobuf::int32 m_cardbuyitem() const;
   inline void set_m_cardbuyitem(::google::protobuf::int32 value);
 
-  // optional int32 m_carddailyitem = 5;
+  // optional int32 m_cardDailyitem = 5;
   inline bool has_m_carddailyitem() const;
   inline void clear_m_carddailyitem();
-  static const int kMCarddailyitemFieldNumber = 5;
+  static const int kMCardDailyitemFieldNumber = 5;
   inline ::google::protobuf::int32 m_carddailyitem() const;
   inline void set_m_carddailyitem(::google::protobuf::int32 value);
 
-  // optional int32 m_cardtime = 6;
+  // optional int32 m_cardTime = 6;
   inline bool has_m_cardtime() const;
   inline void clear_m_cardtime();
-  static const int kMCardtimeFieldNumber = 6;
+  static const int kMCardTimeFieldNumber = 6;
   inline ::google::protobuf::int32 m_cardtime() const;
   inline void set_m_cardtime(::google::protobuf::int32 value);
 
-  // optional int32 m_flmultiple = 7;
+  // optional int32 m_Flmultiple = 7;
   inline bool has_m_flmultiple() const;
   inline void clear_m_flmultiple();
   static const int kMFlmultipleFieldNumber = 7;
@@ -4542,10 +4542,10 @@ class E_WelfareGoal : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_functionid() const;
   inline void set_m_functionid(::google::protobuf::int32 value);
 
-  // optional int32 m_taskgroup = 3;
+  // optional int32 m_taskGroup = 3;
   inline bool has_m_taskgroup() const;
   inline void clear_m_taskgroup();
-  static const int kMTaskgroupFieldNumber = 3;
+  static const int kMTaskGroupFieldNumber = 3;
   inline ::google::protobuf::int32 m_taskgroup() const;
   inline void set_m_taskgroup(::google::protobuf::int32 value);
 
@@ -4556,10 +4556,10 @@ class E_WelfareGoal : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_tasknum() const;
   inline void set_m_tasknum(::google::protobuf::int32 value);
 
-  // optional int32 m_rewrditem = 5;
+  // optional int32 m_rewrdItem = 5;
   inline bool has_m_rewrditem() const;
   inline void clear_m_rewrditem();
-  static const int kMRewrditemFieldNumber = 5;
+  static const int kMRewrdItemFieldNumber = 5;
   inline ::google::protobuf::int32 m_rewrditem() const;
   inline void set_m_rewrditem(::google::protobuf::int32 value);
 
@@ -4752,38 +4752,38 @@ class E_WelfareGoaltask : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 2;
+  static const int kMGroupIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
-  // optional int32 m_eventtype = 3;
+  // optional int32 m_eventType = 3;
   inline bool has_m_eventtype() const;
   inline void clear_m_eventtype();
-  static const int kMEventtypeFieldNumber = 3;
+  static const int kMEventTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_eventtype() const;
   inline void set_m_eventtype(::google::protobuf::int32 value);
 
-  // optional int32 m_reachprice = 4;
+  // optional int32 m_reachPrice = 4;
   inline bool has_m_reachprice() const;
   inline void clear_m_reachprice();
-  static const int kMReachpriceFieldNumber = 4;
+  static const int kMReachPriceFieldNumber = 4;
   inline ::google::protobuf::int32 m_reachprice() const;
   inline void set_m_reachprice(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 5;
+  // optional int32 m_itemID = 5;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 5;
+  static const int kMItemIDFieldNumber = 5;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
-  // optional int32 m_itemnum = 6;
+  // optional int32 m_itemNum = 6;
   inline bool has_m_itemnum() const;
   inline void clear_m_itemnum();
-  static const int kMItemnumFieldNumber = 6;
+  static const int kMItemNumFieldNumber = 6;
   inline ::google::protobuf::int32 m_itemnum() const;
   inline void set_m_itemnum(::google::protobuf::int32 value);
 
@@ -4982,10 +4982,10 @@ class E_WelfareInvest : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_functionid = 2;
+  // optional int32 m_functionID = 2;
   inline bool has_m_functionid() const;
   inline void clear_m_functionid();
-  static const int kMFunctionidFieldNumber = 2;
+  static const int kMFunctionIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_functionid() const;
   inline void set_m_functionid(::google::protobuf::int32 value);
 
@@ -4996,17 +4996,17 @@ class E_WelfareInvest : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_price() const;
   inline void set_m_price(::google::protobuf::int32 value);
 
-  // optional int32 m_rewarditem = 4;
+  // optional int32 m_rewardItem = 4;
   inline bool has_m_rewarditem() const;
   inline void clear_m_rewarditem();
-  static const int kMRewarditemFieldNumber = 4;
+  static const int kMRewardItemFieldNumber = 4;
   inline ::google::protobuf::int32 m_rewarditem() const;
   inline void set_m_rewarditem(::google::protobuf::int32 value);
 
-  // optional int32 m_rewardgroup = 5;
+  // optional int32 m_rewardGroup = 5;
   inline bool has_m_rewardgroup() const;
   inline void clear_m_rewardgroup();
-  static const int kMRewardgroupFieldNumber = 5;
+  static const int kMRewardGroupFieldNumber = 5;
   inline ::google::protobuf::int32 m_rewardgroup() const;
   inline void set_m_rewardgroup(::google::protobuf::int32 value);
 
@@ -5295,7 +5295,7 @@ class E_WelfareInvestreward : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_WelfareInvestrewardItemDesc m_item = 4;
+  // repeated .proto_ff.E_WelfareInvestrewardItemDesc m_Item = 4;
   inline int m_item_size() const;
   inline void clear_m_item();
   static const int kMItemFieldNumber = 4;
@@ -5481,10 +5481,10 @@ class E_WelfareYttlgift : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_rechargeid = 2;
+  // optional int32 m_rechargeId = 2;
   inline bool has_m_rechargeid() const;
   inline void clear_m_rechargeid();
-  static const int kMRechargeidFieldNumber = 2;
+  static const int kMRechargeIdFieldNumber = 2;
   inline ::google::protobuf::int32 m_rechargeid() const;
   inline void set_m_rechargeid(::google::protobuf::int32 value);
 
@@ -5678,7 +5678,7 @@ inline void E_WelfareSign::set_m_days(::google::protobuf::int32 value) {
   m_days_ = value;
 }
 
-// optional int32 m_vip = 4;
+// optional int32 m_VIP = 4;
 inline bool E_WelfareSign::has_m_vip() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -5792,7 +5792,7 @@ inline void E_WelfareSign::set_m_reward(::google::protobuf::int32 value) {
   m_reward_ = value;
 }
 
-// optional int32 m_rewardnum = 7;
+// optional int32 m_rewardNum = 7;
 inline bool E_WelfareSign::has_m_rewardnum() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -5891,7 +5891,7 @@ inline void E_WelfareAccruereward::set_m_month(::google::protobuf::int32 value) 
   m_month_ = value;
 }
 
-// optional int32 m_accruedays = 3;
+// optional int32 m_accrueDays = 3;
 inline bool E_WelfareAccruereward::has_m_accruedays() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -5935,7 +5935,7 @@ inline void E_WelfareAccruereward::set_m_reward(::google::protobuf::int32 value)
   m_reward_ = value;
 }
 
-// optional int32 m_rewardnum = 5;
+// optional int32 m_rewardNum = 5;
 inline bool E_WelfareAccruereward::has_m_rewardnum() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -6034,7 +6034,7 @@ inline void E_WelfareLvreward::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional int32 m_lvreward = 3;
+// optional int32 m_lvReward = 3;
 inline bool E_WelfareLvreward::has_m_lvreward() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -6078,7 +6078,7 @@ inline void E_WelfareLvreward::set_m_vip(::google::protobuf::int32 value) {
   m_vip_ = value;
 }
 
-// optional int32 m_vipreward = 5;
+// optional int32 m_vipReward = 5;
 inline bool E_WelfareLvreward::has_m_vipreward() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -6155,7 +6155,7 @@ inline void E_WelfareOnline::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_onlinetime = 2;
+// optional int32 m_onlineTime = 2;
 inline bool E_WelfareOnline::has_m_onlinetime() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -6177,7 +6177,7 @@ inline void E_WelfareOnline::set_m_onlinetime(::google::protobuf::int32 value) {
   m_onlinetime_ = value;
 }
 
-// optional int32 m_lvreward = 3;
+// optional int32 m_lvReward = 3;
 inline bool E_WelfareOnline::has_m_lvreward() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -6401,7 +6401,7 @@ inline void E_WelfareWeekendgift::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_lvmin = 2;
+// optional int32 m_lvMin = 2;
 inline bool E_WelfareWeekendgift::has_m_lvmin() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -6423,7 +6423,7 @@ inline void E_WelfareWeekendgift::set_m_lvmin(::google::protobuf::int32 value) {
   m_lvmin_ = value;
 }
 
-// optional int32 m_lvmax = 3;
+// optional int32 m_lvMax = 3;
 inline bool E_WelfareWeekendgift::has_m_lvmax() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -6547,7 +6547,7 @@ inline void E_WelfareConstant::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_addsigncost = 2;
+// optional int32 m_addSigncost = 2;
 inline bool E_WelfareConstant::has_m_addsigncost() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -6569,7 +6569,7 @@ inline void E_WelfareConstant::set_m_addsigncost(::google::protobuf::int32 value
   m_addsigncost_ = value;
 }
 
-// optional int32 m_addsignprice = 3;
+// optional int32 m_addSignprice = 3;
 inline bool E_WelfareConstant::has_m_addsignprice() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -6591,7 +6591,7 @@ inline void E_WelfareConstant::set_m_addsignprice(::google::protobuf::int32 valu
   m_addsignprice_ = value;
 }
 
-// optional int32 m_noticereward = 4;
+// optional int32 m_noticeReward = 4;
 inline bool E_WelfareConstant::has_m_noticereward() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -6613,7 +6613,7 @@ inline void E_WelfareConstant::set_m_noticereward(::google::protobuf::int32 valu
   m_noticereward_ = value;
 }
 
-// optional int32 m_wrongmin = 5;
+// optional int32 m_wrongMin = 5;
 inline bool E_WelfareConstant::has_m_wrongmin() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -6635,7 +6635,7 @@ inline void E_WelfareConstant::set_m_wrongmin(::google::protobuf::int32 value) {
   m_wrongmin_ = value;
 }
 
-// optional int32 m_wrongmax = 6;
+// optional int32 m_wrongMax = 6;
 inline bool E_WelfareConstant::has_m_wrongmax() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -6657,7 +6657,7 @@ inline void E_WelfareConstant::set_m_wrongmax(::google::protobuf::int32 value) {
   m_wrongmax_ = value;
 }
 
-// optional int32 m_fraudreward = 7;
+// optional int32 m_fraudReward = 7;
 inline bool E_WelfareConstant::has_m_fraudreward() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -6679,7 +6679,7 @@ inline void E_WelfareConstant::set_m_fraudreward(::google::protobuf::int32 value
   m_fraudreward_ = value;
 }
 
-// optional int32 m_firstrcharge = 8;
+// optional int32 m_firstRcharge = 8;
 inline bool E_WelfareConstant::has_m_firstrcharge() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -6701,7 +6701,7 @@ inline void E_WelfareConstant::set_m_firstrcharge(::google::protobuf::int32 valu
   m_firstrcharge_ = value;
 }
 
-// optional int32 m_secondrcharge = 9;
+// optional int32 m_secondRcharge = 9;
 inline bool E_WelfareConstant::has_m_secondrcharge() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -6723,7 +6723,7 @@ inline void E_WelfareConstant::set_m_secondrcharge(::google::protobuf::int32 val
   m_secondrcharge_ = value;
 }
 
-// optional int32 m_gemmb = 10;
+// optional int32 m_gemMB = 10;
 inline bool E_WelfareConstant::has_m_gemmb() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -6745,7 +6745,7 @@ inline void E_WelfareConstant::set_m_gemmb(::google::protobuf::int32 value) {
   m_gemmb_ = value;
 }
 
-// optional int32 m_starmb = 11;
+// optional int32 m_starMB = 11;
 inline bool E_WelfareConstant::has_m_starmb() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -6767,7 +6767,7 @@ inline void E_WelfareConstant::set_m_starmb(::google::protobuf::int32 value) {
   m_starmb_ = value;
 }
 
-// optional int32 m_kingmb = 12;
+// optional int32 m_kingMB = 12;
 inline bool E_WelfareConstant::has_m_kingmb() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -6789,7 +6789,7 @@ inline void E_WelfareConstant::set_m_kingmb(::google::protobuf::int32 value) {
   m_kingmb_ = value;
 }
 
-// optional int32 m_keyrebate = 13;
+// optional int32 m_keyRebate = 13;
 inline bool E_WelfareConstant::has_m_keyrebate() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -7134,7 +7134,7 @@ inline void E_WelfareLogon::set_m_icon(::google::protobuf::int32 value) {
   m_icon_ = value;
 }
 
-// optional int32 m_showitem = 4;
+// optional int32 m_showItem = 4;
 inline bool E_WelfareLogon::has_m_showitem() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -7277,7 +7277,7 @@ inline void E_WelfareFirstcharge::set_m_type(::google::protobuf::int32 value) {
   m_type_ = value;
 }
 
-// optional int32 m_opendays = 4;
+// optional int32 m_openDays = 4;
 inline bool E_WelfareFirstcharge::has_m_opendays() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -7365,7 +7365,7 @@ E_WelfareFirstcharge::mutable_m_model() {
   return &m_model_;
 }
 
-// repeated int32 m_rewardshow = 7;
+// repeated int32 m_rewardShow = 7;
 inline int E_WelfareFirstcharge::m_rewardshow_size() const {
   return m_rewardshow_.size();
 }
@@ -7390,7 +7390,7 @@ E_WelfareFirstcharge::mutable_m_rewardshow() {
   return &m_rewardshow_;
 }
 
-// repeated string m_rewarddes = 8;
+// repeated string m_rewardDes = 8;
 inline int E_WelfareFirstcharge::m_rewarddes_size() const {
   return m_rewarddes_.size();
 }
@@ -7581,7 +7581,7 @@ inline void E_WelfareSctype::set_allocated_m_title(::std::string* m_title) {
   }
 }
 
-// optional string m_basemap = 4;
+// optional string m_baseMap = 4;
 inline bool E_WelfareSctype::has_m_basemap() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -7794,7 +7794,7 @@ inline void E_WelfareMibao::set_m_rank(::google::protobuf::int32 value) {
   m_rank_ = value;
 }
 
-// optional int32 m_opendays = 5;
+// optional int32 m_openDays = 5;
 inline bool E_WelfareMibao::has_m_opendays() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -8106,7 +8106,7 @@ inline void E_WelfareDailygift::set_m_type(::google::protobuf::int32 value) {
   m_type_ = value;
 }
 
-// optional int32 m_rechargeid = 3;
+// optional int32 m_rechargeId = 3;
 inline bool E_WelfareDailygift::has_m_rechargeid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -8128,7 +8128,7 @@ inline void E_WelfareDailygift::set_m_rechargeid(::google::protobuf::int32 value
   m_rechargeid_ = value;
 }
 
-// optional int32 m_oneclickbuy = 4;
+// optional int32 m_OneclickBuy = 4;
 inline bool E_WelfareDailygift::has_m_oneclickbuy() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -8315,7 +8315,7 @@ inline void E_WelfareLcgift::set_m_days(::google::protobuf::int32 value) {
   m_days_ = value;
 }
 
-// optional int32 m_starnum = 5;
+// optional int32 m_starNum = 5;
 inline bool E_WelfareLcgift::has_m_starnum() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -8359,7 +8359,7 @@ inline void E_WelfareLcgift::set_m_reward(::google::protobuf::int32 value) {
   m_reward_ = value;
 }
 
-// optional int32 m_showitem = 7;
+// optional int32 m_showItem = 7;
 inline bool E_WelfareLcgift::has_m_showitem() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -8605,7 +8605,7 @@ inline void E_WelfareLcturntable::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_jackpottype = 2;
+// optional int32 m_jackpotType = 2;
 inline bool E_WelfareLcturntable::has_m_jackpottype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -8627,7 +8627,7 @@ inline void E_WelfareLcturntable::set_m_jackpottype(::google::protobuf::int32 va
   m_jackpottype_ = value;
 }
 
-// optional int32 m_raffletimes = 3;
+// optional int32 m_raffleTimes = 3;
 inline bool E_WelfareLcturntable::has_m_raffletimes() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -8649,7 +8649,7 @@ inline void E_WelfareLcturntable::set_m_raffletimes(::google::protobuf::int32 va
   m_raffletimes_ = value;
 }
 
-// optional int32 m_ratimesrew = 4;
+// optional int32 m_raTimesRew = 4;
 inline bool E_WelfareLcturntable::has_m_ratimesrew() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -8817,7 +8817,7 @@ inline void E_WelfareJackpot::set_m_item(::google::protobuf::int32 value) {
   m_item_ = value;
 }
 
-// optional int32 m_itemnum = 5;
+// optional int32 m_itemNum = 5;
 inline bool E_WelfareJackpot::has_m_itemnum() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -8916,7 +8916,7 @@ inline void E_WelfareMonthlycard::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_cardtype = 2;
+// optional int32 m_cardType = 2;
 inline bool E_WelfareMonthlycard::has_m_cardtype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -8938,7 +8938,7 @@ inline void E_WelfareMonthlycard::set_m_cardtype(::google::protobuf::int32 value
   m_cardtype_ = value;
 }
 
-// optional int32 m_cardmoney = 3;
+// optional int32 m_cardMoney = 3;
 inline bool E_WelfareMonthlycard::has_m_cardmoney() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -8960,7 +8960,7 @@ inline void E_WelfareMonthlycard::set_m_cardmoney(::google::protobuf::int32 valu
   m_cardmoney_ = value;
 }
 
-// optional int32 m_cardbuyitem = 4;
+// optional int32 m_cardBuyitem = 4;
 inline bool E_WelfareMonthlycard::has_m_cardbuyitem() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -8982,7 +8982,7 @@ inline void E_WelfareMonthlycard::set_m_cardbuyitem(::google::protobuf::int32 va
   m_cardbuyitem_ = value;
 }
 
-// optional int32 m_carddailyitem = 5;
+// optional int32 m_cardDailyitem = 5;
 inline bool E_WelfareMonthlycard::has_m_carddailyitem() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -9004,7 +9004,7 @@ inline void E_WelfareMonthlycard::set_m_carddailyitem(::google::protobuf::int32 
   m_carddailyitem_ = value;
 }
 
-// optional int32 m_cardtime = 6;
+// optional int32 m_cardTime = 6;
 inline bool E_WelfareMonthlycard::has_m_cardtime() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -9026,7 +9026,7 @@ inline void E_WelfareMonthlycard::set_m_cardtime(::google::protobuf::int32 value
   m_cardtime_ = value;
 }
 
-// optional int32 m_flmultiple = 7;
+// optional int32 m_Flmultiple = 7;
 inline bool E_WelfareMonthlycard::has_m_flmultiple() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -9125,7 +9125,7 @@ inline void E_WelfareGoal::set_m_functionid(::google::protobuf::int32 value) {
   m_functionid_ = value;
 }
 
-// optional int32 m_taskgroup = 3;
+// optional int32 m_taskGroup = 3;
 inline bool E_WelfareGoal::has_m_taskgroup() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -9169,7 +9169,7 @@ inline void E_WelfareGoal::set_m_tasknum(::google::protobuf::int32 value) {
   m_tasknum_ = value;
 }
 
-// optional int32 m_rewrditem = 5;
+// optional int32 m_rewrdItem = 5;
 inline bool E_WelfareGoal::has_m_rewrditem() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -9268,7 +9268,7 @@ inline void E_WelfareGoaltask::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_groupid = 2;
+// optional int32 m_groupID = 2;
 inline bool E_WelfareGoaltask::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -9290,7 +9290,7 @@ inline void E_WelfareGoaltask::set_m_groupid(::google::protobuf::int32 value) {
   m_groupid_ = value;
 }
 
-// optional int32 m_eventtype = 3;
+// optional int32 m_eventType = 3;
 inline bool E_WelfareGoaltask::has_m_eventtype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -9312,7 +9312,7 @@ inline void E_WelfareGoaltask::set_m_eventtype(::google::protobuf::int32 value) 
   m_eventtype_ = value;
 }
 
-// optional int32 m_reachprice = 4;
+// optional int32 m_reachPrice = 4;
 inline bool E_WelfareGoaltask::has_m_reachprice() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -9334,7 +9334,7 @@ inline void E_WelfareGoaltask::set_m_reachprice(::google::protobuf::int32 value)
   m_reachprice_ = value;
 }
 
-// optional int32 m_itemid = 5;
+// optional int32 m_itemID = 5;
 inline bool E_WelfareGoaltask::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -9356,7 +9356,7 @@ inline void E_WelfareGoaltask::set_m_itemid(::google::protobuf::int32 value) {
   m_itemid_ = value;
 }
 
-// optional int32 m_itemnum = 6;
+// optional int32 m_itemNum = 6;
 inline bool E_WelfareGoaltask::has_m_itemnum() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -9458,7 +9458,7 @@ inline void E_WelfareInvest::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_functionid = 2;
+// optional int32 m_functionID = 2;
 inline bool E_WelfareInvest::has_m_functionid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -9502,7 +9502,7 @@ inline void E_WelfareInvest::set_m_price(::google::protobuf::int32 value) {
   m_price_ = value;
 }
 
-// optional int32 m_rewarditem = 4;
+// optional int32 m_rewardItem = 4;
 inline bool E_WelfareInvest::has_m_rewarditem() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -9524,7 +9524,7 @@ inline void E_WelfareInvest::set_m_rewarditem(::google::protobuf::int32 value) {
   m_rewarditem_ = value;
 }
 
-// optional int32 m_rewardgroup = 5;
+// optional int32 m_rewardGroup = 5;
 inline bool E_WelfareInvest::has_m_rewardgroup() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -9693,7 +9693,7 @@ inline void E_WelfareInvestreward::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// repeated .proto_ff.E_WelfareInvestrewardItemDesc m_item = 4;
+// repeated .proto_ff.E_WelfareInvestrewardItemDesc m_Item = 4;
 inline int E_WelfareInvestreward::m_item_size() const {
   return m_item_.size();
 }
@@ -9773,7 +9773,7 @@ inline void E_WelfareYttlgift::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_rechargeid = 2;
+// optional int32 m_rechargeId = 2;
 inline bool E_WelfareYttlgift::has_m_rechargeid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }

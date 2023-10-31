@@ -305,25 +305,25 @@ void protobuf_AddDesc_E_5fEscort_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\016E_Escort.proto\022\010proto_ff\032\025yd_fieldopti"
     "ons.proto\"\275\002\n\016E_EscortEscort\022 \n\nm_convoy"
-    "id\030\001 \001(\005B\014\302\377\024\010\351\225\226\350\275\246ID\022-\n\014m_convoyname\030\002"
-    " \001(\tB\027\302\377\024\017\347\211\251\350\265\204\350\275\246\345\220\215\347\247\260\220\301\024@\022$\n\013m_monst"
-    "erid\030\003 \001(\005B\017\302\377\024\013\347\211\251\350\265\204\350\275\246ID\022-\n\010m_scalle\030"
+    "Id\030\001 \001(\005B\014\302\377\024\010\351\225\226\350\275\246ID\022-\n\014m_convoyName\030\002"
+    " \001(\tB\027\302\377\024\017\347\211\251\350\265\204\350\275\246\345\220\215\347\247\260\220\301\024@\022$\n\013m_Monst"
+    "erId\030\003 \001(\005B\017\302\377\024\013\347\211\251\350\265\204\350\275\246ID\022-\n\010m_scalle\030"
     "\004 \001(\tB\033\302\377\024\023\345\244\247\345\260\217\344\270\216y\350\275\264\346\234\235\345\220\221\220\301\024@\022\'\n\rm_"
-    "convoylevel\030\005 \001(\005B\020\302\377\024\014\351\225\226\350\275\246\347\255\211\347\272\247\022(\n\010m"
+    "convoyLevel\030\005 \001(\005B\020\302\377\024\014\351\225\226\350\275\246\347\255\211\347\272\247\022(\n\010m"
     "_chance\030\006 \001(\005B\026\302\377\024\022\351\273\230\350\256\244\350\216\267\345\276\227\346\235\203\351\207\215\0222\n"
-    "\022m_rewardlvmultiply\030\007 \001(\005B\026\302\377\024\022\345\237\272\347\241\200\347\273\217"
+    "\022m_rewardLvMultiply\030\007 \001(\005B\026\302\377\024\022\345\237\272\347\241\200\347\273\217"
     "\351\252\214\345\200\215\347\216\207\"Q\n\022Sheet_EscortEscort\022;\n\023E_Esc"
     "ortEscort_List\030\001 \003(\0132\030.proto_ff.E_Escort"
     "EscortB\004\210\301\024\010\"N\n\030E_EscortChanceEscortDesc"
-    "\022\034\n\010m_chance\030\001 \001(\005B\n\302\377\024\006\346\235\203\351\207\215\022\024\n\004m_id\030\002"
+    "\022\034\n\010m_chance\030\001 \001(\005B\n\302\377\024\006\346\235\203\351\207\215\022\024\n\004m_ID\030\002"
     " \001(\005B\006\302\377\024\002ID\"x\n\016E_EscortChance\022 \n\nm_conv"
-    "oyid\030\001 \001(\005B\014\302\377\024\010\351\225\226\350\275\246ID\022D\n\010m_escort\030\002 \003"
+    "oyId\030\001 \001(\005B\014\302\377\024\010\351\225\226\350\275\246ID\022D\n\010m_escort\030\002 \003"
     "(\0132\".proto_ff.E_EscortChanceEscortDescB\016"
     "\302\377\024\006\351\225\226\350\275\246\210\301\024\004\"Q\n\022Sheet_EscortChance\022;\n\023"
     "E_EscortChance_List\030\001 \003(\0132\030.proto_ff.E_E"
     "scortChanceB\004\210\301\024\004\"g\n\030E_EscortRewardRewar"
     "dDesc\022\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\032\n\006m_it"
-    "em\030\002 \001(\005B\n\302\377\024\006\347\211\251\345\223\201\022\024\n\004m_id\030\003 \001(\005B\006\302\377\024\002"
+    "em\030\002 \001(\005B\n\302\377\024\006\347\211\251\345\223\201\022\024\n\004m_ID\030\003 \001(\005B\006\302\377\024\002"
     "ID\"\246\001\n\016E_EscortReward\022\036\n\004m_lv\030\001 \001(\005B\020\302\377\024"
     "\014\350\247\222\350\211\262\347\255\211\347\272\247\022(\n\005m_exp\030\002 \001(\003B\031\302\377\024\025\347\211\251\350\265\204"
     "\350\275\246\345\245\226\345\212\261\347\273\217\351\252\214\022J\n\010m_reward\030\003 \003(\0132\".prot"
@@ -331,20 +331,20 @@ void protobuf_AddDesc_E_5fEscort_2eproto() {
     "\246\345\245\226\345\212\261\210\301\024\014\"R\n\022Sheet_EscortReward\022<\n\023E_E"
     "scortReward_List\030\001 \003(\0132\030.proto_ff.E_Esco"
     "rtRewardB\005\210\301\024\200\020\"\345\004\n\rE_EscortConst\022\024\n\004m_i"
-    "d\030\001 \001(\005B\006\302\377\024\002id\022(\n\tm_tokenid\030\002 \001(\005B\025\302\377\024\021"
-    "\346\212\244\351\200\201\344\273\244\345\225\206\345\223\201id\022-\n\rm_tokennumber\030\003 \001(\005"
-    "B\026\302\377\024\022\347\211\251\350\265\204\345\215\267\350\275\264\346\225\260\351\207\217\022#\n\tm_daytime\030\004 "
-    "\001(\005B\020\302\377\024\014\346\257\217\346\227\245\346\254\241\346\225\260\022#\n\tm_freenum\030\005 \001(\005"
-    "B\020\302\377\024\014\345\205\215\350\264\271\346\254\241\346\225\260\022\035\n\007m_mapid\030\006 \001(\005B\014\302\377\024"
-    "\010\345\234\260\345\233\276ID\022+\n\014m_startnpcid\030\007 \001(\005B\025\302\377\024\021\345\274\200"
-    "\345\247\213\344\273\273\345\212\241npcID\0227\n\021m_startnpcpointid\030\010 \001("
+    "d\030\001 \001(\005B\006\302\377\024\002id\022(\n\tm_tokenId\030\002 \001(\005B\025\302\377\024\021"
+    "\346\212\244\351\200\201\344\273\244\345\225\206\345\223\201id\022-\n\rm_tokenNumber\030\003 \001(\005"
+    "B\026\302\377\024\022\347\211\251\350\265\204\345\215\267\350\275\264\346\225\260\351\207\217\022#\n\tm_dayTime\030\004 "
+    "\001(\005B\020\302\377\024\014\346\257\217\346\227\245\346\254\241\346\225\260\022#\n\tm_freeNum\030\005 \001(\005"
+    "B\020\302\377\024\014\345\205\215\350\264\271\346\254\241\346\225\260\022\035\n\007m_mapId\030\006 \001(\005B\014\302\377\024"
+    "\010\345\234\260\345\233\276ID\022+\n\014m_startNpcID\030\007 \001(\005B\025\302\377\024\021\345\274\200"
+    "\345\247\213\344\273\273\345\212\241npcID\0227\n\021m_startNpcPointID\030\010 \001("
     "\005B\034\302\377\024\030\345\274\200\345\247\213\344\273\273\345\212\241npc\345\235\220\346\240\207\347\202\271\022*\n\013m_ove"
-    "rnpcid\030\t \001(\005B\025\302\377\024\021\345\256\214\346\210\220\344\273\273\345\212\241npcID\022(\n\014m"
-    "_activityid\030\n \001(\005B\022\302\377\024\016\346\264\273\345\212\250\344\277\241\346\201\257id\022\036\n"
-    "\010m_taskid\030\013 \001(\005B\014\302\377\024\010\344\273\273\345\212\241id\022%\n\013m_dista"
-    "ncea\030\014 \001(\005B\020\302\377\024\014\346\234\200\345\244\247\350\267\235\347\246\273\022%\n\013m_distan"
-    "ceb\030\r \001(\005B\020\302\377\024\014\350\267\237\350\277\233\350\267\235\347\246\273\022%\n\013m_distanc"
-    "ec\030\016 \001(\005B\020\302\377\024\014\346\234\200\350\277\221\350\267\235\347\246\273\022+\n\013m_timelimi"
+    "rNpcID\030\t \001(\005B\025\302\377\024\021\345\256\214\346\210\220\344\273\273\345\212\241npcID\022(\n\014m"
+    "_activityID\030\n \001(\005B\022\302\377\024\016\346\264\273\345\212\250\344\277\241\346\201\257id\022\036\n"
+    "\010m_taskID\030\013 \001(\005B\014\302\377\024\010\344\273\273\345\212\241id\022%\n\013m_Dista"
+    "nceA\030\014 \001(\005B\020\302\377\024\014\346\234\200\345\244\247\350\267\235\347\246\273\022%\n\013m_Distan"
+    "ceB\030\r \001(\005B\020\302\377\024\014\350\267\237\350\277\233\350\267\235\347\246\273\022%\n\013m_Distanc"
+    "eC\030\016 \001(\005B\020\302\377\024\014\346\234\200\350\277\221\350\267\235\347\246\273\022+\n\013m_timeLimi"
     "t\030\017 \001(\005B\026\302\377\024\022\344\273\273\345\212\241\346\227\266\351\227\264\351\231\220\345\210\266\"N\n\021Sheet"
     "_EscortConst\0229\n\022E_EscortConst_List\030\001 \003(\013"
     "2\027.proto_ff.E_EscortConstB\004\210\301\024\010", 1791);
@@ -383,13 +383,13 @@ struct StaticDescriptorInitializer_E_5fEscort_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_EscortEscort::kMConvoyidFieldNumber;
-const int E_EscortEscort::kMConvoynameFieldNumber;
-const int E_EscortEscort::kMMonsteridFieldNumber;
+const int E_EscortEscort::kMConvoyIdFieldNumber;
+const int E_EscortEscort::kMConvoyNameFieldNumber;
+const int E_EscortEscort::kMMonsterIdFieldNumber;
 const int E_EscortEscort::kMScalleFieldNumber;
-const int E_EscortEscort::kMConvoylevelFieldNumber;
+const int E_EscortEscort::kMConvoyLevelFieldNumber;
 const int E_EscortEscort::kMChanceFieldNumber;
-const int E_EscortEscort::kMRewardlvmultiplyFieldNumber;
+const int E_EscortEscort::kMRewardLvMultiplyFieldNumber;
 #endif  // !_MSC_VER
 
 E_EscortEscort::E_EscortEscort()
@@ -482,7 +482,7 @@ bool E_EscortEscort::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_convoyid = 1;
+      // optional int32 m_convoyId = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -493,15 +493,15 @@ bool E_EscortEscort::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_m_convoyname;
+        if (input->ExpectTag(18)) goto parse_m_convoyName;
         break;
       }
 
-      // optional string m_convoyname = 2;
+      // optional string m_convoyName = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_convoyname:
+         parse_m_convoyName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_convoyname()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -510,15 +510,15 @@ bool E_EscortEscort::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_monsterid;
+        if (input->ExpectTag(24)) goto parse_m_MonsterId;
         break;
       }
 
-      // optional int32 m_monsterid = 3;
+      // optional int32 m_MonsterId = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_monsterid:
+         parse_m_MonsterId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_monsterid_)));
@@ -543,15 +543,15 @@ bool E_EscortEscort::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_convoylevel;
+        if (input->ExpectTag(40)) goto parse_m_convoyLevel;
         break;
       }
 
-      // optional int32 m_convoylevel = 5;
+      // optional int32 m_convoyLevel = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_convoylevel:
+         parse_m_convoyLevel:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_convoylevel_)));
@@ -575,15 +575,15 @@ bool E_EscortEscort::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_rewardlvmultiply;
+        if (input->ExpectTag(56)) goto parse_m_rewardLvMultiply;
         break;
       }
 
-      // optional int32 m_rewardlvmultiply = 7;
+      // optional int32 m_rewardLvMultiply = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rewardlvmultiply:
+         parse_m_rewardLvMultiply:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rewardlvmultiply_)));
@@ -613,12 +613,12 @@ bool E_EscortEscort::MergePartialFromCodedStream(
 
 void E_EscortEscort::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_convoyid = 1;
+  // optional int32 m_convoyId = 1;
   if (has_m_convoyid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_convoyid(), output);
   }
 
-  // optional string m_convoyname = 2;
+  // optional string m_convoyName = 2;
   if (has_m_convoyname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_convoyname().data(), this->m_convoyname().length(),
@@ -627,7 +627,7 @@ void E_EscortEscort::SerializeWithCachedSizes(
       2, this->m_convoyname(), output);
   }
 
-  // optional int32 m_monsterid = 3;
+  // optional int32 m_MonsterId = 3;
   if (has_m_monsterid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_monsterid(), output);
   }
@@ -641,7 +641,7 @@ void E_EscortEscort::SerializeWithCachedSizes(
       4, this->m_scalle(), output);
   }
 
-  // optional int32 m_convoylevel = 5;
+  // optional int32 m_convoyLevel = 5;
   if (has_m_convoylevel()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_convoylevel(), output);
   }
@@ -651,7 +651,7 @@ void E_EscortEscort::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_chance(), output);
   }
 
-  // optional int32 m_rewardlvmultiply = 7;
+  // optional int32 m_rewardLvMultiply = 7;
   if (has_m_rewardlvmultiply()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_rewardlvmultiply(), output);
   }
@@ -664,12 +664,12 @@ void E_EscortEscort::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_EscortEscort::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_convoyid = 1;
+  // optional int32 m_convoyId = 1;
   if (has_m_convoyid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_convoyid(), target);
   }
 
-  // optional string m_convoyname = 2;
+  // optional string m_convoyName = 2;
   if (has_m_convoyname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_convoyname().data(), this->m_convoyname().length(),
@@ -679,7 +679,7 @@ void E_EscortEscort::SerializeWithCachedSizes(
         2, this->m_convoyname(), target);
   }
 
-  // optional int32 m_monsterid = 3;
+  // optional int32 m_MonsterId = 3;
   if (has_m_monsterid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_monsterid(), target);
   }
@@ -694,7 +694,7 @@ void E_EscortEscort::SerializeWithCachedSizes(
         4, this->m_scalle(), target);
   }
 
-  // optional int32 m_convoylevel = 5;
+  // optional int32 m_convoyLevel = 5;
   if (has_m_convoylevel()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_convoylevel(), target);
   }
@@ -704,7 +704,7 @@ void E_EscortEscort::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_chance(), target);
   }
 
-  // optional int32 m_rewardlvmultiply = 7;
+  // optional int32 m_rewardLvMultiply = 7;
   if (has_m_rewardlvmultiply()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_rewardlvmultiply(), target);
   }
@@ -720,21 +720,21 @@ int E_EscortEscort::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_convoyid = 1;
+    // optional int32 m_convoyId = 1;
     if (has_m_convoyid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_convoyid());
     }
 
-    // optional string m_convoyname = 2;
+    // optional string m_convoyName = 2;
     if (has_m_convoyname()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_convoyname());
     }
 
-    // optional int32 m_monsterid = 3;
+    // optional int32 m_MonsterId = 3;
     if (has_m_monsterid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -748,7 +748,7 @@ int E_EscortEscort::ByteSize() const {
           this->m_scalle());
     }
 
-    // optional int32 m_convoylevel = 5;
+    // optional int32 m_convoyLevel = 5;
     if (has_m_convoylevel()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -762,7 +762,7 @@ int E_EscortEscort::ByteSize() const {
           this->m_chance());
     }
 
-    // optional int32 m_rewardlvmultiply = 7;
+    // optional int32 m_rewardLvMultiply = 7;
     if (has_m_rewardlvmultiply()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1069,7 +1069,7 @@ void Sheet_EscortEscort::Swap(Sheet_EscortEscort* other) {
 
 #ifndef _MSC_VER
 const int E_EscortChanceEscortDesc::kMChanceFieldNumber;
-const int E_EscortChanceEscortDesc::kMIdFieldNumber;
+const int E_EscortChanceEscortDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_EscortChanceEscortDesc::E_EscortChanceEscortDesc()
@@ -1149,15 +1149,15 @@ bool E_EscortChanceEscortDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int32 m_id = 2;
+      // optional int32 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_id_)));
@@ -1192,7 +1192,7 @@ void E_EscortChanceEscortDesc::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_chance(), output);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_id(), output);
   }
@@ -1210,7 +1210,7 @@ void E_EscortChanceEscortDesc::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_chance(), target);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_id(), target);
   }
@@ -1233,7 +1233,7 @@ int E_EscortChanceEscortDesc::ByteSize() const {
           this->m_chance());
     }
 
-    // optional int32 m_id = 2;
+    // optional int32 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1316,7 +1316,7 @@ void E_EscortChanceEscortDesc::Swap(E_EscortChanceEscortDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_EscortChance::kMConvoyidFieldNumber;
+const int E_EscortChance::kMConvoyIdFieldNumber;
 const int E_EscortChance::kMEscortFieldNumber;
 #endif  // !_MSC_VER
 
@@ -1385,7 +1385,7 @@ bool E_EscortChance::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_convoyid = 1;
+      // optional int32 m_convoyId = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -1433,7 +1433,7 @@ bool E_EscortChance::MergePartialFromCodedStream(
 
 void E_EscortChance::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_convoyid = 1;
+  // optional int32 m_convoyId = 1;
   if (has_m_convoyid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_convoyid(), output);
   }
@@ -1452,7 +1452,7 @@ void E_EscortChance::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_EscortChance::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_convoyid = 1;
+  // optional int32 m_convoyId = 1;
   if (has_m_convoyid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_convoyid(), target);
   }
@@ -1475,7 +1475,7 @@ int E_EscortChance::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_convoyid = 1;
+    // optional int32 m_convoyId = 1;
     if (has_m_convoyid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1769,7 +1769,7 @@ void Sheet_EscortChance::Swap(Sheet_EscortChance* other) {
 #ifndef _MSC_VER
 const int E_EscortRewardRewardDesc::kMNumFieldNumber;
 const int E_EscortRewardRewardDesc::kMItemFieldNumber;
-const int E_EscortRewardRewardDesc::kMIdFieldNumber;
+const int E_EscortRewardRewardDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_EscortRewardRewardDesc::E_EscortRewardRewardDesc()
@@ -1867,15 +1867,15 @@ bool E_EscortRewardRewardDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_id;
+        if (input->ExpectTag(24)) goto parse_m_ID;
         break;
       }
 
-      // optional int32 m_id = 3;
+      // optional int32 m_ID = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_id_)));
@@ -1915,7 +1915,7 @@ void E_EscortRewardRewardDesc::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_item(), output);
   }
 
-  // optional int32 m_id = 3;
+  // optional int32 m_ID = 3;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_id(), output);
   }
@@ -1938,7 +1938,7 @@ void E_EscortRewardRewardDesc::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_item(), target);
   }
 
-  // optional int32 m_id = 3;
+  // optional int32 m_ID = 3;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_id(), target);
   }
@@ -1968,7 +1968,7 @@ int E_EscortRewardRewardDesc::ByteSize() const {
           this->m_item());
     }
 
-    // optional int32 m_id = 3;
+    // optional int32 m_ID = 3;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2547,20 +2547,20 @@ void Sheet_EscortReward::Swap(Sheet_EscortReward* other) {
 
 #ifndef _MSC_VER
 const int E_EscortConst::kMIdFieldNumber;
-const int E_EscortConst::kMTokenidFieldNumber;
-const int E_EscortConst::kMTokennumberFieldNumber;
-const int E_EscortConst::kMDaytimeFieldNumber;
-const int E_EscortConst::kMFreenumFieldNumber;
-const int E_EscortConst::kMMapidFieldNumber;
-const int E_EscortConst::kMStartnpcidFieldNumber;
-const int E_EscortConst::kMStartnpcpointidFieldNumber;
-const int E_EscortConst::kMOvernpcidFieldNumber;
-const int E_EscortConst::kMActivityidFieldNumber;
-const int E_EscortConst::kMTaskidFieldNumber;
-const int E_EscortConst::kMDistanceaFieldNumber;
-const int E_EscortConst::kMDistancebFieldNumber;
-const int E_EscortConst::kMDistancecFieldNumber;
-const int E_EscortConst::kMTimelimitFieldNumber;
+const int E_EscortConst::kMTokenIdFieldNumber;
+const int E_EscortConst::kMTokenNumberFieldNumber;
+const int E_EscortConst::kMDayTimeFieldNumber;
+const int E_EscortConst::kMFreeNumFieldNumber;
+const int E_EscortConst::kMMapIdFieldNumber;
+const int E_EscortConst::kMStartNpcIDFieldNumber;
+const int E_EscortConst::kMStartNpcPointIDFieldNumber;
+const int E_EscortConst::kMOverNpcIDFieldNumber;
+const int E_EscortConst::kMActivityIDFieldNumber;
+const int E_EscortConst::kMTaskIDFieldNumber;
+const int E_EscortConst::kMDistanceAFieldNumber;
+const int E_EscortConst::kMDistanceBFieldNumber;
+const int E_EscortConst::kMDistanceCFieldNumber;
+const int E_EscortConst::kMTimeLimitFieldNumber;
 #endif  // !_MSC_VER
 
 E_EscortConst::E_EscortConst()
@@ -2668,15 +2668,15 @@ bool E_EscortConst::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_tokenid;
+        if (input->ExpectTag(16)) goto parse_m_tokenId;
         break;
       }
 
-      // optional int32 m_tokenid = 2;
+      // optional int32 m_tokenId = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_tokenid:
+         parse_m_tokenId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_tokenid_)));
@@ -2684,15 +2684,15 @@ bool E_EscortConst::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_tokennumber;
+        if (input->ExpectTag(24)) goto parse_m_tokenNumber;
         break;
       }
 
-      // optional int32 m_tokennumber = 3;
+      // optional int32 m_tokenNumber = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_tokennumber:
+         parse_m_tokenNumber:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_tokennumber_)));
@@ -2700,15 +2700,15 @@ bool E_EscortConst::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_daytime;
+        if (input->ExpectTag(32)) goto parse_m_dayTime;
         break;
       }
 
-      // optional int32 m_daytime = 4;
+      // optional int32 m_dayTime = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_daytime:
+         parse_m_dayTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_daytime_)));
@@ -2716,15 +2716,15 @@ bool E_EscortConst::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_freenum;
+        if (input->ExpectTag(40)) goto parse_m_freeNum;
         break;
       }
 
-      // optional int32 m_freenum = 5;
+      // optional int32 m_freeNum = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_freenum:
+         parse_m_freeNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_freenum_)));
@@ -2732,15 +2732,15 @@ bool E_EscortConst::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_mapid;
+        if (input->ExpectTag(48)) goto parse_m_mapId;
         break;
       }
 
-      // optional int32 m_mapid = 6;
+      // optional int32 m_mapId = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_mapid:
+         parse_m_mapId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_mapid_)));
@@ -2748,15 +2748,15 @@ bool E_EscortConst::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_startnpcid;
+        if (input->ExpectTag(56)) goto parse_m_startNpcID;
         break;
       }
 
-      // optional int32 m_startnpcid = 7;
+      // optional int32 m_startNpcID = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_startnpcid:
+         parse_m_startNpcID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_startnpcid_)));
@@ -2764,15 +2764,15 @@ bool E_EscortConst::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_startnpcpointid;
+        if (input->ExpectTag(64)) goto parse_m_startNpcPointID;
         break;
       }
 
-      // optional int32 m_startnpcpointid = 8;
+      // optional int32 m_startNpcPointID = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_startnpcpointid:
+         parse_m_startNpcPointID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_startnpcpointid_)));
@@ -2780,15 +2780,15 @@ bool E_EscortConst::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_overnpcid;
+        if (input->ExpectTag(72)) goto parse_m_overNpcID;
         break;
       }
 
-      // optional int32 m_overnpcid = 9;
+      // optional int32 m_overNpcID = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_overnpcid:
+         parse_m_overNpcID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_overnpcid_)));
@@ -2796,15 +2796,15 @@ bool E_EscortConst::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_activityid;
+        if (input->ExpectTag(80)) goto parse_m_activityID;
         break;
       }
 
-      // optional int32 m_activityid = 10;
+      // optional int32 m_activityID = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_activityid:
+         parse_m_activityID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_activityid_)));
@@ -2812,15 +2812,15 @@ bool E_EscortConst::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_taskid;
+        if (input->ExpectTag(88)) goto parse_m_taskID;
         break;
       }
 
-      // optional int32 m_taskid = 11;
+      // optional int32 m_taskID = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_taskid:
+         parse_m_taskID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_taskid_)));
@@ -2828,15 +2828,15 @@ bool E_EscortConst::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_distancea;
+        if (input->ExpectTag(96)) goto parse_m_DistanceA;
         break;
       }
 
-      // optional int32 m_distancea = 12;
+      // optional int32 m_DistanceA = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_distancea:
+         parse_m_DistanceA:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_distancea_)));
@@ -2844,15 +2844,15 @@ bool E_EscortConst::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_m_distanceb;
+        if (input->ExpectTag(104)) goto parse_m_DistanceB;
         break;
       }
 
-      // optional int32 m_distanceb = 13;
+      // optional int32 m_DistanceB = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_distanceb:
+         parse_m_DistanceB:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_distanceb_)));
@@ -2860,15 +2860,15 @@ bool E_EscortConst::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(112)) goto parse_m_distancec;
+        if (input->ExpectTag(112)) goto parse_m_DistanceC;
         break;
       }
 
-      // optional int32 m_distancec = 14;
+      // optional int32 m_DistanceC = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_distancec:
+         parse_m_DistanceC:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_distancec_)));
@@ -2876,15 +2876,15 @@ bool E_EscortConst::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(120)) goto parse_m_timelimit;
+        if (input->ExpectTag(120)) goto parse_m_timeLimit;
         break;
       }
 
-      // optional int32 m_timelimit = 15;
+      // optional int32 m_timeLimit = 15;
       case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_timelimit:
+         parse_m_timeLimit:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_timelimit_)));
@@ -2919,72 +2919,72 @@ void E_EscortConst::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_tokenid = 2;
+  // optional int32 m_tokenId = 2;
   if (has_m_tokenid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_tokenid(), output);
   }
 
-  // optional int32 m_tokennumber = 3;
+  // optional int32 m_tokenNumber = 3;
   if (has_m_tokennumber()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_tokennumber(), output);
   }
 
-  // optional int32 m_daytime = 4;
+  // optional int32 m_dayTime = 4;
   if (has_m_daytime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_daytime(), output);
   }
 
-  // optional int32 m_freenum = 5;
+  // optional int32 m_freeNum = 5;
   if (has_m_freenum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_freenum(), output);
   }
 
-  // optional int32 m_mapid = 6;
+  // optional int32 m_mapId = 6;
   if (has_m_mapid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_mapid(), output);
   }
 
-  // optional int32 m_startnpcid = 7;
+  // optional int32 m_startNpcID = 7;
   if (has_m_startnpcid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_startnpcid(), output);
   }
 
-  // optional int32 m_startnpcpointid = 8;
+  // optional int32 m_startNpcPointID = 8;
   if (has_m_startnpcpointid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_startnpcpointid(), output);
   }
 
-  // optional int32 m_overnpcid = 9;
+  // optional int32 m_overNpcID = 9;
   if (has_m_overnpcid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_overnpcid(), output);
   }
 
-  // optional int32 m_activityid = 10;
+  // optional int32 m_activityID = 10;
   if (has_m_activityid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_activityid(), output);
   }
 
-  // optional int32 m_taskid = 11;
+  // optional int32 m_taskID = 11;
   if (has_m_taskid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_taskid(), output);
   }
 
-  // optional int32 m_distancea = 12;
+  // optional int32 m_DistanceA = 12;
   if (has_m_distancea()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_distancea(), output);
   }
 
-  // optional int32 m_distanceb = 13;
+  // optional int32 m_DistanceB = 13;
   if (has_m_distanceb()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_distanceb(), output);
   }
 
-  // optional int32 m_distancec = 14;
+  // optional int32 m_DistanceC = 14;
   if (has_m_distancec()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_distancec(), output);
   }
 
-  // optional int32 m_timelimit = 15;
+  // optional int32 m_timeLimit = 15;
   if (has_m_timelimit()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_timelimit(), output);
   }
@@ -3002,72 +3002,72 @@ void E_EscortConst::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_tokenid = 2;
+  // optional int32 m_tokenId = 2;
   if (has_m_tokenid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_tokenid(), target);
   }
 
-  // optional int32 m_tokennumber = 3;
+  // optional int32 m_tokenNumber = 3;
   if (has_m_tokennumber()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_tokennumber(), target);
   }
 
-  // optional int32 m_daytime = 4;
+  // optional int32 m_dayTime = 4;
   if (has_m_daytime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_daytime(), target);
   }
 
-  // optional int32 m_freenum = 5;
+  // optional int32 m_freeNum = 5;
   if (has_m_freenum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_freenum(), target);
   }
 
-  // optional int32 m_mapid = 6;
+  // optional int32 m_mapId = 6;
   if (has_m_mapid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_mapid(), target);
   }
 
-  // optional int32 m_startnpcid = 7;
+  // optional int32 m_startNpcID = 7;
   if (has_m_startnpcid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_startnpcid(), target);
   }
 
-  // optional int32 m_startnpcpointid = 8;
+  // optional int32 m_startNpcPointID = 8;
   if (has_m_startnpcpointid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_startnpcpointid(), target);
   }
 
-  // optional int32 m_overnpcid = 9;
+  // optional int32 m_overNpcID = 9;
   if (has_m_overnpcid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_overnpcid(), target);
   }
 
-  // optional int32 m_activityid = 10;
+  // optional int32 m_activityID = 10;
   if (has_m_activityid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_activityid(), target);
   }
 
-  // optional int32 m_taskid = 11;
+  // optional int32 m_taskID = 11;
   if (has_m_taskid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_taskid(), target);
   }
 
-  // optional int32 m_distancea = 12;
+  // optional int32 m_DistanceA = 12;
   if (has_m_distancea()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_distancea(), target);
   }
 
-  // optional int32 m_distanceb = 13;
+  // optional int32 m_DistanceB = 13;
   if (has_m_distanceb()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_distanceb(), target);
   }
 
-  // optional int32 m_distancec = 14;
+  // optional int32 m_DistanceC = 14;
   if (has_m_distancec()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_distancec(), target);
   }
 
-  // optional int32 m_timelimit = 15;
+  // optional int32 m_timeLimit = 15;
   if (has_m_timelimit()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_timelimit(), target);
   }
@@ -3090,49 +3090,49 @@ int E_EscortConst::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_tokenid = 2;
+    // optional int32 m_tokenId = 2;
     if (has_m_tokenid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_tokenid());
     }
 
-    // optional int32 m_tokennumber = 3;
+    // optional int32 m_tokenNumber = 3;
     if (has_m_tokennumber()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_tokennumber());
     }
 
-    // optional int32 m_daytime = 4;
+    // optional int32 m_dayTime = 4;
     if (has_m_daytime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_daytime());
     }
 
-    // optional int32 m_freenum = 5;
+    // optional int32 m_freeNum = 5;
     if (has_m_freenum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_freenum());
     }
 
-    // optional int32 m_mapid = 6;
+    // optional int32 m_mapId = 6;
     if (has_m_mapid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_mapid());
     }
 
-    // optional int32 m_startnpcid = 7;
+    // optional int32 m_startNpcID = 7;
     if (has_m_startnpcid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_startnpcid());
     }
 
-    // optional int32 m_startnpcpointid = 8;
+    // optional int32 m_startNpcPointID = 8;
     if (has_m_startnpcpointid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3141,49 +3141,49 @@ int E_EscortConst::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_overnpcid = 9;
+    // optional int32 m_overNpcID = 9;
     if (has_m_overnpcid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_overnpcid());
     }
 
-    // optional int32 m_activityid = 10;
+    // optional int32 m_activityID = 10;
     if (has_m_activityid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_activityid());
     }
 
-    // optional int32 m_taskid = 11;
+    // optional int32 m_taskID = 11;
     if (has_m_taskid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_taskid());
     }
 
-    // optional int32 m_distancea = 12;
+    // optional int32 m_DistanceA = 12;
     if (has_m_distancea()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_distancea());
     }
 
-    // optional int32 m_distanceb = 13;
+    // optional int32 m_DistanceB = 13;
     if (has_m_distanceb()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_distanceb());
     }
 
-    // optional int32 m_distancec = 14;
+    // optional int32 m_DistanceC = 14;
     if (has_m_distancec()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_distancec());
     }
 
-    // optional int32 m_timelimit = 15;
+    // optional int32 m_timeLimit = 15;
     if (has_m_timelimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

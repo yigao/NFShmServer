@@ -13,18 +13,18 @@ E_FindtreasureFindtreasure_s::E_FindtreasureFindtreasure_s() {
 int E_FindtreasureFindtreasure_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_type = (int32_t)0;
-	m_functionunlock = (int32_t)0;
-	m_costid = (int64_t)0;
-	m_contitem = (int32_t)0;
+	m_functionUnlock = (int32_t)0;
+	m_costID = (int64_t)0;
+	m_ContItem = (int32_t)0;
 	m_loop = (int32_t)0;
-	m_pooltime = (int32_t)0;
-	m_totalgroupid = (int32_t)0;
-	m_activegroupid = (int32_t)0;
-	m_protecttime = (int32_t)0;
-	m_additem = (int32_t)0;
-	m_addnum = (int32_t)0;
-	m_shopid = (int32_t)0;
-	m_storehousetype = (int32_t)0;
+	m_poolTime = (int32_t)0;
+	m_totalGroupID = (int32_t)0;
+	m_activeGroupID = (int32_t)0;
+	m_protectTime = (int32_t)0;
+	m_addItem = (int32_t)0;
+	m_addNum = (int32_t)0;
+	m_shopID = (int32_t)0;
+	m_storehouseType = (int32_t)0;
 	return 0;
 }
 
@@ -35,39 +35,39 @@ int E_FindtreasureFindtreasure_s::ResumeInit() {
 void E_FindtreasureFindtreasure_s::write_to_pbmsg(::proto_ff::E_FindtreasureFindtreasure & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_type((int32_t)m_type);
-	msg.set_m_functionunlock((int32_t)m_functionunlock);
-	msg.set_m_costid((int64_t)m_costid);
-	msg.set_m_costnum(m_costnum.data());
-	msg.set_m_contitem((int32_t)m_contitem);
-	msg.set_m_poolgroupid(m_poolgroupid.data());
+	msg.set_m_functionunlock((int32_t)m_functionUnlock);
+	msg.set_m_costid((int64_t)m_costID);
+	msg.set_m_costnum(m_costNum.data());
+	msg.set_m_contitem((int32_t)m_ContItem);
+	msg.set_m_poolgroupid(m_poolGroupId.data());
 	msg.set_m_loop((int32_t)m_loop);
-	msg.set_m_pooltime((int32_t)m_pooltime);
-	msg.set_m_totalgroupid((int32_t)m_totalgroupid);
-	msg.set_m_activegroupid((int32_t)m_activegroupid);
-	msg.set_m_protecttime((int32_t)m_protecttime);
-	msg.set_m_additem((int32_t)m_additem);
-	msg.set_m_addnum((int32_t)m_addnum);
-	msg.set_m_shopid((int32_t)m_shopid);
-	msg.set_m_storehousetype((int32_t)m_storehousetype);
+	msg.set_m_pooltime((int32_t)m_poolTime);
+	msg.set_m_totalgroupid((int32_t)m_totalGroupID);
+	msg.set_m_activegroupid((int32_t)m_activeGroupID);
+	msg.set_m_protecttime((int32_t)m_protectTime);
+	msg.set_m_additem((int32_t)m_addItem);
+	msg.set_m_addnum((int32_t)m_addNum);
+	msg.set_m_shopid((int32_t)m_shopID);
+	msg.set_m_storehousetype((int32_t)m_storehouseType);
 }
 
 void E_FindtreasureFindtreasure_s::read_from_pbmsg(const ::proto_ff::E_FindtreasureFindtreasure & msg) {
 	m_id = msg.m_id();
 	m_type = msg.m_type();
-	m_functionunlock = msg.m_functionunlock();
-	m_costid = msg.m_costid();
-	m_costnum = msg.m_costnum();
-	m_contitem = msg.m_contitem();
-	m_poolgroupid = msg.m_poolgroupid();
+	m_functionUnlock = msg.m_functionunlock();
+	m_costID = msg.m_costid();
+	m_costNum = msg.m_costnum();
+	m_ContItem = msg.m_contitem();
+	m_poolGroupId = msg.m_poolgroupid();
 	m_loop = msg.m_loop();
-	m_pooltime = msg.m_pooltime();
-	m_totalgroupid = msg.m_totalgroupid();
-	m_activegroupid = msg.m_activegroupid();
-	m_protecttime = msg.m_protecttime();
-	m_additem = msg.m_additem();
-	m_addnum = msg.m_addnum();
-	m_shopid = msg.m_shopid();
-	m_storehousetype = msg.m_storehousetype();
+	m_poolTime = msg.m_pooltime();
+	m_totalGroupID = msg.m_totalgroupid();
+	m_activeGroupID = msg.m_activegroupid();
+	m_protectTime = msg.m_protecttime();
+	m_addItem = msg.m_additem();
+	m_addNum = msg.m_addnum();
+	m_shopID = msg.m_shopid();
+	m_storehouseType = msg.m_storehousetype();
 }
 
 Sheet_FindtreasureFindtreasure_s::Sheet_FindtreasureFindtreasure_s() {
@@ -111,14 +111,14 @@ E_FindtreasureFindpool_s::E_FindtreasureFindpool_s() {
 
 int E_FindtreasureFindpool_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_groupid = (int32_t)0;
-	m_showorder = (int32_t)0;
+	m_groupID = (int32_t)0;
+	m_showOrder = (int32_t)0;
 	m_itemid = (int64_t)0;
 	m_num = (int32_t)0;
 	m_prof = (int32_t)0;
 	m_weights = (int32_t)0;
-	m_proweights = (int32_t)0;
-	m_record = (int32_t)0;
+	m_proWeights = (int32_t)0;
+	m_Record = (int32_t)0;
 	return 0;
 }
 
@@ -128,26 +128,26 @@ int E_FindtreasureFindpool_s::ResumeInit() {
 
 void E_FindtreasureFindpool_s::write_to_pbmsg(::proto_ff::E_FindtreasureFindpool & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_groupid((int32_t)m_groupid);
-	msg.set_m_showorder((int32_t)m_showorder);
+	msg.set_m_groupid((int32_t)m_groupID);
+	msg.set_m_showorder((int32_t)m_showOrder);
 	msg.set_m_itemid((int64_t)m_itemid);
 	msg.set_m_num((int32_t)m_num);
 	msg.set_m_prof((int32_t)m_prof);
 	msg.set_m_weights((int32_t)m_weights);
-	msg.set_m_proweights((int32_t)m_proweights);
-	msg.set_m_record((int32_t)m_record);
+	msg.set_m_proweights((int32_t)m_proWeights);
+	msg.set_m_record((int32_t)m_Record);
 }
 
 void E_FindtreasureFindpool_s::read_from_pbmsg(const ::proto_ff::E_FindtreasureFindpool & msg) {
 	m_id = msg.m_id();
-	m_groupid = msg.m_groupid();
-	m_showorder = msg.m_showorder();
+	m_groupID = msg.m_groupid();
+	m_showOrder = msg.m_showorder();
 	m_itemid = msg.m_itemid();
 	m_num = msg.m_num();
 	m_prof = msg.m_prof();
 	m_weights = msg.m_weights();
-	m_proweights = msg.m_proweights();
-	m_record = msg.m_record();
+	m_proWeights = msg.m_proweights();
+	m_Record = msg.m_record();
 }
 
 Sheet_FindtreasureFindpool_s::Sheet_FindtreasureFindpool_s() {
@@ -191,8 +191,8 @@ E_FindtreasureConstant_s::E_FindtreasureConstant_s() {
 
 int E_FindtreasureConstant_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_dragonsevertime = (int32_t)0;
-	m_godsevertime = (int32_t)0;
+	m_dragonSeverTime = (int32_t)0;
+	m_godSeverTime = (int32_t)0;
 	return 0;
 }
 
@@ -202,14 +202,14 @@ int E_FindtreasureConstant_s::ResumeInit() {
 
 void E_FindtreasureConstant_s::write_to_pbmsg(::proto_ff::E_FindtreasureConstant & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_dragonsevertime((int32_t)m_dragonsevertime);
-	msg.set_m_godsevertime((int32_t)m_godsevertime);
+	msg.set_m_dragonsevertime((int32_t)m_dragonSeverTime);
+	msg.set_m_godsevertime((int32_t)m_godSeverTime);
 }
 
 void E_FindtreasureConstant_s::read_from_pbmsg(const ::proto_ff::E_FindtreasureConstant & msg) {
 	m_id = msg.m_id();
-	m_dragonsevertime = msg.m_dragonsevertime();
-	m_godsevertime = msg.m_godsevertime();
+	m_dragonSeverTime = msg.m_dragonsevertime();
+	m_godSeverTime = msg.m_godsevertime();
 }
 
 Sheet_FindtreasureConstant_s::Sheet_FindtreasureConstant_s() {
@@ -255,7 +255,7 @@ int E_FindtreasureTotal_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_groupid = (int32_t)0;
 	m_type = (int32_t)0;
-	m_itemid = (int32_t)0;
+	m_itemID = (int32_t)0;
 	m_num = (int32_t)0;
 	return 0;
 }
@@ -268,7 +268,7 @@ void E_FindtreasureTotal_s::write_to_pbmsg(::proto_ff::E_FindtreasureTotal & msg
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_groupid((int32_t)m_groupid);
 	msg.set_m_type((int32_t)m_type);
-	msg.set_m_itemid((int32_t)m_itemid);
+	msg.set_m_itemid((int32_t)m_itemID);
 	msg.set_m_num((int32_t)m_num);
 	for(int32_t i = 0; i < (int32_t)m_arg.size(); ++i) {
 		msg.add_m_arg((int32_t)m_arg[i]);
@@ -279,7 +279,7 @@ void E_FindtreasureTotal_s::read_from_pbmsg(const ::proto_ff::E_FindtreasureTota
 	m_id = msg.m_id();
 	m_groupid = msg.m_groupid();
 	m_type = msg.m_type();
-	m_itemid = msg.m_itemid();
+	m_itemID = msg.m_itemid();
 	m_num = msg.m_num();
 	m_arg.resize((int)msg.m_arg_size() > (int)m_arg.max_size() ? m_arg.max_size() : msg.m_arg_size());
 	for(int32_t i = 0; i < (int32_t)m_arg.size(); ++i) {
@@ -330,10 +330,10 @@ int E_FindtreasureActive_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_groupid = (int32_t)0;
 	m_opentime = (int32_t)0;
-	m_durtime = (int32_t)0;
-	m_closetime = (int32_t)0;
+	m_durTime = (int32_t)0;
+	m_closeTime = (int32_t)0;
 	m_type = (int32_t)0;
-	m_typegroupid = (int32_t)0;
+	m_typeGroupId = (int32_t)0;
 	return 0;
 }
 
@@ -345,20 +345,20 @@ void E_FindtreasureActive_s::write_to_pbmsg(::proto_ff::E_FindtreasureActive & m
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_groupid((int32_t)m_groupid);
 	msg.set_m_opentime((int32_t)m_opentime);
-	msg.set_m_durtime((int32_t)m_durtime);
-	msg.set_m_closetime((int32_t)m_closetime);
+	msg.set_m_durtime((int32_t)m_durTime);
+	msg.set_m_closetime((int32_t)m_closeTime);
 	msg.set_m_type((int32_t)m_type);
-	msg.set_m_typegroupid((int32_t)m_typegroupid);
+	msg.set_m_typegroupid((int32_t)m_typeGroupId);
 }
 
 void E_FindtreasureActive_s::read_from_pbmsg(const ::proto_ff::E_FindtreasureActive & msg) {
 	m_id = msg.m_id();
 	m_groupid = msg.m_groupid();
 	m_opentime = msg.m_opentime();
-	m_durtime = msg.m_durtime();
-	m_closetime = msg.m_closetime();
+	m_durTime = msg.m_durtime();
+	m_closeTime = msg.m_closetime();
 	m_type = msg.m_type();
-	m_typegroupid = msg.m_typegroupid();
+	m_typeGroupId = msg.m_typegroupid();
 }
 
 Sheet_FindtreasureActive_s::Sheet_FindtreasureActive_s() {
@@ -402,10 +402,10 @@ E_FindtreasureActiveup_s::E_FindtreasureActiveup_s() {
 
 int E_FindtreasureActiveup_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_groupid = (int32_t)0;
+	m_groupID = (int32_t)0;
 	m_type = (int32_t)0;
 	m_itemid = (int32_t)0;
-	m_proarg = (int32_t)0;
+	m_proArg = (int32_t)0;
 	return 0;
 }
 
@@ -415,18 +415,18 @@ int E_FindtreasureActiveup_s::ResumeInit() {
 
 void E_FindtreasureActiveup_s::write_to_pbmsg(::proto_ff::E_FindtreasureActiveup & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_groupid((int32_t)m_groupid);
+	msg.set_m_groupid((int32_t)m_groupID);
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_itemid((int32_t)m_itemid);
-	msg.set_m_proarg((int32_t)m_proarg);
+	msg.set_m_proarg((int32_t)m_proArg);
 }
 
 void E_FindtreasureActiveup_s::read_from_pbmsg(const ::proto_ff::E_FindtreasureActiveup & msg) {
 	m_id = msg.m_id();
-	m_groupid = msg.m_groupid();
+	m_groupID = msg.m_groupid();
 	m_type = msg.m_type();
 	m_itemid = msg.m_itemid();
-	m_proarg = msg.m_proarg();
+	m_proArg = msg.m_proarg();
 }
 
 Sheet_FindtreasureActiveup_s::Sheet_FindtreasureActiveup_s() {
@@ -470,10 +470,10 @@ E_FindtreasureActivegoods_s::E_FindtreasureActivegoods_s() {
 
 int E_FindtreasureActivegoods_s::CreateInit() {
 	m_groupid = (int32_t)0;
-	m_itemid = (int32_t)0;
+	m_itemID = (int32_t)0;
 	m_type = (int32_t)0;
 	m_price = (int32_t)0;
-	m_itemnum = (int32_t)0;
+	m_itemNum = (int32_t)0;
 	return 0;
 }
 
@@ -483,18 +483,18 @@ int E_FindtreasureActivegoods_s::ResumeInit() {
 
 void E_FindtreasureActivegoods_s::write_to_pbmsg(::proto_ff::E_FindtreasureActivegoods & msg) const {
 	msg.set_m_groupid((int32_t)m_groupid);
-	msg.set_m_itemid((int32_t)m_itemid);
+	msg.set_m_itemid((int32_t)m_itemID);
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_price((int32_t)m_price);
-	msg.set_m_itemnum((int32_t)m_itemnum);
+	msg.set_m_itemnum((int32_t)m_itemNum);
 }
 
 void E_FindtreasureActivegoods_s::read_from_pbmsg(const ::proto_ff::E_FindtreasureActivegoods & msg) {
 	m_groupid = msg.m_groupid();
-	m_itemid = msg.m_itemid();
+	m_itemID = msg.m_itemid();
 	m_type = msg.m_type();
 	m_price = msg.m_price();
-	m_itemnum = msg.m_itemnum();
+	m_itemNum = msg.m_itemnum();
 }
 
 Sheet_FindtreasureActivegoods_s::Sheet_FindtreasureActivegoods_s() {
@@ -644,9 +644,9 @@ E_FindtreasureShop_s::E_FindtreasureShop_s() {
 int E_FindtreasureShop_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_groupid = (int32_t)0;
-	m_goodsid = (int32_t)0;
-	m_goodsnum = (int32_t)0;
-	m_costid = (int32_t)0;
+	m_goodsID = (int32_t)0;
+	m_goodsNum = (int32_t)0;
+	m_costID = (int32_t)0;
 	m_num = (int32_t)0;
 	return 0;
 }
@@ -658,18 +658,18 @@ int E_FindtreasureShop_s::ResumeInit() {
 void E_FindtreasureShop_s::write_to_pbmsg(::proto_ff::E_FindtreasureShop & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_groupid((int32_t)m_groupid);
-	msg.set_m_goodsid((int32_t)m_goodsid);
-	msg.set_m_goodsnum((int32_t)m_goodsnum);
-	msg.set_m_costid((int32_t)m_costid);
+	msg.set_m_goodsid((int32_t)m_goodsID);
+	msg.set_m_goodsnum((int32_t)m_goodsNum);
+	msg.set_m_costid((int32_t)m_costID);
 	msg.set_m_num((int32_t)m_num);
 }
 
 void E_FindtreasureShop_s::read_from_pbmsg(const ::proto_ff::E_FindtreasureShop & msg) {
 	m_id = msg.m_id();
 	m_groupid = msg.m_groupid();
-	m_goodsid = msg.m_goodsid();
-	m_goodsnum = msg.m_goodsnum();
-	m_costid = msg.m_costid();
+	m_goodsID = msg.m_goodsid();
+	m_goodsNum = msg.m_goodsnum();
+	m_costID = msg.m_costid();
 	m_num = msg.m_num();
 }
 

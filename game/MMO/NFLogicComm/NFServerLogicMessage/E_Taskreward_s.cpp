@@ -74,11 +74,11 @@ E_TaskrewardTaskreward_s::E_TaskrewardTaskreward_s() {
 
 int E_TaskrewardTaskreward_s::CreateInit() {
 	m_id = (int64_t)0;
-	m_tasktype = (int32_t)0;
+	m_taskType = (int32_t)0;
 	m_lv = (int32_t)0;
-	m_guildexp = (int32_t)0;
-	m_guildpoint = (int32_t)0;
-	m_skillid = (int32_t)0;
+	m_guildExp = (int32_t)0;
+	m_guildPoint = (int32_t)0;
+	m_skillId = (int32_t)0;
 	return 0;
 }
 
@@ -88,11 +88,11 @@ int E_TaskrewardTaskreward_s::ResumeInit() {
 
 void E_TaskrewardTaskreward_s::write_to_pbmsg(::proto_ff::E_TaskrewardTaskreward & msg) const {
 	msg.set_m_id((int64_t)m_id);
-	msg.set_m_tasktype((int32_t)m_tasktype);
+	msg.set_m_tasktype((int32_t)m_taskType);
 	msg.set_m_lv((int32_t)m_lv);
-	msg.set_m_guildexp((int32_t)m_guildexp);
-	msg.set_m_guildpoint((int32_t)m_guildpoint);
-	msg.set_m_skillid((int32_t)m_skillid);
+	msg.set_m_guildexp((int32_t)m_guildExp);
+	msg.set_m_guildpoint((int32_t)m_guildPoint);
+	msg.set_m_skillid((int32_t)m_skillId);
 	for(int32_t i = 0; i < (int32_t)m_attr.size(); ++i) {
 		::proto_ff::E_TaskrewardTaskrewardAttrDesc* temp_m_attr = msg.add_m_attr();
 		m_attr[i].write_to_pbmsg(*temp_m_attr);
@@ -105,11 +105,11 @@ void E_TaskrewardTaskreward_s::write_to_pbmsg(::proto_ff::E_TaskrewardTaskreward
 
 void E_TaskrewardTaskreward_s::read_from_pbmsg(const ::proto_ff::E_TaskrewardTaskreward & msg) {
 	m_id = msg.m_id();
-	m_tasktype = msg.m_tasktype();
+	m_taskType = msg.m_tasktype();
 	m_lv = msg.m_lv();
-	m_guildexp = msg.m_guildexp();
-	m_guildpoint = msg.m_guildpoint();
-	m_skillid = msg.m_skillid();
+	m_guildExp = msg.m_guildexp();
+	m_guildPoint = msg.m_guildpoint();
+	m_skillId = msg.m_skillid();
 	m_attr.resize((int)msg.m_attr_size() > (int)m_attr.max_size() ? m_attr.max_size() : msg.m_attr_size());
 	for(int32_t i = 0; i < (int32_t)m_attr.size(); ++i) {
 		const ::proto_ff::E_TaskrewardTaskrewardAttrDesc & temp_m_attr = msg.m_attr(i);
@@ -162,7 +162,7 @@ E_TaskrewardTasktype_s::E_TaskrewardTasktype_s() {
 }
 
 int E_TaskrewardTasktype_s::CreateInit() {
-	m_tasktype = (int32_t)0;
+	m_taskType = (int32_t)0;
 	return 0;
 }
 
@@ -171,11 +171,11 @@ int E_TaskrewardTasktype_s::ResumeInit() {
 }
 
 void E_TaskrewardTasktype_s::write_to_pbmsg(::proto_ff::E_TaskrewardTasktype & msg) const {
-	msg.set_m_tasktype((int32_t)m_tasktype);
+	msg.set_m_tasktype((int32_t)m_taskType);
 }
 
 void E_TaskrewardTasktype_s::read_from_pbmsg(const ::proto_ff::E_TaskrewardTasktype & msg) {
-	m_tasktype = msg.m_tasktype();
+	m_taskType = msg.m_tasktype();
 }
 
 Sheet_TaskrewardTasktype_s::Sheet_TaskrewardTasktype_s() {

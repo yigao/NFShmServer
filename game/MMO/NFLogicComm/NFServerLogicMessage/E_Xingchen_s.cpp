@@ -11,11 +11,11 @@ E_XingchenXcsetup_s::E_XingchenXcsetup_s() {
 }
 
 int E_XingchenXcsetup_s::CreateInit() {
-	m_xsid = (int32_t)0;
-	m_unlockdj = (int32_t)0;
-	m_unlockpf = (int32_t)0;
-	m_xstype = (int32_t)0;
-	m_xssubtype = (int32_t)0;
+	m_XsId = (int32_t)0;
+	m_UnlockDj = (int32_t)0;
+	m_UnlockPf = (int32_t)0;
+	m_XSType = (int32_t)0;
+	m_XSSubType = (int32_t)0;
 	return 0;
 }
 
@@ -24,19 +24,19 @@ int E_XingchenXcsetup_s::ResumeInit() {
 }
 
 void E_XingchenXcsetup_s::write_to_pbmsg(::proto_ff::E_XingchenXcsetup & msg) const {
-	msg.set_m_xsid((int32_t)m_xsid);
-	msg.set_m_unlockdj((int32_t)m_unlockdj);
-	msg.set_m_unlockpf((int32_t)m_unlockpf);
-	msg.set_m_xstype((int32_t)m_xstype);
-	msg.set_m_xssubtype((int32_t)m_xssubtype);
+	msg.set_m_xsid((int32_t)m_XsId);
+	msg.set_m_unlockdj((int32_t)m_UnlockDj);
+	msg.set_m_unlockpf((int32_t)m_UnlockPf);
+	msg.set_m_xstype((int32_t)m_XSType);
+	msg.set_m_xssubtype((int32_t)m_XSSubType);
 }
 
 void E_XingchenXcsetup_s::read_from_pbmsg(const ::proto_ff::E_XingchenXcsetup & msg) {
-	m_xsid = msg.m_xsid();
-	m_unlockdj = msg.m_unlockdj();
-	m_unlockpf = msg.m_unlockpf();
-	m_xstype = msg.m_xstype();
-	m_xssubtype = msg.m_xssubtype();
+	m_XsId = msg.m_xsid();
+	m_UnlockDj = msg.m_unlockdj();
+	m_UnlockPf = msg.m_unlockpf();
+	m_XSType = msg.m_xstype();
+	m_XSSubType = msg.m_xssubtype();
 }
 
 Sheet_XingchenXcsetup_s::Sheet_XingchenXcsetup_s() {
@@ -79,8 +79,8 @@ E_XingchenXcmosaic_s::E_XingchenXcmosaic_s() {
 }
 
 int E_XingchenXcmosaic_s::CreateInit() {
-	m_positionnum = (int32_t)0;
-	m_positionid = (int32_t)0;
+	m_PositionNum = (int32_t)0;
+	m_PositionID = (int32_t)0;
 	m_posx = (int32_t)0;
 	m_posy = (int32_t)0;
 	m_next_posx = (int32_t)0;
@@ -93,8 +93,8 @@ int E_XingchenXcmosaic_s::ResumeInit() {
 }
 
 void E_XingchenXcmosaic_s::write_to_pbmsg(::proto_ff::E_XingchenXcmosaic & msg) const {
-	msg.set_m_positionnum((int32_t)m_positionnum);
-	msg.set_m_positionid((int32_t)m_positionid);
+	msg.set_m_positionnum((int32_t)m_PositionNum);
+	msg.set_m_positionid((int32_t)m_PositionID);
 	msg.set_m_posx((int32_t)m_posx);
 	msg.set_m_posy((int32_t)m_posy);
 	msg.set_m_next_posx((int32_t)m_next_posx);
@@ -102,8 +102,8 @@ void E_XingchenXcmosaic_s::write_to_pbmsg(::proto_ff::E_XingchenXcmosaic & msg) 
 }
 
 void E_XingchenXcmosaic_s::read_from_pbmsg(const ::proto_ff::E_XingchenXcmosaic & msg) {
-	m_positionnum = msg.m_positionnum();
-	m_positionid = msg.m_positionid();
+	m_PositionNum = msg.m_positionnum();
+	m_PositionID = msg.m_positionid();
 	m_posx = msg.m_posx();
 	m_posy = msg.m_posy();
 	m_next_posx = msg.m_next_posx();
@@ -178,11 +178,11 @@ E_XingchenXcmaterial_s::E_XingchenXcmaterial_s() {
 }
 
 int E_XingchenXcmaterial_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_materialtype = (int32_t)0;
-	m_functiontype = (int32_t)0;
-	m_itemid = (int32_t)0;
-	m_itemexp = (int32_t)0;
+	m_Id = (int32_t)0;
+	m_MaterialType = (int32_t)0;
+	m_FunctionType = (int32_t)0;
+	m_itemId = (int32_t)0;
+	m_itemExp = (int32_t)0;
 	return 0;
 }
 
@@ -191,12 +191,12 @@ int E_XingchenXcmaterial_s::ResumeInit() {
 }
 
 void E_XingchenXcmaterial_s::write_to_pbmsg(::proto_ff::E_XingchenXcmaterial & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_materialtype((int32_t)m_materialtype);
-	msg.set_m_functiontype((int32_t)m_functiontype);
-	msg.set_m_xcposition(m_xcposition.data());
-	msg.set_m_itemid((int32_t)m_itemid);
-	msg.set_m_itemexp((int32_t)m_itemexp);
+	msg.set_m_id((int32_t)m_Id);
+	msg.set_m_materialtype((int32_t)m_MaterialType);
+	msg.set_m_functiontype((int32_t)m_FunctionType);
+	msg.set_m_xcposition(m_XcPosition.data());
+	msg.set_m_itemid((int32_t)m_itemId);
+	msg.set_m_itemexp((int32_t)m_itemExp);
 	for(int32_t i = 0; i < (int32_t)m_quality.size(); ++i) {
 		::proto_ff::E_XingchenXcmaterialQualityDesc* temp_m_quality = msg.add_m_quality();
 		m_quality[i].write_to_pbmsg(*temp_m_quality);
@@ -204,12 +204,12 @@ void E_XingchenXcmaterial_s::write_to_pbmsg(::proto_ff::E_XingchenXcmaterial & m
 }
 
 void E_XingchenXcmaterial_s::read_from_pbmsg(const ::proto_ff::E_XingchenXcmaterial & msg) {
-	m_id = msg.m_id();
-	m_materialtype = msg.m_materialtype();
-	m_functiontype = msg.m_functiontype();
-	m_xcposition = msg.m_xcposition();
-	m_itemid = msg.m_itemid();
-	m_itemexp = msg.m_itemexp();
+	m_Id = msg.m_id();
+	m_MaterialType = msg.m_materialtype();
+	m_FunctionType = msg.m_functiontype();
+	m_XcPosition = msg.m_xcposition();
+	m_itemId = msg.m_itemid();
+	m_itemExp = msg.m_itemexp();
 	m_quality.resize((int)msg.m_quality_size() > (int)m_quality.max_size() ? m_quality.max_size() : msg.m_quality_size());
 	for(int32_t i = 0; i < (int32_t)m_quality.size(); ++i) {
 		const ::proto_ff::E_XingchenXcmaterialQualityDesc & temp_m_quality = msg.m_quality(i);
@@ -285,7 +285,7 @@ E_XingchenXinchen_s::E_XingchenXinchen_s() {
 }
 
 int E_XingchenXinchen_s::CreateInit() {
-	m_xcequip = (int32_t)0;
+	m_XcEquip = (int32_t)0;
 	return 0;
 }
 
@@ -294,7 +294,7 @@ int E_XingchenXinchen_s::ResumeInit() {
 }
 
 void E_XingchenXinchen_s::write_to_pbmsg(::proto_ff::E_XingchenXinchen & msg) const {
-	msg.set_m_xcequip((int32_t)m_xcequip);
+	msg.set_m_xcequip((int32_t)m_XcEquip);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_XingchenXinchenAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
@@ -302,7 +302,7 @@ void E_XingchenXinchen_s::write_to_pbmsg(::proto_ff::E_XingchenXinchen & msg) co
 }
 
 void E_XingchenXinchen_s::read_from_pbmsg(const ::proto_ff::E_XingchenXinchen & msg) {
-	m_xcequip = msg.m_xcequip();
+	m_XcEquip = msg.m_xcequip();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_XingchenXinchenAttributeDesc & temp_m_attribute = msg.m_attribute(i);
@@ -350,7 +350,7 @@ E_XingchenXclvatt_s::E_XingchenXclvatt_s() {
 }
 
 int E_XingchenXclvatt_s::CreateInit() {
-	m_attid = (int64_t)0;
+	m_attId = (int64_t)0;
 	return 0;
 }
 
@@ -359,14 +359,14 @@ int E_XingchenXclvatt_s::ResumeInit() {
 }
 
 void E_XingchenXclvatt_s::write_to_pbmsg(::proto_ff::E_XingchenXclvatt & msg) const {
-	msg.set_m_attid((int64_t)m_attid);
+	msg.set_m_attid((int64_t)m_attId);
 	for(int32_t i = 0; i < (int32_t)m_att.size(); ++i) {
 		msg.add_m_att((int32_t)m_att[i]);
 	}
 }
 
 void E_XingchenXclvatt_s::read_from_pbmsg(const ::proto_ff::E_XingchenXclvatt & msg) {
-	m_attid = msg.m_attid();
+	m_attId = msg.m_attid();
 	m_att.resize((int)msg.m_att_size() > (int)m_att.max_size() ? m_att.max_size() : msg.m_att_size());
 	for(int32_t i = 0; i < (int32_t)m_att.size(); ++i) {
 		m_att[i] = msg.m_att(i);
@@ -501,9 +501,9 @@ E_XingchenXctp_s::E_XingchenXctp_s() {
 
 int E_XingchenXctp_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_positionid = (int32_t)0;
-	m_xcquality = (int32_t)0;
-	m_xclvmax = (int32_t)0;
+	m_PositionID = (int32_t)0;
+	m_XcQuality = (int32_t)0;
+	m_XcLvmax = (int32_t)0;
 	return 0;
 }
 
@@ -513,12 +513,12 @@ int E_XingchenXctp_s::ResumeInit() {
 
 void E_XingchenXctp_s::write_to_pbmsg(::proto_ff::E_XingchenXctp & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_positionid((int32_t)m_positionid);
-	msg.set_m_xcquality((int32_t)m_xcquality);
-	msg.set_m_xclvmax((int32_t)m_xclvmax);
-	for(int32_t i = 0; i < (int32_t)m_tp.size(); ++i) {
+	msg.set_m_positionid((int32_t)m_PositionID);
+	msg.set_m_xcquality((int32_t)m_XcQuality);
+	msg.set_m_xclvmax((int32_t)m_XcLvmax);
+	for(int32_t i = 0; i < (int32_t)m_TP.size(); ++i) {
 		::proto_ff::E_XingchenXctpTpDesc* temp_m_tp = msg.add_m_tp();
-		m_tp[i].write_to_pbmsg(*temp_m_tp);
+		m_TP[i].write_to_pbmsg(*temp_m_tp);
 	}
 	for(int32_t i = 0; i < (int32_t)m_attr.size(); ++i) {
 		msg.add_m_attr((int32_t)m_attr[i]);
@@ -527,13 +527,13 @@ void E_XingchenXctp_s::write_to_pbmsg(::proto_ff::E_XingchenXctp & msg) const {
 
 void E_XingchenXctp_s::read_from_pbmsg(const ::proto_ff::E_XingchenXctp & msg) {
 	m_id = msg.m_id();
-	m_positionid = msg.m_positionid();
-	m_xcquality = msg.m_xcquality();
-	m_xclvmax = msg.m_xclvmax();
-	m_tp.resize((int)msg.m_tp_size() > (int)m_tp.max_size() ? m_tp.max_size() : msg.m_tp_size());
-	for(int32_t i = 0; i < (int32_t)m_tp.size(); ++i) {
+	m_PositionID = msg.m_positionid();
+	m_XcQuality = msg.m_xcquality();
+	m_XcLvmax = msg.m_xclvmax();
+	m_TP.resize((int)msg.m_tp_size() > (int)m_TP.max_size() ? m_TP.max_size() : msg.m_tp_size());
+	for(int32_t i = 0; i < (int32_t)m_TP.size(); ++i) {
 		const ::proto_ff::E_XingchenXctpTpDesc & temp_m_tp = msg.m_tp(i);
-		m_tp[i].read_from_pbmsg(temp_m_tp);
+		m_TP[i].read_from_pbmsg(temp_m_tp);
 	}
 	m_attr.resize((int)msg.m_attr_size() > (int)m_attr.max_size() ? m_attr.max_size() : msg.m_attr_size());
 	for(int32_t i = 0; i < (int32_t)m_attr.size(); ++i) {
@@ -592,13 +592,13 @@ int E_XingchenXctpexp_s::ResumeInit() {
 
 void E_XingchenXctpexp_s::write_to_pbmsg(::proto_ff::E_XingchenXctpexp & msg) const {
 	msg.set_m_lv((int32_t)m_lv);
-	msg.set_m_lvdisplay(m_lvdisplay.data());
+	msg.set_m_lvdisplay(m_Lvdisplay.data());
 	msg.set_m_exp((int32_t)m_exp);
 }
 
 void E_XingchenXctpexp_s::read_from_pbmsg(const ::proto_ff::E_XingchenXctpexp & msg) {
 	m_lv = msg.m_lv();
-	m_lvdisplay = msg.m_lvdisplay();
+	m_Lvdisplay = msg.m_lvdisplay();
 	m_exp = msg.m_exp();
 }
 
@@ -643,9 +643,9 @@ E_XingchenXctpaddi_s::E_XingchenXctpaddi_s() {
 
 int E_XingchenXctpaddi_s::CreateInit() {
 	m_id = (int64_t)0;
-	m_attid = (int64_t)0;
+	m_attId = (int64_t)0;
 	m_count = (int32_t)0;
-	m_atttype = (int32_t)0;
+	m_attType = (int32_t)0;
 	m_att = (int32_t)0;
 	return 0;
 }
@@ -656,17 +656,17 @@ int E_XingchenXctpaddi_s::ResumeInit() {
 
 void E_XingchenXctpaddi_s::write_to_pbmsg(::proto_ff::E_XingchenXctpaddi & msg) const {
 	msg.set_m_id((int64_t)m_id);
-	msg.set_m_attid((int64_t)m_attid);
+	msg.set_m_attid((int64_t)m_attId);
 	msg.set_m_count((int32_t)m_count);
-	msg.set_m_atttype((int32_t)m_atttype);
+	msg.set_m_atttype((int32_t)m_attType);
 	msg.set_m_att((int32_t)m_att);
 }
 
 void E_XingchenXctpaddi_s::read_from_pbmsg(const ::proto_ff::E_XingchenXctpaddi & msg) {
 	m_id = msg.m_id();
-	m_attid = msg.m_attid();
+	m_attId = msg.m_attid();
 	m_count = msg.m_count();
-	m_atttype = msg.m_atttype();
+	m_attType = msg.m_atttype();
 	m_att = msg.m_att();
 }
 
@@ -710,7 +710,7 @@ E_XingchenXctpatt_s::E_XingchenXctpatt_s() {
 }
 
 int E_XingchenXctpatt_s::CreateInit() {
-	m_attid = (int64_t)0;
+	m_attID = (int64_t)0;
 	return 0;
 }
 
@@ -719,14 +719,14 @@ int E_XingchenXctpatt_s::ResumeInit() {
 }
 
 void E_XingchenXctpatt_s::write_to_pbmsg(::proto_ff::E_XingchenXctpatt & msg) const {
-	msg.set_m_attid((int64_t)m_attid);
+	msg.set_m_attid((int64_t)m_attID);
 	for(int32_t i = 0; i < (int32_t)m_att.size(); ++i) {
 		msg.add_m_att((int32_t)m_att[i]);
 	}
 }
 
 void E_XingchenXctpatt_s::read_from_pbmsg(const ::proto_ff::E_XingchenXctpatt & msg) {
-	m_attid = msg.m_attid();
+	m_attID = msg.m_attid();
 	m_att.resize((int)msg.m_att_size() > (int)m_att.max_size() ? m_att.max_size() : msg.m_att_size());
 	for(int32_t i = 0; i < (int32_t)m_att.size(); ++i) {
 		m_att[i] = msg.m_att(i);
@@ -801,7 +801,7 @@ E_XingchenXcstar_s::E_XingchenXcstar_s() {
 }
 
 int E_XingchenXcstar_s::CreateInit() {
-	m_starlv = (int32_t)0;
+	m_StarLv = (int32_t)0;
 	m_id = (int32_t)0;
 	return 0;
 }
@@ -811,7 +811,7 @@ int E_XingchenXcstar_s::ResumeInit() {
 }
 
 void E_XingchenXcstar_s::write_to_pbmsg(::proto_ff::E_XingchenXcstar & msg) const {
-	msg.set_m_starlv((int32_t)m_starlv);
+	msg.set_m_starlv((int32_t)m_StarLv);
 	msg.set_m_id((int32_t)m_id);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_XingchenXcstarAttributeDesc* temp_m_attribute = msg.add_m_attribute();
@@ -820,7 +820,7 @@ void E_XingchenXcstar_s::write_to_pbmsg(::proto_ff::E_XingchenXcstar & msg) cons
 }
 
 void E_XingchenXcstar_s::read_from_pbmsg(const ::proto_ff::E_XingchenXcstar & msg) {
-	m_starlv = msg.m_starlv();
+	m_StarLv = msg.m_starlv();
 	m_id = msg.m_id();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
@@ -869,8 +869,8 @@ E_XingchenXcawakenAwakenDesc_s::E_XingchenXcawakenAwakenDesc_s() {
 }
 
 int E_XingchenXcawakenAwakenDesc_s::CreateInit() {
-	m_tpaddratio = (int32_t)0;
-	m_lvaddratio = (int32_t)0;
+	m_TPAddratio = (int32_t)0;
+	m_lvAddratio = (int32_t)0;
 	m_num = (int32_t)0;
 	return 0;
 }
@@ -880,14 +880,14 @@ int E_XingchenXcawakenAwakenDesc_s::ResumeInit() {
 }
 
 void E_XingchenXcawakenAwakenDesc_s::write_to_pbmsg(::proto_ff::E_XingchenXcawakenAwakenDesc & msg) const {
-	msg.set_m_tpaddratio((int32_t)m_tpaddratio);
-	msg.set_m_lvaddratio((int32_t)m_lvaddratio);
+	msg.set_m_tpaddratio((int32_t)m_TPAddratio);
+	msg.set_m_lvaddratio((int32_t)m_lvAddratio);
 	msg.set_m_num((int32_t)m_num);
 }
 
 void E_XingchenXcawakenAwakenDesc_s::read_from_pbmsg(const ::proto_ff::E_XingchenXcawakenAwakenDesc & msg) {
-	m_tpaddratio = msg.m_tpaddratio();
-	m_lvaddratio = msg.m_lvaddratio();
+	m_TPAddratio = msg.m_tpaddratio();
+	m_lvAddratio = msg.m_lvaddratio();
 	m_num = msg.m_num();
 }
 
@@ -900,10 +900,10 @@ E_XingchenXcawaken_s::E_XingchenXcawaken_s() {
 }
 
 int E_XingchenXcawaken_s::CreateInit() {
-	m_positionnum = (int32_t)0;
-	m_positionid = (int32_t)0;
+	m_PositionNum = (int32_t)0;
+	m_PositionID = (int32_t)0;
 	m_awaken_quality = (int32_t)0;
-	m_awaken_lvmax = (int32_t)0;
+	m_awaken_Lvmax = (int32_t)0;
 	m_awaken_item = (int32_t)0;
 	return 0;
 }
@@ -913,10 +913,10 @@ int E_XingchenXcawaken_s::ResumeInit() {
 }
 
 void E_XingchenXcawaken_s::write_to_pbmsg(::proto_ff::E_XingchenXcawaken & msg) const {
-	msg.set_m_positionnum((int32_t)m_positionnum);
-	msg.set_m_positionid((int32_t)m_positionid);
+	msg.set_m_positionnum((int32_t)m_PositionNum);
+	msg.set_m_positionid((int32_t)m_PositionID);
 	msg.set_m_awaken_quality((int32_t)m_awaken_quality);
-	msg.set_m_awaken_lvmax((int32_t)m_awaken_lvmax);
+	msg.set_m_awaken_lvmax((int32_t)m_awaken_Lvmax);
 	msg.set_m_awaken_item((int32_t)m_awaken_item);
 	for(int32_t i = 0; i < (int32_t)m_awaken.size(); ++i) {
 		::proto_ff::E_XingchenXcawakenAwakenDesc* temp_m_awaken = msg.add_m_awaken();
@@ -925,10 +925,10 @@ void E_XingchenXcawaken_s::write_to_pbmsg(::proto_ff::E_XingchenXcawaken & msg) 
 }
 
 void E_XingchenXcawaken_s::read_from_pbmsg(const ::proto_ff::E_XingchenXcawaken & msg) {
-	m_positionnum = msg.m_positionnum();
-	m_positionid = msg.m_positionid();
+	m_PositionNum = msg.m_positionnum();
+	m_PositionID = msg.m_positionid();
 	m_awaken_quality = msg.m_awaken_quality();
-	m_awaken_lvmax = msg.m_awaken_lvmax();
+	m_awaken_Lvmax = msg.m_awaken_lvmax();
 	m_awaken_item = msg.m_awaken_item();
 	m_awaken.resize((int)msg.m_awaken_size() > (int)m_awaken.max_size() ? m_awaken.max_size() : msg.m_awaken_size());
 	for(int32_t i = 0; i < (int32_t)m_awaken.size(); ++i) {
@@ -1006,11 +1006,11 @@ E_XingchenXcmagical_s::E_XingchenXcmagical_s() {
 
 int E_XingchenXcmagical_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_hhquality = (int32_t)0;
-	m_isadvanced = (int32_t)0;
-	m_hhact = (int32_t)0;
-	m_hhstar = (int32_t)0;
-	m_advskill = (int32_t)0;
+	m_HhQuality = (int32_t)0;
+	m_isAdvanced = (int32_t)0;
+	m_HhAct = (int32_t)0;
+	m_HhStar = (int32_t)0;
+	m_AdvSkill = (int32_t)0;
 	return 0;
 }
 
@@ -1020,28 +1020,28 @@ int E_XingchenXcmagical_s::ResumeInit() {
 
 void E_XingchenXcmagical_s::write_to_pbmsg(::proto_ff::E_XingchenXcmagical & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_hhquality((int32_t)m_hhquality);
-	msg.set_m_isadvanced((int32_t)m_isadvanced);
-	msg.set_m_hhact((int32_t)m_hhact);
-	msg.set_m_hhstar((int32_t)m_hhstar);
-	msg.set_m_advskill((int32_t)m_advskill);
-	for(int32_t i = 0; i < (int32_t)m_hh.size(); ++i) {
+	msg.set_m_hhquality((int32_t)m_HhQuality);
+	msg.set_m_isadvanced((int32_t)m_isAdvanced);
+	msg.set_m_hhact((int32_t)m_HhAct);
+	msg.set_m_hhstar((int32_t)m_HhStar);
+	msg.set_m_advskill((int32_t)m_AdvSkill);
+	for(int32_t i = 0; i < (int32_t)m_Hh.size(); ++i) {
 		::proto_ff::E_XingchenXcmagicalHhDesc* temp_m_hh = msg.add_m_hh();
-		m_hh[i].write_to_pbmsg(*temp_m_hh);
+		m_Hh[i].write_to_pbmsg(*temp_m_hh);
 	}
 }
 
 void E_XingchenXcmagical_s::read_from_pbmsg(const ::proto_ff::E_XingchenXcmagical & msg) {
 	m_id = msg.m_id();
-	m_hhquality = msg.m_hhquality();
-	m_isadvanced = msg.m_isadvanced();
-	m_hhact = msg.m_hhact();
-	m_hhstar = msg.m_hhstar();
-	m_advskill = msg.m_advskill();
-	m_hh.resize((int)msg.m_hh_size() > (int)m_hh.max_size() ? m_hh.max_size() : msg.m_hh_size());
-	for(int32_t i = 0; i < (int32_t)m_hh.size(); ++i) {
+	m_HhQuality = msg.m_hhquality();
+	m_isAdvanced = msg.m_isadvanced();
+	m_HhAct = msg.m_hhact();
+	m_HhStar = msg.m_hhstar();
+	m_AdvSkill = msg.m_advskill();
+	m_Hh.resize((int)msg.m_hh_size() > (int)m_Hh.max_size() ? m_Hh.max_size() : msg.m_hh_size());
+	for(int32_t i = 0; i < (int32_t)m_Hh.size(); ++i) {
 		const ::proto_ff::E_XingchenXcmagicalHhDesc & temp_m_hh = msg.m_hh(i);
-		m_hh[i].read_from_pbmsg(temp_m_hh);
+		m_Hh[i].read_from_pbmsg(temp_m_hh);
 	}
 }
 
@@ -1085,7 +1085,7 @@ E_XingchenXcmagatt_s::E_XingchenXcmagatt_s() {
 }
 
 int E_XingchenXcmagatt_s::CreateInit() {
-	m_attid = (int64_t)0;
+	m_attID = (int64_t)0;
 	return 0;
 }
 
@@ -1094,14 +1094,14 @@ int E_XingchenXcmagatt_s::ResumeInit() {
 }
 
 void E_XingchenXcmagatt_s::write_to_pbmsg(::proto_ff::E_XingchenXcmagatt & msg) const {
-	msg.set_m_attid((int64_t)m_attid);
+	msg.set_m_attid((int64_t)m_attID);
 	for(int32_t i = 0; i < (int32_t)m_att.size(); ++i) {
 		msg.add_m_att((int32_t)m_att[i]);
 	}
 }
 
 void E_XingchenXcmagatt_s::read_from_pbmsg(const ::proto_ff::E_XingchenXcmagatt & msg) {
-	m_attid = msg.m_attid();
+	m_attID = msg.m_attid();
 	m_att.resize((int)msg.m_att_size() > (int)m_att.max_size() ? m_att.max_size() : msg.m_att_size());
 	for(int32_t i = 0; i < (int32_t)m_att.size(); ++i) {
 		m_att[i] = msg.m_att(i);
@@ -1176,12 +1176,12 @@ E_XingchenXcadvatt_s::E_XingchenXcadvatt_s() {
 }
 
 int E_XingchenXcadvatt_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_upattributeid = (int64_t)0;
-	m_classlv = (int32_t)0;
-	m_starid = (int32_t)0;
-	m_skillid = (int32_t)0;
-	m_activeskillidlv = (int32_t)0;
+	m_ID = (int32_t)0;
+	m_upAttributeId = (int64_t)0;
+	m_ClassLv = (int32_t)0;
+	m_starID = (int32_t)0;
+	m_skillID = (int32_t)0;
+	m_activeSkillIDLv = (int32_t)0;
 	return 0;
 }
 
@@ -1190,29 +1190,29 @@ int E_XingchenXcadvatt_s::ResumeInit() {
 }
 
 void E_XingchenXcadvatt_s::write_to_pbmsg(::proto_ff::E_XingchenXcadvatt & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_upattributeid((int64_t)m_upattributeid);
-	msg.set_m_classlv((int32_t)m_classlv);
-	msg.set_m_starid((int32_t)m_starid);
-	msg.set_m_skillid((int32_t)m_skillid);
-	msg.set_m_activeskillidlv((int32_t)m_activeskillidlv);
-	for(int32_t i = 0; i < (int32_t)m_upattribute.size(); ++i) {
+	msg.set_m_id((int32_t)m_ID);
+	msg.set_m_upattributeid((int64_t)m_upAttributeId);
+	msg.set_m_classlv((int32_t)m_ClassLv);
+	msg.set_m_starid((int32_t)m_starID);
+	msg.set_m_skillid((int32_t)m_skillID);
+	msg.set_m_activeskillidlv((int32_t)m_activeSkillIDLv);
+	for(int32_t i = 0; i < (int32_t)m_upAttribute.size(); ++i) {
 		::proto_ff::E_XingchenXcadvattUpattributeDesc* temp_m_upattribute = msg.add_m_upattribute();
-		m_upattribute[i].write_to_pbmsg(*temp_m_upattribute);
+		m_upAttribute[i].write_to_pbmsg(*temp_m_upattribute);
 	}
 }
 
 void E_XingchenXcadvatt_s::read_from_pbmsg(const ::proto_ff::E_XingchenXcadvatt & msg) {
-	m_id = msg.m_id();
-	m_upattributeid = msg.m_upattributeid();
-	m_classlv = msg.m_classlv();
-	m_starid = msg.m_starid();
-	m_skillid = msg.m_skillid();
-	m_activeskillidlv = msg.m_activeskillidlv();
-	m_upattribute.resize((int)msg.m_upattribute_size() > (int)m_upattribute.max_size() ? m_upattribute.max_size() : msg.m_upattribute_size());
-	for(int32_t i = 0; i < (int32_t)m_upattribute.size(); ++i) {
+	m_ID = msg.m_id();
+	m_upAttributeId = msg.m_upattributeid();
+	m_ClassLv = msg.m_classlv();
+	m_starID = msg.m_starid();
+	m_skillID = msg.m_skillid();
+	m_activeSkillIDLv = msg.m_activeskillidlv();
+	m_upAttribute.resize((int)msg.m_upattribute_size() > (int)m_upAttribute.max_size() ? m_upAttribute.max_size() : msg.m_upattribute_size());
+	for(int32_t i = 0; i < (int32_t)m_upAttribute.size(); ++i) {
 		const ::proto_ff::E_XingchenXcadvattUpattributeDesc & temp_m_upattribute = msg.m_upattribute(i);
-		m_upattribute[i].read_from_pbmsg(temp_m_upattribute);
+		m_upAttribute[i].read_from_pbmsg(temp_m_upattribute);
 	}
 }
 
@@ -1312,11 +1312,11 @@ E_XingchenXcguizhen_s::E_XingchenXcguizhen_s() {
 }
 
 int E_XingchenXcguizhen_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_xsid = (int32_t)0;
-	m_gzquality = (int32_t)0;
-	m_gznum = (int32_t)0;
-	m_gzxh = (int32_t)0;
+	m_ID = (int32_t)0;
+	m_XsId = (int32_t)0;
+	m_GzQuality = (int32_t)0;
+	m_GzNum = (int32_t)0;
+	m_GzXh = (int32_t)0;
 	return 0;
 }
 
@@ -1325,36 +1325,36 @@ int E_XingchenXcguizhen_s::ResumeInit() {
 }
 
 void E_XingchenXcguizhen_s::write_to_pbmsg(::proto_ff::E_XingchenXcguizhen & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_xsid((int32_t)m_xsid);
-	msg.set_m_gzquality((int32_t)m_gzquality);
-	msg.set_m_gznum((int32_t)m_gznum);
-	msg.set_m_gzxh((int32_t)m_gzxh);
-	for(int32_t i = 0; i < (int32_t)m_xx.size(); ++i) {
+	msg.set_m_id((int32_t)m_ID);
+	msg.set_m_xsid((int32_t)m_XsId);
+	msg.set_m_gzquality((int32_t)m_GzQuality);
+	msg.set_m_gznum((int32_t)m_GzNum);
+	msg.set_m_gzxh((int32_t)m_GzXh);
+	for(int32_t i = 0; i < (int32_t)m_Xx.size(); ++i) {
 		::proto_ff::E_XingchenXcguizhenXxDesc* temp_m_xx = msg.add_m_xx();
-		m_xx[i].write_to_pbmsg(*temp_m_xx);
+		m_Xx[i].write_to_pbmsg(*temp_m_xx);
 	}
-	for(int32_t i = 0; i < (int32_t)m_gz.size(); ++i) {
+	for(int32_t i = 0; i < (int32_t)m_Gz.size(); ++i) {
 		::proto_ff::E_XingchenXcguizhenGzDesc* temp_m_gz = msg.add_m_gz();
-		m_gz[i].write_to_pbmsg(*temp_m_gz);
+		m_Gz[i].write_to_pbmsg(*temp_m_gz);
 	}
 }
 
 void E_XingchenXcguizhen_s::read_from_pbmsg(const ::proto_ff::E_XingchenXcguizhen & msg) {
-	m_id = msg.m_id();
-	m_xsid = msg.m_xsid();
-	m_gzquality = msg.m_gzquality();
-	m_gznum = msg.m_gznum();
-	m_gzxh = msg.m_gzxh();
-	m_xx.resize((int)msg.m_xx_size() > (int)m_xx.max_size() ? m_xx.max_size() : msg.m_xx_size());
-	for(int32_t i = 0; i < (int32_t)m_xx.size(); ++i) {
+	m_ID = msg.m_id();
+	m_XsId = msg.m_xsid();
+	m_GzQuality = msg.m_gzquality();
+	m_GzNum = msg.m_gznum();
+	m_GzXh = msg.m_gzxh();
+	m_Xx.resize((int)msg.m_xx_size() > (int)m_Xx.max_size() ? m_Xx.max_size() : msg.m_xx_size());
+	for(int32_t i = 0; i < (int32_t)m_Xx.size(); ++i) {
 		const ::proto_ff::E_XingchenXcguizhenXxDesc & temp_m_xx = msg.m_xx(i);
-		m_xx[i].read_from_pbmsg(temp_m_xx);
+		m_Xx[i].read_from_pbmsg(temp_m_xx);
 	}
-	m_gz.resize((int)msg.m_gz_size() > (int)m_gz.max_size() ? m_gz.max_size() : msg.m_gz_size());
-	for(int32_t i = 0; i < (int32_t)m_gz.size(); ++i) {
+	m_Gz.resize((int)msg.m_gz_size() > (int)m_Gz.max_size() ? m_Gz.max_size() : msg.m_gz_size());
+	for(int32_t i = 0; i < (int32_t)m_Gz.size(); ++i) {
 		const ::proto_ff::E_XingchenXcguizhenGzDesc & temp_m_gz = msg.m_gz(i);
-		m_gz[i].read_from_pbmsg(temp_m_gz);
+		m_Gz[i].read_from_pbmsg(temp_m_gz);
 	}
 }
 
@@ -1398,8 +1398,8 @@ E_XingchenXingjunActDesc_s::E_XingchenXingjunActDesc_s() {
 }
 
 int E_XingchenXingjunActDesc_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_num = (int32_t)0;
+	m_ID = (int32_t)0;
+	m_Num = (int32_t)0;
 	return 0;
 }
 
@@ -1408,13 +1408,13 @@ int E_XingchenXingjunActDesc_s::ResumeInit() {
 }
 
 void E_XingchenXingjunActDesc_s::write_to_pbmsg(::proto_ff::E_XingchenXingjunActDesc & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_num((int32_t)m_num);
+	msg.set_m_id((int32_t)m_ID);
+	msg.set_m_num((int32_t)m_Num);
 }
 
 void E_XingchenXingjunActDesc_s::read_from_pbmsg(const ::proto_ff::E_XingchenXingjunActDesc & msg) {
-	m_id = msg.m_id();
-	m_num = msg.m_num();
+	m_ID = msg.m_id();
+	m_Num = msg.m_num();
 }
 
 E_XingchenXingjun_s::E_XingchenXingjun_s() {
@@ -1426,9 +1426,9 @@ E_XingchenXingjun_s::E_XingchenXingjun_s() {
 }
 
 int E_XingchenXingjun_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_xstype = (int32_t)0;
-	m_xjquality = (int32_t)0;
+	m_ID = (int32_t)0;
+	m_XSType = (int32_t)0;
+	m_XJQuality = (int32_t)0;
 	return 0;
 }
 
@@ -1437,23 +1437,23 @@ int E_XingchenXingjun_s::ResumeInit() {
 }
 
 void E_XingchenXingjun_s::write_to_pbmsg(::proto_ff::E_XingchenXingjun & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_xstype((int32_t)m_xstype);
-	msg.set_m_xjquality((int32_t)m_xjquality);
-	for(int32_t i = 0; i < (int32_t)m_act.size(); ++i) {
+	msg.set_m_id((int32_t)m_ID);
+	msg.set_m_xstype((int32_t)m_XSType);
+	msg.set_m_xjquality((int32_t)m_XJQuality);
+	for(int32_t i = 0; i < (int32_t)m_Act.size(); ++i) {
 		::proto_ff::E_XingchenXingjunActDesc* temp_m_act = msg.add_m_act();
-		m_act[i].write_to_pbmsg(*temp_m_act);
+		m_Act[i].write_to_pbmsg(*temp_m_act);
 	}
 }
 
 void E_XingchenXingjun_s::read_from_pbmsg(const ::proto_ff::E_XingchenXingjun & msg) {
-	m_id = msg.m_id();
-	m_xstype = msg.m_xstype();
-	m_xjquality = msg.m_xjquality();
-	m_act.resize((int)msg.m_act_size() > (int)m_act.max_size() ? m_act.max_size() : msg.m_act_size());
-	for(int32_t i = 0; i < (int32_t)m_act.size(); ++i) {
+	m_ID = msg.m_id();
+	m_XSType = msg.m_xstype();
+	m_XJQuality = msg.m_xjquality();
+	m_Act.resize((int)msg.m_act_size() > (int)m_Act.max_size() ? m_Act.max_size() : msg.m_act_size());
+	for(int32_t i = 0; i < (int32_t)m_Act.size(); ++i) {
 		const ::proto_ff::E_XingchenXingjunActDesc & temp_m_act = msg.m_act(i);
-		m_act[i].read_from_pbmsg(temp_m_act);
+		m_Act[i].read_from_pbmsg(temp_m_act);
 	}
 }
 
@@ -1525,7 +1525,7 @@ E_XingchenXjatt_s::E_XingchenXjatt_s() {
 }
 
 int E_XingchenXjatt_s::CreateInit() {
-	m_attid = (int64_t)0;
+	m_AttId = (int64_t)0;
 	return 0;
 }
 
@@ -1534,19 +1534,19 @@ int E_XingchenXjatt_s::ResumeInit() {
 }
 
 void E_XingchenXjatt_s::write_to_pbmsg(::proto_ff::E_XingchenXjatt & msg) const {
-	msg.set_m_attid((int64_t)m_attid);
-	for(int32_t i = 0; i < (int32_t)m_xj.size(); ++i) {
+	msg.set_m_attid((int64_t)m_AttId);
+	for(int32_t i = 0; i < (int32_t)m_XJ.size(); ++i) {
 		::proto_ff::E_XingchenXjattXjDesc* temp_m_xj = msg.add_m_xj();
-		m_xj[i].write_to_pbmsg(*temp_m_xj);
+		m_XJ[i].write_to_pbmsg(*temp_m_xj);
 	}
 }
 
 void E_XingchenXjatt_s::read_from_pbmsg(const ::proto_ff::E_XingchenXjatt & msg) {
-	m_attid = msg.m_attid();
-	m_xj.resize((int)msg.m_xj_size() > (int)m_xj.max_size() ? m_xj.max_size() : msg.m_xj_size());
-	for(int32_t i = 0; i < (int32_t)m_xj.size(); ++i) {
+	m_AttId = msg.m_attid();
+	m_XJ.resize((int)msg.m_xj_size() > (int)m_XJ.max_size() ? m_XJ.max_size() : msg.m_xj_size());
+	for(int32_t i = 0; i < (int32_t)m_XJ.size(); ++i) {
 		const ::proto_ff::E_XingchenXjattXjDesc & temp_m_xj = msg.m_xj(i);
-		m_xj[i].read_from_pbmsg(temp_m_xj);
+		m_XJ[i].read_from_pbmsg(temp_m_xj);
 	}
 }
 
@@ -1590,10 +1590,10 @@ E_XingchenXingji_s::E_XingchenXingji_s() {
 }
 
 int E_XingchenXingji_s::CreateInit() {
-	m_xjid = (int32_t)0;
-	m_xjclass = (int32_t)0;
-	m_xjskill = (int32_t)0;
-	m_skillid = (int32_t)0;
+	m_XJId = (int32_t)0;
+	m_XJClass = (int32_t)0;
+	m_XJSkill = (int32_t)0;
+	m_SkillId = (int32_t)0;
 	return 0;
 }
 
@@ -1602,30 +1602,30 @@ int E_XingchenXingji_s::ResumeInit() {
 }
 
 void E_XingchenXingji_s::write_to_pbmsg(::proto_ff::E_XingchenXingji & msg) const {
-	msg.set_m_xjid((int32_t)m_xjid);
-	msg.set_m_xjclass((int32_t)m_xjclass);
-	msg.set_m_xjskill((int32_t)m_xjskill);
-	msg.set_m_skillid((int32_t)m_skillid);
-	for(int32_t i = 0; i < (int32_t)m_unlock.size(); ++i) {
-		msg.add_m_unlock((int32_t)m_unlock[i]);
+	msg.set_m_xjid((int32_t)m_XJId);
+	msg.set_m_xjclass((int32_t)m_XJClass);
+	msg.set_m_xjskill((int32_t)m_XJSkill);
+	msg.set_m_skillid((int32_t)m_SkillId);
+	for(int32_t i = 0; i < (int32_t)m_Unlock.size(); ++i) {
+		msg.add_m_unlock((int32_t)m_Unlock[i]);
 	}
-	for(int32_t i = 0; i < (int32_t)m_unlocklv.size(); ++i) {
-		msg.add_m_unlocklv((int32_t)m_unlocklv[i]);
+	for(int32_t i = 0; i < (int32_t)m_UnlockLV.size(); ++i) {
+		msg.add_m_unlocklv((int32_t)m_UnlockLV[i]);
 	}
 }
 
 void E_XingchenXingji_s::read_from_pbmsg(const ::proto_ff::E_XingchenXingji & msg) {
-	m_xjid = msg.m_xjid();
-	m_xjclass = msg.m_xjclass();
-	m_xjskill = msg.m_xjskill();
-	m_skillid = msg.m_skillid();
-	m_unlock.resize((int)msg.m_unlock_size() > (int)m_unlock.max_size() ? m_unlock.max_size() : msg.m_unlock_size());
-	for(int32_t i = 0; i < (int32_t)m_unlock.size(); ++i) {
-		m_unlock[i] = msg.m_unlock(i);
+	m_XJId = msg.m_xjid();
+	m_XJClass = msg.m_xjclass();
+	m_XJSkill = msg.m_xjskill();
+	m_SkillId = msg.m_skillid();
+	m_Unlock.resize((int)msg.m_unlock_size() > (int)m_Unlock.max_size() ? m_Unlock.max_size() : msg.m_unlock_size());
+	for(int32_t i = 0; i < (int32_t)m_Unlock.size(); ++i) {
+		m_Unlock[i] = msg.m_unlock(i);
 	}
-	m_unlocklv.resize((int)msg.m_unlocklv_size() > (int)m_unlocklv.max_size() ? m_unlocklv.max_size() : msg.m_unlocklv_size());
-	for(int32_t i = 0; i < (int32_t)m_unlocklv.size(); ++i) {
-		m_unlocklv[i] = msg.m_unlocklv(i);
+	m_UnlockLV.resize((int)msg.m_unlocklv_size() > (int)m_UnlockLV.max_size() ? m_UnlockLV.max_size() : msg.m_unlocklv_size());
+	for(int32_t i = 0; i < (int32_t)m_UnlockLV.size(); ++i) {
+		m_UnlockLV[i] = msg.m_unlocklv(i);
 	}
 }
 
@@ -1669,9 +1669,9 @@ E_XingchenXjcw_s::E_XingchenXjcw_s() {
 }
 
 int E_XingchenXjcw_s::CreateInit() {
-	m_xjslot = (int32_t)0;
-	m_unlock = (int32_t)0;
-	m_num = (int32_t)0;
+	m_XjSlot = (int32_t)0;
+	m_Unlock = (int32_t)0;
+	m_Num = (int32_t)0;
 	return 0;
 }
 
@@ -1680,15 +1680,15 @@ int E_XingchenXjcw_s::ResumeInit() {
 }
 
 void E_XingchenXjcw_s::write_to_pbmsg(::proto_ff::E_XingchenXjcw & msg) const {
-	msg.set_m_xjslot((int32_t)m_xjslot);
-	msg.set_m_unlock((int32_t)m_unlock);
-	msg.set_m_num((int32_t)m_num);
+	msg.set_m_xjslot((int32_t)m_XjSlot);
+	msg.set_m_unlock((int32_t)m_Unlock);
+	msg.set_m_num((int32_t)m_Num);
 }
 
 void E_XingchenXjcw_s::read_from_pbmsg(const ::proto_ff::E_XingchenXjcw & msg) {
-	m_xjslot = msg.m_xjslot();
-	m_unlock = msg.m_unlock();
-	m_num = msg.m_num();
+	m_XjSlot = msg.m_xjslot();
+	m_Unlock = msg.m_unlock();
+	m_Num = msg.m_num();
 }
 
 Sheet_XingchenXjcw_s::Sheet_XingchenXjcw_s() {
@@ -1793,12 +1793,12 @@ E_XingchenZbshop_s::E_XingchenZbshop_s() {
 }
 
 int E_XingchenZbshop_s::CreateInit() {
-	m_shopid = (int32_t)0;
-	m_shopitem = (int32_t)0;
-	m_shopquota = (int32_t)0;
-	m_shopnum = (int32_t)0;
-	m_buyconsume = (int32_t)0;
-	m_buynum = (int32_t)0;
+	m_ShopId = (int32_t)0;
+	m_ShopItem = (int32_t)0;
+	m_ShopQuota = (int32_t)0;
+	m_ShopNum = (int32_t)0;
+	m_BuyConsume = (int32_t)0;
+	m_BuyNum = (int32_t)0;
 	return 0;
 }
 
@@ -1807,21 +1807,21 @@ int E_XingchenZbshop_s::ResumeInit() {
 }
 
 void E_XingchenZbshop_s::write_to_pbmsg(::proto_ff::E_XingchenZbshop & msg) const {
-	msg.set_m_shopid((int32_t)m_shopid);
-	msg.set_m_shopitem((int32_t)m_shopitem);
-	msg.set_m_shopquota((int32_t)m_shopquota);
-	msg.set_m_shopnum((int32_t)m_shopnum);
-	msg.set_m_buyconsume((int32_t)m_buyconsume);
-	msg.set_m_buynum((int32_t)m_buynum);
+	msg.set_m_shopid((int32_t)m_ShopId);
+	msg.set_m_shopitem((int32_t)m_ShopItem);
+	msg.set_m_shopquota((int32_t)m_ShopQuota);
+	msg.set_m_shopnum((int32_t)m_ShopNum);
+	msg.set_m_buyconsume((int32_t)m_BuyConsume);
+	msg.set_m_buynum((int32_t)m_BuyNum);
 }
 
 void E_XingchenZbshop_s::read_from_pbmsg(const ::proto_ff::E_XingchenZbshop & msg) {
-	m_shopid = msg.m_shopid();
-	m_shopitem = msg.m_shopitem();
-	m_shopquota = msg.m_shopquota();
-	m_shopnum = msg.m_shopnum();
-	m_buyconsume = msg.m_buyconsume();
-	m_buynum = msg.m_buynum();
+	m_ShopId = msg.m_shopid();
+	m_ShopItem = msg.m_shopitem();
+	m_ShopQuota = msg.m_shopquota();
+	m_ShopNum = msg.m_shopnum();
+	m_BuyConsume = msg.m_buyconsume();
+	m_BuyNum = msg.m_buynum();
 }
 
 Sheet_XingchenZbshop_s::Sheet_XingchenZbshop_s() {

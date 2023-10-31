@@ -22,7 +22,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_layers;//层数
-		int32_t m_skillnum;//击杀数量
+		int32_t m_skillNum;//击杀数量
 		int32_t m_reward;//奖励
 
 		virtual void write_to_pbmsg(::proto_ff::E_QypeakBack & msg) const;
@@ -53,7 +53,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_mapid;//地图id
-		int32_t m_revivalbuff;//复活buff
+		int32_t m_revivalBuff;//复活buff
 		NFShmVector<int32_t, DEFINE_E_QYPEAKCONSTANT_M_RANKREWARD_MAX_NUM> m_rankreward;//排名奖励
 		NFShmVector<int32_t, DEFINE_E_QYPEAKCONSTANT_M_TITLESHOW_MAX_NUM> m_titleshow;//称号展示
 

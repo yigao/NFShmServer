@@ -242,23 +242,23 @@ void protobuf_AddDesc_E_5fRecharge_2eproto() {
     "tions.proto\"Y\n\035E_RechargeRechargeChannel"
     "Desc\022\"\n\007m_point\030\001 \001(\tB\021\302\377\024\t\350\256\241\350\264\271\347\202\271\220\301\024@"
     "\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002id\"M\n\032E_RechargeRech"
-    "argeItemDesc\022\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022"
-    "\024\n\004m_id\030\002 \001(\003B\006\302\377\024\002id\"\353\006\n\022E_RechargeRech"
+    "argeItemDesc\022\031\n\005m_Num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022"
+    "\024\n\004m_Id\030\002 \001(\003B\006\302\377\024\002id\"\353\006\n\022E_RechargeRech"
     "arge\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\036\n\006m_name\030\002 \001"
-    "(\tB\016\302\377\024\006\345\220\215\347\247\260\220\301\024@\022/\n\016m_defaultpoint\030\003 \001"
+    "(\tB\016\302\377\024\006\345\220\215\347\247\260\220\301\024@\022/\n\016m_defaultPoint\030\003 \001"
     "(\tB\027\302\377\024\017\351\273\230\350\256\244\350\256\241\350\264\271\347\202\271\220\301\024@\022 \n\006m_type\030\004 "
     "\001(\005B\020\302\377\024\014\345\205\205\345\200\274\347\261\273\345\236\213\022\036\n\006m_unit\030\005 \001(\tB\016\302"
     "\377\024\006\345\215\225\344\275\215\220\301\024@\022 \n\010m_beizhu\030\006 \001(\tB\016\302\377\024\006\345\244\207"
     "\346\263\250\220\301\024@\022$\n\nm_quantity\030\007 \001(\003B\020\302\377\024\014\350\216\267\345\217\226\346"
-    "\241\243\344\275\215\022,\n\tm_itemnum\030\010 \001(\005B\031\302\377\024\025\350\216\267\345\276\227\347\211\251\345"
-    "\223\201\347\232\204\346\225\260\351\207\217\022)\n\017m_multipletimes\030\t \001(\003B\020\302\377"
-    "\024\014\351\207\215\345\244\215\346\254\241\346\225\260\022*\n\020m_multiplereward\030\n \001(\003"
+    "\241\243\344\275\215\022,\n\tm_itemNum\030\010 \001(\005B\031\302\377\024\025\350\216\267\345\276\227\347\211\251\345"
+    "\223\201\347\232\204\346\225\260\351\207\217\022)\n\017m_multipleTimes\030\t \001(\003B\020\302\377"
+    "\024\014\351\207\215\345\244\215\346\254\241\346\225\260\022*\n\020m_multipleReward\030\n \001(\003"
     "B\020\302\377\024\014\351\207\215\345\244\215\345\245\226\345\212\261\022\'\n\rm_zuanshitype\030\013 \001("
-    "\005B\020\302\377\024\014\350\216\267\345\217\226\347\261\273\345\236\213\022\037\n\010m_vipexp\030\014 \001(\005B\r\302"
-    "\377\024\tvip\347\273\217\351\252\214\022*\n\rm_vipexplimit\030\r \001(\005B\023\302\377\024"
-    "\017vip\347\273\217\351\252\214\351\231\220\345\210\266\022/\n\017m_activitycount\030\016 \001("
+    "\005B\020\302\377\024\014\350\216\267\345\217\226\347\261\273\345\236\213\022\037\n\010m_vipExp\030\014 \001(\005B\r\302"
+    "\377\024\tvip\347\273\217\351\252\214\022*\n\rm_vipExpLimit\030\r \001(\005B\023\302\377\024"
+    "\017vip\347\273\217\351\252\214\351\231\220\345\210\266\022/\n\017m_activityCount\030\016 \001("
     "\005B\026\302\377\024\022\350\277\220\350\220\245\346\264\273\345\212\250\350\256\241\346\225\260\022\033\n\007m_price\030\017 \001"
-    "(\005B\n\302\377\024\006\345\224\256\344\273\267\022-\n\013m_presentid\030\020 \001(\005B\030\302\377\024"
+    "(\005B\n\302\377\024\006\345\224\256\344\273\267\022-\n\013m_presentID\030\020 \001(\005B\030\302\377\024"
     "\024\351\246\226\345\205\205\350\265\240\351\200\201\347\211\251\345\223\201id\022.\n\016m_fristpresent\030"
     "\021 \001(\005B\026\302\377\024\022\351\246\226\345\205\205\350\265\240\351\200\201\346\225\260\351\207\217\022\036\n\006m_icon\030"
     "\022 \001(\tB\016\302\377\024\006\345\233\276\346\240\207\220\301\024@\022J\n\tm_channel\030\023 \003(\013"
@@ -646,7 +646,7 @@ bool E_RechargeRechargeItemDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_num = 1;
+      // optional int32 m_Num = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -657,15 +657,15 @@ bool E_RechargeRechargeItemDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_Id;
         break;
       }
 
-      // optional int64 m_id = 2;
+      // optional int64 m_Id = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_Id:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_id_)));
@@ -695,12 +695,12 @@ bool E_RechargeRechargeItemDesc::MergePartialFromCodedStream(
 
 void E_RechargeRechargeItemDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_num = 1;
+  // optional int32 m_Num = 1;
   if (has_m_num()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_num(), output);
   }
 
-  // optional int64 m_id = 2;
+  // optional int64 m_Id = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_id(), output);
   }
@@ -713,12 +713,12 @@ void E_RechargeRechargeItemDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_RechargeRechargeItemDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_num = 1;
+  // optional int32 m_Num = 1;
   if (has_m_num()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_num(), target);
   }
 
-  // optional int64 m_id = 2;
+  // optional int64 m_Id = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_id(), target);
   }
@@ -734,14 +734,14 @@ int E_RechargeRechargeItemDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_num = 1;
+    // optional int32 m_Num = 1;
     if (has_m_num()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_num());
     }
 
-    // optional int64 m_id = 2;
+    // optional int64 m_Id = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -826,20 +826,20 @@ void E_RechargeRechargeItemDesc::Swap(E_RechargeRechargeItemDesc* other) {
 #ifndef _MSC_VER
 const int E_RechargeRecharge::kMIdFieldNumber;
 const int E_RechargeRecharge::kMNameFieldNumber;
-const int E_RechargeRecharge::kMDefaultpointFieldNumber;
+const int E_RechargeRecharge::kMDefaultPointFieldNumber;
 const int E_RechargeRecharge::kMTypeFieldNumber;
 const int E_RechargeRecharge::kMUnitFieldNumber;
 const int E_RechargeRecharge::kMBeizhuFieldNumber;
 const int E_RechargeRecharge::kMQuantityFieldNumber;
-const int E_RechargeRecharge::kMItemnumFieldNumber;
-const int E_RechargeRecharge::kMMultipletimesFieldNumber;
-const int E_RechargeRecharge::kMMultiplerewardFieldNumber;
+const int E_RechargeRecharge::kMItemNumFieldNumber;
+const int E_RechargeRecharge::kMMultipleTimesFieldNumber;
+const int E_RechargeRecharge::kMMultipleRewardFieldNumber;
 const int E_RechargeRecharge::kMZuanshitypeFieldNumber;
-const int E_RechargeRecharge::kMVipexpFieldNumber;
-const int E_RechargeRecharge::kMVipexplimitFieldNumber;
-const int E_RechargeRecharge::kMActivitycountFieldNumber;
+const int E_RechargeRecharge::kMVipExpFieldNumber;
+const int E_RechargeRecharge::kMVipExpLimitFieldNumber;
+const int E_RechargeRecharge::kMActivityCountFieldNumber;
 const int E_RechargeRecharge::kMPriceFieldNumber;
-const int E_RechargeRecharge::kMPresentidFieldNumber;
+const int E_RechargeRecharge::kMPresentIDFieldNumber;
 const int E_RechargeRecharge::kMFristpresentFieldNumber;
 const int E_RechargeRecharge::kMIconFieldNumber;
 const int E_RechargeRecharge::kMChannelFieldNumber;
@@ -1013,15 +1013,15 @@ bool E_RechargeRecharge::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_m_defaultpoint;
+        if (input->ExpectTag(26)) goto parse_m_defaultPoint;
         break;
       }
 
-      // optional string m_defaultpoint = 3;
+      // optional string m_defaultPoint = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_defaultpoint:
+         parse_m_defaultPoint:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_defaultpoint()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1096,15 +1096,15 @@ bool E_RechargeRecharge::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_itemnum;
+        if (input->ExpectTag(64)) goto parse_m_itemNum;
         break;
       }
 
-      // optional int32 m_itemnum = 8;
+      // optional int32 m_itemNum = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemnum:
+         parse_m_itemNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itemnum_)));
@@ -1112,15 +1112,15 @@ bool E_RechargeRecharge::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_multipletimes;
+        if (input->ExpectTag(72)) goto parse_m_multipleTimes;
         break;
       }
 
-      // optional int64 m_multipletimes = 9;
+      // optional int64 m_multipleTimes = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_multipletimes:
+         parse_m_multipleTimes:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_multipletimes_)));
@@ -1128,15 +1128,15 @@ bool E_RechargeRecharge::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_multiplereward;
+        if (input->ExpectTag(80)) goto parse_m_multipleReward;
         break;
       }
 
-      // optional int64 m_multiplereward = 10;
+      // optional int64 m_multipleReward = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_multiplereward:
+         parse_m_multipleReward:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_multiplereward_)));
@@ -1160,15 +1160,15 @@ bool E_RechargeRecharge::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_vipexp;
+        if (input->ExpectTag(96)) goto parse_m_vipExp;
         break;
       }
 
-      // optional int32 m_vipexp = 12;
+      // optional int32 m_vipExp = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_vipexp:
+         parse_m_vipExp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_vipexp_)));
@@ -1176,15 +1176,15 @@ bool E_RechargeRecharge::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_m_vipexplimit;
+        if (input->ExpectTag(104)) goto parse_m_vipExpLimit;
         break;
       }
 
-      // optional int32 m_vipexplimit = 13;
+      // optional int32 m_vipExpLimit = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_vipexplimit:
+         parse_m_vipExpLimit:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_vipexplimit_)));
@@ -1192,15 +1192,15 @@ bool E_RechargeRecharge::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(112)) goto parse_m_activitycount;
+        if (input->ExpectTag(112)) goto parse_m_activityCount;
         break;
       }
 
-      // optional int32 m_activitycount = 14;
+      // optional int32 m_activityCount = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_activitycount:
+         parse_m_activityCount:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_activitycount_)));
@@ -1224,15 +1224,15 @@ bool E_RechargeRecharge::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(128)) goto parse_m_presentid;
+        if (input->ExpectTag(128)) goto parse_m_presentID;
         break;
       }
 
-      // optional int32 m_presentid = 16;
+      // optional int32 m_presentID = 16;
       case 16: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_presentid:
+         parse_m_presentID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_presentid_)));
@@ -1339,7 +1339,7 @@ void E_RechargeRecharge::SerializeWithCachedSizes(
       2, this->m_name(), output);
   }
 
-  // optional string m_defaultpoint = 3;
+  // optional string m_defaultPoint = 3;
   if (has_m_defaultpoint()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_defaultpoint().data(), this->m_defaultpoint().length(),
@@ -1376,17 +1376,17 @@ void E_RechargeRecharge::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(7, this->m_quantity(), output);
   }
 
-  // optional int32 m_itemnum = 8;
+  // optional int32 m_itemNum = 8;
   if (has_m_itemnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_itemnum(), output);
   }
 
-  // optional int64 m_multipletimes = 9;
+  // optional int64 m_multipleTimes = 9;
   if (has_m_multipletimes()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(9, this->m_multipletimes(), output);
   }
 
-  // optional int64 m_multiplereward = 10;
+  // optional int64 m_multipleReward = 10;
   if (has_m_multiplereward()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(10, this->m_multiplereward(), output);
   }
@@ -1396,17 +1396,17 @@ void E_RechargeRecharge::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_zuanshitype(), output);
   }
 
-  // optional int32 m_vipexp = 12;
+  // optional int32 m_vipExp = 12;
   if (has_m_vipexp()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_vipexp(), output);
   }
 
-  // optional int32 m_vipexplimit = 13;
+  // optional int32 m_vipExpLimit = 13;
   if (has_m_vipexplimit()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_vipexplimit(), output);
   }
 
-  // optional int32 m_activitycount = 14;
+  // optional int32 m_activityCount = 14;
   if (has_m_activitycount()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_activitycount(), output);
   }
@@ -1416,7 +1416,7 @@ void E_RechargeRecharge::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_price(), output);
   }
 
-  // optional int32 m_presentid = 16;
+  // optional int32 m_presentID = 16;
   if (has_m_presentid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->m_presentid(), output);
   }
@@ -1470,7 +1470,7 @@ void E_RechargeRecharge::SerializeWithCachedSizes(
         2, this->m_name(), target);
   }
 
-  // optional string m_defaultpoint = 3;
+  // optional string m_defaultPoint = 3;
   if (has_m_defaultpoint()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_defaultpoint().data(), this->m_defaultpoint().length(),
@@ -1510,17 +1510,17 @@ void E_RechargeRecharge::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(7, this->m_quantity(), target);
   }
 
-  // optional int32 m_itemnum = 8;
+  // optional int32 m_itemNum = 8;
   if (has_m_itemnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_itemnum(), target);
   }
 
-  // optional int64 m_multipletimes = 9;
+  // optional int64 m_multipleTimes = 9;
   if (has_m_multipletimes()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(9, this->m_multipletimes(), target);
   }
 
-  // optional int64 m_multiplereward = 10;
+  // optional int64 m_multipleReward = 10;
   if (has_m_multiplereward()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(10, this->m_multiplereward(), target);
   }
@@ -1530,17 +1530,17 @@ void E_RechargeRecharge::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_zuanshitype(), target);
   }
 
-  // optional int32 m_vipexp = 12;
+  // optional int32 m_vipExp = 12;
   if (has_m_vipexp()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_vipexp(), target);
   }
 
-  // optional int32 m_vipexplimit = 13;
+  // optional int32 m_vipExpLimit = 13;
   if (has_m_vipexplimit()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_vipexplimit(), target);
   }
 
-  // optional int32 m_activitycount = 14;
+  // optional int32 m_activityCount = 14;
   if (has_m_activitycount()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_activitycount(), target);
   }
@@ -1550,7 +1550,7 @@ void E_RechargeRecharge::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_price(), target);
   }
 
-  // optional int32 m_presentid = 16;
+  // optional int32 m_presentID = 16;
   if (has_m_presentid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->m_presentid(), target);
   }
@@ -1609,7 +1609,7 @@ int E_RechargeRecharge::ByteSize() const {
           this->m_name());
     }
 
-    // optional string m_defaultpoint = 3;
+    // optional string m_defaultPoint = 3;
     if (has_m_defaultpoint()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -1644,7 +1644,7 @@ int E_RechargeRecharge::ByteSize() const {
           this->m_quantity());
     }
 
-    // optional int32 m_itemnum = 8;
+    // optional int32 m_itemNum = 8;
     if (has_m_itemnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1653,14 +1653,14 @@ int E_RechargeRecharge::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int64 m_multipletimes = 9;
+    // optional int64 m_multipleTimes = 9;
     if (has_m_multipletimes()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_multipletimes());
     }
 
-    // optional int64 m_multiplereward = 10;
+    // optional int64 m_multipleReward = 10;
     if (has_m_multiplereward()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -1674,21 +1674,21 @@ int E_RechargeRecharge::ByteSize() const {
           this->m_zuanshitype());
     }
 
-    // optional int32 m_vipexp = 12;
+    // optional int32 m_vipExp = 12;
     if (has_m_vipexp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_vipexp());
     }
 
-    // optional int32 m_vipexplimit = 13;
+    // optional int32 m_vipExpLimit = 13;
     if (has_m_vipexplimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_vipexplimit());
     }
 
-    // optional int32 m_activitycount = 14;
+    // optional int32 m_activityCount = 14;
     if (has_m_activitycount()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1702,7 +1702,7 @@ int E_RechargeRecharge::ByteSize() const {
           this->m_price());
     }
 
-    // optional int32 m_presentid = 16;
+    // optional int32 m_presentID = 16;
     if (has_m_presentid()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

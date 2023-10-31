@@ -103,10 +103,10 @@ class E_OfflineOffline : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int64 m_offlineexp = 2;
+  // optional int64 m_offlineExp = 2;
   inline bool has_m_offlineexp() const;
   inline void clear_m_offlineexp();
-  static const int kMOfflineexpFieldNumber = 2;
+  static const int kMOfflineExpFieldNumber = 2;
   inline ::google::protobuf::int64 m_offlineexp() const;
   inline void set_m_offlineexp(::google::protobuf::int64 value);
 
@@ -273,24 +273,24 @@ class E_OfflineItemlistItemDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_vle = 1;
+  // optional int32 m_Vle = 1;
   inline bool has_m_vle() const;
   inline void clear_m_vle();
   static const int kMVleFieldNumber = 1;
   inline ::google::protobuf::int32 m_vle() const;
   inline void set_m_vle(::google::protobuf::int32 value);
 
-  // optional int32 m_num = 2;
+  // optional int32 m_Num = 2;
   inline bool has_m_num() const;
   inline void clear_m_num();
   static const int kMNumFieldNumber = 2;
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int64 m_id = 3;
+  // optional int64 m_ID = 3;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 3;
+  static const int kMIDFieldNumber = 3;
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
@@ -382,14 +382,14 @@ class E_OfflineItemlist : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_lvdown = 2;
+  // optional int32 m_Lvdown = 2;
   inline bool has_m_lvdown() const;
   inline void clear_m_lvdown();
   static const int kMLvdownFieldNumber = 2;
   inline ::google::protobuf::int32 m_lvdown() const;
   inline void set_m_lvdown(::google::protobuf::int32 value);
 
-  // optional int32 m_lvup = 3;
+  // optional int32 m_Lvup = 3;
   inline bool has_m_lvup() const;
   inline void clear_m_lvup();
   static const int kMLvupFieldNumber = 3;
@@ -558,7 +558,7 @@ inline void E_OfflineOffline::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional int64 m_offlineexp = 2;
+// optional int64 m_offlineExp = 2;
 inline bool E_OfflineOffline::has_m_offlineexp() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -613,7 +613,7 @@ Sheet_OfflineOffline::mutable_e_offlineoffline_list() {
 
 // E_OfflineItemlistItemDesc
 
-// optional int32 m_vle = 1;
+// optional int32 m_Vle = 1;
 inline bool E_OfflineItemlistItemDesc::has_m_vle() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -635,7 +635,7 @@ inline void E_OfflineItemlistItemDesc::set_m_vle(::google::protobuf::int32 value
   m_vle_ = value;
 }
 
-// optional int32 m_num = 2;
+// optional int32 m_Num = 2;
 inline bool E_OfflineItemlistItemDesc::has_m_num() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -657,7 +657,7 @@ inline void E_OfflineItemlistItemDesc::set_m_num(::google::protobuf::int32 value
   m_num_ = value;
 }
 
-// optional int64 m_id = 3;
+// optional int64 m_ID = 3;
 inline bool E_OfflineItemlistItemDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -705,7 +705,7 @@ inline void E_OfflineItemlist::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_lvdown = 2;
+// optional int32 m_Lvdown = 2;
 inline bool E_OfflineItemlist::has_m_lvdown() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -727,7 +727,7 @@ inline void E_OfflineItemlist::set_m_lvdown(::google::protobuf::int32 value) {
   m_lvdown_ = value;
 }
 
-// optional int32 m_lvup = 3;
+// optional int32 m_Lvup = 3;
 inline bool E_OfflineItemlist::has_m_lvup() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }

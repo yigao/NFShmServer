@@ -208,10 +208,10 @@ class E_AvatarFragment : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_fragmentid = 1;
+  // optional int64 m_fragmentID = 1;
   inline bool has_m_fragmentid() const;
   inline void clear_m_fragmentid();
-  static const int kMFragmentidFieldNumber = 1;
+  static const int kMFragmentIDFieldNumber = 1;
   inline ::google::protobuf::int64 m_fragmentid() const;
   inline void set_m_fragmentid(::google::protobuf::int64 value);
 
@@ -222,10 +222,10 @@ class E_AvatarFragment : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_item() const;
   inline void set_m_item(::google::protobuf::int64 value);
 
-  // optional int32 m_itemnum = 3;
+  // optional int32 m_itemNum = 3;
   inline bool has_m_itemnum() const;
   inline void clear_m_itemnum();
-  static const int kMItemnumFieldNumber = 3;
+  static const int kMItemNumFieldNumber = 3;
   inline ::google::protobuf::int32 m_itemnum() const;
   inline void set_m_itemnum(::google::protobuf::int32 value);
 
@@ -528,14 +528,14 @@ class E_AvatarValue : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_cost() const;
   inline void set_m_cost(::google::protobuf::int32 value);
 
-  // optional int32 m_exp = 5;
+  // optional int32 m_Exp = 5;
   inline bool has_m_exp() const;
   inline void clear_m_exp();
   static const int kMExpFieldNumber = 5;
   inline ::google::protobuf::int32 m_exp() const;
   inline void set_m_exp(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_AvatarValueAttributeDesc m_attribute = 6;
+  // repeated .proto_ff.E_AvatarValueAttributeDesc m_Attribute = 6;
   inline int m_attribute_size() const;
   inline void clear_m_attribute();
   static const int kMAttributeFieldNumber = 6;
@@ -819,17 +819,17 @@ class E_AvatarDisplay : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_uplvtype = 2;
+  // optional int32 m_UpLvType = 2;
   inline bool has_m_uplvtype() const;
   inline void clear_m_uplvtype();
-  static const int kMUplvtypeFieldNumber = 2;
+  static const int kMUpLvTypeFieldNumber = 2;
   inline ::google::protobuf::int32 m_uplvtype() const;
   inline void set_m_uplvtype(::google::protobuf::int32 value);
 
-  // optional string m_skillid = 3;
+  // optional string m_skillID = 3;
   inline bool has_m_skillid() const;
   inline void clear_m_skillid();
-  static const int kMSkillidFieldNumber = 3;
+  static const int kMSkillIDFieldNumber = 3;
   inline const ::std::string& m_skillid() const;
   inline void set_m_skillid(const ::std::string& value);
   inline void set_m_skillid(const char* value);
@@ -850,10 +850,10 @@ class E_AvatarDisplay : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarDisplayMaterialDesc >*
       mutable_m_material();
 
-  // repeated int64 m_fragmentid = 5;
+  // repeated int64 m_fragmentID = 5;
   inline int m_fragmentid_size() const;
   inline void clear_m_fragmentid();
-  static const int kMFragmentidFieldNumber = 5;
+  static const int kMFragmentIDFieldNumber = 5;
   inline ::google::protobuf::int64 m_fragmentid(int index) const;
   inline void set_m_fragmentid(int index, ::google::protobuf::int64 value);
   inline void add_m_fragmentid(::google::protobuf::int64 value);
@@ -1122,17 +1122,17 @@ class E_AvatarChangeAttributeDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_upvalue = 1;
+  // optional int32 m_UpValue = 1;
   inline bool has_m_upvalue() const;
   inline void clear_m_upvalue();
-  static const int kMUpvalueFieldNumber = 1;
+  static const int kMUpValueFieldNumber = 1;
   inline ::google::protobuf::int32 m_upvalue() const;
   inline void set_m_upvalue(::google::protobuf::int32 value);
 
-  // optional int32 m_upber = 2;
+  // optional int32 m_UpBer = 2;
   inline bool has_m_upber() const;
   inline void clear_m_upber();
-  static const int kMUpberFieldNumber = 2;
+  static const int kMUpBerFieldNumber = 2;
   inline ::google::protobuf::int32 m_upber() const;
   inline void set_m_upber(::google::protobuf::int32 value);
 
@@ -1228,45 +1228,45 @@ class E_AvatarChange : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_quality() const;
   inline void set_m_quality(::google::protobuf::int32 value);
 
-  // optional int32 m_uplvtype = 3;
+  // optional int32 m_UpLvType = 3;
   inline bool has_m_uplvtype() const;
   inline void clear_m_uplvtype();
-  static const int kMUplvtypeFieldNumber = 3;
+  static const int kMUpLvTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_uplvtype() const;
   inline void set_m_uplvtype(::google::protobuf::int32 value);
 
-  // optional int64 m_avatarskill = 4;
+  // optional int64 m_avatarSkill = 4;
   inline bool has_m_avatarskill() const;
   inline void clear_m_avatarskill();
-  static const int kMAvatarskillFieldNumber = 4;
+  static const int kMAvatarSkillFieldNumber = 4;
   inline ::google::protobuf::int64 m_avatarskill() const;
   inline void set_m_avatarskill(::google::protobuf::int64 value);
 
-  // optional int32 m_avatarcd = 5;
+  // optional int32 m_avatarCD = 5;
   inline bool has_m_avatarcd() const;
   inline void clear_m_avatarcd();
-  static const int kMAvatarcdFieldNumber = 5;
+  static const int kMAvatarCDFieldNumber = 5;
   inline ::google::protobuf::int32 m_avatarcd() const;
   inline void set_m_avatarcd(::google::protobuf::int32 value);
 
-  // optional int32 m_avatartime = 6;
+  // optional int32 m_avatarTime = 6;
   inline bool has_m_avatartime() const;
   inline void clear_m_avatartime();
-  static const int kMAvatartimeFieldNumber = 6;
+  static const int kMAvatarTimeFieldNumber = 6;
   inline ::google::protobuf::int32 m_avatartime() const;
   inline void set_m_avatartime(::google::protobuf::int32 value);
 
-  // optional int32 m_avatarshield = 7;
+  // optional int32 m_avatarShield = 7;
   inline bool has_m_avatarshield() const;
   inline void clear_m_avatarshield();
-  static const int kMAvatarshieldFieldNumber = 7;
+  static const int kMAvatarShieldFieldNumber = 7;
   inline ::google::protobuf::int32 m_avatarshield() const;
   inline void set_m_avatarshield(::google::protobuf::int32 value);
 
-  // optional string m_skillid = 8;
+  // optional string m_skillID = 8;
   inline bool has_m_skillid() const;
   inline void clear_m_skillid();
-  static const int kMSkillidFieldNumber = 8;
+  static const int kMSkillIDFieldNumber = 8;
   inline const ::std::string& m_skillid() const;
   inline void set_m_skillid(const ::std::string& value);
   inline void set_m_skillid(const char* value);
@@ -1275,24 +1275,24 @@ class E_AvatarChange : public ::google::protobuf::Message {
   inline ::std::string* release_m_skillid();
   inline void set_allocated_m_skillid(::std::string* m_skillid);
 
-  // optional int32 m_starmax = 9;
+  // optional int32 m_starMax = 9;
   inline bool has_m_starmax() const;
   inline void clear_m_starmax();
-  static const int kMStarmaxFieldNumber = 9;
+  static const int kMStarMaxFieldNumber = 9;
   inline ::google::protobuf::int32 m_starmax() const;
   inline void set_m_starmax(::google::protobuf::int32 value);
 
-  // optional int32 m_lvmax = 10;
+  // optional int32 m_LvMax = 10;
   inline bool has_m_lvmax() const;
   inline void clear_m_lvmax();
-  static const int kMLvmaxFieldNumber = 10;
+  static const int kMLvMaxFieldNumber = 10;
   inline ::google::protobuf::int32 m_lvmax() const;
   inline void set_m_lvmax(::google::protobuf::int32 value);
 
-  // optional int32 m_modelid = 11;
+  // optional int32 m_ModelID = 11;
   inline bool has_m_modelid() const;
   inline void clear_m_modelid();
-  static const int kMModelidFieldNumber = 11;
+  static const int kMModelIDFieldNumber = 11;
   inline ::google::protobuf::int32 m_modelid() const;
   inline void set_m_modelid(::google::protobuf::int32 value);
 
@@ -1303,31 +1303,31 @@ class E_AvatarChange : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_advance() const;
   inline void set_m_advance(::google::protobuf::int32 value);
 
-  // optional int32 m_activationitem = 13;
+  // optional int32 m_activationItem = 13;
   inline bool has_m_activationitem() const;
   inline void clear_m_activationitem();
-  static const int kMActivationitemFieldNumber = 13;
+  static const int kMActivationItemFieldNumber = 13;
   inline ::google::protobuf::int32 m_activationitem() const;
   inline void set_m_activationitem(::google::protobuf::int32 value);
 
-  // optional int32 m_activationnum = 14;
+  // optional int32 m_activationNum = 14;
   inline bool has_m_activationnum() const;
   inline void clear_m_activationnum();
-  static const int kMActivationnumFieldNumber = 14;
+  static const int kMActivationNumFieldNumber = 14;
   inline ::google::protobuf::int32 m_activationnum() const;
   inline void set_m_activationnum(::google::protobuf::int32 value);
 
-  // optional int32 m_starid = 15;
+  // optional int32 m_starId = 15;
   inline bool has_m_starid() const;
   inline void clear_m_starid();
-  static const int kMStaridFieldNumber = 15;
+  static const int kMStarIdFieldNumber = 15;
   inline ::google::protobuf::int32 m_starid() const;
   inline void set_m_starid(::google::protobuf::int32 value);
 
-  // optional string m_starnum = 16;
+  // optional string m_starNum = 16;
   inline bool has_m_starnum() const;
   inline void clear_m_starnum();
-  static const int kMStarnumFieldNumber = 16;
+  static const int kMStarNumFieldNumber = 16;
   inline const ::std::string& m_starnum() const;
   inline void set_m_starnum(const ::std::string& value);
   inline void set_m_starnum(const char* value);
@@ -1336,38 +1336,38 @@ class E_AvatarChange : public ::google::protobuf::Message {
   inline ::std::string* release_m_starnum();
   inline void set_allocated_m_starnum(::std::string* m_starnum);
 
-  // optional int32 m_starupattributeid = 17;
+  // optional int32 m_starUpAttributeId = 17;
   inline bool has_m_starupattributeid() const;
   inline void clear_m_starupattributeid();
-  static const int kMStarupattributeidFieldNumber = 17;
+  static const int kMStarUpAttributeIdFieldNumber = 17;
   inline ::google::protobuf::int32 m_starupattributeid() const;
   inline void set_m_starupattributeid(::google::protobuf::int32 value);
 
-  // optional int32 m_fununlock = 18;
+  // optional int32 m_funUnlock = 18;
   inline bool has_m_fununlock() const;
   inline void clear_m_fununlock();
-  static const int kMFununlockFieldNumber = 18;
+  static const int kMFunUnlockFieldNumber = 18;
   inline ::google::protobuf::int32 m_fununlock() const;
   inline void set_m_fununlock(::google::protobuf::int32 value);
 
-  // optional int32 m_maxequip = 19;
+  // optional int32 m_maxEquip = 19;
   inline bool has_m_maxequip() const;
   inline void clear_m_maxequip();
-  static const int kMMaxequipFieldNumber = 19;
+  static const int kMMaxEquipFieldNumber = 19;
   inline ::google::protobuf::int32 m_maxequip() const;
   inline void set_m_maxequip(::google::protobuf::int32 value);
 
-  // optional int32 m_equipsuit = 20;
+  // optional int32 m_equipSuit = 20;
   inline bool has_m_equipsuit() const;
   inline void clear_m_equipsuit();
-  static const int kMEquipsuitFieldNumber = 20;
+  static const int kMEquipSuitFieldNumber = 20;
   inline ::google::protobuf::int32 m_equipsuit() const;
   inline void set_m_equipsuit(::google::protobuf::int32 value);
 
-  // optional int32 m_starber = 21;
+  // optional int32 m_starBer = 21;
   inline bool has_m_starber() const;
   inline void clear_m_starber();
-  static const int kMStarberFieldNumber = 21;
+  static const int kMStarBerFieldNumber = 21;
   inline ::google::protobuf::int32 m_starber() const;
   inline void set_m_starber(::google::protobuf::int32 value);
 
@@ -1383,10 +1383,10 @@ class E_AvatarChange : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarChangeMaterialDesc >*
       mutable_m_material();
 
-  // repeated int64 m_initiativeskill = 23;
+  // repeated int64 m_InitiativeSkill = 23;
   inline int m_initiativeskill_size() const;
   inline void clear_m_initiativeskill();
-  static const int kMInitiativeskillFieldNumber = 23;
+  static const int kMInitiativeSkillFieldNumber = 23;
   inline ::google::protobuf::int64 m_initiativeskill(int index) const;
   inline void set_m_initiativeskill(int index, ::google::protobuf::int64 value);
   inline void add_m_initiativeskill(::google::protobuf::int64 value);
@@ -1395,7 +1395,7 @@ class E_AvatarChange : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
       mutable_m_initiativeskill();
 
-  // repeated .proto_ff.E_AvatarChangeAttributeDesc m_attribute = 24;
+  // repeated .proto_ff.E_AvatarChangeAttributeDesc m_Attribute = 24;
   inline int m_attribute_size() const;
   inline void clear_m_attribute();
   static const int kMAttributeFieldNumber = 24;
@@ -1630,10 +1630,10 @@ class E_AvatarChangetab : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_tabid = 1;
+  // optional int32 m_tabID = 1;
   inline bool has_m_tabid() const;
   inline void clear_m_tabid();
-  static const int kMTabidFieldNumber = 1;
+  static const int kMTabIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_tabid() const;
   inline void set_m_tabid(::google::protobuf::int32 value);
 
@@ -2088,31 +2088,31 @@ class E_AvatarAdvance : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_upattributeid = 2;
+  // optional int32 m_upAttributeId = 2;
   inline bool has_m_upattributeid() const;
   inline void clear_m_upattributeid();
-  static const int kMUpattributeidFieldNumber = 2;
+  static const int kMUpAttributeIdFieldNumber = 2;
   inline ::google::protobuf::int32 m_upattributeid() const;
   inline void set_m_upattributeid(::google::protobuf::int32 value);
 
-  // optional int32 m_starid = 3;
+  // optional int32 m_starID = 3;
   inline bool has_m_starid() const;
   inline void clear_m_starid();
-  static const int kMStaridFieldNumber = 3;
+  static const int kMStarIDFieldNumber = 3;
   inline ::google::protobuf::int32 m_starid() const;
   inline void set_m_starid(::google::protobuf::int32 value);
 
-  // optional int32 m_skillid = 4;
+  // optional int32 m_skillID = 4;
   inline bool has_m_skillid() const;
   inline void clear_m_skillid();
-  static const int kMSkillidFieldNumber = 4;
+  static const int kMSkillIDFieldNumber = 4;
   inline ::google::protobuf::int32 m_skillid() const;
   inline void set_m_skillid(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_AvatarAdvanceUpattributeDesc m_upattribute = 5;
+  // repeated .proto_ff.E_AvatarAdvanceUpattributeDesc m_upAttribute = 5;
   inline int m_upattribute_size() const;
   inline void clear_m_upattribute();
-  static const int kMUpattributeFieldNumber = 5;
+  static const int kMUpAttributeFieldNumber = 5;
   inline const ::proto_ff::E_AvatarAdvanceUpattributeDesc& m_upattribute(int index) const;
   inline ::proto_ff::E_AvatarAdvanceUpattributeDesc* mutable_m_upattribute(int index);
   inline ::proto_ff::E_AvatarAdvanceUpattributeDesc* add_m_upattribute();
@@ -2587,10 +2587,10 @@ class E_AvatarEquipsuit : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 2;
+  static const int kMGroupIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
@@ -2608,7 +2608,7 @@ class E_AvatarEquipsuit : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_star() const;
   inline void set_m_star(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_AvatarEquipsuitAttributeDesc m_attribute = 5;
+  // repeated .proto_ff.E_AvatarEquipsuitAttributeDesc m_Attribute = 5;
   inline int m_attribute_size() const;
   inline void clear_m_attribute();
   static const int kMAttributeFieldNumber = 5;
@@ -2789,7 +2789,7 @@ inline void E_AvatarFragmentAttributeDesc::set_m_type(::google::protobuf::int32 
 
 // E_AvatarFragment
 
-// optional int64 m_fragmentid = 1;
+// optional int64 m_fragmentID = 1;
 inline bool E_AvatarFragment::has_m_fragmentid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -2833,7 +2833,7 @@ inline void E_AvatarFragment::set_m_item(::google::protobuf::int64 value) {
   m_item_ = value;
 }
 
-// optional int32 m_itemnum = 3;
+// optional int32 m_itemNum = 3;
 inline bool E_AvatarFragment::has_m_itemnum() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -3049,7 +3049,7 @@ inline void E_AvatarValue::set_m_cost(::google::protobuf::int32 value) {
   m_cost_ = value;
 }
 
-// optional int32 m_exp = 5;
+// optional int32 m_Exp = 5;
 inline bool E_AvatarValue::has_m_exp() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -3071,7 +3071,7 @@ inline void E_AvatarValue::set_m_exp(::google::protobuf::int32 value) {
   m_exp_ = value;
 }
 
-// repeated .proto_ff.E_AvatarValueAttributeDesc m_attribute = 6;
+// repeated .proto_ff.E_AvatarValueAttributeDesc m_Attribute = 6;
 inline int E_AvatarValue::m_attribute_size() const {
   return m_attribute_.size();
 }
@@ -3199,7 +3199,7 @@ inline void E_AvatarDisplay::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_uplvtype = 2;
+// optional int32 m_UpLvType = 2;
 inline bool E_AvatarDisplay::has_m_uplvtype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -3221,7 +3221,7 @@ inline void E_AvatarDisplay::set_m_uplvtype(::google::protobuf::int32 value) {
   m_uplvtype_ = value;
 }
 
-// optional string m_skillid = 3;
+// optional string m_skillID = 3;
 inline bool E_AvatarDisplay::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -3316,7 +3316,7 @@ E_AvatarDisplay::mutable_m_material() {
   return &m_material_;
 }
 
-// repeated int64 m_fragmentid = 5;
+// repeated int64 m_fragmentID = 5;
 inline int E_AvatarDisplay::m_fragmentid_size() const {
   return m_fragmentid_.size();
 }
@@ -3422,7 +3422,7 @@ inline void E_AvatarChangeMaterialDesc::set_m_id(::google::protobuf::int32 value
 
 // E_AvatarChangeAttributeDesc
 
-// optional int32 m_upvalue = 1;
+// optional int32 m_UpValue = 1;
 inline bool E_AvatarChangeAttributeDesc::has_m_upvalue() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -3444,7 +3444,7 @@ inline void E_AvatarChangeAttributeDesc::set_m_upvalue(::google::protobuf::int32
   m_upvalue_ = value;
 }
 
-// optional int32 m_upber = 2;
+// optional int32 m_UpBer = 2;
 inline bool E_AvatarChangeAttributeDesc::has_m_upber() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -3514,7 +3514,7 @@ inline void E_AvatarChange::set_m_quality(::google::protobuf::int32 value) {
   m_quality_ = value;
 }
 
-// optional int32 m_uplvtype = 3;
+// optional int32 m_UpLvType = 3;
 inline bool E_AvatarChange::has_m_uplvtype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -3536,7 +3536,7 @@ inline void E_AvatarChange::set_m_uplvtype(::google::protobuf::int32 value) {
   m_uplvtype_ = value;
 }
 
-// optional int64 m_avatarskill = 4;
+// optional int64 m_avatarSkill = 4;
 inline bool E_AvatarChange::has_m_avatarskill() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -3558,7 +3558,7 @@ inline void E_AvatarChange::set_m_avatarskill(::google::protobuf::int64 value) {
   m_avatarskill_ = value;
 }
 
-// optional int32 m_avatarcd = 5;
+// optional int32 m_avatarCD = 5;
 inline bool E_AvatarChange::has_m_avatarcd() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -3580,7 +3580,7 @@ inline void E_AvatarChange::set_m_avatarcd(::google::protobuf::int32 value) {
   m_avatarcd_ = value;
 }
 
-// optional int32 m_avatartime = 6;
+// optional int32 m_avatarTime = 6;
 inline bool E_AvatarChange::has_m_avatartime() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -3602,7 +3602,7 @@ inline void E_AvatarChange::set_m_avatartime(::google::protobuf::int32 value) {
   m_avatartime_ = value;
 }
 
-// optional int32 m_avatarshield = 7;
+// optional int32 m_avatarShield = 7;
 inline bool E_AvatarChange::has_m_avatarshield() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -3624,7 +3624,7 @@ inline void E_AvatarChange::set_m_avatarshield(::google::protobuf::int32 value) 
   m_avatarshield_ = value;
 }
 
-// optional string m_skillid = 8;
+// optional string m_skillID = 8;
 inline bool E_AvatarChange::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -3694,7 +3694,7 @@ inline void E_AvatarChange::set_allocated_m_skillid(::std::string* m_skillid) {
   }
 }
 
-// optional int32 m_starmax = 9;
+// optional int32 m_starMax = 9;
 inline bool E_AvatarChange::has_m_starmax() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -3716,7 +3716,7 @@ inline void E_AvatarChange::set_m_starmax(::google::protobuf::int32 value) {
   m_starmax_ = value;
 }
 
-// optional int32 m_lvmax = 10;
+// optional int32 m_LvMax = 10;
 inline bool E_AvatarChange::has_m_lvmax() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -3738,7 +3738,7 @@ inline void E_AvatarChange::set_m_lvmax(::google::protobuf::int32 value) {
   m_lvmax_ = value;
 }
 
-// optional int32 m_modelid = 11;
+// optional int32 m_ModelID = 11;
 inline bool E_AvatarChange::has_m_modelid() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -3782,7 +3782,7 @@ inline void E_AvatarChange::set_m_advance(::google::protobuf::int32 value) {
   m_advance_ = value;
 }
 
-// optional int32 m_activationitem = 13;
+// optional int32 m_activationItem = 13;
 inline bool E_AvatarChange::has_m_activationitem() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -3804,7 +3804,7 @@ inline void E_AvatarChange::set_m_activationitem(::google::protobuf::int32 value
   m_activationitem_ = value;
 }
 
-// optional int32 m_activationnum = 14;
+// optional int32 m_activationNum = 14;
 inline bool E_AvatarChange::has_m_activationnum() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -3826,7 +3826,7 @@ inline void E_AvatarChange::set_m_activationnum(::google::protobuf::int32 value)
   m_activationnum_ = value;
 }
 
-// optional int32 m_starid = 15;
+// optional int32 m_starId = 15;
 inline bool E_AvatarChange::has_m_starid() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
@@ -3848,7 +3848,7 @@ inline void E_AvatarChange::set_m_starid(::google::protobuf::int32 value) {
   m_starid_ = value;
 }
 
-// optional string m_starnum = 16;
+// optional string m_starNum = 16;
 inline bool E_AvatarChange::has_m_starnum() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
@@ -3918,7 +3918,7 @@ inline void E_AvatarChange::set_allocated_m_starnum(::std::string* m_starnum) {
   }
 }
 
-// optional int32 m_starupattributeid = 17;
+// optional int32 m_starUpAttributeId = 17;
 inline bool E_AvatarChange::has_m_starupattributeid() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
@@ -3940,7 +3940,7 @@ inline void E_AvatarChange::set_m_starupattributeid(::google::protobuf::int32 va
   m_starupattributeid_ = value;
 }
 
-// optional int32 m_fununlock = 18;
+// optional int32 m_funUnlock = 18;
 inline bool E_AvatarChange::has_m_fununlock() const {
   return (_has_bits_[0] & 0x00020000u) != 0;
 }
@@ -3962,7 +3962,7 @@ inline void E_AvatarChange::set_m_fununlock(::google::protobuf::int32 value) {
   m_fununlock_ = value;
 }
 
-// optional int32 m_maxequip = 19;
+// optional int32 m_maxEquip = 19;
 inline bool E_AvatarChange::has_m_maxequip() const {
   return (_has_bits_[0] & 0x00040000u) != 0;
 }
@@ -3984,7 +3984,7 @@ inline void E_AvatarChange::set_m_maxequip(::google::protobuf::int32 value) {
   m_maxequip_ = value;
 }
 
-// optional int32 m_equipsuit = 20;
+// optional int32 m_equipSuit = 20;
 inline bool E_AvatarChange::has_m_equipsuit() const {
   return (_has_bits_[0] & 0x00080000u) != 0;
 }
@@ -4006,7 +4006,7 @@ inline void E_AvatarChange::set_m_equipsuit(::google::protobuf::int32 value) {
   m_equipsuit_ = value;
 }
 
-// optional int32 m_starber = 21;
+// optional int32 m_starBer = 21;
 inline bool E_AvatarChange::has_m_starber() const {
   return (_has_bits_[0] & 0x00100000u) != 0;
 }
@@ -4053,7 +4053,7 @@ E_AvatarChange::mutable_m_material() {
   return &m_material_;
 }
 
-// repeated int64 m_initiativeskill = 23;
+// repeated int64 m_InitiativeSkill = 23;
 inline int E_AvatarChange::m_initiativeskill_size() const {
   return m_initiativeskill_.size();
 }
@@ -4078,7 +4078,7 @@ E_AvatarChange::mutable_m_initiativeskill() {
   return &m_initiativeskill_;
 }
 
-// repeated .proto_ff.E_AvatarChangeAttributeDesc m_attribute = 24;
+// repeated .proto_ff.E_AvatarChangeAttributeDesc m_Attribute = 24;
 inline int E_AvatarChange::m_attribute_size() const {
   return m_attribute_.size();
 }
@@ -4136,7 +4136,7 @@ Sheet_AvatarChange::mutable_e_avatarchange_list() {
 
 // E_AvatarChangetab
 
-// optional int32 m_tabid = 1;
+// optional int32 m_tabID = 1;
 inline bool E_AvatarChangetab::has_m_tabid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -4408,7 +4408,7 @@ inline void E_AvatarAdvance::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_upattributeid = 2;
+// optional int32 m_upAttributeId = 2;
 inline bool E_AvatarAdvance::has_m_upattributeid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -4430,7 +4430,7 @@ inline void E_AvatarAdvance::set_m_upattributeid(::google::protobuf::int32 value
   m_upattributeid_ = value;
 }
 
-// optional int32 m_starid = 3;
+// optional int32 m_starID = 3;
 inline bool E_AvatarAdvance::has_m_starid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -4452,7 +4452,7 @@ inline void E_AvatarAdvance::set_m_starid(::google::protobuf::int32 value) {
   m_starid_ = value;
 }
 
-// optional int32 m_skillid = 4;
+// optional int32 m_skillID = 4;
 inline bool E_AvatarAdvance::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -4474,7 +4474,7 @@ inline void E_AvatarAdvance::set_m_skillid(::google::protobuf::int32 value) {
   m_skillid_ = value;
 }
 
-// repeated .proto_ff.E_AvatarAdvanceUpattributeDesc m_upattribute = 5;
+// repeated .proto_ff.E_AvatarAdvanceUpattributeDesc m_upAttribute = 5;
 inline int E_AvatarAdvance::m_upattribute_size() const {
   return m_upattribute_.size();
 }
@@ -4723,7 +4723,7 @@ inline void E_AvatarEquipsuit::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_groupid = 2;
+// optional int32 m_groupID = 2;
 inline bool E_AvatarEquipsuit::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -4789,7 +4789,7 @@ inline void E_AvatarEquipsuit::set_m_star(::google::protobuf::int32 value) {
   m_star_ = value;
 }
 
-// repeated .proto_ff.E_AvatarEquipsuitAttributeDesc m_attribute = 5;
+// repeated .proto_ff.E_AvatarEquipsuitAttributeDesc m_Attribute = 5;
 inline int E_AvatarEquipsuit::m_attribute_size() const {
   return m_attribute_.size();
 }

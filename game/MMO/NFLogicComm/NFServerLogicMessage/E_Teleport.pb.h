@@ -93,17 +93,17 @@ class E_TeleportTeleport : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_teleportid = 1;
+  // optional int64 m_teleportID = 1;
   inline bool has_m_teleportid() const;
   inline void clear_m_teleportid();
-  static const int kMTeleportidFieldNumber = 1;
+  static const int kMTeleportIDFieldNumber = 1;
   inline ::google::protobuf::int64 m_teleportid() const;
   inline void set_m_teleportid(::google::protobuf::int64 value);
 
-  // optional int32 m_teleporttype = 2;
+  // optional int32 m_teleportType = 2;
   inline bool has_m_teleporttype() const;
   inline void clear_m_teleporttype();
-  static const int kMTeleporttypeFieldNumber = 2;
+  static const int kMTeleportTypeFieldNumber = 2;
   inline ::google::protobuf::int32 m_teleporttype() const;
   inline void set_m_teleporttype(::google::protobuf::int32 value);
 
@@ -119,24 +119,24 @@ class E_TeleportTeleport : public ::google::protobuf::Message {
   inline ::std::string* release_m_name();
   inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional int64 m_monsterid = 4;
+  // optional int64 m_monsterId = 4;
   inline bool has_m_monsterid() const;
   inline void clear_m_monsterid();
-  static const int kMMonsteridFieldNumber = 4;
+  static const int kMMonsterIdFieldNumber = 4;
   inline ::google::protobuf::int64 m_monsterid() const;
   inline void set_m_monsterid(::google::protobuf::int64 value);
 
-  // optional int32 m_showcondition = 5;
+  // optional int32 m_showCondition = 5;
   inline bool has_m_showcondition() const;
   inline void clear_m_showcondition();
-  static const int kMShowconditionFieldNumber = 5;
+  static const int kMShowConditionFieldNumber = 5;
   inline ::google::protobuf::int32 m_showcondition() const;
   inline void set_m_showcondition(::google::protobuf::int32 value);
 
-  // optional string m_conditionvalue = 6;
+  // optional string m_conditionValue = 6;
   inline bool has_m_conditionvalue() const;
   inline void clear_m_conditionvalue();
-  static const int kMConditionvalueFieldNumber = 6;
+  static const int kMConditionValueFieldNumber = 6;
   inline const ::std::string& m_conditionvalue() const;
   inline void set_m_conditionvalue(const ::std::string& value);
   inline void set_m_conditionvalue(const char* value);
@@ -145,38 +145,38 @@ class E_TeleportTeleport : public ::google::protobuf::Message {
   inline ::std::string* release_m_conditionvalue();
   inline void set_allocated_m_conditionvalue(::std::string* m_conditionvalue);
 
-  // optional int32 m_canenter = 7;
+  // optional int32 m_canEnter = 7;
   inline bool has_m_canenter() const;
   inline void clear_m_canenter();
-  static const int kMCanenterFieldNumber = 7;
+  static const int kMCanEnterFieldNumber = 7;
   inline ::google::protobuf::int32 m_canenter() const;
   inline void set_m_canenter(::google::protobuf::int32 value);
 
-  // optional int64 m_showpathid = 8;
+  // optional int64 m_showPathID = 8;
   inline bool has_m_showpathid() const;
   inline void clear_m_showpathid();
-  static const int kMShowpathidFieldNumber = 8;
+  static const int kMShowPathIDFieldNumber = 8;
   inline ::google::protobuf::int64 m_showpathid() const;
   inline void set_m_showpathid(::google::protobuf::int64 value);
 
-  // optional int64 m_topathid = 9;
+  // optional int64 m_toPathID = 9;
   inline bool has_m_topathid() const;
   inline void clear_m_topathid();
-  static const int kMTopathidFieldNumber = 9;
+  static const int kMToPathIDFieldNumber = 9;
   inline ::google::protobuf::int64 m_topathid() const;
   inline void set_m_topathid(::google::protobuf::int64 value);
 
-  // optional int64 m_toduplicateid = 10;
+  // optional int64 m_toDuplicateId = 10;
   inline bool has_m_toduplicateid() const;
   inline void clear_m_toduplicateid();
-  static const int kMToduplicateidFieldNumber = 10;
+  static const int kMToDuplicateIdFieldNumber = 10;
   inline ::google::protobuf::int64 m_toduplicateid() const;
   inline void set_m_toduplicateid(::google::protobuf::int64 value);
 
-  // optional string m_entercost = 11;
+  // optional string m_enterCost = 11;
   inline bool has_m_entercost() const;
   inline void clear_m_entercost();
-  static const int kMEntercostFieldNumber = 11;
+  static const int kMEnterCostFieldNumber = 11;
   inline const ::std::string& m_entercost() const;
   inline void set_m_entercost(const ::std::string& value);
   inline void set_m_entercost(const char* value);
@@ -185,31 +185,31 @@ class E_TeleportTeleport : public ::google::protobuf::Message {
   inline ::std::string* release_m_entercost();
   inline void set_allocated_m_entercost(::std::string* m_entercost);
 
-  // optional int32 m_trigrange = 12;
+  // optional int32 m_trigRange = 12;
   inline bool has_m_trigrange() const;
   inline void clear_m_trigrange();
-  static const int kMTrigrangeFieldNumber = 12;
+  static const int kMTrigRangeFieldNumber = 12;
   inline ::google::protobuf::int32 m_trigrange() const;
   inline void set_m_trigrange(::google::protobuf::int32 value);
 
-  // optional int32 m_livingtime = 13;
+  // optional int32 m_livingTime = 13;
   inline bool has_m_livingtime() const;
   inline void clear_m_livingtime();
-  static const int kMLivingtimeFieldNumber = 13;
+  static const int kMLivingTimeFieldNumber = 13;
   inline ::google::protobuf::int32 m_livingtime() const;
   inline void set_m_livingtime(::google::protobuf::int32 value);
 
-  // optional int64 m_openchatid = 14;
+  // optional int64 m_openChatId = 14;
   inline bool has_m_openchatid() const;
   inline void clear_m_openchatid();
-  static const int kMOpenchatidFieldNumber = 14;
+  static const int kMOpenChatIdFieldNumber = 14;
   inline ::google::protobuf::int64 m_openchatid() const;
   inline void set_m_openchatid(::google::protobuf::int64 value);
 
-  // optional int64 m_progresschatid = 15;
+  // optional int64 m_progressChatId = 15;
   inline bool has_m_progresschatid() const;
   inline void clear_m_progresschatid();
-  static const int kMProgresschatidFieldNumber = 15;
+  static const int kMProgressChatIdFieldNumber = 15;
   inline ::google::protobuf::int64 m_progresschatid() const;
   inline void set_m_progresschatid(::google::protobuf::int64 value);
 
@@ -366,7 +366,7 @@ class Sheet_TeleportTeleport : public ::google::protobuf::Message {
 
 // E_TeleportTeleport
 
-// optional int64 m_teleportid = 1;
+// optional int64 m_teleportID = 1;
 inline bool E_TeleportTeleport::has_m_teleportid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -388,7 +388,7 @@ inline void E_TeleportTeleport::set_m_teleportid(::google::protobuf::int64 value
   m_teleportid_ = value;
 }
 
-// optional int32 m_teleporttype = 2;
+// optional int32 m_teleportType = 2;
 inline bool E_TeleportTeleport::has_m_teleporttype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -480,7 +480,7 @@ inline void E_TeleportTeleport::set_allocated_m_name(::std::string* m_name) {
   }
 }
 
-// optional int64 m_monsterid = 4;
+// optional int64 m_monsterId = 4;
 inline bool E_TeleportTeleport::has_m_monsterid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -502,7 +502,7 @@ inline void E_TeleportTeleport::set_m_monsterid(::google::protobuf::int64 value)
   m_monsterid_ = value;
 }
 
-// optional int32 m_showcondition = 5;
+// optional int32 m_showCondition = 5;
 inline bool E_TeleportTeleport::has_m_showcondition() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -524,7 +524,7 @@ inline void E_TeleportTeleport::set_m_showcondition(::google::protobuf::int32 va
   m_showcondition_ = value;
 }
 
-// optional string m_conditionvalue = 6;
+// optional string m_conditionValue = 6;
 inline bool E_TeleportTeleport::has_m_conditionvalue() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -594,7 +594,7 @@ inline void E_TeleportTeleport::set_allocated_m_conditionvalue(::std::string* m_
   }
 }
 
-// optional int32 m_canenter = 7;
+// optional int32 m_canEnter = 7;
 inline bool E_TeleportTeleport::has_m_canenter() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -616,7 +616,7 @@ inline void E_TeleportTeleport::set_m_canenter(::google::protobuf::int32 value) 
   m_canenter_ = value;
 }
 
-// optional int64 m_showpathid = 8;
+// optional int64 m_showPathID = 8;
 inline bool E_TeleportTeleport::has_m_showpathid() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -638,7 +638,7 @@ inline void E_TeleportTeleport::set_m_showpathid(::google::protobuf::int64 value
   m_showpathid_ = value;
 }
 
-// optional int64 m_topathid = 9;
+// optional int64 m_toPathID = 9;
 inline bool E_TeleportTeleport::has_m_topathid() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -660,7 +660,7 @@ inline void E_TeleportTeleport::set_m_topathid(::google::protobuf::int64 value) 
   m_topathid_ = value;
 }
 
-// optional int64 m_toduplicateid = 10;
+// optional int64 m_toDuplicateId = 10;
 inline bool E_TeleportTeleport::has_m_toduplicateid() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -682,7 +682,7 @@ inline void E_TeleportTeleport::set_m_toduplicateid(::google::protobuf::int64 va
   m_toduplicateid_ = value;
 }
 
-// optional string m_entercost = 11;
+// optional string m_enterCost = 11;
 inline bool E_TeleportTeleport::has_m_entercost() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -752,7 +752,7 @@ inline void E_TeleportTeleport::set_allocated_m_entercost(::std::string* m_enter
   }
 }
 
-// optional int32 m_trigrange = 12;
+// optional int32 m_trigRange = 12;
 inline bool E_TeleportTeleport::has_m_trigrange() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -774,7 +774,7 @@ inline void E_TeleportTeleport::set_m_trigrange(::google::protobuf::int32 value)
   m_trigrange_ = value;
 }
 
-// optional int32 m_livingtime = 13;
+// optional int32 m_livingTime = 13;
 inline bool E_TeleportTeleport::has_m_livingtime() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -796,7 +796,7 @@ inline void E_TeleportTeleport::set_m_livingtime(::google::protobuf::int32 value
   m_livingtime_ = value;
 }
 
-// optional int64 m_openchatid = 14;
+// optional int64 m_openChatId = 14;
 inline bool E_TeleportTeleport::has_m_openchatid() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -818,7 +818,7 @@ inline void E_TeleportTeleport::set_m_openchatid(::google::protobuf::int64 value
   m_openchatid_ = value;
 }
 
-// optional int64 m_progresschatid = 15;
+// optional int64 m_progressChatId = 15;
 inline bool E_TeleportTeleport::has_m_progresschatid() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }

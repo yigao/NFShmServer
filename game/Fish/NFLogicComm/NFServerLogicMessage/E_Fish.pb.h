@@ -104,10 +104,10 @@ class E_FishRoom : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_roomid = 2;
+  // optional int32 m_RoomId = 2;
   inline bool has_m_roomid() const;
   inline void clear_m_roomid();
-  static const int kMRoomidFieldNumber = 2;
+  static const int kMRoomIdFieldNumber = 2;
   inline ::google::protobuf::int32 m_roomid() const;
   inline void set_m_roomid(::google::protobuf::int32 value);
 
@@ -781,7 +781,7 @@ inline void E_FishRoom::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_roomid = 2;
+// optional int32 m_RoomId = 2;
 inline bool E_FishRoom::has_m_roomid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }

@@ -332,25 +332,25 @@ void protobuf_AddDesc_E_5fDaily_2eproto() {
     "\014\302\377\024\010\347\261\273\345\236\213ID\022$\n\006m_name\030\002 \001(\tB\024\302\377\024\014\346\230\276\347\244"
     "\272\345\220\215\347\247\260\220\301\024@\022 \n\006m_type\030\003 \001(\005B\020\302\377\024\014\346\264\273\345\212\250\347"
     "\261\273\345\236\213\022 \n\006m_args\030\004 \001(\005B\020\302\377\024\014\347\216\251\346\263\225\345\217\202\346\225\260\022"
-    "$\n\nm_playtype\030\005 \001(\005B\020\302\377\024\014\347\216\251\346\263\225\347\261\273\345\236\213\022$\n"
-    "\nm_playargs\030\006 \001(\005B\020\302\377\024\014\347\216\251\346\263\225\345\217\202\346\225\260\022\"\n\014m"
-    "_funciontid\030\007 \001(\003B\014\302\377\024\010\345\212\237\350\203\275ID\022\034\n\010m_num"
-    "ber\030\010 \001(\005B\n\302\377\024\006\346\254\241\346\225\260\022(\n\013m_eachscore\030\t \001"
+    "$\n\nm_playType\030\005 \001(\005B\020\302\377\024\014\347\216\251\346\263\225\347\261\273\345\236\213\022$\n"
+    "\nm_playArgs\030\006 \001(\005B\020\302\377\024\014\347\216\251\346\263\225\345\217\202\346\225\260\022\"\n\014m"
+    "_funciontID\030\007 \001(\003B\014\302\377\024\010\345\212\237\350\203\275ID\022\034\n\010m_num"
+    "ber\030\010 \001(\005B\n\302\377\024\006\346\254\241\346\225\260\022(\n\013m_eachScore\030\t \001"
     "(\005B\023\302\377\024\017\346\257\217\346\254\241\346\264\273\350\267\203\345\200\274\022!\n\007m_cycle\030\n \001(\005"
-    "B\020\302\377\024\014\351\207\215\347\275\256\345\221\250\346\234\237\0220\n\013m_regreward\030\013 \001(\005B"
+    "B\020\302\377\024\014\351\207\215\347\275\256\345\221\250\346\234\237\0220\n\013m_regReward\030\013 \001(\005B"
     "\033\302\377\024\027\346\212\245\345\220\215\345\245\226\345\212\261\351\201\223\345\205\267boxid\"K\n\020Sheet_Da"
     "ilyDaily\0227\n\021E_DailyDaily_List\030\001 \003(\0132\026.pr"
     "oto_ff.E_DailyDailyB\004\210\301\024@\"\267\001\n\rE_DailyRew"
     "ard\022\030\n\004m_id\030\001 \001(\005B\n\302\377\024\006\347\264\242\345\274\225\022\032\n\006m_type\030"
-    "\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\'\n\rm_activescore\030\003 \001(\005"
-    "B\020\302\377\024\014\346\264\273\350\267\203\345\272\246\345\200\274\022 \n\nm_rewardid\030\004 \001(\003B\014"
-    "\302\377\024\010\345\245\226\345\212\261ID\022%\n\013m_rewardnum\030\005 \001(\005B\020\302\377\024\014\345"
+    "\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\'\n\rm_activeScore\030\003 \001(\005"
+    "B\020\302\377\024\014\346\264\273\350\267\203\345\272\246\345\200\274\022 \n\nm_rewardId\030\004 \001(\003B\014"
+    "\302\377\024\010\345\245\226\345\212\261ID\022%\n\013m_rewardNum\030\005 \001(\005B\020\302\377\024\014\345"
     "\245\226\345\212\261\346\225\260\351\207\217\"N\n\021Sheet_DailyReward\0229\n\022E_Da"
     "ilyReward_List\030\001 \003(\0132\027.proto_ff.E_DailyR"
     "ewardB\004\210\301\024\020\"O\n\035E_DailyCultivateAttribute"
-    "Desc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\024\n\004m_id\030\002"
-    " \001(\005B\006\302\377\024\002id\"\267\001\n\020E_DailyCultivate\022\024\n\004m_i"
-    "d\030\001 \001(\005B\006\302\377\024\002id\022\030\n\004m_lv\030\002 \001(\005B\n\302\377\024\006\347\255\211\347\272"
+    "Desc\022\030\n\007m_Value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\024\n\004m_ID\030\002"
+    " \001(\005B\006\302\377\024\002id\"\267\001\n\020E_DailyCultivate\022\024\n\004m_I"
+    "D\030\001 \001(\005B\006\302\377\024\002id\022\030\n\004m_lv\030\002 \001(\005B\n\302\377\024\006\347\255\211\347\272"
     "\247\022%\n\005m_exp\030\003 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\346\211\200\351\234\200\347\273\217\351\252\214"
     "\022L\n\013m_attribute\030\004 \003(\0132\'.proto_ff.E_Daily"
     "CultivateAttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\004\"X"
@@ -358,16 +358,16 @@ void protobuf_AddDesc_E_5fDaily_2eproto() {
     "te_List\030\001 \003(\0132\032.proto_ff.E_DailyCultivat"
     "eB\005\210\301\024\200\010\"\325\001\n\rE_DailySports\022\030\n\004m_id\030\001 \001(\005"
     "B\n\302\377\024\006\345\272\217\345\217\267\022\036\n\006m_name\030\002 \001(\tB\016\302\377\024\006\345\220\215\347\247\260"
-    "\220\301\024@\022(\n\014m_functionid\030\003 \001(\005B\022\302\377\024\016\345\212\237\350\203\275\345\274"
-    "\200\346\224\276ID\022%\n\017m_peractivityid\030\004 \001(\005B\014\302\377\024\010\346\264\273"
+    "\220\301\024@\022(\n\014m_functionID\030\003 \001(\005B\022\302\377\024\016\345\212\237\350\203\275\345\274"
+    "\200\346\224\276ID\022%\n\017m_perActivityid\030\004 \001(\005B\014\302\377\024\010\346\264\273"
     "\345\212\250id\022\033\n\005m_des\030\005 \001(\005B\014\302\377\024\010ui\350\257\264\346\230\216\022\034\n\010m_"
     "linkid\030\006 \001(\005B\n\302\377\024\006linkID\"N\n\021Sheet_DailyS"
     "ports\0229\n\022E_DailySports_List\030\001 \003(\0132\027.prot"
     "o_ff.E_DailySportsB\004\210\301\024\020\"\367\001\n\rE_DailyHelp"
-    "er\022 \n\nm_helperid\030\001 \001(\005B\014\302\377\024\010\346\211\253\350\215\241ID\022/\n\014"
-    "m_helpertype\030\002 \001(\005B\031\302\377\024\025\346\211\253\350\215\241\347\216\251\346\263\225\347\232\204\347"
-    "\261\273\345\236\213\022\"\n\010m_playid\030\003 \001(\tB\020\302\377\024\010\347\216\251\346\263\225ID\220\301\024"
-    "@\022\036\n\010m_linkid\030\004 \001(\005B\014\302\377\024\010\350\267\263\350\275\254ID\022$\n\006m_n"
+    "er\022 \n\nm_helperID\030\001 \001(\005B\014\302\377\024\010\346\211\253\350\215\241ID\022/\n\014"
+    "m_helperType\030\002 \001(\005B\031\302\377\024\025\346\211\253\350\215\241\347\216\251\346\263\225\347\232\204\347"
+    "\261\273\345\236\213\022\"\n\010m_playID\030\003 \001(\tB\020\302\377\024\010\347\216\251\346\263\225ID\220\301\024"
+    "@\022\036\n\010m_linkId\030\004 \001(\005B\014\302\377\024\010\350\267\263\350\275\254ID\022$\n\006m_n"
     "ame\030\005 \001(\tB\024\302\377\024\014\346\240\207\351\242\230\346\230\276\347\244\272\220\301\024@\022)\n\013m_con"
     "dition\030\006 \001(\tB\024\302\377\024\014\346\235\241\344\273\266\346\230\276\347\244\272\220\301\024@\"N\n\021Sh"
     "eet_DailyHelper\0229\n\022E_DailyHelper_List\030\001 "
@@ -413,13 +413,13 @@ const int E_DailyDaily::kMIdFieldNumber;
 const int E_DailyDaily::kMNameFieldNumber;
 const int E_DailyDaily::kMTypeFieldNumber;
 const int E_DailyDaily::kMArgsFieldNumber;
-const int E_DailyDaily::kMPlaytypeFieldNumber;
-const int E_DailyDaily::kMPlayargsFieldNumber;
-const int E_DailyDaily::kMFunciontidFieldNumber;
+const int E_DailyDaily::kMPlayTypeFieldNumber;
+const int E_DailyDaily::kMPlayArgsFieldNumber;
+const int E_DailyDaily::kMFunciontIDFieldNumber;
 const int E_DailyDaily::kMNumberFieldNumber;
-const int E_DailyDaily::kMEachscoreFieldNumber;
+const int E_DailyDaily::kMEachScoreFieldNumber;
 const int E_DailyDaily::kMCycleFieldNumber;
-const int E_DailyDaily::kMRegrewardFieldNumber;
+const int E_DailyDaily::kMRegRewardFieldNumber;
 #endif  // !_MSC_VER
 
 E_DailyDaily::E_DailyDaily()
@@ -575,15 +575,15 @@ bool E_DailyDaily::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_playtype;
+        if (input->ExpectTag(40)) goto parse_m_playType;
         break;
       }
 
-      // optional int32 m_playtype = 5;
+      // optional int32 m_playType = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_playtype:
+         parse_m_playType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_playtype_)));
@@ -591,15 +591,15 @@ bool E_DailyDaily::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_playargs;
+        if (input->ExpectTag(48)) goto parse_m_playArgs;
         break;
       }
 
-      // optional int32 m_playargs = 6;
+      // optional int32 m_playArgs = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_playargs:
+         parse_m_playArgs:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_playargs_)));
@@ -607,15 +607,15 @@ bool E_DailyDaily::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_funciontid;
+        if (input->ExpectTag(56)) goto parse_m_funciontID;
         break;
       }
 
-      // optional int64 m_funciontid = 7;
+      // optional int64 m_funciontID = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_funciontid:
+         parse_m_funciontID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_funciontid_)));
@@ -639,15 +639,15 @@ bool E_DailyDaily::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_eachscore;
+        if (input->ExpectTag(72)) goto parse_m_eachScore;
         break;
       }
 
-      // optional int32 m_eachscore = 9;
+      // optional int32 m_eachScore = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_eachscore:
+         parse_m_eachScore:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_eachscore_)));
@@ -671,15 +671,15 @@ bool E_DailyDaily::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_regreward;
+        if (input->ExpectTag(88)) goto parse_m_regReward;
         break;
       }
 
-      // optional int32 m_regreward = 11;
+      // optional int32 m_regReward = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_regreward:
+         parse_m_regReward:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_regreward_)));
@@ -733,17 +733,17 @@ void E_DailyDaily::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_args(), output);
   }
 
-  // optional int32 m_playtype = 5;
+  // optional int32 m_playType = 5;
   if (has_m_playtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_playtype(), output);
   }
 
-  // optional int32 m_playargs = 6;
+  // optional int32 m_playArgs = 6;
   if (has_m_playargs()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_playargs(), output);
   }
 
-  // optional int64 m_funciontid = 7;
+  // optional int64 m_funciontID = 7;
   if (has_m_funciontid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(7, this->m_funciontid(), output);
   }
@@ -753,7 +753,7 @@ void E_DailyDaily::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_number(), output);
   }
 
-  // optional int32 m_eachscore = 9;
+  // optional int32 m_eachScore = 9;
   if (has_m_eachscore()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_eachscore(), output);
   }
@@ -763,7 +763,7 @@ void E_DailyDaily::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_cycle(), output);
   }
 
-  // optional int32 m_regreward = 11;
+  // optional int32 m_regReward = 11;
   if (has_m_regreward()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_regreward(), output);
   }
@@ -801,17 +801,17 @@ void E_DailyDaily::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_args(), target);
   }
 
-  // optional int32 m_playtype = 5;
+  // optional int32 m_playType = 5;
   if (has_m_playtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_playtype(), target);
   }
 
-  // optional int32 m_playargs = 6;
+  // optional int32 m_playArgs = 6;
   if (has_m_playargs()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_playargs(), target);
   }
 
-  // optional int64 m_funciontid = 7;
+  // optional int64 m_funciontID = 7;
   if (has_m_funciontid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(7, this->m_funciontid(), target);
   }
@@ -821,7 +821,7 @@ void E_DailyDaily::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_number(), target);
   }
 
-  // optional int32 m_eachscore = 9;
+  // optional int32 m_eachScore = 9;
   if (has_m_eachscore()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_eachscore(), target);
   }
@@ -831,7 +831,7 @@ void E_DailyDaily::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_cycle(), target);
   }
 
-  // optional int32 m_regreward = 11;
+  // optional int32 m_regReward = 11;
   if (has_m_regreward()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_regreward(), target);
   }
@@ -875,21 +875,21 @@ int E_DailyDaily::ByteSize() const {
           this->m_args());
     }
 
-    // optional int32 m_playtype = 5;
+    // optional int32 m_playType = 5;
     if (has_m_playtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_playtype());
     }
 
-    // optional int32 m_playargs = 6;
+    // optional int32 m_playArgs = 6;
     if (has_m_playargs()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_playargs());
     }
 
-    // optional int64 m_funciontid = 7;
+    // optional int64 m_funciontID = 7;
     if (has_m_funciontid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -905,7 +905,7 @@ int E_DailyDaily::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_eachscore = 9;
+    // optional int32 m_eachScore = 9;
     if (has_m_eachscore()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -919,7 +919,7 @@ int E_DailyDaily::ByteSize() const {
           this->m_cycle());
     }
 
-    // optional int32 m_regreward = 11;
+    // optional int32 m_regReward = 11;
     if (has_m_regreward()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1245,9 +1245,9 @@ void Sheet_DailyDaily::Swap(Sheet_DailyDaily* other) {
 #ifndef _MSC_VER
 const int E_DailyReward::kMIdFieldNumber;
 const int E_DailyReward::kMTypeFieldNumber;
-const int E_DailyReward::kMActivescoreFieldNumber;
-const int E_DailyReward::kMRewardidFieldNumber;
-const int E_DailyReward::kMRewardnumFieldNumber;
+const int E_DailyReward::kMActiveScoreFieldNumber;
+const int E_DailyReward::kMRewardIdFieldNumber;
+const int E_DailyReward::kMRewardNumFieldNumber;
 #endif  // !_MSC_VER
 
 E_DailyReward::E_DailyReward()
@@ -1349,15 +1349,15 @@ bool E_DailyReward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_activescore;
+        if (input->ExpectTag(24)) goto parse_m_activeScore;
         break;
       }
 
-      // optional int32 m_activescore = 3;
+      // optional int32 m_activeScore = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_activescore:
+         parse_m_activeScore:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_activescore_)));
@@ -1365,15 +1365,15 @@ bool E_DailyReward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_rewardid;
+        if (input->ExpectTag(32)) goto parse_m_rewardId;
         break;
       }
 
-      // optional int64 m_rewardid = 4;
+      // optional int64 m_rewardId = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rewardid:
+         parse_m_rewardId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_rewardid_)));
@@ -1381,15 +1381,15 @@ bool E_DailyReward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_rewardnum;
+        if (input->ExpectTag(40)) goto parse_m_rewardNum;
         break;
       }
 
-      // optional int32 m_rewardnum = 5;
+      // optional int32 m_rewardNum = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rewardnum:
+         parse_m_rewardNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rewardnum_)));
@@ -1429,17 +1429,17 @@ void E_DailyReward::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
   }
 
-  // optional int32 m_activescore = 3;
+  // optional int32 m_activeScore = 3;
   if (has_m_activescore()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_activescore(), output);
   }
 
-  // optional int64 m_rewardid = 4;
+  // optional int64 m_rewardId = 4;
   if (has_m_rewardid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->m_rewardid(), output);
   }
 
-  // optional int32 m_rewardnum = 5;
+  // optional int32 m_rewardNum = 5;
   if (has_m_rewardnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_rewardnum(), output);
   }
@@ -1462,17 +1462,17 @@ void E_DailyReward::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
   }
 
-  // optional int32 m_activescore = 3;
+  // optional int32 m_activeScore = 3;
   if (has_m_activescore()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_activescore(), target);
   }
 
-  // optional int64 m_rewardid = 4;
+  // optional int64 m_rewardId = 4;
   if (has_m_rewardid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->m_rewardid(), target);
   }
 
-  // optional int32 m_rewardnum = 5;
+  // optional int32 m_rewardNum = 5;
   if (has_m_rewardnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_rewardnum(), target);
   }
@@ -1502,21 +1502,21 @@ int E_DailyReward::ByteSize() const {
           this->m_type());
     }
 
-    // optional int32 m_activescore = 3;
+    // optional int32 m_activeScore = 3;
     if (has_m_activescore()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_activescore());
     }
 
-    // optional int64 m_rewardid = 4;
+    // optional int64 m_rewardId = 4;
     if (has_m_rewardid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_rewardid());
     }
 
-    // optional int32 m_rewardnum = 5;
+    // optional int32 m_rewardNum = 5;
     if (has_m_rewardnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1815,7 +1815,7 @@ void Sheet_DailyReward::Swap(Sheet_DailyReward* other) {
 
 #ifndef _MSC_VER
 const int E_DailyCultivateAttributeDesc::kMValueFieldNumber;
-const int E_DailyCultivateAttributeDesc::kMIdFieldNumber;
+const int E_DailyCultivateAttributeDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_DailyCultivateAttributeDesc::E_DailyCultivateAttributeDesc()
@@ -1884,7 +1884,7 @@ bool E_DailyCultivateAttributeDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_value = 1;
+      // optional int32 m_Value = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -1895,15 +1895,15 @@ bool E_DailyCultivateAttributeDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int32 m_id = 2;
+      // optional int32 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_id_)));
@@ -1933,12 +1933,12 @@ bool E_DailyCultivateAttributeDesc::MergePartialFromCodedStream(
 
 void E_DailyCultivateAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_id(), output);
   }
@@ -1951,12 +1951,12 @@ void E_DailyCultivateAttributeDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_DailyCultivateAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_id(), target);
   }
@@ -1972,14 +1972,14 @@ int E_DailyCultivateAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_value = 1;
+    // optional int32 m_Value = 1;
     if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_value());
     }
 
-    // optional int32 m_id = 2;
+    // optional int32 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2062,7 +2062,7 @@ void E_DailyCultivateAttributeDesc::Swap(E_DailyCultivateAttributeDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_DailyCultivate::kMIdFieldNumber;
+const int E_DailyCultivate::kMIDFieldNumber;
 const int E_DailyCultivate::kMLvFieldNumber;
 const int E_DailyCultivate::kMExpFieldNumber;
 const int E_DailyCultivate::kMAttributeFieldNumber;
@@ -2137,7 +2137,7 @@ bool E_DailyCultivate::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_id = 1;
+      // optional int32 m_ID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -2217,7 +2217,7 @@ bool E_DailyCultivate::MergePartialFromCodedStream(
 
 void E_DailyCultivate::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
@@ -2246,7 +2246,7 @@ void E_DailyCultivate::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_DailyCultivate::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
@@ -2279,7 +2279,7 @@ int E_DailyCultivate::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_id = 1;
+    // optional int32 m_ID = 1;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2595,8 +2595,8 @@ void Sheet_DailyCultivate::Swap(Sheet_DailyCultivate* other) {
 #ifndef _MSC_VER
 const int E_DailySports::kMIdFieldNumber;
 const int E_DailySports::kMNameFieldNumber;
-const int E_DailySports::kMFunctionidFieldNumber;
-const int E_DailySports::kMPeractivityidFieldNumber;
+const int E_DailySports::kMFunctionIDFieldNumber;
+const int E_DailySports::kMPerActivityidFieldNumber;
 const int E_DailySports::kMDesFieldNumber;
 const int E_DailySports::kMLinkidFieldNumber;
 #endif  // !_MSC_VER
@@ -2710,15 +2710,15 @@ bool E_DailySports::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_functionid;
+        if (input->ExpectTag(24)) goto parse_m_functionID;
         break;
       }
 
-      // optional int32 m_functionid = 3;
+      // optional int32 m_functionID = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_functionid:
+         parse_m_functionID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_functionid_)));
@@ -2726,15 +2726,15 @@ bool E_DailySports::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_peractivityid;
+        if (input->ExpectTag(32)) goto parse_m_perActivityid;
         break;
       }
 
-      // optional int32 m_peractivityid = 4;
+      // optional int32 m_perActivityid = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_peractivityid:
+         parse_m_perActivityid:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_peractivityid_)));
@@ -2810,12 +2810,12 @@ void E_DailySports::SerializeWithCachedSizes(
       2, this->m_name(), output);
   }
 
-  // optional int32 m_functionid = 3;
+  // optional int32 m_functionID = 3;
   if (has_m_functionid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_functionid(), output);
   }
 
-  // optional int32 m_peractivityid = 4;
+  // optional int32 m_perActivityid = 4;
   if (has_m_peractivityid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_peractivityid(), output);
   }
@@ -2853,12 +2853,12 @@ void E_DailySports::SerializeWithCachedSizes(
         2, this->m_name(), target);
   }
 
-  // optional int32 m_functionid = 3;
+  // optional int32 m_functionID = 3;
   if (has_m_functionid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_functionid(), target);
   }
 
-  // optional int32 m_peractivityid = 4;
+  // optional int32 m_perActivityid = 4;
   if (has_m_peractivityid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_peractivityid(), target);
   }
@@ -2898,14 +2898,14 @@ int E_DailySports::ByteSize() const {
           this->m_name());
     }
 
-    // optional int32 m_functionid = 3;
+    // optional int32 m_functionID = 3;
     if (has_m_functionid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_functionid());
     }
 
-    // optional int32 m_peractivityid = 4;
+    // optional int32 m_perActivityid = 4;
     if (has_m_peractivityid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3221,10 +3221,10 @@ void Sheet_DailySports::Swap(Sheet_DailySports* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_DailyHelper::kMHelperidFieldNumber;
-const int E_DailyHelper::kMHelpertypeFieldNumber;
-const int E_DailyHelper::kMPlayidFieldNumber;
-const int E_DailyHelper::kMLinkidFieldNumber;
+const int E_DailyHelper::kMHelperIDFieldNumber;
+const int E_DailyHelper::kMHelperTypeFieldNumber;
+const int E_DailyHelper::kMPlayIDFieldNumber;
+const int E_DailyHelper::kMLinkIdFieldNumber;
 const int E_DailyHelper::kMNameFieldNumber;
 const int E_DailyHelper::kMConditionFieldNumber;
 #endif  // !_MSC_VER
@@ -3324,7 +3324,7 @@ bool E_DailyHelper::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_helperid = 1;
+      // optional int32 m_helperID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -3335,15 +3335,15 @@ bool E_DailyHelper::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_helpertype;
+        if (input->ExpectTag(16)) goto parse_m_helperType;
         break;
       }
 
-      // optional int32 m_helpertype = 2;
+      // optional int32 m_helperType = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_helpertype:
+         parse_m_helperType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_helpertype_)));
@@ -3351,15 +3351,15 @@ bool E_DailyHelper::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_m_playid;
+        if (input->ExpectTag(26)) goto parse_m_playID;
         break;
       }
 
-      // optional string m_playid = 3;
+      // optional string m_playID = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_playid:
+         parse_m_playID:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_playid()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -3368,15 +3368,15 @@ bool E_DailyHelper::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_linkid;
+        if (input->ExpectTag(32)) goto parse_m_linkId;
         break;
       }
 
-      // optional int32 m_linkid = 4;
+      // optional int32 m_linkId = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_linkid:
+         parse_m_linkId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_linkid_)));
@@ -3440,17 +3440,17 @@ bool E_DailyHelper::MergePartialFromCodedStream(
 
 void E_DailyHelper::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_helperid = 1;
+  // optional int32 m_helperID = 1;
   if (has_m_helperid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_helperid(), output);
   }
 
-  // optional int32 m_helpertype = 2;
+  // optional int32 m_helperType = 2;
   if (has_m_helpertype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_helpertype(), output);
   }
 
-  // optional string m_playid = 3;
+  // optional string m_playID = 3;
   if (has_m_playid()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_playid().data(), this->m_playid().length(),
@@ -3459,7 +3459,7 @@ void E_DailyHelper::SerializeWithCachedSizes(
       3, this->m_playid(), output);
   }
 
-  // optional int32 m_linkid = 4;
+  // optional int32 m_linkId = 4;
   if (has_m_linkid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_linkid(), output);
   }
@@ -3490,17 +3490,17 @@ void E_DailyHelper::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_DailyHelper::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_helperid = 1;
+  // optional int32 m_helperID = 1;
   if (has_m_helperid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_helperid(), target);
   }
 
-  // optional int32 m_helpertype = 2;
+  // optional int32 m_helperType = 2;
   if (has_m_helpertype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_helpertype(), target);
   }
 
-  // optional string m_playid = 3;
+  // optional string m_playID = 3;
   if (has_m_playid()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_playid().data(), this->m_playid().length(),
@@ -3510,7 +3510,7 @@ void E_DailyHelper::SerializeWithCachedSizes(
         3, this->m_playid(), target);
   }
 
-  // optional int32 m_linkid = 4;
+  // optional int32 m_linkId = 4;
   if (has_m_linkid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_linkid(), target);
   }
@@ -3546,28 +3546,28 @@ int E_DailyHelper::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_helperid = 1;
+    // optional int32 m_helperID = 1;
     if (has_m_helperid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_helperid());
     }
 
-    // optional int32 m_helpertype = 2;
+    // optional int32 m_helperType = 2;
     if (has_m_helpertype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_helpertype());
     }
 
-    // optional string m_playid = 3;
+    // optional string m_playID = 3;
     if (has_m_playid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_playid());
     }
 
-    // optional int32 m_linkid = 4;
+    // optional int32 m_linkId = 4;
     if (has_m_linkid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

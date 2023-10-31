@@ -11,8 +11,8 @@ E_TasktrackerTasktracker_s::E_TasktrackerTasktracker_s() {
 }
 
 int E_TasktrackerTasktracker_s::CreateInit() {
-	m_comid = (int32_t)0;
-	m_trueid = (int32_t)0;
+	m_comID = (int32_t)0;
+	m_trueID = (int32_t)0;
 	return 0;
 }
 
@@ -21,13 +21,13 @@ int E_TasktrackerTasktracker_s::ResumeInit() {
 }
 
 void E_TasktrackerTasktracker_s::write_to_pbmsg(::proto_ff::E_TasktrackerTasktracker & msg) const {
-	msg.set_m_comid((int32_t)m_comid);
-	msg.set_m_trueid((int32_t)m_trueid);
+	msg.set_m_comid((int32_t)m_comID);
+	msg.set_m_trueid((int32_t)m_trueID);
 }
 
 void E_TasktrackerTasktracker_s::read_from_pbmsg(const ::proto_ff::E_TasktrackerTasktracker & msg) {
-	m_comid = msg.m_comid();
-	m_trueid = msg.m_trueid();
+	m_comID = msg.m_comid();
+	m_trueID = msg.m_trueid();
 }
 
 Sheet_TasktrackerTasktracker_s::Sheet_TasktrackerTasktracker_s() {

@@ -6,7 +6,7 @@ import "yd_fieldoptions.proto";
 message E_JinglianSimple
 {
 	optional int32 m_position = 1[(yd_fieldoptions.field_cname) = "装备部位对应ID"];
-	optional int32 m_groupid = 2[(yd_fieldoptions.field_cname) = "对应属性组ID"];
+	optional int32 m_groupId = 2[(yd_fieldoptions.field_cname) = "对应属性组ID"];
 	optional int32 m_openlv = 3[(yd_fieldoptions.field_cname) = "开启等级"];
 	optional int32 m_default_attrs = 4[(yd_fieldoptions.field_cname) = "默认属性条数"];
 	repeated int32 m_open_attr = 5[(yd_fieldoptions.field_cname) = "解锁属性精炼等级", (yd_fieldoptions.field_arysize) = 3];
@@ -33,7 +33,7 @@ message E_JinglianLvAttrDesc
 message E_JinglianLv
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_groupid = 2[(yd_fieldoptions.field_cname) = "对应属性组ID"];
+	optional int32 m_groupId = 2[(yd_fieldoptions.field_cname) = "对应属性组ID"];
 	optional int32 m_lv = 3[(yd_fieldoptions.field_cname) = "等级"];
 	repeated E_JinglianLvCostDesc m_cost = 4[(yd_fieldoptions.field_cname) = "精炼升级", (yd_fieldoptions.field_arysize) = 3];
 	repeated E_JinglianLvAttrDesc m_attr = 5[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];

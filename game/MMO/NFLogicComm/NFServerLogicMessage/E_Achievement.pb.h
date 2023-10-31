@@ -96,17 +96,17 @@ class E_AchievementAchievementItemrewardDesc : public ::google::protobuf::Messag
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   inline bool has_m_value() const;
   inline void clear_m_value();
   static const int kMValueFieldNumber = 1;
   inline ::google::protobuf::int32 m_value() const;
   inline void set_m_value(::google::protobuf::int32 value);
 
-  // optional int64 m_id = 2;
+  // optional int64 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
@@ -188,52 +188,52 @@ class E_AchievementAchievement : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_achievementid = 1;
+  // optional int32 m_achievementId = 1;
   inline bool has_m_achievementid() const;
   inline void clear_m_achievementid();
-  static const int kMAchievementidFieldNumber = 1;
+  static const int kMAchievementIdFieldNumber = 1;
   inline ::google::protobuf::int32 m_achievementid() const;
   inline void set_m_achievementid(::google::protobuf::int32 value);
 
-  // optional int32 m_achievementlevel = 2;
+  // optional int32 m_achievementLevel = 2;
   inline bool has_m_achievementlevel() const;
   inline void clear_m_achievementlevel();
-  static const int kMAchievementlevelFieldNumber = 2;
+  static const int kMAchievementLevelFieldNumber = 2;
   inline ::google::protobuf::int32 m_achievementlevel() const;
   inline void set_m_achievementlevel(::google::protobuf::int32 value);
 
-  // optional int32 m_achievementtype = 3;
+  // optional int32 m_achievementType = 3;
   inline bool has_m_achievementtype() const;
   inline void clear_m_achievementtype();
-  static const int kMAchievementtypeFieldNumber = 3;
+  static const int kMAchievementTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_achievementtype() const;
   inline void set_m_achievementtype(::google::protobuf::int32 value);
 
-  // optional int32 m_achievementsubtype = 4;
+  // optional int32 m_achievementSubType = 4;
   inline bool has_m_achievementsubtype() const;
   inline void clear_m_achievementsubtype();
-  static const int kMAchievementsubtypeFieldNumber = 4;
+  static const int kMAchievementSubTypeFieldNumber = 4;
   inline ::google::protobuf::int32 m_achievementsubtype() const;
   inline void set_m_achievementsubtype(::google::protobuf::int32 value);
 
-  // optional int32 m_subtype = 5;
+  // optional int32 m_SubType = 5;
   inline bool has_m_subtype() const;
   inline void clear_m_subtype();
-  static const int kMSubtypeFieldNumber = 5;
+  static const int kMSubTypeFieldNumber = 5;
   inline ::google::protobuf::int32 m_subtype() const;
   inline void set_m_subtype(::google::protobuf::int32 value);
 
-  // optional int32 m_achievementobjectvalue = 6;
+  // optional int32 m_achievementObjectValue = 6;
   inline bool has_m_achievementobjectvalue() const;
   inline void clear_m_achievementobjectvalue();
-  static const int kMAchievementobjectvalueFieldNumber = 6;
+  static const int kMAchievementObjectValueFieldNumber = 6;
   inline ::google::protobuf::int32 m_achievementobjectvalue() const;
   inline void set_m_achievementobjectvalue(::google::protobuf::int32 value);
 
-  // optional string m_typename = 7;
+  // optional string m_typeName = 7;
   inline bool has_m_typename() const;
   inline void clear_m_typename();
-  static const int kMTypenameFieldNumber = 7;
+  static const int kMTypeNameFieldNumber = 7;
   inline const ::std::string& m_typename() const;
   inline void set_m_typename(const ::std::string& value);
   inline void set_m_typename(const char* value);
@@ -254,14 +254,14 @@ class E_AchievementAchievement : public ::google::protobuf::Message {
   inline ::std::string* release_m_label();
   inline void set_allocated_m_label(::std::string* m_label);
 
-  // optional int32 m_achievementpoint = 9;
+  // optional int32 m_achievementPoint = 9;
   inline bool has_m_achievementpoint() const;
   inline void clear_m_achievementpoint();
-  static const int kMAchievementpointFieldNumber = 9;
+  static const int kMAchievementPointFieldNumber = 9;
   inline ::google::protobuf::int32 m_achievementpoint() const;
   inline void set_m_achievementpoint(::google::protobuf::int32 value);
 
-  // optional int32 m_overview = 10;
+  // optional int32 m_Overview = 10;
   inline bool has_m_overview() const;
   inline void clear_m_overview();
   static const int kMOverviewFieldNumber = 10;
@@ -280,10 +280,10 @@ class E_AchievementAchievement : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_m_param();
 
-  // repeated .proto_ff.E_AchievementAchievementItemrewardDesc m_itemreward = 12;
+  // repeated .proto_ff.E_AchievementAchievementItemrewardDesc m_itemReward = 12;
   inline int m_itemreward_size() const;
   inline void clear_m_itemreward();
-  static const int kMItemrewardFieldNumber = 12;
+  static const int kMItemRewardFieldNumber = 12;
   inline const ::proto_ff::E_AchievementAchievementItemrewardDesc& m_itemreward(int index) const;
   inline ::proto_ff::E_AchievementAchievementItemrewardDesc* mutable_m_itemreward(int index);
   inline ::proto_ff::E_AchievementAchievementItemrewardDesc* add_m_itemreward();
@@ -481,17 +481,17 @@ class E_AchievementTotalachievements : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_totalsum = 1;
+  // optional int32 m_totalSum = 1;
   inline bool has_m_totalsum() const;
   inline void clear_m_totalsum();
-  static const int kMTotalsumFieldNumber = 1;
+  static const int kMTotalSumFieldNumber = 1;
   inline ::google::protobuf::int32 m_totalsum() const;
   inline void set_m_totalsum(::google::protobuf::int32 value);
 
-  // optional string m_totalachievementname = 2;
+  // optional string m_totalAchievementName = 2;
   inline bool has_m_totalachievementname() const;
   inline void clear_m_totalachievementname();
-  static const int kMTotalachievementnameFieldNumber = 2;
+  static const int kMTotalAchievementNameFieldNumber = 2;
   inline const ::std::string& m_totalachievementname() const;
   inline void set_m_totalachievementname(const ::std::string& value);
   inline void set_m_totalachievementname(const char* value);
@@ -500,24 +500,24 @@ class E_AchievementTotalachievements : public ::google::protobuf::Message {
   inline ::std::string* release_m_totalachievementname();
   inline void set_allocated_m_totalachievementname(::std::string* m_totalachievementname);
 
-  // optional int32 m_achievedpoints = 3;
+  // optional int32 m_achievedPoints = 3;
   inline bool has_m_achievedpoints() const;
   inline void clear_m_achievedpoints();
-  static const int kMAchievedpointsFieldNumber = 3;
+  static const int kMAchievedPointsFieldNumber = 3;
   inline ::google::protobuf::int32 m_achievedpoints() const;
   inline void set_m_achievedpoints(::google::protobuf::int32 value);
 
-  // optional int32 m_totalitems = 4;
+  // optional int32 m_totalItems = 4;
   inline bool has_m_totalitems() const;
   inline void clear_m_totalitems();
-  static const int kMTotalitemsFieldNumber = 4;
+  static const int kMTotalItemsFieldNumber = 4;
   inline ::google::protobuf::int32 m_totalitems() const;
   inline void set_m_totalitems(::google::protobuf::int32 value);
 
-  // optional int32 m_rewardvalue = 5;
+  // optional int32 m_RewardValue = 5;
   inline bool has_m_rewardvalue() const;
   inline void clear_m_rewardvalue();
-  static const int kMRewardvalueFieldNumber = 5;
+  static const int kMRewardValueFieldNumber = 5;
   inline ::google::protobuf::int32 m_rewardvalue() const;
   inline void set_m_rewardvalue(::google::protobuf::int32 value);
 
@@ -644,7 +644,7 @@ class Sheet_AchievementTotalachievements : public ::google::protobuf::Message {
 
 // E_AchievementAchievementItemrewardDesc
 
-// optional int32 m_value = 1;
+// optional int32 m_Value = 1;
 inline bool E_AchievementAchievementItemrewardDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -666,7 +666,7 @@ inline void E_AchievementAchievementItemrewardDesc::set_m_value(::google::protob
   m_value_ = value;
 }
 
-// optional int64 m_id = 2;
+// optional int64 m_ID = 2;
 inline bool E_AchievementAchievementItemrewardDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -692,7 +692,7 @@ inline void E_AchievementAchievementItemrewardDesc::set_m_id(::google::protobuf:
 
 // E_AchievementAchievement
 
-// optional int32 m_achievementid = 1;
+// optional int32 m_achievementId = 1;
 inline bool E_AchievementAchievement::has_m_achievementid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -714,7 +714,7 @@ inline void E_AchievementAchievement::set_m_achievementid(::google::protobuf::in
   m_achievementid_ = value;
 }
 
-// optional int32 m_achievementlevel = 2;
+// optional int32 m_achievementLevel = 2;
 inline bool E_AchievementAchievement::has_m_achievementlevel() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -736,7 +736,7 @@ inline void E_AchievementAchievement::set_m_achievementlevel(::google::protobuf:
   m_achievementlevel_ = value;
 }
 
-// optional int32 m_achievementtype = 3;
+// optional int32 m_achievementType = 3;
 inline bool E_AchievementAchievement::has_m_achievementtype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -758,7 +758,7 @@ inline void E_AchievementAchievement::set_m_achievementtype(::google::protobuf::
   m_achievementtype_ = value;
 }
 
-// optional int32 m_achievementsubtype = 4;
+// optional int32 m_achievementSubType = 4;
 inline bool E_AchievementAchievement::has_m_achievementsubtype() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -780,7 +780,7 @@ inline void E_AchievementAchievement::set_m_achievementsubtype(::google::protobu
   m_achievementsubtype_ = value;
 }
 
-// optional int32 m_subtype = 5;
+// optional int32 m_SubType = 5;
 inline bool E_AchievementAchievement::has_m_subtype() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -802,7 +802,7 @@ inline void E_AchievementAchievement::set_m_subtype(::google::protobuf::int32 va
   m_subtype_ = value;
 }
 
-// optional int32 m_achievementobjectvalue = 6;
+// optional int32 m_achievementObjectValue = 6;
 inline bool E_AchievementAchievement::has_m_achievementobjectvalue() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -824,7 +824,7 @@ inline void E_AchievementAchievement::set_m_achievementobjectvalue(::google::pro
   m_achievementobjectvalue_ = value;
 }
 
-// optional string m_typename = 7;
+// optional string m_typeName = 7;
 inline bool E_AchievementAchievement::has_m_typename() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -964,7 +964,7 @@ inline void E_AchievementAchievement::set_allocated_m_label(::std::string* m_lab
   }
 }
 
-// optional int32 m_achievementpoint = 9;
+// optional int32 m_achievementPoint = 9;
 inline bool E_AchievementAchievement::has_m_achievementpoint() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -986,7 +986,7 @@ inline void E_AchievementAchievement::set_m_achievementpoint(::google::protobuf:
   m_achievementpoint_ = value;
 }
 
-// optional int32 m_overview = 10;
+// optional int32 m_Overview = 10;
 inline bool E_AchievementAchievement::has_m_overview() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -1033,7 +1033,7 @@ E_AchievementAchievement::mutable_m_param() {
   return &m_param_;
 }
 
-// repeated .proto_ff.E_AchievementAchievementItemrewardDesc m_itemreward = 12;
+// repeated .proto_ff.E_AchievementAchievementItemrewardDesc m_itemReward = 12;
 inline int E_AchievementAchievement::m_itemreward_size() const {
   return m_itemreward_.size();
 }
@@ -1091,7 +1091,7 @@ Sheet_AchievementAchievement::mutable_e_achievementachievement_list() {
 
 // E_AchievementTotalachievements
 
-// optional int32 m_totalsum = 1;
+// optional int32 m_totalSum = 1;
 inline bool E_AchievementTotalachievements::has_m_totalsum() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1113,7 +1113,7 @@ inline void E_AchievementTotalachievements::set_m_totalsum(::google::protobuf::i
   m_totalsum_ = value;
 }
 
-// optional string m_totalachievementname = 2;
+// optional string m_totalAchievementName = 2;
 inline bool E_AchievementTotalachievements::has_m_totalachievementname() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1183,7 +1183,7 @@ inline void E_AchievementTotalachievements::set_allocated_m_totalachievementname
   }
 }
 
-// optional int32 m_achievedpoints = 3;
+// optional int32 m_achievedPoints = 3;
 inline bool E_AchievementTotalachievements::has_m_achievedpoints() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1205,7 +1205,7 @@ inline void E_AchievementTotalachievements::set_m_achievedpoints(::google::proto
   m_achievedpoints_ = value;
 }
 
-// optional int32 m_totalitems = 4;
+// optional int32 m_totalItems = 4;
 inline bool E_AchievementTotalachievements::has_m_totalitems() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1227,7 +1227,7 @@ inline void E_AchievementTotalachievements::set_m_totalitems(::google::protobuf:
   m_totalitems_ = value;
 }
 
-// optional int32 m_rewardvalue = 5;
+// optional int32 m_RewardValue = 5;
 inline bool E_AchievementTotalachievements::has_m_rewardvalue() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }

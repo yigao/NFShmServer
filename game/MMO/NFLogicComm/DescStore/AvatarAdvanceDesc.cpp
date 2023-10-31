@@ -91,11 +91,11 @@ int AvatarAdvanceDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		for(int j = 0; j < (int)pDesc->m_upattribute.size(); j++)
+		for(int j = 0; j < (int)pDesc->m_upAttribute.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_upattribute[j].m_type <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_upattribute[j].m_type)), result, "can't find the upattribute:{} in the  excel:attribute sheet:attribute", pDesc->m_upattribute[j].m_type);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_upAttribute[j].m_type <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_upAttribute[j].m_type)), result, "can't find the upAttribute:{} in the  excel:attribute sheet:attribute", pDesc->m_upAttribute[j].m_type);
 		}
-		CHECK_EXPR_MSG_RESULT((pDesc->m_skillid <= 0 || SkillSkillDesc::Instance()->GetDesc(pDesc->m_skillid)), result, "can't find the skillid:{} in the  excel:skill sheet:skill", pDesc->m_skillid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_skillID <= 0 || SkillSkillDesc::Instance()->GetDesc(pDesc->m_skillID)), result, "can't find the skillID:{} in the  excel:skill sheet:skill", pDesc->m_skillID);
 	}
 	return result;
 }

@@ -90,7 +90,7 @@ int WelfareOnlineDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_lvreward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_lvreward)), result, "can't find the lvreward:{} in the  excel:box sheet:box", pDesc->m_lvreward);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_lvReward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_lvReward)), result, "can't find the lvReward:{} in the  excel:box sheet:box", pDesc->m_lvReward);
 	}
 	return result;
 }

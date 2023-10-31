@@ -11,13 +11,13 @@ E_FunctionunlockFunctionunlock_s::E_FunctionunlockFunctionunlock_s() {
 }
 
 int E_FunctionunlockFunctionunlock_s::CreateInit() {
-	m_functionid = (int32_t)0;
-	m_opendaily = (int32_t)0;
-	m_opentype = (int32_t)0;
-	m_openval = (int64_t)0;
-	m_defaultclosed = (int32_t)0;
-	m_iconopenval = (int32_t)0;
-	m_icondisapearid = (int32_t)0;
+	m_functionId = (int32_t)0;
+	m_openDaily = (int32_t)0;
+	m_openType = (int32_t)0;
+	m_openVal = (int64_t)0;
+	m_defaultClosed = (int32_t)0;
+	m_iconOpenVal = (int32_t)0;
+	m_iconDisapearID = (int32_t)0;
 	m_belong = (int32_t)0;
 	return 0;
 }
@@ -27,24 +27,24 @@ int E_FunctionunlockFunctionunlock_s::ResumeInit() {
 }
 
 void E_FunctionunlockFunctionunlock_s::write_to_pbmsg(::proto_ff::E_FunctionunlockFunctionunlock & msg) const {
-	msg.set_m_functionid((int32_t)m_functionid);
-	msg.set_m_opendaily((int32_t)m_opendaily);
-	msg.set_m_opentype((int32_t)m_opentype);
-	msg.set_m_openval((int64_t)m_openval);
-	msg.set_m_defaultclosed((int32_t)m_defaultclosed);
-	msg.set_m_iconopenval((int32_t)m_iconopenval);
-	msg.set_m_icondisapearid((int32_t)m_icondisapearid);
+	msg.set_m_functionid((int32_t)m_functionId);
+	msg.set_m_opendaily((int32_t)m_openDaily);
+	msg.set_m_opentype((int32_t)m_openType);
+	msg.set_m_openval((int64_t)m_openVal);
+	msg.set_m_defaultclosed((int32_t)m_defaultClosed);
+	msg.set_m_iconopenval((int32_t)m_iconOpenVal);
+	msg.set_m_icondisapearid((int32_t)m_iconDisapearID);
 	msg.set_m_belong((int32_t)m_belong);
 }
 
 void E_FunctionunlockFunctionunlock_s::read_from_pbmsg(const ::proto_ff::E_FunctionunlockFunctionunlock & msg) {
-	m_functionid = msg.m_functionid();
-	m_opendaily = msg.m_opendaily();
-	m_opentype = msg.m_opentype();
-	m_openval = msg.m_openval();
-	m_defaultclosed = msg.m_defaultclosed();
-	m_iconopenval = msg.m_iconopenval();
-	m_icondisapearid = msg.m_icondisapearid();
+	m_functionId = msg.m_functionid();
+	m_openDaily = msg.m_opendaily();
+	m_openType = msg.m_opentype();
+	m_openVal = msg.m_openval();
+	m_defaultClosed = msg.m_defaultclosed();
+	m_iconOpenVal = msg.m_iconopenval();
+	m_iconDisapearID = msg.m_icondisapearid();
 	m_belong = msg.m_belong();
 }
 
@@ -88,9 +88,9 @@ E_FunctionunlockPreview_s::E_FunctionunlockPreview_s() {
 }
 
 int E_FunctionunlockPreview_s::CreateInit() {
-	m_functionid = (int32_t)0;
-	m_rewarditem = (int32_t)0;
-	m_rewardnum = (int32_t)0;
+	m_functionId = (int32_t)0;
+	m_rewardItem = (int32_t)0;
+	m_rewardNum = (int32_t)0;
 	return 0;
 }
 
@@ -99,15 +99,15 @@ int E_FunctionunlockPreview_s::ResumeInit() {
 }
 
 void E_FunctionunlockPreview_s::write_to_pbmsg(::proto_ff::E_FunctionunlockPreview & msg) const {
-	msg.set_m_functionid((int32_t)m_functionid);
-	msg.set_m_rewarditem((int32_t)m_rewarditem);
-	msg.set_m_rewardnum((int32_t)m_rewardnum);
+	msg.set_m_functionid((int32_t)m_functionId);
+	msg.set_m_rewarditem((int32_t)m_rewardItem);
+	msg.set_m_rewardnum((int32_t)m_rewardNum);
 }
 
 void E_FunctionunlockPreview_s::read_from_pbmsg(const ::proto_ff::E_FunctionunlockPreview & msg) {
-	m_functionid = msg.m_functionid();
-	m_rewarditem = msg.m_rewarditem();
-	m_rewardnum = msg.m_rewardnum();
+	m_functionId = msg.m_functionid();
+	m_rewardItem = msg.m_rewarditem();
+	m_rewardNum = msg.m_rewardnum();
 }
 
 Sheet_FunctionunlockPreview_s::Sheet_FunctionunlockPreview_s() {

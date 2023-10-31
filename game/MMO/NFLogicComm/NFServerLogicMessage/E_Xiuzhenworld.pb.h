@@ -286,24 +286,24 @@ class E_XiuzhenworldConstant : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 1;
+  static const int kMIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_starfreetime = 2;
+  // optional int32 m_starFreeTime = 2;
   inline bool has_m_starfreetime() const;
   inline void clear_m_starfreetime();
-  static const int kMStarfreetimeFieldNumber = 2;
+  static const int kMStarFreeTimeFieldNumber = 2;
   inline ::google::protobuf::int32 m_starfreetime() const;
   inline void set_m_starfreetime(::google::protobuf::int32 value);
 
-  // optional string m_freetimemoment = 3;
+  // optional string m_freeTimeMoment = 3;
   inline bool has_m_freetimemoment() const;
   inline void clear_m_freetimemoment();
-  static const int kMFreetimemomentFieldNumber = 3;
+  static const int kMFreeTimeMomentFieldNumber = 3;
   inline const ::std::string& m_freetimemoment() const;
   inline void set_m_freetimemoment(const ::std::string& value);
   inline void set_m_freetimemoment(const char* value);
@@ -312,17 +312,17 @@ class E_XiuzhenworldConstant : public ::google::protobuf::Message {
   inline ::std::string* release_m_freetimemoment();
   inline void set_allocated_m_freetimemoment(::std::string* m_freetimemoment);
 
-  // optional int32 m_freetime = 4;
+  // optional int32 m_freeTime = 4;
   inline bool has_m_freetime() const;
   inline void clear_m_freetime();
-  static const int kMFreetimeFieldNumber = 4;
+  static const int kMFreeTimeFieldNumber = 4;
   inline ::google::protobuf::int32 m_freetime() const;
   inline void set_m_freetime(::google::protobuf::int32 value);
 
-  // optional int32 m_freetimemax = 5;
+  // optional int32 m_freeTimeMax = 5;
   inline bool has_m_freetimemax() const;
   inline void clear_m_freetimemax();
-  static const int kMFreetimemaxFieldNumber = 5;
+  static const int kMFreeTimeMaxFieldNumber = 5;
   inline ::google::protobuf::int32 m_freetimemax() const;
   inline void set_m_freetimemax(::google::protobuf::int32 value);
 
@@ -333,66 +333,66 @@ class E_XiuzhenworldConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_helpid() const;
   inline void set_m_helpid(::google::protobuf::int32 value);
 
-  // optional int32 m_addgexpmax = 7;
+  // optional int32 m_addGExpMax = 7;
   inline bool has_m_addgexpmax() const;
   inline void clear_m_addgexpmax();
-  static const int kMAddgexpmaxFieldNumber = 7;
+  static const int kMAddGExpMaxFieldNumber = 7;
   inline ::google::protobuf::int32 m_addgexpmax() const;
   inline void set_m_addgexpmax(::google::protobuf::int32 value);
 
-  // optional int32 m_pripricetype = 8;
+  // optional int32 m_priPriceType = 8;
   inline bool has_m_pripricetype() const;
   inline void clear_m_pripricetype();
-  static const int kMPripricetypeFieldNumber = 8;
+  static const int kMPriPriceTypeFieldNumber = 8;
   inline ::google::protobuf::int32 m_pripricetype() const;
   inline void set_m_pripricetype(::google::protobuf::int32 value);
 
-  // optional int32 m_pricevalue = 9;
+  // optional int32 m_priceValue = 9;
   inline bool has_m_pricevalue() const;
   inline void clear_m_pricevalue();
-  static const int kMPricevalueFieldNumber = 9;
+  static const int kMPriceValueFieldNumber = 9;
   inline ::google::protobuf::int32 m_pricevalue() const;
   inline void set_m_pricevalue(::google::protobuf::int32 value);
 
-  // optional int32 m_gexppribonus = 10;
+  // optional int32 m_GExpPriBonus = 10;
   inline bool has_m_gexppribonus() const;
   inline void clear_m_gexppribonus();
-  static const int kMGexppribonusFieldNumber = 10;
+  static const int kMGExpPriBonusFieldNumber = 10;
   inline ::google::protobuf::int32 m_gexppribonus() const;
   inline void set_m_gexppribonus(::google::protobuf::int32 value);
 
-  // optional int32 m_gexpgroupbonus = 11;
+  // optional int32 m_GExpGroupBonus = 11;
   inline bool has_m_gexpgroupbonus() const;
   inline void clear_m_gexpgroupbonus();
-  static const int kMGexpgroupbonusFieldNumber = 11;
+  static const int kMGExpGroupBonusFieldNumber = 11;
   inline ::google::protobuf::int32 m_gexpgroupbonus() const;
   inline void set_m_gexpgroupbonus(::google::protobuf::int32 value);
 
-  // optional int32 m_mapstart = 12;
+  // optional int32 m_mapStart = 12;
   inline bool has_m_mapstart() const;
   inline void clear_m_mapstart();
-  static const int kMMapstartFieldNumber = 12;
+  static const int kMMapStartFieldNumber = 12;
   inline ::google::protobuf::int32 m_mapstart() const;
   inline void set_m_mapstart(::google::protobuf::int32 value);
 
-  // optional int32 m_mapend = 13;
+  // optional int32 m_mapEnd = 13;
   inline bool has_m_mapend() const;
   inline void clear_m_mapend();
-  static const int kMMapendFieldNumber = 13;
+  static const int kMMapEndFieldNumber = 13;
   inline ::google::protobuf::int32 m_mapend() const;
   inline void set_m_mapend(::google::protobuf::int32 value);
 
-  // optional int32 m_expitemid = 14;
+  // optional int32 m_expItemId = 14;
   inline bool has_m_expitemid() const;
   inline void clear_m_expitemid();
-  static const int kMExpitemidFieldNumber = 14;
+  static const int kMExpItemIdFieldNumber = 14;
   inline ::google::protobuf::int32 m_expitemid() const;
   inline void set_m_expitemid(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_XiuzhenworldConstantTimeitemDesc m_timeitem = 15;
+  // repeated .proto_ff.E_XiuzhenworldConstantTimeitemDesc m_timeItem = 15;
   inline int m_timeitem_size() const;
   inline void clear_m_timeitem();
-  static const int kMTimeitemFieldNumber = 15;
+  static const int kMTimeItemFieldNumber = 15;
   inline const ::proto_ff::E_XiuzhenworldConstantTimeitemDesc& m_timeitem(int index) const;
   inline ::proto_ff::E_XiuzhenworldConstantTimeitemDesc* mutable_m_timeitem(int index);
   inline ::proto_ff::E_XiuzhenworldConstantTimeitemDesc* add_m_timeitem();
@@ -621,10 +621,10 @@ class E_XiuzhenworldExpmap : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_conditionglv = 2;
+  // optional int32 m_conditionGlv = 2;
   inline bool has_m_conditionglv() const;
   inline void clear_m_conditionglv();
-  static const int kMConditionglvFieldNumber = 2;
+  static const int kMConditionGlvFieldNumber = 2;
   inline ::google::protobuf::int32 m_conditionglv() const;
   inline void set_m_conditionglv(::google::protobuf::int32 value);
 
@@ -896,7 +896,7 @@ inline void E_XiuzhenworldConstantTypeDesc::set_m_id(::google::protobuf::int32 v
 
 // E_XiuzhenworldConstant
 
-// optional int32 m_id = 1;
+// optional int32 m_ID = 1;
 inline bool E_XiuzhenworldConstant::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -918,7 +918,7 @@ inline void E_XiuzhenworldConstant::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_starfreetime = 2;
+// optional int32 m_starFreeTime = 2;
 inline bool E_XiuzhenworldConstant::has_m_starfreetime() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -940,7 +940,7 @@ inline void E_XiuzhenworldConstant::set_m_starfreetime(::google::protobuf::int32
   m_starfreetime_ = value;
 }
 
-// optional string m_freetimemoment = 3;
+// optional string m_freeTimeMoment = 3;
 inline bool E_XiuzhenworldConstant::has_m_freetimemoment() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1010,7 +1010,7 @@ inline void E_XiuzhenworldConstant::set_allocated_m_freetimemoment(::std::string
   }
 }
 
-// optional int32 m_freetime = 4;
+// optional int32 m_freeTime = 4;
 inline bool E_XiuzhenworldConstant::has_m_freetime() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1032,7 +1032,7 @@ inline void E_XiuzhenworldConstant::set_m_freetime(::google::protobuf::int32 val
   m_freetime_ = value;
 }
 
-// optional int32 m_freetimemax = 5;
+// optional int32 m_freeTimeMax = 5;
 inline bool E_XiuzhenworldConstant::has_m_freetimemax() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1076,7 +1076,7 @@ inline void E_XiuzhenworldConstant::set_m_helpid(::google::protobuf::int32 value
   m_helpid_ = value;
 }
 
-// optional int32 m_addgexpmax = 7;
+// optional int32 m_addGExpMax = 7;
 inline bool E_XiuzhenworldConstant::has_m_addgexpmax() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -1098,7 +1098,7 @@ inline void E_XiuzhenworldConstant::set_m_addgexpmax(::google::protobuf::int32 v
   m_addgexpmax_ = value;
 }
 
-// optional int32 m_pripricetype = 8;
+// optional int32 m_priPriceType = 8;
 inline bool E_XiuzhenworldConstant::has_m_pripricetype() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -1120,7 +1120,7 @@ inline void E_XiuzhenworldConstant::set_m_pripricetype(::google::protobuf::int32
   m_pripricetype_ = value;
 }
 
-// optional int32 m_pricevalue = 9;
+// optional int32 m_priceValue = 9;
 inline bool E_XiuzhenworldConstant::has_m_pricevalue() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -1142,7 +1142,7 @@ inline void E_XiuzhenworldConstant::set_m_pricevalue(::google::protobuf::int32 v
   m_pricevalue_ = value;
 }
 
-// optional int32 m_gexppribonus = 10;
+// optional int32 m_GExpPriBonus = 10;
 inline bool E_XiuzhenworldConstant::has_m_gexppribonus() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -1164,7 +1164,7 @@ inline void E_XiuzhenworldConstant::set_m_gexppribonus(::google::protobuf::int32
   m_gexppribonus_ = value;
 }
 
-// optional int32 m_gexpgroupbonus = 11;
+// optional int32 m_GExpGroupBonus = 11;
 inline bool E_XiuzhenworldConstant::has_m_gexpgroupbonus() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -1186,7 +1186,7 @@ inline void E_XiuzhenworldConstant::set_m_gexpgroupbonus(::google::protobuf::int
   m_gexpgroupbonus_ = value;
 }
 
-// optional int32 m_mapstart = 12;
+// optional int32 m_mapStart = 12;
 inline bool E_XiuzhenworldConstant::has_m_mapstart() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -1208,7 +1208,7 @@ inline void E_XiuzhenworldConstant::set_m_mapstart(::google::protobuf::int32 val
   m_mapstart_ = value;
 }
 
-// optional int32 m_mapend = 13;
+// optional int32 m_mapEnd = 13;
 inline bool E_XiuzhenworldConstant::has_m_mapend() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -1230,7 +1230,7 @@ inline void E_XiuzhenworldConstant::set_m_mapend(::google::protobuf::int32 value
   m_mapend_ = value;
 }
 
-// optional int32 m_expitemid = 14;
+// optional int32 m_expItemId = 14;
 inline bool E_XiuzhenworldConstant::has_m_expitemid() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -1252,7 +1252,7 @@ inline void E_XiuzhenworldConstant::set_m_expitemid(::google::protobuf::int32 va
   m_expitemid_ = value;
 }
 
-// repeated .proto_ff.E_XiuzhenworldConstantTimeitemDesc m_timeitem = 15;
+// repeated .proto_ff.E_XiuzhenworldConstantTimeitemDesc m_timeItem = 15;
 inline int E_XiuzhenworldConstant::m_timeitem_size() const {
   return m_timeitem_.size();
 }
@@ -1357,7 +1357,7 @@ inline void E_XiuzhenworldExpmap::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_conditionglv = 2;
+// optional int32 m_conditionGlv = 2;
 inline bool E_XiuzhenworldExpmap::has_m_conditionglv() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }

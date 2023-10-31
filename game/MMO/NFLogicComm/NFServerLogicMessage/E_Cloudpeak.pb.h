@@ -105,17 +105,17 @@ class E_CloudpeakRankrewards : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_rewarditem = 2;
+  // optional int32 m_rewardItem = 2;
   inline bool has_m_rewarditem() const;
   inline void clear_m_rewarditem();
-  static const int kMRewarditemFieldNumber = 2;
+  static const int kMRewardItemFieldNumber = 2;
   inline ::google::protobuf::int32 m_rewarditem() const;
   inline void set_m_rewarditem(::google::protobuf::int32 value);
 
-  // optional int64 m_itemnum = 3;
+  // optional int64 m_itemNum = 3;
   inline bool has_m_itemnum() const;
   inline void clear_m_itemnum();
-  static const int kMItemnumFieldNumber = 3;
+  static const int kMItemNumFieldNumber = 3;
   inline ::google::protobuf::int64 m_itemnum() const;
   inline void set_m_itemnum(::google::protobuf::int64 value);
 
@@ -384,10 +384,10 @@ class E_CloudpeakConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_revivalbuff = 2;
+  // optional int32 m_revivalBuff = 2;
   inline bool has_m_revivalbuff() const;
   inline void clear_m_revivalbuff();
-  static const int kMRevivalbuffFieldNumber = 2;
+  static const int kMRevivalBuffFieldNumber = 2;
   inline ::google::protobuf::int32 m_revivalbuff() const;
   inline void set_m_revivalbuff(::google::protobuf::int32 value);
 
@@ -398,17 +398,17 @@ class E_CloudpeakConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_refresh() const;
   inline void set_m_refresh(::google::protobuf::int32 value);
 
-  // optional int32 m_victoryreward = 4;
+  // optional int32 m_victoryReward = 4;
   inline bool has_m_victoryreward() const;
   inline void clear_m_victoryreward();
-  static const int kMVictoryrewardFieldNumber = 4;
+  static const int kMVictoryRewardFieldNumber = 4;
   inline ::google::protobuf::int32 m_victoryreward() const;
   inline void set_m_victoryreward(::google::protobuf::int32 value);
 
-  // optional int32 m_failurereward = 5;
+  // optional int32 m_failureReward = 5;
   inline bool has_m_failurereward() const;
   inline void clear_m_failurereward();
-  static const int kMFailurerewardFieldNumber = 5;
+  static const int kMFailureRewardFieldNumber = 5;
   inline ::google::protobuf::int32 m_failurereward() const;
   inline void set_m_failurereward(::google::protobuf::int32 value);
 
@@ -419,17 +419,17 @@ class E_CloudpeakConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_round() const;
   inline void set_m_round(::google::protobuf::int32 value);
 
-  // optional int32 m_roundtime = 7;
+  // optional int32 m_roundTime = 7;
   inline bool has_m_roundtime() const;
   inline void clear_m_roundtime();
-  static const int kMRoundtimeFieldNumber = 7;
+  static const int kMRoundTimeFieldNumber = 7;
   inline ::google::protobuf::int32 m_roundtime() const;
   inline void set_m_roundtime(::google::protobuf::int32 value);
 
-  // optional int32 m_initialscoring = 8;
+  // optional int32 m_initialScoring = 8;
   inline bool has_m_initialscoring() const;
   inline void clear_m_initialscoring();
-  static const int kMInitialscoringFieldNumber = 8;
+  static const int kMInitialScoringFieldNumber = 8;
   inline ::google::protobuf::int32 m_initialscoring() const;
   inline void set_m_initialscoring(::google::protobuf::int32 value);
 
@@ -440,66 +440,66 @@ class E_CloudpeakConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_getscoring() const;
   inline void set_m_getscoring(::google::protobuf::int32 value);
 
-  // optional int32 m_assistscoring = 10;
+  // optional int32 m_assistScoring = 10;
   inline bool has_m_assistscoring() const;
   inline void clear_m_assistscoring();
-  static const int kMAssistscoringFieldNumber = 10;
+  static const int kMAssistScoringFieldNumber = 10;
   inline ::google::protobuf::int32 m_assistscoring() const;
   inline void set_m_assistscoring(::google::protobuf::int32 value);
 
-  // optional int32 m_matchtime = 11;
+  // optional int32 m_matchTime = 11;
   inline bool has_m_matchtime() const;
   inline void clear_m_matchtime();
-  static const int kMMatchtimeFieldNumber = 11;
+  static const int kMMatchTimeFieldNumber = 11;
   inline ::google::protobuf::int32 m_matchtime() const;
   inline void set_m_matchtime(::google::protobuf::int32 value);
 
-  // optional int32 m_matchentry = 12;
+  // optional int32 m_matchEntry = 12;
   inline bool has_m_matchentry() const;
   inline void clear_m_matchentry();
-  static const int kMMatchentryFieldNumber = 12;
+  static const int kMMatchEntryFieldNumber = 12;
   inline ::google::protobuf::int32 m_matchentry() const;
   inline void set_m_matchentry(::google::protobuf::int32 value);
 
-  // optional int64 m_mapid = 13;
+  // optional int64 m_mapId = 13;
   inline bool has_m_mapid() const;
   inline void clear_m_mapid();
-  static const int kMMapidFieldNumber = 13;
+  static const int kMMapIdFieldNumber = 13;
   inline ::google::protobuf::int64 m_mapid() const;
   inline void set_m_mapid(::google::protobuf::int64 value);
 
-  // optional int32 m_playersmax = 14;
+  // optional int32 m_playersMax = 14;
   inline bool has_m_playersmax() const;
   inline void clear_m_playersmax();
-  static const int kMPlayersmaxFieldNumber = 14;
+  static const int kMPlayersMaxFieldNumber = 14;
   inline ::google::protobuf::int32 m_playersmax() const;
   inline void set_m_playersmax(::google::protobuf::int32 value);
 
-  // optional int32 m_rebotid = 15;
+  // optional int32 m_rebotId = 15;
   inline bool has_m_rebotid() const;
   inline void clear_m_rebotid();
-  static const int kMRebotidFieldNumber = 15;
+  static const int kMRebotIdFieldNumber = 15;
   inline ::google::protobuf::int32 m_rebotid() const;
   inline void set_m_rebotid(::google::protobuf::int32 value);
 
-  // optional int32 m_rebotcount = 16;
+  // optional int32 m_rebotCount = 16;
   inline bool has_m_rebotcount() const;
   inline void clear_m_rebotcount();
-  static const int kMRebotcountFieldNumber = 16;
+  static const int kMRebotCountFieldNumber = 16;
   inline ::google::protobuf::int32 m_rebotcount() const;
   inline void set_m_rebotcount(::google::protobuf::int32 value);
 
-  // optional int32 m_actid = 17;
+  // optional int32 m_actId = 17;
   inline bool has_m_actid() const;
   inline void clear_m_actid();
-  static const int kMActidFieldNumber = 17;
+  static const int kMActIdFieldNumber = 17;
   inline ::google::protobuf::int32 m_actid() const;
   inline void set_m_actid(::google::protobuf::int32 value);
 
-  // repeated int32 m_revivalpoint = 18;
+  // repeated int32 m_revivalPoint = 18;
   inline int m_revivalpoint_size() const;
   inline void clear_m_revivalpoint();
-  static const int kMRevivalpointFieldNumber = 18;
+  static const int kMRevivalPointFieldNumber = 18;
   inline ::google::protobuf::int32 m_revivalpoint(int index) const;
   inline void set_m_revivalpoint(int index, ::google::protobuf::int32 value);
   inline void add_m_revivalpoint(::google::protobuf::int32 value);
@@ -523,7 +523,7 @@ class E_CloudpeakConstant : public ::google::protobuf::Message {
   // repeated int32 m_rebot_id = 20;
   inline int m_rebot_id_size() const;
   inline void clear_m_rebot_id();
-  static const int kMRebotIdFieldNumber = 20;
+  static const int kMRebotIdFieldNumber_20 = 20;
   inline ::google::protobuf::int32 m_rebot_id(int index) const;
   inline void set_m_rebot_id(int index, ::google::protobuf::int32 value);
   inline void add_m_rebot_id(::google::protobuf::int32 value);
@@ -750,10 +750,10 @@ class E_CloudpeakExp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_getexp = 2;
+  // optional int32 m_getExp = 2;
   inline bool has_m_getexp() const;
   inline void clear_m_getexp();
-  static const int kMGetexpFieldNumber = 2;
+  static const int kMGetExpFieldNumber = 2;
   inline ::google::protobuf::int32 m_getexp() const;
   inline void set_m_getexp(::google::protobuf::int32 value);
 
@@ -893,7 +893,7 @@ inline void E_CloudpeakRankrewards::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_rewarditem = 2;
+// optional int32 m_rewardItem = 2;
 inline bool E_CloudpeakRankrewards::has_m_rewarditem() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -915,7 +915,7 @@ inline void E_CloudpeakRankrewards::set_m_rewarditem(::google::protobuf::int32 v
   m_rewarditem_ = value;
 }
 
-// optional int64 m_itemnum = 3;
+// optional int64 m_itemNum = 3;
 inline bool E_CloudpeakRankrewards::has_m_itemnum() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1040,7 +1040,7 @@ inline void E_CloudpeakConstant::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_revivalbuff = 2;
+// optional int32 m_revivalBuff = 2;
 inline bool E_CloudpeakConstant::has_m_revivalbuff() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1084,7 +1084,7 @@ inline void E_CloudpeakConstant::set_m_refresh(::google::protobuf::int32 value) 
   m_refresh_ = value;
 }
 
-// optional int32 m_victoryreward = 4;
+// optional int32 m_victoryReward = 4;
 inline bool E_CloudpeakConstant::has_m_victoryreward() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1106,7 +1106,7 @@ inline void E_CloudpeakConstant::set_m_victoryreward(::google::protobuf::int32 v
   m_victoryreward_ = value;
 }
 
-// optional int32 m_failurereward = 5;
+// optional int32 m_failureReward = 5;
 inline bool E_CloudpeakConstant::has_m_failurereward() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1150,7 +1150,7 @@ inline void E_CloudpeakConstant::set_m_round(::google::protobuf::int32 value) {
   m_round_ = value;
 }
 
-// optional int32 m_roundtime = 7;
+// optional int32 m_roundTime = 7;
 inline bool E_CloudpeakConstant::has_m_roundtime() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -1172,7 +1172,7 @@ inline void E_CloudpeakConstant::set_m_roundtime(::google::protobuf::int32 value
   m_roundtime_ = value;
 }
 
-// optional int32 m_initialscoring = 8;
+// optional int32 m_initialScoring = 8;
 inline bool E_CloudpeakConstant::has_m_initialscoring() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -1216,7 +1216,7 @@ inline void E_CloudpeakConstant::set_m_getscoring(::google::protobuf::int32 valu
   m_getscoring_ = value;
 }
 
-// optional int32 m_assistscoring = 10;
+// optional int32 m_assistScoring = 10;
 inline bool E_CloudpeakConstant::has_m_assistscoring() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -1238,7 +1238,7 @@ inline void E_CloudpeakConstant::set_m_assistscoring(::google::protobuf::int32 v
   m_assistscoring_ = value;
 }
 
-// optional int32 m_matchtime = 11;
+// optional int32 m_matchTime = 11;
 inline bool E_CloudpeakConstant::has_m_matchtime() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -1260,7 +1260,7 @@ inline void E_CloudpeakConstant::set_m_matchtime(::google::protobuf::int32 value
   m_matchtime_ = value;
 }
 
-// optional int32 m_matchentry = 12;
+// optional int32 m_matchEntry = 12;
 inline bool E_CloudpeakConstant::has_m_matchentry() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -1282,7 +1282,7 @@ inline void E_CloudpeakConstant::set_m_matchentry(::google::protobuf::int32 valu
   m_matchentry_ = value;
 }
 
-// optional int64 m_mapid = 13;
+// optional int64 m_mapId = 13;
 inline bool E_CloudpeakConstant::has_m_mapid() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -1304,7 +1304,7 @@ inline void E_CloudpeakConstant::set_m_mapid(::google::protobuf::int64 value) {
   m_mapid_ = value;
 }
 
-// optional int32 m_playersmax = 14;
+// optional int32 m_playersMax = 14;
 inline bool E_CloudpeakConstant::has_m_playersmax() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -1326,7 +1326,7 @@ inline void E_CloudpeakConstant::set_m_playersmax(::google::protobuf::int32 valu
   m_playersmax_ = value;
 }
 
-// optional int32 m_rebotid = 15;
+// optional int32 m_rebotId = 15;
 inline bool E_CloudpeakConstant::has_m_rebotid() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
@@ -1348,7 +1348,7 @@ inline void E_CloudpeakConstant::set_m_rebotid(::google::protobuf::int32 value) 
   m_rebotid_ = value;
 }
 
-// optional int32 m_rebotcount = 16;
+// optional int32 m_rebotCount = 16;
 inline bool E_CloudpeakConstant::has_m_rebotcount() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
@@ -1370,7 +1370,7 @@ inline void E_CloudpeakConstant::set_m_rebotcount(::google::protobuf::int32 valu
   m_rebotcount_ = value;
 }
 
-// optional int32 m_actid = 17;
+// optional int32 m_actId = 17;
 inline bool E_CloudpeakConstant::has_m_actid() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
@@ -1392,7 +1392,7 @@ inline void E_CloudpeakConstant::set_m_actid(::google::protobuf::int32 value) {
   m_actid_ = value;
 }
 
-// repeated int32 m_revivalpoint = 18;
+// repeated int32 m_revivalPoint = 18;
 inline int E_CloudpeakConstant::m_revivalpoint_size() const {
   return m_revivalpoint_.size();
 }
@@ -1522,7 +1522,7 @@ inline void E_CloudpeakExp::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional int32 m_getexp = 2;
+// optional int32 m_getExp = 2;
 inline bool E_CloudpeakExp::has_m_getexp() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }

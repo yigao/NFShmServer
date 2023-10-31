@@ -461,15 +461,15 @@ void protobuf_AddDesc_E_5fArena_2eproto() {
     "\n\rE_Arena.proto\022\010proto_ff\032\025yd_fieldoptio"
     "ns.proto\"J\n\024E_ArenaRobotAttrDesc\022\026\n\005m_va"
     "l\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006\347\261"
-    "\273\345\236\213\"\235\003\n\014E_ArenaRobot\022(\n\tm_arenaid\030\001 \001(\005"
+    "\273\345\236\213\"\235\003\n\014E_ArenaRobot\022(\n\tm_arenaId\030\001 \001(\005"
     "B\025\302\377\024\021\347\253\236\346\212\200\345\234\272\346\216\222\345\220\215ID\022,\n\013m_robotname\030\002"
-    " \001(\tB\027\302\377\024\017\346\234\272\345\231\250\344\272\272\345\220\215\347\247\260\220\301\024@\022\030\n\006m_aiid\030"
-    "\003 \001(\005B\010\302\377\024\004aiID\022\036\n\010m_rankid\030\004 \001(\005B\014\302\377\024\010\346"
-    "\216\222\345\220\215id\022.\n\021m_robotprofession\030\005 \001(\005B\023\302\377\024\017"
-    "\346\234\272\345\231\250\344\272\272\350\201\214\344\270\232\022&\n\tm_robotlv\030\006 \001(\005B\023\302\377\024\017"
+    " \001(\tB\027\302\377\024\017\346\234\272\345\231\250\344\272\272\345\220\215\347\247\260\220\301\024@\022\030\n\006m_aiId\030"
+    "\003 \001(\005B\010\302\377\024\004aiID\022\036\n\010m_rankId\030\004 \001(\005B\014\302\377\024\010\346"
+    "\216\222\345\220\215id\022.\n\021m_robotProfession\030\005 \001(\005B\023\302\377\024\017"
+    "\346\234\272\345\231\250\344\272\272\350\201\214\344\270\232\022&\n\tm_robotLv\030\006 \001(\005B\023\302\377\024\017"
     "\346\234\272\345\231\250\344\272\272\347\255\211\347\272\247\022\033\n\007m_sword\030\007 \001(\005B\n\302\377\024\006\346\210"
-    "\230\345\212\233\022 \n\nm_facadeid\030\010 \001(\005B\014\302\377\024\010\345\244\226\350\247\202ID\022$"
-    "\n\016m_occupationid\030\t \001(\005B\014\302\377\024\010\350\275\254\350\201\214ID\022>\n\006"
+    "\230\345\212\233\022 \n\nm_facadeID\030\010 \001(\005B\014\302\377\024\010\345\244\226\350\247\202ID\022$"
+    "\n\016m_occupationID\030\t \001(\005B\014\302\377\024\010\350\275\254\350\201\214ID\022>\n\006"
     "m_attr\030\n \003(\0132\036.proto_ff.E_ArenaRobotAttr"
     "DescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024F\"L\n\020Sheet_ArenaRobot"
     "\0228\n\021E_ArenaRobot_List\030\001 \003(\0132\026.proto_ff.E"
@@ -482,36 +482,36 @@ void protobuf_AddDesc_E_5fArena_2eproto() {
     "scB\016\302\377\024\006\345\244\226\350\247\202\210\301\024\021\"]\n\026Sheet_ArenaRobotfa"
     "cade\022C\n\027E_ArenaRobotfacade_List\030\001 \003(\0132\034."
     "proto_ff.E_ArenaRobotfacadeB\004\210\301\024\002\"O\n\032E_A"
-    "renaArenawardRewardDesc\022\033\n\007m_value\030\001 \001(\005"
-    "B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002ID\"\274\001\n\020E"
+    "renaArenawardRewardDesc\022\033\n\007m_Value\030\001 \001(\005"
+    "B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_ID\030\002 \001(\005B\006\302\377\024\002ID\"\274\001\n\020E"
     "_ArenaArenaward\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\"\n"
-    "\010m_lvdown\030\002 \001(\005B\020\302\377\024\014\344\270\213\351\231\220\347\255\211\347\272\247\022 \n\006m_l"
-    "vup\030\003 \001(\005B\020\302\377\024\014\344\270\212\351\231\220\347\255\211\347\272\247\022L\n\010m_reward\030"
+    "\010m_lvDown\030\002 \001(\005B\020\302\377\024\014\344\270\213\351\231\220\347\255\211\347\272\247\022 \n\006m_l"
+    "vUp\030\003 \001(\005B\020\302\377\024\014\344\270\212\351\231\220\347\255\211\347\272\247\022L\n\010m_Reward\030"
     "\004 \003(\0132$.proto_ff.E_ArenaArenawardRewardD"
     "escB\024\302\377\024\014\345\245\226\345\212\261\347\211\251\345\223\201\210\301\024\005\"X\n\024Sheet_Arena"
     "Arenaward\022@\n\025E_ArenaArenaward_List\030\001 \003(\013"
     "2\032.proto_ff.E_ArenaArenawardB\005\210\301\024\200\020\"O\n\032E"
-    "_ArenaRankawardRewardDesc\022\033\n\007m_value\030\001 \001"
-    "(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002ID\"\315\001\n"
-    "\020E_ArenaRankaward\022\037\n\tm_prizeid\030\001 \001(\005B\014\302\377"
-    "\024\010\345\245\226\345\212\261ID\022%\n\013m_arenadown\030\002 \001(\005B\020\302\377\024\014\344\270\213"
-    "\351\231\220\346\216\222\345\220\215\022#\n\tm_arenaup\030\003 \001(\005B\020\302\377\024\014\344\270\212\351\231\220"
-    "\346\216\222\345\220\215\022L\n\010m_reward\030\004 \003(\0132$.proto_ff.E_Ar"
+    "_ArenaRankawardRewardDesc\022\033\n\007m_Value\030\001 \001"
+    "(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_ID\030\002 \001(\005B\006\302\377\024\002ID\"\315\001\n"
+    "\020E_ArenaRankaward\022\037\n\tm_PrizeId\030\001 \001(\005B\014\302\377"
+    "\024\010\345\245\226\345\212\261ID\022%\n\013m_arenaDown\030\002 \001(\005B\020\302\377\024\014\344\270\213"
+    "\351\231\220\346\216\222\345\220\215\022#\n\tm_arenaUp\030\003 \001(\005B\020\302\377\024\014\344\270\212\351\231\220"
+    "\346\216\222\345\220\215\022L\n\010m_Reward\030\004 \003(\0132$.proto_ff.E_Ar"
     "enaRankawardRewardDescB\024\302\377\024\014\345\245\226\345\212\261\347\211\251\345\223\201"
     "\210\301\024\005\"W\n\024Sheet_ArenaRankaward\022\?\n\025E_ArenaR"
     "ankaward_List\030\001 \003(\0132\032.proto_ff.E_ArenaRa"
     "nkawardB\004\210\301\024\010\"O\n\032E_ArenaFirstrankRewardD"
-    "esc\022\033\n\007m_value\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_id"
+    "esc\022\033\n\007m_Value\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_ID"
     "\030\002 \001(\005B\006\302\377\024\002ID\"\300\001\n\020E_ArenaFirstrank\022\024\n\004m"
-    "_id\030\001 \001(\005B\006\302\377\024\002id\022$\n\nm_rankdown\030\002 \001(\005B\020\302"
-    "\377\024\014\344\270\213\351\231\220\346\216\222\345\220\215\022\"\n\010m_rankup\030\003 \001(\005B\020\302\377\024\014\344"
-    "\270\212\351\231\220\346\216\222\345\220\215\022L\n\010m_reward\030\004 \003(\0132$.proto_ff"
+    "_id\030\001 \001(\005B\006\302\377\024\002id\022$\n\nm_rankDown\030\002 \001(\005B\020\302"
+    "\377\024\014\344\270\213\351\231\220\346\216\222\345\220\215\022\"\n\010m_rankUp\030\003 \001(\005B\020\302\377\024\014\344"
+    "\270\212\351\231\220\346\216\222\345\220\215\022L\n\010m_Reward\030\004 \003(\0132$.proto_ff"
     ".E_ArenaFirstrankRewardDescB\024\302\377\024\014\345\245\226\345\212\261\347"
     "\211\251\345\223\201\210\301\024\005\"W\n\024Sheet_ArenaFirstrank\022\?\n\025E_A"
     "renaFirstrank_List\030\001 \003(\0132\032.proto_ff.E_Ar"
     "enaFirstrankB\004\210\301\024\020\"z\n\023E_ArenaBuychalleng"
     "e\022!\n\007m_count\030\001 \001(\005B\020\302\377\024\014\350\264\255\344\271\260\350\256\241\346\254\241\022$\n\n"
-    "m_costtype\030\002 \001(\005B\020\302\377\024\014\350\212\261\350\264\271\347\261\273\345\236\213\022\032\n\006m_"
+    "m_costType\030\002 \001(\005B\020\302\377\024\014\350\212\261\350\264\271\347\261\273\345\236\213\022\032\n\006m_"
     "cost\030\003 \001(\005B\n\302\377\024\006\350\212\261\350\264\271\"`\n\027Sheet_ArenaBuy"
     "challenge\022E\n\030E_ArenaBuychallenge_List\030\001 "
     "\003(\0132\035.proto_ff.E_ArenaBuychallengeB\004\210\301\024\010", 2280);
@@ -812,15 +812,15 @@ void E_ArenaRobotAttrDesc::Swap(E_ArenaRobotAttrDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_ArenaRobot::kMArenaidFieldNumber;
+const int E_ArenaRobot::kMArenaIdFieldNumber;
 const int E_ArenaRobot::kMRobotnameFieldNumber;
-const int E_ArenaRobot::kMAiidFieldNumber;
-const int E_ArenaRobot::kMRankidFieldNumber;
-const int E_ArenaRobot::kMRobotprofessionFieldNumber;
-const int E_ArenaRobot::kMRobotlvFieldNumber;
+const int E_ArenaRobot::kMAiIdFieldNumber;
+const int E_ArenaRobot::kMRankIdFieldNumber;
+const int E_ArenaRobot::kMRobotProfessionFieldNumber;
+const int E_ArenaRobot::kMRobotLvFieldNumber;
 const int E_ArenaRobot::kMSwordFieldNumber;
-const int E_ArenaRobot::kMFacadeidFieldNumber;
-const int E_ArenaRobot::kMOccupationidFieldNumber;
+const int E_ArenaRobot::kMFacadeIDFieldNumber;
+const int E_ArenaRobot::kMOccupationIDFieldNumber;
 const int E_ArenaRobot::kMAttrFieldNumber;
 #endif  // !_MSC_VER
 
@@ -914,7 +914,7 @@ bool E_ArenaRobot::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_arenaid = 1;
+      // optional int32 m_arenaId = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -942,15 +942,15 @@ bool E_ArenaRobot::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_aiid;
+        if (input->ExpectTag(24)) goto parse_m_aiId;
         break;
       }
 
-      // optional int32 m_aiid = 3;
+      // optional int32 m_aiId = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_aiid:
+         parse_m_aiId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_aiid_)));
@@ -958,15 +958,15 @@ bool E_ArenaRobot::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_rankid;
+        if (input->ExpectTag(32)) goto parse_m_rankId;
         break;
       }
 
-      // optional int32 m_rankid = 4;
+      // optional int32 m_rankId = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rankid:
+         parse_m_rankId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rankid_)));
@@ -974,15 +974,15 @@ bool E_ArenaRobot::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_robotprofession;
+        if (input->ExpectTag(40)) goto parse_m_robotProfession;
         break;
       }
 
-      // optional int32 m_robotprofession = 5;
+      // optional int32 m_robotProfession = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_robotprofession:
+         parse_m_robotProfession:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_robotprofession_)));
@@ -990,15 +990,15 @@ bool E_ArenaRobot::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_robotlv;
+        if (input->ExpectTag(48)) goto parse_m_robotLv;
         break;
       }
 
-      // optional int32 m_robotlv = 6;
+      // optional int32 m_robotLv = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_robotlv:
+         parse_m_robotLv:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_robotlv_)));
@@ -1022,15 +1022,15 @@ bool E_ArenaRobot::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_facadeid;
+        if (input->ExpectTag(64)) goto parse_m_facadeID;
         break;
       }
 
-      // optional int32 m_facadeid = 8;
+      // optional int32 m_facadeID = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_facadeid:
+         parse_m_facadeID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_facadeid_)));
@@ -1038,15 +1038,15 @@ bool E_ArenaRobot::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_occupationid;
+        if (input->ExpectTag(72)) goto parse_m_occupationID;
         break;
       }
 
-      // optional int32 m_occupationid = 9;
+      // optional int32 m_occupationID = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_occupationid:
+         parse_m_occupationID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_occupationid_)));
@@ -1091,7 +1091,7 @@ bool E_ArenaRobot::MergePartialFromCodedStream(
 
 void E_ArenaRobot::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_arenaid = 1;
+  // optional int32 m_arenaId = 1;
   if (has_m_arenaid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_arenaid(), output);
   }
@@ -1105,22 +1105,22 @@ void E_ArenaRobot::SerializeWithCachedSizes(
       2, this->m_robotname(), output);
   }
 
-  // optional int32 m_aiid = 3;
+  // optional int32 m_aiId = 3;
   if (has_m_aiid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_aiid(), output);
   }
 
-  // optional int32 m_rankid = 4;
+  // optional int32 m_rankId = 4;
   if (has_m_rankid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_rankid(), output);
   }
 
-  // optional int32 m_robotprofession = 5;
+  // optional int32 m_robotProfession = 5;
   if (has_m_robotprofession()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_robotprofession(), output);
   }
 
-  // optional int32 m_robotlv = 6;
+  // optional int32 m_robotLv = 6;
   if (has_m_robotlv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_robotlv(), output);
   }
@@ -1130,12 +1130,12 @@ void E_ArenaRobot::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_sword(), output);
   }
 
-  // optional int32 m_facadeid = 8;
+  // optional int32 m_facadeID = 8;
   if (has_m_facadeid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_facadeid(), output);
   }
 
-  // optional int32 m_occupationid = 9;
+  // optional int32 m_occupationID = 9;
   if (has_m_occupationid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_occupationid(), output);
   }
@@ -1154,7 +1154,7 @@ void E_ArenaRobot::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_ArenaRobot::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_arenaid = 1;
+  // optional int32 m_arenaId = 1;
   if (has_m_arenaid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_arenaid(), target);
   }
@@ -1169,22 +1169,22 @@ void E_ArenaRobot::SerializeWithCachedSizes(
         2, this->m_robotname(), target);
   }
 
-  // optional int32 m_aiid = 3;
+  // optional int32 m_aiId = 3;
   if (has_m_aiid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_aiid(), target);
   }
 
-  // optional int32 m_rankid = 4;
+  // optional int32 m_rankId = 4;
   if (has_m_rankid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_rankid(), target);
   }
 
-  // optional int32 m_robotprofession = 5;
+  // optional int32 m_robotProfession = 5;
   if (has_m_robotprofession()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_robotprofession(), target);
   }
 
-  // optional int32 m_robotlv = 6;
+  // optional int32 m_robotLv = 6;
   if (has_m_robotlv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_robotlv(), target);
   }
@@ -1194,12 +1194,12 @@ void E_ArenaRobot::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_sword(), target);
   }
 
-  // optional int32 m_facadeid = 8;
+  // optional int32 m_facadeID = 8;
   if (has_m_facadeid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_facadeid(), target);
   }
 
-  // optional int32 m_occupationid = 9;
+  // optional int32 m_occupationID = 9;
   if (has_m_occupationid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_occupationid(), target);
   }
@@ -1222,7 +1222,7 @@ int E_ArenaRobot::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_arenaid = 1;
+    // optional int32 m_arenaId = 1;
     if (has_m_arenaid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1236,28 +1236,28 @@ int E_ArenaRobot::ByteSize() const {
           this->m_robotname());
     }
 
-    // optional int32 m_aiid = 3;
+    // optional int32 m_aiId = 3;
     if (has_m_aiid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_aiid());
     }
 
-    // optional int32 m_rankid = 4;
+    // optional int32 m_rankId = 4;
     if (has_m_rankid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_rankid());
     }
 
-    // optional int32 m_robotprofession = 5;
+    // optional int32 m_robotProfession = 5;
     if (has_m_robotprofession()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_robotprofession());
     }
 
-    // optional int32 m_robotlv = 6;
+    // optional int32 m_robotLv = 6;
     if (has_m_robotlv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1271,7 +1271,7 @@ int E_ArenaRobot::ByteSize() const {
           this->m_sword());
     }
 
-    // optional int32 m_facadeid = 8;
+    // optional int32 m_facadeID = 8;
     if (has_m_facadeid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1280,7 +1280,7 @@ int E_ArenaRobot::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_occupationid = 9;
+    // optional int32 m_occupationID = 9;
     if (has_m_occupationid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2346,7 +2346,7 @@ void Sheet_ArenaRobotfacade::Swap(Sheet_ArenaRobotfacade* other) {
 
 #ifndef _MSC_VER
 const int E_ArenaArenawardRewardDesc::kMValueFieldNumber;
-const int E_ArenaArenawardRewardDesc::kMIdFieldNumber;
+const int E_ArenaArenawardRewardDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_ArenaArenawardRewardDesc::E_ArenaArenawardRewardDesc()
@@ -2415,7 +2415,7 @@ bool E_ArenaArenawardRewardDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_value = 1;
+      // optional int32 m_Value = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -2426,15 +2426,15 @@ bool E_ArenaArenawardRewardDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int32 m_id = 2;
+      // optional int32 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_id_)));
@@ -2464,12 +2464,12 @@ bool E_ArenaArenawardRewardDesc::MergePartialFromCodedStream(
 
 void E_ArenaArenawardRewardDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_id(), output);
   }
@@ -2482,12 +2482,12 @@ void E_ArenaArenawardRewardDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_ArenaArenawardRewardDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_id(), target);
   }
@@ -2503,14 +2503,14 @@ int E_ArenaArenawardRewardDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_value = 1;
+    // optional int32 m_Value = 1;
     if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_value());
     }
 
-    // optional int32 m_id = 2;
+    // optional int32 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2594,8 +2594,8 @@ void E_ArenaArenawardRewardDesc::Swap(E_ArenaArenawardRewardDesc* other) {
 
 #ifndef _MSC_VER
 const int E_ArenaArenaward::kMIdFieldNumber;
-const int E_ArenaArenaward::kMLvdownFieldNumber;
-const int E_ArenaArenaward::kMLvupFieldNumber;
+const int E_ArenaArenaward::kMLvDownFieldNumber;
+const int E_ArenaArenaward::kMLvUpFieldNumber;
 const int E_ArenaArenaward::kMRewardFieldNumber;
 #endif  // !_MSC_VER
 
@@ -2679,15 +2679,15 @@ bool E_ArenaArenaward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_lvdown;
+        if (input->ExpectTag(16)) goto parse_m_lvDown;
         break;
       }
 
-      // optional int32 m_lvdown = 2;
+      // optional int32 m_lvDown = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_lvdown:
+         parse_m_lvDown:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_lvdown_)));
@@ -2695,15 +2695,15 @@ bool E_ArenaArenaward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_lvup;
+        if (input->ExpectTag(24)) goto parse_m_lvUp;
         break;
       }
 
-      // optional int32 m_lvup = 3;
+      // optional int32 m_lvUp = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_lvup:
+         parse_m_lvUp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_lvup_)));
@@ -2711,21 +2711,21 @@ bool E_ArenaArenaward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_reward;
+        if (input->ExpectTag(34)) goto parse_m_Reward;
         break;
       }
 
-      // repeated .proto_ff.E_ArenaArenawardRewardDesc m_reward = 4;
+      // repeated .proto_ff.E_ArenaArenawardRewardDesc m_Reward = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_reward:
+         parse_m_Reward:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_reward()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_reward;
+        if (input->ExpectTag(34)) goto parse_m_Reward;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2753,17 +2753,17 @@ void E_ArenaArenaward::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_lvdown = 2;
+  // optional int32 m_lvDown = 2;
   if (has_m_lvdown()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_lvdown(), output);
   }
 
-  // optional int32 m_lvup = 3;
+  // optional int32 m_lvUp = 3;
   if (has_m_lvup()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_lvup(), output);
   }
 
-  // repeated .proto_ff.E_ArenaArenawardRewardDesc m_reward = 4;
+  // repeated .proto_ff.E_ArenaArenawardRewardDesc m_Reward = 4;
   for (int i = 0; i < this->m_reward_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, this->m_reward(i), output);
@@ -2782,17 +2782,17 @@ void E_ArenaArenaward::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_lvdown = 2;
+  // optional int32 m_lvDown = 2;
   if (has_m_lvdown()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_lvdown(), target);
   }
 
-  // optional int32 m_lvup = 3;
+  // optional int32 m_lvUp = 3;
   if (has_m_lvup()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_lvup(), target);
   }
 
-  // repeated .proto_ff.E_ArenaArenawardRewardDesc m_reward = 4;
+  // repeated .proto_ff.E_ArenaArenawardRewardDesc m_Reward = 4;
   for (int i = 0; i < this->m_reward_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -2817,14 +2817,14 @@ int E_ArenaArenaward::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_lvdown = 2;
+    // optional int32 m_lvDown = 2;
     if (has_m_lvdown()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_lvdown());
     }
 
-    // optional int32 m_lvup = 3;
+    // optional int32 m_lvUp = 3;
     if (has_m_lvup()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2832,7 +2832,7 @@ int E_ArenaArenaward::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.E_ArenaArenawardRewardDesc m_reward = 4;
+  // repeated .proto_ff.E_ArenaArenawardRewardDesc m_Reward = 4;
   total_size += 1 * this->m_reward_size();
   for (int i = 0; i < this->m_reward_size(); i++) {
     total_size +=
@@ -3125,7 +3125,7 @@ void Sheet_ArenaArenaward::Swap(Sheet_ArenaArenaward* other) {
 
 #ifndef _MSC_VER
 const int E_ArenaRankawardRewardDesc::kMValueFieldNumber;
-const int E_ArenaRankawardRewardDesc::kMIdFieldNumber;
+const int E_ArenaRankawardRewardDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_ArenaRankawardRewardDesc::E_ArenaRankawardRewardDesc()
@@ -3194,7 +3194,7 @@ bool E_ArenaRankawardRewardDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_value = 1;
+      // optional int32 m_Value = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -3205,15 +3205,15 @@ bool E_ArenaRankawardRewardDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int32 m_id = 2;
+      // optional int32 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_id_)));
@@ -3243,12 +3243,12 @@ bool E_ArenaRankawardRewardDesc::MergePartialFromCodedStream(
 
 void E_ArenaRankawardRewardDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_id(), output);
   }
@@ -3261,12 +3261,12 @@ void E_ArenaRankawardRewardDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_ArenaRankawardRewardDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_id(), target);
   }
@@ -3282,14 +3282,14 @@ int E_ArenaRankawardRewardDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_value = 1;
+    // optional int32 m_Value = 1;
     if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_value());
     }
 
-    // optional int32 m_id = 2;
+    // optional int32 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3372,9 +3372,9 @@ void E_ArenaRankawardRewardDesc::Swap(E_ArenaRankawardRewardDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_ArenaRankaward::kMPrizeidFieldNumber;
-const int E_ArenaRankaward::kMArenadownFieldNumber;
-const int E_ArenaRankaward::kMArenaupFieldNumber;
+const int E_ArenaRankaward::kMPrizeIdFieldNumber;
+const int E_ArenaRankaward::kMArenaDownFieldNumber;
+const int E_ArenaRankaward::kMArenaUpFieldNumber;
 const int E_ArenaRankaward::kMRewardFieldNumber;
 #endif  // !_MSC_VER
 
@@ -3447,7 +3447,7 @@ bool E_ArenaRankaward::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_prizeid = 1;
+      // optional int32 m_PrizeId = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -3458,15 +3458,15 @@ bool E_ArenaRankaward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_arenadown;
+        if (input->ExpectTag(16)) goto parse_m_arenaDown;
         break;
       }
 
-      // optional int32 m_arenadown = 2;
+      // optional int32 m_arenaDown = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_arenadown:
+         parse_m_arenaDown:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_arenadown_)));
@@ -3474,15 +3474,15 @@ bool E_ArenaRankaward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_arenaup;
+        if (input->ExpectTag(24)) goto parse_m_arenaUp;
         break;
       }
 
-      // optional int32 m_arenaup = 3;
+      // optional int32 m_arenaUp = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_arenaup:
+         parse_m_arenaUp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_arenaup_)));
@@ -3490,21 +3490,21 @@ bool E_ArenaRankaward::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_reward;
+        if (input->ExpectTag(34)) goto parse_m_Reward;
         break;
       }
 
-      // repeated .proto_ff.E_ArenaRankawardRewardDesc m_reward = 4;
+      // repeated .proto_ff.E_ArenaRankawardRewardDesc m_Reward = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_reward:
+         parse_m_Reward:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_reward()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_reward;
+        if (input->ExpectTag(34)) goto parse_m_Reward;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -3527,22 +3527,22 @@ bool E_ArenaRankaward::MergePartialFromCodedStream(
 
 void E_ArenaRankaward::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_prizeid = 1;
+  // optional int32 m_PrizeId = 1;
   if (has_m_prizeid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_prizeid(), output);
   }
 
-  // optional int32 m_arenadown = 2;
+  // optional int32 m_arenaDown = 2;
   if (has_m_arenadown()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_arenadown(), output);
   }
 
-  // optional int32 m_arenaup = 3;
+  // optional int32 m_arenaUp = 3;
   if (has_m_arenaup()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_arenaup(), output);
   }
 
-  // repeated .proto_ff.E_ArenaRankawardRewardDesc m_reward = 4;
+  // repeated .proto_ff.E_ArenaRankawardRewardDesc m_Reward = 4;
   for (int i = 0; i < this->m_reward_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, this->m_reward(i), output);
@@ -3556,22 +3556,22 @@ void E_ArenaRankaward::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_ArenaRankaward::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_prizeid = 1;
+  // optional int32 m_PrizeId = 1;
   if (has_m_prizeid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_prizeid(), target);
   }
 
-  // optional int32 m_arenadown = 2;
+  // optional int32 m_arenaDown = 2;
   if (has_m_arenadown()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_arenadown(), target);
   }
 
-  // optional int32 m_arenaup = 3;
+  // optional int32 m_arenaUp = 3;
   if (has_m_arenaup()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_arenaup(), target);
   }
 
-  // repeated .proto_ff.E_ArenaRankawardRewardDesc m_reward = 4;
+  // repeated .proto_ff.E_ArenaRankawardRewardDesc m_Reward = 4;
   for (int i = 0; i < this->m_reward_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -3589,21 +3589,21 @@ int E_ArenaRankaward::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_prizeid = 1;
+    // optional int32 m_PrizeId = 1;
     if (has_m_prizeid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_prizeid());
     }
 
-    // optional int32 m_arenadown = 2;
+    // optional int32 m_arenaDown = 2;
     if (has_m_arenadown()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_arenadown());
     }
 
-    // optional int32 m_arenaup = 3;
+    // optional int32 m_arenaUp = 3;
     if (has_m_arenaup()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3611,7 +3611,7 @@ int E_ArenaRankaward::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.E_ArenaRankawardRewardDesc m_reward = 4;
+  // repeated .proto_ff.E_ArenaRankawardRewardDesc m_Reward = 4;
   total_size += 1 * this->m_reward_size();
   for (int i = 0; i < this->m_reward_size(); i++) {
     total_size +=
@@ -3904,7 +3904,7 @@ void Sheet_ArenaRankaward::Swap(Sheet_ArenaRankaward* other) {
 
 #ifndef _MSC_VER
 const int E_ArenaFirstrankRewardDesc::kMValueFieldNumber;
-const int E_ArenaFirstrankRewardDesc::kMIdFieldNumber;
+const int E_ArenaFirstrankRewardDesc::kMIDFieldNumber;
 #endif  // !_MSC_VER
 
 E_ArenaFirstrankRewardDesc::E_ArenaFirstrankRewardDesc()
@@ -3973,7 +3973,7 @@ bool E_ArenaFirstrankRewardDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_value = 1;
+      // optional int32 m_Value = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -3984,15 +3984,15 @@ bool E_ArenaFirstrankRewardDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_id;
+        if (input->ExpectTag(16)) goto parse_m_ID;
         break;
       }
 
-      // optional int32 m_id = 2;
+      // optional int32 m_ID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_id:
+         parse_m_ID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_id_)));
@@ -4022,12 +4022,12 @@ bool E_ArenaFirstrankRewardDesc::MergePartialFromCodedStream(
 
 void E_ArenaFirstrankRewardDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_id(), output);
   }
@@ -4040,12 +4040,12 @@ void E_ArenaFirstrankRewardDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_ArenaFirstrankRewardDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_id(), target);
   }
@@ -4061,14 +4061,14 @@ int E_ArenaFirstrankRewardDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_value = 1;
+    // optional int32 m_Value = 1;
     if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_value());
     }
 
-    // optional int32 m_id = 2;
+    // optional int32 m_ID = 2;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4152,8 +4152,8 @@ void E_ArenaFirstrankRewardDesc::Swap(E_ArenaFirstrankRewardDesc* other) {
 
 #ifndef _MSC_VER
 const int E_ArenaFirstrank::kMIdFieldNumber;
-const int E_ArenaFirstrank::kMRankdownFieldNumber;
-const int E_ArenaFirstrank::kMRankupFieldNumber;
+const int E_ArenaFirstrank::kMRankDownFieldNumber;
+const int E_ArenaFirstrank::kMRankUpFieldNumber;
 const int E_ArenaFirstrank::kMRewardFieldNumber;
 #endif  // !_MSC_VER
 
@@ -4237,15 +4237,15 @@ bool E_ArenaFirstrank::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_rankdown;
+        if (input->ExpectTag(16)) goto parse_m_rankDown;
         break;
       }
 
-      // optional int32 m_rankdown = 2;
+      // optional int32 m_rankDown = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rankdown:
+         parse_m_rankDown:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rankdown_)));
@@ -4253,15 +4253,15 @@ bool E_ArenaFirstrank::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_rankup;
+        if (input->ExpectTag(24)) goto parse_m_rankUp;
         break;
       }
 
-      // optional int32 m_rankup = 3;
+      // optional int32 m_rankUp = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rankup:
+         parse_m_rankUp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rankup_)));
@@ -4269,21 +4269,21 @@ bool E_ArenaFirstrank::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_reward;
+        if (input->ExpectTag(34)) goto parse_m_Reward;
         break;
       }
 
-      // repeated .proto_ff.E_ArenaFirstrankRewardDesc m_reward = 4;
+      // repeated .proto_ff.E_ArenaFirstrankRewardDesc m_Reward = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_reward:
+         parse_m_Reward:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_reward()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_reward;
+        if (input->ExpectTag(34)) goto parse_m_Reward;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -4311,17 +4311,17 @@ void E_ArenaFirstrank::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_rankdown = 2;
+  // optional int32 m_rankDown = 2;
   if (has_m_rankdown()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_rankdown(), output);
   }
 
-  // optional int32 m_rankup = 3;
+  // optional int32 m_rankUp = 3;
   if (has_m_rankup()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_rankup(), output);
   }
 
-  // repeated .proto_ff.E_ArenaFirstrankRewardDesc m_reward = 4;
+  // repeated .proto_ff.E_ArenaFirstrankRewardDesc m_Reward = 4;
   for (int i = 0; i < this->m_reward_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, this->m_reward(i), output);
@@ -4340,17 +4340,17 @@ void E_ArenaFirstrank::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_rankdown = 2;
+  // optional int32 m_rankDown = 2;
   if (has_m_rankdown()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_rankdown(), target);
   }
 
-  // optional int32 m_rankup = 3;
+  // optional int32 m_rankUp = 3;
   if (has_m_rankup()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_rankup(), target);
   }
 
-  // repeated .proto_ff.E_ArenaFirstrankRewardDesc m_reward = 4;
+  // repeated .proto_ff.E_ArenaFirstrankRewardDesc m_Reward = 4;
   for (int i = 0; i < this->m_reward_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -4375,14 +4375,14 @@ int E_ArenaFirstrank::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_rankdown = 2;
+    // optional int32 m_rankDown = 2;
     if (has_m_rankdown()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_rankdown());
     }
 
-    // optional int32 m_rankup = 3;
+    // optional int32 m_rankUp = 3;
     if (has_m_rankup()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4390,7 +4390,7 @@ int E_ArenaFirstrank::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.E_ArenaFirstrankRewardDesc m_reward = 4;
+  // repeated .proto_ff.E_ArenaFirstrankRewardDesc m_Reward = 4;
   total_size += 1 * this->m_reward_size();
   for (int i = 0; i < this->m_reward_size(); i++) {
     total_size +=
@@ -4683,7 +4683,7 @@ void Sheet_ArenaFirstrank::Swap(Sheet_ArenaFirstrank* other) {
 
 #ifndef _MSC_VER
 const int E_ArenaBuychallenge::kMCountFieldNumber;
-const int E_ArenaBuychallenge::kMCosttypeFieldNumber;
+const int E_ArenaBuychallenge::kMCostTypeFieldNumber;
 const int E_ArenaBuychallenge::kMCostFieldNumber;
 #endif  // !_MSC_VER
 
@@ -4766,15 +4766,15 @@ bool E_ArenaBuychallenge::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_costtype;
+        if (input->ExpectTag(16)) goto parse_m_costType;
         break;
       }
 
-      // optional int32 m_costtype = 2;
+      // optional int32 m_costType = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_costtype:
+         parse_m_costType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_costtype_)));
@@ -4825,7 +4825,7 @@ void E_ArenaBuychallenge::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_count(), output);
   }
 
-  // optional int32 m_costtype = 2;
+  // optional int32 m_costType = 2;
   if (has_m_costtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_costtype(), output);
   }
@@ -4848,7 +4848,7 @@ void E_ArenaBuychallenge::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_count(), target);
   }
 
-  // optional int32 m_costtype = 2;
+  // optional int32 m_costType = 2;
   if (has_m_costtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_costtype(), target);
   }
@@ -4876,7 +4876,7 @@ int E_ArenaBuychallenge::ByteSize() const {
           this->m_count());
     }
 
-    // optional int32 m_costtype = 2;
+    // optional int32 m_costType = 2;
     if (has_m_costtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

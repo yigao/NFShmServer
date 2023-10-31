@@ -295,57 +295,57 @@ void protobuf_AddDesc_E_5fBoss_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\014E_Boss.proto\022\010proto_ff\032\025yd_fieldoption"
-    "s.proto\"Q\n\016E_BossRareitem\022\036\n\010m_itemid\030\001 "
+    "s.proto\"Q\n\016E_BossRareitem\022\036\n\010m_itemID\030\001 "
     "\001(\003B\014\302\377\024\010\347\211\251\345\223\201ID\022\037\n\005m_top\030\002 \001(\005B\020\302\377\024\014\346\230"
     "\257\345\220\246\347\275\256\351\241\266\"R\n\022Sheet_BossRareitem\022<\n\023E_Bo"
     "ssRareitem_List\030\001 \003(\0132\030.proto_ff.E_BossR"
     "areitemB\005\210\301\024\200\010\"\212\005\n\nE_BossBoss\022\030\n\004m_id\030\001 "
-    "\001(\005B\n\302\377\024\006bossID\022\"\n\nm_bosstype\030\002 \001(\005B\016\302\377\024"
-    "\nBOSS\347\261\273\345\236\213\022!\n\013m_monsterid\030\003 \001(\005B\014\302\377\024\010\346\200"
-    "\252\347\211\251ID\022 \n\014m_classorder\030\004 \001(\005B\n\302\377\024\006\351\230\266\346\254\241"
-    "\022&\n\014m_sceneorder\030\005 \001(\005B\020\302\377\024\014\346\211\200\345\261\236\345\261\202\347\272\247"
-    "\022#\n\rm_duplicateid\030\006 \001(\005B\014\302\377\024\010\345\211\257\346\234\254ID\022%\n"
-    "\013m_peacemask\030\007 \001(\005B\020\302\377\024\014\345\222\214\345\271\263\346\240\207\350\256\260\022 \n\t"
-    "m_pointid\030\010 \001(\005B\r\302\377\024\t\344\275\215\347\275\256\347\202\271\022$\n\nm_flas"
-    "hnum\030\t \001(\005B\020\302\377\024\014\345\210\267\346\226\260\346\225\260\351\207\217\022#\n\014m_group_"
+    "\001(\005B\n\302\377\024\006bossID\022\"\n\nm_bossType\030\002 \001(\005B\016\302\377\024"
+    "\nBOSS\347\261\273\345\236\213\022!\n\013m_monsterID\030\003 \001(\005B\014\302\377\024\010\346\200"
+    "\252\347\211\251ID\022 \n\014m_classOrder\030\004 \001(\005B\n\302\377\024\006\351\230\266\346\254\241"
+    "\022&\n\014m_sceneOrder\030\005 \001(\005B\020\302\377\024\014\346\211\200\345\261\236\345\261\202\347\272\247"
+    "\022#\n\rm_duplicateID\030\006 \001(\005B\014\302\377\024\010\345\211\257\346\234\254ID\022%\n"
+    "\013m_peaceMask\030\007 \001(\005B\020\302\377\024\014\345\222\214\345\271\263\346\240\207\350\256\260\022 \n\t"
+    "m_pointID\030\010 \001(\005B\r\302\377\024\t\344\275\215\347\275\256\347\202\271\022$\n\nm_flas"
+    "hNum\030\t \001(\005B\020\302\377\024\014\345\210\267\346\226\260\346\225\260\351\207\217\022#\n\014m_group_"
     "type\030\n \001(\005B\r\302\377\024\t\347\273\204\347\261\273\345\236\213\022)\n\010m_ishide\030\013 "
     "\001(\005B\027\302\377\024\023\346\230\257\345\220\246\346\230\257\351\232\220\350\227\217boss\022/\n\014m_trigge"
-    "rpro\030\014 \001(\005B\031\302\377\024\025\350\247\246\345\217\221\351\232\220\350\227\217\347\232\204\346\246\202\347\216\207\022%\n"
-    "\013m_flashtime\030\r \001(\005B\020\302\377\024\014\345\210\267\346\226\260\351\227\264\351\232\224\022,\n\020"
-    "m_retrievegiftid\030\016 \001(\005B\022\302\377\024\016\346\211\276\345\233\236\347\244\274\345\214\205"
-    "id\022,\n\tm_notimes\030\017 \001(\005B\031\302\377\024\025\346\230\257\345\220\246\344\270\215\346\266\210\350"
-    "\200\227\346\254\241\346\225\260\0229\n\020m_assistprestige\030\020 \001(\005B\037\302\377\024\033"
+    "rPro\030\014 \001(\005B\031\302\377\024\025\350\247\246\345\217\221\351\232\220\350\227\217\347\232\204\346\246\202\347\216\207\022%\n"
+    "\013m_flashTime\030\r \001(\005B\020\302\377\024\014\345\210\267\346\226\260\351\227\264\351\232\224\022,\n\020"
+    "m_retrieveGiftID\030\016 \001(\005B\022\302\377\024\016\346\211\276\345\233\236\347\244\274\345\214\205"
+    "id\022,\n\tm_noTimes\030\017 \001(\005B\031\302\377\024\025\346\230\257\345\220\246\344\270\215\346\266\210\350"
+    "\200\227\346\254\241\346\225\260\0229\n\020m_assistPrestige\030\020 \001(\005B\037\302\377\024\033"
     "\345\215\217\345\212\251\345\207\273\346\235\200\345\245\226\345\212\261\347\232\204\345\243\260\346\234\233\"F\n\016Sheet_Bos"
     "sBoss\0224\n\017E_BossBoss_List\030\001 \003(\0132\024.proto_f"
     "f.E_BossBossB\005\210\301\024\200\010\"R\n\027E_BossBosstypeGro"
     "upDesc\022\033\n\007m_times\030\001 \001(\005B\n\302\377\024\006\346\254\241\346\225\260\022\032\n\006m"
     "_type\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"\324\005\n\016E_BossBossty"
-    "pe\022!\n\nm_bosstype\030\001 \001(\005B\r\302\377\024\t\346\200\273\347\261\273\345\236\213\022#\n"
-    "\tm_maptype\030\002 \001(\005B\020\302\377\024\014\345\234\260\345\233\276\347\261\273\345\236\213\022(\n\014m_"
-    "functionid\030\003 \001(\005B\022\302\377\024\016\345\212\237\350\203\275\350\247\243\351\224\201ID\022+\n\022"
-    "m_duplicategroupid\030\004 \001(\005B\017\302\377\024\013\345\211\257\346\234\254\347\273\204I"
-    "D\022)\n\017m_privilegetype\030\005 \001(\005B\020\302\377\024\014\347\211\271\346\235\203\347\261"
-    "\273\345\236\213\022(\n\017m_callingcardid\030\006 \001(\003B\017\302\377\024\013\345\217\254\345\224"
-    "\244\345\215\241id\022&\n\014m_entertimes\030\007 \001(\005B\020\302\377\024\014\350\277\233\345\205\245"
+    "pe\022!\n\nm_bossType\030\001 \001(\005B\r\302\377\024\t\346\200\273\347\261\273\345\236\213\022#\n"
+    "\tm_mapType\030\002 \001(\005B\020\302\377\024\014\345\234\260\345\233\276\347\261\273\345\236\213\022(\n\014m_"
+    "functionId\030\003 \001(\005B\022\302\377\024\016\345\212\237\350\203\275\350\247\243\351\224\201ID\022+\n\022"
+    "m_duplicateGroupID\030\004 \001(\005B\017\302\377\024\013\345\211\257\346\234\254\347\273\204I"
+    "D\022)\n\017m_privilegeType\030\005 \001(\005B\020\302\377\024\014\347\211\271\346\235\203\347\261"
+    "\273\345\236\213\022(\n\017m_callingCardId\030\006 \001(\003B\017\302\377\024\013\345\217\254\345\224"
+    "\244\345\215\241id\022&\n\014m_enterTimes\030\007 \001(\005B\020\302\377\024\014\350\277\233\345\205\245"
     "\346\254\241\346\225\260\022*\n\nm_costitem\030\010 \001(\005B\026\302\377\024\022\350\277\233\345\205\245\346\266"
     "\210\350\200\227\347\211\251\345\223\201\0223\n\tm_costnum\030\t \001(\tB \302\377\024\030\350\277\233\345\205"
-    "\245\346\266\210\350\200\227\347\211\251\345\223\201\346\225\260\351\207\217\220\301\024@\022#\n\013m_bosstimes\030\n"
-    " \001(\005B\016\302\377\024\nboss\346\254\241\346\225\260\022-\n\013m_additemid\030\013 \001("
+    "\245\346\266\210\350\200\227\347\211\251\345\223\201\346\225\260\351\207\217\220\301\024@\022#\n\013m_bossTimes\030\n"
+    " \001(\005B\016\302\377\024\nboss\346\254\241\346\225\260\022-\n\013m_addItemID\030\013 \001("
     "\005B\030\302\377\024\024\345\242\236\345\212\240\346\254\241\346\225\260\347\211\251\345\223\201ID\022)\n\tm_canhelp"
     "\030\014 \001(\005B\026\302\377\024\022\346\230\257\345\220\246\345\217\257\344\273\245\346\217\264\345\212\251\022-\n\007m_qkil"
     "l\030\r \001(\005B\034\302\377\024\030\346\230\257\345\220\246\346\224\257\346\214\201\345\277\253\351\200\237\345\207\273\346\235\200\022)\n"
-    "\017m_retrieveddays\030\016 \001(\005B\020\302\377\024\014\346\211\276\345\233\236\345\244\251\346\225\260"
+    "\017m_retrievedDays\030\016 \001(\005B\020\302\377\024\014\346\211\276\345\233\236\345\244\251\346\225\260"
     "\022\'\n\007m_skill\030\017 \001(\005B\026\302\377\024\022\347\272\263\345\205\245\345\205\250\346\234\215\351\246\226\346\235"
     "\200\022C\n\007m_group\030\020 \003(\0132!.proto_ff.E_BossBoss"
     "typeGroupDescB\017\302\377\024\007Boss\347\273\204\210\301\024\003\"Q\n\022Sheet_"
     "BossBosstype\022;\n\023E_BossBosstype_List\030\001 \003("
     "\0132\030.proto_ff.E_BossBosstypeB\004\210\301\024\020\"\250\002\n\013E_"
-    "BossLayer\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\036\n\nm_bos"
-    "stype\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\033\n\007m_order\030\003 \001(\005"
-    "B\n\302\377\024\006\346\216\222\345\272\217\022\035\n\tm_subtype\030\004 \001(\005B\n\302\377\024\006\347\261\273"
-    "\345\236\213\022.\n\020m_entercondition\030\005 \001(\tB\024\302\377\024\014\350\277\233\345\205"
-    "\245\346\235\241\344\273\266\220\301\024@\022/\n\021m_unlockcondition\030\006 \001(\tB\024"
-    "\302\377\024\014\350\247\243\351\224\201\346\235\241\344\273\266\220\301\024@\022\035\n\007m_mapid\030\007 \001(\005B\014\302"
+    "BossLayer\022\024\n\004m_ID\030\001 \001(\005B\006\302\377\024\002id\022\036\n\nm_bos"
+    "sType\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\033\n\007m_order\030\003 \001(\005"
+    "B\n\302\377\024\006\346\216\222\345\272\217\022\035\n\tm_subType\030\004 \001(\005B\n\302\377\024\006\347\261\273"
+    "\345\236\213\022.\n\020m_enterCondition\030\005 \001(\tB\024\302\377\024\014\350\277\233\345\205"
+    "\245\346\235\241\344\273\266\220\301\024@\022/\n\021m_unlockCondition\030\006 \001(\tB\024"
+    "\302\377\024\014\350\247\243\351\224\201\346\235\241\344\273\266\220\301\024@\022\035\n\007m_mapID\030\007 \001(\005B\014\302"
     "\377\024\010\345\234\260\345\233\276ID\022\'\n\007m_maxlv\030\010 \001(\005B\026\302\377\024\022\346\234\200\345\244\247"
     "\350\277\233\345\205\245\347\255\211\347\272\247\"H\n\017Sheet_BossLayer\0225\n\020E_Bos"
     "sLayer_List\030\001 \003(\0132\025.proto_ff.E_BossLayer"
@@ -383,7 +383,7 @@ struct StaticDescriptorInitializer_E_5fBoss_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_BossRareitem::kMItemidFieldNumber;
+const int E_BossRareitem::kMItemIDFieldNumber;
 const int E_BossRareitem::kMTopFieldNumber;
 #endif  // !_MSC_VER
 
@@ -453,7 +453,7 @@ bool E_BossRareitem::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 m_itemid = 1;
+      // optional int64 m_itemID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -502,7 +502,7 @@ bool E_BossRareitem::MergePartialFromCodedStream(
 
 void E_BossRareitem::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 m_itemid = 1;
+  // optional int64 m_itemID = 1;
   if (has_m_itemid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_itemid(), output);
   }
@@ -520,7 +520,7 @@ void E_BossRareitem::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_BossRareitem::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 m_itemid = 1;
+  // optional int64 m_itemID = 1;
   if (has_m_itemid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_itemid(), target);
   }
@@ -541,7 +541,7 @@ int E_BossRareitem::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 m_itemid = 1;
+    // optional int64 m_itemID = 1;
     if (has_m_itemid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -835,21 +835,21 @@ void Sheet_BossRareitem::Swap(Sheet_BossRareitem* other) {
 
 #ifndef _MSC_VER
 const int E_BossBoss::kMIdFieldNumber;
-const int E_BossBoss::kMBosstypeFieldNumber;
-const int E_BossBoss::kMMonsteridFieldNumber;
-const int E_BossBoss::kMClassorderFieldNumber;
-const int E_BossBoss::kMSceneorderFieldNumber;
-const int E_BossBoss::kMDuplicateidFieldNumber;
-const int E_BossBoss::kMPeacemaskFieldNumber;
-const int E_BossBoss::kMPointidFieldNumber;
-const int E_BossBoss::kMFlashnumFieldNumber;
+const int E_BossBoss::kMBossTypeFieldNumber;
+const int E_BossBoss::kMMonsterIDFieldNumber;
+const int E_BossBoss::kMClassOrderFieldNumber;
+const int E_BossBoss::kMSceneOrderFieldNumber;
+const int E_BossBoss::kMDuplicateIDFieldNumber;
+const int E_BossBoss::kMPeaceMaskFieldNumber;
+const int E_BossBoss::kMPointIDFieldNumber;
+const int E_BossBoss::kMFlashNumFieldNumber;
 const int E_BossBoss::kMGroupTypeFieldNumber;
 const int E_BossBoss::kMIshideFieldNumber;
-const int E_BossBoss::kMTriggerproFieldNumber;
-const int E_BossBoss::kMFlashtimeFieldNumber;
-const int E_BossBoss::kMRetrievegiftidFieldNumber;
-const int E_BossBoss::kMNotimesFieldNumber;
-const int E_BossBoss::kMAssistprestigeFieldNumber;
+const int E_BossBoss::kMTriggerProFieldNumber;
+const int E_BossBoss::kMFlashTimeFieldNumber;
+const int E_BossBoss::kMRetrieveGiftIDFieldNumber;
+const int E_BossBoss::kMNoTimesFieldNumber;
+const int E_BossBoss::kMAssistPrestigeFieldNumber;
 #endif  // !_MSC_VER
 
 E_BossBoss::E_BossBoss()
@@ -959,15 +959,15 @@ bool E_BossBoss::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_bosstype;
+        if (input->ExpectTag(16)) goto parse_m_bossType;
         break;
       }
 
-      // optional int32 m_bosstype = 2;
+      // optional int32 m_bossType = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_bosstype:
+         parse_m_bossType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_bosstype_)));
@@ -975,15 +975,15 @@ bool E_BossBoss::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_monsterid;
+        if (input->ExpectTag(24)) goto parse_m_monsterID;
         break;
       }
 
-      // optional int32 m_monsterid = 3;
+      // optional int32 m_monsterID = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_monsterid:
+         parse_m_monsterID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_monsterid_)));
@@ -991,15 +991,15 @@ bool E_BossBoss::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_classorder;
+        if (input->ExpectTag(32)) goto parse_m_classOrder;
         break;
       }
 
-      // optional int32 m_classorder = 4;
+      // optional int32 m_classOrder = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_classorder:
+         parse_m_classOrder:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_classorder_)));
@@ -1007,15 +1007,15 @@ bool E_BossBoss::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_sceneorder;
+        if (input->ExpectTag(40)) goto parse_m_sceneOrder;
         break;
       }
 
-      // optional int32 m_sceneorder = 5;
+      // optional int32 m_sceneOrder = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_sceneorder:
+         parse_m_sceneOrder:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_sceneorder_)));
@@ -1023,15 +1023,15 @@ bool E_BossBoss::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_duplicateid;
+        if (input->ExpectTag(48)) goto parse_m_duplicateID;
         break;
       }
 
-      // optional int32 m_duplicateid = 6;
+      // optional int32 m_duplicateID = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_duplicateid:
+         parse_m_duplicateID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_duplicateid_)));
@@ -1039,15 +1039,15 @@ bool E_BossBoss::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_peacemask;
+        if (input->ExpectTag(56)) goto parse_m_peaceMask;
         break;
       }
 
-      // optional int32 m_peacemask = 7;
+      // optional int32 m_peaceMask = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_peacemask:
+         parse_m_peaceMask:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_peacemask_)));
@@ -1055,15 +1055,15 @@ bool E_BossBoss::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_pointid;
+        if (input->ExpectTag(64)) goto parse_m_pointID;
         break;
       }
 
-      // optional int32 m_pointid = 8;
+      // optional int32 m_pointID = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_pointid:
+         parse_m_pointID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_pointid_)));
@@ -1071,15 +1071,15 @@ bool E_BossBoss::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_flashnum;
+        if (input->ExpectTag(72)) goto parse_m_flashNum;
         break;
       }
 
-      // optional int32 m_flashnum = 9;
+      // optional int32 m_flashNum = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_flashnum:
+         parse_m_flashNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_flashnum_)));
@@ -1119,15 +1119,15 @@ bool E_BossBoss::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_triggerpro;
+        if (input->ExpectTag(96)) goto parse_m_triggerPro;
         break;
       }
 
-      // optional int32 m_triggerpro = 12;
+      // optional int32 m_triggerPro = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_triggerpro:
+         parse_m_triggerPro:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_triggerpro_)));
@@ -1135,15 +1135,15 @@ bool E_BossBoss::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_m_flashtime;
+        if (input->ExpectTag(104)) goto parse_m_flashTime;
         break;
       }
 
-      // optional int32 m_flashtime = 13;
+      // optional int32 m_flashTime = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_flashtime:
+         parse_m_flashTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_flashtime_)));
@@ -1151,15 +1151,15 @@ bool E_BossBoss::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(112)) goto parse_m_retrievegiftid;
+        if (input->ExpectTag(112)) goto parse_m_retrieveGiftID;
         break;
       }
 
-      // optional int32 m_retrievegiftid = 14;
+      // optional int32 m_retrieveGiftID = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_retrievegiftid:
+         parse_m_retrieveGiftID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_retrievegiftid_)));
@@ -1167,15 +1167,15 @@ bool E_BossBoss::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(120)) goto parse_m_notimes;
+        if (input->ExpectTag(120)) goto parse_m_noTimes;
         break;
       }
 
-      // optional int32 m_notimes = 15;
+      // optional int32 m_noTimes = 15;
       case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_notimes:
+         parse_m_noTimes:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_notimes_)));
@@ -1183,15 +1183,15 @@ bool E_BossBoss::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(128)) goto parse_m_assistprestige;
+        if (input->ExpectTag(128)) goto parse_m_assistPrestige;
         break;
       }
 
-      // optional int32 m_assistprestige = 16;
+      // optional int32 m_assistPrestige = 16;
       case 16: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_assistprestige:
+         parse_m_assistPrestige:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_assistprestige_)));
@@ -1226,42 +1226,42 @@ void E_BossBoss::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_bosstype = 2;
+  // optional int32 m_bossType = 2;
   if (has_m_bosstype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_bosstype(), output);
   }
 
-  // optional int32 m_monsterid = 3;
+  // optional int32 m_monsterID = 3;
   if (has_m_monsterid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_monsterid(), output);
   }
 
-  // optional int32 m_classorder = 4;
+  // optional int32 m_classOrder = 4;
   if (has_m_classorder()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_classorder(), output);
   }
 
-  // optional int32 m_sceneorder = 5;
+  // optional int32 m_sceneOrder = 5;
   if (has_m_sceneorder()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_sceneorder(), output);
   }
 
-  // optional int32 m_duplicateid = 6;
+  // optional int32 m_duplicateID = 6;
   if (has_m_duplicateid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_duplicateid(), output);
   }
 
-  // optional int32 m_peacemask = 7;
+  // optional int32 m_peaceMask = 7;
   if (has_m_peacemask()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_peacemask(), output);
   }
 
-  // optional int32 m_pointid = 8;
+  // optional int32 m_pointID = 8;
   if (has_m_pointid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_pointid(), output);
   }
 
-  // optional int32 m_flashnum = 9;
+  // optional int32 m_flashNum = 9;
   if (has_m_flashnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_flashnum(), output);
   }
@@ -1276,27 +1276,27 @@ void E_BossBoss::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_ishide(), output);
   }
 
-  // optional int32 m_triggerpro = 12;
+  // optional int32 m_triggerPro = 12;
   if (has_m_triggerpro()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_triggerpro(), output);
   }
 
-  // optional int32 m_flashtime = 13;
+  // optional int32 m_flashTime = 13;
   if (has_m_flashtime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_flashtime(), output);
   }
 
-  // optional int32 m_retrievegiftid = 14;
+  // optional int32 m_retrieveGiftID = 14;
   if (has_m_retrievegiftid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_retrievegiftid(), output);
   }
 
-  // optional int32 m_notimes = 15;
+  // optional int32 m_noTimes = 15;
   if (has_m_notimes()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_notimes(), output);
   }
 
-  // optional int32 m_assistprestige = 16;
+  // optional int32 m_assistPrestige = 16;
   if (has_m_assistprestige()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->m_assistprestige(), output);
   }
@@ -1314,42 +1314,42 @@ void E_BossBoss::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_bosstype = 2;
+  // optional int32 m_bossType = 2;
   if (has_m_bosstype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_bosstype(), target);
   }
 
-  // optional int32 m_monsterid = 3;
+  // optional int32 m_monsterID = 3;
   if (has_m_monsterid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_monsterid(), target);
   }
 
-  // optional int32 m_classorder = 4;
+  // optional int32 m_classOrder = 4;
   if (has_m_classorder()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_classorder(), target);
   }
 
-  // optional int32 m_sceneorder = 5;
+  // optional int32 m_sceneOrder = 5;
   if (has_m_sceneorder()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_sceneorder(), target);
   }
 
-  // optional int32 m_duplicateid = 6;
+  // optional int32 m_duplicateID = 6;
   if (has_m_duplicateid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_duplicateid(), target);
   }
 
-  // optional int32 m_peacemask = 7;
+  // optional int32 m_peaceMask = 7;
   if (has_m_peacemask()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_peacemask(), target);
   }
 
-  // optional int32 m_pointid = 8;
+  // optional int32 m_pointID = 8;
   if (has_m_pointid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_pointid(), target);
   }
 
-  // optional int32 m_flashnum = 9;
+  // optional int32 m_flashNum = 9;
   if (has_m_flashnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_flashnum(), target);
   }
@@ -1364,27 +1364,27 @@ void E_BossBoss::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_ishide(), target);
   }
 
-  // optional int32 m_triggerpro = 12;
+  // optional int32 m_triggerPro = 12;
   if (has_m_triggerpro()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_triggerpro(), target);
   }
 
-  // optional int32 m_flashtime = 13;
+  // optional int32 m_flashTime = 13;
   if (has_m_flashtime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_flashtime(), target);
   }
 
-  // optional int32 m_retrievegiftid = 14;
+  // optional int32 m_retrieveGiftID = 14;
   if (has_m_retrievegiftid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_retrievegiftid(), target);
   }
 
-  // optional int32 m_notimes = 15;
+  // optional int32 m_noTimes = 15;
   if (has_m_notimes()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_notimes(), target);
   }
 
-  // optional int32 m_assistprestige = 16;
+  // optional int32 m_assistPrestige = 16;
   if (has_m_assistprestige()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->m_assistprestige(), target);
   }
@@ -1407,49 +1407,49 @@ int E_BossBoss::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_bosstype = 2;
+    // optional int32 m_bossType = 2;
     if (has_m_bosstype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_bosstype());
     }
 
-    // optional int32 m_monsterid = 3;
+    // optional int32 m_monsterID = 3;
     if (has_m_monsterid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_monsterid());
     }
 
-    // optional int32 m_classorder = 4;
+    // optional int32 m_classOrder = 4;
     if (has_m_classorder()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_classorder());
     }
 
-    // optional int32 m_sceneorder = 5;
+    // optional int32 m_sceneOrder = 5;
     if (has_m_sceneorder()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_sceneorder());
     }
 
-    // optional int32 m_duplicateid = 6;
+    // optional int32 m_duplicateID = 6;
     if (has_m_duplicateid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_duplicateid());
     }
 
-    // optional int32 m_peacemask = 7;
+    // optional int32 m_peaceMask = 7;
     if (has_m_peacemask()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_peacemask());
     }
 
-    // optional int32 m_pointid = 8;
+    // optional int32 m_pointID = 8;
     if (has_m_pointid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1458,7 +1458,7 @@ int E_BossBoss::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_flashnum = 9;
+    // optional int32 m_flashNum = 9;
     if (has_m_flashnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1479,35 +1479,35 @@ int E_BossBoss::ByteSize() const {
           this->m_ishide());
     }
 
-    // optional int32 m_triggerpro = 12;
+    // optional int32 m_triggerPro = 12;
     if (has_m_triggerpro()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_triggerpro());
     }
 
-    // optional int32 m_flashtime = 13;
+    // optional int32 m_flashTime = 13;
     if (has_m_flashtime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_flashtime());
     }
 
-    // optional int32 m_retrievegiftid = 14;
+    // optional int32 m_retrieveGiftID = 14;
     if (has_m_retrievegiftid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_retrievegiftid());
     }
 
-    // optional int32 m_notimes = 15;
+    // optional int32 m_noTimes = 15;
     if (has_m_notimes()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_notimes());
     }
 
-    // optional int32 m_assistprestige = 16;
+    // optional int32 m_assistPrestige = 16;
     if (has_m_assistprestige()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2099,20 +2099,20 @@ void E_BossBosstypeGroupDesc::Swap(E_BossBosstypeGroupDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_BossBosstype::kMBosstypeFieldNumber;
-const int E_BossBosstype::kMMaptypeFieldNumber;
-const int E_BossBosstype::kMFunctionidFieldNumber;
-const int E_BossBosstype::kMDuplicategroupidFieldNumber;
-const int E_BossBosstype::kMPrivilegetypeFieldNumber;
-const int E_BossBosstype::kMCallingcardidFieldNumber;
-const int E_BossBosstype::kMEntertimesFieldNumber;
+const int E_BossBosstype::kMBossTypeFieldNumber;
+const int E_BossBosstype::kMMapTypeFieldNumber;
+const int E_BossBosstype::kMFunctionIdFieldNumber;
+const int E_BossBosstype::kMDuplicateGroupIDFieldNumber;
+const int E_BossBosstype::kMPrivilegeTypeFieldNumber;
+const int E_BossBosstype::kMCallingCardIdFieldNumber;
+const int E_BossBosstype::kMEnterTimesFieldNumber;
 const int E_BossBosstype::kMCostitemFieldNumber;
 const int E_BossBosstype::kMCostnumFieldNumber;
-const int E_BossBosstype::kMBosstimesFieldNumber;
-const int E_BossBosstype::kMAdditemidFieldNumber;
+const int E_BossBosstype::kMBossTimesFieldNumber;
+const int E_BossBosstype::kMAddItemIDFieldNumber;
 const int E_BossBosstype::kMCanhelpFieldNumber;
 const int E_BossBosstype::kMQkillFieldNumber;
-const int E_BossBosstype::kMRetrieveddaysFieldNumber;
+const int E_BossBosstype::kMRetrievedDaysFieldNumber;
 const int E_BossBosstype::kMSkillFieldNumber;
 const int E_BossBosstype::kMGroupFieldNumber;
 #endif  // !_MSC_VER
@@ -2219,7 +2219,7 @@ bool E_BossBosstype::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_bosstype = 1;
+      // optional int32 m_bossType = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -2230,15 +2230,15 @@ bool E_BossBosstype::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_maptype;
+        if (input->ExpectTag(16)) goto parse_m_mapType;
         break;
       }
 
-      // optional int32 m_maptype = 2;
+      // optional int32 m_mapType = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_maptype:
+         parse_m_mapType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_maptype_)));
@@ -2246,15 +2246,15 @@ bool E_BossBosstype::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_functionid;
+        if (input->ExpectTag(24)) goto parse_m_functionId;
         break;
       }
 
-      // optional int32 m_functionid = 3;
+      // optional int32 m_functionId = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_functionid:
+         parse_m_functionId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_functionid_)));
@@ -2262,15 +2262,15 @@ bool E_BossBosstype::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_duplicategroupid;
+        if (input->ExpectTag(32)) goto parse_m_duplicateGroupID;
         break;
       }
 
-      // optional int32 m_duplicategroupid = 4;
+      // optional int32 m_duplicateGroupID = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_duplicategroupid:
+         parse_m_duplicateGroupID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_duplicategroupid_)));
@@ -2278,15 +2278,15 @@ bool E_BossBosstype::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_privilegetype;
+        if (input->ExpectTag(40)) goto parse_m_privilegeType;
         break;
       }
 
-      // optional int32 m_privilegetype = 5;
+      // optional int32 m_privilegeType = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_privilegetype:
+         parse_m_privilegeType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_privilegetype_)));
@@ -2294,15 +2294,15 @@ bool E_BossBosstype::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_callingcardid;
+        if (input->ExpectTag(48)) goto parse_m_callingCardId;
         break;
       }
 
-      // optional int64 m_callingcardid = 6;
+      // optional int64 m_callingCardId = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_callingcardid:
+         parse_m_callingCardId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_callingcardid_)));
@@ -2310,15 +2310,15 @@ bool E_BossBosstype::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_entertimes;
+        if (input->ExpectTag(56)) goto parse_m_enterTimes;
         break;
       }
 
-      // optional int32 m_entertimes = 7;
+      // optional int32 m_enterTimes = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_entertimes:
+         parse_m_enterTimes:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_entertimes_)));
@@ -2359,15 +2359,15 @@ bool E_BossBosstype::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_bosstimes;
+        if (input->ExpectTag(80)) goto parse_m_bossTimes;
         break;
       }
 
-      // optional int32 m_bosstimes = 10;
+      // optional int32 m_bossTimes = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_bosstimes:
+         parse_m_bossTimes:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_bosstimes_)));
@@ -2375,15 +2375,15 @@ bool E_BossBosstype::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_additemid;
+        if (input->ExpectTag(88)) goto parse_m_addItemID;
         break;
       }
 
-      // optional int32 m_additemid = 11;
+      // optional int32 m_addItemID = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_additemid:
+         parse_m_addItemID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_additemid_)));
@@ -2423,15 +2423,15 @@ bool E_BossBosstype::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(112)) goto parse_m_retrieveddays;
+        if (input->ExpectTag(112)) goto parse_m_retrievedDays;
         break;
       }
 
-      // optional int32 m_retrieveddays = 14;
+      // optional int32 m_retrievedDays = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_retrieveddays:
+         parse_m_retrievedDays:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_retrieveddays_)));
@@ -2492,37 +2492,37 @@ bool E_BossBosstype::MergePartialFromCodedStream(
 
 void E_BossBosstype::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_bosstype = 1;
+  // optional int32 m_bossType = 1;
   if (has_m_bosstype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_bosstype(), output);
   }
 
-  // optional int32 m_maptype = 2;
+  // optional int32 m_mapType = 2;
   if (has_m_maptype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_maptype(), output);
   }
 
-  // optional int32 m_functionid = 3;
+  // optional int32 m_functionId = 3;
   if (has_m_functionid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_functionid(), output);
   }
 
-  // optional int32 m_duplicategroupid = 4;
+  // optional int32 m_duplicateGroupID = 4;
   if (has_m_duplicategroupid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_duplicategroupid(), output);
   }
 
-  // optional int32 m_privilegetype = 5;
+  // optional int32 m_privilegeType = 5;
   if (has_m_privilegetype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_privilegetype(), output);
   }
 
-  // optional int64 m_callingcardid = 6;
+  // optional int64 m_callingCardId = 6;
   if (has_m_callingcardid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(6, this->m_callingcardid(), output);
   }
 
-  // optional int32 m_entertimes = 7;
+  // optional int32 m_enterTimes = 7;
   if (has_m_entertimes()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_entertimes(), output);
   }
@@ -2541,12 +2541,12 @@ void E_BossBosstype::SerializeWithCachedSizes(
       9, this->m_costnum(), output);
   }
 
-  // optional int32 m_bosstimes = 10;
+  // optional int32 m_bossTimes = 10;
   if (has_m_bosstimes()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_bosstimes(), output);
   }
 
-  // optional int32 m_additemid = 11;
+  // optional int32 m_addItemID = 11;
   if (has_m_additemid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_additemid(), output);
   }
@@ -2561,7 +2561,7 @@ void E_BossBosstype::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_qkill(), output);
   }
 
-  // optional int32 m_retrieveddays = 14;
+  // optional int32 m_retrievedDays = 14;
   if (has_m_retrieveddays()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_retrieveddays(), output);
   }
@@ -2585,37 +2585,37 @@ void E_BossBosstype::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_BossBosstype::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_bosstype = 1;
+  // optional int32 m_bossType = 1;
   if (has_m_bosstype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_bosstype(), target);
   }
 
-  // optional int32 m_maptype = 2;
+  // optional int32 m_mapType = 2;
   if (has_m_maptype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_maptype(), target);
   }
 
-  // optional int32 m_functionid = 3;
+  // optional int32 m_functionId = 3;
   if (has_m_functionid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_functionid(), target);
   }
 
-  // optional int32 m_duplicategroupid = 4;
+  // optional int32 m_duplicateGroupID = 4;
   if (has_m_duplicategroupid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_duplicategroupid(), target);
   }
 
-  // optional int32 m_privilegetype = 5;
+  // optional int32 m_privilegeType = 5;
   if (has_m_privilegetype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_privilegetype(), target);
   }
 
-  // optional int64 m_callingcardid = 6;
+  // optional int64 m_callingCardId = 6;
   if (has_m_callingcardid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(6, this->m_callingcardid(), target);
   }
 
-  // optional int32 m_entertimes = 7;
+  // optional int32 m_enterTimes = 7;
   if (has_m_entertimes()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_entertimes(), target);
   }
@@ -2635,12 +2635,12 @@ void E_BossBosstype::SerializeWithCachedSizes(
         9, this->m_costnum(), target);
   }
 
-  // optional int32 m_bosstimes = 10;
+  // optional int32 m_bossTimes = 10;
   if (has_m_bosstimes()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_bosstimes(), target);
   }
 
-  // optional int32 m_additemid = 11;
+  // optional int32 m_addItemID = 11;
   if (has_m_additemid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_additemid(), target);
   }
@@ -2655,7 +2655,7 @@ void E_BossBosstype::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_qkill(), target);
   }
 
-  // optional int32 m_retrieveddays = 14;
+  // optional int32 m_retrievedDays = 14;
   if (has_m_retrieveddays()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_retrieveddays(), target);
   }
@@ -2683,49 +2683,49 @@ int E_BossBosstype::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_bosstype = 1;
+    // optional int32 m_bossType = 1;
     if (has_m_bosstype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_bosstype());
     }
 
-    // optional int32 m_maptype = 2;
+    // optional int32 m_mapType = 2;
     if (has_m_maptype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_maptype());
     }
 
-    // optional int32 m_functionid = 3;
+    // optional int32 m_functionId = 3;
     if (has_m_functionid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_functionid());
     }
 
-    // optional int32 m_duplicategroupid = 4;
+    // optional int32 m_duplicateGroupID = 4;
     if (has_m_duplicategroupid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_duplicategroupid());
     }
 
-    // optional int32 m_privilegetype = 5;
+    // optional int32 m_privilegeType = 5;
     if (has_m_privilegetype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_privilegetype());
     }
 
-    // optional int64 m_callingcardid = 6;
+    // optional int64 m_callingCardId = 6;
     if (has_m_callingcardid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_callingcardid());
     }
 
-    // optional int32 m_entertimes = 7;
+    // optional int32 m_enterTimes = 7;
     if (has_m_entertimes()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2748,14 +2748,14 @@ int E_BossBosstype::ByteSize() const {
           this->m_costnum());
     }
 
-    // optional int32 m_bosstimes = 10;
+    // optional int32 m_bossTimes = 10;
     if (has_m_bosstimes()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_bosstimes());
     }
 
-    // optional int32 m_additemid = 11;
+    // optional int32 m_addItemID = 11;
     if (has_m_additemid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2776,7 +2776,7 @@ int E_BossBosstype::ByteSize() const {
           this->m_qkill());
     }
 
-    // optional int32 m_retrieveddays = 14;
+    // optional int32 m_retrievedDays = 14;
     if (has_m_retrieveddays()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3133,13 +3133,13 @@ void Sheet_BossBosstype::Swap(Sheet_BossBosstype* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_BossLayer::kMIdFieldNumber;
-const int E_BossLayer::kMBosstypeFieldNumber;
+const int E_BossLayer::kMIDFieldNumber;
+const int E_BossLayer::kMBossTypeFieldNumber;
 const int E_BossLayer::kMOrderFieldNumber;
-const int E_BossLayer::kMSubtypeFieldNumber;
-const int E_BossLayer::kMEnterconditionFieldNumber;
-const int E_BossLayer::kMUnlockconditionFieldNumber;
-const int E_BossLayer::kMMapidFieldNumber;
+const int E_BossLayer::kMSubTypeFieldNumber;
+const int E_BossLayer::kMEnterConditionFieldNumber;
+const int E_BossLayer::kMUnlockConditionFieldNumber;
+const int E_BossLayer::kMMapIDFieldNumber;
 const int E_BossLayer::kMMaxlvFieldNumber;
 #endif  // !_MSC_VER
 
@@ -3235,7 +3235,7 @@ bool E_BossLayer::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_id = 1;
+      // optional int32 m_ID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -3246,15 +3246,15 @@ bool E_BossLayer::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_bosstype;
+        if (input->ExpectTag(16)) goto parse_m_bossType;
         break;
       }
 
-      // optional int32 m_bosstype = 2;
+      // optional int32 m_bossType = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_bosstype:
+         parse_m_bossType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_bosstype_)));
@@ -3278,15 +3278,15 @@ bool E_BossLayer::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_subtype;
+        if (input->ExpectTag(32)) goto parse_m_subType;
         break;
       }
 
-      // optional int32 m_subtype = 4;
+      // optional int32 m_subType = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_subtype:
+         parse_m_subType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_subtype_)));
@@ -3294,15 +3294,15 @@ bool E_BossLayer::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_m_entercondition;
+        if (input->ExpectTag(42)) goto parse_m_enterCondition;
         break;
       }
 
-      // optional string m_entercondition = 5;
+      // optional string m_enterCondition = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_entercondition:
+         parse_m_enterCondition:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_entercondition()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -3311,15 +3311,15 @@ bool E_BossLayer::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(50)) goto parse_m_unlockcondition;
+        if (input->ExpectTag(50)) goto parse_m_unlockCondition;
         break;
       }
 
-      // optional string m_unlockcondition = 6;
+      // optional string m_unlockCondition = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_unlockcondition:
+         parse_m_unlockCondition:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_unlockcondition()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -3328,15 +3328,15 @@ bool E_BossLayer::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_mapid;
+        if (input->ExpectTag(56)) goto parse_m_mapID;
         break;
       }
 
-      // optional int32 m_mapid = 7;
+      // optional int32 m_mapID = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_mapid:
+         parse_m_mapID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_mapid_)));
@@ -3382,12 +3382,12 @@ bool E_BossLayer::MergePartialFromCodedStream(
 
 void E_BossLayer::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_bosstype = 2;
+  // optional int32 m_bossType = 2;
   if (has_m_bosstype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_bosstype(), output);
   }
@@ -3397,12 +3397,12 @@ void E_BossLayer::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_order(), output);
   }
 
-  // optional int32 m_subtype = 4;
+  // optional int32 m_subType = 4;
   if (has_m_subtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_subtype(), output);
   }
 
-  // optional string m_entercondition = 5;
+  // optional string m_enterCondition = 5;
   if (has_m_entercondition()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_entercondition().data(), this->m_entercondition().length(),
@@ -3411,7 +3411,7 @@ void E_BossLayer::SerializeWithCachedSizes(
       5, this->m_entercondition(), output);
   }
 
-  // optional string m_unlockcondition = 6;
+  // optional string m_unlockCondition = 6;
   if (has_m_unlockcondition()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_unlockcondition().data(), this->m_unlockcondition().length(),
@@ -3420,7 +3420,7 @@ void E_BossLayer::SerializeWithCachedSizes(
       6, this->m_unlockcondition(), output);
   }
 
-  // optional int32 m_mapid = 7;
+  // optional int32 m_mapID = 7;
   if (has_m_mapid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_mapid(), output);
   }
@@ -3438,12 +3438,12 @@ void E_BossLayer::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_BossLayer::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_bosstype = 2;
+  // optional int32 m_bossType = 2;
   if (has_m_bosstype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_bosstype(), target);
   }
@@ -3453,12 +3453,12 @@ void E_BossLayer::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_order(), target);
   }
 
-  // optional int32 m_subtype = 4;
+  // optional int32 m_subType = 4;
   if (has_m_subtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_subtype(), target);
   }
 
-  // optional string m_entercondition = 5;
+  // optional string m_enterCondition = 5;
   if (has_m_entercondition()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_entercondition().data(), this->m_entercondition().length(),
@@ -3468,7 +3468,7 @@ void E_BossLayer::SerializeWithCachedSizes(
         5, this->m_entercondition(), target);
   }
 
-  // optional string m_unlockcondition = 6;
+  // optional string m_unlockCondition = 6;
   if (has_m_unlockcondition()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_unlockcondition().data(), this->m_unlockcondition().length(),
@@ -3478,7 +3478,7 @@ void E_BossLayer::SerializeWithCachedSizes(
         6, this->m_unlockcondition(), target);
   }
 
-  // optional int32 m_mapid = 7;
+  // optional int32 m_mapID = 7;
   if (has_m_mapid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_mapid(), target);
   }
@@ -3499,14 +3499,14 @@ int E_BossLayer::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_id = 1;
+    // optional int32 m_ID = 1;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_id());
     }
 
-    // optional int32 m_bosstype = 2;
+    // optional int32 m_bossType = 2;
     if (has_m_bosstype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3520,28 +3520,28 @@ int E_BossLayer::ByteSize() const {
           this->m_order());
     }
 
-    // optional int32 m_subtype = 4;
+    // optional int32 m_subType = 4;
     if (has_m_subtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_subtype());
     }
 
-    // optional string m_entercondition = 5;
+    // optional string m_enterCondition = 5;
     if (has_m_entercondition()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_entercondition());
     }
 
-    // optional string m_unlockcondition = 6;
+    // optional string m_unlockCondition = 6;
     if (has_m_unlockcondition()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_unlockcondition());
     }
 
-    // optional int32 m_mapid = 7;
+    // optional int32 m_mapID = 7;
     if (has_m_mapid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

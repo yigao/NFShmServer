@@ -211,7 +211,7 @@ void protobuf_AddDesc_E_5fFish_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\014E_Fish.proto\022\010proto_ff\032\025yd_fieldoption"
     "s.proto\"\323\004\n\nE_FishRoom\022\032\n\004m_id\030\001 \001(\005B\014\302\377"
-    "\024\010\345\224\257\344\270\200ID\022\036\n\010m_roomid\030\002 \001(\005B\014\302\377\024\010\346\210\277\351\227\264"
+    "\024\010\345\224\257\344\270\200ID\022\036\n\010m_RoomId\030\002 \001(\005B\014\302\377\024\010\346\210\277\351\227\264"
     "ID\022\036\n\010m_gameid\030\003 \001(\005B\014\302\377\024\010\346\270\270\346\210\217ID\022%\n\nm_"
     "gamename\030\004 \001(\tB\021\302\377\024\t\346\270\270\346\210\217\345\220\215\220\301\024@\022$\n\nm_r"
     "oomtype\030\005 \001(\005B\020\302\377\024\014\346\210\277\351\227\264\347\261\273\345\236\213\022%\n\013m_roo"
@@ -266,7 +266,7 @@ struct StaticDescriptorInitializer_E_5fFish_2eproto {
 
 #ifndef _MSC_VER
 const int E_FishRoom::kMIdFieldNumber;
-const int E_FishRoom::kMRoomidFieldNumber;
+const int E_FishRoom::kMRoomIdFieldNumber;
 const int E_FishRoom::kMGameidFieldNumber;
 const int E_FishRoom::kMGamenameFieldNumber;
 const int E_FishRoom::kMRoomtypeFieldNumber;
@@ -404,15 +404,15 @@ bool E_FishRoom::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_roomid;
+        if (input->ExpectTag(16)) goto parse_m_RoomId;
         break;
       }
 
-      // optional int32 m_roomid = 2;
+      // optional int32 m_RoomId = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_roomid:
+         parse_m_RoomId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_roomid_)));
@@ -673,7 +673,7 @@ void E_FishRoom::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_roomid = 2;
+  // optional int32 m_RoomId = 2;
   if (has_m_roomid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_roomid(), output);
   }
@@ -769,7 +769,7 @@ void E_FishRoom::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_roomid = 2;
+  // optional int32 m_RoomId = 2;
   if (has_m_roomid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_roomid(), target);
   }
@@ -872,7 +872,7 @@ int E_FishRoom::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_roomid = 2;
+    // optional int32 m_RoomId = 2;
     if (has_m_roomid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

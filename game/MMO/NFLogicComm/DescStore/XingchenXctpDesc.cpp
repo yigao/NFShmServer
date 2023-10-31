@@ -86,8 +86,8 @@ int XingchenXctpDesc::Load(NFResDB *pDB)
 		auto pDesc = &iter->second;
 		{
 			XingchenXctpPositionidXcquality data;
-			data.m_PositionID = pDesc->m_positionid;
-			data.m_XcQuality = pDesc->m_xcquality;
+			data.m_PositionID = pDesc->m_PositionID;
+			data.m_XcQuality = pDesc->m_XcQuality;
 			if(m_PositionidXcqualityComIndexMap.size() >= m_PositionidXcqualityComIndexMap.max_size())
 			{
 				CHECK_EXPR_ASSERT(m_PositionidXcqualityComIndexMap.find(data) != m_PositionidXcqualityComIndexMap.end(), -1, "space not enough");
@@ -107,17 +107,17 @@ int XingchenXctpDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		for(int j = 0; j < (int)pDesc->m_tp.size(); j++)
+		for(int j = 0; j < (int)pDesc->m_TP.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_tp[j].m_type <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_tp[j].m_type)), result, "can't find the tp:{} in the  excel:attribute sheet:attribute", pDesc->m_tp[j].m_type);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_TP[j].m_type <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_TP[j].m_type)), result, "can't find the TP:{} in the  excel:attribute sheet:attribute", pDesc->m_TP[j].m_type);
 		}
 		for(int j = 0; j < (int)pDesc->m_attr.size(); j++)
 		{
 			CHECK_EXPR_MSG_RESULT((pDesc->m_attr[j] <= 0 || XingchenXctpaddiDesc::Instance()->GetDesc(pDesc->m_attr[j])), result, "can't find the attr:{} in the  excel:xingchen sheet:XcTpAddi", pDesc->m_attr[j]);
 		}
-		for(int j = 0; j < (int)pDesc->m_tp.size(); j++)
+		for(int j = 0; j < (int)pDesc->m_TP.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_tp[j].m_value <= 0 || XingchenXctpattDesc::Instance()->GetDesc(pDesc->m_tp[j].m_value)), result, "can't find the tp:{} in the  excel:xingchen sheet:XcTpAtt", pDesc->m_tp[j].m_value);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_TP[j].m_value <= 0 || XingchenXctpattDesc::Instance()->GetDesc(pDesc->m_TP[j].m_value)), result, "can't find the TP:{} in the  excel:xingchen sheet:XcTpAtt", pDesc->m_TP[j].m_value);
 		}
 	}
 	return result;

@@ -253,10 +253,10 @@ class E_FacadeDisplay : public ::google::protobuf::Message {
   inline ::std::string* release_m_name();
   inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional string m_activedesc = 5;
+  // optional string m_activeDesc = 5;
   inline bool has_m_activedesc() const;
   inline void clear_m_activedesc();
-  static const int kMActivedescFieldNumber = 5;
+  static const int kMActiveDescFieldNumber = 5;
   inline const ::std::string& m_activedesc() const;
   inline void set_m_activedesc(const ::std::string& value);
   inline void set_m_activedesc(const char* value);
@@ -265,10 +265,10 @@ class E_FacadeDisplay : public ::google::protobuf::Message {
   inline ::std::string* release_m_activedesc();
   inline void set_allocated_m_activedesc(::std::string* m_activedesc);
 
-  // optional string m_professionid = 6;
+  // optional string m_professionID = 6;
   inline bool has_m_professionid() const;
   inline void clear_m_professionid();
-  static const int kMProfessionidFieldNumber = 6;
+  static const int kMProfessionIDFieldNumber = 6;
   inline const ::std::string& m_professionid() const;
   inline void set_m_professionid(const ::std::string& value);
   inline void set_m_professionid(const char* value);
@@ -277,10 +277,10 @@ class E_FacadeDisplay : public ::google::protobuf::Message {
   inline ::std::string* release_m_professionid();
   inline void set_allocated_m_professionid(::std::string* m_professionid);
 
-  // optional string m_skillid = 7;
+  // optional string m_skillID = 7;
   inline bool has_m_skillid() const;
   inline void clear_m_skillid();
-  static const int kMSkillidFieldNumber = 7;
+  static const int kMSkillIDFieldNumber = 7;
   inline const ::std::string& m_skillid() const;
   inline void set_m_skillid(const ::std::string& value);
   inline void set_m_skillid(const char* value);
@@ -289,10 +289,10 @@ class E_FacadeDisplay : public ::google::protobuf::Message {
   inline ::std::string* release_m_skillid();
   inline void set_allocated_m_skillid(::std::string* m_skillid);
 
-  // optional int32 m_souliid = 8;
+  // optional int32 m_soulIID = 8;
   inline bool has_m_souliid() const;
   inline void clear_m_souliid();
-  static const int kMSouliidFieldNumber = 8;
+  static const int kMSoulIIDFieldNumber = 8;
   inline ::google::protobuf::int32 m_souliid() const;
   inline void set_m_souliid(::google::protobuf::int32 value);
 
@@ -308,10 +308,10 @@ class E_FacadeDisplay : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeDisplayMaterialDesc >*
       mutable_m_material();
 
-  // repeated int64 m_fragmentid = 10;
+  // repeated int64 m_fragmentID = 10;
   inline int m_fragmentid_size() const;
   inline void clear_m_fragmentid();
-  static const int kMFragmentidFieldNumber = 10;
+  static const int kMFragmentIDFieldNumber = 10;
   inline ::google::protobuf::int64 m_fragmentid(int index) const;
   inline void set_m_fragmentid(int index, ::google::protobuf::int64 value);
   inline void add_m_fragmentid(::google::protobuf::int64 value);
@@ -878,38 +878,38 @@ class E_FacadeValue : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int64 m_wingexp = 2;
+  // optional int64 m_wingExp = 2;
   inline bool has_m_wingexp() const;
   inline void clear_m_wingexp();
-  static const int kMWingexpFieldNumber = 2;
+  static const int kMWingExpFieldNumber = 2;
   inline ::google::protobuf::int64 m_wingexp() const;
   inline void set_m_wingexp(::google::protobuf::int64 value);
 
-  // optional int64 m_treasureexp = 3;
+  // optional int64 m_treasureExp = 3;
   inline bool has_m_treasureexp() const;
   inline void clear_m_treasureexp();
-  static const int kMTreasureexpFieldNumber = 3;
+  static const int kMTreasureExpFieldNumber = 3;
   inline ::google::protobuf::int64 m_treasureexp() const;
   inline void set_m_treasureexp(::google::protobuf::int64 value);
 
-  // optional int64 m_artifactexp = 4;
+  // optional int64 m_ArtifactExp = 4;
   inline bool has_m_artifactexp() const;
   inline void clear_m_artifactexp();
-  static const int kMArtifactexpFieldNumber = 4;
+  static const int kMArtifactExpFieldNumber = 4;
   inline ::google::protobuf::int64 m_artifactexp() const;
   inline void set_m_artifactexp(::google::protobuf::int64 value);
 
-  // optional int64 m_bladeexp = 5;
+  // optional int64 m_BladeExp = 5;
   inline bool has_m_bladeexp() const;
   inline void clear_m_bladeexp();
-  static const int kMBladeexpFieldNumber = 5;
+  static const int kMBladeExpFieldNumber = 5;
   inline ::google::protobuf::int64 m_bladeexp() const;
   inline void set_m_bladeexp(::google::protobuf::int64 value);
 
-  // repeated .proto_ff.E_FacadeValueWingattributeDesc m_wingattribute = 6;
+  // repeated .proto_ff.E_FacadeValueWingattributeDesc m_wingAttribute = 6;
   inline int m_wingattribute_size() const;
   inline void clear_m_wingattribute();
-  static const int kMWingattributeFieldNumber = 6;
+  static const int kMWingAttributeFieldNumber = 6;
   inline const ::proto_ff::E_FacadeValueWingattributeDesc& m_wingattribute(int index) const;
   inline ::proto_ff::E_FacadeValueWingattributeDesc* mutable_m_wingattribute(int index);
   inline ::proto_ff::E_FacadeValueWingattributeDesc* add_m_wingattribute();
@@ -918,10 +918,10 @@ class E_FacadeValue : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueWingattributeDesc >*
       mutable_m_wingattribute();
 
-  // repeated .proto_ff.E_FacadeValueTreasureattributeDesc m_treasureattribute = 7;
+  // repeated .proto_ff.E_FacadeValueTreasureattributeDesc m_treasureAttribute = 7;
   inline int m_treasureattribute_size() const;
   inline void clear_m_treasureattribute();
-  static const int kMTreasureattributeFieldNumber = 7;
+  static const int kMTreasureAttributeFieldNumber = 7;
   inline const ::proto_ff::E_FacadeValueTreasureattributeDesc& m_treasureattribute(int index) const;
   inline ::proto_ff::E_FacadeValueTreasureattributeDesc* mutable_m_treasureattribute(int index);
   inline ::proto_ff::E_FacadeValueTreasureattributeDesc* add_m_treasureattribute();
@@ -930,10 +930,10 @@ class E_FacadeValue : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueTreasureattributeDesc >*
       mutable_m_treasureattribute();
 
-  // repeated .proto_ff.E_FacadeValueArtifactattributeDesc m_artifactattribute = 8;
+  // repeated .proto_ff.E_FacadeValueArtifactattributeDesc m_ArtifactAttribute = 8;
   inline int m_artifactattribute_size() const;
   inline void clear_m_artifactattribute();
-  static const int kMArtifactattributeFieldNumber = 8;
+  static const int kMArtifactAttributeFieldNumber = 8;
   inline const ::proto_ff::E_FacadeValueArtifactattributeDesc& m_artifactattribute(int index) const;
   inline ::proto_ff::E_FacadeValueArtifactattributeDesc* mutable_m_artifactattribute(int index);
   inline ::proto_ff::E_FacadeValueArtifactattributeDesc* add_m_artifactattribute();
@@ -942,10 +942,10 @@ class E_FacadeValue : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeValueArtifactattributeDesc >*
       mutable_m_artifactattribute();
 
-  // repeated .proto_ff.E_FacadeValueBladeattributeDesc m_bladeattribute = 9;
+  // repeated .proto_ff.E_FacadeValueBladeattributeDesc m_BladeAttribute = 9;
   inline int m_bladeattribute_size() const;
   inline void clear_m_bladeattribute();
-  static const int kMBladeattributeFieldNumber = 9;
+  static const int kMBladeAttributeFieldNumber = 9;
   inline const ::proto_ff::E_FacadeValueBladeattributeDesc& m_bladeattribute(int index) const;
   inline ::proto_ff::E_FacadeValueBladeattributeDesc* mutable_m_bladeattribute(int index);
   inline ::proto_ff::E_FacadeValueBladeattributeDesc* add_m_bladeattribute();
@@ -1137,10 +1137,10 @@ class E_FacadeType : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional string m_soucename = 2;
+  // optional string m_souceName = 2;
   inline bool has_m_soucename() const;
   inline void clear_m_soucename();
-  static const int kMSoucenameFieldNumber = 2;
+  static const int kMSouceNameFieldNumber = 2;
   inline const ::std::string& m_soucename() const;
   inline void set_m_soucename(const ::std::string& value);
   inline void set_m_soucename(const char* value);
@@ -1404,10 +1404,10 @@ class E_FacadeFragment : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_fragmentid = 1;
+  // optional int64 m_fragmentID = 1;
   inline bool has_m_fragmentid() const;
   inline void clear_m_fragmentid();
-  static const int kMFragmentidFieldNumber = 1;
+  static const int kMFragmentIDFieldNumber = 1;
   inline ::google::protobuf::int64 m_fragmentid() const;
   inline void set_m_fragmentid(::google::protobuf::int64 value);
 
@@ -1418,10 +1418,10 @@ class E_FacadeFragment : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_item() const;
   inline void set_m_item(::google::protobuf::int64 value);
 
-  // optional int32 m_itemnum = 3;
+  // optional int32 m_itemNum = 3;
   inline bool has_m_itemnum() const;
   inline void clear_m_itemnum();
-  static const int kMItemnumFieldNumber = 3;
+  static const int kMItemNumFieldNumber = 3;
   inline ::google::protobuf::int32 m_itemnum() const;
   inline void set_m_itemnum(::google::protobuf::int32 value);
 
@@ -1814,10 +1814,10 @@ class E_FacadeChange : public ::google::protobuf::Message {
   inline ::std::string* release_m_resource();
   inline void set_allocated_m_resource(::std::string* m_resource);
 
-  // optional string m_professionid = 4;
+  // optional string m_professionID = 4;
   inline bool has_m_professionid() const;
   inline void clear_m_professionid();
-  static const int kMProfessionidFieldNumber = 4;
+  static const int kMProfessionIDFieldNumber = 4;
   inline const ::std::string& m_professionid() const;
   inline void set_m_professionid(const ::std::string& value);
   inline void set_m_professionid(const char* value);
@@ -1838,10 +1838,10 @@ class E_FacadeChange : public ::google::protobuf::Message {
   inline ::std::string* release_m_name();
   inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional string m_activedesc = 6;
+  // optional string m_activeDesc = 6;
   inline bool has_m_activedesc() const;
   inline void clear_m_activedesc();
-  static const int kMActivedescFieldNumber = 6;
+  static const int kMActiveDescFieldNumber = 6;
   inline const ::std::string& m_activedesc() const;
   inline void set_m_activedesc(const ::std::string& value);
   inline void set_m_activedesc(const char* value);
@@ -1857,31 +1857,31 @@ class E_FacadeChange : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_quality() const;
   inline void set_m_quality(::google::protobuf::int32 value);
 
-  // optional int64 m_activationitem = 8;
+  // optional int64 m_activationItem = 8;
   inline bool has_m_activationitem() const;
   inline void clear_m_activationitem();
-  static const int kMActivationitemFieldNumber = 8;
+  static const int kMActivationItemFieldNumber = 8;
   inline ::google::protobuf::int64 m_activationitem() const;
   inline void set_m_activationitem(::google::protobuf::int64 value);
 
-  // optional int32 m_activationnum = 9;
+  // optional int32 m_activationNum = 9;
   inline bool has_m_activationnum() const;
   inline void clear_m_activationnum();
-  static const int kMActivationnumFieldNumber = 9;
+  static const int kMActivationNumFieldNumber = 9;
   inline ::google::protobuf::int32 m_activationnum() const;
   inline void set_m_activationnum(::google::protobuf::int32 value);
 
-  // optional int64 m_starid = 10;
+  // optional int64 m_starId = 10;
   inline bool has_m_starid() const;
   inline void clear_m_starid();
-  static const int kMStaridFieldNumber = 10;
+  static const int kMStarIdFieldNumber = 10;
   inline ::google::protobuf::int64 m_starid() const;
   inline void set_m_starid(::google::protobuf::int64 value);
 
-  // optional string m_starnum = 11;
+  // optional string m_starNum = 11;
   inline bool has_m_starnum() const;
   inline void clear_m_starnum();
-  static const int kMStarnumFieldNumber = 11;
+  static const int kMStarNumFieldNumber = 11;
   inline const ::std::string& m_starnum() const;
   inline void set_m_starnum(const ::std::string& value);
   inline void set_m_starnum(const char* value);
@@ -1890,31 +1890,31 @@ class E_FacadeChange : public ::google::protobuf::Message {
   inline ::std::string* release_m_starnum();
   inline void set_allocated_m_starnum(::std::string* m_starnum);
 
-  // optional int32 m_starup = 12;
+  // optional int32 m_starUp = 12;
   inline bool has_m_starup() const;
   inline void clear_m_starup();
-  static const int kMStarupFieldNumber = 12;
+  static const int kMStarUpFieldNumber = 12;
   inline ::google::protobuf::int32 m_starup() const;
   inline void set_m_starup(::google::protobuf::int32 value);
 
-  // optional int32 m_starber = 13;
+  // optional int32 m_starBer = 13;
   inline bool has_m_starber() const;
   inline void clear_m_starber();
-  static const int kMStarberFieldNumber = 13;
+  static const int kMStarBerFieldNumber = 13;
   inline ::google::protobuf::int32 m_starber() const;
   inline void set_m_starber(::google::protobuf::int32 value);
 
-  // optional int64 m_upattributeid = 14;
+  // optional int64 m_upAttributeId = 14;
   inline bool has_m_upattributeid() const;
   inline void clear_m_upattributeid();
-  static const int kMUpattributeidFieldNumber = 14;
+  static const int kMUpAttributeIdFieldNumber = 14;
   inline ::google::protobuf::int64 m_upattributeid() const;
   inline void set_m_upattributeid(::google::protobuf::int64 value);
 
-  // optional int32 m_activeskill = 15;
+  // optional int32 m_activeSkill = 15;
   inline bool has_m_activeskill() const;
   inline void clear_m_activeskill();
-  static const int kMActiveskillFieldNumber = 15;
+  static const int kMActiveSkillFieldNumber = 15;
   inline ::google::protobuf::int32 m_activeskill() const;
   inline void set_m_activeskill(::google::protobuf::int32 value);
 
@@ -1930,10 +1930,10 @@ class E_FacadeChange : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FacadeChangeAttributeDesc >*
       mutable_m_attribute();
 
-  // repeated .proto_ff.E_FacadeChangeActiveattributeDesc m_activeattribute = 17;
+  // repeated .proto_ff.E_FacadeChangeActiveattributeDesc m_ActiveAttribute = 17;
   inline int m_activeattribute_size() const;
   inline void clear_m_activeattribute();
-  static const int kMActiveattributeFieldNumber = 17;
+  static const int kMActiveAttributeFieldNumber = 17;
   inline const ::proto_ff::E_FacadeChangeActiveattributeDesc& m_activeattribute(int index) const;
   inline ::proto_ff::E_FacadeChangeActiveattributeDesc* mutable_m_activeattribute(int index);
   inline ::proto_ff::E_FacadeChangeActiveattributeDesc* add_m_activeattribute();
@@ -2238,38 +2238,38 @@ class E_FacadeStarup : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 1;
+  static const int kMIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int64 m_upattributeid = 2;
+  // optional int64 m_upAttributeId = 2;
   inline bool has_m_upattributeid() const;
   inline void clear_m_upattributeid();
-  static const int kMUpattributeidFieldNumber = 2;
+  static const int kMUpAttributeIdFieldNumber = 2;
   inline ::google::protobuf::int64 m_upattributeid() const;
   inline void set_m_upattributeid(::google::protobuf::int64 value);
 
-  // optional int32 m_starid = 3;
+  // optional int32 m_starID = 3;
   inline bool has_m_starid() const;
   inline void clear_m_starid();
-  static const int kMStaridFieldNumber = 3;
+  static const int kMStarIDFieldNumber = 3;
   inline ::google::protobuf::int32 m_starid() const;
   inline void set_m_starid(::google::protobuf::int32 value);
 
-  // optional int32 m_skillid = 4;
+  // optional int32 m_skillID = 4;
   inline bool has_m_skillid() const;
   inline void clear_m_skillid();
-  static const int kMSkillidFieldNumber = 4;
+  static const int kMSkillIDFieldNumber = 4;
   inline ::google::protobuf::int32 m_skillid() const;
   inline void set_m_skillid(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_FacadeStarupUpattributeDesc m_upattribute = 5;
+  // repeated .proto_ff.E_FacadeStarupUpattributeDesc m_upAttribute = 5;
   inline int m_upattribute_size() const;
   inline void clear_m_upattribute();
-  static const int kMUpattributeFieldNumber = 5;
+  static const int kMUpAttributeFieldNumber = 5;
   inline const ::proto_ff::E_FacadeStarupUpattributeDesc& m_upattribute(int index) const;
   inline ::proto_ff::E_FacadeStarupUpattributeDesc* mutable_m_upattribute(int index);
   inline ::proto_ff::E_FacadeStarupUpattributeDesc* add_m_upattribute();
@@ -2547,24 +2547,24 @@ class E_FacadeSoul : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 m_rechargeid = 2;
+  // optional int32 m_rechargeID = 2;
   inline bool has_m_rechargeid() const;
   inline void clear_m_rechargeid();
-  static const int kMRechargeidFieldNumber = 2;
+  static const int kMRechargeIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_rechargeid() const;
   inline void set_m_rechargeid(::google::protobuf::int32 value);
 
-  // optional int32 m_mainskill = 3;
+  // optional int32 m_mainSkill = 3;
   inline bool has_m_mainskill() const;
   inline void clear_m_mainskill();
-  static const int kMMainskillFieldNumber = 3;
+  static const int kMMainSkillFieldNumber = 3;
   inline ::google::protobuf::int32 m_mainskill() const;
   inline void set_m_mainskill(::google::protobuf::int32 value);
 
-  // optional string m_attributetype = 4;
+  // optional string m_attributeType = 4;
   inline bool has_m_attributetype() const;
   inline void clear_m_attributetype();
-  static const int kMAttributetypeFieldNumber = 4;
+  static const int kMAttributeTypeFieldNumber = 4;
   inline const ::std::string& m_attributetype() const;
   inline void set_m_attributetype(const ::std::string& value);
   inline void set_m_attributetype(const char* value);
@@ -2573,10 +2573,10 @@ class E_FacadeSoul : public ::google::protobuf::Message {
   inline ::std::string* release_m_attributetype();
   inline void set_allocated_m_attributetype(::std::string* m_attributetype);
 
-  // repeated int32 m_minorskill = 5;
+  // repeated int32 m_minorSkill = 5;
   inline int m_minorskill_size() const;
   inline void clear_m_minorskill();
-  static const int kMMinorskillFieldNumber = 5;
+  static const int kMMinorSkillFieldNumber = 5;
   inline ::google::protobuf::int32 m_minorskill(int index) const;
   inline void set_m_minorskill(int index, ::google::protobuf::int32 value);
   inline void add_m_minorskill(::google::protobuf::int32 value);
@@ -3144,24 +3144,24 @@ class E_FacadeSoullv : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 m_soulllv = 2;
+  // optional int32 m_soullLv = 2;
   inline bool has_m_soulllv() const;
   inline void clear_m_soulllv();
-  static const int kMSoulllvFieldNumber = 2;
+  static const int kMSoullLvFieldNumber = 2;
   inline ::google::protobuf::int32 m_soulllv() const;
   inline void set_m_soulllv(::google::protobuf::int32 value);
 
-  // optional int32 m_soulid = 3;
+  // optional int32 m_soulID = 3;
   inline bool has_m_soulid() const;
   inline void clear_m_soulid();
-  static const int kMSoulidFieldNumber = 3;
+  static const int kMSoulIDFieldNumber = 3;
   inline ::google::protobuf::int32 m_soulid() const;
   inline void set_m_soulid(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 4;
+  // optional int32 m_itemID = 4;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 4;
+  static const int kMItemIDFieldNumber = 4;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
@@ -3172,17 +3172,17 @@ class E_FacadeSoullv : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int32 m_successrate = 6;
+  // optional int32 m_successRate = 6;
   inline bool has_m_successrate() const;
   inline void clear_m_successrate();
-  static const int kMSuccessrateFieldNumber = 6;
+  static const int kMSuccessRateFieldNumber = 6;
   inline ::google::protobuf::int32 m_successrate() const;
   inline void set_m_successrate(::google::protobuf::int32 value);
 
-  // optional int32 m_downlv = 7;
+  // optional int32 m_downLv = 7;
   inline bool has_m_downlv() const;
   inline void clear_m_downlv();
-  static const int kMDownlvFieldNumber = 7;
+  static const int kMDownLvFieldNumber = 7;
   inline ::google::protobuf::int32 m_downlv() const;
   inline void set_m_downlv(::google::protobuf::int32 value);
 
@@ -3384,10 +3384,10 @@ class E_FacadeSoulachievement : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 m_soulid = 2;
+  // optional int32 m_soulID = 2;
   inline bool has_m_soulid() const;
   inline void clear_m_soulid();
-  static const int kMSoulidFieldNumber = 2;
+  static const int kMSoulIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_soulid() const;
   inline void set_m_soulid(::google::protobuf::int32 value);
 
@@ -3405,10 +3405,10 @@ class E_FacadeSoulachievement : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_parama() const;
   inline void set_m_parama(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 5;
+  // optional int32 m_itemID = 5;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 5;
+  static const int kMItemIDFieldNumber = 5;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
@@ -3777,7 +3777,7 @@ inline void E_FacadeDisplay::set_allocated_m_name(::std::string* m_name) {
   }
 }
 
-// optional string m_activedesc = 5;
+// optional string m_activeDesc = 5;
 inline bool E_FacadeDisplay::has_m_activedesc() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -3847,7 +3847,7 @@ inline void E_FacadeDisplay::set_allocated_m_activedesc(::std::string* m_actived
   }
 }
 
-// optional string m_professionid = 6;
+// optional string m_professionID = 6;
 inline bool E_FacadeDisplay::has_m_professionid() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -3917,7 +3917,7 @@ inline void E_FacadeDisplay::set_allocated_m_professionid(::std::string* m_profe
   }
 }
 
-// optional string m_skillid = 7;
+// optional string m_skillID = 7;
 inline bool E_FacadeDisplay::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -3987,7 +3987,7 @@ inline void E_FacadeDisplay::set_allocated_m_skillid(::std::string* m_skillid) {
   }
 }
 
-// optional int32 m_souliid = 8;
+// optional int32 m_soulIID = 8;
 inline bool E_FacadeDisplay::has_m_souliid() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -4034,7 +4034,7 @@ E_FacadeDisplay::mutable_m_material() {
   return &m_material_;
 }
 
-// repeated int64 m_fragmentid = 10;
+// repeated int64 m_fragmentID = 10;
 inline int E_FacadeDisplay::m_fragmentid_size() const {
   return m_fragmentid_.size();
 }
@@ -4306,7 +4306,7 @@ inline void E_FacadeValue::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional int64 m_wingexp = 2;
+// optional int64 m_wingExp = 2;
 inline bool E_FacadeValue::has_m_wingexp() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -4328,7 +4328,7 @@ inline void E_FacadeValue::set_m_wingexp(::google::protobuf::int64 value) {
   m_wingexp_ = value;
 }
 
-// optional int64 m_treasureexp = 3;
+// optional int64 m_treasureExp = 3;
 inline bool E_FacadeValue::has_m_treasureexp() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -4350,7 +4350,7 @@ inline void E_FacadeValue::set_m_treasureexp(::google::protobuf::int64 value) {
   m_treasureexp_ = value;
 }
 
-// optional int64 m_artifactexp = 4;
+// optional int64 m_ArtifactExp = 4;
 inline bool E_FacadeValue::has_m_artifactexp() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -4372,7 +4372,7 @@ inline void E_FacadeValue::set_m_artifactexp(::google::protobuf::int64 value) {
   m_artifactexp_ = value;
 }
 
-// optional int64 m_bladeexp = 5;
+// optional int64 m_BladeExp = 5;
 inline bool E_FacadeValue::has_m_bladeexp() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -4394,7 +4394,7 @@ inline void E_FacadeValue::set_m_bladeexp(::google::protobuf::int64 value) {
   m_bladeexp_ = value;
 }
 
-// repeated .proto_ff.E_FacadeValueWingattributeDesc m_wingattribute = 6;
+// repeated .proto_ff.E_FacadeValueWingattributeDesc m_wingAttribute = 6;
 inline int E_FacadeValue::m_wingattribute_size() const {
   return m_wingattribute_.size();
 }
@@ -4419,7 +4419,7 @@ E_FacadeValue::mutable_m_wingattribute() {
   return &m_wingattribute_;
 }
 
-// repeated .proto_ff.E_FacadeValueTreasureattributeDesc m_treasureattribute = 7;
+// repeated .proto_ff.E_FacadeValueTreasureattributeDesc m_treasureAttribute = 7;
 inline int E_FacadeValue::m_treasureattribute_size() const {
   return m_treasureattribute_.size();
 }
@@ -4444,7 +4444,7 @@ E_FacadeValue::mutable_m_treasureattribute() {
   return &m_treasureattribute_;
 }
 
-// repeated .proto_ff.E_FacadeValueArtifactattributeDesc m_artifactattribute = 8;
+// repeated .proto_ff.E_FacadeValueArtifactattributeDesc m_ArtifactAttribute = 8;
 inline int E_FacadeValue::m_artifactattribute_size() const {
   return m_artifactattribute_.size();
 }
@@ -4469,7 +4469,7 @@ E_FacadeValue::mutable_m_artifactattribute() {
   return &m_artifactattribute_;
 }
 
-// repeated .proto_ff.E_FacadeValueBladeattributeDesc m_bladeattribute = 9;
+// repeated .proto_ff.E_FacadeValueBladeattributeDesc m_BladeAttribute = 9;
 inline int E_FacadeValue::m_bladeattribute_size() const {
   return m_bladeattribute_.size();
 }
@@ -4549,7 +4549,7 @@ inline void E_FacadeType::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional string m_soucename = 2;
+// optional string m_souceName = 2;
 inline bool E_FacadeType::has_m_soucename() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -4700,7 +4700,7 @@ inline void E_FacadeFragmentAttributeDesc::set_m_type(::google::protobuf::int32 
 
 // E_FacadeFragment
 
-// optional int64 m_fragmentid = 1;
+// optional int64 m_fragmentID = 1;
 inline bool E_FacadeFragment::has_m_fragmentid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -4744,7 +4744,7 @@ inline void E_FacadeFragment::set_m_item(::google::protobuf::int64 value) {
   m_item_ = value;
 }
 
-// optional int32 m_itemnum = 3;
+// optional int32 m_itemNum = 3;
 inline bool E_FacadeFragment::has_m_itemnum() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -5034,7 +5034,7 @@ inline void E_FacadeChange::set_allocated_m_resource(::std::string* m_resource) 
   }
 }
 
-// optional string m_professionid = 4;
+// optional string m_professionID = 4;
 inline bool E_FacadeChange::has_m_professionid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -5174,7 +5174,7 @@ inline void E_FacadeChange::set_allocated_m_name(::std::string* m_name) {
   }
 }
 
-// optional string m_activedesc = 6;
+// optional string m_activeDesc = 6;
 inline bool E_FacadeChange::has_m_activedesc() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -5266,7 +5266,7 @@ inline void E_FacadeChange::set_m_quality(::google::protobuf::int32 value) {
   m_quality_ = value;
 }
 
-// optional int64 m_activationitem = 8;
+// optional int64 m_activationItem = 8;
 inline bool E_FacadeChange::has_m_activationitem() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -5288,7 +5288,7 @@ inline void E_FacadeChange::set_m_activationitem(::google::protobuf::int64 value
   m_activationitem_ = value;
 }
 
-// optional int32 m_activationnum = 9;
+// optional int32 m_activationNum = 9;
 inline bool E_FacadeChange::has_m_activationnum() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -5310,7 +5310,7 @@ inline void E_FacadeChange::set_m_activationnum(::google::protobuf::int32 value)
   m_activationnum_ = value;
 }
 
-// optional int64 m_starid = 10;
+// optional int64 m_starId = 10;
 inline bool E_FacadeChange::has_m_starid() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -5332,7 +5332,7 @@ inline void E_FacadeChange::set_m_starid(::google::protobuf::int64 value) {
   m_starid_ = value;
 }
 
-// optional string m_starnum = 11;
+// optional string m_starNum = 11;
 inline bool E_FacadeChange::has_m_starnum() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -5402,7 +5402,7 @@ inline void E_FacadeChange::set_allocated_m_starnum(::std::string* m_starnum) {
   }
 }
 
-// optional int32 m_starup = 12;
+// optional int32 m_starUp = 12;
 inline bool E_FacadeChange::has_m_starup() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -5424,7 +5424,7 @@ inline void E_FacadeChange::set_m_starup(::google::protobuf::int32 value) {
   m_starup_ = value;
 }
 
-// optional int32 m_starber = 13;
+// optional int32 m_starBer = 13;
 inline bool E_FacadeChange::has_m_starber() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -5446,7 +5446,7 @@ inline void E_FacadeChange::set_m_starber(::google::protobuf::int32 value) {
   m_starber_ = value;
 }
 
-// optional int64 m_upattributeid = 14;
+// optional int64 m_upAttributeId = 14;
 inline bool E_FacadeChange::has_m_upattributeid() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -5468,7 +5468,7 @@ inline void E_FacadeChange::set_m_upattributeid(::google::protobuf::int64 value)
   m_upattributeid_ = value;
 }
 
-// optional int32 m_activeskill = 15;
+// optional int32 m_activeSkill = 15;
 inline bool E_FacadeChange::has_m_activeskill() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
@@ -5515,7 +5515,7 @@ E_FacadeChange::mutable_m_attribute() {
   return &m_attribute_;
 }
 
-// repeated .proto_ff.E_FacadeChangeActiveattributeDesc m_activeattribute = 17;
+// repeated .proto_ff.E_FacadeChangeActiveattributeDesc m_ActiveAttribute = 17;
 inline int E_FacadeChange::m_activeattribute_size() const {
   return m_activeattribute_.size();
 }
@@ -5621,7 +5621,7 @@ inline void E_FacadeStarupUpattributeDesc::set_m_type(::google::protobuf::int32 
 
 // E_FacadeStarup
 
-// optional int32 m_id = 1;
+// optional int32 m_ID = 1;
 inline bool E_FacadeStarup::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -5643,7 +5643,7 @@ inline void E_FacadeStarup::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int64 m_upattributeid = 2;
+// optional int64 m_upAttributeId = 2;
 inline bool E_FacadeStarup::has_m_upattributeid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -5665,7 +5665,7 @@ inline void E_FacadeStarup::set_m_upattributeid(::google::protobuf::int64 value)
   m_upattributeid_ = value;
 }
 
-// optional int32 m_starid = 3;
+// optional int32 m_starID = 3;
 inline bool E_FacadeStarup::has_m_starid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -5687,7 +5687,7 @@ inline void E_FacadeStarup::set_m_starid(::google::protobuf::int32 value) {
   m_starid_ = value;
 }
 
-// optional int32 m_skillid = 4;
+// optional int32 m_skillID = 4;
 inline bool E_FacadeStarup::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -5709,7 +5709,7 @@ inline void E_FacadeStarup::set_m_skillid(::google::protobuf::int32 value) {
   m_skillid_ = value;
 }
 
-// repeated .proto_ff.E_FacadeStarupUpattributeDesc m_upattribute = 5;
+// repeated .proto_ff.E_FacadeStarupUpattributeDesc m_upAttribute = 5;
 inline int E_FacadeStarup::m_upattribute_size() const {
   return m_upattribute_.size();
 }
@@ -5837,7 +5837,7 @@ inline void E_FacadeSoul::set_m_id(::google::protobuf::int64 value) {
   m_id_ = value;
 }
 
-// optional int32 m_rechargeid = 2;
+// optional int32 m_rechargeID = 2;
 inline bool E_FacadeSoul::has_m_rechargeid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -5859,7 +5859,7 @@ inline void E_FacadeSoul::set_m_rechargeid(::google::protobuf::int32 value) {
   m_rechargeid_ = value;
 }
 
-// optional int32 m_mainskill = 3;
+// optional int32 m_mainSkill = 3;
 inline bool E_FacadeSoul::has_m_mainskill() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -5881,7 +5881,7 @@ inline void E_FacadeSoul::set_m_mainskill(::google::protobuf::int32 value) {
   m_mainskill_ = value;
 }
 
-// optional string m_attributetype = 4;
+// optional string m_attributeType = 4;
 inline bool E_FacadeSoul::has_m_attributetype() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -5951,7 +5951,7 @@ inline void E_FacadeSoul::set_allocated_m_attributetype(::std::string* m_attribu
   }
 }
 
-// repeated int32 m_minorskill = 5;
+// repeated int32 m_minorSkill = 5;
 inline int E_FacadeSoul::m_minorskill_size() const {
   return m_minorskill_.size();
 }
@@ -6280,7 +6280,7 @@ inline void E_FacadeSoullv::set_m_id(::google::protobuf::int64 value) {
   m_id_ = value;
 }
 
-// optional int32 m_soulllv = 2;
+// optional int32 m_soullLv = 2;
 inline bool E_FacadeSoullv::has_m_soulllv() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -6302,7 +6302,7 @@ inline void E_FacadeSoullv::set_m_soulllv(::google::protobuf::int32 value) {
   m_soulllv_ = value;
 }
 
-// optional int32 m_soulid = 3;
+// optional int32 m_soulID = 3;
 inline bool E_FacadeSoullv::has_m_soulid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -6324,7 +6324,7 @@ inline void E_FacadeSoullv::set_m_soulid(::google::protobuf::int32 value) {
   m_soulid_ = value;
 }
 
-// optional int32 m_itemid = 4;
+// optional int32 m_itemID = 4;
 inline bool E_FacadeSoullv::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -6368,7 +6368,7 @@ inline void E_FacadeSoullv::set_m_num(::google::protobuf::int32 value) {
   m_num_ = value;
 }
 
-// optional int32 m_successrate = 6;
+// optional int32 m_successRate = 6;
 inline bool E_FacadeSoullv::has_m_successrate() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -6390,7 +6390,7 @@ inline void E_FacadeSoullv::set_m_successrate(::google::protobuf::int32 value) {
   m_successrate_ = value;
 }
 
-// optional int32 m_downlv = 7;
+// optional int32 m_downLv = 7;
 inline bool E_FacadeSoullv::has_m_downlv() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -6492,7 +6492,7 @@ inline void E_FacadeSoulachievement::set_m_id(::google::protobuf::int64 value) {
   m_id_ = value;
 }
 
-// optional int32 m_soulid = 2;
+// optional int32 m_soulID = 2;
 inline bool E_FacadeSoulachievement::has_m_soulid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -6558,7 +6558,7 @@ inline void E_FacadeSoulachievement::set_m_parama(::google::protobuf::int32 valu
   m_parama_ = value;
 }
 
-// optional int32 m_itemid = 5;
+// optional int32 m_itemID = 5;
 inline bool E_FacadeSoulachievement::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }

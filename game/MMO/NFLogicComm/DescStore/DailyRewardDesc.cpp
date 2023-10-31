@@ -90,7 +90,7 @@ int DailyRewardDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_rewardid <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_rewardid)), result, "can't find the rewardid:{} in the  excel:item sheet:item", pDesc->m_rewardid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_rewardId <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_rewardId)), result, "can't find the rewardId:{} in the  excel:item sheet:item", pDesc->m_rewardId);
 	}
 	return result;
 }

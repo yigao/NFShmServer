@@ -165,21 +165,21 @@ void protobuf_AddDesc_E_5fHeadportrait_2eproto() {
     "m_type\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"]\n%E_Headportra"
     "itHeadActiveattributeDesc\022\030\n\007m_value\030\001 \001"
     "(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\""
-    "\231\005\n\022E_HeadportraitHead\022\032\n\004m_id\030\001 \001(\003B\014\302\377"
+    "\231\005\n\022E_HeadportraitHead\022\032\n\004m_ID\030\001 \001(\003B\014\302\377"
     "\024\010\345\244\264\345\203\217ID\022$\n\006m_name\030\002 \001(\tB\024\302\377\024\014\345\244\264\345\203\217\345\220"
     "\215\347\247\260\220\301\024@\022 \n\006m_type\030\003 \001(\005B\020\302\377\024\014\345\244\226\350\247\202\347\261\273\345"
     "\236\213\022#\n\tm_quality\030\004 \001(\005B\020\302\377\024\014\345\244\264\345\203\217\345\223\201\350\264\250\022"
-    "/\n\021m_professionlimit\030\005 \001(\tB\024\302\377\024\014\350\201\214\344\270\232\351\231"
-    "\220\345\210\266\220\301\024@\022,\n\020m_activationitem\030\006 \001(\003B\022\302\377\024\016"
-    "\346\277\200\346\264\273\351\201\223\345\205\267ID\022/\n\017m_activationnum\030\007 \001(\005B"
-    "\026\302\377\024\022\346\277\200\346\264\273\351\201\223\345\205\267\346\225\260\351\207\217\022$\n\010m_starid\030\010 \001("
-    "\003B\022\302\377\024\016\345\215\207\346\230\237\351\201\223\345\205\267id\022.\n\tm_starnum\030\t \001(\t"
-    "B\033\302\377\024\022\345\215\207\346\230\237\351\201\223\345\205\267\346\225\260\351\207\217\220\301\024\200\002\022(\n\010m_staru"
+    "/\n\021m_professionLimit\030\005 \001(\tB\024\302\377\024\014\350\201\214\344\270\232\351\231"
+    "\220\345\210\266\220\301\024@\022,\n\020m_activationItem\030\006 \001(\003B\022\302\377\024\016"
+    "\346\277\200\346\264\273\351\201\223\345\205\267ID\022/\n\017m_activationNum\030\007 \001(\005B"
+    "\026\302\377\024\022\346\277\200\346\264\273\351\201\223\345\205\267\346\225\260\351\207\217\022$\n\010m_starId\030\010 \001("
+    "\003B\022\302\377\024\016\345\215\207\346\230\237\351\201\223\345\205\267id\022.\n\tm_starNum\030\t \001(\t"
+    "B\033\302\377\024\022\345\215\207\346\230\237\351\201\223\345\205\267\346\225\260\351\207\217\220\301\024\200\002\022(\n\010m_starU"
     "p\030\n \001(\005B\026\302\377\024\022\345\215\207\346\230\237\347\255\211\347\272\247\344\270\212\351\231\220\022>\n\tm_sta"
-    "rber\030\013 \001(\005B+\302\377\024\'\346\257\217\346\254\241\345\215\207\346\230\237\345\261\236\346\200\247\345\242\236\345\212\240"
+    "rBer\030\013 \001(\005B+\302\377\024\'\346\257\217\346\254\241\345\215\207\346\230\237\345\261\236\346\200\247\345\242\236\345\212\240"
     "\347\232\204\347\231\276\345\210\206\346\257\224\345\200\274\022N\n\013m_attribute\030\014 \003(\0132).p"
     "roto_ff.E_HeadportraitHeadAttributeDescB"
-    "\016\302\377\024\006\345\261\236\346\200\247\210\301\024\006\022Z\n\021m_activeattribute\030\r \003"
+    "\016\302\377\024\006\345\261\236\346\200\247\210\301\024\006\022Z\n\021m_ActiveAttribute\030\r \003"
     "(\0132/.proto_ff.E_HeadportraitHeadActiveat"
     "tributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\006\"]\n\026Sheet_Hea"
     "dportraitHead\022C\n\027E_HeadportraitHead_List"
@@ -704,19 +704,19 @@ void E_HeadportraitHeadActiveattributeDesc::Swap(E_HeadportraitHeadActiveattribu
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_HeadportraitHead::kMIdFieldNumber;
+const int E_HeadportraitHead::kMIDFieldNumber;
 const int E_HeadportraitHead::kMNameFieldNumber;
 const int E_HeadportraitHead::kMTypeFieldNumber;
 const int E_HeadportraitHead::kMQualityFieldNumber;
-const int E_HeadportraitHead::kMProfessionlimitFieldNumber;
-const int E_HeadportraitHead::kMActivationitemFieldNumber;
-const int E_HeadportraitHead::kMActivationnumFieldNumber;
-const int E_HeadportraitHead::kMStaridFieldNumber;
-const int E_HeadportraitHead::kMStarnumFieldNumber;
-const int E_HeadportraitHead::kMStarupFieldNumber;
-const int E_HeadportraitHead::kMStarberFieldNumber;
+const int E_HeadportraitHead::kMProfessionLimitFieldNumber;
+const int E_HeadportraitHead::kMActivationItemFieldNumber;
+const int E_HeadportraitHead::kMActivationNumFieldNumber;
+const int E_HeadportraitHead::kMStarIdFieldNumber;
+const int E_HeadportraitHead::kMStarNumFieldNumber;
+const int E_HeadportraitHead::kMStarUpFieldNumber;
+const int E_HeadportraitHead::kMStarBerFieldNumber;
 const int E_HeadportraitHead::kMAttributeFieldNumber;
-const int E_HeadportraitHead::kMActiveattributeFieldNumber;
+const int E_HeadportraitHead::kMActiveAttributeFieldNumber;
 #endif  // !_MSC_VER
 
 E_HeadportraitHead::E_HeadportraitHead()
@@ -828,7 +828,7 @@ bool E_HeadportraitHead::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 m_id = 1;
+      // optional int64 m_ID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -888,15 +888,15 @@ bool E_HeadportraitHead::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_m_professionlimit;
+        if (input->ExpectTag(42)) goto parse_m_professionLimit;
         break;
       }
 
-      // optional string m_professionlimit = 5;
+      // optional string m_professionLimit = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_professionlimit:
+         parse_m_professionLimit:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_professionlimit()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -905,15 +905,15 @@ bool E_HeadportraitHead::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_activationitem;
+        if (input->ExpectTag(48)) goto parse_m_activationItem;
         break;
       }
 
-      // optional int64 m_activationitem = 6;
+      // optional int64 m_activationItem = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_activationitem:
+         parse_m_activationItem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_activationitem_)));
@@ -921,15 +921,15 @@ bool E_HeadportraitHead::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_activationnum;
+        if (input->ExpectTag(56)) goto parse_m_activationNum;
         break;
       }
 
-      // optional int32 m_activationnum = 7;
+      // optional int32 m_activationNum = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_activationnum:
+         parse_m_activationNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_activationnum_)));
@@ -937,15 +937,15 @@ bool E_HeadportraitHead::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_starid;
+        if (input->ExpectTag(64)) goto parse_m_starId;
         break;
       }
 
-      // optional int64 m_starid = 8;
+      // optional int64 m_starId = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_starid:
+         parse_m_starId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_starid_)));
@@ -953,15 +953,15 @@ bool E_HeadportraitHead::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(74)) goto parse_m_starnum;
+        if (input->ExpectTag(74)) goto parse_m_starNum;
         break;
       }
 
-      // optional string m_starnum = 9;
+      // optional string m_starNum = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_starnum:
+         parse_m_starNum:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_starnum()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -970,15 +970,15 @@ bool E_HeadportraitHead::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_starup;
+        if (input->ExpectTag(80)) goto parse_m_starUp;
         break;
       }
 
-      // optional int32 m_starup = 10;
+      // optional int32 m_starUp = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_starup:
+         parse_m_starUp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_starup_)));
@@ -986,15 +986,15 @@ bool E_HeadportraitHead::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_starber;
+        if (input->ExpectTag(88)) goto parse_m_starBer;
         break;
       }
 
-      // optional int32 m_starber = 11;
+      // optional int32 m_starBer = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_starber:
+         parse_m_starBer:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_starber_)));
@@ -1017,21 +1017,21 @@ bool E_HeadportraitHead::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(98)) goto parse_m_attribute;
-        if (input->ExpectTag(106)) goto parse_m_activeattribute;
+        if (input->ExpectTag(106)) goto parse_m_ActiveAttribute;
         break;
       }
 
-      // repeated .proto_ff.E_HeadportraitHeadActiveattributeDesc m_activeattribute = 13;
+      // repeated .proto_ff.E_HeadportraitHeadActiveattributeDesc m_ActiveAttribute = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_activeattribute:
+         parse_m_ActiveAttribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_activeattribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(106)) goto parse_m_activeattribute;
+        if (input->ExpectTag(106)) goto parse_m_ActiveAttribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1054,7 +1054,7 @@ bool E_HeadportraitHead::MergePartialFromCodedStream(
 
 void E_HeadportraitHead::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 m_id = 1;
+  // optional int64 m_ID = 1;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
@@ -1078,7 +1078,7 @@ void E_HeadportraitHead::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_quality(), output);
   }
 
-  // optional string m_professionlimit = 5;
+  // optional string m_professionLimit = 5;
   if (has_m_professionlimit()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_professionlimit().data(), this->m_professionlimit().length(),
@@ -1087,22 +1087,22 @@ void E_HeadportraitHead::SerializeWithCachedSizes(
       5, this->m_professionlimit(), output);
   }
 
-  // optional int64 m_activationitem = 6;
+  // optional int64 m_activationItem = 6;
   if (has_m_activationitem()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(6, this->m_activationitem(), output);
   }
 
-  // optional int32 m_activationnum = 7;
+  // optional int32 m_activationNum = 7;
   if (has_m_activationnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_activationnum(), output);
   }
 
-  // optional int64 m_starid = 8;
+  // optional int64 m_starId = 8;
   if (has_m_starid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(8, this->m_starid(), output);
   }
 
-  // optional string m_starnum = 9;
+  // optional string m_starNum = 9;
   if (has_m_starnum()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_starnum().data(), this->m_starnum().length(),
@@ -1111,12 +1111,12 @@ void E_HeadportraitHead::SerializeWithCachedSizes(
       9, this->m_starnum(), output);
   }
 
-  // optional int32 m_starup = 10;
+  // optional int32 m_starUp = 10;
   if (has_m_starup()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_starup(), output);
   }
 
-  // optional int32 m_starber = 11;
+  // optional int32 m_starBer = 11;
   if (has_m_starber()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_starber(), output);
   }
@@ -1127,7 +1127,7 @@ void E_HeadportraitHead::SerializeWithCachedSizes(
       12, this->m_attribute(i), output);
   }
 
-  // repeated .proto_ff.E_HeadportraitHeadActiveattributeDesc m_activeattribute = 13;
+  // repeated .proto_ff.E_HeadportraitHeadActiveattributeDesc m_ActiveAttribute = 13;
   for (int i = 0; i < this->m_activeattribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       13, this->m_activeattribute(i), output);
@@ -1141,7 +1141,7 @@ void E_HeadportraitHead::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_HeadportraitHead::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 m_id = 1;
+  // optional int64 m_ID = 1;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
@@ -1166,7 +1166,7 @@ void E_HeadportraitHead::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_quality(), target);
   }
 
-  // optional string m_professionlimit = 5;
+  // optional string m_professionLimit = 5;
   if (has_m_professionlimit()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_professionlimit().data(), this->m_professionlimit().length(),
@@ -1176,22 +1176,22 @@ void E_HeadportraitHead::SerializeWithCachedSizes(
         5, this->m_professionlimit(), target);
   }
 
-  // optional int64 m_activationitem = 6;
+  // optional int64 m_activationItem = 6;
   if (has_m_activationitem()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(6, this->m_activationitem(), target);
   }
 
-  // optional int32 m_activationnum = 7;
+  // optional int32 m_activationNum = 7;
   if (has_m_activationnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_activationnum(), target);
   }
 
-  // optional int64 m_starid = 8;
+  // optional int64 m_starId = 8;
   if (has_m_starid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(8, this->m_starid(), target);
   }
 
-  // optional string m_starnum = 9;
+  // optional string m_starNum = 9;
   if (has_m_starnum()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_starnum().data(), this->m_starnum().length(),
@@ -1201,12 +1201,12 @@ void E_HeadportraitHead::SerializeWithCachedSizes(
         9, this->m_starnum(), target);
   }
 
-  // optional int32 m_starup = 10;
+  // optional int32 m_starUp = 10;
   if (has_m_starup()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_starup(), target);
   }
 
-  // optional int32 m_starber = 11;
+  // optional int32 m_starBer = 11;
   if (has_m_starber()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_starber(), target);
   }
@@ -1218,7 +1218,7 @@ void E_HeadportraitHead::SerializeWithCachedSizes(
         12, this->m_attribute(i), target);
   }
 
-  // repeated .proto_ff.E_HeadportraitHeadActiveattributeDesc m_activeattribute = 13;
+  // repeated .proto_ff.E_HeadportraitHeadActiveattributeDesc m_ActiveAttribute = 13;
   for (int i = 0; i < this->m_activeattribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -1236,7 +1236,7 @@ int E_HeadportraitHead::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 m_id = 1;
+    // optional int64 m_ID = 1;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -1264,28 +1264,28 @@ int E_HeadportraitHead::ByteSize() const {
           this->m_quality());
     }
 
-    // optional string m_professionlimit = 5;
+    // optional string m_professionLimit = 5;
     if (has_m_professionlimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_professionlimit());
     }
 
-    // optional int64 m_activationitem = 6;
+    // optional int64 m_activationItem = 6;
     if (has_m_activationitem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_activationitem());
     }
 
-    // optional int32 m_activationnum = 7;
+    // optional int32 m_activationNum = 7;
     if (has_m_activationnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_activationnum());
     }
 
-    // optional int64 m_starid = 8;
+    // optional int64 m_starId = 8;
     if (has_m_starid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -1294,21 +1294,21 @@ int E_HeadportraitHead::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional string m_starnum = 9;
+    // optional string m_starNum = 9;
     if (has_m_starnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_starnum());
     }
 
-    // optional int32 m_starup = 10;
+    // optional int32 m_starUp = 10;
     if (has_m_starup()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_starup());
     }
 
-    // optional int32 m_starber = 11;
+    // optional int32 m_starBer = 11;
     if (has_m_starber()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1324,7 +1324,7 @@ int E_HeadportraitHead::ByteSize() const {
         this->m_attribute(i));
   }
 
-  // repeated .proto_ff.E_HeadportraitHeadActiveattributeDesc m_activeattribute = 13;
+  // repeated .proto_ff.E_HeadportraitHeadActiveattributeDesc m_ActiveAttribute = 13;
   total_size += 1 * this->m_activeattribute_size();
   for (int i = 0; i < this->m_activeattribute_size(); i++) {
     total_size +=

@@ -13,11 +13,11 @@ E_MoneyrewardMoneyreward_s::E_MoneyrewardMoneyreward_s() {
 int E_MoneyrewardMoneyreward_s::CreateInit() {
 	m_taskreward = (int32_t)0;
 	m_task = (int32_t)0;
-	m_taskmax = (int32_t)0;
-	m_viplv = (int32_t)0;
-	m_timeget = (int32_t)0;
-	m_timegetmoney = (int32_t)0;
-	m_timego = (int32_t)0;
+	m_taskMax = (int32_t)0;
+	m_vipLV = (int32_t)0;
+	m_timeGet = (int32_t)0;
+	m_timeGetMoney = (int32_t)0;
+	m_timeGo = (int32_t)0;
 	return 0;
 }
 
@@ -27,30 +27,30 @@ int E_MoneyrewardMoneyreward_s::ResumeInit() {
 
 void E_MoneyrewardMoneyreward_s::write_to_pbmsg(::proto_ff::E_MoneyrewardMoneyreward & msg) const {
 	msg.set_m_taskreward((int32_t)m_taskreward);
-	msg.set_m_boxtaskreward(m_boxtaskreward.data());
-	msg.set_m_boxnum(m_boxnum.data());
+	msg.set_m_boxtaskreward(m_boxTaskreward.data());
+	msg.set_m_boxnum(m_boxNum.data());
 	msg.set_m_task((int32_t)m_task);
-	msg.set_m_taskmax((int32_t)m_taskmax);
-	msg.set_m_oneprice(m_oneprice.data());
-	msg.set_m_freeunlocklv(m_freeunlocklv.data());
-	msg.set_m_viplv((int32_t)m_viplv);
-	msg.set_m_timeget((int32_t)m_timeget);
-	msg.set_m_timegetmoney((int32_t)m_timegetmoney);
-	msg.set_m_timego((int32_t)m_timego);
+	msg.set_m_taskmax((int32_t)m_taskMax);
+	msg.set_m_oneprice(m_onePrice.data());
+	msg.set_m_freeunlocklv(m_freeUnlockLv.data());
+	msg.set_m_viplv((int32_t)m_vipLV);
+	msg.set_m_timeget((int32_t)m_timeGet);
+	msg.set_m_timegetmoney((int32_t)m_timeGetMoney);
+	msg.set_m_timego((int32_t)m_timeGo);
 }
 
 void E_MoneyrewardMoneyreward_s::read_from_pbmsg(const ::proto_ff::E_MoneyrewardMoneyreward & msg) {
 	m_taskreward = msg.m_taskreward();
-	m_boxtaskreward = msg.m_boxtaskreward();
-	m_boxnum = msg.m_boxnum();
+	m_boxTaskreward = msg.m_boxtaskreward();
+	m_boxNum = msg.m_boxnum();
 	m_task = msg.m_task();
-	m_taskmax = msg.m_taskmax();
-	m_oneprice = msg.m_oneprice();
-	m_freeunlocklv = msg.m_freeunlocklv();
-	m_viplv = msg.m_viplv();
-	m_timeget = msg.m_timeget();
-	m_timegetmoney = msg.m_timegetmoney();
-	m_timego = msg.m_timego();
+	m_taskMax = msg.m_taskmax();
+	m_onePrice = msg.m_oneprice();
+	m_freeUnlockLv = msg.m_freeunlocklv();
+	m_vipLV = msg.m_viplv();
+	m_timeGet = msg.m_timeget();
+	m_timeGetMoney = msg.m_timegetmoney();
+	m_timeGo = msg.m_timego();
 }
 
 Sheet_MoneyrewardMoneyreward_s::Sheet_MoneyrewardMoneyreward_s() {

@@ -98,10 +98,10 @@ class E_BoxBoxBoxdataDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_mintimes = 1;
+  // optional int32 m_minTimes = 1;
   inline bool has_m_mintimes() const;
   inline void clear_m_mintimes();
-  static const int kMMintimesFieldNumber = 1;
+  static const int kMMinTimesFieldNumber = 1;
   inline ::google::protobuf::int32 m_mintimes() const;
   inline void set_m_mintimes(::google::protobuf::int32 value);
 
@@ -112,10 +112,10 @@ class E_BoxBoxBoxdataDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 m_maxtimes = 3;
+  // optional int32 m_maxTimes = 3;
   inline bool has_m_maxtimes() const;
   inline void clear_m_maxtimes();
-  static const int kMMaxtimesFieldNumber = 3;
+  static const int kMMaxTimesFieldNumber = 3;
   inline ::google::protobuf::int32 m_maxtimes() const;
   inline void set_m_maxtimes(::google::protobuf::int32 value);
 
@@ -224,14 +224,14 @@ class E_BoxBox : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_type() const;
   inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 m_rate = 3;
+  // optional int32 m_Rate = 3;
   inline bool has_m_rate() const;
   inline void clear_m_rate();
   static const int kMRateFieldNumber = 3;
   inline ::google::protobuf::int32 m_rate() const;
   inline void set_m_rate(::google::protobuf::int32 value);
 
-  // optional string m_mask = 4;
+  // optional string m_Mask = 4;
   inline bool has_m_mask() const;
   inline void clear_m_mask();
   static const int kMMaskFieldNumber = 4;
@@ -243,17 +243,17 @@ class E_BoxBox : public ::google::protobuf::Message {
   inline ::std::string* release_m_mask();
   inline void set_allocated_m_mask(::std::string* m_mask);
 
-  // optional int32 m_mintimes = 5;
+  // optional int32 m_minTimes = 5;
   inline bool has_m_mintimes() const;
   inline void clear_m_mintimes();
-  static const int kMMintimesFieldNumber = 5;
+  static const int kMMinTimesFieldNumber = 5;
   inline ::google::protobuf::int32 m_mintimes() const;
   inline void set_m_mintimes(::google::protobuf::int32 value);
 
-  // optional int32 m_maxtimes = 6;
+  // optional int32 m_maxTimes = 6;
   inline bool has_m_maxtimes() const;
   inline void clear_m_maxtimes();
-  static const int kMMaxtimesFieldNumber = 6;
+  static const int kMMaxTimesFieldNumber = 6;
   inline ::google::protobuf::int32 m_maxtimes() const;
   inline void set_m_maxtimes(::google::protobuf::int32 value);
 
@@ -445,17 +445,17 @@ class E_BoxBoxdataEquipDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_maxnum = 1;
+  // optional int32 m_maxNum = 1;
   inline bool has_m_maxnum() const;
   inline void clear_m_maxnum();
-  static const int kMMaxnumFieldNumber = 1;
+  static const int kMMaxNumFieldNumber = 1;
   inline ::google::protobuf::int32 m_maxnum() const;
   inline void set_m_maxnum(::google::protobuf::int32 value);
 
-  // optional int32 m_minnum = 2;
+  // optional int32 m_minNum = 2;
   inline bool has_m_minnum() const;
   inline void clear_m_minnum();
-  static const int kMMinnumFieldNumber = 2;
+  static const int kMMinNumFieldNumber = 2;
   inline ::google::protobuf::int32 m_minnum() const;
   inline void set_m_minnum(::google::protobuf::int32 value);
 
@@ -584,17 +584,17 @@ class E_BoxBoxdataItemDesc : public ::google::protobuf::Message {
   inline ::std::string* release_m_rand();
   inline void set_allocated_m_rand(::std::string* m_rand);
 
-  // optional int32 m_maxnum = 2;
+  // optional int32 m_maxNum = 2;
   inline bool has_m_maxnum() const;
   inline void clear_m_maxnum();
-  static const int kMMaxnumFieldNumber = 2;
+  static const int kMMaxNumFieldNumber = 2;
   inline ::google::protobuf::int32 m_maxnum() const;
   inline void set_m_maxnum(::google::protobuf::int32 value);
 
-  // optional int32 m_minnum = 3;
+  // optional int32 m_minNum = 3;
   inline bool has_m_minnum() const;
   inline void clear_m_minnum();
-  static const int kMMinnumFieldNumber = 3;
+  static const int kMMinNumFieldNumber = 3;
   inline ::google::protobuf::int32 m_minnum() const;
   inline void set_m_minnum(::google::protobuf::int32 value);
 
@@ -733,17 +733,17 @@ class E_BoxBoxdata : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_drop_type() const;
   inline void set_m_drop_type(::google::protobuf::int32 value);
 
-  // optional int32 m_goldminnum = 3;
+  // optional int32 m_goldminNum = 3;
   inline bool has_m_goldminnum() const;
   inline void clear_m_goldminnum();
-  static const int kMGoldminnumFieldNumber = 3;
+  static const int kMGoldminNumFieldNumber = 3;
   inline ::google::protobuf::int32 m_goldminnum() const;
   inline void set_m_goldminnum(::google::protobuf::int32 value);
 
-  // optional int32 m_goldmaxnum = 4;
+  // optional int32 m_goldmaxNum = 4;
   inline bool has_m_goldmaxnum() const;
   inline void clear_m_goldmaxnum();
-  static const int kMGoldmaxnumFieldNumber = 4;
+  static const int kMGoldmaxNumFieldNumber = 4;
   inline ::google::protobuf::int32 m_goldmaxnum() const;
   inline void set_m_goldmaxnum(::google::protobuf::int32 value);
 
@@ -754,17 +754,17 @@ class E_BoxBoxdata : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_goldrand() const;
   inline void set_m_goldrand(::google::protobuf::int32 value);
 
-  // optional int32 m_bindjewelminnum = 6;
+  // optional int32 m_bindjewelminNum = 6;
   inline bool has_m_bindjewelminnum() const;
   inline void clear_m_bindjewelminnum();
-  static const int kMBindjewelminnumFieldNumber = 6;
+  static const int kMBindjewelminNumFieldNumber = 6;
   inline ::google::protobuf::int32 m_bindjewelminnum() const;
   inline void set_m_bindjewelminnum(::google::protobuf::int32 value);
 
-  // optional int32 m_bindjewelmaxnum = 7;
+  // optional int32 m_bindjewelmaxNum = 7;
   inline bool has_m_bindjewelmaxnum() const;
   inline void clear_m_bindjewelmaxnum();
-  static const int kMBindjewelmaxnumFieldNumber = 7;
+  static const int kMBindjewelmaxNumFieldNumber = 7;
   inline ::google::protobuf::int32 m_bindjewelmaxnum() const;
   inline void set_m_bindjewelmaxnum(::google::protobuf::int32 value);
 
@@ -775,17 +775,17 @@ class E_BoxBoxdata : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_bindjewelrand() const;
   inline void set_m_bindjewelrand(::google::protobuf::int32 value);
 
-  // optional int32 m_jewelminnum = 9;
+  // optional int32 m_jewelminNum = 9;
   inline bool has_m_jewelminnum() const;
   inline void clear_m_jewelminnum();
-  static const int kMJewelminnumFieldNumber = 9;
+  static const int kMJewelminNumFieldNumber = 9;
   inline ::google::protobuf::int32 m_jewelminnum() const;
   inline void set_m_jewelminnum(::google::protobuf::int32 value);
 
-  // optional int32 m_jewelmaxnum = 10;
+  // optional int32 m_jewelmaxNum = 10;
   inline bool has_m_jewelmaxnum() const;
   inline void clear_m_jewelmaxnum();
-  static const int kMJewelmaxnumFieldNumber = 10;
+  static const int kMJewelmaxNumFieldNumber = 10;
   inline ::google::protobuf::int32 m_jewelmaxnum() const;
   inline void set_m_jewelmaxnum(::google::protobuf::int32 value);
 
@@ -978,7 +978,7 @@ class Sheet_BoxBoxdata : public ::google::protobuf::Message {
 
 // E_BoxBoxBoxdataDesc
 
-// optional int32 m_mintimes = 1;
+// optional int32 m_minTimes = 1;
 inline bool E_BoxBoxBoxdataDesc::has_m_mintimes() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1022,7 +1022,7 @@ inline void E_BoxBoxBoxdataDesc::set_m_id(::google::protobuf::int64 value) {
   m_id_ = value;
 }
 
-// optional int32 m_maxtimes = 3;
+// optional int32 m_maxTimes = 3;
 inline bool E_BoxBoxBoxdataDesc::has_m_maxtimes() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1114,7 +1114,7 @@ inline void E_BoxBox::set_m_type(::google::protobuf::int32 value) {
   m_type_ = value;
 }
 
-// optional int32 m_rate = 3;
+// optional int32 m_Rate = 3;
 inline bool E_BoxBox::has_m_rate() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1136,7 +1136,7 @@ inline void E_BoxBox::set_m_rate(::google::protobuf::int32 value) {
   m_rate_ = value;
 }
 
-// optional string m_mask = 4;
+// optional string m_Mask = 4;
 inline bool E_BoxBox::has_m_mask() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1206,7 +1206,7 @@ inline void E_BoxBox::set_allocated_m_mask(::std::string* m_mask) {
   }
 }
 
-// optional int32 m_mintimes = 5;
+// optional int32 m_minTimes = 5;
 inline bool E_BoxBox::has_m_mintimes() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1228,7 +1228,7 @@ inline void E_BoxBox::set_m_mintimes(::google::protobuf::int32 value) {
   m_mintimes_ = value;
 }
 
-// optional int32 m_maxtimes = 6;
+// optional int32 m_maxTimes = 6;
 inline bool E_BoxBox::has_m_maxtimes() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -1308,7 +1308,7 @@ Sheet_BoxBox::mutable_e_boxbox_list() {
 
 // E_BoxBoxdataEquipDesc
 
-// optional int32 m_maxnum = 1;
+// optional int32 m_maxNum = 1;
 inline bool E_BoxBoxdataEquipDesc::has_m_maxnum() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1330,7 +1330,7 @@ inline void E_BoxBoxdataEquipDesc::set_m_maxnum(::google::protobuf::int32 value)
   m_maxnum_ = value;
 }
 
-// optional int32 m_minnum = 2;
+// optional int32 m_minNum = 2;
 inline bool E_BoxBoxdataEquipDesc::has_m_minnum() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1540,7 +1540,7 @@ inline void E_BoxBoxdataItemDesc::set_allocated_m_rand(::std::string* m_rand) {
   }
 }
 
-// optional int32 m_maxnum = 2;
+// optional int32 m_maxNum = 2;
 inline bool E_BoxBoxdataItemDesc::has_m_maxnum() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1562,7 +1562,7 @@ inline void E_BoxBoxdataItemDesc::set_m_maxnum(::google::protobuf::int32 value) 
   m_maxnum_ = value;
 }
 
-// optional int32 m_minnum = 3;
+// optional int32 m_minNum = 3;
 inline bool E_BoxBoxdataItemDesc::has_m_minnum() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1794,7 +1794,7 @@ inline void E_BoxBoxdata::set_m_drop_type(::google::protobuf::int32 value) {
   m_drop_type_ = value;
 }
 
-// optional int32 m_goldminnum = 3;
+// optional int32 m_goldminNum = 3;
 inline bool E_BoxBoxdata::has_m_goldminnum() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1816,7 +1816,7 @@ inline void E_BoxBoxdata::set_m_goldminnum(::google::protobuf::int32 value) {
   m_goldminnum_ = value;
 }
 
-// optional int32 m_goldmaxnum = 4;
+// optional int32 m_goldmaxNum = 4;
 inline bool E_BoxBoxdata::has_m_goldmaxnum() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1860,7 +1860,7 @@ inline void E_BoxBoxdata::set_m_goldrand(::google::protobuf::int32 value) {
   m_goldrand_ = value;
 }
 
-// optional int32 m_bindjewelminnum = 6;
+// optional int32 m_bindjewelminNum = 6;
 inline bool E_BoxBoxdata::has_m_bindjewelminnum() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -1882,7 +1882,7 @@ inline void E_BoxBoxdata::set_m_bindjewelminnum(::google::protobuf::int32 value)
   m_bindjewelminnum_ = value;
 }
 
-// optional int32 m_bindjewelmaxnum = 7;
+// optional int32 m_bindjewelmaxNum = 7;
 inline bool E_BoxBoxdata::has_m_bindjewelmaxnum() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -1926,7 +1926,7 @@ inline void E_BoxBoxdata::set_m_bindjewelrand(::google::protobuf::int32 value) {
   m_bindjewelrand_ = value;
 }
 
-// optional int32 m_jewelminnum = 9;
+// optional int32 m_jewelminNum = 9;
 inline bool E_BoxBoxdata::has_m_jewelminnum() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -1948,7 +1948,7 @@ inline void E_BoxBoxdata::set_m_jewelminnum(::google::protobuf::int32 value) {
   m_jewelminnum_ = value;
 }
 
-// optional int32 m_jewelmaxnum = 10;
+// optional int32 m_jewelmaxNum = 10;
 inline bool E_BoxBoxdata::has_m_jewelmaxnum() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }

@@ -90,7 +90,7 @@ int XingchenXctpaddiDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_attid <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_attid)), result, "can't find the attid:{} in the  excel:attribute sheet:attribute", pDesc->m_attid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_attId <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_attId)), result, "can't find the attId:{} in the  excel:attribute sheet:attribute", pDesc->m_attId);
 	}
 	return result;
 }

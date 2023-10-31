@@ -11,15 +11,15 @@ message E_ArenaRobotAttrDesc
 
 message E_ArenaRobot
 {
-	optional int32 m_arenaid = 1[(yd_fieldoptions.field_cname) = "竞技场排名ID"];
+	optional int32 m_arenaId = 1[(yd_fieldoptions.field_cname) = "竞技场排名ID"];
 	optional string m_robotname = 2[(yd_fieldoptions.field_cname) = "机器人名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_aiid = 3[(yd_fieldoptions.field_cname) = "aiID"];
-	optional int32 m_rankid = 4[(yd_fieldoptions.field_cname) = "排名id"];
-	optional int32 m_robotprofession = 5[(yd_fieldoptions.field_cname) = "机器人职业"];
-	optional int32 m_robotlv = 6[(yd_fieldoptions.field_cname) = "机器人等级"];
+	optional int32 m_aiId = 3[(yd_fieldoptions.field_cname) = "aiID"];
+	optional int32 m_rankId = 4[(yd_fieldoptions.field_cname) = "排名id"];
+	optional int32 m_robotProfession = 5[(yd_fieldoptions.field_cname) = "机器人职业"];
+	optional int32 m_robotLv = 6[(yd_fieldoptions.field_cname) = "机器人等级"];
 	optional int32 m_sword = 7[(yd_fieldoptions.field_cname) = "战力"];
-	optional int32 m_facadeid = 8[(yd_fieldoptions.field_cname) = "外观ID"];
-	optional int32 m_occupationid = 9[(yd_fieldoptions.field_cname) = "转职ID"];
+	optional int32 m_facadeID = 8[(yd_fieldoptions.field_cname) = "外观ID"];
+	optional int32 m_occupationID = 9[(yd_fieldoptions.field_cname) = "转职ID"];
 	repeated E_ArenaRobotAttrDesc m_attr = 10[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 70];
 }
 
@@ -50,16 +50,16 @@ message Sheet_ArenaRobotfacade
 
 message E_ArenaArenawardRewardDesc
 {
-	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数量"];
-	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_Value = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_ID = 2[(yd_fieldoptions.field_cname) = "ID"];
 }
 
 message E_ArenaArenaward
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_lvdown = 2[(yd_fieldoptions.field_cname) = "下限等级"];
-	optional int32 m_lvup = 3[(yd_fieldoptions.field_cname) = "上限等级"];
-	repeated E_ArenaArenawardRewardDesc m_reward = 4[(yd_fieldoptions.field_cname) = "奖励物品", (yd_fieldoptions.field_arysize) = 5];
+	optional int32 m_lvDown = 2[(yd_fieldoptions.field_cname) = "下限等级"];
+	optional int32 m_lvUp = 3[(yd_fieldoptions.field_cname) = "上限等级"];
+	repeated E_ArenaArenawardRewardDesc m_Reward = 4[(yd_fieldoptions.field_cname) = "奖励物品", (yd_fieldoptions.field_arysize) = 5];
 }
 
 
@@ -70,16 +70,16 @@ message Sheet_ArenaArenaward
 
 message E_ArenaRankawardRewardDesc
 {
-	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数量"];
-	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_Value = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_ID = 2[(yd_fieldoptions.field_cname) = "ID"];
 }
 
 message E_ArenaRankaward
 {
-	optional int32 m_prizeid = 1[(yd_fieldoptions.field_cname) = "奖励ID"];
-	optional int32 m_arenadown = 2[(yd_fieldoptions.field_cname) = "下限排名"];
-	optional int32 m_arenaup = 3[(yd_fieldoptions.field_cname) = "上限排名"];
-	repeated E_ArenaRankawardRewardDesc m_reward = 4[(yd_fieldoptions.field_cname) = "奖励物品", (yd_fieldoptions.field_arysize) = 5];
+	optional int32 m_PrizeId = 1[(yd_fieldoptions.field_cname) = "奖励ID"];
+	optional int32 m_arenaDown = 2[(yd_fieldoptions.field_cname) = "下限排名"];
+	optional int32 m_arenaUp = 3[(yd_fieldoptions.field_cname) = "上限排名"];
+	repeated E_ArenaRankawardRewardDesc m_Reward = 4[(yd_fieldoptions.field_cname) = "奖励物品", (yd_fieldoptions.field_arysize) = 5];
 }
 
 
@@ -90,16 +90,16 @@ message Sheet_ArenaRankaward
 
 message E_ArenaFirstrankRewardDesc
 {
-	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数量"];
-	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_Value = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_ID = 2[(yd_fieldoptions.field_cname) = "ID"];
 }
 
 message E_ArenaFirstrank
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_rankdown = 2[(yd_fieldoptions.field_cname) = "下限排名"];
-	optional int32 m_rankup = 3[(yd_fieldoptions.field_cname) = "上限排名"];
-	repeated E_ArenaFirstrankRewardDesc m_reward = 4[(yd_fieldoptions.field_cname) = "奖励物品", (yd_fieldoptions.field_arysize) = 5];
+	optional int32 m_rankDown = 2[(yd_fieldoptions.field_cname) = "下限排名"];
+	optional int32 m_rankUp = 3[(yd_fieldoptions.field_cname) = "上限排名"];
+	repeated E_ArenaFirstrankRewardDesc m_Reward = 4[(yd_fieldoptions.field_cname) = "奖励物品", (yd_fieldoptions.field_arysize) = 5];
 }
 
 
@@ -111,7 +111,7 @@ message Sheet_ArenaFirstrank
 message E_ArenaBuychallenge
 {
 	optional int32 m_count = 1[(yd_fieldoptions.field_cname) = "购买计次"];
-	optional int32 m_costtype = 2[(yd_fieldoptions.field_cname) = "花费类型"];
+	optional int32 m_costType = 2[(yd_fieldoptions.field_cname) = "花费类型"];
 	optional int32 m_cost = 3[(yd_fieldoptions.field_cname) = "花费"];
 }
 

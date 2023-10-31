@@ -281,8 +281,8 @@ void protobuf_AddDesc_E_5fWaremblem_2eproto() {
     "\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002id\"\375\001\n\024E_WaremblemWar"
     "emblem\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\032\n\006m_type\030\002"
     " \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022!\n\007m_order\030\003 \001(\005B\020\302\377\024\014\350"
-    "\247\243\351\224\201\351\241\272\345\272\217\022\037\n\tm_lvindex\030\004 \001(\005B\014\302\377\024\010lv\347\264"
-    "\242\345\274\225\022%\n\013m_starindex\030\005 \001(\005B\020\302\377\024\014\346\230\237\347\272\247\347\264\242"
+    "\247\243\351\224\201\351\241\272\345\272\217\022\037\n\tm_lvIndex\030\004 \001(\005B\014\302\377\024\010lv\347\264"
+    "\242\345\274\225\022%\n\013m_starIndex\030\005 \001(\005B\020\302\377\024\014\346\230\237\347\272\247\347\264\242"
     "\345\274\225\022H\n\007m_skill\030\006 \003(\0132\'.proto_ff.E_Waremb"
     "lemWaremblemSkillDescB\016\302\377\024\006\346\212\200\350\203\275\210\301\024\005\"c\n"
     "\030Sheet_WaremblemWaremblem\022G\n\031E_Waremblem"
@@ -292,8 +292,8 @@ void protobuf_AddDesc_E_5fWaremblem_2eproto() {
     "type\030\002 \001(\005B\006\302\377\024\002ID\"\234\002\n\rE_WaremblemLv\022\024\n\004"
     "m_id\030\001 \001(\005B\006\302\377\024\002id\022\033\n\007m_index\030\002 \001(\005B\n\302\377\024"
     "\006\347\264\242\345\274\225\022\024\n\004m_lv\030\003 \001(\005B\006\302\377\024\002lv\022&\n\014m_class"
-    "bonus\030\004 \001(\005B\020\302\377\024\014\351\230\266\347\272\247\345\212\240\346\210\220\022$\n\010m_costi"
-    "d\030\005 \001(\005B\022\302\377\024\016\346\266\210\350\200\227\351\201\223\345\205\267ID\022#\n\tm_costnum"
+    "Bonus\030\004 \001(\005B\020\302\377\024\014\351\230\266\347\272\247\345\212\240\346\210\220\022$\n\010m_costI"
+    "d\030\005 \001(\005B\022\302\377\024\016\346\266\210\350\200\227\351\201\223\345\205\267ID\022#\n\tm_costNum"
     "\030\006 \001(\005B\020\302\377\024\014\346\266\210\350\200\227\346\225\260\351\207\217\022O\n\013m_attribute\030"
     "\007 \003(\0132$.proto_ff.E_WaremblemLvAttributeD"
     "escB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\004\"O\n\021Sheet_Warem"
@@ -303,8 +303,8 @@ void protobuf_AddDesc_E_5fWaremblem_2eproto() {
     "\003\345\200\274\022\026\n\006m_type\030\002 \001(\005B\006\302\377\024\002ID\"\235\002\n\017E_Warem"
     "blemStar\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\033\n\007m_inde"
     "x\030\002 \001(\005B\n\302\377\024\006\347\264\242\345\274\225\022\032\n\006m_star\030\003 \001(\005B\n\302\377\024"
-    "\006\346\230\237\347\272\247\022\"\n\010m_costid\030\004 \001(\005B\020\302\377\024\014\346\266\210\350\200\227\351\201\223"
-    "\345\205\267\022#\n\tm_costnum\030\005 \001(\005B\020\302\377\024\014\346\266\210\350\200\227\346\225\260\351\207\217"
+    "\006\346\230\237\347\272\247\022\"\n\010m_costId\030\004 \001(\005B\020\302\377\024\014\346\266\210\350\200\227\351\201\223"
+    "\345\205\267\022#\n\tm_costNum\030\005 \001(\005B\020\302\377\024\014\346\266\210\350\200\227\346\225\260\351\207\217"
     "\022\037\n\010m_succes\030\006 \001(\005B\r\302\377\024\t\346\210\220\345\212\237\347\216\207\022Q\n\013m_a"
     "ttribute\030\007 \003(\0132&.proto_ff.E_WaremblemSta"
     "rAttributeDescB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\005\"U\n\023"
@@ -595,8 +595,8 @@ void E_WaremblemWaremblemSkillDesc::Swap(E_WaremblemWaremblemSkillDesc* other) {
 const int E_WaremblemWaremblem::kMIdFieldNumber;
 const int E_WaremblemWaremblem::kMTypeFieldNumber;
 const int E_WaremblemWaremblem::kMOrderFieldNumber;
-const int E_WaremblemWaremblem::kMLvindexFieldNumber;
-const int E_WaremblemWaremblem::kMStarindexFieldNumber;
+const int E_WaremblemWaremblem::kMLvIndexFieldNumber;
+const int E_WaremblemWaremblem::kMStarIndexFieldNumber;
 const int E_WaremblemWaremblem::kMSkillFieldNumber;
 #endif  // !_MSC_VER
 
@@ -716,15 +716,15 @@ bool E_WaremblemWaremblem::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_lvindex;
+        if (input->ExpectTag(32)) goto parse_m_lvIndex;
         break;
       }
 
-      // optional int32 m_lvindex = 4;
+      // optional int32 m_lvIndex = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_lvindex:
+         parse_m_lvIndex:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_lvindex_)));
@@ -732,15 +732,15 @@ bool E_WaremblemWaremblem::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_starindex;
+        if (input->ExpectTag(40)) goto parse_m_starIndex;
         break;
       }
 
-      // optional int32 m_starindex = 5;
+      // optional int32 m_starIndex = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_starindex:
+         parse_m_starIndex:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_starindex_)));
@@ -800,12 +800,12 @@ void E_WaremblemWaremblem::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_order(), output);
   }
 
-  // optional int32 m_lvindex = 4;
+  // optional int32 m_lvIndex = 4;
   if (has_m_lvindex()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_lvindex(), output);
   }
 
-  // optional int32 m_starindex = 5;
+  // optional int32 m_starIndex = 5;
   if (has_m_starindex()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_starindex(), output);
   }
@@ -839,12 +839,12 @@ void E_WaremblemWaremblem::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_order(), target);
   }
 
-  // optional int32 m_lvindex = 4;
+  // optional int32 m_lvIndex = 4;
   if (has_m_lvindex()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_lvindex(), target);
   }
 
-  // optional int32 m_starindex = 5;
+  // optional int32 m_starIndex = 5;
   if (has_m_starindex()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_starindex(), target);
   }
@@ -888,14 +888,14 @@ int E_WaremblemWaremblem::ByteSize() const {
           this->m_order());
     }
 
-    // optional int32 m_lvindex = 4;
+    // optional int32 m_lvIndex = 4;
     if (has_m_lvindex()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_lvindex());
     }
 
-    // optional int32 m_starindex = 5;
+    // optional int32 m_starIndex = 5;
     if (has_m_starindex()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1454,9 +1454,9 @@ void E_WaremblemLvAttributeDesc::Swap(E_WaremblemLvAttributeDesc* other) {
 const int E_WaremblemLv::kMIdFieldNumber;
 const int E_WaremblemLv::kMIndexFieldNumber;
 const int E_WaremblemLv::kMLvFieldNumber;
-const int E_WaremblemLv::kMClassbonusFieldNumber;
-const int E_WaremblemLv::kMCostidFieldNumber;
-const int E_WaremblemLv::kMCostnumFieldNumber;
+const int E_WaremblemLv::kMClassBonusFieldNumber;
+const int E_WaremblemLv::kMCostIdFieldNumber;
+const int E_WaremblemLv::kMCostNumFieldNumber;
 const int E_WaremblemLv::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -1578,15 +1578,15 @@ bool E_WaremblemLv::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_classbonus;
+        if (input->ExpectTag(32)) goto parse_m_classBonus;
         break;
       }
 
-      // optional int32 m_classbonus = 4;
+      // optional int32 m_classBonus = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_classbonus:
+         parse_m_classBonus:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_classbonus_)));
@@ -1594,15 +1594,15 @@ bool E_WaremblemLv::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_costid;
+        if (input->ExpectTag(40)) goto parse_m_costId;
         break;
       }
 
-      // optional int32 m_costid = 5;
+      // optional int32 m_costId = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_costid:
+         parse_m_costId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_costid_)));
@@ -1610,15 +1610,15 @@ bool E_WaremblemLv::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_costnum;
+        if (input->ExpectTag(48)) goto parse_m_costNum;
         break;
       }
 
-      // optional int32 m_costnum = 6;
+      // optional int32 m_costNum = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_costnum:
+         parse_m_costNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_costnum_)));
@@ -1678,17 +1678,17 @@ void E_WaremblemLv::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_lv(), output);
   }
 
-  // optional int32 m_classbonus = 4;
+  // optional int32 m_classBonus = 4;
   if (has_m_classbonus()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_classbonus(), output);
   }
 
-  // optional int32 m_costid = 5;
+  // optional int32 m_costId = 5;
   if (has_m_costid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_costid(), output);
   }
 
-  // optional int32 m_costnum = 6;
+  // optional int32 m_costNum = 6;
   if (has_m_costnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_costnum(), output);
   }
@@ -1722,17 +1722,17 @@ void E_WaremblemLv::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_lv(), target);
   }
 
-  // optional int32 m_classbonus = 4;
+  // optional int32 m_classBonus = 4;
   if (has_m_classbonus()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_classbonus(), target);
   }
 
-  // optional int32 m_costid = 5;
+  // optional int32 m_costId = 5;
   if (has_m_costid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_costid(), target);
   }
 
-  // optional int32 m_costnum = 6;
+  // optional int32 m_costNum = 6;
   if (has_m_costnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_costnum(), target);
   }
@@ -1776,21 +1776,21 @@ int E_WaremblemLv::ByteSize() const {
           this->m_lv());
     }
 
-    // optional int32 m_classbonus = 4;
+    // optional int32 m_classBonus = 4;
     if (has_m_classbonus()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_classbonus());
     }
 
-    // optional int32 m_costid = 5;
+    // optional int32 m_costId = 5;
     if (has_m_costid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_costid());
     }
 
-    // optional int32 m_costnum = 6;
+    // optional int32 m_costNum = 6;
     if (has_m_costnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2353,8 +2353,8 @@ void E_WaremblemStarAttributeDesc::Swap(E_WaremblemStarAttributeDesc* other) {
 const int E_WaremblemStar::kMIdFieldNumber;
 const int E_WaremblemStar::kMIndexFieldNumber;
 const int E_WaremblemStar::kMStarFieldNumber;
-const int E_WaremblemStar::kMCostidFieldNumber;
-const int E_WaremblemStar::kMCostnumFieldNumber;
+const int E_WaremblemStar::kMCostIdFieldNumber;
+const int E_WaremblemStar::kMCostNumFieldNumber;
 const int E_WaremblemStar::kMSuccesFieldNumber;
 const int E_WaremblemStar::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
@@ -2477,15 +2477,15 @@ bool E_WaremblemStar::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_costid;
+        if (input->ExpectTag(32)) goto parse_m_costId;
         break;
       }
 
-      // optional int32 m_costid = 4;
+      // optional int32 m_costId = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_costid:
+         parse_m_costId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_costid_)));
@@ -2493,15 +2493,15 @@ bool E_WaremblemStar::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_costnum;
+        if (input->ExpectTag(40)) goto parse_m_costNum;
         break;
       }
 
-      // optional int32 m_costnum = 5;
+      // optional int32 m_costNum = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_costnum:
+         parse_m_costNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_costnum_)));
@@ -2577,12 +2577,12 @@ void E_WaremblemStar::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_star(), output);
   }
 
-  // optional int32 m_costid = 4;
+  // optional int32 m_costId = 4;
   if (has_m_costid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_costid(), output);
   }
 
-  // optional int32 m_costnum = 5;
+  // optional int32 m_costNum = 5;
   if (has_m_costnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_costnum(), output);
   }
@@ -2621,12 +2621,12 @@ void E_WaremblemStar::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_star(), target);
   }
 
-  // optional int32 m_costid = 4;
+  // optional int32 m_costId = 4;
   if (has_m_costid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_costid(), target);
   }
 
-  // optional int32 m_costnum = 5;
+  // optional int32 m_costNum = 5;
   if (has_m_costnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_costnum(), target);
   }
@@ -2675,14 +2675,14 @@ int E_WaremblemStar::ByteSize() const {
           this->m_star());
     }
 
-    // optional int32 m_costid = 4;
+    // optional int32 m_costId = 4;
     if (has_m_costid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_costid());
     }
 
-    // optional int32 m_costnum = 5;
+    // optional int32 m_costNum = 5;
     if (has_m_costnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

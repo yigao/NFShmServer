@@ -330,10 +330,10 @@ int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq &
         return 0;
     }
 
-    const NFPoint3<float> *pBornPos = MapDescEx::Instance()->RandBornPoint(pBornCfg->m_mapid);
+    const NFPoint3<float> *pBornPos = MapDescEx::Instance()->RandBornPoint(pBornCfg->m_mapID);
     if (nullptr == pBornPos)
     {
-        NFLogInfo(NF_LOG_SYSTEMLOG, uid, "can't find the prof's born map:{} cfg...uid:{},prof:{}, create role failed!", pBornCfg->m_mapid, uid, request.prof());
+        NFLogInfo(NF_LOG_SYSTEMLOG, uid, "can't find the prof's born map:{} cfg...uid:{},prof:{}, create role failed!", pBornCfg->m_mapID, uid, request.prof());
         respone.set_result(proto_ff::RET_CONFIG_ERROR);
         return 0;
     }
@@ -353,7 +353,7 @@ int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq &
     auto protobase = dbData.mutable_base();
     protobase->set_name(request.name());
     protobase->set_prof(request.prof());
-    protobase->set_level(pBornCfg->m_bornlevel);
+    protobase->set_level(pBornCfg->m_bornLevel);
     protobase->set_exp(0);
     protobase->set_hp(0);
     protobase->set_fight(0);
@@ -365,14 +365,14 @@ int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq &
     protobase->mutable_facade()->set_color(request.color());
     protobase->mutable_facade()->set_prof(request.prof());
 
-    protobase->set_enter_scene_id(pBornCfg->m_mapid);
-    protobase->set_enter_map_id(pBornCfg->m_mapid);
+    protobase->set_enter_scene_id(pBornCfg->m_mapID);
+    protobase->set_enter_map_id(pBornCfg->m_mapID);
     protobase->set_enterposx(pBornPos->x);
     protobase->set_enterposy(pBornPos->y);
     protobase->set_enterposz(pBornPos->z);
 
-    protobase->set_lastsceneid(pBornCfg->m_mapid);
-    protobase->set_lastmapid(pBornCfg->m_mapid);
+    protobase->set_lastsceneid(pBornCfg->m_mapID);
+    protobase->set_lastmapid(pBornCfg->m_mapID);
     protobase->set_lastposx(pBornPos->x);
     protobase->set_lastposy(pBornPos->x);
     protobase->set_lastposz(pBornPos->x);

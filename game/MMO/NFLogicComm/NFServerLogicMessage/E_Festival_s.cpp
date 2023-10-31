@@ -11,7 +11,7 @@ E_FestivalPeriodindex_s::E_FestivalPeriodindex_s() {
 }
 
 int E_FestivalPeriodindex_s::CreateInit() {
-	m_minorigalday = (int32_t)0;
+	m_minOrigalDay = (int32_t)0;
 	return 0;
 }
 
@@ -20,14 +20,14 @@ int E_FestivalPeriodindex_s::ResumeInit() {
 }
 
 void E_FestivalPeriodindex_s::write_to_pbmsg(::proto_ff::E_FestivalPeriodindex & msg) const {
-	msg.set_m_minorigalday((int32_t)m_minorigalday);
+	msg.set_m_minorigalday((int32_t)m_minOrigalDay);
 	for(int32_t i = 0; i < (int32_t)m_period.size(); ++i) {
 		msg.add_m_period((int32_t)m_period[i]);
 	}
 }
 
 void E_FestivalPeriodindex_s::read_from_pbmsg(const ::proto_ff::E_FestivalPeriodindex & msg) {
-	m_minorigalday = msg.m_minorigalday();
+	m_minOrigalDay = msg.m_minorigalday();
 	m_period.resize((int)msg.m_period_size() > (int)m_period.max_size() ? m_period.max_size() : msg.m_period_size());
 	for(int32_t i = 0; i < (int32_t)m_period.size(); ++i) {
 		m_period[i] = msg.m_period(i);
@@ -134,16 +134,16 @@ E_FestivalTemplate_s::E_FestivalTemplate_s() {
 
 int E_FestivalTemplate_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_festivalid = (int32_t)0;
-	m_timetype = (int32_t)0;
+	m_festivalId = (int32_t)0;
+	m_timeType = (int32_t)0;
 	m_level = (int32_t)0;
-	m_viplevel = (int32_t)0;
+	m_vipLevel = (int32_t)0;
 	m_rechange = (int32_t)0;
-	m_severtype = (int32_t)0;
-	m_periodtype = (int32_t)0;
+	m_severType = (int32_t)0;
+	m_periodType = (int32_t)0;
 	m_period = (int32_t)0;
-	m_ifopen = (int32_t)0;
-	m_activeid = (int32_t)0;
+	m_ifOpen = (int32_t)0;
+	m_activeID = (int32_t)0;
 	return 0;
 }
 
@@ -154,39 +154,39 @@ int E_FestivalTemplate_s::ResumeInit() {
 void E_FestivalTemplate_s::write_to_pbmsg(::proto_ff::E_FestivalTemplate & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_name(m_name.data());
-	msg.set_m_festivalid((int32_t)m_festivalid);
-	msg.set_m_timetype((int32_t)m_timetype);
+	msg.set_m_festivalid((int32_t)m_festivalId);
+	msg.set_m_timetype((int32_t)m_timeType);
 	msg.set_m_level((int32_t)m_level);
-	msg.set_m_viplevel((int32_t)m_viplevel);
+	msg.set_m_viplevel((int32_t)m_vipLevel);
 	msg.set_m_rechange((int32_t)m_rechange);
-	msg.set_m_severtype((int32_t)m_severtype);
-	msg.set_m_typearg(m_typearg.data());
-	msg.set_m_periodtype((int32_t)m_periodtype);
+	msg.set_m_severtype((int32_t)m_severType);
+	msg.set_m_typearg(m_typeArg.data());
+	msg.set_m_periodtype((int32_t)m_periodType);
 	msg.set_m_period((int32_t)m_period);
-	msg.set_m_ifopen((int32_t)m_ifopen);
-	msg.set_m_activeid((int32_t)m_activeid);
-	for(int32_t i = 0; i < (int32_t)m_timearg.size(); ++i) {
-		msg.add_m_timearg(m_timearg[i].data());
+	msg.set_m_ifopen((int32_t)m_ifOpen);
+	msg.set_m_activeid((int32_t)m_activeID);
+	for(int32_t i = 0; i < (int32_t)m_timeArg.size(); ++i) {
+		msg.add_m_timearg(m_timeArg[i].data());
 	}
 }
 
 void E_FestivalTemplate_s::read_from_pbmsg(const ::proto_ff::E_FestivalTemplate & msg) {
 	m_id = msg.m_id();
 	m_name = msg.m_name();
-	m_festivalid = msg.m_festivalid();
-	m_timetype = msg.m_timetype();
+	m_festivalId = msg.m_festivalid();
+	m_timeType = msg.m_timetype();
 	m_level = msg.m_level();
-	m_viplevel = msg.m_viplevel();
+	m_vipLevel = msg.m_viplevel();
 	m_rechange = msg.m_rechange();
-	m_severtype = msg.m_severtype();
-	m_typearg = msg.m_typearg();
-	m_periodtype = msg.m_periodtype();
+	m_severType = msg.m_severtype();
+	m_typeArg = msg.m_typearg();
+	m_periodType = msg.m_periodtype();
 	m_period = msg.m_period();
-	m_ifopen = msg.m_ifopen();
-	m_activeid = msg.m_activeid();
-	m_timearg.resize((int)msg.m_timearg_size() > (int)m_timearg.max_size() ? m_timearg.max_size() : msg.m_timearg_size());
-	for(int32_t i = 0; i < (int32_t)m_timearg.size(); ++i) {
-		m_timearg[i] = msg.m_timearg(i);
+	m_ifOpen = msg.m_ifopen();
+	m_activeID = msg.m_activeid();
+	m_timeArg.resize((int)msg.m_timearg_size() > (int)m_timeArg.max_size() ? m_timeArg.max_size() : msg.m_timearg_size());
+	for(int32_t i = 0; i < (int32_t)m_timeArg.size(); ++i) {
+		m_timeArg[i] = msg.m_timearg(i);
 	}
 }
 
@@ -232,7 +232,7 @@ E_FestivalMuban_login_s::E_FestivalMuban_login_s() {
 int E_FestivalMuban_login_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_period = (int32_t)0;
-	m_loginday = (int32_t)0;
+	m_loginDay = (int32_t)0;
 	m_boxid = (int32_t)0;
 	return 0;
 }
@@ -244,14 +244,14 @@ int E_FestivalMuban_login_s::ResumeInit() {
 void E_FestivalMuban_login_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_login & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_period((int32_t)m_period);
-	msg.set_m_loginday((int32_t)m_loginday);
+	msg.set_m_loginday((int32_t)m_loginDay);
 	msg.set_m_boxid((int32_t)m_boxid);
 }
 
 void E_FestivalMuban_login_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_login & msg) {
 	m_id = msg.m_id();
 	m_period = msg.m_period();
-	m_loginday = msg.m_loginday();
+	m_loginDay = msg.m_loginday();
 	m_boxid = msg.m_boxid();
 }
 
@@ -368,10 +368,10 @@ E_FestivalMuban_love_s::E_FestivalMuban_love_s() {
 int E_FestivalMuban_love_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_period = (int32_t)0;
-	m_taskpointid = (int32_t)0;
-	m_rankgroup = (int32_t)0;
-	m_taskgroup = (int32_t)0;
-	m_taskrewardgroup = (int32_t)0;
+	m_taskPointID = (int32_t)0;
+	m_rankGroup = (int32_t)0;
+	m_taskGroup = (int32_t)0;
+	m_taskRewardGroup = (int32_t)0;
 	return 0;
 }
 
@@ -382,19 +382,19 @@ int E_FestivalMuban_love_s::ResumeInit() {
 void E_FestivalMuban_love_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_love & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_period((int32_t)m_period);
-	msg.set_m_taskpointid((int32_t)m_taskpointid);
-	msg.set_m_rankgroup((int32_t)m_rankgroup);
-	msg.set_m_taskgroup((int32_t)m_taskgroup);
-	msg.set_m_taskrewardgroup((int32_t)m_taskrewardgroup);
+	msg.set_m_taskpointid((int32_t)m_taskPointID);
+	msg.set_m_rankgroup((int32_t)m_rankGroup);
+	msg.set_m_taskgroup((int32_t)m_taskGroup);
+	msg.set_m_taskrewardgroup((int32_t)m_taskRewardGroup);
 }
 
 void E_FestivalMuban_love_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_love & msg) {
 	m_id = msg.m_id();
 	m_period = msg.m_period();
-	m_taskpointid = msg.m_taskpointid();
-	m_rankgroup = msg.m_rankgroup();
-	m_taskgroup = msg.m_taskgroup();
-	m_taskrewardgroup = msg.m_taskrewardgroup();
+	m_taskPointID = msg.m_taskpointid();
+	m_rankGroup = msg.m_rankgroup();
+	m_taskGroup = msg.m_taskgroup();
+	m_taskRewardGroup = msg.m_taskrewardgroup();
 }
 
 Sheet_FestivalMuban_love_s::Sheet_FestivalMuban_love_s() {
@@ -439,9 +439,9 @@ E_FestivalMuban_love_rank_s::E_FestivalMuban_love_rank_s() {
 int E_FestivalMuban_love_rank_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_groupid = (int32_t)0;
-	m_rewardshow = (int32_t)0;
-	m_datagroupid = (int32_t)0;
-	m_ranktype = (int32_t)0;
+	m_rewardShow = (int32_t)0;
+	m_dataGroupID = (int32_t)0;
+	m_rankType = (int32_t)0;
 	return 0;
 }
 
@@ -452,17 +452,17 @@ int E_FestivalMuban_love_rank_s::ResumeInit() {
 void E_FestivalMuban_love_rank_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_love_rank & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_groupid((int32_t)m_groupid);
-	msg.set_m_rewardshow((int32_t)m_rewardshow);
-	msg.set_m_datagroupid((int32_t)m_datagroupid);
-	msg.set_m_ranktype((int32_t)m_ranktype);
+	msg.set_m_rewardshow((int32_t)m_rewardShow);
+	msg.set_m_datagroupid((int32_t)m_dataGroupID);
+	msg.set_m_ranktype((int32_t)m_rankType);
 }
 
 void E_FestivalMuban_love_rank_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_love_rank & msg) {
 	m_id = msg.m_id();
 	m_groupid = msg.m_groupid();
-	m_rewardshow = msg.m_rewardshow();
-	m_datagroupid = msg.m_datagroupid();
-	m_ranktype = msg.m_ranktype();
+	m_rewardShow = msg.m_rewardshow();
+	m_dataGroupID = msg.m_datagroupid();
+	m_rankType = msg.m_ranktype();
 }
 
 Sheet_FestivalMuban_love_rank_s::Sheet_FestivalMuban_love_rank_s() {
@@ -506,11 +506,11 @@ E_FestivalMuban_love_rank_data_s::E_FestivalMuban_love_rank_data_s() {
 
 int E_FestivalMuban_love_rank_data_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_groupid = (int32_t)0;
-	m_maxrank = (int32_t)0;
-	m_minrank = (int32_t)0;
-	m_rankvalue = (int32_t)0;
-	m_boxid = (int32_t)0;
+	m_groupID = (int32_t)0;
+	m_maxRank = (int32_t)0;
+	m_minRank = (int32_t)0;
+	m_rankValue = (int32_t)0;
+	m_boxID = (int32_t)0;
 	return 0;
 }
 
@@ -520,20 +520,20 @@ int E_FestivalMuban_love_rank_data_s::ResumeInit() {
 
 void E_FestivalMuban_love_rank_data_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_love_rank_data & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_groupid((int32_t)m_groupid);
-	msg.set_m_maxrank((int32_t)m_maxrank);
-	msg.set_m_minrank((int32_t)m_minrank);
-	msg.set_m_rankvalue((int32_t)m_rankvalue);
-	msg.set_m_boxid((int32_t)m_boxid);
+	msg.set_m_groupid((int32_t)m_groupID);
+	msg.set_m_maxrank((int32_t)m_maxRank);
+	msg.set_m_minrank((int32_t)m_minRank);
+	msg.set_m_rankvalue((int32_t)m_rankValue);
+	msg.set_m_boxid((int32_t)m_boxID);
 }
 
 void E_FestivalMuban_love_rank_data_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_love_rank_data & msg) {
 	m_id = msg.m_id();
-	m_groupid = msg.m_groupid();
-	m_maxrank = msg.m_maxrank();
-	m_minrank = msg.m_minrank();
-	m_rankvalue = msg.m_rankvalue();
-	m_boxid = msg.m_boxid();
+	m_groupID = msg.m_groupid();
+	m_maxRank = msg.m_maxrank();
+	m_minRank = msg.m_minrank();
+	m_rankValue = msg.m_rankvalue();
+	m_boxID = msg.m_boxid();
 }
 
 Sheet_FestivalMuban_love_rank_data_s::Sheet_FestivalMuban_love_rank_data_s() {
@@ -577,11 +577,11 @@ E_FestivalMuban_love_task_s::E_FestivalMuban_love_task_s() {
 
 int E_FestivalMuban_love_task_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_groupid = (int32_t)0;
-	m_eventtype = (int32_t)0;
-	m_reachprice = (int32_t)0;
+	m_groupID = (int32_t)0;
+	m_eventType = (int32_t)0;
+	m_reachPrice = (int32_t)0;
 	m_link = (int32_t)0;
-	m_rewardtimes = (int32_t)0;
+	m_rewardTimes = (int32_t)0;
 	m_reward = (int32_t)0;
 	return 0;
 }
@@ -592,11 +592,11 @@ int E_FestivalMuban_love_task_s::ResumeInit() {
 
 void E_FestivalMuban_love_task_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_love_task & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_groupid((int32_t)m_groupid);
-	msg.set_m_eventtype((int32_t)m_eventtype);
-	msg.set_m_reachprice((int32_t)m_reachprice);
+	msg.set_m_groupid((int32_t)m_groupID);
+	msg.set_m_eventtype((int32_t)m_eventType);
+	msg.set_m_reachprice((int32_t)m_reachPrice);
 	msg.set_m_link((int32_t)m_link);
-	msg.set_m_rewardtimes((int32_t)m_rewardtimes);
+	msg.set_m_rewardtimes((int32_t)m_rewardTimes);
 	msg.set_m_reward((int32_t)m_reward);
 	for(int32_t i = 0; i < (int32_t)m_param.size(); ++i) {
 		msg.add_m_param((int32_t)m_param[i]);
@@ -605,11 +605,11 @@ void E_FestivalMuban_love_task_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_lov
 
 void E_FestivalMuban_love_task_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_love_task & msg) {
 	m_id = msg.m_id();
-	m_groupid = msg.m_groupid();
-	m_eventtype = msg.m_eventtype();
-	m_reachprice = msg.m_reachprice();
+	m_groupID = msg.m_groupid();
+	m_eventType = msg.m_eventtype();
+	m_reachPrice = msg.m_reachprice();
 	m_link = msg.m_link();
-	m_rewardtimes = msg.m_rewardtimes();
+	m_rewardTimes = msg.m_rewardtimes();
 	m_reward = msg.m_reward();
 	m_param.resize((int)msg.m_param_size() > (int)m_param.max_size() ? m_param.max_size() : msg.m_param_size());
 	for(int32_t i = 0; i < (int32_t)m_param.size(); ++i) {
@@ -658,7 +658,7 @@ E_FestivalMuban_love_taskreward_s::E_FestivalMuban_love_taskreward_s() {
 
 int E_FestivalMuban_love_taskreward_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_groupid = (int32_t)0;
+	m_groupID = (int32_t)0;
 	m_value = (int32_t)0;
 	m_box = (int32_t)0;
 	return 0;
@@ -670,14 +670,14 @@ int E_FestivalMuban_love_taskreward_s::ResumeInit() {
 
 void E_FestivalMuban_love_taskreward_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_love_taskreward & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_groupid((int32_t)m_groupid);
+	msg.set_m_groupid((int32_t)m_groupID);
 	msg.set_m_value((int32_t)m_value);
 	msg.set_m_box((int32_t)m_box);
 }
 
 void E_FestivalMuban_love_taskreward_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_love_taskreward & msg) {
 	m_id = msg.m_id();
-	m_groupid = msg.m_groupid();
+	m_groupID = msg.m_groupid();
 	m_value = msg.m_value();
 	m_box = msg.m_box();
 }
@@ -724,9 +724,9 @@ E_FestivalMuban_addbox_s::E_FestivalMuban_addbox_s() {
 int E_FestivalMuban_addbox_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_period = (int32_t)0;
-	m_lvlimit = (int32_t)0;
+	m_lvLimit = (int32_t)0;
 	m_type = (int32_t)0;
-	m_addboxid = (int32_t)0;
+	m_addBoxId = (int32_t)0;
 	return 0;
 }
 
@@ -737,19 +737,19 @@ int E_FestivalMuban_addbox_s::ResumeInit() {
 void E_FestivalMuban_addbox_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_addbox & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_period((int32_t)m_period);
-	msg.set_m_lvlimit((int32_t)m_lvlimit);
+	msg.set_m_lvlimit((int32_t)m_lvLimit);
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_arg(m_arg.data());
-	msg.set_m_addboxid((int32_t)m_addboxid);
+	msg.set_m_addboxid((int32_t)m_addBoxId);
 }
 
 void E_FestivalMuban_addbox_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_addbox & msg) {
 	m_id = msg.m_id();
 	m_period = msg.m_period();
-	m_lvlimit = msg.m_lvlimit();
+	m_lvLimit = msg.m_lvlimit();
 	m_type = msg.m_type();
 	m_arg = msg.m_arg();
-	m_addboxid = msg.m_addboxid();
+	m_addBoxId = msg.m_addboxid();
 }
 
 Sheet_FestivalMuban_addbox_s::Sheet_FestivalMuban_addbox_s() {
@@ -863,9 +863,9 @@ int E_FestivalMuban_bossfristkill_s::CreateInit() {
 	m_period = (int32_t)0;
 	m_type = (int32_t)0;
 	m_bossid = (int32_t)0;
-	m_fristkillreward = (int32_t)0;
-	m_killreward = (int32_t)0;
-	m_fristkillpacket = (int32_t)0;
+	m_fristKillReward = (int32_t)0;
+	m_killReward = (int32_t)0;
+	m_fristKillPacket = (int32_t)0;
 	return 0;
 }
 
@@ -878,9 +878,9 @@ void E_FestivalMuban_bossfristkill_s::write_to_pbmsg(::proto_ff::E_FestivalMuban
 	msg.set_m_period((int32_t)m_period);
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_bossid((int32_t)m_bossid);
-	msg.set_m_fristkillreward((int32_t)m_fristkillreward);
-	msg.set_m_killreward((int32_t)m_killreward);
-	msg.set_m_fristkillpacket((int32_t)m_fristkillpacket);
+	msg.set_m_fristkillreward((int32_t)m_fristKillReward);
+	msg.set_m_killreward((int32_t)m_killReward);
+	msg.set_m_fristkillpacket((int32_t)m_fristKillPacket);
 }
 
 void E_FestivalMuban_bossfristkill_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_bossfristkill & msg) {
@@ -888,9 +888,9 @@ void E_FestivalMuban_bossfristkill_s::read_from_pbmsg(const ::proto_ff::E_Festiv
 	m_period = msg.m_period();
 	m_type = msg.m_type();
 	m_bossid = msg.m_bossid();
-	m_fristkillreward = msg.m_fristkillreward();
-	m_killreward = msg.m_killreward();
-	m_fristkillpacket = msg.m_fristkillpacket();
+	m_fristKillReward = msg.m_fristkillreward();
+	m_killReward = msg.m_killreward();
+	m_fristKillPacket = msg.m_fristkillpacket();
 }
 
 Sheet_FestivalMuban_bossfristkill_s::Sheet_FestivalMuban_bossfristkill_s() {
@@ -935,16 +935,16 @@ E_FestivalMuban_severrank_s::E_FestivalMuban_severrank_s() {
 int E_FestivalMuban_severrank_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_period = (int32_t)0;
-	m_openday = (int32_t)0;
-	m_closeday = (int32_t)0;
-	m_rewardshow = (int32_t)0;
-	m_datagroupid = (int32_t)0;
-	m_ranktype = (int32_t)0;
-	m_giftitemid = (int32_t)0;
-	m_originalprice = (int32_t)0;
+	m_openDay = (int32_t)0;
+	m_closeDay = (int32_t)0;
+	m_rewardShow = (int32_t)0;
+	m_dataGroupID = (int32_t)0;
+	m_rankType = (int32_t)0;
+	m_giftItemId = (int32_t)0;
+	m_originalPrice = (int32_t)0;
 	m_price = (int32_t)0;
-	m_ratioshow = (int32_t)0;
-	m_redpointbox = (int32_t)0;
+	m_ratioShow = (int32_t)0;
+	m_redPointBox = (int32_t)0;
 	return 0;
 }
 
@@ -957,19 +957,19 @@ void E_FestivalMuban_severrank_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_sev
 	msg.set_m_period((int32_t)m_period);
 	msg.set_m_order(m_order.data());
 	msg.set_m_name(m_name.data());
-	msg.set_m_openday((int32_t)m_openday);
-	msg.set_m_closeday((int32_t)m_closeday);
-	msg.set_m_championtitle(m_championtitle.data());
-	msg.set_m_rewardshow((int32_t)m_rewardshow);
-	msg.set_m_datagroupid((int32_t)m_datagroupid);
-	msg.set_m_ranktype((int32_t)m_ranktype);
-	msg.set_m_rankgift(m_rankgift.data());
-	msg.set_m_gifticon(m_gifticon.data());
-	msg.set_m_giftitemid((int32_t)m_giftitemid);
-	msg.set_m_originalprice((int32_t)m_originalprice);
+	msg.set_m_openday((int32_t)m_openDay);
+	msg.set_m_closeday((int32_t)m_closeDay);
+	msg.set_m_championtitle(m_championTitle.data());
+	msg.set_m_rewardshow((int32_t)m_rewardShow);
+	msg.set_m_datagroupid((int32_t)m_dataGroupID);
+	msg.set_m_ranktype((int32_t)m_rankType);
+	msg.set_m_rankgift(m_rankGift.data());
+	msg.set_m_gifticon(m_giftIcon.data());
+	msg.set_m_giftitemid((int32_t)m_giftItemId);
+	msg.set_m_originalprice((int32_t)m_originalPrice);
 	msg.set_m_price((int32_t)m_price);
-	msg.set_m_ratioshow((int32_t)m_ratioshow);
-	msg.set_m_redpointbox((int32_t)m_redpointbox);
+	msg.set_m_ratioshow((int32_t)m_ratioShow);
+	msg.set_m_redpointbox((int32_t)m_redPointBox);
 }
 
 void E_FestivalMuban_severrank_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_severrank & msg) {
@@ -977,19 +977,19 @@ void E_FestivalMuban_severrank_s::read_from_pbmsg(const ::proto_ff::E_FestivalMu
 	m_period = msg.m_period();
 	m_order = msg.m_order();
 	m_name = msg.m_name();
-	m_openday = msg.m_openday();
-	m_closeday = msg.m_closeday();
-	m_championtitle = msg.m_championtitle();
-	m_rewardshow = msg.m_rewardshow();
-	m_datagroupid = msg.m_datagroupid();
-	m_ranktype = msg.m_ranktype();
-	m_rankgift = msg.m_rankgift();
-	m_gifticon = msg.m_gifticon();
-	m_giftitemid = msg.m_giftitemid();
-	m_originalprice = msg.m_originalprice();
+	m_openDay = msg.m_openday();
+	m_closeDay = msg.m_closeday();
+	m_championTitle = msg.m_championtitle();
+	m_rewardShow = msg.m_rewardshow();
+	m_dataGroupID = msg.m_datagroupid();
+	m_rankType = msg.m_ranktype();
+	m_rankGift = msg.m_rankgift();
+	m_giftIcon = msg.m_gifticon();
+	m_giftItemId = msg.m_giftitemid();
+	m_originalPrice = msg.m_originalprice();
 	m_price = msg.m_price();
-	m_ratioshow = msg.m_ratioshow();
-	m_redpointbox = msg.m_redpointbox();
+	m_ratioShow = msg.m_ratioshow();
+	m_redPointBox = msg.m_redpointbox();
 }
 
 Sheet_FestivalMuban_severrank_s::Sheet_FestivalMuban_severrank_s() {
@@ -1033,11 +1033,11 @@ E_FestivalMuban_severrank_data_s::E_FestivalMuban_severrank_data_s() {
 
 int E_FestivalMuban_severrank_data_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_groupid = (int32_t)0;
-	m_maxrank = (int32_t)0;
-	m_minrank = (int32_t)0;
-	m_rankvalue = (int32_t)0;
-	m_boxid = (int32_t)0;
+	m_groupID = (int32_t)0;
+	m_maxRank = (int32_t)0;
+	m_minRank = (int32_t)0;
+	m_rankValue = (int32_t)0;
+	m_boxID = (int32_t)0;
 	return 0;
 }
 
@@ -1047,22 +1047,22 @@ int E_FestivalMuban_severrank_data_s::ResumeInit() {
 
 void E_FestivalMuban_severrank_data_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_severrank_data & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_groupid((int32_t)m_groupid);
-	msg.set_m_maxrank((int32_t)m_maxrank);
-	msg.set_m_minrank((int32_t)m_minrank);
-	msg.set_m_rankvalue((int32_t)m_rankvalue);
-	msg.set_m_unachievedisplay(m_unachievedisplay.data());
-	msg.set_m_boxid((int32_t)m_boxid);
+	msg.set_m_groupid((int32_t)m_groupID);
+	msg.set_m_maxrank((int32_t)m_maxRank);
+	msg.set_m_minrank((int32_t)m_minRank);
+	msg.set_m_rankvalue((int32_t)m_rankValue);
+	msg.set_m_unachievedisplay(m_UnachieveDisplay.data());
+	msg.set_m_boxid((int32_t)m_boxID);
 }
 
 void E_FestivalMuban_severrank_data_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_severrank_data & msg) {
 	m_id = msg.m_id();
-	m_groupid = msg.m_groupid();
-	m_maxrank = msg.m_maxrank();
-	m_minrank = msg.m_minrank();
-	m_rankvalue = msg.m_rankvalue();
-	m_unachievedisplay = msg.m_unachievedisplay();
-	m_boxid = msg.m_boxid();
+	m_groupID = msg.m_groupid();
+	m_maxRank = msg.m_maxrank();
+	m_minRank = msg.m_minrank();
+	m_rankValue = msg.m_rankvalue();
+	m_UnachieveDisplay = msg.m_unachievedisplay();
+	m_boxID = msg.m_boxid();
 }
 
 Sheet_FestivalMuban_severrank_data_s::Sheet_FestivalMuban_severrank_data_s() {
@@ -1212,7 +1212,7 @@ E_FestivalMuban_sign_s::E_FestivalMuban_sign_s() {
 int E_FestivalMuban_sign_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_period = (int32_t)0;
-	m_boxid = (int32_t)0;
+	m_boxID = (int32_t)0;
 	return 0;
 }
 
@@ -1223,13 +1223,13 @@ int E_FestivalMuban_sign_s::ResumeInit() {
 void E_FestivalMuban_sign_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_sign & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_period((int32_t)m_period);
-	msg.set_m_boxid((int32_t)m_boxid);
+	msg.set_m_boxid((int32_t)m_boxID);
 }
 
 void E_FestivalMuban_sign_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_sign & msg) {
 	m_id = msg.m_id();
 	m_period = msg.m_period();
-	m_boxid = msg.m_boxid();
+	m_boxID = msg.m_boxid();
 }
 
 Sheet_FestivalMuban_sign_s::Sheet_FestivalMuban_sign_s() {
@@ -1274,13 +1274,13 @@ E_FestivalMuban_shop_s::E_FestivalMuban_shop_s() {
 int E_FestivalMuban_shop_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_period = (int32_t)0;
-	m_viplevel = (int32_t)0;
+	m_vipLevel = (int32_t)0;
 	m_box = (int32_t)0;
-	m_timelimit = (int32_t)0;
+	m_timeLimit = (int32_t)0;
 	m_price = (int32_t)0;
-	m_pricetype = (int32_t)0;
-	m_startime = (int32_t)0;
-	m_durtime = (int32_t)0;
+	m_priceType = (int32_t)0;
+	m_starTime = (int32_t)0;
+	m_durTime = (int32_t)0;
 	return 0;
 }
 
@@ -1291,25 +1291,25 @@ int E_FestivalMuban_shop_s::ResumeInit() {
 void E_FestivalMuban_shop_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_shop & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_period((int32_t)m_period);
-	msg.set_m_viplevel((int32_t)m_viplevel);
+	msg.set_m_viplevel((int32_t)m_vipLevel);
 	msg.set_m_box((int32_t)m_box);
-	msg.set_m_timelimit((int32_t)m_timelimit);
+	msg.set_m_timelimit((int32_t)m_timeLimit);
 	msg.set_m_price((int32_t)m_price);
-	msg.set_m_pricetype((int32_t)m_pricetype);
-	msg.set_m_startime((int32_t)m_startime);
-	msg.set_m_durtime((int32_t)m_durtime);
+	msg.set_m_pricetype((int32_t)m_priceType);
+	msg.set_m_startime((int32_t)m_starTime);
+	msg.set_m_durtime((int32_t)m_durTime);
 }
 
 void E_FestivalMuban_shop_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_shop & msg) {
 	m_id = msg.m_id();
 	m_period = msg.m_period();
-	m_viplevel = msg.m_viplevel();
+	m_vipLevel = msg.m_viplevel();
 	m_box = msg.m_box();
-	m_timelimit = msg.m_timelimit();
+	m_timeLimit = msg.m_timelimit();
 	m_price = msg.m_price();
-	m_pricetype = msg.m_pricetype();
-	m_startime = msg.m_startime();
-	m_durtime = msg.m_durtime();
+	m_priceType = msg.m_pricetype();
+	m_starTime = msg.m_startime();
+	m_durTime = msg.m_durtime();
 }
 
 Sheet_FestivalMuban_shop_s::Sheet_FestivalMuban_shop_s() {
@@ -1355,7 +1355,7 @@ int E_FestivalMuban_rechange_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_period = (int32_t)0;
 	m_rebate = (int32_t)0;
-	m_timelimit = (int32_t)0;
+	m_timeLimit = (int32_t)0;
 	m_price = (int32_t)0;
 	m_typer = (int32_t)0;
 	return 0;
@@ -1369,7 +1369,7 @@ void E_FestivalMuban_rechange_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_rech
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_period((int32_t)m_period);
 	msg.set_m_rebate((int32_t)m_rebate);
-	msg.set_m_timelimit((int32_t)m_timelimit);
+	msg.set_m_timelimit((int32_t)m_timeLimit);
 	msg.set_m_price((int32_t)m_price);
 	msg.set_m_typer((int32_t)m_typer);
 }
@@ -1378,7 +1378,7 @@ void E_FestivalMuban_rechange_s::read_from_pbmsg(const ::proto_ff::E_FestivalMub
 	m_id = msg.m_id();
 	m_period = msg.m_period();
 	m_rebate = msg.m_rebate();
-	m_timelimit = msg.m_timelimit();
+	m_timeLimit = msg.m_timelimit();
 	m_price = msg.m_price();
 	m_typer = msg.m_typer();
 }
@@ -1426,7 +1426,7 @@ int E_FestivalMuban_leiji_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_period = (int32_t)0;
 	m_leiji = (int32_t)0;
-	m_boxid = (int32_t)0;
+	m_boxID = (int32_t)0;
 	return 0;
 }
 
@@ -1438,14 +1438,14 @@ void E_FestivalMuban_leiji_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_leiji &
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_period((int32_t)m_period);
 	msg.set_m_leiji((int32_t)m_leiji);
-	msg.set_m_boxid((int32_t)m_boxid);
+	msg.set_m_boxid((int32_t)m_boxID);
 }
 
 void E_FestivalMuban_leiji_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_leiji & msg) {
 	m_id = msg.m_id();
 	m_period = msg.m_period();
 	m_leiji = msg.m_leiji();
-	m_boxid = msg.m_boxid();
+	m_boxID = msg.m_boxid();
 }
 
 Sheet_FestivalMuban_leiji_s::Sheet_FestivalMuban_leiji_s() {
@@ -1560,7 +1560,7 @@ E_FestivalZadanconstant_s::E_FestivalZadanconstant_s() {
 
 int E_FestivalZadanconstant_s::CreateInit() {
 	m_period = (int32_t)0;
-	m_costitem = (int64_t)0;
+	m_costItem = (int64_t)0;
 	m_number = (int32_t)0;
 	m_free = (int32_t)0;
 	m_currency = (int32_t)0;
@@ -1573,7 +1573,7 @@ int E_FestivalZadanconstant_s::ResumeInit() {
 
 void E_FestivalZadanconstant_s::write_to_pbmsg(::proto_ff::E_FestivalZadanconstant & msg) const {
 	msg.set_m_period((int32_t)m_period);
-	msg.set_m_costitem((int64_t)m_costitem);
+	msg.set_m_costitem((int64_t)m_costItem);
 	msg.set_m_number((int32_t)m_number);
 	msg.set_m_free((int32_t)m_free);
 	msg.set_m_currency((int32_t)m_currency);
@@ -1581,7 +1581,7 @@ void E_FestivalZadanconstant_s::write_to_pbmsg(::proto_ff::E_FestivalZadanconsta
 
 void E_FestivalZadanconstant_s::read_from_pbmsg(const ::proto_ff::E_FestivalZadanconstant & msg) {
 	m_period = msg.m_period();
-	m_costitem = msg.m_costitem();
+	m_costItem = msg.m_costitem();
 	m_number = msg.m_number();
 	m_free = msg.m_free();
 	m_currency = msg.m_currency();
@@ -1629,8 +1629,8 @@ E_FestivalMuban_turntable_s::E_FestivalMuban_turntable_s() {
 int E_FestivalMuban_turntable_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_period = (int32_t)0;
-	m_poolgroup = (int32_t)0;
-	m_taskgroup = (int32_t)0;
+	m_poolGroup = (int32_t)0;
+	m_taskGroup = (int32_t)0;
 	return 0;
 }
 
@@ -1641,15 +1641,15 @@ int E_FestivalMuban_turntable_s::ResumeInit() {
 void E_FestivalMuban_turntable_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_turntable & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_period((int32_t)m_period);
-	msg.set_m_poolgroup((int32_t)m_poolgroup);
-	msg.set_m_taskgroup((int32_t)m_taskgroup);
+	msg.set_m_poolgroup((int32_t)m_poolGroup);
+	msg.set_m_taskgroup((int32_t)m_taskGroup);
 }
 
 void E_FestivalMuban_turntable_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_turntable & msg) {
 	m_id = msg.m_id();
 	m_period = msg.m_period();
-	m_poolgroup = msg.m_poolgroup();
-	m_taskgroup = msg.m_taskgroup();
+	m_poolGroup = msg.m_poolgroup();
+	m_taskGroup = msg.m_taskgroup();
 }
 
 Sheet_FestivalMuban_turntable_s::Sheet_FestivalMuban_turntable_s() {
@@ -1693,8 +1693,8 @@ E_FestivalMuban_turntable_pool_s::E_FestivalMuban_turntable_pool_s() {
 
 int E_FestivalMuban_turntable_pool_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_groupid = (int32_t)0;
-	m_itemid = (int32_t)0;
+	m_groupID = (int32_t)0;
+	m_itemID = (int32_t)0;
 	m_num = (int32_t)0;
 	m_weight = (int32_t)0;
 	return 0;
@@ -1706,16 +1706,16 @@ int E_FestivalMuban_turntable_pool_s::ResumeInit() {
 
 void E_FestivalMuban_turntable_pool_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_turntable_pool & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_groupid((int32_t)m_groupid);
-	msg.set_m_itemid((int32_t)m_itemid);
+	msg.set_m_groupid((int32_t)m_groupID);
+	msg.set_m_itemid((int32_t)m_itemID);
 	msg.set_m_num((int32_t)m_num);
 	msg.set_m_weight((int32_t)m_weight);
 }
 
 void E_FestivalMuban_turntable_pool_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_turntable_pool & msg) {
 	m_id = msg.m_id();
-	m_groupid = msg.m_groupid();
-	m_itemid = msg.m_itemid();
+	m_groupID = msg.m_groupid();
+	m_itemID = msg.m_itemid();
 	m_num = msg.m_num();
 	m_weight = msg.m_weight();
 }
@@ -1761,11 +1761,11 @@ E_FestivalMuban_turntable_task_s::E_FestivalMuban_turntable_task_s() {
 
 int E_FestivalMuban_turntable_task_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_groupid = (int32_t)0;
-	m_eventtype = (int32_t)0;
-	m_reachprice = (int32_t)0;
+	m_groupID = (int32_t)0;
+	m_eventType = (int32_t)0;
+	m_reachPrice = (int32_t)0;
 	m_link = (int32_t)0;
-	m_rewardtimes = (int32_t)0;
+	m_rewardTimes = (int32_t)0;
 	return 0;
 }
 
@@ -1775,11 +1775,11 @@ int E_FestivalMuban_turntable_task_s::ResumeInit() {
 
 void E_FestivalMuban_turntable_task_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_turntable_task & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_groupid((int32_t)m_groupid);
-	msg.set_m_eventtype((int32_t)m_eventtype);
-	msg.set_m_reachprice((int32_t)m_reachprice);
+	msg.set_m_groupid((int32_t)m_groupID);
+	msg.set_m_eventtype((int32_t)m_eventType);
+	msg.set_m_reachprice((int32_t)m_reachPrice);
 	msg.set_m_link((int32_t)m_link);
-	msg.set_m_rewardtimes((int32_t)m_rewardtimes);
+	msg.set_m_rewardtimes((int32_t)m_rewardTimes);
 	for(int32_t i = 0; i < (int32_t)m_param.size(); ++i) {
 		msg.add_m_param((int32_t)m_param[i]);
 	}
@@ -1787,11 +1787,11 @@ void E_FestivalMuban_turntable_task_s::write_to_pbmsg(::proto_ff::E_FestivalMuba
 
 void E_FestivalMuban_turntable_task_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_turntable_task & msg) {
 	m_id = msg.m_id();
-	m_groupid = msg.m_groupid();
-	m_eventtype = msg.m_eventtype();
-	m_reachprice = msg.m_reachprice();
+	m_groupID = msg.m_groupid();
+	m_eventType = msg.m_eventtype();
+	m_reachPrice = msg.m_reachprice();
 	m_link = msg.m_link();
-	m_rewardtimes = msg.m_rewardtimes();
+	m_rewardTimes = msg.m_rewardtimes();
 	m_param.resize((int)msg.m_param_size() > (int)m_param.max_size() ? m_param.max_size() : msg.m_param_size());
 	for(int32_t i = 0; i < (int32_t)m_param.size(); ++i) {
 		m_param[i] = msg.m_param(i);
@@ -1840,11 +1840,11 @@ E_FestivalMuban_donate_s::E_FestivalMuban_donate_s() {
 int E_FestivalMuban_donate_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_period = (int32_t)0;
-	m_donateitem = (int32_t)0;
-	m_donatereward = (int32_t)0;
-	m_severreward = (int32_t)0;
-	m_singlereward = (int32_t)0;
-	m_taskgroupid = (int32_t)0;
+	m_donateItem = (int32_t)0;
+	m_donateReward = (int32_t)0;
+	m_severReward = (int32_t)0;
+	m_singleReward = (int32_t)0;
+	m_taskGroupID = (int32_t)0;
 	return 0;
 }
 
@@ -1855,21 +1855,21 @@ int E_FestivalMuban_donate_s::ResumeInit() {
 void E_FestivalMuban_donate_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_donate & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_period((int32_t)m_period);
-	msg.set_m_donateitem((int32_t)m_donateitem);
-	msg.set_m_donatereward((int32_t)m_donatereward);
-	msg.set_m_severreward((int32_t)m_severreward);
-	msg.set_m_singlereward((int32_t)m_singlereward);
-	msg.set_m_taskgroupid((int32_t)m_taskgroupid);
+	msg.set_m_donateitem((int32_t)m_donateItem);
+	msg.set_m_donatereward((int32_t)m_donateReward);
+	msg.set_m_severreward((int32_t)m_severReward);
+	msg.set_m_singlereward((int32_t)m_singleReward);
+	msg.set_m_taskgroupid((int32_t)m_taskGroupID);
 }
 
 void E_FestivalMuban_donate_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_donate & msg) {
 	m_id = msg.m_id();
 	m_period = msg.m_period();
-	m_donateitem = msg.m_donateitem();
-	m_donatereward = msg.m_donatereward();
-	m_severreward = msg.m_severreward();
-	m_singlereward = msg.m_singlereward();
-	m_taskgroupid = msg.m_taskgroupid();
+	m_donateItem = msg.m_donateitem();
+	m_donateReward = msg.m_donatereward();
+	m_severReward = msg.m_severreward();
+	m_singleReward = msg.m_singlereward();
+	m_taskGroupID = msg.m_taskgroupid();
 }
 
 Sheet_FestivalMuban_donate_s::Sheet_FestivalMuban_donate_s() {
@@ -1913,7 +1913,7 @@ E_FestivalMuban_donate_sever_s::E_FestivalMuban_donate_sever_s() {
 
 int E_FestivalMuban_donate_sever_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_groupid = (int32_t)0;
+	m_groupID = (int32_t)0;
 	m_value = (int32_t)0;
 	m_type = (int32_t)0;
 	m_num = (int32_t)0;
@@ -1926,20 +1926,20 @@ int E_FestivalMuban_donate_sever_s::ResumeInit() {
 
 void E_FestivalMuban_donate_sever_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_donate_sever & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_groupid((int32_t)m_groupid);
+	msg.set_m_groupid((int32_t)m_groupID);
 	msg.set_m_value((int32_t)m_value);
 	msg.set_m_type((int32_t)m_type);
-	msg.set_m_typearg(m_typearg.data());
+	msg.set_m_typearg(m_typeArg.data());
 	msg.set_m_pro(m_pro.data());
 	msg.set_m_num((int32_t)m_num);
 }
 
 void E_FestivalMuban_donate_sever_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_donate_sever & msg) {
 	m_id = msg.m_id();
-	m_groupid = msg.m_groupid();
+	m_groupID = msg.m_groupid();
 	m_value = msg.m_value();
 	m_type = msg.m_type();
-	m_typearg = msg.m_typearg();
+	m_typeArg = msg.m_typearg();
 	m_pro = msg.m_pro();
 	m_num = msg.m_num();
 }
@@ -1985,7 +1985,7 @@ E_FestivalMuban_donate_single_s::E_FestivalMuban_donate_single_s() {
 
 int E_FestivalMuban_donate_single_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_groupid = (int32_t)0;
+	m_groupID = (int32_t)0;
 	m_value = (int32_t)0;
 	m_num = (int32_t)0;
 	return 0;
@@ -1997,18 +1997,18 @@ int E_FestivalMuban_donate_single_s::ResumeInit() {
 
 void E_FestivalMuban_donate_single_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_donate_single & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_groupid((int32_t)m_groupid);
+	msg.set_m_groupid((int32_t)m_groupID);
 	msg.set_m_value((int32_t)m_value);
-	msg.set_m_itemid(m_itemid.data());
+	msg.set_m_itemid(m_itemID.data());
 	msg.set_m_pro(m_pro.data());
 	msg.set_m_num((int32_t)m_num);
 }
 
 void E_FestivalMuban_donate_single_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_donate_single & msg) {
 	m_id = msg.m_id();
-	m_groupid = msg.m_groupid();
+	m_groupID = msg.m_groupid();
 	m_value = msg.m_value();
-	m_itemid = msg.m_itemid();
+	m_itemID = msg.m_itemid();
 	m_pro = msg.m_pro();
 	m_num = msg.m_num();
 }
@@ -2054,11 +2054,11 @@ E_FestivalMuban_donate_task_s::E_FestivalMuban_donate_task_s() {
 
 int E_FestivalMuban_donate_task_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_groupid = (int32_t)0;
-	m_eventtype = (int32_t)0;
-	m_reachprice = (int32_t)0;
-	m_itemid = (int32_t)0;
-	m_itemnum = (int32_t)0;
+	m_groupID = (int32_t)0;
+	m_eventType = (int32_t)0;
+	m_reachPrice = (int32_t)0;
+	m_itemID = (int32_t)0;
+	m_itemNum = (int32_t)0;
 	return 0;
 }
 
@@ -2068,11 +2068,11 @@ int E_FestivalMuban_donate_task_s::ResumeInit() {
 
 void E_FestivalMuban_donate_task_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_donate_task & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_groupid((int32_t)m_groupid);
-	msg.set_m_eventtype((int32_t)m_eventtype);
-	msg.set_m_reachprice((int32_t)m_reachprice);
-	msg.set_m_itemid((int32_t)m_itemid);
-	msg.set_m_itemnum((int32_t)m_itemnum);
+	msg.set_m_groupid((int32_t)m_groupID);
+	msg.set_m_eventtype((int32_t)m_eventType);
+	msg.set_m_reachprice((int32_t)m_reachPrice);
+	msg.set_m_itemid((int32_t)m_itemID);
+	msg.set_m_itemnum((int32_t)m_itemNum);
 	for(int32_t i = 0; i < (int32_t)m_param.size(); ++i) {
 		msg.add_m_param((int32_t)m_param[i]);
 	}
@@ -2080,11 +2080,11 @@ void E_FestivalMuban_donate_task_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_d
 
 void E_FestivalMuban_donate_task_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_donate_task & msg) {
 	m_id = msg.m_id();
-	m_groupid = msg.m_groupid();
-	m_eventtype = msg.m_eventtype();
-	m_reachprice = msg.m_reachprice();
-	m_itemid = msg.m_itemid();
-	m_itemnum = msg.m_itemnum();
+	m_groupID = msg.m_groupid();
+	m_eventType = msg.m_eventtype();
+	m_reachPrice = msg.m_reachprice();
+	m_itemID = msg.m_itemid();
+	m_itemNum = msg.m_itemnum();
 	m_param.resize((int)msg.m_param_size() > (int)m_param.max_size() ? m_param.max_size() : msg.m_param_size());
 	for(int32_t i = 0; i < (int32_t)m_param.size(); ++i) {
 		m_param[i] = msg.m_param(i);
@@ -2133,8 +2133,8 @@ E_FestivalMuban_online_s::E_FestivalMuban_online_s() {
 int E_FestivalMuban_online_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_period = (int32_t)0;
-	m_itemid = (int32_t)0;
-	m_itemnum = (int32_t)0;
+	m_itemID = (int32_t)0;
+	m_itemNum = (int32_t)0;
 	m_vip = (int32_t)0;
 	return 0;
 }
@@ -2146,20 +2146,20 @@ int E_FestivalMuban_online_s::ResumeInit() {
 void E_FestivalMuban_online_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_online & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_period((int32_t)m_period);
-	msg.set_m_timestart(m_timestart.data());
-	msg.set_m_timeend(m_timeend.data());
-	msg.set_m_itemid((int32_t)m_itemid);
-	msg.set_m_itemnum((int32_t)m_itemnum);
+	msg.set_m_timestart(m_timeStart.data());
+	msg.set_m_timeend(m_timeEnd.data());
+	msg.set_m_itemid((int32_t)m_itemID);
+	msg.set_m_itemnum((int32_t)m_itemNum);
 	msg.set_m_vip((int32_t)m_vip);
 }
 
 void E_FestivalMuban_online_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_online & msg) {
 	m_id = msg.m_id();
 	m_period = msg.m_period();
-	m_timestart = msg.m_timestart();
-	m_timeend = msg.m_timeend();
-	m_itemid = msg.m_itemid();
-	m_itemnum = msg.m_itemnum();
+	m_timeStart = msg.m_timestart();
+	m_timeEnd = msg.m_timeend();
+	m_itemID = msg.m_itemid();
+	m_itemNum = msg.m_itemnum();
 	m_vip = msg.m_vip();
 }
 
@@ -2205,7 +2205,7 @@ E_FestivalMuban_rturntable_s::E_FestivalMuban_rturntable_s() {
 int E_FestivalMuban_rturntable_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_period = (int32_t)0;
-	m_rechargegroupid = (int32_t)0;
+	m_rechargeGroupID = (int32_t)0;
 	return 0;
 }
 
@@ -2216,13 +2216,13 @@ int E_FestivalMuban_rturntable_s::ResumeInit() {
 void E_FestivalMuban_rturntable_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_rturntable & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_period((int32_t)m_period);
-	msg.set_m_rechargegroupid((int32_t)m_rechargegroupid);
+	msg.set_m_rechargegroupid((int32_t)m_rechargeGroupID);
 }
 
 void E_FestivalMuban_rturntable_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_rturntable & msg) {
 	m_id = msg.m_id();
 	m_period = msg.m_period();
-	m_rechargegroupid = msg.m_rechargegroupid();
+	m_rechargeGroupID = msg.m_rechargegroupid();
 }
 
 Sheet_FestivalMuban_rturntable_s::Sheet_FestivalMuban_rturntable_s() {
@@ -2266,10 +2266,10 @@ E_FestivalMuban_rturntable_recharge_s::E_FestivalMuban_rturntable_recharge_s() {
 
 int E_FestivalMuban_rturntable_recharge_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_groupid = (int32_t)0;
-	m_rechargeid = (int32_t)0;
+	m_groupID = (int32_t)0;
+	m_rechargeID = (int32_t)0;
 	m_limit = (int32_t)0;
-	m_ratiogroupid = (int32_t)0;
+	m_ratioGroupID = (int32_t)0;
 	return 0;
 }
 
@@ -2279,18 +2279,18 @@ int E_FestivalMuban_rturntable_recharge_s::ResumeInit() {
 
 void E_FestivalMuban_rturntable_recharge_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_rturntable_recharge & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_groupid((int32_t)m_groupid);
-	msg.set_m_rechargeid((int32_t)m_rechargeid);
+	msg.set_m_groupid((int32_t)m_groupID);
+	msg.set_m_rechargeid((int32_t)m_rechargeID);
 	msg.set_m_limit((int32_t)m_limit);
-	msg.set_m_ratiogroupid((int32_t)m_ratiogroupid);
+	msg.set_m_ratiogroupid((int32_t)m_ratioGroupID);
 }
 
 void E_FestivalMuban_rturntable_recharge_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_rturntable_recharge & msg) {
 	m_id = msg.m_id();
-	m_groupid = msg.m_groupid();
-	m_rechargeid = msg.m_rechargeid();
+	m_groupID = msg.m_groupid();
+	m_rechargeID = msg.m_rechargeid();
 	m_limit = msg.m_limit();
-	m_ratiogroupid = msg.m_ratiogroupid();
+	m_ratioGroupID = msg.m_ratiogroupid();
 }
 
 Sheet_FestivalMuban_rturntable_recharge_s::Sheet_FestivalMuban_rturntable_recharge_s() {
@@ -2334,7 +2334,7 @@ E_FestivalMuban_rturntable_recharge_ratio_s::E_FestivalMuban_rturntable_recharge
 
 int E_FestivalMuban_rturntable_recharge_ratio_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_groupid = (int32_t)0;
+	m_groupID = (int32_t)0;
 	m_ratio = (int32_t)0;
 	m_weight = (int32_t)0;
 	return 0;
@@ -2346,14 +2346,14 @@ int E_FestivalMuban_rturntable_recharge_ratio_s::ResumeInit() {
 
 void E_FestivalMuban_rturntable_recharge_ratio_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_rturntable_recharge_ratio & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_groupid((int32_t)m_groupid);
+	msg.set_m_groupid((int32_t)m_groupID);
 	msg.set_m_ratio((int32_t)m_ratio);
 	msg.set_m_weight((int32_t)m_weight);
 }
 
 void E_FestivalMuban_rturntable_recharge_ratio_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_rturntable_recharge_ratio & msg) {
 	m_id = msg.m_id();
-	m_groupid = msg.m_groupid();
+	m_groupID = msg.m_groupid();
 	m_ratio = msg.m_ratio();
 	m_weight = msg.m_weight();
 }
@@ -2400,11 +2400,11 @@ E_FestivalMuban_drawpize_s::E_FestivalMuban_drawpize_s() {
 int E_FestivalMuban_drawpize_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_period = (int32_t)0;
-	m_costid = (int64_t)0;
-	m_poolgroupid = (int32_t)0;
-	m_totalgroupid = (int32_t)0;
-	m_severlimit = (int32_t)0;
-	m_protecttime = (int32_t)0;
+	m_costID = (int64_t)0;
+	m_poolGroupId = (int32_t)0;
+	m_totalGroupID = (int32_t)0;
+	m_severLimit = (int32_t)0;
+	m_protectTime = (int32_t)0;
 	return 0;
 }
 
@@ -2415,23 +2415,23 @@ int E_FestivalMuban_drawpize_s::ResumeInit() {
 void E_FestivalMuban_drawpize_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_drawpize & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_period((int32_t)m_period);
-	msg.set_m_costid((int64_t)m_costid);
-	msg.set_m_costnum(m_costnum.data());
-	msg.set_m_poolgroupid((int32_t)m_poolgroupid);
-	msg.set_m_totalgroupid((int32_t)m_totalgroupid);
-	msg.set_m_severlimit((int32_t)m_severlimit);
-	msg.set_m_protecttime((int32_t)m_protecttime);
+	msg.set_m_costid((int64_t)m_costID);
+	msg.set_m_costnum(m_costNum.data());
+	msg.set_m_poolgroupid((int32_t)m_poolGroupId);
+	msg.set_m_totalgroupid((int32_t)m_totalGroupID);
+	msg.set_m_severlimit((int32_t)m_severLimit);
+	msg.set_m_protecttime((int32_t)m_protectTime);
 }
 
 void E_FestivalMuban_drawpize_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_drawpize & msg) {
 	m_id = msg.m_id();
 	m_period = msg.m_period();
-	m_costid = msg.m_costid();
-	m_costnum = msg.m_costnum();
-	m_poolgroupid = msg.m_poolgroupid();
-	m_totalgroupid = msg.m_totalgroupid();
-	m_severlimit = msg.m_severlimit();
-	m_protecttime = msg.m_protecttime();
+	m_costID = msg.m_costid();
+	m_costNum = msg.m_costnum();
+	m_poolGroupId = msg.m_poolgroupid();
+	m_totalGroupID = msg.m_totalgroupid();
+	m_severLimit = msg.m_severlimit();
+	m_protectTime = msg.m_protecttime();
 }
 
 Sheet_FestivalMuban_drawpize_s::Sheet_FestivalMuban_drawpize_s() {
@@ -2475,14 +2475,14 @@ E_FestivalMuban_drawpize_pool_s::E_FestivalMuban_drawpize_pool_s() {
 
 int E_FestivalMuban_drawpize_pool_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_groupid = (int32_t)0;
+	m_groupID = (int32_t)0;
 	m_itemid = (int64_t)0;
 	m_num = (int32_t)0;
 	m_prof = (int32_t)0;
 	m_weights = (int32_t)0;
-	m_proweights = (int32_t)0;
-	m_timelimit = (int32_t)0;
-	m_record = (int32_t)0;
+	m_proWeights = (int32_t)0;
+	m_timeLimit = (int32_t)0;
+	m_Record = (int32_t)0;
 	return 0;
 }
 
@@ -2492,26 +2492,26 @@ int E_FestivalMuban_drawpize_pool_s::ResumeInit() {
 
 void E_FestivalMuban_drawpize_pool_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_drawpize_pool & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_groupid((int32_t)m_groupid);
+	msg.set_m_groupid((int32_t)m_groupID);
 	msg.set_m_itemid((int64_t)m_itemid);
 	msg.set_m_num((int32_t)m_num);
 	msg.set_m_prof((int32_t)m_prof);
 	msg.set_m_weights((int32_t)m_weights);
-	msg.set_m_proweights((int32_t)m_proweights);
-	msg.set_m_timelimit((int32_t)m_timelimit);
-	msg.set_m_record((int32_t)m_record);
+	msg.set_m_proweights((int32_t)m_proWeights);
+	msg.set_m_timelimit((int32_t)m_timeLimit);
+	msg.set_m_record((int32_t)m_Record);
 }
 
 void E_FestivalMuban_drawpize_pool_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_drawpize_pool & msg) {
 	m_id = msg.m_id();
-	m_groupid = msg.m_groupid();
+	m_groupID = msg.m_groupid();
 	m_itemid = msg.m_itemid();
 	m_num = msg.m_num();
 	m_prof = msg.m_prof();
 	m_weights = msg.m_weights();
-	m_proweights = msg.m_proweights();
-	m_timelimit = msg.m_timelimit();
-	m_record = msg.m_record();
+	m_proWeights = msg.m_proweights();
+	m_timeLimit = msg.m_timelimit();
+	m_Record = msg.m_record();
 }
 
 Sheet_FestivalMuban_drawpize_pool_s::Sheet_FestivalMuban_drawpize_pool_s() {
@@ -2557,7 +2557,7 @@ int E_FestivalMuban_drawpize_total_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_groupid = (int32_t)0;
 	m_value = (int32_t)0;
-	m_itemid = (int32_t)0;
+	m_itemID = (int32_t)0;
 	m_num = (int32_t)0;
 	return 0;
 }
@@ -2570,7 +2570,7 @@ void E_FestivalMuban_drawpize_total_s::write_to_pbmsg(::proto_ff::E_FestivalMuba
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_groupid((int32_t)m_groupid);
 	msg.set_m_value((int32_t)m_value);
-	msg.set_m_itemid((int32_t)m_itemid);
+	msg.set_m_itemid((int32_t)m_itemID);
 	msg.set_m_num((int32_t)m_num);
 }
 
@@ -2578,7 +2578,7 @@ void E_FestivalMuban_drawpize_total_s::read_from_pbmsg(const ::proto_ff::E_Festi
 	m_id = msg.m_id();
 	m_groupid = msg.m_groupid();
 	m_value = msg.m_value();
-	m_itemid = msg.m_itemid();
+	m_itemID = msg.m_itemid();
 	m_num = msg.m_num();
 }
 
@@ -2754,8 +2754,8 @@ E_FestivalMuban_play_s::E_FestivalMuban_play_s() {
 int E_FestivalMuban_play_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_period = (int32_t)0;
-	m_rewardgroup = (int32_t)0;
-	m_gamegroup = (int32_t)0;
+	m_rewardGroup = (int32_t)0;
+	m_gameGroup = (int32_t)0;
 	return 0;
 }
 
@@ -2766,21 +2766,21 @@ int E_FestivalMuban_play_s::ResumeInit() {
 void E_FestivalMuban_play_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_play & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_period((int32_t)m_period);
-	msg.set_m_rewardgroup((int32_t)m_rewardgroup);
-	msg.set_m_gamegroup((int32_t)m_gamegroup);
-	for(int32_t i = 0; i < (int32_t)m_opentime.size(); ++i) {
-		msg.add_m_opentime(m_opentime[i].data());
+	msg.set_m_rewardgroup((int32_t)m_rewardGroup);
+	msg.set_m_gamegroup((int32_t)m_gameGroup);
+	for(int32_t i = 0; i < (int32_t)m_openTime.size(); ++i) {
+		msg.add_m_opentime(m_openTime[i].data());
 	}
 }
 
 void E_FestivalMuban_play_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_play & msg) {
 	m_id = msg.m_id();
 	m_period = msg.m_period();
-	m_rewardgroup = msg.m_rewardgroup();
-	m_gamegroup = msg.m_gamegroup();
-	m_opentime.resize((int)msg.m_opentime_size() > (int)m_opentime.max_size() ? m_opentime.max_size() : msg.m_opentime_size());
-	for(int32_t i = 0; i < (int32_t)m_opentime.size(); ++i) {
-		m_opentime[i] = msg.m_opentime(i);
+	m_rewardGroup = msg.m_rewardgroup();
+	m_gameGroup = msg.m_gamegroup();
+	m_openTime.resize((int)msg.m_opentime_size() > (int)m_openTime.max_size() ? m_openTime.max_size() : msg.m_opentime_size());
+	for(int32_t i = 0; i < (int32_t)m_openTime.size(); ++i) {
+		m_openTime[i] = msg.m_opentime(i);
 	}
 }
 
@@ -2825,9 +2825,9 @@ E_FestivalMuban_play_reward_s::E_FestivalMuban_play_reward_s() {
 
 int E_FestivalMuban_play_reward_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_groupid = (int32_t)0;
+	m_groupID = (int32_t)0;
 	m_points = (int32_t)0;
-	m_boxid = (int32_t)0;
+	m_boxID = (int32_t)0;
 	return 0;
 }
 
@@ -2837,16 +2837,16 @@ int E_FestivalMuban_play_reward_s::ResumeInit() {
 
 void E_FestivalMuban_play_reward_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_play_reward & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_groupid((int32_t)m_groupid);
+	msg.set_m_groupid((int32_t)m_groupID);
 	msg.set_m_points((int32_t)m_points);
-	msg.set_m_boxid((int32_t)m_boxid);
+	msg.set_m_boxid((int32_t)m_boxID);
 }
 
 void E_FestivalMuban_play_reward_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_play_reward & msg) {
 	m_id = msg.m_id();
-	m_groupid = msg.m_groupid();
+	m_groupID = msg.m_groupid();
 	m_points = msg.m_points();
-	m_boxid = msg.m_boxid();
+	m_boxID = msg.m_boxid();
 }
 
 Sheet_FestivalMuban_play_reward_s::Sheet_FestivalMuban_play_reward_s() {
@@ -2890,11 +2890,11 @@ E_FestivalMuban_play_game_s::E_FestivalMuban_play_game_s() {
 
 int E_FestivalMuban_play_game_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_groupid = (int32_t)0;
+	m_groupID = (int32_t)0;
 	m_order = (int32_t)0;
-	m_playtype = (int32_t)0;
-	m_rewardbox = (int32_t)0;
-	m_pretime = (int32_t)0;
+	m_playType = (int32_t)0;
+	m_rewardBox = (int32_t)0;
+	m_preTime = (int32_t)0;
 	return 0;
 }
 
@@ -2904,28 +2904,28 @@ int E_FestivalMuban_play_game_s::ResumeInit() {
 
 void E_FestivalMuban_play_game_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_play_game & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_groupid((int32_t)m_groupid);
+	msg.set_m_groupid((int32_t)m_groupID);
 	msg.set_m_order((int32_t)m_order);
-	msg.set_m_playtype((int32_t)m_playtype);
+	msg.set_m_playtype((int32_t)m_playType);
 	msg.set_m_arg(m_arg.data());
-	msg.set_m_rewardbox((int32_t)m_rewardbox);
-	msg.set_m_pretime((int32_t)m_pretime);
-	for(int32_t i = 0; i < (int32_t)m_playarg.size(); ++i) {
-		msg.add_m_playarg(m_playarg[i].data());
+	msg.set_m_rewardbox((int32_t)m_rewardBox);
+	msg.set_m_pretime((int32_t)m_preTime);
+	for(int32_t i = 0; i < (int32_t)m_playArg.size(); ++i) {
+		msg.add_m_playarg(m_playArg[i].data());
 	}
 }
 
 void E_FestivalMuban_play_game_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_play_game & msg) {
 	m_id = msg.m_id();
-	m_groupid = msg.m_groupid();
+	m_groupID = msg.m_groupid();
 	m_order = msg.m_order();
-	m_playtype = msg.m_playtype();
+	m_playType = msg.m_playtype();
 	m_arg = msg.m_arg();
-	m_rewardbox = msg.m_rewardbox();
-	m_pretime = msg.m_pretime();
-	m_playarg.resize((int)msg.m_playarg_size() > (int)m_playarg.max_size() ? m_playarg.max_size() : msg.m_playarg_size());
-	for(int32_t i = 0; i < (int32_t)m_playarg.size(); ++i) {
-		m_playarg[i] = msg.m_playarg(i);
+	m_rewardBox = msg.m_rewardbox();
+	m_preTime = msg.m_pretime();
+	m_playArg.resize((int)msg.m_playarg_size() > (int)m_playArg.max_size() ? m_playArg.max_size() : msg.m_playarg_size());
+	for(int32_t i = 0; i < (int32_t)m_playArg.size(); ++i) {
+		m_playArg[i] = msg.m_playarg(i);
 	}
 }
 

@@ -17,22 +17,22 @@ message E_EncyclopediaHandbookStariattributeDesc
 
 message E_EncyclopediaHandbook
 {
-	optional int64 m_handbookid = 1[(yd_fieldoptions.field_cname) = "图鉴id"];
-	optional int64 m_itemid = 2[(yd_fieldoptions.field_cname) = "关联物品id"];
-	optional string m_handbookname = 3[(yd_fieldoptions.field_cname) = "图鉴名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_handbookquality = 4[(yd_fieldoptions.field_cname) = "图鉴品质"];
-	optional int32 m_handbooktype = 5[(yd_fieldoptions.field_cname) = "图鉴类型"];
-	optional string m_handbooktype_name = 6[(yd_fieldoptions.field_cname) = "图鉴类型名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_handz = 7[(yd_fieldoptions.field_cname) = "图鉴组"];
-	optional string m_handzname = 8[(yd_fieldoptions.field_cname) = "图鉴组名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_handbooklv = 9[(yd_fieldoptions.field_cname) = "图鉴等级上限"];
-	optional int64 m_lvid = 10[(yd_fieldoptions.field_cname) = "升级道具id"];
-	optional string m_lvnum = 11[(yd_fieldoptions.field_cname) = "升级道具数量", (yd_fieldoptions.field_bufsize) = 256];
-	optional int64 m_starid = 12[(yd_fieldoptions.field_cname) = "升星道具id"];
-	optional string m_starnum = 13[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 64];
-	repeated E_EncyclopediaHandbookLviattributeDesc m_lviattribute = 14[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 4];
-	repeated int32 m_awakeskill = 15[(yd_fieldoptions.field_cname) = "技能", (yd_fieldoptions.field_arysize) = 3];
-	repeated E_EncyclopediaHandbookStariattributeDesc m_stariattribute = 16[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 4];
+	optional int64 m_handbookID = 1[(yd_fieldoptions.field_cname) = "图鉴id"];
+	optional int64 m_itemId = 2[(yd_fieldoptions.field_cname) = "关联物品id"];
+	optional string m_handbookName = 3[(yd_fieldoptions.field_cname) = "图鉴名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_handbookQuality = 4[(yd_fieldoptions.field_cname) = "图鉴品质"];
+	optional int32 m_handbookType = 5[(yd_fieldoptions.field_cname) = "图鉴类型"];
+	optional string m_handbookType_name = 6[(yd_fieldoptions.field_cname) = "图鉴类型名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_handZ = 7[(yd_fieldoptions.field_cname) = "图鉴组"];
+	optional string m_handZName = 8[(yd_fieldoptions.field_cname) = "图鉴组名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_handbookLv = 9[(yd_fieldoptions.field_cname) = "图鉴等级上限"];
+	optional int64 m_LvId = 10[(yd_fieldoptions.field_cname) = "升级道具id"];
+	optional string m_LvNum = 11[(yd_fieldoptions.field_cname) = "升级道具数量", (yd_fieldoptions.field_bufsize) = 256];
+	optional int64 m_starId = 12[(yd_fieldoptions.field_cname) = "升星道具id"];
+	optional string m_starNum = 13[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 64];
+	repeated E_EncyclopediaHandbookLviattributeDesc m_LvIattribute = 14[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 4];
+	repeated int32 m_awakeSkill = 15[(yd_fieldoptions.field_cname) = "技能", (yd_fieldoptions.field_arysize) = 3];
+	repeated E_EncyclopediaHandbookStariattributeDesc m_starIattribute = 16[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 4];
 }
 
 
@@ -49,10 +49,10 @@ message E_EncyclopediaHandbookfateAttributeDesc
 
 message E_EncyclopediaHandbookfate
 {
-	optional int64 m_fateid = 1[(yd_fieldoptions.field_cname) = "羁绊id"];
-	optional string m_fatename = 2[(yd_fieldoptions.field_cname) = "羁绊名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_fatequality = 3[(yd_fieldoptions.field_cname) = "羁绊品质"];
-	repeated int64 m_fatehand = 4[(yd_fieldoptions.field_cname) = "羁绊图鉴", (yd_fieldoptions.field_arysize) = 4];
+	optional int64 m_fateID = 1[(yd_fieldoptions.field_cname) = "羁绊id"];
+	optional string m_fateName = 2[(yd_fieldoptions.field_cname) = "羁绊名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_fateQuality = 3[(yd_fieldoptions.field_cname) = "羁绊品质"];
+	repeated int64 m_fateHand = 4[(yd_fieldoptions.field_cname) = "羁绊图鉴", (yd_fieldoptions.field_arysize) = 4];
 	repeated E_EncyclopediaHandbookfateAttributeDesc m_attribute = 5[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
 }
 
@@ -64,9 +64,9 @@ message Sheet_EncyclopediaHandbookfate
 
 message E_EncyclopediaHandbookresolve
 {
-	optional int32 m_handbookquality = 1[(yd_fieldoptions.field_cname) = "图鉴道具品质"];
-	optional int32 m_resolveitem = 2[(yd_fieldoptions.field_cname) = "分解道具"];
-	optional int32 m_resolvenum = 3[(yd_fieldoptions.field_cname) = "分解数量"];
+	optional int32 m_handbookQuality = 1[(yd_fieldoptions.field_cname) = "图鉴道具品质"];
+	optional int32 m_resolveItem = 2[(yd_fieldoptions.field_cname) = "分解道具"];
+	optional int32 m_resolveNum = 3[(yd_fieldoptions.field_cname) = "分解数量"];
 }
 
 
@@ -77,7 +77,7 @@ message Sheet_EncyclopediaHandbookresolve
 
 message E_EncyclopediaHandbooklv_attr
 {
-	optional int64 m_attid = 1[(yd_fieldoptions.field_cname) = "属性组id"];
+	optional int64 m_attID = 1[(yd_fieldoptions.field_cname) = "属性组id"];
 	repeated int32 m_att = 2[(yd_fieldoptions.field_cname) = "属性等级", (yd_fieldoptions.field_arysize) = 100];
 }
 
@@ -89,7 +89,7 @@ message Sheet_EncyclopediaHandbooklv_attr
 
 message E_EncyclopediaHandbookstar_attr
 {
-	optional int64 m_attid = 1[(yd_fieldoptions.field_cname) = "属性组id"];
+	optional int64 m_attID = 1[(yd_fieldoptions.field_cname) = "属性组id"];
 	repeated int32 m_att = 2[(yd_fieldoptions.field_cname) = "属性等级", (yd_fieldoptions.field_arysize) = 20];
 }
 
@@ -139,10 +139,10 @@ message E_EncyclopediaEquipexpvalue
 	optional string m_name = 3[(yd_fieldoptions.field_cname) = "材料名称", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_exp = 4[(yd_fieldoptions.field_cname) = "初始经验"];
 	optional int64 m_link = 5[(yd_fieldoptions.field_cname) = "来源"];
-	optional int32 m_goldattall = 6[(yd_fieldoptions.field_cname) = "仙品共条数"];
-	optional int32 m_goldatt = 7[(yd_fieldoptions.field_cname) = "黄星属性条数"];
-	repeated E_EncyclopediaEquipexpvalueBeaststarDesc m_beaststar = 8[(yd_fieldoptions.field_cname) = "蓝星属性", (yd_fieldoptions.field_arysize) = 2];
-	repeated E_EncyclopediaEquipexpvalueGoldstarDesc m_goldstar = 9[(yd_fieldoptions.field_cname) = "黄星属性", (yd_fieldoptions.field_arysize) = 5];
+	optional int32 m_goldAttAll = 6[(yd_fieldoptions.field_cname) = "仙品共条数"];
+	optional int32 m_goldAtt = 7[(yd_fieldoptions.field_cname) = "黄星属性条数"];
+	repeated E_EncyclopediaEquipexpvalueBeaststarDesc m_beastStar = 8[(yd_fieldoptions.field_cname) = "蓝星属性", (yd_fieldoptions.field_arysize) = 2];
+	repeated E_EncyclopediaEquipexpvalueGoldstarDesc m_goldStar = 9[(yd_fieldoptions.field_cname) = "黄星属性", (yd_fieldoptions.field_arysize) = 5];
 }
 
 
@@ -173,10 +173,10 @@ message E_EncyclopediaBeastprivilegeAttributeDesc
 
 message E_EncyclopediaBeastprivilege
 {
-	optional int32 m_privilegetype = 1[(yd_fieldoptions.field_cname) = "特权类型"];
+	optional int32 m_privilegeType = 1[(yd_fieldoptions.field_cname) = "特权类型"];
 	optional string m_name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_price = 3[(yd_fieldoptions.field_cname) = "价格链接"];
-	optional int64 m_expaddition = 4[(yd_fieldoptions.field_cname) = "经验值加成"];
+	optional int64 m_expAddition = 4[(yd_fieldoptions.field_cname) = "经验值加成"];
 	repeated E_EncyclopediaBeastprivilegeAttributeDesc m_attribute = 5[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 4];
 }
 
@@ -206,16 +206,16 @@ message E_EncyclopediaEmployLviattributeDesc
 
 message E_EncyclopediaEmploy
 {
-	optional int64 m_employid = 1[(yd_fieldoptions.field_cname) = "收录id"];
+	optional int64 m_employID = 1[(yd_fieldoptions.field_cname) = "收录id"];
 	optional int64 m_type = 2[(yd_fieldoptions.field_cname) = "激活类型"];
-	optional int64 m_itemid = 3[(yd_fieldoptions.field_cname) = "激活条件"];
-	optional string m_employname = 4[(yd_fieldoptions.field_cname) = "收录名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_employquality = 5[(yd_fieldoptions.field_cname) = "收录品质"];
-	optional int32 m_employtype = 6[(yd_fieldoptions.field_cname) = "收录类型"];
-	optional string m_employtype_name = 7[(yd_fieldoptions.field_cname) = "收录类型名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_employz = 8[(yd_fieldoptions.field_cname) = "收录组"];
-	optional string m_employzname = 9[(yd_fieldoptions.field_cname) = "收录组名称", (yd_fieldoptions.field_bufsize) = 64];
-	repeated E_EncyclopediaEmployLviattributeDesc m_lviattribute = 10[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 4];
+	optional int64 m_itemId = 3[(yd_fieldoptions.field_cname) = "激活条件"];
+	optional string m_employName = 4[(yd_fieldoptions.field_cname) = "收录名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_employQuality = 5[(yd_fieldoptions.field_cname) = "收录品质"];
+	optional int32 m_employType = 6[(yd_fieldoptions.field_cname) = "收录类型"];
+	optional string m_employType_name = 7[(yd_fieldoptions.field_cname) = "收录类型名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_employZ = 8[(yd_fieldoptions.field_cname) = "收录组"];
+	optional string m_employZName = 9[(yd_fieldoptions.field_cname) = "收录组名称", (yd_fieldoptions.field_bufsize) = 64];
+	repeated E_EncyclopediaEmployLviattributeDesc m_LvIattribute = 10[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 4];
 }
 
 
@@ -232,10 +232,10 @@ message E_EncyclopediaTableLviattributeDesc
 
 message E_EncyclopediaTable
 {
-	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int64 m_ID = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int64 m_tableid = 2[(yd_fieldoptions.field_cname) = "天机谱id"];
-	optional string m_tablename = 3[(yd_fieldoptions.field_cname) = "天机谱名称", (yd_fieldoptions.field_bufsize) = 64];
-	repeated E_EncyclopediaTableLviattributeDesc m_lviattribute = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 4];
+	optional string m_tableName = 3[(yd_fieldoptions.field_cname) = "天机谱名称", (yd_fieldoptions.field_bufsize) = 64];
+	repeated E_EncyclopediaTableLviattributeDesc m_LvIattribute = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 4];
 }
 
 

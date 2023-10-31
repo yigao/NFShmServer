@@ -91,8 +91,8 @@ int FestivalMuban_donateDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_donatereward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_donatereward)), result, "can't find the donatereward:{} in the  excel:box sheet:box", pDesc->m_donatereward);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_donateitem <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_donateitem)), result, "can't find the donateitem:{} in the  excel:item sheet:item", pDesc->m_donateitem);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_donateReward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_donateReward)), result, "can't find the donateReward:{} in the  excel:box sheet:box", pDesc->m_donateReward);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_donateItem <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_donateItem)), result, "can't find the donateItem:{} in the  excel:item sheet:item", pDesc->m_donateItem);
 	}
 	return result;
 }

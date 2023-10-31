@@ -590,7 +590,7 @@ void protobuf_AddDesc_E_5fDragonsoul_2eproto() {
     "gonsoulOfferexp\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022 \n"
     "\006m_type\030\002 \001(\005B\020\302\377\024\014\346\235\220\346\226\231\347\261\273\345\236\213\022(\n\nm_pos"
     "ition\030\003 \001(\tB\024\302\377\024\014\350\243\205\345\244\207\344\275\215\347\275\256\220\301\024@\022\036\n\010m_i"
-    "temid\030\004 \001(\005B\014\302\377\024\010\351\201\223\345\205\267id\022&\n\tm_itemexp\030\005"
+    "temId\030\004 \001(\005B\014\302\377\024\010\351\201\223\345\205\267id\022&\n\tm_itemExp\030\005"
     " \001(\005B\023\302\377\024\017\351\201\223\345\205\267\347\273\217\351\252\214\345\200\274\022L\n\tm_quality\030\006"
     " \003(\0132).proto_ff.E_DragonsoulOfferexpQual"
     "ityDescB\016\302\377\024\006\345\223\201\350\264\250\210\301\024\002\"c\n\030Sheet_Dragons"
@@ -607,8 +607,8 @@ void protobuf_AddDesc_E_5fDragonsoul_2eproto() {
     "agonsoulFlyexp_List\030\001 \003(\0132\034.proto_ff.E_D"
     "ragonsoulFlyexpB\004\210\301\024@\"\277\001\n\022E_DragonsoulFl"
     "yatt\022\035\n\004m_id\030\001 \001(\003B\017\302\377\024\013\345\261\236\346\200\247\347\273\204id\022\035\n\007m"
-    "_attid\030\002 \001(\003B\014\302\377\024\010\345\261\236\346\200\247id\022!\n\007m_count\030\003 "
-    "\001(\005B\020\302\377\024\014\350\256\241\347\256\227\346\226\271\345\274\217\022#\n\tm_atttype\030\004 \001(\005"
+    "_attId\030\002 \001(\003B\014\302\377\024\010\345\261\236\346\200\247id\022!\n\007m_count\030\003 "
+    "\001(\005B\020\302\377\024\014\350\256\241\347\256\227\346\226\271\345\274\217\022#\n\tm_attType\030\004 \001(\005"
     "B\020\302\377\024\014\345\261\236\346\200\247\347\261\273\345\236\213\022#\n\005m_att\030\005 \003(\005B\024\302\377\024\014\345"
     "\261\236\346\200\247\350\247\211\351\206\222\210\301\024\013\"^\n\026Sheet_DragonsoulFlyat"
     "t\022D\n\027E_DragonsoulFlyatt_List\030\001 \003(\0132\034.pro"
@@ -617,22 +617,22 @@ void protobuf_AddDesc_E_5fDragonsoul_2eproto() {
     "\200\274\220\301\024@\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002ID\"\262\002\n\017E_Drago"
     "nsoulFly\022\032\n\004m_id\030\001 \001(\003B\014\302\377\024\010\351\203\250\344\275\215ID\022$\n\n"
     "m_position\030\002 \001(\005B\020\302\377\024\014\350\243\205\345\244\207\351\203\250\344\275\215\022\'\n\nm_"
-    "offerexp\030\003 \001(\005B\023\302\377\024\017\346\217\220\344\276\233\347\273\217\351\252\214\345\200\274\022#\n\tm"
-    "_quality\030\004 \001(\005B\020\302\377\024\014\350\243\205\345\244\207\345\223\201\350\264\250\022$\n\nm_sr"
-    "tongup\030\005 \001(\005B\020\302\377\024\014\345\274\272\345\214\226\344\270\212\351\231\220\022A\n\006m_type"
+    "offerExp\030\003 \001(\005B\023\302\377\024\017\346\217\220\344\276\233\347\273\217\351\252\214\345\200\274\022#\n\tm"
+    "_Quality\030\004 \001(\005B\020\302\377\024\014\350\243\205\345\244\207\345\223\201\350\264\250\022$\n\nm_sr"
+    "tongUp\030\005 \001(\005B\020\302\377\024\014\345\274\272\345\214\226\344\270\212\351\231\220\022A\n\006m_type"
     "\030\006 \003(\0132!.proto_ff.E_DragonsoulFlyTypeDes"
     "cB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\002\022&\n\010m_flyatt\030\007 \003(\005B\024\302\377\024"
     "\014\351\243\236\345\215\207\345\261\236\346\200\247\210\301\024 \"T\n\023Sheet_DragonsoulFly"
     "\022=\n\024E_DragonsoulFly_List\030\001 \003(\0132\031.proto_f"
     "f.E_DragonsoulFlyB\004\210\301\024 \"\351\001\n\032E_Dragonsoul"
-    "AwakeAwakeDesc\0226\n\rm_flyaddratio\030\001 \001(\005B\037\302"
-    "\377\024\033\351\243\236\345\215\207\345\261\236\346\200\247\345\212\240\346\210\220\347\231\276\345\210\206\346\257\224\0225\n\014m_lvad"
+    "AwakeAwakeDesc\0226\n\rm_flyAddratio\030\001 \001(\005B\037\302"
+    "\377\024\033\351\243\236\345\215\207\345\261\236\346\200\247\345\212\240\346\210\220\347\231\276\345\210\206\346\257\224\0225\n\014m_lvAd"
     "dratio\030\002 \001(\005B\037\302\377\024\033\345\215\207\347\272\247\345\261\236\346\200\247\345\212\240\346\210\220\347\231\276\345"
     "\210\206\346\257\224\022\036\n\007m_value\030\003 \001(\005B\r\302\377\024\t\345\261\236\346\200\247\345\200\274\022\033\n"
     "\005m_att\030\004 \001(\005B\014\302\377\024\010\345\261\236\346\200\247ID\022\037\n\005m_num\030\005 \001("
     "\005B\020\302\377\024\014\346\235\220\346\226\231\346\225\260\351\207\217\"\322\001\n\021E_DragonsoulAwak"
     "e\022$\n\nm_position\030\001 \001(\005B\020\302\377\024\014\350\243\205\345\244\207\351\203\250\344\275\215\022"
-    "%\n\013m_awakeitem\030\002 \001(\005B\020\302\377\024\014\350\247\211\351\206\222\346\235\220\346\226\231\022)"
+    "%\n\013m_awakeItem\030\002 \001(\005B\020\302\377\024\014\350\247\211\351\206\222\346\235\220\346\226\231\022)"
     "\n\017m_awaketoplimit\030\003 \001(\005B\020\302\377\024\014\350\247\211\351\206\222\344\270\212\351\231"
     "\220\022E\n\007m_awake\030\004 \003(\0132$.proto_ff.E_Dragonso"
     "ulAwakeAwakeDescB\016\302\377\024\006\350\247\211\351\206\222\210\301\024\013\"Z\n\025Shee"
@@ -1589,8 +1589,8 @@ void E_DragonsoulOfferexpQualityDesc::Swap(E_DragonsoulOfferexpQualityDesc* othe
 const int E_DragonsoulOfferexp::kMIdFieldNumber;
 const int E_DragonsoulOfferexp::kMTypeFieldNumber;
 const int E_DragonsoulOfferexp::kMPositionFieldNumber;
-const int E_DragonsoulOfferexp::kMItemidFieldNumber;
-const int E_DragonsoulOfferexp::kMItemexpFieldNumber;
+const int E_DragonsoulOfferexp::kMItemIdFieldNumber;
+const int E_DragonsoulOfferexp::kMItemExpFieldNumber;
 const int E_DragonsoulOfferexp::kMQualityFieldNumber;
 #endif  // !_MSC_VER
 
@@ -1718,15 +1718,15 @@ bool E_DragonsoulOfferexp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_itemid;
+        if (input->ExpectTag(32)) goto parse_m_itemId;
         break;
       }
 
-      // optional int32 m_itemid = 4;
+      // optional int32 m_itemId = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemid:
+         parse_m_itemId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itemid_)));
@@ -1734,15 +1734,15 @@ bool E_DragonsoulOfferexp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_itemexp;
+        if (input->ExpectTag(40)) goto parse_m_itemExp;
         break;
       }
 
-      // optional int32 m_itemexp = 5;
+      // optional int32 m_itemExp = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemexp:
+         parse_m_itemExp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_itemexp_)));
@@ -1806,12 +1806,12 @@ void E_DragonsoulOfferexp::SerializeWithCachedSizes(
       3, this->m_position(), output);
   }
 
-  // optional int32 m_itemid = 4;
+  // optional int32 m_itemId = 4;
   if (has_m_itemid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_itemid(), output);
   }
 
-  // optional int32 m_itemexp = 5;
+  // optional int32 m_itemExp = 5;
   if (has_m_itemexp()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_itemexp(), output);
   }
@@ -1850,12 +1850,12 @@ void E_DragonsoulOfferexp::SerializeWithCachedSizes(
         3, this->m_position(), target);
   }
 
-  // optional int32 m_itemid = 4;
+  // optional int32 m_itemId = 4;
   if (has_m_itemid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_itemid(), target);
   }
 
-  // optional int32 m_itemexp = 5;
+  // optional int32 m_itemExp = 5;
   if (has_m_itemexp()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_itemexp(), target);
   }
@@ -1899,14 +1899,14 @@ int E_DragonsoulOfferexp::ByteSize() const {
           this->m_position());
     }
 
-    // optional int32 m_itemid = 4;
+    // optional int32 m_itemId = 4;
     if (has_m_itemid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_itemid());
     }
 
-    // optional int32 m_itemexp = 5;
+    // optional int32 m_itemExp = 5;
     if (has_m_itemexp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3117,9 +3117,9 @@ void Sheet_DragonsoulFlyexp::Swap(Sheet_DragonsoulFlyexp* other) {
 
 #ifndef _MSC_VER
 const int E_DragonsoulFlyatt::kMIdFieldNumber;
-const int E_DragonsoulFlyatt::kMAttidFieldNumber;
+const int E_DragonsoulFlyatt::kMAttIdFieldNumber;
 const int E_DragonsoulFlyatt::kMCountFieldNumber;
-const int E_DragonsoulFlyatt::kMAtttypeFieldNumber;
+const int E_DragonsoulFlyatt::kMAttTypeFieldNumber;
 const int E_DragonsoulFlyatt::kMAttFieldNumber;
 #endif  // !_MSC_VER
 
@@ -3205,15 +3205,15 @@ bool E_DragonsoulFlyatt::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_attid;
+        if (input->ExpectTag(16)) goto parse_m_attId;
         break;
       }
 
-      // optional int64 m_attid = 2;
+      // optional int64 m_attId = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_attid:
+         parse_m_attId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_attid_)));
@@ -3237,15 +3237,15 @@ bool E_DragonsoulFlyatt::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_atttype;
+        if (input->ExpectTag(32)) goto parse_m_attType;
         break;
       }
 
-      // optional int32 m_atttype = 4;
+      // optional int32 m_attType = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_atttype:
+         parse_m_attType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_atttype_)));
@@ -3302,7 +3302,7 @@ void E_DragonsoulFlyatt::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
 
-  // optional int64 m_attid = 2;
+  // optional int64 m_attId = 2;
   if (has_m_attid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_attid(), output);
   }
@@ -3312,7 +3312,7 @@ void E_DragonsoulFlyatt::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_count(), output);
   }
 
-  // optional int32 m_atttype = 4;
+  // optional int32 m_attType = 4;
   if (has_m_atttype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_atttype(), output);
   }
@@ -3336,7 +3336,7 @@ void E_DragonsoulFlyatt::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
 
-  // optional int64 m_attid = 2;
+  // optional int64 m_attId = 2;
   if (has_m_attid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_attid(), target);
   }
@@ -3346,7 +3346,7 @@ void E_DragonsoulFlyatt::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_count(), target);
   }
 
-  // optional int32 m_atttype = 4;
+  // optional int32 m_attType = 4;
   if (has_m_atttype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_atttype(), target);
   }
@@ -3375,7 +3375,7 @@ int E_DragonsoulFlyatt::ByteSize() const {
           this->m_id());
     }
 
-    // optional int64 m_attid = 2;
+    // optional int64 m_attId = 2;
     if (has_m_attid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -3389,7 +3389,7 @@ int E_DragonsoulFlyatt::ByteSize() const {
           this->m_count());
     }
 
-    // optional int32 m_atttype = 4;
+    // optional int32 m_attType = 4;
     if (has_m_atttype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3962,9 +3962,9 @@ void E_DragonsoulFlyTypeDesc::Swap(E_DragonsoulFlyTypeDesc* other) {
 #ifndef _MSC_VER
 const int E_DragonsoulFly::kMIdFieldNumber;
 const int E_DragonsoulFly::kMPositionFieldNumber;
-const int E_DragonsoulFly::kMOfferexpFieldNumber;
+const int E_DragonsoulFly::kMOfferExpFieldNumber;
 const int E_DragonsoulFly::kMQualityFieldNumber;
-const int E_DragonsoulFly::kMSrtongupFieldNumber;
+const int E_DragonsoulFly::kMSrtongUpFieldNumber;
 const int E_DragonsoulFly::kMTypeFieldNumber;
 const int E_DragonsoulFly::kMFlyattFieldNumber;
 #endif  // !_MSC_VER
@@ -4070,15 +4070,15 @@ bool E_DragonsoulFly::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_offerexp;
+        if (input->ExpectTag(24)) goto parse_m_offerExp;
         break;
       }
 
-      // optional int32 m_offerexp = 3;
+      // optional int32 m_offerExp = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_offerexp:
+         parse_m_offerExp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_offerexp_)));
@@ -4086,15 +4086,15 @@ bool E_DragonsoulFly::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_quality;
+        if (input->ExpectTag(32)) goto parse_m_Quality;
         break;
       }
 
-      // optional int32 m_quality = 4;
+      // optional int32 m_Quality = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_quality:
+         parse_m_Quality:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_quality_)));
@@ -4102,15 +4102,15 @@ bool E_DragonsoulFly::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_srtongup;
+        if (input->ExpectTag(40)) goto parse_m_srtongUp;
         break;
       }
 
-      // optional int32 m_srtongup = 5;
+      // optional int32 m_srtongUp = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_srtongup:
+         parse_m_srtongUp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_srtongup_)));
@@ -4187,17 +4187,17 @@ void E_DragonsoulFly::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_position(), output);
   }
 
-  // optional int32 m_offerexp = 3;
+  // optional int32 m_offerExp = 3;
   if (has_m_offerexp()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_offerexp(), output);
   }
 
-  // optional int32 m_quality = 4;
+  // optional int32 m_Quality = 4;
   if (has_m_quality()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_quality(), output);
   }
 
-  // optional int32 m_srtongup = 5;
+  // optional int32 m_srtongUp = 5;
   if (has_m_srtongup()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_srtongup(), output);
   }
@@ -4232,17 +4232,17 @@ void E_DragonsoulFly::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_position(), target);
   }
 
-  // optional int32 m_offerexp = 3;
+  // optional int32 m_offerExp = 3;
   if (has_m_offerexp()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_offerexp(), target);
   }
 
-  // optional int32 m_quality = 4;
+  // optional int32 m_Quality = 4;
   if (has_m_quality()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_quality(), target);
   }
 
-  // optional int32 m_srtongup = 5;
+  // optional int32 m_srtongUp = 5;
   if (has_m_srtongup()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_srtongup(), target);
   }
@@ -4285,21 +4285,21 @@ int E_DragonsoulFly::ByteSize() const {
           this->m_position());
     }
 
-    // optional int32 m_offerexp = 3;
+    // optional int32 m_offerExp = 3;
     if (has_m_offerexp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_offerexp());
     }
 
-    // optional int32 m_quality = 4;
+    // optional int32 m_Quality = 4;
     if (has_m_quality()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_quality());
     }
 
-    // optional int32 m_srtongup = 5;
+    // optional int32 m_srtongUp = 5;
     if (has_m_srtongup()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4619,8 +4619,8 @@ void Sheet_DragonsoulFly::Swap(Sheet_DragonsoulFly* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_DragonsoulAwakeAwakeDesc::kMFlyaddratioFieldNumber;
-const int E_DragonsoulAwakeAwakeDesc::kMLvaddratioFieldNumber;
+const int E_DragonsoulAwakeAwakeDesc::kMFlyAddratioFieldNumber;
+const int E_DragonsoulAwakeAwakeDesc::kMLvAddratioFieldNumber;
 const int E_DragonsoulAwakeAwakeDesc::kMValueFieldNumber;
 const int E_DragonsoulAwakeAwakeDesc::kMAttFieldNumber;
 const int E_DragonsoulAwakeAwakeDesc::kMNumFieldNumber;
@@ -4698,7 +4698,7 @@ bool E_DragonsoulAwakeAwakeDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_flyaddratio = 1;
+      // optional int32 m_flyAddratio = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -4709,15 +4709,15 @@ bool E_DragonsoulAwakeAwakeDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_lvaddratio;
+        if (input->ExpectTag(16)) goto parse_m_lvAddratio;
         break;
       }
 
-      // optional int32 m_lvaddratio = 2;
+      // optional int32 m_lvAddratio = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_lvaddratio:
+         parse_m_lvAddratio:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_lvaddratio_)));
@@ -4795,12 +4795,12 @@ bool E_DragonsoulAwakeAwakeDesc::MergePartialFromCodedStream(
 
 void E_DragonsoulAwakeAwakeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_flyaddratio = 1;
+  // optional int32 m_flyAddratio = 1;
   if (has_m_flyaddratio()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_flyaddratio(), output);
   }
 
-  // optional int32 m_lvaddratio = 2;
+  // optional int32 m_lvAddratio = 2;
   if (has_m_lvaddratio()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_lvaddratio(), output);
   }
@@ -4828,12 +4828,12 @@ void E_DragonsoulAwakeAwakeDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_DragonsoulAwakeAwakeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_flyaddratio = 1;
+  // optional int32 m_flyAddratio = 1;
   if (has_m_flyaddratio()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_flyaddratio(), target);
   }
 
-  // optional int32 m_lvaddratio = 2;
+  // optional int32 m_lvAddratio = 2;
   if (has_m_lvaddratio()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_lvaddratio(), target);
   }
@@ -4864,14 +4864,14 @@ int E_DragonsoulAwakeAwakeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_flyaddratio = 1;
+    // optional int32 m_flyAddratio = 1;
     if (has_m_flyaddratio()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_flyaddratio());
     }
 
-    // optional int32 m_lvaddratio = 2;
+    // optional int32 m_lvAddratio = 2;
     if (has_m_lvaddratio()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4988,7 +4988,7 @@ void E_DragonsoulAwakeAwakeDesc::Swap(E_DragonsoulAwakeAwakeDesc* other) {
 
 #ifndef _MSC_VER
 const int E_DragonsoulAwake::kMPositionFieldNumber;
-const int E_DragonsoulAwake::kMAwakeitemFieldNumber;
+const int E_DragonsoulAwake::kMAwakeItemFieldNumber;
 const int E_DragonsoulAwake::kMAwaketoplimitFieldNumber;
 const int E_DragonsoulAwake::kMAwakeFieldNumber;
 #endif  // !_MSC_VER
@@ -5073,15 +5073,15 @@ bool E_DragonsoulAwake::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_awakeitem;
+        if (input->ExpectTag(16)) goto parse_m_awakeItem;
         break;
       }
 
-      // optional int32 m_awakeitem = 2;
+      // optional int32 m_awakeItem = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_awakeitem:
+         parse_m_awakeItem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_awakeitem_)));
@@ -5147,7 +5147,7 @@ void E_DragonsoulAwake::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_position(), output);
   }
 
-  // optional int32 m_awakeitem = 2;
+  // optional int32 m_awakeItem = 2;
   if (has_m_awakeitem()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_awakeitem(), output);
   }
@@ -5176,7 +5176,7 @@ void E_DragonsoulAwake::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_position(), target);
   }
 
-  // optional int32 m_awakeitem = 2;
+  // optional int32 m_awakeItem = 2;
   if (has_m_awakeitem()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_awakeitem(), target);
   }
@@ -5211,7 +5211,7 @@ int E_DragonsoulAwake::ByteSize() const {
           this->m_position());
     }
 
-    // optional int32 m_awakeitem = 2;
+    // optional int32 m_awakeItem = 2;
     if (has_m_awakeitem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

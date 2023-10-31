@@ -367,7 +367,7 @@ void protobuf_AddDesc_E_5fJinglian_2eproto() {
     "\n\020E_Jinglian.proto\022\010proto_ff\032\025yd_fieldop"
     "tions.proto\"\366\001\n\020E_JinglianSimple\022,\n\nm_po"
     "sition\030\001 \001(\005B\030\302\377\024\024\350\243\205\345\244\207\351\203\250\344\275\215\345\257\271\345\272\224ID\022("
-    "\n\tm_groupid\030\002 \001(\005B\025\302\377\024\021\345\257\271\345\272\224\345\261\236\346\200\247\347\273\204ID"
+    "\n\tm_groupId\030\002 \001(\005B\025\302\377\024\021\345\257\271\345\272\224\345\261\236\346\200\247\347\273\204ID"
     "\022\"\n\010m_openlv\030\003 \001(\005B\020\302\377\024\014\345\274\200\345\220\257\347\255\211\347\272\247\022/\n\017"
     "m_default_attrs\030\004 \001(\005B\026\302\377\024\022\351\273\230\350\256\244\345\261\236\346\200\247\346"
     "\235\241\346\225\260\0225\n\013m_open_attr\030\005 \003(\005B \302\377\024\030\350\247\243\351\224\201\345\261"
@@ -378,7 +378,7 @@ void protobuf_AddDesc_E_5fJinglian_2eproto() {
     "\022\026\n\006m_item\030\002 \001(\005B\006\302\377\024\002id\"F\n\024E_JinglianLv"
     "AttrDesc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\024\n\004m_"
     "id\030\002 \001(\005B\006\302\377\024\002id\"\356\001\n\014E_JinglianLv\022\024\n\004m_i"
-    "d\030\001 \001(\005B\006\302\377\024\002id\022(\n\tm_groupid\030\002 \001(\005B\025\302\377\024\021"
+    "d\030\001 \001(\005B\006\302\377\024\002id\022(\n\tm_groupId\030\002 \001(\005B\025\302\377\024\021"
     "\345\257\271\345\272\224\345\261\236\346\200\247\347\273\204ID\022\030\n\004m_lv\030\003 \001(\005B\n\302\377\024\006\347\255\211"
     "\347\272\247\022D\n\006m_cost\030\004 \003(\0132\036.proto_ff.E_Jinglia"
     "nLvCostDescB\024\302\377\024\014\347\262\276\347\202\274\345\215\207\347\272\247\210\301\024\003\022>\n\006m_a"
@@ -451,7 +451,7 @@ struct StaticDescriptorInitializer_E_5fJinglian_2eproto {
 
 #ifndef _MSC_VER
 const int E_JinglianSimple::kMPositionFieldNumber;
-const int E_JinglianSimple::kMGroupidFieldNumber;
+const int E_JinglianSimple::kMGroupIdFieldNumber;
 const int E_JinglianSimple::kMOpenlvFieldNumber;
 const int E_JinglianSimple::kMDefaultAttrsFieldNumber;
 const int E_JinglianSimple::kMOpenAttrFieldNumber;
@@ -539,15 +539,15 @@ bool E_JinglianSimple::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_groupid;
+        if (input->ExpectTag(16)) goto parse_m_groupId;
         break;
       }
 
-      // optional int32 m_groupid = 2;
+      // optional int32 m_groupId = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_groupid:
+         parse_m_groupId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_groupid_)));
@@ -636,7 +636,7 @@ void E_JinglianSimple::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_position(), output);
   }
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupId = 2;
   if (has_m_groupid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_groupid(), output);
   }
@@ -670,7 +670,7 @@ void E_JinglianSimple::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_position(), target);
   }
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupId = 2;
   if (has_m_groupid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_groupid(), target);
   }
@@ -709,7 +709,7 @@ int E_JinglianSimple::ByteSize() const {
           this->m_position());
     }
 
-    // optional int32 m_groupid = 2;
+    // optional int32 m_groupId = 2;
     if (has_m_groupid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1526,7 +1526,7 @@ void E_JinglianLvAttrDesc::Swap(E_JinglianLvAttrDesc* other) {
 
 #ifndef _MSC_VER
 const int E_JinglianLv::kMIdFieldNumber;
-const int E_JinglianLv::kMGroupidFieldNumber;
+const int E_JinglianLv::kMGroupIdFieldNumber;
 const int E_JinglianLv::kMLvFieldNumber;
 const int E_JinglianLv::kMCostFieldNumber;
 const int E_JinglianLv::kMAttrFieldNumber;
@@ -1613,15 +1613,15 @@ bool E_JinglianLv::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_groupid;
+        if (input->ExpectTag(16)) goto parse_m_groupId;
         break;
       }
 
-      // optional int32 m_groupid = 2;
+      // optional int32 m_groupId = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_groupid:
+         parse_m_groupId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_groupid_)));
@@ -1702,7 +1702,7 @@ void E_JinglianLv::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupId = 2;
   if (has_m_groupid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_groupid(), output);
   }
@@ -1737,7 +1737,7 @@ void E_JinglianLv::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupId = 2;
   if (has_m_groupid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_groupid(), target);
   }
@@ -1779,7 +1779,7 @@ int E_JinglianLv::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_groupid = 2;
+    // optional int32 m_groupId = 2;
     if (has_m_groupid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

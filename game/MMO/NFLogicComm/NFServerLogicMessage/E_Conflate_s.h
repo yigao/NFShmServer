@@ -46,24 +46,24 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//合成id
-		int32_t m_openlv;//显示等级
-		int32_t m_grouptype;//装备类型
-		int32_t m_subtype;//装备组id
+		int32_t m_openLv;//显示等级
+		int32_t m_groupType;//装备类型
+		int32_t m_subType;//装备组id
 		int32_t m_needsameposition;//是否同部位
 		int32_t m_star;//装备星级
 		int32_t m_quality;//装备品质
-		int32_t m_wearquality;//装备品阶
-		int32_t m_elemstar;//素材星级
-		int32_t m_elemquality;//素材品质
-		int32_t m_elemwearquality;//素材品阶
+		int32_t m_wearQuality;//装备品阶
+		int32_t m_elemStar;//素材星级
+		int32_t m_elemQuality;//素材品质
+		int32_t m_elemWearQuality;//素材品阶
 		int32_t m_minimum;//最小装备数量
 		int32_t m_minisuccessrate;//最少装备成功率
 		int32_t m_maxmum;//最大装备数量
 		int32_t m_maxsuccessrate;//最大装备成功率
-		int32_t m_muststar;//同阶星级
-		int32_t m_mustquality;//同阶品质
-		int32_t m_mustwearquality;//同阶品阶
-		int32_t m_mustnum;//同阶装备数量
+		int32_t m_mustStar;//同阶星级
+		int32_t m_mustQuality;//同阶品质
+		int32_t m_mustWearQuality;//同阶品阶
+		int32_t m_mustNum;//同阶装备数量
 		int32_t m_usemoney;//合成消耗货币
 		int32_t m_cost;//货币数量
 		NFShmVector<struct E_ConflateEquipElemDesc_s, DEFINE_E_CONFLATEEQUIP_M_ELEM_MAX_NUM> m_elem;//素材
@@ -97,8 +97,8 @@ namespace proto_ff_s {
 		int32_t m_id;//合成id
 		NFShmString<64> m_position;//装备部位
 		NFShmString<64> m_profession;//职业限制
-		NFShmString<64> m_typename;//类型名称
-		int32_t m_unlockid;//开启条件
+		NFShmString<64> m_typeName;//类型名称
+		int32_t m_unlockId;//开启条件
 		int32_t m_entry;//入口id
 		int32_t m_rule;//规则
 
@@ -129,9 +129,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//装备组id
-		NFShmString<64> m_subname;//组名称
+		NFShmString<64> m_subName;//组名称
 		int32_t m_groupid;//装备类型
-		int32_t m_openlv;//显示等级
+		int32_t m_openLv;//显示等级
 
 		virtual void write_to_pbmsg(::proto_ff::E_ConflateSubtype & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ConflateSubtype & msg);
@@ -159,7 +159,7 @@ namespace proto_ff_s {
 		virtual ~E_ConflatePropReplaceDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_num;//素材数量
+		int32_t m_Num;//素材数量
 		int32_t m_id;//素材
 
 		virtual void write_to_pbmsg(::proto_ff::E_ConflatePropReplaceDesc & msg) const;
@@ -190,12 +190,12 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_target;//合成目标
-		int32_t m_openlv;//显示等级
-		int32_t m_subtype;//条目
+		int32_t m_openLv;//显示等级
+		int32_t m_subType;//条目
 		int32_t m_order;//排序
 		int32_t m_activate;//是否激活后不可合成
 		int32_t m_display;//是否显示合成数量
-		int32_t m_replacetype;//是否可替代
+		int32_t m_replaceType;//是否可替代
 		int32_t m_culture;//是否养成
 		int32_t m_usemoney;//合成消耗货币
 		int32_t m_cost;//货币数量
@@ -244,8 +244,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//合成id
-		int32_t m_grouptype;//组类型
-		int32_t m_openwearquality;//装备品阶要求
+		int32_t m_groupType;//组类型
+		int32_t m_openwearQuality;//装备品阶要求
 		int32_t m_openspecial;//真炼要求
 		int32_t m_position;//装备位置
 		int32_t m_quality;//装备品质要求
@@ -296,11 +296,11 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//合成id
 		int32_t m_openquality;//品质要求
-		int32_t m_grouptype;//组类型
+		int32_t m_groupType;//组类型
 		int32_t m_position;//装备部位
-		int32_t m_zllv;//真炼等级
+		int32_t m_Zllv;//真炼等级
 		int32_t m_next;//下一级
-		NFShmString<64> m_zlname;//等级描述
+		NFShmString<64> m_Zlname;//等级描述
 		NFShmVector<struct E_ConflateJewelry_zlElemDesc_s, DEFINE_E_CONFLATEJEWELRY_ZL_M_ELEM_MAX_NUM> m_elem;//素材
 
 		virtual void write_to_pbmsg(::proto_ff::E_ConflateJewelry_zl & msg) const;
@@ -345,11 +345,11 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//合成id
-		int32_t m_grouptype;//组类型
+		int32_t m_groupType;//组类型
 		int32_t m_position;//装备位置
-		int32_t m_wearquality;//装备品阶
+		int32_t m_wearQuality;//装备品阶
 		int32_t m_next;//下一级
-		int32_t m_openlv;//升阶等级
+		int32_t m_openLv;//升阶等级
 		NFShmVector<struct E_ConflateJewelry_sjElemDesc_s, DEFINE_E_CONFLATEJEWELRY_SJ_M_ELEM_MAX_NUM> m_elem;//素材
 
 		virtual void write_to_pbmsg(::proto_ff::E_ConflateJewelry_sj & msg) const;

@@ -21,20 +21,20 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//唯一id
 		int32_t m_type;//找回类型
-		int32_t m_typeparam;//类型参数
+		int32_t m_typeParam;//类型参数
 		NFShmString<64> m_name;//显示名称
 		int32_t m_group;//组
-		int32_t m_functionunlock;//关联功能开放
-		int32_t m_levellimit;//等级要求下限
-		int64_t m_pboxid;//完美找回物品box
-		int64_t m_boxid;//找回物品box
-		int32_t m_backday;//找回天数
-		int32_t m_costitemid;//普通找回消耗物
-		int32_t m_costnum;//普通找回消耗数量
-		int32_t m_pcostitemid;//完美找回消耗物
-		int32_t m_pcostnum;//完美找回消耗数量
-		int32_t m_acostitemid;//额外找回消耗物
-		int32_t m_acostnum;//额外找回小号数量
+		int32_t m_functionUnlock;//关联功能开放
+		int32_t m_levelLimit;//等级要求下限
+		int64_t m_PboxId;//完美找回物品box
+		int64_t m_boxId;//找回物品box
+		int32_t m_backDay;//找回天数
+		int32_t m_costItemID;//普通找回消耗物
+		int32_t m_costNum;//普通找回消耗数量
+		int32_t m_PcostItemID;//完美找回消耗物
+		int32_t m_PcostNum;//完美找回消耗数量
+		int32_t m_AcostItemID;//额外找回消耗物
+		int32_t m_AcostNum;//额外找回小号数量
 		NFShmVector<int32_t, DEFINE_E_BACKBACK_M_PARAM_MAX_NUM> m_param;//参数
 
 		virtual void write_to_pbmsg(::proto_ff::E_BackBack & msg) const;

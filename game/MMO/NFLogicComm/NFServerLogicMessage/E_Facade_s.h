@@ -60,12 +60,12 @@ namespace proto_ff_s {
 		int32_t m_type;//大类
 		NFShmString<64> m_resource;//资源形象
 		NFShmString<64> m_name;//名字
-		NFShmString<64> m_activedesc;//激活描述
-		NFShmString<64> m_professionid;//职业ID
-		NFShmString<64> m_skillid;//解锁技能ID
-		int32_t m_souliid;//器魂ID
+		NFShmString<64> m_activeDesc;//激活描述
+		NFShmString<64> m_professionID;//职业ID
+		NFShmString<64> m_skillID;//解锁技能ID
+		int32_t m_soulIID;//器魂ID
 		NFShmVector<struct E_FacadeDisplayMaterialDesc_s, DEFINE_E_FACADEDISPLAY_M_MATERIAL_MAX_NUM> m_material;//进阶材料
-		NFShmVector<int64_t, DEFINE_E_FACADEDISPLAY_M_FRAGMENTID_MAX_NUM> m_fragmentid;//关联碎片ID
+		NFShmVector<int64_t, DEFINE_E_FACADEDISPLAY_M_FRAGMENTID_MAX_NUM> m_fragmentID;//关联碎片ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_FacadeDisplay & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeDisplay & msg);
@@ -154,14 +154,14 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//等级
-		int64_t m_wingexp;//翅膀升级经验
-		int64_t m_treasureexp;//宝物升级经验
-		int64_t m_artifactexp;//神器升级经验
-		int64_t m_bladeexp;//剑灵升级经验
-		NFShmVector<struct E_FacadeValueWingattributeDesc_s, DEFINE_E_FACADEVALUE_M_WINGATTRIBUTE_MAX_NUM> m_wingattribute;//翅膀基础属性
-		NFShmVector<struct E_FacadeValueTreasureattributeDesc_s, DEFINE_E_FACADEVALUE_M_TREASUREATTRIBUTE_MAX_NUM> m_treasureattribute;//宝具基础属性
-		NFShmVector<struct E_FacadeValueArtifactattributeDesc_s, DEFINE_E_FACADEVALUE_M_ARTIFACTATTRIBUTE_MAX_NUM> m_artifactattribute;//神器基础属性
-		NFShmVector<struct E_FacadeValueBladeattributeDesc_s, DEFINE_E_FACADEVALUE_M_BLADEATTRIBUTE_MAX_NUM> m_bladeattribute;//神器基础属性
+		int64_t m_wingExp;//翅膀升级经验
+		int64_t m_treasureExp;//宝物升级经验
+		int64_t m_ArtifactExp;//神器升级经验
+		int64_t m_BladeExp;//剑灵升级经验
+		NFShmVector<struct E_FacadeValueWingattributeDesc_s, DEFINE_E_FACADEVALUE_M_WINGATTRIBUTE_MAX_NUM> m_wingAttribute;//翅膀基础属性
+		NFShmVector<struct E_FacadeValueTreasureattributeDesc_s, DEFINE_E_FACADEVALUE_M_TREASUREATTRIBUTE_MAX_NUM> m_treasureAttribute;//宝具基础属性
+		NFShmVector<struct E_FacadeValueArtifactattributeDesc_s, DEFINE_E_FACADEVALUE_M_ARTIFACTATTRIBUTE_MAX_NUM> m_ArtifactAttribute;//神器基础属性
+		NFShmVector<struct E_FacadeValueBladeattributeDesc_s, DEFINE_E_FACADEVALUE_M_BLADEATTRIBUTE_MAX_NUM> m_BladeAttribute;//神器基础属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_FacadeValue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeValue & msg);
@@ -190,7 +190,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//类型id
-		NFShmString<64> m_soucename;//资源名称
+		NFShmString<64> m_souceName;//资源名称
 
 		virtual void write_to_pbmsg(::proto_ff::E_FacadeType & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeType & msg);
@@ -233,9 +233,9 @@ namespace proto_ff_s {
 		virtual ~E_FacadeFragment_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_fragmentid;//碎片ID
+		int64_t m_fragmentID;//碎片ID
 		int64_t m_item;//物品ID
-		int32_t m_itemnum;//碎片使用上限
+		int32_t m_itemNum;//碎片使用上限
 		NFShmVector<struct E_FacadeFragmentAttributeDesc_s, DEFINE_E_FACADEFRAGMENT_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_FacadeFragment & msg) const;
@@ -297,20 +297,20 @@ namespace proto_ff_s {
 		int64_t m_id;//外观ID
 		int32_t m_type;//大类
 		NFShmString<64> m_resource;//资源形象
-		NFShmString<64> m_professionid;//职业ID
+		NFShmString<64> m_professionID;//职业ID
 		NFShmString<64> m_name;//名字
-		NFShmString<128> m_activedesc;//激活描述
+		NFShmString<128> m_activeDesc;//激活描述
 		int32_t m_quality;//品质
-		int64_t m_activationitem;//激活道具ID
-		int32_t m_activationnum;//激活道具数量
-		int64_t m_starid;//升星道具id
-		NFShmString<256> m_starnum;//升星道具数量
-		int32_t m_starup;//升星等级上限
-		int32_t m_starber;//每次升星属性增加的万分比值
-		int64_t m_upattributeid;//升星属性组ID
-		int32_t m_activeskill;//激活获得技能
+		int64_t m_activationItem;//激活道具ID
+		int32_t m_activationNum;//激活道具数量
+		int64_t m_starId;//升星道具id
+		NFShmString<256> m_starNum;//升星道具数量
+		int32_t m_starUp;//升星等级上限
+		int32_t m_starBer;//每次升星属性增加的万分比值
+		int64_t m_upAttributeId;//升星属性组ID
+		int32_t m_activeSkill;//激活获得技能
 		NFShmVector<struct E_FacadeChangeAttributeDesc_s, DEFINE_E_FACADECHANGE_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
-		NFShmVector<struct E_FacadeChangeActiveattributeDesc_s, DEFINE_E_FACADECHANGE_M_ACTIVEATTRIBUTE_MAX_NUM> m_activeattribute;//属性
+		NFShmVector<struct E_FacadeChangeActiveattributeDesc_s, DEFINE_E_FACADECHANGE_M_ACTIVEATTRIBUTE_MAX_NUM> m_ActiveAttribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_FacadeChange & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeChange & msg);
@@ -353,11 +353,11 @@ namespace proto_ff_s {
 		virtual ~E_FacadeStarup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//唯一ID
-		int64_t m_upattributeid;//升星属性组ID
-		int32_t m_starid;//星级
-		int32_t m_skillid;//技能id
-		NFShmVector<struct E_FacadeStarupUpattributeDesc_s, DEFINE_E_FACADESTARUP_M_UPATTRIBUTE_MAX_NUM> m_upattribute;//激活属性
+		int32_t m_ID;//唯一ID
+		int64_t m_upAttributeId;//升星属性组ID
+		int32_t m_starID;//星级
+		int32_t m_skillID;//技能id
+		NFShmVector<struct E_FacadeStarupUpattributeDesc_s, DEFINE_E_FACADESTARUP_M_UPATTRIBUTE_MAX_NUM> m_upAttribute;//激活属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_FacadeStarup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FacadeStarup & msg);
@@ -401,10 +401,10 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;//器魂ID
-		int32_t m_rechargeid;//价格计费点
-		int32_t m_mainskill;//主技能ID
-		NFShmString<64> m_attributetype;//升级属性类型
-		NFShmVector<int32_t, DEFINE_E_FACADESOUL_M_MINORSKILL_MAX_NUM> m_minorskill;//副技能ID
+		int32_t m_rechargeID;//价格计费点
+		int32_t m_mainSkill;//主技能ID
+		NFShmString<64> m_attributeType;//升级属性类型
+		NFShmVector<int32_t, DEFINE_E_FACADESOUL_M_MINORSKILL_MAX_NUM> m_minorSkill;//副技能ID
 		NFShmVector<struct E_FacadeSoulAttributeDesc_s, DEFINE_E_FACADESOUL_M_ATTRIBUTE_MAX_NUM> m_attribute;//激活基础属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_FacadeSoul & msg) const;
@@ -493,12 +493,12 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;//id
-		int32_t m_soulllv;//等级
-		int32_t m_soulid;//器魂ID
-		int32_t m_itemid;//消耗道具
+		int32_t m_soullLv;//等级
+		int32_t m_soulID;//器魂ID
+		int32_t m_itemID;//消耗道具
 		int32_t m_num;//消耗数量
-		int32_t m_successrate;//升级成功率
-		int32_t m_downlv;//是否掉级
+		int32_t m_successRate;//升级成功率
+		int32_t m_downLv;//是否掉级
 		NFShmVector<struct E_FacadeSoullvAttributeDesc_s, DEFINE_E_FACADESOULLV_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_FacadeSoullv & msg) const;
@@ -528,10 +528,10 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;//成就id
-		int32_t m_soulid;//器魂ID
+		int32_t m_soulID;//器魂ID
 		int32_t m_type;//类型
 		int32_t m_parama;//影响值
-		int32_t m_itemid;//奖励道具
+		int32_t m_itemID;//奖励道具
 		int32_t m_num;//奖励数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_FacadeSoulachievement & msg) const;

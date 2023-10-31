@@ -37,8 +37,8 @@ namespace proto_ff_s {
 		virtual ~E_RechargeRechargeItemDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_num;//数量
-		int64_t m_id;//id
+		int32_t m_Num;//数量
+		int64_t m_Id;//id
 
 		virtual void write_to_pbmsg(::proto_ff::E_RechargeRechargeItemDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RechargeRechargeItemDesc & msg);
@@ -54,20 +54,20 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		NFShmString<64> m_name;//名称
-		NFShmString<64> m_defaultpoint;//默认计费点
+		NFShmString<64> m_defaultPoint;//默认计费点
 		int32_t m_type;//充值类型
 		NFShmString<64> m_unit;//单位
 		NFShmString<64> m_beizhu;//备注
 		int64_t m_quantity;//获取档位
-		int32_t m_itemnum;//获得物品的数量
-		int64_t m_multipletimes;//重复次数
-		int64_t m_multiplereward;//重复奖励
+		int32_t m_itemNum;//获得物品的数量
+		int64_t m_multipleTimes;//重复次数
+		int64_t m_multipleReward;//重复奖励
 		int32_t m_zuanshitype;//获取类型
-		int32_t m_vipexp;//vip经验
-		int32_t m_vipexplimit;//vip经验限制
-		int32_t m_activitycount;//运营活动计数
+		int32_t m_vipExp;//vip经验
+		int32_t m_vipExpLimit;//vip经验限制
+		int32_t m_activityCount;//运营活动计数
 		int32_t m_price;//售价
-		int32_t m_presentid;//首充赠送物品id
+		int32_t m_presentID;//首充赠送物品id
 		int32_t m_fristpresent;//首充赠送数量
 		NFShmString<64> m_icon;//图标
 		NFShmVector<struct E_RechargeRechargeChannelDesc_s, DEFINE_E_RECHARGERECHARGE_M_CHANNEL_MAX_NUM> m_channel;//渠道

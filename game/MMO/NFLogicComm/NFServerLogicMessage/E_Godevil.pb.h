@@ -142,17 +142,17 @@ class E_GodevilPreposetask : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_modeltype() const;
   inline void set_m_modeltype(::google::protobuf::int32 value);
 
-  // optional int32 m_starttask = 4;
+  // optional int32 m_startTask = 4;
   inline bool has_m_starttask() const;
   inline void clear_m_starttask();
-  static const int kMStarttaskFieldNumber = 4;
+  static const int kMStartTaskFieldNumber = 4;
   inline ::google::protobuf::int32 m_starttask() const;
   inline void set_m_starttask(::google::protobuf::int32 value);
 
-  // optional int32 m_endtask = 5;
+  // optional int32 m_endTask = 5;
   inline bool has_m_endtask() const;
   inline void clear_m_endtask();
-  static const int kMEndtaskFieldNumber = 5;
+  static const int kMEndTaskFieldNumber = 5;
   inline ::google::protobuf::int32 m_endtask() const;
   inline void set_m_endtask(::google::protobuf::int32 value);
 
@@ -170,10 +170,10 @@ class E_GodevilPreposetask : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_value() const;
   inline void set_m_value(::google::protobuf::int32 value);
 
-  // optional int32 m_rewardid = 8;
+  // optional int32 m_rewardID = 8;
   inline bool has_m_rewardid() const;
   inline void clear_m_rewardid();
-  static const int kMRewardidFieldNumber = 8;
+  static const int kMRewardIDFieldNumber = 8;
   inline ::google::protobuf::int32 m_rewardid() const;
   inline void set_m_rewardid(::google::protobuf::int32 value);
 
@@ -464,17 +464,17 @@ class E_GodevilGodevillv : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_exp() const;
   inline void set_m_exp(::google::protobuf::int64 value);
 
-  // optional int64 m_explimit = 3;
+  // optional int64 m_expLimit = 3;
   inline bool has_m_explimit() const;
   inline void clear_m_explimit();
-  static const int kMExplimitFieldNumber = 3;
+  static const int kMExpLimitFieldNumber = 3;
   inline ::google::protobuf::int64 m_explimit() const;
   inline void set_m_explimit(::google::protobuf::int64 value);
 
-  // optional int32 m_itemid = 4;
+  // optional int32 m_itemID = 4;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 4;
+  static const int kMItemIDFieldNumber = 4;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
@@ -677,24 +677,24 @@ class E_GodevilGodevilprivilege : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 m_oldprice = 2;
+  // optional int32 m_oldPrice = 2;
   inline bool has_m_oldprice() const;
   inline void clear_m_oldprice();
-  static const int kMOldpriceFieldNumber = 2;
+  static const int kMOldPriceFieldNumber = 2;
   inline ::google::protobuf::int32 m_oldprice() const;
   inline void set_m_oldprice(::google::protobuf::int32 value);
 
-  // optional int32 m_newprice = 3;
+  // optional int32 m_newPrice = 3;
   inline bool has_m_newprice() const;
   inline void clear_m_newprice();
-  static const int kMNewpriceFieldNumber = 3;
+  static const int kMNewPriceFieldNumber = 3;
   inline ::google::protobuf::int32 m_newprice() const;
   inline void set_m_newprice(::google::protobuf::int32 value);
 
-  // optional int32 m_rechargid = 4;
+  // optional int32 m_rechargID = 4;
   inline bool has_m_rechargid() const;
   inline void clear_m_rechargid();
-  static const int kMRechargidFieldNumber = 4;
+  static const int kMRechargIDFieldNumber = 4;
   inline ::google::protobuf::int32 m_rechargid() const;
   inline void set_m_rechargid(::google::protobuf::int32 value);
 
@@ -712,10 +712,10 @@ class E_GodevilGodevilprivilege : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_functiontype = 7;
+  // optional int32 m_functionType = 7;
   inline bool has_m_functiontype() const;
   inline void clear_m_functiontype();
-  static const int kMFunctiontypeFieldNumber = 7;
+  static const int kMFunctionTypeFieldNumber = 7;
   inline ::google::protobuf::int32 m_functiontype() const;
   inline void set_m_functiontype(::google::protobuf::int32 value);
 
@@ -726,17 +726,17 @@ class E_GodevilGodevilprivilege : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_parama() const;
   inline void set_m_parama(::google::protobuf::int32 value);
 
-  // optional int32 m_equipmentid = 9;
+  // optional int32 m_equipmentID = 9;
   inline bool has_m_equipmentid() const;
   inline void clear_m_equipmentid();
-  static const int kMEquipmentidFieldNumber = 9;
+  static const int kMEquipmentIDFieldNumber = 9;
   inline ::google::protobuf::int32 m_equipmentid() const;
   inline void set_m_equipmentid(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 10;
+  // optional int32 m_itemID = 10;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 10;
+  static const int kMItemIDFieldNumber = 10;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
@@ -927,10 +927,10 @@ class E_GodevilStrongStDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional string m_typeid = 1;
+  // optional string m_typeID = 1;
   inline bool has_m_typeid() const;
   inline void clear_m_typeid();
-  static const int kMTypeidFieldNumber = 1;
+  static const int kMTypeIDFieldNumber = 1;
   inline const ::std::string& m_typeid() const;
   inline void set_m_typeid(const ::std::string& value);
   inline void set_m_typeid(const char* value);
@@ -1065,10 +1065,10 @@ class E_GodevilStrong : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_type_num() const;
   inline void set_m_type_num(::google::protobuf::int32 value);
 
-  // optional int32 m_godevillv = 4;
+  // optional int32 m_godevilLv = 4;
   inline bool has_m_godevillv() const;
   inline void clear_m_godevillv();
-  static const int kMGodevillvFieldNumber = 4;
+  static const int kMGodevilLvFieldNumber = 4;
   inline ::google::protobuf::int32 m_godevillv() const;
   inline void set_m_godevillv(::google::protobuf::int32 value);
 
@@ -1275,10 +1275,10 @@ class E_GodevilStrongexp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_parama() const;
   inline void set_m_parama(::google::protobuf::int32 value);
 
-  // optional int32 m_strongexp = 4;
+  // optional int32 m_strongExp = 4;
   inline bool has_m_strongexp() const;
   inline void clear_m_strongexp();
-  static const int kMStrongexpFieldNumber = 4;
+  static const int kMStrongExpFieldNumber = 4;
   inline ::google::protobuf::int32 m_strongexp() const;
   inline void set_m_strongexp(::google::protobuf::int32 value);
 
@@ -1451,10 +1451,10 @@ class E_GodevilAdvancelvAdDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_godevillv = 1;
+  // optional int32 m_godevilLv = 1;
   inline bool has_m_godevillv() const;
   inline void clear_m_godevillv();
-  static const int kMGodevillvFieldNumber = 1;
+  static const int kMGodevilLvFieldNumber = 1;
   inline ::google::protobuf::int32 m_godevillv() const;
   inline void set_m_godevillv(::google::protobuf::int32 value);
 
@@ -1558,10 +1558,10 @@ class E_GodevilAdvancelv : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_wearlv = 1;
+  // optional int32 m_wearLv = 1;
   inline bool has_m_wearlv() const;
   inline void clear_m_wearlv();
-  static const int kMWearlvFieldNumber = 1;
+  static const int kMWearLvFieldNumber = 1;
   inline ::google::protobuf::int32 m_wearlv() const;
   inline void set_m_wearlv(::google::protobuf::int32 value);
 
@@ -1745,10 +1745,10 @@ class E_GodevilAdvanceexp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_wearlv = 2;
+  // optional int32 m_wearLv = 2;
   inline bool has_m_wearlv() const;
   inline void clear_m_wearlv();
-  static const int kMWearlvFieldNumber = 2;
+  static const int kMWearLvFieldNumber = 2;
   inline ::google::protobuf::int32 m_wearlv() const;
   inline void set_m_wearlv(::google::protobuf::int32 value);
 
@@ -1764,24 +1764,24 @@ class E_GodevilAdvanceexp : public ::google::protobuf::Message {
   inline ::std::string* release_m_position();
   inline void set_allocated_m_position(::std::string* m_position);
 
-  // optional int32 m_lvparama = 4;
+  // optional int32 m_lvParama = 4;
   inline bool has_m_lvparama() const;
   inline void clear_m_lvparama();
-  static const int kMLvparamaFieldNumber = 4;
+  static const int kMLvParamaFieldNumber = 4;
   inline ::google::protobuf::int32 m_lvparama() const;
   inline void set_m_lvparama(::google::protobuf::int32 value);
 
-  // optional int32 m_goldparama = 5;
+  // optional int32 m_goldParama = 5;
   inline bool has_m_goldparama() const;
   inline void clear_m_goldparama();
-  static const int kMGoldparamaFieldNumber = 5;
+  static const int kMGoldParamaFieldNumber = 5;
   inline ::google::protobuf::int32 m_goldparama() const;
   inline void set_m_goldparama(::google::protobuf::int32 value);
 
-  // optional int32 m_silverparama = 6;
+  // optional int32 m_silverParama = 6;
   inline bool has_m_silverparama() const;
   inline void clear_m_silverparama();
-  static const int kMSilverparamaFieldNumber = 6;
+  static const int kMSilverParamaFieldNumber = 6;
   inline ::google::protobuf::int32 m_silverparama() const;
   inline void set_m_silverparama(::google::protobuf::int32 value);
 
@@ -2017,10 +2017,10 @@ class E_GodevilQualitylvItemDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -2116,10 +2116,10 @@ class E_GodevilQualitylv : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_quality() const;
   inline void set_m_quality(::google::protobuf::int32 value);
 
-  // optional int32 m_wearlv = 3;
+  // optional int32 m_wearLv = 3;
   inline bool has_m_wearlv() const;
   inline void clear_m_wearlv();
-  static const int kMWearlvFieldNumber = 3;
+  static const int kMWearLvFieldNumber = 3;
   inline ::google::protobuf::int32 m_wearlv() const;
   inline void set_m_wearlv(::google::protobuf::int32 value);
 
@@ -2142,17 +2142,17 @@ class E_GodevilQualitylv : public ::google::protobuf::Message {
   inline ::std::string* release_m_position();
   inline void set_allocated_m_position(::std::string* m_position);
 
-  // optional int32 m_costwuxiongitem = 6;
+  // optional int32 m_costwuxiongItem = 6;
   inline bool has_m_costwuxiongitem() const;
   inline void clear_m_costwuxiongitem();
-  static const int kMCostwuxiongitemFieldNumber = 6;
+  static const int kMCostwuxiongItemFieldNumber = 6;
   inline ::google::protobuf::int32 m_costwuxiongitem() const;
   inline void set_m_costwuxiongitem(::google::protobuf::int32 value);
 
-  // optional int32 m_costnumber = 7;
+  // optional int32 m_costNumber = 7;
   inline bool has_m_costnumber() const;
   inline void clear_m_costnumber();
-  static const int kMCostnumberFieldNumber = 7;
+  static const int kMCostNumberFieldNumber = 7;
   inline ::google::protobuf::int32 m_costnumber() const;
   inline void set_m_costnumber(::google::protobuf::int32 value);
 
@@ -2361,10 +2361,10 @@ class E_GodevilPositionunlock : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_day() const;
   inline void set_m_day(::google::protobuf::int32 value);
 
-  // optional int32 m_godevillv = 3;
+  // optional int32 m_godevilLv = 3;
   inline bool has_m_godevillv() const;
   inline void clear_m_godevillv();
-  static const int kMGodevillvFieldNumber = 3;
+  static const int kMGodevilLvFieldNumber = 3;
   inline ::google::protobuf::int32 m_godevillv() const;
   inline void set_m_godevillv(::google::protobuf::int32 value);
 
@@ -2534,17 +2534,17 @@ class E_GodevilBlacksmithItemDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_num = 1;
+  // optional int32 m_Num = 1;
   inline bool has_m_num() const;
   inline void clear_m_num();
   static const int kMNumFieldNumber = 1;
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -2633,10 +2633,10 @@ class E_GodevilBlacksmithSkillDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_probability() const;
   inline void set_m_probability(::google::protobuf::int32 value);
 
-  // optional int32 m_id = 2;
+  // optional int32 m_ID = 2;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 2;
+  static const int kMIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
@@ -2753,10 +2753,10 @@ class E_GodevilBlacksmith : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_probability() const;
   inline void set_m_probability(::google::protobuf::int32 value);
 
-  // optional string m_godpoint = 6;
+  // optional string m_godPoint = 6;
   inline bool has_m_godpoint() const;
   inline void clear_m_godpoint();
-  static const int kMGodpointFieldNumber = 6;
+  static const int kMGodPointFieldNumber = 6;
   inline const ::std::string& m_godpoint() const;
   inline void set_m_godpoint(const ::std::string& value);
   inline void set_m_godpoint(const char* value);
@@ -2765,10 +2765,10 @@ class E_GodevilBlacksmith : public ::google::protobuf::Message {
   inline ::std::string* release_m_godpoint();
   inline void set_allocated_m_godpoint(::std::string* m_godpoint);
 
-  // optional string m_starsprobability = 7;
+  // optional string m_starsProbability = 7;
   inline bool has_m_starsprobability() const;
   inline void clear_m_starsprobability();
-  static const int kMStarsprobabilityFieldNumber = 7;
+  static const int kMStarsProbabilityFieldNumber = 7;
   inline const ::std::string& m_starsprobability() const;
   inline void set_m_starsprobability(const ::std::string& value);
   inline void set_m_starsprobability(const char* value);
@@ -2791,24 +2791,24 @@ class E_GodevilBlacksmith : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_silver() const;
   inline void set_m_silver(::google::protobuf::int32 value);
 
-  // optional int32 m_paperid = 10;
+  // optional int32 m_paperID = 10;
   inline bool has_m_paperid() const;
   inline void clear_m_paperid();
-  static const int kMPaperidFieldNumber = 10;
+  static const int kMPaperIDFieldNumber = 10;
   inline ::google::protobuf::int32 m_paperid() const;
   inline void set_m_paperid(::google::protobuf::int32 value);
 
-  // optional int32 m_papernum = 11;
+  // optional int32 m_paperNum = 11;
   inline bool has_m_papernum() const;
   inline void clear_m_papernum();
-  static const int kMPapernumFieldNumber = 11;
+  static const int kMPaperNumFieldNumber = 11;
   inline ::google::protobuf::int32 m_papernum() const;
   inline void set_m_papernum(::google::protobuf::int32 value);
 
-  // optional int32 m_substituteitem = 12;
+  // optional int32 m_substituteItem = 12;
   inline bool has_m_substituteitem() const;
   inline void clear_m_substituteitem();
-  static const int kMSubstituteitemFieldNumber = 12;
+  static const int kMSubstituteItemFieldNumber = 12;
   inline ::google::protobuf::int32 m_substituteitem() const;
   inline void set_m_substituteitem(::google::protobuf::int32 value);
 
@@ -2819,17 +2819,17 @@ class E_GodevilBlacksmith : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_number() const;
   inline void set_m_number(::google::protobuf::int32 value);
 
-  // optional int32 m_godevilskill = 14;
+  // optional int32 m_godevilSkill = 14;
   inline bool has_m_godevilskill() const;
   inline void clear_m_godevilskill();
-  static const int kMGodevilskillFieldNumber = 14;
+  static const int kMGodevilSkillFieldNumber = 14;
   inline ::google::protobuf::int32 m_godevilskill() const;
   inline void set_m_godevilskill(::google::protobuf::int32 value);
 
-  // optional string m_skillset = 15;
+  // optional string m_skillSet = 15;
   inline bool has_m_skillset() const;
   inline void clear_m_skillset();
-  static const int kMSkillsetFieldNumber = 15;
+  static const int kMSkillSetFieldNumber = 15;
   inline const ::std::string& m_skillset() const;
   inline void set_m_skillset(const ::std::string& value);
   inline void set_m_skillset(const char* value);
@@ -3066,17 +3066,17 @@ class E_GodevilGodevilskill : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_godevilskill = 1;
+  // optional int32 m_godevilSkill = 1;
   inline bool has_m_godevilskill() const;
   inline void clear_m_godevilskill();
-  static const int kMGodevilskillFieldNumber = 1;
+  static const int kMGodevilSkillFieldNumber = 1;
   inline ::google::protobuf::int32 m_godevilskill() const;
   inline void set_m_godevilskill(::google::protobuf::int32 value);
 
-  // optional int32 m_goldstars = 2;
+  // optional int32 m_goldStars = 2;
   inline bool has_m_goldstars() const;
   inline void clear_m_goldstars();
-  static const int kMGoldstarsFieldNumber = 2;
+  static const int kMGoldStarsFieldNumber = 2;
   inline ::google::protobuf::int32 m_goldstars() const;
   inline void set_m_goldstars(::google::protobuf::int32 value);
 
@@ -3447,7 +3447,7 @@ inline void E_GodevilPreposetask::set_m_modeltype(::google::protobuf::int32 valu
   m_modeltype_ = value;
 }
 
-// optional int32 m_starttask = 4;
+// optional int32 m_startTask = 4;
 inline bool E_GodevilPreposetask::has_m_starttask() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -3469,7 +3469,7 @@ inline void E_GodevilPreposetask::set_m_starttask(::google::protobuf::int32 valu
   m_starttask_ = value;
 }
 
-// optional int32 m_endtask = 5;
+// optional int32 m_endTask = 5;
 inline bool E_GodevilPreposetask::has_m_endtask() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -3535,7 +3535,7 @@ inline void E_GodevilPreposetask::set_m_value(::google::protobuf::int32 value) {
   m_value_ = value;
 }
 
-// optional int32 m_rewardid = 8;
+// optional int32 m_rewardID = 8;
 inline bool E_GodevilPreposetask::has_m_rewardid() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -3682,7 +3682,7 @@ inline void E_GodevilGodevillv::set_m_exp(::google::protobuf::int64 value) {
   m_exp_ = value;
 }
 
-// optional int64 m_explimit = 3;
+// optional int64 m_expLimit = 3;
 inline bool E_GodevilGodevillv::has_m_explimit() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -3704,7 +3704,7 @@ inline void E_GodevilGodevillv::set_m_explimit(::google::protobuf::int64 value) 
   m_explimit_ = value;
 }
 
-// optional int32 m_itemid = 4;
+// optional int32 m_itemID = 4;
 inline bool E_GodevilGodevillv::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -3828,7 +3828,7 @@ inline void E_GodevilGodevilprivilege::set_m_id(::google::protobuf::int64 value)
   m_id_ = value;
 }
 
-// optional int32 m_oldprice = 2;
+// optional int32 m_oldPrice = 2;
 inline bool E_GodevilGodevilprivilege::has_m_oldprice() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -3850,7 +3850,7 @@ inline void E_GodevilGodevilprivilege::set_m_oldprice(::google::protobuf::int32 
   m_oldprice_ = value;
 }
 
-// optional int32 m_newprice = 3;
+// optional int32 m_newPrice = 3;
 inline bool E_GodevilGodevilprivilege::has_m_newprice() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -3872,7 +3872,7 @@ inline void E_GodevilGodevilprivilege::set_m_newprice(::google::protobuf::int32 
   m_newprice_ = value;
 }
 
-// optional int32 m_rechargid = 4;
+// optional int32 m_rechargID = 4;
 inline bool E_GodevilGodevilprivilege::has_m_rechargid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -3938,7 +3938,7 @@ inline void E_GodevilGodevilprivilege::set_m_lv(::google::protobuf::int32 value)
   m_lv_ = value;
 }
 
-// optional int32 m_functiontype = 7;
+// optional int32 m_functionType = 7;
 inline bool E_GodevilGodevilprivilege::has_m_functiontype() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -3982,7 +3982,7 @@ inline void E_GodevilGodevilprivilege::set_m_parama(::google::protobuf::int32 va
   m_parama_ = value;
 }
 
-// optional int32 m_equipmentid = 9;
+// optional int32 m_equipmentID = 9;
 inline bool E_GodevilGodevilprivilege::has_m_equipmentid() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -4004,7 +4004,7 @@ inline void E_GodevilGodevilprivilege::set_m_equipmentid(::google::protobuf::int
   m_equipmentid_ = value;
 }
 
-// optional int32 m_itemid = 10;
+// optional int32 m_itemID = 10;
 inline bool E_GodevilGodevilprivilege::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -4059,7 +4059,7 @@ Sheet_GodevilGodevilprivilege::mutable_e_godevilgodevilprivilege_list() {
 
 // E_GodevilStrongStDesc
 
-// optional string m_typeid = 1;
+// optional string m_typeID = 1;
 inline bool E_GodevilStrongStDesc::has_m_typeid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -4339,7 +4339,7 @@ inline void E_GodevilStrong::set_m_type_num(::google::protobuf::int32 value) {
   m_type_num_ = value;
 }
 
-// optional int32 m_godevillv = 4;
+// optional int32 m_godevilLv = 4;
 inline bool E_GodevilStrong::has_m_godevillv() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -4485,7 +4485,7 @@ inline void E_GodevilStrongexp::set_m_parama(::google::protobuf::int32 value) {
   m_parama_ = value;
 }
 
-// optional int32 m_strongexp = 4;
+// optional int32 m_strongExp = 4;
 inline bool E_GodevilStrongexp::has_m_strongexp() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -4540,7 +4540,7 @@ Sheet_GodevilStrongexp::mutable_e_godevilstrongexp_list() {
 
 // E_GodevilAdvancelvAdDesc
 
-// optional int32 m_godevillv = 1;
+// optional int32 m_godevilLv = 1;
 inline bool E_GodevilAdvancelvAdDesc::has_m_godevillv() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -4658,7 +4658,7 @@ inline void E_GodevilAdvancelvAdDesc::set_allocated_m_position(::std::string* m_
 
 // E_GodevilAdvancelv
 
-// optional int32 m_wearlv = 1;
+// optional int32 m_wearLv = 1;
 inline bool E_GodevilAdvancelv::has_m_wearlv() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -4760,7 +4760,7 @@ inline void E_GodevilAdvanceexp::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_wearlv = 2;
+// optional int32 m_wearLv = 2;
 inline bool E_GodevilAdvanceexp::has_m_wearlv() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -4852,7 +4852,7 @@ inline void E_GodevilAdvanceexp::set_allocated_m_position(::std::string* m_posit
   }
 }
 
-// optional int32 m_lvparama = 4;
+// optional int32 m_lvParama = 4;
 inline bool E_GodevilAdvanceexp::has_m_lvparama() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -4874,7 +4874,7 @@ inline void E_GodevilAdvanceexp::set_m_lvparama(::google::protobuf::int32 value)
   m_lvparama_ = value;
 }
 
-// optional int32 m_goldparama = 5;
+// optional int32 m_goldParama = 5;
 inline bool E_GodevilAdvanceexp::has_m_goldparama() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -4896,7 +4896,7 @@ inline void E_GodevilAdvanceexp::set_m_goldparama(::google::protobuf::int32 valu
   m_goldparama_ = value;
 }
 
-// optional int32 m_silverparama = 6;
+// optional int32 m_silverParama = 6;
 inline bool E_GodevilAdvanceexp::has_m_silverparama() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -5083,7 +5083,7 @@ inline void E_GodevilQualitylvItemDesc::set_m_num(::google::protobuf::int32 valu
   m_num_ = value;
 }
 
-// optional int32 m_id = 2;
+// optional int32 m_ID = 2;
 inline bool E_GodevilQualitylvItemDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -5153,7 +5153,7 @@ inline void E_GodevilQualitylv::set_m_quality(::google::protobuf::int32 value) {
   m_quality_ = value;
 }
 
-// optional int32 m_wearlv = 3;
+// optional int32 m_wearLv = 3;
 inline bool E_GodevilQualitylv::has_m_wearlv() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -5267,7 +5267,7 @@ inline void E_GodevilQualitylv::set_allocated_m_position(::std::string* m_positi
   }
 }
 
-// optional int32 m_costwuxiongitem = 6;
+// optional int32 m_costwuxiongItem = 6;
 inline bool E_GodevilQualitylv::has_m_costwuxiongitem() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -5289,7 +5289,7 @@ inline void E_GodevilQualitylv::set_m_costwuxiongitem(::google::protobuf::int32 
   m_costwuxiongitem_ = value;
 }
 
-// optional int32 m_costnumber = 7;
+// optional int32 m_costNumber = 7;
 inline bool E_GodevilQualitylv::has_m_costnumber() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -5413,7 +5413,7 @@ inline void E_GodevilPositionunlock::set_m_day(::google::protobuf::int32 value) 
   m_day_ = value;
 }
 
-// optional int32 m_godevillv = 3;
+// optional int32 m_godevilLv = 3;
 inline bool E_GodevilPositionunlock::has_m_godevillv() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -5468,7 +5468,7 @@ Sheet_GodevilPositionunlock::mutable_e_godevilpositionunlock_list() {
 
 // E_GodevilBlacksmithItemDesc
 
-// optional int32 m_num = 1;
+// optional int32 m_Num = 1;
 inline bool E_GodevilBlacksmithItemDesc::has_m_num() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -5490,7 +5490,7 @@ inline void E_GodevilBlacksmithItemDesc::set_m_num(::google::protobuf::int32 val
   m_num_ = value;
 }
 
-// optional int32 m_id = 2;
+// optional int32 m_ID = 2;
 inline bool E_GodevilBlacksmithItemDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -5538,7 +5538,7 @@ inline void E_GodevilBlacksmithSkillDesc::set_m_probability(::google::protobuf::
   m_probability_ = value;
 }
 
-// optional int32 m_id = 2;
+// optional int32 m_ID = 2;
 inline bool E_GodevilBlacksmithSkillDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -5674,7 +5674,7 @@ inline void E_GodevilBlacksmith::set_m_probability(::google::protobuf::int32 val
   m_probability_ = value;
 }
 
-// optional string m_godpoint = 6;
+// optional string m_godPoint = 6;
 inline bool E_GodevilBlacksmith::has_m_godpoint() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -5744,7 +5744,7 @@ inline void E_GodevilBlacksmith::set_allocated_m_godpoint(::std::string* m_godpo
   }
 }
 
-// optional string m_starsprobability = 7;
+// optional string m_starsProbability = 7;
 inline bool E_GodevilBlacksmith::has_m_starsprobability() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -5858,7 +5858,7 @@ inline void E_GodevilBlacksmith::set_m_silver(::google::protobuf::int32 value) {
   m_silver_ = value;
 }
 
-// optional int32 m_paperid = 10;
+// optional int32 m_paperID = 10;
 inline bool E_GodevilBlacksmith::has_m_paperid() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -5880,7 +5880,7 @@ inline void E_GodevilBlacksmith::set_m_paperid(::google::protobuf::int32 value) 
   m_paperid_ = value;
 }
 
-// optional int32 m_papernum = 11;
+// optional int32 m_paperNum = 11;
 inline bool E_GodevilBlacksmith::has_m_papernum() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -5902,7 +5902,7 @@ inline void E_GodevilBlacksmith::set_m_papernum(::google::protobuf::int32 value)
   m_papernum_ = value;
 }
 
-// optional int32 m_substituteitem = 12;
+// optional int32 m_substituteItem = 12;
 inline bool E_GodevilBlacksmith::has_m_substituteitem() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -5946,7 +5946,7 @@ inline void E_GodevilBlacksmith::set_m_number(::google::protobuf::int32 value) {
   m_number_ = value;
 }
 
-// optional int32 m_godevilskill = 14;
+// optional int32 m_godevilSkill = 14;
 inline bool E_GodevilBlacksmith::has_m_godevilskill() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -5968,7 +5968,7 @@ inline void E_GodevilBlacksmith::set_m_godevilskill(::google::protobuf::int32 va
   m_godevilskill_ = value;
 }
 
-// optional string m_skillset = 15;
+// optional string m_skillSet = 15;
 inline bool E_GodevilBlacksmith::has_m_skillset() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
@@ -6121,7 +6121,7 @@ Sheet_GodevilBlacksmith::mutable_e_godevilblacksmith_list() {
 
 // E_GodevilGodevilskill
 
-// optional int32 m_godevilskill = 1;
+// optional int32 m_godevilSkill = 1;
 inline bool E_GodevilGodevilskill::has_m_godevilskill() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -6143,7 +6143,7 @@ inline void E_GodevilGodevilskill::set_m_godevilskill(::google::protobuf::int32 
   m_godevilskill_ = value;
 }
 
-// optional int32 m_goldstars = 2;
+// optional int32 m_goldStars = 2;
 inline bool E_GodevilGodevilskill::has_m_goldstars() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }

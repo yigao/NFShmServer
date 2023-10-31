@@ -111,45 +111,45 @@ class E_DupDup : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 1;
+  static const int kMIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_scripid = 2;
+  // optional int32 m_scripID = 2;
   inline bool has_m_scripid() const;
   inline void clear_m_scripid();
-  static const int kMScripidFieldNumber = 2;
+  static const int kMScripIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_scripid() const;
   inline void set_m_scripid(::google::protobuf::int32 value);
 
-  // optional int32 m_scriptype = 3;
+  // optional int32 m_scripType = 3;
   inline bool has_m_scriptype() const;
   inline void clear_m_scriptype();
-  static const int kMScriptypeFieldNumber = 3;
+  static const int kMScripTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_scriptype() const;
   inline void set_m_scriptype(::google::protobuf::int32 value);
 
-  // optional int32 m_duplevel = 4;
+  // optional int32 m_dupLevel = 4;
   inline bool has_m_duplevel() const;
   inline void clear_m_duplevel();
-  static const int kMDuplevelFieldNumber = 4;
+  static const int kMDupLevelFieldNumber = 4;
   inline ::google::protobuf::int32 m_duplevel() const;
   inline void set_m_duplevel(::google::protobuf::int32 value);
 
-  // optional int32 m_scripmontype = 5;
+  // optional int32 m_scripMonType = 5;
   inline bool has_m_scripmontype() const;
   inline void clear_m_scripmontype();
-  static const int kMScripmontypeFieldNumber = 5;
+  static const int kMScripMonTypeFieldNumber = 5;
   inline ::google::protobuf::int32 m_scripmontype() const;
   inline void set_m_scripmontype(::google::protobuf::int32 value);
 
-  // optional string m_scripmonid = 6;
+  // optional string m_scripMonID = 6;
   inline bool has_m_scripmonid() const;
   inline void clear_m_scripmonid();
-  static const int kMScripmonidFieldNumber = 6;
+  static const int kMScripMonIDFieldNumber = 6;
   inline const ::std::string& m_scripmonid() const;
   inline void set_m_scripmonid(const ::std::string& value);
   inline void set_m_scripmonid(const char* value);
@@ -158,17 +158,17 @@ class E_DupDup : public ::google::protobuf::Message {
   inline ::std::string* release_m_scripmonid();
   inline void set_allocated_m_scripmonid(::std::string* m_scripmonid);
 
-  // optional int32 m_groupid = 7;
+  // optional int32 m_groupID = 7;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 7;
+  static const int kMGroupIDFieldNumber = 7;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
-  // optional int32 m_subtype = 8;
+  // optional int32 m_subType = 8;
   inline bool has_m_subtype() const;
   inline void clear_m_subtype();
-  static const int kMSubtypeFieldNumber = 8;
+  static const int kMSubTypeFieldNumber = 8;
   inline ::google::protobuf::int32 m_subtype() const;
   inline void set_m_subtype(::google::protobuf::int32 value);
 
@@ -179,38 +179,38 @@ class E_DupDup : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_layer() const;
   inline void set_m_layer(::google::protobuf::int32 value);
 
-  // optional int32 m_recommendpower = 10;
+  // optional int32 m_recommendPower = 10;
   inline bool has_m_recommendpower() const;
   inline void clear_m_recommendpower();
-  static const int kMRecommendpowerFieldNumber = 10;
+  static const int kMRecommendPowerFieldNumber = 10;
   inline ::google::protobuf::int32 m_recommendpower() const;
   inline void set_m_recommendpower(::google::protobuf::int32 value);
 
-  // optional int32 m_duplicatetype = 11;
+  // optional int32 m_duplicateType = 11;
   inline bool has_m_duplicatetype() const;
   inline void clear_m_duplicatetype();
-  static const int kMDuplicatetypeFieldNumber = 11;
+  static const int kMDuplicateTypeFieldNumber = 11;
   inline ::google::protobuf::int32 m_duplicatetype() const;
   inline void set_m_duplicatetype(::google::protobuf::int32 value);
 
-  // optional int64 m_mapid = 12;
+  // optional int64 m_mapID = 12;
   inline bool has_m_mapid() const;
   inline void clear_m_mapid();
-  static const int kMMapidFieldNumber = 12;
+  static const int kMMapIDFieldNumber = 12;
   inline ::google::protobuf::int64 m_mapid() const;
   inline void set_m_mapid(::google::protobuf::int64 value);
 
-  // optional int32 m_levellimit = 13;
+  // optional int32 m_levelLimit = 13;
   inline bool has_m_levellimit() const;
   inline void clear_m_levellimit();
-  static const int kMLevellimitFieldNumber = 13;
+  static const int kMLevelLimitFieldNumber = 13;
   inline ::google::protobuf::int32 m_levellimit() const;
   inline void set_m_levellimit(::google::protobuf::int32 value);
 
-  // optional int32 m_functionid = 14;
+  // optional int32 m_functionID = 14;
   inline bool has_m_functionid() const;
   inline void clear_m_functionid();
-  static const int kMFunctionidFieldNumber = 14;
+  static const int kMFunctionIDFieldNumber = 14;
   inline ::google::protobuf::int32 m_functionid() const;
   inline void set_m_functionid(::google::protobuf::int32 value);
 
@@ -221,10 +221,10 @@ class E_DupDup : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_pre() const;
   inline void set_m_pre(::google::protobuf::int32 value);
 
-  // optional int32 m_isautofight = 16;
+  // optional int32 m_isAutoFight = 16;
   inline bool has_m_isautofight() const;
   inline void clear_m_isautofight();
-  static const int kMIsautofightFieldNumber = 16;
+  static const int kMIsAutoFightFieldNumber = 16;
   inline ::google::protobuf::int32 m_isautofight() const;
   inline void set_m_isautofight(::google::protobuf::int32 value);
 
@@ -240,24 +240,24 @@ class E_DupDup : public ::google::protobuf::Message {
   inline ::std::string* release_m_condition();
   inline void set_allocated_m_condition(::std::string* m_condition);
 
-  // optional int32 m_revivemaxtimes = 18;
+  // optional int32 m_reviveMaxTimes = 18;
   inline bool has_m_revivemaxtimes() const;
   inline void clear_m_revivemaxtimes();
-  static const int kMRevivemaxtimesFieldNumber = 18;
+  static const int kMReviveMaxTimesFieldNumber = 18;
   inline ::google::protobuf::int32 m_revivemaxtimes() const;
   inline void set_m_revivemaxtimes(::google::protobuf::int32 value);
 
-  // optional int32 m_teamobjectid = 19;
+  // optional int32 m_TeamObjectID = 19;
   inline bool has_m_teamobjectid() const;
   inline void clear_m_teamobjectid();
-  static const int kMTeamobjectidFieldNumber = 19;
+  static const int kMTeamObjectIDFieldNumber = 19;
   inline ::google::protobuf::int32 m_teamobjectid() const;
   inline void set_m_teamobjectid(::google::protobuf::int32 value);
 
-  // optional string m_gradecondition = 20;
+  // optional string m_gradeCondition = 20;
   inline bool has_m_gradecondition() const;
   inline void clear_m_gradecondition();
-  static const int kMGradeconditionFieldNumber = 20;
+  static const int kMGradeConditionFieldNumber = 20;
   inline const ::std::string& m_gradecondition() const;
   inline void set_m_gradecondition(const ::std::string& value);
   inline void set_m_gradecondition(const char* value);
@@ -266,24 +266,24 @@ class E_DupDup : public ::google::protobuf::Message {
   inline ::std::string* release_m_gradecondition();
   inline void set_allocated_m_gradecondition(::std::string* m_gradecondition);
 
-  // optional int64 m_sweeprewardboxid = 21;
+  // optional int64 m_sweepRewardBoxID = 21;
   inline bool has_m_sweeprewardboxid() const;
   inline void clear_m_sweeprewardboxid();
-  static const int kMSweeprewardboxidFieldNumber = 21;
+  static const int kMSweepRewardBoxIDFieldNumber = 21;
   inline ::google::protobuf::int64 m_sweeprewardboxid() const;
   inline void set_m_sweeprewardboxid(::google::protobuf::int64 value);
 
-  // optional int32 m_sweeprewardexp = 22;
+  // optional int32 m_sweepRewardExp = 22;
   inline bool has_m_sweeprewardexp() const;
   inline void clear_m_sweeprewardexp();
-  static const int kMSweeprewardexpFieldNumber = 22;
+  static const int kMSweepRewardExpFieldNumber = 22;
   inline ::google::protobuf::int32 m_sweeprewardexp() const;
   inline void set_m_sweeprewardexp(::google::protobuf::int32 value);
 
-  // optional int32 m_sweepexptype = 23;
+  // optional int32 m_sweepExpType = 23;
   inline bool has_m_sweepexptype() const;
   inline void clear_m_sweepexptype();
-  static const int kMSweepexptypeFieldNumber = 23;
+  static const int kMSweepExpTypeFieldNumber = 23;
   inline ::google::protobuf::int32 m_sweepexptype() const;
   inline void set_m_sweepexptype(::google::protobuf::int32 value);
 
@@ -299,10 +299,10 @@ class E_DupDup : public ::google::protobuf::Message {
   inline ::std::string* release_m_trackpoint();
   inline void set_allocated_m_trackpoint(::std::string* m_trackpoint);
 
-  // optional string m_pathofmonster = 25;
+  // optional string m_pathOfmonster = 25;
   inline bool has_m_pathofmonster() const;
   inline void clear_m_pathofmonster();
-  static const int kMPathofmonsterFieldNumber = 25;
+  static const int kMPathOfmonsterFieldNumber = 25;
   inline const ::std::string& m_pathofmonster() const;
   inline void set_m_pathofmonster(const ::std::string& value);
   inline void set_m_pathofmonster(const char* value);
@@ -311,17 +311,17 @@ class E_DupDup : public ::google::protobuf::Message {
   inline ::std::string* release_m_pathofmonster();
   inline void set_allocated_m_pathofmonster(::std::string* m_pathofmonster);
 
-  // optional int32 m_ispatrol = 26;
+  // optional int32 m_isPatrol = 26;
   inline bool has_m_ispatrol() const;
   inline void clear_m_ispatrol();
-  static const int kMIspatrolFieldNumber = 26;
+  static const int kMIsPatrolFieldNumber = 26;
   inline ::google::protobuf::int32 m_ispatrol() const;
   inline void set_m_ispatrol(::google::protobuf::int32 value);
 
-  // optional int32 m_failurebox = 27;
+  // optional int32 m_failureBox = 27;
   inline bool has_m_failurebox() const;
   inline void clear_m_failurebox();
-  static const int kMFailureboxFieldNumber = 27;
+  static const int kMFailureBoxFieldNumber = 27;
   inline ::google::protobuf::int32 m_failurebox() const;
   inline void set_m_failurebox(::google::protobuf::int32 value);
 
@@ -593,7 +593,7 @@ class E_DupBplevel : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // repeated int64 m_bgdup = 2;
+  // repeated int64 m_Bgdup = 2;
   inline int m_bgdup_size() const;
   inline void clear_m_bgdup();
   static const int kMBgdupFieldNumber = 2;
@@ -605,10 +605,10 @@ class E_DupBplevel : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
       mutable_m_bgdup();
 
-  // repeated int64 m_bgdupsweep = 3;
+  // repeated int64 m_BgdupSweep = 3;
   inline int m_bgdupsweep_size() const;
   inline void clear_m_bgdupsweep();
-  static const int kMBgdupsweepFieldNumber = 3;
+  static const int kMBgdupSweepFieldNumber = 3;
   inline ::google::protobuf::int64 m_bgdupsweep(int index) const;
   inline void set_m_bgdupsweep(int index, ::google::protobuf::int64 value);
   inline void add_m_bgdupsweep(::google::protobuf::int64 value);
@@ -878,17 +878,17 @@ class E_DupTtowerwave : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_scripid = 2;
+  // optional int32 m_scripID = 2;
   inline bool has_m_scripid() const;
   inline void clear_m_scripid();
-  static const int kMScripidFieldNumber = 2;
+  static const int kMScripIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_scripid() const;
   inline void set_m_scripid(::google::protobuf::int32 value);
 
-  // optional string m_scripgid = 3;
+  // optional string m_scripGid = 3;
   inline bool has_m_scripgid() const;
   inline void clear_m_scripgid();
-  static const int kMScripgidFieldNumber = 3;
+  static const int kMScripGidFieldNumber = 3;
   inline const ::std::string& m_scripgid() const;
   inline void set_m_scripgid(const ::std::string& value);
   inline void set_m_scripgid(const char* value);
@@ -897,31 +897,31 @@ class E_DupTtowerwave : public ::google::protobuf::Message {
   inline ::std::string* release_m_scripgid();
   inline void set_allocated_m_scripgid(::std::string* m_scripgid);
 
-  // optional int32 m_scriptype = 4;
+  // optional int32 m_scripType = 4;
   inline bool has_m_scriptype() const;
   inline void clear_m_scriptype();
-  static const int kMScriptypeFieldNumber = 4;
+  static const int kMScripTypeFieldNumber = 4;
   inline ::google::protobuf::int32 m_scriptype() const;
   inline void set_m_scriptype(::google::protobuf::int32 value);
 
-  // optional int32 m_duplevel = 5;
+  // optional int32 m_dupLevel = 5;
   inline bool has_m_duplevel() const;
   inline void clear_m_duplevel();
-  static const int kMDuplevelFieldNumber = 5;
+  static const int kMDupLevelFieldNumber = 5;
   inline ::google::protobuf::int32 m_duplevel() const;
   inline void set_m_duplevel(::google::protobuf::int32 value);
 
-  // optional int32 m_scripmontype = 6;
+  // optional int32 m_scripMonType = 6;
   inline bool has_m_scripmontype() const;
   inline void clear_m_scripmontype();
-  static const int kMScripmontypeFieldNumber = 6;
+  static const int kMScripMonTypeFieldNumber = 6;
   inline ::google::protobuf::int32 m_scripmontype() const;
   inline void set_m_scripmontype(::google::protobuf::int32 value);
 
-  // optional string m_scripmonid = 7;
+  // optional string m_scripMonID = 7;
   inline bool has_m_scripmonid() const;
   inline void clear_m_scripmonid();
-  static const int kMScripmonidFieldNumber = 7;
+  static const int kMScripMonIDFieldNumber = 7;
   inline const ::std::string& m_scripmonid() const;
   inline void set_m_scripmonid(const ::std::string& value);
   inline void set_m_scripmonid(const char* value);
@@ -930,10 +930,10 @@ class E_DupTtowerwave : public ::google::protobuf::Message {
   inline ::std::string* release_m_scripmonid();
   inline void set_allocated_m_scripmonid(::std::string* m_scripmonid);
 
-  // optional int32 m_recommendpower = 8;
+  // optional int32 m_recommendPower = 8;
   inline bool has_m_recommendpower() const;
   inline void clear_m_recommendpower();
-  static const int kMRecommendpowerFieldNumber = 8;
+  static const int kMRecommendPowerFieldNumber = 8;
   inline ::google::protobuf::int32 m_recommendpower() const;
   inline void set_m_recommendpower(::google::protobuf::int32 value);
 
@@ -944,17 +944,17 @@ class E_DupTtowerwave : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_reward() const;
   inline void set_m_reward(::google::protobuf::int32 value);
 
-  // optional int32 m_firstpass = 10;
+  // optional int32 m_firstPass = 10;
   inline bool has_m_firstpass() const;
   inline void clear_m_firstpass();
-  static const int kMFirstpassFieldNumber = 10;
+  static const int kMFirstPassFieldNumber = 10;
   inline ::google::protobuf::int32 m_firstpass() const;
   inline void set_m_firstpass(::google::protobuf::int32 value);
 
-  // optional int32 m_bp = 11;
+  // optional int32 m_BP = 11;
   inline bool has_m_bp() const;
   inline void clear_m_bp();
-  static const int kMBpFieldNumber = 11;
+  static const int kMBPFieldNumber = 11;
   inline ::google::protobuf::int32 m_bp() const;
   inline void set_m_bp(::google::protobuf::int32 value);
 
@@ -1182,10 +1182,10 @@ class E_DupTowerreward : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_cond() const;
   inline void set_m_cond(::google::protobuf::int32 value);
 
-  // optional int32 m_boxid = 4;
+  // optional int32 m_boxID = 4;
   inline bool has_m_boxid() const;
   inline void clear_m_boxid();
-  static const int kMBoxidFieldNumber = 4;
+  static const int kMBoxIDFieldNumber = 4;
   inline ::google::protobuf::int32 m_boxid() const;
   inline void set_m_boxid(::google::protobuf::int32 value);
 
@@ -1377,10 +1377,10 @@ class E_DupGroup : public ::google::protobuf::Message {
   inline ::std::string* release_m_name();
   inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional int32 m_privilegetype = 3;
+  // optional int32 m_privilegeType = 3;
   inline bool has_m_privilegetype() const;
   inline void clear_m_privilegetype();
-  static const int kMPrivilegetypeFieldNumber = 3;
+  static const int kMPrivilegeTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_privilegetype() const;
   inline void set_m_privilegetype(::google::protobuf::int32 value);
 
@@ -1391,80 +1391,80 @@ class E_DupGroup : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_dynamiclevel() const;
   inline void set_m_dynamiclevel(::google::protobuf::int32 value);
 
-  // optional int32 m_grouptimestype = 5;
+  // optional int32 m_groupTimesType = 5;
   inline bool has_m_grouptimestype() const;
   inline void clear_m_grouptimestype();
-  static const int kMGrouptimestypeFieldNumber = 5;
+  static const int kMGroupTimesTypeFieldNumber = 5;
   inline ::google::protobuf::int32 m_grouptimestype() const;
   inline void set_m_grouptimestype(::google::protobuf::int32 value);
 
-  // optional int32 m_resetcycle = 6;
+  // optional int32 m_resetCycle = 6;
   inline bool has_m_resetcycle() const;
   inline void clear_m_resetcycle();
-  static const int kMResetcycleFieldNumber = 6;
+  static const int kMResetCycleFieldNumber = 6;
   inline ::google::protobuf::int32 m_resetcycle() const;
   inline void set_m_resetcycle(::google::protobuf::int32 value);
 
-  // optional int32 m_grouptimes = 7;
+  // optional int32 m_groupTimes = 7;
   inline bool has_m_grouptimes() const;
   inline void clear_m_grouptimes();
-  static const int kMGrouptimesFieldNumber = 7;
+  static const int kMGroupTimesFieldNumber = 7;
   inline ::google::protobuf::int32 m_grouptimes() const;
   inline void set_m_grouptimes(::google::protobuf::int32 value);
 
-  // optional int32 m_enteritemid = 8;
+  // optional int32 m_enterItemID = 8;
   inline bool has_m_enteritemid() const;
   inline void clear_m_enteritemid();
-  static const int kMEnteritemidFieldNumber = 8;
+  static const int kMEnterItemIDFieldNumber = 8;
   inline ::google::protobuf::int32 m_enteritemid() const;
   inline void set_m_enteritemid(::google::protobuf::int32 value);
 
-  // optional int32 m_sweeptype = 9;
+  // optional int32 m_sweepType = 9;
   inline bool has_m_sweeptype() const;
   inline void clear_m_sweeptype();
-  static const int kMSweeptypeFieldNumber = 9;
+  static const int kMSweepTypeFieldNumber = 9;
   inline ::google::protobuf::int32 m_sweeptype() const;
   inline void set_m_sweeptype(::google::protobuf::int32 value);
 
-  // optional int32 m_sweepcondition = 10;
+  // optional int32 m_sweepCondition = 10;
   inline bool has_m_sweepcondition() const;
   inline void clear_m_sweepcondition();
-  static const int kMSweepconditionFieldNumber = 10;
+  static const int kMSweepConditionFieldNumber = 10;
   inline ::google::protobuf::int32 m_sweepcondition() const;
   inline void set_m_sweepcondition(::google::protobuf::int32 value);
 
-  // optional int32 m_mergecondition = 11;
+  // optional int32 m_mergeCondition = 11;
   inline bool has_m_mergecondition() const;
   inline void clear_m_mergecondition();
-  static const int kMMergeconditionFieldNumber = 11;
+  static const int kMMergeConditionFieldNumber = 11;
   inline ::google::protobuf::int32 m_mergecondition() const;
   inline void set_m_mergecondition(::google::protobuf::int32 value);
 
-  // optional int32 m_additemid = 12;
+  // optional int32 m_addItemID = 12;
   inline bool has_m_additemid() const;
   inline void clear_m_additemid();
-  static const int kMAdditemidFieldNumber = 12;
+  static const int kMAddItemIDFieldNumber = 12;
   inline ::google::protobuf::int32 m_additemid() const;
   inline void set_m_additemid(::google::protobuf::int32 value);
 
-  // optional int32 m_buytype = 13;
+  // optional int32 m_buyType = 13;
   inline bool has_m_buytype() const;
   inline void clear_m_buytype();
-  static const int kMBuytypeFieldNumber = 13;
+  static const int kMBuyTypeFieldNumber = 13;
   inline ::google::protobuf::int32 m_buytype() const;
   inline void set_m_buytype(::google::protobuf::int32 value);
 
-  // optional int32 m_buyitemid = 14;
+  // optional int32 m_buyItemId = 14;
   inline bool has_m_buyitemid() const;
   inline void clear_m_buyitemid();
-  static const int kMBuyitemidFieldNumber = 14;
+  static const int kMBuyItemIdFieldNumber = 14;
   inline ::google::protobuf::int32 m_buyitemid() const;
   inline void set_m_buyitemid(::google::protobuf::int32 value);
 
-  // optional string m_buycost = 15;
+  // optional string m_buyCost = 15;
   inline bool has_m_buycost() const;
   inline void clear_m_buycost();
-  static const int kMBuycostFieldNumber = 15;
+  static const int kMBuyCostFieldNumber = 15;
   inline const ::std::string& m_buycost() const;
   inline void set_m_buycost(const ::std::string& value);
   inline void set_m_buycost(const char* value);
@@ -1473,38 +1473,38 @@ class E_DupGroup : public ::google::protobuf::Message {
   inline ::std::string* release_m_buycost();
   inline void set_allocated_m_buycost(::std::string* m_buycost);
 
-  // optional int32 m_countdown = 16;
+  // optional int32 m_countDown = 16;
   inline bool has_m_countdown() const;
   inline void clear_m_countdown();
-  static const int kMCountdownFieldNumber = 16;
+  static const int kMCountDownFieldNumber = 16;
   inline ::google::protobuf::int32 m_countdown() const;
   inline void set_m_countdown(::google::protobuf::int32 value);
 
-  // optional int32 m_enddown = 17;
+  // optional int32 m_endDown = 17;
   inline bool has_m_enddown() const;
   inline void clear_m_enddown();
-  static const int kMEnddownFieldNumber = 17;
+  static const int kMEndDownFieldNumber = 17;
   inline ::google::protobuf::int32 m_enddown() const;
   inline void set_m_enddown(::google::protobuf::int32 value);
 
-  // optional int32 m_accountdown = 18;
+  // optional int32 m_accountDown = 18;
   inline bool has_m_accountdown() const;
   inline void clear_m_accountdown();
-  static const int kMAccountdownFieldNumber = 18;
+  static const int kMAccountDownFieldNumber = 18;
   inline ::google::protobuf::int32 m_accountdown() const;
   inline void set_m_accountdown(::google::protobuf::int32 value);
 
-  // optional int32 m_funcionid = 19;
+  // optional int32 m_funcionID = 19;
   inline bool has_m_funcionid() const;
   inline void clear_m_funcionid();
-  static const int kMFuncionidFieldNumber = 19;
+  static const int kMFuncionIDFieldNumber = 19;
   inline ::google::protobuf::int32 m_funcionid() const;
   inline void set_m_funcionid(::google::protobuf::int32 value);
 
-  // optional int32 m_closefuncionid = 20;
+  // optional int32 m_closeFuncionID = 20;
   inline bool has_m_closefuncionid() const;
   inline void clear_m_closefuncionid();
-  static const int kMClosefuncionidFieldNumber = 20;
+  static const int kMCloseFuncionIDFieldNumber = 20;
   inline ::google::protobuf::int32 m_closefuncionid() const;
   inline void set_m_closefuncionid(::google::protobuf::int32 value);
 
@@ -1515,10 +1515,10 @@ class E_DupGroup : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_link() const;
   inline void set_m_link(::google::protobuf::int64 value);
 
-  // optional int32 m_festvialtype = 22;
+  // optional int32 m_festvialType = 22;
   inline bool has_m_festvialtype() const;
   inline void clear_m_festvialtype();
-  static const int kMFestvialtypeFieldNumber = 22;
+  static const int kMFestvialTypeFieldNumber = 22;
   inline ::google::protobuf::int32 m_festvialtype() const;
   inline void set_m_festvialtype(::google::protobuf::int32 value);
 
@@ -1745,38 +1745,38 @@ class E_DupSweepmonsternum : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_id = 1;
+  // optional int32 m_ID = 1;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 1;
+  static const int kMIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_sweepexptype = 2;
+  // optional int32 m_sweepExpType = 2;
   inline bool has_m_sweepexptype() const;
   inline void clear_m_sweepexptype();
-  static const int kMSweepexptypeFieldNumber = 2;
+  static const int kMSweepExpTypeFieldNumber = 2;
   inline ::google::protobuf::int32 m_sweepexptype() const;
   inline void set_m_sweepexptype(::google::protobuf::int32 value);
 
-  // optional int32 m_minlevel = 3;
+  // optional int32 m_minLevel = 3;
   inline bool has_m_minlevel() const;
   inline void clear_m_minlevel();
-  static const int kMMinlevelFieldNumber = 3;
+  static const int kMMinLevelFieldNumber = 3;
   inline ::google::protobuf::int32 m_minlevel() const;
   inline void set_m_minlevel(::google::protobuf::int32 value);
 
-  // optional int32 m_maxlevel = 4;
+  // optional int32 m_maxLevel = 4;
   inline bool has_m_maxlevel() const;
   inline void clear_m_maxlevel();
-  static const int kMMaxlevelFieldNumber = 4;
+  static const int kMMaxLevelFieldNumber = 4;
   inline ::google::protobuf::int32 m_maxlevel() const;
   inline void set_m_maxlevel(::google::protobuf::int32 value);
 
-  // optional int32 m_killnumber = 5;
+  // optional int32 m_killNumber = 5;
   inline bool has_m_killnumber() const;
   inline void clear_m_killnumber();
-  static const int kMKillnumberFieldNumber = 5;
+  static const int kMKillNumberFieldNumber = 5;
   inline ::google::protobuf::int32 m_killnumber() const;
   inline void set_m_killnumber(::google::protobuf::int32 value);
 
@@ -1969,10 +1969,10 @@ class E_DupWorldlvreward : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 2;
+  static const int kMGroupIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
@@ -1983,17 +1983,17 @@ class E_DupWorldlvreward : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lvtype() const;
   inline void set_m_lvtype(::google::protobuf::int32 value);
 
-  // optional int32 m_lvmin = 4;
+  // optional int32 m_lvMin = 4;
   inline bool has_m_lvmin() const;
   inline void clear_m_lvmin();
-  static const int kMLvminFieldNumber = 4;
+  static const int kMLvMinFieldNumber = 4;
   inline ::google::protobuf::int32 m_lvmin() const;
   inline void set_m_lvmin(::google::protobuf::int32 value);
 
-  // optional int32 m_failurebox = 5;
+  // optional int32 m_failureBox = 5;
   inline bool has_m_failurebox() const;
   inline void clear_m_failurebox();
-  static const int kMFailureboxFieldNumber = 5;
+  static const int kMFailureBoxFieldNumber = 5;
   inline ::google::protobuf::int32 m_failurebox() const;
   inline void set_m_failurebox(::google::protobuf::int32 value);
 
@@ -2189,17 +2189,17 @@ class E_DupPlanes : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 m_planestype = 2;
+  // optional int32 m_planesType = 2;
   inline bool has_m_planestype() const;
   inline void clear_m_planestype();
-  static const int kMPlanestypeFieldNumber = 2;
+  static const int kMPlanesTypeFieldNumber = 2;
   inline ::google::protobuf::int32 m_planestype() const;
   inline void set_m_planestype(::google::protobuf::int32 value);
 
-  // optional string m_typeargs = 3;
+  // optional string m_typeArgs = 3;
   inline bool has_m_typeargs() const;
   inline void clear_m_typeargs();
-  static const int kMTypeargsFieldNumber = 3;
+  static const int kMTypeArgsFieldNumber = 3;
   inline const ::std::string& m_typeargs() const;
   inline void set_m_typeargs(const ::std::string& value);
   inline void set_m_typeargs(const char* value);
@@ -2208,10 +2208,10 @@ class E_DupPlanes : public ::google::protobuf::Message {
   inline ::std::string* release_m_typeargs();
   inline void set_allocated_m_typeargs(::std::string* m_typeargs);
 
-  // optional int32 m_areaid = 4;
+  // optional int32 m_areaId = 4;
   inline bool has_m_areaid() const;
   inline void clear_m_areaid();
-  static const int kMAreaidFieldNumber = 4;
+  static const int kMAreaIdFieldNumber = 4;
   inline ::google::protobuf::int32 m_areaid() const;
   inline void set_m_areaid(::google::protobuf::int32 value);
 
@@ -2497,17 +2497,17 @@ class E_DupYt_dup : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_stage() const;
   inline void set_m_stage(::google::protobuf::int32 value);
 
-  // optional int32 m_recommendlv = 4;
+  // optional int32 m_recommendLv = 4;
   inline bool has_m_recommendlv() const;
   inline void clear_m_recommendlv();
-  static const int kMRecommendlvFieldNumber = 4;
+  static const int kMRecommendLvFieldNumber = 4;
   inline ::google::protobuf::int32 m_recommendlv() const;
   inline void set_m_recommendlv(::google::protobuf::int32 value);
 
-  // optional int32 m_recommendyk = 5;
+  // optional int32 m_recommendYK = 5;
   inline bool has_m_recommendyk() const;
   inline void clear_m_recommendyk();
-  static const int kMRecommendykFieldNumber = 5;
+  static const int kMRecommendYKFieldNumber = 5;
   inline ::google::protobuf::int32 m_recommendyk() const;
   inline void set_m_recommendyk(::google::protobuf::int32 value);
 
@@ -2518,24 +2518,24 @@ class E_DupYt_dup : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_reward() const;
   inline void set_m_reward(::google::protobuf::int32 value);
 
-  // optional int32 m_firstpass = 7;
+  // optional int32 m_firstPass = 7;
   inline bool has_m_firstpass() const;
   inline void clear_m_firstpass();
-  static const int kMFirstpassFieldNumber = 7;
+  static const int kMFirstPassFieldNumber = 7;
   inline ::google::protobuf::int32 m_firstpass() const;
   inline void set_m_firstpass(::google::protobuf::int32 value);
 
-  // optional int32 m_overlordbox = 8;
+  // optional int32 m_overlordBox = 8;
   inline bool has_m_overlordbox() const;
   inline void clear_m_overlordbox();
-  static const int kMOverlordboxFieldNumber = 8;
+  static const int kMOverlordBoxFieldNumber = 8;
   inline ::google::protobuf::int32 m_overlordbox() const;
   inline void set_m_overlordbox(::google::protobuf::int32 value);
 
-  // optional int32 m_overlordtime = 9;
+  // optional int32 m_overlordTime = 9;
   inline bool has_m_overlordtime() const;
   inline void clear_m_overlordtime();
-  static const int kMOverlordtimeFieldNumber = 9;
+  static const int kMOverlordTimeFieldNumber = 9;
   inline ::google::protobuf::int32 m_overlordtime() const;
   inline void set_m_overlordtime(::google::protobuf::int32 value);
 
@@ -2687,7 +2687,7 @@ class Sheet_DupYt_dup : public ::google::protobuf::Message {
 
 // E_DupDup
 
-// optional int32 m_id = 1;
+// optional int32 m_ID = 1;
 inline bool E_DupDup::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -2709,7 +2709,7 @@ inline void E_DupDup::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_scripid = 2;
+// optional int32 m_scripID = 2;
 inline bool E_DupDup::has_m_scripid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -2731,7 +2731,7 @@ inline void E_DupDup::set_m_scripid(::google::protobuf::int32 value) {
   m_scripid_ = value;
 }
 
-// optional int32 m_scriptype = 3;
+// optional int32 m_scripType = 3;
 inline bool E_DupDup::has_m_scriptype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -2753,7 +2753,7 @@ inline void E_DupDup::set_m_scriptype(::google::protobuf::int32 value) {
   m_scriptype_ = value;
 }
 
-// optional int32 m_duplevel = 4;
+// optional int32 m_dupLevel = 4;
 inline bool E_DupDup::has_m_duplevel() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -2775,7 +2775,7 @@ inline void E_DupDup::set_m_duplevel(::google::protobuf::int32 value) {
   m_duplevel_ = value;
 }
 
-// optional int32 m_scripmontype = 5;
+// optional int32 m_scripMonType = 5;
 inline bool E_DupDup::has_m_scripmontype() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -2797,7 +2797,7 @@ inline void E_DupDup::set_m_scripmontype(::google::protobuf::int32 value) {
   m_scripmontype_ = value;
 }
 
-// optional string m_scripmonid = 6;
+// optional string m_scripMonID = 6;
 inline bool E_DupDup::has_m_scripmonid() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -2867,7 +2867,7 @@ inline void E_DupDup::set_allocated_m_scripmonid(::std::string* m_scripmonid) {
   }
 }
 
-// optional int32 m_groupid = 7;
+// optional int32 m_groupID = 7;
 inline bool E_DupDup::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -2889,7 +2889,7 @@ inline void E_DupDup::set_m_groupid(::google::protobuf::int32 value) {
   m_groupid_ = value;
 }
 
-// optional int32 m_subtype = 8;
+// optional int32 m_subType = 8;
 inline bool E_DupDup::has_m_subtype() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -2933,7 +2933,7 @@ inline void E_DupDup::set_m_layer(::google::protobuf::int32 value) {
   m_layer_ = value;
 }
 
-// optional int32 m_recommendpower = 10;
+// optional int32 m_recommendPower = 10;
 inline bool E_DupDup::has_m_recommendpower() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -2955,7 +2955,7 @@ inline void E_DupDup::set_m_recommendpower(::google::protobuf::int32 value) {
   m_recommendpower_ = value;
 }
 
-// optional int32 m_duplicatetype = 11;
+// optional int32 m_duplicateType = 11;
 inline bool E_DupDup::has_m_duplicatetype() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -2977,7 +2977,7 @@ inline void E_DupDup::set_m_duplicatetype(::google::protobuf::int32 value) {
   m_duplicatetype_ = value;
 }
 
-// optional int64 m_mapid = 12;
+// optional int64 m_mapID = 12;
 inline bool E_DupDup::has_m_mapid() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -2999,7 +2999,7 @@ inline void E_DupDup::set_m_mapid(::google::protobuf::int64 value) {
   m_mapid_ = value;
 }
 
-// optional int32 m_levellimit = 13;
+// optional int32 m_levelLimit = 13;
 inline bool E_DupDup::has_m_levellimit() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -3021,7 +3021,7 @@ inline void E_DupDup::set_m_levellimit(::google::protobuf::int32 value) {
   m_levellimit_ = value;
 }
 
-// optional int32 m_functionid = 14;
+// optional int32 m_functionID = 14;
 inline bool E_DupDup::has_m_functionid() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -3065,7 +3065,7 @@ inline void E_DupDup::set_m_pre(::google::protobuf::int32 value) {
   m_pre_ = value;
 }
 
-// optional int32 m_isautofight = 16;
+// optional int32 m_isAutoFight = 16;
 inline bool E_DupDup::has_m_isautofight() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
@@ -3157,7 +3157,7 @@ inline void E_DupDup::set_allocated_m_condition(::std::string* m_condition) {
   }
 }
 
-// optional int32 m_revivemaxtimes = 18;
+// optional int32 m_reviveMaxTimes = 18;
 inline bool E_DupDup::has_m_revivemaxtimes() const {
   return (_has_bits_[0] & 0x00020000u) != 0;
 }
@@ -3179,7 +3179,7 @@ inline void E_DupDup::set_m_revivemaxtimes(::google::protobuf::int32 value) {
   m_revivemaxtimes_ = value;
 }
 
-// optional int32 m_teamobjectid = 19;
+// optional int32 m_TeamObjectID = 19;
 inline bool E_DupDup::has_m_teamobjectid() const {
   return (_has_bits_[0] & 0x00040000u) != 0;
 }
@@ -3201,7 +3201,7 @@ inline void E_DupDup::set_m_teamobjectid(::google::protobuf::int32 value) {
   m_teamobjectid_ = value;
 }
 
-// optional string m_gradecondition = 20;
+// optional string m_gradeCondition = 20;
 inline bool E_DupDup::has_m_gradecondition() const {
   return (_has_bits_[0] & 0x00080000u) != 0;
 }
@@ -3271,7 +3271,7 @@ inline void E_DupDup::set_allocated_m_gradecondition(::std::string* m_gradecondi
   }
 }
 
-// optional int64 m_sweeprewardboxid = 21;
+// optional int64 m_sweepRewardBoxID = 21;
 inline bool E_DupDup::has_m_sweeprewardboxid() const {
   return (_has_bits_[0] & 0x00100000u) != 0;
 }
@@ -3293,7 +3293,7 @@ inline void E_DupDup::set_m_sweeprewardboxid(::google::protobuf::int64 value) {
   m_sweeprewardboxid_ = value;
 }
 
-// optional int32 m_sweeprewardexp = 22;
+// optional int32 m_sweepRewardExp = 22;
 inline bool E_DupDup::has_m_sweeprewardexp() const {
   return (_has_bits_[0] & 0x00200000u) != 0;
 }
@@ -3315,7 +3315,7 @@ inline void E_DupDup::set_m_sweeprewardexp(::google::protobuf::int32 value) {
   m_sweeprewardexp_ = value;
 }
 
-// optional int32 m_sweepexptype = 23;
+// optional int32 m_sweepExpType = 23;
 inline bool E_DupDup::has_m_sweepexptype() const {
   return (_has_bits_[0] & 0x00400000u) != 0;
 }
@@ -3407,7 +3407,7 @@ inline void E_DupDup::set_allocated_m_trackpoint(::std::string* m_trackpoint) {
   }
 }
 
-// optional string m_pathofmonster = 25;
+// optional string m_pathOfmonster = 25;
 inline bool E_DupDup::has_m_pathofmonster() const {
   return (_has_bits_[0] & 0x01000000u) != 0;
 }
@@ -3477,7 +3477,7 @@ inline void E_DupDup::set_allocated_m_pathofmonster(::std::string* m_pathofmonst
   }
 }
 
-// optional int32 m_ispatrol = 26;
+// optional int32 m_isPatrol = 26;
 inline bool E_DupDup::has_m_ispatrol() const {
   return (_has_bits_[0] & 0x02000000u) != 0;
 }
@@ -3499,7 +3499,7 @@ inline void E_DupDup::set_m_ispatrol(::google::protobuf::int32 value) {
   m_ispatrol_ = value;
 }
 
-// optional int32 m_failurebox = 27;
+// optional int32 m_failureBox = 27;
 inline bool E_DupDup::has_m_failurebox() const {
   return (_has_bits_[0] & 0x04000000u) != 0;
 }
@@ -3623,7 +3623,7 @@ inline void E_DupBplevel::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// repeated int64 m_bgdup = 2;
+// repeated int64 m_Bgdup = 2;
 inline int E_DupBplevel::m_bgdup_size() const {
   return m_bgdup_.size();
 }
@@ -3648,7 +3648,7 @@ E_DupBplevel::mutable_m_bgdup() {
   return &m_bgdup_;
 }
 
-// repeated int64 m_bgdupsweep = 3;
+// repeated int64 m_BgdupSweep = 3;
 inline int E_DupBplevel::m_bgdupsweep_size() const {
   return m_bgdupsweep_.size();
 }
@@ -3776,7 +3776,7 @@ inline void E_DupTtowerwave::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_scripid = 2;
+// optional int32 m_scripID = 2;
 inline bool E_DupTtowerwave::has_m_scripid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -3798,7 +3798,7 @@ inline void E_DupTtowerwave::set_m_scripid(::google::protobuf::int32 value) {
   m_scripid_ = value;
 }
 
-// optional string m_scripgid = 3;
+// optional string m_scripGid = 3;
 inline bool E_DupTtowerwave::has_m_scripgid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -3868,7 +3868,7 @@ inline void E_DupTtowerwave::set_allocated_m_scripgid(::std::string* m_scripgid)
   }
 }
 
-// optional int32 m_scriptype = 4;
+// optional int32 m_scripType = 4;
 inline bool E_DupTtowerwave::has_m_scriptype() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -3890,7 +3890,7 @@ inline void E_DupTtowerwave::set_m_scriptype(::google::protobuf::int32 value) {
   m_scriptype_ = value;
 }
 
-// optional int32 m_duplevel = 5;
+// optional int32 m_dupLevel = 5;
 inline bool E_DupTtowerwave::has_m_duplevel() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -3912,7 +3912,7 @@ inline void E_DupTtowerwave::set_m_duplevel(::google::protobuf::int32 value) {
   m_duplevel_ = value;
 }
 
-// optional int32 m_scripmontype = 6;
+// optional int32 m_scripMonType = 6;
 inline bool E_DupTtowerwave::has_m_scripmontype() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -3934,7 +3934,7 @@ inline void E_DupTtowerwave::set_m_scripmontype(::google::protobuf::int32 value)
   m_scripmontype_ = value;
 }
 
-// optional string m_scripmonid = 7;
+// optional string m_scripMonID = 7;
 inline bool E_DupTtowerwave::has_m_scripmonid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -4004,7 +4004,7 @@ inline void E_DupTtowerwave::set_allocated_m_scripmonid(::std::string* m_scripmo
   }
 }
 
-// optional int32 m_recommendpower = 8;
+// optional int32 m_recommendPower = 8;
 inline bool E_DupTtowerwave::has_m_recommendpower() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -4048,7 +4048,7 @@ inline void E_DupTtowerwave::set_m_reward(::google::protobuf::int32 value) {
   m_reward_ = value;
 }
 
-// optional int32 m_firstpass = 10;
+// optional int32 m_firstPass = 10;
 inline bool E_DupTtowerwave::has_m_firstpass() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -4070,7 +4070,7 @@ inline void E_DupTtowerwave::set_m_firstpass(::google::protobuf::int32 value) {
   m_firstpass_ = value;
 }
 
-// optional int32 m_bp = 11;
+// optional int32 m_BP = 11;
 inline bool E_DupTtowerwave::has_m_bp() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -4216,7 +4216,7 @@ inline void E_DupTowerreward::set_m_cond(::google::protobuf::int32 value) {
   m_cond_ = value;
 }
 
-// optional int32 m_boxid = 4;
+// optional int32 m_boxID = 4;
 inline bool E_DupTowerreward::has_m_boxid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -4363,7 +4363,7 @@ inline void E_DupGroup::set_allocated_m_name(::std::string* m_name) {
   }
 }
 
-// optional int32 m_privilegetype = 3;
+// optional int32 m_privilegeType = 3;
 inline bool E_DupGroup::has_m_privilegetype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -4407,7 +4407,7 @@ inline void E_DupGroup::set_m_dynamiclevel(::google::protobuf::int32 value) {
   m_dynamiclevel_ = value;
 }
 
-// optional int32 m_grouptimestype = 5;
+// optional int32 m_groupTimesType = 5;
 inline bool E_DupGroup::has_m_grouptimestype() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -4429,7 +4429,7 @@ inline void E_DupGroup::set_m_grouptimestype(::google::protobuf::int32 value) {
   m_grouptimestype_ = value;
 }
 
-// optional int32 m_resetcycle = 6;
+// optional int32 m_resetCycle = 6;
 inline bool E_DupGroup::has_m_resetcycle() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -4451,7 +4451,7 @@ inline void E_DupGroup::set_m_resetcycle(::google::protobuf::int32 value) {
   m_resetcycle_ = value;
 }
 
-// optional int32 m_grouptimes = 7;
+// optional int32 m_groupTimes = 7;
 inline bool E_DupGroup::has_m_grouptimes() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -4473,7 +4473,7 @@ inline void E_DupGroup::set_m_grouptimes(::google::protobuf::int32 value) {
   m_grouptimes_ = value;
 }
 
-// optional int32 m_enteritemid = 8;
+// optional int32 m_enterItemID = 8;
 inline bool E_DupGroup::has_m_enteritemid() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -4495,7 +4495,7 @@ inline void E_DupGroup::set_m_enteritemid(::google::protobuf::int32 value) {
   m_enteritemid_ = value;
 }
 
-// optional int32 m_sweeptype = 9;
+// optional int32 m_sweepType = 9;
 inline bool E_DupGroup::has_m_sweeptype() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -4517,7 +4517,7 @@ inline void E_DupGroup::set_m_sweeptype(::google::protobuf::int32 value) {
   m_sweeptype_ = value;
 }
 
-// optional int32 m_sweepcondition = 10;
+// optional int32 m_sweepCondition = 10;
 inline bool E_DupGroup::has_m_sweepcondition() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -4539,7 +4539,7 @@ inline void E_DupGroup::set_m_sweepcondition(::google::protobuf::int32 value) {
   m_sweepcondition_ = value;
 }
 
-// optional int32 m_mergecondition = 11;
+// optional int32 m_mergeCondition = 11;
 inline bool E_DupGroup::has_m_mergecondition() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -4561,7 +4561,7 @@ inline void E_DupGroup::set_m_mergecondition(::google::protobuf::int32 value) {
   m_mergecondition_ = value;
 }
 
-// optional int32 m_additemid = 12;
+// optional int32 m_addItemID = 12;
 inline bool E_DupGroup::has_m_additemid() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -4583,7 +4583,7 @@ inline void E_DupGroup::set_m_additemid(::google::protobuf::int32 value) {
   m_additemid_ = value;
 }
 
-// optional int32 m_buytype = 13;
+// optional int32 m_buyType = 13;
 inline bool E_DupGroup::has_m_buytype() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -4605,7 +4605,7 @@ inline void E_DupGroup::set_m_buytype(::google::protobuf::int32 value) {
   m_buytype_ = value;
 }
 
-// optional int32 m_buyitemid = 14;
+// optional int32 m_buyItemId = 14;
 inline bool E_DupGroup::has_m_buyitemid() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -4627,7 +4627,7 @@ inline void E_DupGroup::set_m_buyitemid(::google::protobuf::int32 value) {
   m_buyitemid_ = value;
 }
 
-// optional string m_buycost = 15;
+// optional string m_buyCost = 15;
 inline bool E_DupGroup::has_m_buycost() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
@@ -4697,7 +4697,7 @@ inline void E_DupGroup::set_allocated_m_buycost(::std::string* m_buycost) {
   }
 }
 
-// optional int32 m_countdown = 16;
+// optional int32 m_countDown = 16;
 inline bool E_DupGroup::has_m_countdown() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
@@ -4719,7 +4719,7 @@ inline void E_DupGroup::set_m_countdown(::google::protobuf::int32 value) {
   m_countdown_ = value;
 }
 
-// optional int32 m_enddown = 17;
+// optional int32 m_endDown = 17;
 inline bool E_DupGroup::has_m_enddown() const {
   return (_has_bits_[0] & 0x00010000u) != 0;
 }
@@ -4741,7 +4741,7 @@ inline void E_DupGroup::set_m_enddown(::google::protobuf::int32 value) {
   m_enddown_ = value;
 }
 
-// optional int32 m_accountdown = 18;
+// optional int32 m_accountDown = 18;
 inline bool E_DupGroup::has_m_accountdown() const {
   return (_has_bits_[0] & 0x00020000u) != 0;
 }
@@ -4763,7 +4763,7 @@ inline void E_DupGroup::set_m_accountdown(::google::protobuf::int32 value) {
   m_accountdown_ = value;
 }
 
-// optional int32 m_funcionid = 19;
+// optional int32 m_funcionID = 19;
 inline bool E_DupGroup::has_m_funcionid() const {
   return (_has_bits_[0] & 0x00040000u) != 0;
 }
@@ -4785,7 +4785,7 @@ inline void E_DupGroup::set_m_funcionid(::google::protobuf::int32 value) {
   m_funcionid_ = value;
 }
 
-// optional int32 m_closefuncionid = 20;
+// optional int32 m_closeFuncionID = 20;
 inline bool E_DupGroup::has_m_closefuncionid() const {
   return (_has_bits_[0] & 0x00080000u) != 0;
 }
@@ -4829,7 +4829,7 @@ inline void E_DupGroup::set_m_link(::google::protobuf::int64 value) {
   m_link_ = value;
 }
 
-// optional int32 m_festvialtype = 22;
+// optional int32 m_festvialType = 22;
 inline bool E_DupGroup::has_m_festvialtype() const {
   return (_has_bits_[0] & 0x00200000u) != 0;
 }
@@ -4884,7 +4884,7 @@ Sheet_DupGroup::mutable_e_dupgroup_list() {
 
 // E_DupSweepmonsternum
 
-// optional int32 m_id = 1;
+// optional int32 m_ID = 1;
 inline bool E_DupSweepmonsternum::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -4906,7 +4906,7 @@ inline void E_DupSweepmonsternum::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_sweepexptype = 2;
+// optional int32 m_sweepExpType = 2;
 inline bool E_DupSweepmonsternum::has_m_sweepexptype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -4928,7 +4928,7 @@ inline void E_DupSweepmonsternum::set_m_sweepexptype(::google::protobuf::int32 v
   m_sweepexptype_ = value;
 }
 
-// optional int32 m_minlevel = 3;
+// optional int32 m_minLevel = 3;
 inline bool E_DupSweepmonsternum::has_m_minlevel() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -4950,7 +4950,7 @@ inline void E_DupSweepmonsternum::set_m_minlevel(::google::protobuf::int32 value
   m_minlevel_ = value;
 }
 
-// optional int32 m_maxlevel = 4;
+// optional int32 m_maxLevel = 4;
 inline bool E_DupSweepmonsternum::has_m_maxlevel() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -4972,7 +4972,7 @@ inline void E_DupSweepmonsternum::set_m_maxlevel(::google::protobuf::int32 value
   m_maxlevel_ = value;
 }
 
-// optional int32 m_killnumber = 5;
+// optional int32 m_killNumber = 5;
 inline bool E_DupSweepmonsternum::has_m_killnumber() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -5071,7 +5071,7 @@ inline void E_DupWorldlvreward::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_groupid = 2;
+// optional int32 m_groupID = 2;
 inline bool E_DupWorldlvreward::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -5115,7 +5115,7 @@ inline void E_DupWorldlvreward::set_m_lvtype(::google::protobuf::int32 value) {
   m_lvtype_ = value;
 }
 
-// optional int32 m_lvmin = 4;
+// optional int32 m_lvMin = 4;
 inline bool E_DupWorldlvreward::has_m_lvmin() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -5137,7 +5137,7 @@ inline void E_DupWorldlvreward::set_m_lvmin(::google::protobuf::int32 value) {
   m_lvmin_ = value;
 }
 
-// optional int32 m_failurebox = 5;
+// optional int32 m_failureBox = 5;
 inline bool E_DupWorldlvreward::has_m_failurebox() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -5239,7 +5239,7 @@ inline void E_DupPlanes::set_m_id(::google::protobuf::int64 value) {
   m_id_ = value;
 }
 
-// optional int32 m_planestype = 2;
+// optional int32 m_planesType = 2;
 inline bool E_DupPlanes::has_m_planestype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -5261,7 +5261,7 @@ inline void E_DupPlanes::set_m_planestype(::google::protobuf::int32 value) {
   m_planestype_ = value;
 }
 
-// optional string m_typeargs = 3;
+// optional string m_typeArgs = 3;
 inline bool E_DupPlanes::has_m_typeargs() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -5331,7 +5331,7 @@ inline void E_DupPlanes::set_allocated_m_typeargs(::std::string* m_typeargs) {
   }
 }
 
-// optional int32 m_areaid = 4;
+// optional int32 m_areaId = 4;
 inline bool E_DupPlanes::has_m_areaid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -5500,7 +5500,7 @@ inline void E_DupYt_dup::set_m_stage(::google::protobuf::int32 value) {
   m_stage_ = value;
 }
 
-// optional int32 m_recommendlv = 4;
+// optional int32 m_recommendLv = 4;
 inline bool E_DupYt_dup::has_m_recommendlv() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -5522,7 +5522,7 @@ inline void E_DupYt_dup::set_m_recommendlv(::google::protobuf::int32 value) {
   m_recommendlv_ = value;
 }
 
-// optional int32 m_recommendyk = 5;
+// optional int32 m_recommendYK = 5;
 inline bool E_DupYt_dup::has_m_recommendyk() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -5566,7 +5566,7 @@ inline void E_DupYt_dup::set_m_reward(::google::protobuf::int32 value) {
   m_reward_ = value;
 }
 
-// optional int32 m_firstpass = 7;
+// optional int32 m_firstPass = 7;
 inline bool E_DupYt_dup::has_m_firstpass() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -5588,7 +5588,7 @@ inline void E_DupYt_dup::set_m_firstpass(::google::protobuf::int32 value) {
   m_firstpass_ = value;
 }
 
-// optional int32 m_overlordbox = 8;
+// optional int32 m_overlordBox = 8;
 inline bool E_DupYt_dup::has_m_overlordbox() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -5610,7 +5610,7 @@ inline void E_DupYt_dup::set_m_overlordbox(::google::protobuf::int32 value) {
   m_overlordbox_ = value;
 }
 
-// optional int32 m_overlordtime = 9;
+// optional int32 m_overlordTime = 9;
 inline bool E_DupYt_dup::has_m_overlordtime() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }

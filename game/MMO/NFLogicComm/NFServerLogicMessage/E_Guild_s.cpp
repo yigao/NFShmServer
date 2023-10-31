@@ -12,78 +12,78 @@ E_GuildConstant_s::E_GuildConstant_s() {
 
 int E_GuildConstant_s::CreateInit() {
 	m_constantid = (int32_t)0;
-	m_setitem = (int32_t)0;
-	m_nameitem = (int32_t)0;
-	m_editrequirelv = (int32_t)0;
-	m_giftcd = (int32_t)0;
+	m_setItem = (int32_t)0;
+	m_nameItem = (int32_t)0;
+	m_EditRequireLV = (int32_t)0;
+	m_giftCD = (int32_t)0;
 	m_dismiss = (int32_t)0;
-	m_transferguild = (int32_t)0;
+	m_transferGuild = (int32_t)0;
 	m_territory = (int32_t)0;
-	m_autominlv = (int32_t)0;
-	m_autominbp = (int32_t)0;
-	m_donatetimes = (int32_t)0;
-	m_packetmaxd = (int32_t)0;
-	m_packetmaxbd = (int32_t)0;
-	m_packetmaxsend = (int32_t)0;
+	m_autoMinLV = (int32_t)0;
+	m_autoMinBP = (int32_t)0;
+	m_donateTimes = (int32_t)0;
+	m_packetMaxD = (int32_t)0;
+	m_packetMaxBD = (int32_t)0;
+	m_packetMaxSend = (int32_t)0;
 	m_packetvip = (int32_t)0;
-	m_packetadd = (int32_t)0;
-	m_prestigetasonekeyvip = (int32_t)0;
-	m_prestigetasonekeylv = (int32_t)0;
-	m_prestigetaskprivage = (int32_t)0;
-	m_prestigetaskflash = (int32_t)0;
-	m_prestigetaskflashprice = (int32_t)0;
-	m_prestigetasktimes = (int32_t)0;
-	m_rewardcd = (int32_t)0;
+	m_packetAdd = (int32_t)0;
+	m_prestigeTasOneKeyVIP = (int32_t)0;
+	m_prestigeTasOneKeyLV = (int32_t)0;
+	m_prestigeTaskPrivage = (int32_t)0;
+	m_prestigeTaskFlash = (int32_t)0;
+	m_prestigeTaskflashPrice = (int32_t)0;
+	m_prestigeTaskTimes = (int32_t)0;
+	m_rewardCD = (int32_t)0;
 	m_answerdelay = (int32_t)0;
-	m_answernum = (int32_t)0;
-	m_answertime = (int32_t)0;
-	m_answerresulttime = (int32_t)0;
-	m_answerlimit = (int32_t)0;
-	m_answerfirst = (int32_t)0;
-	m_answersuccess = (int32_t)0;
-	m_answebasics = (int32_t)0;
-	m_linklvupper = (int32_t)0;
-	m_linklvupmax = (int32_t)0;
-	m_linktime = (int32_t)0;
-	m_monsterid = (int32_t)0;
+	m_answerNum = (int32_t)0;
+	m_answerTime = (int32_t)0;
+	m_answerResultTime = (int32_t)0;
+	m_answerLimit = (int32_t)0;
+	m_answerFirst = (int32_t)0;
+	m_answerSuccess = (int32_t)0;
+	m_answeBasics = (int32_t)0;
+	m_linkLvUpPer = (int32_t)0;
+	m_linkLvUpMax = (int32_t)0;
+	m_linkTime = (int32_t)0;
+	m_monsterID = (int32_t)0;
 	m_point = (int32_t)0;
-	m_collecttimes = (int32_t)0;
-	m_shens_daytimes = (int32_t)0;
-	m_shens_weektimes = (int32_t)0;
+	m_collectTimes = (int32_t)0;
+	m_shens_dayTimes = (int32_t)0;
+	m_shens_weekTimes = (int32_t)0;
 	m_shens_dup = (int32_t)0;
-	m_shensitem = (int32_t)0;
-	m_shenscost = (int32_t)0;
-	m_shenscostactive = (int32_t)0;
+	m_shensItem = (int32_t)0;
+	m_shensCost = (int32_t)0;
+	m_shensCostActive = (int32_t)0;
 	m_shouh_dup = (int32_t)0;
-	m_shouhexpskill = (int32_t)0;
-	m_gwdupid = (int32_t)0;
-	m_gwbattletime = (int32_t)0;
-	m_gwresttime = (int32_t)0;
-	m_gwcentermid = (int32_t)0;
-	m_gwtowermid = (int32_t)0;
-	m_gwtankmid = (int32_t)0;
-	m_gwbornrpoint = (int32_t)0;
-	m_gwcenterrpoint = (int32_t)0;
-	m_gwtankrpoint = (int32_t)0;
-	m_gwbornbpoint = (int32_t)0;
-	m_gwcenterbpoint = (int32_t)0;
-	m_gwtankbpoint = (int32_t)0;
-	m_tanknum = (int32_t)0;
-	m_tankresttime = (int32_t)0;
-	m_tankrestnum = (int32_t)0;
-	m_dominatedaily = (int32_t)0;
-	m_dominatebossreward = (int32_t)0;
-	m_freepoint = (int32_t)0;
-	m_deffreepoint = (int32_t)0;
-	m_playerpoint = (int32_t)0;
-	m_tankpoint = (int32_t)0;
-	m_towerpoint = (int32_t)0;
-	m_centerpoint = (int32_t)0;
-	m_assistradio = (int32_t)0;
-	m_tteamdamageadd = (int32_t)0;
-	m_tweekclosetime = (int32_t)0;
-	m_cyclicreward = (int32_t)0;
-	m_tencyclicreward = (int32_t)0;
+	m_shouhExpSkill = (int32_t)0;
+	m_GWDupid = (int32_t)0;
+	m_GWBattleTime = (int32_t)0;
+	m_GWRestTime = (int32_t)0;
+	m_GWCenterMID = (int32_t)0;
+	m_GWTowerMID = (int32_t)0;
+	m_GWTankMID = (int32_t)0;
+	m_GWBornRPoint = (int32_t)0;
+	m_GWCenterRPoint = (int32_t)0;
+	m_GWTankRPoint = (int32_t)0;
+	m_GWBornBPoint = (int32_t)0;
+	m_GWCenterBPoint = (int32_t)0;
+	m_GWTankBPoint = (int32_t)0;
+	m_tankNum = (int32_t)0;
+	m_tankRestTime = (int32_t)0;
+	m_tankRestNum = (int32_t)0;
+	m_dominateDaily = (int32_t)0;
+	m_dominateBossReward = (int32_t)0;
+	m_freePoint = (int32_t)0;
+	m_defFreePoint = (int32_t)0;
+	m_playerPoint = (int32_t)0;
+	m_tankPoint = (int32_t)0;
+	m_towerPoint = (int32_t)0;
+	m_centerPoint = (int32_t)0;
+	m_assistRadio = (int32_t)0;
+	m_TTeamDamageAdd = (int32_t)0;
+	m_TWeekCloseTime = (int32_t)0;
+	m_cyclicReward = (int32_t)0;
+	m_tenCyclicReward = (int32_t)0;
 	return 0;
 }
 
@@ -93,160 +93,160 @@ int E_GuildConstant_s::ResumeInit() {
 
 void E_GuildConstant_s::write_to_pbmsg(::proto_ff::E_GuildConstant & msg) const {
 	msg.set_m_constantid((int32_t)m_constantid);
-	msg.set_m_setitem((int32_t)m_setitem);
-	msg.set_m_nameitem((int32_t)m_nameitem);
-	msg.set_m_editrequirelv((int32_t)m_editrequirelv);
-	msg.set_m_giftcd((int32_t)m_giftcd);
+	msg.set_m_setitem((int32_t)m_setItem);
+	msg.set_m_nameitem((int32_t)m_nameItem);
+	msg.set_m_editrequirelv((int32_t)m_EditRequireLV);
+	msg.set_m_giftcd((int32_t)m_giftCD);
 	msg.set_m_dismiss((int32_t)m_dismiss);
-	msg.set_m_transferguild((int32_t)m_transferguild);
+	msg.set_m_transferguild((int32_t)m_transferGuild);
 	msg.set_m_territory((int32_t)m_territory);
-	msg.set_m_autominlv((int32_t)m_autominlv);
-	msg.set_m_autominbp((int32_t)m_autominbp);
-	msg.set_m_donatetimes((int32_t)m_donatetimes);
-	msg.set_m_packetmaxd((int32_t)m_packetmaxd);
-	msg.set_m_packetmaxbd((int32_t)m_packetmaxbd);
-	msg.set_m_packetmaxsend((int32_t)m_packetmaxsend);
+	msg.set_m_autominlv((int32_t)m_autoMinLV);
+	msg.set_m_autominbp((int32_t)m_autoMinBP);
+	msg.set_m_donatetimes((int32_t)m_donateTimes);
+	msg.set_m_packetmaxd((int32_t)m_packetMaxD);
+	msg.set_m_packetmaxbd((int32_t)m_packetMaxBD);
+	msg.set_m_packetmaxsend((int32_t)m_packetMaxSend);
 	msg.set_m_packetvip((int32_t)m_packetvip);
-	msg.set_m_packetadd((int32_t)m_packetadd);
-	msg.set_m_prestigetasonekeyvip((int32_t)m_prestigetasonekeyvip);
-	msg.set_m_prestigetasonekeylv((int32_t)m_prestigetasonekeylv);
-	msg.set_m_prestigetaskprivage((int32_t)m_prestigetaskprivage);
-	msg.set_m_prestigetaskflash((int32_t)m_prestigetaskflash);
-	msg.set_m_prestigetaskflashprice((int32_t)m_prestigetaskflashprice);
-	msg.set_m_prestigetasktimes((int32_t)m_prestigetasktimes);
-	msg.set_m_rewardcd((int32_t)m_rewardcd);
+	msg.set_m_packetadd((int32_t)m_packetAdd);
+	msg.set_m_prestigetasonekeyvip((int32_t)m_prestigeTasOneKeyVIP);
+	msg.set_m_prestigetasonekeylv((int32_t)m_prestigeTasOneKeyLV);
+	msg.set_m_prestigetaskprivage((int32_t)m_prestigeTaskPrivage);
+	msg.set_m_prestigetaskflash((int32_t)m_prestigeTaskFlash);
+	msg.set_m_prestigetaskflashprice((int32_t)m_prestigeTaskflashPrice);
+	msg.set_m_prestigetasktimes((int32_t)m_prestigeTaskTimes);
+	msg.set_m_rewardcd((int32_t)m_rewardCD);
 	msg.set_m_answerdelay((int32_t)m_answerdelay);
-	msg.set_m_answernum((int32_t)m_answernum);
-	msg.set_m_answertime((int32_t)m_answertime);
-	msg.set_m_answerresulttime((int32_t)m_answerresulttime);
-	msg.set_m_answerlimit((int32_t)m_answerlimit);
-	msg.set_m_answerfirst((int32_t)m_answerfirst);
-	msg.set_m_answersuccess((int32_t)m_answersuccess);
-	msg.set_m_answebasics((int32_t)m_answebasics);
-	msg.set_m_linklvupper((int32_t)m_linklvupper);
-	msg.set_m_linklvupmax((int32_t)m_linklvupmax);
-	msg.set_m_linktime((int32_t)m_linktime);
-	msg.set_m_monsterid((int32_t)m_monsterid);
+	msg.set_m_answernum((int32_t)m_answerNum);
+	msg.set_m_answertime((int32_t)m_answerTime);
+	msg.set_m_answerresulttime((int32_t)m_answerResultTime);
+	msg.set_m_answerlimit((int32_t)m_answerLimit);
+	msg.set_m_answerfirst((int32_t)m_answerFirst);
+	msg.set_m_answersuccess((int32_t)m_answerSuccess);
+	msg.set_m_answebasics((int32_t)m_answeBasics);
+	msg.set_m_linklvupper((int32_t)m_linkLvUpPer);
+	msg.set_m_linklvupmax((int32_t)m_linkLvUpMax);
+	msg.set_m_linktime((int32_t)m_linkTime);
+	msg.set_m_monsterid((int32_t)m_monsterID);
 	msg.set_m_point((int32_t)m_point);
-	msg.set_m_collecttimes((int32_t)m_collecttimes);
-	msg.set_m_shens_daytimes((int32_t)m_shens_daytimes);
-	msg.set_m_shens_weektimes((int32_t)m_shens_weektimes);
+	msg.set_m_collecttimes((int32_t)m_collectTimes);
+	msg.set_m_shens_daytimes((int32_t)m_shens_dayTimes);
+	msg.set_m_shens_weektimes((int32_t)m_shens_weekTimes);
 	msg.set_m_shens_dup((int32_t)m_shens_dup);
-	msg.set_m_shensitem((int32_t)m_shensitem);
-	msg.set_m_shenscost((int32_t)m_shenscost);
-	msg.set_m_shenscostactive((int32_t)m_shenscostactive);
+	msg.set_m_shensitem((int32_t)m_shensItem);
+	msg.set_m_shenscost((int32_t)m_shensCost);
+	msg.set_m_shenscostactive((int32_t)m_shensCostActive);
 	msg.set_m_shouh_dup((int32_t)m_shouh_dup);
-	msg.set_m_shouhexpskill((int32_t)m_shouhexpskill);
-	msg.set_m_shouhmosid(m_shouhmosid.data());
-	msg.set_m_gwdupid((int32_t)m_gwdupid);
-	msg.set_m_gwbattletime((int32_t)m_gwbattletime);
-	msg.set_m_gwresttime((int32_t)m_gwresttime);
-	msg.set_m_gwcentermid((int32_t)m_gwcentermid);
-	msg.set_m_gwtowermid((int32_t)m_gwtowermid);
-	msg.set_m_gwtankmid((int32_t)m_gwtankmid);
-	msg.set_m_gwbornrpoint((int32_t)m_gwbornrpoint);
-	msg.set_m_gwcenterrpoint((int32_t)m_gwcenterrpoint);
-	msg.set_m_gwtowerrpoint(m_gwtowerrpoint.data());
-	msg.set_m_gwtankrpoint((int32_t)m_gwtankrpoint);
-	msg.set_m_gwbornbpoint((int32_t)m_gwbornbpoint);
-	msg.set_m_gwcenterbpoint((int32_t)m_gwcenterbpoint);
-	msg.set_m_gwtowerbpoint(m_gwtowerbpoint.data());
-	msg.set_m_gwtankbpoint((int32_t)m_gwtankbpoint);
-	msg.set_m_tanknum((int32_t)m_tanknum);
-	msg.set_m_tankresttime((int32_t)m_tankresttime);
-	msg.set_m_tankrestnum((int32_t)m_tankrestnum);
-	msg.set_m_dominatedaily((int32_t)m_dominatedaily);
-	msg.set_m_dominatebossreward((int32_t)m_dominatebossreward);
-	msg.set_m_freepoint((int32_t)m_freepoint);
-	msg.set_m_deffreepoint((int32_t)m_deffreepoint);
-	msg.set_m_playerpoint((int32_t)m_playerpoint);
-	msg.set_m_tankpoint((int32_t)m_tankpoint);
-	msg.set_m_towerpoint((int32_t)m_towerpoint);
-	msg.set_m_centerpoint((int32_t)m_centerpoint);
-	msg.set_m_assistradio((int32_t)m_assistradio);
-	msg.set_m_tteamdamageadd((int32_t)m_tteamdamageadd);
-	msg.set_m_tweekclosetime((int32_t)m_tweekclosetime);
-	msg.set_m_cyclicreward((int32_t)m_cyclicreward);
-	msg.set_m_tencyclicreward((int32_t)m_tencyclicreward);
+	msg.set_m_shouhexpskill((int32_t)m_shouhExpSkill);
+	msg.set_m_shouhmosid(m_shouhMosId.data());
+	msg.set_m_gwdupid((int32_t)m_GWDupid);
+	msg.set_m_gwbattletime((int32_t)m_GWBattleTime);
+	msg.set_m_gwresttime((int32_t)m_GWRestTime);
+	msg.set_m_gwcentermid((int32_t)m_GWCenterMID);
+	msg.set_m_gwtowermid((int32_t)m_GWTowerMID);
+	msg.set_m_gwtankmid((int32_t)m_GWTankMID);
+	msg.set_m_gwbornrpoint((int32_t)m_GWBornRPoint);
+	msg.set_m_gwcenterrpoint((int32_t)m_GWCenterRPoint);
+	msg.set_m_gwtowerrpoint(m_GWTowerRPoint.data());
+	msg.set_m_gwtankrpoint((int32_t)m_GWTankRPoint);
+	msg.set_m_gwbornbpoint((int32_t)m_GWBornBPoint);
+	msg.set_m_gwcenterbpoint((int32_t)m_GWCenterBPoint);
+	msg.set_m_gwtowerbpoint(m_GWTowerBPoint.data());
+	msg.set_m_gwtankbpoint((int32_t)m_GWTankBPoint);
+	msg.set_m_tanknum((int32_t)m_tankNum);
+	msg.set_m_tankresttime((int32_t)m_tankRestTime);
+	msg.set_m_tankrestnum((int32_t)m_tankRestNum);
+	msg.set_m_dominatedaily((int32_t)m_dominateDaily);
+	msg.set_m_dominatebossreward((int32_t)m_dominateBossReward);
+	msg.set_m_freepoint((int32_t)m_freePoint);
+	msg.set_m_deffreepoint((int32_t)m_defFreePoint);
+	msg.set_m_playerpoint((int32_t)m_playerPoint);
+	msg.set_m_tankpoint((int32_t)m_tankPoint);
+	msg.set_m_towerpoint((int32_t)m_towerPoint);
+	msg.set_m_centerpoint((int32_t)m_centerPoint);
+	msg.set_m_assistradio((int32_t)m_assistRadio);
+	msg.set_m_tteamdamageadd((int32_t)m_TTeamDamageAdd);
+	msg.set_m_tweekclosetime((int32_t)m_TWeekCloseTime);
+	msg.set_m_cyclicreward((int32_t)m_cyclicReward);
+	msg.set_m_tencyclicreward((int32_t)m_tenCyclicReward);
 }
 
 void E_GuildConstant_s::read_from_pbmsg(const ::proto_ff::E_GuildConstant & msg) {
 	m_constantid = msg.m_constantid();
-	m_setitem = msg.m_setitem();
-	m_nameitem = msg.m_nameitem();
-	m_editrequirelv = msg.m_editrequirelv();
-	m_giftcd = msg.m_giftcd();
+	m_setItem = msg.m_setitem();
+	m_nameItem = msg.m_nameitem();
+	m_EditRequireLV = msg.m_editrequirelv();
+	m_giftCD = msg.m_giftcd();
 	m_dismiss = msg.m_dismiss();
-	m_transferguild = msg.m_transferguild();
+	m_transferGuild = msg.m_transferguild();
 	m_territory = msg.m_territory();
-	m_autominlv = msg.m_autominlv();
-	m_autominbp = msg.m_autominbp();
-	m_donatetimes = msg.m_donatetimes();
-	m_packetmaxd = msg.m_packetmaxd();
-	m_packetmaxbd = msg.m_packetmaxbd();
-	m_packetmaxsend = msg.m_packetmaxsend();
+	m_autoMinLV = msg.m_autominlv();
+	m_autoMinBP = msg.m_autominbp();
+	m_donateTimes = msg.m_donatetimes();
+	m_packetMaxD = msg.m_packetmaxd();
+	m_packetMaxBD = msg.m_packetmaxbd();
+	m_packetMaxSend = msg.m_packetmaxsend();
 	m_packetvip = msg.m_packetvip();
-	m_packetadd = msg.m_packetadd();
-	m_prestigetasonekeyvip = msg.m_prestigetasonekeyvip();
-	m_prestigetasonekeylv = msg.m_prestigetasonekeylv();
-	m_prestigetaskprivage = msg.m_prestigetaskprivage();
-	m_prestigetaskflash = msg.m_prestigetaskflash();
-	m_prestigetaskflashprice = msg.m_prestigetaskflashprice();
-	m_prestigetasktimes = msg.m_prestigetasktimes();
-	m_rewardcd = msg.m_rewardcd();
+	m_packetAdd = msg.m_packetadd();
+	m_prestigeTasOneKeyVIP = msg.m_prestigetasonekeyvip();
+	m_prestigeTasOneKeyLV = msg.m_prestigetasonekeylv();
+	m_prestigeTaskPrivage = msg.m_prestigetaskprivage();
+	m_prestigeTaskFlash = msg.m_prestigetaskflash();
+	m_prestigeTaskflashPrice = msg.m_prestigetaskflashprice();
+	m_prestigeTaskTimes = msg.m_prestigetasktimes();
+	m_rewardCD = msg.m_rewardcd();
 	m_answerdelay = msg.m_answerdelay();
-	m_answernum = msg.m_answernum();
-	m_answertime = msg.m_answertime();
-	m_answerresulttime = msg.m_answerresulttime();
-	m_answerlimit = msg.m_answerlimit();
-	m_answerfirst = msg.m_answerfirst();
-	m_answersuccess = msg.m_answersuccess();
-	m_answebasics = msg.m_answebasics();
-	m_linklvupper = msg.m_linklvupper();
-	m_linklvupmax = msg.m_linklvupmax();
-	m_linktime = msg.m_linktime();
-	m_monsterid = msg.m_monsterid();
+	m_answerNum = msg.m_answernum();
+	m_answerTime = msg.m_answertime();
+	m_answerResultTime = msg.m_answerresulttime();
+	m_answerLimit = msg.m_answerlimit();
+	m_answerFirst = msg.m_answerfirst();
+	m_answerSuccess = msg.m_answersuccess();
+	m_answeBasics = msg.m_answebasics();
+	m_linkLvUpPer = msg.m_linklvupper();
+	m_linkLvUpMax = msg.m_linklvupmax();
+	m_linkTime = msg.m_linktime();
+	m_monsterID = msg.m_monsterid();
 	m_point = msg.m_point();
-	m_collecttimes = msg.m_collecttimes();
-	m_shens_daytimes = msg.m_shens_daytimes();
-	m_shens_weektimes = msg.m_shens_weektimes();
+	m_collectTimes = msg.m_collecttimes();
+	m_shens_dayTimes = msg.m_shens_daytimes();
+	m_shens_weekTimes = msg.m_shens_weektimes();
 	m_shens_dup = msg.m_shens_dup();
-	m_shensitem = msg.m_shensitem();
-	m_shenscost = msg.m_shenscost();
-	m_shenscostactive = msg.m_shenscostactive();
+	m_shensItem = msg.m_shensitem();
+	m_shensCost = msg.m_shenscost();
+	m_shensCostActive = msg.m_shenscostactive();
 	m_shouh_dup = msg.m_shouh_dup();
-	m_shouhexpskill = msg.m_shouhexpskill();
-	m_shouhmosid = msg.m_shouhmosid();
-	m_gwdupid = msg.m_gwdupid();
-	m_gwbattletime = msg.m_gwbattletime();
-	m_gwresttime = msg.m_gwresttime();
-	m_gwcentermid = msg.m_gwcentermid();
-	m_gwtowermid = msg.m_gwtowermid();
-	m_gwtankmid = msg.m_gwtankmid();
-	m_gwbornrpoint = msg.m_gwbornrpoint();
-	m_gwcenterrpoint = msg.m_gwcenterrpoint();
-	m_gwtowerrpoint = msg.m_gwtowerrpoint();
-	m_gwtankrpoint = msg.m_gwtankrpoint();
-	m_gwbornbpoint = msg.m_gwbornbpoint();
-	m_gwcenterbpoint = msg.m_gwcenterbpoint();
-	m_gwtowerbpoint = msg.m_gwtowerbpoint();
-	m_gwtankbpoint = msg.m_gwtankbpoint();
-	m_tanknum = msg.m_tanknum();
-	m_tankresttime = msg.m_tankresttime();
-	m_tankrestnum = msg.m_tankrestnum();
-	m_dominatedaily = msg.m_dominatedaily();
-	m_dominatebossreward = msg.m_dominatebossreward();
-	m_freepoint = msg.m_freepoint();
-	m_deffreepoint = msg.m_deffreepoint();
-	m_playerpoint = msg.m_playerpoint();
-	m_tankpoint = msg.m_tankpoint();
-	m_towerpoint = msg.m_towerpoint();
-	m_centerpoint = msg.m_centerpoint();
-	m_assistradio = msg.m_assistradio();
-	m_tteamdamageadd = msg.m_tteamdamageadd();
-	m_tweekclosetime = msg.m_tweekclosetime();
-	m_cyclicreward = msg.m_cyclicreward();
-	m_tencyclicreward = msg.m_tencyclicreward();
+	m_shouhExpSkill = msg.m_shouhexpskill();
+	m_shouhMosId = msg.m_shouhmosid();
+	m_GWDupid = msg.m_gwdupid();
+	m_GWBattleTime = msg.m_gwbattletime();
+	m_GWRestTime = msg.m_gwresttime();
+	m_GWCenterMID = msg.m_gwcentermid();
+	m_GWTowerMID = msg.m_gwtowermid();
+	m_GWTankMID = msg.m_gwtankmid();
+	m_GWBornRPoint = msg.m_gwbornrpoint();
+	m_GWCenterRPoint = msg.m_gwcenterrpoint();
+	m_GWTowerRPoint = msg.m_gwtowerrpoint();
+	m_GWTankRPoint = msg.m_gwtankrpoint();
+	m_GWBornBPoint = msg.m_gwbornbpoint();
+	m_GWCenterBPoint = msg.m_gwcenterbpoint();
+	m_GWTowerBPoint = msg.m_gwtowerbpoint();
+	m_GWTankBPoint = msg.m_gwtankbpoint();
+	m_tankNum = msg.m_tanknum();
+	m_tankRestTime = msg.m_tankresttime();
+	m_tankRestNum = msg.m_tankrestnum();
+	m_dominateDaily = msg.m_dominatedaily();
+	m_dominateBossReward = msg.m_dominatebossreward();
+	m_freePoint = msg.m_freepoint();
+	m_defFreePoint = msg.m_deffreepoint();
+	m_playerPoint = msg.m_playerpoint();
+	m_tankPoint = msg.m_tankpoint();
+	m_towerPoint = msg.m_towerpoint();
+	m_centerPoint = msg.m_centerpoint();
+	m_assistRadio = msg.m_assistradio();
+	m_TTeamDamageAdd = msg.m_tteamdamageadd();
+	m_TWeekCloseTime = msg.m_tweekclosetime();
+	m_cyclicReward = msg.m_cyclicreward();
+	m_tenCyclicReward = msg.m_tencyclicreward();
 }
 
 Sheet_GuildConstant_s::Sheet_GuildConstant_s() {
@@ -289,12 +289,12 @@ E_GuildLevel_s::E_GuildLevel_s() {
 }
 
 int E_GuildLevel_s::CreateInit() {
-	m_guildlevel = (int32_t)0;
-	m_guildlevel_exp = (int32_t)0;
-	m_guildlevel_member = (int32_t)0;
-	m_guildlevel_vp = (int32_t)0;
-	m_guildlevel_np = (int32_t)0;
-	m_guildlevel_g = (int32_t)0;
+	m_guildLevel = (int32_t)0;
+	m_guildLevel_EXP = (int32_t)0;
+	m_guildLevel_member = (int32_t)0;
+	m_guildLevel_VP = (int32_t)0;
+	m_guildLevel_NP = (int32_t)0;
+	m_guildLevel_G = (int32_t)0;
 	return 0;
 }
 
@@ -303,21 +303,21 @@ int E_GuildLevel_s::ResumeInit() {
 }
 
 void E_GuildLevel_s::write_to_pbmsg(::proto_ff::E_GuildLevel & msg) const {
-	msg.set_m_guildlevel((int32_t)m_guildlevel);
-	msg.set_m_guildlevel_exp((int32_t)m_guildlevel_exp);
-	msg.set_m_guildlevel_member((int32_t)m_guildlevel_member);
-	msg.set_m_guildlevel_vp((int32_t)m_guildlevel_vp);
-	msg.set_m_guildlevel_np((int32_t)m_guildlevel_np);
-	msg.set_m_guildlevel_g((int32_t)m_guildlevel_g);
+	msg.set_m_guildlevel((int32_t)m_guildLevel);
+	msg.set_m_guildlevel_exp((int32_t)m_guildLevel_EXP);
+	msg.set_m_guildlevel_member((int32_t)m_guildLevel_member);
+	msg.set_m_guildlevel_vp((int32_t)m_guildLevel_VP);
+	msg.set_m_guildlevel_np((int32_t)m_guildLevel_NP);
+	msg.set_m_guildlevel_g((int32_t)m_guildLevel_G);
 }
 
 void E_GuildLevel_s::read_from_pbmsg(const ::proto_ff::E_GuildLevel & msg) {
-	m_guildlevel = msg.m_guildlevel();
-	m_guildlevel_exp = msg.m_guildlevel_exp();
-	m_guildlevel_member = msg.m_guildlevel_member();
-	m_guildlevel_vp = msg.m_guildlevel_vp();
-	m_guildlevel_np = msg.m_guildlevel_np();
-	m_guildlevel_g = msg.m_guildlevel_g();
+	m_guildLevel = msg.m_guildlevel();
+	m_guildLevel_EXP = msg.m_guildlevel_exp();
+	m_guildLevel_member = msg.m_guildlevel_member();
+	m_guildLevel_VP = msg.m_guildlevel_vp();
+	m_guildLevel_NP = msg.m_guildlevel_np();
+	m_guildLevel_G = msg.m_guildlevel_g();
 }
 
 Sheet_GuildLevel_s::Sheet_GuildLevel_s() {
@@ -360,24 +360,24 @@ E_GuildPosition_s::E_GuildPosition_s() {
 }
 
 int E_GuildPosition_s::CreateInit() {
-	m_positionid = (int32_t)0;
-	m_admitnewcomer = (int32_t)0;
-	m_appointandremovevp = (int32_t)0;
-	m_appointandremoveelder = (int32_t)0;
-	m_appointandremoveg = (int32_t)0;
-	m_appointandremoveelite = (int32_t)0;
-	m_expelvp = (int32_t)0;
-	m_expelelder = (int32_t)0;
-	m_expelg = (int32_t)0;
-	m_expelmass = (int32_t)0;
-	m_announcementediting = (int32_t)0;
-	m_rname = (int32_t)0;
-	m_joincondition = (int32_t)0;
-	m_guildactivity = (int32_t)0;
-	m_dissolveassignguild = (int32_t)0;
-	m_changename = (int32_t)0;
-	m_recruitchat = (int32_t)0;
-	m_guildpacket = (int32_t)0;
+	m_positionId = (int32_t)0;
+	m_admitNewcomer = (int32_t)0;
+	m_appointAndRemoveVP = (int32_t)0;
+	m_appointAndRemoveElder = (int32_t)0;
+	m_appointAndRemoveG = (int32_t)0;
+	m_appointAndRemoveElite = (int32_t)0;
+	m_expelVP = (int32_t)0;
+	m_expelElder = (int32_t)0;
+	m_expelG = (int32_t)0;
+	m_expelMass = (int32_t)0;
+	m_announcementEditing = (int32_t)0;
+	m_rName = (int32_t)0;
+	m_joinCondition = (int32_t)0;
+	m_guildActivity = (int32_t)0;
+	m_dissolveAssignGuild = (int32_t)0;
+	m_changeName = (int32_t)0;
+	m_recruitChat = (int32_t)0;
+	m_guildPacket = (int32_t)0;
 	return 0;
 }
 
@@ -386,45 +386,45 @@ int E_GuildPosition_s::ResumeInit() {
 }
 
 void E_GuildPosition_s::write_to_pbmsg(::proto_ff::E_GuildPosition & msg) const {
-	msg.set_m_positionid((int32_t)m_positionid);
-	msg.set_m_admitnewcomer((int32_t)m_admitnewcomer);
-	msg.set_m_appointandremovevp((int32_t)m_appointandremovevp);
-	msg.set_m_appointandremoveelder((int32_t)m_appointandremoveelder);
-	msg.set_m_appointandremoveg((int32_t)m_appointandremoveg);
-	msg.set_m_appointandremoveelite((int32_t)m_appointandremoveelite);
-	msg.set_m_expelvp((int32_t)m_expelvp);
-	msg.set_m_expelelder((int32_t)m_expelelder);
-	msg.set_m_expelg((int32_t)m_expelg);
-	msg.set_m_expelmass((int32_t)m_expelmass);
-	msg.set_m_announcementediting((int32_t)m_announcementediting);
-	msg.set_m_rname((int32_t)m_rname);
-	msg.set_m_joincondition((int32_t)m_joincondition);
-	msg.set_m_guildactivity((int32_t)m_guildactivity);
-	msg.set_m_dissolveassignguild((int32_t)m_dissolveassignguild);
-	msg.set_m_changename((int32_t)m_changename);
-	msg.set_m_recruitchat((int32_t)m_recruitchat);
-	msg.set_m_guildpacket((int32_t)m_guildpacket);
+	msg.set_m_positionid((int32_t)m_positionId);
+	msg.set_m_admitnewcomer((int32_t)m_admitNewcomer);
+	msg.set_m_appointandremovevp((int32_t)m_appointAndRemoveVP);
+	msg.set_m_appointandremoveelder((int32_t)m_appointAndRemoveElder);
+	msg.set_m_appointandremoveg((int32_t)m_appointAndRemoveG);
+	msg.set_m_appointandremoveelite((int32_t)m_appointAndRemoveElite);
+	msg.set_m_expelvp((int32_t)m_expelVP);
+	msg.set_m_expelelder((int32_t)m_expelElder);
+	msg.set_m_expelg((int32_t)m_expelG);
+	msg.set_m_expelmass((int32_t)m_expelMass);
+	msg.set_m_announcementediting((int32_t)m_announcementEditing);
+	msg.set_m_rname((int32_t)m_rName);
+	msg.set_m_joincondition((int32_t)m_joinCondition);
+	msg.set_m_guildactivity((int32_t)m_guildActivity);
+	msg.set_m_dissolveassignguild((int32_t)m_dissolveAssignGuild);
+	msg.set_m_changename((int32_t)m_changeName);
+	msg.set_m_recruitchat((int32_t)m_recruitChat);
+	msg.set_m_guildpacket((int32_t)m_guildPacket);
 }
 
 void E_GuildPosition_s::read_from_pbmsg(const ::proto_ff::E_GuildPosition & msg) {
-	m_positionid = msg.m_positionid();
-	m_admitnewcomer = msg.m_admitnewcomer();
-	m_appointandremovevp = msg.m_appointandremovevp();
-	m_appointandremoveelder = msg.m_appointandremoveelder();
-	m_appointandremoveg = msg.m_appointandremoveg();
-	m_appointandremoveelite = msg.m_appointandremoveelite();
-	m_expelvp = msg.m_expelvp();
-	m_expelelder = msg.m_expelelder();
-	m_expelg = msg.m_expelg();
-	m_expelmass = msg.m_expelmass();
-	m_announcementediting = msg.m_announcementediting();
-	m_rname = msg.m_rname();
-	m_joincondition = msg.m_joincondition();
-	m_guildactivity = msg.m_guildactivity();
-	m_dissolveassignguild = msg.m_dissolveassignguild();
-	m_changename = msg.m_changename();
-	m_recruitchat = msg.m_recruitchat();
-	m_guildpacket = msg.m_guildpacket();
+	m_positionId = msg.m_positionid();
+	m_admitNewcomer = msg.m_admitnewcomer();
+	m_appointAndRemoveVP = msg.m_appointandremovevp();
+	m_appointAndRemoveElder = msg.m_appointandremoveelder();
+	m_appointAndRemoveG = msg.m_appointandremoveg();
+	m_appointAndRemoveElite = msg.m_appointandremoveelite();
+	m_expelVP = msg.m_expelvp();
+	m_expelElder = msg.m_expelelder();
+	m_expelG = msg.m_expelg();
+	m_expelMass = msg.m_expelmass();
+	m_announcementEditing = msg.m_announcementediting();
+	m_rName = msg.m_rname();
+	m_joinCondition = msg.m_joincondition();
+	m_guildActivity = msg.m_guildactivity();
+	m_dissolveAssignGuild = msg.m_dissolveassignguild();
+	m_changeName = msg.m_changename();
+	m_recruitChat = msg.m_recruitchat();
+	m_guildPacket = msg.m_guildpacket();
 }
 
 Sheet_GuildPosition_s::Sheet_GuildPosition_s() {
@@ -495,9 +495,9 @@ E_GuildSalary_s::E_GuildSalary_s() {
 }
 
 int E_GuildSalary_s::CreateInit() {
-	m_id = (int32_t)0;
+	m_ID = (int32_t)0;
 	m_type = (int32_t)0;
-	m_typearg = (int32_t)0;
+	m_typeArg = (int32_t)0;
 	m_times = (int32_t)0;
 	return 0;
 }
@@ -507,9 +507,9 @@ int E_GuildSalary_s::ResumeInit() {
 }
 
 void E_GuildSalary_s::write_to_pbmsg(::proto_ff::E_GuildSalary & msg) const {
-	msg.set_m_id((int32_t)m_id);
+	msg.set_m_id((int32_t)m_ID);
 	msg.set_m_type((int32_t)m_type);
-	msg.set_m_typearg((int32_t)m_typearg);
+	msg.set_m_typearg((int32_t)m_typeArg);
 	msg.set_m_times((int32_t)m_times);
 	for(int32_t i = 0; i < (int32_t)m_reward.size(); ++i) {
 		::proto_ff::E_GuildSalaryRewardDesc* temp_m_reward = msg.add_m_reward();
@@ -518,9 +518,9 @@ void E_GuildSalary_s::write_to_pbmsg(::proto_ff::E_GuildSalary & msg) const {
 }
 
 void E_GuildSalary_s::read_from_pbmsg(const ::proto_ff::E_GuildSalary & msg) {
-	m_id = msg.m_id();
+	m_ID = msg.m_id();
 	m_type = msg.m_type();
-	m_typearg = msg.m_typearg();
+	m_typeArg = msg.m_typearg();
 	m_times = msg.m_times();
 	m_reward.resize((int)msg.m_reward_size() > (int)m_reward.max_size() ? m_reward.max_size() : msg.m_reward_size());
 	for(int32_t i = 0; i < (int32_t)m_reward.size(); ++i) {
@@ -597,9 +597,9 @@ E_GuildDonate_s::E_GuildDonate_s() {
 }
 
 int E_GuildDonate_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_costitem = (int32_t)0;
-	m_costnum = (int32_t)0;
+	m_ID = (int32_t)0;
+	m_costItem = (int32_t)0;
+	m_costNum = (int32_t)0;
 	return 0;
 }
 
@@ -608,9 +608,9 @@ int E_GuildDonate_s::ResumeInit() {
 }
 
 void E_GuildDonate_s::write_to_pbmsg(::proto_ff::E_GuildDonate & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_costitem((int32_t)m_costitem);
-	msg.set_m_costnum((int32_t)m_costnum);
+	msg.set_m_id((int32_t)m_ID);
+	msg.set_m_costitem((int32_t)m_costItem);
+	msg.set_m_costnum((int32_t)m_costNum);
 	for(int32_t i = 0; i < (int32_t)m_reward.size(); ++i) {
 		::proto_ff::E_GuildDonateRewardDesc* temp_m_reward = msg.add_m_reward();
 		m_reward[i].write_to_pbmsg(*temp_m_reward);
@@ -618,9 +618,9 @@ void E_GuildDonate_s::write_to_pbmsg(::proto_ff::E_GuildDonate & msg) const {
 }
 
 void E_GuildDonate_s::read_from_pbmsg(const ::proto_ff::E_GuildDonate & msg) {
-	m_id = msg.m_id();
-	m_costitem = msg.m_costitem();
-	m_costnum = msg.m_costnum();
+	m_ID = msg.m_id();
+	m_costItem = msg.m_costitem();
+	m_costNum = msg.m_costnum();
 	m_reward.resize((int)msg.m_reward_size() > (int)m_reward.max_size() ? m_reward.max_size() : msg.m_reward_size());
 	for(int32_t i = 0; i < (int32_t)m_reward.size(); ++i) {
 		const ::proto_ff::E_GuildDonateRewardDesc & temp_m_reward = msg.m_reward(i);
@@ -668,12 +668,12 @@ E_GuildPacket_s::E_GuildPacket_s() {
 }
 
 int E_GuildPacket_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_belongtype = (int32_t)0;
+	m_ID = (int32_t)0;
+	m_belongType = (int32_t)0;
 	m_type = (int32_t)0;
-	m_typearg = (int32_t)0;
-	m_itemid = (int32_t)0;
-	m_itemnum = (int32_t)0;
+	m_typeArg = (int32_t)0;
+	m_itemID = (int32_t)0;
+	m_itemNum = (int32_t)0;
 	m_num = (int32_t)0;
 	m_pre = (int32_t)0;
 	m_daily = (int32_t)0;
@@ -685,24 +685,24 @@ int E_GuildPacket_s::ResumeInit() {
 }
 
 void E_GuildPacket_s::write_to_pbmsg(::proto_ff::E_GuildPacket & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_belongtype((int32_t)m_belongtype);
+	msg.set_m_id((int32_t)m_ID);
+	msg.set_m_belongtype((int32_t)m_belongType);
 	msg.set_m_type((int32_t)m_type);
-	msg.set_m_typearg((int32_t)m_typearg);
-	msg.set_m_itemid((int32_t)m_itemid);
-	msg.set_m_itemnum((int32_t)m_itemnum);
+	msg.set_m_typearg((int32_t)m_typeArg);
+	msg.set_m_itemid((int32_t)m_itemID);
+	msg.set_m_itemnum((int32_t)m_itemNum);
 	msg.set_m_num((int32_t)m_num);
 	msg.set_m_pre((int32_t)m_pre);
 	msg.set_m_daily((int32_t)m_daily);
 }
 
 void E_GuildPacket_s::read_from_pbmsg(const ::proto_ff::E_GuildPacket & msg) {
-	m_id = msg.m_id();
-	m_belongtype = msg.m_belongtype();
+	m_ID = msg.m_id();
+	m_belongType = msg.m_belongtype();
 	m_type = msg.m_type();
-	m_typearg = msg.m_typearg();
-	m_itemid = msg.m_itemid();
-	m_itemnum = msg.m_itemnum();
+	m_typeArg = msg.m_typearg();
+	m_itemID = msg.m_itemid();
+	m_itemNum = msg.m_itemnum();
 	m_num = msg.m_num();
 	m_pre = msg.m_pre();
 	m_daily = msg.m_daily();
@@ -748,10 +748,10 @@ E_GuildPrestigetask_s::E_GuildPrestigetask_s() {
 }
 
 int E_GuildPrestigetask_s::CreateInit() {
-	m_id = (int32_t)0;
+	m_ID = (int32_t)0;
 	m_level = (int32_t)0;
-	m_lvmin = (int32_t)0;
-	m_lvmax = (int32_t)0;
+	m_lvMin = (int32_t)0;
+	m_lvMax = (int32_t)0;
 	m_weight = (int32_t)0;
 	m_taskpool = (int32_t)0;
 	m_reward = (int32_t)0;
@@ -763,20 +763,20 @@ int E_GuildPrestigetask_s::ResumeInit() {
 }
 
 void E_GuildPrestigetask_s::write_to_pbmsg(::proto_ff::E_GuildPrestigetask & msg) const {
-	msg.set_m_id((int32_t)m_id);
+	msg.set_m_id((int32_t)m_ID);
 	msg.set_m_level((int32_t)m_level);
-	msg.set_m_lvmin((int32_t)m_lvmin);
-	msg.set_m_lvmax((int32_t)m_lvmax);
+	msg.set_m_lvmin((int32_t)m_lvMin);
+	msg.set_m_lvmax((int32_t)m_lvMax);
 	msg.set_m_weight((int32_t)m_weight);
 	msg.set_m_taskpool((int32_t)m_taskpool);
 	msg.set_m_reward((int32_t)m_reward);
 }
 
 void E_GuildPrestigetask_s::read_from_pbmsg(const ::proto_ff::E_GuildPrestigetask & msg) {
-	m_id = msg.m_id();
+	m_ID = msg.m_id();
 	m_level = msg.m_level();
-	m_lvmin = msg.m_lvmin();
-	m_lvmax = msg.m_lvmax();
+	m_lvMin = msg.m_lvmin();
+	m_lvMax = msg.m_lvmax();
 	m_weight = msg.m_weight();
 	m_taskpool = msg.m_taskpool();
 	m_reward = msg.m_reward();
@@ -823,9 +823,9 @@ E_GuildLvreward_s::E_GuildLvreward_s() {
 
 int E_GuildLvreward_s::CreateInit() {
 	m_lv = (int32_t)0;
-	m_partyexp = (int32_t)0;
-	m_partyeontribution = (int32_t)0;
-	m_linkexp = (int32_t)0;
+	m_partyExp = (int32_t)0;
+	m_partyEontribution = (int32_t)0;
+	m_linkExp = (int32_t)0;
 	return 0;
 }
 
@@ -835,16 +835,16 @@ int E_GuildLvreward_s::ResumeInit() {
 
 void E_GuildLvreward_s::write_to_pbmsg(::proto_ff::E_GuildLvreward & msg) const {
 	msg.set_m_lv((int32_t)m_lv);
-	msg.set_m_partyexp((int32_t)m_partyexp);
-	msg.set_m_partyeontribution((int32_t)m_partyeontribution);
-	msg.set_m_linkexp((int32_t)m_linkexp);
+	msg.set_m_partyexp((int32_t)m_partyExp);
+	msg.set_m_partyeontribution((int32_t)m_partyEontribution);
+	msg.set_m_linkexp((int32_t)m_linkExp);
 }
 
 void E_GuildLvreward_s::read_from_pbmsg(const ::proto_ff::E_GuildLvreward & msg) {
 	m_lv = msg.m_lv();
-	m_partyexp = msg.m_partyexp();
-	m_partyeontribution = msg.m_partyeontribution();
-	m_linkexp = msg.m_linkexp();
+	m_partyExp = msg.m_partyexp();
+	m_partyEontribution = msg.m_partyeontribution();
+	m_linkExp = msg.m_linkexp();
 }
 
 Sheet_GuildLvreward_s::Sheet_GuildLvreward_s() {
@@ -917,12 +917,12 @@ E_GuildCollege_s::E_GuildCollege_s() {
 int E_GuildCollege_s::CreateInit() {
 	m_uid = (int32_t)0;
 	m_skillid = (int32_t)0;
-	m_skilllv = (int32_t)0;
-	m_guildlv = (int32_t)0;
-	m_playerlvlimit = (int32_t)0;
-	m_preskillid = (int32_t)0;
-	m_preskilllv = (int32_t)0;
-	m_costcontribute = (int32_t)0;
+	m_skillLv = (int32_t)0;
+	m_guildLv = (int32_t)0;
+	m_playerLvLimit = (int32_t)0;
+	m_preSkillid = (int32_t)0;
+	m_preSkillLv = (int32_t)0;
+	m_CostContribute = (int32_t)0;
 	return 0;
 }
 
@@ -933,12 +933,12 @@ int E_GuildCollege_s::ResumeInit() {
 void E_GuildCollege_s::write_to_pbmsg(::proto_ff::E_GuildCollege & msg) const {
 	msg.set_m_uid((int32_t)m_uid);
 	msg.set_m_skillid((int32_t)m_skillid);
-	msg.set_m_skilllv((int32_t)m_skilllv);
-	msg.set_m_guildlv((int32_t)m_guildlv);
-	msg.set_m_playerlvlimit((int32_t)m_playerlvlimit);
-	msg.set_m_preskillid((int32_t)m_preskillid);
-	msg.set_m_preskilllv((int32_t)m_preskilllv);
-	msg.set_m_costcontribute((int32_t)m_costcontribute);
+	msg.set_m_skilllv((int32_t)m_skillLv);
+	msg.set_m_guildlv((int32_t)m_guildLv);
+	msg.set_m_playerlvlimit((int32_t)m_playerLvLimit);
+	msg.set_m_preskillid((int32_t)m_preSkillid);
+	msg.set_m_preskilllv((int32_t)m_preSkillLv);
+	msg.set_m_costcontribute((int32_t)m_CostContribute);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_GuildCollegeAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
@@ -948,12 +948,12 @@ void E_GuildCollege_s::write_to_pbmsg(::proto_ff::E_GuildCollege & msg) const {
 void E_GuildCollege_s::read_from_pbmsg(const ::proto_ff::E_GuildCollege & msg) {
 	m_uid = msg.m_uid();
 	m_skillid = msg.m_skillid();
-	m_skilllv = msg.m_skilllv();
-	m_guildlv = msg.m_guildlv();
-	m_playerlvlimit = msg.m_playerlvlimit();
-	m_preskillid = msg.m_preskillid();
-	m_preskilllv = msg.m_preskilllv();
-	m_costcontribute = msg.m_costcontribute();
+	m_skillLv = msg.m_skilllv();
+	m_guildLv = msg.m_guildlv();
+	m_playerLvLimit = msg.m_playerlvlimit();
+	m_preSkillid = msg.m_preskillid();
+	m_preSkillLv = msg.m_preskilllv();
+	m_CostContribute = msg.m_costcontribute();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_GuildCollegeAttributeDesc & temp_m_attribute = msg.m_attribute(i);
@@ -1061,10 +1061,10 @@ E_GuildRank_reward_s::E_GuildRank_reward_s() {
 int E_GuildRank_reward_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_type = (int32_t)0;
-	m_rankmin = (int32_t)0;
-	m_rankmax = (int32_t)0;
-	m_lvmin = (int32_t)0;
-	m_rewards = (int32_t)0;
+	m_rankMin = (int32_t)0;
+	m_rankMax = (int32_t)0;
+	m_lvMin = (int32_t)0;
+	m_rewardS = (int32_t)0;
 	return 0;
 }
 
@@ -1076,20 +1076,20 @@ void E_GuildRank_reward_s::write_to_pbmsg(::proto_ff::E_GuildRank_reward & msg) 
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_note(m_note.data());
-	msg.set_m_rankmin((int32_t)m_rankmin);
-	msg.set_m_rankmax((int32_t)m_rankmax);
-	msg.set_m_lvmin((int32_t)m_lvmin);
-	msg.set_m_rewards((int32_t)m_rewards);
+	msg.set_m_rankmin((int32_t)m_rankMin);
+	msg.set_m_rankmax((int32_t)m_rankMax);
+	msg.set_m_lvmin((int32_t)m_lvMin);
+	msg.set_m_rewards((int32_t)m_rewardS);
 }
 
 void E_GuildRank_reward_s::read_from_pbmsg(const ::proto_ff::E_GuildRank_reward & msg) {
 	m_id = msg.m_id();
 	m_type = msg.m_type();
 	m_note = msg.m_note();
-	m_rankmin = msg.m_rankmin();
-	m_rankmax = msg.m_rankmax();
-	m_lvmin = msg.m_lvmin();
-	m_rewards = msg.m_rewards();
+	m_rankMin = msg.m_rankmin();
+	m_rankMax = msg.m_rankmax();
+	m_lvMin = msg.m_lvmin();
+	m_rewardS = msg.m_rewards();
 }
 
 Sheet_GuildRank_reward_s::Sheet_GuildRank_reward_s() {
@@ -1132,8 +1132,8 @@ E_GuildShouhskillRewardDesc_s::E_GuildShouhskillRewardDesc_s() {
 }
 
 int E_GuildShouhskillRewardDesc_s::CreateInit() {
-	m_num = (int32_t)0;
-	m_id = (int32_t)0;
+	m_Num = (int32_t)0;
+	m_Id = (int32_t)0;
 	return 0;
 }
 
@@ -1142,13 +1142,13 @@ int E_GuildShouhskillRewardDesc_s::ResumeInit() {
 }
 
 void E_GuildShouhskillRewardDesc_s::write_to_pbmsg(::proto_ff::E_GuildShouhskillRewardDesc & msg) const {
-	msg.set_m_num((int32_t)m_num);
-	msg.set_m_id((int32_t)m_id);
+	msg.set_m_num((int32_t)m_Num);
+	msg.set_m_id((int32_t)m_Id);
 }
 
 void E_GuildShouhskillRewardDesc_s::read_from_pbmsg(const ::proto_ff::E_GuildShouhskillRewardDesc & msg) {
-	m_num = msg.m_num();
-	m_id = msg.m_id();
+	m_Num = msg.m_num();
+	m_Id = msg.m_id();
 }
 
 E_GuildShouhskill_s::E_GuildShouhskill_s() {
@@ -1161,8 +1161,8 @@ E_GuildShouhskill_s::E_GuildShouhskill_s() {
 
 int E_GuildShouhskill_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_costid = (int32_t)0;
-	m_costnum = (int32_t)0;
+	m_costId = (int32_t)0;
+	m_costNum = (int32_t)0;
 	m_skillid = (int32_t)0;
 	m_times = (int32_t)0;
 	return 0;
@@ -1175,8 +1175,8 @@ int E_GuildShouhskill_s::ResumeInit() {
 void E_GuildShouhskill_s::write_to_pbmsg(::proto_ff::E_GuildShouhskill & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_name(m_name.data());
-	msg.set_m_costid((int32_t)m_costid);
-	msg.set_m_costnum((int32_t)m_costnum);
+	msg.set_m_costid((int32_t)m_costId);
+	msg.set_m_costnum((int32_t)m_costNum);
 	msg.set_m_skillid((int32_t)m_skillid);
 	msg.set_m_times((int32_t)m_times);
 	for(int32_t i = 0; i < (int32_t)m_reward.size(); ++i) {
@@ -1188,8 +1188,8 @@ void E_GuildShouhskill_s::write_to_pbmsg(::proto_ff::E_GuildShouhskill & msg) co
 void E_GuildShouhskill_s::read_from_pbmsg(const ::proto_ff::E_GuildShouhskill & msg) {
 	m_id = msg.m_id();
 	m_name = msg.m_name();
-	m_costid = msg.m_costid();
-	m_costnum = msg.m_costnum();
+	m_costId = msg.m_costid();
+	m_costNum = msg.m_costnum();
 	m_skillid = msg.m_skillid();
 	m_times = msg.m_times();
 	m_reward.resize((int)msg.m_reward_size() > (int)m_reward.max_size() ? m_reward.max_size() : msg.m_reward_size());
@@ -1252,7 +1252,7 @@ void E_GuildGwreward_s::write_to_pbmsg(::proto_ff::E_GuildGwreward & msg) const 
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_reward(m_reward.data());
-	msg.set_m_crossreward(m_crossreward.data());
+	msg.set_m_crossreward(m_Crossreward.data());
 	for(int32_t i = 0; i < (int32_t)m_arg.size(); ++i) {
 		msg.add_m_arg((int32_t)m_arg[i]);
 	}
@@ -1262,7 +1262,7 @@ void E_GuildGwreward_s::read_from_pbmsg(const ::proto_ff::E_GuildGwreward & msg)
 	m_id = msg.m_id();
 	m_type = msg.m_type();
 	m_reward = msg.m_reward();
-	m_crossreward = msg.m_crossreward();
+	m_Crossreward = msg.m_crossreward();
 	m_arg.resize((int)msg.m_arg_size() > (int)m_arg.max_size() ? m_arg.max_size() : msg.m_arg_size());
 	for(int32_t i = 0; i < (int32_t)m_arg.size(); ++i) {
 		m_arg[i] = msg.m_arg(i);
@@ -1310,10 +1310,10 @@ E_GuildGwwinstreak_s::E_GuildGwwinstreak_s() {
 
 int E_GuildGwwinstreak_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_winstreak = (int32_t)0;
-	m_winreward = (int32_t)0;
-	m_endreward = (int32_t)0;
-	m_challengeskill = (int32_t)0;
+	m_winStreak = (int32_t)0;
+	m_winReward = (int32_t)0;
+	m_endReward = (int32_t)0;
+	m_challengeSkill = (int32_t)0;
 	return 0;
 }
 
@@ -1323,18 +1323,18 @@ int E_GuildGwwinstreak_s::ResumeInit() {
 
 void E_GuildGwwinstreak_s::write_to_pbmsg(::proto_ff::E_GuildGwwinstreak & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_winstreak((int32_t)m_winstreak);
-	msg.set_m_winreward((int32_t)m_winreward);
-	msg.set_m_endreward((int32_t)m_endreward);
-	msg.set_m_challengeskill((int32_t)m_challengeskill);
+	msg.set_m_winstreak((int32_t)m_winStreak);
+	msg.set_m_winreward((int32_t)m_winReward);
+	msg.set_m_endreward((int32_t)m_endReward);
+	msg.set_m_challengeskill((int32_t)m_challengeSkill);
 }
 
 void E_GuildGwwinstreak_s::read_from_pbmsg(const ::proto_ff::E_GuildGwwinstreak & msg) {
 	m_id = msg.m_id();
-	m_winstreak = msg.m_winstreak();
-	m_winreward = msg.m_winreward();
-	m_endreward = msg.m_endreward();
-	m_challengeskill = msg.m_challengeskill();
+	m_winStreak = msg.m_winstreak();
+	m_winReward = msg.m_winreward();
+	m_endReward = msg.m_endreward();
+	m_challengeSkill = msg.m_challengeskill();
 }
 
 Sheet_GuildGwwinstreak_s::Sheet_GuildGwwinstreak_s() {
@@ -1379,8 +1379,8 @@ E_GuildTtower_s::E_GuildTtower_s() {
 int E_GuildTtower_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_dupid = (int32_t)0;
-	m_breakbox = (int32_t)0;
-	m_clearbox = (int32_t)0;
+	m_breakBox = (int32_t)0;
+	m_clearBox = (int32_t)0;
 	return 0;
 }
 
@@ -1391,15 +1391,15 @@ int E_GuildTtower_s::ResumeInit() {
 void E_GuildTtower_s::write_to_pbmsg(::proto_ff::E_GuildTtower & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_dupid((int32_t)m_dupid);
-	msg.set_m_breakbox((int32_t)m_breakbox);
-	msg.set_m_clearbox((int32_t)m_clearbox);
+	msg.set_m_breakbox((int32_t)m_breakBox);
+	msg.set_m_clearbox((int32_t)m_clearBox);
 }
 
 void E_GuildTtower_s::read_from_pbmsg(const ::proto_ff::E_GuildTtower & msg) {
 	m_id = msg.m_id();
 	m_dupid = msg.m_dupid();
-	m_breakbox = msg.m_breakbox();
-	m_clearbox = msg.m_clearbox();
+	m_breakBox = msg.m_breakbox();
+	m_clearBox = msg.m_clearbox();
 }
 
 Sheet_GuildTtower_s::Sheet_GuildTtower_s() {

@@ -939,121 +939,121 @@ void protobuf_AddDesc_E_5fRole_2eproto() {
     " \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\032\n\006m_name\030\002 \001(\003B\n\302\377\024\006\345\220"
     "\215\347\247\260\"K\n\022E_RoleBornMailDesc\022\031\n\005m_num\030\001 \001("
     "\005B\n\302\377\024\006\346\225\260\351\207\217\022\032\n\006m_name\030\002 \001(\003B\n\302\377\024\006\345\220\215\347\247"
-    "\260\"\270\016\n\nE_RoleBorn\022\036\n\010m_bornid\030\001 \001(\003B\014\302\377\024\010"
-    "\344\270\273\351\224\256ID\022$\n\016m_professionid\030\002 \001(\005B\014\302\377\024\010\350\201"
-    "\214\344\270\232ID\022.\n\020m_professionname\030\003 \001(\tB\024\302\377\024\014\350\201"
+    "\260\"\270\016\n\nE_RoleBorn\022\036\n\010m_bornID\030\001 \001(\003B\014\302\377\024\010"
+    "\344\270\273\351\224\256ID\022$\n\016m_professionID\030\002 \001(\005B\014\302\377\024\010\350\201"
+    "\214\344\270\232ID\022.\n\020m_professionName\030\003 \001(\tB\024\302\377\024\014\350\201"
     "\214\344\270\232\345\220\215\347\247\260\220\301\024@\022)\n\013m_placement\030\004 \001(\tB\024\302\377\024"
     "\014\350\201\214\344\270\232\344\273\213\347\273\215\220\301\024@\022\034\n\010m_gender\030\005 \001(\005B\n\302\377\024"
-    "\006\346\200\247\345\210\253\022%\n\013m_bornlevel\030\006 \001(\005B\020\302\377\024\014\345\207\272\347\224\237"
-    "\347\255\211\347\272\247\022%\n\013m_borntitle\030\007 \001(\005B\020\302\377\024\014\346\220\272\345\270\246\347"
+    "\006\346\200\247\345\210\253\022%\n\013m_bornLevel\030\006 \001(\005B\020\302\377\024\014\345\207\272\347\224\237"
+    "\347\255\211\347\272\247\022%\n\013m_bornTitle\030\007 \001(\005B\020\302\377\024\014\346\220\272\345\270\246\347"
     "\247\260\345\217\267\022#\n\tm_diamond\030\010 \001(\003B\020\302\377\024\014\346\220\272\345\270\246\351\222\273\347"
-    "\237\263\022-\n\rm_binddiamond\030\t \001(\003B\026\302\377\024\022\346\220\272\345\270\246\347\273\221"
+    "\237\263\022-\n\rm_bindDiamond\030\t \001(\003B\026\302\377\024\022\346\220\272\345\270\246\347\273\221"
     "\345\256\232\351\222\273\347\237\263\022 \n\006m_gold\030\n \001(\003B\020\302\377\024\014\346\220\272\345\270\246\351\207\221"
-    "\345\270\201\022#\n\007m_mapid\030\013 \001(\003B\022\302\377\024\016\345\207\272\347\224\237\345\234\260\345\233\276ID"
-    "\022%\n\013m_birthface\030\014 \001(\005B\020\302\377\024\014\345\207\272\347\224\237\346\234\235\345\220\221\022"
+    "\345\270\201\022#\n\007m_mapID\030\013 \001(\003B\022\302\377\024\016\345\207\272\347\224\237\345\234\260\345\233\276ID"
+    "\022%\n\013m_birthFace\030\014 \001(\005B\020\302\377\024\014\345\207\272\347\224\237\346\234\235\345\220\221\022"
     "%\n\007m_icons\030\r \001(\tB\024\302\377\024\014\345\244\264\345\203\217\345\233\276\346\240\207\220\301\024@\0220"
-    "\n\014m_loginavata\030\016 \001(\tB\032\302\377\024\022\345\210\233\350\247\222\347\225\214\351\235\242\346\250"
+    "\n\014m_loginAvata\030\016 \001(\tB\032\302\377\024\022\345\210\233\350\247\222\347\225\214\351\235\242\346\250"
     "\241\345\236\213\220\301\024@\0225\n\013m_newweapon\030\017 \001(\tB \302\377\024\030\346\226\260\346\211"
     "\213\345\211\257\346\234\254\346\255\246\345\231\250\346\250\241\345\236\213\220\301\024@\0227\n\rm_newclothing"
     "\030\020 \001(\tB \302\377\024\030\346\226\260\346\211\213\345\211\257\346\234\254\350\241\243\346\234\215\346\250\241\345\236\213\220\301\024@"
-    "\0224\n\rm_weaponavata\030\021 \001(\tB\035\302\377\024\025\345\207\272\347\224\237\346\227\266\346\255"
-    "\246\345\231\250\346\250\241\345\236\213\220\301\024@\022,\n\013m_roleavata\030\022 \001(\tB\027\302\377\024"
-    "\017\345\207\272\347\224\237\346\227\266\346\250\241\345\236\213\220\301\024@\022-\n\014m_marryavata\030\023 \001"
-    "(\tB\027\302\377\024\017\345\207\272\347\224\237\346\227\266\346\250\241\345\236\213\220\301\024@\022%\n\013m_haircol"
-    "or\030\024 \001(\005B\020\302\377\024\014\345\244\264\345\217\221\350\211\262\345\200\274\022(\n\016m_clothesc"
-    "olor\030\025 \001(\005B\020\302\377\024\014\350\241\243\346\234\215\350\211\262\345\200\274\022%\n\013m_skinco"
-    "lor\030\026 \001(\005B\020\302\377\024\014\347\232\256\350\202\244\350\211\262\345\200\274\022(\n\016m_carrywe"
+    "\0224\n\rm_weaponAvata\030\021 \001(\tB\035\302\377\024\025\345\207\272\347\224\237\346\227\266\346\255"
+    "\246\345\231\250\346\250\241\345\236\213\220\301\024@\022,\n\013m_roleAvata\030\022 \001(\tB\027\302\377\024"
+    "\017\345\207\272\347\224\237\346\227\266\346\250\241\345\236\213\220\301\024@\022-\n\014m_marryAvata\030\023 \001"
+    "(\tB\027\302\377\024\017\345\207\272\347\224\237\346\227\266\346\250\241\345\236\213\220\301\024@\022%\n\013m_hairCol"
+    "or\030\024 \001(\005B\020\302\377\024\014\345\244\264\345\217\221\350\211\262\345\200\274\022(\n\016m_clothesC"
+    "olor\030\025 \001(\005B\020\302\377\024\014\350\241\243\346\234\215\350\211\262\345\200\274\022%\n\013m_skinCo"
+    "lor\030\026 \001(\005B\020\302\377\024\014\347\232\256\350\202\244\350\211\262\345\200\274\022(\n\016m_carryWe"
     "apons\030\027 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\346\255\246\345\231\250\022&\n\014m_carry"
-    "armor\030\030 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\350\241\243\346\234\215\022&\n\014m_carry"
-    "cloak\030\031 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\346\212\253\351\243\216\022&\n\014m_carry"
-    "shoes\030\032 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\351\236\213\345\255\220\022)\n\017m_carry"
-    "necklace\030\033 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\351\241\271\351\223\276\022\'\n\rm_ca"
-    "rryamulet\030\034 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\346\212\244\347\254\246\022\'\n\rm_c"
-    "arrybracer\030\035 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\346\212\244\350\205\225\022%\n\013m_"
-    "carryring\030\036 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\346\210\222\346\214\207\022;\n\025m_c"
-    "arryfashionweapons\030\037 \001(\003B\034\302\377\024\030\350\243\205\345\244\207\346\227\266\350"
-    "\243\205\357\274\210\346\255\246\345\231\250\357\274\211\0229\n\023m_carryfashionarmor\030  "
+    "Armor\030\030 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\350\241\243\346\234\215\022&\n\014m_carry"
+    "Cloak\030\031 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\346\212\253\351\243\216\022&\n\014m_carry"
+    "Shoes\030\032 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\351\236\213\345\255\220\022)\n\017m_carry"
+    "Necklace\030\033 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\351\241\271\351\223\276\022\'\n\rm_ca"
+    "rryAmulet\030\034 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\346\212\244\347\254\246\022\'\n\rm_c"
+    "arryBracer\030\035 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\346\212\244\350\205\225\022%\n\013m_"
+    "carryRing\030\036 \001(\003B\020\302\377\024\014\350\243\205\345\244\207\346\210\222\346\214\207\022;\n\025m_c"
+    "arryFashionWeapons\030\037 \001(\003B\034\302\377\024\030\350\243\205\345\244\207\346\227\266\350"
+    "\243\205\357\274\210\346\255\246\345\231\250\357\274\211\0229\n\023m_carryFashionArmor\030  "
     "\001(\003B\034\302\377\024\030\350\243\205\345\244\207\346\227\266\350\243\205\357\274\210\350\241\243\346\234\215\357\274\211\022 \n\014m_c"
-    "arrywings\030! \001(\003B\n\302\377\024\006\347\277\205\350\206\200\022(\n\010m_mspeed\030"
+    "arryWings\030! \001(\003B\n\302\377\024\006\347\277\205\350\206\200\022(\n\010m_mSpeed\030"
     "\" \001(\005B\026\302\377\024\022\345\210\235\345\247\213\347\247\273\345\212\250\351\200\237\345\272\246\022\032\n\006m_view\030"
     "# \001(\005B\n\302\377\024\006\350\247\206\351\207\216\022\"\n\010m_radius\030$ \001(\005B\020\302\377\024"
     "\014\344\272\272\347\211\251\345\215\212\345\276\204\022\036\n\007m_group\030% \001(\005B\r\302\377\024\t\346\212\200\350"
     "\203\275\347\273\204\022!\n\007m_sheny\030& \001(\003B\020\302\377\024\014\347\245\236\350\243\205\350\241\243\346\234\215"
     "\022!\n\007m_shenw\030\' \001(\003B\020\302\377\024\014\347\245\236\350\243\205\346\255\246\345\231\250\022%\n\tm"
-    "_actbuff\030( \003(\005B\022\302\377\024\n\347\224\237\346\210\220buff\210\301\024\004\022(\n\nm_"
-    "actskill\030) \003(\003B\024\302\377\024\014\347\224\237\346\210\220\346\212\200\350\203\275\210\301\024\016\022B\n\006"
+    "_actBuff\030( \003(\005B\022\302\377\024\n\347\224\237\346\210\220buff\210\301\024\004\022(\n\nm_"
+    "actSkill\030) \003(\003B\024\302\377\024\014\347\224\237\346\210\220\346\212\200\350\203\275\210\301\024\016\022B\n\006"
     "m_item\030* \003(\0132\034.proto_ff.E_RoleBornItemDe"
     "scB\024\302\377\024\014\350\203\214\345\214\205\347\211\251\345\223\201\210\301\024#\022B\n\006m_mail\030+ \003(\013"
     "2\034.proto_ff.E_RoleBornMailDescB\024\302\377\024\014\351\202\256\344"
     "\273\266\347\211\251\345\223\201\210\301\024\001\"E\n\016Sheet_RoleBorn\0223\n\017E_Role"
     "Born_List\030\001 \003(\0132\024.proto_ff.E_RoleBornB\004\210"
     "\301\024\020\"U\n\035E_RoleMastermaleAttributeDesc\022\030\n\007"
-    "m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n"
+    "m_Value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_Type\030\002 \001(\005B\n"
     "\302\377\024\006\347\261\273\345\236\213\"\260\001\n\020E_RoleMastermale\022\036\n\004m_lv\030"
-    "\001 \001(\005B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\016m_upgradepoin"
+    "\001 \001(\005B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\016m_upgradePoin"
     "t\030\002 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022L\n\013m_att"
     "ribute\030\003 \003(\0132\'.proto_ff.E_RoleMastermale"
     "AttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024F\"X\n\024Sheet_R"
     "oleMastermale\022@\n\025E_RoleMastermale_List\030\001"
     " \003(\0132\032.proto_ff.E_RoleMastermaleB\005\210\301\024\200\020\""
     "W\n\037E_RoleMasterfemaleAttributeDesc\022\030\n\007m_"
-    "value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302\377"
+    "Value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_Type\030\002 \001(\005B\n\302\377"
     "\024\006\347\261\273\345\236\213\"\264\001\n\022E_RoleMasterfemale\022\036\n\004m_lv\030"
-    "\001 \001(\005B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\016m_upgradepoin"
+    "\001 \001(\005B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\016m_upgradePoin"
     "t\030\002 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022N\n\013m_att"
     "ribute\030\003 \003(\0132).proto_ff.E_RoleMasterfema"
     "leAttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024F\"^\n\026Sheet"
     "_RoleMasterfemale\022D\n\027E_RoleMasterfemale_"
     "List\030\001 \003(\0132\034.proto_ff.E_RoleMasterfemale"
     "B\005\210\301\024\200\020\"U\n\035E_RoleSicklemaleAttributeDesc"
-    "\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001"
+    "\022\030\n\007m_Value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_Type\030\002 \001"
     "(\005B\n\302\377\024\006\347\261\273\345\236\213\"\260\001\n\020E_RoleSicklemale\022\036\n\004m"
     "_lv\030\001 \001(\005B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\016m_upgrade"
-    "point\030\002 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022L\n\013m"
+    "Point\030\002 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022L\n\013m"
     "_attribute\030\003 \003(\0132\'.proto_ff.E_RoleSickle"
     "maleAttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024F\"X\n\024She"
     "et_RoleSicklemale\022@\n\025E_RoleSicklemale_Li"
     "st\030\001 \003(\0132\032.proto_ff.E_RoleSicklemaleB\005\210\301"
     "\024\200\020\"W\n\037E_RoleSicklefemaleAttributeDesc\022\030"
-    "\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005"
+    "\n\007m_Value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_Type\030\002 \001(\005"
     "B\n\302\377\024\006\347\261\273\345\236\213\"\264\001\n\022E_RoleSicklefemale\022\036\n\004m"
     "_lv\030\001 \001(\005B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\016m_upgrade"
-    "point\030\002 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022N\n\013m"
+    "Point\030\002 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022N\n\013m"
     "_attribute\030\003 \003(\0132).proto_ff.E_RoleSickle"
     "femaleAttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024F\"^\n\026S"
     "heet_RoleSicklefemale\022D\n\027E_RoleSicklefem"
     "ale_List\030\001 \003(\0132\034.proto_ff.E_RoleSicklefe"
     "maleB\005\210\301\024\200\020\"T\n\034E_RoleSwordmaleAttributeD"
-    "esc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030"
+    "esc\022\030\n\007m_Value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_Type\030"
     "\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"\256\001\n\017E_RoleSwordmale\022\036\n"
     "\004m_lv\030\001 \001(\005B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\016m_upgra"
-    "depoint\030\002 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022K\n"
+    "dePoint\030\002 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022K\n"
     "\013m_attribute\030\003 \003(\0132&.proto_ff.E_RoleSwor"
     "dmaleAttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024F\"U\n\023Sh"
     "eet_RoleSwordmale\022>\n\024E_RoleSwordmale_Lis"
     "t\030\001 \003(\0132\031.proto_ff.E_RoleSwordmaleB\005\210\301\024\200"
     "\020\"V\n\036E_RoleSwordfemaleAttributeDesc\022\030\n\007m"
-    "_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302"
+    "_Value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_Type\030\002 \001(\005B\n\302"
     "\377\024\006\347\261\273\345\236\213\"\262\001\n\021E_RoleSwordfemale\022\036\n\004m_lv\030"
-    "\001 \001(\005B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\016m_upgradepoin"
+    "\001 \001(\005B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\016m_upgradePoin"
     "t\030\002 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022M\n\013m_att"
     "ribute\030\003 \003(\0132(.proto_ff.E_RoleSwordfemal"
     "eAttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024F\"[\n\025Sheet_"
     "RoleSwordfemale\022B\n\026E_RoleSwordfemale_Lis"
     "t\030\001 \003(\0132\033.proto_ff.E_RoleSwordfemaleB\005\210\301"
     "\024\200\020\"U\n\035E_RoleTaidaomaleAttributeDesc\022\030\n\007"
-    "m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n"
+    "m_Value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_Type\030\002 \001(\005B\n"
     "\302\377\024\006\347\261\273\345\236\213\"\260\001\n\020E_RoleTaidaomale\022\036\n\004m_lv\030"
-    "\001 \001(\005B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\016m_upgradepoin"
+    "\001 \001(\005B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\016m_upgradePoin"
     "t\030\002 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022L\n\013m_att"
     "ribute\030\003 \003(\0132\'.proto_ff.E_RoleTaidaomale"
     "AttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024F\"X\n\024Sheet_R"
     "oleTaidaomale\022@\n\025E_RoleTaidaomale_List\030\001"
     " \003(\0132\032.proto_ff.E_RoleTaidaomaleB\005\210\301\024\200\020\""
     "W\n\037E_RoleTaidaofemaleAttributeDesc\022\030\n\007m_"
-    "value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302\377"
+    "Value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_Type\030\002 \001(\005B\n\302\377"
     "\024\006\347\261\273\345\236\213\"\264\001\n\022E_RoleTaidaofemale\022\036\n\004m_lv\030"
-    "\001 \001(\005B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\016m_upgradepoin"
+    "\001 \001(\005B\020\302\377\024\014\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\016m_upgradePoin"
     "t\030\002 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\350\216\267\345\276\227\347\202\271\346\225\260\022N\n\013m_att"
     "ribute\030\003 \003(\0132).proto_ff.E_RoleTaidaofema"
     "leAttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024F\"^\n\026Sheet"
@@ -1061,30 +1061,30 @@ void protobuf_AddDesc_E_5fRole_2eproto() {
     "List\030\001 \003(\0132\034.proto_ff.E_RoleTaidaofemale"
     "B\005\210\301\024\200\020\"\255\004\n\tE_RoleExp\022\030\n\004m_lv\030\001 \001(\005B\n\302\377\024"
     "\006\347\255\211\347\272\247\0221\n\005m_exp\030\002 \001(\003B\"\302\377\024\036\345\275\223\345\211\215\347\255\211\347\272\247"
-    "\345\215\207\347\272\247\351\234\200\350\246\201\347\273\217\351\252\214\022#\n\014m_skillpoint\030\003 \001(\005"
-    "B\r\302\377\024\t\345\244\251\350\265\213\347\202\271\022=\n\021m_preparemodedexp\030\004 \001"
+    "\345\215\207\347\272\247\351\234\200\350\246\201\347\273\217\351\252\214\022#\n\014m_skillPoint\030\003 \001(\005"
+    "B\r\302\377\024\t\345\244\251\350\265\213\347\202\271\022=\n\021m_prepareModeDexp\030\004 \001"
     "(\005B\"\302\377\024\036\346\264\273\345\212\250\347\216\251\346\263\225\345\234\272\345\234\260\345\212\250\346\200\201\347\273\217\351\252\214\022!"
     "\n\nm_fengshen\030\005 \001(\005B\r\302\377\024\t\345\260\201\347\245\236\345\217\260\022\037\n\005m_p"
     "et\030\006 \001(\005B\020\302\377\024\014\345\256\240\347\211\251\345\211\257\346\234\254\022\037\n\010m_dragon\030\007"
     " \001(\005B\r\302\377\024\t\345\205\273\351\276\231\345\257\272\022!\n\007m_equip\030\010 \001(\005B\020\302\377"
     "\024\014\350\243\205\345\244\207\345\211\257\346\234\254\022\036\n\007m_arena\030\t \001(\005B\r\302\377\024\t\347\253\236"
     "\346\212\200\345\234\272\022\034\n\006m_solo\030\n \001(\005B\014\302\377\024\010\345\215\225\344\272\272pk\022$\n\r"
-    "m_multibattle\030\013 \001(\005B\r\302\377\024\t\344\270\211\344\272\272\347\273\204\022#\n\tm_"
+    "m_multiBattle\030\013 \001(\005B\r\302\377\024\t\344\270\211\344\272\272\347\273\204\022#\n\tm_"
     "qingyun\030\014 \001(\005B\020\302\377\024\014\351\235\222\344\272\221\344\271\213\345\267\205\022\034\n\010m_yao"
     "chi\030\r \001(\005B\n\302\377\024\006\347\221\266\346\261\240\022\035\n\tm_wedding\030\016 \001(\005"
     "B\n\302\377\024\006\345\251\232\347\244\274\022!\n\007m_bagua\030\017 \001(\005B\020\302\377\024\014\345\205\253\345\215"
     "\246\350\277\267\351\230\265\"C\n\rSheet_RoleExp\0222\n\016E_RoleExp_Li"
     "st\030\001 \003(\0132\023.proto_ff.E_RoleExpB\005\210\301\024\200\020\"Y\n\017"
-    "E_RoleSkilltype\022\037\n\tm_skillid\030\001 \001(\003B\014\302\377\024\010"
-    "\346\212\200\350\203\275ID\022%\n\013m_skilltype\030\002 \001(\005B\020\302\377\024\014\346\212\200\350\203"
+    "E_RoleSkilltype\022\037\n\tm_skillId\030\001 \001(\003B\014\302\377\024\010"
+    "\346\212\200\350\203\275ID\022%\n\013m_skillType\030\002 \001(\005B\020\302\377\024\014\346\212\200\350\203"
     "\275\347\261\273\345\236\213\"U\n\023Sheet_RoleSkilltype\022>\n\024E_Role"
     "Skilltype_List\030\001 \003(\0132\031.proto_ff.E_RoleSk"
-    "illtypeB\005\210\301\024\200\001\"K\n\016E_RoleAddskill\022\024\n\004m_id"
-    "\030\001 \001(\005B\006\302\377\024\002ID\022#\n\tm_skillid\030\002 \001(\003B\020\302\377\024\014\346"
+    "illtypeB\005\210\301\024\200\001\"K\n\016E_RoleAddskill\022\024\n\004m_Id"
+    "\030\001 \001(\005B\006\302\377\024\002ID\022#\n\tm_skillId\030\002 \001(\003B\020\302\377\024\014\346"
     "\212\200\350\203\275\347\261\273\345\236\213\"Q\n\022Sheet_RoleAddskill\022;\n\023E_R"
     "oleAddskill_List\030\001 \003(\0132\030.proto_ff.E_Role"
     "AddskillB\004\210\301\024\002\"S\n\016E_RoleWorldexp\022\033\n\004m_lv"
-    "\030\001 \001(\003B\r\302\377\024\t\347\255\211\347\272\247\345\267\256\022$\n\nm_worldexp\030\002 \001("
+    "\030\001 \001(\003B\r\302\377\024\t\347\255\211\347\272\247\345\267\256\022$\n\nm_worldExp\030\002 \001("
     "\005B\020\302\377\024\014\347\273\217\351\252\214\345\212\240\346\210\220\"R\n\022Sheet_RoleWorldex"
     "p\022<\n\023E_RoleWorldexp_List\030\001 \003(\0132\030.proto_f"
     "f.E_RoleWorldexpB\005\210\301\024\200\004", 6143);
@@ -1671,47 +1671,47 @@ void E_RoleBornMailDesc::Swap(E_RoleBornMailDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_RoleBorn::kMBornidFieldNumber;
-const int E_RoleBorn::kMProfessionidFieldNumber;
-const int E_RoleBorn::kMProfessionnameFieldNumber;
+const int E_RoleBorn::kMBornIDFieldNumber;
+const int E_RoleBorn::kMProfessionIDFieldNumber;
+const int E_RoleBorn::kMProfessionNameFieldNumber;
 const int E_RoleBorn::kMPlacementFieldNumber;
 const int E_RoleBorn::kMGenderFieldNumber;
-const int E_RoleBorn::kMBornlevelFieldNumber;
-const int E_RoleBorn::kMBorntitleFieldNumber;
+const int E_RoleBorn::kMBornLevelFieldNumber;
+const int E_RoleBorn::kMBornTitleFieldNumber;
 const int E_RoleBorn::kMDiamondFieldNumber;
-const int E_RoleBorn::kMBinddiamondFieldNumber;
+const int E_RoleBorn::kMBindDiamondFieldNumber;
 const int E_RoleBorn::kMGoldFieldNumber;
-const int E_RoleBorn::kMMapidFieldNumber;
-const int E_RoleBorn::kMBirthfaceFieldNumber;
+const int E_RoleBorn::kMMapIDFieldNumber;
+const int E_RoleBorn::kMBirthFaceFieldNumber;
 const int E_RoleBorn::kMIconsFieldNumber;
-const int E_RoleBorn::kMLoginavataFieldNumber;
+const int E_RoleBorn::kMLoginAvataFieldNumber;
 const int E_RoleBorn::kMNewweaponFieldNumber;
 const int E_RoleBorn::kMNewclothingFieldNumber;
-const int E_RoleBorn::kMWeaponavataFieldNumber;
-const int E_RoleBorn::kMRoleavataFieldNumber;
-const int E_RoleBorn::kMMarryavataFieldNumber;
-const int E_RoleBorn::kMHaircolorFieldNumber;
-const int E_RoleBorn::kMClothescolorFieldNumber;
-const int E_RoleBorn::kMSkincolorFieldNumber;
-const int E_RoleBorn::kMCarryweaponsFieldNumber;
-const int E_RoleBorn::kMCarryarmorFieldNumber;
-const int E_RoleBorn::kMCarrycloakFieldNumber;
-const int E_RoleBorn::kMCarryshoesFieldNumber;
-const int E_RoleBorn::kMCarrynecklaceFieldNumber;
-const int E_RoleBorn::kMCarryamuletFieldNumber;
-const int E_RoleBorn::kMCarrybracerFieldNumber;
-const int E_RoleBorn::kMCarryringFieldNumber;
-const int E_RoleBorn::kMCarryfashionweaponsFieldNumber;
-const int E_RoleBorn::kMCarryfashionarmorFieldNumber;
-const int E_RoleBorn::kMCarrywingsFieldNumber;
-const int E_RoleBorn::kMMspeedFieldNumber;
+const int E_RoleBorn::kMWeaponAvataFieldNumber;
+const int E_RoleBorn::kMRoleAvataFieldNumber;
+const int E_RoleBorn::kMMarryAvataFieldNumber;
+const int E_RoleBorn::kMHairColorFieldNumber;
+const int E_RoleBorn::kMClothesColorFieldNumber;
+const int E_RoleBorn::kMSkinColorFieldNumber;
+const int E_RoleBorn::kMCarryWeaponsFieldNumber;
+const int E_RoleBorn::kMCarryArmorFieldNumber;
+const int E_RoleBorn::kMCarryCloakFieldNumber;
+const int E_RoleBorn::kMCarryShoesFieldNumber;
+const int E_RoleBorn::kMCarryNecklaceFieldNumber;
+const int E_RoleBorn::kMCarryAmuletFieldNumber;
+const int E_RoleBorn::kMCarryBracerFieldNumber;
+const int E_RoleBorn::kMCarryRingFieldNumber;
+const int E_RoleBorn::kMCarryFashionWeaponsFieldNumber;
+const int E_RoleBorn::kMCarryFashionArmorFieldNumber;
+const int E_RoleBorn::kMCarryWingsFieldNumber;
+const int E_RoleBorn::kMMSpeedFieldNumber;
 const int E_RoleBorn::kMViewFieldNumber;
 const int E_RoleBorn::kMRadiusFieldNumber;
 const int E_RoleBorn::kMGroupFieldNumber;
 const int E_RoleBorn::kMShenyFieldNumber;
 const int E_RoleBorn::kMShenwFieldNumber;
-const int E_RoleBorn::kMActbuffFieldNumber;
-const int E_RoleBorn::kMActskillFieldNumber;
+const int E_RoleBorn::kMActBuffFieldNumber;
+const int E_RoleBorn::kMActSkillFieldNumber;
 const int E_RoleBorn::kMItemFieldNumber;
 const int E_RoleBorn::kMMailFieldNumber;
 #endif  // !_MSC_VER
@@ -1931,7 +1931,7 @@ bool E_RoleBorn::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 m_bornid = 1;
+      // optional int64 m_bornID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -1942,15 +1942,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_professionid;
+        if (input->ExpectTag(16)) goto parse_m_professionID;
         break;
       }
 
-      // optional int32 m_professionid = 2;
+      // optional int32 m_professionID = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_professionid:
+         parse_m_professionID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_professionid_)));
@@ -1958,15 +1958,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_m_professionname;
+        if (input->ExpectTag(26)) goto parse_m_professionName;
         break;
       }
 
-      // optional string m_professionname = 3;
+      // optional string m_professionName = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_professionname:
+         parse_m_professionName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_professionname()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -2008,15 +2008,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_bornlevel;
+        if (input->ExpectTag(48)) goto parse_m_bornLevel;
         break;
       }
 
-      // optional int32 m_bornlevel = 6;
+      // optional int32 m_bornLevel = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_bornlevel:
+         parse_m_bornLevel:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_bornlevel_)));
@@ -2024,15 +2024,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_borntitle;
+        if (input->ExpectTag(56)) goto parse_m_bornTitle;
         break;
       }
 
-      // optional int32 m_borntitle = 7;
+      // optional int32 m_bornTitle = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_borntitle:
+         parse_m_bornTitle:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_borntitle_)));
@@ -2056,15 +2056,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_binddiamond;
+        if (input->ExpectTag(72)) goto parse_m_bindDiamond;
         break;
       }
 
-      // optional int64 m_binddiamond = 9;
+      // optional int64 m_bindDiamond = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_binddiamond:
+         parse_m_bindDiamond:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_binddiamond_)));
@@ -2088,15 +2088,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_mapid;
+        if (input->ExpectTag(88)) goto parse_m_mapID;
         break;
       }
 
-      // optional int64 m_mapid = 11;
+      // optional int64 m_mapID = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_mapid:
+         parse_m_mapID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_mapid_)));
@@ -2104,15 +2104,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_birthface;
+        if (input->ExpectTag(96)) goto parse_m_birthFace;
         break;
       }
 
-      // optional int32 m_birthface = 12;
+      // optional int32 m_birthFace = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_birthface:
+         parse_m_birthFace:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_birthface_)));
@@ -2137,15 +2137,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(114)) goto parse_m_loginavata;
+        if (input->ExpectTag(114)) goto parse_m_loginAvata;
         break;
       }
 
-      // optional string m_loginavata = 14;
+      // optional string m_loginAvata = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_loginavata:
+         parse_m_loginAvata:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_loginavata()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -2188,15 +2188,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(138)) goto parse_m_weaponavata;
+        if (input->ExpectTag(138)) goto parse_m_weaponAvata;
         break;
       }
 
-      // optional string m_weaponavata = 17;
+      // optional string m_weaponAvata = 17;
       case 17: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_weaponavata:
+         parse_m_weaponAvata:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_weaponavata()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -2205,15 +2205,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(146)) goto parse_m_roleavata;
+        if (input->ExpectTag(146)) goto parse_m_roleAvata;
         break;
       }
 
-      // optional string m_roleavata = 18;
+      // optional string m_roleAvata = 18;
       case 18: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_roleavata:
+         parse_m_roleAvata:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_roleavata()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -2222,15 +2222,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(154)) goto parse_m_marryavata;
+        if (input->ExpectTag(154)) goto parse_m_marryAvata;
         break;
       }
 
-      // optional string m_marryavata = 19;
+      // optional string m_marryAvata = 19;
       case 19: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_marryavata:
+         parse_m_marryAvata:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_marryavata()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -2239,15 +2239,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(160)) goto parse_m_haircolor;
+        if (input->ExpectTag(160)) goto parse_m_hairColor;
         break;
       }
 
-      // optional int32 m_haircolor = 20;
+      // optional int32 m_hairColor = 20;
       case 20: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_haircolor:
+         parse_m_hairColor:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_haircolor_)));
@@ -2255,15 +2255,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(168)) goto parse_m_clothescolor;
+        if (input->ExpectTag(168)) goto parse_m_clothesColor;
         break;
       }
 
-      // optional int32 m_clothescolor = 21;
+      // optional int32 m_clothesColor = 21;
       case 21: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_clothescolor:
+         parse_m_clothesColor:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_clothescolor_)));
@@ -2271,15 +2271,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(176)) goto parse_m_skincolor;
+        if (input->ExpectTag(176)) goto parse_m_skinColor;
         break;
       }
 
-      // optional int32 m_skincolor = 22;
+      // optional int32 m_skinColor = 22;
       case 22: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_skincolor:
+         parse_m_skinColor:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_skincolor_)));
@@ -2287,15 +2287,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(184)) goto parse_m_carryweapons;
+        if (input->ExpectTag(184)) goto parse_m_carryWeapons;
         break;
       }
 
-      // optional int64 m_carryweapons = 23;
+      // optional int64 m_carryWeapons = 23;
       case 23: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_carryweapons:
+         parse_m_carryWeapons:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_carryweapons_)));
@@ -2303,15 +2303,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(192)) goto parse_m_carryarmor;
+        if (input->ExpectTag(192)) goto parse_m_carryArmor;
         break;
       }
 
-      // optional int64 m_carryarmor = 24;
+      // optional int64 m_carryArmor = 24;
       case 24: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_carryarmor:
+         parse_m_carryArmor:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_carryarmor_)));
@@ -2319,15 +2319,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(200)) goto parse_m_carrycloak;
+        if (input->ExpectTag(200)) goto parse_m_carryCloak;
         break;
       }
 
-      // optional int64 m_carrycloak = 25;
+      // optional int64 m_carryCloak = 25;
       case 25: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_carrycloak:
+         parse_m_carryCloak:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_carrycloak_)));
@@ -2335,15 +2335,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(208)) goto parse_m_carryshoes;
+        if (input->ExpectTag(208)) goto parse_m_carryShoes;
         break;
       }
 
-      // optional int64 m_carryshoes = 26;
+      // optional int64 m_carryShoes = 26;
       case 26: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_carryshoes:
+         parse_m_carryShoes:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_carryshoes_)));
@@ -2351,15 +2351,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(216)) goto parse_m_carrynecklace;
+        if (input->ExpectTag(216)) goto parse_m_carryNecklace;
         break;
       }
 
-      // optional int64 m_carrynecklace = 27;
+      // optional int64 m_carryNecklace = 27;
       case 27: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_carrynecklace:
+         parse_m_carryNecklace:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_carrynecklace_)));
@@ -2367,15 +2367,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(224)) goto parse_m_carryamulet;
+        if (input->ExpectTag(224)) goto parse_m_carryAmulet;
         break;
       }
 
-      // optional int64 m_carryamulet = 28;
+      // optional int64 m_carryAmulet = 28;
       case 28: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_carryamulet:
+         parse_m_carryAmulet:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_carryamulet_)));
@@ -2383,15 +2383,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(232)) goto parse_m_carrybracer;
+        if (input->ExpectTag(232)) goto parse_m_carryBracer;
         break;
       }
 
-      // optional int64 m_carrybracer = 29;
+      // optional int64 m_carryBracer = 29;
       case 29: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_carrybracer:
+         parse_m_carryBracer:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_carrybracer_)));
@@ -2399,15 +2399,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(240)) goto parse_m_carryring;
+        if (input->ExpectTag(240)) goto parse_m_carryRing;
         break;
       }
 
-      // optional int64 m_carryring = 30;
+      // optional int64 m_carryRing = 30;
       case 30: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_carryring:
+         parse_m_carryRing:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_carryring_)));
@@ -2415,15 +2415,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(248)) goto parse_m_carryfashionweapons;
+        if (input->ExpectTag(248)) goto parse_m_carryFashionWeapons;
         break;
       }
 
-      // optional int64 m_carryfashionweapons = 31;
+      // optional int64 m_carryFashionWeapons = 31;
       case 31: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_carryfashionweapons:
+         parse_m_carryFashionWeapons:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_carryfashionweapons_)));
@@ -2431,15 +2431,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(256)) goto parse_m_carryfashionarmor;
+        if (input->ExpectTag(256)) goto parse_m_carryFashionArmor;
         break;
       }
 
-      // optional int64 m_carryfashionarmor = 32;
+      // optional int64 m_carryFashionArmor = 32;
       case 32: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_carryfashionarmor:
+         parse_m_carryFashionArmor:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_carryfashionarmor_)));
@@ -2447,15 +2447,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(264)) goto parse_m_carrywings;
+        if (input->ExpectTag(264)) goto parse_m_carryWings;
         break;
       }
 
-      // optional int64 m_carrywings = 33;
+      // optional int64 m_carryWings = 33;
       case 33: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_carrywings:
+         parse_m_carryWings:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_carrywings_)));
@@ -2463,15 +2463,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(272)) goto parse_m_mspeed;
+        if (input->ExpectTag(272)) goto parse_m_mSpeed;
         break;
       }
 
-      // optional int32 m_mspeed = 34;
+      // optional int32 m_mSpeed = 34;
       case 34: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_mspeed:
+         parse_m_mSpeed:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_mspeed_)));
@@ -2559,15 +2559,15 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(320)) goto parse_m_actbuff;
+        if (input->ExpectTag(320)) goto parse_m_actBuff;
         break;
       }
 
-      // repeated int32 m_actbuff = 40;
+      // repeated int32 m_actBuff = 40;
       case 40: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_actbuff:
+         parse_m_actBuff:
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  2, 320, input, this->mutable_m_actbuff())));
@@ -2580,16 +2580,16 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(320)) goto parse_m_actbuff;
-        if (input->ExpectTag(328)) goto parse_m_actskill;
+        if (input->ExpectTag(320)) goto parse_m_actBuff;
+        if (input->ExpectTag(328)) goto parse_m_actSkill;
         break;
       }
 
-      // repeated int64 m_actskill = 41;
+      // repeated int64 m_actSkill = 41;
       case 41: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_actskill:
+         parse_m_actSkill:
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  2, 328, input, this->mutable_m_actskill())));
@@ -2602,7 +2602,7 @@ bool E_RoleBorn::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(328)) goto parse_m_actskill;
+        if (input->ExpectTag(328)) goto parse_m_actSkill;
         if (input->ExpectTag(338)) goto parse_m_item;
         break;
       }
@@ -2655,17 +2655,17 @@ bool E_RoleBorn::MergePartialFromCodedStream(
 
 void E_RoleBorn::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 m_bornid = 1;
+  // optional int64 m_bornID = 1;
   if (has_m_bornid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_bornid(), output);
   }
 
-  // optional int32 m_professionid = 2;
+  // optional int32 m_professionID = 2;
   if (has_m_professionid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_professionid(), output);
   }
 
-  // optional string m_professionname = 3;
+  // optional string m_professionName = 3;
   if (has_m_professionname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_professionname().data(), this->m_professionname().length(),
@@ -2688,12 +2688,12 @@ void E_RoleBorn::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_gender(), output);
   }
 
-  // optional int32 m_bornlevel = 6;
+  // optional int32 m_bornLevel = 6;
   if (has_m_bornlevel()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_bornlevel(), output);
   }
 
-  // optional int32 m_borntitle = 7;
+  // optional int32 m_bornTitle = 7;
   if (has_m_borntitle()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_borntitle(), output);
   }
@@ -2703,7 +2703,7 @@ void E_RoleBorn::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(8, this->m_diamond(), output);
   }
 
-  // optional int64 m_binddiamond = 9;
+  // optional int64 m_bindDiamond = 9;
   if (has_m_binddiamond()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(9, this->m_binddiamond(), output);
   }
@@ -2713,12 +2713,12 @@ void E_RoleBorn::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(10, this->m_gold(), output);
   }
 
-  // optional int64 m_mapid = 11;
+  // optional int64 m_mapID = 11;
   if (has_m_mapid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(11, this->m_mapid(), output);
   }
 
-  // optional int32 m_birthface = 12;
+  // optional int32 m_birthFace = 12;
   if (has_m_birthface()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_birthface(), output);
   }
@@ -2732,7 +2732,7 @@ void E_RoleBorn::SerializeWithCachedSizes(
       13, this->m_icons(), output);
   }
 
-  // optional string m_loginavata = 14;
+  // optional string m_loginAvata = 14;
   if (has_m_loginavata()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_loginavata().data(), this->m_loginavata().length(),
@@ -2759,7 +2759,7 @@ void E_RoleBorn::SerializeWithCachedSizes(
       16, this->m_newclothing(), output);
   }
 
-  // optional string m_weaponavata = 17;
+  // optional string m_weaponAvata = 17;
   if (has_m_weaponavata()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_weaponavata().data(), this->m_weaponavata().length(),
@@ -2768,7 +2768,7 @@ void E_RoleBorn::SerializeWithCachedSizes(
       17, this->m_weaponavata(), output);
   }
 
-  // optional string m_roleavata = 18;
+  // optional string m_roleAvata = 18;
   if (has_m_roleavata()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_roleavata().data(), this->m_roleavata().length(),
@@ -2777,7 +2777,7 @@ void E_RoleBorn::SerializeWithCachedSizes(
       18, this->m_roleavata(), output);
   }
 
-  // optional string m_marryavata = 19;
+  // optional string m_marryAvata = 19;
   if (has_m_marryavata()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_marryavata().data(), this->m_marryavata().length(),
@@ -2786,77 +2786,77 @@ void E_RoleBorn::SerializeWithCachedSizes(
       19, this->m_marryavata(), output);
   }
 
-  // optional int32 m_haircolor = 20;
+  // optional int32 m_hairColor = 20;
   if (has_m_haircolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(20, this->m_haircolor(), output);
   }
 
-  // optional int32 m_clothescolor = 21;
+  // optional int32 m_clothesColor = 21;
   if (has_m_clothescolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(21, this->m_clothescolor(), output);
   }
 
-  // optional int32 m_skincolor = 22;
+  // optional int32 m_skinColor = 22;
   if (has_m_skincolor()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(22, this->m_skincolor(), output);
   }
 
-  // optional int64 m_carryweapons = 23;
+  // optional int64 m_carryWeapons = 23;
   if (has_m_carryweapons()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(23, this->m_carryweapons(), output);
   }
 
-  // optional int64 m_carryarmor = 24;
+  // optional int64 m_carryArmor = 24;
   if (has_m_carryarmor()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(24, this->m_carryarmor(), output);
   }
 
-  // optional int64 m_carrycloak = 25;
+  // optional int64 m_carryCloak = 25;
   if (has_m_carrycloak()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(25, this->m_carrycloak(), output);
   }
 
-  // optional int64 m_carryshoes = 26;
+  // optional int64 m_carryShoes = 26;
   if (has_m_carryshoes()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(26, this->m_carryshoes(), output);
   }
 
-  // optional int64 m_carrynecklace = 27;
+  // optional int64 m_carryNecklace = 27;
   if (has_m_carrynecklace()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(27, this->m_carrynecklace(), output);
   }
 
-  // optional int64 m_carryamulet = 28;
+  // optional int64 m_carryAmulet = 28;
   if (has_m_carryamulet()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(28, this->m_carryamulet(), output);
   }
 
-  // optional int64 m_carrybracer = 29;
+  // optional int64 m_carryBracer = 29;
   if (has_m_carrybracer()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(29, this->m_carrybracer(), output);
   }
 
-  // optional int64 m_carryring = 30;
+  // optional int64 m_carryRing = 30;
   if (has_m_carryring()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(30, this->m_carryring(), output);
   }
 
-  // optional int64 m_carryfashionweapons = 31;
+  // optional int64 m_carryFashionWeapons = 31;
   if (has_m_carryfashionweapons()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(31, this->m_carryfashionweapons(), output);
   }
 
-  // optional int64 m_carryfashionarmor = 32;
+  // optional int64 m_carryFashionArmor = 32;
   if (has_m_carryfashionarmor()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(32, this->m_carryfashionarmor(), output);
   }
 
-  // optional int64 m_carrywings = 33;
+  // optional int64 m_carryWings = 33;
   if (has_m_carrywings()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(33, this->m_carrywings(), output);
   }
 
-  // optional int32 m_mspeed = 34;
+  // optional int32 m_mSpeed = 34;
   if (has_m_mspeed()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(34, this->m_mspeed(), output);
   }
@@ -2886,13 +2886,13 @@ void E_RoleBorn::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(39, this->m_shenw(), output);
   }
 
-  // repeated int32 m_actbuff = 40;
+  // repeated int32 m_actBuff = 40;
   for (int i = 0; i < this->m_actbuff_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(
       40, this->m_actbuff(i), output);
   }
 
-  // repeated int64 m_actskill = 41;
+  // repeated int64 m_actSkill = 41;
   for (int i = 0; i < this->m_actskill_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(
       41, this->m_actskill(i), output);
@@ -2918,17 +2918,17 @@ void E_RoleBorn::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_RoleBorn::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 m_bornid = 1;
+  // optional int64 m_bornID = 1;
   if (has_m_bornid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_bornid(), target);
   }
 
-  // optional int32 m_professionid = 2;
+  // optional int32 m_professionID = 2;
   if (has_m_professionid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_professionid(), target);
   }
 
-  // optional string m_professionname = 3;
+  // optional string m_professionName = 3;
   if (has_m_professionname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_professionname().data(), this->m_professionname().length(),
@@ -2953,12 +2953,12 @@ void E_RoleBorn::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_gender(), target);
   }
 
-  // optional int32 m_bornlevel = 6;
+  // optional int32 m_bornLevel = 6;
   if (has_m_bornlevel()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_bornlevel(), target);
   }
 
-  // optional int32 m_borntitle = 7;
+  // optional int32 m_bornTitle = 7;
   if (has_m_borntitle()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_borntitle(), target);
   }
@@ -2968,7 +2968,7 @@ void E_RoleBorn::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(8, this->m_diamond(), target);
   }
 
-  // optional int64 m_binddiamond = 9;
+  // optional int64 m_bindDiamond = 9;
   if (has_m_binddiamond()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(9, this->m_binddiamond(), target);
   }
@@ -2978,12 +2978,12 @@ void E_RoleBorn::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(10, this->m_gold(), target);
   }
 
-  // optional int64 m_mapid = 11;
+  // optional int64 m_mapID = 11;
   if (has_m_mapid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(11, this->m_mapid(), target);
   }
 
-  // optional int32 m_birthface = 12;
+  // optional int32 m_birthFace = 12;
   if (has_m_birthface()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_birthface(), target);
   }
@@ -2998,7 +2998,7 @@ void E_RoleBorn::SerializeWithCachedSizes(
         13, this->m_icons(), target);
   }
 
-  // optional string m_loginavata = 14;
+  // optional string m_loginAvata = 14;
   if (has_m_loginavata()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_loginavata().data(), this->m_loginavata().length(),
@@ -3028,7 +3028,7 @@ void E_RoleBorn::SerializeWithCachedSizes(
         16, this->m_newclothing(), target);
   }
 
-  // optional string m_weaponavata = 17;
+  // optional string m_weaponAvata = 17;
   if (has_m_weaponavata()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_weaponavata().data(), this->m_weaponavata().length(),
@@ -3038,7 +3038,7 @@ void E_RoleBorn::SerializeWithCachedSizes(
         17, this->m_weaponavata(), target);
   }
 
-  // optional string m_roleavata = 18;
+  // optional string m_roleAvata = 18;
   if (has_m_roleavata()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_roleavata().data(), this->m_roleavata().length(),
@@ -3048,7 +3048,7 @@ void E_RoleBorn::SerializeWithCachedSizes(
         18, this->m_roleavata(), target);
   }
 
-  // optional string m_marryavata = 19;
+  // optional string m_marryAvata = 19;
   if (has_m_marryavata()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_marryavata().data(), this->m_marryavata().length(),
@@ -3058,77 +3058,77 @@ void E_RoleBorn::SerializeWithCachedSizes(
         19, this->m_marryavata(), target);
   }
 
-  // optional int32 m_haircolor = 20;
+  // optional int32 m_hairColor = 20;
   if (has_m_haircolor()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(20, this->m_haircolor(), target);
   }
 
-  // optional int32 m_clothescolor = 21;
+  // optional int32 m_clothesColor = 21;
   if (has_m_clothescolor()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(21, this->m_clothescolor(), target);
   }
 
-  // optional int32 m_skincolor = 22;
+  // optional int32 m_skinColor = 22;
   if (has_m_skincolor()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(22, this->m_skincolor(), target);
   }
 
-  // optional int64 m_carryweapons = 23;
+  // optional int64 m_carryWeapons = 23;
   if (has_m_carryweapons()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(23, this->m_carryweapons(), target);
   }
 
-  // optional int64 m_carryarmor = 24;
+  // optional int64 m_carryArmor = 24;
   if (has_m_carryarmor()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(24, this->m_carryarmor(), target);
   }
 
-  // optional int64 m_carrycloak = 25;
+  // optional int64 m_carryCloak = 25;
   if (has_m_carrycloak()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(25, this->m_carrycloak(), target);
   }
 
-  // optional int64 m_carryshoes = 26;
+  // optional int64 m_carryShoes = 26;
   if (has_m_carryshoes()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(26, this->m_carryshoes(), target);
   }
 
-  // optional int64 m_carrynecklace = 27;
+  // optional int64 m_carryNecklace = 27;
   if (has_m_carrynecklace()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(27, this->m_carrynecklace(), target);
   }
 
-  // optional int64 m_carryamulet = 28;
+  // optional int64 m_carryAmulet = 28;
   if (has_m_carryamulet()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(28, this->m_carryamulet(), target);
   }
 
-  // optional int64 m_carrybracer = 29;
+  // optional int64 m_carryBracer = 29;
   if (has_m_carrybracer()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(29, this->m_carrybracer(), target);
   }
 
-  // optional int64 m_carryring = 30;
+  // optional int64 m_carryRing = 30;
   if (has_m_carryring()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(30, this->m_carryring(), target);
   }
 
-  // optional int64 m_carryfashionweapons = 31;
+  // optional int64 m_carryFashionWeapons = 31;
   if (has_m_carryfashionweapons()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(31, this->m_carryfashionweapons(), target);
   }
 
-  // optional int64 m_carryfashionarmor = 32;
+  // optional int64 m_carryFashionArmor = 32;
   if (has_m_carryfashionarmor()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(32, this->m_carryfashionarmor(), target);
   }
 
-  // optional int64 m_carrywings = 33;
+  // optional int64 m_carryWings = 33;
   if (has_m_carrywings()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(33, this->m_carrywings(), target);
   }
 
-  // optional int32 m_mspeed = 34;
+  // optional int32 m_mSpeed = 34;
   if (has_m_mspeed()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(34, this->m_mspeed(), target);
   }
@@ -3158,13 +3158,13 @@ void E_RoleBorn::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(39, this->m_shenw(), target);
   }
 
-  // repeated int32 m_actbuff = 40;
+  // repeated int32 m_actBuff = 40;
   for (int i = 0; i < this->m_actbuff_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteInt32ToArray(40, this->m_actbuff(i), target);
   }
 
-  // repeated int64 m_actskill = 41;
+  // repeated int64 m_actSkill = 41;
   for (int i = 0; i < this->m_actskill_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteInt64ToArray(41, this->m_actskill(i), target);
@@ -3195,21 +3195,21 @@ int E_RoleBorn::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 m_bornid = 1;
+    // optional int64 m_bornID = 1;
     if (has_m_bornid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_bornid());
     }
 
-    // optional int32 m_professionid = 2;
+    // optional int32 m_professionID = 2;
     if (has_m_professionid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_professionid());
     }
 
-    // optional string m_professionname = 3;
+    // optional string m_professionName = 3;
     if (has_m_professionname()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -3230,14 +3230,14 @@ int E_RoleBorn::ByteSize() const {
           this->m_gender());
     }
 
-    // optional int32 m_bornlevel = 6;
+    // optional int32 m_bornLevel = 6;
     if (has_m_bornlevel()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_bornlevel());
     }
 
-    // optional int32 m_borntitle = 7;
+    // optional int32 m_bornTitle = 7;
     if (has_m_borntitle()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3253,7 +3253,7 @@ int E_RoleBorn::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int64 m_binddiamond = 9;
+    // optional int64 m_bindDiamond = 9;
     if (has_m_binddiamond()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -3267,14 +3267,14 @@ int E_RoleBorn::ByteSize() const {
           this->m_gold());
     }
 
-    // optional int64 m_mapid = 11;
+    // optional int64 m_mapID = 11;
     if (has_m_mapid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_mapid());
     }
 
-    // optional int32 m_birthface = 12;
+    // optional int32 m_birthFace = 12;
     if (has_m_birthface()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3288,7 +3288,7 @@ int E_RoleBorn::ByteSize() const {
           this->m_icons());
     }
 
-    // optional string m_loginavata = 14;
+    // optional string m_loginAvata = 14;
     if (has_m_loginavata()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -3311,56 +3311,56 @@ int E_RoleBorn::ByteSize() const {
 
   }
   if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    // optional string m_weaponavata = 17;
+    // optional string m_weaponAvata = 17;
     if (has_m_weaponavata()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_weaponavata());
     }
 
-    // optional string m_roleavata = 18;
+    // optional string m_roleAvata = 18;
     if (has_m_roleavata()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_roleavata());
     }
 
-    // optional string m_marryavata = 19;
+    // optional string m_marryAvata = 19;
     if (has_m_marryavata()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_marryavata());
     }
 
-    // optional int32 m_haircolor = 20;
+    // optional int32 m_hairColor = 20;
     if (has_m_haircolor()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_haircolor());
     }
 
-    // optional int32 m_clothescolor = 21;
+    // optional int32 m_clothesColor = 21;
     if (has_m_clothescolor()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_clothescolor());
     }
 
-    // optional int32 m_skincolor = 22;
+    // optional int32 m_skinColor = 22;
     if (has_m_skincolor()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_skincolor());
     }
 
-    // optional int64 m_carryweapons = 23;
+    // optional int64 m_carryWeapons = 23;
     if (has_m_carryweapons()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_carryweapons());
     }
 
-    // optional int64 m_carryarmor = 24;
+    // optional int64 m_carryArmor = 24;
     if (has_m_carryarmor()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -3369,56 +3369,56 @@ int E_RoleBorn::ByteSize() const {
 
   }
   if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
-    // optional int64 m_carrycloak = 25;
+    // optional int64 m_carryCloak = 25;
     if (has_m_carrycloak()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_carrycloak());
     }
 
-    // optional int64 m_carryshoes = 26;
+    // optional int64 m_carryShoes = 26;
     if (has_m_carryshoes()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_carryshoes());
     }
 
-    // optional int64 m_carrynecklace = 27;
+    // optional int64 m_carryNecklace = 27;
     if (has_m_carrynecklace()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_carrynecklace());
     }
 
-    // optional int64 m_carryamulet = 28;
+    // optional int64 m_carryAmulet = 28;
     if (has_m_carryamulet()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_carryamulet());
     }
 
-    // optional int64 m_carrybracer = 29;
+    // optional int64 m_carryBracer = 29;
     if (has_m_carrybracer()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_carrybracer());
     }
 
-    // optional int64 m_carryring = 30;
+    // optional int64 m_carryRing = 30;
     if (has_m_carryring()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_carryring());
     }
 
-    // optional int64 m_carryfashionweapons = 31;
+    // optional int64 m_carryFashionWeapons = 31;
     if (has_m_carryfashionweapons()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_carryfashionweapons());
     }
 
-    // optional int64 m_carryfashionarmor = 32;
+    // optional int64 m_carryFashionArmor = 32;
     if (has_m_carryfashionarmor()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -3427,14 +3427,14 @@ int E_RoleBorn::ByteSize() const {
 
   }
   if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
-    // optional int64 m_carrywings = 33;
+    // optional int64 m_carryWings = 33;
     if (has_m_carrywings()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_carrywings());
     }
 
-    // optional int32 m_mspeed = 34;
+    // optional int32 m_mSpeed = 34;
     if (has_m_mspeed()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3477,7 +3477,7 @@ int E_RoleBorn::ByteSize() const {
     }
 
   }
-  // repeated int32 m_actbuff = 40;
+  // repeated int32 m_actBuff = 40;
   {
     int data_size = 0;
     for (int i = 0; i < this->m_actbuff_size(); i++) {
@@ -3487,7 +3487,7 @@ int E_RoleBorn::ByteSize() const {
     total_size += 2 * this->m_actbuff_size() + data_size;
   }
 
-  // repeated int64 m_actskill = 41;
+  // repeated int64 m_actSkill = 41;
   {
     int data_size = 0;
     for (int i = 0; i < this->m_actskill_size(); i++) {
@@ -4026,7 +4026,7 @@ bool E_RoleMastermaleAttributeDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_value = 1;
+      // optional int32 m_Value = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -4037,15 +4037,15 @@ bool E_RoleMastermaleAttributeDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_type;
+        if (input->ExpectTag(16)) goto parse_m_Type;
         break;
       }
 
-      // optional int32 m_type = 2;
+      // optional int32 m_Type = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_type:
+         parse_m_Type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_type_)));
@@ -4075,12 +4075,12 @@ bool E_RoleMastermaleAttributeDesc::MergePartialFromCodedStream(
 
 void E_RoleMastermaleAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
   }
 
-  // optional int32 m_type = 2;
+  // optional int32 m_Type = 2;
   if (has_m_type()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
   }
@@ -4093,12 +4093,12 @@ void E_RoleMastermaleAttributeDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_RoleMastermaleAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_type = 2;
+  // optional int32 m_Type = 2;
   if (has_m_type()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
   }
@@ -4114,14 +4114,14 @@ int E_RoleMastermaleAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_value = 1;
+    // optional int32 m_Value = 1;
     if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_value());
     }
 
-    // optional int32 m_type = 2;
+    // optional int32 m_Type = 2;
     if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4205,7 +4205,7 @@ void E_RoleMastermaleAttributeDesc::Swap(E_RoleMastermaleAttributeDesc* other) {
 
 #ifndef _MSC_VER
 const int E_RoleMastermale::kMLvFieldNumber;
-const int E_RoleMastermale::kMUpgradepointFieldNumber;
+const int E_RoleMastermale::kMUpgradePointFieldNumber;
 const int E_RoleMastermale::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -4287,15 +4287,15 @@ bool E_RoleMastermale::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_upgradepoint;
+        if (input->ExpectTag(16)) goto parse_m_upgradePoint;
         break;
       }
 
-      // optional int32 m_upgradepoint = 2;
+      // optional int32 m_upgradePoint = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_upgradepoint:
+         parse_m_upgradePoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_upgradepoint_)));
@@ -4345,7 +4345,7 @@ void E_RoleMastermale::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 m_upgradepoint = 2;
+  // optional int32 m_upgradePoint = 2;
   if (has_m_upgradepoint()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_upgradepoint(), output);
   }
@@ -4369,7 +4369,7 @@ void E_RoleMastermale::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 m_upgradepoint = 2;
+  // optional int32 m_upgradePoint = 2;
   if (has_m_upgradepoint()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_upgradepoint(), target);
   }
@@ -4399,7 +4399,7 @@ int E_RoleMastermale::ByteSize() const {
           this->m_lv());
     }
 
-    // optional int32 m_upgradepoint = 2;
+    // optional int32 m_upgradePoint = 2;
     if (has_m_upgradepoint()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4765,7 +4765,7 @@ bool E_RoleMasterfemaleAttributeDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_value = 1;
+      // optional int32 m_Value = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -4776,15 +4776,15 @@ bool E_RoleMasterfemaleAttributeDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_type;
+        if (input->ExpectTag(16)) goto parse_m_Type;
         break;
       }
 
-      // optional int32 m_type = 2;
+      // optional int32 m_Type = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_type:
+         parse_m_Type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_type_)));
@@ -4814,12 +4814,12 @@ bool E_RoleMasterfemaleAttributeDesc::MergePartialFromCodedStream(
 
 void E_RoleMasterfemaleAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
   }
 
-  // optional int32 m_type = 2;
+  // optional int32 m_Type = 2;
   if (has_m_type()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
   }
@@ -4832,12 +4832,12 @@ void E_RoleMasterfemaleAttributeDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_RoleMasterfemaleAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_type = 2;
+  // optional int32 m_Type = 2;
   if (has_m_type()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
   }
@@ -4853,14 +4853,14 @@ int E_RoleMasterfemaleAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_value = 1;
+    // optional int32 m_Value = 1;
     if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_value());
     }
 
-    // optional int32 m_type = 2;
+    // optional int32 m_Type = 2;
     if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4944,7 +4944,7 @@ void E_RoleMasterfemaleAttributeDesc::Swap(E_RoleMasterfemaleAttributeDesc* othe
 
 #ifndef _MSC_VER
 const int E_RoleMasterfemale::kMLvFieldNumber;
-const int E_RoleMasterfemale::kMUpgradepointFieldNumber;
+const int E_RoleMasterfemale::kMUpgradePointFieldNumber;
 const int E_RoleMasterfemale::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -5026,15 +5026,15 @@ bool E_RoleMasterfemale::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_upgradepoint;
+        if (input->ExpectTag(16)) goto parse_m_upgradePoint;
         break;
       }
 
-      // optional int32 m_upgradepoint = 2;
+      // optional int32 m_upgradePoint = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_upgradepoint:
+         parse_m_upgradePoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_upgradepoint_)));
@@ -5084,7 +5084,7 @@ void E_RoleMasterfemale::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 m_upgradepoint = 2;
+  // optional int32 m_upgradePoint = 2;
   if (has_m_upgradepoint()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_upgradepoint(), output);
   }
@@ -5108,7 +5108,7 @@ void E_RoleMasterfemale::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 m_upgradepoint = 2;
+  // optional int32 m_upgradePoint = 2;
   if (has_m_upgradepoint()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_upgradepoint(), target);
   }
@@ -5138,7 +5138,7 @@ int E_RoleMasterfemale::ByteSize() const {
           this->m_lv());
     }
 
-    // optional int32 m_upgradepoint = 2;
+    // optional int32 m_upgradePoint = 2;
     if (has_m_upgradepoint()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -5504,7 +5504,7 @@ bool E_RoleSicklemaleAttributeDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_value = 1;
+      // optional int32 m_Value = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -5515,15 +5515,15 @@ bool E_RoleSicklemaleAttributeDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_type;
+        if (input->ExpectTag(16)) goto parse_m_Type;
         break;
       }
 
-      // optional int32 m_type = 2;
+      // optional int32 m_Type = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_type:
+         parse_m_Type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_type_)));
@@ -5553,12 +5553,12 @@ bool E_RoleSicklemaleAttributeDesc::MergePartialFromCodedStream(
 
 void E_RoleSicklemaleAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
   }
 
-  // optional int32 m_type = 2;
+  // optional int32 m_Type = 2;
   if (has_m_type()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
   }
@@ -5571,12 +5571,12 @@ void E_RoleSicklemaleAttributeDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_RoleSicklemaleAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_type = 2;
+  // optional int32 m_Type = 2;
   if (has_m_type()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
   }
@@ -5592,14 +5592,14 @@ int E_RoleSicklemaleAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_value = 1;
+    // optional int32 m_Value = 1;
     if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_value());
     }
 
-    // optional int32 m_type = 2;
+    // optional int32 m_Type = 2;
     if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -5683,7 +5683,7 @@ void E_RoleSicklemaleAttributeDesc::Swap(E_RoleSicklemaleAttributeDesc* other) {
 
 #ifndef _MSC_VER
 const int E_RoleSicklemale::kMLvFieldNumber;
-const int E_RoleSicklemale::kMUpgradepointFieldNumber;
+const int E_RoleSicklemale::kMUpgradePointFieldNumber;
 const int E_RoleSicklemale::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -5765,15 +5765,15 @@ bool E_RoleSicklemale::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_upgradepoint;
+        if (input->ExpectTag(16)) goto parse_m_upgradePoint;
         break;
       }
 
-      // optional int32 m_upgradepoint = 2;
+      // optional int32 m_upgradePoint = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_upgradepoint:
+         parse_m_upgradePoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_upgradepoint_)));
@@ -5823,7 +5823,7 @@ void E_RoleSicklemale::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 m_upgradepoint = 2;
+  // optional int32 m_upgradePoint = 2;
   if (has_m_upgradepoint()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_upgradepoint(), output);
   }
@@ -5847,7 +5847,7 @@ void E_RoleSicklemale::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 m_upgradepoint = 2;
+  // optional int32 m_upgradePoint = 2;
   if (has_m_upgradepoint()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_upgradepoint(), target);
   }
@@ -5877,7 +5877,7 @@ int E_RoleSicklemale::ByteSize() const {
           this->m_lv());
     }
 
-    // optional int32 m_upgradepoint = 2;
+    // optional int32 m_upgradePoint = 2;
     if (has_m_upgradepoint()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -6243,7 +6243,7 @@ bool E_RoleSicklefemaleAttributeDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_value = 1;
+      // optional int32 m_Value = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -6254,15 +6254,15 @@ bool E_RoleSicklefemaleAttributeDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_type;
+        if (input->ExpectTag(16)) goto parse_m_Type;
         break;
       }
 
-      // optional int32 m_type = 2;
+      // optional int32 m_Type = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_type:
+         parse_m_Type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_type_)));
@@ -6292,12 +6292,12 @@ bool E_RoleSicklefemaleAttributeDesc::MergePartialFromCodedStream(
 
 void E_RoleSicklefemaleAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
   }
 
-  // optional int32 m_type = 2;
+  // optional int32 m_Type = 2;
   if (has_m_type()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
   }
@@ -6310,12 +6310,12 @@ void E_RoleSicklefemaleAttributeDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_RoleSicklefemaleAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_type = 2;
+  // optional int32 m_Type = 2;
   if (has_m_type()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
   }
@@ -6331,14 +6331,14 @@ int E_RoleSicklefemaleAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_value = 1;
+    // optional int32 m_Value = 1;
     if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_value());
     }
 
-    // optional int32 m_type = 2;
+    // optional int32 m_Type = 2;
     if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -6422,7 +6422,7 @@ void E_RoleSicklefemaleAttributeDesc::Swap(E_RoleSicklefemaleAttributeDesc* othe
 
 #ifndef _MSC_VER
 const int E_RoleSicklefemale::kMLvFieldNumber;
-const int E_RoleSicklefemale::kMUpgradepointFieldNumber;
+const int E_RoleSicklefemale::kMUpgradePointFieldNumber;
 const int E_RoleSicklefemale::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -6504,15 +6504,15 @@ bool E_RoleSicklefemale::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_upgradepoint;
+        if (input->ExpectTag(16)) goto parse_m_upgradePoint;
         break;
       }
 
-      // optional int32 m_upgradepoint = 2;
+      // optional int32 m_upgradePoint = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_upgradepoint:
+         parse_m_upgradePoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_upgradepoint_)));
@@ -6562,7 +6562,7 @@ void E_RoleSicklefemale::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 m_upgradepoint = 2;
+  // optional int32 m_upgradePoint = 2;
   if (has_m_upgradepoint()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_upgradepoint(), output);
   }
@@ -6586,7 +6586,7 @@ void E_RoleSicklefemale::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 m_upgradepoint = 2;
+  // optional int32 m_upgradePoint = 2;
   if (has_m_upgradepoint()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_upgradepoint(), target);
   }
@@ -6616,7 +6616,7 @@ int E_RoleSicklefemale::ByteSize() const {
           this->m_lv());
     }
 
-    // optional int32 m_upgradepoint = 2;
+    // optional int32 m_upgradePoint = 2;
     if (has_m_upgradepoint()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -6982,7 +6982,7 @@ bool E_RoleSwordmaleAttributeDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_value = 1;
+      // optional int32 m_Value = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -6993,15 +6993,15 @@ bool E_RoleSwordmaleAttributeDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_type;
+        if (input->ExpectTag(16)) goto parse_m_Type;
         break;
       }
 
-      // optional int32 m_type = 2;
+      // optional int32 m_Type = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_type:
+         parse_m_Type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_type_)));
@@ -7031,12 +7031,12 @@ bool E_RoleSwordmaleAttributeDesc::MergePartialFromCodedStream(
 
 void E_RoleSwordmaleAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
   }
 
-  // optional int32 m_type = 2;
+  // optional int32 m_Type = 2;
   if (has_m_type()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
   }
@@ -7049,12 +7049,12 @@ void E_RoleSwordmaleAttributeDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_RoleSwordmaleAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_type = 2;
+  // optional int32 m_Type = 2;
   if (has_m_type()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
   }
@@ -7070,14 +7070,14 @@ int E_RoleSwordmaleAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_value = 1;
+    // optional int32 m_Value = 1;
     if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_value());
     }
 
-    // optional int32 m_type = 2;
+    // optional int32 m_Type = 2;
     if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -7161,7 +7161,7 @@ void E_RoleSwordmaleAttributeDesc::Swap(E_RoleSwordmaleAttributeDesc* other) {
 
 #ifndef _MSC_VER
 const int E_RoleSwordmale::kMLvFieldNumber;
-const int E_RoleSwordmale::kMUpgradepointFieldNumber;
+const int E_RoleSwordmale::kMUpgradePointFieldNumber;
 const int E_RoleSwordmale::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -7243,15 +7243,15 @@ bool E_RoleSwordmale::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_upgradepoint;
+        if (input->ExpectTag(16)) goto parse_m_upgradePoint;
         break;
       }
 
-      // optional int32 m_upgradepoint = 2;
+      // optional int32 m_upgradePoint = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_upgradepoint:
+         parse_m_upgradePoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_upgradepoint_)));
@@ -7301,7 +7301,7 @@ void E_RoleSwordmale::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 m_upgradepoint = 2;
+  // optional int32 m_upgradePoint = 2;
   if (has_m_upgradepoint()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_upgradepoint(), output);
   }
@@ -7325,7 +7325,7 @@ void E_RoleSwordmale::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 m_upgradepoint = 2;
+  // optional int32 m_upgradePoint = 2;
   if (has_m_upgradepoint()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_upgradepoint(), target);
   }
@@ -7355,7 +7355,7 @@ int E_RoleSwordmale::ByteSize() const {
           this->m_lv());
     }
 
-    // optional int32 m_upgradepoint = 2;
+    // optional int32 m_upgradePoint = 2;
     if (has_m_upgradepoint()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -7721,7 +7721,7 @@ bool E_RoleSwordfemaleAttributeDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_value = 1;
+      // optional int32 m_Value = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -7732,15 +7732,15 @@ bool E_RoleSwordfemaleAttributeDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_type;
+        if (input->ExpectTag(16)) goto parse_m_Type;
         break;
       }
 
-      // optional int32 m_type = 2;
+      // optional int32 m_Type = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_type:
+         parse_m_Type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_type_)));
@@ -7770,12 +7770,12 @@ bool E_RoleSwordfemaleAttributeDesc::MergePartialFromCodedStream(
 
 void E_RoleSwordfemaleAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
   }
 
-  // optional int32 m_type = 2;
+  // optional int32 m_Type = 2;
   if (has_m_type()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
   }
@@ -7788,12 +7788,12 @@ void E_RoleSwordfemaleAttributeDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_RoleSwordfemaleAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_type = 2;
+  // optional int32 m_Type = 2;
   if (has_m_type()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
   }
@@ -7809,14 +7809,14 @@ int E_RoleSwordfemaleAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_value = 1;
+    // optional int32 m_Value = 1;
     if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_value());
     }
 
-    // optional int32 m_type = 2;
+    // optional int32 m_Type = 2;
     if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -7900,7 +7900,7 @@ void E_RoleSwordfemaleAttributeDesc::Swap(E_RoleSwordfemaleAttributeDesc* other)
 
 #ifndef _MSC_VER
 const int E_RoleSwordfemale::kMLvFieldNumber;
-const int E_RoleSwordfemale::kMUpgradepointFieldNumber;
+const int E_RoleSwordfemale::kMUpgradePointFieldNumber;
 const int E_RoleSwordfemale::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -7982,15 +7982,15 @@ bool E_RoleSwordfemale::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_upgradepoint;
+        if (input->ExpectTag(16)) goto parse_m_upgradePoint;
         break;
       }
 
-      // optional int32 m_upgradepoint = 2;
+      // optional int32 m_upgradePoint = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_upgradepoint:
+         parse_m_upgradePoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_upgradepoint_)));
@@ -8040,7 +8040,7 @@ void E_RoleSwordfemale::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 m_upgradepoint = 2;
+  // optional int32 m_upgradePoint = 2;
   if (has_m_upgradepoint()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_upgradepoint(), output);
   }
@@ -8064,7 +8064,7 @@ void E_RoleSwordfemale::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 m_upgradepoint = 2;
+  // optional int32 m_upgradePoint = 2;
   if (has_m_upgradepoint()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_upgradepoint(), target);
   }
@@ -8094,7 +8094,7 @@ int E_RoleSwordfemale::ByteSize() const {
           this->m_lv());
     }
 
-    // optional int32 m_upgradepoint = 2;
+    // optional int32 m_upgradePoint = 2;
     if (has_m_upgradepoint()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -8460,7 +8460,7 @@ bool E_RoleTaidaomaleAttributeDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_value = 1;
+      // optional int32 m_Value = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -8471,15 +8471,15 @@ bool E_RoleTaidaomaleAttributeDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_type;
+        if (input->ExpectTag(16)) goto parse_m_Type;
         break;
       }
 
-      // optional int32 m_type = 2;
+      // optional int32 m_Type = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_type:
+         parse_m_Type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_type_)));
@@ -8509,12 +8509,12 @@ bool E_RoleTaidaomaleAttributeDesc::MergePartialFromCodedStream(
 
 void E_RoleTaidaomaleAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
   }
 
-  // optional int32 m_type = 2;
+  // optional int32 m_Type = 2;
   if (has_m_type()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
   }
@@ -8527,12 +8527,12 @@ void E_RoleTaidaomaleAttributeDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_RoleTaidaomaleAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_type = 2;
+  // optional int32 m_Type = 2;
   if (has_m_type()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
   }
@@ -8548,14 +8548,14 @@ int E_RoleTaidaomaleAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_value = 1;
+    // optional int32 m_Value = 1;
     if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_value());
     }
 
-    // optional int32 m_type = 2;
+    // optional int32 m_Type = 2;
     if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -8639,7 +8639,7 @@ void E_RoleTaidaomaleAttributeDesc::Swap(E_RoleTaidaomaleAttributeDesc* other) {
 
 #ifndef _MSC_VER
 const int E_RoleTaidaomale::kMLvFieldNumber;
-const int E_RoleTaidaomale::kMUpgradepointFieldNumber;
+const int E_RoleTaidaomale::kMUpgradePointFieldNumber;
 const int E_RoleTaidaomale::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -8721,15 +8721,15 @@ bool E_RoleTaidaomale::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_upgradepoint;
+        if (input->ExpectTag(16)) goto parse_m_upgradePoint;
         break;
       }
 
-      // optional int32 m_upgradepoint = 2;
+      // optional int32 m_upgradePoint = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_upgradepoint:
+         parse_m_upgradePoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_upgradepoint_)));
@@ -8779,7 +8779,7 @@ void E_RoleTaidaomale::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 m_upgradepoint = 2;
+  // optional int32 m_upgradePoint = 2;
   if (has_m_upgradepoint()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_upgradepoint(), output);
   }
@@ -8803,7 +8803,7 @@ void E_RoleTaidaomale::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 m_upgradepoint = 2;
+  // optional int32 m_upgradePoint = 2;
   if (has_m_upgradepoint()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_upgradepoint(), target);
   }
@@ -8833,7 +8833,7 @@ int E_RoleTaidaomale::ByteSize() const {
           this->m_lv());
     }
 
-    // optional int32 m_upgradepoint = 2;
+    // optional int32 m_upgradePoint = 2;
     if (has_m_upgradepoint()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -9199,7 +9199,7 @@ bool E_RoleTaidaofemaleAttributeDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_value = 1;
+      // optional int32 m_Value = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -9210,15 +9210,15 @@ bool E_RoleTaidaofemaleAttributeDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_type;
+        if (input->ExpectTag(16)) goto parse_m_Type;
         break;
       }
 
-      // optional int32 m_type = 2;
+      // optional int32 m_Type = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_type:
+         parse_m_Type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_type_)));
@@ -9248,12 +9248,12 @@ bool E_RoleTaidaofemaleAttributeDesc::MergePartialFromCodedStream(
 
 void E_RoleTaidaofemaleAttributeDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
   }
 
-  // optional int32 m_type = 2;
+  // optional int32 m_Type = 2;
   if (has_m_type()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
   }
@@ -9266,12 +9266,12 @@ void E_RoleTaidaofemaleAttributeDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_RoleTaidaofemaleAttributeDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_value = 1;
+  // optional int32 m_Value = 1;
   if (has_m_value()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
   }
 
-  // optional int32 m_type = 2;
+  // optional int32 m_Type = 2;
   if (has_m_type()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
   }
@@ -9287,14 +9287,14 @@ int E_RoleTaidaofemaleAttributeDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_value = 1;
+    // optional int32 m_Value = 1;
     if (has_m_value()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_value());
     }
 
-    // optional int32 m_type = 2;
+    // optional int32 m_Type = 2;
     if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -9378,7 +9378,7 @@ void E_RoleTaidaofemaleAttributeDesc::Swap(E_RoleTaidaofemaleAttributeDesc* othe
 
 #ifndef _MSC_VER
 const int E_RoleTaidaofemale::kMLvFieldNumber;
-const int E_RoleTaidaofemale::kMUpgradepointFieldNumber;
+const int E_RoleTaidaofemale::kMUpgradePointFieldNumber;
 const int E_RoleTaidaofemale::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -9460,15 +9460,15 @@ bool E_RoleTaidaofemale::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_upgradepoint;
+        if (input->ExpectTag(16)) goto parse_m_upgradePoint;
         break;
       }
 
-      // optional int32 m_upgradepoint = 2;
+      // optional int32 m_upgradePoint = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_upgradepoint:
+         parse_m_upgradePoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_upgradepoint_)));
@@ -9518,7 +9518,7 @@ void E_RoleTaidaofemale::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 m_upgradepoint = 2;
+  // optional int32 m_upgradePoint = 2;
   if (has_m_upgradepoint()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_upgradepoint(), output);
   }
@@ -9542,7 +9542,7 @@ void E_RoleTaidaofemale::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 m_upgradepoint = 2;
+  // optional int32 m_upgradePoint = 2;
   if (has_m_upgradepoint()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_upgradepoint(), target);
   }
@@ -9572,7 +9572,7 @@ int E_RoleTaidaofemale::ByteSize() const {
           this->m_lv());
     }
 
-    // optional int32 m_upgradepoint = 2;
+    // optional int32 m_upgradePoint = 2;
     if (has_m_upgradepoint()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -9870,15 +9870,15 @@ void Sheet_RoleTaidaofemale::Swap(Sheet_RoleTaidaofemale* other) {
 #ifndef _MSC_VER
 const int E_RoleExp::kMLvFieldNumber;
 const int E_RoleExp::kMExpFieldNumber;
-const int E_RoleExp::kMSkillpointFieldNumber;
-const int E_RoleExp::kMPreparemodedexpFieldNumber;
+const int E_RoleExp::kMSkillPointFieldNumber;
+const int E_RoleExp::kMPrepareModeDexpFieldNumber;
 const int E_RoleExp::kMFengshenFieldNumber;
 const int E_RoleExp::kMPetFieldNumber;
 const int E_RoleExp::kMDragonFieldNumber;
 const int E_RoleExp::kMEquipFieldNumber;
 const int E_RoleExp::kMArenaFieldNumber;
 const int E_RoleExp::kMSoloFieldNumber;
-const int E_RoleExp::kMMultibattleFieldNumber;
+const int E_RoleExp::kMMultiBattleFieldNumber;
 const int E_RoleExp::kMQingyunFieldNumber;
 const int E_RoleExp::kMYaochiFieldNumber;
 const int E_RoleExp::kMWeddingFieldNumber;
@@ -10006,15 +10006,15 @@ bool E_RoleExp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_skillpoint;
+        if (input->ExpectTag(24)) goto parse_m_skillPoint;
         break;
       }
 
-      // optional int32 m_skillpoint = 3;
+      // optional int32 m_skillPoint = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_skillpoint:
+         parse_m_skillPoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_skillpoint_)));
@@ -10022,15 +10022,15 @@ bool E_RoleExp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_preparemodedexp;
+        if (input->ExpectTag(32)) goto parse_m_prepareModeDexp;
         break;
       }
 
-      // optional int32 m_preparemodedexp = 4;
+      // optional int32 m_prepareModeDexp = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_preparemodedexp:
+         parse_m_prepareModeDexp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_preparemodedexp_)));
@@ -10134,15 +10134,15 @@ bool E_RoleExp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_multibattle;
+        if (input->ExpectTag(88)) goto parse_m_multiBattle;
         break;
       }
 
-      // optional int32 m_multibattle = 11;
+      // optional int32 m_multiBattle = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_multibattle:
+         parse_m_multiBattle:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_multibattle_)));
@@ -10246,12 +10246,12 @@ void E_RoleExp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_exp(), output);
   }
 
-  // optional int32 m_skillpoint = 3;
+  // optional int32 m_skillPoint = 3;
   if (has_m_skillpoint()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_skillpoint(), output);
   }
 
-  // optional int32 m_preparemodedexp = 4;
+  // optional int32 m_prepareModeDexp = 4;
   if (has_m_preparemodedexp()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_preparemodedexp(), output);
   }
@@ -10286,7 +10286,7 @@ void E_RoleExp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_solo(), output);
   }
 
-  // optional int32 m_multibattle = 11;
+  // optional int32 m_multiBattle = 11;
   if (has_m_multibattle()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_multibattle(), output);
   }
@@ -10329,12 +10329,12 @@ void E_RoleExp::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_exp(), target);
   }
 
-  // optional int32 m_skillpoint = 3;
+  // optional int32 m_skillPoint = 3;
   if (has_m_skillpoint()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_skillpoint(), target);
   }
 
-  // optional int32 m_preparemodedexp = 4;
+  // optional int32 m_prepareModeDexp = 4;
   if (has_m_preparemodedexp()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_preparemodedexp(), target);
   }
@@ -10369,7 +10369,7 @@ void E_RoleExp::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_solo(), target);
   }
 
-  // optional int32 m_multibattle = 11;
+  // optional int32 m_multiBattle = 11;
   if (has_m_multibattle()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_multibattle(), target);
   }
@@ -10419,14 +10419,14 @@ int E_RoleExp::ByteSize() const {
           this->m_exp());
     }
 
-    // optional int32 m_skillpoint = 3;
+    // optional int32 m_skillPoint = 3;
     if (has_m_skillpoint()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_skillpoint());
     }
 
-    // optional int32 m_preparemodedexp = 4;
+    // optional int32 m_prepareModeDexp = 4;
     if (has_m_preparemodedexp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -10477,7 +10477,7 @@ int E_RoleExp::ByteSize() const {
           this->m_solo());
     }
 
-    // optional int32 m_multibattle = 11;
+    // optional int32 m_multiBattle = 11;
     if (has_m_multibattle()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -10845,8 +10845,8 @@ void Sheet_RoleExp::Swap(Sheet_RoleExp* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_RoleSkilltype::kMSkillidFieldNumber;
-const int E_RoleSkilltype::kMSkilltypeFieldNumber;
+const int E_RoleSkilltype::kMSkillIdFieldNumber;
+const int E_RoleSkilltype::kMSkillTypeFieldNumber;
 #endif  // !_MSC_VER
 
 E_RoleSkilltype::E_RoleSkilltype()
@@ -10915,7 +10915,7 @@ bool E_RoleSkilltype::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 m_skillid = 1;
+      // optional int64 m_skillId = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -10926,15 +10926,15 @@ bool E_RoleSkilltype::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_skilltype;
+        if (input->ExpectTag(16)) goto parse_m_skillType;
         break;
       }
 
-      // optional int32 m_skilltype = 2;
+      // optional int32 m_skillType = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_skilltype:
+         parse_m_skillType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_skilltype_)));
@@ -10964,12 +10964,12 @@ bool E_RoleSkilltype::MergePartialFromCodedStream(
 
 void E_RoleSkilltype::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 m_skillid = 1;
+  // optional int64 m_skillId = 1;
   if (has_m_skillid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_skillid(), output);
   }
 
-  // optional int32 m_skilltype = 2;
+  // optional int32 m_skillType = 2;
   if (has_m_skilltype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_skilltype(), output);
   }
@@ -10982,12 +10982,12 @@ void E_RoleSkilltype::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_RoleSkilltype::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 m_skillid = 1;
+  // optional int64 m_skillId = 1;
   if (has_m_skillid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_skillid(), target);
   }
 
-  // optional int32 m_skilltype = 2;
+  // optional int32 m_skillType = 2;
   if (has_m_skilltype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_skilltype(), target);
   }
@@ -11003,14 +11003,14 @@ int E_RoleSkilltype::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 m_skillid = 1;
+    // optional int64 m_skillId = 1;
     if (has_m_skillid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_skillid());
     }
 
-    // optional int32 m_skilltype = 2;
+    // optional int32 m_skillType = 2;
     if (has_m_skilltype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -11297,7 +11297,7 @@ void Sheet_RoleSkilltype::Swap(Sheet_RoleSkilltype* other) {
 
 #ifndef _MSC_VER
 const int E_RoleAddskill::kMIdFieldNumber;
-const int E_RoleAddskill::kMSkillidFieldNumber;
+const int E_RoleAddskill::kMSkillIdFieldNumber;
 #endif  // !_MSC_VER
 
 E_RoleAddskill::E_RoleAddskill()
@@ -11366,7 +11366,7 @@ bool E_RoleAddskill::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_id = 1;
+      // optional int32 m_Id = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -11377,15 +11377,15 @@ bool E_RoleAddskill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_skillid;
+        if (input->ExpectTag(16)) goto parse_m_skillId;
         break;
       }
 
-      // optional int64 m_skillid = 2;
+      // optional int64 m_skillId = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_skillid:
+         parse_m_skillId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_skillid_)));
@@ -11415,12 +11415,12 @@ bool E_RoleAddskill::MergePartialFromCodedStream(
 
 void E_RoleAddskill::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_id = 1;
+  // optional int32 m_Id = 1;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int64 m_skillid = 2;
+  // optional int64 m_skillId = 2;
   if (has_m_skillid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_skillid(), output);
   }
@@ -11433,12 +11433,12 @@ void E_RoleAddskill::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_RoleAddskill::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_id = 1;
+  // optional int32 m_Id = 1;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int64 m_skillid = 2;
+  // optional int64 m_skillId = 2;
   if (has_m_skillid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_skillid(), target);
   }
@@ -11454,14 +11454,14 @@ int E_RoleAddskill::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_id = 1;
+    // optional int32 m_Id = 1;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_id());
     }
 
-    // optional int64 m_skillid = 2;
+    // optional int64 m_skillId = 2;
     if (has_m_skillid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -11748,7 +11748,7 @@ void Sheet_RoleAddskill::Swap(Sheet_RoleAddskill* other) {
 
 #ifndef _MSC_VER
 const int E_RoleWorldexp::kMLvFieldNumber;
-const int E_RoleWorldexp::kMWorldexpFieldNumber;
+const int E_RoleWorldexp::kMWorldExpFieldNumber;
 #endif  // !_MSC_VER
 
 E_RoleWorldexp::E_RoleWorldexp()
@@ -11828,15 +11828,15 @@ bool E_RoleWorldexp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_worldexp;
+        if (input->ExpectTag(16)) goto parse_m_worldExp;
         break;
       }
 
-      // optional int32 m_worldexp = 2;
+      // optional int32 m_worldExp = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_worldexp:
+         parse_m_worldExp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_worldexp_)));
@@ -11871,7 +11871,7 @@ void E_RoleWorldexp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_lv(), output);
   }
 
-  // optional int32 m_worldexp = 2;
+  // optional int32 m_worldExp = 2;
   if (has_m_worldexp()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_worldexp(), output);
   }
@@ -11889,7 +11889,7 @@ void E_RoleWorldexp::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 m_worldexp = 2;
+  // optional int32 m_worldExp = 2;
   if (has_m_worldexp()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_worldexp(), target);
   }
@@ -11912,7 +11912,7 @@ int E_RoleWorldexp::ByteSize() const {
           this->m_lv());
     }
 
-    // optional int32 m_worldexp = 2;
+    // optional int32 m_worldExp = 2;
     if (has_m_worldexp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

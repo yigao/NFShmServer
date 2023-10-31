@@ -118,10 +118,10 @@ class E_AttributeAttribute : public ::google::protobuf::Message {
   inline float m_power() const;
   inline void set_m_power(float value);
 
-  // optional int32 m_systemtype = 4;
+  // optional int32 m_systemType = 4;
   inline bool has_m_systemtype() const;
   inline void clear_m_systemtype();
-  static const int kMSystemtypeFieldNumber = 4;
+  static const int kMSystemTypeFieldNumber = 4;
   inline ::google::protobuf::int32 m_systemtype() const;
   inline void set_m_systemtype(::google::protobuf::int32 value);
 
@@ -294,80 +294,80 @@ class E_AttributeSuppress : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_lvldiff = 1;
+  // optional int32 m_lvlDiff = 1;
   inline bool has_m_lvldiff() const;
   inline void clear_m_lvldiff();
-  static const int kMLvldiffFieldNumber = 1;
+  static const int kMLvlDiffFieldNumber = 1;
   inline ::google::protobuf::int32 m_lvldiff() const;
   inline void set_m_lvldiff(::google::protobuf::int32 value);
 
-  // optional int32 m_hitsuppve = 2;
+  // optional int32 m_hitSupPve = 2;
   inline bool has_m_hitsuppve() const;
   inline void clear_m_hitsuppve();
-  static const int kMHitsuppveFieldNumber = 2;
+  static const int kMHitSupPveFieldNumber = 2;
   inline ::google::protobuf::int32 m_hitsuppve() const;
   inline void set_m_hitsuppve(::google::protobuf::int32 value);
 
-  // optional int32 m_critsuppve = 3;
+  // optional int32 m_critSupPve = 3;
   inline bool has_m_critsuppve() const;
   inline void clear_m_critsuppve();
-  static const int kMCritsuppveFieldNumber = 3;
+  static const int kMCritSupPveFieldNumber = 3;
   inline ::google::protobuf::int32 m_critsuppve() const;
   inline void set_m_critsuppve(::google::protobuf::int32 value);
 
-  // optional int32 m_killsuppve = 4;
+  // optional int32 m_killSupPve = 4;
   inline bool has_m_killsuppve() const;
   inline void clear_m_killsuppve();
-  static const int kMKillsuppveFieldNumber = 4;
+  static const int kMKillSupPveFieldNumber = 4;
   inline ::google::protobuf::int32 m_killsuppve() const;
   inline void set_m_killsuppve(::google::protobuf::int32 value);
 
-  // optional int32 m_statesuppve = 5;
+  // optional int32 m_stateSupPve = 5;
   inline bool has_m_statesuppve() const;
   inline void clear_m_statesuppve();
-  static const int kMStatesuppveFieldNumber = 5;
+  static const int kMStateSupPveFieldNumber = 5;
   inline ::google::protobuf::int32 m_statesuppve() const;
   inline void set_m_statesuppve(::google::protobuf::int32 value);
 
-  // optional int32 m_lvsuppve = 6;
+  // optional int32 m_lvSupPve = 6;
   inline bool has_m_lvsuppve() const;
   inline void clear_m_lvsuppve();
-  static const int kMLvsuppveFieldNumber = 6;
+  static const int kMLvSupPveFieldNumber = 6;
   inline ::google::protobuf::int32 m_lvsuppve() const;
   inline void set_m_lvsuppve(::google::protobuf::int32 value);
 
-  // optional int32 m_hitsuppvp = 7;
+  // optional int32 m_hitSupPvp = 7;
   inline bool has_m_hitsuppvp() const;
   inline void clear_m_hitsuppvp();
-  static const int kMHitsuppvpFieldNumber = 7;
+  static const int kMHitSupPvpFieldNumber = 7;
   inline ::google::protobuf::int32 m_hitsuppvp() const;
   inline void set_m_hitsuppvp(::google::protobuf::int32 value);
 
-  // optional int32 m_critsuppvp = 8;
+  // optional int32 m_critSupPvp = 8;
   inline bool has_m_critsuppvp() const;
   inline void clear_m_critsuppvp();
-  static const int kMCritsuppvpFieldNumber = 8;
+  static const int kMCritSupPvpFieldNumber = 8;
   inline ::google::protobuf::int32 m_critsuppvp() const;
   inline void set_m_critsuppvp(::google::protobuf::int32 value);
 
-  // optional int32 m_killsuppvp = 9;
+  // optional int32 m_killSupPvp = 9;
   inline bool has_m_killsuppvp() const;
   inline void clear_m_killsuppvp();
-  static const int kMKillsuppvpFieldNumber = 9;
+  static const int kMKillSupPvpFieldNumber = 9;
   inline ::google::protobuf::int32 m_killsuppvp() const;
   inline void set_m_killsuppvp(::google::protobuf::int32 value);
 
-  // optional int32 m_statesuppvp = 10;
+  // optional int32 m_stateSupPvp = 10;
   inline bool has_m_statesuppvp() const;
   inline void clear_m_statesuppvp();
-  static const int kMStatesuppvpFieldNumber = 10;
+  static const int kMStateSupPvpFieldNumber = 10;
   inline ::google::protobuf::int32 m_statesuppvp() const;
   inline void set_m_statesuppvp(::google::protobuf::int32 value);
 
-  // optional int32 m_lvsuppvp = 11;
+  // optional int32 m_lvSupPvp = 11;
   inline bool has_m_lvsuppvp() const;
   inline void clear_m_lvsuppvp();
-  static const int kMLvsuppvpFieldNumber = 11;
+  static const int kMLvSupPvpFieldNumber = 11;
   inline ::google::protobuf::int32 m_lvsuppvp() const;
   inline void set_m_lvsuppvp(::google::protobuf::int32 value);
 
@@ -561,24 +561,24 @@ class E_AttributePowersup : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_powerdiff = 1;
+  // optional int32 m_powerDiff = 1;
   inline bool has_m_powerdiff() const;
   inline void clear_m_powerdiff();
-  static const int kMPowerdiffFieldNumber = 1;
+  static const int kMPowerDiffFieldNumber = 1;
   inline ::google::protobuf::int32 m_powerdiff() const;
   inline void set_m_powerdiff(::google::protobuf::int32 value);
 
-  // optional int32 m_powersuppve = 2;
+  // optional int32 m_powerSupPve = 2;
   inline bool has_m_powersuppve() const;
   inline void clear_m_powersuppve();
-  static const int kMPowersuppveFieldNumber = 2;
+  static const int kMPowerSupPveFieldNumber = 2;
   inline ::google::protobuf::int32 m_powersuppve() const;
   inline void set_m_powersuppve(::google::protobuf::int32 value);
 
-  // optional int32 m_powersuppvp = 3;
+  // optional int32 m_powerSupPvp = 3;
   inline bool has_m_powersuppvp() const;
   inline void clear_m_powersuppvp();
-  static const int kMPowersuppvpFieldNumber = 3;
+  static const int kMPowerSupPvpFieldNumber = 3;
   inline ::google::protobuf::int32 m_powersuppvp() const;
   inline void set_m_powersuppvp(::google::protobuf::int32 value);
 
@@ -765,7 +765,7 @@ inline void E_AttributeAttribute::set_m_power(float value) {
   m_power_ = value;
 }
 
-// optional int32 m_systemtype = 4;
+// optional int32 m_systemType = 4;
 inline bool E_AttributeAttribute::has_m_systemtype() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -820,7 +820,7 @@ Sheet_AttributeAttribute::mutable_e_attributeattribute_list() {
 
 // E_AttributeSuppress
 
-// optional int32 m_lvldiff = 1;
+// optional int32 m_lvlDiff = 1;
 inline bool E_AttributeSuppress::has_m_lvldiff() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -842,7 +842,7 @@ inline void E_AttributeSuppress::set_m_lvldiff(::google::protobuf::int32 value) 
   m_lvldiff_ = value;
 }
 
-// optional int32 m_hitsuppve = 2;
+// optional int32 m_hitSupPve = 2;
 inline bool E_AttributeSuppress::has_m_hitsuppve() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -864,7 +864,7 @@ inline void E_AttributeSuppress::set_m_hitsuppve(::google::protobuf::int32 value
   m_hitsuppve_ = value;
 }
 
-// optional int32 m_critsuppve = 3;
+// optional int32 m_critSupPve = 3;
 inline bool E_AttributeSuppress::has_m_critsuppve() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -886,7 +886,7 @@ inline void E_AttributeSuppress::set_m_critsuppve(::google::protobuf::int32 valu
   m_critsuppve_ = value;
 }
 
-// optional int32 m_killsuppve = 4;
+// optional int32 m_killSupPve = 4;
 inline bool E_AttributeSuppress::has_m_killsuppve() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -908,7 +908,7 @@ inline void E_AttributeSuppress::set_m_killsuppve(::google::protobuf::int32 valu
   m_killsuppve_ = value;
 }
 
-// optional int32 m_statesuppve = 5;
+// optional int32 m_stateSupPve = 5;
 inline bool E_AttributeSuppress::has_m_statesuppve() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -930,7 +930,7 @@ inline void E_AttributeSuppress::set_m_statesuppve(::google::protobuf::int32 val
   m_statesuppve_ = value;
 }
 
-// optional int32 m_lvsuppve = 6;
+// optional int32 m_lvSupPve = 6;
 inline bool E_AttributeSuppress::has_m_lvsuppve() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -952,7 +952,7 @@ inline void E_AttributeSuppress::set_m_lvsuppve(::google::protobuf::int32 value)
   m_lvsuppve_ = value;
 }
 
-// optional int32 m_hitsuppvp = 7;
+// optional int32 m_hitSupPvp = 7;
 inline bool E_AttributeSuppress::has_m_hitsuppvp() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -974,7 +974,7 @@ inline void E_AttributeSuppress::set_m_hitsuppvp(::google::protobuf::int32 value
   m_hitsuppvp_ = value;
 }
 
-// optional int32 m_critsuppvp = 8;
+// optional int32 m_critSupPvp = 8;
 inline bool E_AttributeSuppress::has_m_critsuppvp() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -996,7 +996,7 @@ inline void E_AttributeSuppress::set_m_critsuppvp(::google::protobuf::int32 valu
   m_critsuppvp_ = value;
 }
 
-// optional int32 m_killsuppvp = 9;
+// optional int32 m_killSupPvp = 9;
 inline bool E_AttributeSuppress::has_m_killsuppvp() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -1018,7 +1018,7 @@ inline void E_AttributeSuppress::set_m_killsuppvp(::google::protobuf::int32 valu
   m_killsuppvp_ = value;
 }
 
-// optional int32 m_statesuppvp = 10;
+// optional int32 m_stateSupPvp = 10;
 inline bool E_AttributeSuppress::has_m_statesuppvp() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -1040,7 +1040,7 @@ inline void E_AttributeSuppress::set_m_statesuppvp(::google::protobuf::int32 val
   m_statesuppvp_ = value;
 }
 
-// optional int32 m_lvsuppvp = 11;
+// optional int32 m_lvSupPvp = 11;
 inline bool E_AttributeSuppress::has_m_lvsuppvp() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -1095,7 +1095,7 @@ Sheet_AttributeSuppress::mutable_e_attributesuppress_list() {
 
 // E_AttributePowersup
 
-// optional int32 m_powerdiff = 1;
+// optional int32 m_powerDiff = 1;
 inline bool E_AttributePowersup::has_m_powerdiff() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1117,7 +1117,7 @@ inline void E_AttributePowersup::set_m_powerdiff(::google::protobuf::int32 value
   m_powerdiff_ = value;
 }
 
-// optional int32 m_powersuppve = 2;
+// optional int32 m_powerSupPve = 2;
 inline bool E_AttributePowersup::has_m_powersuppve() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1139,7 +1139,7 @@ inline void E_AttributePowersup::set_m_powersuppve(::google::protobuf::int32 val
   m_powersuppve_ = value;
 }
 
-// optional int32 m_powersuppvp = 3;
+// optional int32 m_powerSupPvp = 3;
 inline bool E_AttributePowersup::has_m_powersuppvp() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }

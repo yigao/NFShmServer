@@ -95,31 +95,31 @@ class E_ChatChat : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_chatid = 1;
+  // optional int64 m_chatId = 1;
   inline bool has_m_chatid() const;
   inline void clear_m_chatid();
-  static const int kMChatidFieldNumber = 1;
+  static const int kMChatIdFieldNumber = 1;
   inline ::google::protobuf::int64 m_chatid() const;
   inline void set_m_chatid(::google::protobuf::int64 value);
 
-  // optional int32 m_chattype = 2;
+  // optional int32 m_chatType = 2;
   inline bool has_m_chattype() const;
   inline void clear_m_chattype();
-  static const int kMChattypeFieldNumber = 2;
+  static const int kMChatTypeFieldNumber = 2;
   inline ::google::protobuf::int32 m_chattype() const;
   inline void set_m_chattype(::google::protobuf::int32 value);
 
-  // optional int32 m_showtime = 3;
+  // optional int32 m_showTime = 3;
   inline bool has_m_showtime() const;
   inline void clear_m_showtime();
-  static const int kMShowtimeFieldNumber = 3;
+  static const int kMShowTimeFieldNumber = 3;
   inline ::google::protobuf::int32 m_showtime() const;
   inline void set_m_showtime(::google::protobuf::int32 value);
 
-  // optional string m_chatcontent = 4;
+  // optional string m_chatContent = 4;
   inline bool has_m_chatcontent() const;
   inline void clear_m_chatcontent();
-  static const int kMChatcontentFieldNumber = 4;
+  static const int kMChatContentFieldNumber = 4;
   inline const ::std::string& m_chatcontent() const;
   inline void set_m_chatcontent(const ::std::string& value);
   inline void set_m_chatcontent(const char* value);
@@ -135,10 +135,10 @@ class E_ChatChat : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_channel() const;
   inline void set_m_channel(::google::protobuf::int32 value);
 
-  // optional int32 m_crossservice = 6;
+  // optional int32 m_CrossService = 6;
   inline bool has_m_crossservice() const;
   inline void clear_m_crossservice();
-  static const int kMCrossserviceFieldNumber = 6;
+  static const int kMCrossServiceFieldNumber = 6;
   inline ::google::protobuf::int32 m_crossservice() const;
   inline void set_m_crossservice(::google::protobuf::int32 value);
 
@@ -348,7 +348,7 @@ class E_ChatSpecialchat : public ::google::protobuf::Message {
   inline ::std::string* release_m_paramb();
   inline void set_allocated_m_paramb(::std::string* m_paramb);
 
-  // optional int64 m_chat_id = 4;
+  // optional int64 m_chat_Id = 4;
   inline bool has_m_chat_id() const;
   inline void clear_m_chat_id();
   static const int kMChatIdFieldNumber = 4;
@@ -475,7 +475,7 @@ class Sheet_ChatSpecialchat : public ::google::protobuf::Message {
 
 // E_ChatChat
 
-// optional int64 m_chatid = 1;
+// optional int64 m_chatId = 1;
 inline bool E_ChatChat::has_m_chatid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -497,7 +497,7 @@ inline void E_ChatChat::set_m_chatid(::google::protobuf::int64 value) {
   m_chatid_ = value;
 }
 
-// optional int32 m_chattype = 2;
+// optional int32 m_chatType = 2;
 inline bool E_ChatChat::has_m_chattype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -519,7 +519,7 @@ inline void E_ChatChat::set_m_chattype(::google::protobuf::int32 value) {
   m_chattype_ = value;
 }
 
-// optional int32 m_showtime = 3;
+// optional int32 m_showTime = 3;
 inline bool E_ChatChat::has_m_showtime() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -541,7 +541,7 @@ inline void E_ChatChat::set_m_showtime(::google::protobuf::int32 value) {
   m_showtime_ = value;
 }
 
-// optional string m_chatcontent = 4;
+// optional string m_chatContent = 4;
 inline bool E_ChatChat::has_m_chatcontent() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -633,7 +633,7 @@ inline void E_ChatChat::set_m_channel(::google::protobuf::int32 value) {
   m_channel_ = value;
 }
 
-// optional int32 m_crossservice = 6;
+// optional int32 m_CrossService = 6;
 inline bool E_ChatChat::has_m_crossservice() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -850,7 +850,7 @@ inline void E_ChatSpecialchat::set_allocated_m_paramb(::std::string* m_paramb) {
   }
 }
 
-// optional int64 m_chat_id = 4;
+// optional int64 m_chat_Id = 4;
 inline bool E_ChatSpecialchat::has_m_chat_id() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }

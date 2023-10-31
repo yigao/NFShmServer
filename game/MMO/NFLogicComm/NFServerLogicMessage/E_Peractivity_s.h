@@ -20,19 +20,19 @@ namespace proto_ff_s {
 		virtual ~E_PeractivityPeractivity_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_activeid;//活动ID
-		NFShmString<64> m_activename;//活动名称
-		int32_t m_typeid;//类型ID
-		int32_t m_functionid;//功能开放ID
-		NFShmString<64> m_opeday;//开放日期
-		NFShmString<64> m_closeday;//关闭日期
-		int32_t m_serverdelaytime;//开服后多少天活动开启
-		int32_t m_servertime;//开服后多少活动结束
-		int32_t m_openingtime;//开启时长
-		int32_t m_advancetime;//提前广播时间
-		int32_t m_intervaltime;//广播间隔
-		int32_t m_iscross;//是否跨服
-		int32_t m_isfestvial;//是否限时活动
+		int64_t m_activeId;//活动ID
+		NFShmString<64> m_activeName;//活动名称
+		int32_t m_typeId;//类型ID
+		int32_t m_functionID;//功能开放ID
+		NFShmString<64> m_opeDay;//开放日期
+		NFShmString<64> m_closeDay;//关闭日期
+		int32_t m_serverdelayTime;//开服后多少天活动开启
+		int32_t m_serverTime;//开服后多少活动结束
+		int32_t m_openingTime;//开启时长
+		int32_t m_advanceTime;//提前广播时间
+		int32_t m_intervalTime;//广播间隔
+		int32_t m_isCross;//是否跨服
+		int32_t m_isFestvial;//是否限时活动
 
 		virtual void write_to_pbmsg(::proto_ff::E_PeractivityPeractivity & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PeractivityPeractivity & msg);

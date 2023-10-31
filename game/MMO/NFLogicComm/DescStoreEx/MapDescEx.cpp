@@ -53,30 +53,30 @@ int MapDescEx::Load()
         {
             if (IsMainCity(pDesc))
             {
-                m_setMainCity.insert(pDesc->m_mapid);
+                m_setMainCity.insert(pDesc->m_mapId);
             }
             else if (Is1v1Ready(pDesc))
             {
-                m_1v1ReadyMapId = pDesc->m_mapid;
+                m_1v1ReadyMapId = pDesc->m_mapId;
             }
             else if (IsQyActMap(pDesc))
             {
-                m_qyMapId = pDesc->m_mapid;
+                m_qyMapId = pDesc->m_mapId;
             }
             else if (Is3v3WaitMap(pDesc))
             {
-                m_3v3WaitMapId = pDesc->m_mapid;
+                m_3v3WaitMapId = pDesc->m_mapId;
             }
             else if (Is3v3Map(pDesc))
             {
-                m_3v3MapId = pDesc->m_mapid;
+                m_3v3MapId = pDesc->m_mapId;
             }
             else if (IsSafeMap(pDesc))
             {
-                m_safeMapId = pDesc->m_mapid;
+                m_safeMapId = pDesc->m_mapId;
             }
 
-            LoadBornCfg(pDesc->m_mapid, dir + NFCommon::tostr(pDesc->m_mapid) + ".json");
+            LoadBornCfg(pDesc->m_mapId, dir + NFCommon::tostr(pDesc->m_mapId) + ".json");
         }
     }
 
@@ -86,10 +86,10 @@ int MapDescEx::Load()
         auto pDesc = &bornResDesc[i];
         if (pDesc)
         {
-            CHECK_EXPR_ASSERT(m_bornProfMap.find(pDesc->m_professionid) == m_bornProfMap.end(), -1, "m_bornProfMap Repeated role prof:{} born:{}", pDesc->m_professionid,
-                              pDesc->m_bornid);
-            auto iter = m_bornProfMap.emplace_hint(pDesc->m_professionid, pDesc->m_bornid);
-            CHECK_EXPR_ASSERT(iter != m_bornProfMap.end(), -1, "m_bornProfMap Space Not Enough prof:{} born:{}", pDesc->m_professionid, pDesc->m_bornid);
+            CHECK_EXPR_ASSERT(m_bornProfMap.find(pDesc->m_professionID) == m_bornProfMap.end(), -1, "m_bornProfMap Repeated role prof:{} born:{}", pDesc->m_professionID,
+                              pDesc->m_bornID);
+            auto iter = m_bornProfMap.emplace_hint(pDesc->m_professionID, pDesc->m_bornID);
+            CHECK_EXPR_ASSERT(iter != m_bornProfMap.end(), -1, "m_bornProfMap Space Not Enough prof:{} born:{}", pDesc->m_professionID, pDesc->m_bornID);
         }
     }
 
@@ -328,7 +328,7 @@ bool MapDescEx::IsDynamic(int64_t mapId)
     auto pMapCfg = MapMapDesc::Instance()->GetDesc(mapId);
     if (pMapCfg)
     {
-        return (1 == pMapCfg->m_isdyn);
+        return (1 == pMapCfg->m_isDyn);
     }
 
     return false;
@@ -348,7 +348,7 @@ bool MapDescEx::IsMainCity(int64_t mapId)
 bool MapDescEx::IsMainCity(const proto_ff_s::E_MapMap_s* pCfg)
 {
     if (nullptr == pCfg) return false;
-    return (NORMAL_MAP == pCfg->m_maptype && (int32_t)ENormalMapType::MainCity == pCfg->m_mapsubtype);
+    return (NORMAL_MAP == pCfg->m_mapType && (int32_t)ENormalMapType::MainCity == pCfg->m_mapSubType);
 }
 
 bool MapDescEx::Is1v1Ready(int64_t mapId)
@@ -360,7 +360,7 @@ bool MapDescEx::Is1v1Ready(int64_t mapId)
 bool MapDescEx::Is1v1Ready(const proto_ff_s::E_MapMap_s* pCfg)
 {
     if (nullptr == pCfg) return false;
-    return (NORMAL_MAP == pCfg->m_maptype && (int32_t)ENormalMapType::Ready1v1 == pCfg->m_mapsubtype);
+    return (NORMAL_MAP == pCfg->m_mapType && (int32_t)ENormalMapType::Ready1v1 == pCfg->m_mapSubType);
 }
 
 bool MapDescEx::IsQyActMap(int64_t mapId)
@@ -372,7 +372,7 @@ bool MapDescEx::IsQyActMap(int64_t mapId)
 bool MapDescEx::IsQyActMap(const proto_ff_s::E_MapMap_s* pCfg)
 {
     if (nullptr == pCfg) return false;
-    if (pCfg->m_maptype == DUP_MAP && pCfg->m_mapsubtype == 510)
+    if (pCfg->m_mapType == DUP_MAP && pCfg->m_mapSubType == 510)
     {
         return true;
     }
@@ -388,7 +388,7 @@ bool MapDescEx::Is3v3WaitMap(int64_t mapId)
 bool MapDescEx::Is3v3WaitMap(const proto_ff_s::E_MapMap_s* pCfg)
 {
     if (nullptr == pCfg) return false;
-    if (pCfg->m_maptype == DUP_MAP && pCfg->m_mapsubtype == 511)
+    if (pCfg->m_mapType == DUP_MAP && pCfg->m_mapSubType == 511)
     {
         return true;
     }
@@ -404,7 +404,7 @@ bool MapDescEx::Is3v3Map(int64_t mapId)
 bool MapDescEx::Is3v3Map(const proto_ff_s::E_MapMap_s* pCfg)
 {
     if (nullptr == pCfg) return false;
-    if (pCfg->m_maptype == DUP_MAP && pCfg->m_mapsubtype == 512)
+    if (pCfg->m_mapType == DUP_MAP && pCfg->m_mapSubType == 512)
     {
         return true;
     }
@@ -420,7 +420,7 @@ bool MapDescEx::IsXiYouReadyMap(int64_t mapId)
 bool MapDescEx::IsXiYouReadyMap(const proto_ff_s::E_MapMap_s* pCfg)
 {
     if (nullptr == pCfg) return false;
-    if (pCfg->m_maptype == DUP_MAP && pCfg->m_mapsubtype == EDupGroupID_XiYouReady)
+    if (pCfg->m_mapType == DUP_MAP && pCfg->m_mapSubType == EDupGroupID_XiYouReady)
     {
         return true;
     }
@@ -436,7 +436,7 @@ bool MapDescEx::IsXiYouKillBossMap(int64_t mapId)
 bool MapDescEx::IsXiYouKillBossMap(const proto_ff_s::E_MapMap_s* pCfg)
 {
     if (nullptr == pCfg) return false;
-    if (pCfg->m_maptype == DUP_MAP && pCfg->m_mapsubtype == EDupGroupID_XiYouKillBoss)
+    if (pCfg->m_mapType == DUP_MAP && pCfg->m_mapSubType == EDupGroupID_XiYouKillBoss)
     {
         return true;
     }
@@ -452,7 +452,7 @@ bool MapDescEx::IsXiYouRouBaoZiMap(int64_t mapId)
 bool MapDescEx::IsXiYouRouBaoZiMap(const proto_ff_s::E_MapMap_s* pCfg)
 {
     if (nullptr == pCfg) return false;
-    if (pCfg->m_maptype == DUP_MAP && pCfg->m_mapsubtype == EDupGroupID_XiYouRouBaoZi)
+    if (pCfg->m_mapType == DUP_MAP && pCfg->m_mapSubType == EDupGroupID_XiYouRouBaoZi)
     {
         return true;
     }
@@ -468,7 +468,7 @@ bool MapDescEx::IsXiYouCaiJiMap(int64_t mapId)
 bool MapDescEx::IsXiYouCaiJiMap(const proto_ff_s::E_MapMap_s* pCfg)
 {
     if (nullptr == pCfg) return false;
-    if (pCfg->m_maptype == DUP_MAP && pCfg->m_mapsubtype == EDupGroupID_XiYouCollect)
+    if (pCfg->m_mapType == DUP_MAP && pCfg->m_mapSubType == EDupGroupID_XiYouCollect)
     {
         return true;
     }
@@ -484,5 +484,5 @@ bool MapDescEx::IsSafeMap(int64_t mapId)
 bool MapDescEx::IsSafeMap(const proto_ff_s::E_MapMap_s* pCfg)
 {
     if (nullptr == pCfg) return false;
-    return (SAFE_MAP == pCfg->m_maptype);
+    return (SAFE_MAP == pCfg->m_mapType);
 }

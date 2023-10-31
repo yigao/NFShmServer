@@ -39,9 +39,9 @@ E_AvatarFragment_s::E_AvatarFragment_s() {
 }
 
 int E_AvatarFragment_s::CreateInit() {
-	m_fragmentid = (int64_t)0;
+	m_fragmentID = (int64_t)0;
 	m_item = (int64_t)0;
-	m_itemnum = (int32_t)0;
+	m_itemNum = (int32_t)0;
 	return 0;
 }
 
@@ -50,9 +50,9 @@ int E_AvatarFragment_s::ResumeInit() {
 }
 
 void E_AvatarFragment_s::write_to_pbmsg(::proto_ff::E_AvatarFragment & msg) const {
-	msg.set_m_fragmentid((int64_t)m_fragmentid);
+	msg.set_m_fragmentid((int64_t)m_fragmentID);
 	msg.set_m_item((int64_t)m_item);
-	msg.set_m_itemnum((int32_t)m_itemnum);
+	msg.set_m_itemnum((int32_t)m_itemNum);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_AvatarFragmentAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
@@ -60,9 +60,9 @@ void E_AvatarFragment_s::write_to_pbmsg(::proto_ff::E_AvatarFragment & msg) cons
 }
 
 void E_AvatarFragment_s::read_from_pbmsg(const ::proto_ff::E_AvatarFragment & msg) {
-	m_fragmentid = msg.m_fragmentid();
+	m_fragmentID = msg.m_fragmentid();
 	m_item = msg.m_item();
-	m_itemnum = msg.m_itemnum();
+	m_itemNum = msg.m_itemnum();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_AvatarFragmentAttributeDesc & temp_m_attribute = msg.m_attribute(i);
@@ -142,7 +142,7 @@ int E_AvatarValue_s::CreateInit() {
 	m_type = (int32_t)0;
 	m_lv = (int32_t)0;
 	m_cost = (int32_t)0;
-	m_exp = (int32_t)0;
+	m_Exp = (int32_t)0;
 	return 0;
 }
 
@@ -155,10 +155,10 @@ void E_AvatarValue_s::write_to_pbmsg(::proto_ff::E_AvatarValue & msg) const {
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_lv((int32_t)m_lv);
 	msg.set_m_cost((int32_t)m_cost);
-	msg.set_m_exp((int32_t)m_exp);
-	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+	msg.set_m_exp((int32_t)m_Exp);
+	for(int32_t i = 0; i < (int32_t)m_Attribute.size(); ++i) {
 		::proto_ff::E_AvatarValueAttributeDesc* temp_m_attribute = msg.add_m_attribute();
-		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
+		m_Attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
 }
 
@@ -167,11 +167,11 @@ void E_AvatarValue_s::read_from_pbmsg(const ::proto_ff::E_AvatarValue & msg) {
 	m_type = msg.m_type();
 	m_lv = msg.m_lv();
 	m_cost = msg.m_cost();
-	m_exp = msg.m_exp();
-	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
-	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+	m_Exp = msg.m_exp();
+	m_Attribute.resize((int)msg.m_attribute_size() > (int)m_Attribute.max_size() ? m_Attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_Attribute.size(); ++i) {
 		const ::proto_ff::E_AvatarValueAttributeDesc & temp_m_attribute = msg.m_attribute(i);
-		m_attribute[i].read_from_pbmsg(temp_m_attribute);
+		m_Attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
 }
 
@@ -244,7 +244,7 @@ E_AvatarDisplay_s::E_AvatarDisplay_s() {
 
 int E_AvatarDisplay_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_uplvtype = (int32_t)0;
+	m_UpLvType = (int32_t)0;
 	return 0;
 }
 
@@ -254,29 +254,29 @@ int E_AvatarDisplay_s::ResumeInit() {
 
 void E_AvatarDisplay_s::write_to_pbmsg(::proto_ff::E_AvatarDisplay & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_uplvtype((int32_t)m_uplvtype);
-	msg.set_m_skillid(m_skillid.data());
+	msg.set_m_uplvtype((int32_t)m_UpLvType);
+	msg.set_m_skillid(m_skillID.data());
 	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
 		::proto_ff::E_AvatarDisplayMaterialDesc* temp_m_material = msg.add_m_material();
 		m_material[i].write_to_pbmsg(*temp_m_material);
 	}
-	for(int32_t i = 0; i < (int32_t)m_fragmentid.size(); ++i) {
-		msg.add_m_fragmentid((int64_t)m_fragmentid[i]);
+	for(int32_t i = 0; i < (int32_t)m_fragmentID.size(); ++i) {
+		msg.add_m_fragmentid((int64_t)m_fragmentID[i]);
 	}
 }
 
 void E_AvatarDisplay_s::read_from_pbmsg(const ::proto_ff::E_AvatarDisplay & msg) {
 	m_id = msg.m_id();
-	m_uplvtype = msg.m_uplvtype();
-	m_skillid = msg.m_skillid();
+	m_UpLvType = msg.m_uplvtype();
+	m_skillID = msg.m_skillid();
 	m_material.resize((int)msg.m_material_size() > (int)m_material.max_size() ? m_material.max_size() : msg.m_material_size());
 	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
 		const ::proto_ff::E_AvatarDisplayMaterialDesc & temp_m_material = msg.m_material(i);
 		m_material[i].read_from_pbmsg(temp_m_material);
 	}
-	m_fragmentid.resize((int)msg.m_fragmentid_size() > (int)m_fragmentid.max_size() ? m_fragmentid.max_size() : msg.m_fragmentid_size());
-	for(int32_t i = 0; i < (int32_t)m_fragmentid.size(); ++i) {
-		m_fragmentid[i] = msg.m_fragmentid(i);
+	m_fragmentID.resize((int)msg.m_fragmentid_size() > (int)m_fragmentID.max_size() ? m_fragmentID.max_size() : msg.m_fragmentid_size());
+	for(int32_t i = 0; i < (int32_t)m_fragmentID.size(); ++i) {
+		m_fragmentID[i] = msg.m_fragmentid(i);
 	}
 }
 
@@ -348,8 +348,8 @@ E_AvatarChangeAttributeDesc_s::E_AvatarChangeAttributeDesc_s() {
 }
 
 int E_AvatarChangeAttributeDesc_s::CreateInit() {
-	m_upvalue = (int32_t)0;
-	m_upber = (int32_t)0;
+	m_UpValue = (int32_t)0;
+	m_UpBer = (int32_t)0;
 	return 0;
 }
 
@@ -358,13 +358,13 @@ int E_AvatarChangeAttributeDesc_s::ResumeInit() {
 }
 
 void E_AvatarChangeAttributeDesc_s::write_to_pbmsg(::proto_ff::E_AvatarChangeAttributeDesc & msg) const {
-	msg.set_m_upvalue((int32_t)m_upvalue);
-	msg.set_m_upber((int32_t)m_upber);
+	msg.set_m_upvalue((int32_t)m_UpValue);
+	msg.set_m_upber((int32_t)m_UpBer);
 }
 
 void E_AvatarChangeAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_AvatarChangeAttributeDesc & msg) {
-	m_upvalue = msg.m_upvalue();
-	m_upber = msg.m_upber();
+	m_UpValue = msg.m_upvalue();
+	m_UpBer = msg.m_upber();
 }
 
 E_AvatarChange_s::E_AvatarChange_s() {
@@ -378,23 +378,23 @@ E_AvatarChange_s::E_AvatarChange_s() {
 int E_AvatarChange_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_quality = (int32_t)0;
-	m_uplvtype = (int32_t)0;
-	m_avatarskill = (int64_t)0;
-	m_avatarcd = (int32_t)0;
-	m_avatartime = (int32_t)0;
-	m_avatarshield = (int32_t)0;
-	m_starmax = (int32_t)0;
-	m_lvmax = (int32_t)0;
-	m_modelid = (int32_t)0;
+	m_UpLvType = (int32_t)0;
+	m_avatarSkill = (int64_t)0;
+	m_avatarCD = (int32_t)0;
+	m_avatarTime = (int32_t)0;
+	m_avatarShield = (int32_t)0;
+	m_starMax = (int32_t)0;
+	m_LvMax = (int32_t)0;
+	m_ModelID = (int32_t)0;
 	m_advance = (int32_t)0;
-	m_activationitem = (int32_t)0;
-	m_activationnum = (int32_t)0;
-	m_starid = (int32_t)0;
-	m_starupattributeid = (int32_t)0;
-	m_fununlock = (int32_t)0;
-	m_maxequip = (int32_t)0;
-	m_equipsuit = (int32_t)0;
-	m_starber = (int32_t)0;
+	m_activationItem = (int32_t)0;
+	m_activationNum = (int32_t)0;
+	m_starId = (int32_t)0;
+	m_starUpAttributeId = (int32_t)0;
+	m_funUnlock = (int32_t)0;
+	m_maxEquip = (int32_t)0;
+	m_equipSuit = (int32_t)0;
+	m_starBer = (int32_t)0;
 	return 0;
 }
 
@@ -405,73 +405,73 @@ int E_AvatarChange_s::ResumeInit() {
 void E_AvatarChange_s::write_to_pbmsg(::proto_ff::E_AvatarChange & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_quality((int32_t)m_quality);
-	msg.set_m_uplvtype((int32_t)m_uplvtype);
-	msg.set_m_avatarskill((int64_t)m_avatarskill);
-	msg.set_m_avatarcd((int32_t)m_avatarcd);
-	msg.set_m_avatartime((int32_t)m_avatartime);
-	msg.set_m_avatarshield((int32_t)m_avatarshield);
-	msg.set_m_skillid(m_skillid.data());
-	msg.set_m_starmax((int32_t)m_starmax);
-	msg.set_m_lvmax((int32_t)m_lvmax);
-	msg.set_m_modelid((int32_t)m_modelid);
+	msg.set_m_uplvtype((int32_t)m_UpLvType);
+	msg.set_m_avatarskill((int64_t)m_avatarSkill);
+	msg.set_m_avatarcd((int32_t)m_avatarCD);
+	msg.set_m_avatartime((int32_t)m_avatarTime);
+	msg.set_m_avatarshield((int32_t)m_avatarShield);
+	msg.set_m_skillid(m_skillID.data());
+	msg.set_m_starmax((int32_t)m_starMax);
+	msg.set_m_lvmax((int32_t)m_LvMax);
+	msg.set_m_modelid((int32_t)m_ModelID);
 	msg.set_m_advance((int32_t)m_advance);
-	msg.set_m_activationitem((int32_t)m_activationitem);
-	msg.set_m_activationnum((int32_t)m_activationnum);
-	msg.set_m_starid((int32_t)m_starid);
-	msg.set_m_starnum(m_starnum.data());
-	msg.set_m_starupattributeid((int32_t)m_starupattributeid);
-	msg.set_m_fununlock((int32_t)m_fununlock);
-	msg.set_m_maxequip((int32_t)m_maxequip);
-	msg.set_m_equipsuit((int32_t)m_equipsuit);
-	msg.set_m_starber((int32_t)m_starber);
+	msg.set_m_activationitem((int32_t)m_activationItem);
+	msg.set_m_activationnum((int32_t)m_activationNum);
+	msg.set_m_starid((int32_t)m_starId);
+	msg.set_m_starnum(m_starNum.data());
+	msg.set_m_starupattributeid((int32_t)m_starUpAttributeId);
+	msg.set_m_fununlock((int32_t)m_funUnlock);
+	msg.set_m_maxequip((int32_t)m_maxEquip);
+	msg.set_m_equipsuit((int32_t)m_equipSuit);
+	msg.set_m_starber((int32_t)m_starBer);
 	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
 		::proto_ff::E_AvatarChangeMaterialDesc* temp_m_material = msg.add_m_material();
 		m_material[i].write_to_pbmsg(*temp_m_material);
 	}
-	for(int32_t i = 0; i < (int32_t)m_initiativeskill.size(); ++i) {
-		msg.add_m_initiativeskill((int64_t)m_initiativeskill[i]);
+	for(int32_t i = 0; i < (int32_t)m_InitiativeSkill.size(); ++i) {
+		msg.add_m_initiativeskill((int64_t)m_InitiativeSkill[i]);
 	}
-	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+	for(int32_t i = 0; i < (int32_t)m_Attribute.size(); ++i) {
 		::proto_ff::E_AvatarChangeAttributeDesc* temp_m_attribute = msg.add_m_attribute();
-		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
+		m_Attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
 }
 
 void E_AvatarChange_s::read_from_pbmsg(const ::proto_ff::E_AvatarChange & msg) {
 	m_id = msg.m_id();
 	m_quality = msg.m_quality();
-	m_uplvtype = msg.m_uplvtype();
-	m_avatarskill = msg.m_avatarskill();
-	m_avatarcd = msg.m_avatarcd();
-	m_avatartime = msg.m_avatartime();
-	m_avatarshield = msg.m_avatarshield();
-	m_skillid = msg.m_skillid();
-	m_starmax = msg.m_starmax();
-	m_lvmax = msg.m_lvmax();
-	m_modelid = msg.m_modelid();
+	m_UpLvType = msg.m_uplvtype();
+	m_avatarSkill = msg.m_avatarskill();
+	m_avatarCD = msg.m_avatarcd();
+	m_avatarTime = msg.m_avatartime();
+	m_avatarShield = msg.m_avatarshield();
+	m_skillID = msg.m_skillid();
+	m_starMax = msg.m_starmax();
+	m_LvMax = msg.m_lvmax();
+	m_ModelID = msg.m_modelid();
 	m_advance = msg.m_advance();
-	m_activationitem = msg.m_activationitem();
-	m_activationnum = msg.m_activationnum();
-	m_starid = msg.m_starid();
-	m_starnum = msg.m_starnum();
-	m_starupattributeid = msg.m_starupattributeid();
-	m_fununlock = msg.m_fununlock();
-	m_maxequip = msg.m_maxequip();
-	m_equipsuit = msg.m_equipsuit();
-	m_starber = msg.m_starber();
+	m_activationItem = msg.m_activationitem();
+	m_activationNum = msg.m_activationnum();
+	m_starId = msg.m_starid();
+	m_starNum = msg.m_starnum();
+	m_starUpAttributeId = msg.m_starupattributeid();
+	m_funUnlock = msg.m_fununlock();
+	m_maxEquip = msg.m_maxequip();
+	m_equipSuit = msg.m_equipsuit();
+	m_starBer = msg.m_starber();
 	m_material.resize((int)msg.m_material_size() > (int)m_material.max_size() ? m_material.max_size() : msg.m_material_size());
 	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
 		const ::proto_ff::E_AvatarChangeMaterialDesc & temp_m_material = msg.m_material(i);
 		m_material[i].read_from_pbmsg(temp_m_material);
 	}
-	m_initiativeskill.resize((int)msg.m_initiativeskill_size() > (int)m_initiativeskill.max_size() ? m_initiativeskill.max_size() : msg.m_initiativeskill_size());
-	for(int32_t i = 0; i < (int32_t)m_initiativeskill.size(); ++i) {
-		m_initiativeskill[i] = msg.m_initiativeskill(i);
+	m_InitiativeSkill.resize((int)msg.m_initiativeskill_size() > (int)m_InitiativeSkill.max_size() ? m_InitiativeSkill.max_size() : msg.m_initiativeskill_size());
+	for(int32_t i = 0; i < (int32_t)m_InitiativeSkill.size(); ++i) {
+		m_InitiativeSkill[i] = msg.m_initiativeskill(i);
 	}
-	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
-	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+	m_Attribute.resize((int)msg.m_attribute_size() > (int)m_Attribute.max_size() ? m_Attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_Attribute.size(); ++i) {
 		const ::proto_ff::E_AvatarChangeAttributeDesc & temp_m_attribute = msg.m_attribute(i);
-		m_attribute[i].read_from_pbmsg(temp_m_attribute);
+		m_Attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
 }
 
@@ -515,7 +515,7 @@ E_AvatarChangetab_s::E_AvatarChangetab_s() {
 }
 
 int E_AvatarChangetab_s::CreateInit() {
-	m_tabid = (int32_t)0;
+	m_tabID = (int32_t)0;
 	return 0;
 }
 
@@ -524,11 +524,11 @@ int E_AvatarChangetab_s::ResumeInit() {
 }
 
 void E_AvatarChangetab_s::write_to_pbmsg(::proto_ff::E_AvatarChangetab & msg) const {
-	msg.set_m_tabid((int32_t)m_tabid);
+	msg.set_m_tabid((int32_t)m_tabID);
 }
 
 void E_AvatarChangetab_s::read_from_pbmsg(const ::proto_ff::E_AvatarChangetab & msg) {
-	m_tabid = msg.m_tabid();
+	m_tabID = msg.m_tabid();
 }
 
 Sheet_AvatarChangetab_s::Sheet_AvatarChangetab_s() {
@@ -661,9 +661,9 @@ E_AvatarAdvance_s::E_AvatarAdvance_s() {
 
 int E_AvatarAdvance_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_upattributeid = (int32_t)0;
-	m_starid = (int32_t)0;
-	m_skillid = (int32_t)0;
+	m_upAttributeId = (int32_t)0;
+	m_starID = (int32_t)0;
+	m_skillID = (int32_t)0;
 	return 0;
 }
 
@@ -673,24 +673,24 @@ int E_AvatarAdvance_s::ResumeInit() {
 
 void E_AvatarAdvance_s::write_to_pbmsg(::proto_ff::E_AvatarAdvance & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_upattributeid((int32_t)m_upattributeid);
-	msg.set_m_starid((int32_t)m_starid);
-	msg.set_m_skillid((int32_t)m_skillid);
-	for(int32_t i = 0; i < (int32_t)m_upattribute.size(); ++i) {
+	msg.set_m_upattributeid((int32_t)m_upAttributeId);
+	msg.set_m_starid((int32_t)m_starID);
+	msg.set_m_skillid((int32_t)m_skillID);
+	for(int32_t i = 0; i < (int32_t)m_upAttribute.size(); ++i) {
 		::proto_ff::E_AvatarAdvanceUpattributeDesc* temp_m_upattribute = msg.add_m_upattribute();
-		m_upattribute[i].write_to_pbmsg(*temp_m_upattribute);
+		m_upAttribute[i].write_to_pbmsg(*temp_m_upattribute);
 	}
 }
 
 void E_AvatarAdvance_s::read_from_pbmsg(const ::proto_ff::E_AvatarAdvance & msg) {
 	m_id = msg.m_id();
-	m_upattributeid = msg.m_upattributeid();
-	m_starid = msg.m_starid();
-	m_skillid = msg.m_skillid();
-	m_upattribute.resize((int)msg.m_upattribute_size() > (int)m_upattribute.max_size() ? m_upattribute.max_size() : msg.m_upattribute_size());
-	for(int32_t i = 0; i < (int32_t)m_upattribute.size(); ++i) {
+	m_upAttributeId = msg.m_upattributeid();
+	m_starID = msg.m_starid();
+	m_skillID = msg.m_skillid();
+	m_upAttribute.resize((int)msg.m_upattribute_size() > (int)m_upAttribute.max_size() ? m_upAttribute.max_size() : msg.m_upattribute_size());
+	for(int32_t i = 0; i < (int32_t)m_upAttribute.size(); ++i) {
 		const ::proto_ff::E_AvatarAdvanceUpattributeDesc & temp_m_upattribute = msg.m_upattribute(i);
-		m_upattribute[i].read_from_pbmsg(temp_m_upattribute);
+		m_upAttribute[i].read_from_pbmsg(temp_m_upattribute);
 	}
 }
 
@@ -828,7 +828,7 @@ E_AvatarEquipsuit_s::E_AvatarEquipsuit_s() {
 
 int E_AvatarEquipsuit_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_groupid = (int32_t)0;
+	m_groupID = (int32_t)0;
 	m_quality = (int32_t)0;
 	m_star = (int32_t)0;
 	return 0;
@@ -840,24 +840,24 @@ int E_AvatarEquipsuit_s::ResumeInit() {
 
 void E_AvatarEquipsuit_s::write_to_pbmsg(::proto_ff::E_AvatarEquipsuit & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_groupid((int32_t)m_groupid);
+	msg.set_m_groupid((int32_t)m_groupID);
 	msg.set_m_quality((int32_t)m_quality);
 	msg.set_m_star((int32_t)m_star);
-	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+	for(int32_t i = 0; i < (int32_t)m_Attribute.size(); ++i) {
 		::proto_ff::E_AvatarEquipsuitAttributeDesc* temp_m_attribute = msg.add_m_attribute();
-		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
+		m_Attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
 }
 
 void E_AvatarEquipsuit_s::read_from_pbmsg(const ::proto_ff::E_AvatarEquipsuit & msg) {
 	m_id = msg.m_id();
-	m_groupid = msg.m_groupid();
+	m_groupID = msg.m_groupid();
 	m_quality = msg.m_quality();
 	m_star = msg.m_star();
-	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
-	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+	m_Attribute.resize((int)msg.m_attribute_size() > (int)m_Attribute.max_size() ? m_Attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_Attribute.size(); ++i) {
 		const ::proto_ff::E_AvatarEquipsuitAttributeDesc & temp_m_attribute = msg.m_attribute(i);
-		m_attribute[i].read_from_pbmsg(temp_m_attribute);
+		m_Attribute[i].read_from_pbmsg(temp_m_attribute);
 	}
 }
 

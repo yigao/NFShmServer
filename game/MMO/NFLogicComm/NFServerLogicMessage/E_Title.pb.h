@@ -381,17 +381,17 @@ class E_TitleTitle : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_type() const;
   inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 m_subtype = 4;
+  // optional int32 m_subType = 4;
   inline bool has_m_subtype() const;
   inline void clear_m_subtype();
-  static const int kMSubtypeFieldNumber = 4;
+  static const int kMSubTypeFieldNumber = 4;
   inline ::google::protobuf::int32 m_subtype() const;
   inline void set_m_subtype(::google::protobuf::int32 value);
 
-  // optional string m_eventvalue = 5;
+  // optional string m_eventValue = 5;
   inline bool has_m_eventvalue() const;
   inline void clear_m_eventvalue();
-  static const int kMEventvalueFieldNumber = 5;
+  static const int kMEventValueFieldNumber = 5;
   inline const ::std::string& m_eventvalue() const;
   inline void set_m_eventvalue(const ::std::string& value);
   inline void set_m_eventvalue(const char* value);
@@ -412,52 +412,52 @@ class E_TitleTitle : public ::google::protobuf::Message {
   inline ::std::string* release_m_describe();
   inline void set_allocated_m_describe(::std::string* m_describe);
 
-  // optional int32 m_addtime = 7;
+  // optional int32 m_addTime = 7;
   inline bool has_m_addtime() const;
   inline void clear_m_addtime();
-  static const int kMAddtimeFieldNumber = 7;
+  static const int kMAddTimeFieldNumber = 7;
   inline ::google::protobuf::int32 m_addtime() const;
   inline void set_m_addtime(::google::protobuf::int32 value);
 
-  // optional int32 m_timetpye = 8;
+  // optional int32 m_timeTpye = 8;
   inline bool has_m_timetpye() const;
   inline void clear_m_timetpye();
-  static const int kMTimetpyeFieldNumber = 8;
+  static const int kMTimeTpyeFieldNumber = 8;
   inline ::google::protobuf::int32 m_timetpye() const;
   inline void set_m_timetpye(::google::protobuf::int32 value);
 
-  // optional int32 m_lifetime = 9;
+  // optional int32 m_lifeTime = 9;
   inline bool has_m_lifetime() const;
   inline void clear_m_lifetime();
-  static const int kMLifetimeFieldNumber = 9;
+  static const int kMLifeTimeFieldNumber = 9;
   inline ::google::protobuf::int32 m_lifetime() const;
   inline void set_m_lifetime(::google::protobuf::int32 value);
 
-  // optional int64 m_activationitem = 10;
+  // optional int64 m_activationItem = 10;
   inline bool has_m_activationitem() const;
   inline void clear_m_activationitem();
-  static const int kMActivationitemFieldNumber = 10;
+  static const int kMActivationItemFieldNumber = 10;
   inline ::google::protobuf::int64 m_activationitem() const;
   inline void set_m_activationitem(::google::protobuf::int64 value);
 
-  // optional int32 m_activationnum = 11;
+  // optional int32 m_activationNum = 11;
   inline bool has_m_activationnum() const;
   inline void clear_m_activationnum();
-  static const int kMActivationnumFieldNumber = 11;
+  static const int kMActivationNumFieldNumber = 11;
   inline ::google::protobuf::int32 m_activationnum() const;
   inline void set_m_activationnum(::google::protobuf::int32 value);
 
-  // optional int64 m_starid = 12;
+  // optional int64 m_starId = 12;
   inline bool has_m_starid() const;
   inline void clear_m_starid();
-  static const int kMStaridFieldNumber = 12;
+  static const int kMStarIdFieldNumber = 12;
   inline ::google::protobuf::int64 m_starid() const;
   inline void set_m_starid(::google::protobuf::int64 value);
 
-  // optional string m_starnum = 13;
+  // optional string m_starNum = 13;
   inline bool has_m_starnum() const;
   inline void clear_m_starnum();
-  static const int kMStarnumFieldNumber = 13;
+  static const int kMStarNumFieldNumber = 13;
   inline const ::std::string& m_starnum() const;
   inline void set_m_starnum(const ::std::string& value);
   inline void set_m_starnum(const char* value);
@@ -466,17 +466,17 @@ class E_TitleTitle : public ::google::protobuf::Message {
   inline ::std::string* release_m_starnum();
   inline void set_allocated_m_starnum(::std::string* m_starnum);
 
-  // optional int32 m_starup = 14;
+  // optional int32 m_starUp = 14;
   inline bool has_m_starup() const;
   inline void clear_m_starup();
-  static const int kMStarupFieldNumber = 14;
+  static const int kMStarUpFieldNumber = 14;
   inline ::google::protobuf::int32 m_starup() const;
   inline void set_m_starup(::google::protobuf::int32 value);
 
-  // optional int32 m_starber = 15;
+  // optional int32 m_starBer = 15;
   inline bool has_m_starber() const;
   inline void clear_m_starber();
-  static const int kMStarberFieldNumber = 15;
+  static const int kMStarBerFieldNumber = 15;
   inline ::google::protobuf::int32 m_starber() const;
   inline void set_m_starber(::google::protobuf::int32 value);
 
@@ -863,7 +863,7 @@ inline void E_TitleTitle::set_m_type(::google::protobuf::int32 value) {
   m_type_ = value;
 }
 
-// optional int32 m_subtype = 4;
+// optional int32 m_subType = 4;
 inline bool E_TitleTitle::has_m_subtype() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -885,7 +885,7 @@ inline void E_TitleTitle::set_m_subtype(::google::protobuf::int32 value) {
   m_subtype_ = value;
 }
 
-// optional string m_eventvalue = 5;
+// optional string m_eventValue = 5;
 inline bool E_TitleTitle::has_m_eventvalue() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1025,7 +1025,7 @@ inline void E_TitleTitle::set_allocated_m_describe(::std::string* m_describe) {
   }
 }
 
-// optional int32 m_addtime = 7;
+// optional int32 m_addTime = 7;
 inline bool E_TitleTitle::has_m_addtime() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -1047,7 +1047,7 @@ inline void E_TitleTitle::set_m_addtime(::google::protobuf::int32 value) {
   m_addtime_ = value;
 }
 
-// optional int32 m_timetpye = 8;
+// optional int32 m_timeTpye = 8;
 inline bool E_TitleTitle::has_m_timetpye() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -1069,7 +1069,7 @@ inline void E_TitleTitle::set_m_timetpye(::google::protobuf::int32 value) {
   m_timetpye_ = value;
 }
 
-// optional int32 m_lifetime = 9;
+// optional int32 m_lifeTime = 9;
 inline bool E_TitleTitle::has_m_lifetime() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -1091,7 +1091,7 @@ inline void E_TitleTitle::set_m_lifetime(::google::protobuf::int32 value) {
   m_lifetime_ = value;
 }
 
-// optional int64 m_activationitem = 10;
+// optional int64 m_activationItem = 10;
 inline bool E_TitleTitle::has_m_activationitem() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -1113,7 +1113,7 @@ inline void E_TitleTitle::set_m_activationitem(::google::protobuf::int64 value) 
   m_activationitem_ = value;
 }
 
-// optional int32 m_activationnum = 11;
+// optional int32 m_activationNum = 11;
 inline bool E_TitleTitle::has_m_activationnum() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -1135,7 +1135,7 @@ inline void E_TitleTitle::set_m_activationnum(::google::protobuf::int32 value) {
   m_activationnum_ = value;
 }
 
-// optional int64 m_starid = 12;
+// optional int64 m_starId = 12;
 inline bool E_TitleTitle::has_m_starid() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -1157,7 +1157,7 @@ inline void E_TitleTitle::set_m_starid(::google::protobuf::int64 value) {
   m_starid_ = value;
 }
 
-// optional string m_starnum = 13;
+// optional string m_starNum = 13;
 inline bool E_TitleTitle::has_m_starnum() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -1227,7 +1227,7 @@ inline void E_TitleTitle::set_allocated_m_starnum(::std::string* m_starnum) {
   }
 }
 
-// optional int32 m_starup = 14;
+// optional int32 m_starUp = 14;
 inline bool E_TitleTitle::has_m_starup() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -1249,7 +1249,7 @@ inline void E_TitleTitle::set_m_starup(::google::protobuf::int32 value) {
   m_starup_ = value;
 }
 
-// optional int32 m_starber = 15;
+// optional int32 m_starBer = 15;
 inline bool E_TitleTitle::has_m_starber() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }

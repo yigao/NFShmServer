@@ -111,10 +111,10 @@ class E_JinglianSimple : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_position() const;
   inline void set_m_position(::google::protobuf::int32 value);
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupId = 2;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 2;
+  static const int kMGroupIdFieldNumber = 2;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
@@ -505,10 +505,10 @@ class E_JinglianLv : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupId = 2;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 2;
+  static const int kMGroupIdFieldNumber = 2;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
@@ -1380,7 +1380,7 @@ inline void E_JinglianSimple::set_m_position(::google::protobuf::int32 value) {
   m_position_ = value;
 }
 
-// optional int32 m_groupid = 2;
+// optional int32 m_groupId = 2;
 inline bool E_JinglianSimple::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1622,7 +1622,7 @@ inline void E_JinglianLv::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_groupid = 2;
+// optional int32 m_groupId = 2;
 inline bool E_JinglianLv::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }

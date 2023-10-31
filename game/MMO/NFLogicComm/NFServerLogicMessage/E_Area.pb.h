@@ -100,31 +100,31 @@ class E_AreaArea : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
-  // optional int32 m_subtype = 2;
+  // optional int32 m_subType = 2;
   inline bool has_m_subtype() const;
   inline void clear_m_subtype();
-  static const int kMSubtypeFieldNumber = 2;
+  static const int kMSubTypeFieldNumber = 2;
   inline ::google::protobuf::int32 m_subtype() const;
   inline void set_m_subtype(::google::protobuf::int32 value);
 
-  // optional int64 m_belongtosceneid = 3;
+  // optional int64 m_belongToSceneID = 3;
   inline bool has_m_belongtosceneid() const;
   inline void clear_m_belongtosceneid();
-  static const int kMBelongtosceneidFieldNumber = 3;
+  static const int kMBelongToSceneIDFieldNumber = 3;
   inline ::google::protobuf::int64 m_belongtosceneid() const;
   inline void set_m_belongtosceneid(::google::protobuf::int64 value);
 
-  // optional int32 m_shapetype = 4;
+  // optional int32 m_shapeType = 4;
   inline bool has_m_shapetype() const;
   inline void clear_m_shapetype();
-  static const int kMShapetypeFieldNumber = 4;
+  static const int kMShapeTypeFieldNumber = 4;
   inline ::google::protobuf::int32 m_shapetype() const;
   inline void set_m_shapetype(::google::protobuf::int32 value);
 
-  // optional int32 m_isnotice = 5;
+  // optional int32 m_isNotice = 5;
   inline bool has_m_isnotice() const;
   inline void clear_m_isnotice();
-  static const int kMIsnoticeFieldNumber = 5;
+  static const int kMIsNoticeFieldNumber = 5;
   inline ::google::protobuf::int32 m_isnotice() const;
   inline void set_m_isnotice(::google::protobuf::int32 value);
 
@@ -273,7 +273,7 @@ inline void E_AreaArea::set_m_id(::google::protobuf::int64 value) {
   m_id_ = value;
 }
 
-// optional int32 m_subtype = 2;
+// optional int32 m_subType = 2;
 inline bool E_AreaArea::has_m_subtype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -295,7 +295,7 @@ inline void E_AreaArea::set_m_subtype(::google::protobuf::int32 value) {
   m_subtype_ = value;
 }
 
-// optional int64 m_belongtosceneid = 3;
+// optional int64 m_belongToSceneID = 3;
 inline bool E_AreaArea::has_m_belongtosceneid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -317,7 +317,7 @@ inline void E_AreaArea::set_m_belongtosceneid(::google::protobuf::int64 value) {
   m_belongtosceneid_ = value;
 }
 
-// optional int32 m_shapetype = 4;
+// optional int32 m_shapeType = 4;
 inline bool E_AreaArea::has_m_shapetype() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -339,7 +339,7 @@ inline void E_AreaArea::set_m_shapetype(::google::protobuf::int32 value) {
   m_shapetype_ = value;
 }
 
-// optional int32 m_isnotice = 5;
+// optional int32 m_isNotice = 5;
 inline bool E_AreaArea::has_m_isnotice() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }

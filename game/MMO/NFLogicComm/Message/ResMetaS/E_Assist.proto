@@ -31,12 +31,12 @@ message Sheet_AssistThank
 message E_AssistConst
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_sendergift = 2[(yd_fieldoptions.field_cname) = "求助者礼包id"];
-	optional int32 m_sendergiftnum = 3[(yd_fieldoptions.field_cname) = "求助者礼包每日数量"];
-	optional int32 m_helpergift = 4[(yd_fieldoptions.field_cname) = "协助者礼包id"];
-	optional int32 m_helpergiftnum = 5[(yd_fieldoptions.field_cname) = "协助者礼包每日数量"];
-	optional int32 m_prestigedaylimit = 6[(yd_fieldoptions.field_cname) = "每日日常声望获取上限"];
-	optional int32 m_prestigedaybosslimit = 7[(yd_fieldoptions.field_cname) = "每日boss协助声望获取上限"];
+	optional int32 m_senderGift = 2[(yd_fieldoptions.field_cname) = "求助者礼包id"];
+	optional int32 m_senderGiftNum = 3[(yd_fieldoptions.field_cname) = "求助者礼包每日数量"];
+	optional int32 m_helperGift = 4[(yd_fieldoptions.field_cname) = "协助者礼包id"];
+	optional int32 m_helperGiftNum = 5[(yd_fieldoptions.field_cname) = "协助者礼包每日数量"];
+	optional int32 m_prestigeDaylimit = 6[(yd_fieldoptions.field_cname) = "每日日常声望获取上限"];
+	optional int32 m_prestigeDayBosslimit = 7[(yd_fieldoptions.field_cname) = "每日boss协助声望获取上限"];
 }
 
 

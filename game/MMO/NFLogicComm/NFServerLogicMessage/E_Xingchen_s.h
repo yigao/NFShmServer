@@ -56,11 +56,11 @@ namespace proto_ff_s {
 		virtual ~E_XingchenXcsetup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_xsid;//星宿id
-		int32_t m_unlockdj;//解锁条件天数
-		int32_t m_unlockpf;//解锁条件评分
-		int32_t m_xstype;//星宿类型
-		int32_t m_xssubtype;//星宿子类型
+		int32_t m_XsId;//星宿id
+		int32_t m_UnlockDj;//解锁条件天数
+		int32_t m_UnlockPf;//解锁条件评分
+		int32_t m_XSType;//星宿类型
+		int32_t m_XSSubType;//星宿子类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_XingchenXcsetup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XingchenXcsetup & msg);
@@ -88,8 +88,8 @@ namespace proto_ff_s {
 		virtual ~E_XingchenXcmosaic_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_positionnum;//部位序号
-		int32_t m_positionid;//部位ID
+		int32_t m_PositionNum;//部位序号
+		int32_t m_PositionID;//部位ID
 		int32_t m_posx;//当前位置X
 		int32_t m_posy;//当前位置Y
 		int32_t m_next_posx;//下个位置X
@@ -136,12 +136,12 @@ namespace proto_ff_s {
 		virtual ~E_XingchenXcmaterial_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//id
-		int32_t m_materialtype;//材料类型
-		int32_t m_functiontype;//功能类型
-		NFShmString<64> m_xcposition;//星辰位置
-		int32_t m_itemid;//道具id
-		int32_t m_itemexp;//道具经验值
+		int32_t m_Id;//id
+		int32_t m_MaterialType;//材料类型
+		int32_t m_FunctionType;//功能类型
+		NFShmString<64> m_XcPosition;//星辰位置
+		int32_t m_itemId;//道具id
+		int32_t m_itemExp;//道具经验值
 		NFShmVector<struct E_XingchenXcmaterialQualityDesc_s, DEFINE_E_XINGCHENXCMATERIAL_M_QUALITY_MAX_NUM> m_quality;//品质
 
 		virtual void write_to_pbmsg(::proto_ff::E_XingchenXcmaterial & msg) const;
@@ -185,7 +185,7 @@ namespace proto_ff_s {
 		virtual ~E_XingchenXinchen_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_xcequip;//装备id
+		int32_t m_XcEquip;//装备id
 		NFShmVector<struct E_XingchenXinchenAttributeDesc_s, DEFINE_E_XINGCHENXINCHEN_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_XingchenXinchen & msg) const;
@@ -214,7 +214,7 @@ namespace proto_ff_s {
 		virtual ~E_XingchenXclvatt_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_attid;//属性组id
+		int64_t m_attId;//属性组id
 		NFShmVector<int32_t, DEFINE_E_XINGCHENXCLVATT_M_ATT_MAX_NUM> m_att;//属性等级
 
 		virtual void write_to_pbmsg(::proto_ff::E_XingchenXclvatt & msg) const;
@@ -288,10 +288,10 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//ID
-		int32_t m_positionid;//部位ID
-		int32_t m_xcquality;//星辰品质
-		int32_t m_xclvmax;//突破上限
-		NFShmVector<struct E_XingchenXctpTpDesc_s, DEFINE_E_XINGCHENXCTP_M_TP_MAX_NUM> m_tp;//属性
+		int32_t m_PositionID;//部位ID
+		int32_t m_XcQuality;//星辰品质
+		int32_t m_XcLvmax;//突破上限
+		NFShmVector<struct E_XingchenXctpTpDesc_s, DEFINE_E_XINGCHENXCTP_M_TP_MAX_NUM> m_TP;//属性
 		NFShmVector<int32_t, DEFINE_E_XINGCHENXCTP_M_ATTR_MAX_NUM> m_attr;//突破属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_XingchenXctp & msg) const;
@@ -321,7 +321,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//下个等级
-		NFShmString<64> m_lvdisplay;//等级显示
+		NFShmString<64> m_Lvdisplay;//等级显示
 		int32_t m_exp;//突破所需经验
 
 		virtual void write_to_pbmsg(::proto_ff::E_XingchenXctpexp & msg) const;
@@ -351,9 +351,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;//属性组id
-		int64_t m_attid;//属性id
+		int64_t m_attId;//属性id
 		int32_t m_count;//计算方式
-		int32_t m_atttype;//属性类型
+		int32_t m_attType;//属性类型
 		int32_t m_att;//属性突破
 
 		virtual void write_to_pbmsg(::proto_ff::E_XingchenXctpaddi & msg) const;
@@ -382,7 +382,7 @@ namespace proto_ff_s {
 		virtual ~E_XingchenXctpatt_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_attid;//属性组id
+		int64_t m_attID;//属性组id
 		NFShmVector<int32_t, DEFINE_E_XINGCHENXCTPATT_M_ATT_MAX_NUM> m_att;//属性等级
 
 		virtual void write_to_pbmsg(::proto_ff::E_XingchenXctpatt & msg) const;
@@ -426,7 +426,7 @@ namespace proto_ff_s {
 		virtual ~E_XingchenXcstar_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_starlv;//等级
+		int32_t m_StarLv;//等级
 		int32_t m_id;//星数
 		NFShmVector<struct E_XingchenXcstarAttributeDesc_s, DEFINE_E_XINGCHENXCSTAR_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
 
@@ -456,8 +456,8 @@ namespace proto_ff_s {
 		virtual ~E_XingchenXcawakenAwakenDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_tpaddratio;//突破属性加成百分比
-		int32_t m_lvaddratio;//升级属性加成百分比
+		int32_t m_TPAddratio;//突破属性加成百分比
+		int32_t m_lvAddratio;//升级属性加成百分比
 		int32_t m_num;//材料数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_XingchenXcawakenAwakenDesc & msg) const;
@@ -472,10 +472,10 @@ namespace proto_ff_s {
 		virtual ~E_XingchenXcawaken_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_positionnum;//部位序号
-		int32_t m_positionid;//部位ID
+		int32_t m_PositionNum;//部位序号
+		int32_t m_PositionID;//部位ID
 		int32_t m_awaken_quality;//品质
-		int32_t m_awaken_lvmax;//觉醒上限
+		int32_t m_awaken_Lvmax;//觉醒上限
 		int32_t m_awaken_item;//觉醒材料
 		NFShmVector<struct E_XingchenXcawakenAwakenDesc_s, DEFINE_E_XINGCHENXCAWAKEN_M_AWAKEN_MAX_NUM> m_awaken;//觉醒
 
@@ -521,12 +521,12 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//ID
-		int32_t m_hhquality;//品质
-		int32_t m_isadvanced;//是否可进阶
-		int32_t m_hhact;//激活消耗
-		int32_t m_hhstar;//升星消耗
-		int32_t m_advskill;//进阶组
-		NFShmVector<struct E_XingchenXcmagicalHhDesc_s, DEFINE_E_XINGCHENXCMAGICAL_M_HH_MAX_NUM> m_hh;//属性
+		int32_t m_HhQuality;//品质
+		int32_t m_isAdvanced;//是否可进阶
+		int32_t m_HhAct;//激活消耗
+		int32_t m_HhStar;//升星消耗
+		int32_t m_AdvSkill;//进阶组
+		NFShmVector<struct E_XingchenXcmagicalHhDesc_s, DEFINE_E_XINGCHENXCMAGICAL_M_HH_MAX_NUM> m_Hh;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_XingchenXcmagical & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XingchenXcmagical & msg);
@@ -554,7 +554,7 @@ namespace proto_ff_s {
 		virtual ~E_XingchenXcmagatt_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_attid;//属性组id
+		int64_t m_attID;//属性组id
 		NFShmVector<int32_t, DEFINE_E_XINGCHENXCMAGATT_M_ATT_MAX_NUM> m_att;//属性等级
 
 		virtual void write_to_pbmsg(::proto_ff::E_XingchenXcmagatt & msg) const;
@@ -598,13 +598,13 @@ namespace proto_ff_s {
 		virtual ~E_XingchenXcadvatt_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//唯一ID
-		int64_t m_upattributeid;//进阶属性组ID
-		int32_t m_classlv;//阶级等级
-		int32_t m_starid;//星级
-		int32_t m_skillid;//技能id
-		int32_t m_activeskillidlv;//技能等级
-		NFShmVector<struct E_XingchenXcadvattUpattributeDesc_s, DEFINE_E_XINGCHENXCADVATT_M_UPATTRIBUTE_MAX_NUM> m_upattribute;//激活属性
+		int32_t m_ID;//唯一ID
+		int64_t m_upAttributeId;//进阶属性组ID
+		int32_t m_ClassLv;//阶级等级
+		int32_t m_starID;//星级
+		int32_t m_skillID;//技能id
+		int32_t m_activeSkillIDLv;//技能等级
+		NFShmVector<struct E_XingchenXcadvattUpattributeDesc_s, DEFINE_E_XINGCHENXCADVATT_M_UPATTRIBUTE_MAX_NUM> m_upAttribute;//激活属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_XingchenXcadvatt & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XingchenXcadvatt & msg);
@@ -662,13 +662,13 @@ namespace proto_ff_s {
 		virtual ~E_XingchenXcguizhen_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//id
-		int32_t m_xsid;//星宿id
-		int32_t m_gzquality;//激活所需品质
-		int32_t m_gznum;//激活所需数量
-		int32_t m_gzxh;//归真消耗
-		NFShmVector<struct E_XingchenXcguizhenXxDesc_s, DEFINE_E_XINGCHENXCGUIZHEN_M_XX_MAX_NUM> m_xx;//属性
-		NFShmVector<struct E_XingchenXcguizhenGzDesc_s, DEFINE_E_XINGCHENXCGUIZHEN_M_GZ_MAX_NUM> m_gz;//归真
+		int32_t m_ID;//id
+		int32_t m_XsId;//星宿id
+		int32_t m_GzQuality;//激活所需品质
+		int32_t m_GzNum;//激活所需数量
+		int32_t m_GzXh;//归真消耗
+		NFShmVector<struct E_XingchenXcguizhenXxDesc_s, DEFINE_E_XINGCHENXCGUIZHEN_M_XX_MAX_NUM> m_Xx;//属性
+		NFShmVector<struct E_XingchenXcguizhenGzDesc_s, DEFINE_E_XINGCHENXCGUIZHEN_M_GZ_MAX_NUM> m_Gz;//归真
 
 		virtual void write_to_pbmsg(::proto_ff::E_XingchenXcguizhen & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XingchenXcguizhen & msg);
@@ -696,8 +696,8 @@ namespace proto_ff_s {
 		virtual ~E_XingchenXingjunActDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//ID
-		int32_t m_num;//所需数量
+		int32_t m_ID;//ID
+		int32_t m_Num;//所需数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_XingchenXingjunActDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XingchenXingjunActDesc & msg);
@@ -711,10 +711,10 @@ namespace proto_ff_s {
 		virtual ~E_XingchenXingjun_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//id
-		int32_t m_xstype;//星宿类型
-		int32_t m_xjquality;//激活所需品质
-		NFShmVector<struct E_XingchenXingjunActDesc_s, DEFINE_E_XINGCHENXINGJUN_M_ACT_MAX_NUM> m_act;//激活
+		int32_t m_ID;//id
+		int32_t m_XSType;//星宿类型
+		int32_t m_XJQuality;//激活所需品质
+		NFShmVector<struct E_XingchenXingjunActDesc_s, DEFINE_E_XINGCHENXINGJUN_M_ACT_MAX_NUM> m_Act;//激活
 
 		virtual void write_to_pbmsg(::proto_ff::E_XingchenXingjun & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XingchenXingjun & msg);
@@ -757,8 +757,8 @@ namespace proto_ff_s {
 		virtual ~E_XingchenXjatt_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_attid;//属性组id
-		NFShmVector<struct E_XingchenXjattXjDesc_s, DEFINE_E_XINGCHENXJATT_M_XJ_MAX_NUM> m_xj;//属性
+		int64_t m_AttId;//属性组id
+		NFShmVector<struct E_XingchenXjattXjDesc_s, DEFINE_E_XINGCHENXJATT_M_XJ_MAX_NUM> m_XJ;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_XingchenXjatt & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XingchenXjatt & msg);
@@ -786,12 +786,12 @@ namespace proto_ff_s {
 		virtual ~E_XingchenXingji_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_xjid;//id
-		int32_t m_xjclass;//星技分类
-		int32_t m_xjskill;//星技技能
-		int32_t m_skillid;//技能id
-		NFShmVector<int32_t, DEFINE_E_XINGCHENXINGJI_M_UNLOCK_MAX_NUM> m_unlock;//解锁条件
-		NFShmVector<int32_t, DEFINE_E_XINGCHENXINGJI_M_UNLOCKLV_MAX_NUM> m_unlocklv;//解锁技能等级
+		int32_t m_XJId;//id
+		int32_t m_XJClass;//星技分类
+		int32_t m_XJSkill;//星技技能
+		int32_t m_SkillId;//技能id
+		NFShmVector<int32_t, DEFINE_E_XINGCHENXINGJI_M_UNLOCK_MAX_NUM> m_Unlock;//解锁条件
+		NFShmVector<int32_t, DEFINE_E_XINGCHENXINGJI_M_UNLOCKLV_MAX_NUM> m_UnlockLV;//解锁技能等级
 
 		virtual void write_to_pbmsg(::proto_ff::E_XingchenXingji & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XingchenXingji & msg);
@@ -819,9 +819,9 @@ namespace proto_ff_s {
 		virtual ~E_XingchenXjcw_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_xjslot;//星技槽位
-		int32_t m_unlock;//解锁货币
-		int32_t m_num;//消耗数量
+		int32_t m_XjSlot;//星技槽位
+		int32_t m_Unlock;//解锁货币
+		int32_t m_Num;//消耗数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_XingchenXjcw & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XingchenXjcw & msg);
@@ -879,12 +879,12 @@ namespace proto_ff_s {
 		virtual ~E_XingchenZbshop_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_shopid;//id
-		int32_t m_shopitem;//物品ID
-		int32_t m_shopquota;//限购
-		int32_t m_shopnum;//可购买次数
-		int32_t m_buyconsume;//消耗道具
-		int32_t m_buynum;//消耗数量
+		int32_t m_ShopId;//id
+		int32_t m_ShopItem;//物品ID
+		int32_t m_ShopQuota;//限购
+		int32_t m_ShopNum;//可购买次数
+		int32_t m_BuyConsume;//消耗道具
+		int32_t m_BuyNum;//消耗数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_XingchenZbshop & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XingchenZbshop & msg);

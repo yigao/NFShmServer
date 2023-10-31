@@ -91,8 +91,8 @@ int FestivalMuban_severrankDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		CHECK_EXPR_MSG_RESULT((pDesc->m_redpointbox <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_redpointbox)), result, "can't find the redpointbox:{} in the  excel:box sheet:box", pDesc->m_redpointbox);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_giftitemid <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_giftitemid)), result, "can't find the giftitemid:{} in the  excel:item sheet:item", pDesc->m_giftitemid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_redPointBox <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_redPointBox)), result, "can't find the redPointBox:{} in the  excel:box sheet:box", pDesc->m_redPointBox);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_giftItemId <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_giftItemId)), result, "can't find the giftItemId:{} in the  excel:item sheet:item", pDesc->m_giftItemId);
 	}
 	return result;
 }

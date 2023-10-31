@@ -236,8 +236,8 @@ void protobuf_AddDesc_E_5fCloudpeak_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\021E_Cloudpeak.proto\022\010proto_ff\032\025yd_fieldo"
     "ptions.proto\"\201\001\n\026E_CloudpeakRankrewards\022"
-    "\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\345\224\257\344\270\200id\022&\n\014m_rewardi"
-    "tem\030\002 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\351\201\223\345\205\267\022#\n\tm_itemnum"
+    "\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\345\224\257\344\270\200id\022&\n\014m_rewardI"
+    "tem\030\002 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\351\201\223\345\205\267\022#\n\tm_itemNum"
     "\030\003 \001(\003B\020\302\377\024\014\351\201\223\345\205\267\346\225\260\351\207\217\"i\n\032Sheet_Cloudp"
     "eakRankrewards\022K\n\033E_CloudpeakRankrewards"
     "_List\030\001 \003(\0132 .proto_ff.E_CloudpeakRankre"
@@ -245,23 +245,23 @@ void protobuf_AddDesc_E_5fCloudpeak_2eproto() {
     "sc\022\036\n\nm_position\030\001 \001(\005B\n\302\377\024\006\344\275\215\347\275\256\022\032\n\006m_"
     "type\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"\347\006\n\023E_CloudpeakCo"
     "nstant\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022%\n\rm_reviva"
-    "lbuff\030\002 \001(\005B\016\302\377\024\n\345\244\215\346\264\273buff\022\'\n\tm_refresh"
+    "lBuff\030\002 \001(\005B\016\302\377\024\n\345\244\215\346\264\273buff\022\'\n\tm_refresh"
     "\030\003 \001(\005B\024\302\377\024\020buff\345\210\267\346\226\260\346\227\266\351\227\264\022/\n\017m_victor"
-    "yreward\030\004 \001(\005B\026\302\377\024\022\351\230\265\350\220\245\350\203\234\345\210\251\345\245\226\345\212\261\022/\n"
-    "\017m_failurereward\030\005 \001(\005B\026\302\377\024\022\351\230\265\350\220\245\345\244\261\350\264\245"
+    "yReward\030\004 \001(\005B\026\302\377\024\022\351\230\265\350\220\245\350\203\234\345\210\251\345\245\226\345\212\261\022/\n"
+    "\017m_failureReward\030\005 \001(\005B\026\302\377\024\022\351\230\265\350\220\245\345\244\261\350\264\245"
     "\345\245\226\345\212\261\022!\n\007m_round\030\006 \001(\005B\020\302\377\024\014\346\257\224\350\265\233\350\275\256\346\225"
-    "\260\022+\n\013m_roundtime\030\007 \001(\005B\026\302\377\024\022\346\257\217\350\275\256\346\214\201\347\273\255"
-    "\346\227\266\351\227\264\022*\n\020m_initialscoring\030\010 \001(\005B\020\302\377\024\014\345\210"
+    "\260\022+\n\013m_roundTime\030\007 \001(\005B\026\302\377\024\022\346\257\217\350\275\256\346\214\201\347\273\255"
+    "\346\227\266\351\227\264\022*\n\020m_initialScoring\030\010 \001(\005B\020\302\377\024\014\345\210"
     "\235\345\247\213\347\247\257\345\210\206\022&\n\014m_getscoring\030\t \001(\005B\020\302\377\024\014\350\216"
-    "\267\345\276\227\347\247\257\345\210\206\022)\n\017m_assistscoring\030\n \001(\005B\020\302\377\024"
-    "\014\345\212\251\346\224\273\347\247\257\345\210\206\022%\n\013m_matchtime\030\013 \001(\005B\020\302\377\024\014"
-    "\345\214\271\351\205\215\346\227\266\351\227\264\0222\n\014m_matchentry\030\014 \001(\005B\034\302\377\024\030"
-    "\345\214\271\351\205\215\345\234\260\345\233\276\345\207\272\347\224\237\344\275\215\347\275\256\022!\n\007m_mapid\030\r \001("
-    "\003B\020\302\377\024\014\346\211\200\345\234\250\345\234\260\345\233\276\0222\n\014m_playersmax\030\016 \001("
+    "\267\345\276\227\347\247\257\345\210\206\022)\n\017m_assistScoring\030\n \001(\005B\020\302\377\024"
+    "\014\345\212\251\346\224\273\347\247\257\345\210\206\022%\n\013m_matchTime\030\013 \001(\005B\020\302\377\024\014"
+    "\345\214\271\351\205\215\346\227\266\351\227\264\0222\n\014m_matchEntry\030\014 \001(\005B\034\302\377\024\030"
+    "\345\214\271\351\205\215\345\234\260\345\233\276\345\207\272\347\224\237\344\275\215\347\275\256\022!\n\007m_mapId\030\r \001("
+    "\003B\020\302\377\024\014\346\211\200\345\234\250\345\234\260\345\233\276\0222\n\014m_playersMax\030\016 \001("
     "\005B\034\302\377\024\030\346\257\217\344\270\252\346\210\277\351\227\264\346\234\200\345\244\232\344\272\272\346\225\260\022\"\n\tm_reb"
-    "otid\030\017 \001(\005B\017\302\377\024\013\346\234\272\345\231\250\344\272\272id\022)\n\014m_rebotco"
-    "unt\030\020 \001(\005B\023\302\377\024\017\346\234\272\345\231\250\344\272\272\346\225\260\351\207\217\022\035\n\007m_acti"
-    "d\030\021 \001(\005B\014\302\377\024\010\346\264\273\345\212\250ID\022)\n\016m_revivalpoint\030"
+    "otId\030\017 \001(\005B\017\302\377\024\013\346\234\272\345\231\250\344\272\272id\022)\n\014m_rebotCo"
+    "unt\030\020 \001(\005B\023\302\377\024\017\346\234\272\345\231\250\344\272\272\346\225\260\351\207\217\022\035\n\007m_actI"
+    "d\030\021 \001(\005B\014\302\377\024\010\346\264\273\345\212\250ID\022)\n\016m_revivalPoint\030"
     "\022 \003(\005B\021\302\377\024\t\345\244\215\346\264\273\347\202\271\210\301\024\010\022E\n\006m_buff\030\023 \003(\013"
     "2%.proto_ff.E_CloudpeakConstantBuffDescB"
     "\016\302\377\024\006\345\242\236\347\233\212\210\301\024\010\022\'\n\nm_rebot_id\030\024 \003(\005B\023\302\377\024"
@@ -269,7 +269,7 @@ void protobuf_AddDesc_E_5fCloudpeak_2eproto() {
     "ant\022F\n\030E_CloudpeakConstant_List\030\001 \003(\0132\035."
     "proto_ff.E_CloudpeakConstantB\005\210\301\024\200\002\"N\n\016E"
     "_CloudpeakExp\022\030\n\004m_lv\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022"
-    "\"\n\010m_getexp\030\002 \001(\005B\020\302\377\024\014\346\264\273\345\212\250\347\273\217\351\252\214\"R\n\022S"
+    "\"\n\010m_getExp\030\002 \001(\005B\020\302\377\024\014\346\264\273\345\212\250\347\273\217\351\252\214\"R\n\022S"
     "heet_CloudpeakExp\022<\n\023E_CloudpeakExp_List"
     "\030\001 \003(\0132\030.proto_ff.E_CloudpeakExpB\005\210\301\024\200\004", 1519);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
@@ -302,8 +302,8 @@ struct StaticDescriptorInitializer_E_5fCloudpeak_2eproto {
 
 #ifndef _MSC_VER
 const int E_CloudpeakRankrewards::kMIdFieldNumber;
-const int E_CloudpeakRankrewards::kMRewarditemFieldNumber;
-const int E_CloudpeakRankrewards::kMItemnumFieldNumber;
+const int E_CloudpeakRankrewards::kMRewardItemFieldNumber;
+const int E_CloudpeakRankrewards::kMItemNumFieldNumber;
 #endif  // !_MSC_VER
 
 E_CloudpeakRankrewards::E_CloudpeakRankrewards()
@@ -385,15 +385,15 @@ bool E_CloudpeakRankrewards::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_rewarditem;
+        if (input->ExpectTag(16)) goto parse_m_rewardItem;
         break;
       }
 
-      // optional int32 m_rewarditem = 2;
+      // optional int32 m_rewardItem = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rewarditem:
+         parse_m_rewardItem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rewarditem_)));
@@ -401,15 +401,15 @@ bool E_CloudpeakRankrewards::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_itemnum;
+        if (input->ExpectTag(24)) goto parse_m_itemNum;
         break;
       }
 
-      // optional int64 m_itemnum = 3;
+      // optional int64 m_itemNum = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemnum:
+         parse_m_itemNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_itemnum_)));
@@ -444,12 +444,12 @@ void E_CloudpeakRankrewards::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_rewarditem = 2;
+  // optional int32 m_rewardItem = 2;
   if (has_m_rewarditem()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_rewarditem(), output);
   }
 
-  // optional int64 m_itemnum = 3;
+  // optional int64 m_itemNum = 3;
   if (has_m_itemnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(3, this->m_itemnum(), output);
   }
@@ -467,12 +467,12 @@ void E_CloudpeakRankrewards::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_rewarditem = 2;
+  // optional int32 m_rewardItem = 2;
   if (has_m_rewarditem()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_rewarditem(), target);
   }
 
-  // optional int64 m_itemnum = 3;
+  // optional int64 m_itemNum = 3;
   if (has_m_itemnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(3, this->m_itemnum(), target);
   }
@@ -495,14 +495,14 @@ int E_CloudpeakRankrewards::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_rewarditem = 2;
+    // optional int32 m_rewardItem = 2;
     if (has_m_rewarditem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_rewarditem());
     }
 
-    // optional int64 m_itemnum = 3;
+    // optional int64 m_itemNum = 3;
     if (has_m_itemnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -1041,25 +1041,25 @@ void E_CloudpeakConstantBuffDesc::Swap(E_CloudpeakConstantBuffDesc* other) {
 
 #ifndef _MSC_VER
 const int E_CloudpeakConstant::kMIdFieldNumber;
-const int E_CloudpeakConstant::kMRevivalbuffFieldNumber;
+const int E_CloudpeakConstant::kMRevivalBuffFieldNumber;
 const int E_CloudpeakConstant::kMRefreshFieldNumber;
-const int E_CloudpeakConstant::kMVictoryrewardFieldNumber;
-const int E_CloudpeakConstant::kMFailurerewardFieldNumber;
+const int E_CloudpeakConstant::kMVictoryRewardFieldNumber;
+const int E_CloudpeakConstant::kMFailureRewardFieldNumber;
 const int E_CloudpeakConstant::kMRoundFieldNumber;
-const int E_CloudpeakConstant::kMRoundtimeFieldNumber;
-const int E_CloudpeakConstant::kMInitialscoringFieldNumber;
+const int E_CloudpeakConstant::kMRoundTimeFieldNumber;
+const int E_CloudpeakConstant::kMInitialScoringFieldNumber;
 const int E_CloudpeakConstant::kMGetscoringFieldNumber;
-const int E_CloudpeakConstant::kMAssistscoringFieldNumber;
-const int E_CloudpeakConstant::kMMatchtimeFieldNumber;
-const int E_CloudpeakConstant::kMMatchentryFieldNumber;
-const int E_CloudpeakConstant::kMMapidFieldNumber;
-const int E_CloudpeakConstant::kMPlayersmaxFieldNumber;
-const int E_CloudpeakConstant::kMRebotidFieldNumber;
-const int E_CloudpeakConstant::kMRebotcountFieldNumber;
-const int E_CloudpeakConstant::kMActidFieldNumber;
-const int E_CloudpeakConstant::kMRevivalpointFieldNumber;
-const int E_CloudpeakConstant::kMBuffFieldNumber;
+const int E_CloudpeakConstant::kMAssistScoringFieldNumber;
+const int E_CloudpeakConstant::kMMatchTimeFieldNumber;
+const int E_CloudpeakConstant::kMMatchEntryFieldNumber;
+const int E_CloudpeakConstant::kMMapIdFieldNumber;
+const int E_CloudpeakConstant::kMPlayersMaxFieldNumber;
 const int E_CloudpeakConstant::kMRebotIdFieldNumber;
+const int E_CloudpeakConstant::kMRebotCountFieldNumber;
+const int E_CloudpeakConstant::kMActIdFieldNumber;
+const int E_CloudpeakConstant::kMRevivalPointFieldNumber;
+const int E_CloudpeakConstant::kMBuffFieldNumber;
+const int E_CloudpeakConstant::kMRebotIdFieldNumber_20;
 #endif  // !_MSC_VER
 
 E_CloudpeakConstant::E_CloudpeakConstant()
@@ -1176,15 +1176,15 @@ bool E_CloudpeakConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_revivalbuff;
+        if (input->ExpectTag(16)) goto parse_m_revivalBuff;
         break;
       }
 
-      // optional int32 m_revivalbuff = 2;
+      // optional int32 m_revivalBuff = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_revivalbuff:
+         parse_m_revivalBuff:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_revivalbuff_)));
@@ -1208,15 +1208,15 @@ bool E_CloudpeakConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_victoryreward;
+        if (input->ExpectTag(32)) goto parse_m_victoryReward;
         break;
       }
 
-      // optional int32 m_victoryreward = 4;
+      // optional int32 m_victoryReward = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_victoryreward:
+         parse_m_victoryReward:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_victoryreward_)));
@@ -1224,15 +1224,15 @@ bool E_CloudpeakConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_failurereward;
+        if (input->ExpectTag(40)) goto parse_m_failureReward;
         break;
       }
 
-      // optional int32 m_failurereward = 5;
+      // optional int32 m_failureReward = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_failurereward:
+         parse_m_failureReward:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_failurereward_)));
@@ -1256,15 +1256,15 @@ bool E_CloudpeakConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_roundtime;
+        if (input->ExpectTag(56)) goto parse_m_roundTime;
         break;
       }
 
-      // optional int32 m_roundtime = 7;
+      // optional int32 m_roundTime = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_roundtime:
+         parse_m_roundTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_roundtime_)));
@@ -1272,15 +1272,15 @@ bool E_CloudpeakConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_initialscoring;
+        if (input->ExpectTag(64)) goto parse_m_initialScoring;
         break;
       }
 
-      // optional int32 m_initialscoring = 8;
+      // optional int32 m_initialScoring = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_initialscoring:
+         parse_m_initialScoring:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_initialscoring_)));
@@ -1304,15 +1304,15 @@ bool E_CloudpeakConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_assistscoring;
+        if (input->ExpectTag(80)) goto parse_m_assistScoring;
         break;
       }
 
-      // optional int32 m_assistscoring = 10;
+      // optional int32 m_assistScoring = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_assistscoring:
+         parse_m_assistScoring:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_assistscoring_)));
@@ -1320,15 +1320,15 @@ bool E_CloudpeakConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_matchtime;
+        if (input->ExpectTag(88)) goto parse_m_matchTime;
         break;
       }
 
-      // optional int32 m_matchtime = 11;
+      // optional int32 m_matchTime = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_matchtime:
+         parse_m_matchTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_matchtime_)));
@@ -1336,15 +1336,15 @@ bool E_CloudpeakConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_matchentry;
+        if (input->ExpectTag(96)) goto parse_m_matchEntry;
         break;
       }
 
-      // optional int32 m_matchentry = 12;
+      // optional int32 m_matchEntry = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_matchentry:
+         parse_m_matchEntry:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_matchentry_)));
@@ -1352,15 +1352,15 @@ bool E_CloudpeakConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_m_mapid;
+        if (input->ExpectTag(104)) goto parse_m_mapId;
         break;
       }
 
-      // optional int64 m_mapid = 13;
+      // optional int64 m_mapId = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_mapid:
+         parse_m_mapId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_mapid_)));
@@ -1368,15 +1368,15 @@ bool E_CloudpeakConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(112)) goto parse_m_playersmax;
+        if (input->ExpectTag(112)) goto parse_m_playersMax;
         break;
       }
 
-      // optional int32 m_playersmax = 14;
+      // optional int32 m_playersMax = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_playersmax:
+         parse_m_playersMax:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_playersmax_)));
@@ -1384,15 +1384,15 @@ bool E_CloudpeakConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(120)) goto parse_m_rebotid;
+        if (input->ExpectTag(120)) goto parse_m_rebotId;
         break;
       }
 
-      // optional int32 m_rebotid = 15;
+      // optional int32 m_rebotId = 15;
       case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rebotid:
+         parse_m_rebotId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rebotid_)));
@@ -1400,15 +1400,15 @@ bool E_CloudpeakConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(128)) goto parse_m_rebotcount;
+        if (input->ExpectTag(128)) goto parse_m_rebotCount;
         break;
       }
 
-      // optional int32 m_rebotcount = 16;
+      // optional int32 m_rebotCount = 16;
       case 16: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rebotcount:
+         parse_m_rebotCount:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rebotcount_)));
@@ -1416,15 +1416,15 @@ bool E_CloudpeakConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(136)) goto parse_m_actid;
+        if (input->ExpectTag(136)) goto parse_m_actId;
         break;
       }
 
-      // optional int32 m_actid = 17;
+      // optional int32 m_actId = 17;
       case 17: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_actid:
+         parse_m_actId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_actid_)));
@@ -1432,15 +1432,15 @@ bool E_CloudpeakConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(144)) goto parse_m_revivalpoint;
+        if (input->ExpectTag(144)) goto parse_m_revivalPoint;
         break;
       }
 
-      // repeated int32 m_revivalpoint = 18;
+      // repeated int32 m_revivalPoint = 18;
       case 18: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_revivalpoint:
+         parse_m_revivalPoint:
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  2, 144, input, this->mutable_m_revivalpoint())));
@@ -1453,7 +1453,7 @@ bool E_CloudpeakConstant::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(144)) goto parse_m_revivalpoint;
+        if (input->ExpectTag(144)) goto parse_m_revivalPoint;
         if (input->ExpectTag(154)) goto parse_m_buff;
         break;
       }
@@ -1518,7 +1518,7 @@ void E_CloudpeakConstant::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_revivalbuff = 2;
+  // optional int32 m_revivalBuff = 2;
   if (has_m_revivalbuff()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_revivalbuff(), output);
   }
@@ -1528,12 +1528,12 @@ void E_CloudpeakConstant::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_refresh(), output);
   }
 
-  // optional int32 m_victoryreward = 4;
+  // optional int32 m_victoryReward = 4;
   if (has_m_victoryreward()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_victoryreward(), output);
   }
 
-  // optional int32 m_failurereward = 5;
+  // optional int32 m_failureReward = 5;
   if (has_m_failurereward()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_failurereward(), output);
   }
@@ -1543,12 +1543,12 @@ void E_CloudpeakConstant::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_round(), output);
   }
 
-  // optional int32 m_roundtime = 7;
+  // optional int32 m_roundTime = 7;
   if (has_m_roundtime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_roundtime(), output);
   }
 
-  // optional int32 m_initialscoring = 8;
+  // optional int32 m_initialScoring = 8;
   if (has_m_initialscoring()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_initialscoring(), output);
   }
@@ -1558,47 +1558,47 @@ void E_CloudpeakConstant::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_getscoring(), output);
   }
 
-  // optional int32 m_assistscoring = 10;
+  // optional int32 m_assistScoring = 10;
   if (has_m_assistscoring()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_assistscoring(), output);
   }
 
-  // optional int32 m_matchtime = 11;
+  // optional int32 m_matchTime = 11;
   if (has_m_matchtime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_matchtime(), output);
   }
 
-  // optional int32 m_matchentry = 12;
+  // optional int32 m_matchEntry = 12;
   if (has_m_matchentry()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_matchentry(), output);
   }
 
-  // optional int64 m_mapid = 13;
+  // optional int64 m_mapId = 13;
   if (has_m_mapid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(13, this->m_mapid(), output);
   }
 
-  // optional int32 m_playersmax = 14;
+  // optional int32 m_playersMax = 14;
   if (has_m_playersmax()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_playersmax(), output);
   }
 
-  // optional int32 m_rebotid = 15;
+  // optional int32 m_rebotId = 15;
   if (has_m_rebotid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_rebotid(), output);
   }
 
-  // optional int32 m_rebotcount = 16;
+  // optional int32 m_rebotCount = 16;
   if (has_m_rebotcount()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->m_rebotcount(), output);
   }
 
-  // optional int32 m_actid = 17;
+  // optional int32 m_actId = 17;
   if (has_m_actid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(17, this->m_actid(), output);
   }
 
-  // repeated int32 m_revivalpoint = 18;
+  // repeated int32 m_revivalPoint = 18;
   for (int i = 0; i < this->m_revivalpoint_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(
       18, this->m_revivalpoint(i), output);
@@ -1629,7 +1629,7 @@ void E_CloudpeakConstant::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_revivalbuff = 2;
+  // optional int32 m_revivalBuff = 2;
   if (has_m_revivalbuff()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_revivalbuff(), target);
   }
@@ -1639,12 +1639,12 @@ void E_CloudpeakConstant::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_refresh(), target);
   }
 
-  // optional int32 m_victoryreward = 4;
+  // optional int32 m_victoryReward = 4;
   if (has_m_victoryreward()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_victoryreward(), target);
   }
 
-  // optional int32 m_failurereward = 5;
+  // optional int32 m_failureReward = 5;
   if (has_m_failurereward()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_failurereward(), target);
   }
@@ -1654,12 +1654,12 @@ void E_CloudpeakConstant::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_round(), target);
   }
 
-  // optional int32 m_roundtime = 7;
+  // optional int32 m_roundTime = 7;
   if (has_m_roundtime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_roundtime(), target);
   }
 
-  // optional int32 m_initialscoring = 8;
+  // optional int32 m_initialScoring = 8;
   if (has_m_initialscoring()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_initialscoring(), target);
   }
@@ -1669,47 +1669,47 @@ void E_CloudpeakConstant::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_getscoring(), target);
   }
 
-  // optional int32 m_assistscoring = 10;
+  // optional int32 m_assistScoring = 10;
   if (has_m_assistscoring()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_assistscoring(), target);
   }
 
-  // optional int32 m_matchtime = 11;
+  // optional int32 m_matchTime = 11;
   if (has_m_matchtime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_matchtime(), target);
   }
 
-  // optional int32 m_matchentry = 12;
+  // optional int32 m_matchEntry = 12;
   if (has_m_matchentry()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_matchentry(), target);
   }
 
-  // optional int64 m_mapid = 13;
+  // optional int64 m_mapId = 13;
   if (has_m_mapid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(13, this->m_mapid(), target);
   }
 
-  // optional int32 m_playersmax = 14;
+  // optional int32 m_playersMax = 14;
   if (has_m_playersmax()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_playersmax(), target);
   }
 
-  // optional int32 m_rebotid = 15;
+  // optional int32 m_rebotId = 15;
   if (has_m_rebotid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_rebotid(), target);
   }
 
-  // optional int32 m_rebotcount = 16;
+  // optional int32 m_rebotCount = 16;
   if (has_m_rebotcount()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->m_rebotcount(), target);
   }
 
-  // optional int32 m_actid = 17;
+  // optional int32 m_actId = 17;
   if (has_m_actid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(17, this->m_actid(), target);
   }
 
-  // repeated int32 m_revivalpoint = 18;
+  // repeated int32 m_revivalPoint = 18;
   for (int i = 0; i < this->m_revivalpoint_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteInt32ToArray(18, this->m_revivalpoint(i), target);
@@ -1746,7 +1746,7 @@ int E_CloudpeakConstant::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_revivalbuff = 2;
+    // optional int32 m_revivalBuff = 2;
     if (has_m_revivalbuff()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1760,14 +1760,14 @@ int E_CloudpeakConstant::ByteSize() const {
           this->m_refresh());
     }
 
-    // optional int32 m_victoryreward = 4;
+    // optional int32 m_victoryReward = 4;
     if (has_m_victoryreward()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_victoryreward());
     }
 
-    // optional int32 m_failurereward = 5;
+    // optional int32 m_failureReward = 5;
     if (has_m_failurereward()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1781,14 +1781,14 @@ int E_CloudpeakConstant::ByteSize() const {
           this->m_round());
     }
 
-    // optional int32 m_roundtime = 7;
+    // optional int32 m_roundTime = 7;
     if (has_m_roundtime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_roundtime());
     }
 
-    // optional int32 m_initialscoring = 8;
+    // optional int32 m_initialScoring = 8;
     if (has_m_initialscoring()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1804,49 +1804,49 @@ int E_CloudpeakConstant::ByteSize() const {
           this->m_getscoring());
     }
 
-    // optional int32 m_assistscoring = 10;
+    // optional int32 m_assistScoring = 10;
     if (has_m_assistscoring()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_assistscoring());
     }
 
-    // optional int32 m_matchtime = 11;
+    // optional int32 m_matchTime = 11;
     if (has_m_matchtime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_matchtime());
     }
 
-    // optional int32 m_matchentry = 12;
+    // optional int32 m_matchEntry = 12;
     if (has_m_matchentry()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_matchentry());
     }
 
-    // optional int64 m_mapid = 13;
+    // optional int64 m_mapId = 13;
     if (has_m_mapid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_mapid());
     }
 
-    // optional int32 m_playersmax = 14;
+    // optional int32 m_playersMax = 14;
     if (has_m_playersmax()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_playersmax());
     }
 
-    // optional int32 m_rebotid = 15;
+    // optional int32 m_rebotId = 15;
     if (has_m_rebotid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_rebotid());
     }
 
-    // optional int32 m_rebotcount = 16;
+    // optional int32 m_rebotCount = 16;
     if (has_m_rebotcount()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1855,7 +1855,7 @@ int E_CloudpeakConstant::ByteSize() const {
 
   }
   if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    // optional int32 m_actid = 17;
+    // optional int32 m_actId = 17;
     if (has_m_actid()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1863,7 +1863,7 @@ int E_CloudpeakConstant::ByteSize() const {
     }
 
   }
-  // repeated int32 m_revivalpoint = 18;
+  // repeated int32 m_revivalPoint = 18;
   {
     int data_size = 0;
     for (int i = 0; i < this->m_revivalpoint_size(); i++) {
@@ -2240,7 +2240,7 @@ void Sheet_CloudpeakConstant::Swap(Sheet_CloudpeakConstant* other) {
 
 #ifndef _MSC_VER
 const int E_CloudpeakExp::kMLvFieldNumber;
-const int E_CloudpeakExp::kMGetexpFieldNumber;
+const int E_CloudpeakExp::kMGetExpFieldNumber;
 #endif  // !_MSC_VER
 
 E_CloudpeakExp::E_CloudpeakExp()
@@ -2320,15 +2320,15 @@ bool E_CloudpeakExp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_getexp;
+        if (input->ExpectTag(16)) goto parse_m_getExp;
         break;
       }
 
-      // optional int32 m_getexp = 2;
+      // optional int32 m_getExp = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_getexp:
+         parse_m_getExp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_getexp_)));
@@ -2363,7 +2363,7 @@ void E_CloudpeakExp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 m_getexp = 2;
+  // optional int32 m_getExp = 2;
   if (has_m_getexp()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_getexp(), output);
   }
@@ -2381,7 +2381,7 @@ void E_CloudpeakExp::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 m_getexp = 2;
+  // optional int32 m_getExp = 2;
   if (has_m_getexp()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_getexp(), target);
   }
@@ -2404,7 +2404,7 @@ int E_CloudpeakExp::ByteSize() const {
           this->m_lv());
     }
 
-    // optional int32 m_getexp = 2;
+    // optional int32 m_getExp = 2;
     if (has_m_getexp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

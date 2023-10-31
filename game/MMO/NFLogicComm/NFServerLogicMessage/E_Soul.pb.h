@@ -336,31 +336,31 @@ class E_SoulSoul : public ::google::protobuf::Message {
   inline ::std::string* release_m_name();
   inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional int32 m_lvitem = 3;
+  // optional int32 m_lvItem = 3;
   inline bool has_m_lvitem() const;
   inline void clear_m_lvitem();
-  static const int kMLvitemFieldNumber = 3;
+  static const int kMLvItemFieldNumber = 3;
   inline ::google::protobuf::int32 m_lvitem() const;
   inline void set_m_lvitem(::google::protobuf::int32 value);
 
-  // optional int32 m_advanceitem = 4;
+  // optional int32 m_advanceItem = 4;
   inline bool has_m_advanceitem() const;
   inline void clear_m_advanceitem();
-  static const int kMAdvanceitemFieldNumber = 4;
+  static const int kMAdvanceItemFieldNumber = 4;
   inline ::google::protobuf::int32 m_advanceitem() const;
   inline void set_m_advanceitem(::google::protobuf::int32 value);
 
-  // optional int32 m_sacrificeskill = 5;
+  // optional int32 m_sacrificeSkill = 5;
   inline bool has_m_sacrificeskill() const;
   inline void clear_m_sacrificeskill();
-  static const int kMSacrificeskillFieldNumber = 5;
+  static const int kMSacrificeSkillFieldNumber = 5;
   inline ::google::protobuf::int32 m_sacrificeskill() const;
   inline void set_m_sacrificeskill(::google::protobuf::int32 value);
 
-  // optional string m_skilllv = 6;
+  // optional string m_SkillLv = 6;
   inline bool has_m_skilllv() const;
   inline void clear_m_skilllv();
-  static const int kMSkilllvFieldNumber = 6;
+  static const int kMSkillLvFieldNumber = 6;
   inline const ::std::string& m_skilllv() const;
   inline void set_m_skilllv(const ::std::string& value);
   inline void set_m_skilllv(const char* value);
@@ -643,24 +643,24 @@ class E_SoulSoulbasic : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_soulid = 2;
+  // optional int32 m_soulId = 2;
   inline bool has_m_soulid() const;
   inline void clear_m_soulid();
-  static const int kMSoulidFieldNumber = 2;
+  static const int kMSoulIdFieldNumber = 2;
   inline ::google::protobuf::int32 m_soulid() const;
   inline void set_m_soulid(::google::protobuf::int32 value);
 
-  // optional int32 m_soullv = 3;
+  // optional int32 m_soulLv = 3;
   inline bool has_m_soullv() const;
   inline void clear_m_soullv();
-  static const int kMSoullvFieldNumber = 3;
+  static const int kMSoulLvFieldNumber = 3;
   inline ::google::protobuf::int32 m_soullv() const;
   inline void set_m_soullv(::google::protobuf::int32 value);
 
-  // optional int32 m_soulexp = 4;
+  // optional int32 m_soulExp = 4;
   inline bool has_m_soulexp() const;
   inline void clear_m_soulexp();
-  static const int kMSoulexpFieldNumber = 4;
+  static const int kMSoulExpFieldNumber = 4;
   inline ::google::protobuf::int32 m_soulexp() const;
   inline void set_m_soulexp(::google::protobuf::int32 value);
 
@@ -945,24 +945,24 @@ class E_SoulSouladvance : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_soulid = 2;
+  // optional int32 m_soulId = 2;
   inline bool has_m_soulid() const;
   inline void clear_m_soulid();
-  static const int kMSoulidFieldNumber = 2;
+  static const int kMSoulIdFieldNumber = 2;
   inline ::google::protobuf::int32 m_soulid() const;
   inline void set_m_soulid(::google::protobuf::int32 value);
 
-  // optional int32 m_advancelv = 3;
+  // optional int32 m_advanceLv = 3;
   inline bool has_m_advancelv() const;
   inline void clear_m_advancelv();
-  static const int kMAdvancelvFieldNumber = 3;
+  static const int kMAdvanceLvFieldNumber = 3;
   inline ::google::protobuf::int32 m_advancelv() const;
   inline void set_m_advancelv(::google::protobuf::int32 value);
 
-  // optional int32 m_advancenum = 4;
+  // optional int32 m_advanceNum = 4;
   inline bool has_m_advancenum() const;
   inline void clear_m_advancenum();
-  static const int kMAdvancenumFieldNumber = 4;
+  static const int kMAdvanceNumFieldNumber = 4;
   inline ::google::protobuf::int32 m_advancenum() const;
   inline void set_m_advancenum(::google::protobuf::int32 value);
 
@@ -1456,10 +1456,10 @@ class E_SoulPrivilege : public ::google::protobuf::Message {
   inline ::std::string* release_m_activate();
   inline void set_allocated_m_activate(::std::string* m_activate);
 
-  // optional int32 m_poolup = 3;
+  // optional int32 m_poolUp = 3;
   inline bool has_m_poolup() const;
   inline void clear_m_poolup();
-  static const int kMPoolupFieldNumber = 3;
+  static const int kMPoolUpFieldNumber = 3;
   inline ::google::protobuf::int32 m_poolup() const;
   inline void set_m_poolup(::google::protobuf::int32 value);
 
@@ -1662,10 +1662,10 @@ class E_SoulCrystal : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_equipid = 1;
+  // optional int32 m_equipId = 1;
   inline bool has_m_equipid() const;
   inline void clear_m_equipid();
-  static const int kMEquipidFieldNumber = 1;
+  static const int kMEquipIdFieldNumber = 1;
   inline ::google::protobuf::int32 m_equipid() const;
   inline void set_m_equipid(::google::protobuf::int32 value);
 
@@ -1681,10 +1681,10 @@ class E_SoulCrystal : public ::google::protobuf::Message {
   inline ::std::string* release_m_name();
   inline void set_allocated_m_name(::std::string* m_name);
 
-  // optional int32 m_crystaltype = 3;
+  // optional int32 m_crystalType = 3;
   inline bool has_m_crystaltype() const;
   inline void clear_m_crystaltype();
-  static const int kMCrystaltypeFieldNumber = 3;
+  static const int kMCrystalTypeFieldNumber = 3;
   inline ::google::protobuf::int32 m_crystaltype() const;
   inline void set_m_crystaltype(::google::protobuf::int32 value);
 
@@ -1702,17 +1702,17 @@ class E_SoulCrystal : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_star() const;
   inline void set_m_star(::google::protobuf::int32 value);
 
-  // optional int32 m_dismantletime = 6;
+  // optional int32 m_dismantleTime = 6;
   inline bool has_m_dismantletime() const;
   inline void clear_m_dismantletime();
-  static const int kMDismantletimeFieldNumber = 6;
+  static const int kMDismantleTimeFieldNumber = 6;
   inline ::google::protobuf::int32 m_dismantletime() const;
   inline void set_m_dismantletime(::google::protobuf::int32 value);
 
-  // optional int32 m_dismantlenum = 7;
+  // optional int32 m_dismantleNum = 7;
   inline bool has_m_dismantlenum() const;
   inline void clear_m_dismantlenum();
-  static const int kMDismantlenumFieldNumber = 7;
+  static const int kMDismantleNumFieldNumber = 7;
   inline ::google::protobuf::int32 m_dismantlenum() const;
   inline void set_m_dismantlenum(::google::protobuf::int32 value);
 
@@ -1723,10 +1723,10 @@ class E_SoulCrystal : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_skill() const;
   inline void set_m_skill(::google::protobuf::int32 value);
 
-  // optional int32 m_skilllv = 9;
+  // optional int32 m_skillLv = 9;
   inline bool has_m_skilllv() const;
   inline void clear_m_skilllv();
-  static const int kMSkilllvFieldNumber = 9;
+  static const int kMSkillLvFieldNumber = 9;
   inline ::google::protobuf::int32 m_skilllv() const;
   inline void set_m_skilllv(::google::protobuf::int32 value);
 
@@ -1931,17 +1931,17 @@ class E_SoulCrystallv : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_wraithsitem = 2;
+  // optional int32 m_wraithsItem = 2;
   inline bool has_m_wraithsitem() const;
   inline void clear_m_wraithsitem();
-  static const int kMWraithsitemFieldNumber = 2;
+  static const int kMWraithsItemFieldNumber = 2;
   inline ::google::protobuf::int32 m_wraithsitem() const;
   inline void set_m_wraithsitem(::google::protobuf::int32 value);
 
-  // optional int32 m_wraithsmun = 3;
+  // optional int32 m_wraithsMun = 3;
   inline bool has_m_wraithsmun() const;
   inline void clear_m_wraithsmun();
-  static const int kMWraithsmunFieldNumber = 3;
+  static const int kMWraithsMunFieldNumber = 3;
   inline ::google::protobuf::int32 m_wraithsmun() const;
   inline void set_m_wraithsmun(::google::protobuf::int32 value);
 
@@ -2203,24 +2203,24 @@ class E_SoulCrystaltop : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_toplv = 1;
+  // optional int32 m_topLv = 1;
   inline bool has_m_toplv() const;
   inline void clear_m_toplv();
-  static const int kMToplvFieldNumber = 1;
+  static const int kMTopLvFieldNumber = 1;
   inline ::google::protobuf::int32 m_toplv() const;
   inline void set_m_toplv(::google::protobuf::int32 value);
 
-  // optional int32 m_wraithsitem = 2;
+  // optional int32 m_wraithsItem = 2;
   inline bool has_m_wraithsitem() const;
   inline void clear_m_wraithsitem();
-  static const int kMWraithsitemFieldNumber = 2;
+  static const int kMWraithsItemFieldNumber = 2;
   inline ::google::protobuf::int32 m_wraithsitem() const;
   inline void set_m_wraithsitem(::google::protobuf::int32 value);
 
-  // optional int32 m_wraithsmun = 3;
+  // optional int32 m_wraithsMun = 3;
   inline bool has_m_wraithsmun() const;
   inline void clear_m_wraithsmun();
-  static const int kMWraithsmunFieldNumber = 3;
+  static const int kMWraithsMunFieldNumber = 3;
   inline ::google::protobuf::int32 m_wraithsmun() const;
   inline void set_m_wraithsmun(::google::protobuf::int32 value);
 
@@ -2684,10 +2684,10 @@ class E_SoulFusion : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_fusiontype = 2;
+  // optional int32 m_fusionType = 2;
   inline bool has_m_fusiontype() const;
   inline void clear_m_fusiontype();
-  static const int kMFusiontypeFieldNumber = 2;
+  static const int kMFusionTypeFieldNumber = 2;
   inline ::google::protobuf::int32 m_fusiontype() const;
   inline void set_m_fusiontype(::google::protobuf::int32 value);
 
@@ -2712,24 +2712,24 @@ class E_SoulFusion : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_condition() const;
   inline void set_m_condition(::google::protobuf::int32 value);
 
-  // optional int32 m_qualityget = 6;
+  // optional int32 m_qualityGet = 6;
   inline bool has_m_qualityget() const;
   inline void clear_m_qualityget();
-  static const int kMQualitygetFieldNumber = 6;
+  static const int kMQualityGetFieldNumber = 6;
   inline ::google::protobuf::int32 m_qualityget() const;
   inline void set_m_qualityget(::google::protobuf::int32 value);
 
-  // optional int32 m_starget = 7;
+  // optional int32 m_starGet = 7;
   inline bool has_m_starget() const;
   inline void clear_m_starget();
-  static const int kMStargetFieldNumber = 7;
+  static const int kMStarGetFieldNumber = 7;
   inline ::google::protobuf::int32 m_starget() const;
   inline void set_m_starget(::google::protobuf::int32 value);
 
-  // optional int32 m_attributeber = 8;
+  // optional int32 m_attributeBer = 8;
   inline bool has_m_attributeber() const;
   inline void clear_m_attributeber();
-  static const int kMAttributeberFieldNumber = 8;
+  static const int kMAttributeBerFieldNumber = 8;
   inline ::google::protobuf::int32 m_attributeber() const;
   inline void set_m_attributeber(::google::protobuf::int32 value);
 
@@ -2955,24 +2955,24 @@ class E_SoulBone : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_awakening() const;
   inline void set_m_awakening(::google::protobuf::int32 value);
 
-  // optional int32 m_awakeningtime = 5;
+  // optional int32 m_awakeningTime = 5;
   inline bool has_m_awakeningtime() const;
   inline void clear_m_awakeningtime();
-  static const int kMAwakeningtimeFieldNumber = 5;
+  static const int kMAwakeningTimeFieldNumber = 5;
   inline ::google::protobuf::int32 m_awakeningtime() const;
   inline void set_m_awakeningtime(::google::protobuf::int32 value);
 
-  // optional int32 m_awakeningnum = 6;
+  // optional int32 m_awakeningNum = 6;
   inline bool has_m_awakeningnum() const;
   inline void clear_m_awakeningnum();
-  static const int kMAwakeningnumFieldNumber = 6;
+  static const int kMAwakeningNumFieldNumber = 6;
   inline ::google::protobuf::int32 m_awakeningnum() const;
   inline void set_m_awakeningnum(::google::protobuf::int32 value);
 
-  // optional int32 m_modelid = 7;
+  // optional int32 m_modelId = 7;
   inline bool has_m_modelid() const;
   inline void clear_m_modelid();
-  static const int kMModelidFieldNumber = 7;
+  static const int kMModelIdFieldNumber = 7;
   inline ::google::protobuf::int32 m_modelid() const;
   inline void set_m_modelid(::google::protobuf::int32 value);
 
@@ -3154,10 +3154,10 @@ class E_SoulBoneequip : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_equipid = 1;
+  // optional int32 m_equipId = 1;
   inline bool has_m_equipid() const;
   inline void clear_m_equipid();
-  static const int kMEquipidFieldNumber = 1;
+  static const int kMEquipIdFieldNumber = 1;
   inline ::google::protobuf::int32 m_equipid() const;
   inline void set_m_equipid(::google::protobuf::int32 value);
 
@@ -3366,14 +3366,14 @@ class E_SoulBoneskillPassiveDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_lv = 1;
+  // optional int32 m_Lv = 1;
   inline bool has_m_lv() const;
   inline void clear_m_lv();
   static const int kMLvFieldNumber = 1;
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_skill = 2;
+  // optional int32 m_Skill = 2;
   inline bool has_m_skill() const;
   inline void clear_m_skill();
   static const int kMSkillFieldNumber = 2;
@@ -3465,10 +3465,10 @@ class E_SoulBoneskill : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_boneid = 2;
+  // optional int32 m_boneId = 2;
   inline bool has_m_boneid() const;
   inline void clear_m_boneid();
-  static const int kMBoneidFieldNumber = 2;
+  static const int kMBoneIdFieldNumber = 2;
   inline ::google::protobuf::int32 m_boneid() const;
   inline void set_m_boneid(::google::protobuf::int32 value);
 
@@ -3486,17 +3486,17 @@ class E_SoulBoneskill : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_star() const;
   inline void set_m_star(::google::protobuf::int32 value);
 
-  // optional int32 m_activeskill = 5;
+  // optional int32 m_ActiveSkill = 5;
   inline bool has_m_activeskill() const;
   inline void clear_m_activeskill();
-  static const int kMActiveskillFieldNumber = 5;
+  static const int kMActiveSkillFieldNumber = 5;
   inline ::google::protobuf::int32 m_activeskill() const;
   inline void set_m_activeskill(::google::protobuf::int32 value);
 
-  // optional int32 m_activeskilllv = 6;
+  // optional int32 m_ActiveSkillLv = 6;
   inline bool has_m_activeskilllv() const;
   inline void clear_m_activeskilllv();
-  static const int kMActiveskilllvFieldNumber = 6;
+  static const int kMActiveSkillLvFieldNumber = 6;
   inline ::google::protobuf::int32 m_activeskilllv() const;
   inline void set_m_activeskilllv(::google::protobuf::int32 value);
 
@@ -3695,10 +3695,10 @@ class E_SoulBonekill : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_killboss = 2;
+  // optional int32 m_killBoss = 2;
   inline bool has_m_killboss() const;
   inline void clear_m_killboss();
-  static const int kMKillbossFieldNumber = 2;
+  static const int kMKillBossFieldNumber = 2;
   inline ::google::protobuf::int32 m_killboss() const;
   inline void set_m_killboss(::google::protobuf::int32 value);
 
@@ -3976,10 +3976,10 @@ class E_SoulBonestrong : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_position() const;
   inline void set_m_position(::google::protobuf::int32 value);
 
-  // optional int32 m_srtongup = 3;
+  // optional int32 m_srtongUp = 3;
   inline bool has_m_srtongup() const;
   inline void clear_m_srtongup();
-  static const int kMSrtongupFieldNumber = 3;
+  static const int kMSrtongUpFieldNumber = 3;
   inline ::google::protobuf::int32 m_srtongup() const;
   inline void set_m_srtongup(::google::protobuf::int32 value);
 
@@ -4304,7 +4304,7 @@ inline void E_SoulSoul::set_allocated_m_name(::std::string* m_name) {
   }
 }
 
-// optional int32 m_lvitem = 3;
+// optional int32 m_lvItem = 3;
 inline bool E_SoulSoul::has_m_lvitem() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -4326,7 +4326,7 @@ inline void E_SoulSoul::set_m_lvitem(::google::protobuf::int32 value) {
   m_lvitem_ = value;
 }
 
-// optional int32 m_advanceitem = 4;
+// optional int32 m_advanceItem = 4;
 inline bool E_SoulSoul::has_m_advanceitem() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -4348,7 +4348,7 @@ inline void E_SoulSoul::set_m_advanceitem(::google::protobuf::int32 value) {
   m_advanceitem_ = value;
 }
 
-// optional int32 m_sacrificeskill = 5;
+// optional int32 m_sacrificeSkill = 5;
 inline bool E_SoulSoul::has_m_sacrificeskill() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -4370,7 +4370,7 @@ inline void E_SoulSoul::set_m_sacrificeskill(::google::protobuf::int32 value) {
   m_sacrificeskill_ = value;
 }
 
-// optional string m_skilllv = 6;
+// optional string m_SkillLv = 6;
 inline bool E_SoulSoul::has_m_skilllv() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -4543,7 +4543,7 @@ inline void E_SoulSoulbasic::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_soulid = 2;
+// optional int32 m_soulId = 2;
 inline bool E_SoulSoulbasic::has_m_soulid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -4565,7 +4565,7 @@ inline void E_SoulSoulbasic::set_m_soulid(::google::protobuf::int32 value) {
   m_soulid_ = value;
 }
 
-// optional int32 m_soullv = 3;
+// optional int32 m_soulLv = 3;
 inline bool E_SoulSoulbasic::has_m_soullv() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -4587,7 +4587,7 @@ inline void E_SoulSoulbasic::set_m_soullv(::google::protobuf::int32 value) {
   m_soullv_ = value;
 }
 
-// optional int32 m_soulexp = 4;
+// optional int32 m_soulExp = 4;
 inline bool E_SoulSoulbasic::has_m_soulexp() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -4737,7 +4737,7 @@ inline void E_SoulSouladvance::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_soulid = 2;
+// optional int32 m_soulId = 2;
 inline bool E_SoulSouladvance::has_m_soulid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -4759,7 +4759,7 @@ inline void E_SoulSouladvance::set_m_soulid(::google::protobuf::int32 value) {
   m_soulid_ = value;
 }
 
-// optional int32 m_advancelv = 3;
+// optional int32 m_advanceLv = 3;
 inline bool E_SoulSouladvance::has_m_advancelv() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -4781,7 +4781,7 @@ inline void E_SoulSouladvance::set_m_advancelv(::google::protobuf::int32 value) 
   m_advancelv_ = value;
 }
 
-// optional int32 m_advancenum = 4;
+// optional int32 m_advanceNum = 4;
 inline bool E_SoulSouladvance::has_m_advancenum() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -5122,7 +5122,7 @@ inline void E_SoulPrivilege::set_allocated_m_activate(::std::string* m_activate)
   }
 }
 
-// optional int32 m_poolup = 3;
+// optional int32 m_poolUp = 3;
 inline bool E_SoulPrivilege::has_m_poolup() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -5246,7 +5246,7 @@ Sheet_SoulPrivilege::mutable_e_soulprivilege_list() {
 
 // E_SoulCrystal
 
-// optional int32 m_equipid = 1;
+// optional int32 m_equipId = 1;
 inline bool E_SoulCrystal::has_m_equipid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -5338,7 +5338,7 @@ inline void E_SoulCrystal::set_allocated_m_name(::std::string* m_name) {
   }
 }
 
-// optional int32 m_crystaltype = 3;
+// optional int32 m_crystalType = 3;
 inline bool E_SoulCrystal::has_m_crystaltype() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -5404,7 +5404,7 @@ inline void E_SoulCrystal::set_m_star(::google::protobuf::int32 value) {
   m_star_ = value;
 }
 
-// optional int32 m_dismantletime = 6;
+// optional int32 m_dismantleTime = 6;
 inline bool E_SoulCrystal::has_m_dismantletime() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -5426,7 +5426,7 @@ inline void E_SoulCrystal::set_m_dismantletime(::google::protobuf::int32 value) 
   m_dismantletime_ = value;
 }
 
-// optional int32 m_dismantlenum = 7;
+// optional int32 m_dismantleNum = 7;
 inline bool E_SoulCrystal::has_m_dismantlenum() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -5470,7 +5470,7 @@ inline void E_SoulCrystal::set_m_skill(::google::protobuf::int32 value) {
   m_skill_ = value;
 }
 
-// optional int32 m_skilllv = 9;
+// optional int32 m_skillLv = 9;
 inline bool E_SoulCrystal::has_m_skilllv() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -5569,7 +5569,7 @@ inline void E_SoulCrystallv::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional int32 m_wraithsitem = 2;
+// optional int32 m_wraithsItem = 2;
 inline bool E_SoulCrystallv::has_m_wraithsitem() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -5591,7 +5591,7 @@ inline void E_SoulCrystallv::set_m_wraithsitem(::google::protobuf::int32 value) 
   m_wraithsitem_ = value;
 }
 
-// optional int32 m_wraithsmun = 3;
+// optional int32 m_wraithsMun = 3;
 inline bool E_SoulCrystallv::has_m_wraithsmun() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -5694,7 +5694,7 @@ inline void E_SoulCrystaltopAttributeDesc::set_m_type(::google::protobuf::int32 
 
 // E_SoulCrystaltop
 
-// optional int32 m_toplv = 1;
+// optional int32 m_topLv = 1;
 inline bool E_SoulCrystaltop::has_m_toplv() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -5716,7 +5716,7 @@ inline void E_SoulCrystaltop::set_m_toplv(::google::protobuf::int32 value) {
   m_toplv_ = value;
 }
 
-// optional int32 m_wraithsitem = 2;
+// optional int32 m_wraithsItem = 2;
 inline bool E_SoulCrystaltop::has_m_wraithsitem() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -5738,7 +5738,7 @@ inline void E_SoulCrystaltop::set_m_wraithsitem(::google::protobuf::int32 value)
   m_wraithsitem_ = value;
 }
 
-// optional int32 m_wraithsmun = 3;
+// optional int32 m_wraithsMun = 3;
 inline bool E_SoulCrystaltop::has_m_wraithsmun() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -6013,7 +6013,7 @@ inline void E_SoulFusion::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_fusiontype = 2;
+// optional int32 m_fusionType = 2;
 inline bool E_SoulFusion::has_m_fusiontype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -6101,7 +6101,7 @@ inline void E_SoulFusion::set_m_condition(::google::protobuf::int32 value) {
   m_condition_ = value;
 }
 
-// optional int32 m_qualityget = 6;
+// optional int32 m_qualityGet = 6;
 inline bool E_SoulFusion::has_m_qualityget() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -6123,7 +6123,7 @@ inline void E_SoulFusion::set_m_qualityget(::google::protobuf::int32 value) {
   m_qualityget_ = value;
 }
 
-// optional int32 m_starget = 7;
+// optional int32 m_starGet = 7;
 inline bool E_SoulFusion::has_m_starget() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -6145,7 +6145,7 @@ inline void E_SoulFusion::set_m_starget(::google::protobuf::int32 value) {
   m_starget_ = value;
 }
 
-// optional int32 m_attributeber = 8;
+// optional int32 m_attributeBer = 8;
 inline bool E_SoulFusion::has_m_attributeber() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -6313,7 +6313,7 @@ inline void E_SoulBone::set_m_awakening(::google::protobuf::int32 value) {
   m_awakening_ = value;
 }
 
-// optional int32 m_awakeningtime = 5;
+// optional int32 m_awakeningTime = 5;
 inline bool E_SoulBone::has_m_awakeningtime() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -6335,7 +6335,7 @@ inline void E_SoulBone::set_m_awakeningtime(::google::protobuf::int32 value) {
   m_awakeningtime_ = value;
 }
 
-// optional int32 m_awakeningnum = 6;
+// optional int32 m_awakeningNum = 6;
 inline bool E_SoulBone::has_m_awakeningnum() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -6357,7 +6357,7 @@ inline void E_SoulBone::set_m_awakeningnum(::google::protobuf::int32 value) {
   m_awakeningnum_ = value;
 }
 
-// optional int32 m_modelid = 7;
+// optional int32 m_modelId = 7;
 inline bool E_SoulBone::has_m_modelid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -6412,7 +6412,7 @@ Sheet_SoulBone::mutable_e_soulbone_list() {
 
 // E_SoulBoneequip
 
-// optional int32 m_equipid = 1;
+// optional int32 m_equipId = 1;
 inline bool E_SoulBoneequip::has_m_equipid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -6603,7 +6603,7 @@ Sheet_SoulBoneequip::mutable_e_soulboneequip_list() {
 
 // E_SoulBoneskillPassiveDesc
 
-// optional int32 m_lv = 1;
+// optional int32 m_Lv = 1;
 inline bool E_SoulBoneskillPassiveDesc::has_m_lv() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -6625,7 +6625,7 @@ inline void E_SoulBoneskillPassiveDesc::set_m_lv(::google::protobuf::int32 value
   m_lv_ = value;
 }
 
-// optional int32 m_skill = 2;
+// optional int32 m_Skill = 2;
 inline bool E_SoulBoneskillPassiveDesc::has_m_skill() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -6673,7 +6673,7 @@ inline void E_SoulBoneskill::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_boneid = 2;
+// optional int32 m_boneId = 2;
 inline bool E_SoulBoneskill::has_m_boneid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -6739,7 +6739,7 @@ inline void E_SoulBoneskill::set_m_star(::google::protobuf::int32 value) {
   m_star_ = value;
 }
 
-// optional int32 m_activeskill = 5;
+// optional int32 m_ActiveSkill = 5;
 inline bool E_SoulBoneskill::has_m_activeskill() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -6761,7 +6761,7 @@ inline void E_SoulBoneskill::set_m_activeskill(::google::protobuf::int32 value) 
   m_activeskill_ = value;
 }
 
-// optional int32 m_activeskilllv = 6;
+// optional int32 m_ActiveSkillLv = 6;
 inline bool E_SoulBoneskill::has_m_activeskilllv() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -6863,7 +6863,7 @@ inline void E_SoulBonekill::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional int32 m_killboss = 2;
+// optional int32 m_killBoss = 2;
 inline bool E_SoulBonekill::has_m_killboss() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -7058,7 +7058,7 @@ inline void E_SoulBonestrong::set_m_position(::google::protobuf::int32 value) {
   m_position_ = value;
 }
 
-// optional int32 m_srtongup = 3;
+// optional int32 m_srtongUp = 3;
 inline bool E_SoulBonestrong::has_m_srtongup() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }

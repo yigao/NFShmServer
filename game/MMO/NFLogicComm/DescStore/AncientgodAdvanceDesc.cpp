@@ -95,7 +95,7 @@ int AncientgodAdvanceDesc::CheckWhenAllDataLoaded()
 		{
 			CHECK_EXPR_MSG_RESULT((pDesc->m_attribute[j].m_type <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_attribute[j].m_type)), result, "can't find the attribute:{} in the  excel:attribute sheet:attribute", pDesc->m_attribute[j].m_type);
 		}
-		CHECK_EXPR_MSG_RESULT((pDesc->m_ancientid <= 0 || AncientgodAncientgodDesc::Instance()->GetDesc(pDesc->m_ancientid)), result, "can't find the ancientid:{} in the  excel:ancientgod sheet:ancientgod", pDesc->m_ancientid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_ancientID <= 0 || AncientgodAncientgodDesc::Instance()->GetDesc(pDesc->m_ancientID)), result, "can't find the ancientID:{} in the  excel:ancientgod sheet:ancientgod", pDesc->m_ancientID);
 	}
 	return result;
 }

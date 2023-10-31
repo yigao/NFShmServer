@@ -36,8 +36,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//等级
-		int32_t m_intimacymin;//亲密度要求
-		int32_t m_intimacymax;//亲密度要求
+		int32_t m_intimacyMin;//亲密度要求
+		int32_t m_intimacyMax;//亲密度要求
 		NFShmVector<struct E_IntimacyIntimacyAttributeDesc_s, DEFINE_E_INTIMACYINTIMACY_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_IntimacyIntimacy & msg) const;
@@ -67,9 +67,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_mallid;//商城id
-		int32_t m_itemid;//道具id
-		int32_t m_nametype;//名称类型
-		NFShmString<64> m_uipic;//底框图片
+		int32_t m_itemId;//道具id
+		int32_t m_nameType;//名称类型
+		NFShmString<64> m_uiPic;//底框图片
 		int32_t m_intimacy;//亲密度
 		int32_t m_charm;//魅力值
 

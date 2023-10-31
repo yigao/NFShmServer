@@ -92,8 +92,8 @@ int FestivalMuban_bossfristkillDesc::CheckWhenAllDataLoaded()
 	{
 		auto pDesc = &iter->second;
 		CHECK_EXPR_MSG_RESULT((pDesc->m_bossid <= 0 || BossBossDesc::Instance()->GetDesc(pDesc->m_bossid)), result, "can't find the bossid:{} in the  excel:boss sheet:boss", pDesc->m_bossid);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_killreward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_killreward)), result, "can't find the killreward:{} in the  excel:box sheet:box", pDesc->m_killreward);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_fristkillreward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_fristkillreward)), result, "can't find the fristkillreward:{} in the  excel:box sheet:box", pDesc->m_fristkillreward);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_killReward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_killReward)), result, "can't find the killReward:{} in the  excel:box sheet:box", pDesc->m_killReward);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_fristKillReward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_fristKillReward)), result, "can't find the fristKillReward:{} in the  excel:box sheet:box", pDesc->m_fristKillReward);
 	}
 	return result;
 }

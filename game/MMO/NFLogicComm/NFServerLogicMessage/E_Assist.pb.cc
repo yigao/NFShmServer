@@ -209,13 +209,13 @@ void protobuf_AddDesc_E_5fAssist_2eproto() {
     "ssistThank\0229\n\022E_AssistThank_List\030\001 \003(\0132\027"
     ".proto_ff.E_AssistThankB\004\210\301\024\020\"\373\002\n\rE_Assi"
     "stConst\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022+\n\014m_sende"
-    "rgift\030\002 \001(\005B\025\302\377\024\021\346\261\202\345\212\251\350\200\205\347\244\274\345\214\205id\0228\n\017m_"
-    "sendergiftnum\030\003 \001(\005B\037\302\377\024\033\346\261\202\345\212\251\350\200\205\347\244\274\345\214\205"
-    "\346\257\217\346\227\245\346\225\260\351\207\217\022+\n\014m_helpergift\030\004 \001(\005B\025\302\377\024\021"
-    "\345\215\217\345\212\251\350\200\205\347\244\274\345\214\205id\0228\n\017m_helpergiftnum\030\005 \001"
+    "rGift\030\002 \001(\005B\025\302\377\024\021\346\261\202\345\212\251\350\200\205\347\244\274\345\214\205id\0228\n\017m_"
+    "senderGiftNum\030\003 \001(\005B\037\302\377\024\033\346\261\202\345\212\251\350\200\205\347\244\274\345\214\205"
+    "\346\257\217\346\227\245\346\225\260\351\207\217\022+\n\014m_helperGift\030\004 \001(\005B\025\302\377\024\021"
+    "\345\215\217\345\212\251\350\200\205\347\244\274\345\214\205id\0228\n\017m_helperGiftNum\030\005 \001"
     "(\005B\037\302\377\024\033\345\215\217\345\212\251\350\200\205\347\244\274\345\214\205\346\257\217\346\227\245\346\225\260\351\207\217\022>\n\022m"
-    "_prestigedaylimit\030\006 \001(\005B\"\302\377\024\036\346\257\217\346\227\245\346\227\245\345\270"
-    "\270\345\243\260\346\234\233\350\216\267\345\217\226\344\270\212\351\231\220\022F\n\026m_prestigedayboss"
+    "_prestigeDaylimit\030\006 \001(\005B\"\302\377\024\036\346\257\217\346\227\245\346\227\245\345\270"
+    "\270\345\243\260\346\234\233\350\216\267\345\217\226\344\270\212\351\231\220\022F\n\026m_prestigeDayBoss"
     "limit\030\007 \001(\005B&\302\377\024\"\346\257\217\346\227\245boss\345\215\217\345\212\251\345\243\260\346\234\233\350"
     "\216\267\345\217\226\344\270\212\351\231\220\"N\n\021Sheet_AssistConst\0229\n\022E_As"
     "sistConst_List\030\001 \003(\0132\027.proto_ff.E_Assist"
@@ -1207,12 +1207,12 @@ void Sheet_AssistThank::Swap(Sheet_AssistThank* other) {
 
 #ifndef _MSC_VER
 const int E_AssistConst::kMIdFieldNumber;
-const int E_AssistConst::kMSendergiftFieldNumber;
-const int E_AssistConst::kMSendergiftnumFieldNumber;
-const int E_AssistConst::kMHelpergiftFieldNumber;
-const int E_AssistConst::kMHelpergiftnumFieldNumber;
-const int E_AssistConst::kMPrestigedaylimitFieldNumber;
-const int E_AssistConst::kMPrestigedaybosslimitFieldNumber;
+const int E_AssistConst::kMSenderGiftFieldNumber;
+const int E_AssistConst::kMSenderGiftNumFieldNumber;
+const int E_AssistConst::kMHelperGiftFieldNumber;
+const int E_AssistConst::kMHelperGiftNumFieldNumber;
+const int E_AssistConst::kMPrestigeDaylimitFieldNumber;
+const int E_AssistConst::kMPrestigeDayBosslimitFieldNumber;
 #endif  // !_MSC_VER
 
 E_AssistConst::E_AssistConst()
@@ -1302,15 +1302,15 @@ bool E_AssistConst::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_sendergift;
+        if (input->ExpectTag(16)) goto parse_m_senderGift;
         break;
       }
 
-      // optional int32 m_sendergift = 2;
+      // optional int32 m_senderGift = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_sendergift:
+         parse_m_senderGift:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_sendergift_)));
@@ -1318,15 +1318,15 @@ bool E_AssistConst::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_sendergiftnum;
+        if (input->ExpectTag(24)) goto parse_m_senderGiftNum;
         break;
       }
 
-      // optional int32 m_sendergiftnum = 3;
+      // optional int32 m_senderGiftNum = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_sendergiftnum:
+         parse_m_senderGiftNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_sendergiftnum_)));
@@ -1334,15 +1334,15 @@ bool E_AssistConst::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_helpergift;
+        if (input->ExpectTag(32)) goto parse_m_helperGift;
         break;
       }
 
-      // optional int32 m_helpergift = 4;
+      // optional int32 m_helperGift = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_helpergift:
+         parse_m_helperGift:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_helpergift_)));
@@ -1350,15 +1350,15 @@ bool E_AssistConst::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_helpergiftnum;
+        if (input->ExpectTag(40)) goto parse_m_helperGiftNum;
         break;
       }
 
-      // optional int32 m_helpergiftnum = 5;
+      // optional int32 m_helperGiftNum = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_helpergiftnum:
+         parse_m_helperGiftNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_helpergiftnum_)));
@@ -1366,15 +1366,15 @@ bool E_AssistConst::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_prestigedaylimit;
+        if (input->ExpectTag(48)) goto parse_m_prestigeDaylimit;
         break;
       }
 
-      // optional int32 m_prestigedaylimit = 6;
+      // optional int32 m_prestigeDaylimit = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_prestigedaylimit:
+         parse_m_prestigeDaylimit:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_prestigedaylimit_)));
@@ -1382,15 +1382,15 @@ bool E_AssistConst::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_prestigedaybosslimit;
+        if (input->ExpectTag(56)) goto parse_m_prestigeDayBosslimit;
         break;
       }
 
-      // optional int32 m_prestigedaybosslimit = 7;
+      // optional int32 m_prestigeDayBosslimit = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_prestigedaybosslimit:
+         parse_m_prestigeDayBosslimit:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_prestigedaybosslimit_)));
@@ -1425,32 +1425,32 @@ void E_AssistConst::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_sendergift = 2;
+  // optional int32 m_senderGift = 2;
   if (has_m_sendergift()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_sendergift(), output);
   }
 
-  // optional int32 m_sendergiftnum = 3;
+  // optional int32 m_senderGiftNum = 3;
   if (has_m_sendergiftnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_sendergiftnum(), output);
   }
 
-  // optional int32 m_helpergift = 4;
+  // optional int32 m_helperGift = 4;
   if (has_m_helpergift()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_helpergift(), output);
   }
 
-  // optional int32 m_helpergiftnum = 5;
+  // optional int32 m_helperGiftNum = 5;
   if (has_m_helpergiftnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_helpergiftnum(), output);
   }
 
-  // optional int32 m_prestigedaylimit = 6;
+  // optional int32 m_prestigeDaylimit = 6;
   if (has_m_prestigedaylimit()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_prestigedaylimit(), output);
   }
 
-  // optional int32 m_prestigedaybosslimit = 7;
+  // optional int32 m_prestigeDayBosslimit = 7;
   if (has_m_prestigedaybosslimit()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_prestigedaybosslimit(), output);
   }
@@ -1468,32 +1468,32 @@ void E_AssistConst::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_sendergift = 2;
+  // optional int32 m_senderGift = 2;
   if (has_m_sendergift()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_sendergift(), target);
   }
 
-  // optional int32 m_sendergiftnum = 3;
+  // optional int32 m_senderGiftNum = 3;
   if (has_m_sendergiftnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_sendergiftnum(), target);
   }
 
-  // optional int32 m_helpergift = 4;
+  // optional int32 m_helperGift = 4;
   if (has_m_helpergift()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_helpergift(), target);
   }
 
-  // optional int32 m_helpergiftnum = 5;
+  // optional int32 m_helperGiftNum = 5;
   if (has_m_helpergiftnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_helpergiftnum(), target);
   }
 
-  // optional int32 m_prestigedaylimit = 6;
+  // optional int32 m_prestigeDaylimit = 6;
   if (has_m_prestigedaylimit()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_prestigedaylimit(), target);
   }
 
-  // optional int32 m_prestigedaybosslimit = 7;
+  // optional int32 m_prestigeDayBosslimit = 7;
   if (has_m_prestigedaybosslimit()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_prestigedaybosslimit(), target);
   }
@@ -1516,42 +1516,42 @@ int E_AssistConst::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_sendergift = 2;
+    // optional int32 m_senderGift = 2;
     if (has_m_sendergift()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_sendergift());
     }
 
-    // optional int32 m_sendergiftnum = 3;
+    // optional int32 m_senderGiftNum = 3;
     if (has_m_sendergiftnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_sendergiftnum());
     }
 
-    // optional int32 m_helpergift = 4;
+    // optional int32 m_helperGift = 4;
     if (has_m_helpergift()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_helpergift());
     }
 
-    // optional int32 m_helpergiftnum = 5;
+    // optional int32 m_helperGiftNum = 5;
     if (has_m_helpergiftnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_helpergiftnum());
     }
 
-    // optional int32 m_prestigedaylimit = 6;
+    // optional int32 m_prestigeDaylimit = 6;
     if (has_m_prestigedaylimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_prestigedaylimit());
     }
 
-    // optional int32 m_prestigedaybosslimit = 7;
+    // optional int32 m_prestigeDayBosslimit = 7;
     if (has_m_prestigedaybosslimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

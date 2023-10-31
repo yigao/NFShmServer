@@ -995,18 +995,18 @@ void protobuf_AddDesc_E_5fSoul_2eproto() {
     "\0223\n\017E_SoulOpen_List\030\001 \003(\0132\024.proto_ff.E_S"
     "oulOpenB\004\210\301\024\010\"\217\002\n\nE_SoulSoul\022\024\n\004m_id\030\001 \001"
     "(\005B\006\302\377\024\002id\022\036\n\006m_name\030\002 \001(\tB\016\302\377\024\006\345\220\215\345\255\227\220\301"
-    "\024@\022(\n\010m_lvitem\030\003 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\346\211\200\351\234\200\351\201"
-    "\223\345\205\267\022-\n\rm_advanceitem\030\004 \001(\005B\026\302\377\024\022\350\277\233\351\230\266\346"
-    "\211\200\351\234\200\351\201\223\345\205\267\022\'\n\020m_sacrificeskill\030\005 \001(\005B\r\302"
-    "\377\024\t\347\211\272\347\211\262\346\212\200\022I\n\tm_skilllv\030\006 \001(\tB6\302\377\024-\347\211\272"
+    "\024@\022(\n\010m_lvItem\030\003 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\346\211\200\351\234\200\351\201"
+    "\223\345\205\267\022-\n\rm_advanceItem\030\004 \001(\005B\026\302\377\024\022\350\277\233\351\230\266\346"
+    "\211\200\351\234\200\351\201\223\345\205\267\022\'\n\020m_sacrificeSkill\030\005 \001(\005B\r\302"
+    "\377\024\t\347\211\272\347\211\262\346\212\200\022I\n\tm_SkillLv\030\006 \001(\tB6\302\377\024-\347\211\272"
     "\347\211\262\346\212\200\347\255\211\347\272\247[\347\255\211\347\272\247;\345\215\207\347\272\247\351\234\200\350\246\201\347\232\204\351\230\266\347\272"
     "\247]\220\301\024\200\001\"E\n\016Sheet_SoulSoul\0223\n\017E_SoulSoul_"
     "List\030\001 \003(\0132\024.proto_ff.E_SoulSoulB\004\210\301\024\002\"P"
     "\n\034E_SoulSoulbasicAttributeDesc\022\030\n\007m_valu"
     "e\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\026\n\006m_type\030\002 \001(\005B\006\302\377\024\002ID"
     "\"\343\001\n\017E_SoulSoulbasic\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002"
-    "id\022\036\n\010m_soulid\030\002 \001(\005B\014\302\377\024\010\346\210\230\351\255\202ID\022\034\n\010m_"
-    "soullv\030\003 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022)\n\tm_soulexp\030\004 "
+    "id\022\036\n\010m_soulId\030\002 \001(\005B\014\302\377\024\010\346\210\230\351\255\202ID\022\034\n\010m_"
+    "soulLv\030\003 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022)\n\tm_soulExp\030\004 "
     "\001(\005B\026\302\377\024\022\345\215\207\347\272\247\346\211\200\351\234\200\351\255\202\347\201\265\022Q\n\013m_attribu"
     "te\030\005 \003(\0132&.proto_ff.E_SoulSoulbasicAttri"
     "buteDescB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\006\"U\n\023Sheet_"
@@ -1015,9 +1015,9 @@ void protobuf_AddDesc_E_5fSoul_2eproto() {
     "\036E_SoulSouladvanceAttributeDesc\022\030\n\007m_val"
     "ue\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\026\n\006m_type\030\002 \001(\005B\006\302\377\024\002I"
     "D\"\363\001\n\021E_SoulSouladvance\022\024\n\004m_id\030\001 \001(\005B\006\302"
-    "\377\024\002id\022\036\n\010m_soulid\030\002 \001(\005B\014\302\377\024\010\346\210\230\351\255\202ID\022\037\n"
-    "\013m_advancelv\030\003 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\0222\n\014m_adva"
-    "ncenum\030\004 \001(\005B\034\302\377\024\030\345\215\207\351\230\266\346\211\200\351\234\200\351\201\223\345\205\267\346\225\260\351"
+    "\377\024\002id\022\036\n\010m_soulId\030\002 \001(\005B\014\302\377\024\010\346\210\230\351\255\202ID\022\037\n"
+    "\013m_advanceLv\030\003 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\0222\n\014m_adva"
+    "nceNum\030\004 \001(\005B\034\302\377\024\030\345\215\207\351\230\266\346\211\200\351\234\200\351\201\223\345\205\267\346\225\260\351"
     "\207\217\022S\n\013m_attribute\030\005 \003(\0132(.proto_ff.E_Sou"
     "lSouladvanceAttributeDescB\024\302\377\024\014\345\237\272\347\241\200\345\261\236"
     "\346\200\247\210\301\024\006\"[\n\025Sheet_SoulSouladvance\022B\n\026E_So"
@@ -1032,7 +1032,7 @@ void protobuf_AddDesc_E_5fSoul_2eproto() {
     "tributeDesc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\026\n"
     "\006m_type\030\002 \001(\005B\006\302\377\024\002ID\"\255\002\n\017E_SoulPrivileg"
     "e\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022(\n\nm_activate\030\002 "
-    "\001(\tB\024\302\377\024\014\346\277\200\346\264\273\346\235\241\344\273\266\220\301\024@\022(\n\010m_poolup\030\003 "
+    "\001(\tB\024\302\377\024\014\346\277\200\346\264\273\346\235\241\344\273\266\220\301\024@\022(\n\010m_poolUp\030\003 "
     "\001(\005B\026\302\377\024\022\346\277\200\346\264\273\346\217\220\351\253\230\344\270\212\351\231\220\022.\n\021m_huoyued"
     "u_to_exp\030\004 \001(\005B\023\302\377\024\017\346\264\273\350\267\203\345\272\246\345\205\221\346\215\242\022-\n\023m"
     "_meditation_to_exp\030\005 \001(\005B\020\302\377\024\014\346\211\223\345\235\220\345\205\221\346"
@@ -1041,28 +1041,28 @@ void protobuf_AddDesc_E_5fSoul_2eproto() {
     "\247\210\301\024\004\"T\n\023Sheet_SoulPrivilege\022=\n\024E_SoulPr"
     "ivilege_List\030\001 \003(\0132\031.proto_ff.E_SoulPriv"
     "ilegeB\004\210\301\024\004\"\203\003\n\rE_SoulCrystal\022\037\n\tm_equip"
-    "id\030\001 \001(\005B\014\302\377\024\010\350\243\205\345\244\207id\022$\n\006m_name\030\002 \001(\tB\024"
-    "\302\377\024\014\351\255\202\346\231\266\345\221\275\345\220\215\220\301\024@\022\'\n\rm_crystaltype\030\003 "
+    "Id\030\001 \001(\005B\014\302\377\024\010\350\243\205\345\244\207id\022$\n\006m_name\030\002 \001(\tB\024"
+    "\302\377\024\014\351\255\202\346\231\266\345\221\275\345\220\215\220\301\024@\022\'\n\rm_crystalType\030\003 "
     "\001(\005B\020\302\377\024\014\351\255\202\346\231\266\347\261\273\345\236\213\022\035\n\tm_quality\030\004 \001(\005"
     "B\n\302\377\024\006\345\223\201\350\264\250\022\032\n\006m_star\030\005 \001(\005B\n\302\377\024\006\346\230\237\347\272\247"
-    "\022)\n\017m_dismantletime\030\006 \001(\005B\020\302\377\024\014\345\210\206\350\247\243\350\216\267"
-    "\345\276\227\022(\n\016m_dismantlenum\030\007 \001(\005B\020\302\377\024\014\345\210\206\350\247\243\346"
+    "\022)\n\017m_dismantleTime\030\006 \001(\005B\020\302\377\024\014\345\210\206\350\247\243\350\216\267"
+    "\345\276\227\022(\n\016m_dismantleNum\030\007 \001(\005B\020\302\377\024\014\345\210\206\350\247\243\346"
     "\225\260\351\207\217\022!\n\007m_skill\030\010 \001(\005B\020\302\377\024\014\346\212\200\350\203\275\347\261\273\345\236\213"
-    "\022#\n\tm_skilllv\030\t \001(\005B\020\302\377\024\014\346\212\200\350\203\275\347\255\211\347\272\247\022*\n"
+    "\022#\n\tm_skillLv\030\t \001(\005B\020\302\377\024\014\346\212\200\350\203\275\347\255\211\347\272\247\022*\n"
     "\nm_handbook\030\n \001(\005B\026\302\377\024\022\346\230\257\345\220\246\346\230\276\347\244\272\345\233\276\351\211"
     "\264\"O\n\021Sheet_SoulCrystal\022:\n\022E_SoulCrystal_"
     "List\030\001 \003(\0132\027.proto_ff.E_SoulCrystalB\005\210\301\024"
     "\200\004\"|\n\017E_SoulCrystallv\022\030\n\004m_lv\030\001 \001(\005B\n\302\377\024"
-    "\006\347\255\211\347\272\247\022\'\n\rm_wraithsitem\030\002 \001(\005B\020\302\377\024\014\351\201\223\345"
-    "\205\267\346\266\210\350\200\227\022&\n\014m_wraithsmun\030\003 \001(\005B\020\302\377\024\014\346\266\210\350"
+    "\006\347\255\211\347\272\247\022\'\n\rm_wraithsItem\030\002 \001(\005B\020\302\377\024\014\351\201\223\345"
+    "\205\267\346\266\210\350\200\227\022&\n\014m_wraithsMun\030\003 \001(\005B\020\302\377\024\014\346\266\210\350"
     "\200\227\346\225\260\351\207\217\"U\n\023Sheet_SoulCrystallv\022>\n\024E_Sou"
     "lCrystallv_List\030\001 \003(\0132\031.proto_ff.E_SoulC"
     "rystallvB\005\210\301\024\200\010\"Q\n\035E_SoulCrystaltopAttri"
     "buteDesc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\026\n\006m_"
     "type\030\002 \001(\005B\006\302\377\024\002ID\"\324\001\n\020E_SoulCrystaltop\022"
-    "!\n\007m_toplv\030\001 \001(\005B\020\302\377\024\014\347\252\201\347\240\264\347\255\211\347\272\247\022\'\n\rm_"
-    "wraithsitem\030\002 \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346\266\210\350\200\227\022&\n\014m"
-    "_wraithsmun\030\003 \001(\005B\020\302\377\024\014\346\266\210\350\200\227\346\225\260\351\207\217\022L\n\013m"
+    "!\n\007m_topLv\030\001 \001(\005B\020\302\377\024\014\347\252\201\347\240\264\347\255\211\347\272\247\022\'\n\rm_"
+    "wraithsItem\030\002 \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346\266\210\350\200\227\022&\n\014m"
+    "_wraithsMun\030\003 \001(\005B\020\302\377\024\014\346\266\210\350\200\227\346\225\260\351\207\217\022L\n\013m"
     "_attribute\030\004 \003(\0132\'.proto_ff.E_SoulCrysta"
     "ltopAttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\006\"W\n\024She"
     "et_SoulCrystaltop\022\?\n\025E_SoulCrystaltop_Li"
@@ -1075,13 +1075,13 @@ void protobuf_AddDesc_E_5fSoul_2eproto() {
     "ionFusionDesc\022\032\n\006m_star\030\001 \001(\005B\n\302\377\024\006\346\230\237\347\272"
     "\247\022\035\n\tm_quality\030\002 \001(\005B\n\302\377\024\006\345\223\201\350\264\250\"\215\003\n\014E_S"
     "oulFusion\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022&\n\014m_fus"
-    "iontype\030\002 \001(\005B\020\302\377\024\014\350\236\215\345\220\210\347\261\273\345\236\213\022#\n\tm_qua"
+    "ionType\030\002 \001(\005B\020\302\377\024\014\350\236\215\345\220\210\347\261\273\345\236\213\022#\n\tm_qua"
     "lity\030\003 \001(\005B\020\302\377\024\014\351\255\202\346\231\266\345\223\201\350\264\250\022 \n\006m_star\030\004"
     " \001(\005B\020\302\377\024\014\351\255\202\346\231\266\346\230\237\346\225\260\0221\n\013m_condition\030\005 "
     "\001(\005B\034\302\377\024\030\346\230\257\345\220\246\351\234\200\350\246\201\350\207\252\350\272\253\346\235\220\346\226\231\022)\n\014m_q"
-    "ualityget\030\006 \001(\005B\023\302\377\024\017\350\236\215\345\220\210\345\220\216\345\223\201\350\264\250\022&\n\t"
-    "m_starget\030\007 \001(\005B\023\302\377\024\017\350\236\215\345\220\210\345\220\216\346\230\237\347\272\247\022(\n\016"
-    "m_attributeber\030\010 \001(\005B\020\302\377\024\014\345\261\236\346\200\247\346\217\220\345\215\207\022H"
+    "ualityGet\030\006 \001(\005B\023\302\377\024\017\350\236\215\345\220\210\345\220\216\345\223\201\350\264\250\022&\n\t"
+    "m_starGet\030\007 \001(\005B\023\302\377\024\017\350\236\215\345\220\210\345\220\216\346\230\237\347\272\247\022(\n\016"
+    "m_attributeBer\030\010 \001(\005B\020\302\377\024\014\345\261\236\346\200\247\346\217\220\345\215\207\022H"
     "\n\010m_fusion\030\t \003(\0132 .proto_ff.E_SoulFusion"
     "FusionDescB\024\302\377\024\014\350\236\215\345\220\210\346\235\220\346\226\231\210\301\024\002\"K\n\020Shee"
     "t_SoulFusion\0227\n\021E_SoulFusion_List\030\001 \003(\0132"
@@ -1089,38 +1089,38 @@ void protobuf_AddDesc_E_5fSoul_2eproto() {
     "Bone\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022$\n\nm_position"
     "\030\002 \001(\005B\020\302\377\024\014\350\243\205\345\244\207\344\275\215\347\275\256\022 \n\006m_type\030\003 \001(\005"
     "B\020\302\377\024\014\351\255\202\351\252\250\347\261\273\345\236\213\022%\n\013m_awakening\030\004 \001(\005B"
-    "\020\302\377\024\014\350\247\211\351\206\222\347\261\273\345\236\213\022)\n\017m_awakeningtime\030\005 \001"
-    "(\005B\020\302\377\024\014\350\247\211\351\206\222\346\266\210\350\200\227\022(\n\016m_awakeningnum\030\006"
-    " \001(\005B\020\302\377\024\014\346\266\210\350\200\227\346\225\260\351\207\217\022\037\n\tm_modelid\030\007 \001("
+    "\020\302\377\024\014\350\247\211\351\206\222\347\261\273\345\236\213\022)\n\017m_awakeningTime\030\005 \001"
+    "(\005B\020\302\377\024\014\350\247\211\351\206\222\346\266\210\350\200\227\022(\n\016m_awakeningNum\030\006"
+    " \001(\005B\020\302\377\024\014\346\266\210\350\200\227\346\225\260\351\207\217\022\037\n\tm_modelId\030\007 \001("
     "\005B\014\302\377\024\010\346\250\241\345\236\213id\"E\n\016Sheet_SoulBone\0223\n\017E_S"
     "oulBone_List\030\001 \003(\0132\024.proto_ff.E_SoulBone"
-    "B\004\210\301\024\010\"\257\001\n\017E_SoulBoneequip\022\037\n\tm_equipid\030"
+    "B\004\210\301\024\010\"\257\001\n\017E_SoulBoneequip\022\037\n\tm_equipId\030"
     "\001 \001(\005B\014\302\377\024\010\350\243\205\345\244\207id\022$\n\006m_name\030\002 \001(\tB\024\302\377\024"
     "\014\351\255\202\351\252\250\345\221\275\345\220\215\220\301\024@\022\032\n\006m_part\030\003 \001(\005B\n\302\377\024\006\351"
     "\203\250\344\275\215\022\035\n\tm_quality\030\004 \001(\005B\n\302\377\024\006\345\223\201\350\264\250\022\032\n\006"
     "m_star\030\005 \001(\005B\n\302\377\024\006\346\230\237\347\272\247\"T\n\023Sheet_SoulBo"
     "neequip\022=\n\024E_SoulBoneequip_List\030\001 \003(\0132\031."
     "proto_ff.E_SoulBoneequipB\004\210\301\024@\"M\n\032E_Soul"
-    "BoneskillPassiveDesc\022\030\n\004m_lv\030\001 \001(\005B\n\302\377\024\006"
-    "\347\255\211\347\272\247\022\025\n\007m_skill\030\002 \001(\005B\004\302\377\024\000\"\253\002\n\017E_Soul"
+    "BoneskillPassiveDesc\022\030\n\004m_Lv\030\001 \001(\005B\n\302\377\024\006"
+    "\347\255\211\347\272\247\022\025\n\007m_Skill\030\002 \001(\005B\004\302\377\024\000\"\253\002\n\017E_Soul"
     "Boneskill\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022$\n\010m_bon"
-    "eid\030\002 \001(\005B\022\302\377\024\016\351\255\202\351\252\250\351\203\250\344\275\215id\022\035\n\tm_quali"
+    "eId\030\002 \001(\005B\022\302\377\024\016\351\255\202\351\252\250\351\203\250\344\275\215id\022\035\n\tm_quali"
     "ty\030\003 \001(\005B\n\302\377\024\006\345\223\201\350\264\250\022\032\n\006m_star\030\004 \001(\005B\n\302\377"
-    "\024\006\346\230\237\347\272\247\022\'\n\rm_activeskill\030\005 \001(\005B\020\302\377\024\014\344\270\273"
-    "\345\212\250\346\212\200\350\203\275\022)\n\017m_activeskilllv\030\006 \001(\005B\020\302\377\024\014"
+    "\024\006\346\230\237\347\272\247\022\'\n\rm_ActiveSkill\030\005 \001(\005B\020\302\377\024\014\344\270\273"
+    "\345\212\250\346\212\200\350\203\275\022)\n\017m_ActiveSkillLv\030\006 \001(\005B\020\302\377\024\014"
     "\346\212\200\350\203\275\347\255\211\347\272\247\022M\n\tm_passive\030\007 \003(\0132$.proto_"
     "ff.E_SoulBoneskillPassiveDescB\024\302\377\024\014\350\242\253\345\212"
     "\250\346\212\200\350\203\275\210\301\024\004\"T\n\023Sheet_SoulBoneskill\022=\n\024E_"
     "SoulBoneskill_List\030\001 \003(\0132\031.proto_ff.E_So"
     "ulBoneskillB\004\210\301\024\020\"S\n\016E_SoulBonekill\022\030\n\004m"
-    "_lv\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022\'\n\nm_killboss\030\002 \001("
+    "_lv\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022\'\n\nm_killBoss\030\002 \001("
     "\005B\023\302\377\024\017\345\207\273\346\235\200\351\255\224\347\216\213\346\225\260\"R\n\022Sheet_SoulBone"
     "kill\022<\n\023E_SoulBonekill_List\030\001 \003(\0132\030.prot"
     "o_ff.E_SoulBonekillB\005\210\301\024\200\010\"L\n\030E_SoulBone"
     "strongTypeDesc\022\032\n\005m_num\030\001 \001(\tB\013\302\377\024\003\345\200\274\220\301"
     "\024@\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002ID\"\270\001\n\020E_SoulBones"
     "trong\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022$\n\nm_positio"
-    "n\030\002 \001(\005B\020\302\377\024\014\350\243\205\345\244\207\351\203\250\344\275\215\022$\n\nm_srtongup\030"
+    "n\030\002 \001(\005B\020\302\377\024\014\350\243\205\345\244\207\351\203\250\344\275\215\022$\n\nm_srtongUp\030"
     "\003 \001(\005B\020\302\377\024\014\345\274\272\345\214\226\344\270\212\351\231\220\022B\n\006m_type\030\004 \003(\0132"
     "\".proto_ff.E_SoulBonestrongTypeDescB\016\302\377\024"
     "\006\345\261\236\346\200\247\210\301\024\004\"X\n\024Sheet_SoulBonestrong\022@\n\025E"
@@ -1712,10 +1712,10 @@ void Sheet_SoulOpen::Swap(Sheet_SoulOpen* other) {
 #ifndef _MSC_VER
 const int E_SoulSoul::kMIdFieldNumber;
 const int E_SoulSoul::kMNameFieldNumber;
-const int E_SoulSoul::kMLvitemFieldNumber;
-const int E_SoulSoul::kMAdvanceitemFieldNumber;
-const int E_SoulSoul::kMSacrificeskillFieldNumber;
-const int E_SoulSoul::kMSkilllvFieldNumber;
+const int E_SoulSoul::kMLvItemFieldNumber;
+const int E_SoulSoul::kMAdvanceItemFieldNumber;
+const int E_SoulSoul::kMSacrificeSkillFieldNumber;
+const int E_SoulSoul::kMSkillLvFieldNumber;
 #endif  // !_MSC_VER
 
 E_SoulSoul::E_SoulSoul()
@@ -1834,15 +1834,15 @@ bool E_SoulSoul::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_lvitem;
+        if (input->ExpectTag(24)) goto parse_m_lvItem;
         break;
       }
 
-      // optional int32 m_lvitem = 3;
+      // optional int32 m_lvItem = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_lvitem:
+         parse_m_lvItem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_lvitem_)));
@@ -1850,15 +1850,15 @@ bool E_SoulSoul::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_advanceitem;
+        if (input->ExpectTag(32)) goto parse_m_advanceItem;
         break;
       }
 
-      // optional int32 m_advanceitem = 4;
+      // optional int32 m_advanceItem = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_advanceitem:
+         parse_m_advanceItem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_advanceitem_)));
@@ -1866,15 +1866,15 @@ bool E_SoulSoul::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_sacrificeskill;
+        if (input->ExpectTag(40)) goto parse_m_sacrificeSkill;
         break;
       }
 
-      // optional int32 m_sacrificeskill = 5;
+      // optional int32 m_sacrificeSkill = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_sacrificeskill:
+         parse_m_sacrificeSkill:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_sacrificeskill_)));
@@ -1882,15 +1882,15 @@ bool E_SoulSoul::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(50)) goto parse_m_skilllv;
+        if (input->ExpectTag(50)) goto parse_m_SkillLv;
         break;
       }
 
-      // optional string m_skilllv = 6;
+      // optional string m_SkillLv = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_skilllv:
+         parse_m_SkillLv:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_skilllv()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1935,22 +1935,22 @@ void E_SoulSoul::SerializeWithCachedSizes(
       2, this->m_name(), output);
   }
 
-  // optional int32 m_lvitem = 3;
+  // optional int32 m_lvItem = 3;
   if (has_m_lvitem()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_lvitem(), output);
   }
 
-  // optional int32 m_advanceitem = 4;
+  // optional int32 m_advanceItem = 4;
   if (has_m_advanceitem()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_advanceitem(), output);
   }
 
-  // optional int32 m_sacrificeskill = 5;
+  // optional int32 m_sacrificeSkill = 5;
   if (has_m_sacrificeskill()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_sacrificeskill(), output);
   }
 
-  // optional string m_skilllv = 6;
+  // optional string m_SkillLv = 6;
   if (has_m_skilllv()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_skilllv().data(), this->m_skilllv().length(),
@@ -1982,22 +1982,22 @@ void E_SoulSoul::SerializeWithCachedSizes(
         2, this->m_name(), target);
   }
 
-  // optional int32 m_lvitem = 3;
+  // optional int32 m_lvItem = 3;
   if (has_m_lvitem()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_lvitem(), target);
   }
 
-  // optional int32 m_advanceitem = 4;
+  // optional int32 m_advanceItem = 4;
   if (has_m_advanceitem()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_advanceitem(), target);
   }
 
-  // optional int32 m_sacrificeskill = 5;
+  // optional int32 m_sacrificeSkill = 5;
   if (has_m_sacrificeskill()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_sacrificeskill(), target);
   }
 
-  // optional string m_skilllv = 6;
+  // optional string m_SkillLv = 6;
   if (has_m_skilllv()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_skilllv().data(), this->m_skilllv().length(),
@@ -2032,28 +2032,28 @@ int E_SoulSoul::ByteSize() const {
           this->m_name());
     }
 
-    // optional int32 m_lvitem = 3;
+    // optional int32 m_lvItem = 3;
     if (has_m_lvitem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_lvitem());
     }
 
-    // optional int32 m_advanceitem = 4;
+    // optional int32 m_advanceItem = 4;
     if (has_m_advanceitem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_advanceitem());
     }
 
-    // optional int32 m_sacrificeskill = 5;
+    // optional int32 m_sacrificeSkill = 5;
     if (has_m_sacrificeskill()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_sacrificeskill());
     }
 
-    // optional string m_skilllv = 6;
+    // optional string m_SkillLv = 6;
     if (has_m_skilllv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -2604,9 +2604,9 @@ void E_SoulSoulbasicAttributeDesc::Swap(E_SoulSoulbasicAttributeDesc* other) {
 
 #ifndef _MSC_VER
 const int E_SoulSoulbasic::kMIdFieldNumber;
-const int E_SoulSoulbasic::kMSoulidFieldNumber;
-const int E_SoulSoulbasic::kMSoullvFieldNumber;
-const int E_SoulSoulbasic::kMSoulexpFieldNumber;
+const int E_SoulSoulbasic::kMSoulIdFieldNumber;
+const int E_SoulSoulbasic::kMSoulLvFieldNumber;
+const int E_SoulSoulbasic::kMSoulExpFieldNumber;
 const int E_SoulSoulbasic::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -2692,15 +2692,15 @@ bool E_SoulSoulbasic::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_soulid;
+        if (input->ExpectTag(16)) goto parse_m_soulId;
         break;
       }
 
-      // optional int32 m_soulid = 2;
+      // optional int32 m_soulId = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_soulid:
+         parse_m_soulId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_soulid_)));
@@ -2708,15 +2708,15 @@ bool E_SoulSoulbasic::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_soullv;
+        if (input->ExpectTag(24)) goto parse_m_soulLv;
         break;
       }
 
-      // optional int32 m_soullv = 3;
+      // optional int32 m_soulLv = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_soullv:
+         parse_m_soulLv:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_soullv_)));
@@ -2724,15 +2724,15 @@ bool E_SoulSoulbasic::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_soulexp;
+        if (input->ExpectTag(32)) goto parse_m_soulExp;
         break;
       }
 
-      // optional int32 m_soulexp = 4;
+      // optional int32 m_soulExp = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_soulexp:
+         parse_m_soulExp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_soulexp_)));
@@ -2782,17 +2782,17 @@ void E_SoulSoulbasic::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_soulid = 2;
+  // optional int32 m_soulId = 2;
   if (has_m_soulid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_soulid(), output);
   }
 
-  // optional int32 m_soullv = 3;
+  // optional int32 m_soulLv = 3;
   if (has_m_soullv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_soullv(), output);
   }
 
-  // optional int32 m_soulexp = 4;
+  // optional int32 m_soulExp = 4;
   if (has_m_soulexp()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_soulexp(), output);
   }
@@ -2816,17 +2816,17 @@ void E_SoulSoulbasic::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_soulid = 2;
+  // optional int32 m_soulId = 2;
   if (has_m_soulid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_soulid(), target);
   }
 
-  // optional int32 m_soullv = 3;
+  // optional int32 m_soulLv = 3;
   if (has_m_soullv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_soullv(), target);
   }
 
-  // optional int32 m_soulexp = 4;
+  // optional int32 m_soulExp = 4;
   if (has_m_soulexp()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_soulexp(), target);
   }
@@ -2856,21 +2856,21 @@ int E_SoulSoulbasic::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_soulid = 2;
+    // optional int32 m_soulId = 2;
     if (has_m_soulid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_soulid());
     }
 
-    // optional int32 m_soullv = 3;
+    // optional int32 m_soulLv = 3;
     if (has_m_soullv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_soullv());
     }
 
-    // optional int32 m_soulexp = 4;
+    // optional int32 m_soulExp = 4;
     if (has_m_soulexp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3423,9 +3423,9 @@ void E_SoulSouladvanceAttributeDesc::Swap(E_SoulSouladvanceAttributeDesc* other)
 
 #ifndef _MSC_VER
 const int E_SoulSouladvance::kMIdFieldNumber;
-const int E_SoulSouladvance::kMSoulidFieldNumber;
-const int E_SoulSouladvance::kMAdvancelvFieldNumber;
-const int E_SoulSouladvance::kMAdvancenumFieldNumber;
+const int E_SoulSouladvance::kMSoulIdFieldNumber;
+const int E_SoulSouladvance::kMAdvanceLvFieldNumber;
+const int E_SoulSouladvance::kMAdvanceNumFieldNumber;
 const int E_SoulSouladvance::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -3511,15 +3511,15 @@ bool E_SoulSouladvance::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_soulid;
+        if (input->ExpectTag(16)) goto parse_m_soulId;
         break;
       }
 
-      // optional int32 m_soulid = 2;
+      // optional int32 m_soulId = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_soulid:
+         parse_m_soulId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_soulid_)));
@@ -3527,15 +3527,15 @@ bool E_SoulSouladvance::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_advancelv;
+        if (input->ExpectTag(24)) goto parse_m_advanceLv;
         break;
       }
 
-      // optional int32 m_advancelv = 3;
+      // optional int32 m_advanceLv = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_advancelv:
+         parse_m_advanceLv:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_advancelv_)));
@@ -3543,15 +3543,15 @@ bool E_SoulSouladvance::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_advancenum;
+        if (input->ExpectTag(32)) goto parse_m_advanceNum;
         break;
       }
 
-      // optional int32 m_advancenum = 4;
+      // optional int32 m_advanceNum = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_advancenum:
+         parse_m_advanceNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_advancenum_)));
@@ -3601,17 +3601,17 @@ void E_SoulSouladvance::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_soulid = 2;
+  // optional int32 m_soulId = 2;
   if (has_m_soulid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_soulid(), output);
   }
 
-  // optional int32 m_advancelv = 3;
+  // optional int32 m_advanceLv = 3;
   if (has_m_advancelv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_advancelv(), output);
   }
 
-  // optional int32 m_advancenum = 4;
+  // optional int32 m_advanceNum = 4;
   if (has_m_advancenum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_advancenum(), output);
   }
@@ -3635,17 +3635,17 @@ void E_SoulSouladvance::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_soulid = 2;
+  // optional int32 m_soulId = 2;
   if (has_m_soulid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_soulid(), target);
   }
 
-  // optional int32 m_advancelv = 3;
+  // optional int32 m_advanceLv = 3;
   if (has_m_advancelv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_advancelv(), target);
   }
 
-  // optional int32 m_advancenum = 4;
+  // optional int32 m_advanceNum = 4;
   if (has_m_advancenum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_advancenum(), target);
   }
@@ -3675,21 +3675,21 @@ int E_SoulSouladvance::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_soulid = 2;
+    // optional int32 m_soulId = 2;
     if (has_m_soulid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_soulid());
     }
 
-    // optional int32 m_advancelv = 3;
+    // optional int32 m_advanceLv = 3;
     if (has_m_advancelv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_advancelv());
     }
 
-    // optional int32 m_advancenum = 4;
+    // optional int32 m_advanceNum = 4;
     if (has_m_advancenum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4774,7 +4774,7 @@ void E_SoulPrivilegeAttributeDesc::Swap(E_SoulPrivilegeAttributeDesc* other) {
 #ifndef _MSC_VER
 const int E_SoulPrivilege::kMIdFieldNumber;
 const int E_SoulPrivilege::kMActivateFieldNumber;
-const int E_SoulPrivilege::kMPoolupFieldNumber;
+const int E_SoulPrivilege::kMPoolUpFieldNumber;
 const int E_SoulPrivilege::kMHuoyueduToExpFieldNumber;
 const int E_SoulPrivilege::kMMeditationToExpFieldNumber;
 const int E_SoulPrivilege::kMAttributeFieldNumber;
@@ -4888,15 +4888,15 @@ bool E_SoulPrivilege::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_poolup;
+        if (input->ExpectTag(24)) goto parse_m_poolUp;
         break;
       }
 
-      // optional int32 m_poolup = 3;
+      // optional int32 m_poolUp = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_poolup:
+         parse_m_poolUp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_poolup_)));
@@ -4987,7 +4987,7 @@ void E_SoulPrivilege::SerializeWithCachedSizes(
       2, this->m_activate(), output);
   }
 
-  // optional int32 m_poolup = 3;
+  // optional int32 m_poolUp = 3;
   if (has_m_poolup()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_poolup(), output);
   }
@@ -5031,7 +5031,7 @@ void E_SoulPrivilege::SerializeWithCachedSizes(
         2, this->m_activate(), target);
   }
 
-  // optional int32 m_poolup = 3;
+  // optional int32 m_poolUp = 3;
   if (has_m_poolup()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_poolup(), target);
   }
@@ -5078,7 +5078,7 @@ int E_SoulPrivilege::ByteSize() const {
           this->m_activate());
     }
 
-    // optional int32 m_poolup = 3;
+    // optional int32 m_poolUp = 3;
     if (has_m_poolup()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -5400,15 +5400,15 @@ void Sheet_SoulPrivilege::Swap(Sheet_SoulPrivilege* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_SoulCrystal::kMEquipidFieldNumber;
+const int E_SoulCrystal::kMEquipIdFieldNumber;
 const int E_SoulCrystal::kMNameFieldNumber;
-const int E_SoulCrystal::kMCrystaltypeFieldNumber;
+const int E_SoulCrystal::kMCrystalTypeFieldNumber;
 const int E_SoulCrystal::kMQualityFieldNumber;
 const int E_SoulCrystal::kMStarFieldNumber;
-const int E_SoulCrystal::kMDismantletimeFieldNumber;
-const int E_SoulCrystal::kMDismantlenumFieldNumber;
+const int E_SoulCrystal::kMDismantleTimeFieldNumber;
+const int E_SoulCrystal::kMDismantleNumFieldNumber;
 const int E_SoulCrystal::kMSkillFieldNumber;
-const int E_SoulCrystal::kMSkilllvFieldNumber;
+const int E_SoulCrystal::kMSkillLvFieldNumber;
 const int E_SoulCrystal::kMHandbookFieldNumber;
 #endif  // !_MSC_VER
 
@@ -5503,7 +5503,7 @@ bool E_SoulCrystal::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_equipid = 1;
+      // optional int32 m_equipId = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -5531,15 +5531,15 @@ bool E_SoulCrystal::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_crystaltype;
+        if (input->ExpectTag(24)) goto parse_m_crystalType;
         break;
       }
 
-      // optional int32 m_crystaltype = 3;
+      // optional int32 m_crystalType = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_crystaltype:
+         parse_m_crystalType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_crystaltype_)));
@@ -5579,15 +5579,15 @@ bool E_SoulCrystal::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_dismantletime;
+        if (input->ExpectTag(48)) goto parse_m_dismantleTime;
         break;
       }
 
-      // optional int32 m_dismantletime = 6;
+      // optional int32 m_dismantleTime = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_dismantletime:
+         parse_m_dismantleTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_dismantletime_)));
@@ -5595,15 +5595,15 @@ bool E_SoulCrystal::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_dismantlenum;
+        if (input->ExpectTag(56)) goto parse_m_dismantleNum;
         break;
       }
 
-      // optional int32 m_dismantlenum = 7;
+      // optional int32 m_dismantleNum = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_dismantlenum:
+         parse_m_dismantleNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_dismantlenum_)));
@@ -5627,15 +5627,15 @@ bool E_SoulCrystal::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_skilllv;
+        if (input->ExpectTag(72)) goto parse_m_skillLv;
         break;
       }
 
-      // optional int32 m_skilllv = 9;
+      // optional int32 m_skillLv = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_skilllv:
+         parse_m_skillLv:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_skilllv_)));
@@ -5681,7 +5681,7 @@ bool E_SoulCrystal::MergePartialFromCodedStream(
 
 void E_SoulCrystal::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_equipid = 1;
+  // optional int32 m_equipId = 1;
   if (has_m_equipid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_equipid(), output);
   }
@@ -5695,7 +5695,7 @@ void E_SoulCrystal::SerializeWithCachedSizes(
       2, this->m_name(), output);
   }
 
-  // optional int32 m_crystaltype = 3;
+  // optional int32 m_crystalType = 3;
   if (has_m_crystaltype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_crystaltype(), output);
   }
@@ -5710,12 +5710,12 @@ void E_SoulCrystal::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_star(), output);
   }
 
-  // optional int32 m_dismantletime = 6;
+  // optional int32 m_dismantleTime = 6;
   if (has_m_dismantletime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_dismantletime(), output);
   }
 
-  // optional int32 m_dismantlenum = 7;
+  // optional int32 m_dismantleNum = 7;
   if (has_m_dismantlenum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_dismantlenum(), output);
   }
@@ -5725,7 +5725,7 @@ void E_SoulCrystal::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_skill(), output);
   }
 
-  // optional int32 m_skilllv = 9;
+  // optional int32 m_skillLv = 9;
   if (has_m_skilllv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_skilllv(), output);
   }
@@ -5743,7 +5743,7 @@ void E_SoulCrystal::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_SoulCrystal::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_equipid = 1;
+  // optional int32 m_equipId = 1;
   if (has_m_equipid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_equipid(), target);
   }
@@ -5758,7 +5758,7 @@ void E_SoulCrystal::SerializeWithCachedSizes(
         2, this->m_name(), target);
   }
 
-  // optional int32 m_crystaltype = 3;
+  // optional int32 m_crystalType = 3;
   if (has_m_crystaltype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_crystaltype(), target);
   }
@@ -5773,12 +5773,12 @@ void E_SoulCrystal::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_star(), target);
   }
 
-  // optional int32 m_dismantletime = 6;
+  // optional int32 m_dismantleTime = 6;
   if (has_m_dismantletime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_dismantletime(), target);
   }
 
-  // optional int32 m_dismantlenum = 7;
+  // optional int32 m_dismantleNum = 7;
   if (has_m_dismantlenum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_dismantlenum(), target);
   }
@@ -5788,7 +5788,7 @@ void E_SoulCrystal::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_skill(), target);
   }
 
-  // optional int32 m_skilllv = 9;
+  // optional int32 m_skillLv = 9;
   if (has_m_skilllv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_skilllv(), target);
   }
@@ -5809,7 +5809,7 @@ int E_SoulCrystal::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_equipid = 1;
+    // optional int32 m_equipId = 1;
     if (has_m_equipid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -5823,7 +5823,7 @@ int E_SoulCrystal::ByteSize() const {
           this->m_name());
     }
 
-    // optional int32 m_crystaltype = 3;
+    // optional int32 m_crystalType = 3;
     if (has_m_crystaltype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -5844,14 +5844,14 @@ int E_SoulCrystal::ByteSize() const {
           this->m_star());
     }
 
-    // optional int32 m_dismantletime = 6;
+    // optional int32 m_dismantleTime = 6;
     if (has_m_dismantletime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_dismantletime());
     }
 
-    // optional int32 m_dismantlenum = 7;
+    // optional int32 m_dismantleNum = 7;
     if (has_m_dismantlenum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -5867,7 +5867,7 @@ int E_SoulCrystal::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_skilllv = 9;
+    // optional int32 m_skillLv = 9;
     if (has_m_skilllv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -6195,8 +6195,8 @@ void Sheet_SoulCrystal::Swap(Sheet_SoulCrystal* other) {
 
 #ifndef _MSC_VER
 const int E_SoulCrystallv::kMLvFieldNumber;
-const int E_SoulCrystallv::kMWraithsitemFieldNumber;
-const int E_SoulCrystallv::kMWraithsmunFieldNumber;
+const int E_SoulCrystallv::kMWraithsItemFieldNumber;
+const int E_SoulCrystallv::kMWraithsMunFieldNumber;
 #endif  // !_MSC_VER
 
 E_SoulCrystallv::E_SoulCrystallv()
@@ -6278,15 +6278,15 @@ bool E_SoulCrystallv::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_wraithsitem;
+        if (input->ExpectTag(16)) goto parse_m_wraithsItem;
         break;
       }
 
-      // optional int32 m_wraithsitem = 2;
+      // optional int32 m_wraithsItem = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_wraithsitem:
+         parse_m_wraithsItem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_wraithsitem_)));
@@ -6294,15 +6294,15 @@ bool E_SoulCrystallv::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_wraithsmun;
+        if (input->ExpectTag(24)) goto parse_m_wraithsMun;
         break;
       }
 
-      // optional int32 m_wraithsmun = 3;
+      // optional int32 m_wraithsMun = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_wraithsmun:
+         parse_m_wraithsMun:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_wraithsmun_)));
@@ -6337,12 +6337,12 @@ void E_SoulCrystallv::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 m_wraithsitem = 2;
+  // optional int32 m_wraithsItem = 2;
   if (has_m_wraithsitem()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_wraithsitem(), output);
   }
 
-  // optional int32 m_wraithsmun = 3;
+  // optional int32 m_wraithsMun = 3;
   if (has_m_wraithsmun()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_wraithsmun(), output);
   }
@@ -6360,12 +6360,12 @@ void E_SoulCrystallv::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 m_wraithsitem = 2;
+  // optional int32 m_wraithsItem = 2;
   if (has_m_wraithsitem()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_wraithsitem(), target);
   }
 
-  // optional int32 m_wraithsmun = 3;
+  // optional int32 m_wraithsMun = 3;
   if (has_m_wraithsmun()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_wraithsmun(), target);
   }
@@ -6388,14 +6388,14 @@ int E_SoulCrystallv::ByteSize() const {
           this->m_lv());
     }
 
-    // optional int32 m_wraithsitem = 2;
+    // optional int32 m_wraithsItem = 2;
     if (has_m_wraithsitem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_wraithsitem());
     }
 
-    // optional int32 m_wraithsmun = 3;
+    // optional int32 m_wraithsMun = 3;
     if (has_m_wraithsmun()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -6933,9 +6933,9 @@ void E_SoulCrystaltopAttributeDesc::Swap(E_SoulCrystaltopAttributeDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_SoulCrystaltop::kMToplvFieldNumber;
-const int E_SoulCrystaltop::kMWraithsitemFieldNumber;
-const int E_SoulCrystaltop::kMWraithsmunFieldNumber;
+const int E_SoulCrystaltop::kMTopLvFieldNumber;
+const int E_SoulCrystaltop::kMWraithsItemFieldNumber;
+const int E_SoulCrystaltop::kMWraithsMunFieldNumber;
 const int E_SoulCrystaltop::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -7008,7 +7008,7 @@ bool E_SoulCrystaltop::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_toplv = 1;
+      // optional int32 m_topLv = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -7019,15 +7019,15 @@ bool E_SoulCrystaltop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_wraithsitem;
+        if (input->ExpectTag(16)) goto parse_m_wraithsItem;
         break;
       }
 
-      // optional int32 m_wraithsitem = 2;
+      // optional int32 m_wraithsItem = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_wraithsitem:
+         parse_m_wraithsItem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_wraithsitem_)));
@@ -7035,15 +7035,15 @@ bool E_SoulCrystaltop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_wraithsmun;
+        if (input->ExpectTag(24)) goto parse_m_wraithsMun;
         break;
       }
 
-      // optional int32 m_wraithsmun = 3;
+      // optional int32 m_wraithsMun = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_wraithsmun:
+         parse_m_wraithsMun:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_wraithsmun_)));
@@ -7088,17 +7088,17 @@ bool E_SoulCrystaltop::MergePartialFromCodedStream(
 
 void E_SoulCrystaltop::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_toplv = 1;
+  // optional int32 m_topLv = 1;
   if (has_m_toplv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_toplv(), output);
   }
 
-  // optional int32 m_wraithsitem = 2;
+  // optional int32 m_wraithsItem = 2;
   if (has_m_wraithsitem()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_wraithsitem(), output);
   }
 
-  // optional int32 m_wraithsmun = 3;
+  // optional int32 m_wraithsMun = 3;
   if (has_m_wraithsmun()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_wraithsmun(), output);
   }
@@ -7117,17 +7117,17 @@ void E_SoulCrystaltop::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_SoulCrystaltop::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_toplv = 1;
+  // optional int32 m_topLv = 1;
   if (has_m_toplv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_toplv(), target);
   }
 
-  // optional int32 m_wraithsitem = 2;
+  // optional int32 m_wraithsItem = 2;
   if (has_m_wraithsitem()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_wraithsitem(), target);
   }
 
-  // optional int32 m_wraithsmun = 3;
+  // optional int32 m_wraithsMun = 3;
   if (has_m_wraithsmun()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_wraithsmun(), target);
   }
@@ -7150,21 +7150,21 @@ int E_SoulCrystaltop::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_toplv = 1;
+    // optional int32 m_topLv = 1;
     if (has_m_toplv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_toplv());
     }
 
-    // optional int32 m_wraithsitem = 2;
+    // optional int32 m_wraithsItem = 2;
     if (has_m_wraithsitem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_wraithsitem());
     }
 
-    // optional int32 m_wraithsmun = 3;
+    // optional int32 m_wraithsMun = 3;
     if (has_m_wraithsmun()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -8181,13 +8181,13 @@ void E_SoulFusionFusionDesc::Swap(E_SoulFusionFusionDesc* other) {
 
 #ifndef _MSC_VER
 const int E_SoulFusion::kMIdFieldNumber;
-const int E_SoulFusion::kMFusiontypeFieldNumber;
+const int E_SoulFusion::kMFusionTypeFieldNumber;
 const int E_SoulFusion::kMQualityFieldNumber;
 const int E_SoulFusion::kMStarFieldNumber;
 const int E_SoulFusion::kMConditionFieldNumber;
-const int E_SoulFusion::kMQualitygetFieldNumber;
-const int E_SoulFusion::kMStargetFieldNumber;
-const int E_SoulFusion::kMAttributeberFieldNumber;
+const int E_SoulFusion::kMQualityGetFieldNumber;
+const int E_SoulFusion::kMStarGetFieldNumber;
+const int E_SoulFusion::kMAttributeBerFieldNumber;
 const int E_SoulFusion::kMFusionFieldNumber;
 #endif  // !_MSC_VER
 
@@ -8281,15 +8281,15 @@ bool E_SoulFusion::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_fusiontype;
+        if (input->ExpectTag(16)) goto parse_m_fusionType;
         break;
       }
 
-      // optional int32 m_fusiontype = 2;
+      // optional int32 m_fusionType = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_fusiontype:
+         parse_m_fusionType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_fusiontype_)));
@@ -8345,15 +8345,15 @@ bool E_SoulFusion::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_qualityget;
+        if (input->ExpectTag(48)) goto parse_m_qualityGet;
         break;
       }
 
-      // optional int32 m_qualityget = 6;
+      // optional int32 m_qualityGet = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_qualityget:
+         parse_m_qualityGet:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_qualityget_)));
@@ -8361,15 +8361,15 @@ bool E_SoulFusion::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_starget;
+        if (input->ExpectTag(56)) goto parse_m_starGet;
         break;
       }
 
-      // optional int32 m_starget = 7;
+      // optional int32 m_starGet = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_starget:
+         parse_m_starGet:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_starget_)));
@@ -8377,15 +8377,15 @@ bool E_SoulFusion::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_attributeber;
+        if (input->ExpectTag(64)) goto parse_m_attributeBer;
         break;
       }
 
-      // optional int32 m_attributeber = 8;
+      // optional int32 m_attributeBer = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_attributeber:
+         parse_m_attributeBer:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_attributeber_)));
@@ -8435,7 +8435,7 @@ void E_SoulFusion::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_fusiontype = 2;
+  // optional int32 m_fusionType = 2;
   if (has_m_fusiontype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_fusiontype(), output);
   }
@@ -8455,17 +8455,17 @@ void E_SoulFusion::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_condition(), output);
   }
 
-  // optional int32 m_qualityget = 6;
+  // optional int32 m_qualityGet = 6;
   if (has_m_qualityget()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_qualityget(), output);
   }
 
-  // optional int32 m_starget = 7;
+  // optional int32 m_starGet = 7;
   if (has_m_starget()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_starget(), output);
   }
 
-  // optional int32 m_attributeber = 8;
+  // optional int32 m_attributeBer = 8;
   if (has_m_attributeber()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_attributeber(), output);
   }
@@ -8489,7 +8489,7 @@ void E_SoulFusion::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_fusiontype = 2;
+  // optional int32 m_fusionType = 2;
   if (has_m_fusiontype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_fusiontype(), target);
   }
@@ -8509,17 +8509,17 @@ void E_SoulFusion::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_condition(), target);
   }
 
-  // optional int32 m_qualityget = 6;
+  // optional int32 m_qualityGet = 6;
   if (has_m_qualityget()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_qualityget(), target);
   }
 
-  // optional int32 m_starget = 7;
+  // optional int32 m_starGet = 7;
   if (has_m_starget()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_starget(), target);
   }
 
-  // optional int32 m_attributeber = 8;
+  // optional int32 m_attributeBer = 8;
   if (has_m_attributeber()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_attributeber(), target);
   }
@@ -8549,7 +8549,7 @@ int E_SoulFusion::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_fusiontype = 2;
+    // optional int32 m_fusionType = 2;
     if (has_m_fusiontype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -8577,21 +8577,21 @@ int E_SoulFusion::ByteSize() const {
           this->m_condition());
     }
 
-    // optional int32 m_qualityget = 6;
+    // optional int32 m_qualityGet = 6;
     if (has_m_qualityget()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_qualityget());
     }
 
-    // optional int32 m_starget = 7;
+    // optional int32 m_starGet = 7;
     if (has_m_starget()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_starget());
     }
 
-    // optional int32 m_attributeber = 8;
+    // optional int32 m_attributeBer = 8;
     if (has_m_attributeber()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -8915,9 +8915,9 @@ const int E_SoulBone::kMIdFieldNumber;
 const int E_SoulBone::kMPositionFieldNumber;
 const int E_SoulBone::kMTypeFieldNumber;
 const int E_SoulBone::kMAwakeningFieldNumber;
-const int E_SoulBone::kMAwakeningtimeFieldNumber;
-const int E_SoulBone::kMAwakeningnumFieldNumber;
-const int E_SoulBone::kMModelidFieldNumber;
+const int E_SoulBone::kMAwakeningTimeFieldNumber;
+const int E_SoulBone::kMAwakeningNumFieldNumber;
+const int E_SoulBone::kMModelIdFieldNumber;
 #endif  // !_MSC_VER
 
 E_SoulBone::E_SoulBone()
@@ -9055,15 +9055,15 @@ bool E_SoulBone::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_awakeningtime;
+        if (input->ExpectTag(40)) goto parse_m_awakeningTime;
         break;
       }
 
-      // optional int32 m_awakeningtime = 5;
+      // optional int32 m_awakeningTime = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_awakeningtime:
+         parse_m_awakeningTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_awakeningtime_)));
@@ -9071,15 +9071,15 @@ bool E_SoulBone::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_awakeningnum;
+        if (input->ExpectTag(48)) goto parse_m_awakeningNum;
         break;
       }
 
-      // optional int32 m_awakeningnum = 6;
+      // optional int32 m_awakeningNum = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_awakeningnum:
+         parse_m_awakeningNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_awakeningnum_)));
@@ -9087,15 +9087,15 @@ bool E_SoulBone::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_modelid;
+        if (input->ExpectTag(56)) goto parse_m_modelId;
         break;
       }
 
-      // optional int32 m_modelid = 7;
+      // optional int32 m_modelId = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_modelid:
+         parse_m_modelId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_modelid_)));
@@ -9145,17 +9145,17 @@ void E_SoulBone::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_awakening(), output);
   }
 
-  // optional int32 m_awakeningtime = 5;
+  // optional int32 m_awakeningTime = 5;
   if (has_m_awakeningtime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_awakeningtime(), output);
   }
 
-  // optional int32 m_awakeningnum = 6;
+  // optional int32 m_awakeningNum = 6;
   if (has_m_awakeningnum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_awakeningnum(), output);
   }
 
-  // optional int32 m_modelid = 7;
+  // optional int32 m_modelId = 7;
   if (has_m_modelid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_modelid(), output);
   }
@@ -9188,17 +9188,17 @@ void E_SoulBone::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_awakening(), target);
   }
 
-  // optional int32 m_awakeningtime = 5;
+  // optional int32 m_awakeningTime = 5;
   if (has_m_awakeningtime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_awakeningtime(), target);
   }
 
-  // optional int32 m_awakeningnum = 6;
+  // optional int32 m_awakeningNum = 6;
   if (has_m_awakeningnum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_awakeningnum(), target);
   }
 
-  // optional int32 m_modelid = 7;
+  // optional int32 m_modelId = 7;
   if (has_m_modelid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_modelid(), target);
   }
@@ -9242,21 +9242,21 @@ int E_SoulBone::ByteSize() const {
           this->m_awakening());
     }
 
-    // optional int32 m_awakeningtime = 5;
+    // optional int32 m_awakeningTime = 5;
     if (has_m_awakeningtime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_awakeningtime());
     }
 
-    // optional int32 m_awakeningnum = 6;
+    // optional int32 m_awakeningNum = 6;
     if (has_m_awakeningnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_awakeningnum());
     }
 
-    // optional int32 m_modelid = 7;
+    // optional int32 m_modelId = 7;
     if (has_m_modelid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -9562,7 +9562,7 @@ void Sheet_SoulBone::Swap(Sheet_SoulBone* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_SoulBoneequip::kMEquipidFieldNumber;
+const int E_SoulBoneequip::kMEquipIdFieldNumber;
 const int E_SoulBoneequip::kMNameFieldNumber;
 const int E_SoulBoneequip::kMPartFieldNumber;
 const int E_SoulBoneequip::kMQualityFieldNumber;
@@ -9648,7 +9648,7 @@ bool E_SoulBoneequip::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_equipid = 1;
+      // optional int32 m_equipId = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -9746,7 +9746,7 @@ bool E_SoulBoneequip::MergePartialFromCodedStream(
 
 void E_SoulBoneequip::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_equipid = 1;
+  // optional int32 m_equipId = 1;
   if (has_m_equipid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_equipid(), output);
   }
@@ -9783,7 +9783,7 @@ void E_SoulBoneequip::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_SoulBoneequip::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_equipid = 1;
+  // optional int32 m_equipId = 1;
   if (has_m_equipid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_equipid(), target);
   }
@@ -9824,7 +9824,7 @@ int E_SoulBoneequip::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_equipid = 1;
+    // optional int32 m_equipId = 1;
     if (has_m_equipid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -10220,7 +10220,7 @@ bool E_SoulBoneskillPassiveDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_lv = 1;
+      // optional int32 m_Lv = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -10231,15 +10231,15 @@ bool E_SoulBoneskillPassiveDesc::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_skill;
+        if (input->ExpectTag(16)) goto parse_m_Skill;
         break;
       }
 
-      // optional int32 m_skill = 2;
+      // optional int32 m_Skill = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_skill:
+         parse_m_Skill:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_skill_)));
@@ -10269,12 +10269,12 @@ bool E_SoulBoneskillPassiveDesc::MergePartialFromCodedStream(
 
 void E_SoulBoneskillPassiveDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_lv = 1;
+  // optional int32 m_Lv = 1;
   if (has_m_lv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 m_skill = 2;
+  // optional int32 m_Skill = 2;
   if (has_m_skill()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_skill(), output);
   }
@@ -10287,12 +10287,12 @@ void E_SoulBoneskillPassiveDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_SoulBoneskillPassiveDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_lv = 1;
+  // optional int32 m_Lv = 1;
   if (has_m_lv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 m_skill = 2;
+  // optional int32 m_Skill = 2;
   if (has_m_skill()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_skill(), target);
   }
@@ -10308,14 +10308,14 @@ int E_SoulBoneskillPassiveDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_lv = 1;
+    // optional int32 m_Lv = 1;
     if (has_m_lv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_lv());
     }
 
-    // optional int32 m_skill = 2;
+    // optional int32 m_Skill = 2;
     if (has_m_skill()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -10399,11 +10399,11 @@ void E_SoulBoneskillPassiveDesc::Swap(E_SoulBoneskillPassiveDesc* other) {
 
 #ifndef _MSC_VER
 const int E_SoulBoneskill::kMIdFieldNumber;
-const int E_SoulBoneskill::kMBoneidFieldNumber;
+const int E_SoulBoneskill::kMBoneIdFieldNumber;
 const int E_SoulBoneskill::kMQualityFieldNumber;
 const int E_SoulBoneskill::kMStarFieldNumber;
-const int E_SoulBoneskill::kMActiveskillFieldNumber;
-const int E_SoulBoneskill::kMActiveskilllvFieldNumber;
+const int E_SoulBoneskill::kMActiveSkillFieldNumber;
+const int E_SoulBoneskill::kMActiveSkillLvFieldNumber;
 const int E_SoulBoneskill::kMPassiveFieldNumber;
 #endif  // !_MSC_VER
 
@@ -10493,15 +10493,15 @@ bool E_SoulBoneskill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_boneid;
+        if (input->ExpectTag(16)) goto parse_m_boneId;
         break;
       }
 
-      // optional int32 m_boneid = 2;
+      // optional int32 m_boneId = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_boneid:
+         parse_m_boneId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_boneid_)));
@@ -10541,15 +10541,15 @@ bool E_SoulBoneskill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_activeskill;
+        if (input->ExpectTag(40)) goto parse_m_ActiveSkill;
         break;
       }
 
-      // optional int32 m_activeskill = 5;
+      // optional int32 m_ActiveSkill = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_activeskill:
+         parse_m_ActiveSkill:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_activeskill_)));
@@ -10557,15 +10557,15 @@ bool E_SoulBoneskill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_activeskilllv;
+        if (input->ExpectTag(48)) goto parse_m_ActiveSkillLv;
         break;
       }
 
-      // optional int32 m_activeskilllv = 6;
+      // optional int32 m_ActiveSkillLv = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_activeskilllv:
+         parse_m_ActiveSkillLv:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_activeskilllv_)));
@@ -10615,7 +10615,7 @@ void E_SoulBoneskill::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_boneid = 2;
+  // optional int32 m_boneId = 2;
   if (has_m_boneid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_boneid(), output);
   }
@@ -10630,12 +10630,12 @@ void E_SoulBoneskill::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_star(), output);
   }
 
-  // optional int32 m_activeskill = 5;
+  // optional int32 m_ActiveSkill = 5;
   if (has_m_activeskill()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_activeskill(), output);
   }
 
-  // optional int32 m_activeskilllv = 6;
+  // optional int32 m_ActiveSkillLv = 6;
   if (has_m_activeskilllv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_activeskilllv(), output);
   }
@@ -10659,7 +10659,7 @@ void E_SoulBoneskill::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_boneid = 2;
+  // optional int32 m_boneId = 2;
   if (has_m_boneid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_boneid(), target);
   }
@@ -10674,12 +10674,12 @@ void E_SoulBoneskill::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_star(), target);
   }
 
-  // optional int32 m_activeskill = 5;
+  // optional int32 m_ActiveSkill = 5;
   if (has_m_activeskill()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_activeskill(), target);
   }
 
-  // optional int32 m_activeskilllv = 6;
+  // optional int32 m_ActiveSkillLv = 6;
   if (has_m_activeskilllv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_activeskilllv(), target);
   }
@@ -10709,7 +10709,7 @@ int E_SoulBoneskill::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_boneid = 2;
+    // optional int32 m_boneId = 2;
     if (has_m_boneid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -10730,14 +10730,14 @@ int E_SoulBoneskill::ByteSize() const {
           this->m_star());
     }
 
-    // optional int32 m_activeskill = 5;
+    // optional int32 m_ActiveSkill = 5;
     if (has_m_activeskill()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_activeskill());
     }
 
-    // optional int32 m_activeskilllv = 6;
+    // optional int32 m_ActiveSkillLv = 6;
     if (has_m_activeskilllv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -11050,7 +11050,7 @@ void Sheet_SoulBoneskill::Swap(Sheet_SoulBoneskill* other) {
 
 #ifndef _MSC_VER
 const int E_SoulBonekill::kMLvFieldNumber;
-const int E_SoulBonekill::kMKillbossFieldNumber;
+const int E_SoulBonekill::kMKillBossFieldNumber;
 #endif  // !_MSC_VER
 
 E_SoulBonekill::E_SoulBonekill()
@@ -11130,15 +11130,15 @@ bool E_SoulBonekill::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_killboss;
+        if (input->ExpectTag(16)) goto parse_m_killBoss;
         break;
       }
 
-      // optional int32 m_killboss = 2;
+      // optional int32 m_killBoss = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_killboss:
+         parse_m_killBoss:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_killboss_)));
@@ -11173,7 +11173,7 @@ void E_SoulBonekill::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 m_killboss = 2;
+  // optional int32 m_killBoss = 2;
   if (has_m_killboss()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_killboss(), output);
   }
@@ -11191,7 +11191,7 @@ void E_SoulBonekill::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 m_killboss = 2;
+  // optional int32 m_killBoss = 2;
   if (has_m_killboss()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_killboss(), target);
   }
@@ -11214,7 +11214,7 @@ int E_SoulBonekill::ByteSize() const {
           this->m_lv());
     }
 
-    // optional int32 m_killboss = 2;
+    // optional int32 m_killBoss = 2;
     if (has_m_killboss()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -11767,7 +11767,7 @@ void E_SoulBonestrongTypeDesc::Swap(E_SoulBonestrongTypeDesc* other) {
 #ifndef _MSC_VER
 const int E_SoulBonestrong::kMIdFieldNumber;
 const int E_SoulBonestrong::kMPositionFieldNumber;
-const int E_SoulBonestrong::kMSrtongupFieldNumber;
+const int E_SoulBonestrong::kMSrtongUpFieldNumber;
 const int E_SoulBonestrong::kMTypeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -11867,15 +11867,15 @@ bool E_SoulBonestrong::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_srtongup;
+        if (input->ExpectTag(24)) goto parse_m_srtongUp;
         break;
       }
 
-      // optional int32 m_srtongup = 3;
+      // optional int32 m_srtongUp = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_srtongup:
+         parse_m_srtongUp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_srtongup_)));
@@ -11930,7 +11930,7 @@ void E_SoulBonestrong::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_position(), output);
   }
 
-  // optional int32 m_srtongup = 3;
+  // optional int32 m_srtongUp = 3;
   if (has_m_srtongup()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_srtongup(), output);
   }
@@ -11959,7 +11959,7 @@ void E_SoulBonestrong::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_position(), target);
   }
 
-  // optional int32 m_srtongup = 3;
+  // optional int32 m_srtongUp = 3;
   if (has_m_srtongup()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_srtongup(), target);
   }
@@ -11996,7 +11996,7 @@ int E_SoulBonestrong::ByteSize() const {
           this->m_position());
     }
 
-    // optional int32 m_srtongup = 3;
+    // optional int32 m_srtongUp = 3;
     if (has_m_srtongup()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

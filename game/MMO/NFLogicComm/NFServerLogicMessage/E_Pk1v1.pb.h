@@ -111,52 +111,52 @@ class E_Pk1v1Rank : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_mark() const;
   inline void set_m_mark(::google::protobuf::int32 value);
 
-  // optional int32 m_scoremin = 3;
+  // optional int32 m_scoreMin = 3;
   inline bool has_m_scoremin() const;
   inline void clear_m_scoremin();
-  static const int kMScoreminFieldNumber = 3;
+  static const int kMScoreMinFieldNumber = 3;
   inline ::google::protobuf::int32 m_scoremin() const;
   inline void set_m_scoremin(::google::protobuf::int32 value);
 
-  // optional int32 m_scoremax = 4;
+  // optional int32 m_scoreMax = 4;
   inline bool has_m_scoremax() const;
   inline void clear_m_scoremax();
-  static const int kMScoremaxFieldNumber = 4;
+  static const int kMScoreMaxFieldNumber = 4;
   inline ::google::protobuf::int32 m_scoremax() const;
   inline void set_m_scoremax(::google::protobuf::int32 value);
 
-  // optional int32 m_sucessscore = 5;
+  // optional int32 m_sucessScore = 5;
   inline bool has_m_sucessscore() const;
   inline void clear_m_sucessscore();
-  static const int kMSucessscoreFieldNumber = 5;
+  static const int kMSucessScoreFieldNumber = 5;
   inline ::google::protobuf::int32 m_sucessscore() const;
   inline void set_m_sucessscore(::google::protobuf::int32 value);
 
-  // optional int32 m_defeatscore = 6;
+  // optional int32 m_defeatScore = 6;
   inline bool has_m_defeatscore() const;
   inline void clear_m_defeatscore();
-  static const int kMDefeatscoreFieldNumber = 6;
+  static const int kMDefeatScoreFieldNumber = 6;
   inline ::google::protobuf::int32 m_defeatscore() const;
   inline void set_m_defeatscore(::google::protobuf::int32 value);
 
-  // optional int32 m_sucessbox = 7;
+  // optional int32 m_sucessBox = 7;
   inline bool has_m_sucessbox() const;
   inline void clear_m_sucessbox();
-  static const int kMSucessboxFieldNumber = 7;
+  static const int kMSucessBoxFieldNumber = 7;
   inline ::google::protobuf::int32 m_sucessbox() const;
   inline void set_m_sucessbox(::google::protobuf::int32 value);
 
-  // optional int32 m_defeatbox = 8;
+  // optional int32 m_defeatBox = 8;
   inline bool has_m_defeatbox() const;
   inline void clear_m_defeatbox();
-  static const int kMDefeatboxFieldNumber = 8;
+  static const int kMDefeatBoxFieldNumber = 8;
   inline ::google::protobuf::int32 m_defeatbox() const;
   inline void set_m_defeatbox(::google::protobuf::int32 value);
 
-  // optional int32 m_tiebox = 9;
+  // optional int32 m_tieBox = 9;
   inline bool has_m_tiebox() const;
   inline void clear_m_tiebox();
-  static const int kMTieboxFieldNumber = 9;
+  static const int kMTieBoxFieldNumber = 9;
   inline ::google::protobuf::int32 m_tiebox() const;
   inline void set_m_tiebox(::google::protobuf::int32 value);
 
@@ -365,10 +365,10 @@ class E_Pk1v1Reward : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_boxid() const;
   inline void set_m_boxid(::google::protobuf::int32 value);
 
-  // repeated int32 m_typearg = 4;
+  // repeated int32 m_typeArg = 4;
   inline int m_typearg_size() const;
   inline void clear_m_typearg();
-  static const int kMTypeargFieldNumber = 4;
+  static const int kMTypeArgFieldNumber = 4;
   inline ::google::protobuf::int32 m_typearg(int index) const;
   inline void set_m_typearg(int index, ::google::protobuf::int32 value);
   inline void add_m_typearg(::google::protobuf::int32 value);
@@ -741,7 +741,7 @@ inline void E_Pk1v1Rank::set_m_mark(::google::protobuf::int32 value) {
   m_mark_ = value;
 }
 
-// optional int32 m_scoremin = 3;
+// optional int32 m_scoreMin = 3;
 inline bool E_Pk1v1Rank::has_m_scoremin() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -763,7 +763,7 @@ inline void E_Pk1v1Rank::set_m_scoremin(::google::protobuf::int32 value) {
   m_scoremin_ = value;
 }
 
-// optional int32 m_scoremax = 4;
+// optional int32 m_scoreMax = 4;
 inline bool E_Pk1v1Rank::has_m_scoremax() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -785,7 +785,7 @@ inline void E_Pk1v1Rank::set_m_scoremax(::google::protobuf::int32 value) {
   m_scoremax_ = value;
 }
 
-// optional int32 m_sucessscore = 5;
+// optional int32 m_sucessScore = 5;
 inline bool E_Pk1v1Rank::has_m_sucessscore() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -807,7 +807,7 @@ inline void E_Pk1v1Rank::set_m_sucessscore(::google::protobuf::int32 value) {
   m_sucessscore_ = value;
 }
 
-// optional int32 m_defeatscore = 6;
+// optional int32 m_defeatScore = 6;
 inline bool E_Pk1v1Rank::has_m_defeatscore() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -829,7 +829,7 @@ inline void E_Pk1v1Rank::set_m_defeatscore(::google::protobuf::int32 value) {
   m_defeatscore_ = value;
 }
 
-// optional int32 m_sucessbox = 7;
+// optional int32 m_sucessBox = 7;
 inline bool E_Pk1v1Rank::has_m_sucessbox() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -851,7 +851,7 @@ inline void E_Pk1v1Rank::set_m_sucessbox(::google::protobuf::int32 value) {
   m_sucessbox_ = value;
 }
 
-// optional int32 m_defeatbox = 8;
+// optional int32 m_defeatBox = 8;
 inline bool E_Pk1v1Rank::has_m_defeatbox() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -873,7 +873,7 @@ inline void E_Pk1v1Rank::set_m_defeatbox(::google::protobuf::int32 value) {
   m_defeatbox_ = value;
 }
 
-// optional int32 m_tiebox = 9;
+// optional int32 m_tieBox = 9;
 inline bool E_Pk1v1Rank::has_m_tiebox() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -994,7 +994,7 @@ inline void E_Pk1v1Reward::set_m_boxid(::google::protobuf::int32 value) {
   m_boxid_ = value;
 }
 
-// repeated int32 m_typearg = 4;
+// repeated int32 m_typeArg = 4;
 inline int E_Pk1v1Reward::m_typearg_size() const {
   return m_typearg_.size();
 }

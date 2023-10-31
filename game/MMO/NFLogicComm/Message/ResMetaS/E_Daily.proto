@@ -9,13 +9,13 @@ message E_DailyDaily
 	optional string m_name = 2[(yd_fieldoptions.field_cname) = "显示名称", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "活动类型"];
 	optional int32 m_args = 4[(yd_fieldoptions.field_cname) = "玩法参数"];
-	optional int32 m_playtype = 5[(yd_fieldoptions.field_cname) = "玩法类型"];
-	optional int32 m_playargs = 6[(yd_fieldoptions.field_cname) = "玩法参数"];
-	optional int64 m_funciontid = 7[(yd_fieldoptions.field_cname) = "功能ID"];
+	optional int32 m_playType = 5[(yd_fieldoptions.field_cname) = "玩法类型"];
+	optional int32 m_playArgs = 6[(yd_fieldoptions.field_cname) = "玩法参数"];
+	optional int64 m_funciontID = 7[(yd_fieldoptions.field_cname) = "功能ID"];
 	optional int32 m_number = 8[(yd_fieldoptions.field_cname) = "次数"];
-	optional int32 m_eachscore = 9[(yd_fieldoptions.field_cname) = "每次活跃值"];
+	optional int32 m_eachScore = 9[(yd_fieldoptions.field_cname) = "每次活跃值"];
 	optional int32 m_cycle = 10[(yd_fieldoptions.field_cname) = "重置周期"];
-	optional int32 m_regreward = 11[(yd_fieldoptions.field_cname) = "报名奖励道具boxid"];
+	optional int32 m_regReward = 11[(yd_fieldoptions.field_cname) = "报名奖励道具boxid"];
 }
 
 
@@ -28,9 +28,9 @@ message E_DailyReward
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "索引"];
 	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
-	optional int32 m_activescore = 3[(yd_fieldoptions.field_cname) = "活跃度值"];
-	optional int64 m_rewardid = 4[(yd_fieldoptions.field_cname) = "奖励ID"];
-	optional int32 m_rewardnum = 5[(yd_fieldoptions.field_cname) = "奖励数量"];
+	optional int32 m_activeScore = 3[(yd_fieldoptions.field_cname) = "活跃度值"];
+	optional int64 m_rewardId = 4[(yd_fieldoptions.field_cname) = "奖励ID"];
+	optional int32 m_rewardNum = 5[(yd_fieldoptions.field_cname) = "奖励数量"];
 }
 
 
@@ -41,13 +41,13 @@ message Sheet_DailyReward
 
 message E_DailyCultivateAttributeDesc
 {
-	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
-	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_Value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_ID = 2[(yd_fieldoptions.field_cname) = "id"];
 }
 
 message E_DailyCultivate
 {
-	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_ID = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_lv = 2[(yd_fieldoptions.field_cname) = "等级"];
 	optional int32 m_exp = 3[(yd_fieldoptions.field_cname) = "升级所需经验"];
 	repeated E_DailyCultivateAttributeDesc m_attribute = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 4];
@@ -63,8 +63,8 @@ message E_DailySports
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
 	optional string m_name = 2[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_functionid = 3[(yd_fieldoptions.field_cname) = "功能开放ID"];
-	optional int32 m_peractivityid = 4[(yd_fieldoptions.field_cname) = "活动id"];
+	optional int32 m_functionID = 3[(yd_fieldoptions.field_cname) = "功能开放ID"];
+	optional int32 m_perActivityid = 4[(yd_fieldoptions.field_cname) = "活动id"];
 	optional int32 m_des = 5[(yd_fieldoptions.field_cname) = "ui说明"];
 	optional int32 m_linkid = 6[(yd_fieldoptions.field_cname) = "linkID"];
 }
@@ -77,10 +77,10 @@ message Sheet_DailySports
 
 message E_DailyHelper
 {
-	optional int32 m_helperid = 1[(yd_fieldoptions.field_cname) = "扫荡ID"];
-	optional int32 m_helpertype = 2[(yd_fieldoptions.field_cname) = "扫荡玩法的类型"];
-	optional string m_playid = 3[(yd_fieldoptions.field_cname) = "玩法ID", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_linkid = 4[(yd_fieldoptions.field_cname) = "跳转ID"];
+	optional int32 m_helperID = 1[(yd_fieldoptions.field_cname) = "扫荡ID"];
+	optional int32 m_helperType = 2[(yd_fieldoptions.field_cname) = "扫荡玩法的类型"];
+	optional string m_playID = 3[(yd_fieldoptions.field_cname) = "玩法ID", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_linkId = 4[(yd_fieldoptions.field_cname) = "跳转ID"];
 	optional string m_name = 5[(yd_fieldoptions.field_cname) = "标题显示", (yd_fieldoptions.field_bufsize) = 64];
 	optional string m_condition = 6[(yd_fieldoptions.field_cname) = "条件显示", (yd_fieldoptions.field_bufsize) = 64];
 }

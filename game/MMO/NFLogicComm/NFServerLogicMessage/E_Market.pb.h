@@ -99,10 +99,10 @@ class E_MarketMarket : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_itemid = 1;
+  // optional int32 m_itemId = 1;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 1;
+  static const int kMItemIdFieldNumber = 1;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
@@ -120,73 +120,73 @@ class E_MarketMarket : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_order() const;
   inline void set_m_order(::google::protobuf::int32 value);
 
-  // optional int32 m_readytime = 4;
+  // optional int32 m_readyTime = 4;
   inline bool has_m_readytime() const;
   inline void clear_m_readytime();
-  static const int kMReadytimeFieldNumber = 4;
+  static const int kMReadyTimeFieldNumber = 4;
   inline ::google::protobuf::int32 m_readytime() const;
   inline void set_m_readytime(::google::protobuf::int32 value);
 
-  // optional int32 m_sjtime = 5;
+  // optional int32 m_sjTime = 5;
   inline bool has_m_sjtime() const;
   inline void clear_m_sjtime();
-  static const int kMSjtimeFieldNumber = 5;
+  static const int kMSjTimeFieldNumber = 5;
   inline ::google::protobuf::int32 m_sjtime() const;
   inline void set_m_sjtime(::google::protobuf::int32 value);
 
-  // optional int32 m_endtime = 6;
+  // optional int32 m_endTime = 6;
   inline bool has_m_endtime() const;
   inline void clear_m_endtime();
-  static const int kMEndtimeFieldNumber = 6;
+  static const int kMEndTimeFieldNumber = 6;
   inline ::google::protobuf::int32 m_endtime() const;
   inline void set_m_endtime(::google::protobuf::int32 value);
 
-  // optional int32 m_pricetype = 7;
+  // optional int32 m_priceType = 7;
   inline bool has_m_pricetype() const;
   inline void clear_m_pricetype();
-  static const int kMPricetypeFieldNumber = 7;
+  static const int kMPriceTypeFieldNumber = 7;
   inline ::google::protobuf::int32 m_pricetype() const;
   inline void set_m_pricetype(::google::protobuf::int32 value);
 
-  // optional int32 m_vietype = 8;
+  // optional int32 m_vieType = 8;
   inline bool has_m_vietype() const;
   inline void clear_m_vietype();
-  static const int kMVietypeFieldNumber = 8;
+  static const int kMVieTypeFieldNumber = 8;
   inline ::google::protobuf::int32 m_vietype() const;
   inline void set_m_vietype(::google::protobuf::int32 value);
 
-  // optional int32 m_startprice = 9;
+  // optional int32 m_startPrice = 9;
   inline bool has_m_startprice() const;
   inline void clear_m_startprice();
-  static const int kMStartpriceFieldNumber = 9;
+  static const int kMStartPriceFieldNumber = 9;
   inline ::google::protobuf::int32 m_startprice() const;
   inline void set_m_startprice(::google::protobuf::int32 value);
 
-  // optional int32 m_onceprice = 10;
+  // optional int32 m_oncePrice = 10;
   inline bool has_m_onceprice() const;
   inline void clear_m_onceprice();
-  static const int kMOncepriceFieldNumber = 10;
+  static const int kMOncePriceFieldNumber = 10;
   inline ::google::protobuf::int32 m_onceprice() const;
   inline void set_m_onceprice(::google::protobuf::int32 value);
 
-  // optional int32 m_directprice = 11;
+  // optional int32 m_directPrice = 11;
   inline bool has_m_directprice() const;
   inline void clear_m_directprice();
-  static const int kMDirectpriceFieldNumber = 11;
+  static const int kMDirectPriceFieldNumber = 11;
   inline ::google::protobuf::int32 m_directprice() const;
   inline void set_m_directprice(::google::protobuf::int32 value);
 
-  // optional int32 m_gztype = 12;
+  // optional int32 m_gzType = 12;
   inline bool has_m_gztype() const;
   inline void clear_m_gztype();
-  static const int kMGztypeFieldNumber = 12;
+  static const int kMGzTypeFieldNumber = 12;
   inline ::google::protobuf::int32 m_gztype() const;
   inline void set_m_gztype(::google::protobuf::int32 value);
 
-  // optional string m_gztutype = 13;
+  // optional string m_gztuType = 13;
   inline bool has_m_gztutype() const;
   inline void clear_m_gztutype();
-  static const int kMGztutypeFieldNumber = 13;
+  static const int kMGztuTypeFieldNumber = 13;
   inline const ::std::string& m_gztutype() const;
   inline void set_m_gztutype(const ::std::string& value);
   inline void set_m_gztutype(const char* value);
@@ -195,10 +195,10 @@ class E_MarketMarket : public ::google::protobuf::Message {
   inline ::std::string* release_m_gztutype();
   inline void set_allocated_m_gztutype(::std::string* m_gztutype);
 
-  // optional int32 m_recoverytype = 14;
+  // optional int32 m_recoveryType = 14;
   inline bool has_m_recoverytype() const;
   inline void clear_m_recoverytype();
-  static const int kMRecoverytypeFieldNumber = 14;
+  static const int kMRecoveryTypeFieldNumber = 14;
   inline ::google::protobuf::int32 m_recoverytype() const;
   inline void set_m_recoverytype(::google::protobuf::int32 value);
 
@@ -408,10 +408,10 @@ class E_MarketBig : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional string m_bigname = 2;
+  // optional string m_bigName = 2;
   inline bool has_m_bigname() const;
   inline void clear_m_bigname();
-  static const int kMBignameFieldNumber = 2;
+  static const int kMBigNameFieldNumber = 2;
   inline const ::std::string& m_bigname() const;
   inline void set_m_bigname(const ::std::string& value);
   inline void set_m_bigname(const char* value);
@@ -600,10 +600,10 @@ class E_MarketSmall : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional string m_smallname = 2;
+  // optional string m_smallName = 2;
   inline bool has_m_smallname() const;
   inline void clear_m_smallname();
-  static const int kMSmallnameFieldNumber = 2;
+  static const int kMSmallNameFieldNumber = 2;
   inline const ::std::string& m_smallname() const;
   inline void set_m_smallname(const ::std::string& value);
   inline void set_m_smallname(const char* value);
@@ -612,10 +612,10 @@ class E_MarketSmall : public ::google::protobuf::Message {
   inline ::std::string* release_m_smallname();
   inline void set_allocated_m_smallname(::std::string* m_smallname);
 
-  // optional int32 m_openlevel = 3;
+  // optional int32 m_openLevel = 3;
   inline bool has_m_openlevel() const;
   inline void clear_m_openlevel();
-  static const int kMOpenlevelFieldNumber = 3;
+  static const int kMOpenLevelFieldNumber = 3;
   inline ::google::protobuf::int32 m_openlevel() const;
   inline void set_m_openlevel(::google::protobuf::int32 value);
 
@@ -802,31 +802,31 @@ class E_MarketConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_taxrate = 2;
+  // optional int32 m_taxRate = 2;
   inline bool has_m_taxrate() const;
   inline void clear_m_taxrate();
-  static const int kMTaxrateFieldNumber = 2;
+  static const int kMTaxRateFieldNumber = 2;
   inline ::google::protobuf::int32 m_taxrate() const;
   inline void set_m_taxrate(::google::protobuf::int32 value);
 
-  // optional int32 m_bpselltime = 3;
+  // optional int32 m_BPsellTime = 3;
   inline bool has_m_bpselltime() const;
   inline void clear_m_bpselltime();
-  static const int kMBpselltimeFieldNumber = 3;
+  static const int kMBPsellTimeFieldNumber = 3;
   inline ::google::protobuf::int32 m_bpselltime() const;
   inline void set_m_bpselltime(::google::protobuf::int32 value);
 
-  // optional int32 m_sellnum = 4;
+  // optional int32 m_sellNum = 4;
   inline bool has_m_sellnum() const;
   inline void clear_m_sellnum();
-  static const int kMSellnumFieldNumber = 4;
+  static const int kMSellNumFieldNumber = 4;
   inline ::google::protobuf::int32 m_sellnum() const;
   inline void set_m_sellnum(::google::protobuf::int32 value);
 
-  // optional int32 m_recyclenum = 5;
+  // optional int32 m_recycleNum = 5;
   inline bool has_m_recyclenum() const;
   inline void clear_m_recyclenum();
-  static const int kMRecyclenumFieldNumber = 5;
+  static const int kMRecycleNumFieldNumber = 5;
   inline ::google::protobuf::int32 m_recyclenum() const;
   inline void set_m_recyclenum(::google::protobuf::int32 value);
 
@@ -837,10 +837,10 @@ class E_MarketConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_gz() const;
   inline void set_m_gz(::google::protobuf::int32 value);
 
-  // optional string m_epackagetype = 7;
+  // optional string m_EpackageType = 7;
   inline bool has_m_epackagetype() const;
   inline void clear_m_epackagetype();
-  static const int kMEpackagetypeFieldNumber = 7;
+  static const int kMEpackageTypeFieldNumber = 7;
   inline const ::std::string& m_epackagetype() const;
   inline void set_m_epackagetype(const ::std::string& value);
   inline void set_m_epackagetype(const char* value);
@@ -988,7 +988,7 @@ class Sheet_MarketConstant : public ::google::protobuf::Message {
 
 // E_MarketMarket
 
-// optional int32 m_itemid = 1;
+// optional int32 m_itemId = 1;
 inline bool E_MarketMarket::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1054,7 +1054,7 @@ inline void E_MarketMarket::set_m_order(::google::protobuf::int32 value) {
   m_order_ = value;
 }
 
-// optional int32 m_readytime = 4;
+// optional int32 m_readyTime = 4;
 inline bool E_MarketMarket::has_m_readytime() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1076,7 +1076,7 @@ inline void E_MarketMarket::set_m_readytime(::google::protobuf::int32 value) {
   m_readytime_ = value;
 }
 
-// optional int32 m_sjtime = 5;
+// optional int32 m_sjTime = 5;
 inline bool E_MarketMarket::has_m_sjtime() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1098,7 +1098,7 @@ inline void E_MarketMarket::set_m_sjtime(::google::protobuf::int32 value) {
   m_sjtime_ = value;
 }
 
-// optional int32 m_endtime = 6;
+// optional int32 m_endTime = 6;
 inline bool E_MarketMarket::has_m_endtime() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -1120,7 +1120,7 @@ inline void E_MarketMarket::set_m_endtime(::google::protobuf::int32 value) {
   m_endtime_ = value;
 }
 
-// optional int32 m_pricetype = 7;
+// optional int32 m_priceType = 7;
 inline bool E_MarketMarket::has_m_pricetype() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -1142,7 +1142,7 @@ inline void E_MarketMarket::set_m_pricetype(::google::protobuf::int32 value) {
   m_pricetype_ = value;
 }
 
-// optional int32 m_vietype = 8;
+// optional int32 m_vieType = 8;
 inline bool E_MarketMarket::has_m_vietype() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -1164,7 +1164,7 @@ inline void E_MarketMarket::set_m_vietype(::google::protobuf::int32 value) {
   m_vietype_ = value;
 }
 
-// optional int32 m_startprice = 9;
+// optional int32 m_startPrice = 9;
 inline bool E_MarketMarket::has_m_startprice() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -1186,7 +1186,7 @@ inline void E_MarketMarket::set_m_startprice(::google::protobuf::int32 value) {
   m_startprice_ = value;
 }
 
-// optional int32 m_onceprice = 10;
+// optional int32 m_oncePrice = 10;
 inline bool E_MarketMarket::has_m_onceprice() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -1208,7 +1208,7 @@ inline void E_MarketMarket::set_m_onceprice(::google::protobuf::int32 value) {
   m_onceprice_ = value;
 }
 
-// optional int32 m_directprice = 11;
+// optional int32 m_directPrice = 11;
 inline bool E_MarketMarket::has_m_directprice() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -1230,7 +1230,7 @@ inline void E_MarketMarket::set_m_directprice(::google::protobuf::int32 value) {
   m_directprice_ = value;
 }
 
-// optional int32 m_gztype = 12;
+// optional int32 m_gzType = 12;
 inline bool E_MarketMarket::has_m_gztype() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -1252,7 +1252,7 @@ inline void E_MarketMarket::set_m_gztype(::google::protobuf::int32 value) {
   m_gztype_ = value;
 }
 
-// optional string m_gztutype = 13;
+// optional string m_gztuType = 13;
 inline bool E_MarketMarket::has_m_gztutype() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -1322,7 +1322,7 @@ inline void E_MarketMarket::set_allocated_m_gztutype(::std::string* m_gztutype) 
   }
 }
 
-// optional int32 m_recoverytype = 14;
+// optional int32 m_recoveryType = 14;
 inline bool E_MarketMarket::has_m_recoverytype() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -1399,7 +1399,7 @@ inline void E_MarketBig::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional string m_bigname = 2;
+// optional string m_bigName = 2;
 inline bool E_MarketBig::has_m_bigname() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1546,7 +1546,7 @@ inline void E_MarketSmall::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional string m_smallname = 2;
+// optional string m_smallName = 2;
 inline bool E_MarketSmall::has_m_smallname() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1616,7 +1616,7 @@ inline void E_MarketSmall::set_allocated_m_smallname(::std::string* m_smallname)
   }
 }
 
-// optional int32 m_openlevel = 3;
+// optional int32 m_openLevel = 3;
 inline bool E_MarketSmall::has_m_openlevel() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1715,7 +1715,7 @@ inline void E_MarketConstant::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_taxrate = 2;
+// optional int32 m_taxRate = 2;
 inline bool E_MarketConstant::has_m_taxrate() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1737,7 +1737,7 @@ inline void E_MarketConstant::set_m_taxrate(::google::protobuf::int32 value) {
   m_taxrate_ = value;
 }
 
-// optional int32 m_bpselltime = 3;
+// optional int32 m_BPsellTime = 3;
 inline bool E_MarketConstant::has_m_bpselltime() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1759,7 +1759,7 @@ inline void E_MarketConstant::set_m_bpselltime(::google::protobuf::int32 value) 
   m_bpselltime_ = value;
 }
 
-// optional int32 m_sellnum = 4;
+// optional int32 m_sellNum = 4;
 inline bool E_MarketConstant::has_m_sellnum() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1781,7 +1781,7 @@ inline void E_MarketConstant::set_m_sellnum(::google::protobuf::int32 value) {
   m_sellnum_ = value;
 }
 
-// optional int32 m_recyclenum = 5;
+// optional int32 m_recycleNum = 5;
 inline bool E_MarketConstant::has_m_recyclenum() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1825,7 +1825,7 @@ inline void E_MarketConstant::set_m_gz(::google::protobuf::int32 value) {
   m_gz_ = value;
 }
 
-// optional string m_epackagetype = 7;
+// optional string m_EpackageType = 7;
 inline bool E_MarketConstant::has_m_epackagetype() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }

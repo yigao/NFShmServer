@@ -11,15 +11,15 @@ E_TeamTeam_s::E_TeamTeam_s() {
 }
 
 int E_TeamTeam_s::CreateInit() {
-	m_teamobjectid = (int32_t)0;
-	m_fobjectnameid = (int32_t)0;
-	m_sobjectnameid = (int32_t)0;
-	m_duplicateid = (int64_t)0;
-	m_activityid = (int64_t)0;
-	m_lowlv = (int32_t)0;
-	m_uplv = (int32_t)0;
-	m_isautomatch = (int32_t)0;
-	m_speakchannel = (int32_t)0;
+	m_TeamObjectID = (int32_t)0;
+	m_FObjectNameID = (int32_t)0;
+	m_SObjectNameID = (int32_t)0;
+	m_duplicateId = (int64_t)0;
+	m_activityId = (int64_t)0;
+	m_LowLV = (int32_t)0;
+	m_UpLV = (int32_t)0;
+	m_isAutoMatch = (int32_t)0;
+	m_speakChannel = (int32_t)0;
 	m_teamnumber = (int32_t)0;
 	return 0;
 }
@@ -29,28 +29,28 @@ int E_TeamTeam_s::ResumeInit() {
 }
 
 void E_TeamTeam_s::write_to_pbmsg(::proto_ff::E_TeamTeam & msg) const {
-	msg.set_m_teamobjectid((int32_t)m_teamobjectid);
-	msg.set_m_fobjectnameid((int32_t)m_fobjectnameid);
-	msg.set_m_sobjectnameid((int32_t)m_sobjectnameid);
-	msg.set_m_duplicateid((int64_t)m_duplicateid);
-	msg.set_m_activityid((int64_t)m_activityid);
-	msg.set_m_lowlv((int32_t)m_lowlv);
-	msg.set_m_uplv((int32_t)m_uplv);
-	msg.set_m_isautomatch((int32_t)m_isautomatch);
-	msg.set_m_speakchannel((int32_t)m_speakchannel);
+	msg.set_m_teamobjectid((int32_t)m_TeamObjectID);
+	msg.set_m_fobjectnameid((int32_t)m_FObjectNameID);
+	msg.set_m_sobjectnameid((int32_t)m_SObjectNameID);
+	msg.set_m_duplicateid((int64_t)m_duplicateId);
+	msg.set_m_activityid((int64_t)m_activityId);
+	msg.set_m_lowlv((int32_t)m_LowLV);
+	msg.set_m_uplv((int32_t)m_UpLV);
+	msg.set_m_isautomatch((int32_t)m_isAutoMatch);
+	msg.set_m_speakchannel((int32_t)m_speakChannel);
 	msg.set_m_teamnumber((int32_t)m_teamnumber);
 }
 
 void E_TeamTeam_s::read_from_pbmsg(const ::proto_ff::E_TeamTeam & msg) {
-	m_teamobjectid = msg.m_teamobjectid();
-	m_fobjectnameid = msg.m_fobjectnameid();
-	m_sobjectnameid = msg.m_sobjectnameid();
-	m_duplicateid = msg.m_duplicateid();
-	m_activityid = msg.m_activityid();
-	m_lowlv = msg.m_lowlv();
-	m_uplv = msg.m_uplv();
-	m_isautomatch = msg.m_isautomatch();
-	m_speakchannel = msg.m_speakchannel();
+	m_TeamObjectID = msg.m_teamobjectid();
+	m_FObjectNameID = msg.m_fobjectnameid();
+	m_SObjectNameID = msg.m_sobjectnameid();
+	m_duplicateId = msg.m_duplicateid();
+	m_activityId = msg.m_activityid();
+	m_LowLV = msg.m_lowlv();
+	m_UpLV = msg.m_uplv();
+	m_isAutoMatch = msg.m_isautomatch();
+	m_speakChannel = msg.m_speakchannel();
 	m_teamnumber = msg.m_teamnumber();
 }
 

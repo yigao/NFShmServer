@@ -104,10 +104,10 @@ class E_SensitivewordWord1 : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional string m_sensitiveword = 2;
+  // optional string m_sensitiveWord = 2;
   inline bool has_m_sensitiveword() const;
   inline void clear_m_sensitiveword();
-  static const int kMSensitivewordFieldNumber = 2;
+  static const int kMSensitiveWordFieldNumber = 2;
   inline const ::std::string& m_sensitiveword() const;
   inline void set_m_sensitiveword(const ::std::string& value);
   inline void set_m_sensitiveword(const char* value);
@@ -286,10 +286,10 @@ class E_SensitivewordWord2 : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional string m_sensitiveword = 2;
+  // optional string m_sensitiveWord = 2;
   inline bool has_m_sensitiveword() const;
   inline void clear_m_sensitiveword();
-  static const int kMSensitivewordFieldNumber = 2;
+  static const int kMSensitiveWordFieldNumber = 2;
   inline const ::std::string& m_sensitiveword() const;
   inline void set_m_sensitiveword(const ::std::string& value);
   inline void set_m_sensitiveword(const char* value);
@@ -468,10 +468,10 @@ class E_SensitivewordWord3 : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional string m_sensitiveword = 2;
+  // optional string m_sensitiveWord = 2;
   inline bool has_m_sensitiveword() const;
   inline void clear_m_sensitiveword();
-  static const int kMSensitivewordFieldNumber = 2;
+  static const int kMSensitiveWordFieldNumber = 2;
   inline const ::std::string& m_sensitiveword() const;
   inline void set_m_sensitiveword(const ::std::string& value);
   inline void set_m_sensitiveword(const char* value);
@@ -616,7 +616,7 @@ inline void E_SensitivewordWord1::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional string m_sensitiveword = 2;
+// optional string m_sensitiveWord = 2;
 inline bool E_SensitivewordWord1::has_m_sensitiveword() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -741,7 +741,7 @@ inline void E_SensitivewordWord2::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional string m_sensitiveword = 2;
+// optional string m_sensitiveWord = 2;
 inline bool E_SensitivewordWord2::has_m_sensitiveword() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -866,7 +866,7 @@ inline void E_SensitivewordWord3::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional string m_sensitiveword = 2;
+// optional string m_sensitiveWord = 2;
 inline bool E_SensitivewordWord3::has_m_sensitiveword() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }

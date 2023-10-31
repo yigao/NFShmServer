@@ -111,8 +111,8 @@ E_DragonsoulOfferexp_s::E_DragonsoulOfferexp_s() {
 int E_DragonsoulOfferexp_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_type = (int32_t)0;
-	m_itemid = (int32_t)0;
-	m_itemexp = (int32_t)0;
+	m_itemId = (int32_t)0;
+	m_itemExp = (int32_t)0;
 	return 0;
 }
 
@@ -124,8 +124,8 @@ void E_DragonsoulOfferexp_s::write_to_pbmsg(::proto_ff::E_DragonsoulOfferexp & m
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_position(m_position.data());
-	msg.set_m_itemid((int32_t)m_itemid);
-	msg.set_m_itemexp((int32_t)m_itemexp);
+	msg.set_m_itemid((int32_t)m_itemId);
+	msg.set_m_itemexp((int32_t)m_itemExp);
 	for(int32_t i = 0; i < (int32_t)m_quality.size(); ++i) {
 		::proto_ff::E_DragonsoulOfferexpQualityDesc* temp_m_quality = msg.add_m_quality();
 		m_quality[i].write_to_pbmsg(*temp_m_quality);
@@ -136,8 +136,8 @@ void E_DragonsoulOfferexp_s::read_from_pbmsg(const ::proto_ff::E_DragonsoulOffer
 	m_id = msg.m_id();
 	m_type = msg.m_type();
 	m_position = msg.m_position();
-	m_itemid = msg.m_itemid();
-	m_itemexp = msg.m_itemexp();
+	m_itemId = msg.m_itemid();
+	m_itemExp = msg.m_itemexp();
 	m_quality.resize((int)msg.m_quality_size() > (int)m_quality.max_size() ? m_quality.max_size() : msg.m_quality_size());
 	for(int32_t i = 0; i < (int32_t)m_quality.size(); ++i) {
 		const ::proto_ff::E_DragonsoulOfferexpQualityDesc & temp_m_quality = msg.m_quality(i);
@@ -304,9 +304,9 @@ E_DragonsoulFlyatt_s::E_DragonsoulFlyatt_s() {
 
 int E_DragonsoulFlyatt_s::CreateInit() {
 	m_id = (int64_t)0;
-	m_attid = (int64_t)0;
+	m_attId = (int64_t)0;
 	m_count = (int32_t)0;
-	m_atttype = (int32_t)0;
+	m_attType = (int32_t)0;
 	return 0;
 }
 
@@ -316,9 +316,9 @@ int E_DragonsoulFlyatt_s::ResumeInit() {
 
 void E_DragonsoulFlyatt_s::write_to_pbmsg(::proto_ff::E_DragonsoulFlyatt & msg) const {
 	msg.set_m_id((int64_t)m_id);
-	msg.set_m_attid((int64_t)m_attid);
+	msg.set_m_attid((int64_t)m_attId);
 	msg.set_m_count((int32_t)m_count);
-	msg.set_m_atttype((int32_t)m_atttype);
+	msg.set_m_atttype((int32_t)m_attType);
 	for(int32_t i = 0; i < (int32_t)m_att.size(); ++i) {
 		msg.add_m_att((int32_t)m_att[i]);
 	}
@@ -326,9 +326,9 @@ void E_DragonsoulFlyatt_s::write_to_pbmsg(::proto_ff::E_DragonsoulFlyatt & msg) 
 
 void E_DragonsoulFlyatt_s::read_from_pbmsg(const ::proto_ff::E_DragonsoulFlyatt & msg) {
 	m_id = msg.m_id();
-	m_attid = msg.m_attid();
+	m_attId = msg.m_attid();
 	m_count = msg.m_count();
-	m_atttype = msg.m_atttype();
+	m_attType = msg.m_atttype();
 	m_att.resize((int)msg.m_att_size() > (int)m_att.max_size() ? m_att.max_size() : msg.m_att_size());
 	for(int32_t i = 0; i < (int32_t)m_att.size(); ++i) {
 		m_att[i] = msg.m_att(i);
@@ -404,9 +404,9 @@ E_DragonsoulFly_s::E_DragonsoulFly_s() {
 int E_DragonsoulFly_s::CreateInit() {
 	m_id = (int64_t)0;
 	m_position = (int32_t)0;
-	m_offerexp = (int32_t)0;
-	m_quality = (int32_t)0;
-	m_srtongup = (int32_t)0;
+	m_offerExp = (int32_t)0;
+	m_Quality = (int32_t)0;
+	m_srtongUp = (int32_t)0;
 	return 0;
 }
 
@@ -417,9 +417,9 @@ int E_DragonsoulFly_s::ResumeInit() {
 void E_DragonsoulFly_s::write_to_pbmsg(::proto_ff::E_DragonsoulFly & msg) const {
 	msg.set_m_id((int64_t)m_id);
 	msg.set_m_position((int32_t)m_position);
-	msg.set_m_offerexp((int32_t)m_offerexp);
-	msg.set_m_quality((int32_t)m_quality);
-	msg.set_m_srtongup((int32_t)m_srtongup);
+	msg.set_m_offerexp((int32_t)m_offerExp);
+	msg.set_m_quality((int32_t)m_Quality);
+	msg.set_m_srtongup((int32_t)m_srtongUp);
 	for(int32_t i = 0; i < (int32_t)m_type.size(); ++i) {
 		::proto_ff::E_DragonsoulFlyTypeDesc* temp_m_type = msg.add_m_type();
 		m_type[i].write_to_pbmsg(*temp_m_type);
@@ -432,9 +432,9 @@ void E_DragonsoulFly_s::write_to_pbmsg(::proto_ff::E_DragonsoulFly & msg) const 
 void E_DragonsoulFly_s::read_from_pbmsg(const ::proto_ff::E_DragonsoulFly & msg) {
 	m_id = msg.m_id();
 	m_position = msg.m_position();
-	m_offerexp = msg.m_offerexp();
-	m_quality = msg.m_quality();
-	m_srtongup = msg.m_srtongup();
+	m_offerExp = msg.m_offerexp();
+	m_Quality = msg.m_quality();
+	m_srtongUp = msg.m_srtongup();
 	m_type.resize((int)msg.m_type_size() > (int)m_type.max_size() ? m_type.max_size() : msg.m_type_size());
 	for(int32_t i = 0; i < (int32_t)m_type.size(); ++i) {
 		const ::proto_ff::E_DragonsoulFlyTypeDesc & temp_m_type = msg.m_type(i);
@@ -486,8 +486,8 @@ E_DragonsoulAwakeAwakeDesc_s::E_DragonsoulAwakeAwakeDesc_s() {
 }
 
 int E_DragonsoulAwakeAwakeDesc_s::CreateInit() {
-	m_flyaddratio = (int32_t)0;
-	m_lvaddratio = (int32_t)0;
+	m_flyAddratio = (int32_t)0;
+	m_lvAddratio = (int32_t)0;
 	m_value = (int32_t)0;
 	m_att = (int32_t)0;
 	m_num = (int32_t)0;
@@ -499,16 +499,16 @@ int E_DragonsoulAwakeAwakeDesc_s::ResumeInit() {
 }
 
 void E_DragonsoulAwakeAwakeDesc_s::write_to_pbmsg(::proto_ff::E_DragonsoulAwakeAwakeDesc & msg) const {
-	msg.set_m_flyaddratio((int32_t)m_flyaddratio);
-	msg.set_m_lvaddratio((int32_t)m_lvaddratio);
+	msg.set_m_flyaddratio((int32_t)m_flyAddratio);
+	msg.set_m_lvaddratio((int32_t)m_lvAddratio);
 	msg.set_m_value((int32_t)m_value);
 	msg.set_m_att((int32_t)m_att);
 	msg.set_m_num((int32_t)m_num);
 }
 
 void E_DragonsoulAwakeAwakeDesc_s::read_from_pbmsg(const ::proto_ff::E_DragonsoulAwakeAwakeDesc & msg) {
-	m_flyaddratio = msg.m_flyaddratio();
-	m_lvaddratio = msg.m_lvaddratio();
+	m_flyAddratio = msg.m_flyaddratio();
+	m_lvAddratio = msg.m_lvaddratio();
 	m_value = msg.m_value();
 	m_att = msg.m_att();
 	m_num = msg.m_num();
@@ -524,7 +524,7 @@ E_DragonsoulAwake_s::E_DragonsoulAwake_s() {
 
 int E_DragonsoulAwake_s::CreateInit() {
 	m_position = (int32_t)0;
-	m_awakeitem = (int32_t)0;
+	m_awakeItem = (int32_t)0;
 	m_awaketoplimit = (int32_t)0;
 	return 0;
 }
@@ -535,7 +535,7 @@ int E_DragonsoulAwake_s::ResumeInit() {
 
 void E_DragonsoulAwake_s::write_to_pbmsg(::proto_ff::E_DragonsoulAwake & msg) const {
 	msg.set_m_position((int32_t)m_position);
-	msg.set_m_awakeitem((int32_t)m_awakeitem);
+	msg.set_m_awakeitem((int32_t)m_awakeItem);
 	msg.set_m_awaketoplimit((int32_t)m_awaketoplimit);
 	for(int32_t i = 0; i < (int32_t)m_awake.size(); ++i) {
 		::proto_ff::E_DragonsoulAwakeAwakeDesc* temp_m_awake = msg.add_m_awake();
@@ -545,7 +545,7 @@ void E_DragonsoulAwake_s::write_to_pbmsg(::proto_ff::E_DragonsoulAwake & msg) co
 
 void E_DragonsoulAwake_s::read_from_pbmsg(const ::proto_ff::E_DragonsoulAwake & msg) {
 	m_position = msg.m_position();
-	m_awakeitem = msg.m_awakeitem();
+	m_awakeItem = msg.m_awakeitem();
 	m_awaketoplimit = msg.m_awaketoplimit();
 	m_awake.resize((int)msg.m_awake_size() > (int)m_awake.max_size() ? m_awake.max_size() : msg.m_awake_size());
 	for(int32_t i = 0; i < (int32_t)m_awake.size(); ++i) {

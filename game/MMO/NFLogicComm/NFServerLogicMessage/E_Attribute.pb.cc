@@ -208,27 +208,27 @@ void protobuf_AddDesc_E_5fAttribute_2eproto() {
     "ptions.proto\"\234\001\n\024E_AttributeAttribute\022\032\n"
     "\004m_id\030\001 \001(\005B\014\302\377\024\010\345\261\236\346\200\247ID\022 \n\tm_percent\030\002"
     " \001(\005B\r\302\377\024\t\347\231\276\345\210\206\346\257\224\022\036\n\007m_power\030\003 \001(\002B\r\302\377"
-    "\024\t\346\210\230\346\226\227\345\212\233\022&\n\014m_systemtype\030\004 \001(\005B\020\302\377\024\014\346"
+    "\024\t\346\210\230\346\226\227\345\212\233\022&\n\014m_systemType\030\004 \001(\005B\020\302\377\024\014\346"
     "\250\241\345\235\227\347\261\273\345\236\213\"d\n\030Sheet_AttributeAttribute\022"
     "H\n\031E_AttributeAttribute_List\030\001 \003(\0132\036.pro"
     "to_ff.E_AttributeAttributeB\005\210\301\024\200\002\"\303\003\n\023E_"
-    "AttributeSuppress\022 \n\tm_lvldiff\030\001 \001(\005B\r\302\377"
-    "\024\t\347\255\211\347\272\247\345\267\256\022%\n\013m_hitsuppve\030\002 \001(\005B\020\302\377\024\014\345\221"
-    "\275\344\270\255\345\216\213\345\210\266\022&\n\014m_critsuppve\030\003 \001(\005B\020\302\377\024\014\346\232"
-    "\264\345\207\273\345\216\213\345\210\266\022&\n\014m_killsuppve\030\004 \001(\005B\020\302\377\024\014\345\277"
-    "\205\346\235\200\345\216\213\345\210\266\022\'\n\rm_statesuppve\030\005 \001(\005B\020\302\377\024\014\347"
-    "\212\266\346\200\201\345\216\213\345\210\266\022$\n\nm_lvsuppve\030\006 \001(\005B\020\302\377\024\014\347\255\211"
-    "\347\272\247\345\216\213\345\210\266\022%\n\013m_hitsuppvp\030\007 \001(\005B\020\302\377\024\014\345\221\275\344"
-    "\270\255\345\216\213\345\210\266\022&\n\014m_critsuppvp\030\010 \001(\005B\020\302\377\024\014\346\232\264\345"
-    "\207\273\345\216\213\345\210\266\022&\n\014m_killsuppvp\030\t \001(\005B\020\302\377\024\014\345\277\205\346"
-    "\235\200\345\216\213\345\210\266\022\'\n\rm_statesuppvp\030\n \001(\005B\020\302\377\024\014\347\212\266"
-    "\346\200\201\345\216\213\345\210\266\022$\n\nm_lvsuppvp\030\013 \001(\005B\020\302\377\024\014\347\255\211\347\272"
+    "AttributeSuppress\022 \n\tm_lvlDiff\030\001 \001(\005B\r\302\377"
+    "\024\t\347\255\211\347\272\247\345\267\256\022%\n\013m_hitSupPve\030\002 \001(\005B\020\302\377\024\014\345\221"
+    "\275\344\270\255\345\216\213\345\210\266\022&\n\014m_critSupPve\030\003 \001(\005B\020\302\377\024\014\346\232"
+    "\264\345\207\273\345\216\213\345\210\266\022&\n\014m_killSupPve\030\004 \001(\005B\020\302\377\024\014\345\277"
+    "\205\346\235\200\345\216\213\345\210\266\022\'\n\rm_stateSupPve\030\005 \001(\005B\020\302\377\024\014\347"
+    "\212\266\346\200\201\345\216\213\345\210\266\022$\n\nm_lvSupPve\030\006 \001(\005B\020\302\377\024\014\347\255\211"
+    "\347\272\247\345\216\213\345\210\266\022%\n\013m_hitSupPvp\030\007 \001(\005B\020\302\377\024\014\345\221\275\344"
+    "\270\255\345\216\213\345\210\266\022&\n\014m_critSupPvp\030\010 \001(\005B\020\302\377\024\014\346\232\264\345"
+    "\207\273\345\216\213\345\210\266\022&\n\014m_killSupPvp\030\t \001(\005B\020\302\377\024\014\345\277\205\346"
+    "\235\200\345\216\213\345\210\266\022\'\n\rm_stateSupPvp\030\n \001(\005B\020\302\377\024\014\347\212\266"
+    "\346\200\201\345\216\213\345\210\266\022$\n\nm_lvSupPvp\030\013 \001(\005B\020\302\377\024\014\347\255\211\347\272"
     "\247\345\216\213\345\210\266\"a\n\027Sheet_AttributeSuppress\022F\n\030E_"
     "AttributeSuppress_List\030\001 \003(\0132\035.proto_ff."
     "E_AttributeSuppressB\005\210\301\024\200\004\"\213\001\n\023E_Attribu"
-    "tePowersup\022\"\n\013m_powerdiff\030\001 \001(\005B\r\302\377\024\t\346\210\230"
-    "\345\212\233\345\267\256\022\'\n\rm_powersuppve\030\002 \001(\005B\020\302\377\024\014\346\210\230\345\212"
-    "\233\345\216\213\345\210\266\022\'\n\rm_powersuppvp\030\003 \001(\005B\020\302\377\024\014\346\210\230\345"
+    "tePowersup\022\"\n\013m_powerDiff\030\001 \001(\005B\r\302\377\024\t\346\210\230"
+    "\345\212\233\345\267\256\022\'\n\rm_powerSupPve\030\002 \001(\005B\020\302\377\024\014\346\210\230\345\212"
+    "\233\345\216\213\345\210\266\022\'\n\rm_powerSupPvp\030\003 \001(\005B\020\302\377\024\014\346\210\230\345"
     "\212\233\345\216\213\345\210\266\"a\n\027Sheet_AttributePowersup\022F\n\030E"
     "_AttributePowersup_List\030\001 \003(\0132\035.proto_ff"
     ".E_AttributePowersupB\005\210\301\024\200\001", 1107);
@@ -262,7 +262,7 @@ struct StaticDescriptorInitializer_E_5fAttribute_2eproto {
 const int E_AttributeAttribute::kMIdFieldNumber;
 const int E_AttributeAttribute::kMPercentFieldNumber;
 const int E_AttributeAttribute::kMPowerFieldNumber;
-const int E_AttributeAttribute::kMSystemtypeFieldNumber;
+const int E_AttributeAttribute::kMSystemTypeFieldNumber;
 #endif  // !_MSC_VER
 
 E_AttributeAttribute::E_AttributeAttribute()
@@ -378,15 +378,15 @@ bool E_AttributeAttribute::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_systemtype;
+        if (input->ExpectTag(32)) goto parse_m_systemType;
         break;
       }
 
-      // optional int32 m_systemtype = 4;
+      // optional int32 m_systemType = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_systemtype:
+         parse_m_systemType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_systemtype_)));
@@ -431,7 +431,7 @@ void E_AttributeAttribute::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->m_power(), output);
   }
 
-  // optional int32 m_systemtype = 4;
+  // optional int32 m_systemType = 4;
   if (has_m_systemtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_systemtype(), output);
   }
@@ -459,7 +459,7 @@ void E_AttributeAttribute::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->m_power(), target);
   }
 
-  // optional int32 m_systemtype = 4;
+  // optional int32 m_systemType = 4;
   if (has_m_systemtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_systemtype(), target);
   }
@@ -494,7 +494,7 @@ int E_AttributeAttribute::ByteSize() const {
       total_size += 1 + 4;
     }
 
-    // optional int32 m_systemtype = 4;
+    // optional int32 m_systemType = 4;
     if (has_m_systemtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -788,17 +788,17 @@ void Sheet_AttributeAttribute::Swap(Sheet_AttributeAttribute* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_AttributeSuppress::kMLvldiffFieldNumber;
-const int E_AttributeSuppress::kMHitsuppveFieldNumber;
-const int E_AttributeSuppress::kMCritsuppveFieldNumber;
-const int E_AttributeSuppress::kMKillsuppveFieldNumber;
-const int E_AttributeSuppress::kMStatesuppveFieldNumber;
-const int E_AttributeSuppress::kMLvsuppveFieldNumber;
-const int E_AttributeSuppress::kMHitsuppvpFieldNumber;
-const int E_AttributeSuppress::kMCritsuppvpFieldNumber;
-const int E_AttributeSuppress::kMKillsuppvpFieldNumber;
-const int E_AttributeSuppress::kMStatesuppvpFieldNumber;
-const int E_AttributeSuppress::kMLvsuppvpFieldNumber;
+const int E_AttributeSuppress::kMLvlDiffFieldNumber;
+const int E_AttributeSuppress::kMHitSupPveFieldNumber;
+const int E_AttributeSuppress::kMCritSupPveFieldNumber;
+const int E_AttributeSuppress::kMKillSupPveFieldNumber;
+const int E_AttributeSuppress::kMStateSupPveFieldNumber;
+const int E_AttributeSuppress::kMLvSupPveFieldNumber;
+const int E_AttributeSuppress::kMHitSupPvpFieldNumber;
+const int E_AttributeSuppress::kMCritSupPvpFieldNumber;
+const int E_AttributeSuppress::kMKillSupPvpFieldNumber;
+const int E_AttributeSuppress::kMStateSupPvpFieldNumber;
+const int E_AttributeSuppress::kMLvSupPvpFieldNumber;
 #endif  // !_MSC_VER
 
 E_AttributeSuppress::E_AttributeSuppress()
@@ -887,7 +887,7 @@ bool E_AttributeSuppress::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_lvldiff = 1;
+      // optional int32 m_lvlDiff = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -898,15 +898,15 @@ bool E_AttributeSuppress::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_hitsuppve;
+        if (input->ExpectTag(16)) goto parse_m_hitSupPve;
         break;
       }
 
-      // optional int32 m_hitsuppve = 2;
+      // optional int32 m_hitSupPve = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_hitsuppve:
+         parse_m_hitSupPve:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_hitsuppve_)));
@@ -914,15 +914,15 @@ bool E_AttributeSuppress::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_critsuppve;
+        if (input->ExpectTag(24)) goto parse_m_critSupPve;
         break;
       }
 
-      // optional int32 m_critsuppve = 3;
+      // optional int32 m_critSupPve = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_critsuppve:
+         parse_m_critSupPve:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_critsuppve_)));
@@ -930,15 +930,15 @@ bool E_AttributeSuppress::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_killsuppve;
+        if (input->ExpectTag(32)) goto parse_m_killSupPve;
         break;
       }
 
-      // optional int32 m_killsuppve = 4;
+      // optional int32 m_killSupPve = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_killsuppve:
+         parse_m_killSupPve:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_killsuppve_)));
@@ -946,15 +946,15 @@ bool E_AttributeSuppress::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_statesuppve;
+        if (input->ExpectTag(40)) goto parse_m_stateSupPve;
         break;
       }
 
-      // optional int32 m_statesuppve = 5;
+      // optional int32 m_stateSupPve = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_statesuppve:
+         parse_m_stateSupPve:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_statesuppve_)));
@@ -962,15 +962,15 @@ bool E_AttributeSuppress::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_lvsuppve;
+        if (input->ExpectTag(48)) goto parse_m_lvSupPve;
         break;
       }
 
-      // optional int32 m_lvsuppve = 6;
+      // optional int32 m_lvSupPve = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_lvsuppve:
+         parse_m_lvSupPve:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_lvsuppve_)));
@@ -978,15 +978,15 @@ bool E_AttributeSuppress::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_hitsuppvp;
+        if (input->ExpectTag(56)) goto parse_m_hitSupPvp;
         break;
       }
 
-      // optional int32 m_hitsuppvp = 7;
+      // optional int32 m_hitSupPvp = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_hitsuppvp:
+         parse_m_hitSupPvp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_hitsuppvp_)));
@@ -994,15 +994,15 @@ bool E_AttributeSuppress::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_critsuppvp;
+        if (input->ExpectTag(64)) goto parse_m_critSupPvp;
         break;
       }
 
-      // optional int32 m_critsuppvp = 8;
+      // optional int32 m_critSupPvp = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_critsuppvp:
+         parse_m_critSupPvp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_critsuppvp_)));
@@ -1010,15 +1010,15 @@ bool E_AttributeSuppress::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_killsuppvp;
+        if (input->ExpectTag(72)) goto parse_m_killSupPvp;
         break;
       }
 
-      // optional int32 m_killsuppvp = 9;
+      // optional int32 m_killSupPvp = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_killsuppvp:
+         parse_m_killSupPvp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_killsuppvp_)));
@@ -1026,15 +1026,15 @@ bool E_AttributeSuppress::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_statesuppvp;
+        if (input->ExpectTag(80)) goto parse_m_stateSupPvp;
         break;
       }
 
-      // optional int32 m_statesuppvp = 10;
+      // optional int32 m_stateSupPvp = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_statesuppvp:
+         parse_m_stateSupPvp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_statesuppvp_)));
@@ -1042,15 +1042,15 @@ bool E_AttributeSuppress::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_lvsuppvp;
+        if (input->ExpectTag(88)) goto parse_m_lvSupPvp;
         break;
       }
 
-      // optional int32 m_lvsuppvp = 11;
+      // optional int32 m_lvSupPvp = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_lvsuppvp:
+         parse_m_lvSupPvp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_lvsuppvp_)));
@@ -1080,57 +1080,57 @@ bool E_AttributeSuppress::MergePartialFromCodedStream(
 
 void E_AttributeSuppress::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_lvldiff = 1;
+  // optional int32 m_lvlDiff = 1;
   if (has_m_lvldiff()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lvldiff(), output);
   }
 
-  // optional int32 m_hitsuppve = 2;
+  // optional int32 m_hitSupPve = 2;
   if (has_m_hitsuppve()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_hitsuppve(), output);
   }
 
-  // optional int32 m_critsuppve = 3;
+  // optional int32 m_critSupPve = 3;
   if (has_m_critsuppve()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_critsuppve(), output);
   }
 
-  // optional int32 m_killsuppve = 4;
+  // optional int32 m_killSupPve = 4;
   if (has_m_killsuppve()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_killsuppve(), output);
   }
 
-  // optional int32 m_statesuppve = 5;
+  // optional int32 m_stateSupPve = 5;
   if (has_m_statesuppve()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_statesuppve(), output);
   }
 
-  // optional int32 m_lvsuppve = 6;
+  // optional int32 m_lvSupPve = 6;
   if (has_m_lvsuppve()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_lvsuppve(), output);
   }
 
-  // optional int32 m_hitsuppvp = 7;
+  // optional int32 m_hitSupPvp = 7;
   if (has_m_hitsuppvp()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_hitsuppvp(), output);
   }
 
-  // optional int32 m_critsuppvp = 8;
+  // optional int32 m_critSupPvp = 8;
   if (has_m_critsuppvp()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_critsuppvp(), output);
   }
 
-  // optional int32 m_killsuppvp = 9;
+  // optional int32 m_killSupPvp = 9;
   if (has_m_killsuppvp()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_killsuppvp(), output);
   }
 
-  // optional int32 m_statesuppvp = 10;
+  // optional int32 m_stateSupPvp = 10;
   if (has_m_statesuppvp()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_statesuppvp(), output);
   }
 
-  // optional int32 m_lvsuppvp = 11;
+  // optional int32 m_lvSupPvp = 11;
   if (has_m_lvsuppvp()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_lvsuppvp(), output);
   }
@@ -1143,57 +1143,57 @@ void E_AttributeSuppress::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_AttributeSuppress::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_lvldiff = 1;
+  // optional int32 m_lvlDiff = 1;
   if (has_m_lvldiff()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lvldiff(), target);
   }
 
-  // optional int32 m_hitsuppve = 2;
+  // optional int32 m_hitSupPve = 2;
   if (has_m_hitsuppve()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_hitsuppve(), target);
   }
 
-  // optional int32 m_critsuppve = 3;
+  // optional int32 m_critSupPve = 3;
   if (has_m_critsuppve()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_critsuppve(), target);
   }
 
-  // optional int32 m_killsuppve = 4;
+  // optional int32 m_killSupPve = 4;
   if (has_m_killsuppve()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_killsuppve(), target);
   }
 
-  // optional int32 m_statesuppve = 5;
+  // optional int32 m_stateSupPve = 5;
   if (has_m_statesuppve()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_statesuppve(), target);
   }
 
-  // optional int32 m_lvsuppve = 6;
+  // optional int32 m_lvSupPve = 6;
   if (has_m_lvsuppve()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_lvsuppve(), target);
   }
 
-  // optional int32 m_hitsuppvp = 7;
+  // optional int32 m_hitSupPvp = 7;
   if (has_m_hitsuppvp()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_hitsuppvp(), target);
   }
 
-  // optional int32 m_critsuppvp = 8;
+  // optional int32 m_critSupPvp = 8;
   if (has_m_critsuppvp()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_critsuppvp(), target);
   }
 
-  // optional int32 m_killsuppvp = 9;
+  // optional int32 m_killSupPvp = 9;
   if (has_m_killsuppvp()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_killsuppvp(), target);
   }
 
-  // optional int32 m_statesuppvp = 10;
+  // optional int32 m_stateSupPvp = 10;
   if (has_m_statesuppvp()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_statesuppvp(), target);
   }
 
-  // optional int32 m_lvsuppvp = 11;
+  // optional int32 m_lvSupPvp = 11;
   if (has_m_lvsuppvp()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_lvsuppvp(), target);
   }
@@ -1209,56 +1209,56 @@ int E_AttributeSuppress::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_lvldiff = 1;
+    // optional int32 m_lvlDiff = 1;
     if (has_m_lvldiff()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_lvldiff());
     }
 
-    // optional int32 m_hitsuppve = 2;
+    // optional int32 m_hitSupPve = 2;
     if (has_m_hitsuppve()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_hitsuppve());
     }
 
-    // optional int32 m_critsuppve = 3;
+    // optional int32 m_critSupPve = 3;
     if (has_m_critsuppve()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_critsuppve());
     }
 
-    // optional int32 m_killsuppve = 4;
+    // optional int32 m_killSupPve = 4;
     if (has_m_killsuppve()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_killsuppve());
     }
 
-    // optional int32 m_statesuppve = 5;
+    // optional int32 m_stateSupPve = 5;
     if (has_m_statesuppve()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_statesuppve());
     }
 
-    // optional int32 m_lvsuppve = 6;
+    // optional int32 m_lvSupPve = 6;
     if (has_m_lvsuppve()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_lvsuppve());
     }
 
-    // optional int32 m_hitsuppvp = 7;
+    // optional int32 m_hitSupPvp = 7;
     if (has_m_hitsuppvp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_hitsuppvp());
     }
 
-    // optional int32 m_critsuppvp = 8;
+    // optional int32 m_critSupPvp = 8;
     if (has_m_critsuppvp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1267,21 +1267,21 @@ int E_AttributeSuppress::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_killsuppvp = 9;
+    // optional int32 m_killSupPvp = 9;
     if (has_m_killsuppvp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_killsuppvp());
     }
 
-    // optional int32 m_statesuppvp = 10;
+    // optional int32 m_stateSupPvp = 10;
     if (has_m_statesuppvp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_statesuppvp());
     }
 
-    // optional int32 m_lvsuppvp = 11;
+    // optional int32 m_lvSupPvp = 11;
     if (has_m_lvsuppvp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1605,9 +1605,9 @@ void Sheet_AttributeSuppress::Swap(Sheet_AttributeSuppress* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_AttributePowersup::kMPowerdiffFieldNumber;
-const int E_AttributePowersup::kMPowersuppveFieldNumber;
-const int E_AttributePowersup::kMPowersuppvpFieldNumber;
+const int E_AttributePowersup::kMPowerDiffFieldNumber;
+const int E_AttributePowersup::kMPowerSupPveFieldNumber;
+const int E_AttributePowersup::kMPowerSupPvpFieldNumber;
 #endif  // !_MSC_VER
 
 E_AttributePowersup::E_AttributePowersup()
@@ -1678,7 +1678,7 @@ bool E_AttributePowersup::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_powerdiff = 1;
+      // optional int32 m_powerDiff = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -1689,15 +1689,15 @@ bool E_AttributePowersup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_powersuppve;
+        if (input->ExpectTag(16)) goto parse_m_powerSupPve;
         break;
       }
 
-      // optional int32 m_powersuppve = 2;
+      // optional int32 m_powerSupPve = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_powersuppve:
+         parse_m_powerSupPve:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_powersuppve_)));
@@ -1705,15 +1705,15 @@ bool E_AttributePowersup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_powersuppvp;
+        if (input->ExpectTag(24)) goto parse_m_powerSupPvp;
         break;
       }
 
-      // optional int32 m_powersuppvp = 3;
+      // optional int32 m_powerSupPvp = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_powersuppvp:
+         parse_m_powerSupPvp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_powersuppvp_)));
@@ -1743,17 +1743,17 @@ bool E_AttributePowersup::MergePartialFromCodedStream(
 
 void E_AttributePowersup::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_powerdiff = 1;
+  // optional int32 m_powerDiff = 1;
   if (has_m_powerdiff()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_powerdiff(), output);
   }
 
-  // optional int32 m_powersuppve = 2;
+  // optional int32 m_powerSupPve = 2;
   if (has_m_powersuppve()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_powersuppve(), output);
   }
 
-  // optional int32 m_powersuppvp = 3;
+  // optional int32 m_powerSupPvp = 3;
   if (has_m_powersuppvp()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_powersuppvp(), output);
   }
@@ -1766,17 +1766,17 @@ void E_AttributePowersup::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_AttributePowersup::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_powerdiff = 1;
+  // optional int32 m_powerDiff = 1;
   if (has_m_powerdiff()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_powerdiff(), target);
   }
 
-  // optional int32 m_powersuppve = 2;
+  // optional int32 m_powerSupPve = 2;
   if (has_m_powersuppve()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_powersuppve(), target);
   }
 
-  // optional int32 m_powersuppvp = 3;
+  // optional int32 m_powerSupPvp = 3;
   if (has_m_powersuppvp()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_powersuppvp(), target);
   }
@@ -1792,21 +1792,21 @@ int E_AttributePowersup::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_powerdiff = 1;
+    // optional int32 m_powerDiff = 1;
     if (has_m_powerdiff()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_powerdiff());
     }
 
-    // optional int32 m_powersuppve = 2;
+    // optional int32 m_powerSupPve = 2;
     if (has_m_powersuppve()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_powersuppve());
     }
 
-    // optional int32 m_powersuppvp = 3;
+    // optional int32 m_powerSupPvp = 3;
     if (has_m_powersuppvp()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

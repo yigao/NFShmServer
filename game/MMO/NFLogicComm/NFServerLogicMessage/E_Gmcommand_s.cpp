@@ -11,8 +11,8 @@ E_GmcommandGmcommand_s::E_GmcommandGmcommand_s() {
 }
 
 int E_GmcommandGmcommand_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_paramcount = (int32_t)0;
+	m_ID = (int32_t)0;
+	m_ParamCount = (int32_t)0;
 	return 0;
 }
 
@@ -21,17 +21,17 @@ int E_GmcommandGmcommand_s::ResumeInit() {
 }
 
 void E_GmcommandGmcommand_s::write_to_pbmsg(::proto_ff::E_GmcommandGmcommand & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_key(m_key.data());
-	msg.set_m_paramcount((int32_t)m_paramcount);
-	msg.set_m_des(m_des.data());
+	msg.set_m_id((int32_t)m_ID);
+	msg.set_m_key(m_Key.data());
+	msg.set_m_paramcount((int32_t)m_ParamCount);
+	msg.set_m_des(m_Des.data());
 }
 
 void E_GmcommandGmcommand_s::read_from_pbmsg(const ::proto_ff::E_GmcommandGmcommand & msg) {
-	m_id = msg.m_id();
-	m_key = msg.m_key();
-	m_paramcount = msg.m_paramcount();
-	m_des = msg.m_des();
+	m_ID = msg.m_id();
+	m_Key = msg.m_key();
+	m_ParamCount = msg.m_paramcount();
+	m_Des = msg.m_des();
 }
 
 Sheet_GmcommandGmcommand_s::Sheet_GmcommandGmcommand_s() {

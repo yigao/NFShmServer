@@ -207,31 +207,31 @@ void protobuf_AddDesc_E_5fTaskdynamic_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\023E_Taskdynamic.proto\022\010proto_ff\032\025yd_fiel"
     "doptions.proto\"\276\002\n\030E_TaskdynamicTaskdyna"
-    "mic\022\030\n\010m_taskid\030\001 \001(\003B\006\302\377\024\002id\022&\n\010m_remar"
-    "k\030\002 \001(\tB\024\302\377\024\014\347\255\226\345\210\222\345\244\207\346\263\250\220\301\024@\022$\n\nm_taskt"
+    "mic\022\030\n\010m_taskID\030\001 \001(\003B\006\302\377\024\002id\022&\n\010m_remar"
+    "k\030\002 \001(\tB\024\302\377\024\014\347\255\226\345\210\222\345\244\207\346\263\250\220\301\024@\022$\n\nm_taskT"
     "ype\030\003 \001(\005B\020\302\377\024\014\344\273\273\345\212\241\347\261\273\345\236\213\022 \n\tm_weights"
     "\030\004 \001(\005B\r\302\377\024\t\346\235\203\351\207\215\345\200\274\022!\n\007m_minlv\030\005 \001(\005B\020"
     "\302\377\024\014\346\234\200\344\275\216\347\255\211\347\272\247\022!\n\007m_maxlv\030\006 \001(\005B\020\302\377\024\014\346"
-    "\234\200\351\253\230\347\255\211\347\272\247\022(\n\013m_rececount\030\007 \001(\005B\023\302\377\024\017\345\217"
-    "\257\346\216\245\345\217\226\346\225\260\351\207\217\022(\n\010m_idlist\030\010 \001(\tB\026\302\377\024\016\346\212\275"
+    "\234\200\351\253\230\347\255\211\347\272\247\022(\n\013m_receCount\030\007 \001(\005B\023\302\377\024\017\345\217"
+    "\257\346\216\245\345\217\226\346\225\260\351\207\217\022(\n\010m_idList\030\010 \001(\tB\026\302\377\024\016\346\212\275"
     "\345\217\226id\345\210\227\350\241\250\220\301\024@\"o\n\034Sheet_TaskdynamicTask"
     "dynamic\022O\n\035E_TaskdynamicTaskdynamic_List"
     "\030\001 \003(\0132\".proto_ff.E_TaskdynamicTaskdynam"
     "icB\004\210\301\024 \"\330\002\n\030E_TaskdynamicTaskcomcond\022!\n"
-    "\013m_comcondid\030\001 \001(\003B\014\302\377\024\010\345\256\214\346\210\220id\022\'\n\rm_co"
-    "mcondtype\030\002 \001(\005B\020\302\377\024\014\346\235\241\344\273\266\347\261\273\345\236\213\022#\n\010m_p"
+    "\013m_comcondID\030\001 \001(\003B\014\302\377\024\010\345\256\214\346\210\220id\022\'\n\rm_co"
+    "mcondType\030\002 \001(\005B\020\302\377\024\014\346\235\241\344\273\266\347\261\273\345\236\213\022#\n\010m_p"
     "aram1\030\003 \001(\003B\021\302\377\024\r\346\235\241\344\273\266\345\217\202\346\225\260a\022#\n\010m_para"
     "m2\030\004 \001(\003B\021\302\377\024\r\346\235\241\344\273\266\345\217\202\346\225\260b\022#\n\010m_param3\030"
     "\005 \001(\003B\021\302\377\024\r\346\235\241\344\273\266\345\217\202\346\225\260c\022#\n\010m_param4\030\006 \001"
     "(\003B\021\302\377\024\r\346\235\241\344\273\266\345\217\202\346\225\260d\022#\n\010m_param5\030\007 \001(\003B"
-    "\021\302\377\024\r\346\235\241\344\273\266\345\217\202\346\225\260e\0227\n\024m_comcondrandomval"
+    "\021\302\377\024\r\346\235\241\344\273\266\345\217\202\346\225\260e\0227\n\024m_comcondRandomVal"
     "ue\030\010 \001(\005B\031\302\377\024\025\345\256\214\346\210\220\346\235\241\344\273\266\351\232\217\346\234\272\345\200\274\"p\n\034S"
     "heet_TaskdynamicTaskcomcond\022P\n\035E_Taskdyn"
     "amicTaskcomcond_List\030\001 \003(\0132\".proto_ff.E_"
     "TaskdynamicTaskcomcondB\005\210\301\024\200\001\"\220\001\n\025E_Task"
-    "dynamicTasktext\022\036\n\010m_textid\030\001 \001(\003B\014\302\377\024\010\346"
-    "\226\207\346\234\254id\022(\n\nm_tasktype\030\002 \001(\tB\024\302\377\024\014\344\273\273\345\212\241\347"
-    "\261\273\345\236\213\220\301\024@\022-\n\rm_comcondtype\030\003 \001(\005B\026\302\377\024\022\345\256"
+    "dynamicTasktext\022\036\n\010m_textID\030\001 \001(\003B\014\302\377\024\010\346"
+    "\226\207\346\234\254id\022(\n\nm_taskType\030\002 \001(\tB\024\302\377\024\014\344\273\273\345\212\241\347"
+    "\261\273\345\236\213\220\301\024@\022-\n\rm_comcondType\030\003 \001(\005B\026\302\377\024\022\345\256"
     "\214\346\210\220\346\235\241\344\273\266\347\261\273\345\236\213\"f\n\031Sheet_TaskdynamicTas"
     "ktext\022I\n\032E_TaskdynamicTasktext_List\030\001 \003("
     "\0132\037.proto_ff.E_TaskdynamicTasktextB\004\210\301\024 ", 1200);
@@ -262,14 +262,14 @@ struct StaticDescriptorInitializer_E_5fTaskdynamic_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_TaskdynamicTaskdynamic::kMTaskidFieldNumber;
+const int E_TaskdynamicTaskdynamic::kMTaskIDFieldNumber;
 const int E_TaskdynamicTaskdynamic::kMRemarkFieldNumber;
-const int E_TaskdynamicTaskdynamic::kMTasktypeFieldNumber;
+const int E_TaskdynamicTaskdynamic::kMTaskTypeFieldNumber;
 const int E_TaskdynamicTaskdynamic::kMWeightsFieldNumber;
 const int E_TaskdynamicTaskdynamic::kMMinlvFieldNumber;
 const int E_TaskdynamicTaskdynamic::kMMaxlvFieldNumber;
-const int E_TaskdynamicTaskdynamic::kMRececountFieldNumber;
-const int E_TaskdynamicTaskdynamic::kMIdlistFieldNumber;
+const int E_TaskdynamicTaskdynamic::kMReceCountFieldNumber;
+const int E_TaskdynamicTaskdynamic::kMIdListFieldNumber;
 #endif  // !_MSC_VER
 
 E_TaskdynamicTaskdynamic::E_TaskdynamicTaskdynamic()
@@ -364,7 +364,7 @@ bool E_TaskdynamicTaskdynamic::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 m_taskid = 1;
+      // optional int64 m_taskID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -392,15 +392,15 @@ bool E_TaskdynamicTaskdynamic::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_tasktype;
+        if (input->ExpectTag(24)) goto parse_m_taskType;
         break;
       }
 
-      // optional int32 m_tasktype = 3;
+      // optional int32 m_taskType = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_tasktype:
+         parse_m_taskType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_tasktype_)));
@@ -456,15 +456,15 @@ bool E_TaskdynamicTaskdynamic::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_rececount;
+        if (input->ExpectTag(56)) goto parse_m_receCount;
         break;
       }
 
-      // optional int32 m_rececount = 7;
+      // optional int32 m_receCount = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_rececount:
+         parse_m_receCount:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_rececount_)));
@@ -472,15 +472,15 @@ bool E_TaskdynamicTaskdynamic::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(66)) goto parse_m_idlist;
+        if (input->ExpectTag(66)) goto parse_m_idList;
         break;
       }
 
-      // optional string m_idlist = 8;
+      // optional string m_idList = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_idlist:
+         parse_m_idList:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_idlist()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -511,7 +511,7 @@ bool E_TaskdynamicTaskdynamic::MergePartialFromCodedStream(
 
 void E_TaskdynamicTaskdynamic::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 m_taskid = 1;
+  // optional int64 m_taskID = 1;
   if (has_m_taskid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_taskid(), output);
   }
@@ -525,7 +525,7 @@ void E_TaskdynamicTaskdynamic::SerializeWithCachedSizes(
       2, this->m_remark(), output);
   }
 
-  // optional int32 m_tasktype = 3;
+  // optional int32 m_taskType = 3;
   if (has_m_tasktype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_tasktype(), output);
   }
@@ -545,12 +545,12 @@ void E_TaskdynamicTaskdynamic::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_maxlv(), output);
   }
 
-  // optional int32 m_rececount = 7;
+  // optional int32 m_receCount = 7;
   if (has_m_rececount()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_rececount(), output);
   }
 
-  // optional string m_idlist = 8;
+  // optional string m_idList = 8;
   if (has_m_idlist()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_idlist().data(), this->m_idlist().length(),
@@ -567,7 +567,7 @@ void E_TaskdynamicTaskdynamic::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_TaskdynamicTaskdynamic::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 m_taskid = 1;
+  // optional int64 m_taskID = 1;
   if (has_m_taskid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_taskid(), target);
   }
@@ -582,7 +582,7 @@ void E_TaskdynamicTaskdynamic::SerializeWithCachedSizes(
         2, this->m_remark(), target);
   }
 
-  // optional int32 m_tasktype = 3;
+  // optional int32 m_taskType = 3;
   if (has_m_tasktype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_tasktype(), target);
   }
@@ -602,12 +602,12 @@ void E_TaskdynamicTaskdynamic::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_maxlv(), target);
   }
 
-  // optional int32 m_rececount = 7;
+  // optional int32 m_receCount = 7;
   if (has_m_rececount()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_rececount(), target);
   }
 
-  // optional string m_idlist = 8;
+  // optional string m_idList = 8;
   if (has_m_idlist()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_idlist().data(), this->m_idlist().length(),
@@ -628,7 +628,7 @@ int E_TaskdynamicTaskdynamic::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 m_taskid = 1;
+    // optional int64 m_taskID = 1;
     if (has_m_taskid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -642,7 +642,7 @@ int E_TaskdynamicTaskdynamic::ByteSize() const {
           this->m_remark());
     }
 
-    // optional int32 m_tasktype = 3;
+    // optional int32 m_taskType = 3;
     if (has_m_tasktype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -670,14 +670,14 @@ int E_TaskdynamicTaskdynamic::ByteSize() const {
           this->m_maxlv());
     }
 
-    // optional int32 m_rececount = 7;
+    // optional int32 m_receCount = 7;
     if (has_m_rececount()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_rececount());
     }
 
-    // optional string m_idlist = 8;
+    // optional string m_idList = 8;
     if (has_m_idlist()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -987,14 +987,14 @@ void Sheet_TaskdynamicTaskdynamic::Swap(Sheet_TaskdynamicTaskdynamic* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_TaskdynamicTaskcomcond::kMComcondidFieldNumber;
-const int E_TaskdynamicTaskcomcond::kMComcondtypeFieldNumber;
+const int E_TaskdynamicTaskcomcond::kMComcondIDFieldNumber;
+const int E_TaskdynamicTaskcomcond::kMComcondTypeFieldNumber;
 const int E_TaskdynamicTaskcomcond::kMParam1FieldNumber;
 const int E_TaskdynamicTaskcomcond::kMParam2FieldNumber;
 const int E_TaskdynamicTaskcomcond::kMParam3FieldNumber;
 const int E_TaskdynamicTaskcomcond::kMParam4FieldNumber;
 const int E_TaskdynamicTaskcomcond::kMParam5FieldNumber;
-const int E_TaskdynamicTaskcomcond::kMComcondrandomvalueFieldNumber;
+const int E_TaskdynamicTaskcomcond::kMComcondRandomValueFieldNumber;
 #endif  // !_MSC_VER
 
 E_TaskdynamicTaskcomcond::E_TaskdynamicTaskcomcond()
@@ -1075,7 +1075,7 @@ bool E_TaskdynamicTaskcomcond::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 m_comcondid = 1;
+      // optional int64 m_comcondID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -1086,15 +1086,15 @@ bool E_TaskdynamicTaskcomcond::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_comcondtype;
+        if (input->ExpectTag(16)) goto parse_m_comcondType;
         break;
       }
 
-      // optional int32 m_comcondtype = 2;
+      // optional int32 m_comcondType = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_comcondtype:
+         parse_m_comcondType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_comcondtype_)));
@@ -1182,15 +1182,15 @@ bool E_TaskdynamicTaskcomcond::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_comcondrandomvalue;
+        if (input->ExpectTag(64)) goto parse_m_comcondRandomValue;
         break;
       }
 
-      // optional int32 m_comcondrandomvalue = 8;
+      // optional int32 m_comcondRandomValue = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_comcondrandomvalue:
+         parse_m_comcondRandomValue:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_comcondrandomvalue_)));
@@ -1220,12 +1220,12 @@ bool E_TaskdynamicTaskcomcond::MergePartialFromCodedStream(
 
 void E_TaskdynamicTaskcomcond::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 m_comcondid = 1;
+  // optional int64 m_comcondID = 1;
   if (has_m_comcondid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_comcondid(), output);
   }
 
-  // optional int32 m_comcondtype = 2;
+  // optional int32 m_comcondType = 2;
   if (has_m_comcondtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_comcondtype(), output);
   }
@@ -1255,7 +1255,7 @@ void E_TaskdynamicTaskcomcond::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(7, this->m_param5(), output);
   }
 
-  // optional int32 m_comcondrandomvalue = 8;
+  // optional int32 m_comcondRandomValue = 8;
   if (has_m_comcondrandomvalue()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_comcondrandomvalue(), output);
   }
@@ -1268,12 +1268,12 @@ void E_TaskdynamicTaskcomcond::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_TaskdynamicTaskcomcond::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 m_comcondid = 1;
+  // optional int64 m_comcondID = 1;
   if (has_m_comcondid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_comcondid(), target);
   }
 
-  // optional int32 m_comcondtype = 2;
+  // optional int32 m_comcondType = 2;
   if (has_m_comcondtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_comcondtype(), target);
   }
@@ -1303,7 +1303,7 @@ void E_TaskdynamicTaskcomcond::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(7, this->m_param5(), target);
   }
 
-  // optional int32 m_comcondrandomvalue = 8;
+  // optional int32 m_comcondRandomValue = 8;
   if (has_m_comcondrandomvalue()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_comcondrandomvalue(), target);
   }
@@ -1319,14 +1319,14 @@ int E_TaskdynamicTaskcomcond::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 m_comcondid = 1;
+    // optional int64 m_comcondID = 1;
     if (has_m_comcondid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_comcondid());
     }
 
-    // optional int32 m_comcondtype = 2;
+    // optional int32 m_comcondType = 2;
     if (has_m_comcondtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1368,7 +1368,7 @@ int E_TaskdynamicTaskcomcond::ByteSize() const {
           this->m_param5());
     }
 
-    // optional int32 m_comcondrandomvalue = 8;
+    // optional int32 m_comcondRandomValue = 8;
     if (has_m_comcondrandomvalue()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1678,9 +1678,9 @@ void Sheet_TaskdynamicTaskcomcond::Swap(Sheet_TaskdynamicTaskcomcond* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_TaskdynamicTasktext::kMTextidFieldNumber;
-const int E_TaskdynamicTasktext::kMTasktypeFieldNumber;
-const int E_TaskdynamicTasktext::kMComcondtypeFieldNumber;
+const int E_TaskdynamicTasktext::kMTextIDFieldNumber;
+const int E_TaskdynamicTasktext::kMTaskTypeFieldNumber;
+const int E_TaskdynamicTasktext::kMComcondTypeFieldNumber;
 #endif  // !_MSC_VER
 
 E_TaskdynamicTasktext::E_TaskdynamicTasktext()
@@ -1758,7 +1758,7 @@ bool E_TaskdynamicTasktext::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 m_textid = 1;
+      // optional int64 m_textID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -1769,15 +1769,15 @@ bool E_TaskdynamicTasktext::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_m_tasktype;
+        if (input->ExpectTag(18)) goto parse_m_taskType;
         break;
       }
 
-      // optional string m_tasktype = 2;
+      // optional string m_taskType = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_tasktype:
+         parse_m_taskType:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_tasktype()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1786,15 +1786,15 @@ bool E_TaskdynamicTasktext::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_comcondtype;
+        if (input->ExpectTag(24)) goto parse_m_comcondType;
         break;
       }
 
-      // optional int32 m_comcondtype = 3;
+      // optional int32 m_comcondType = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_comcondtype:
+         parse_m_comcondType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_comcondtype_)));
@@ -1824,12 +1824,12 @@ bool E_TaskdynamicTasktext::MergePartialFromCodedStream(
 
 void E_TaskdynamicTasktext::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 m_textid = 1;
+  // optional int64 m_textID = 1;
   if (has_m_textid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_textid(), output);
   }
 
-  // optional string m_tasktype = 2;
+  // optional string m_taskType = 2;
   if (has_m_tasktype()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_tasktype().data(), this->m_tasktype().length(),
@@ -1838,7 +1838,7 @@ void E_TaskdynamicTasktext::SerializeWithCachedSizes(
       2, this->m_tasktype(), output);
   }
 
-  // optional int32 m_comcondtype = 3;
+  // optional int32 m_comcondType = 3;
   if (has_m_comcondtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_comcondtype(), output);
   }
@@ -1851,12 +1851,12 @@ void E_TaskdynamicTasktext::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_TaskdynamicTasktext::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 m_textid = 1;
+  // optional int64 m_textID = 1;
   if (has_m_textid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_textid(), target);
   }
 
-  // optional string m_tasktype = 2;
+  // optional string m_taskType = 2;
   if (has_m_tasktype()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_tasktype().data(), this->m_tasktype().length(),
@@ -1866,7 +1866,7 @@ void E_TaskdynamicTasktext::SerializeWithCachedSizes(
         2, this->m_tasktype(), target);
   }
 
-  // optional int32 m_comcondtype = 3;
+  // optional int32 m_comcondType = 3;
   if (has_m_comcondtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_comcondtype(), target);
   }
@@ -1882,21 +1882,21 @@ int E_TaskdynamicTasktext::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 m_textid = 1;
+    // optional int64 m_textID = 1;
     if (has_m_textid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_textid());
     }
 
-    // optional string m_tasktype = 2;
+    // optional string m_taskType = 2;
     if (has_m_tasktype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_tasktype());
     }
 
-    // optional int32 m_comcondtype = 3;
+    // optional int32 m_comcondType = 3;
     if (has_m_comcondtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

@@ -11,11 +11,11 @@ E_EscortEscort_s::E_EscortEscort_s() {
 }
 
 int E_EscortEscort_s::CreateInit() {
-	m_convoyid = (int32_t)0;
-	m_monsterid = (int32_t)0;
-	m_convoylevel = (int32_t)0;
+	m_convoyId = (int32_t)0;
+	m_MonsterId = (int32_t)0;
+	m_convoyLevel = (int32_t)0;
 	m_chance = (int32_t)0;
-	m_rewardlvmultiply = (int32_t)0;
+	m_rewardLvMultiply = (int32_t)0;
 	return 0;
 }
 
@@ -24,23 +24,23 @@ int E_EscortEscort_s::ResumeInit() {
 }
 
 void E_EscortEscort_s::write_to_pbmsg(::proto_ff::E_EscortEscort & msg) const {
-	msg.set_m_convoyid((int32_t)m_convoyid);
-	msg.set_m_convoyname(m_convoyname.data());
-	msg.set_m_monsterid((int32_t)m_monsterid);
+	msg.set_m_convoyid((int32_t)m_convoyId);
+	msg.set_m_convoyname(m_convoyName.data());
+	msg.set_m_monsterid((int32_t)m_MonsterId);
 	msg.set_m_scalle(m_scalle.data());
-	msg.set_m_convoylevel((int32_t)m_convoylevel);
+	msg.set_m_convoylevel((int32_t)m_convoyLevel);
 	msg.set_m_chance((int32_t)m_chance);
-	msg.set_m_rewardlvmultiply((int32_t)m_rewardlvmultiply);
+	msg.set_m_rewardlvmultiply((int32_t)m_rewardLvMultiply);
 }
 
 void E_EscortEscort_s::read_from_pbmsg(const ::proto_ff::E_EscortEscort & msg) {
-	m_convoyid = msg.m_convoyid();
-	m_convoyname = msg.m_convoyname();
-	m_monsterid = msg.m_monsterid();
+	m_convoyId = msg.m_convoyid();
+	m_convoyName = msg.m_convoyname();
+	m_MonsterId = msg.m_monsterid();
 	m_scalle = msg.m_scalle();
-	m_convoylevel = msg.m_convoylevel();
+	m_convoyLevel = msg.m_convoylevel();
 	m_chance = msg.m_chance();
-	m_rewardlvmultiply = msg.m_rewardlvmultiply();
+	m_rewardLvMultiply = msg.m_rewardlvmultiply();
 }
 
 Sheet_EscortEscort_s::Sheet_EscortEscort_s() {
@@ -84,7 +84,7 @@ E_EscortChanceEscortDesc_s::E_EscortChanceEscortDesc_s() {
 
 int E_EscortChanceEscortDesc_s::CreateInit() {
 	m_chance = (int32_t)0;
-	m_id = (int32_t)0;
+	m_ID = (int32_t)0;
 	return 0;
 }
 
@@ -94,12 +94,12 @@ int E_EscortChanceEscortDesc_s::ResumeInit() {
 
 void E_EscortChanceEscortDesc_s::write_to_pbmsg(::proto_ff::E_EscortChanceEscortDesc & msg) const {
 	msg.set_m_chance((int32_t)m_chance);
-	msg.set_m_id((int32_t)m_id);
+	msg.set_m_id((int32_t)m_ID);
 }
 
 void E_EscortChanceEscortDesc_s::read_from_pbmsg(const ::proto_ff::E_EscortChanceEscortDesc & msg) {
 	m_chance = msg.m_chance();
-	m_id = msg.m_id();
+	m_ID = msg.m_id();
 }
 
 E_EscortChance_s::E_EscortChance_s() {
@@ -111,7 +111,7 @@ E_EscortChance_s::E_EscortChance_s() {
 }
 
 int E_EscortChance_s::CreateInit() {
-	m_convoyid = (int32_t)0;
+	m_convoyId = (int32_t)0;
 	return 0;
 }
 
@@ -120,7 +120,7 @@ int E_EscortChance_s::ResumeInit() {
 }
 
 void E_EscortChance_s::write_to_pbmsg(::proto_ff::E_EscortChance & msg) const {
-	msg.set_m_convoyid((int32_t)m_convoyid);
+	msg.set_m_convoyid((int32_t)m_convoyId);
 	for(int32_t i = 0; i < (int32_t)m_escort.size(); ++i) {
 		::proto_ff::E_EscortChanceEscortDesc* temp_m_escort = msg.add_m_escort();
 		m_escort[i].write_to_pbmsg(*temp_m_escort);
@@ -128,7 +128,7 @@ void E_EscortChance_s::write_to_pbmsg(::proto_ff::E_EscortChance & msg) const {
 }
 
 void E_EscortChance_s::read_from_pbmsg(const ::proto_ff::E_EscortChance & msg) {
-	m_convoyid = msg.m_convoyid();
+	m_convoyId = msg.m_convoyid();
 	m_escort.resize((int)msg.m_escort_size() > (int)m_escort.max_size() ? m_escort.max_size() : msg.m_escort_size());
 	for(int32_t i = 0; i < (int32_t)m_escort.size(); ++i) {
 		const ::proto_ff::E_EscortChanceEscortDesc & temp_m_escort = msg.m_escort(i);
@@ -178,7 +178,7 @@ E_EscortRewardRewardDesc_s::E_EscortRewardRewardDesc_s() {
 int E_EscortRewardRewardDesc_s::CreateInit() {
 	m_num = (int32_t)0;
 	m_item = (int32_t)0;
-	m_id = (int32_t)0;
+	m_ID = (int32_t)0;
 	return 0;
 }
 
@@ -189,13 +189,13 @@ int E_EscortRewardRewardDesc_s::ResumeInit() {
 void E_EscortRewardRewardDesc_s::write_to_pbmsg(::proto_ff::E_EscortRewardRewardDesc & msg) const {
 	msg.set_m_num((int32_t)m_num);
 	msg.set_m_item((int32_t)m_item);
-	msg.set_m_id((int32_t)m_id);
+	msg.set_m_id((int32_t)m_ID);
 }
 
 void E_EscortRewardRewardDesc_s::read_from_pbmsg(const ::proto_ff::E_EscortRewardRewardDesc & msg) {
 	m_num = msg.m_num();
 	m_item = msg.m_item();
-	m_id = msg.m_id();
+	m_ID = msg.m_id();
 }
 
 E_EscortReward_s::E_EscortReward_s() {
@@ -276,20 +276,20 @@ E_EscortConst_s::E_EscortConst_s() {
 
 int E_EscortConst_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_tokenid = (int32_t)0;
-	m_tokennumber = (int32_t)0;
-	m_daytime = (int32_t)0;
-	m_freenum = (int32_t)0;
-	m_mapid = (int32_t)0;
-	m_startnpcid = (int32_t)0;
-	m_startnpcpointid = (int32_t)0;
-	m_overnpcid = (int32_t)0;
-	m_activityid = (int32_t)0;
-	m_taskid = (int32_t)0;
-	m_distancea = (int32_t)0;
-	m_distanceb = (int32_t)0;
-	m_distancec = (int32_t)0;
-	m_timelimit = (int32_t)0;
+	m_tokenId = (int32_t)0;
+	m_tokenNumber = (int32_t)0;
+	m_dayTime = (int32_t)0;
+	m_freeNum = (int32_t)0;
+	m_mapId = (int32_t)0;
+	m_startNpcID = (int32_t)0;
+	m_startNpcPointID = (int32_t)0;
+	m_overNpcID = (int32_t)0;
+	m_activityID = (int32_t)0;
+	m_taskID = (int32_t)0;
+	m_DistanceA = (int32_t)0;
+	m_DistanceB = (int32_t)0;
+	m_DistanceC = (int32_t)0;
+	m_timeLimit = (int32_t)0;
 	return 0;
 }
 
@@ -299,38 +299,38 @@ int E_EscortConst_s::ResumeInit() {
 
 void E_EscortConst_s::write_to_pbmsg(::proto_ff::E_EscortConst & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_tokenid((int32_t)m_tokenid);
-	msg.set_m_tokennumber((int32_t)m_tokennumber);
-	msg.set_m_daytime((int32_t)m_daytime);
-	msg.set_m_freenum((int32_t)m_freenum);
-	msg.set_m_mapid((int32_t)m_mapid);
-	msg.set_m_startnpcid((int32_t)m_startnpcid);
-	msg.set_m_startnpcpointid((int32_t)m_startnpcpointid);
-	msg.set_m_overnpcid((int32_t)m_overnpcid);
-	msg.set_m_activityid((int32_t)m_activityid);
-	msg.set_m_taskid((int32_t)m_taskid);
-	msg.set_m_distancea((int32_t)m_distancea);
-	msg.set_m_distanceb((int32_t)m_distanceb);
-	msg.set_m_distancec((int32_t)m_distancec);
-	msg.set_m_timelimit((int32_t)m_timelimit);
+	msg.set_m_tokenid((int32_t)m_tokenId);
+	msg.set_m_tokennumber((int32_t)m_tokenNumber);
+	msg.set_m_daytime((int32_t)m_dayTime);
+	msg.set_m_freenum((int32_t)m_freeNum);
+	msg.set_m_mapid((int32_t)m_mapId);
+	msg.set_m_startnpcid((int32_t)m_startNpcID);
+	msg.set_m_startnpcpointid((int32_t)m_startNpcPointID);
+	msg.set_m_overnpcid((int32_t)m_overNpcID);
+	msg.set_m_activityid((int32_t)m_activityID);
+	msg.set_m_taskid((int32_t)m_taskID);
+	msg.set_m_distancea((int32_t)m_DistanceA);
+	msg.set_m_distanceb((int32_t)m_DistanceB);
+	msg.set_m_distancec((int32_t)m_DistanceC);
+	msg.set_m_timelimit((int32_t)m_timeLimit);
 }
 
 void E_EscortConst_s::read_from_pbmsg(const ::proto_ff::E_EscortConst & msg) {
 	m_id = msg.m_id();
-	m_tokenid = msg.m_tokenid();
-	m_tokennumber = msg.m_tokennumber();
-	m_daytime = msg.m_daytime();
-	m_freenum = msg.m_freenum();
-	m_mapid = msg.m_mapid();
-	m_startnpcid = msg.m_startnpcid();
-	m_startnpcpointid = msg.m_startnpcpointid();
-	m_overnpcid = msg.m_overnpcid();
-	m_activityid = msg.m_activityid();
-	m_taskid = msg.m_taskid();
-	m_distancea = msg.m_distancea();
-	m_distanceb = msg.m_distanceb();
-	m_distancec = msg.m_distancec();
-	m_timelimit = msg.m_timelimit();
+	m_tokenId = msg.m_tokenid();
+	m_tokenNumber = msg.m_tokennumber();
+	m_dayTime = msg.m_daytime();
+	m_freeNum = msg.m_freenum();
+	m_mapId = msg.m_mapid();
+	m_startNpcID = msg.m_startnpcid();
+	m_startNpcPointID = msg.m_startnpcpointid();
+	m_overNpcID = msg.m_overnpcid();
+	m_activityID = msg.m_activityid();
+	m_taskID = msg.m_taskid();
+	m_DistanceA = msg.m_distancea();
+	m_DistanceB = msg.m_distanceb();
+	m_DistanceC = msg.m_distancec();
+	m_timeLimit = msg.m_timelimit();
 }
 
 Sheet_EscortConst_s::Sheet_EscortConst_s() {

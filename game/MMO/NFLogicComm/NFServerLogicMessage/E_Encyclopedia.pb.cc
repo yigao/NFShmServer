@@ -854,24 +854,24 @@ void protobuf_AddDesc_E_5fEncyclopedia_2eproto() {
     "yclopediaHandbookStariattributeDesc\022\030\n\007m"
     "_value\030\001 \001(\003B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302"
     "\377\024\006\347\261\273\345\236\213\"\241\006\n\026E_EncyclopediaHandbook\022\"\n\014"
-    "m_handbookid\030\001 \001(\003B\014\302\377\024\010\345\233\276\351\211\264id\022$\n\010m_it"
-    "emid\030\002 \001(\003B\022\302\377\024\016\345\205\263\350\201\224\347\211\251\345\223\201id\022,\n\016m_hand"
-    "bookname\030\003 \001(\tB\024\302\377\024\014\345\233\276\351\211\264\345\220\215\347\247\260\220\301\024@\022+\n\021"
-    "m_handbookquality\030\004 \001(\005B\020\302\377\024\014\345\233\276\351\211\264\345\223\201\350\264"
-    "\250\022(\n\016m_handbooktype\030\005 \001(\005B\020\302\377\024\014\345\233\276\351\211\264\347\261\273"
-    "\345\236\213\0227\n\023m_handbooktype_name\030\006 \001(\tB\032\302\377\024\022\345\233"
-    "\276\351\211\264\347\261\273\345\236\213\345\220\215\347\247\260\220\301\024@\022\036\n\007m_handz\030\007 \001(\005B\r\302"
-    "\377\024\t\345\233\276\351\211\264\347\273\204\022,\n\013m_handzname\030\010 \001(\tB\027\302\377\024\017\345"
-    "\233\276\351\211\264\347\273\204\345\220\215\347\247\260\220\301\024@\022,\n\014m_handbooklv\030\t \001(\005"
-    "B\026\302\377\024\022\345\233\276\351\211\264\347\255\211\347\272\247\344\270\212\351\231\220\022\"\n\006m_lvid\030\n \001(\003"
-    "B\022\302\377\024\016\345\215\207\347\272\247\351\201\223\345\205\267id\022,\n\007m_lvnum\030\013 \001(\tB\033\302"
-    "\377\024\022\345\215\207\347\272\247\351\201\223\345\205\267\346\225\260\351\207\217\220\301\024\200\002\022$\n\010m_starid\030\014"
-    " \001(\003B\022\302\377\024\016\345\215\207\346\230\237\351\201\223\345\205\267id\022-\n\tm_starnum\030\r "
-    "\001(\tB\032\302\377\024\022\345\215\207\346\230\237\351\201\223\345\205\267\346\225\260\351\207\217\220\301\024@\022X\n\016m_lvi"
+    "m_handbookID\030\001 \001(\003B\014\302\377\024\010\345\233\276\351\211\264id\022$\n\010m_it"
+    "emId\030\002 \001(\003B\022\302\377\024\016\345\205\263\350\201\224\347\211\251\345\223\201id\022,\n\016m_hand"
+    "bookName\030\003 \001(\tB\024\302\377\024\014\345\233\276\351\211\264\345\220\215\347\247\260\220\301\024@\022+\n\021"
+    "m_handbookQuality\030\004 \001(\005B\020\302\377\024\014\345\233\276\351\211\264\345\223\201\350\264"
+    "\250\022(\n\016m_handbookType\030\005 \001(\005B\020\302\377\024\014\345\233\276\351\211\264\347\261\273"
+    "\345\236\213\0227\n\023m_handbookType_name\030\006 \001(\tB\032\302\377\024\022\345\233"
+    "\276\351\211\264\347\261\273\345\236\213\345\220\215\347\247\260\220\301\024@\022\036\n\007m_handZ\030\007 \001(\005B\r\302"
+    "\377\024\t\345\233\276\351\211\264\347\273\204\022,\n\013m_handZName\030\010 \001(\tB\027\302\377\024\017\345"
+    "\233\276\351\211\264\347\273\204\345\220\215\347\247\260\220\301\024@\022,\n\014m_handbookLv\030\t \001(\005"
+    "B\026\302\377\024\022\345\233\276\351\211\264\347\255\211\347\272\247\344\270\212\351\231\220\022\"\n\006m_LvId\030\n \001(\003"
+    "B\022\302\377\024\016\345\215\207\347\272\247\351\201\223\345\205\267id\022,\n\007m_LvNum\030\013 \001(\tB\033\302"
+    "\377\024\022\345\215\207\347\272\247\351\201\223\345\205\267\346\225\260\351\207\217\220\301\024\200\002\022$\n\010m_starId\030\014"
+    " \001(\003B\022\302\377\024\016\345\215\207\346\230\237\351\201\223\345\205\267id\022-\n\tm_starNum\030\r "
+    "\001(\tB\032\302\377\024\022\345\215\207\346\230\237\351\201\223\345\205\267\346\225\260\351\207\217\220\301\024@\022X\n\016m_LvI"
     "attribute\030\016 \003(\01320.proto_ff.E_Encyclopedi"
     "aHandbookLviattributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024"
-    "\004\022$\n\014m_awakeskill\030\017 \003(\005B\016\302\377\024\006\346\212\200\350\203\275\210\301\024\003\022"
-    "\\\n\020m_stariattribute\030\020 \003(\01322.proto_ff.E_E"
+    "\004\022$\n\014m_awakeSkill\030\017 \003(\005B\016\302\377\024\006\346\212\200\350\203\275\210\301\024\003\022"
+    "\\\n\020m_starIattribute\030\020 \003(\01322.proto_ff.E_E"
     "ncyclopediaHandbookStariattributeDescB\016\302"
     "\377\024\006\345\261\236\346\200\247\210\301\024\004\"j\n\032Sheet_EncyclopediaHandb"
     "ook\022L\n\033E_EncyclopediaHandbook_List\030\001 \003(\013"
@@ -879,30 +879,30 @@ void protobuf_AddDesc_E_5fEncyclopedia_2eproto() {
     "\004\"_\n\'E_EncyclopediaHandbookfateAttribute"
     "Desc\022\030\n\007m_value\030\001 \001(\003B\007\302\377\024\003\345\200\274\022\032\n\006m_type"
     "\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"\221\002\n\032E_EncyclopediaHan"
-    "dbookfate\022\036\n\010m_fateid\030\001 \001(\003B\014\302\377\024\010\347\276\201\347\273\212i"
-    "d\022(\n\nm_fatename\030\002 \001(\tB\024\302\377\024\014\347\276\201\347\273\212\345\220\215\347\247\260\220"
-    "\301\024@\022\'\n\rm_fatequality\030\003 \001(\005B\020\302\377\024\014\347\276\201\347\273\212\345\223"
-    "\201\350\264\250\022(\n\nm_fatehand\030\004 \003(\003B\024\302\377\024\014\347\276\201\347\273\212\345\233\276\351"
+    "dbookfate\022\036\n\010m_fateID\030\001 \001(\003B\014\302\377\024\010\347\276\201\347\273\212i"
+    "d\022(\n\nm_fateName\030\002 \001(\tB\024\302\377\024\014\347\276\201\347\273\212\345\220\215\347\247\260\220"
+    "\301\024@\022\'\n\rm_fateQuality\030\003 \001(\005B\020\302\377\024\014\347\276\201\347\273\212\345\223"
+    "\201\350\264\250\022(\n\nm_fateHand\030\004 \003(\003B\024\302\377\024\014\347\276\201\347\273\212\345\233\276\351"
     "\211\264\210\301\024\004\022V\n\013m_attribute\030\005 \003(\01321.proto_ff.E"
     "_EncyclopediaHandbookfateAttributeDescB\016"
     "\302\377\024\006\345\261\236\346\200\247\210\301\024\006\"v\n\036Sheet_EncyclopediaHand"
     "bookfate\022T\n\037E_EncyclopediaHandbookfate_L"
     "ist\030\001 \003(\0132$.proto_ff.E_EncyclopediaHandb"
     "ookfateB\005\210\301\024\200\001\"\243\001\n\035E_EncyclopediaHandboo"
-    "kresolve\0221\n\021m_handbookquality\030\001 \001(\005B\026\302\377\024"
-    "\022\345\233\276\351\211\264\351\201\223\345\205\267\345\223\201\350\264\250\022\'\n\rm_resolveitem\030\002 \001"
-    "(\005B\020\302\377\024\014\345\210\206\350\247\243\351\201\223\345\205\267\022&\n\014m_resolvenum\030\003 \001"
+    "kresolve\0221\n\021m_handbookQuality\030\001 \001(\005B\026\302\377\024"
+    "\022\345\233\276\351\211\264\351\201\223\345\205\267\345\223\201\350\264\250\022\'\n\rm_resolveItem\030\002 \001"
+    "(\005B\020\302\377\024\014\345\210\206\350\247\243\351\201\223\345\205\267\022&\n\014m_resolveNum\030\003 \001"
     "(\005B\020\302\377\024\014\345\210\206\350\247\243\346\225\260\351\207\217\"~\n!Sheet_Encycloped"
     "iaHandbookresolve\022Y\n\"E_EncyclopediaHandb"
     "ookresolve_List\030\001 \003(\0132\'.proto_ff.E_Encyc"
     "lopediaHandbookresolveB\004\210\301\024\010\"f\n\035E_Encycl"
-    "opediaHandbooklv_attr\022 \n\007m_attid\030\001 \001(\003B\017"
+    "opediaHandbooklv_attr\022 \n\007m_attID\030\001 \001(\003B\017"
     "\302\377\024\013\345\261\236\346\200\247\347\273\204id\022#\n\005m_att\030\002 \003(\005B\024\302\377\024\014\345\261\236\346"
     "\200\247\347\255\211\347\272\247\210\301\024d\"\177\n!Sheet_EncyclopediaHandbo"
     "oklv_attr\022Z\n\"E_EncyclopediaHandbooklv_at"
     "tr_List\030\001 \003(\0132\'.proto_ff.E_EncyclopediaH"
     "andbooklv_attrB\005\210\301\024\200\002\"h\n\037E_EncyclopediaH"
-    "andbookstar_attr\022 \n\007m_attid\030\001 \001(\003B\017\302\377\024\013\345"
+    "andbookstar_attr\022 \n\007m_attID\030\001 \001(\003B\017\302\377\024\013\345"
     "\261\236\346\200\247\347\273\204id\022#\n\005m_att\030\002 \003(\005B\024\302\377\024\014\345\261\236\346\200\247\347\255\211"
     "\347\272\247\210\301\024\024\"\205\001\n#Sheet_EncyclopediaHandbookst"
     "ar_attr\022^\n$E_EncyclopediaHandbookstar_at"
@@ -927,12 +927,12 @@ void protobuf_AddDesc_E_5fEncyclopedia_2eproto() {
     "m_type\030\002 \001(\003B\020\302\377\024\014\346\235\220\346\226\231\347\261\273\345\236\213\022$\n\006m_name"
     "\030\003 \001(\tB\024\302\377\024\014\346\235\220\346\226\231\345\220\215\347\247\260\220\301\024@\022\037\n\005m_exp\030\004 "
     "\001(\005B\020\302\377\024\014\345\210\235\345\247\213\347\273\217\351\252\214\022\032\n\006m_link\030\005 \001(\003B\n\302"
-    "\377\024\006\346\235\245\346\272\220\022)\n\014m_goldattall\030\006 \001(\005B\023\302\377\024\017\344\273\231"
-    "\345\223\201\345\205\261\346\235\241\346\225\260\022)\n\tm_goldatt\030\007 \001(\005B\026\302\377\024\022\351\273\204"
-    "\346\230\237\345\261\236\346\200\247\346\235\241\346\225\260\022]\n\013m_beaststar\030\010 \003(\01322.p"
+    "\377\024\006\346\235\245\346\272\220\022)\n\014m_goldAttAll\030\006 \001(\005B\023\302\377\024\017\344\273\231"
+    "\345\223\201\345\205\261\346\235\241\346\225\260\022)\n\tm_goldAtt\030\007 \001(\005B\026\302\377\024\022\351\273\204"
+    "\346\230\237\345\261\236\346\200\247\346\235\241\346\225\260\022]\n\013m_beastStar\030\010 \003(\01322.p"
     "roto_ff.E_EncyclopediaEquipexpvalueBeast"
     "starDescB\024\302\377\024\014\350\223\235\346\230\237\345\261\236\346\200\247\210\301\024\002\022[\n\nm_gold"
-    "star\030\t \003(\01321.proto_ff.E_EncyclopediaEqui"
+    "Star\030\t \003(\01321.proto_ff.E_EncyclopediaEqui"
     "pexpvalueGoldstarDescB\024\302\377\024\014\351\273\204\346\230\237\345\261\236\346\200\247\210"
     "\301\024\005\"x\n\037Sheet_EncyclopediaEquipexpvalue\022U"
     "\n E_EncyclopediaEquipexpvalue_List\030\001 \003(\013"
@@ -947,10 +947,10 @@ void protobuf_AddDesc_E_5fEncyclopedia_2eproto() {
     "expandB\004\210\301\024\010\"a\n)E_EncyclopediaBeastprivi"
     "legeAttributeDesc\022\030\n\007m_value\030\001 \001(\003B\007\302\377\024\003"
     "\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"\222\002\n\034E_En"
-    "cyclopediaBeastprivilege\022)\n\017m_privileget"
+    "cyclopediaBeastprivilege\022)\n\017m_privilegeT"
     "ype\030\001 \001(\005B\020\302\377\024\014\347\211\271\346\235\203\347\261\273\345\236\213\022\036\n\006m_name\030\002 "
     "\001(\tB\016\302\377\024\006\345\220\215\345\255\227\220\301\024@\022!\n\007m_price\030\003 \001(\005B\020\302\377"
-    "\024\014\344\273\267\346\240\274\351\223\276\346\216\245\022*\n\rm_expaddition\030\004 \001(\003B\023\302"
+    "\024\014\344\273\267\346\240\274\351\223\276\346\216\245\022*\n\rm_expAddition\030\004 \001(\003B\023\302"
     "\377\024\017\347\273\217\351\252\214\345\200\274\345\212\240\346\210\220\022X\n\013m_attribute\030\005 \003(\0132"
     "3.proto_ff.E_EncyclopediaBeastprivilegeA"
     "ttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\004\"{\n Sheet_En"
@@ -965,26 +965,26 @@ void protobuf_AddDesc_E_5fEncyclopedia_2eproto() {
     "cyclopediaEmployLviattributeDesc\022\030\n\007m_va"
     "lue\030\001 \001(\003B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006"
     "\347\261\273\345\236\213\"\336\003\n\024E_EncyclopediaEmploy\022 \n\nm_emp"
-    "loyid\030\001 \001(\003B\014\302\377\024\010\346\224\266\345\275\225id\022 \n\006m_type\030\002 \001("
-    "\003B\020\302\377\024\014\346\277\200\346\264\273\347\261\273\345\236\213\022\"\n\010m_itemid\030\003 \001(\003B\020\302"
-    "\377\024\014\346\277\200\346\264\273\346\235\241\344\273\266\022*\n\014m_employname\030\004 \001(\tB\024\302"
-    "\377\024\014\346\224\266\345\275\225\345\220\215\347\247\260\220\301\024@\022)\n\017m_employquality\030\005"
-    " \001(\005B\020\302\377\024\014\346\224\266\345\275\225\345\223\201\350\264\250\022&\n\014m_employtype\030\006"
-    " \001(\005B\020\302\377\024\014\346\224\266\345\275\225\347\261\273\345\236\213\0225\n\021m_employtype_n"
+    "loyID\030\001 \001(\003B\014\302\377\024\010\346\224\266\345\275\225id\022 \n\006m_type\030\002 \001("
+    "\003B\020\302\377\024\014\346\277\200\346\264\273\347\261\273\345\236\213\022\"\n\010m_itemId\030\003 \001(\003B\020\302"
+    "\377\024\014\346\277\200\346\264\273\346\235\241\344\273\266\022*\n\014m_employName\030\004 \001(\tB\024\302"
+    "\377\024\014\346\224\266\345\275\225\345\220\215\347\247\260\220\301\024@\022)\n\017m_employQuality\030\005"
+    " \001(\005B\020\302\377\024\014\346\224\266\345\275\225\345\223\201\350\264\250\022&\n\014m_employType\030\006"
+    " \001(\005B\020\302\377\024\014\346\224\266\345\275\225\347\261\273\345\236\213\0225\n\021m_employType_n"
     "ame\030\007 \001(\tB\032\302\377\024\022\346\224\266\345\275\225\347\261\273\345\236\213\345\220\215\347\247\260\220\301\024@\022 \n"
-    "\tm_employz\030\010 \001(\005B\r\302\377\024\t\346\224\266\345\275\225\347\273\204\022.\n\rm_emp"
-    "loyzname\030\t \001(\tB\027\302\377\024\017\346\224\266\345\275\225\347\273\204\345\220\215\347\247\260\220\301\024@\022"
-    "V\n\016m_lviattribute\030\n \003(\0132..proto_ff.E_Enc"
+    "\tm_employZ\030\010 \001(\005B\r\302\377\024\t\346\224\266\345\275\225\347\273\204\022.\n\rm_emp"
+    "loyZName\030\t \001(\tB\027\302\377\024\017\346\224\266\345\275\225\347\273\204\345\220\215\347\247\260\220\301\024@\022"
+    "V\n\016m_LvIattribute\030\n \003(\0132..proto_ff.E_Enc"
     "yclopediaEmployLviattributeDescB\016\302\377\024\006\345\261\236"
     "\346\200\247\210\301\024\004\"d\n\030Sheet_EncyclopediaEmploy\022H\n\031E"
     "_EncyclopediaEmploy_List\030\001 \003(\0132\036.proto_f"
     "f.E_EncyclopediaEmployB\005\210\301\024\200\001\"[\n#E_Encyc"
     "lopediaTableLviattributeDesc\022\030\n\007m_value\030"
     "\001 \001(\003B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006\347\261\273\345"
-    "\236\213\"\324\001\n\023E_EncyclopediaTable\022\024\n\004m_id\030\001 \001(\003"
+    "\236\213\"\324\001\n\023E_EncyclopediaTable\022\024\n\004m_ID\030\001 \001(\003"
     "B\006\302\377\024\002id\022\"\n\tm_tableid\030\002 \001(\003B\017\302\377\024\013\345\244\251\346\234\272\350"
-    "\260\261id\022,\n\013m_tablename\030\003 \001(\tB\027\302\377\024\017\345\244\251\346\234\272\350\260\261"
-    "\345\220\215\347\247\260\220\301\024@\022U\n\016m_lviattribute\030\004 \003(\0132-.pro"
+    "\260\261id\022,\n\013m_tableName\030\003 \001(\tB\027\302\377\024\017\345\244\251\346\234\272\350\260\261"
+    "\345\220\215\347\247\260\220\301\024@\022U\n\016m_LvIattribute\030\004 \003(\0132-.pro"
     "to_ff.E_EncyclopediaTableLviattributeDes"
     "cB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\004\"`\n\027Sheet_EncyclopediaT"
     "able\022E\n\030E_EncyclopediaTable_List\030\001 \003(\0132\035"
@@ -1566,22 +1566,22 @@ void E_EncyclopediaHandbookStariattributeDesc::Swap(E_EncyclopediaHandbookStaria
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_EncyclopediaHandbook::kMHandbookidFieldNumber;
-const int E_EncyclopediaHandbook::kMItemidFieldNumber;
-const int E_EncyclopediaHandbook::kMHandbooknameFieldNumber;
-const int E_EncyclopediaHandbook::kMHandbookqualityFieldNumber;
-const int E_EncyclopediaHandbook::kMHandbooktypeFieldNumber;
-const int E_EncyclopediaHandbook::kMHandbooktypeNameFieldNumber;
-const int E_EncyclopediaHandbook::kMHandzFieldNumber;
-const int E_EncyclopediaHandbook::kMHandznameFieldNumber;
-const int E_EncyclopediaHandbook::kMHandbooklvFieldNumber;
-const int E_EncyclopediaHandbook::kMLvidFieldNumber;
-const int E_EncyclopediaHandbook::kMLvnumFieldNumber;
-const int E_EncyclopediaHandbook::kMStaridFieldNumber;
-const int E_EncyclopediaHandbook::kMStarnumFieldNumber;
-const int E_EncyclopediaHandbook::kMLviattributeFieldNumber;
-const int E_EncyclopediaHandbook::kMAwakeskillFieldNumber;
-const int E_EncyclopediaHandbook::kMStariattributeFieldNumber;
+const int E_EncyclopediaHandbook::kMHandbookIDFieldNumber;
+const int E_EncyclopediaHandbook::kMItemIdFieldNumber;
+const int E_EncyclopediaHandbook::kMHandbookNameFieldNumber;
+const int E_EncyclopediaHandbook::kMHandbookQualityFieldNumber;
+const int E_EncyclopediaHandbook::kMHandbookTypeFieldNumber;
+const int E_EncyclopediaHandbook::kMHandbookTypeNameFieldNumber;
+const int E_EncyclopediaHandbook::kMHandZFieldNumber;
+const int E_EncyclopediaHandbook::kMHandZNameFieldNumber;
+const int E_EncyclopediaHandbook::kMHandbookLvFieldNumber;
+const int E_EncyclopediaHandbook::kMLvIdFieldNumber;
+const int E_EncyclopediaHandbook::kMLvNumFieldNumber;
+const int E_EncyclopediaHandbook::kMStarIdFieldNumber;
+const int E_EncyclopediaHandbook::kMStarNumFieldNumber;
+const int E_EncyclopediaHandbook::kMLvIattributeFieldNumber;
+const int E_EncyclopediaHandbook::kMAwakeSkillFieldNumber;
+const int E_EncyclopediaHandbook::kMStarIattributeFieldNumber;
 #endif  // !_MSC_VER
 
 E_EncyclopediaHandbook::E_EncyclopediaHandbook()
@@ -1712,7 +1712,7 @@ bool E_EncyclopediaHandbook::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 m_handbookid = 1;
+      // optional int64 m_handbookID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -1723,15 +1723,15 @@ bool E_EncyclopediaHandbook::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_itemid;
+        if (input->ExpectTag(16)) goto parse_m_itemId;
         break;
       }
 
-      // optional int64 m_itemid = 2;
+      // optional int64 m_itemId = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemid:
+         parse_m_itemId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_itemid_)));
@@ -1739,15 +1739,15 @@ bool E_EncyclopediaHandbook::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_m_handbookname;
+        if (input->ExpectTag(26)) goto parse_m_handbookName;
         break;
       }
 
-      // optional string m_handbookname = 3;
+      // optional string m_handbookName = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_handbookname:
+         parse_m_handbookName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_handbookname()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1756,15 +1756,15 @@ bool E_EncyclopediaHandbook::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_handbookquality;
+        if (input->ExpectTag(32)) goto parse_m_handbookQuality;
         break;
       }
 
-      // optional int32 m_handbookquality = 4;
+      // optional int32 m_handbookQuality = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_handbookquality:
+         parse_m_handbookQuality:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_handbookquality_)));
@@ -1772,15 +1772,15 @@ bool E_EncyclopediaHandbook::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_handbooktype;
+        if (input->ExpectTag(40)) goto parse_m_handbookType;
         break;
       }
 
-      // optional int32 m_handbooktype = 5;
+      // optional int32 m_handbookType = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_handbooktype:
+         parse_m_handbookType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_handbooktype_)));
@@ -1788,15 +1788,15 @@ bool E_EncyclopediaHandbook::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(50)) goto parse_m_handbooktype_name;
+        if (input->ExpectTag(50)) goto parse_m_handbookType_name;
         break;
       }
 
-      // optional string m_handbooktype_name = 6;
+      // optional string m_handbookType_name = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_handbooktype_name:
+         parse_m_handbookType_name:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_handbooktype_name()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1805,15 +1805,15 @@ bool E_EncyclopediaHandbook::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_handz;
+        if (input->ExpectTag(56)) goto parse_m_handZ;
         break;
       }
 
-      // optional int32 m_handz = 7;
+      // optional int32 m_handZ = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_handz:
+         parse_m_handZ:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_handz_)));
@@ -1821,15 +1821,15 @@ bool E_EncyclopediaHandbook::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(66)) goto parse_m_handzname;
+        if (input->ExpectTag(66)) goto parse_m_handZName;
         break;
       }
 
-      // optional string m_handzname = 8;
+      // optional string m_handZName = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_handzname:
+         parse_m_handZName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_handzname()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1838,15 +1838,15 @@ bool E_EncyclopediaHandbook::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_handbooklv;
+        if (input->ExpectTag(72)) goto parse_m_handbookLv;
         break;
       }
 
-      // optional int32 m_handbooklv = 9;
+      // optional int32 m_handbookLv = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_handbooklv:
+         parse_m_handbookLv:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_handbooklv_)));
@@ -1854,15 +1854,15 @@ bool E_EncyclopediaHandbook::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_lvid;
+        if (input->ExpectTag(80)) goto parse_m_LvId;
         break;
       }
 
-      // optional int64 m_lvid = 10;
+      // optional int64 m_LvId = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_lvid:
+         parse_m_LvId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_lvid_)));
@@ -1870,15 +1870,15 @@ bool E_EncyclopediaHandbook::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(90)) goto parse_m_lvnum;
+        if (input->ExpectTag(90)) goto parse_m_LvNum;
         break;
       }
 
-      // optional string m_lvnum = 11;
+      // optional string m_LvNum = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_lvnum:
+         parse_m_LvNum:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_lvnum()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1887,15 +1887,15 @@ bool E_EncyclopediaHandbook::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_starid;
+        if (input->ExpectTag(96)) goto parse_m_starId;
         break;
       }
 
-      // optional int64 m_starid = 12;
+      // optional int64 m_starId = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_starid:
+         parse_m_starId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_starid_)));
@@ -1903,15 +1903,15 @@ bool E_EncyclopediaHandbook::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(106)) goto parse_m_starnum;
+        if (input->ExpectTag(106)) goto parse_m_starNum;
         break;
       }
 
-      // optional string m_starnum = 13;
+      // optional string m_starNum = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_starnum:
+         parse_m_starNum:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_starnum()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -1920,30 +1920,30 @@ bool E_EncyclopediaHandbook::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(114)) goto parse_m_lviattribute;
+        if (input->ExpectTag(114)) goto parse_m_LvIattribute;
         break;
       }
 
-      // repeated .proto_ff.E_EncyclopediaHandbookLviattributeDesc m_lviattribute = 14;
+      // repeated .proto_ff.E_EncyclopediaHandbookLviattributeDesc m_LvIattribute = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_lviattribute:
+         parse_m_LvIattribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_lviattribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(114)) goto parse_m_lviattribute;
-        if (input->ExpectTag(120)) goto parse_m_awakeskill;
+        if (input->ExpectTag(114)) goto parse_m_LvIattribute;
+        if (input->ExpectTag(120)) goto parse_m_awakeSkill;
         break;
       }
 
-      // repeated int32 m_awakeskill = 15;
+      // repeated int32 m_awakeSkill = 15;
       case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_awakeskill:
+         parse_m_awakeSkill:
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  1, 120, input, this->mutable_m_awakeskill())));
@@ -1956,22 +1956,22 @@ bool E_EncyclopediaHandbook::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(120)) goto parse_m_awakeskill;
-        if (input->ExpectTag(130)) goto parse_m_stariattribute;
+        if (input->ExpectTag(120)) goto parse_m_awakeSkill;
+        if (input->ExpectTag(130)) goto parse_m_starIattribute;
         break;
       }
 
-      // repeated .proto_ff.E_EncyclopediaHandbookStariattributeDesc m_stariattribute = 16;
+      // repeated .proto_ff.E_EncyclopediaHandbookStariattributeDesc m_starIattribute = 16;
       case 16: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_stariattribute:
+         parse_m_starIattribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_stariattribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(130)) goto parse_m_stariattribute;
+        if (input->ExpectTag(130)) goto parse_m_starIattribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1994,17 +1994,17 @@ bool E_EncyclopediaHandbook::MergePartialFromCodedStream(
 
 void E_EncyclopediaHandbook::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 m_handbookid = 1;
+  // optional int64 m_handbookID = 1;
   if (has_m_handbookid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_handbookid(), output);
   }
 
-  // optional int64 m_itemid = 2;
+  // optional int64 m_itemId = 2;
   if (has_m_itemid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_itemid(), output);
   }
 
-  // optional string m_handbookname = 3;
+  // optional string m_handbookName = 3;
   if (has_m_handbookname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_handbookname().data(), this->m_handbookname().length(),
@@ -2013,17 +2013,17 @@ void E_EncyclopediaHandbook::SerializeWithCachedSizes(
       3, this->m_handbookname(), output);
   }
 
-  // optional int32 m_handbookquality = 4;
+  // optional int32 m_handbookQuality = 4;
   if (has_m_handbookquality()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_handbookquality(), output);
   }
 
-  // optional int32 m_handbooktype = 5;
+  // optional int32 m_handbookType = 5;
   if (has_m_handbooktype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_handbooktype(), output);
   }
 
-  // optional string m_handbooktype_name = 6;
+  // optional string m_handbookType_name = 6;
   if (has_m_handbooktype_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_handbooktype_name().data(), this->m_handbooktype_name().length(),
@@ -2032,12 +2032,12 @@ void E_EncyclopediaHandbook::SerializeWithCachedSizes(
       6, this->m_handbooktype_name(), output);
   }
 
-  // optional int32 m_handz = 7;
+  // optional int32 m_handZ = 7;
   if (has_m_handz()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_handz(), output);
   }
 
-  // optional string m_handzname = 8;
+  // optional string m_handZName = 8;
   if (has_m_handzname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_handzname().data(), this->m_handzname().length(),
@@ -2046,17 +2046,17 @@ void E_EncyclopediaHandbook::SerializeWithCachedSizes(
       8, this->m_handzname(), output);
   }
 
-  // optional int32 m_handbooklv = 9;
+  // optional int32 m_handbookLv = 9;
   if (has_m_handbooklv()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_handbooklv(), output);
   }
 
-  // optional int64 m_lvid = 10;
+  // optional int64 m_LvId = 10;
   if (has_m_lvid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(10, this->m_lvid(), output);
   }
 
-  // optional string m_lvnum = 11;
+  // optional string m_LvNum = 11;
   if (has_m_lvnum()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_lvnum().data(), this->m_lvnum().length(),
@@ -2065,12 +2065,12 @@ void E_EncyclopediaHandbook::SerializeWithCachedSizes(
       11, this->m_lvnum(), output);
   }
 
-  // optional int64 m_starid = 12;
+  // optional int64 m_starId = 12;
   if (has_m_starid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(12, this->m_starid(), output);
   }
 
-  // optional string m_starnum = 13;
+  // optional string m_starNum = 13;
   if (has_m_starnum()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_starnum().data(), this->m_starnum().length(),
@@ -2079,19 +2079,19 @@ void E_EncyclopediaHandbook::SerializeWithCachedSizes(
       13, this->m_starnum(), output);
   }
 
-  // repeated .proto_ff.E_EncyclopediaHandbookLviattributeDesc m_lviattribute = 14;
+  // repeated .proto_ff.E_EncyclopediaHandbookLviattributeDesc m_LvIattribute = 14;
   for (int i = 0; i < this->m_lviattribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       14, this->m_lviattribute(i), output);
   }
 
-  // repeated int32 m_awakeskill = 15;
+  // repeated int32 m_awakeSkill = 15;
   for (int i = 0; i < this->m_awakeskill_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(
       15, this->m_awakeskill(i), output);
   }
 
-  // repeated .proto_ff.E_EncyclopediaHandbookStariattributeDesc m_stariattribute = 16;
+  // repeated .proto_ff.E_EncyclopediaHandbookStariattributeDesc m_starIattribute = 16;
   for (int i = 0; i < this->m_stariattribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       16, this->m_stariattribute(i), output);
@@ -2105,17 +2105,17 @@ void E_EncyclopediaHandbook::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_EncyclopediaHandbook::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 m_handbookid = 1;
+  // optional int64 m_handbookID = 1;
   if (has_m_handbookid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_handbookid(), target);
   }
 
-  // optional int64 m_itemid = 2;
+  // optional int64 m_itemId = 2;
   if (has_m_itemid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_itemid(), target);
   }
 
-  // optional string m_handbookname = 3;
+  // optional string m_handbookName = 3;
   if (has_m_handbookname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_handbookname().data(), this->m_handbookname().length(),
@@ -2125,17 +2125,17 @@ void E_EncyclopediaHandbook::SerializeWithCachedSizes(
         3, this->m_handbookname(), target);
   }
 
-  // optional int32 m_handbookquality = 4;
+  // optional int32 m_handbookQuality = 4;
   if (has_m_handbookquality()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_handbookquality(), target);
   }
 
-  // optional int32 m_handbooktype = 5;
+  // optional int32 m_handbookType = 5;
   if (has_m_handbooktype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_handbooktype(), target);
   }
 
-  // optional string m_handbooktype_name = 6;
+  // optional string m_handbookType_name = 6;
   if (has_m_handbooktype_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_handbooktype_name().data(), this->m_handbooktype_name().length(),
@@ -2145,12 +2145,12 @@ void E_EncyclopediaHandbook::SerializeWithCachedSizes(
         6, this->m_handbooktype_name(), target);
   }
 
-  // optional int32 m_handz = 7;
+  // optional int32 m_handZ = 7;
   if (has_m_handz()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_handz(), target);
   }
 
-  // optional string m_handzname = 8;
+  // optional string m_handZName = 8;
   if (has_m_handzname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_handzname().data(), this->m_handzname().length(),
@@ -2160,17 +2160,17 @@ void E_EncyclopediaHandbook::SerializeWithCachedSizes(
         8, this->m_handzname(), target);
   }
 
-  // optional int32 m_handbooklv = 9;
+  // optional int32 m_handbookLv = 9;
   if (has_m_handbooklv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_handbooklv(), target);
   }
 
-  // optional int64 m_lvid = 10;
+  // optional int64 m_LvId = 10;
   if (has_m_lvid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(10, this->m_lvid(), target);
   }
 
-  // optional string m_lvnum = 11;
+  // optional string m_LvNum = 11;
   if (has_m_lvnum()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_lvnum().data(), this->m_lvnum().length(),
@@ -2180,12 +2180,12 @@ void E_EncyclopediaHandbook::SerializeWithCachedSizes(
         11, this->m_lvnum(), target);
   }
 
-  // optional int64 m_starid = 12;
+  // optional int64 m_starId = 12;
   if (has_m_starid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(12, this->m_starid(), target);
   }
 
-  // optional string m_starnum = 13;
+  // optional string m_starNum = 13;
   if (has_m_starnum()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_starnum().data(), this->m_starnum().length(),
@@ -2195,20 +2195,20 @@ void E_EncyclopediaHandbook::SerializeWithCachedSizes(
         13, this->m_starnum(), target);
   }
 
-  // repeated .proto_ff.E_EncyclopediaHandbookLviattributeDesc m_lviattribute = 14;
+  // repeated .proto_ff.E_EncyclopediaHandbookLviattributeDesc m_LvIattribute = 14;
   for (int i = 0; i < this->m_lviattribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         14, this->m_lviattribute(i), target);
   }
 
-  // repeated int32 m_awakeskill = 15;
+  // repeated int32 m_awakeSkill = 15;
   for (int i = 0; i < this->m_awakeskill_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteInt32ToArray(15, this->m_awakeskill(i), target);
   }
 
-  // repeated .proto_ff.E_EncyclopediaHandbookStariattributeDesc m_stariattribute = 16;
+  // repeated .proto_ff.E_EncyclopediaHandbookStariattributeDesc m_starIattribute = 16;
   for (int i = 0; i < this->m_stariattribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -2226,56 +2226,56 @@ int E_EncyclopediaHandbook::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 m_handbookid = 1;
+    // optional int64 m_handbookID = 1;
     if (has_m_handbookid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_handbookid());
     }
 
-    // optional int64 m_itemid = 2;
+    // optional int64 m_itemId = 2;
     if (has_m_itemid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_itemid());
     }
 
-    // optional string m_handbookname = 3;
+    // optional string m_handbookName = 3;
     if (has_m_handbookname()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_handbookname());
     }
 
-    // optional int32 m_handbookquality = 4;
+    // optional int32 m_handbookQuality = 4;
     if (has_m_handbookquality()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_handbookquality());
     }
 
-    // optional int32 m_handbooktype = 5;
+    // optional int32 m_handbookType = 5;
     if (has_m_handbooktype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_handbooktype());
     }
 
-    // optional string m_handbooktype_name = 6;
+    // optional string m_handbookType_name = 6;
     if (has_m_handbooktype_name()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_handbooktype_name());
     }
 
-    // optional int32 m_handz = 7;
+    // optional int32 m_handZ = 7;
     if (has_m_handz()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_handz());
     }
 
-    // optional string m_handzname = 8;
+    // optional string m_handZName = 8;
     if (has_m_handzname()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -2284,35 +2284,35 @@ int E_EncyclopediaHandbook::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_handbooklv = 9;
+    // optional int32 m_handbookLv = 9;
     if (has_m_handbooklv()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_handbooklv());
     }
 
-    // optional int64 m_lvid = 10;
+    // optional int64 m_LvId = 10;
     if (has_m_lvid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_lvid());
     }
 
-    // optional string m_lvnum = 11;
+    // optional string m_LvNum = 11;
     if (has_m_lvnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_lvnum());
     }
 
-    // optional int64 m_starid = 12;
+    // optional int64 m_starId = 12;
     if (has_m_starid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_starid());
     }
 
-    // optional string m_starnum = 13;
+    // optional string m_starNum = 13;
     if (has_m_starnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -2320,7 +2320,7 @@ int E_EncyclopediaHandbook::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.E_EncyclopediaHandbookLviattributeDesc m_lviattribute = 14;
+  // repeated .proto_ff.E_EncyclopediaHandbookLviattributeDesc m_LvIattribute = 14;
   total_size += 1 * this->m_lviattribute_size();
   for (int i = 0; i < this->m_lviattribute_size(); i++) {
     total_size +=
@@ -2328,7 +2328,7 @@ int E_EncyclopediaHandbook::ByteSize() const {
         this->m_lviattribute(i));
   }
 
-  // repeated int32 m_awakeskill = 15;
+  // repeated int32 m_awakeSkill = 15;
   {
     int data_size = 0;
     for (int i = 0; i < this->m_awakeskill_size(); i++) {
@@ -2338,7 +2338,7 @@ int E_EncyclopediaHandbook::ByteSize() const {
     total_size += 1 * this->m_awakeskill_size() + data_size;
   }
 
-  // repeated .proto_ff.E_EncyclopediaHandbookStariattributeDesc m_stariattribute = 16;
+  // repeated .proto_ff.E_EncyclopediaHandbookStariattributeDesc m_starIattribute = 16;
   total_size += 2 * this->m_stariattribute_size();
   for (int i = 0; i < this->m_stariattribute_size(); i++) {
     total_size +=
@@ -2924,10 +2924,10 @@ void E_EncyclopediaHandbookfateAttributeDesc::Swap(E_EncyclopediaHandbookfateAtt
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_EncyclopediaHandbookfate::kMFateidFieldNumber;
-const int E_EncyclopediaHandbookfate::kMFatenameFieldNumber;
-const int E_EncyclopediaHandbookfate::kMFatequalityFieldNumber;
-const int E_EncyclopediaHandbookfate::kMFatehandFieldNumber;
+const int E_EncyclopediaHandbookfate::kMFateIDFieldNumber;
+const int E_EncyclopediaHandbookfate::kMFateNameFieldNumber;
+const int E_EncyclopediaHandbookfate::kMFateQualityFieldNumber;
+const int E_EncyclopediaHandbookfate::kMFateHandFieldNumber;
 const int E_EncyclopediaHandbookfate::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -3008,7 +3008,7 @@ bool E_EncyclopediaHandbookfate::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 m_fateid = 1;
+      // optional int64 m_fateID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -3019,15 +3019,15 @@ bool E_EncyclopediaHandbookfate::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_m_fatename;
+        if (input->ExpectTag(18)) goto parse_m_fateName;
         break;
       }
 
-      // optional string m_fatename = 2;
+      // optional string m_fateName = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_fatename:
+         parse_m_fateName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_fatename()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -3036,15 +3036,15 @@ bool E_EncyclopediaHandbookfate::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_fatequality;
+        if (input->ExpectTag(24)) goto parse_m_fateQuality;
         break;
       }
 
-      // optional int32 m_fatequality = 3;
+      // optional int32 m_fateQuality = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_fatequality:
+         parse_m_fateQuality:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_fatequality_)));
@@ -3052,15 +3052,15 @@ bool E_EncyclopediaHandbookfate::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_fatehand;
+        if (input->ExpectTag(32)) goto parse_m_fateHand;
         break;
       }
 
-      // repeated int64 m_fatehand = 4;
+      // repeated int64 m_fateHand = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_fatehand:
+         parse_m_fateHand:
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  1, 32, input, this->mutable_m_fatehand())));
@@ -3073,7 +3073,7 @@ bool E_EncyclopediaHandbookfate::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_fatehand;
+        if (input->ExpectTag(32)) goto parse_m_fateHand;
         if (input->ExpectTag(42)) goto parse_m_attribute;
         break;
       }
@@ -3111,12 +3111,12 @@ bool E_EncyclopediaHandbookfate::MergePartialFromCodedStream(
 
 void E_EncyclopediaHandbookfate::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 m_fateid = 1;
+  // optional int64 m_fateID = 1;
   if (has_m_fateid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_fateid(), output);
   }
 
-  // optional string m_fatename = 2;
+  // optional string m_fateName = 2;
   if (has_m_fatename()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_fatename().data(), this->m_fatename().length(),
@@ -3125,12 +3125,12 @@ void E_EncyclopediaHandbookfate::SerializeWithCachedSizes(
       2, this->m_fatename(), output);
   }
 
-  // optional int32 m_fatequality = 3;
+  // optional int32 m_fateQuality = 3;
   if (has_m_fatequality()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_fatequality(), output);
   }
 
-  // repeated int64 m_fatehand = 4;
+  // repeated int64 m_fateHand = 4;
   for (int i = 0; i < this->m_fatehand_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(
       4, this->m_fatehand(i), output);
@@ -3150,12 +3150,12 @@ void E_EncyclopediaHandbookfate::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_EncyclopediaHandbookfate::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 m_fateid = 1;
+  // optional int64 m_fateID = 1;
   if (has_m_fateid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_fateid(), target);
   }
 
-  // optional string m_fatename = 2;
+  // optional string m_fateName = 2;
   if (has_m_fatename()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_fatename().data(), this->m_fatename().length(),
@@ -3165,12 +3165,12 @@ void E_EncyclopediaHandbookfate::SerializeWithCachedSizes(
         2, this->m_fatename(), target);
   }
 
-  // optional int32 m_fatequality = 3;
+  // optional int32 m_fateQuality = 3;
   if (has_m_fatequality()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_fatequality(), target);
   }
 
-  // repeated int64 m_fatehand = 4;
+  // repeated int64 m_fateHand = 4;
   for (int i = 0; i < this->m_fatehand_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteInt64ToArray(4, this->m_fatehand(i), target);
@@ -3194,21 +3194,21 @@ int E_EncyclopediaHandbookfate::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 m_fateid = 1;
+    // optional int64 m_fateID = 1;
     if (has_m_fateid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_fateid());
     }
 
-    // optional string m_fatename = 2;
+    // optional string m_fateName = 2;
     if (has_m_fatename()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_fatename());
     }
 
-    // optional int32 m_fatequality = 3;
+    // optional int32 m_fateQuality = 3;
     if (has_m_fatequality()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3216,7 +3216,7 @@ int E_EncyclopediaHandbookfate::ByteSize() const {
     }
 
   }
-  // repeated int64 m_fatehand = 4;
+  // repeated int64 m_fateHand = 4;
   {
     int data_size = 0;
     for (int i = 0; i < this->m_fatehand_size(); i++) {
@@ -3520,9 +3520,9 @@ void Sheet_EncyclopediaHandbookfate::Swap(Sheet_EncyclopediaHandbookfate* other)
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_EncyclopediaHandbookresolve::kMHandbookqualityFieldNumber;
-const int E_EncyclopediaHandbookresolve::kMResolveitemFieldNumber;
-const int E_EncyclopediaHandbookresolve::kMResolvenumFieldNumber;
+const int E_EncyclopediaHandbookresolve::kMHandbookQualityFieldNumber;
+const int E_EncyclopediaHandbookresolve::kMResolveItemFieldNumber;
+const int E_EncyclopediaHandbookresolve::kMResolveNumFieldNumber;
 #endif  // !_MSC_VER
 
 E_EncyclopediaHandbookresolve::E_EncyclopediaHandbookresolve()
@@ -3593,7 +3593,7 @@ bool E_EncyclopediaHandbookresolve::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_handbookquality = 1;
+      // optional int32 m_handbookQuality = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -3604,15 +3604,15 @@ bool E_EncyclopediaHandbookresolve::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_resolveitem;
+        if (input->ExpectTag(16)) goto parse_m_resolveItem;
         break;
       }
 
-      // optional int32 m_resolveitem = 2;
+      // optional int32 m_resolveItem = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_resolveitem:
+         parse_m_resolveItem:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_resolveitem_)));
@@ -3620,15 +3620,15 @@ bool E_EncyclopediaHandbookresolve::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_resolvenum;
+        if (input->ExpectTag(24)) goto parse_m_resolveNum;
         break;
       }
 
-      // optional int32 m_resolvenum = 3;
+      // optional int32 m_resolveNum = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_resolvenum:
+         parse_m_resolveNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_resolvenum_)));
@@ -3658,17 +3658,17 @@ bool E_EncyclopediaHandbookresolve::MergePartialFromCodedStream(
 
 void E_EncyclopediaHandbookresolve::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_handbookquality = 1;
+  // optional int32 m_handbookQuality = 1;
   if (has_m_handbookquality()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_handbookquality(), output);
   }
 
-  // optional int32 m_resolveitem = 2;
+  // optional int32 m_resolveItem = 2;
   if (has_m_resolveitem()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_resolveitem(), output);
   }
 
-  // optional int32 m_resolvenum = 3;
+  // optional int32 m_resolveNum = 3;
   if (has_m_resolvenum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_resolvenum(), output);
   }
@@ -3681,17 +3681,17 @@ void E_EncyclopediaHandbookresolve::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_EncyclopediaHandbookresolve::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_handbookquality = 1;
+  // optional int32 m_handbookQuality = 1;
   if (has_m_handbookquality()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_handbookquality(), target);
   }
 
-  // optional int32 m_resolveitem = 2;
+  // optional int32 m_resolveItem = 2;
   if (has_m_resolveitem()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_resolveitem(), target);
   }
 
-  // optional int32 m_resolvenum = 3;
+  // optional int32 m_resolveNum = 3;
   if (has_m_resolvenum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_resolvenum(), target);
   }
@@ -3707,21 +3707,21 @@ int E_EncyclopediaHandbookresolve::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_handbookquality = 1;
+    // optional int32 m_handbookQuality = 1;
     if (has_m_handbookquality()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_handbookquality());
     }
 
-    // optional int32 m_resolveitem = 2;
+    // optional int32 m_resolveItem = 2;
     if (has_m_resolveitem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_resolveitem());
     }
 
-    // optional int32 m_resolvenum = 3;
+    // optional int32 m_resolveNum = 3;
     if (has_m_resolvenum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4011,7 +4011,7 @@ void Sheet_EncyclopediaHandbookresolve::Swap(Sheet_EncyclopediaHandbookresolve* 
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_EncyclopediaHandbooklv_attr::kMAttidFieldNumber;
+const int E_EncyclopediaHandbooklv_attr::kMAttIDFieldNumber;
 const int E_EncyclopediaHandbooklv_attr::kMAttFieldNumber;
 #endif  // !_MSC_VER
 
@@ -4080,7 +4080,7 @@ bool E_EncyclopediaHandbooklv_attr::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 m_attid = 1;
+      // optional int64 m_attID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -4135,7 +4135,7 @@ bool E_EncyclopediaHandbooklv_attr::MergePartialFromCodedStream(
 
 void E_EncyclopediaHandbooklv_attr::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 m_attid = 1;
+  // optional int64 m_attID = 1;
   if (has_m_attid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_attid(), output);
   }
@@ -4154,7 +4154,7 @@ void E_EncyclopediaHandbooklv_attr::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_EncyclopediaHandbooklv_attr::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 m_attid = 1;
+  // optional int64 m_attID = 1;
   if (has_m_attid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_attid(), target);
   }
@@ -4176,7 +4176,7 @@ int E_EncyclopediaHandbooklv_attr::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 m_attid = 1;
+    // optional int64 m_attID = 1;
     if (has_m_attid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -4470,7 +4470,7 @@ void Sheet_EncyclopediaHandbooklv_attr::Swap(Sheet_EncyclopediaHandbooklv_attr* 
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_EncyclopediaHandbookstar_attr::kMAttidFieldNumber;
+const int E_EncyclopediaHandbookstar_attr::kMAttIDFieldNumber;
 const int E_EncyclopediaHandbookstar_attr::kMAttFieldNumber;
 #endif  // !_MSC_VER
 
@@ -4539,7 +4539,7 @@ bool E_EncyclopediaHandbookstar_attr::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 m_attid = 1;
+      // optional int64 m_attID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -4594,7 +4594,7 @@ bool E_EncyclopediaHandbookstar_attr::MergePartialFromCodedStream(
 
 void E_EncyclopediaHandbookstar_attr::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 m_attid = 1;
+  // optional int64 m_attID = 1;
   if (has_m_attid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_attid(), output);
   }
@@ -4613,7 +4613,7 @@ void E_EncyclopediaHandbookstar_attr::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_EncyclopediaHandbookstar_attr::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 m_attid = 1;
+  // optional int64 m_attID = 1;
   if (has_m_attid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_attid(), target);
   }
@@ -4635,7 +4635,7 @@ int E_EncyclopediaHandbookstar_attr::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 m_attid = 1;
+    // optional int64 m_attID = 1;
     if (has_m_attid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -6282,10 +6282,10 @@ const int E_EncyclopediaEquipexpvalue::kMTypeFieldNumber;
 const int E_EncyclopediaEquipexpvalue::kMNameFieldNumber;
 const int E_EncyclopediaEquipexpvalue::kMExpFieldNumber;
 const int E_EncyclopediaEquipexpvalue::kMLinkFieldNumber;
-const int E_EncyclopediaEquipexpvalue::kMGoldattallFieldNumber;
-const int E_EncyclopediaEquipexpvalue::kMGoldattFieldNumber;
-const int E_EncyclopediaEquipexpvalue::kMBeaststarFieldNumber;
-const int E_EncyclopediaEquipexpvalue::kMGoldstarFieldNumber;
+const int E_EncyclopediaEquipexpvalue::kMGoldAttAllFieldNumber;
+const int E_EncyclopediaEquipexpvalue::kMGoldAttFieldNumber;
+const int E_EncyclopediaEquipexpvalue::kMBeastStarFieldNumber;
+const int E_EncyclopediaEquipexpvalue::kMGoldStarFieldNumber;
 #endif  // !_MSC_VER
 
 E_EncyclopediaEquipexpvalue::E_EncyclopediaEquipexpvalue()
@@ -6449,15 +6449,15 @@ bool E_EncyclopediaEquipexpvalue::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_goldattall;
+        if (input->ExpectTag(48)) goto parse_m_goldAttAll;
         break;
       }
 
-      // optional int32 m_goldattall = 6;
+      // optional int32 m_goldAttAll = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_goldattall:
+         parse_m_goldAttAll:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_goldattall_)));
@@ -6465,15 +6465,15 @@ bool E_EncyclopediaEquipexpvalue::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_goldatt;
+        if (input->ExpectTag(56)) goto parse_m_goldAtt;
         break;
       }
 
-      // optional int32 m_goldatt = 7;
+      // optional int32 m_goldAtt = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_goldatt:
+         parse_m_goldAtt:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_goldatt_)));
@@ -6481,36 +6481,36 @@ bool E_EncyclopediaEquipexpvalue::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(66)) goto parse_m_beaststar;
+        if (input->ExpectTag(66)) goto parse_m_beastStar;
         break;
       }
 
-      // repeated .proto_ff.E_EncyclopediaEquipexpvalueBeaststarDesc m_beaststar = 8;
+      // repeated .proto_ff.E_EncyclopediaEquipexpvalueBeaststarDesc m_beastStar = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_beaststar:
+         parse_m_beastStar:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_beaststar()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(66)) goto parse_m_beaststar;
-        if (input->ExpectTag(74)) goto parse_m_goldstar;
+        if (input->ExpectTag(66)) goto parse_m_beastStar;
+        if (input->ExpectTag(74)) goto parse_m_goldStar;
         break;
       }
 
-      // repeated .proto_ff.E_EncyclopediaEquipexpvalueGoldstarDesc m_goldstar = 9;
+      // repeated .proto_ff.E_EncyclopediaEquipexpvalueGoldstarDesc m_goldStar = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_goldstar:
+         parse_m_goldStar:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_goldstar()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(74)) goto parse_m_goldstar;
+        if (input->ExpectTag(74)) goto parse_m_goldStar;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -6562,23 +6562,23 @@ void E_EncyclopediaEquipexpvalue::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(5, this->m_link(), output);
   }
 
-  // optional int32 m_goldattall = 6;
+  // optional int32 m_goldAttAll = 6;
   if (has_m_goldattall()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_goldattall(), output);
   }
 
-  // optional int32 m_goldatt = 7;
+  // optional int32 m_goldAtt = 7;
   if (has_m_goldatt()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_goldatt(), output);
   }
 
-  // repeated .proto_ff.E_EncyclopediaEquipexpvalueBeaststarDesc m_beaststar = 8;
+  // repeated .proto_ff.E_EncyclopediaEquipexpvalueBeaststarDesc m_beastStar = 8;
   for (int i = 0; i < this->m_beaststar_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       8, this->m_beaststar(i), output);
   }
 
-  // repeated .proto_ff.E_EncyclopediaEquipexpvalueGoldstarDesc m_goldstar = 9;
+  // repeated .proto_ff.E_EncyclopediaEquipexpvalueGoldstarDesc m_goldStar = 9;
   for (int i = 0; i < this->m_goldstar_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       9, this->m_goldstar(i), output);
@@ -6622,24 +6622,24 @@ void E_EncyclopediaEquipexpvalue::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(5, this->m_link(), target);
   }
 
-  // optional int32 m_goldattall = 6;
+  // optional int32 m_goldAttAll = 6;
   if (has_m_goldattall()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_goldattall(), target);
   }
 
-  // optional int32 m_goldatt = 7;
+  // optional int32 m_goldAtt = 7;
   if (has_m_goldatt()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_goldatt(), target);
   }
 
-  // repeated .proto_ff.E_EncyclopediaEquipexpvalueBeaststarDesc m_beaststar = 8;
+  // repeated .proto_ff.E_EncyclopediaEquipexpvalueBeaststarDesc m_beastStar = 8;
   for (int i = 0; i < this->m_beaststar_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         8, this->m_beaststar(i), target);
   }
 
-  // repeated .proto_ff.E_EncyclopediaEquipexpvalueGoldstarDesc m_goldstar = 9;
+  // repeated .proto_ff.E_EncyclopediaEquipexpvalueGoldstarDesc m_goldStar = 9;
   for (int i = 0; i < this->m_goldstar_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -6692,14 +6692,14 @@ int E_EncyclopediaEquipexpvalue::ByteSize() const {
           this->m_link());
     }
 
-    // optional int32 m_goldattall = 6;
+    // optional int32 m_goldAttAll = 6;
     if (has_m_goldattall()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_goldattall());
     }
 
-    // optional int32 m_goldatt = 7;
+    // optional int32 m_goldAtt = 7;
     if (has_m_goldatt()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -6707,7 +6707,7 @@ int E_EncyclopediaEquipexpvalue::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.E_EncyclopediaEquipexpvalueBeaststarDesc m_beaststar = 8;
+  // repeated .proto_ff.E_EncyclopediaEquipexpvalueBeaststarDesc m_beastStar = 8;
   total_size += 1 * this->m_beaststar_size();
   for (int i = 0; i < this->m_beaststar_size(); i++) {
     total_size +=
@@ -6715,7 +6715,7 @@ int E_EncyclopediaEquipexpvalue::ByteSize() const {
         this->m_beaststar(i));
   }
 
-  // repeated .proto_ff.E_EncyclopediaEquipexpvalueGoldstarDesc m_goldstar = 9;
+  // repeated .proto_ff.E_EncyclopediaEquipexpvalueGoldstarDesc m_goldStar = 9;
   total_size += 1 * this->m_goldstar_size();
   for (int i = 0; i < this->m_goldstar_size(); i++) {
     total_size +=
@@ -7804,10 +7804,10 @@ void E_EncyclopediaBeastprivilegeAttributeDesc::Swap(E_EncyclopediaBeastprivileg
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_EncyclopediaBeastprivilege::kMPrivilegetypeFieldNumber;
+const int E_EncyclopediaBeastprivilege::kMPrivilegeTypeFieldNumber;
 const int E_EncyclopediaBeastprivilege::kMNameFieldNumber;
 const int E_EncyclopediaBeastprivilege::kMPriceFieldNumber;
-const int E_EncyclopediaBeastprivilege::kMExpadditionFieldNumber;
+const int E_EncyclopediaBeastprivilege::kMExpAdditionFieldNumber;
 const int E_EncyclopediaBeastprivilege::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -7889,7 +7889,7 @@ bool E_EncyclopediaBeastprivilege::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_privilegetype = 1;
+      // optional int32 m_privilegeType = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -7933,15 +7933,15 @@ bool E_EncyclopediaBeastprivilege::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_expaddition;
+        if (input->ExpectTag(32)) goto parse_m_expAddition;
         break;
       }
 
-      // optional int64 m_expaddition = 4;
+      // optional int64 m_expAddition = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_expaddition:
+         parse_m_expAddition:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_expaddition_)));
@@ -7986,7 +7986,7 @@ bool E_EncyclopediaBeastprivilege::MergePartialFromCodedStream(
 
 void E_EncyclopediaBeastprivilege::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_privilegetype = 1;
+  // optional int32 m_privilegeType = 1;
   if (has_m_privilegetype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_privilegetype(), output);
   }
@@ -8005,7 +8005,7 @@ void E_EncyclopediaBeastprivilege::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_price(), output);
   }
 
-  // optional int64 m_expaddition = 4;
+  // optional int64 m_expAddition = 4;
   if (has_m_expaddition()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->m_expaddition(), output);
   }
@@ -8024,7 +8024,7 @@ void E_EncyclopediaBeastprivilege::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_EncyclopediaBeastprivilege::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_privilegetype = 1;
+  // optional int32 m_privilegeType = 1;
   if (has_m_privilegetype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_privilegetype(), target);
   }
@@ -8044,7 +8044,7 @@ void E_EncyclopediaBeastprivilege::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_price(), target);
   }
 
-  // optional int64 m_expaddition = 4;
+  // optional int64 m_expAddition = 4;
   if (has_m_expaddition()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->m_expaddition(), target);
   }
@@ -8067,7 +8067,7 @@ int E_EncyclopediaBeastprivilege::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_privilegetype = 1;
+    // optional int32 m_privilegeType = 1;
     if (has_m_privilegetype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -8088,7 +8088,7 @@ int E_EncyclopediaBeastprivilege::ByteSize() const {
           this->m_price());
     }
 
-    // optional int64 m_expaddition = 4;
+    // optional int64 m_expAddition = 4;
     if (has_m_expaddition()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -9091,16 +9091,16 @@ void E_EncyclopediaEmployLviattributeDesc::Swap(E_EncyclopediaEmployLviattribute
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_EncyclopediaEmploy::kMEmployidFieldNumber;
+const int E_EncyclopediaEmploy::kMEmployIDFieldNumber;
 const int E_EncyclopediaEmploy::kMTypeFieldNumber;
-const int E_EncyclopediaEmploy::kMItemidFieldNumber;
-const int E_EncyclopediaEmploy::kMEmploynameFieldNumber;
-const int E_EncyclopediaEmploy::kMEmployqualityFieldNumber;
-const int E_EncyclopediaEmploy::kMEmploytypeFieldNumber;
-const int E_EncyclopediaEmploy::kMEmploytypeNameFieldNumber;
-const int E_EncyclopediaEmploy::kMEmployzFieldNumber;
-const int E_EncyclopediaEmploy::kMEmployznameFieldNumber;
-const int E_EncyclopediaEmploy::kMLviattributeFieldNumber;
+const int E_EncyclopediaEmploy::kMItemIdFieldNumber;
+const int E_EncyclopediaEmploy::kMEmployNameFieldNumber;
+const int E_EncyclopediaEmploy::kMEmployQualityFieldNumber;
+const int E_EncyclopediaEmploy::kMEmployTypeFieldNumber;
+const int E_EncyclopediaEmploy::kMEmployTypeNameFieldNumber;
+const int E_EncyclopediaEmploy::kMEmployZFieldNumber;
+const int E_EncyclopediaEmploy::kMEmployZNameFieldNumber;
+const int E_EncyclopediaEmploy::kMLvIattributeFieldNumber;
 #endif  // !_MSC_VER
 
 E_EncyclopediaEmploy::E_EncyclopediaEmploy()
@@ -9207,7 +9207,7 @@ bool E_EncyclopediaEmploy::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 m_employid = 1;
+      // optional int64 m_employID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -9234,15 +9234,15 @@ bool E_EncyclopediaEmploy::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_itemid;
+        if (input->ExpectTag(24)) goto parse_m_itemId;
         break;
       }
 
-      // optional int64 m_itemid = 3;
+      // optional int64 m_itemId = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_itemid:
+         parse_m_itemId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_itemid_)));
@@ -9250,15 +9250,15 @@ bool E_EncyclopediaEmploy::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_employname;
+        if (input->ExpectTag(34)) goto parse_m_employName;
         break;
       }
 
-      // optional string m_employname = 4;
+      // optional string m_employName = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_employname:
+         parse_m_employName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_employname()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -9267,15 +9267,15 @@ bool E_EncyclopediaEmploy::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_employquality;
+        if (input->ExpectTag(40)) goto parse_m_employQuality;
         break;
       }
 
-      // optional int32 m_employquality = 5;
+      // optional int32 m_employQuality = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_employquality:
+         parse_m_employQuality:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_employquality_)));
@@ -9283,15 +9283,15 @@ bool E_EncyclopediaEmploy::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_employtype;
+        if (input->ExpectTag(48)) goto parse_m_employType;
         break;
       }
 
-      // optional int32 m_employtype = 6;
+      // optional int32 m_employType = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_employtype:
+         parse_m_employType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_employtype_)));
@@ -9299,15 +9299,15 @@ bool E_EncyclopediaEmploy::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(58)) goto parse_m_employtype_name;
+        if (input->ExpectTag(58)) goto parse_m_employType_name;
         break;
       }
 
-      // optional string m_employtype_name = 7;
+      // optional string m_employType_name = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_employtype_name:
+         parse_m_employType_name:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_employtype_name()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -9316,15 +9316,15 @@ bool E_EncyclopediaEmploy::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_employz;
+        if (input->ExpectTag(64)) goto parse_m_employZ;
         break;
       }
 
-      // optional int32 m_employz = 8;
+      // optional int32 m_employZ = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_employz:
+         parse_m_employZ:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_employz_)));
@@ -9332,15 +9332,15 @@ bool E_EncyclopediaEmploy::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(74)) goto parse_m_employzname;
+        if (input->ExpectTag(74)) goto parse_m_employZName;
         break;
       }
 
-      // optional string m_employzname = 9;
+      // optional string m_employZName = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_employzname:
+         parse_m_employZName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_employzname()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -9349,21 +9349,21 @@ bool E_EncyclopediaEmploy::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(82)) goto parse_m_lviattribute;
+        if (input->ExpectTag(82)) goto parse_m_LvIattribute;
         break;
       }
 
-      // repeated .proto_ff.E_EncyclopediaEmployLviattributeDesc m_lviattribute = 10;
+      // repeated .proto_ff.E_EncyclopediaEmployLviattributeDesc m_LvIattribute = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_lviattribute:
+         parse_m_LvIattribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_lviattribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(82)) goto parse_m_lviattribute;
+        if (input->ExpectTag(82)) goto parse_m_LvIattribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -9386,7 +9386,7 @@ bool E_EncyclopediaEmploy::MergePartialFromCodedStream(
 
 void E_EncyclopediaEmploy::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 m_employid = 1;
+  // optional int64 m_employID = 1;
   if (has_m_employid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_employid(), output);
   }
@@ -9396,12 +9396,12 @@ void E_EncyclopediaEmploy::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_type(), output);
   }
 
-  // optional int64 m_itemid = 3;
+  // optional int64 m_itemId = 3;
   if (has_m_itemid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(3, this->m_itemid(), output);
   }
 
-  // optional string m_employname = 4;
+  // optional string m_employName = 4;
   if (has_m_employname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_employname().data(), this->m_employname().length(),
@@ -9410,17 +9410,17 @@ void E_EncyclopediaEmploy::SerializeWithCachedSizes(
       4, this->m_employname(), output);
   }
 
-  // optional int32 m_employquality = 5;
+  // optional int32 m_employQuality = 5;
   if (has_m_employquality()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_employquality(), output);
   }
 
-  // optional int32 m_employtype = 6;
+  // optional int32 m_employType = 6;
   if (has_m_employtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_employtype(), output);
   }
 
-  // optional string m_employtype_name = 7;
+  // optional string m_employType_name = 7;
   if (has_m_employtype_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_employtype_name().data(), this->m_employtype_name().length(),
@@ -9429,12 +9429,12 @@ void E_EncyclopediaEmploy::SerializeWithCachedSizes(
       7, this->m_employtype_name(), output);
   }
 
-  // optional int32 m_employz = 8;
+  // optional int32 m_employZ = 8;
   if (has_m_employz()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_employz(), output);
   }
 
-  // optional string m_employzname = 9;
+  // optional string m_employZName = 9;
   if (has_m_employzname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_employzname().data(), this->m_employzname().length(),
@@ -9443,7 +9443,7 @@ void E_EncyclopediaEmploy::SerializeWithCachedSizes(
       9, this->m_employzname(), output);
   }
 
-  // repeated .proto_ff.E_EncyclopediaEmployLviattributeDesc m_lviattribute = 10;
+  // repeated .proto_ff.E_EncyclopediaEmployLviattributeDesc m_LvIattribute = 10;
   for (int i = 0; i < this->m_lviattribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       10, this->m_lviattribute(i), output);
@@ -9457,7 +9457,7 @@ void E_EncyclopediaEmploy::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_EncyclopediaEmploy::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 m_employid = 1;
+  // optional int64 m_employID = 1;
   if (has_m_employid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_employid(), target);
   }
@@ -9467,12 +9467,12 @@ void E_EncyclopediaEmploy::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_type(), target);
   }
 
-  // optional int64 m_itemid = 3;
+  // optional int64 m_itemId = 3;
   if (has_m_itemid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(3, this->m_itemid(), target);
   }
 
-  // optional string m_employname = 4;
+  // optional string m_employName = 4;
   if (has_m_employname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_employname().data(), this->m_employname().length(),
@@ -9482,17 +9482,17 @@ void E_EncyclopediaEmploy::SerializeWithCachedSizes(
         4, this->m_employname(), target);
   }
 
-  // optional int32 m_employquality = 5;
+  // optional int32 m_employQuality = 5;
   if (has_m_employquality()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_employquality(), target);
   }
 
-  // optional int32 m_employtype = 6;
+  // optional int32 m_employType = 6;
   if (has_m_employtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_employtype(), target);
   }
 
-  // optional string m_employtype_name = 7;
+  // optional string m_employType_name = 7;
   if (has_m_employtype_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_employtype_name().data(), this->m_employtype_name().length(),
@@ -9502,12 +9502,12 @@ void E_EncyclopediaEmploy::SerializeWithCachedSizes(
         7, this->m_employtype_name(), target);
   }
 
-  // optional int32 m_employz = 8;
+  // optional int32 m_employZ = 8;
   if (has_m_employz()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_employz(), target);
   }
 
-  // optional string m_employzname = 9;
+  // optional string m_employZName = 9;
   if (has_m_employzname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_employzname().data(), this->m_employzname().length(),
@@ -9517,7 +9517,7 @@ void E_EncyclopediaEmploy::SerializeWithCachedSizes(
         9, this->m_employzname(), target);
   }
 
-  // repeated .proto_ff.E_EncyclopediaEmployLviattributeDesc m_lviattribute = 10;
+  // repeated .proto_ff.E_EncyclopediaEmployLviattributeDesc m_LvIattribute = 10;
   for (int i = 0; i < this->m_lviattribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -9535,7 +9535,7 @@ int E_EncyclopediaEmploy::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 m_employid = 1;
+    // optional int64 m_employID = 1;
     if (has_m_employid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -9549,42 +9549,42 @@ int E_EncyclopediaEmploy::ByteSize() const {
           this->m_type());
     }
 
-    // optional int64 m_itemid = 3;
+    // optional int64 m_itemId = 3;
     if (has_m_itemid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_itemid());
     }
 
-    // optional string m_employname = 4;
+    // optional string m_employName = 4;
     if (has_m_employname()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_employname());
     }
 
-    // optional int32 m_employquality = 5;
+    // optional int32 m_employQuality = 5;
     if (has_m_employquality()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_employquality());
     }
 
-    // optional int32 m_employtype = 6;
+    // optional int32 m_employType = 6;
     if (has_m_employtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_employtype());
     }
 
-    // optional string m_employtype_name = 7;
+    // optional string m_employType_name = 7;
     if (has_m_employtype_name()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_employtype_name());
     }
 
-    // optional int32 m_employz = 8;
+    // optional int32 m_employZ = 8;
     if (has_m_employz()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -9593,7 +9593,7 @@ int E_EncyclopediaEmploy::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional string m_employzname = 9;
+    // optional string m_employZName = 9;
     if (has_m_employzname()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -9601,7 +9601,7 @@ int E_EncyclopediaEmploy::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.E_EncyclopediaEmployLviattributeDesc m_lviattribute = 10;
+  // repeated .proto_ff.E_EncyclopediaEmployLviattributeDesc m_LvIattribute = 10;
   total_size += 1 * this->m_lviattribute_size();
   for (int i = 0; i < this->m_lviattribute_size(); i++) {
     total_size +=
@@ -10167,10 +10167,10 @@ void E_EncyclopediaTableLviattributeDesc::Swap(E_EncyclopediaTableLviattributeDe
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_EncyclopediaTable::kMIdFieldNumber;
+const int E_EncyclopediaTable::kMIDFieldNumber;
 const int E_EncyclopediaTable::kMTableidFieldNumber;
-const int E_EncyclopediaTable::kMTablenameFieldNumber;
-const int E_EncyclopediaTable::kMLviattributeFieldNumber;
+const int E_EncyclopediaTable::kMTableNameFieldNumber;
+const int E_EncyclopediaTable::kMLvIattributeFieldNumber;
 #endif  // !_MSC_VER
 
 E_EncyclopediaTable::E_EncyclopediaTable()
@@ -10249,7 +10249,7 @@ bool E_EncyclopediaTable::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 m_id = 1;
+      // optional int64 m_ID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -10276,15 +10276,15 @@ bool E_EncyclopediaTable::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_m_tablename;
+        if (input->ExpectTag(26)) goto parse_m_tableName;
         break;
       }
 
-      // optional string m_tablename = 3;
+      // optional string m_tableName = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_tablename:
+         parse_m_tableName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_tablename()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -10293,21 +10293,21 @@ bool E_EncyclopediaTable::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_lviattribute;
+        if (input->ExpectTag(34)) goto parse_m_LvIattribute;
         break;
       }
 
-      // repeated .proto_ff.E_EncyclopediaTableLviattributeDesc m_lviattribute = 4;
+      // repeated .proto_ff.E_EncyclopediaTableLviattributeDesc m_LvIattribute = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_lviattribute:
+         parse_m_LvIattribute:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                 input, add_m_lviattribute()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_lviattribute;
+        if (input->ExpectTag(34)) goto parse_m_LvIattribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -10330,7 +10330,7 @@ bool E_EncyclopediaTable::MergePartialFromCodedStream(
 
 void E_EncyclopediaTable::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 m_id = 1;
+  // optional int64 m_ID = 1;
   if (has_m_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_id(), output);
   }
@@ -10340,7 +10340,7 @@ void E_EncyclopediaTable::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_tableid(), output);
   }
 
-  // optional string m_tablename = 3;
+  // optional string m_tableName = 3;
   if (has_m_tablename()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_tablename().data(), this->m_tablename().length(),
@@ -10349,7 +10349,7 @@ void E_EncyclopediaTable::SerializeWithCachedSizes(
       3, this->m_tablename(), output);
   }
 
-  // repeated .proto_ff.E_EncyclopediaTableLviattributeDesc m_lviattribute = 4;
+  // repeated .proto_ff.E_EncyclopediaTableLviattributeDesc m_LvIattribute = 4;
   for (int i = 0; i < this->m_lviattribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, this->m_lviattribute(i), output);
@@ -10363,7 +10363,7 @@ void E_EncyclopediaTable::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_EncyclopediaTable::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 m_id = 1;
+  // optional int64 m_ID = 1;
   if (has_m_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_id(), target);
   }
@@ -10373,7 +10373,7 @@ void E_EncyclopediaTable::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_tableid(), target);
   }
 
-  // optional string m_tablename = 3;
+  // optional string m_tableName = 3;
   if (has_m_tablename()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_tablename().data(), this->m_tablename().length(),
@@ -10383,7 +10383,7 @@ void E_EncyclopediaTable::SerializeWithCachedSizes(
         3, this->m_tablename(), target);
   }
 
-  // repeated .proto_ff.E_EncyclopediaTableLviattributeDesc m_lviattribute = 4;
+  // repeated .proto_ff.E_EncyclopediaTableLviattributeDesc m_LvIattribute = 4;
   for (int i = 0; i < this->m_lviattribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -10401,7 +10401,7 @@ int E_EncyclopediaTable::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 m_id = 1;
+    // optional int64 m_ID = 1;
     if (has_m_id()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
@@ -10415,7 +10415,7 @@ int E_EncyclopediaTable::ByteSize() const {
           this->m_tableid());
     }
 
-    // optional string m_tablename = 3;
+    // optional string m_tableName = 3;
     if (has_m_tablename()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -10423,7 +10423,7 @@ int E_EncyclopediaTable::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.E_EncyclopediaTableLviattributeDesc m_lviattribute = 4;
+  // repeated .proto_ff.E_EncyclopediaTableLviattributeDesc m_LvIattribute = 4;
   total_size += 1 * this->m_lviattribute_size();
   for (int i = 0; i < this->m_lviattribute_size(); i++) {
     total_size +=

@@ -27,7 +27,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_position;//装备部位对应ID
-		int32_t m_groupid;//对应属性组ID
+		int32_t m_groupId;//对应属性组ID
 		int32_t m_openlv;//开启等级
 		int32_t m_default_attrs;//默认属性条数
 		NFShmVector<int32_t, DEFINE_E_JINGLIANSIMPLE_M_OPEN_ATTR_MAX_NUM> m_open_attr;//解锁属性精炼等级
@@ -89,7 +89,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_groupid;//对应属性组ID
+		int32_t m_groupId;//对应属性组ID
 		int32_t m_lv;//等级
 		NFShmVector<struct E_JinglianLvCostDesc_s, DEFINE_E_JINGLIANLV_M_COST_MAX_NUM> m_cost;//精炼升级
 		NFShmVector<struct E_JinglianLvAttrDesc_s, DEFINE_E_JINGLIANLV_M_ATTR_MAX_NUM> m_attr;//属性

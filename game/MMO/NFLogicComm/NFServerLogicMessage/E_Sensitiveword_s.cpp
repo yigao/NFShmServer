@@ -21,12 +21,12 @@ int E_SensitivewordWord1_s::ResumeInit() {
 
 void E_SensitivewordWord1_s::write_to_pbmsg(::proto_ff::E_SensitivewordWord1 & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_sensitiveword(m_sensitiveword.data());
+	msg.set_m_sensitiveword(m_sensitiveWord.data());
 }
 
 void E_SensitivewordWord1_s::read_from_pbmsg(const ::proto_ff::E_SensitivewordWord1 & msg) {
 	m_id = msg.m_id();
-	m_sensitiveword = msg.m_sensitiveword();
+	m_sensitiveWord = msg.m_sensitiveword();
 }
 
 Sheet_SensitivewordWord1_s::Sheet_SensitivewordWord1_s() {
@@ -79,12 +79,12 @@ int E_SensitivewordWord2_s::ResumeInit() {
 
 void E_SensitivewordWord2_s::write_to_pbmsg(::proto_ff::E_SensitivewordWord2 & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_sensitiveword(m_sensitiveword.data());
+	msg.set_m_sensitiveword(m_sensitiveWord.data());
 }
 
 void E_SensitivewordWord2_s::read_from_pbmsg(const ::proto_ff::E_SensitivewordWord2 & msg) {
 	m_id = msg.m_id();
-	m_sensitiveword = msg.m_sensitiveword();
+	m_sensitiveWord = msg.m_sensitiveword();
 }
 
 Sheet_SensitivewordWord2_s::Sheet_SensitivewordWord2_s() {
@@ -137,12 +137,12 @@ int E_SensitivewordWord3_s::ResumeInit() {
 
 void E_SensitivewordWord3_s::write_to_pbmsg(::proto_ff::E_SensitivewordWord3 & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_sensitiveword(m_sensitiveword.data());
+	msg.set_m_sensitiveword(m_sensitiveWord.data());
 }
 
 void E_SensitivewordWord3_s::read_from_pbmsg(const ::proto_ff::E_SensitivewordWord3 & msg) {
 	m_id = msg.m_id();
-	m_sensitiveword = msg.m_sensitiveword();
+	m_sensitiveWord = msg.m_sensitiveword();
 }
 
 Sheet_SensitivewordWord3_s::Sheet_SensitivewordWord3_s() {

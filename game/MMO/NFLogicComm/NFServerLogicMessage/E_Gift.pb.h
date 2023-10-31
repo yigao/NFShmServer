@@ -125,17 +125,17 @@ class E_GiftFree : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_price() const;
   inline void set_m_price(::google::protobuf::int32 value);
 
-  // optional int32 m_freeday = 5;
+  // optional int32 m_freeDay = 5;
   inline bool has_m_freeday() const;
   inline void clear_m_freeday();
-  static const int kMFreedayFieldNumber = 5;
+  static const int kMFreeDayFieldNumber = 5;
   inline ::google::protobuf::int32 m_freeday() const;
   inline void set_m_freeday(::google::protobuf::int32 value);
 
-  // optional int32 m_boxid = 6;
+  // optional int32 m_boxID = 6;
   inline bool has_m_boxid() const;
   inline void clear_m_boxid();
-  static const int kMBoxidFieldNumber = 6;
+  static const int kMBoxIDFieldNumber = 6;
   inline ::google::protobuf::int32 m_boxid() const;
   inline void set_m_boxid(::google::protobuf::int32 value);
 
@@ -321,10 +321,10 @@ class E_GiftCondition : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_conditiontype = 2;
+  // optional int32 m_conditionType = 2;
   inline bool has_m_conditiontype() const;
   inline void clear_m_conditiontype();
-  static const int kMConditiontypeFieldNumber = 2;
+  static const int kMConditionTypeFieldNumber = 2;
   inline ::google::protobuf::int32 m_conditiontype() const;
   inline void set_m_conditiontype(::google::protobuf::int32 value);
 
@@ -342,10 +342,10 @@ class E_GiftCondition : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_time() const;
   inline void set_m_time(::google::protobuf::int32 value);
 
-  // optional int32 m_pricetype = 5;
+  // optional int32 m_priceType = 5;
   inline bool has_m_pricetype() const;
   inline void clear_m_pricetype();
-  static const int kMPricetypeFieldNumber = 5;
+  static const int kMPriceTypeFieldNumber = 5;
   inline ::google::protobuf::int32 m_pricetype() const;
   inline void set_m_pricetype(::google::protobuf::int32 value);
 
@@ -356,10 +356,10 @@ class E_GiftCondition : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_price() const;
   inline void set_m_price(::google::protobuf::int32 value);
 
-  // optional int32 m_boxid = 7;
+  // optional int32 m_boxID = 7;
   inline bool has_m_boxid() const;
   inline void clear_m_boxid();
-  static const int kMBoxidFieldNumber = 7;
+  static const int kMBoxIDFieldNumber = 7;
   inline ::google::protobuf::int32 m_boxid() const;
   inline void set_m_boxid(::google::protobuf::int32 value);
 
@@ -562,10 +562,10 @@ class E_GiftMust : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_original() const;
   inline void set_m_original(::google::protobuf::int32 value);
 
-  // optional int32 m_pricetype = 4;
+  // optional int32 m_priceType = 4;
   inline bool has_m_pricetype() const;
   inline void clear_m_pricetype();
-  static const int kMPricetypeFieldNumber = 4;
+  static const int kMPriceTypeFieldNumber = 4;
   inline ::google::protobuf::int32 m_pricetype() const;
   inline void set_m_pricetype(::google::protobuf::int32 value);
 
@@ -787,7 +787,7 @@ inline void E_GiftFree::set_m_price(::google::protobuf::int32 value) {
   m_price_ = value;
 }
 
-// optional int32 m_freeday = 5;
+// optional int32 m_freeDay = 5;
 inline bool E_GiftFree::has_m_freeday() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -809,7 +809,7 @@ inline void E_GiftFree::set_m_freeday(::google::protobuf::int32 value) {
   m_freeday_ = value;
 }
 
-// optional int32 m_boxid = 6;
+// optional int32 m_boxID = 6;
 inline bool E_GiftFree::has_m_boxid() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -886,7 +886,7 @@ inline void E_GiftCondition::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_conditiontype = 2;
+// optional int32 m_conditionType = 2;
 inline bool E_GiftCondition::has_m_conditiontype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -952,7 +952,7 @@ inline void E_GiftCondition::set_m_time(::google::protobuf::int32 value) {
   m_time_ = value;
 }
 
-// optional int32 m_pricetype = 5;
+// optional int32 m_priceType = 5;
 inline bool E_GiftCondition::has_m_pricetype() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -996,7 +996,7 @@ inline void E_GiftCondition::set_m_price(::google::protobuf::int32 value) {
   m_price_ = value;
 }
 
-// optional int32 m_boxid = 7;
+// optional int32 m_boxID = 7;
 inline bool E_GiftCondition::has_m_boxid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -1117,7 +1117,7 @@ inline void E_GiftMust::set_m_original(::google::protobuf::int32 value) {
   m_original_ = value;
 }
 
-// optional int32 m_pricetype = 4;
+// optional int32 m_priceType = 4;
 inline bool E_GiftMust::has_m_pricetype() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }

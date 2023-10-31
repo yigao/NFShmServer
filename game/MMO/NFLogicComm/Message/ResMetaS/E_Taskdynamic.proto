@@ -5,14 +5,14 @@ import "yd_fieldoptions.proto";
 
 message E_TaskdynamicTaskdynamic
 {
-	optional int64 m_taskid = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int64 m_taskID = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional string m_remark = 2[(yd_fieldoptions.field_cname) = "策划备注", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_tasktype = 3[(yd_fieldoptions.field_cname) = "任务类型"];
+	optional int32 m_taskType = 3[(yd_fieldoptions.field_cname) = "任务类型"];
 	optional int32 m_weights = 4[(yd_fieldoptions.field_cname) = "权重值"];
 	optional int32 m_minlv = 5[(yd_fieldoptions.field_cname) = "最低等级"];
 	optional int32 m_maxlv = 6[(yd_fieldoptions.field_cname) = "最高等级"];
-	optional int32 m_rececount = 7[(yd_fieldoptions.field_cname) = "可接取数量"];
-	optional string m_idlist = 8[(yd_fieldoptions.field_cname) = "抽取id列表", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_receCount = 7[(yd_fieldoptions.field_cname) = "可接取数量"];
+	optional string m_idList = 8[(yd_fieldoptions.field_cname) = "抽取id列表", (yd_fieldoptions.field_bufsize) = 64];
 }
 
 
@@ -23,14 +23,14 @@ message Sheet_TaskdynamicTaskdynamic
 
 message E_TaskdynamicTaskcomcond
 {
-	optional int64 m_comcondid = 1[(yd_fieldoptions.field_cname) = "完成id"];
-	optional int32 m_comcondtype = 2[(yd_fieldoptions.field_cname) = "条件类型"];
+	optional int64 m_comcondID = 1[(yd_fieldoptions.field_cname) = "完成id"];
+	optional int32 m_comcondType = 2[(yd_fieldoptions.field_cname) = "条件类型"];
 	optional int64 m_param1 = 3[(yd_fieldoptions.field_cname) = "条件参数a"];
 	optional int64 m_param2 = 4[(yd_fieldoptions.field_cname) = "条件参数b"];
 	optional int64 m_param3 = 5[(yd_fieldoptions.field_cname) = "条件参数c"];
 	optional int64 m_param4 = 6[(yd_fieldoptions.field_cname) = "条件参数d"];
 	optional int64 m_param5 = 7[(yd_fieldoptions.field_cname) = "条件参数e"];
-	optional int32 m_comcondrandomvalue = 8[(yd_fieldoptions.field_cname) = "完成条件随机值"];
+	optional int32 m_comcondRandomValue = 8[(yd_fieldoptions.field_cname) = "完成条件随机值"];
 }
 
 
@@ -41,9 +41,9 @@ message Sheet_TaskdynamicTaskcomcond
 
 message E_TaskdynamicTasktext
 {
-	optional int64 m_textid = 1[(yd_fieldoptions.field_cname) = "文本id"];
-	optional string m_tasktype = 2[(yd_fieldoptions.field_cname) = "任务类型", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_comcondtype = 3[(yd_fieldoptions.field_cname) = "完成条件类型"];
+	optional int64 m_textID = 1[(yd_fieldoptions.field_cname) = "文本id"];
+	optional string m_taskType = 2[(yd_fieldoptions.field_cname) = "任务类型", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_comcondType = 3[(yd_fieldoptions.field_cname) = "完成条件类型"];
 }
 
 

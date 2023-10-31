@@ -124,24 +124,24 @@ class E_FindtreasureFindtreasure : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_type() const;
   inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 m_functionunlock = 3;
+  // optional int32 m_functionUnlock = 3;
   inline bool has_m_functionunlock() const;
   inline void clear_m_functionunlock();
-  static const int kMFunctionunlockFieldNumber = 3;
+  static const int kMFunctionUnlockFieldNumber = 3;
   inline ::google::protobuf::int32 m_functionunlock() const;
   inline void set_m_functionunlock(::google::protobuf::int32 value);
 
-  // optional int64 m_costid = 4;
+  // optional int64 m_costID = 4;
   inline bool has_m_costid() const;
   inline void clear_m_costid();
-  static const int kMCostidFieldNumber = 4;
+  static const int kMCostIDFieldNumber = 4;
   inline ::google::protobuf::int64 m_costid() const;
   inline void set_m_costid(::google::protobuf::int64 value);
 
-  // optional string m_costnum = 5;
+  // optional string m_costNum = 5;
   inline bool has_m_costnum() const;
   inline void clear_m_costnum();
-  static const int kMCostnumFieldNumber = 5;
+  static const int kMCostNumFieldNumber = 5;
   inline const ::std::string& m_costnum() const;
   inline void set_m_costnum(const ::std::string& value);
   inline void set_m_costnum(const char* value);
@@ -150,17 +150,17 @@ class E_FindtreasureFindtreasure : public ::google::protobuf::Message {
   inline ::std::string* release_m_costnum();
   inline void set_allocated_m_costnum(::std::string* m_costnum);
 
-  // optional int32 m_contitem = 6;
+  // optional int32 m_ContItem = 6;
   inline bool has_m_contitem() const;
   inline void clear_m_contitem();
-  static const int kMContitemFieldNumber = 6;
+  static const int kMContItemFieldNumber = 6;
   inline ::google::protobuf::int32 m_contitem() const;
   inline void set_m_contitem(::google::protobuf::int32 value);
 
-  // optional string m_poolgroupid = 7;
+  // optional string m_poolGroupId = 7;
   inline bool has_m_poolgroupid() const;
   inline void clear_m_poolgroupid();
-  static const int kMPoolgroupidFieldNumber = 7;
+  static const int kMPoolGroupIdFieldNumber = 7;
   inline const ::std::string& m_poolgroupid() const;
   inline void set_m_poolgroupid(const ::std::string& value);
   inline void set_m_poolgroupid(const char* value);
@@ -176,59 +176,59 @@ class E_FindtreasureFindtreasure : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_loop() const;
   inline void set_m_loop(::google::protobuf::int32 value);
 
-  // optional int32 m_pooltime = 9;
+  // optional int32 m_poolTime = 9;
   inline bool has_m_pooltime() const;
   inline void clear_m_pooltime();
-  static const int kMPooltimeFieldNumber = 9;
+  static const int kMPoolTimeFieldNumber = 9;
   inline ::google::protobuf::int32 m_pooltime() const;
   inline void set_m_pooltime(::google::protobuf::int32 value);
 
-  // optional int32 m_totalgroupid = 10;
+  // optional int32 m_totalGroupID = 10;
   inline bool has_m_totalgroupid() const;
   inline void clear_m_totalgroupid();
-  static const int kMTotalgroupidFieldNumber = 10;
+  static const int kMTotalGroupIDFieldNumber = 10;
   inline ::google::protobuf::int32 m_totalgroupid() const;
   inline void set_m_totalgroupid(::google::protobuf::int32 value);
 
-  // optional int32 m_activegroupid = 11;
+  // optional int32 m_activeGroupID = 11;
   inline bool has_m_activegroupid() const;
   inline void clear_m_activegroupid();
-  static const int kMActivegroupidFieldNumber = 11;
+  static const int kMActiveGroupIDFieldNumber = 11;
   inline ::google::protobuf::int32 m_activegroupid() const;
   inline void set_m_activegroupid(::google::protobuf::int32 value);
 
-  // optional int32 m_protecttime = 12;
+  // optional int32 m_protectTime = 12;
   inline bool has_m_protecttime() const;
   inline void clear_m_protecttime();
-  static const int kMProtecttimeFieldNumber = 12;
+  static const int kMProtectTimeFieldNumber = 12;
   inline ::google::protobuf::int32 m_protecttime() const;
   inline void set_m_protecttime(::google::protobuf::int32 value);
 
-  // optional int32 m_additem = 13;
+  // optional int32 m_addItem = 13;
   inline bool has_m_additem() const;
   inline void clear_m_additem();
-  static const int kMAdditemFieldNumber = 13;
+  static const int kMAddItemFieldNumber = 13;
   inline ::google::protobuf::int32 m_additem() const;
   inline void set_m_additem(::google::protobuf::int32 value);
 
-  // optional int32 m_addnum = 14;
+  // optional int32 m_addNum = 14;
   inline bool has_m_addnum() const;
   inline void clear_m_addnum();
-  static const int kMAddnumFieldNumber = 14;
+  static const int kMAddNumFieldNumber = 14;
   inline ::google::protobuf::int32 m_addnum() const;
   inline void set_m_addnum(::google::protobuf::int32 value);
 
-  // optional int32 m_shopid = 15;
+  // optional int32 m_shopID = 15;
   inline bool has_m_shopid() const;
   inline void clear_m_shopid();
-  static const int kMShopidFieldNumber = 15;
+  static const int kMShopIDFieldNumber = 15;
   inline ::google::protobuf::int32 m_shopid() const;
   inline void set_m_shopid(::google::protobuf::int32 value);
 
-  // optional int32 m_storehousetype = 16;
+  // optional int32 m_storehouseType = 16;
   inline bool has_m_storehousetype() const;
   inline void clear_m_storehousetype();
-  static const int kMStorehousetypeFieldNumber = 16;
+  static const int kMStorehouseTypeFieldNumber = 16;
   inline ::google::protobuf::int32 m_storehousetype() const;
   inline void set_m_storehousetype(::google::protobuf::int32 value);
 
@@ -444,17 +444,17 @@ class E_FindtreasureFindpool : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 2;
+  static const int kMGroupIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
-  // optional int32 m_showorder = 3;
+  // optional int32 m_showOrder = 3;
   inline bool has_m_showorder() const;
   inline void clear_m_showorder();
-  static const int kMShoworderFieldNumber = 3;
+  static const int kMShowOrderFieldNumber = 3;
   inline ::google::protobuf::int32 m_showorder() const;
   inline void set_m_showorder(::google::protobuf::int32 value);
 
@@ -486,14 +486,14 @@ class E_FindtreasureFindpool : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_weights() const;
   inline void set_m_weights(::google::protobuf::int32 value);
 
-  // optional int32 m_proweights = 8;
+  // optional int32 m_proWeights = 8;
   inline bool has_m_proweights() const;
   inline void clear_m_proweights();
-  static const int kMProweightsFieldNumber = 8;
+  static const int kMProWeightsFieldNumber = 8;
   inline ::google::protobuf::int32 m_proweights() const;
   inline void set_m_proweights(::google::protobuf::int32 value);
 
-  // optional int32 m_record = 9;
+  // optional int32 m_Record = 9;
   inline bool has_m_record() const;
   inline void clear_m_record();
   static const int kMRecordFieldNumber = 9;
@@ -691,17 +691,17 @@ class E_FindtreasureConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_dragonsevertime = 2;
+  // optional int32 m_dragonSeverTime = 2;
   inline bool has_m_dragonsevertime() const;
   inline void clear_m_dragonsevertime();
-  static const int kMDragonsevertimeFieldNumber = 2;
+  static const int kMDragonSeverTimeFieldNumber = 2;
   inline ::google::protobuf::int32 m_dragonsevertime() const;
   inline void set_m_dragonsevertime(::google::protobuf::int32 value);
 
-  // optional int32 m_godsevertime = 3;
+  // optional int32 m_godSeverTime = 3;
   inline bool has_m_godsevertime() const;
   inline void clear_m_godsevertime();
-  static const int kMGodsevertimeFieldNumber = 3;
+  static const int kMGodSeverTimeFieldNumber = 3;
   inline ::google::protobuf::int32 m_godsevertime() const;
   inline void set_m_godsevertime(::google::protobuf::int32 value);
 
@@ -892,10 +892,10 @@ class E_FindtreasureTotal : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_type() const;
   inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 4;
+  // optional int32 m_itemID = 4;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 4;
+  static const int kMItemIDFieldNumber = 4;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
@@ -1112,17 +1112,17 @@ class E_FindtreasureActive : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_opentime() const;
   inline void set_m_opentime(::google::protobuf::int32 value);
 
-  // optional int32 m_durtime = 4;
+  // optional int32 m_durTime = 4;
   inline bool has_m_durtime() const;
   inline void clear_m_durtime();
-  static const int kMDurtimeFieldNumber = 4;
+  static const int kMDurTimeFieldNumber = 4;
   inline ::google::protobuf::int32 m_durtime() const;
   inline void set_m_durtime(::google::protobuf::int32 value);
 
-  // optional int32 m_closetime = 5;
+  // optional int32 m_closeTime = 5;
   inline bool has_m_closetime() const;
   inline void clear_m_closetime();
-  static const int kMClosetimeFieldNumber = 5;
+  static const int kMCloseTimeFieldNumber = 5;
   inline ::google::protobuf::int32 m_closetime() const;
   inline void set_m_closetime(::google::protobuf::int32 value);
 
@@ -1133,10 +1133,10 @@ class E_FindtreasureActive : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_type() const;
   inline void set_m_type(::google::protobuf::int32 value);
 
-  // optional int32 m_typegroupid = 7;
+  // optional int32 m_typeGroupId = 7;
   inline bool has_m_typegroupid() const;
   inline void clear_m_typegroupid();
-  static const int kMTypegroupidFieldNumber = 7;
+  static const int kMTypeGroupIdFieldNumber = 7;
   inline ::google::protobuf::int32 m_typegroupid() const;
   inline void set_m_typegroupid(::google::protobuf::int32 value);
 
@@ -1325,10 +1325,10 @@ class E_FindtreasureActiveup : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_groupid = 2;
+  // optional int32 m_groupID = 2;
   inline bool has_m_groupid() const;
   inline void clear_m_groupid();
-  static const int kMGroupidFieldNumber = 2;
+  static const int kMGroupIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
@@ -1346,10 +1346,10 @@ class E_FindtreasureActiveup : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
-  // optional int32 m_proarg = 5;
+  // optional int32 m_proArg = 5;
   inline bool has_m_proarg() const;
   inline void clear_m_proarg();
-  static const int kMProargFieldNumber = 5;
+  static const int kMProArgFieldNumber = 5;
   inline ::google::protobuf::int32 m_proarg() const;
   inline void set_m_proarg(::google::protobuf::int32 value);
 
@@ -1532,10 +1532,10 @@ class E_FindtreasureActivegoods : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
-  // optional int32 m_itemid = 2;
+  // optional int32 m_itemID = 2;
   inline bool has_m_itemid() const;
   inline void clear_m_itemid();
-  static const int kMItemidFieldNumber = 2;
+  static const int kMItemIDFieldNumber = 2;
   inline ::google::protobuf::int32 m_itemid() const;
   inline void set_m_itemid(::google::protobuf::int32 value);
 
@@ -1553,10 +1553,10 @@ class E_FindtreasureActivegoods : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_price() const;
   inline void set_m_price(::google::protobuf::int32 value);
 
-  // optional int32 m_itemnum = 5;
+  // optional int32 m_itemNum = 5;
   inline bool has_m_itemnum() const;
   inline void clear_m_itemnum();
-  static const int kMItemnumFieldNumber = 5;
+  static const int kMItemNumFieldNumber = 5;
   inline ::google::protobuf::int32 m_itemnum() const;
   inline void set_m_itemnum(::google::protobuf::int32 value);
 
@@ -2058,24 +2058,24 @@ class E_FindtreasureShop : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_groupid() const;
   inline void set_m_groupid(::google::protobuf::int32 value);
 
-  // optional int32 m_goodsid = 3;
+  // optional int32 m_goodsID = 3;
   inline bool has_m_goodsid() const;
   inline void clear_m_goodsid();
-  static const int kMGoodsidFieldNumber = 3;
+  static const int kMGoodsIDFieldNumber = 3;
   inline ::google::protobuf::int32 m_goodsid() const;
   inline void set_m_goodsid(::google::protobuf::int32 value);
 
-  // optional int32 m_goodsnum = 4;
+  // optional int32 m_goodsNum = 4;
   inline bool has_m_goodsnum() const;
   inline void clear_m_goodsnum();
-  static const int kMGoodsnumFieldNumber = 4;
+  static const int kMGoodsNumFieldNumber = 4;
   inline ::google::protobuf::int32 m_goodsnum() const;
   inline void set_m_goodsnum(::google::protobuf::int32 value);
 
-  // optional int32 m_costid = 5;
+  // optional int32 m_costID = 5;
   inline bool has_m_costid() const;
   inline void clear_m_costid();
-  static const int kMCostidFieldNumber = 5;
+  static const int kMCostIDFieldNumber = 5;
   inline ::google::protobuf::int32 m_costid() const;
   inline void set_m_costid(::google::protobuf::int32 value);
 
@@ -2256,7 +2256,7 @@ inline void E_FindtreasureFindtreasure::set_m_type(::google::protobuf::int32 val
   m_type_ = value;
 }
 
-// optional int32 m_functionunlock = 3;
+// optional int32 m_functionUnlock = 3;
 inline bool E_FindtreasureFindtreasure::has_m_functionunlock() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -2278,7 +2278,7 @@ inline void E_FindtreasureFindtreasure::set_m_functionunlock(::google::protobuf:
   m_functionunlock_ = value;
 }
 
-// optional int64 m_costid = 4;
+// optional int64 m_costID = 4;
 inline bool E_FindtreasureFindtreasure::has_m_costid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -2300,7 +2300,7 @@ inline void E_FindtreasureFindtreasure::set_m_costid(::google::protobuf::int64 v
   m_costid_ = value;
 }
 
-// optional string m_costnum = 5;
+// optional string m_costNum = 5;
 inline bool E_FindtreasureFindtreasure::has_m_costnum() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -2370,7 +2370,7 @@ inline void E_FindtreasureFindtreasure::set_allocated_m_costnum(::std::string* m
   }
 }
 
-// optional int32 m_contitem = 6;
+// optional int32 m_ContItem = 6;
 inline bool E_FindtreasureFindtreasure::has_m_contitem() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -2392,7 +2392,7 @@ inline void E_FindtreasureFindtreasure::set_m_contitem(::google::protobuf::int32
   m_contitem_ = value;
 }
 
-// optional string m_poolgroupid = 7;
+// optional string m_poolGroupId = 7;
 inline bool E_FindtreasureFindtreasure::has_m_poolgroupid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -2484,7 +2484,7 @@ inline void E_FindtreasureFindtreasure::set_m_loop(::google::protobuf::int32 val
   m_loop_ = value;
 }
 
-// optional int32 m_pooltime = 9;
+// optional int32 m_poolTime = 9;
 inline bool E_FindtreasureFindtreasure::has_m_pooltime() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -2506,7 +2506,7 @@ inline void E_FindtreasureFindtreasure::set_m_pooltime(::google::protobuf::int32
   m_pooltime_ = value;
 }
 
-// optional int32 m_totalgroupid = 10;
+// optional int32 m_totalGroupID = 10;
 inline bool E_FindtreasureFindtreasure::has_m_totalgroupid() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -2528,7 +2528,7 @@ inline void E_FindtreasureFindtreasure::set_m_totalgroupid(::google::protobuf::i
   m_totalgroupid_ = value;
 }
 
-// optional int32 m_activegroupid = 11;
+// optional int32 m_activeGroupID = 11;
 inline bool E_FindtreasureFindtreasure::has_m_activegroupid() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -2550,7 +2550,7 @@ inline void E_FindtreasureFindtreasure::set_m_activegroupid(::google::protobuf::
   m_activegroupid_ = value;
 }
 
-// optional int32 m_protecttime = 12;
+// optional int32 m_protectTime = 12;
 inline bool E_FindtreasureFindtreasure::has_m_protecttime() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -2572,7 +2572,7 @@ inline void E_FindtreasureFindtreasure::set_m_protecttime(::google::protobuf::in
   m_protecttime_ = value;
 }
 
-// optional int32 m_additem = 13;
+// optional int32 m_addItem = 13;
 inline bool E_FindtreasureFindtreasure::has_m_additem() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -2594,7 +2594,7 @@ inline void E_FindtreasureFindtreasure::set_m_additem(::google::protobuf::int32 
   m_additem_ = value;
 }
 
-// optional int32 m_addnum = 14;
+// optional int32 m_addNum = 14;
 inline bool E_FindtreasureFindtreasure::has_m_addnum() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -2616,7 +2616,7 @@ inline void E_FindtreasureFindtreasure::set_m_addnum(::google::protobuf::int32 v
   m_addnum_ = value;
 }
 
-// optional int32 m_shopid = 15;
+// optional int32 m_shopID = 15;
 inline bool E_FindtreasureFindtreasure::has_m_shopid() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
@@ -2638,7 +2638,7 @@ inline void E_FindtreasureFindtreasure::set_m_shopid(::google::protobuf::int32 v
   m_shopid_ = value;
 }
 
-// optional int32 m_storehousetype = 16;
+// optional int32 m_storehouseType = 16;
 inline bool E_FindtreasureFindtreasure::has_m_storehousetype() const {
   return (_has_bits_[0] & 0x00008000u) != 0;
 }
@@ -2715,7 +2715,7 @@ inline void E_FindtreasureFindpool::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_groupid = 2;
+// optional int32 m_groupID = 2;
 inline bool E_FindtreasureFindpool::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -2737,7 +2737,7 @@ inline void E_FindtreasureFindpool::set_m_groupid(::google::protobuf::int32 valu
   m_groupid_ = value;
 }
 
-// optional int32 m_showorder = 3;
+// optional int32 m_showOrder = 3;
 inline bool E_FindtreasureFindpool::has_m_showorder() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -2847,7 +2847,7 @@ inline void E_FindtreasureFindpool::set_m_weights(::google::protobuf::int32 valu
   m_weights_ = value;
 }
 
-// optional int32 m_proweights = 8;
+// optional int32 m_proWeights = 8;
 inline bool E_FindtreasureFindpool::has_m_proweights() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -2869,7 +2869,7 @@ inline void E_FindtreasureFindpool::set_m_proweights(::google::protobuf::int32 v
   m_proweights_ = value;
 }
 
-// optional int32 m_record = 9;
+// optional int32 m_Record = 9;
 inline bool E_FindtreasureFindpool::has_m_record() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -2946,7 +2946,7 @@ inline void E_FindtreasureConstant::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_dragonsevertime = 2;
+// optional int32 m_dragonSeverTime = 2;
 inline bool E_FindtreasureConstant::has_m_dragonsevertime() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -2968,7 +2968,7 @@ inline void E_FindtreasureConstant::set_m_dragonsevertime(::google::protobuf::in
   m_dragonsevertime_ = value;
 }
 
-// optional int32 m_godsevertime = 3;
+// optional int32 m_godSeverTime = 3;
 inline bool E_FindtreasureConstant::has_m_godsevertime() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -3089,7 +3089,7 @@ inline void E_FindtreasureTotal::set_m_type(::google::protobuf::int32 value) {
   m_type_ = value;
 }
 
-// optional int32 m_itemid = 4;
+// optional int32 m_itemID = 4;
 inline bool E_FindtreasureTotal::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -3257,7 +3257,7 @@ inline void E_FindtreasureActive::set_m_opentime(::google::protobuf::int32 value
   m_opentime_ = value;
 }
 
-// optional int32 m_durtime = 4;
+// optional int32 m_durTime = 4;
 inline bool E_FindtreasureActive::has_m_durtime() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -3279,7 +3279,7 @@ inline void E_FindtreasureActive::set_m_durtime(::google::protobuf::int32 value)
   m_durtime_ = value;
 }
 
-// optional int32 m_closetime = 5;
+// optional int32 m_closeTime = 5;
 inline bool E_FindtreasureActive::has_m_closetime() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -3323,7 +3323,7 @@ inline void E_FindtreasureActive::set_m_type(::google::protobuf::int32 value) {
   m_type_ = value;
 }
 
-// optional int32 m_typegroupid = 7;
+// optional int32 m_typeGroupId = 7;
 inline bool E_FindtreasureActive::has_m_typegroupid() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -3400,7 +3400,7 @@ inline void E_FindtreasureActiveup::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_groupid = 2;
+// optional int32 m_groupID = 2;
 inline bool E_FindtreasureActiveup::has_m_groupid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -3466,7 +3466,7 @@ inline void E_FindtreasureActiveup::set_m_itemid(::google::protobuf::int32 value
   m_itemid_ = value;
 }
 
-// optional int32 m_proarg = 5;
+// optional int32 m_proArg = 5;
 inline bool E_FindtreasureActiveup::has_m_proarg() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -3543,7 +3543,7 @@ inline void E_FindtreasureActivegoods::set_m_groupid(::google::protobuf::int32 v
   m_groupid_ = value;
 }
 
-// optional int32 m_itemid = 2;
+// optional int32 m_itemID = 2;
 inline bool E_FindtreasureActivegoods::has_m_itemid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -3609,7 +3609,7 @@ inline void E_FindtreasureActivegoods::set_m_price(::google::protobuf::int32 val
   m_price_ = value;
 }
 
-// optional int32 m_itemnum = 5;
+// optional int32 m_itemNum = 5;
 inline bool E_FindtreasureActivegoods::has_m_itemnum() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -3924,7 +3924,7 @@ inline void E_FindtreasureShop::set_m_groupid(::google::protobuf::int32 value) {
   m_groupid_ = value;
 }
 
-// optional int32 m_goodsid = 3;
+// optional int32 m_goodsID = 3;
 inline bool E_FindtreasureShop::has_m_goodsid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -3946,7 +3946,7 @@ inline void E_FindtreasureShop::set_m_goodsid(::google::protobuf::int32 value) {
   m_goodsid_ = value;
 }
 
-// optional int32 m_goodsnum = 4;
+// optional int32 m_goodsNum = 4;
 inline bool E_FindtreasureShop::has_m_goodsnum() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -3968,7 +3968,7 @@ inline void E_FindtreasureShop::set_m_goodsnum(::google::protobuf::int32 value) 
   m_goodsnum_ = value;
 }
 
-// optional int32 m_costid = 5;
+// optional int32 m_costID = 5;
 inline bool E_FindtreasureShop::has_m_costid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }

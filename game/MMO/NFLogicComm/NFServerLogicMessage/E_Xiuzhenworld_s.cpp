@@ -66,19 +66,19 @@ E_XiuzhenworldConstant_s::E_XiuzhenworldConstant_s() {
 }
 
 int E_XiuzhenworldConstant_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_starfreetime = (int32_t)0;
-	m_freetime = (int32_t)0;
-	m_freetimemax = (int32_t)0;
+	m_ID = (int32_t)0;
+	m_starFreeTime = (int32_t)0;
+	m_freeTime = (int32_t)0;
+	m_freeTimeMax = (int32_t)0;
 	m_helpid = (int32_t)0;
-	m_addgexpmax = (int32_t)0;
-	m_pripricetype = (int32_t)0;
-	m_pricevalue = (int32_t)0;
-	m_gexppribonus = (int32_t)0;
-	m_gexpgroupbonus = (int32_t)0;
-	m_mapstart = (int32_t)0;
-	m_mapend = (int32_t)0;
-	m_expitemid = (int32_t)0;
+	m_addGExpMax = (int32_t)0;
+	m_priPriceType = (int32_t)0;
+	m_priceValue = (int32_t)0;
+	m_GExpPriBonus = (int32_t)0;
+	m_GExpGroupBonus = (int32_t)0;
+	m_mapStart = (int32_t)0;
+	m_mapEnd = (int32_t)0;
+	m_expItemId = (int32_t)0;
 	return 0;
 }
 
@@ -87,23 +87,23 @@ int E_XiuzhenworldConstant_s::ResumeInit() {
 }
 
 void E_XiuzhenworldConstant_s::write_to_pbmsg(::proto_ff::E_XiuzhenworldConstant & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_starfreetime((int32_t)m_starfreetime);
-	msg.set_m_freetimemoment(m_freetimemoment.data());
-	msg.set_m_freetime((int32_t)m_freetime);
-	msg.set_m_freetimemax((int32_t)m_freetimemax);
+	msg.set_m_id((int32_t)m_ID);
+	msg.set_m_starfreetime((int32_t)m_starFreeTime);
+	msg.set_m_freetimemoment(m_freeTimeMoment.data());
+	msg.set_m_freetime((int32_t)m_freeTime);
+	msg.set_m_freetimemax((int32_t)m_freeTimeMax);
 	msg.set_m_helpid((int32_t)m_helpid);
-	msg.set_m_addgexpmax((int32_t)m_addgexpmax);
-	msg.set_m_pripricetype((int32_t)m_pripricetype);
-	msg.set_m_pricevalue((int32_t)m_pricevalue);
-	msg.set_m_gexppribonus((int32_t)m_gexppribonus);
-	msg.set_m_gexpgroupbonus((int32_t)m_gexpgroupbonus);
-	msg.set_m_mapstart((int32_t)m_mapstart);
-	msg.set_m_mapend((int32_t)m_mapend);
-	msg.set_m_expitemid((int32_t)m_expitemid);
-	for(int32_t i = 0; i < (int32_t)m_timeitem.size(); ++i) {
+	msg.set_m_addgexpmax((int32_t)m_addGExpMax);
+	msg.set_m_pripricetype((int32_t)m_priPriceType);
+	msg.set_m_pricevalue((int32_t)m_priceValue);
+	msg.set_m_gexppribonus((int32_t)m_GExpPriBonus);
+	msg.set_m_gexpgroupbonus((int32_t)m_GExpGroupBonus);
+	msg.set_m_mapstart((int32_t)m_mapStart);
+	msg.set_m_mapend((int32_t)m_mapEnd);
+	msg.set_m_expitemid((int32_t)m_expItemId);
+	for(int32_t i = 0; i < (int32_t)m_timeItem.size(); ++i) {
 		::proto_ff::E_XiuzhenworldConstantTimeitemDesc* temp_m_timeitem = msg.add_m_timeitem();
-		m_timeitem[i].write_to_pbmsg(*temp_m_timeitem);
+		m_timeItem[i].write_to_pbmsg(*temp_m_timeitem);
 	}
 	for(int32_t i = 0; i < (int32_t)m_type.size(); ++i) {
 		::proto_ff::E_XiuzhenworldConstantTypeDesc* temp_m_type = msg.add_m_type();
@@ -112,24 +112,24 @@ void E_XiuzhenworldConstant_s::write_to_pbmsg(::proto_ff::E_XiuzhenworldConstant
 }
 
 void E_XiuzhenworldConstant_s::read_from_pbmsg(const ::proto_ff::E_XiuzhenworldConstant & msg) {
-	m_id = msg.m_id();
-	m_starfreetime = msg.m_starfreetime();
-	m_freetimemoment = msg.m_freetimemoment();
-	m_freetime = msg.m_freetime();
-	m_freetimemax = msg.m_freetimemax();
+	m_ID = msg.m_id();
+	m_starFreeTime = msg.m_starfreetime();
+	m_freeTimeMoment = msg.m_freetimemoment();
+	m_freeTime = msg.m_freetime();
+	m_freeTimeMax = msg.m_freetimemax();
 	m_helpid = msg.m_helpid();
-	m_addgexpmax = msg.m_addgexpmax();
-	m_pripricetype = msg.m_pripricetype();
-	m_pricevalue = msg.m_pricevalue();
-	m_gexppribonus = msg.m_gexppribonus();
-	m_gexpgroupbonus = msg.m_gexpgroupbonus();
-	m_mapstart = msg.m_mapstart();
-	m_mapend = msg.m_mapend();
-	m_expitemid = msg.m_expitemid();
-	m_timeitem.resize((int)msg.m_timeitem_size() > (int)m_timeitem.max_size() ? m_timeitem.max_size() : msg.m_timeitem_size());
-	for(int32_t i = 0; i < (int32_t)m_timeitem.size(); ++i) {
+	m_addGExpMax = msg.m_addgexpmax();
+	m_priPriceType = msg.m_pripricetype();
+	m_priceValue = msg.m_pricevalue();
+	m_GExpPriBonus = msg.m_gexppribonus();
+	m_GExpGroupBonus = msg.m_gexpgroupbonus();
+	m_mapStart = msg.m_mapstart();
+	m_mapEnd = msg.m_mapend();
+	m_expItemId = msg.m_expitemid();
+	m_timeItem.resize((int)msg.m_timeitem_size() > (int)m_timeItem.max_size() ? m_timeItem.max_size() : msg.m_timeitem_size());
+	for(int32_t i = 0; i < (int32_t)m_timeItem.size(); ++i) {
 		const ::proto_ff::E_XiuzhenworldConstantTimeitemDesc & temp_m_timeitem = msg.m_timeitem(i);
-		m_timeitem[i].read_from_pbmsg(temp_m_timeitem);
+		m_timeItem[i].read_from_pbmsg(temp_m_timeitem);
 	}
 	m_type.resize((int)msg.m_type_size() > (int)m_type.max_size() ? m_type.max_size() : msg.m_type_size());
 	for(int32_t i = 0; i < (int32_t)m_type.size(); ++i) {
@@ -179,7 +179,7 @@ E_XiuzhenworldExpmap_s::E_XiuzhenworldExpmap_s() {
 
 int E_XiuzhenworldExpmap_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_conditionglv = (int32_t)0;
+	m_conditionGlv = (int32_t)0;
 	m_mapid = (int32_t)0;
 	return 0;
 }
@@ -190,13 +190,13 @@ int E_XiuzhenworldExpmap_s::ResumeInit() {
 
 void E_XiuzhenworldExpmap_s::write_to_pbmsg(::proto_ff::E_XiuzhenworldExpmap & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_conditionglv((int32_t)m_conditionglv);
+	msg.set_m_conditionglv((int32_t)m_conditionGlv);
 	msg.set_m_mapid((int32_t)m_mapid);
 }
 
 void E_XiuzhenworldExpmap_s::read_from_pbmsg(const ::proto_ff::E_XiuzhenworldExpmap & msg) {
 	m_id = msg.m_id();
-	m_conditionglv = msg.m_conditionglv();
+	m_conditionGlv = msg.m_conditionglv();
 	m_mapid = msg.m_mapid();
 }
 

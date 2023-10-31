@@ -90,9 +90,9 @@ int XiuzhenroadBonuspointsDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		for(int j = 0; j < (int)pDesc->m_totalitems.size(); j++)
+		for(int j = 0; j < (int)pDesc->m_totalItems.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_totalitems[j].m_id <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_totalitems[j].m_id)), result, "can't find the totalitems:{} in the  excel:item sheet:item", pDesc->m_totalitems[j].m_id);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_totalItems[j].m_ID <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_totalItems[j].m_ID)), result, "can't find the totalItems:{} in the  excel:item sheet:item", pDesc->m_totalItems[j].m_ID);
 		}
 	}
 	return result;

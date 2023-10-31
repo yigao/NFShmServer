@@ -27,13 +27,13 @@ namespace proto_ff_s {
 		NFShmString<64> m_name;//显示名称
 		int32_t m_type;//活动类型
 		int32_t m_args;//玩法参数
-		int32_t m_playtype;//玩法类型
-		int32_t m_playargs;//玩法参数
-		int64_t m_funciontid;//功能ID
+		int32_t m_playType;//玩法类型
+		int32_t m_playArgs;//玩法参数
+		int64_t m_funciontID;//功能ID
 		int32_t m_number;//次数
-		int32_t m_eachscore;//每次活跃值
+		int32_t m_eachScore;//每次活跃值
 		int32_t m_cycle;//重置周期
-		int32_t m_regreward;//报名奖励道具boxid
+		int32_t m_regReward;//报名奖励道具boxid
 
 		virtual void write_to_pbmsg(::proto_ff::E_DailyDaily & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_DailyDaily & msg);
@@ -63,9 +63,9 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//索引
 		int32_t m_type;//类型
-		int32_t m_activescore;//活跃度值
-		int64_t m_rewardid;//奖励ID
-		int32_t m_rewardnum;//奖励数量
+		int32_t m_activeScore;//活跃度值
+		int64_t m_rewardId;//奖励ID
+		int32_t m_rewardNum;//奖励数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_DailyReward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_DailyReward & msg);
@@ -93,8 +93,8 @@ namespace proto_ff_s {
 		virtual ~E_DailyCultivateAttributeDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_value;//值
-		int32_t m_id;//id
+		int32_t m_Value;//值
+		int32_t m_ID;//id
 
 		virtual void write_to_pbmsg(::proto_ff::E_DailyCultivateAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_DailyCultivateAttributeDesc & msg);
@@ -108,7 +108,7 @@ namespace proto_ff_s {
 		virtual ~E_DailyCultivate_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//id
+		int32_t m_ID;//id
 		int32_t m_lv;//等级
 		int32_t m_exp;//升级所需经验
 		NFShmVector<struct E_DailyCultivateAttributeDesc_s, DEFINE_E_DAILYCULTIVATE_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
@@ -141,8 +141,8 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//序号
 		NFShmString<64> m_name;//名称
-		int32_t m_functionid;//功能开放ID
-		int32_t m_peractivityid;//活动id
+		int32_t m_functionID;//功能开放ID
+		int32_t m_perActivityid;//活动id
 		int32_t m_des;//ui说明
 		int32_t m_linkid;//linkID
 
@@ -172,10 +172,10 @@ namespace proto_ff_s {
 		virtual ~E_DailyHelper_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_helperid;//扫荡ID
-		int32_t m_helpertype;//扫荡玩法的类型
-		NFShmString<64> m_playid;//玩法ID
-		int32_t m_linkid;//跳转ID
+		int32_t m_helperID;//扫荡ID
+		int32_t m_helperType;//扫荡玩法的类型
+		NFShmString<64> m_playID;//玩法ID
+		int32_t m_linkId;//跳转ID
 		NFShmString<64> m_name;//标题显示
 		NFShmString<64> m_condition;//条件显示
 

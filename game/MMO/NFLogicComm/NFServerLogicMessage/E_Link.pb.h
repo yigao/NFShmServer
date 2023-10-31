@@ -114,10 +114,10 @@ class E_LinkLink : public ::google::protobuf::Message {
   inline ::std::string* release_m_icon();
   inline void set_allocated_m_icon(::std::string* m_icon);
 
-  // optional string m_dbargs = 3;
+  // optional string m_dbArgs = 3;
   inline bool has_m_dbargs() const;
   inline void clear_m_dbargs();
-  static const int kMDbargsFieldNumber = 3;
+  static const int kMDbArgsFieldNumber = 3;
   inline const ::std::string& m_dbargs() const;
   inline void set_m_dbargs(const ::std::string& value);
   inline void set_m_dbargs(const char* value);
@@ -138,17 +138,17 @@ class E_LinkLink : public ::google::protobuf::Message {
   inline ::std::string* release_m_argsm();
   inline void set_allocated_m_argsm(::std::string* m_argsm);
 
-  // optional int32 m_functionunlock = 5;
+  // optional int32 m_functionUnlock = 5;
   inline bool has_m_functionunlock() const;
   inline void clear_m_functionunlock();
-  static const int kMFunctionunlockFieldNumber = 5;
+  static const int kMFunctionUnlockFieldNumber = 5;
   inline ::google::protobuf::int32 m_functionunlock() const;
   inline void set_m_functionunlock(::google::protobuf::int32 value);
 
-  // optional string m_linknpc = 6;
+  // optional string m_linkNpc = 6;
   inline bool has_m_linknpc() const;
   inline void clear_m_linknpc();
-  static const int kMLinknpcFieldNumber = 6;
+  static const int kMLinkNpcFieldNumber = 6;
   inline const ::std::string& m_linknpc() const;
   inline void set_m_linknpc(const ::std::string& value);
   inline void set_m_linknpc(const char* value);
@@ -339,17 +339,17 @@ class E_LinkImagelink : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_closetype = 2;
+  // optional int32 m_closeType = 2;
   inline bool has_m_closetype() const;
   inline void clear_m_closetype();
-  static const int kMClosetypeFieldNumber = 2;
+  static const int kMCloseTypeFieldNumber = 2;
   inline ::google::protobuf::int32 m_closetype() const;
   inline void set_m_closetype(::google::protobuf::int32 value);
 
-  // optional int32 m_closearg = 3;
+  // optional int32 m_closeArg = 3;
   inline bool has_m_closearg() const;
   inline void clear_m_closearg();
-  static const int kMCloseargFieldNumber = 3;
+  static const int kMCloseArgFieldNumber = 3;
   inline ::google::protobuf::int32 m_closearg() const;
   inline void set_m_closearg(::google::protobuf::int32 value);
 
@@ -562,7 +562,7 @@ inline void E_LinkLink::set_allocated_m_icon(::std::string* m_icon) {
   }
 }
 
-// optional string m_dbargs = 3;
+// optional string m_dbArgs = 3;
 inline bool E_LinkLink::has_m_dbargs() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -702,7 +702,7 @@ inline void E_LinkLink::set_allocated_m_argsm(::std::string* m_argsm) {
   }
 }
 
-// optional int32 m_functionunlock = 5;
+// optional int32 m_functionUnlock = 5;
 inline bool E_LinkLink::has_m_functionunlock() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -724,7 +724,7 @@ inline void E_LinkLink::set_m_functionunlock(::google::protobuf::int32 value) {
   m_functionunlock_ = value;
 }
 
-// optional string m_linknpc = 6;
+// optional string m_linkNpc = 6;
 inline bool E_LinkLink::has_m_linknpc() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -849,7 +849,7 @@ inline void E_LinkImagelink::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_closetype = 2;
+// optional int32 m_closeType = 2;
 inline bool E_LinkImagelink::has_m_closetype() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -871,7 +871,7 @@ inline void E_LinkImagelink::set_m_closetype(::google::protobuf::int32 value) {
   m_closetype_ = value;
 }
 
-// optional int32 m_closearg = 3;
+// optional int32 m_closeArg = 3;
 inline bool E_LinkImagelink::has_m_closearg() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }

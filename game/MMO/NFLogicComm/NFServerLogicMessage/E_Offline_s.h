@@ -21,7 +21,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//角色等级
-		int64_t m_offlineexp;//离线基础经验
+		int64_t m_offlineExp;//离线基础经验
 
 		virtual void write_to_pbmsg(::proto_ff::E_OfflineOffline & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_OfflineOffline & msg);
@@ -49,9 +49,9 @@ namespace proto_ff_s {
 		virtual ~E_OfflineItemlistItemDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_vle;//权重
-		int32_t m_num;//数量
-		int64_t m_id;//ID
+		int32_t m_Vle;//权重
+		int32_t m_Num;//数量
+		int64_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_OfflineItemlistItemDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_OfflineItemlistItemDesc & msg);
@@ -66,8 +66,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//序号
-		int32_t m_lvdown;//等级下限
-		int32_t m_lvup;//等级上限
+		int32_t m_Lvdown;//等级下限
+		int32_t m_Lvup;//等级上限
 		int32_t m_daoju;//道具类型库
 		NFShmVector<struct E_OfflineItemlistItemDesc_s, DEFINE_E_OFFLINEITEMLIST_M_ITEM_MAX_NUM> m_item;//道具
 

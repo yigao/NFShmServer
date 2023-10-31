@@ -9,20 +9,20 @@ message E_ShenequipEquip
 	optional string m_name = 2[(yd_fieldoptions.field_cname) = "装备名称", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "装备大类"];
 	optional int32 m_grade = 4[(yd_fieldoptions.field_cname) = "装备评级"];
-	optional int32 m_subtype = 5[(yd_fieldoptions.field_cname) = "装备子类"];
+	optional int32 m_subType = 5[(yd_fieldoptions.field_cname) = "装备子类"];
 	optional int32 m_level = 6[(yd_fieldoptions.field_cname) = "穿戴等级限制"];
 	optional int32 m_quality = 7[(yd_fieldoptions.field_cname) = "装备品质"];
 	optional int32 m_star = 8[(yd_fieldoptions.field_cname) = "初始星级"];
-	optional int32 m_attributeid = 9[(yd_fieldoptions.field_cname) = "属性ID"];
+	optional int32 m_attributeID = 9[(yd_fieldoptions.field_cname) = "属性ID"];
 	optional string m_decompose = 10[(yd_fieldoptions.field_cname) = "分解获得", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_iscanbind = 11[(yd_fieldoptions.field_cname) = "是否绑定"];
-	optional int32 m_istradebind = 12[(yd_fieldoptions.field_cname) = "是否交易绑定"];
+	optional int32 m_isCanbind = 11[(yd_fieldoptions.field_cname) = "是否绑定"];
+	optional int32 m_isTradeBind = 12[(yd_fieldoptions.field_cname) = "是否交易绑定"];
 	optional int32 m_time = 13[(yd_fieldoptions.field_cname) = "限时装备"];
 	optional int32 m_broadcast = 14[(yd_fieldoptions.field_cname) = "是否播放跑马灯"];
-	optional int32 m_exclusiveid = 15[(yd_fieldoptions.field_cname) = "专属技能"];
-	optional string m_secretskill = 16[(yd_fieldoptions.field_cname) = "秘技技能", (yd_fieldoptions.field_bufsize) = 64];
-	optional string m_crypticskill = 17[(yd_fieldoptions.field_cname) = "暗术技能", (yd_fieldoptions.field_bufsize) = 64];
-	optional string m_passiveskill = 18[(yd_fieldoptions.field_cname) = "被动技能", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_exclusiveID = 15[(yd_fieldoptions.field_cname) = "专属技能"];
+	optional string m_secretSkill = 16[(yd_fieldoptions.field_cname) = "秘技技能", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_crypticSkill = 17[(yd_fieldoptions.field_cname) = "暗术技能", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_passiveSkill = 18[(yd_fieldoptions.field_cname) = "被动技能", (yd_fieldoptions.field_bufsize) = 64];
 }
 
 
@@ -58,8 +58,8 @@ message Sheet_ShenequipAtt
 
 message E_ShenequipLvupAttributeDesc
 {
-	optional int32 m_stepid = 1[(yd_fieldoptions.field_cname) = "阶段"];
-	optional int32 m_lvid = 2[(yd_fieldoptions.field_cname) = "升级"];
+	optional int32 m_stepId = 1[(yd_fieldoptions.field_cname) = "阶段"];
+	optional int32 m_lvId = 2[(yd_fieldoptions.field_cname) = "升级"];
 }
 
 message E_ShenequipLvup
@@ -67,10 +67,10 @@ message E_ShenequipLvup
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_lv = 2[(yd_fieldoptions.field_cname) = "注灵等级"];
 	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "装备大类"];
-	optional int32 m_itemid = 4[(yd_fieldoptions.field_cname) = "升级道具"];
+	optional int32 m_itemID = 4[(yd_fieldoptions.field_cname) = "升级道具"];
 	optional int32 m_num = 5[(yd_fieldoptions.field_cname) = "升级数量"];
-	optional int32 m_advanceitem = 6[(yd_fieldoptions.field_cname) = "进阶道具"];
-	optional int32 m_advancenum = 7[(yd_fieldoptions.field_cname) = "进阶数量"];
+	optional int32 m_advanceItem = 6[(yd_fieldoptions.field_cname) = "进阶道具"];
+	optional int32 m_advanceNum = 7[(yd_fieldoptions.field_cname) = "进阶数量"];
 	repeated E_ShenequipLvupAttributeDesc m_attribute = 8[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 2];
 }
 
@@ -85,14 +85,14 @@ message E_ShenequipClear
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "装备大类"];
 	optional int32 m_lv = 3[(yd_fieldoptions.field_cname) = "等级"];
-	optional int32 m_itemid = 4[(yd_fieldoptions.field_cname) = "铭刻道具"];
+	optional int32 m_itemID = 4[(yd_fieldoptions.field_cname) = "铭刻道具"];
 	optional int32 m_num = 5[(yd_fieldoptions.field_cname) = "消耗数量"];
-	optional int32 m_breakitem = 6[(yd_fieldoptions.field_cname) = "突破道具"];
-	optional int32 m_breaknum = 7[(yd_fieldoptions.field_cname) = "突破数量"];
-	optional int32 m_breakprogress = 8[(yd_fieldoptions.field_cname) = "突破进度值"];
-	optional int32 m_randomcounts = 9[(yd_fieldoptions.field_cname) = "随机条目数"];
+	optional int32 m_breakItem = 6[(yd_fieldoptions.field_cname) = "突破道具"];
+	optional int32 m_breakNum = 7[(yd_fieldoptions.field_cname) = "突破数量"];
+	optional int32 m_breakProgress = 8[(yd_fieldoptions.field_cname) = "突破进度值"];
+	optional int32 m_randomCounts = 9[(yd_fieldoptions.field_cname) = "随机条目数"];
 	optional int32 m_minus = 10[(yd_fieldoptions.field_cname) = "负数百分比"];
-	optional int32 m_nextid = 11[(yd_fieldoptions.field_cname) = "下段ID"];
+	optional int32 m_nextID = 11[(yd_fieldoptions.field_cname) = "下段ID"];
 	repeated int32 m_percent = 12[(yd_fieldoptions.field_cname) = "百分比区间值", (yd_fieldoptions.field_arysize) = 2];
 }
 
@@ -113,9 +113,9 @@ message E_ShenequipAwaken
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "装备大类"];
 	optional int32 m_lv = 3[(yd_fieldoptions.field_cname) = "技能等级"];
-	optional int32 m_itemid = 4[(yd_fieldoptions.field_cname) = "觉醒材料"];
+	optional int32 m_itemID = 4[(yd_fieldoptions.field_cname) = "觉醒材料"];
 	optional int32 m_num = 5[(yd_fieldoptions.field_cname) = "材料数量"];
-	optional int32 m_awakeskillid = 6[(yd_fieldoptions.field_cname) = "觉醒技能"];
+	optional int32 m_awakeSkillID = 6[(yd_fieldoptions.field_cname) = "觉醒技能"];
 	repeated E_ShenequipAwakenAttributeDesc m_attribute = 7[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 6];
 }
 
@@ -140,8 +140,8 @@ message E_ShenequipStarup
 	optional int32 m_grade = 2[(yd_fieldoptions.field_cname) = "装备评级"];
 	optional int32 m_quality = 3[(yd_fieldoptions.field_cname) = "装备品质"];
 	optional int32 m_stars = 4[(yd_fieldoptions.field_cname) = "装备星级"];
-	optional int32 m_nextid = 5[(yd_fieldoptions.field_cname) = "下级装备"];
-	optional int32 m_lastid = 6[(yd_fieldoptions.field_cname) = "上级装备"];
+	optional int32 m_nextID = 5[(yd_fieldoptions.field_cname) = "下级装备"];
+	optional int32 m_lastID = 6[(yd_fieldoptions.field_cname) = "上级装备"];
 	optional int32 m_percent = 7[(yd_fieldoptions.field_cname) = "提升增加的百分比"];
 	repeated E_ShenequipStarupMaterialDesc m_material = 8[(yd_fieldoptions.field_cname) = "升级材料", (yd_fieldoptions.field_arysize) = 2];
 }

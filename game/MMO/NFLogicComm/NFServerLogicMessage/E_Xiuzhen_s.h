@@ -55,7 +55,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_num;//数量
-		int32_t m_id;//ID
+		int32_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenStagesItemDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenStagesItemDesc & msg);
@@ -69,8 +69,8 @@ namespace proto_ff_s {
 		virtual ~E_XiuzhenStagesSkillDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_lv;//等级
-		int32_t m_id;//ID
+		int32_t m_Lv;//等级
+		int32_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenStagesSkillDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenStagesSkillDesc & msg);
@@ -85,7 +85,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_value;//值
-		int32_t m_id;//ID
+		int32_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenStagesAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenStagesAttributeDesc & msg);
@@ -100,11 +100,11 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//等级
-		int32_t m_success_rate;//成功率
+		int32_t m_Success_rate;//成功率
 		int32_t m_blessing;//失败增加祝福值
 		NFShmVector<struct E_XiuzhenStagesItemDesc_s, DEFINE_E_XIUZHENSTAGES_M_ITEM_MAX_NUM> m_item;//材料
-		NFShmVector<struct E_XiuzhenStagesSkillDesc_s, DEFINE_E_XIUZHENSTAGES_M_SKILL_MAX_NUM> m_skill;//技能
-		NFShmVector<struct E_XiuzhenStagesAttributeDesc_s, DEFINE_E_XIUZHENSTAGES_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
+		NFShmVector<struct E_XiuzhenStagesSkillDesc_s, DEFINE_E_XIUZHENSTAGES_M_SKILL_MAX_NUM> m_Skill;//技能
+		NFShmVector<struct E_XiuzhenStagesAttributeDesc_s, DEFINE_E_XIUZHENSTAGES_M_ATTRIBUTE_MAX_NUM> m_Attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenStages & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenStages & msg);
@@ -143,9 +143,9 @@ namespace proto_ff_s {
 		int32_t m_energy_addmax;//每间隔提升修为最多
 		int32_t m_energy_min;//大陆获得的最小修为
 		int32_t m_energy_max;//最大修为
-		int32_t m_eventrate;//事件概率
-		int32_t m_eventrateenergyadd;//事件修为爆增概率
-		int32_t m_eventgetitemsrate;//事件获得道具的概率
+		int32_t m_eventRate;//事件概率
+		int32_t m_eventRateEnergyAdd;//事件修为爆增概率
+		int32_t m_eventGetItemsRate;//事件获得道具的概率
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenGb_areas & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenGb_areas & msg);
@@ -173,8 +173,8 @@ namespace proto_ff_s {
 		virtual ~E_XiuzhenGb_area_eventsItemDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_num;//Num
-		int64_t m_id;//ID
+		int32_t m_Num;//Num
+		int64_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenGb_area_eventsItemDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenGb_area_eventsItemDesc & msg);
@@ -189,15 +189,15 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_id;//序号
-		int64_t m_areaid;//所在区域
+		int64_t m_areaId;//所在区域
 		int32_t m_rate;//随机概率
 		int32_t m_type;//类型
-		int32_t m_bodylvl;//需要肉身等级
-		NFShmString<64> m_chattitle;//文字标题
+		int32_t m_bodyLvl;//需要肉身等级
+		NFShmString<64> m_chatTitle;//文字标题
 		NFShmString<64> m_chats;//文字内容
-		NFShmString<64> m_chatbgf;//文字背景女
-		NFShmString<64> m_chatbgm;//文字背景男
-		int32_t m_energyadd;//修为爆增百分比
+		NFShmString<64> m_chatBGF;//文字背景女
+		NFShmString<64> m_chatBGM;//文字背景男
+		int32_t m_energyAdd;//修为爆增百分比
 		NFShmVector<struct E_XiuzhenGb_area_eventsItemDesc_s, DEFINE_E_XIUZHENGB_AREA_EVENTS_M_ITEM_MAX_NUM> m_item;//获得道具
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenGb_area_events & msg) const;
@@ -227,7 +227,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_num;//数量
-		int32_t m_id;//ID
+		int32_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenGb_lvlupItemDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenGb_lvlupItemDesc & msg);
@@ -242,7 +242,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_value;//值
-		int32_t m_id;//ID
+		int32_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenGb_lvlupAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenGb_lvlupAttributeDesc & msg);
@@ -257,9 +257,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//等级
-		int32_t m_needenergy;//升级需要修为
+		int32_t m_needEnergy;//升级需要修为
 		NFShmVector<struct E_XiuzhenGb_lvlupItemDesc_s, DEFINE_E_XIUZHENGB_LVLUP_M_ITEM_MAX_NUM> m_item;//材料
-		NFShmVector<struct E_XiuzhenGb_lvlupAttributeDesc_s, DEFINE_E_XIUZHENGB_LVLUP_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
+		NFShmVector<struct E_XiuzhenGb_lvlupAttributeDesc_s, DEFINE_E_XIUZHENGB_LVLUP_M_ATTRIBUTE_MAX_NUM> m_Attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenGb_lvlup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenGb_lvlup & msg);
@@ -288,7 +288,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_num;//数量
-		int32_t m_id;//ID
+		int32_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenEvolveItemDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenEvolveItemDesc & msg);
@@ -303,7 +303,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int64_t m_value;//值
-		int32_t m_id;//ID
+		int32_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenEvolveAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenEvolveAttributeDesc & msg);
@@ -318,14 +318,14 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//等级
-		int64_t m_needxw;//升级消耗修为
-		int32_t m_success_rate;//成功率
+		int64_t m_needXW;//升级消耗修为
+		int32_t m_Success_rate;//成功率
 		int32_t m_blessing;//失败增加祝福值
-		int32_t m_specialattriid;//特殊属性
-		int64_t m_specialattrivalue;//特殊属性值
+		int32_t m_specialAttriId;//特殊属性
+		int64_t m_specialAttriValue;//特殊属性值
 		int32_t m_linggen;//全灵根加成
 		NFShmVector<struct E_XiuzhenEvolveItemDesc_s, DEFINE_E_XIUZHENEVOLVE_M_ITEM_MAX_NUM> m_item;//材料
-		NFShmVector<struct E_XiuzhenEvolveAttributeDesc_s, DEFINE_E_XIUZHENEVOLVE_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
+		NFShmVector<struct E_XiuzhenEvolveAttributeDesc_s, DEFINE_E_XIUZHENEVOLVE_M_ATTRIBUTE_MAX_NUM> m_Attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenEvolve & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenEvolve & msg);
@@ -388,15 +388,15 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//灵根类型
 		NFShmString<64> m_name;//名称
-		NFShmString<64> m_shortname;//名称
-		NFShmString<64> m_namecolor;//tips信息中名称的颜色
-		NFShmString<64> m_bookmodel;//锁模型
-		NFShmString<64> m_bodymodel;//灵根模型
-		int32_t m_unlockbook;//解锁需要的心法
-		int32_t m_bookcount;//心法数量
-		int32_t m_addpoints;//每升一级加多少点
+		NFShmString<64> m_shortName;//名称
+		NFShmString<64> m_nameColor;//tips信息中名称的颜色
+		NFShmString<64> m_bookModel;//锁模型
+		NFShmString<64> m_bodyModel;//灵根模型
+		int32_t m_unlockBook;//解锁需要的心法
+		int32_t m_bookCount;//心法数量
+		int32_t m_addPoints;//每升一级加多少点
 		NFShmVector<struct E_XiuzhenLgtypesAttriDesc_s, DEFINE_E_XIUZHENLGTYPES_M_ATTRI_MAX_NUM> m_attri;//属性
-		NFShmVector<struct E_XiuzhenLgtypesLgattDesc_s, DEFINE_E_XIUZHENLGTYPES_M_LGATT_MAX_NUM> m_lgatt;//灵根属性
+		NFShmVector<struct E_XiuzhenLgtypesLgattDesc_s, DEFINE_E_XIUZHENLGTYPES_M_LGATT_MAX_NUM> m_LGatt;//灵根属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenLgtypes & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenLgtypes & msg);
@@ -425,7 +425,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//等级
-		int64_t m_needxw;//消耗修为
+		int64_t m_needXW;//消耗修为
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenLglvlup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenLglvlup & msg);
@@ -453,8 +453,8 @@ namespace proto_ff_s {
 		virtual ~E_XiuzhenLgpotionsLgDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_value;//值
-		int32_t m_type;//类型
+		int64_t m_Value;//值
+		int32_t m_Type;//类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenLgpotionsLgDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenLgpotionsLgDesc & msg);
@@ -501,11 +501,11 @@ namespace proto_ff_s {
 		int32_t m_type;//功法类型
 		NFShmString<64> m_name;//功法名称
 		NFShmString<64> m_icon;//功法图标
-		int32_t m_activationitem;//激活消耗道具
-		int32_t m_itemnum;//道具数量
-		int32_t m_buylv;//购买等级
-		int32_t m_rechargeid;//充值id
-		NFShmString<64> m_bookmodel;//书模型
+		int32_t m_activationItem;//激活消耗道具
+		int32_t m_itemNum;//道具数量
+		int32_t m_buyLv;//购买等级
+		int32_t m_rechargeId;//充值id
+		NFShmString<64> m_bookModel;//书模型
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenGftypes & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenGftypes & msg);
@@ -534,7 +534,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_value;//值
-		int32_t m_id;//ID
+		int32_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenGflvlupAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenGflvlupAttributeDesc & msg);
@@ -554,14 +554,14 @@ namespace proto_ff_s {
 		int32_t m_middle_level;//大周天等级
 		int32_t m_high_level;//几重天
 		int32_t m_roushen_level;//所需肉身等级
-		int32_t m_itemid;//材料ID
-		int32_t m_itemnum;//数量
+		int32_t m_itemID;//材料ID
+		int32_t m_itemNum;//数量
 		int32_t m_xw;//需要修为
-		int32_t m_awakeskill;//觉醒技能
-		int32_t m_awakeskilllvl;//觉醒技能等级
-		int32_t m_specialattriid;//specialAttriId
-		int32_t m_specialattrivalue;//specialAttriValue
-		NFShmVector<struct E_XiuzhenGflvlupAttributeDesc_s, DEFINE_E_XIUZHENGFLVLUP_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
+		int32_t m_awakeSkill;//觉醒技能
+		int32_t m_awakeSkillLvl;//觉醒技能等级
+		int32_t m_specialAttriId;//specialAttriId
+		int32_t m_specialAttriValue;//specialAttriValue
+		NFShmVector<struct E_XiuzhenGflvlupAttributeDesc_s, DEFINE_E_XIUZHENGFLVLUP_M_ATTRIBUTE_MAX_NUM> m_Attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenGflvlup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenGflvlup & msg);
@@ -590,7 +590,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_value;//值
-		int32_t m_id;//ID
+		int32_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenGfstageupAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenGfstageupAttributeDesc & msg);
@@ -608,13 +608,13 @@ namespace proto_ff_s {
 		int32_t m_type;//功法类型
 		int32_t m_high_level;//阶级
 		NFShmString<64> m_highlevel_icon;//阶级图标
-		int32_t m_itemid;//材料ID
-		int32_t m_itemnum;//数量
-		int32_t m_awakeskill1;//觉醒技能
-		int32_t m_awakeskilllvl1;//觉醒技能等级
-		int32_t m_awakeskill2;//觉醒技能
-		int32_t m_awakeskilllvl2;//觉醒技能等级
-		NFShmVector<struct E_XiuzhenGfstageupAttributeDesc_s, DEFINE_E_XIUZHENGFSTAGEUP_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
+		int32_t m_itemID;//材料ID
+		int32_t m_itemNum;//数量
+		int32_t m_awakeSkill1;//觉醒技能
+		int32_t m_awakeSkillLvl1;//觉醒技能等级
+		int32_t m_awakeSkill2;//觉醒技能
+		int32_t m_awakeSkillLvl2;//觉醒技能等级
+		NFShmVector<struct E_XiuzhenGfstageupAttributeDesc_s, DEFINE_E_XIUZHENGFSTAGEUP_M_ATTRIBUTE_MAX_NUM> m_Attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenGfstageup & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenGfstageup & msg);
@@ -672,7 +672,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_num;//数量
-		int32_t m_id;//ID
+		int32_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenJmlvlupItemDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenJmlvlupItemDesc & msg);
@@ -687,7 +687,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_value;//值
-		int32_t m_id;//ID
+		int32_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenJmlvlupAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenJmlvlupAttributeDesc & msg);
@@ -704,10 +704,10 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_type;//经脉类型
 		int32_t m_lvl;//等级
-		int64_t m_needxw;//消耗修为
-		int32_t m_success_rate;//成功率
-		int32_t m_specialattriid;//特殊属性id
-		int32_t m_specialattrivalue;//特殊属性变量
+		int64_t m_needXW;//消耗修为
+		int32_t m_Success_rate;//成功率
+		int32_t m_specialAttriId;//特殊属性id
+		int32_t m_specialAttriValue;//特殊属性变量
 		NFShmVector<struct E_XiuzhenJmlvlupItemDesc_s, DEFINE_E_XIUZHENJMLVLUP_M_ITEM_MAX_NUM> m_item;//材料
 		NFShmVector<struct E_XiuzhenJmlvlupAttributeDesc_s, DEFINE_E_XIUZHENJMLVLUP_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
@@ -738,7 +738,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_num;//数量
-		int32_t m_id;//ID
+		int32_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenJmstageupItemDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenJmstageupItemDesc & msg);
@@ -753,7 +753,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_value;//值
-		int32_t m_id;//ID
+		int32_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenJmstageupAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenJmstageupAttributeDesc & msg);
@@ -771,11 +771,11 @@ namespace proto_ff_s {
 		int32_t m_type;//经脉类型
 		int32_t m_stage;//品阶
 		NFShmString<64> m_name;//名称
-		int32_t m_needgfunlock;//需要解锁功法ID
-		int32_t m_success_rate;//成功率
+		int32_t m_needGFUnlock;//需要解锁功法ID
+		int32_t m_Success_rate;//成功率
 		int32_t m_blessing;//失败增加祝福值
-		int32_t m_awakeskillid;//觉醒技能
-		int32_t m_awakeskilllvl;//觉醒技能等级
+		int32_t m_awakeSkillID;//觉醒技能
+		int32_t m_awakeSkillLvl;//觉醒技能等级
 		NFShmVector<struct E_XiuzhenJmstageupItemDesc_s, DEFINE_E_XIUZHENJMSTAGEUP_M_ITEM_MAX_NUM> m_item;//材料
 		NFShmVector<struct E_XiuzhenJmstageupAttributeDesc_s, DEFINE_E_XIUZHENJMSTAGEUP_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
@@ -821,7 +821,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_value;//值
-		int32_t m_id;//ID
+		int32_t m_ID;//ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenJmmergeupAttributeDesc & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_XiuzhenJmmergeupAttributeDesc & msg);
@@ -837,8 +837,8 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//合俱品级
 		int32_t m_gf_type;//功法类型
-		int32_t m_awakeskillid;//觉醒技能
-		int32_t m_awakeskilllvl;//asdfas
+		int32_t m_awakeSkillID;//觉醒技能
+		int32_t m_awakeSkillLvl;//asdfas
 		NFShmVector<struct E_XiuzhenJmmergeupCsDesc_s, DEFINE_E_XIUZHENJMMERGEUP_M_CS_MAX_NUM> m_cs;//需要品阶
 		NFShmVector<struct E_XiuzhenJmmergeupAttributeDesc_s, DEFINE_E_XIUZHENJMMERGEUP_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
@@ -901,9 +901,9 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//类型
 		int32_t m_price;//价格
-		int32_t m_activeavatar;//激活外观
-		NFShmString<64> m_avatarname;//外观名
-		NFShmVector<struct E_XiuzhenPrivilegePtaddDesc_s, DEFINE_E_XIUZHENPRIVILEGE_M_PTADD_MAX_NUM> m_ptadd;//修真曾益
+		int32_t m_activeAvatar;//激活外观
+		NFShmString<64> m_avatarName;//外观名
+		NFShmVector<struct E_XiuzhenPrivilegePtaddDesc_s, DEFINE_E_XIUZHENPRIVILEGE_M_PTADD_MAX_NUM> m_ptAdd;//修真曾益
 		NFShmVector<struct E_XiuzhenPrivilegeAttriDesc_s, DEFINE_E_XIUZHENPRIVILEGE_M_ATTRI_MAX_NUM> m_attri;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_XiuzhenPrivilege & msg) const;

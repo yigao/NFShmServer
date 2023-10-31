@@ -30,7 +30,7 @@ namespace proto_ff_s {
 		virtual ~E_AncientgodAncientgodFraDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_attid;//解锁获得属性ID
+		int32_t m_attID;//解锁获得属性ID
 		int32_t m_num;//解锁数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_AncientgodAncientgodFraDesc & msg) const;
@@ -48,10 +48,10 @@ namespace proto_ff_s {
 		int32_t m_id;//神灵ID
 		NFShmString<64> m_name;//神灵名称
 		float m_parama;//神灵品质系数
-		int32_t m_showlv;//神灵显示等级
-		int32_t m_unlocklv;//神灵解锁等级
+		int32_t m_showLv;//神灵显示等级
+		int32_t m_unlockLv;//神灵解锁等级
 		NFShmString<64> m_condition;//解锁条件
-		int32_t m_lvlimit;//进阶等级上限
+		int32_t m_lvLimit;//进阶等级上限
 		int32_t m_stars;//部位进阶星数
 		NFShmVector<struct E_AncientgodAncientgodFraDesc_s, DEFINE_E_ANCIENTGODANCIENTGOD_M_FRA_MAX_NUM> m_fra;//碎片
 
@@ -98,11 +98,11 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_lv;//部位等级
-		int32_t m_ancientid;//神灵ID
-		int32_t m_itemid;//升级道具
-		int32_t m_mallid;//商品ID
+		int32_t m_ancientID;//神灵ID
+		int32_t m_itemID;//升级道具
+		int32_t m_mallID;//商品ID
 		int32_t m_num;//升级数量
-		int32_t m_initialvalue;//进阶初始值
+		int32_t m_initialValue;//进阶初始值
 		int32_t m_position;//部位类型
 		NFShmVector<struct E_AncientgodLvupAttributeDesc_s, DEFINE_E_ANCIENTGODLVUP_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
 
@@ -134,7 +134,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_quality;//装备品质
-		int32_t m_wearquality;//装备品阶
+		int32_t m_wearQuality;//装备品阶
 		int32_t m_star;//星级
 		int32_t m_value;//初始进度值
 
@@ -180,9 +180,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_ancientid;//神灵ID
+		int32_t m_ancientID;//神灵ID
 		int32_t m_position;//部位ID
-		int32_t m_itemid;//祝福消耗道具
+		int32_t m_itemID;//祝福消耗道具
 		int32_t m_num;//消耗数量
 		NFShmVector<struct E_AncientgodBlessAttributeDesc_s, DEFINE_E_ANCIENTGODBLESS_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
 
@@ -229,7 +229,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_ancientid;//神灵ID
+		int32_t m_ancientID;//神灵ID
 		int32_t m_position;//部位ID
 		NFShmVector<struct E_AncientgodAdvanceAttributeDesc_s, DEFINE_E_ANCIENTGODADVANCE_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性ID
 

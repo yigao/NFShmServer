@@ -52,10 +52,10 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_month;//月份
 		int32_t m_days;//天数
-		int32_t m_vip;//VIP双倍等级
+		int32_t m_VIP;//VIP双倍等级
 		NFShmString<64> m_icon;//图标
 		int32_t m_reward;//道具奖励
-		int32_t m_rewardnum;//道具数量
+		int32_t m_rewardNum;//道具数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_WelfareSign & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_WelfareSign & msg);
@@ -85,9 +85,9 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_month;//月份
-		int32_t m_accruedays;//累积签到天数
+		int32_t m_accrueDays;//累积签到天数
 		int32_t m_reward;//累积奖励道具
-		int32_t m_rewardnum;//累积奖励道具数量
+		int32_t m_rewardNum;//累积奖励道具数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_WelfareAccruereward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_WelfareAccruereward & msg);
@@ -117,9 +117,9 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_lv;//等级
-		int32_t m_lvreward;//奖励
+		int32_t m_lvReward;//奖励
 		int32_t m_vip;//VIP等级
-		int32_t m_vipreward;//VIP奖励
+		int32_t m_vipReward;//VIP奖励
 
 		virtual void write_to_pbmsg(::proto_ff::E_WelfareLvreward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_WelfareLvreward & msg);
@@ -148,8 +148,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_onlinetime;//在线时间
-		int32_t m_lvreward;//奖励
+		int32_t m_onlineTime;//在线时间
+		int32_t m_lvReward;//奖励
 
 		virtual void write_to_pbmsg(::proto_ff::E_WelfareOnline & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_WelfareOnline & msg);
@@ -208,8 +208,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_lvmin;//最小等级
-		int32_t m_lvmax;//最大等级
+		int32_t m_lvMin;//最小等级
+		int32_t m_lvMax;//最大等级
 		int32_t m_date;//日期
 		NFShmVector<int32_t, DEFINE_E_WELFAREWEEKENDGIFT_M_REWARDS_MAX_NUM> m_rewards;//奖励
 
@@ -240,18 +240,18 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_addsigncost;//补签花费货币
-		int32_t m_addsignprice;//补签花费价格
-		int32_t m_noticereward;//公告奖励
-		int32_t m_wrongmin;//最小错误答案
-		int32_t m_wrongmax;//最大错误答案数量
-		int32_t m_fraudreward;//防诈骗奖励
-		int32_t m_firstrcharge;//首充额度
-		int32_t m_secondrcharge;//续充额度
-		int32_t m_gemmb;//钻石秘宝额度
-		int32_t m_starmb;//星耀秘宝额度
-		int32_t m_kingmb;//王者秘宝额度
-		int32_t m_keyrebate;//密匙返利
+		int32_t m_addSigncost;//补签花费货币
+		int32_t m_addSignprice;//补签花费价格
+		int32_t m_noticeReward;//公告奖励
+		int32_t m_wrongMin;//最小错误答案
+		int32_t m_wrongMax;//最大错误答案数量
+		int32_t m_fraudReward;//防诈骗奖励
+		int32_t m_firstRcharge;//首充额度
+		int32_t m_secondRcharge;//续充额度
+		int32_t m_gemMB;//钻石秘宝额度
+		int32_t m_starMB;//星耀秘宝额度
+		int32_t m_kingMB;//王者秘宝额度
+		int32_t m_keyRebate;//密匙返利
 
 		virtual void write_to_pbmsg(::proto_ff::E_WelfareConstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_WelfareConstant & msg);
@@ -341,7 +341,7 @@ namespace proto_ff_s {
 		int32_t m_days;//登录天数
 		int32_t m_type;//奖励类型
 		int32_t m_icon;//入口icon
-		int32_t m_showitem;//展示物品
+		int32_t m_showItem;//展示物品
 		int32_t m_reward;//奖励
 
 		virtual void write_to_pbmsg(::proto_ff::E_WelfareLogon & msg) const;
@@ -373,11 +373,11 @@ namespace proto_ff_s {
 		int32_t m_constantid;//配置id
 		int32_t m_openlv;//开启等级
 		int32_t m_type;//充值类型
-		int32_t m_opendays;//开服天数
+		int32_t m_openDays;//开服天数
 		int32_t m_reward;//奖励
 		NFShmVector<NFShmString<64>, DEFINE_E_WELFAREFIRSTCHARGE_M_MODEL_MAX_NUM> m_model;//展示模型
-		NFShmVector<int32_t, DEFINE_E_WELFAREFIRSTCHARGE_M_REWARDSHOW_MAX_NUM> m_rewardshow;//展示奖励
-		NFShmVector<NFShmString<64>, DEFINE_E_WELFAREFIRSTCHARGE_M_REWARDDES_MAX_NUM> m_rewarddes;//奖励描述
+		NFShmVector<int32_t, DEFINE_E_WELFAREFIRSTCHARGE_M_REWARDSHOW_MAX_NUM> m_rewardShow;//展示奖励
+		NFShmVector<NFShmString<64>, DEFINE_E_WELFAREFIRSTCHARGE_M_REWARDDES_MAX_NUM> m_rewardDes;//奖励描述
 
 		virtual void write_to_pbmsg(::proto_ff::E_WelfareFirstcharge & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_WelfareFirstcharge & msg);
@@ -408,7 +408,7 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_functionid;//功能开放id
 		NFShmString<64> m_title;//标题图片
-		NFShmString<64> m_basemap;//底图
+		NFShmString<64> m_baseMap;//底图
 		int32_t m_rcharge;//充值额度
 
 		virtual void write_to_pbmsg(::proto_ff::E_WelfareSctype & msg) const;
@@ -441,7 +441,7 @@ namespace proto_ff_s {
 		int32_t m_openlv;//开启等级
 		int32_t m_type;//充值类型
 		int32_t m_rank;//排序
-		int32_t m_opendays;//开服天数
+		int32_t m_openDays;//开服天数
 		int32_t m_reward;//奖励
 		NFShmString<64> m_des;//倍数描述
 
@@ -504,8 +504,8 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_type;//礼包类型
-		int32_t m_rechargeid;//价格链接
-		int32_t m_oneclickbuy;//是否一键购买
+		int32_t m_rechargeId;//价格链接
+		int32_t m_OneclickBuy;//是否一键购买
 		int32_t m_reward;//奖励
 		int32_t m_quality;//礼包品质
 
@@ -539,9 +539,9 @@ namespace proto_ff_s {
 		int32_t m_type;//礼包类型
 		int32_t m_limit;//充值额度
 		int32_t m_days;//累充天数
-		int32_t m_starnum;//星星数量
+		int32_t m_starNum;//星星数量
 		int32_t m_reward;//奖励
-		int32_t m_showitem;//道具展示
+		int32_t m_showItem;//道具展示
 
 		virtual void write_to_pbmsg(::proto_ff::E_WelfareLcgift & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_WelfareLcgift & msg);
@@ -616,9 +616,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_jackpottype;//奖池类型
-		int32_t m_raffletimes;//累积抽奖次数
-		int32_t m_ratimesrew;//累积抽奖奖励
+		int32_t m_jackpotType;//奖池类型
+		int32_t m_raffleTimes;//累积抽奖次数
+		int32_t m_raTimesRew;//累积抽奖奖励
 		NFShmVector<struct E_WelfareLcturntableRaffleDesc_s, DEFINE_E_WELFARELCTURNTABLE_M_RAFFLE_MAX_NUM> m_raffle;//抽奖
 
 		virtual void write_to_pbmsg(::proto_ff::E_WelfareLcturntable & msg) const;
@@ -651,7 +651,7 @@ namespace proto_ff_s {
 		int32_t m_type;//奖池类型
 		int32_t m_rank;//排序
 		int32_t m_item;//道具
-		int32_t m_itemnum;//数量
+		int32_t m_itemNum;//数量
 		int32_t m_weight;//抽取权重
 
 		virtual void write_to_pbmsg(::proto_ff::E_WelfareJackpot & msg) const;
@@ -681,12 +681,12 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_cardtype;//月卡类型
-		int32_t m_cardmoney;//月卡购买链接
-		int32_t m_cardbuyitem;//月卡购买立得材料
-		int32_t m_carddailyitem;//月卡每日材料
-		int32_t m_cardtime;//月卡持续时间
-		int32_t m_flmultiple;//返利倍数
+		int32_t m_cardType;//月卡类型
+		int32_t m_cardMoney;//月卡购买链接
+		int32_t m_cardBuyitem;//月卡购买立得材料
+		int32_t m_cardDailyitem;//月卡每日材料
+		int32_t m_cardTime;//月卡持续时间
+		int32_t m_Flmultiple;//返利倍数
 
 		virtual void write_to_pbmsg(::proto_ff::E_WelfareMonthlycard & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_WelfareMonthlycard & msg);
@@ -716,9 +716,9 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_functionid;//关联开关
-		int32_t m_taskgroup;//任务列表组
+		int32_t m_taskGroup;//任务列表组
 		int32_t m_tasknum;//需要完成的任务数量
-		int32_t m_rewrditem;//完成奖励
+		int32_t m_rewrdItem;//完成奖励
 		int32_t m_time;//持续时间
 
 		virtual void write_to_pbmsg(::proto_ff::E_WelfareGoal & msg) const;
@@ -748,11 +748,11 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_groupid;//任务组id
-		int32_t m_eventtype;//事件类型
-		int32_t m_reachprice;//达成值
-		int32_t m_itemid;//奖励道具
-		int32_t m_itemnum;//道具数量
+		int32_t m_groupID;//任务组id
+		int32_t m_eventType;//事件类型
+		int32_t m_reachPrice;//达成值
+		int32_t m_itemID;//奖励道具
+		int32_t m_itemNum;//道具数量
 		NFShmVector<int32_t, DEFINE_E_WELFAREGOALTASK_M_PARAM_MAX_NUM> m_param;//事件完成参数
 
 		virtual void write_to_pbmsg(::proto_ff::E_WelfareGoaltask & msg) const;
@@ -782,10 +782,10 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_functionid;//开放条件
+		int32_t m_functionID;//开放条件
 		int32_t m_price;//价格
-		int32_t m_rewarditem;//奖励道具
-		int32_t m_rewardgroup;//投资奖励组
+		int32_t m_rewardItem;//奖励道具
+		int32_t m_rewardGroup;//投资奖励组
 
 		virtual void write_to_pbmsg(::proto_ff::E_WelfareInvest & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_WelfareInvest & msg);
@@ -831,7 +831,7 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_group;//组id
 		int32_t m_lv;//领取等级
-		NFShmVector<struct E_WelfareInvestrewardItemDesc_s, DEFINE_E_WELFAREINVESTREWARD_M_ITEM_MAX_NUM> m_item;//奖励道具
+		NFShmVector<struct E_WelfareInvestrewardItemDesc_s, DEFINE_E_WELFAREINVESTREWARD_M_ITEM_MAX_NUM> m_Item;//奖励道具
 
 		virtual void write_to_pbmsg(::proto_ff::E_WelfareInvestreward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_WelfareInvestreward & msg);
@@ -860,7 +860,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_rechargeid;//价格链接
+		int32_t m_rechargeId;//价格链接
 		int32_t m_reward;//奖励
 
 		virtual void write_to_pbmsg(::proto_ff::E_WelfareYttlgift & msg) const;

@@ -102,10 +102,10 @@ class E_QypeakBack : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_layers() const;
   inline void set_m_layers(::google::protobuf::int32 value);
 
-  // optional int32 m_skillnum = 2;
+  // optional int32 m_skillNum = 2;
   inline bool has_m_skillnum() const;
   inline void clear_m_skillnum();
-  static const int kMSkillnumFieldNumber = 2;
+  static const int kMSkillNumFieldNumber = 2;
   inline ::google::protobuf::int32 m_skillnum() const;
   inline void set_m_skillnum(::google::protobuf::int32 value);
 
@@ -296,10 +296,10 @@ class E_QypeakConstant : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_mapid() const;
   inline void set_m_mapid(::google::protobuf::int32 value);
 
-  // optional int32 m_revivalbuff = 3;
+  // optional int32 m_revivalBuff = 3;
   inline bool has_m_revivalbuff() const;
   inline void clear_m_revivalbuff();
-  static const int kMRevivalbuffFieldNumber = 3;
+  static const int kMRevivalBuffFieldNumber = 3;
   inline ::google::protobuf::int32 m_revivalbuff() const;
   inline void set_m_revivalbuff(::google::protobuf::int32 value);
 
@@ -468,7 +468,7 @@ inline void E_QypeakBack::set_m_layers(::google::protobuf::int32 value) {
   m_layers_ = value;
 }
 
-// optional int32 m_skillnum = 2;
+// optional int32 m_skillNum = 2;
 inline bool E_QypeakBack::has_m_skillnum() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -589,7 +589,7 @@ inline void E_QypeakConstant::set_m_mapid(::google::protobuf::int32 value) {
   m_mapid_ = value;
 }
 
-// optional int32 m_revivalbuff = 3;
+// optional int32 m_revivalBuff = 3;
 inline bool E_QypeakConstant::has_m_revivalbuff() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }

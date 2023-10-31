@@ -95,17 +95,17 @@ class E_PeractivityPeractivity : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int64 m_activeid = 1;
+  // optional int64 m_activeId = 1;
   inline bool has_m_activeid() const;
   inline void clear_m_activeid();
-  static const int kMActiveidFieldNumber = 1;
+  static const int kMActiveIdFieldNumber = 1;
   inline ::google::protobuf::int64 m_activeid() const;
   inline void set_m_activeid(::google::protobuf::int64 value);
 
-  // optional string m_activename = 2;
+  // optional string m_activeName = 2;
   inline bool has_m_activename() const;
   inline void clear_m_activename();
-  static const int kMActivenameFieldNumber = 2;
+  static const int kMActiveNameFieldNumber = 2;
   inline const ::std::string& m_activename() const;
   inline void set_m_activename(const ::std::string& value);
   inline void set_m_activename(const char* value);
@@ -114,24 +114,24 @@ class E_PeractivityPeractivity : public ::google::protobuf::Message {
   inline ::std::string* release_m_activename();
   inline void set_allocated_m_activename(::std::string* m_activename);
 
-  // optional int32 m_typeid = 3;
+  // optional int32 m_typeId = 3;
   inline bool has_m_typeid() const;
   inline void clear_m_typeid();
-  static const int kMTypeidFieldNumber = 3;
+  static const int kMTypeIdFieldNumber = 3;
   inline ::google::protobuf::int32 m_typeid() const;
   inline void set_m_typeid(::google::protobuf::int32 value);
 
-  // optional int32 m_functionid = 4;
+  // optional int32 m_functionID = 4;
   inline bool has_m_functionid() const;
   inline void clear_m_functionid();
-  static const int kMFunctionidFieldNumber = 4;
+  static const int kMFunctionIDFieldNumber = 4;
   inline ::google::protobuf::int32 m_functionid() const;
   inline void set_m_functionid(::google::protobuf::int32 value);
 
-  // optional string m_opeday = 5;
+  // optional string m_opeDay = 5;
   inline bool has_m_opeday() const;
   inline void clear_m_opeday();
-  static const int kMOpedayFieldNumber = 5;
+  static const int kMOpeDayFieldNumber = 5;
   inline const ::std::string& m_opeday() const;
   inline void set_m_opeday(const ::std::string& value);
   inline void set_m_opeday(const char* value);
@@ -140,10 +140,10 @@ class E_PeractivityPeractivity : public ::google::protobuf::Message {
   inline ::std::string* release_m_opeday();
   inline void set_allocated_m_opeday(::std::string* m_opeday);
 
-  // optional string m_closeday = 6;
+  // optional string m_closeDay = 6;
   inline bool has_m_closeday() const;
   inline void clear_m_closeday();
-  static const int kMClosedayFieldNumber = 6;
+  static const int kMCloseDayFieldNumber = 6;
   inline const ::std::string& m_closeday() const;
   inline void set_m_closeday(const ::std::string& value);
   inline void set_m_closeday(const char* value);
@@ -152,52 +152,52 @@ class E_PeractivityPeractivity : public ::google::protobuf::Message {
   inline ::std::string* release_m_closeday();
   inline void set_allocated_m_closeday(::std::string* m_closeday);
 
-  // optional int32 m_serverdelaytime = 7;
+  // optional int32 m_serverdelayTime = 7;
   inline bool has_m_serverdelaytime() const;
   inline void clear_m_serverdelaytime();
-  static const int kMServerdelaytimeFieldNumber = 7;
+  static const int kMServerdelayTimeFieldNumber = 7;
   inline ::google::protobuf::int32 m_serverdelaytime() const;
   inline void set_m_serverdelaytime(::google::protobuf::int32 value);
 
-  // optional int32 m_servertime = 8;
+  // optional int32 m_serverTime = 8;
   inline bool has_m_servertime() const;
   inline void clear_m_servertime();
-  static const int kMServertimeFieldNumber = 8;
+  static const int kMServerTimeFieldNumber = 8;
   inline ::google::protobuf::int32 m_servertime() const;
   inline void set_m_servertime(::google::protobuf::int32 value);
 
-  // optional int32 m_openingtime = 9;
+  // optional int32 m_openingTime = 9;
   inline bool has_m_openingtime() const;
   inline void clear_m_openingtime();
-  static const int kMOpeningtimeFieldNumber = 9;
+  static const int kMOpeningTimeFieldNumber = 9;
   inline ::google::protobuf::int32 m_openingtime() const;
   inline void set_m_openingtime(::google::protobuf::int32 value);
 
-  // optional int32 m_advancetime = 10;
+  // optional int32 m_advanceTime = 10;
   inline bool has_m_advancetime() const;
   inline void clear_m_advancetime();
-  static const int kMAdvancetimeFieldNumber = 10;
+  static const int kMAdvanceTimeFieldNumber = 10;
   inline ::google::protobuf::int32 m_advancetime() const;
   inline void set_m_advancetime(::google::protobuf::int32 value);
 
-  // optional int32 m_intervaltime = 11;
+  // optional int32 m_intervalTime = 11;
   inline bool has_m_intervaltime() const;
   inline void clear_m_intervaltime();
-  static const int kMIntervaltimeFieldNumber = 11;
+  static const int kMIntervalTimeFieldNumber = 11;
   inline ::google::protobuf::int32 m_intervaltime() const;
   inline void set_m_intervaltime(::google::protobuf::int32 value);
 
-  // optional int32 m_iscross = 12;
+  // optional int32 m_isCross = 12;
   inline bool has_m_iscross() const;
   inline void clear_m_iscross();
-  static const int kMIscrossFieldNumber = 12;
+  static const int kMIsCrossFieldNumber = 12;
   inline ::google::protobuf::int32 m_iscross() const;
   inline void set_m_iscross(::google::protobuf::int32 value);
 
-  // optional int32 m_isfestvial = 13;
+  // optional int32 m_isFestvial = 13;
   inline bool has_m_isfestvial() const;
   inline void clear_m_isfestvial();
-  static const int kMIsfestvialFieldNumber = 13;
+  static const int kMIsFestvialFieldNumber = 13;
   inline ::google::protobuf::int32 m_isfestvial() const;
   inline void set_m_isfestvial(::google::protobuf::int32 value);
 
@@ -547,7 +547,7 @@ class Sheet_PeractivityWeek : public ::google::protobuf::Message {
 
 // E_PeractivityPeractivity
 
-// optional int64 m_activeid = 1;
+// optional int64 m_activeId = 1;
 inline bool E_PeractivityPeractivity::has_m_activeid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -569,7 +569,7 @@ inline void E_PeractivityPeractivity::set_m_activeid(::google::protobuf::int64 v
   m_activeid_ = value;
 }
 
-// optional string m_activename = 2;
+// optional string m_activeName = 2;
 inline bool E_PeractivityPeractivity::has_m_activename() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -639,7 +639,7 @@ inline void E_PeractivityPeractivity::set_allocated_m_activename(::std::string* 
   }
 }
 
-// optional int32 m_typeid = 3;
+// optional int32 m_typeId = 3;
 inline bool E_PeractivityPeractivity::has_m_typeid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -661,7 +661,7 @@ inline void E_PeractivityPeractivity::set_m_typeid(::google::protobuf::int32 val
   m_typeid_ = value;
 }
 
-// optional int32 m_functionid = 4;
+// optional int32 m_functionID = 4;
 inline bool E_PeractivityPeractivity::has_m_functionid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -683,7 +683,7 @@ inline void E_PeractivityPeractivity::set_m_functionid(::google::protobuf::int32
   m_functionid_ = value;
 }
 
-// optional string m_opeday = 5;
+// optional string m_opeDay = 5;
 inline bool E_PeractivityPeractivity::has_m_opeday() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -753,7 +753,7 @@ inline void E_PeractivityPeractivity::set_allocated_m_opeday(::std::string* m_op
   }
 }
 
-// optional string m_closeday = 6;
+// optional string m_closeDay = 6;
 inline bool E_PeractivityPeractivity::has_m_closeday() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -823,7 +823,7 @@ inline void E_PeractivityPeractivity::set_allocated_m_closeday(::std::string* m_
   }
 }
 
-// optional int32 m_serverdelaytime = 7;
+// optional int32 m_serverdelayTime = 7;
 inline bool E_PeractivityPeractivity::has_m_serverdelaytime() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -845,7 +845,7 @@ inline void E_PeractivityPeractivity::set_m_serverdelaytime(::google::protobuf::
   m_serverdelaytime_ = value;
 }
 
-// optional int32 m_servertime = 8;
+// optional int32 m_serverTime = 8;
 inline bool E_PeractivityPeractivity::has_m_servertime() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -867,7 +867,7 @@ inline void E_PeractivityPeractivity::set_m_servertime(::google::protobuf::int32
   m_servertime_ = value;
 }
 
-// optional int32 m_openingtime = 9;
+// optional int32 m_openingTime = 9;
 inline bool E_PeractivityPeractivity::has_m_openingtime() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -889,7 +889,7 @@ inline void E_PeractivityPeractivity::set_m_openingtime(::google::protobuf::int3
   m_openingtime_ = value;
 }
 
-// optional int32 m_advancetime = 10;
+// optional int32 m_advanceTime = 10;
 inline bool E_PeractivityPeractivity::has_m_advancetime() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -911,7 +911,7 @@ inline void E_PeractivityPeractivity::set_m_advancetime(::google::protobuf::int3
   m_advancetime_ = value;
 }
 
-// optional int32 m_intervaltime = 11;
+// optional int32 m_intervalTime = 11;
 inline bool E_PeractivityPeractivity::has_m_intervaltime() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -933,7 +933,7 @@ inline void E_PeractivityPeractivity::set_m_intervaltime(::google::protobuf::int
   m_intervaltime_ = value;
 }
 
-// optional int32 m_iscross = 12;
+// optional int32 m_isCross = 12;
 inline bool E_PeractivityPeractivity::has_m_iscross() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -955,7 +955,7 @@ inline void E_PeractivityPeractivity::set_m_iscross(::google::protobuf::int32 va
   m_iscross_ = value;
 }
 
-// optional int32 m_isfestvial = 13;
+// optional int32 m_isFestvial = 13;
 inline bool E_PeractivityPeractivity::has_m_isfestvial() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }

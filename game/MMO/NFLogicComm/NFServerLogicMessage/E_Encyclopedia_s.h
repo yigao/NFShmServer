@@ -74,22 +74,22 @@ namespace proto_ff_s {
 		virtual ~E_EncyclopediaHandbook_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_handbookid;//图鉴id
-		int64_t m_itemid;//关联物品id
-		NFShmString<64> m_handbookname;//图鉴名称
-		int32_t m_handbookquality;//图鉴品质
-		int32_t m_handbooktype;//图鉴类型
-		NFShmString<64> m_handbooktype_name;//图鉴类型名称
-		int32_t m_handz;//图鉴组
-		NFShmString<64> m_handzname;//图鉴组名称
-		int32_t m_handbooklv;//图鉴等级上限
-		int64_t m_lvid;//升级道具id
-		NFShmString<256> m_lvnum;//升级道具数量
-		int64_t m_starid;//升星道具id
-		NFShmString<64> m_starnum;//升星道具数量
-		NFShmVector<struct E_EncyclopediaHandbookLviattributeDesc_s, DEFINE_E_ENCYCLOPEDIAHANDBOOK_M_LVIATTRIBUTE_MAX_NUM> m_lviattribute;//属性
-		NFShmVector<int32_t, DEFINE_E_ENCYCLOPEDIAHANDBOOK_M_AWAKESKILL_MAX_NUM> m_awakeskill;//技能
-		NFShmVector<struct E_EncyclopediaHandbookStariattributeDesc_s, DEFINE_E_ENCYCLOPEDIAHANDBOOK_M_STARIATTRIBUTE_MAX_NUM> m_stariattribute;//属性
+		int64_t m_handbookID;//图鉴id
+		int64_t m_itemId;//关联物品id
+		NFShmString<64> m_handbookName;//图鉴名称
+		int32_t m_handbookQuality;//图鉴品质
+		int32_t m_handbookType;//图鉴类型
+		NFShmString<64> m_handbookType_name;//图鉴类型名称
+		int32_t m_handZ;//图鉴组
+		NFShmString<64> m_handZName;//图鉴组名称
+		int32_t m_handbookLv;//图鉴等级上限
+		int64_t m_LvId;//升级道具id
+		NFShmString<256> m_LvNum;//升级道具数量
+		int64_t m_starId;//升星道具id
+		NFShmString<64> m_starNum;//升星道具数量
+		NFShmVector<struct E_EncyclopediaHandbookLviattributeDesc_s, DEFINE_E_ENCYCLOPEDIAHANDBOOK_M_LVIATTRIBUTE_MAX_NUM> m_LvIattribute;//属性
+		NFShmVector<int32_t, DEFINE_E_ENCYCLOPEDIAHANDBOOK_M_AWAKESKILL_MAX_NUM> m_awakeSkill;//技能
+		NFShmVector<struct E_EncyclopediaHandbookStariattributeDesc_s, DEFINE_E_ENCYCLOPEDIAHANDBOOK_M_STARIATTRIBUTE_MAX_NUM> m_starIattribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_EncyclopediaHandbook & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EncyclopediaHandbook & msg);
@@ -132,10 +132,10 @@ namespace proto_ff_s {
 		virtual ~E_EncyclopediaHandbookfate_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_fateid;//羁绊id
-		NFShmString<64> m_fatename;//羁绊名称
-		int32_t m_fatequality;//羁绊品质
-		NFShmVector<int64_t, DEFINE_E_ENCYCLOPEDIAHANDBOOKFATE_M_FATEHAND_MAX_NUM> m_fatehand;//羁绊图鉴
+		int64_t m_fateID;//羁绊id
+		NFShmString<64> m_fateName;//羁绊名称
+		int32_t m_fateQuality;//羁绊品质
+		NFShmVector<int64_t, DEFINE_E_ENCYCLOPEDIAHANDBOOKFATE_M_FATEHAND_MAX_NUM> m_fateHand;//羁绊图鉴
 		NFShmVector<struct E_EncyclopediaHandbookfateAttributeDesc_s, DEFINE_E_ENCYCLOPEDIAHANDBOOKFATE_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_EncyclopediaHandbookfate & msg) const;
@@ -164,9 +164,9 @@ namespace proto_ff_s {
 		virtual ~E_EncyclopediaHandbookresolve_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_handbookquality;//图鉴道具品质
-		int32_t m_resolveitem;//分解道具
-		int32_t m_resolvenum;//分解数量
+		int32_t m_handbookQuality;//图鉴道具品质
+		int32_t m_resolveItem;//分解道具
+		int32_t m_resolveNum;//分解数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_EncyclopediaHandbookresolve & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EncyclopediaHandbookresolve & msg);
@@ -194,7 +194,7 @@ namespace proto_ff_s {
 		virtual ~E_EncyclopediaHandbooklv_attr_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_attid;//属性组id
+		int64_t m_attID;//属性组id
 		NFShmVector<int32_t, DEFINE_E_ENCYCLOPEDIAHANDBOOKLV_ATTR_M_ATT_MAX_NUM> m_att;//属性等级
 
 		virtual void write_to_pbmsg(::proto_ff::E_EncyclopediaHandbooklv_attr & msg) const;
@@ -223,7 +223,7 @@ namespace proto_ff_s {
 		virtual ~E_EncyclopediaHandbookstar_attr_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_attid;//属性组id
+		int64_t m_attID;//属性组id
 		NFShmVector<int32_t, DEFINE_E_ENCYCLOPEDIAHANDBOOKSTAR_ATTR_M_ATT_MAX_NUM> m_att;//属性等级
 
 		virtual void write_to_pbmsg(::proto_ff::E_EncyclopediaHandbookstar_attr & msg) const;
@@ -334,10 +334,10 @@ namespace proto_ff_s {
 		NFShmString<64> m_name;//材料名称
 		int32_t m_exp;//初始经验
 		int64_t m_link;//来源
-		int32_t m_goldattall;//仙品共条数
-		int32_t m_goldatt;//黄星属性条数
-		NFShmVector<struct E_EncyclopediaEquipexpvalueBeaststarDesc_s, DEFINE_E_ENCYCLOPEDIAEQUIPEXPVALUE_M_BEASTSTAR_MAX_NUM> m_beaststar;//蓝星属性
-		NFShmVector<struct E_EncyclopediaEquipexpvalueGoldstarDesc_s, DEFINE_E_ENCYCLOPEDIAEQUIPEXPVALUE_M_GOLDSTAR_MAX_NUM> m_goldstar;//黄星属性
+		int32_t m_goldAttAll;//仙品共条数
+		int32_t m_goldAtt;//黄星属性条数
+		NFShmVector<struct E_EncyclopediaEquipexpvalueBeaststarDesc_s, DEFINE_E_ENCYCLOPEDIAEQUIPEXPVALUE_M_BEASTSTAR_MAX_NUM> m_beastStar;//蓝星属性
+		NFShmVector<struct E_EncyclopediaEquipexpvalueGoldstarDesc_s, DEFINE_E_ENCYCLOPEDIAEQUIPEXPVALUE_M_GOLDSTAR_MAX_NUM> m_goldStar;//黄星属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_EncyclopediaEquipexpvalue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EncyclopediaEquipexpvalue & msg);
@@ -411,10 +411,10 @@ namespace proto_ff_s {
 		virtual ~E_EncyclopediaBeastprivilege_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_privilegetype;//特权类型
+		int32_t m_privilegeType;//特权类型
 		NFShmString<64> m_name;//名字
 		int32_t m_price;//价格链接
-		int64_t m_expaddition;//经验值加成
+		int64_t m_expAddition;//经验值加成
 		NFShmVector<struct E_EncyclopediaBeastprivilegeAttributeDesc_s, DEFINE_E_ENCYCLOPEDIABEASTPRIVILEGE_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_EncyclopediaBeastprivilege & msg) const;
@@ -487,16 +487,16 @@ namespace proto_ff_s {
 		virtual ~E_EncyclopediaEmploy_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_employid;//收录id
+		int64_t m_employID;//收录id
 		int64_t m_type;//激活类型
-		int64_t m_itemid;//激活条件
-		NFShmString<64> m_employname;//收录名称
-		int32_t m_employquality;//收录品质
-		int32_t m_employtype;//收录类型
-		NFShmString<64> m_employtype_name;//收录类型名称
-		int32_t m_employz;//收录组
-		NFShmString<64> m_employzname;//收录组名称
-		NFShmVector<struct E_EncyclopediaEmployLviattributeDesc_s, DEFINE_E_ENCYCLOPEDIAEMPLOY_M_LVIATTRIBUTE_MAX_NUM> m_lviattribute;//属性
+		int64_t m_itemId;//激活条件
+		NFShmString<64> m_employName;//收录名称
+		int32_t m_employQuality;//收录品质
+		int32_t m_employType;//收录类型
+		NFShmString<64> m_employType_name;//收录类型名称
+		int32_t m_employZ;//收录组
+		NFShmString<64> m_employZName;//收录组名称
+		NFShmVector<struct E_EncyclopediaEmployLviattributeDesc_s, DEFINE_E_ENCYCLOPEDIAEMPLOY_M_LVIATTRIBUTE_MAX_NUM> m_LvIattribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_EncyclopediaEmploy & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EncyclopediaEmploy & msg);
@@ -539,10 +539,10 @@ namespace proto_ff_s {
 		virtual ~E_EncyclopediaTable_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int64_t m_id;//id
+		int64_t m_ID;//id
 		int64_t m_tableid;//天机谱id
-		NFShmString<64> m_tablename;//天机谱名称
-		NFShmVector<struct E_EncyclopediaTableLviattributeDesc_s, DEFINE_E_ENCYCLOPEDIATABLE_M_LVIATTRIBUTE_MAX_NUM> m_lviattribute;//属性
+		NFShmString<64> m_tableName;//天机谱名称
+		NFShmVector<struct E_EncyclopediaTableLviattributeDesc_s, DEFINE_E_ENCYCLOPEDIATABLE_M_LVIATTRIBUTE_MAX_NUM> m_LvIattribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_EncyclopediaTable & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EncyclopediaTable & msg);

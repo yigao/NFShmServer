@@ -5,12 +5,12 @@ import "yd_fieldoptions.proto";
 
 message E_ChatChat
 {
-	optional int64 m_chatid = 1[(yd_fieldoptions.field_cname) = "传闻ID"];
-	optional int32 m_chattype = 2[(yd_fieldoptions.field_cname) = "传闻类型"];
-	optional int32 m_showtime = 3[(yd_fieldoptions.field_cname) = "活动提示显示时间"];
-	optional string m_chatcontent = 4[(yd_fieldoptions.field_cname) = "传闻内容", (yd_fieldoptions.field_bufsize) = 128];
+	optional int64 m_chatId = 1[(yd_fieldoptions.field_cname) = "传闻ID"];
+	optional int32 m_chatType = 2[(yd_fieldoptions.field_cname) = "传闻类型"];
+	optional int32 m_showTime = 3[(yd_fieldoptions.field_cname) = "活动提示显示时间"];
+	optional string m_chatContent = 4[(yd_fieldoptions.field_cname) = "传闻内容", (yd_fieldoptions.field_bufsize) = 128];
 	optional int32 m_channel = 5[(yd_fieldoptions.field_cname) = "显示频道"];
-	optional int32 m_crossservice = 6[(yd_fieldoptions.field_cname) = "是否跨服广播"];
+	optional int32 m_CrossService = 6[(yd_fieldoptions.field_cname) = "是否跨服广播"];
 }
 
 
@@ -24,7 +24,7 @@ message E_ChatSpecialchat
 	optional int32 m_type = 1[(yd_fieldoptions.field_cname) = "事件类型"];
 	optional string m_parama = 2[(yd_fieldoptions.field_cname) = "事件参数a", (yd_fieldoptions.field_bufsize) = 64];
 	optional string m_paramb = 3[(yd_fieldoptions.field_cname) = "事件参数b", (yd_fieldoptions.field_bufsize) = 128];
-	optional int64 m_chat_id = 4[(yd_fieldoptions.field_cname) = "触发关联的跑马灯内容id"];
+	optional int64 m_chat_Id = 4[(yd_fieldoptions.field_cname) = "触发关联的跑马灯内容id"];
 }
 
 

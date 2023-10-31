@@ -8,12 +8,12 @@ message E_Pk3v3Level
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "唯一id"];
 	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "段位类型"];
 	optional string m_name = 3[(yd_fieldoptions.field_cname) = "段位名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_starnum = 4[(yd_fieldoptions.field_cname) = "星星数量"];
+	optional int32 m_starNum = 4[(yd_fieldoptions.field_cname) = "星星数量"];
 	optional int32 m_scoring = 5[(yd_fieldoptions.field_cname) = "积分值"];
 	optional string m_badge = 6[(yd_fieldoptions.field_cname) = "段位徽章", (yd_fieldoptions.field_bufsize) = 64];
-	optional string m_showbadge = 7[(yd_fieldoptions.field_cname) = "展示段位徽章", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_scoringadd = 8[(yd_fieldoptions.field_cname) = "胜场积分奖励"];
-	optional int32 m_scoringcut = 9[(yd_fieldoptions.field_cname) = "负场积分扣除"];
+	optional string m_showBadge = 7[(yd_fieldoptions.field_cname) = "展示段位徽章", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_scoringAdd = 8[(yd_fieldoptions.field_cname) = "胜场积分奖励"];
+	optional int32 m_scoringCut = 9[(yd_fieldoptions.field_cname) = "负场积分扣除"];
 }
 
 
@@ -54,25 +54,25 @@ message Sheet_Pk3v3Badge
 message E_Pk3v3Constant
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
-	optional int32 m_teammember = 2[(yd_fieldoptions.field_cname) = "战队人数上限"];
-	optional int32 m_teamtoplimit = 3[(yd_fieldoptions.field_cname) = "战队上限"];
-	optional int32 m_cedetime = 4[(yd_fieldoptions.field_cname) = "转让队长时间"];
-	optional int32 m_punishtime = 5[(yd_fieldoptions.field_cname) = "离队惩罚时间"];
-	optional int32 m_breaktime = 6[(yd_fieldoptions.field_cname) = "战队解散时间"];
-	optional int32 m_entryreward = 7[(yd_fieldoptions.field_cname) = "参赛奖励"];
-	optional int32 m_entrtimes = 8[(yd_fieldoptions.field_cname) = "参赛获奖次数"];
-	optional int32 m_mvpreward = 9[(yd_fieldoptions.field_cname) = "mvp奖励"];
-	optional int32 m_mvptimes = 10[(yd_fieldoptions.field_cname) = "mvp奖励次数"];
-	optional int32 m_matchtime = 11[(yd_fieldoptions.field_cname) = "单场时间"];
-	optional int32 m_unitname = 12[(yd_fieldoptions.field_cname) = "修改战队名称"];
-	optional int32 m_unitcost = 13[(yd_fieldoptions.field_cname) = "修改花费数量"];
-	optional int32 m_initialzlid = 14[(yd_fieldoptions.field_cname) = "初始战令id"];
-	optional string m_initialzlname = 15[(yd_fieldoptions.field_cname) = "初始战令名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional string m_robotname = 16[(yd_fieldoptions.field_cname) = "机器人名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_matetime = 17[(yd_fieldoptions.field_cname) = "匹配预计时间"];
-	optional int32 m_addtime = 18[(yd_fieldoptions.field_cname) = "匹配增量时间"];
-	optional string m_initialnotice = 19[(yd_fieldoptions.field_cname) = "初始公告", (yd_fieldoptions.field_bufsize) = 256];
-	repeated int32 m_showreward = 20[(yd_fieldoptions.field_cname) = "展示奖励", (yd_fieldoptions.field_arysize) = 3];
+	optional int32 m_teamMember = 2[(yd_fieldoptions.field_cname) = "战队人数上限"];
+	optional int32 m_teamToplimit = 3[(yd_fieldoptions.field_cname) = "战队上限"];
+	optional int32 m_cedeTime = 4[(yd_fieldoptions.field_cname) = "转让队长时间"];
+	optional int32 m_punishTime = 5[(yd_fieldoptions.field_cname) = "离队惩罚时间"];
+	optional int32 m_breakTime = 6[(yd_fieldoptions.field_cname) = "战队解散时间"];
+	optional int32 m_entryReward = 7[(yd_fieldoptions.field_cname) = "参赛奖励"];
+	optional int32 m_entrTimes = 8[(yd_fieldoptions.field_cname) = "参赛获奖次数"];
+	optional int32 m_mvpReward = 9[(yd_fieldoptions.field_cname) = "mvp奖励"];
+	optional int32 m_mvpTimes = 10[(yd_fieldoptions.field_cname) = "mvp奖励次数"];
+	optional int32 m_matchTime = 11[(yd_fieldoptions.field_cname) = "单场时间"];
+	optional int32 m_unitName = 12[(yd_fieldoptions.field_cname) = "修改战队名称"];
+	optional int32 m_unitCost = 13[(yd_fieldoptions.field_cname) = "修改花费数量"];
+	optional int32 m_initialZLid = 14[(yd_fieldoptions.field_cname) = "初始战令id"];
+	optional string m_initialZLName = 15[(yd_fieldoptions.field_cname) = "初始战令名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_robotName = 16[(yd_fieldoptions.field_cname) = "机器人名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_mateTime = 17[(yd_fieldoptions.field_cname) = "匹配预计时间"];
+	optional int32 m_addTime = 18[(yd_fieldoptions.field_cname) = "匹配增量时间"];
+	optional string m_initialNotice = 19[(yd_fieldoptions.field_cname) = "初始公告", (yd_fieldoptions.field_bufsize) = 256];
+	repeated int32 m_showReward = 20[(yd_fieldoptions.field_cname) = "展示奖励", (yd_fieldoptions.field_arysize) = 3];
 }
 
 
@@ -84,7 +84,7 @@ message Sheet_Pk3v3Constant
 message E_Pk3v3Exp
 {
 	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
-	optional int32 m_mateexp = 2[(yd_fieldoptions.field_cname) = "匹配经验"];
+	optional int32 m_mateExp = 2[(yd_fieldoptions.field_cname) = "匹配经验"];
 }
 
 

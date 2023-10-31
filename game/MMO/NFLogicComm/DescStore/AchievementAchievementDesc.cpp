@@ -90,9 +90,9 @@ int AchievementAchievementDesc::CheckWhenAllDataLoaded()
 	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
 		auto pDesc = &iter->second;
-		for(int j = 0; j < (int)pDesc->m_itemreward.size(); j++)
+		for(int j = 0; j < (int)pDesc->m_itemReward.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_itemreward[j].m_id <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_itemreward[j].m_id)), result, "can't find the itemreward:{} in the  excel:item sheet:item", pDesc->m_itemreward[j].m_id);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_itemReward[j].m_ID <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_itemReward[j].m_ID)), result, "can't find the itemReward:{} in the  excel:item sheet:item", pDesc->m_itemReward[j].m_ID);
 		}
 	}
 	return result;

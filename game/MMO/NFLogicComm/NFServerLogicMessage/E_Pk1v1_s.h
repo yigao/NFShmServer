@@ -23,13 +23,13 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_mark;//段位标识
-		int32_t m_scoremin;//分数下限
-		int32_t m_scoremax;//分数上限
-		int32_t m_sucessscore;//胜利加分
-		int32_t m_defeatscore;//失败扣分
-		int32_t m_sucessbox;//单场获胜奖励
-		int32_t m_defeatbox;//单场失败奖励
-		int32_t m_tiebox;//单场平局奖励
+		int32_t m_scoreMin;//分数下限
+		int32_t m_scoreMax;//分数上限
+		int32_t m_sucessScore;//胜利加分
+		int32_t m_defeatScore;//失败扣分
+		int32_t m_sucessBox;//单场获胜奖励
+		int32_t m_defeatBox;//单场失败奖励
+		int32_t m_tieBox;//单场平局奖励
 
 		virtual void write_to_pbmsg(::proto_ff::E_Pk1v1Rank & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_Pk1v1Rank & msg);
@@ -60,7 +60,7 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_type;//类型
 		int32_t m_boxid;//奖励内容
-		NFShmVector<int32_t, DEFINE_E_PK1V1REWARD_M_TYPEARG_MAX_NUM> m_typearg;//类型参数
+		NFShmVector<int32_t, DEFINE_E_PK1V1REWARD_M_TYPEARG_MAX_NUM> m_typeArg;//类型参数
 
 		virtual void write_to_pbmsg(::proto_ff::E_Pk1v1Reward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_Pk1v1Reward & msg);

@@ -161,20 +161,20 @@ void protobuf_AddDesc_E_5fPeractivity_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\023E_Peractivity.proto\022\010proto_ff\032\025yd_fiel"
     "doptions.proto\"\317\004\n\030E_PeractivityPeractiv"
-    "ity\022 \n\nm_activeid\030\001 \001(\003B\014\302\377\024\010\346\264\273\345\212\250ID\022*\n"
-    "\014m_activename\030\002 \001(\tB\024\302\377\024\014\346\264\273\345\212\250\345\220\215\347\247\260\220\301\024"
-    "@\022\036\n\010m_typeid\030\003 \001(\005B\014\302\377\024\010\347\261\273\345\236\213ID\022(\n\014m_f"
-    "unctionid\030\004 \001(\005B\022\302\377\024\016\345\212\237\350\203\275\345\274\200\346\224\276ID\022&\n\010m"
-    "_opeday\030\005 \001(\tB\024\302\377\024\014\345\274\200\346\224\276\346\227\245\346\234\237\220\301\024@\022(\n\nm"
-    "_closeday\030\006 \001(\tB\024\302\377\024\014\345\205\263\351\227\255\346\227\245\346\234\237\220\301\024@\022=\n"
-    "\021m_serverdelaytime\030\007 \001(\005B\"\302\377\024\036\345\274\200\346\234\215\345\220\216\345"
-    "\244\232\345\260\221\345\244\251\346\264\273\345\212\250\345\274\200\345\220\257\0225\n\014m_servertime\030\010 \001"
+    "ity\022 \n\nm_activeId\030\001 \001(\003B\014\302\377\024\010\346\264\273\345\212\250ID\022*\n"
+    "\014m_activeName\030\002 \001(\tB\024\302\377\024\014\346\264\273\345\212\250\345\220\215\347\247\260\220\301\024"
+    "@\022\036\n\010m_typeId\030\003 \001(\005B\014\302\377\024\010\347\261\273\345\236\213ID\022(\n\014m_f"
+    "unctionID\030\004 \001(\005B\022\302\377\024\016\345\212\237\350\203\275\345\274\200\346\224\276ID\022&\n\010m"
+    "_opeDay\030\005 \001(\tB\024\302\377\024\014\345\274\200\346\224\276\346\227\245\346\234\237\220\301\024@\022(\n\nm"
+    "_closeDay\030\006 \001(\tB\024\302\377\024\014\345\205\263\351\227\255\346\227\245\346\234\237\220\301\024@\022=\n"
+    "\021m_serverdelayTime\030\007 \001(\005B\"\302\377\024\036\345\274\200\346\234\215\345\220\216\345"
+    "\244\232\345\260\221\345\244\251\346\264\273\345\212\250\345\274\200\345\220\257\0225\n\014m_serverTime\030\010 \001"
     "(\005B\037\302\377\024\033\345\274\200\346\234\215\345\220\216\345\244\232\345\260\221\346\264\273\345\212\250\347\273\223\346\235\237\022\'\n\rm"
-    "_openingtime\030\t \001(\005B\020\302\377\024\014\345\274\200\345\220\257\346\227\266\351\225\277\022-\n\r"
-    "m_advancetime\030\n \001(\005B\026\302\377\024\022\346\217\220\345\211\215\345\271\277\346\222\255\346\227\266"
-    "\351\227\264\022(\n\016m_intervaltime\030\013 \001(\005B\020\302\377\024\014\345\271\277\346\222\255\351"
-    "\227\264\351\232\224\022#\n\tm_iscross\030\014 \001(\005B\020\302\377\024\014\346\230\257\345\220\246\350\267\250\346"
-    "\234\215\022,\n\014m_isfestvial\030\r \001(\005B\026\302\377\024\022\346\230\257\345\220\246\351\231\220\346"
+    "_openingTime\030\t \001(\005B\020\302\377\024\014\345\274\200\345\220\257\346\227\266\351\225\277\022-\n\r"
+    "m_advanceTime\030\n \001(\005B\026\302\377\024\022\346\217\220\345\211\215\345\271\277\346\222\255\346\227\266"
+    "\351\227\264\022(\n\016m_intervalTime\030\013 \001(\005B\020\302\377\024\014\345\271\277\346\222\255\351"
+    "\227\264\351\232\224\022#\n\tm_isCross\030\014 \001(\005B\020\302\377\024\014\346\230\257\345\220\246\350\267\250\346"
+    "\234\215\022,\n\014m_isFestvial\030\r \001(\005B\026\302\377\024\022\346\230\257\345\220\246\351\231\220\346"
     "\227\266\346\264\273\345\212\250\"o\n\034Sheet_PeractivityPeractivity"
     "\022O\n\035E_PeractivityPeractivity_List\030\001 \003(\0132"
     "\".proto_ff.E_PeractivityPeractivityB\004\210\301\024"
@@ -207,19 +207,19 @@ struct StaticDescriptorInitializer_E_5fPeractivity_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_PeractivityPeractivity::kMActiveidFieldNumber;
-const int E_PeractivityPeractivity::kMActivenameFieldNumber;
-const int E_PeractivityPeractivity::kMTypeidFieldNumber;
-const int E_PeractivityPeractivity::kMFunctionidFieldNumber;
-const int E_PeractivityPeractivity::kMOpedayFieldNumber;
-const int E_PeractivityPeractivity::kMClosedayFieldNumber;
-const int E_PeractivityPeractivity::kMServerdelaytimeFieldNumber;
-const int E_PeractivityPeractivity::kMServertimeFieldNumber;
-const int E_PeractivityPeractivity::kMOpeningtimeFieldNumber;
-const int E_PeractivityPeractivity::kMAdvancetimeFieldNumber;
-const int E_PeractivityPeractivity::kMIntervaltimeFieldNumber;
-const int E_PeractivityPeractivity::kMIscrossFieldNumber;
-const int E_PeractivityPeractivity::kMIsfestvialFieldNumber;
+const int E_PeractivityPeractivity::kMActiveIdFieldNumber;
+const int E_PeractivityPeractivity::kMActiveNameFieldNumber;
+const int E_PeractivityPeractivity::kMTypeIdFieldNumber;
+const int E_PeractivityPeractivity::kMFunctionIDFieldNumber;
+const int E_PeractivityPeractivity::kMOpeDayFieldNumber;
+const int E_PeractivityPeractivity::kMCloseDayFieldNumber;
+const int E_PeractivityPeractivity::kMServerdelayTimeFieldNumber;
+const int E_PeractivityPeractivity::kMServerTimeFieldNumber;
+const int E_PeractivityPeractivity::kMOpeningTimeFieldNumber;
+const int E_PeractivityPeractivity::kMAdvanceTimeFieldNumber;
+const int E_PeractivityPeractivity::kMIntervalTimeFieldNumber;
+const int E_PeractivityPeractivity::kMIsCrossFieldNumber;
+const int E_PeractivityPeractivity::kMIsFestvialFieldNumber;
 #endif  // !_MSC_VER
 
 E_PeractivityPeractivity::E_PeractivityPeractivity()
@@ -333,7 +333,7 @@ bool E_PeractivityPeractivity::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int64 m_activeid = 1;
+      // optional int64 m_activeId = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -344,15 +344,15 @@ bool E_PeractivityPeractivity::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_m_activename;
+        if (input->ExpectTag(18)) goto parse_m_activeName;
         break;
       }
 
-      // optional string m_activename = 2;
+      // optional string m_activeName = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_activename:
+         parse_m_activeName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_activename()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -361,15 +361,15 @@ bool E_PeractivityPeractivity::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_typeid;
+        if (input->ExpectTag(24)) goto parse_m_typeId;
         break;
       }
 
-      // optional int32 m_typeid = 3;
+      // optional int32 m_typeId = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_typeid:
+         parse_m_typeId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_typeid_)));
@@ -377,15 +377,15 @@ bool E_PeractivityPeractivity::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_functionid;
+        if (input->ExpectTag(32)) goto parse_m_functionID;
         break;
       }
 
-      // optional int32 m_functionid = 4;
+      // optional int32 m_functionID = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_functionid:
+         parse_m_functionID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_functionid_)));
@@ -393,15 +393,15 @@ bool E_PeractivityPeractivity::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_m_opeday;
+        if (input->ExpectTag(42)) goto parse_m_opeDay;
         break;
       }
 
-      // optional string m_opeday = 5;
+      // optional string m_opeDay = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_opeday:
+         parse_m_opeDay:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_opeday()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -410,15 +410,15 @@ bool E_PeractivityPeractivity::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(50)) goto parse_m_closeday;
+        if (input->ExpectTag(50)) goto parse_m_closeDay;
         break;
       }
 
-      // optional string m_closeday = 6;
+      // optional string m_closeDay = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_closeday:
+         parse_m_closeDay:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_closeday()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -427,15 +427,15 @@ bool E_PeractivityPeractivity::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_serverdelaytime;
+        if (input->ExpectTag(56)) goto parse_m_serverdelayTime;
         break;
       }
 
-      // optional int32 m_serverdelaytime = 7;
+      // optional int32 m_serverdelayTime = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_serverdelaytime:
+         parse_m_serverdelayTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_serverdelaytime_)));
@@ -443,15 +443,15 @@ bool E_PeractivityPeractivity::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_servertime;
+        if (input->ExpectTag(64)) goto parse_m_serverTime;
         break;
       }
 
-      // optional int32 m_servertime = 8;
+      // optional int32 m_serverTime = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_servertime:
+         parse_m_serverTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_servertime_)));
@@ -459,15 +459,15 @@ bool E_PeractivityPeractivity::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_openingtime;
+        if (input->ExpectTag(72)) goto parse_m_openingTime;
         break;
       }
 
-      // optional int32 m_openingtime = 9;
+      // optional int32 m_openingTime = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_openingtime:
+         parse_m_openingTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_openingtime_)));
@@ -475,15 +475,15 @@ bool E_PeractivityPeractivity::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_advancetime;
+        if (input->ExpectTag(80)) goto parse_m_advanceTime;
         break;
       }
 
-      // optional int32 m_advancetime = 10;
+      // optional int32 m_advanceTime = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_advancetime:
+         parse_m_advanceTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_advancetime_)));
@@ -491,15 +491,15 @@ bool E_PeractivityPeractivity::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_intervaltime;
+        if (input->ExpectTag(88)) goto parse_m_intervalTime;
         break;
       }
 
-      // optional int32 m_intervaltime = 11;
+      // optional int32 m_intervalTime = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_intervaltime:
+         parse_m_intervalTime:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_intervaltime_)));
@@ -507,15 +507,15 @@ bool E_PeractivityPeractivity::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_iscross;
+        if (input->ExpectTag(96)) goto parse_m_isCross;
         break;
       }
 
-      // optional int32 m_iscross = 12;
+      // optional int32 m_isCross = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_iscross:
+         parse_m_isCross:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_iscross_)));
@@ -523,15 +523,15 @@ bool E_PeractivityPeractivity::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_m_isfestvial;
+        if (input->ExpectTag(104)) goto parse_m_isFestvial;
         break;
       }
 
-      // optional int32 m_isfestvial = 13;
+      // optional int32 m_isFestvial = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_isfestvial:
+         parse_m_isFestvial:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_isfestvial_)));
@@ -561,12 +561,12 @@ bool E_PeractivityPeractivity::MergePartialFromCodedStream(
 
 void E_PeractivityPeractivity::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int64 m_activeid = 1;
+  // optional int64 m_activeId = 1;
   if (has_m_activeid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->m_activeid(), output);
   }
 
-  // optional string m_activename = 2;
+  // optional string m_activeName = 2;
   if (has_m_activename()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_activename().data(), this->m_activename().length(),
@@ -575,17 +575,17 @@ void E_PeractivityPeractivity::SerializeWithCachedSizes(
       2, this->m_activename(), output);
   }
 
-  // optional int32 m_typeid = 3;
+  // optional int32 m_typeId = 3;
   if (has_m_typeid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_typeid(), output);
   }
 
-  // optional int32 m_functionid = 4;
+  // optional int32 m_functionID = 4;
   if (has_m_functionid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_functionid(), output);
   }
 
-  // optional string m_opeday = 5;
+  // optional string m_opeDay = 5;
   if (has_m_opeday()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_opeday().data(), this->m_opeday().length(),
@@ -594,7 +594,7 @@ void E_PeractivityPeractivity::SerializeWithCachedSizes(
       5, this->m_opeday(), output);
   }
 
-  // optional string m_closeday = 6;
+  // optional string m_closeDay = 6;
   if (has_m_closeday()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_closeday().data(), this->m_closeday().length(),
@@ -603,37 +603,37 @@ void E_PeractivityPeractivity::SerializeWithCachedSizes(
       6, this->m_closeday(), output);
   }
 
-  // optional int32 m_serverdelaytime = 7;
+  // optional int32 m_serverdelayTime = 7;
   if (has_m_serverdelaytime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_serverdelaytime(), output);
   }
 
-  // optional int32 m_servertime = 8;
+  // optional int32 m_serverTime = 8;
   if (has_m_servertime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_servertime(), output);
   }
 
-  // optional int32 m_openingtime = 9;
+  // optional int32 m_openingTime = 9;
   if (has_m_openingtime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_openingtime(), output);
   }
 
-  // optional int32 m_advancetime = 10;
+  // optional int32 m_advanceTime = 10;
   if (has_m_advancetime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_advancetime(), output);
   }
 
-  // optional int32 m_intervaltime = 11;
+  // optional int32 m_intervalTime = 11;
   if (has_m_intervaltime()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_intervaltime(), output);
   }
 
-  // optional int32 m_iscross = 12;
+  // optional int32 m_isCross = 12;
   if (has_m_iscross()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_iscross(), output);
   }
 
-  // optional int32 m_isfestvial = 13;
+  // optional int32 m_isFestvial = 13;
   if (has_m_isfestvial()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_isfestvial(), output);
   }
@@ -646,12 +646,12 @@ void E_PeractivityPeractivity::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_PeractivityPeractivity::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int64 m_activeid = 1;
+  // optional int64 m_activeId = 1;
   if (has_m_activeid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->m_activeid(), target);
   }
 
-  // optional string m_activename = 2;
+  // optional string m_activeName = 2;
   if (has_m_activename()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_activename().data(), this->m_activename().length(),
@@ -661,17 +661,17 @@ void E_PeractivityPeractivity::SerializeWithCachedSizes(
         2, this->m_activename(), target);
   }
 
-  // optional int32 m_typeid = 3;
+  // optional int32 m_typeId = 3;
   if (has_m_typeid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_typeid(), target);
   }
 
-  // optional int32 m_functionid = 4;
+  // optional int32 m_functionID = 4;
   if (has_m_functionid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_functionid(), target);
   }
 
-  // optional string m_opeday = 5;
+  // optional string m_opeDay = 5;
   if (has_m_opeday()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_opeday().data(), this->m_opeday().length(),
@@ -681,7 +681,7 @@ void E_PeractivityPeractivity::SerializeWithCachedSizes(
         5, this->m_opeday(), target);
   }
 
-  // optional string m_closeday = 6;
+  // optional string m_closeDay = 6;
   if (has_m_closeday()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_closeday().data(), this->m_closeday().length(),
@@ -691,37 +691,37 @@ void E_PeractivityPeractivity::SerializeWithCachedSizes(
         6, this->m_closeday(), target);
   }
 
-  // optional int32 m_serverdelaytime = 7;
+  // optional int32 m_serverdelayTime = 7;
   if (has_m_serverdelaytime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_serverdelaytime(), target);
   }
 
-  // optional int32 m_servertime = 8;
+  // optional int32 m_serverTime = 8;
   if (has_m_servertime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_servertime(), target);
   }
 
-  // optional int32 m_openingtime = 9;
+  // optional int32 m_openingTime = 9;
   if (has_m_openingtime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_openingtime(), target);
   }
 
-  // optional int32 m_advancetime = 10;
+  // optional int32 m_advanceTime = 10;
   if (has_m_advancetime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_advancetime(), target);
   }
 
-  // optional int32 m_intervaltime = 11;
+  // optional int32 m_intervalTime = 11;
   if (has_m_intervaltime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_intervaltime(), target);
   }
 
-  // optional int32 m_iscross = 12;
+  // optional int32 m_isCross = 12;
   if (has_m_iscross()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_iscross(), target);
   }
 
-  // optional int32 m_isfestvial = 13;
+  // optional int32 m_isFestvial = 13;
   if (has_m_isfestvial()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_isfestvial(), target);
   }
@@ -737,56 +737,56 @@ int E_PeractivityPeractivity::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int64 m_activeid = 1;
+    // optional int64 m_activeId = 1;
     if (has_m_activeid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_activeid());
     }
 
-    // optional string m_activename = 2;
+    // optional string m_activeName = 2;
     if (has_m_activename()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_activename());
     }
 
-    // optional int32 m_typeid = 3;
+    // optional int32 m_typeId = 3;
     if (has_m_typeid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_typeid());
     }
 
-    // optional int32 m_functionid = 4;
+    // optional int32 m_functionID = 4;
     if (has_m_functionid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_functionid());
     }
 
-    // optional string m_opeday = 5;
+    // optional string m_opeDay = 5;
     if (has_m_opeday()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_opeday());
     }
 
-    // optional string m_closeday = 6;
+    // optional string m_closeDay = 6;
     if (has_m_closeday()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_closeday());
     }
 
-    // optional int32 m_serverdelaytime = 7;
+    // optional int32 m_serverdelayTime = 7;
     if (has_m_serverdelaytime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_serverdelaytime());
     }
 
-    // optional int32 m_servertime = 8;
+    // optional int32 m_serverTime = 8;
     if (has_m_servertime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -795,35 +795,35 @@ int E_PeractivityPeractivity::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_openingtime = 9;
+    // optional int32 m_openingTime = 9;
     if (has_m_openingtime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_openingtime());
     }
 
-    // optional int32 m_advancetime = 10;
+    // optional int32 m_advanceTime = 10;
     if (has_m_advancetime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_advancetime());
     }
 
-    // optional int32 m_intervaltime = 11;
+    // optional int32 m_intervalTime = 11;
     if (has_m_intervaltime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_intervaltime());
     }
 
-    // optional int32 m_iscross = 12;
+    // optional int32 m_isCross = 12;
     if (has_m_iscross()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_iscross());
     }
 
-    // optional int32 m_isfestvial = 13;
+    // optional int32 m_isFestvial = 13;
     if (has_m_isfestvial()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

@@ -11,9 +11,9 @@ E_YanglongYanglong_s::E_YanglongYanglong_s() {
 }
 
 int E_YanglongYanglong_s::CreateInit() {
-	m_projectid = (int32_t)0;
-	m_groupid = (int32_t)0;
-	m_dupid = (int32_t)0;
+	m_projectID = (int32_t)0;
+	m_groupID = (int32_t)0;
+	m_dupId = (int32_t)0;
 	return 0;
 }
 
@@ -22,15 +22,15 @@ int E_YanglongYanglong_s::ResumeInit() {
 }
 
 void E_YanglongYanglong_s::write_to_pbmsg(::proto_ff::E_YanglongYanglong & msg) const {
-	msg.set_m_projectid((int32_t)m_projectid);
-	msg.set_m_groupid((int32_t)m_groupid);
-	msg.set_m_dupid((int32_t)m_dupid);
+	msg.set_m_projectid((int32_t)m_projectID);
+	msg.set_m_groupid((int32_t)m_groupID);
+	msg.set_m_dupid((int32_t)m_dupId);
 }
 
 void E_YanglongYanglong_s::read_from_pbmsg(const ::proto_ff::E_YanglongYanglong & msg) {
-	m_projectid = msg.m_projectid();
-	m_groupid = msg.m_groupid();
-	m_dupid = msg.m_dupid();
+	m_projectID = msg.m_projectid();
+	m_groupID = msg.m_groupid();
+	m_dupId = msg.m_dupid();
 }
 
 Sheet_YanglongYanglong_s::Sheet_YanglongYanglong_s() {
@@ -73,13 +73,13 @@ E_YanglongZadan_s::E_YanglongZadan_s() {
 }
 
 int E_YanglongZadan_s::CreateInit() {
-	m_taskid = (int64_t)0;
-	m_achievementsubtype = (int32_t)0;
-	m_bosstype = (int32_t)0;
-	m_reachprice = (int32_t)0;
+	m_taskId = (int64_t)0;
+	m_achievementSubType = (int32_t)0;
+	m_bossType = (int32_t)0;
+	m_reachPrice = (int32_t)0;
 	m_reward = (int32_t)0;
-	m_reward_value = (int32_t)0;
-	m_linkid = (int32_t)0;
+	m_reward_Value = (int32_t)0;
+	m_linkId = (int32_t)0;
 	return 0;
 }
 
@@ -88,23 +88,23 @@ int E_YanglongZadan_s::ResumeInit() {
 }
 
 void E_YanglongZadan_s::write_to_pbmsg(::proto_ff::E_YanglongZadan & msg) const {
-	msg.set_m_taskid((int64_t)m_taskid);
-	msg.set_m_achievementsubtype((int32_t)m_achievementsubtype);
-	msg.set_m_bosstype((int32_t)m_bosstype);
-	msg.set_m_reachprice((int32_t)m_reachprice);
+	msg.set_m_taskid((int64_t)m_taskId);
+	msg.set_m_achievementsubtype((int32_t)m_achievementSubType);
+	msg.set_m_bosstype((int32_t)m_bossType);
+	msg.set_m_reachprice((int32_t)m_reachPrice);
 	msg.set_m_reward((int32_t)m_reward);
-	msg.set_m_reward_value((int32_t)m_reward_value);
-	msg.set_m_linkid((int32_t)m_linkid);
+	msg.set_m_reward_value((int32_t)m_reward_Value);
+	msg.set_m_linkid((int32_t)m_linkId);
 }
 
 void E_YanglongZadan_s::read_from_pbmsg(const ::proto_ff::E_YanglongZadan & msg) {
-	m_taskid = msg.m_taskid();
-	m_achievementsubtype = msg.m_achievementsubtype();
-	m_bosstype = msg.m_bosstype();
-	m_reachprice = msg.m_reachprice();
+	m_taskId = msg.m_taskid();
+	m_achievementSubType = msg.m_achievementsubtype();
+	m_bossType = msg.m_bosstype();
+	m_reachPrice = msg.m_reachprice();
 	m_reward = msg.m_reward();
-	m_reward_value = msg.m_reward_value();
-	m_linkid = msg.m_linkid();
+	m_reward_Value = msg.m_reward_value();
+	m_linkId = msg.m_linkid();
 }
 
 Sheet_YanglongZadan_s::Sheet_YanglongZadan_s() {
@@ -147,9 +147,9 @@ E_YanglongRanking_s::E_YanglongRanking_s() {
 }
 
 int E_YanglongRanking_s::CreateInit() {
-	m_rankingid = (int32_t)0;
+	m_rankingID = (int32_t)0;
 	m_rank = (int32_t)0;
-	m_boxid = (int32_t)0;
+	m_boxID = (int32_t)0;
 	return 0;
 }
 
@@ -158,15 +158,15 @@ int E_YanglongRanking_s::ResumeInit() {
 }
 
 void E_YanglongRanking_s::write_to_pbmsg(::proto_ff::E_YanglongRanking & msg) const {
-	msg.set_m_rankingid((int32_t)m_rankingid);
+	msg.set_m_rankingid((int32_t)m_rankingID);
 	msg.set_m_rank((int32_t)m_rank);
-	msg.set_m_boxid((int32_t)m_boxid);
+	msg.set_m_boxid((int32_t)m_boxID);
 }
 
 void E_YanglongRanking_s::read_from_pbmsg(const ::proto_ff::E_YanglongRanking & msg) {
-	m_rankingid = msg.m_rankingid();
+	m_rankingID = msg.m_rankingid();
 	m_rank = msg.m_rank();
-	m_boxid = msg.m_boxid();
+	m_boxID = msg.m_boxid();
 }
 
 Sheet_YanglongRanking_s::Sheet_YanglongRanking_s() {
