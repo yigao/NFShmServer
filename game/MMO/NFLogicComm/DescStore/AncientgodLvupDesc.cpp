@@ -46,7 +46,7 @@ int AncientgodLvupDesc::Load(NFResDB *pDB)
 
 	//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", table.Utf8DebugString());
 
-	if ((table.e_ancientgodlvup_list_size() < 0) || (table.e_ancientgodlvup_list_size() > (int)(m_astDesc.max_size())))
+	if ((table.e_ancientgodlvup_list_size() < 0) || (table.e_ancientgodlvup_list_size() > (int)(m_astDescMap.max_size())))
 	{
 		NFLogError(NF_LOG_SYSTEMLOG, 0, "Invalid TotalNum:{}", table.e_ancientgodlvup_list_size());
 		return -2;
@@ -75,13 +75,10 @@ int AncientgodLvupDesc::Load(NFResDB *pDB)
 			}
 			continue;
 		}
-		m_astDesc.push_back();
-		auto pDesc = &m_astDesc.back();
-		int curIndex = m_astDesc.size() - 1;
-		CHECK_EXPR_ASSERT(pDesc, -1, "m_astDesc Index Failed desc.id:{}", desc.m_id());
+		CHECK_EXPR_ASSERT(m_astDescMap.size() >= m_astDescMap.max_size(), -1, "m_astDescMap Space Not Enough");
+		auto pDesc = &m_astDescMap[desc.m_id()];
+		CHECK_EXPR_ASSERT(pDesc, -1, "m_astDescMap Insert Failed desc.id:{}", desc.m_id());
 		pDesc->read_from_pbmsg(desc);
-		auto iter = m_astDescMap.emplace_hint(desc.m_id(), curIndex);
-		CHECK_EXPR_ASSERT(iter != m_astDescMap.end(), -1, "m_astDescMap.Insert Failed desc.id:{}, key maybe exist", desc.m_id());
 		CHECK_EXPR_ASSERT(GetDesc(desc.m_id()) == pDesc, -1, "GetDesc != pDesc, id:{}", desc.m_id());
 	}
 
@@ -93,9 +90,9 @@ int AncientgodLvupDesc::Load(NFResDB *pDB)
 int AncientgodLvupDesc::CheckWhenAllDataLoaded()
 {
 	int result = 0;
-	for(int i = 0; i < (int)m_astDesc.size(); i++)
+	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
 	{
-		auto pDesc = &m_astDesc[i];
+		auto pDesc = &iter->second;
 		for(int j = 0; j < (int)pDesc->m_attribute.size(); j++)
 		{
 			CHECK_EXPR_MSG_RESULT((pDesc->m_attribute[j].m_type <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_attribute[j].m_type)), result, "can't find the attribute:{} in the  excel:attribute sheet:attribute", pDesc->m_attribute[j].m_type);

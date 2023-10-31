@@ -69,5 +69,5 @@ public:
 	virtual int CheckWhenAllDataLoaded() override;
 	const proto_ff_s::E_XingchenXcawaken_s* GetDescByPositionidAwaken_quality(int64_t Positionid, int64_t Awaken_quality);
 private:
-	NFShmHashMap<XingchenXcawakenPositionidAwaken_quality ,uint32_t, UNIQUE_KEY_MAX_COM_INDEX_XINGCHEN_XCAWAKEN_POSITIONID_NUM*UNIQUE_KEY_MAX_COM_INDEX_XINGCHEN_XCAWAKEN_AWAKEN_QUALITY_NUM> m_PositionidAwaken_qualityComIndexMap;
+	NFShmHashMap<XingchenXcawakenPositionidAwaken_quality ,uint64_t, UNIQUE_KEY_MAX_COM_INDEX_XINGCHEN_XCAWAKEN_POSITIONID_NUM*UNIQUE_KEY_MAX_COM_INDEX_XINGCHEN_XCAWAKEN_AWAKEN_QUALITY_NUM> m_PositionidAwaken_qualityComIndexMap;
 };

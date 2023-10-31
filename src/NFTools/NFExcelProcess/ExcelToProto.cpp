@@ -630,11 +630,11 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
         std::string index_key = iter->second.m_key;
         if (index.m_unique)
         {
-            desc_file += "\tNFShmHashMap<int64_t, uint32_t, " + index.m_unique_num + "> m_" + NFStringUtility::Capitalize(index_key) + "IndexMap;\n";
+            desc_file += "\tNFShmHashMap<int64_t, uint64_t, " + index.m_unique_num + "> m_" + NFStringUtility::Capitalize(index_key) + "IndexMap;\n";
         }
         else
         {
-            desc_file += "\tNFShmHashMap<int64_t, NFShmVector<uint32_t, " + index.m_max_num_by_key + ">," + index.m_unique_num + "> m_" +
+            desc_file += "\tNFShmHashMap<int64_t, NFShmVector<uint64_t, " + index.m_max_num_by_key + ">," + index.m_unique_num + "> m_" +
                          NFStringUtility::Capitalize(index_key) + "IndexMap;\n";
         }
     }
@@ -656,7 +656,7 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
         {
             if (comIndex.m_unique)
             {
-                desc_file += "uint32_t, ";
+                desc_file += "uint64_t, ";
                 for (int i = 0; i < (int) comIndex.m_index.size(); i++)
                 {
                     ExcelSheetIndex &index = comIndex.m_index[i];
@@ -674,7 +674,7 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
             }
             else
             {
-                desc_file += "NFShmVector<uint32_t, ";
+                desc_file += "NFShmVector<uint64_t, ";
                 if (comIndex.m_index.size() > 0)
                 {
                     ExcelSheetIndex &index = comIndex.m_index[comIndex.m_index.size() - 1];
@@ -825,7 +825,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
     desc_file += "\t//NFLogTrace(NF_LOG_SYSTEMLOG, 0, \"{}\", table.Utf8DebugString());\n";
     desc_file += "\n";
     desc_file += "\tif ((table.e_" + NFStringUtility::Lower(m_excelName) + NFStringUtility::Lower(sheet_name) + "_list_size() < 0) || (table.e_" +
-                 NFStringUtility::Lower(m_excelName) + NFStringUtility::Lower(sheet_name) + "_list_size() > (int)(m_astDesc.max_size())))\n";
+                 NFStringUtility::Lower(m_excelName) + NFStringUtility::Lower(sheet_name) + "_list_size() > (int)(m_astDescMap.max_size())))\n";
     desc_file += "\t{\n";
     desc_file += "\t\tNFLogError(NF_LOG_SYSTEMLOG, 0, \"Invalid TotalNum:{}\", table.e_" + NFStringUtility::Lower(m_excelName) +
                  NFStringUtility::Lower(sheet_name) + "_list_size());\n";
@@ -857,17 +857,12 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
     desc_file += "\t\t\t}\n";
     desc_file += "\t\t\tcontinue;\n";
     desc_file += "\t\t}\n";
-
-
-    desc_file += "\t\tm_astDesc.push_back();\n";
-    desc_file += "\t\tauto pDesc = &m_astDesc.back();\n";
-    desc_file += "\t\tint curIndex = m_astDesc.size() - 1;\n";
-    desc_file += "\t\tCHECK_EXPR_ASSERT(pDesc, -1, \"m_astDesc Index Failed desc.id:{}\", desc." + key_en_name + "());\n";
+    
+    
+    desc_file += "\t\tCHECK_EXPR_ASSERT(m_astDescMap.size() >= m_astDescMap.max_size(), -1, \"m_astDescMap Space Not Enough\");\n";
+    desc_file += "\t\tauto pDesc = &m_astDescMap[desc." + key_en_name + "()];\n";
+    desc_file += "\t\tCHECK_EXPR_ASSERT(pDesc, -1, \"m_astDescMap Insert Failed desc.id:{}\", desc." + key_en_name + "());\n";
     desc_file += "\t\tpDesc->read_from_pbmsg(desc);\n";
-    desc_file += "\t\tauto iter = m_astDescMap.emplace_hint(desc." + key_en_name + "(), curIndex);\n";
-    desc_file +=
-            "\t\tCHECK_EXPR_ASSERT(iter != m_astDescMap.end(), -1, \"m_astDescMap.Insert Failed desc.id:{}, key maybe exist\", desc." + key_en_name +
-            "());\n";
     desc_file += "\t\tCHECK_EXPR_ASSERT(GetDesc(desc." + key_en_name + "()) == pDesc, -1, \"GetDesc != pDesc, id:{}\", desc." + key_en_name + "());\n";
 
     desc_file += "\t}\n";
@@ -896,9 +891,9 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
 
     if (pSheet->m_indexMap.size() > 0 || pSheet->m_comIndexMap.size() > 0)
     {
-        desc_file += "\tfor(int i = 0; i < (int)m_astDesc.size(); i++)\n";
+        desc_file += "\tfor(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)\n";
         desc_file += "\t{\n";
-        desc_file += "\t\tauto pDesc = &m_astDesc[i];\n";
+        desc_file += "\t\tauto pDesc = &iter->second;\n";
         for (auto iter = pSheet->m_indexMap.begin(); iter != pSheet->m_indexMap.end(); iter++)
         {
             ExcelSheetIndex &index = iter->second;
@@ -909,7 +904,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
             {
                 desc_file += "\t\tCHECK_EXPR_ASSERT(" + index_map + ".find(pDesc->" + index_key_en_name + ") == " + index_map +
                              ".end(), -1, \"unique index:" + index_key + " repeat key:{}\", pDesc->" + index_key_en_name + ");\n";
-                desc_file += "\t\tauto key_iter = " + index_map + ".emplace_hint(pDesc->" + index_key_en_name + ", i);\n";
+                desc_file += "\t\tauto key_iter = " + index_map + ".emplace_hint(pDesc->" + index_key_en_name + ", iter->first);\n";
                 desc_file += "\t\tCHECK_EXPR_ASSERT(key_iter != " + index_map + ".end(), -1, \"" + index_map + ".emplace_hint Failed pDesc->" +
                              index_key_en_name + ":{}, space not enough\", pDesc->" + index_key_en_name + ");\n";
             }
@@ -921,7 +916,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
                         "\t\t\tCHECK_EXPR_ASSERT(" + index_map + ".find(pDesc->" + index_key_en_name + ") != " + index_map + ".end(), -1, \"index:" +
                         index_key + " key:{}, space not enough\", pDesc->" + index_key_en_name + ");\n";
                 desc_file += "\t\t}\n";
-                desc_file += "\t\t" + index_map + "[pDesc->" + index_key_en_name + "].push_back(i);\n";
+                desc_file += "\t\t" + index_map + "[pDesc->" + index_key_en_name + "].push_back(iter->first);\n";
             }
         }
 
@@ -954,12 +949,12 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
             desc_file += "\t\t\t}\n";
             if (comIndex.m_unique)
             {
-                desc_file += "\t\t\t" + index_map + "[data] = i;\n";
+                desc_file += "\t\t\t" + index_map + "[data] = iter->first;\n";
             }
             else
             {
                 desc_file += "\t\t\tCHECK_EXPR_ASSERT(" + index_map + "[data].size() < " + index_map + "[data].max_size(), -1, \"space not enough\");\n";
-                desc_file += "\t\t\t" + index_map + "[data].push_back(i);\n";
+                desc_file += "\t\t\t" + index_map + "[data].push_back(iter->first);\n";
             }
             desc_file += "\t\t}\n";
         }
@@ -979,9 +974,9 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
     if (pSheet->m_colRelationMap.size() > 0)
     {
         desc_file += "\tint result = 0;\n";
-        desc_file += "\tfor(int i = 0; i < (int)m_astDesc.size(); i++)\n";
+        desc_file += "\tfor(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)\n";
         desc_file += "\t{\n";
-        desc_file += "\t\tauto pDesc = &m_astDesc[i];\n";
+        desc_file += "\t\tauto pDesc = &iter->second;\n";
         for (auto iter = pSheet->m_colRelationMap.begin(); iter != pSheet->m_colRelationMap.end(); iter++)
         {
             if (iter->second.m_myColSubName.empty())
@@ -1118,7 +1113,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
             desc_file += "\tauto iter = " + index_map + ".find(" + NFStringUtility::Capitalize(index_key) + ");\n";
             desc_file += "\tif(iter != " + index_map + ".end())\n";
             desc_file += "\t{\n";
-            desc_file += "\t\treturn GetDescByIndex(iter->second);\n";
+            desc_file += "\t\treturn GetDesc(iter->second);\n";
             desc_file += "\t}\n";
             desc_file += "\treturn nullptr;\n";
             desc_file += "}\n\n";
@@ -1136,8 +1131,8 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
             desc_file += "\t{\n";
             desc_file += "\t\tfor(int i = 0; i < (int)iter->second.size(); i++)\n";
             desc_file += "\t\t{\n";
-            desc_file += "\t\t\tauto pDesc = GetDescByIndex(iter->second[i]);\n";
-            desc_file += "\t\t\tCHECK_EXPR_CONTINUE(pDesc, \"key:{} GetDescByIndex error:{}\", " + NFStringUtility::Capitalize(index_key) +
+            desc_file += "\t\t\tauto pDesc = GetDesc(iter->second[i]);\n";
+            desc_file += "\t\t\tCHECK_EXPR_CONTINUE(pDesc, \"key:{} GetDesc error:{}\", " + NFStringUtility::Capitalize(index_key) +
                          ", iter->second[i]);\n";
             desc_file += "\t\t\tm_vec.push_back(pDesc);\n";
             desc_file += "\t\t}\n";
@@ -1218,8 +1213,8 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
             desc_file += "\tauto iter = " + index_map + ".find(data);\n";
             desc_file += "\tif(iter != " + index_map + ".end())\n";
             desc_file += "\t{\n";
-            desc_file += "\t\tauto pDesc = GetDescByIndex(iter->second);\n";
-            desc_file += "\t\tCHECK_EXPR(pDesc, nullptr, \"GetDescByIndex failed:{}\", iter->second);\n";
+            desc_file += "\t\tauto pDesc = GetDesc(iter->second);\n";
+            desc_file += "\t\tCHECK_EXPR(pDesc, nullptr, \"GetDesc failed:{}\", iter->second);\n";
             desc_file += "\t\treturn pDesc;\n";
             desc_file += "\t}\n";
             desc_file += "\treturn nullptr;\n";
@@ -1242,8 +1237,8 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
             desc_file += "\t{\n";
             desc_file += "\t\tfor(int i = 0; i < (int)iter->second.size(); i++)\n";
             desc_file += "\t\t{\n";
-            desc_file += "\t\t\tauto pDesc = GetDescByIndex(iter->second[i]);\n";
-            desc_file += "\t\t\tCHECK_EXPR_CONTINUE(pDesc, \"GetDescByIndex failed:{}\", iter->second[i]);\n";
+            desc_file += "\t\t\tauto pDesc = GetDesc(iter->second[i]);\n";
+            desc_file += "\t\t\tCHECK_EXPR_CONTINUE(pDesc, \"GetDesc failed:{}\", iter->second[i]);\n";
             desc_file += "\t\t\tm_vec.push_back(pDesc);\n";
             desc_file += "\t\t}\n";
 

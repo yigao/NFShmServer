@@ -69,5 +69,5 @@ public:
 	virtual int CheckWhenAllDataLoaded() override;
 	const proto_ff_s::E_TaskrewardTaskreward_s* GetDescByTasktypeLv(int64_t Tasktype, int64_t Lv);
 private:
-	NFShmHashMap<TaskrewardTaskrewardTasktypeLv ,uint32_t, UNIQUE_KEY_MAX_COM_INDEX_TASKREWARD_TASKREWARD_TASKTYPE_NUM*UNIQUE_KEY_MAX_COM_INDEX_TASKREWARD_TASKREWARD_LV_NUM> m_TasktypeLvComIndexMap;
+	NFShmHashMap<TaskrewardTaskrewardTasktypeLv ,uint64_t, UNIQUE_KEY_MAX_COM_INDEX_TASKREWARD_TASKREWARD_TASKTYPE_NUM*UNIQUE_KEY_MAX_COM_INDEX_TASKREWARD_TASKREWARD_LV_NUM> m_TasktypeLvComIndexMap;
 };

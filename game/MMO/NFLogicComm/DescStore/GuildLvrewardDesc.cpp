@@ -42,7 +42,7 @@ int GuildLvrewardDesc::Load(NFResDB *pDB)
 
 	//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", table.Utf8DebugString());
 
-	if ((table.e_guildlvreward_list_size() < 0) || (table.e_guildlvreward_list_size() > (int)(m_astDesc.max_size())))
+	if ((table.e_guildlvreward_list_size() < 0) || (table.e_guildlvreward_list_size() > (int)(m_astDescMap.max_size())))
 	{
 		NFLogError(NF_LOG_SYSTEMLOG, 0, "Invalid TotalNum:{}", table.e_guildlvreward_list_size());
 		return -2;
@@ -71,13 +71,10 @@ int GuildLvrewardDesc::Load(NFResDB *pDB)
 			}
 			continue;
 		}
-		m_astDesc.push_back();
-		auto pDesc = &m_astDesc.back();
-		int curIndex = m_astDesc.size() - 1;
-		CHECK_EXPR_ASSERT(pDesc, -1, "m_astDesc Index Failed desc.id:{}", desc.m_lv());
+		CHECK_EXPR_ASSERT(m_astDescMap.size() >= m_astDescMap.max_size(), -1, "m_astDescMap Space Not Enough");
+		auto pDesc = &m_astDescMap[desc.m_lv()];
+		CHECK_EXPR_ASSERT(pDesc, -1, "m_astDescMap Insert Failed desc.id:{}", desc.m_lv());
 		pDesc->read_from_pbmsg(desc);
-		auto iter = m_astDescMap.emplace_hint(desc.m_lv(), curIndex);
-		CHECK_EXPR_ASSERT(iter != m_astDescMap.end(), -1, "m_astDescMap.Insert Failed desc.id:{}, key maybe exist", desc.m_lv());
 		CHECK_EXPR_ASSERT(GetDesc(desc.m_lv()) == pDesc, -1, "GetDesc != pDesc, id:{}", desc.m_lv());
 	}
 

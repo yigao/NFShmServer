@@ -69,5 +69,5 @@ public:
 	virtual int CheckWhenAllDataLoaded() override;
 	const proto_ff_s::E_XingchenXctp_s* GetDescByPositionidXcquality(int64_t Positionid, int64_t Xcquality);
 private:
-	NFShmHashMap<XingchenXctpPositionidXcquality ,uint32_t, UNIQUE_KEY_MAX_COM_INDEX_XINGCHEN_XCTP_POSITIONID_NUM*UNIQUE_KEY_MAX_COM_INDEX_XINGCHEN_XCTP_XCQUALITY_NUM> m_PositionidXcqualityComIndexMap;
+	NFShmHashMap<XingchenXctpPositionidXcquality ,uint64_t, UNIQUE_KEY_MAX_COM_INDEX_XINGCHEN_XCTP_POSITIONID_NUM*UNIQUE_KEY_MAX_COM_INDEX_XINGCHEN_XCTP_XCQUALITY_NUM> m_PositionidXcqualityComIndexMap;
 };

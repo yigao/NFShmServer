@@ -564,19 +564,20 @@ bool NFAttrMgr::ProcessAttribute()
     
     for (auto iter = pResDesc->begin(); iter != pResDesc->end(); iter++)
     {
-        if (iter->m_id > proto_ff::A_BASE_END)
+        auto pDesc = &iter->second;
+        if (pDesc->m_id > proto_ff::A_BASE_END)
             continue;
         //
-        int64_t power = iter->m_power * 100;
+        int64_t power = pDesc->m_power * 100;
         if (power > 0)
-            m_CalcFightAttr[iter->m_id] = 1;
+            m_CalcFightAttr[pDesc->m_id] = 1;
         else
-            m_CalcFightAttr[iter->m_id] = 0;
+            m_CalcFightAttr[pDesc->m_id] = 0;
         //
-        if (iter->m_percent > 0)
-            m_setPercentAttr.insert(iter->m_id);
+        if (pDesc->m_percent > 0)
+            m_setPercentAttr.insert(pDesc->m_id);
         else
-            m_setNoPercentAttr.insert(iter->m_id);
+            m_setNoPercentAttr.insert(pDesc->m_id);
     }
     
     return true;

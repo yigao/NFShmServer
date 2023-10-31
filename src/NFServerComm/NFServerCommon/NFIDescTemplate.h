@@ -41,20 +41,18 @@ public:
         return 0;
     }
 public:
-    virtual int GetResNum() const override { return m_astDesc.size(); }
-    NFShmVector<className_s, DescNum> &GetResDesc() { return m_astDesc; }
-    const NFShmVector<className_s, DescNum> &GetResDesc() const { return m_astDesc; }
-    NFShmVector<className_s, DescNum> *GetResDescPtr() { return &m_astDesc; }
-    const NFShmVector<className_s, DescNum> *GetResDescPtr() const { return &m_astDesc; }
+    virtual int GetResNum() const override { return m_astDescMap.size(); }
+    NFShmHashMap<uint64_t, className_s, DescNum> &GetResDesc() { return m_astDescMap; }
+    const NFShmHashMap<uint64_t, className_s, DescNum> &GetResDesc() const { return m_astDescMap; }
+    NFShmHashMap<uint64_t, className_s, DescNum> *GetResDescPtr() { return &m_astDescMap; }
+    const NFShmHashMap<uint64_t, className_s, DescNum> *GetResDescPtr() const { return &m_astDescMap; }
     
     const className_s* GetDesc(int64_t id) const
     {
         auto iter = m_astDescMap.find(id);
         if (iter != m_astDescMap.end())
         {
-            int index = iter->second;
-            CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-            return &m_astDesc[index];
+            return &iter->second;
         }
         
         return NULL;
@@ -65,28 +63,6 @@ public:
         return const_cast<className_s *>((static_cast<const className*>(this))->GetDesc(id));
     }
     
-    int GetDescIndex(int id) const
-    {
-        auto iter = m_astDescMap.find(id);
-        if (iter != m_astDescMap.end())
-        {
-            return iter->second;
-        }
-        
-        return -1;
-    }
-    
-    const className_s* GetDescByIndex(int index) const
-    {
-        CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-        return &m_astDesc[index];
-    }
-    
-    className_s* GetDescByIndex(int index)
-    {
-        CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-        return &m_astDesc[index];
-    }
 public:
     virtual int Initialize() { return 0; }
     
@@ -135,21 +111,22 @@ public:
     
     virtual int CalcUseRatio() override
     {
-        return m_astDesc.size() * 100 / m_astDesc.max_size();
+        return m_astDescMap.size() * 100 / m_astDescMap.max_size();
     }
     
     virtual int SaveDescStore() override
     {
         if (!this->IsLoaded())
             return 0;
-        for (int i = 0; i < (int) m_astDesc.size(); i++)
+        for (auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
         {
-            if (m_astDesc[i].IsUrgentNeedSave())
+            auto pDesc = &iter->second;
+            if (pDesc->IsUrgentNeedSave())
             {
                 auto pb = className_s::make_pbmsg();
-                m_astDesc[i].write_to_pbmsg(pb);
+                pDesc->write_to_pbmsg(pb);
                 this->SaveDescStoreToDB(&pb);
-                m_astDesc[i].ClearUrgent();
+                pDesc->ClearUrgent();
             }
         }
         return 0;
@@ -171,6 +148,5 @@ public:
         return 0;
     }
 protected:
-    NFShmVector<className_s, DescNum> m_astDesc;
-    NFShmHashMap<uint64_t, int, DescNum> m_astDescMap;
+    NFShmHashMap<uint64_t, className_s, DescNum> m_astDescMap;
 };
