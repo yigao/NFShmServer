@@ -88,6 +88,7 @@ typedef enum
     EOT_SERVER_COMMON_ROLEFIGHT_ATTR_ID,
     EOT_SERVER_COMMON_COM_ATTR_ID,
     EOT_SERVER_COMMON_ROLE_ATTR_ID,
+    EOT_SERVER_COMMON_ITEM_MGR_ID,
     ////////////////////////////server common////////////////////////////////////////////////
 
 	////////////////////////////sns server/////////////////////////////

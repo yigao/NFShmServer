@@ -48,6 +48,15 @@ NFShmObj* NFRawShmObj::GetShmObj()
     return m_pShmObj.GetPoint();
 }
 
+NFIPluginManager* NFRawShmObj::GetPluginManager()
+{
+    if (m_pShmObj)
+    {
+        return m_pShmObj->m_pObjPluginManager;
+    }
+    return nullptr;
+}
+
 
 int NFRawShmObj::OnTimer(int timeId, int callcount)
 {

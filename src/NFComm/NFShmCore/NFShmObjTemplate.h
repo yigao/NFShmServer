@@ -12,8 +12,7 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFShmCore/NFShmObjIterator.h"
-
-class NFISharedMemModule;
+#include "NFISharedMemModule.h"
 
 template<typename className, int classType, typename parentClassName>
 class NFShmObjTemplate : public parentClassName

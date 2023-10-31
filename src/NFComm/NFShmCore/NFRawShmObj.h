@@ -27,6 +27,7 @@ public:
 public:
     int InitShmObj(NFShmObj* pShmObj);
     NFShmObj* GetShmObj();
+    NFIPluginManager* GetPluginManager();
 public:
     virtual int OnTimer(int timeId, int callcount);
 public:

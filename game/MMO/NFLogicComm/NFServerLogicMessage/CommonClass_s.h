@@ -10,69 +10,45 @@
 #include "Com.pb.h"
 #include "Com_s.h"
 
-#define DEFINE_EQUIPEXT_BASE_MAX_NUM 10
-#define DEFINE_EQUIPEXT_REFINE_MAX_NUM 10
-#define DEFINE_EQUIPEXT_BLUE_MAX_NUM 10
-#define DEFINE_EQUIPEXT_GOD_MAX_NUM 10
-#define DEFINE_EQUIPEXT_SPECIAL_MAX_NUM 10
 
 
 namespace proto_ff_s {
 
-	struct GridItemBase_s : public NFDescStoreSeqOP {
-		GridItemBase_s();
-		virtual ~GridItemBase_s(){}
+	struct ItemBase_s : public NFDescStoreSeqOP {
+		ItemBase_s();
+		virtual ~ItemBase_s(){}
 		int CreateInit();
 		int ResumeInit();
-		uint64_t index;//
-		uint64_t item_id;//
-		uint64_t item_num;//
-		bool bind;//
-		uint32_t level;//
-		uint64_t expireTime;//
+		uint32_t index;//索引
+		uint32_t item_id;//物品ID
+		uint64_t item_num;//物品数量
+		bool bind;//绑定状态
+		uint32_t level;//等级 预留(装备里，这个等级是玩家等级)
+		uint64_t expireTime;//过期时间,0,永不过期
 		uint32_t type;//
 
-		virtual void write_to_pbmsg(::proto_ff::GridItemBase & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::GridItemBase & msg);
-		static ::proto_ff::GridItemBase* new_pbmsg(){ return new ::proto_ff::GridItemBase(); }
-		static ::proto_ff::GridItemBase make_pbmsg(){ return ::proto_ff::GridItemBase(); }
+		virtual void write_to_pbmsg(::proto_ff::ItemBase & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::ItemBase & msg);
+		static ::proto_ff::ItemBase* new_pbmsg(){ return new ::proto_ff::ItemBase(); }
+		static ::proto_ff::ItemBase make_pbmsg(){ return ::proto_ff::ItemBase(); }
 	};
-	typedef struct GridItemBase_s GridItemBase_t;
+	typedef struct ItemBase_s ItemBase_t;
 
-	struct EquipExt_s : public NFDescStoreSeqOP {
-		EquipExt_s();
-		virtual ~EquipExt_s(){}
+	struct EquipBase_s : public NFDescStoreSeqOP {
+		EquipBase_s();
+		virtual ~EquipBase_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct Attr_s, DEFINE_EQUIPEXT_BASE_MAX_NUM> base;//
-		NFShmVector<struct Attr_s, DEFINE_EQUIPEXT_REFINE_MAX_NUM> refine;//
-		NFShmVector<struct BlueStarAttr_s, DEFINE_EQUIPEXT_BLUE_MAX_NUM> blue;//
-		NFShmVector<struct Attr_s, DEFINE_EQUIPEXT_GOD_MAX_NUM> god;//
-		NFShmVector<struct Attr_s, DEFINE_EQUIPEXT_SPECIAL_MAX_NUM> special;//
-		int32_t strong_lv;//
-		int32_t strong_wear_quality;//
+		uint32_t base_attr_percent;//基础属性
+		uint32_t star_attr_percent;//星级属性 仙品属性 = 星级属性(带★) + 蓝星属性(不带★)
+		uint32_t god_attr_percent;//仙尊属性
 
-		virtual void write_to_pbmsg(::proto_ff::EquipExt & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::EquipExt & msg);
-		static ::proto_ff::EquipExt* new_pbmsg(){ return new ::proto_ff::EquipExt(); }
-		static ::proto_ff::EquipExt make_pbmsg(){ return ::proto_ff::EquipExt(); }
+		virtual void write_to_pbmsg(::proto_ff::EquipBase & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::EquipBase & msg);
+		static ::proto_ff::EquipBase* new_pbmsg(){ return new ::proto_ff::EquipBase(); }
+		static ::proto_ff::EquipBase make_pbmsg(){ return ::proto_ff::EquipBase(); }
 	};
-	typedef struct EquipExt_s EquipExt_t;
-
-	struct ItemGridCSData_s : public NFDescStoreSeqOP {
-		ItemGridCSData_s();
-		virtual ~ItemGridCSData_s(){}
-		int CreateInit();
-		int ResumeInit();
-		struct GridItemBase_s base;//
-		struct EquipExt_s equip_data;//
-
-		virtual void write_to_pbmsg(::proto_ff::ItemGridCSData & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::ItemGridCSData & msg);
-		static ::proto_ff::ItemGridCSData* new_pbmsg(){ return new ::proto_ff::ItemGridCSData(); }
-		static ::proto_ff::ItemGridCSData make_pbmsg(){ return ::proto_ff::ItemGridCSData(); }
-	};
-	typedef struct ItemGridCSData_s ItemGridCSData_t;
+	typedef struct EquipBase_s EquipBase_t;
 
 }
 

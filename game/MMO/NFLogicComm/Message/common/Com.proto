@@ -587,65 +587,6 @@ message BlueStarAttr
 	optional int32  lv_part = 3;	//每个间隔所加属性值 
 }
 
-//宠物信息
-message PetInfo
-{
-	optional int32 instId = 1;			 //实体id
-	optional int64 cfgid = 2;			 //配置ID
-	optional int32 lv = 3;				 //宠物等级
-	optional int32 steplv = 4;			 //阶级
-	optional int32 starlv = 5;			 //星级
-	optional int32 activeSkillLv = 6;	 //主动技能等级
-	repeated int32 exclusiveSkillLvVec = 7; //专属技能等级
-	repeated int32 passiveSkillLvVec = 8;	 //被动技能等级
-	optional float initgrow = 9;		 //初始资质
-	optional int32 slot = 10;			 //上阵的槽位 1-5
-	optional int32 lvexp = 11;			 //宠物升级经验
-}
-//宠物槽位信息
-message PetHatchInfo
-{
-	optional int32 slot = 1; 	//0-4
-	optional int32 unlock = 2;  //0:未解锁，1已解锁
-	optional int64 eggid = 3;	//蛋的物品id
-	optional int64 time = 4;	//孵化时间
-}
-//宠物专属养成
-message PetGrow
-{
-	optional int32 cfgid = 1;  	   //宠物配置id
-	optional int32 stronglv = 2;   //强化等級 (默认0级)
-	optional int32 starlv = 3; 	   //升星等级 (默认0星)
-	optional int32 starindex = 4; //星级默认选中索引(1) starValue 表 advance_Type 数组下标。
-}
-//宠物妖魂装备
-message PetYaoHunSlot
-{
-	optional int32		   slot_pos = 1; //槽位，对应装备的位置(1-4)
-	optional int32 		   lv = 2; 		 //等级(等級属性)
-	optional int32 		   exp = 3;		 //等级经验值
-	optional int32 		   step = 4;	 //多少阶(主要用升級中进阶用,step和lv配合读表)
-	optional ItemProtoInfo equip = 5;	 //装备数据 突破属性条数就是突破等级
-}
-//妖魂信息
-message PetYaoHunEntry
-{
-	optional int32 fight_pos = 1; 		//出站位置1-5(对应出站宠物槽位)
-	optional int32 is_unlock = 2;		//是否解锁 1：解锁
-	repeated PetYaoHunSlot infos = 3; 	//4件装备
-	repeated int32 suitids = 4;			//已激活的套装ids
-}
-//妖魂模块数据
-message PetYaoHunModule
-{
-	repeated PetYaoHunEntry entrys = 1;		//宠物妖魂（5个妖魂全发)
-	optional int32 	lianyao_tq_flag =2; 	//炼妖特权标记 0:沒有购买特权 1：已购买特权
-	optional int32  yaolu_lv = 3;			//妖炉等级
-	optional int32  yaolu_exp = 4;			//妖炉经验
-	optional int32 	yaoqi = 5;				//妖气值
-}
-
-
 message TurnAttr
 {
 	repeated int32  com_pos = 1;	//激活的普通属性位置 
@@ -684,6 +625,10 @@ message ItemProtoInfo
 	optional TurnAttr		turn_attr					= 27;		//记录神体激活属性的位置
 	optional int64 			item_chg_count				= 28;		//道具数量变更
 	repeated int32 			unlock_attr_index			= 29;		//妖魂装备突破解锁的索引(1开始)
+
+	optional uint32     base_attr_percent = 50;
+	optional uint32     star_attr_percent = 51;
+	optional uint32     god_attr_percent = 52;
 }
 
 
@@ -763,7 +708,63 @@ message MultItemSimpleProto
 	repeated ItemSimpleProto info = 1; //奖励物品
 }
 
-
+//宠物信息
+message PetInfo
+{
+	optional int32 instId = 1;			 //实体id
+	optional int64 cfgid = 2;			 //配置ID
+	optional int32 lv = 3;				 //宠物等级
+	optional int32 steplv = 4;			 //阶级
+	optional int32 starlv = 5;			 //星级
+	optional int32 activeSkillLv = 6;	 //主动技能等级
+	repeated int32 exclusiveSkillLvVec = 7; //专属技能等级
+	repeated int32 passiveSkillLvVec = 8;	 //被动技能等级
+	optional float initgrow = 9;		 //初始资质
+	optional int32 slot = 10;			 //上阵的槽位 1-5
+	optional int32 lvexp = 11;			 //宠物升级经验
+}
+//宠物槽位信息
+message PetHatchInfo
+{
+	optional int32 slot = 1; 	//0-4
+	optional int32 unlock = 2;  //0:未解锁，1已解锁
+	optional int64 eggid = 3;	//蛋的物品id
+	optional int64 time = 4;	//孵化时间
+}
+//宠物专属养成
+message PetGrow
+{
+	optional int32 cfgid = 1;  	   //宠物配置id
+	optional int32 stronglv = 2;   //强化等級 (默认0级)
+	optional int32 starlv = 3; 	   //升星等级 (默认0星)
+	optional int32 starindex = 4; //星级默认选中索引(1) starValue 表 advance_Type 数组下标。
+}
+//宠物妖魂装备
+message PetYaoHunSlot
+{
+	optional int32		   slot_pos = 1; //槽位，对应装备的位置(1-4)
+	optional int32 		   lv = 2; 		 //等级(等級属性)
+	optional int32 		   exp = 3;		 //等级经验值
+	optional int32 		   step = 4;	 //多少阶(主要用升級中进阶用,step和lv配合读表)
+	optional ItemProtoInfo equip = 5;	 //装备数据 突破属性条数就是突破等级
+}
+//妖魂信息
+message PetYaoHunEntry
+{
+	optional int32 fight_pos = 1; 		//出站位置1-5(对应出站宠物槽位)
+	optional int32 is_unlock = 2;		//是否解锁 1：解锁
+	repeated PetYaoHunSlot infos = 3; 	//4件装备
+	repeated int32 suitids = 4;			//已激活的套装ids
+}
+//妖魂模块数据
+message PetYaoHunModule
+{
+	repeated PetYaoHunEntry entrys = 1;		//宠物妖魂（5个妖魂全发)
+	optional int32 	lianyao_tq_flag =2; 	//炼妖特权标记 0:沒有购买特权 1：已购买特权
+	optional int32  yaolu_lv = 3;			//妖炉等级
+	optional int32  yaolu_exp = 4;			//妖炉经验
+	optional int32 	yaoqi = 5;				//妖气值
+}
 /////////////////////////////Mail/////////////////////////////////////////////////
 
 //邮件参数

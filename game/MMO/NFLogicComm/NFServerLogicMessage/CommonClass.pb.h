@@ -36,9 +36,8 @@ void  protobuf_AddDesc_CommonClass_2eproto();
 void protobuf_AssignDesc_CommonClass_2eproto();
 void protobuf_ShutdownFile_CommonClass_2eproto();
 
-class GridItemBase;
-class EquipExt;
-class ItemGridCSData;
+class ItemBase;
+class EquipBase;
 
 enum enPlayerStatus {
   PLAYER_STATUS_NONE = 0,
@@ -62,44 +61,16 @@ inline bool enPlayerStatus_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<enPlayerStatus>(
     enPlayerStatus_descriptor(), name, value);
 }
-enum enBagPageType {
-  EN_BPT_EQUIP = 1,
-  EN_BPT_STORAGE = 2,
-  EN_BPT_MATRIAL = 3,
-  EN_BPT_PROP = 4,
-  EN_BPT_SKIN = 5,
-  EN_BPT_TITLE = 6,
-  EN_BPT_GEM = 7,
-  EN_BPT_PARTNER_EQUIP = 8,
-  EN_BPT_PARTNER_EQUIP_STONE = 9,
-  EN_BPT_PARTNER_TOKEN = 10,
-  EN_BPT_BUFF_EQUIP = 11
-};
-bool enBagPageType_IsValid(int value);
-const enBagPageType enBagPageType_MIN = EN_BPT_EQUIP;
-const enBagPageType enBagPageType_MAX = EN_BPT_BUFF_EQUIP;
-const int enBagPageType_ARRAYSIZE = enBagPageType_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* enBagPageType_descriptor();
-inline const ::std::string& enBagPageType_Name(enBagPageType value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    enBagPageType_descriptor(), value);
-}
-inline bool enBagPageType_Parse(
-    const ::std::string& name, enBagPageType* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<enBagPageType>(
-    enBagPageType_descriptor(), name, value);
-}
 // ===================================================================
 
-class GridItemBase : public ::google::protobuf::Message {
+class ItemBase : public ::google::protobuf::Message {
  public:
-  GridItemBase();
-  virtual ~GridItemBase();
+  ItemBase();
+  virtual ~ItemBase();
 
-  GridItemBase(const GridItemBase& from);
+  ItemBase(const ItemBase& from);
 
-  inline GridItemBase& operator=(const GridItemBase& from) {
+  inline ItemBase& operator=(const ItemBase& from) {
     CopyFrom(from);
     return *this;
   }
@@ -113,17 +84,17 @@ class GridItemBase : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const GridItemBase& default_instance();
+  static const ItemBase& default_instance();
 
-  void Swap(GridItemBase* other);
+  void Swap(ItemBase* other);
 
   // implements Message ----------------------------------------------
 
-  GridItemBase* New() const;
+  ItemBase* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const GridItemBase& from);
-  void MergeFrom(const GridItemBase& from);
+  void CopyFrom(const ItemBase& from);
+  void MergeFrom(const ItemBase& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -146,19 +117,19 @@ class GridItemBase : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional uint64 index = 1;
+  // optional uint32 index = 1;
   inline bool has_index() const;
   inline void clear_index();
   static const int kIndexFieldNumber = 1;
-  inline ::google::protobuf::uint64 index() const;
-  inline void set_index(::google::protobuf::uint64 value);
+  inline ::google::protobuf::uint32 index() const;
+  inline void set_index(::google::protobuf::uint32 value);
 
-  // optional uint64 item_id = 2;
+  // optional uint32 item_id = 2;
   inline bool has_item_id() const;
   inline void clear_item_id();
   static const int kItemIdFieldNumber = 2;
-  inline ::google::protobuf::uint64 item_id() const;
-  inline void set_item_id(::google::protobuf::uint64 value);
+  inline ::google::protobuf::uint32 item_id() const;
+  inline void set_item_id(::google::protobuf::uint32 value);
 
   // optional uint64 item_num = 3;
   inline bool has_item_num() const;
@@ -195,7 +166,7 @@ class GridItemBase : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 type() const;
   inline void set_type(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.GridItemBase)
+  // @@protoc_insertion_point(class_scope:proto_ff.ItemBase)
  private:
   inline void set_has_index();
   inline void clear_has_index();
@@ -214,8 +185,8 @@ class GridItemBase : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::uint64 index_;
-  ::google::protobuf::uint64 item_id_;
+  ::google::protobuf::uint32 index_;
+  ::google::protobuf::uint32 item_id_;
   ::google::protobuf::uint64 item_num_;
   bool bind_;
   ::google::protobuf::uint32 level_;
@@ -230,18 +201,18 @@ class GridItemBase : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_CommonClass_2eproto();
 
   void InitAsDefaultInstance();
-  static GridItemBase* default_instance_;
+  static ItemBase* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class EquipExt : public ::google::protobuf::Message {
+class EquipBase : public ::google::protobuf::Message {
  public:
-  EquipExt();
-  virtual ~EquipExt();
+  EquipBase();
+  virtual ~EquipBase();
 
-  EquipExt(const EquipExt& from);
+  EquipBase(const EquipBase& from);
 
-  inline EquipExt& operator=(const EquipExt& from) {
+  inline EquipBase& operator=(const EquipBase& from) {
     CopyFrom(from);
     return *this;
   }
@@ -255,17 +226,17 @@ class EquipExt : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const EquipExt& default_instance();
+  static const EquipBase& default_instance();
 
-  void Swap(EquipExt* other);
+  void Swap(EquipBase* other);
 
   // implements Message ----------------------------------------------
 
-  EquipExt* New() const;
+  EquipBase* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const EquipExt& from);
-  void MergeFrom(const EquipExt& from);
+  void CopyFrom(const EquipBase& from);
+  void MergeFrom(const EquipBase& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -288,615 +259,281 @@ class EquipExt : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.Attr base = 1;
-  inline int base_size() const;
-  inline void clear_base();
-  static const int kBaseFieldNumber = 1;
-  inline const ::proto_ff::Attr& base(int index) const;
-  inline ::proto_ff::Attr* mutable_base(int index);
-  inline ::proto_ff::Attr* add_base();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
-      base() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
-      mutable_base();
+  // optional uint32 base_attr_percent = 1;
+  inline bool has_base_attr_percent() const;
+  inline void clear_base_attr_percent();
+  static const int kBaseAttrPercentFieldNumber = 1;
+  inline ::google::protobuf::uint32 base_attr_percent() const;
+  inline void set_base_attr_percent(::google::protobuf::uint32 value);
 
-  // repeated .proto_ff.Attr refine = 2;
-  inline int refine_size() const;
-  inline void clear_refine();
-  static const int kRefineFieldNumber = 2;
-  inline const ::proto_ff::Attr& refine(int index) const;
-  inline ::proto_ff::Attr* mutable_refine(int index);
-  inline ::proto_ff::Attr* add_refine();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
-      refine() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
-      mutable_refine();
+  // optional uint32 star_attr_percent = 2;
+  inline bool has_star_attr_percent() const;
+  inline void clear_star_attr_percent();
+  static const int kStarAttrPercentFieldNumber = 2;
+  inline ::google::protobuf::uint32 star_attr_percent() const;
+  inline void set_star_attr_percent(::google::protobuf::uint32 value);
 
-  // repeated .proto_ff.BlueStarAttr blue = 3;
-  inline int blue_size() const;
-  inline void clear_blue();
-  static const int kBlueFieldNumber = 3;
-  inline const ::proto_ff::BlueStarAttr& blue(int index) const;
-  inline ::proto_ff::BlueStarAttr* mutable_blue(int index);
-  inline ::proto_ff::BlueStarAttr* add_blue();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::BlueStarAttr >&
-      blue() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::BlueStarAttr >*
-      mutable_blue();
+  // optional uint32 god_attr_percent = 3;
+  inline bool has_god_attr_percent() const;
+  inline void clear_god_attr_percent();
+  static const int kGodAttrPercentFieldNumber = 3;
+  inline ::google::protobuf::uint32 god_attr_percent() const;
+  inline void set_god_attr_percent(::google::protobuf::uint32 value);
 
-  // repeated .proto_ff.Attr god = 4;
-  inline int god_size() const;
-  inline void clear_god();
-  static const int kGodFieldNumber = 4;
-  inline const ::proto_ff::Attr& god(int index) const;
-  inline ::proto_ff::Attr* mutable_god(int index);
-  inline ::proto_ff::Attr* add_god();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
-      god() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
-      mutable_god();
-
-  // repeated .proto_ff.Attr special = 5;
-  inline int special_size() const;
-  inline void clear_special();
-  static const int kSpecialFieldNumber = 5;
-  inline const ::proto_ff::Attr& special(int index) const;
-  inline ::proto_ff::Attr* mutable_special(int index);
-  inline ::proto_ff::Attr* add_special();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
-      special() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
-      mutable_special();
-
-  // optional int32 strong_lv = 6;
-  inline bool has_strong_lv() const;
-  inline void clear_strong_lv();
-  static const int kStrongLvFieldNumber = 6;
-  inline ::google::protobuf::int32 strong_lv() const;
-  inline void set_strong_lv(::google::protobuf::int32 value);
-
-  // optional int32 strong_wear_quality = 7;
-  inline bool has_strong_wear_quality() const;
-  inline void clear_strong_wear_quality();
-  static const int kStrongWearQualityFieldNumber = 7;
-  inline ::google::protobuf::int32 strong_wear_quality() const;
-  inline void set_strong_wear_quality(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.EquipExt)
+  // @@protoc_insertion_point(class_scope:proto_ff.EquipBase)
  private:
-  inline void set_has_strong_lv();
-  inline void clear_has_strong_lv();
-  inline void set_has_strong_wear_quality();
-  inline void clear_has_strong_wear_quality();
+  inline void set_has_base_attr_percent();
+  inline void clear_has_base_attr_percent();
+  inline void set_has_star_attr_percent();
+  inline void clear_has_star_attr_percent();
+  inline void set_has_god_attr_percent();
+  inline void clear_has_god_attr_percent();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr > base_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr > refine_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::BlueStarAttr > blue_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr > god_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr > special_;
-  ::google::protobuf::int32 strong_lv_;
-  ::google::protobuf::int32 strong_wear_quality_;
+  ::google::protobuf::uint32 base_attr_percent_;
+  ::google::protobuf::uint32 star_attr_percent_;
+  ::google::protobuf::uint32 god_attr_percent_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_CommonClass_2eproto();
   friend void protobuf_AssignDesc_CommonClass_2eproto();
   friend void protobuf_ShutdownFile_CommonClass_2eproto();
 
   void InitAsDefaultInstance();
-  static EquipExt* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class ItemGridCSData : public ::google::protobuf::Message {
- public:
-  ItemGridCSData();
-  virtual ~ItemGridCSData();
-
-  ItemGridCSData(const ItemGridCSData& from);
-
-  inline ItemGridCSData& operator=(const ItemGridCSData& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const ItemGridCSData& default_instance();
-
-  void Swap(ItemGridCSData* other);
-
-  // implements Message ----------------------------------------------
-
-  ItemGridCSData* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const ItemGridCSData& from);
-  void MergeFrom(const ItemGridCSData& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // required .proto_ff.GridItemBase base = 1;
-  inline bool has_base() const;
-  inline void clear_base();
-  static const int kBaseFieldNumber = 1;
-  inline const ::proto_ff::GridItemBase& base() const;
-  inline ::proto_ff::GridItemBase* mutable_base();
-  inline ::proto_ff::GridItemBase* release_base();
-  inline void set_allocated_base(::proto_ff::GridItemBase* base);
-
-  // optional .proto_ff.EquipExt equip_data = 2;
-  inline bool has_equip_data() const;
-  inline void clear_equip_data();
-  static const int kEquipDataFieldNumber = 2;
-  inline const ::proto_ff::EquipExt& equip_data() const;
-  inline ::proto_ff::EquipExt* mutable_equip_data();
-  inline ::proto_ff::EquipExt* release_equip_data();
-  inline void set_allocated_equip_data(::proto_ff::EquipExt* equip_data);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.ItemGridCSData)
- private:
-  inline void set_has_base();
-  inline void clear_has_base();
-  inline void set_has_equip_data();
-  inline void clear_has_equip_data();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::proto_ff::GridItemBase* base_;
-  ::proto_ff::EquipExt* equip_data_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
-
-  friend void  protobuf_AddDesc_CommonClass_2eproto();
-  friend void protobuf_AssignDesc_CommonClass_2eproto();
-  friend void protobuf_ShutdownFile_CommonClass_2eproto();
-
-  void InitAsDefaultInstance();
-  static ItemGridCSData* default_instance_;
+  static EquipBase* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// GridItemBase
+// ItemBase
 
-// optional uint64 index = 1;
-inline bool GridItemBase::has_index() const {
+// optional uint32 index = 1;
+inline bool ItemBase::has_index() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void GridItemBase::set_has_index() {
+inline void ItemBase::set_has_index() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void GridItemBase::clear_has_index() {
+inline void ItemBase::clear_has_index() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void GridItemBase::clear_index() {
-  index_ = GOOGLE_ULONGLONG(0);
+inline void ItemBase::clear_index() {
+  index_ = 0u;
   clear_has_index();
 }
-inline ::google::protobuf::uint64 GridItemBase::index() const {
+inline ::google::protobuf::uint32 ItemBase::index() const {
   return index_;
 }
-inline void GridItemBase::set_index(::google::protobuf::uint64 value) {
+inline void ItemBase::set_index(::google::protobuf::uint32 value) {
   set_has_index();
   index_ = value;
 }
 
-// optional uint64 item_id = 2;
-inline bool GridItemBase::has_item_id() const {
+// optional uint32 item_id = 2;
+inline bool ItemBase::has_item_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void GridItemBase::set_has_item_id() {
+inline void ItemBase::set_has_item_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void GridItemBase::clear_has_item_id() {
+inline void ItemBase::clear_has_item_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void GridItemBase::clear_item_id() {
-  item_id_ = GOOGLE_ULONGLONG(0);
+inline void ItemBase::clear_item_id() {
+  item_id_ = 0u;
   clear_has_item_id();
 }
-inline ::google::protobuf::uint64 GridItemBase::item_id() const {
+inline ::google::protobuf::uint32 ItemBase::item_id() const {
   return item_id_;
 }
-inline void GridItemBase::set_item_id(::google::protobuf::uint64 value) {
+inline void ItemBase::set_item_id(::google::protobuf::uint32 value) {
   set_has_item_id();
   item_id_ = value;
 }
 
 // optional uint64 item_num = 3;
-inline bool GridItemBase::has_item_num() const {
+inline bool ItemBase::has_item_num() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void GridItemBase::set_has_item_num() {
+inline void ItemBase::set_has_item_num() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void GridItemBase::clear_has_item_num() {
+inline void ItemBase::clear_has_item_num() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void GridItemBase::clear_item_num() {
+inline void ItemBase::clear_item_num() {
   item_num_ = GOOGLE_ULONGLONG(0);
   clear_has_item_num();
 }
-inline ::google::protobuf::uint64 GridItemBase::item_num() const {
+inline ::google::protobuf::uint64 ItemBase::item_num() const {
   return item_num_;
 }
-inline void GridItemBase::set_item_num(::google::protobuf::uint64 value) {
+inline void ItemBase::set_item_num(::google::protobuf::uint64 value) {
   set_has_item_num();
   item_num_ = value;
 }
 
 // optional bool bind = 4;
-inline bool GridItemBase::has_bind() const {
+inline bool ItemBase::has_bind() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void GridItemBase::set_has_bind() {
+inline void ItemBase::set_has_bind() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void GridItemBase::clear_has_bind() {
+inline void ItemBase::clear_has_bind() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void GridItemBase::clear_bind() {
+inline void ItemBase::clear_bind() {
   bind_ = false;
   clear_has_bind();
 }
-inline bool GridItemBase::bind() const {
+inline bool ItemBase::bind() const {
   return bind_;
 }
-inline void GridItemBase::set_bind(bool value) {
+inline void ItemBase::set_bind(bool value) {
   set_has_bind();
   bind_ = value;
 }
 
 // optional uint32 level = 6;
-inline bool GridItemBase::has_level() const {
+inline bool ItemBase::has_level() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void GridItemBase::set_has_level() {
+inline void ItemBase::set_has_level() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void GridItemBase::clear_has_level() {
+inline void ItemBase::clear_has_level() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void GridItemBase::clear_level() {
+inline void ItemBase::clear_level() {
   level_ = 0u;
   clear_has_level();
 }
-inline ::google::protobuf::uint32 GridItemBase::level() const {
+inline ::google::protobuf::uint32 ItemBase::level() const {
   return level_;
 }
-inline void GridItemBase::set_level(::google::protobuf::uint32 value) {
+inline void ItemBase::set_level(::google::protobuf::uint32 value) {
   set_has_level();
   level_ = value;
 }
 
 // optional uint64 expireTime = 7;
-inline bool GridItemBase::has_expiretime() const {
+inline bool ItemBase::has_expiretime() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void GridItemBase::set_has_expiretime() {
+inline void ItemBase::set_has_expiretime() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void GridItemBase::clear_has_expiretime() {
+inline void ItemBase::clear_has_expiretime() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void GridItemBase::clear_expiretime() {
+inline void ItemBase::clear_expiretime() {
   expiretime_ = GOOGLE_ULONGLONG(0);
   clear_has_expiretime();
 }
-inline ::google::protobuf::uint64 GridItemBase::expiretime() const {
+inline ::google::protobuf::uint64 ItemBase::expiretime() const {
   return expiretime_;
 }
-inline void GridItemBase::set_expiretime(::google::protobuf::uint64 value) {
+inline void ItemBase::set_expiretime(::google::protobuf::uint64 value) {
   set_has_expiretime();
   expiretime_ = value;
 }
 
 // optional uint32 type = 8;
-inline bool GridItemBase::has_type() const {
+inline bool ItemBase::has_type() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void GridItemBase::set_has_type() {
+inline void ItemBase::set_has_type() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void GridItemBase::clear_has_type() {
+inline void ItemBase::clear_has_type() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void GridItemBase::clear_type() {
+inline void ItemBase::clear_type() {
   type_ = 0u;
   clear_has_type();
 }
-inline ::google::protobuf::uint32 GridItemBase::type() const {
+inline ::google::protobuf::uint32 ItemBase::type() const {
   return type_;
 }
-inline void GridItemBase::set_type(::google::protobuf::uint32 value) {
+inline void ItemBase::set_type(::google::protobuf::uint32 value) {
   set_has_type();
   type_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// EquipExt
+// EquipBase
 
-// repeated .proto_ff.Attr base = 1;
-inline int EquipExt::base_size() const {
-  return base_.size();
-}
-inline void EquipExt::clear_base() {
-  base_.Clear();
-}
-inline const ::proto_ff::Attr& EquipExt::base(int index) const {
-  return base_.Get(index);
-}
-inline ::proto_ff::Attr* EquipExt::mutable_base(int index) {
-  return base_.Mutable(index);
-}
-inline ::proto_ff::Attr* EquipExt::add_base() {
-  return base_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
-EquipExt::base() const {
-  return base_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
-EquipExt::mutable_base() {
-  return &base_;
-}
-
-// repeated .proto_ff.Attr refine = 2;
-inline int EquipExt::refine_size() const {
-  return refine_.size();
-}
-inline void EquipExt::clear_refine() {
-  refine_.Clear();
-}
-inline const ::proto_ff::Attr& EquipExt::refine(int index) const {
-  return refine_.Get(index);
-}
-inline ::proto_ff::Attr* EquipExt::mutable_refine(int index) {
-  return refine_.Mutable(index);
-}
-inline ::proto_ff::Attr* EquipExt::add_refine() {
-  return refine_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
-EquipExt::refine() const {
-  return refine_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
-EquipExt::mutable_refine() {
-  return &refine_;
-}
-
-// repeated .proto_ff.BlueStarAttr blue = 3;
-inline int EquipExt::blue_size() const {
-  return blue_.size();
-}
-inline void EquipExt::clear_blue() {
-  blue_.Clear();
-}
-inline const ::proto_ff::BlueStarAttr& EquipExt::blue(int index) const {
-  return blue_.Get(index);
-}
-inline ::proto_ff::BlueStarAttr* EquipExt::mutable_blue(int index) {
-  return blue_.Mutable(index);
-}
-inline ::proto_ff::BlueStarAttr* EquipExt::add_blue() {
-  return blue_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::BlueStarAttr >&
-EquipExt::blue() const {
-  return blue_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::BlueStarAttr >*
-EquipExt::mutable_blue() {
-  return &blue_;
-}
-
-// repeated .proto_ff.Attr god = 4;
-inline int EquipExt::god_size() const {
-  return god_.size();
-}
-inline void EquipExt::clear_god() {
-  god_.Clear();
-}
-inline const ::proto_ff::Attr& EquipExt::god(int index) const {
-  return god_.Get(index);
-}
-inline ::proto_ff::Attr* EquipExt::mutable_god(int index) {
-  return god_.Mutable(index);
-}
-inline ::proto_ff::Attr* EquipExt::add_god() {
-  return god_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
-EquipExt::god() const {
-  return god_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
-EquipExt::mutable_god() {
-  return &god_;
-}
-
-// repeated .proto_ff.Attr special = 5;
-inline int EquipExt::special_size() const {
-  return special_.size();
-}
-inline void EquipExt::clear_special() {
-  special_.Clear();
-}
-inline const ::proto_ff::Attr& EquipExt::special(int index) const {
-  return special_.Get(index);
-}
-inline ::proto_ff::Attr* EquipExt::mutable_special(int index) {
-  return special_.Mutable(index);
-}
-inline ::proto_ff::Attr* EquipExt::add_special() {
-  return special_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
-EquipExt::special() const {
-  return special_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
-EquipExt::mutable_special() {
-  return &special_;
-}
-
-// optional int32 strong_lv = 6;
-inline bool EquipExt::has_strong_lv() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void EquipExt::set_has_strong_lv() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void EquipExt::clear_has_strong_lv() {
-  _has_bits_[0] &= ~0x00000020u;
-}
-inline void EquipExt::clear_strong_lv() {
-  strong_lv_ = 0;
-  clear_has_strong_lv();
-}
-inline ::google::protobuf::int32 EquipExt::strong_lv() const {
-  return strong_lv_;
-}
-inline void EquipExt::set_strong_lv(::google::protobuf::int32 value) {
-  set_has_strong_lv();
-  strong_lv_ = value;
-}
-
-// optional int32 strong_wear_quality = 7;
-inline bool EquipExt::has_strong_wear_quality() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
-}
-inline void EquipExt::set_has_strong_wear_quality() {
-  _has_bits_[0] |= 0x00000040u;
-}
-inline void EquipExt::clear_has_strong_wear_quality() {
-  _has_bits_[0] &= ~0x00000040u;
-}
-inline void EquipExt::clear_strong_wear_quality() {
-  strong_wear_quality_ = 0;
-  clear_has_strong_wear_quality();
-}
-inline ::google::protobuf::int32 EquipExt::strong_wear_quality() const {
-  return strong_wear_quality_;
-}
-inline void EquipExt::set_strong_wear_quality(::google::protobuf::int32 value) {
-  set_has_strong_wear_quality();
-  strong_wear_quality_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// ItemGridCSData
-
-// required .proto_ff.GridItemBase base = 1;
-inline bool ItemGridCSData::has_base() const {
+// optional uint32 base_attr_percent = 1;
+inline bool EquipBase::has_base_attr_percent() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void ItemGridCSData::set_has_base() {
+inline void EquipBase::set_has_base_attr_percent() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void ItemGridCSData::clear_has_base() {
+inline void EquipBase::clear_has_base_attr_percent() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void ItemGridCSData::clear_base() {
-  if (base_ != NULL) base_->::proto_ff::GridItemBase::Clear();
-  clear_has_base();
+inline void EquipBase::clear_base_attr_percent() {
+  base_attr_percent_ = 0u;
+  clear_has_base_attr_percent();
 }
-inline const ::proto_ff::GridItemBase& ItemGridCSData::base() const {
-  return base_ != NULL ? *base_ : *default_instance_->base_;
+inline ::google::protobuf::uint32 EquipBase::base_attr_percent() const {
+  return base_attr_percent_;
 }
-inline ::proto_ff::GridItemBase* ItemGridCSData::mutable_base() {
-  set_has_base();
-  if (base_ == NULL) base_ = new ::proto_ff::GridItemBase;
-  return base_;
-}
-inline ::proto_ff::GridItemBase* ItemGridCSData::release_base() {
-  clear_has_base();
-  ::proto_ff::GridItemBase* temp = base_;
-  base_ = NULL;
-  return temp;
-}
-inline void ItemGridCSData::set_allocated_base(::proto_ff::GridItemBase* base) {
-  delete base_;
-  base_ = base;
-  if (base) {
-    set_has_base();
-  } else {
-    clear_has_base();
-  }
+inline void EquipBase::set_base_attr_percent(::google::protobuf::uint32 value) {
+  set_has_base_attr_percent();
+  base_attr_percent_ = value;
 }
 
-// optional .proto_ff.EquipExt equip_data = 2;
-inline bool ItemGridCSData::has_equip_data() const {
+// optional uint32 star_attr_percent = 2;
+inline bool EquipBase::has_star_attr_percent() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void ItemGridCSData::set_has_equip_data() {
+inline void EquipBase::set_has_star_attr_percent() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void ItemGridCSData::clear_has_equip_data() {
+inline void EquipBase::clear_has_star_attr_percent() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void ItemGridCSData::clear_equip_data() {
-  if (equip_data_ != NULL) equip_data_->::proto_ff::EquipExt::Clear();
-  clear_has_equip_data();
+inline void EquipBase::clear_star_attr_percent() {
+  star_attr_percent_ = 0u;
+  clear_has_star_attr_percent();
 }
-inline const ::proto_ff::EquipExt& ItemGridCSData::equip_data() const {
-  return equip_data_ != NULL ? *equip_data_ : *default_instance_->equip_data_;
+inline ::google::protobuf::uint32 EquipBase::star_attr_percent() const {
+  return star_attr_percent_;
 }
-inline ::proto_ff::EquipExt* ItemGridCSData::mutable_equip_data() {
-  set_has_equip_data();
-  if (equip_data_ == NULL) equip_data_ = new ::proto_ff::EquipExt;
-  return equip_data_;
+inline void EquipBase::set_star_attr_percent(::google::protobuf::uint32 value) {
+  set_has_star_attr_percent();
+  star_attr_percent_ = value;
 }
-inline ::proto_ff::EquipExt* ItemGridCSData::release_equip_data() {
-  clear_has_equip_data();
-  ::proto_ff::EquipExt* temp = equip_data_;
-  equip_data_ = NULL;
-  return temp;
+
+// optional uint32 god_attr_percent = 3;
+inline bool EquipBase::has_god_attr_percent() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void ItemGridCSData::set_allocated_equip_data(::proto_ff::EquipExt* equip_data) {
-  delete equip_data_;
-  equip_data_ = equip_data;
-  if (equip_data) {
-    set_has_equip_data();
-  } else {
-    clear_has_equip_data();
-  }
+inline void EquipBase::set_has_god_attr_percent() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void EquipBase::clear_has_god_attr_percent() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void EquipBase::clear_god_attr_percent() {
+  god_attr_percent_ = 0u;
+  clear_has_god_attr_percent();
+}
+inline ::google::protobuf::uint32 EquipBase::god_attr_percent() const {
+  return god_attr_percent_;
+}
+inline void EquipBase::set_god_attr_percent(::google::protobuf::uint32 value) {
+  set_has_god_attr_percent();
+  god_attr_percent_ = value;
 }
 
 
@@ -911,10 +548,6 @@ namespace protobuf {
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::enPlayerStatus>() {
   return ::proto_ff::enPlayerStatus_descriptor();
-}
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::enBagPageType>() {
-  return ::proto_ff::enBagPageType_descriptor();
 }
 
 }  // namespace google

@@ -106,7 +106,7 @@ enum EPackageType
 	EPackageType_Storage = 2;		//仓库
 	EPackageType_MountEgg = 3;		//坐骑
 	EPackageType_PetEgg = 4;		//宠物蛋
-	EPackageType_DeityEquip = 5;	//神饰
+	EPackageType_DeityEquip = 5;	//天神神饰
 	EPackageType_HandBook = 6;		//藏经阁图鉴
 	EPackageType_BeastEquip = 7;	//神兽装备背包
 	EPackageType_Longhun = 8;		//龙魂

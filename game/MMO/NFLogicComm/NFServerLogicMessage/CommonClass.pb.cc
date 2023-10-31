@@ -20,17 +20,13 @@ namespace proto_ff {
 
 namespace {
 
-const ::google::protobuf::Descriptor* GridItemBase_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* ItemBase_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  GridItemBase_reflection_ = NULL;
-const ::google::protobuf::Descriptor* EquipExt_descriptor_ = NULL;
+  ItemBase_reflection_ = NULL;
+const ::google::protobuf::Descriptor* EquipBase_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  EquipExt_reflection_ = NULL;
-const ::google::protobuf::Descriptor* ItemGridCSData_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  ItemGridCSData_reflection_ = NULL;
+  EquipBase_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* enPlayerStatus_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* enBagPageType_descriptor_ = NULL;
 
 }  // namespace
 
@@ -41,66 +37,45 @@ void protobuf_AssignDesc_CommonClass_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "CommonClass.proto");
   GOOGLE_CHECK(file != NULL);
-  GridItemBase_descriptor_ = file->message_type(0);
-  static const int GridItemBase_offsets_[7] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GridItemBase, index_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GridItemBase, item_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GridItemBase, item_num_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GridItemBase, bind_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GridItemBase, level_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GridItemBase, expiretime_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GridItemBase, type_),
+  ItemBase_descriptor_ = file->message_type(0);
+  static const int ItemBase_offsets_[7] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemBase, index_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemBase, item_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemBase, item_num_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemBase, bind_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemBase, level_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemBase, expiretime_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemBase, type_),
   };
-  GridItemBase_reflection_ =
+  ItemBase_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      GridItemBase_descriptor_,
-      GridItemBase::default_instance_,
-      GridItemBase_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GridItemBase, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GridItemBase, _unknown_fields_),
+      ItemBase_descriptor_,
+      ItemBase::default_instance_,
+      ItemBase_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemBase, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemBase, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(GridItemBase));
-  EquipExt_descriptor_ = file->message_type(1);
-  static const int EquipExt_offsets_[7] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipExt, base_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipExt, refine_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipExt, blue_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipExt, god_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipExt, special_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipExt, strong_lv_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipExt, strong_wear_quality_),
+      sizeof(ItemBase));
+  EquipBase_descriptor_ = file->message_type(1);
+  static const int EquipBase_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipBase, base_attr_percent_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipBase, star_attr_percent_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipBase, god_attr_percent_),
   };
-  EquipExt_reflection_ =
+  EquipBase_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      EquipExt_descriptor_,
-      EquipExt::default_instance_,
-      EquipExt_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipExt, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipExt, _unknown_fields_),
+      EquipBase_descriptor_,
+      EquipBase::default_instance_,
+      EquipBase_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipBase, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipBase, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(EquipExt));
-  ItemGridCSData_descriptor_ = file->message_type(2);
-  static const int ItemGridCSData_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemGridCSData, base_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemGridCSData, equip_data_),
-  };
-  ItemGridCSData_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      ItemGridCSData_descriptor_,
-      ItemGridCSData::default_instance_,
-      ItemGridCSData_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemGridCSData, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ItemGridCSData, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(ItemGridCSData));
+      sizeof(EquipBase));
   enPlayerStatus_descriptor_ = file->enum_type(0);
-  enBagPageType_descriptor_ = file->enum_type(1);
 }
 
 namespace {
@@ -114,22 +89,18 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    GridItemBase_descriptor_, &GridItemBase::default_instance());
+    ItemBase_descriptor_, &ItemBase::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    EquipExt_descriptor_, &EquipExt::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    ItemGridCSData_descriptor_, &ItemGridCSData::default_instance());
+    EquipBase_descriptor_, &EquipBase::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_CommonClass_2eproto() {
-  delete GridItemBase::default_instance_;
-  delete GridItemBase_reflection_;
-  delete EquipExt::default_instance_;
-  delete EquipExt_reflection_;
-  delete ItemGridCSData::default_instance_;
-  delete ItemGridCSData_reflection_;
+  delete ItemBase::default_instance_;
+  delete ItemBase_reflection_;
+  delete EquipBase::default_instance_;
+  delete EquipBase_reflection_;
 }
 
 void protobuf_AddDesc_CommonClass_2eproto() {
@@ -142,37 +113,29 @@ void protobuf_AddDesc_CommonClass_2eproto() {
   ::proto_ff::protobuf_AddDesc_Com_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\021CommonClass.proto\022\010proto_ff\032\025yd_fieldo"
-    "ptions.proto\032\tCom.proto\"\177\n\014GridItemBase\022"
-    "\r\n\005index\030\001 \001(\004\022\017\n\007item_id\030\002 \001(\004\022\020\n\010item_"
-    "num\030\003 \001(\004\022\014\n\004bind\030\004 \001(\010\022\r\n\005level\030\006 \001(\r\022\022"
-    "\n\nexpireTime\030\007 \001(\004\022\014\n\004type\030\010 \001(\r\"\372\001\n\010Equ"
-    "ipExt\022\"\n\004base\030\001 \003(\0132\016.proto_ff.AttrB\004\210\301\024"
-    "\n\022$\n\006refine\030\002 \003(\0132\016.proto_ff.AttrB\004\210\301\024\n\022"
-    "*\n\004blue\030\003 \003(\0132\026.proto_ff.BlueStarAttrB\004\210"
-    "\301\024\n\022!\n\003god\030\004 \003(\0132\016.proto_ff.AttrB\004\210\301\024\n\022%"
-    "\n\007special\030\005 \003(\0132\016.proto_ff.AttrB\004\210\301\024\n\022\021\n"
-    "\tstrong_lv\030\006 \001(\005\022\033\n\023strong_wear_quality\030"
-    "\007 \001(\005\"^\n\016ItemGridCSData\022$\n\004base\030\001 \002(\0132\026."
-    "proto_ff.GridItemBase\022&\n\nequip_data\030\002 \001("
-    "\0132\022.proto_ff.EquipExt*\217\001\n\016enPlayerStatus"
-    "\022\026\n\022PLAYER_STATUS_NONE\020\000\022\030\n\024PLAYER_STATU"
-    "S_ONLINE\020\001\022\031\n\025PLAYER_STATUS_OFFLINE\020\002\022\030\n"
-    "\024PLAYER_STATUS_LOGOUT\020\003\022\026\n\022PLAYER_STATUS"
-    "_DEAD\020\004*\370\001\n\renBagPageType\022\020\n\014EN_BPT_EQUI"
-    "P\020\001\022\022\n\016EN_BPT_STORAGE\020\002\022\022\n\016EN_BPT_MATRIA"
-    "L\020\003\022\017\n\013EN_BPT_PROP\020\004\022\017\n\013EN_BPT_SKIN\020\005\022\020\n"
-    "\014EN_BPT_TITLE\020\006\022\016\n\nEN_BPT_GEM\020\007\022\030\n\024EN_BP"
-    "T_PARTNER_EQUIP\020\010\022\036\n\032EN_BPT_PARTNER_EQUI"
-    "P_STONE\020\t\022\030\n\024EN_BPT_PARTNER_TOKEN\020\n\022\025\n\021E"
-    "N_BPT_BUFF_EQUIP\020\013", 938);
+    "ptions.proto\032\tCom.proto\"\226\002\n\010ItemBase\022\031\n\005"
+    "index\030\001 \001(\rB\n\302\377\024\006\347\264\242\345\274\225\022\035\n\007item_id\030\002 \001(\r"
+    "B\014\302\377\024\010\347\211\251\345\223\201ID\022\"\n\010item_num\030\003 \001(\004B\020\302\377\024\014\347\211"
+    "\251\345\223\201\346\225\260\351\207\217\022\036\n\004bind\030\004 \001(\010B\020\302\377\024\014\347\273\221\345\256\232\347\212\266\346"
+    "\200\201\022I\n\005level\030\006 \001(\rB:\302\377\0246\347\255\211\347\272\247 \351\242\204\347\225\231(\350\243\205"
+    "\345\244\207\351\207\214\357\274\214\350\277\231\344\270\252\347\255\211\347\272\247\346\230\257\347\216\251\345\256\266\347\255\211\347\272\247)\0223\n"
+    "\nexpireTime\030\007 \001(\004B\037\302\377\024\033\350\277\207\346\234\237\346\227\266\351\227\264,0,\346\260"
+    "\270\344\270\215\350\277\207\346\234\237\022\014\n\004type\030\010 \001(\r\"\317\001\n\tEquipBase\022+"
+    "\n\021base_attr_percent\030\001 \001(\rB\020\302\377\024\014\345\237\272\347\241\200\345\261\236"
+    "\346\200\247\022i\n\021star_attr_percent\030\002 \001(\rBN\302\377\024J\346\230\237\347"
+    "\272\247\345\261\236\346\200\247 \344\273\231\345\223\201\345\261\236\346\200\247 = \346\230\237\347\272\247\345\261\236\346\200\247(\345\270\246"
+    "\342\230\205) + \350\223\235\346\230\237\345\261\236\346\200\247(\344\270\215\345\270\246\342\230\205)\022*\n\020god_at"
+    "tr_percent\030\003 \001(\rB\020\302\377\024\014\344\273\231\345\260\212\345\261\236\346\200\247*\217\001\n\016e"
+    "nPlayerStatus\022\026\n\022PLAYER_STATUS_NONE\020\000\022\030\n"
+    "\024PLAYER_STATUS_ONLINE\020\001\022\031\n\025PLAYER_STATUS"
+    "_OFFLINE\020\002\022\030\n\024PLAYER_STATUS_LOGOUT\020\003\022\026\n\022"
+    "PLAYER_STATUS_DEAD\020\004", 700);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "CommonClass.proto", &protobuf_RegisterTypes);
-  GridItemBase::default_instance_ = new GridItemBase();
-  EquipExt::default_instance_ = new EquipExt();
-  ItemGridCSData::default_instance_ = new ItemGridCSData();
-  GridItemBase::default_instance_->InitAsDefaultInstance();
-  EquipExt::default_instance_->InitAsDefaultInstance();
-  ItemGridCSData::default_instance_->InitAsDefaultInstance();
+  ItemBase::default_instance_ = new ItemBase();
+  EquipBase::default_instance_ = new EquipBase();
+  ItemBase::default_instance_->InitAsDefaultInstance();
+  EquipBase::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_CommonClass_2eproto);
 }
 
@@ -199,60 +162,37 @@ bool enPlayerStatus_IsValid(int value) {
   }
 }
 
-const ::google::protobuf::EnumDescriptor* enBagPageType_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return enBagPageType_descriptor_;
-}
-bool enBagPageType_IsValid(int value) {
-  switch(value) {
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-    case 7:
-    case 8:
-    case 9:
-    case 10:
-    case 11:
-      return true;
-    default:
-      return false;
-  }
-}
-
 
 // ===================================================================
 
 #ifndef _MSC_VER
-const int GridItemBase::kIndexFieldNumber;
-const int GridItemBase::kItemIdFieldNumber;
-const int GridItemBase::kItemNumFieldNumber;
-const int GridItemBase::kBindFieldNumber;
-const int GridItemBase::kLevelFieldNumber;
-const int GridItemBase::kExpireTimeFieldNumber;
-const int GridItemBase::kTypeFieldNumber;
+const int ItemBase::kIndexFieldNumber;
+const int ItemBase::kItemIdFieldNumber;
+const int ItemBase::kItemNumFieldNumber;
+const int ItemBase::kBindFieldNumber;
+const int ItemBase::kLevelFieldNumber;
+const int ItemBase::kExpireTimeFieldNumber;
+const int ItemBase::kTypeFieldNumber;
 #endif  // !_MSC_VER
 
-GridItemBase::GridItemBase()
+ItemBase::ItemBase()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void GridItemBase::InitAsDefaultInstance() {
+void ItemBase::InitAsDefaultInstance() {
 }
 
-GridItemBase::GridItemBase(const GridItemBase& from)
+ItemBase::ItemBase(const ItemBase& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void GridItemBase::SharedCtor() {
+void ItemBase::SharedCtor() {
   _cached_size_ = 0;
-  index_ = GOOGLE_ULONGLONG(0);
-  item_id_ = GOOGLE_ULONGLONG(0);
+  index_ = 0u;
+  item_id_ = 0u;
   item_num_ = GOOGLE_ULONGLONG(0);
   bind_ = false;
   level_ = 0u;
@@ -261,40 +201,40 @@ void GridItemBase::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-GridItemBase::~GridItemBase() {
+ItemBase::~ItemBase() {
   SharedDtor();
 }
 
-void GridItemBase::SharedDtor() {
+void ItemBase::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void GridItemBase::SetCachedSize(int size) const {
+void ItemBase::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* GridItemBase::descriptor() {
+const ::google::protobuf::Descriptor* ItemBase::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return GridItemBase_descriptor_;
+  return ItemBase_descriptor_;
 }
 
-const GridItemBase& GridItemBase::default_instance() {
+const ItemBase& ItemBase::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_CommonClass_2eproto();
   return *default_instance_;
 }
 
-GridItemBase* GridItemBase::default_instance_ = NULL;
+ItemBase* ItemBase::default_instance_ = NULL;
 
-GridItemBase* GridItemBase::New() const {
-  return new GridItemBase;
+ItemBase* ItemBase::New() const {
+  return new ItemBase;
 }
 
-void GridItemBase::Clear() {
+void ItemBase::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    index_ = GOOGLE_ULONGLONG(0);
-    item_id_ = GOOGLE_ULONGLONG(0);
+    index_ = 0u;
+    item_id_ = 0u;
     item_num_ = GOOGLE_ULONGLONG(0);
     bind_ = false;
     level_ = 0u;
@@ -305,18 +245,18 @@ void GridItemBase::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool GridItemBase::MergePartialFromCodedStream(
+bool ItemBase::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional uint64 index = 1;
+      // optional uint32 index = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &index_)));
           set_has_index();
         } else {
@@ -326,13 +266,13 @@ bool GridItemBase::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint64 item_id = 2;
+      // optional uint32 item_id = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_item_id:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &item_id_)));
           set_has_item_id();
         } else {
@@ -438,16 +378,16 @@ bool GridItemBase::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void GridItemBase::SerializeWithCachedSizes(
+void ItemBase::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional uint64 index = 1;
+  // optional uint32 index = 1;
   if (has_index()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->index(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->index(), output);
   }
 
-  // optional uint64 item_id = 2;
+  // optional uint32 item_id = 2;
   if (has_item_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->item_id(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->item_id(), output);
   }
 
   // optional uint64 item_num = 3;
@@ -481,16 +421,16 @@ void GridItemBase::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* GridItemBase::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* ItemBase::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional uint64 index = 1;
+  // optional uint32 index = 1;
   if (has_index()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->index(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->index(), target);
   }
 
-  // optional uint64 item_id = 2;
+  // optional uint32 item_id = 2;
   if (has_item_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->item_id(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->item_id(), target);
   }
 
   // optional uint64 item_num = 3;
@@ -525,21 +465,21 @@ void GridItemBase::SerializeWithCachedSizes(
   return target;
 }
 
-int GridItemBase::ByteSize() const {
+int ItemBase::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional uint64 index = 1;
+    // optional uint32 index = 1;
     if (has_index()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->index());
     }
 
-    // optional uint64 item_id = 2;
+    // optional uint32 item_id = 2;
     if (has_item_id()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->item_id());
     }
 
@@ -588,10 +528,10 @@ int GridItemBase::ByteSize() const {
   return total_size;
 }
 
-void GridItemBase::MergeFrom(const ::google::protobuf::Message& from) {
+void ItemBase::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const GridItemBase* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const GridItemBase*>(
+  const ItemBase* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const ItemBase*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -600,7 +540,7 @@ void GridItemBase::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void GridItemBase::MergeFrom(const GridItemBase& from) {
+void ItemBase::MergeFrom(const ItemBase& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_index()) {
@@ -628,24 +568,24 @@ void GridItemBase::MergeFrom(const GridItemBase& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void GridItemBase::CopyFrom(const ::google::protobuf::Message& from) {
+void ItemBase::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void GridItemBase::CopyFrom(const GridItemBase& from) {
+void ItemBase::CopyFrom(const ItemBase& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool GridItemBase::IsInitialized() const {
+bool ItemBase::IsInitialized() const {
 
   return true;
 }
 
-void GridItemBase::Swap(GridItemBase* other) {
+void ItemBase::Swap(ItemBase* other) {
   if (other != this) {
     std::swap(index_, other->index_);
     std::swap(item_id_, other->item_id_);
@@ -660,11 +600,11 @@ void GridItemBase::Swap(GridItemBase* other) {
   }
 }
 
-::google::protobuf::Metadata GridItemBase::GetMetadata() const {
+::google::protobuf::Metadata ItemBase::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = GridItemBase_descriptor_;
-  metadata.reflection = GridItemBase_reflection_;
+  metadata.descriptor = ItemBase_descriptor_;
+  metadata.reflection = ItemBase_reflection_;
   return metadata;
 }
 
@@ -672,186 +612,119 @@ void GridItemBase::Swap(GridItemBase* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int EquipExt::kBaseFieldNumber;
-const int EquipExt::kRefineFieldNumber;
-const int EquipExt::kBlueFieldNumber;
-const int EquipExt::kGodFieldNumber;
-const int EquipExt::kSpecialFieldNumber;
-const int EquipExt::kStrongLvFieldNumber;
-const int EquipExt::kStrongWearQualityFieldNumber;
+const int EquipBase::kBaseAttrPercentFieldNumber;
+const int EquipBase::kStarAttrPercentFieldNumber;
+const int EquipBase::kGodAttrPercentFieldNumber;
 #endif  // !_MSC_VER
 
-EquipExt::EquipExt()
+EquipBase::EquipBase()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void EquipExt::InitAsDefaultInstance() {
+void EquipBase::InitAsDefaultInstance() {
 }
 
-EquipExt::EquipExt(const EquipExt& from)
+EquipBase::EquipBase(const EquipBase& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void EquipExt::SharedCtor() {
+void EquipBase::SharedCtor() {
   _cached_size_ = 0;
-  strong_lv_ = 0;
-  strong_wear_quality_ = 0;
+  base_attr_percent_ = 0u;
+  star_attr_percent_ = 0u;
+  god_attr_percent_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-EquipExt::~EquipExt() {
+EquipBase::~EquipBase() {
   SharedDtor();
 }
 
-void EquipExt::SharedDtor() {
+void EquipBase::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void EquipExt::SetCachedSize(int size) const {
+void EquipBase::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* EquipExt::descriptor() {
+const ::google::protobuf::Descriptor* EquipBase::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return EquipExt_descriptor_;
+  return EquipBase_descriptor_;
 }
 
-const EquipExt& EquipExt::default_instance() {
+const EquipBase& EquipBase::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_CommonClass_2eproto();
   return *default_instance_;
 }
 
-EquipExt* EquipExt::default_instance_ = NULL;
+EquipBase* EquipBase::default_instance_ = NULL;
 
-EquipExt* EquipExt::New() const {
-  return new EquipExt;
+EquipBase* EquipBase::New() const {
+  return new EquipBase;
 }
 
-void EquipExt::Clear() {
-  if (_has_bits_[5 / 32] & (0xffu << (5 % 32))) {
-    strong_lv_ = 0;
-    strong_wear_quality_ = 0;
+void EquipBase::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    base_attr_percent_ = 0u;
+    star_attr_percent_ = 0u;
+    god_attr_percent_ = 0u;
   }
-  base_.Clear();
-  refine_.Clear();
-  blue_.Clear();
-  god_.Clear();
-  special_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool EquipExt::MergePartialFromCodedStream(
+bool EquipBase::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.Attr base = 1;
+      // optional uint32 base_attr_percent = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_base:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_base()));
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &base_attr_percent_)));
+          set_has_base_attr_percent();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(10)) goto parse_base;
-        if (input->ExpectTag(18)) goto parse_refine;
+        if (input->ExpectTag(16)) goto parse_star_attr_percent;
         break;
       }
 
-      // repeated .proto_ff.Attr refine = 2;
+      // optional uint32 star_attr_percent = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_refine:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_refine()));
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_star_attr_percent:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &star_attr_percent_)));
+          set_has_star_attr_percent();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_refine;
-        if (input->ExpectTag(26)) goto parse_blue;
+        if (input->ExpectTag(24)) goto parse_god_attr_percent;
         break;
       }
 
-      // repeated .proto_ff.BlueStarAttr blue = 3;
+      // optional uint32 god_attr_percent = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_blue:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_blue()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(26)) goto parse_blue;
-        if (input->ExpectTag(34)) goto parse_god;
-        break;
-      }
-
-      // repeated .proto_ff.Attr god = 4;
-      case 4: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_god:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_god()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(34)) goto parse_god;
-        if (input->ExpectTag(42)) goto parse_special;
-        break;
-      }
-
-      // repeated .proto_ff.Attr special = 5;
-      case 5: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_special:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_special()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(42)) goto parse_special;
-        if (input->ExpectTag(48)) goto parse_strong_lv;
-        break;
-      }
-
-      // optional int32 strong_lv = 6;
-      case 6: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_strong_lv:
+         parse_god_attr_percent:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &strong_lv_)));
-          set_has_strong_lv();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(56)) goto parse_strong_wear_quality;
-        break;
-      }
-
-      // optional int32 strong_wear_quality = 7;
-      case 7: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_strong_wear_quality:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &strong_wear_quality_)));
-          set_has_strong_wear_quality();
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &god_attr_percent_)));
+          set_has_god_attr_percent();
         } else {
           goto handle_uninterpreted;
         }
@@ -875,46 +748,21 @@ bool EquipExt::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void EquipExt::SerializeWithCachedSizes(
+void EquipBase::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.Attr base = 1;
-  for (int i = 0; i < this->base_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->base(i), output);
+  // optional uint32 base_attr_percent = 1;
+  if (has_base_attr_percent()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->base_attr_percent(), output);
   }
 
-  // repeated .proto_ff.Attr refine = 2;
-  for (int i = 0; i < this->refine_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->refine(i), output);
+  // optional uint32 star_attr_percent = 2;
+  if (has_star_attr_percent()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->star_attr_percent(), output);
   }
 
-  // repeated .proto_ff.BlueStarAttr blue = 3;
-  for (int i = 0; i < this->blue_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, this->blue(i), output);
-  }
-
-  // repeated .proto_ff.Attr god = 4;
-  for (int i = 0; i < this->god_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, this->god(i), output);
-  }
-
-  // repeated .proto_ff.Attr special = 5;
-  for (int i = 0; i < this->special_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5, this->special(i), output);
-  }
-
-  // optional int32 strong_lv = 6;
-  if (has_strong_lv()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->strong_lv(), output);
-  }
-
-  // optional int32 strong_wear_quality = 7;
-  if (has_strong_wear_quality()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->strong_wear_quality(), output);
+  // optional uint32 god_attr_percent = 3;
+  if (has_god_attr_percent()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->god_attr_percent(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -923,51 +771,21 @@ void EquipExt::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* EquipExt::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* EquipBase::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.Attr base = 1;
-  for (int i = 0; i < this->base_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        1, this->base(i), target);
+  // optional uint32 base_attr_percent = 1;
+  if (has_base_attr_percent()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->base_attr_percent(), target);
   }
 
-  // repeated .proto_ff.Attr refine = 2;
-  for (int i = 0; i < this->refine_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        2, this->refine(i), target);
+  // optional uint32 star_attr_percent = 2;
+  if (has_star_attr_percent()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->star_attr_percent(), target);
   }
 
-  // repeated .proto_ff.BlueStarAttr blue = 3;
-  for (int i = 0; i < this->blue_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        3, this->blue(i), target);
-  }
-
-  // repeated .proto_ff.Attr god = 4;
-  for (int i = 0; i < this->god_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        4, this->god(i), target);
-  }
-
-  // repeated .proto_ff.Attr special = 5;
-  for (int i = 0; i < this->special_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        5, this->special(i), target);
-  }
-
-  // optional int32 strong_lv = 6;
-  if (has_strong_lv()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->strong_lv(), target);
-  }
-
-  // optional int32 strong_wear_quality = 7;
-  if (has_strong_wear_quality()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->strong_wear_quality(), target);
+  // optional uint32 god_attr_percent = 3;
+  if (has_god_attr_percent()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->god_attr_percent(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -977,342 +795,29 @@ void EquipExt::SerializeWithCachedSizes(
   return target;
 }
 
-int EquipExt::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[5 / 32] & (0xffu << (5 % 32))) {
-    // optional int32 strong_lv = 6;
-    if (has_strong_lv()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->strong_lv());
-    }
-
-    // optional int32 strong_wear_quality = 7;
-    if (has_strong_wear_quality()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->strong_wear_quality());
-    }
-
-  }
-  // repeated .proto_ff.Attr base = 1;
-  total_size += 1 * this->base_size();
-  for (int i = 0; i < this->base_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->base(i));
-  }
-
-  // repeated .proto_ff.Attr refine = 2;
-  total_size += 1 * this->refine_size();
-  for (int i = 0; i < this->refine_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->refine(i));
-  }
-
-  // repeated .proto_ff.BlueStarAttr blue = 3;
-  total_size += 1 * this->blue_size();
-  for (int i = 0; i < this->blue_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->blue(i));
-  }
-
-  // repeated .proto_ff.Attr god = 4;
-  total_size += 1 * this->god_size();
-  for (int i = 0; i < this->god_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->god(i));
-  }
-
-  // repeated .proto_ff.Attr special = 5;
-  total_size += 1 * this->special_size();
-  for (int i = 0; i < this->special_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->special(i));
-  }
-
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void EquipExt::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const EquipExt* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const EquipExt*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void EquipExt::MergeFrom(const EquipExt& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  base_.MergeFrom(from.base_);
-  refine_.MergeFrom(from.refine_);
-  blue_.MergeFrom(from.blue_);
-  god_.MergeFrom(from.god_);
-  special_.MergeFrom(from.special_);
-  if (from._has_bits_[5 / 32] & (0xffu << (5 % 32))) {
-    if (from.has_strong_lv()) {
-      set_strong_lv(from.strong_lv());
-    }
-    if (from.has_strong_wear_quality()) {
-      set_strong_wear_quality(from.strong_wear_quality());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void EquipExt::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void EquipExt::CopyFrom(const EquipExt& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool EquipExt::IsInitialized() const {
-
-  for (int i = 0; i < base_size(); i++) {
-    if (!this->base(i).IsInitialized()) return false;
-  }
-  for (int i = 0; i < refine_size(); i++) {
-    if (!this->refine(i).IsInitialized()) return false;
-  }
-  for (int i = 0; i < god_size(); i++) {
-    if (!this->god(i).IsInitialized()) return false;
-  }
-  for (int i = 0; i < special_size(); i++) {
-    if (!this->special(i).IsInitialized()) return false;
-  }
-  return true;
-}
-
-void EquipExt::Swap(EquipExt* other) {
-  if (other != this) {
-    base_.Swap(&other->base_);
-    refine_.Swap(&other->refine_);
-    blue_.Swap(&other->blue_);
-    god_.Swap(&other->god_);
-    special_.Swap(&other->special_);
-    std::swap(strong_lv_, other->strong_lv_);
-    std::swap(strong_wear_quality_, other->strong_wear_quality_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata EquipExt::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = EquipExt_descriptor_;
-  metadata.reflection = EquipExt_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int ItemGridCSData::kBaseFieldNumber;
-const int ItemGridCSData::kEquipDataFieldNumber;
-#endif  // !_MSC_VER
-
-ItemGridCSData::ItemGridCSData()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void ItemGridCSData::InitAsDefaultInstance() {
-  base_ = const_cast< ::proto_ff::GridItemBase*>(&::proto_ff::GridItemBase::default_instance());
-  equip_data_ = const_cast< ::proto_ff::EquipExt*>(&::proto_ff::EquipExt::default_instance());
-}
-
-ItemGridCSData::ItemGridCSData(const ItemGridCSData& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void ItemGridCSData::SharedCtor() {
-  _cached_size_ = 0;
-  base_ = NULL;
-  equip_data_ = NULL;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-ItemGridCSData::~ItemGridCSData() {
-  SharedDtor();
-}
-
-void ItemGridCSData::SharedDtor() {
-  if (this != default_instance_) {
-    delete base_;
-    delete equip_data_;
-  }
-}
-
-void ItemGridCSData::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* ItemGridCSData::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return ItemGridCSData_descriptor_;
-}
-
-const ItemGridCSData& ItemGridCSData::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_CommonClass_2eproto();
-  return *default_instance_;
-}
-
-ItemGridCSData* ItemGridCSData::default_instance_ = NULL;
-
-ItemGridCSData* ItemGridCSData::New() const {
-  return new ItemGridCSData;
-}
-
-void ItemGridCSData::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (has_base()) {
-      if (base_ != NULL) base_->::proto_ff::GridItemBase::Clear();
-    }
-    if (has_equip_data()) {
-      if (equip_data_ != NULL) equip_data_->::proto_ff::EquipExt::Clear();
-    }
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool ItemGridCSData::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .proto_ff.GridItemBase base = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_base()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(18)) goto parse_equip_data;
-        break;
-      }
-
-      // optional .proto_ff.EquipExt equip_data = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_equip_data:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_equip_data()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void ItemGridCSData::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // required .proto_ff.GridItemBase base = 1;
-  if (has_base()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->base(), output);
-  }
-
-  // optional .proto_ff.EquipExt equip_data = 2;
-  if (has_equip_data()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->equip_data(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* ItemGridCSData::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // required .proto_ff.GridItemBase base = 1;
-  if (has_base()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        1, this->base(), target);
-  }
-
-  // optional .proto_ff.EquipExt equip_data = 2;
-  if (has_equip_data()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        2, this->equip_data(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int ItemGridCSData::ByteSize() const {
+int EquipBase::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .proto_ff.GridItemBase base = 1;
-    if (has_base()) {
+    // optional uint32 base_attr_percent = 1;
+    if (has_base_attr_percent()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->base());
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->base_attr_percent());
     }
 
-    // optional .proto_ff.EquipExt equip_data = 2;
-    if (has_equip_data()) {
+    // optional uint32 star_attr_percent = 2;
+    if (has_star_attr_percent()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->equip_data());
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->star_attr_percent());
+    }
+
+    // optional uint32 god_attr_percent = 3;
+    if (has_god_attr_percent()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->god_attr_percent());
     }
 
   }
@@ -1327,10 +832,10 @@ int ItemGridCSData::ByteSize() const {
   return total_size;
 }
 
-void ItemGridCSData::MergeFrom(const ::google::protobuf::Message& from) {
+void EquipBase::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const ItemGridCSData* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const ItemGridCSData*>(
+  const EquipBase* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const EquipBase*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1339,55 +844,55 @@ void ItemGridCSData::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void ItemGridCSData::MergeFrom(const ItemGridCSData& from) {
+void EquipBase::MergeFrom(const EquipBase& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_base()) {
-      mutable_base()->::proto_ff::GridItemBase::MergeFrom(from.base());
+    if (from.has_base_attr_percent()) {
+      set_base_attr_percent(from.base_attr_percent());
     }
-    if (from.has_equip_data()) {
-      mutable_equip_data()->::proto_ff::EquipExt::MergeFrom(from.equip_data());
+    if (from.has_star_attr_percent()) {
+      set_star_attr_percent(from.star_attr_percent());
+    }
+    if (from.has_god_attr_percent()) {
+      set_god_attr_percent(from.god_attr_percent());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void ItemGridCSData::CopyFrom(const ::google::protobuf::Message& from) {
+void EquipBase::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void ItemGridCSData::CopyFrom(const ItemGridCSData& from) {
+void EquipBase::CopyFrom(const EquipBase& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool ItemGridCSData::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+bool EquipBase::IsInitialized() const {
 
-  if (has_equip_data()) {
-    if (!this->equip_data().IsInitialized()) return false;
-  }
   return true;
 }
 
-void ItemGridCSData::Swap(ItemGridCSData* other) {
+void EquipBase::Swap(EquipBase* other) {
   if (other != this) {
-    std::swap(base_, other->base_);
-    std::swap(equip_data_, other->equip_data_);
+    std::swap(base_attr_percent_, other->base_attr_percent_);
+    std::swap(star_attr_percent_, other->star_attr_percent_);
+    std::swap(god_attr_percent_, other->god_attr_percent_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata ItemGridCSData::GetMetadata() const {
+::google::protobuf::Metadata EquipBase::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = ItemGridCSData_descriptor_;
-  metadata.reflection = ItemGridCSData_reflection_;
+  metadata.descriptor = EquipBase_descriptor_;
+  metadata.reflection = EquipBase_reflection_;
   return metadata;
 }
 

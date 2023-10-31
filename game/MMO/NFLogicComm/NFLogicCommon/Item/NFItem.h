@@ -10,7 +10,9 @@
 #pragma once
 
 #include "NFComm/NFCore/NFPlatform.h"
+#include "NFLogicCommon/NFLogicCommon.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
+#include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmCore/NFShmObjTemplate.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
@@ -18,8 +20,11 @@
 #include "NFGameCommon/NFComTypeDefine.h"
 #include "E_Equip_s.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
+#include "NFComm/NFShmStl/NFShmHashSet.h"
 #include "NFLogicCommon/NFPackageDefine.h"
 #include "E_Item_s.h"
+#include "E_Dragonsoul_s.h"
+#include "E_Encyclopedia_s.h"
 
 enum RandAttrType
 {
@@ -28,11 +33,329 @@ enum RandAttrType
     RandAttrType_max = 2    //最大值
 };
 
-typedef NFShmHashMap<int32_t, int32_t, DEFINE_E_EQUIPATTRIBUTE_M_ATTRIBUTE_MAX_NUM> BaseAttrMap;
-typedef NFShmHashMap<int32_t, int32_t, DEFINE_E_EQUIPATTRIBUTE_M_ATTRIBUTE_MAX_NUM> GodAttrMap;
+//蓝星属性
+struct stBlueAttr
+{
+    uint32_t id = 0;    //属性索引id
+    int64_t value = 0;    //属性值
+    int32_t lv_part = 0; //等级段，每几级加成多少属性
+};
+
+//星级属性
+struct stStarAttr
+{
+    uint32_t id = 0;
+    int64_t value = 0;
+};
+
+using VEC_STAR_ATTR = std::vector<stStarAttr>;
+using VEC_BLUE_ATTR = std::vector<stBlueAttr>;
+using MAP_BLUE_ATTR = std::map<uint32_t, stBlueAttr>;
+
 typedef NFShmHashMap<int32_t, int32_t, DEFINE_E_EQUIPATTRIBUTE_M_ATTRIBUTE_MAX_NUM> MiscAttrMap;
-typedef NFShmVector<proto_ff_s::Attr_s, DEFINE_EQUIPEXT_REFINE_MAX_NUM> StarAttrVec;
-typedef NFShmHashMap<int32_t, proto_ff_s::BlueStarAttr_s, DEFINE_EQUIPEXT_BLUE_MAX_NUM> BlueAttrMap;
+
+//EPackageType_DeityEquip = 5;	//天神
+struct DeityEquipExt
+{
+    DeityEquipExt()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+    
+    int CreateInit()
+    {
+        m_stronglv = 0;
+        m_strongWearQuality = 0;
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+    
+    uint32_t m_stronglv; //强化等级
+    uint32_t m_strongWearQuality; //强化阶级
+};
+
+//EPackageType_BeastEquip = 7;	//神兽装备背包
+struct BeastEquipExt
+{
+    BeastEquipExt()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+    
+    int CreateInit()
+    {
+        m_stronglv = 0;
+        m_strongExp = 0;
+        m_strongWearQuality = 0;
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+    
+    uint32_t m_stronglv; //强化等级
+    uint64_t m_strongExp; //强化等级经验
+    uint32_t m_strongWearQuality; //强化阶级
+    NFShmHashMap<uint32_t, uint32_t, DEFINE_E_ENCYCLOPEDIAEQUIPEXPVALUE_M_BEASTSTAR_MAX_NUM> m_blueAttr; //神兽装备蓝星属性
+    NFShmHashMap<uint32_t, uint32_t, DEFINE_E_ENCYCLOPEDIAEQUIPEXPVALUE_M_GOLDSTAR_MAX_NUM> m_godAttr; //神兽装备黄星属性 带★
+};
+
+//EPackageType_Longhun = 8;		//龙魂
+struct LongHunExt
+{
+    LongHunExt()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+    
+    int CreateInit()
+    {
+        m_stronglv = 0;
+        m_strongExp = 0;
+        m_strongWearQuality = 0;
+        m_strongWearQualityExp = 0;
+        m_awaken_lv = 0;
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+    
+    uint32_t m_stronglv; //强化等级
+    uint64_t m_strongExp; //强化等级经验
+    uint32_t m_strongWearQuality; //强化阶级
+    uint64_t m_strongWearQualityExp; //强化阶级经验
+    uint32_t m_awaken_lv;   //觉醒等级
+    NFShmHashSet<uint32_t, DEFINE_E_DRAGONSOULFLY_M_FLYATT_MAX_NUM> m_flyAttr; //龙魂飞升属性组ID
+};
+
+//EPackageType_shenji_aq = 11;	//神机装备暗器
+//EPackageType_shenji_lj = 12;	//神机装备灵甲
+struct ShengjiExt
+{
+    ShengjiExt()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+    
+    int CreateInit()
+    {
+        m_makeid = 0;
+        m_state = 0;
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+    
+    uint32_t m_makeid;//打造ID。神机装备用
+    uint32_t m_state;//神机装备用0：未装备 1统御 2装备
+};
+
+//EPackageType_GodEvil = 13;		//神魔背包
+struct GodEvilExt
+{
+    GodEvilExt()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+    
+    int CreateInit()
+    {
+        m_stronglv = 0;
+        m_strongExp = 0;
+        m_speclv = 0;
+        m_savvy = 0;
+        m_strongWearQualityExp = 0;
+        m_make_time = 0;
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+    
+    uint32_t m_stronglv; //强化等级
+    uint64_t m_strongExp; //强化等级经验
+    int32_t m_speclv;   //真炼等级 装备表specAttr表lv字段。
+    int32_t m_savvy;        //神品悟性(神魔装备)
+    uint64_t m_strongWearQualityExp; //强化阶级经验
+    uint64_t m_make_time;            //装备打造时间(神魔装备)
+    NFCommonStr m_make_name;        //装备打造者名字(神魔装备
+    NFShmHashSet<uint32_t, 10> m_goldStar; //金星 属性ID列表
+    NFShmHashSet<uint32_t, 10> m_silverStar; //银星 属性ID列表(神魔装备)
+    NFShmHashMap<uint32_t, uint32_t, 10> m_skillMap; //神魔装备被动技能 skillid - level
+};
+
+//EPackageType_star = 14;		//不灭星辰
+struct StarExt
+{
+    StarExt()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+    
+    int CreateInit()
+    {
+        m_stronglv = 0;
+        m_strongExp = 0;
+        m_strongWearQuality = 0;
+        m_strongWearQualityExp = 0;
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+    
+    uint32_t m_stronglv; //强化等级
+    uint64_t m_strongExp; //强化等级经验
+    uint32_t m_strongWearQuality; //强化阶级
+    uint64_t m_strongWearQualityExp; //强化阶级经验
+};
+
+//EPackageType_turn = 15;		//转生装备
+struct TurnExt
+{
+    TurnExt()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+    
+    int CreateInit()
+    {
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+};
+
+//EPackageType_MountKun = 16;		//坐化鲲装备
+struct MountKunExt
+{
+    MountKunExt()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+    
+    int CreateInit()
+    {
+        m_stronglv = 0;
+        m_strongWearQuality = 0;
+        m_awaken_lv = 0;
+        m_awaken_exp = 0;
+        m_awaken_star = 0;
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+    
+    uint32_t m_stronglv; //强化等级
+    uint32_t m_strongWearQuality; //强化阶级
+    uint32_t m_awaken_lv;   //突破等级
+    uint32_t m_awaken_exp;   //突破经验
+    uint64_t m_awaken_star; //突破星星
+};
+
+//EPackageType_YaoHun = 17;	//妖魂装备
+struct YaoHunExt
+{
+    YaoHunExt()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+    
+    int CreateInit()
+    {
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+};
 
 class NFItem
 {
@@ -61,42 +384,29 @@ public:
     void SetExpireTime(int64_t tick) { m_nExpiredTime = tick; }
     bool AddNum(int64_t nAddNum);
 public:
-    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond& itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t)EBindState::EBindState_no);
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
-    virtual bool SetItemProto(const proto_ff::ItemProtoInfo &protoItem);
-    virtual void GetAllAttr(MAP_INT32_INT32& attrs, int32_t level);
-    virtual uint64_t GetBaseScore() {	return 0; }
+    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
+    virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    virtual uint64_t GetBaseScore() { return 0; }
 public:
-    const proto_ff_s::E_EquipEquip_s* GetEquipCfg() const;
-    const proto_ff_s::E_ItemItem_s* GetItemCfg() const;
-    const proto_ff_s::E_EquipAttribute_s* GetEquipAttributeCfg() const;
-    bool IsProf(int32_t profId) const;						//是否属于某个职业
+    const proto_ff_s::E_EquipEquip_s *GetEquipCfg() const;
+    const proto_ff_s::E_ItemItem_s *GetItemCfg() const;
+    const proto_ff_s::E_EquipAttribute_s *GetEquipAttributeCfg() const;
+    bool IsProf(int32_t profId) const;                        //是否属于某个职业
 public:
-    
-    virtual BaseAttrMap* GetBaseAttr() { return &m_baseAttr; }
-    virtual StarAttrVec* GetStarAttr() { return &m_starAttr; }
-    virtual BlueAttrMap* GetBuleAttr() { return &m_blueAttr; }
-    virtual GodAttrMap* GetGodAttr() { return &m_godAttr; }
-    virtual MiscAttrMap* GetMiscAttr() { return &m_miscAttr; }
-    
-    virtual int32_t GetStrongLv() const { return m_stronglv; }
-    virtual int32_t GetStrongExp() const { return m_strongExp; }
-    virtual int32_t GetStrongWearQuality() const { return m_strongWearQuality; }
-    virtual int32_t GetStrongWearQualityExp() const  { return m_strongWearQualityExp; }
-    virtual int32_t GetAwakenLv() const { return m_awaken_lv; }
-    
-    virtual void SetStrongLv(uint32_t lv) { m_stronglv = lv; }
-    virtual void SetStrongExp(uint32_t exp) { m_strongExp = exp; }
-    virtual void SetStrongWearQuality(uint32_t lv) { m_strongWearQuality = lv; }
-    virtual void SetStrongWearQualityExp(uint32_t exp) { m_strongWearQualityExp = exp; }
-    virtual void SetAwakenLv(int32_t lv) { m_awaken_lv = lv; }
-    
-private:
-    bool genBaseAttr(SItemCond& itemCond);				//生成基础属性
-    bool genGodPinAttr(SItemCond& itemCond);			//生成仙品属性(两部分 星级属性和蓝星属性)
-    bool genGodZunAttr(SItemCond& itemCond);			//生成仙尊属性
+    virtual MAP_INT32_INT32 GetBaseAttr();
+    virtual VEC_STAR_ATTR GetStarAttr();
+    virtual MAP_BLUE_ATTR GetBlueAttr();
+    virtual MAP_INT32_INT32 GetGodAttr();
+protected:
+    bool genBaseAttr(SItemCond &itemCond);                //生成基础属性
+    bool genGodPinAttr(SItemCond &itemCond);            //生成仙品属性(两部分 星级属性和蓝星属性)
+    bool genGodZunAttr(SItemCond &itemCond);            //生成仙尊属性
     void GenBaseScore();
-private:
+protected:
     uint16_t m_nIndex;              //索引
     uint64_t m_nItemID;             //物品ID
     uint32_t m_nNum;                //物品数量
@@ -106,122 +416,330 @@ private:
     uint64_t m_nExpiredTime;        //过期时间,0,永不过期
     //道具也有评分，放在基类里
     
-    BaseAttrMap m_baseAttr;         //基础属性
+    uint32_t m_baseAttrPercent;     //基础属性
     //仙品属性 = 星级属性(带★) + 蓝星属性(不带★)
-    StarAttrVec m_starAttr;         //星级属性
-    BlueAttrMap m_blueAttr;         //蓝星属性
-    
-    GodAttrMap m_godAttr;            //仙尊属性 (神兽装备黄星属性)
-    MiscAttrMap m_miscAttr;         //闲杂属性 特殊属性 (龙魂飞升属性组ID 坐骑化鲲突破属性组 神兽装备蓝星属性)
-    int32_t m_stronglv;                //强化等级(给天神神饰装备 神兽装备 不灭星辰 坐骑化鲲装备用)
-    int32_t m_strongExp;            //强化等级经验(神兽装备 不灭星辰用 坐骑化鲲装备当做突破的经验)
-    int32_t m_strongWearQuality;    //强化阶级(给天神神饰装备 神兽装备 不灭星辰 坐骑化鲲装备用)
-    int32_t m_strongWearQualityExp; //强化阶级经验(给龙魂 不灭星辰用 坐骑化鲲装备当做突破星星的数目)(神魔装备)
-    int32_t m_awaken_lv;			//觉醒等级(坐骑化鲲装备里的突破)
+    uint32_t m_starAttrPercent;     //星级属性
+    uint32_t m_godAttrPercent;      //仙尊属性 (神兽装备黄星属性)
 };
 
-struct stStoneSlotInfo
+class NFDeityItem : public NFItem
 {
-    int8_t pos = -1; //0-4 索引，发给客户端1-5
-    int64_t stone_id = 0;
-};
-
-//洗练
-struct stWashSlotInfo
-{
-    int8_t slot = 0;	 //槽位 0 开始
-    int8_t quality = 0;  //品质 (随机槽位索引+1)
-    int8_t  lock = 0;	 //0未解锁。1解锁
-    int32_t id = 0;		 //属性id
-    int32_t value = 0;	 //属性值
-};
-
-struct stRefineSlotInfo
-{
-    int32_t refine_lv;
-    MAP_INT32_INT32 unlockMap; //解锁的槽位 1 开始 -》加成值，万分比
-    int32_t gm_lv = 0;
-    SET_INT32 lock_pos;
-    stRefineSlotInfo()
+public:
+    NFDeityItem()
     {
-        refine_lv = 0;
-        gm_lv = 0;
-    }
-};
-
-struct stEquipSlotInfo
-{
-    int8_t slot_pos = 0;										//槽位
-    int32_t total_score = 0;									//总评分
-    int32_t stronglv = 0;										//强化等级
-    std::vector<stStoneSlotInfo> vec_stone;						//宝石槽位信息
-    int32_t stone_pay_slot_open = 0;							//付费宝石槽位是否开放
-    std::vector<stWashSlotInfo> vec_wash;						//洗练槽位信息
-    uint8_t suitLv =0;												//套装等级
-    stRefineSlotInfo m_refine;									//精炼信息
-    int32_t awaken_lv = 0;										//觉醒等级
-    int32_t awaken_break_flag = 0;								//觉醒当前等级是否突破
-    int32_t soaring_lv = 0;										//飞升等级
-    int32_t quality_lv = 0;										//升品等级
-    std::map<int32_t, int32_t> seal_slots;						//镶嵌的印记 //slot - itemid
-    SET_INT32 active_seal_ids;									//已激活的套装ids.
-    
-    bool unpack(const proto_ff::EquipSlotInfo& proto);
-    void pack(proto_ff::EquipSlotInfo* pProto, bool clientFalg = false);
-    void initStone();
-    void initWash();
-    void initRefine();
-    int32_t GetSealSlot(int32_t pos)
-    {
-        auto iter = seal_slots.find(pos);
-        return iter != seal_slots.end() ? iter->second : 0;
-    }
-    bool HasInlayFull(SET_INT32& unlockPosSet)
-    {
-        for (auto& e : unlockPosSet)
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
-            if (GetSealSlot(e) == 0)
-                return false;
+            CreateInit();
         }
-        return true;
+        else
+        {
+            ResumeInit();
+        }
     }
-    bool HasActiveSealSuilt(int32_t id)
-    {
-        auto iter = active_seal_ids.find(id);
-        return iter != active_seal_ids.end() ? true : false;
-    }
-    bool hasRefineUnlock(int32_t pos)
-    {
-        auto iter = m_refine.unlockMap.find(pos);
-        return iter != m_refine.unlockMap.end();
-    }
-    int32_t GetWashReachQulity();
-};
-
-//穿戴的装备信息及该槽位的信息
-struct stDressEquipInfo
-{
-    int8_t pos = 0;
-    NFItem m_equip;
-    stEquipSlotInfo slot;
     
-    bool unpack(const proto_ff::EquipInfo& proto);
-    void pack(proto_ff::EquipInfo* pProto,bool clientFalg= false);
+    int CreateInit()
+    {
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+    
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
+    virtual void UnInit();
+    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
+    virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    
+    DeityEquipExt m_deityEquip;       //EPackageType_DeityEquip = 5;	//天神神饰
 };
 
-//已穿戴的装备
+class NFBeastItem : public NFItem
+{
+public:
+    NFBeastItem()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+    
+    int CreateInit()
+    {
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+    
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
+    virtual void UnInit();
+    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
+    virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    
+    BeastEquipExt m_beastEquip;       //EPackageType_BeastEquip = 7;	//神兽装备背包
+};
 
-typedef std::vector< stDressEquipInfo > VecDressEquip;
+class NFLongHunItem : public NFItem
+{
+public:
+    NFLongHunItem()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+    
+    int CreateInit()
+    {
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+    
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
+    virtual void UnInit();
+    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
+    virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    
+    LongHunExt m_longHun;             //EPackageType_Longhun = 8;		//龙魂
+};
+
+//EPackageType_shenji_aq = 11;	//神机装备暗器
+//EPackageType_shenji_lj = 12;	//神机装备灵甲
+class ShengjiItem : public NFItem
+{
+public:
+    ShengjiItem()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+    
+    int CreateInit()
+    {
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+    
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
+    virtual void UnInit();
+    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
+    virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    
+    ShengjiExt m_shengji;
+};
+
+class NFGodEvilItem : public NFItem
+{
+public:
+    NFGodEvilItem()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+    
+    int CreateInit()
+    {
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+    
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
+    virtual void UnInit();
+    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
+    virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    
+    GodEvilExt m_godEvil;             //EPackageType_GodEvil = 13;		//神魔背包
+};
+
+class NFStarItem : public NFItem
+{
+public:
+    NFStarItem()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+    
+    int CreateInit()
+    {
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+    
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
+    virtual void UnInit();
+    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
+    virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    
+    StarExt m_star;                   //EPackageType_star = 14;		//不灭星辰
+};
+
+class NFMountKunItem : public NFItem
+{
+public:
+    NFMountKunItem()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+    
+    int CreateInit()
+    {
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+    
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
+    virtual void UnInit();
+    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
+    virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    
+    MountKunExt m_mountKun;           //EPackageType_MountKun = 16;		//坐化鲲装备
+};
+
+class NFTurnItem : public NFItem
+{
+public:
+    NFTurnItem()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+    
+    int CreateInit()
+    {
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+    
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
+    virtual void UnInit();
+    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
+    virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    
+    TurnExt m_turn;                   //EPackageType_turn = 15;		//转生装备
+};
+
+class NFYaoHunItem : public NFItem
+{
+public:
+    NFYaoHunItem()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+    
+    int CreateInit()
+    {
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+    
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
+    virtual void UnInit();
+    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
+    virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    
+    YaoHunExt m_yaoHun;               //EPackageType_YaoHun = 17;	//妖魂装备
+};
 
 //proto物品
 typedef vector<proto_ff::ItemProtoInfo*> VEC_ITEM_PROTO;
 typedef vector<proto_ff::ItemProtoInfo>  VEC_ITEM_PROTO_EX;
 typedef map<uint16_t, proto_ff::ItemProtoInfo> MAP_ITEM_PROTO_EX;
-
-int32_t GetEquipType(int64_t itemId);
-bool IsComEquip(int32_t pos);
-bool IsXQEquip(int32_t pos);
-bool IsMarryEquip(int32_t pos);
-
-const VEC_INT32& GetComEquipVecPos();
-const VEC_INT32& GetXQEquipVecPos();

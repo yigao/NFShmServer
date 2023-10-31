@@ -16,6 +16,7 @@
 #include "Part/NFPart.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFBagPage.hpp"
 
 class NFPackagePart : public NFShmObjTemplate<NFPackagePart, EOT_LOGIC_PART_ID+PART_PACKAGE, NFPart>
 {

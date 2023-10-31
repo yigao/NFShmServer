@@ -1359,7 +1359,7 @@ void ExcelToProto::WriteDestStoreDefine()
         }
     }
 
-    if (destStoreHeadFileRead.find(NFStringUtility::Capitalize(m_excelName) + "DescEx") == std::string::npos)
+    if (destStoreHeadFileRead.find("#include \"DescStoreEx/" + NFStringUtility::Capitalize(m_excelName) + "DescEx") == std::string::npos)
     {
         descStoreHeadFileStr += "#include \"DescStoreEx/" + NFStringUtility::Capitalize(m_excelName) + "DescEx.h\"\n";
     }
@@ -1370,14 +1370,14 @@ void ExcelToProto::WriteDestStoreDefine()
         {
             ExcelSheet *pSheet = &m_sheets[sheet.title()];
             std::string sheet_name = pSheet->m_name;
-            if (descStoreDefineFileRead.find(NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name)) == std::string::npos)
+            if (descStoreDefineFileRead.find("EOT_CONST_" + NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name)) == std::string::npos)
             {
                 descStoreDefineFileStr += "EOT_CONST_" + NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name) + "_DESC_ID,\\\n";
             }
         }
     }
 
-    if (descStoreDefineFileRead.find(NFStringUtility::Upper(m_excelName) + "_DESC_EX_ID") == std::string::npos)
+    if (descStoreDefineFileRead.find("EOT_CONST_" + NFStringUtility::Upper(m_excelName) + "_DESC_EX_ID") == std::string::npos)
     {
         descStoreDefineFileStr += "EOT_CONST_" + NFStringUtility::Upper(m_excelName) + "_DESC_EX_ID,\\\n";
     }
@@ -1388,7 +1388,7 @@ void ExcelToProto::WriteDestStoreDefine()
         {
             ExcelSheet *pSheet = &m_sheets[sheet.title()];
             std::string sheet_name = pSheet->m_name;
-            if (descStoreRegisterFileRead.find(NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name)) ==
+            if (descStoreRegisterFileRead.find("REGISTER_DESCSTORE(" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name)) ==
                 std::string::npos)
             {
                 descStoreRegisterFileStr += "REGISTER_DESCSTORE(" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc);\\\n";
@@ -1396,7 +1396,7 @@ void ExcelToProto::WriteDestStoreDefine()
         }
     }
 
-    if (descStoreRegisterFileRead.find(NFStringUtility::Capitalize(m_excelName) + "DescEx") ==
+    if (descStoreRegisterFileRead.find("REGISTER_DESCSTORE_EX(" + NFStringUtility::Capitalize(m_excelName) + "DescEx") ==
         std::string::npos)
     {
         descStoreRegisterFileStr += "REGISTER_DESCSTORE_EX(" + NFStringUtility::Capitalize(m_excelName) + "DescEx);\\\n";
