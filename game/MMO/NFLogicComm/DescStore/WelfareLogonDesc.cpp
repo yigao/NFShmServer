@@ -51,7 +51,7 @@ int WelfareLogonDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < (int)table.e_welfarelogon_list_size(); i++)
 	{
 		const proto_ff::E_WelfareLogon& desc = table.e_welfarelogon_list(i);
-		if (desc.m_days() == 0 || desc.ByteSize() == 0)
+		if (desc.has_m_days() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;

@@ -11,17 +11,18 @@
 #include "NFLogicCommon/NFPackageDefine.h"
 #include "NFGameCommon/NFComTypeDefine.h"
 #include "Com.pb.h"
-#include "E_Item_s.h"
+#include "DescStore/ItemItemDesc.h"
+#include "DescStore/EquipEquipDesc.h"
 
-#define MAX_NATURAL_BIND_ITEM_NUM (DEFINE_SHEET_ITEMITEM_E_ITEMITEM_LIST_MAX_NUM/10)
-#define MAX_MAP_LIMIT_ITEM_NUM (DEFINE_SHEET_ITEMITEM_E_ITEMITEM_LIST_MAX_NUM/50)
+#define MAX_NATURAL_BIND_ITEM_NUM (MAX_ITEM_ITEM_NUM/10)
+#define MAX_MAP_LIMIT_ITEM_NUM (MAX_ITEM_ITEM_NUM/50)
 #define MAX_MAP_LIMIT_ITEM_MAP_NUM 5
-#define MAX_PROF_LIMIT_ITEM_NUM (DEFINE_SHEET_ITEMITEM_E_ITEMITEM_LIST_MAX_NUM/50)
-#define MAX_PROF_LIMIT_ITEM_MAP_NUM 5
+#define MAX_PROF_LIMIT_ITEM_NUM (MAX_EQUIP_EQUIP_NUM)
+#define MAX_PROF_LIMIT_ITEM_MAP_NUM 10
 #define MAX_ITEM_FUNC_PARAM_NUM 10
 #define MAX_REPLACE_ITEM_NUM 100
 
-#define MAX_DECOMPOSE_ITEM_KEY_NUM 1000
+#define MAX_DECOMPOSE_ITEM_KEY_NUM MAX_EQUIP_EQUIP_NUM*2
 #define MAX_DECOMPOSE_ITEM_ONE_KEY_EQUIP_NUM 10
 
 #define MAX_EQUIP_SMELT_EQUIP_NUM 100
@@ -88,7 +89,7 @@ private:
     MAP_UINT64_INT32  m_mapItemOrCdGroup;				//物品或CD组 的cd
     NaturalBindSet m_setNaturalBind;						//天然绑定的物品，不能有非绑定的状态
     
-    uint64_t m_virMinId{};							//虚拟物品ID列表中最小的物品ID减1
+    uint64_t m_virMinId;							//虚拟物品ID列表中最小的物品ID减1
     uint16_t m_virOffset[VIR_ITEM_ID_MAX_OFFSET+1]{};		//虚拟物品ID最大偏移（ 物品ID对应的偏移 = 物品ID - m_virMinId ）
     uint16_t m_virAttr[proto_ff::A_COMMON_END+1]{};		//属性ID对应的虚拟物品ID的偏移
     

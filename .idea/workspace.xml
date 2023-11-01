@@ -66,55 +66,20 @@
   <component name="CMakeSettings">
     <configurations>
       <configuration PROFILE_NAME="Debug" ENABLED="true" GENERATION_DIR="Build/build64_debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DCMAKE_BUILD_TYPE=DynamicDebug" NO_GENERATOR="true" />
-      <configuration PROFILE_NAME="Release" ENABLED="true" GENERATION_DIR="Build/build64_release" CONFIG_NAME="Release" GENERATION_OPTIONS="-DCMAKE_BUILD_TYPE=DynamicRelease" NO_GENERATOR="true" />
+      <configuration PROFILE_NAME="Release" ENABLED="false" GENERATION_DIR="Build/build64_release" CONFIG_NAME="Release" GENERATION_OPTIONS="-DCMAKE_BUILD_TYPE=DynamicRelease" NO_GENERATOR="true" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="MMO item">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_AchievementAchievement.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_AchievementAchievement.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_BoxBox.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_BoxBox.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_BoxBoxdata.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_BoxBoxdata.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_ConflateProp.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_ConflateProp.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_ConstantConstant.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_ConstantConstant.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_DailyDaily.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_DailyDaily.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_DailyHelper.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_DailyHelper.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_DailySports.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_DailySports.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_DupBplevel.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_DupBplevel.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_DupDup.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_DupDup.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_DupGroup.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_DupGroup.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_EquipAttribute.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_EquipAttribute.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_EquipEquip.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_EquipEquip.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_FacadeChange.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_FacadeChange.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_FestivalMuban_firstrecharge.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_FestivalMuban_firstrecharge.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_FestivalMuban_login.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_FestivalMuban_login.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_FestivalTemplate.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_FestivalTemplate.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_GodrelicsCondition.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_GodrelicsCondition.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_HeadportraitHead.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_HeadportraitHead.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_ItemItem.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_ItemItem.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_LinkLink.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_LinkLink.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_MallMall.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_MallMall.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_MonsterDisplay.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_MonsterDisplay.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_MonsterDrop.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_MonsterDrop.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_MonsterMonster.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_MonsterMonster.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_MonsterValue.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_MonsterValue.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_PeractivityPeractivity.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_PeractivityPeractivity.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_PointPoint.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_PointPoint.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_RankingRanking.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_RankingRanking.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_RechargeRecharge.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_RechargeRecharge.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_SkillBuff.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_SkillBuff.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_SkillSkill.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_SkillSkill.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_SoulFusion.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_SoulFusion.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_TaskTask.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_TaskTask.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_TaskdynamicTaskcomcond.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_TaskdynamicTaskcomcond.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_TaskrewardTaskreward.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_TaskrewardTaskreward.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Data/E_AncientgodAncientgod.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Data/E_AncientgodAncientgod.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AchievementAchievementDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AchievementAchievementDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AchievementTotalachievementsDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AchievementTotalachievementsDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AiAiDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AiAiDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AncientgodAdvanceDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AncientgodAdvanceDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AncientgodAncientgodDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AncientgodAncientgodDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AncientgodAttDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AncientgodAttDesc.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AncientgodAttDesc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AncientgodAttDesc.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AncientgodBlessDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AncientgodBlessDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AncientgodEquipvalueDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AncientgodEquipvalueDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AncientgodLvupDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AncientgodLvupDesc.cpp" afterDir="false" />
@@ -190,7 +155,6 @@
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/DragonsoulStarcollectDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/DragonsoulStarcollectDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/DragonsoulStrongexpDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/DragonsoulStrongexpDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/DupBplevelDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/DupBplevelDesc.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/DupBplevelDesc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/DupBplevelDesc.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/DupDupDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/DupDupDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/DupGroupDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/DupGroupDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/DupPlanesDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/DupPlanesDesc.cpp" afterDir="false" />
@@ -421,9 +385,6 @@
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/MountUnlockDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/MountUnlockDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/MountValueDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/MountValueDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/MsgPhpmsgDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/MsgPhpmsgDesc.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/NFDescStoreDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/NFDescStoreDefine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/NFDescStoreHead.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/NFDescStoreHead.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/NFDescStoreRegister.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/NFDescStoreRegister.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/OccupationAttributeDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/OccupationAttributeDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/OccupationOccupationDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/OccupationOccupationDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/OccupationSoulDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/OccupationSoulDesc.cpp" afterDir="false" />
@@ -526,6 +487,8 @@
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SkillSkillawakeDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SkillSkillawakeDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SkillSkillgroupDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SkillSkillgroupDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SkillSkillupDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SkillSkillupDesc.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulAffixesDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulAffixesDesc.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulAffixes_suitDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulAffixes_suitDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulBlessDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulBlessDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulBoneDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulBoneDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulBoneequipDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulBoneequipDesc.cpp" afterDir="false" />
@@ -537,7 +500,11 @@
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulCrystallvDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulCrystallvDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulCrystaltopDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulCrystaltopDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulFusionDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulFusionDesc.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulFusionDesc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulFusionDesc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulGuwen_skillDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulGuwen_skillDesc.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulGuwen_slotDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulGuwen_slotDesc.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulGuwen_suitDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulGuwen_suitDesc.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulGuwen_typeDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulGuwen_typeDesc.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulGuwen_type_suitDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulGuwen_type_suitDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulOpenDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulOpenDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulPrivilegeDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulPrivilegeDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulSoulDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SoulSoulDesc.cpp" afterDir="false" />
@@ -639,37 +606,9 @@
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/YanglongRankingDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/YanglongRankingDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/YanglongYanglongDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/YanglongYanglongDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/YanglongZadanDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/YanglongZadanDesc.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/ItemDescEx.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/ItemDescEx.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/ItemDescEx.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/ItemDescEx.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/E_Dup.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/E_Dup.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/E_Festival.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/E_Festival.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/E_Godrelics.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/E_Godrelics.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/E_Soul.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/E_Soul.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/E_Taskdynamic.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/E_Taskdynamic.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/E_Taskreward.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/E_Taskreward.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/soul_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/soul_gen.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Dup.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Dup.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Dup_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Dup_s.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Festival.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Festival.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Festival.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Festival.pb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Festival_s.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Festival_s.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Festival_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Festival_s.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Godrelics.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Godrelics.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Godrelics.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Godrelics.pb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Godrelics_s.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Godrelics_s.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Godrelics_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Godrelics_s.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Soul.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Soul.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Soul.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Soul.pb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Soul_s.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Soul_s.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Soul_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Soul_s.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Taskdynamic.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Taskdynamic.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Taskdynamic_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Taskdynamic_s.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Taskreward.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Taskreward.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Taskreward_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Taskreward_s.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFLogMgr.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFLogMgr.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmHashMap.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmHashMap.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmHashSet.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmHashSet.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToBin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToBin.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/E_Ancientgod.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/E_Ancientgod.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Ancientgod.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Ancientgod.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Ancientgod_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Ancientgod_s.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/NFExcelProcess" beforeDir="false" afterPath="$PROJECT_DIR$/tools/NFExcelProcess" afterDir="false" />
     </list>
@@ -1150,7 +1089,7 @@
       <workItem from="1698734291239" duration="27535000" />
       <workItem from="1698768303162" duration="1640000" />
       <workItem from="1698814532300" duration="2195000" />
-      <workItem from="1698824369060" duration="10016000" />
+      <workItem from="1698824369060" duration="13482000" />
     </task>
     <task id="LOCAL-00172" summary="fish">
       <created>1695432186860</created>
@@ -1495,7 +1434,7 @@
       <option name="project" value="LOCAL" />
       <updated>1697881884722</updated>
     </task>
-    <option name="localTasksCounter" value="244" />
+    <option name="localTasksCounter" value="245" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1823,11 +1762,6 @@
           <url>file://$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/ItemDescEx.cpp</url>
           <line>145</line>
           <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/SkillSkillDesc.cpp</url>
-          <line>29</line>
-          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

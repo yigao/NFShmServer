@@ -51,7 +51,7 @@ int DailyHelperDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < (int)table.e_dailyhelper_list_size(); i++)
 	{
 		const proto_ff::E_DailyHelper& desc = table.e_dailyhelper_list(i);
-		if (desc.m_helperid() == 0 || desc.ByteSize() == 0)
+		if (desc.has_m_helperid() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;

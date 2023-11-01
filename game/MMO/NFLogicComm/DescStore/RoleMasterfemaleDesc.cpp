@@ -51,7 +51,7 @@ int RoleMasterfemaleDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < (int)table.e_rolemasterfemale_list_size(); i++)
 	{
 		const proto_ff::E_RoleMasterfemale& desc = table.e_rolemasterfemale_list(i);
-		if (desc.m_lv() == 0 || desc.ByteSize() == 0)
+		if (desc.has_m_lv() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;

@@ -51,7 +51,7 @@ int TeleportTeleportDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < (int)table.e_teleportteleport_list_size(); i++)
 	{
 		const proto_ff::E_TeleportTeleport& desc = table.e_teleportteleport_list(i);
-		if (desc.m_teleportid() == 0 || desc.ByteSize() == 0)
+		if (desc.has_m_teleportid() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;

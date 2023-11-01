@@ -46,9 +46,9 @@ int MapDescEx::Load()
     std::string dir = m_pObjPluginManager->GetConfigPath() + "/Json/";
 
     auto &mapResDesc = MapMapDesc::Instance()->GetResDesc();
-    for (int i = 0; i < (int) mapResDesc.size(); i++)
+    for (auto iter = mapResDesc.begin(); iter != mapResDesc.end(); iter++)
     {
-        auto pDesc = &mapResDesc[i];
+        auto pDesc = &iter->second;
         if (pDesc)
         {
             if (IsMainCity(pDesc))
@@ -81,9 +81,9 @@ int MapDescEx::Load()
     }
 
     auto &bornResDesc = RoleBornDesc::Instance()->GetResDesc();
-    for (int i = 0; i < (int) bornResDesc.size(); i++)
+    for (auto iter = bornResDesc.begin(); iter != bornResDesc.end(); iter++)
     {
-        auto pDesc = &bornResDesc[i];
+        auto pDesc = &iter->second;
         if (pDesc)
         {
             CHECK_EXPR_ASSERT(m_bornProfMap.find(pDesc->m_professionID) == m_bornProfMap.end(), -1, "m_bornProfMap Repeated role prof:{} born:{}", pDesc->m_professionID,

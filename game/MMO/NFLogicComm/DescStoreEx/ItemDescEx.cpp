@@ -1,11 +1,10 @@
 #include "ItemDescEx.h"
-#include "DescStore/ItemItemDesc.h"
-#include "NFComm/NFCore/NFCommonApi.h"
-#include "DescStore/ConditionConditionDesc.h"
 #include "DescStore/BoxBoxDesc.h"
 #include "DescStore/SkillSkillDesc.h"
 #include "DescStore/ConflatePropDesc.h"
-#include "DescStore/EquipEquipDesc.h"
+#include "NFComm/NFCore/NFCommonApi.h"
+#include "DescStore/ConditionConditionDesc.h"
+
 
 ItemDescEx::ItemDescEx()
 {
@@ -53,6 +52,20 @@ int ItemDescEx::Load()
 
 int ItemDescEx::CheckWhenAllDataLoaded()
 {
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_mapItemFunc Space Use, size:{} max_size:{} calc:{}", m_mapItemFunc.size(), m_mapItemFunc.max_size(), (double)m_mapItemFunc.size() * 100 / m_mapItemFunc.max_size());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_mapItemProfLimit Space Use, size:{} max_size:{} calc:{}", m_mapItemProfLimit.size(), m_mapItemProfLimit.max_size(), (double)m_mapItemProfLimit.size() * 100 / m_mapItemProfLimit.max_size());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_mapItemOrCdGroup Space Use, size:{} max_size:{} calc:{}", m_mapItemOrCdGroup.size(), m_mapItemOrCdGroup.max_size(), (double)m_mapItemOrCdGroup.size() * 100 / m_mapItemOrCdGroup.max_size());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_setNaturalBind Space Use, size:{} max_size:{} calc:{}", m_setNaturalBind.size(), m_setNaturalBind.max_size(), (double)m_setNaturalBind.size() * 100 / m_setNaturalBind.max_size());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_mapFixAttr Space Use, size:{} max_size:{} calc:{}", m_mapFixAttr.size(), m_mapFixAttr.max_size(), (double)m_mapFixAttr.size() * 100 / m_mapFixAttr.max_size());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_mapDecompose Space Use, size:{} max_size:{} calc:{}", m_mapDecompose.size(), m_mapDecompose.max_size(), (double)m_mapDecompose.size() * 100 / m_mapDecompose.max_size());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_mapEquipSmelt Space Use, size:{} max_size:{} calc:{}", m_mapEquipSmelt.size(), m_mapEquipSmelt.max_size(), (double)m_mapEquipSmelt.size() * 100 / m_mapEquipSmelt.max_size());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_mapEquipStoveExp Space Use, size:{} max_size:{} calc:{}", m_mapEquipStoveExp.size(), m_mapEquipStoveExp.max_size(), (double)m_mapEquipStoveExp.size() * 100 / m_mapEquipStoveExp.max_size());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_mapItemAddMissionCheck Space Use, size:{} max_size:{} calc:{}", m_mapItemAddMissionCheck.size(), m_mapItemAddMissionCheck.max_size(), (double)m_mapItemAddMissionCheck.size() * 100 / m_mapItemAddMissionCheck.max_size());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_mapItemUseCond Space Use, size:{} max_size:{} calc:{}", m_mapItemUseCond.size(), m_mapItemUseCond.max_size(), (double)m_mapItemUseCond.size() * 100 / m_mapItemUseCond.max_size());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_replaceItem Space Use, size:{} max_size:{} calc:{}", m_replaceItem.size(), m_replaceItem.max_size(), (double)m_replaceItem.size() * 100 / m_replaceItem.max_size());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_ts_active_id Space Use, size:{} max_size:{} calc:{}", m_ts_active_id.size(), m_ts_active_id.max_size(), (double)m_ts_active_id.size() * 100 / m_ts_active_id.max_size());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_dynexp_items Space Use, size:{} max_size:{} calc:{}", m_dynexp_items.size(), m_dynexp_items.max_size(), (double)m_dynexp_items.size() * 100 / m_dynexp_items.max_size());
+    
     return 0;
 }
 

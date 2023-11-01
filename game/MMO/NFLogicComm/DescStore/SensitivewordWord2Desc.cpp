@@ -51,7 +51,7 @@ int SensitivewordWord2Desc::Load(NFResDB *pDB)
 	for (int i = 0; i < (int)table.e_sensitivewordword2_list_size(); i++)
 	{
 		const proto_ff::E_SensitivewordWord2& desc = table.e_sensitivewordword2_list(i);
-		if (desc.m_id() == 0 || desc.ByteSize() == 0)
+		if (desc.has_m_id() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;

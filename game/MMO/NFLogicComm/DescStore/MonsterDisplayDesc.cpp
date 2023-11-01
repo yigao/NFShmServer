@@ -51,7 +51,7 @@ int MonsterDisplayDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < (int)table.e_monsterdisplay_list_size(); i++)
 	{
 		const proto_ff::E_MonsterDisplay& desc = table.e_monsterdisplay_list(i);
-		if (desc.m_displayid() == 0 || desc.ByteSize() == 0)
+		if (desc.has_m_displayid() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;

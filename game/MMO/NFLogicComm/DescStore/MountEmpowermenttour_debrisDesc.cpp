@@ -51,7 +51,7 @@ int MountEmpowermenttour_debrisDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < (int)table.e_mountempowermenttour_debris_list_size(); i++)
 	{
 		const proto_ff::E_MountEmpowermenttour_debris& desc = table.e_mountempowermenttour_debris_list(i);
-		if (desc.m_fairylandid() == 0 || desc.ByteSize() == 0)
+		if (desc.has_m_fairylandid() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;

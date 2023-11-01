@@ -51,7 +51,7 @@ int GodevilAdvancelvDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < (int)table.e_godeviladvancelv_list_size(); i++)
 	{
 		const proto_ff::E_GodevilAdvancelv& desc = table.e_godeviladvancelv_list(i);
-		if (desc.m_wearlv() == 0 || desc.ByteSize() == 0)
+		if (desc.has_m_wearlv() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;

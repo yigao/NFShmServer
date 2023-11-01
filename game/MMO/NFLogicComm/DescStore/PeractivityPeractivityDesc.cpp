@@ -52,7 +52,7 @@ int PeractivityPeractivityDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < (int)table.e_peractivityperactivity_list_size(); i++)
 	{
 		const proto_ff::E_PeractivityPeractivity& desc = table.e_peractivityperactivity_list(i);
-		if (desc.m_activeid() == 0 || desc.ByteSize() == 0)
+		if (desc.has_m_activeid() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;

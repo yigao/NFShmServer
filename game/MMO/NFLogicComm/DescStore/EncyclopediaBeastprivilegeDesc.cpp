@@ -51,7 +51,7 @@ int EncyclopediaBeastprivilegeDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < (int)table.e_encyclopediabeastprivilege_list_size(); i++)
 	{
 		const proto_ff::E_EncyclopediaBeastprivilege& desc = table.e_encyclopediabeastprivilege_list(i);
-		if (desc.m_privilegetype() == 0 || desc.ByteSize() == 0)
+		if (desc.has_m_privilegetype() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;

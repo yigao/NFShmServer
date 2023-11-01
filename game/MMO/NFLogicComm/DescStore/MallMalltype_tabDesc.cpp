@@ -51,7 +51,7 @@ int MallMalltype_tabDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < (int)table.e_mallmalltype_tab_list_size(); i++)
 	{
 		const proto_ff::E_MallMalltype_tab& desc = table.e_mallmalltype_tab_list(i);
-		if (desc.m_priority() == 0 || desc.ByteSize() == 0)
+		if (desc.has_m_priority() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;

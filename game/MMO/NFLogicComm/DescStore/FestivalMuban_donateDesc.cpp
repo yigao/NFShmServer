@@ -53,7 +53,7 @@ int FestivalMuban_donateDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < (int)table.e_festivalmuban_donate_list_size(); i++)
 	{
 		const proto_ff::E_FestivalMuban_donate& desc = table.e_festivalmuban_donate_list(i);
-		if (desc.m_id() == 0 || desc.ByteSize() == 0)
+		if (desc.has_m_id() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;

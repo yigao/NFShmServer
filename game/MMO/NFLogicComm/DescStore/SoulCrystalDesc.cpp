@@ -51,7 +51,7 @@ int SoulCrystalDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < (int)table.e_soulcrystal_list_size(); i++)
 	{
 		const proto_ff::E_SoulCrystal& desc = table.e_soulcrystal_list(i);
-		if (desc.m_equipid() == 0 || desc.ByteSize() == 0)
+		if (desc.has_m_equipid() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;

@@ -51,7 +51,7 @@ int XingchenXingjiDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < (int)table.e_xingchenxingji_list_size(); i++)
 	{
 		const proto_ff::E_XingchenXingji& desc = table.e_xingchenxingji_list(i);
-		if (desc.m_xjid() == 0 || desc.ByteSize() == 0)
+		if (desc.has_m_xjid() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;

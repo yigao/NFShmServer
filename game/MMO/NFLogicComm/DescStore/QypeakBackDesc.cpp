@@ -51,7 +51,7 @@ int QypeakBackDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < (int)table.e_qypeakback_list_size(); i++)
 	{
 		const proto_ff::E_QypeakBack& desc = table.e_qypeakback_list(i);
-		if (desc.m_layers() == 0 || desc.ByteSize() == 0)
+		if (desc.has_m_layers() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;

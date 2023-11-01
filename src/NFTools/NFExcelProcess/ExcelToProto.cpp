@@ -837,7 +837,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
     desc_file += "\t{\n";
     desc_file += "\t\tconst proto_ff::E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "& desc = table.e_" +
                  NFStringUtility::Lower(m_excelName) + NFStringUtility::Lower(sheet_name) + "_list(i);\n";
-    desc_file += "\t\tif (desc." + key_en_name + "() == 0 || desc.ByteSize() == 0)\n";
+    desc_file += "\t\tif (desc.has_" + key_en_name + "() == false && desc.ByteSize() == 0)\n";
     desc_file += "\t\t{\n";
     desc_file += "\t\t\tNFLogError(NF_LOG_SYSTEMLOG, 0, \"the desc no value, {}\", desc.Utf8DebugString());\n";
     desc_file += "\t\t\tcontinue;\n";

@@ -52,7 +52,7 @@ int XingchenXcstarDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < (int)table.e_xingchenxcstar_list_size(); i++)
 	{
 		const proto_ff::E_XingchenXcstar& desc = table.e_xingchenxcstar_list(i);
-		if (desc.m_starlv() == 0 || desc.ByteSize() == 0)
+		if (desc.has_m_starlv() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;

@@ -53,7 +53,7 @@ int XiuzhenroadTaskDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < (int)table.e_xiuzhenroadtask_list_size(); i++)
 	{
 		const proto_ff::E_XiuzhenroadTask& desc = table.e_xiuzhenroadtask_list(i);
-		if (desc.m_taskid() == 0 || desc.ByteSize() == 0)
+		if (desc.has_m_taskid() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;
