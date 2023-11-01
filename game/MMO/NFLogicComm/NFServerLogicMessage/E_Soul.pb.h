@@ -73,6 +73,25 @@ class Sheet_SoulBonekill;
 class E_SoulBonestrongTypeDesc;
 class E_SoulBonestrong;
 class Sheet_SoulBonestrong;
+class E_SoulGuwen_type;
+class Sheet_SoulGuwen_type;
+class E_SoulGuwen_type_suitAttributeDesc;
+class E_SoulGuwen_type_suit;
+class Sheet_SoulGuwen_type_suit;
+class E_SoulGuwen_skill;
+class Sheet_SoulGuwen_skill;
+class E_SoulGuwen_slot;
+class Sheet_SoulGuwen_slot;
+class E_SoulGuwen_suitAttributeDesc;
+class E_SoulGuwen_suit;
+class Sheet_SoulGuwen_suit;
+class E_SoulAffixesAttributeDesc;
+class E_SoulAffixes;
+class Sheet_SoulAffixes;
+class E_SoulAffixes_suitSkillDesc;
+class E_SoulAffixes_suitAttributeDesc;
+class E_SoulAffixes_suit;
+class Sheet_SoulAffixes_suit;
 
 // ===================================================================
 
@@ -4106,6 +4125,1911 @@ class Sheet_SoulBonestrong : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static Sheet_SoulBonestrong* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class E_SoulGuwen_type : public ::google::protobuf::Message {
+ public:
+  E_SoulGuwen_type();
+  virtual ~E_SoulGuwen_type();
+
+  E_SoulGuwen_type(const E_SoulGuwen_type& from);
+
+  inline E_SoulGuwen_type& operator=(const E_SoulGuwen_type& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_SoulGuwen_type& default_instance();
+
+  void Swap(E_SoulGuwen_type* other);
+
+  // implements Message ----------------------------------------------
+
+  E_SoulGuwen_type* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_SoulGuwen_type& from);
+  void MergeFrom(const E_SoulGuwen_type& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional string m_name = 2;
+  inline bool has_m_name() const;
+  inline void clear_m_name();
+  static const int kMNameFieldNumber = 2;
+  inline const ::std::string& m_name() const;
+  inline void set_m_name(const ::std::string& value);
+  inline void set_m_name(const char* value);
+  inline void set_m_name(const char* value, size_t size);
+  inline ::std::string* mutable_m_name();
+  inline ::std::string* release_m_name();
+  inline void set_allocated_m_name(::std::string* m_name);
+
+  // optional int32 m_quality = 3;
+  inline bool has_m_quality() const;
+  inline void clear_m_quality();
+  static const int kMQualityFieldNumber = 3;
+  inline ::google::protobuf::int32 m_quality() const;
+  inline void set_m_quality(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulGuwen_type)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_name();
+  inline void clear_has_m_name();
+  inline void set_has_m_quality();
+  inline void clear_has_m_quality();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* m_name_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_quality_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
+  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
+  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_SoulGuwen_type* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_SoulGuwen_type : public ::google::protobuf::Message {
+ public:
+  Sheet_SoulGuwen_type();
+  virtual ~Sheet_SoulGuwen_type();
+
+  Sheet_SoulGuwen_type(const Sheet_SoulGuwen_type& from);
+
+  inline Sheet_SoulGuwen_type& operator=(const Sheet_SoulGuwen_type& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_SoulGuwen_type& default_instance();
+
+  void Swap(Sheet_SoulGuwen_type* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_SoulGuwen_type* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_SoulGuwen_type& from);
+  void MergeFrom(const Sheet_SoulGuwen_type& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_SoulGuwen_type E_SoulGuwen_type_List = 1;
+  inline int e_soulguwen_type_list_size() const;
+  inline void clear_e_soulguwen_type_list();
+  static const int kESoulGuwenTypeListFieldNumber = 1;
+  inline const ::proto_ff::E_SoulGuwen_type& e_soulguwen_type_list(int index) const;
+  inline ::proto_ff::E_SoulGuwen_type* mutable_e_soulguwen_type_list(int index);
+  inline ::proto_ff::E_SoulGuwen_type* add_e_soulguwen_type_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type >&
+      e_soulguwen_type_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type >*
+      mutable_e_soulguwen_type_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SoulGuwen_type)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type > e_soulguwen_type_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
+  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
+  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_SoulGuwen_type* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_SoulGuwen_type_suitAttributeDesc : public ::google::protobuf::Message {
+ public:
+  E_SoulGuwen_type_suitAttributeDesc();
+  virtual ~E_SoulGuwen_type_suitAttributeDesc();
+
+  E_SoulGuwen_type_suitAttributeDesc(const E_SoulGuwen_type_suitAttributeDesc& from);
+
+  inline E_SoulGuwen_type_suitAttributeDesc& operator=(const E_SoulGuwen_type_suitAttributeDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_SoulGuwen_type_suitAttributeDesc& default_instance();
+
+  void Swap(E_SoulGuwen_type_suitAttributeDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_SoulGuwen_type_suitAttributeDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_SoulGuwen_type_suitAttributeDesc& from);
+  void MergeFrom(const E_SoulGuwen_type_suitAttributeDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_value = 1;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 1;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
+
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulGuwen_type_suitAttributeDesc)
+ private:
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_value_;
+  ::google::protobuf::int32 m_type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
+  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
+  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_SoulGuwen_type_suitAttributeDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_SoulGuwen_type_suit : public ::google::protobuf::Message {
+ public:
+  E_SoulGuwen_type_suit();
+  virtual ~E_SoulGuwen_type_suit();
+
+  E_SoulGuwen_type_suit(const E_SoulGuwen_type_suit& from);
+
+  inline E_SoulGuwen_type_suit& operator=(const E_SoulGuwen_type_suit& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_SoulGuwen_type_suit& default_instance();
+
+  void Swap(E_SoulGuwen_type_suit* other);
+
+  // implements Message ----------------------------------------------
+
+  E_SoulGuwen_type_suit* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_SoulGuwen_type_suit& from);
+  void MergeFrom(const E_SoulGuwen_type_suit& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_typeId = 2;
+  inline bool has_m_typeid() const;
+  inline void clear_m_typeid();
+  static const int kMTypeIdFieldNumber = 2;
+  inline ::google::protobuf::int32 m_typeid() const;
+  inline void set_m_typeid(::google::protobuf::int32 value);
+
+  // optional int32 m_num = 3;
+  inline bool has_m_num() const;
+  inline void clear_m_num();
+  static const int kMNumFieldNumber = 3;
+  inline ::google::protobuf::int32 m_num() const;
+  inline void set_m_num(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.E_SoulGuwen_type_suitAttributeDesc m_attribute = 4;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 4;
+  inline const ::proto_ff::E_SoulGuwen_type_suitAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_SoulGuwen_type_suitAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_SoulGuwen_type_suitAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type_suitAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type_suitAttributeDesc >*
+      mutable_m_attribute();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulGuwen_type_suit)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_typeid();
+  inline void clear_has_m_typeid();
+  inline void set_has_m_num();
+  inline void clear_has_m_num();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_typeid_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type_suitAttributeDesc > m_attribute_;
+  ::google::protobuf::int32 m_num_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
+  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
+  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_SoulGuwen_type_suit* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_SoulGuwen_type_suit : public ::google::protobuf::Message {
+ public:
+  Sheet_SoulGuwen_type_suit();
+  virtual ~Sheet_SoulGuwen_type_suit();
+
+  Sheet_SoulGuwen_type_suit(const Sheet_SoulGuwen_type_suit& from);
+
+  inline Sheet_SoulGuwen_type_suit& operator=(const Sheet_SoulGuwen_type_suit& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_SoulGuwen_type_suit& default_instance();
+
+  void Swap(Sheet_SoulGuwen_type_suit* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_SoulGuwen_type_suit* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_SoulGuwen_type_suit& from);
+  void MergeFrom(const Sheet_SoulGuwen_type_suit& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_SoulGuwen_type_suit E_SoulGuwen_type_suit_List = 1;
+  inline int e_soulguwen_type_suit_list_size() const;
+  inline void clear_e_soulguwen_type_suit_list();
+  static const int kESoulGuwenTypeSuitListFieldNumber = 1;
+  inline const ::proto_ff::E_SoulGuwen_type_suit& e_soulguwen_type_suit_list(int index) const;
+  inline ::proto_ff::E_SoulGuwen_type_suit* mutable_e_soulguwen_type_suit_list(int index);
+  inline ::proto_ff::E_SoulGuwen_type_suit* add_e_soulguwen_type_suit_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type_suit >&
+      e_soulguwen_type_suit_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type_suit >*
+      mutable_e_soulguwen_type_suit_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SoulGuwen_type_suit)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type_suit > e_soulguwen_type_suit_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
+  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
+  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_SoulGuwen_type_suit* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_SoulGuwen_skill : public ::google::protobuf::Message {
+ public:
+  E_SoulGuwen_skill();
+  virtual ~E_SoulGuwen_skill();
+
+  E_SoulGuwen_skill(const E_SoulGuwen_skill& from);
+
+  inline E_SoulGuwen_skill& operator=(const E_SoulGuwen_skill& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_SoulGuwen_skill& default_instance();
+
+  void Swap(E_SoulGuwen_skill* other);
+
+  // implements Message ----------------------------------------------
+
+  E_SoulGuwen_skill* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_SoulGuwen_skill& from);
+  void MergeFrom(const E_SoulGuwen_skill& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
+
+  // optional int32 m_skillId = 3;
+  inline bool has_m_skillid() const;
+  inline void clear_m_skillid();
+  static const int kMSkillIdFieldNumber = 3;
+  inline ::google::protobuf::int32 m_skillid() const;
+  inline void set_m_skillid(::google::protobuf::int32 value);
+
+  // optional int32 m_quality = 4;
+  inline bool has_m_quality() const;
+  inline void clear_m_quality();
+  static const int kMQualityFieldNumber = 4;
+  inline ::google::protobuf::int32 m_quality() const;
+  inline void set_m_quality(::google::protobuf::int32 value);
+
+  // repeated int32 m_skillLevel = 5;
+  inline int m_skilllevel_size() const;
+  inline void clear_m_skilllevel();
+  static const int kMSkillLevelFieldNumber = 5;
+  inline ::google::protobuf::int32 m_skilllevel(int index) const;
+  inline void set_m_skilllevel(int index, ::google::protobuf::int32 value);
+  inline void add_m_skilllevel(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      m_skilllevel() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_m_skilllevel();
+
+  // repeated int32 m_num = 6;
+  inline int m_num_size() const;
+  inline void clear_m_num();
+  static const int kMNumFieldNumber = 6;
+  inline ::google::protobuf::int32 m_num(int index) const;
+  inline void set_m_num(int index, ::google::protobuf::int32 value);
+  inline void add_m_num(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      m_num() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_m_num();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulGuwen_skill)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_skillid();
+  inline void clear_has_m_skillid();
+  inline void set_has_m_quality();
+  inline void clear_has_m_quality();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_skillid_;
+  ::google::protobuf::int32 m_quality_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > m_skilllevel_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > m_num_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
+  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
+  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_SoulGuwen_skill* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_SoulGuwen_skill : public ::google::protobuf::Message {
+ public:
+  Sheet_SoulGuwen_skill();
+  virtual ~Sheet_SoulGuwen_skill();
+
+  Sheet_SoulGuwen_skill(const Sheet_SoulGuwen_skill& from);
+
+  inline Sheet_SoulGuwen_skill& operator=(const Sheet_SoulGuwen_skill& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_SoulGuwen_skill& default_instance();
+
+  void Swap(Sheet_SoulGuwen_skill* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_SoulGuwen_skill* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_SoulGuwen_skill& from);
+  void MergeFrom(const Sheet_SoulGuwen_skill& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_SoulGuwen_skill E_SoulGuwen_skill_List = 1;
+  inline int e_soulguwen_skill_list_size() const;
+  inline void clear_e_soulguwen_skill_list();
+  static const int kESoulGuwenSkillListFieldNumber = 1;
+  inline const ::proto_ff::E_SoulGuwen_skill& e_soulguwen_skill_list(int index) const;
+  inline ::proto_ff::E_SoulGuwen_skill* mutable_e_soulguwen_skill_list(int index);
+  inline ::proto_ff::E_SoulGuwen_skill* add_e_soulguwen_skill_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_skill >&
+      e_soulguwen_skill_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_skill >*
+      mutable_e_soulguwen_skill_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SoulGuwen_skill)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_skill > e_soulguwen_skill_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
+  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
+  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_SoulGuwen_skill* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_SoulGuwen_slot : public ::google::protobuf::Message {
+ public:
+  E_SoulGuwen_slot();
+  virtual ~E_SoulGuwen_slot();
+
+  E_SoulGuwen_slot(const E_SoulGuwen_slot& from);
+
+  inline E_SoulGuwen_slot& operator=(const E_SoulGuwen_slot& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_SoulGuwen_slot& default_instance();
+
+  void Swap(E_SoulGuwen_slot* other);
+
+  // implements Message ----------------------------------------------
+
+  E_SoulGuwen_slot* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_SoulGuwen_slot& from);
+  void MergeFrom(const E_SoulGuwen_slot& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional string m_name = 2;
+  inline bool has_m_name() const;
+  inline void clear_m_name();
+  static const int kMNameFieldNumber = 2;
+  inline const ::std::string& m_name() const;
+  inline void set_m_name(const ::std::string& value);
+  inline void set_m_name(const char* value);
+  inline void set_m_name(const char* value, size_t size);
+  inline ::std::string* mutable_m_name();
+  inline ::std::string* release_m_name();
+  inline void set_allocated_m_name(::std::string* m_name);
+
+  // optional int32 m_position = 3;
+  inline bool has_m_position() const;
+  inline void clear_m_position();
+  static const int kMPositionFieldNumber = 3;
+  inline ::google::protobuf::int32 m_position() const;
+  inline void set_m_position(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulGuwen_slot)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_name();
+  inline void clear_has_m_name();
+  inline void set_has_m_position();
+  inline void clear_has_m_position();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* m_name_;
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_position_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
+  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
+  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_SoulGuwen_slot* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_SoulGuwen_slot : public ::google::protobuf::Message {
+ public:
+  Sheet_SoulGuwen_slot();
+  virtual ~Sheet_SoulGuwen_slot();
+
+  Sheet_SoulGuwen_slot(const Sheet_SoulGuwen_slot& from);
+
+  inline Sheet_SoulGuwen_slot& operator=(const Sheet_SoulGuwen_slot& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_SoulGuwen_slot& default_instance();
+
+  void Swap(Sheet_SoulGuwen_slot* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_SoulGuwen_slot* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_SoulGuwen_slot& from);
+  void MergeFrom(const Sheet_SoulGuwen_slot& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_SoulGuwen_slot E_SoulGuwen_slot_List = 1;
+  inline int e_soulguwen_slot_list_size() const;
+  inline void clear_e_soulguwen_slot_list();
+  static const int kESoulGuwenSlotListFieldNumber = 1;
+  inline const ::proto_ff::E_SoulGuwen_slot& e_soulguwen_slot_list(int index) const;
+  inline ::proto_ff::E_SoulGuwen_slot* mutable_e_soulguwen_slot_list(int index);
+  inline ::proto_ff::E_SoulGuwen_slot* add_e_soulguwen_slot_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_slot >&
+      e_soulguwen_slot_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_slot >*
+      mutable_e_soulguwen_slot_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SoulGuwen_slot)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_slot > e_soulguwen_slot_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
+  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
+  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_SoulGuwen_slot* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_SoulGuwen_suitAttributeDesc : public ::google::protobuf::Message {
+ public:
+  E_SoulGuwen_suitAttributeDesc();
+  virtual ~E_SoulGuwen_suitAttributeDesc();
+
+  E_SoulGuwen_suitAttributeDesc(const E_SoulGuwen_suitAttributeDesc& from);
+
+  inline E_SoulGuwen_suitAttributeDesc& operator=(const E_SoulGuwen_suitAttributeDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_SoulGuwen_suitAttributeDesc& default_instance();
+
+  void Swap(E_SoulGuwen_suitAttributeDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_SoulGuwen_suitAttributeDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_SoulGuwen_suitAttributeDesc& from);
+  void MergeFrom(const E_SoulGuwen_suitAttributeDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_value = 1;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 1;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
+
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulGuwen_suitAttributeDesc)
+ private:
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_value_;
+  ::google::protobuf::int32 m_type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
+  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
+  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_SoulGuwen_suitAttributeDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_SoulGuwen_suit : public ::google::protobuf::Message {
+ public:
+  E_SoulGuwen_suit();
+  virtual ~E_SoulGuwen_suit();
+
+  E_SoulGuwen_suit(const E_SoulGuwen_suit& from);
+
+  inline E_SoulGuwen_suit& operator=(const E_SoulGuwen_suit& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_SoulGuwen_suit& default_instance();
+
+  void Swap(E_SoulGuwen_suit* other);
+
+  // implements Message ----------------------------------------------
+
+  E_SoulGuwen_suit* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_SoulGuwen_suit& from);
+  void MergeFrom(const E_SoulGuwen_suit& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_boneId = 2;
+  inline bool has_m_boneid() const;
+  inline void clear_m_boneid();
+  static const int kMBoneIdFieldNumber = 2;
+  inline ::google::protobuf::int32 m_boneid() const;
+  inline void set_m_boneid(::google::protobuf::int32 value);
+
+  // optional int32 m_typeId = 3;
+  inline bool has_m_typeid() const;
+  inline void clear_m_typeid();
+  static const int kMTypeIdFieldNumber = 3;
+  inline ::google::protobuf::int32 m_typeid() const;
+  inline void set_m_typeid(::google::protobuf::int32 value);
+
+  // optional int32 m_num = 4;
+  inline bool has_m_num() const;
+  inline void clear_m_num();
+  static const int kMNumFieldNumber = 4;
+  inline ::google::protobuf::int32 m_num() const;
+  inline void set_m_num(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.E_SoulGuwen_suitAttributeDesc m_attribute = 5;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 5;
+  inline const ::proto_ff::E_SoulGuwen_suitAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_SoulGuwen_suitAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_SoulGuwen_suitAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_suitAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_suitAttributeDesc >*
+      mutable_m_attribute();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulGuwen_suit)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_boneid();
+  inline void clear_has_m_boneid();
+  inline void set_has_m_typeid();
+  inline void clear_has_m_typeid();
+  inline void set_has_m_num();
+  inline void clear_has_m_num();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_boneid_;
+  ::google::protobuf::int32 m_typeid_;
+  ::google::protobuf::int32 m_num_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_suitAttributeDesc > m_attribute_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
+  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
+  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_SoulGuwen_suit* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_SoulGuwen_suit : public ::google::protobuf::Message {
+ public:
+  Sheet_SoulGuwen_suit();
+  virtual ~Sheet_SoulGuwen_suit();
+
+  Sheet_SoulGuwen_suit(const Sheet_SoulGuwen_suit& from);
+
+  inline Sheet_SoulGuwen_suit& operator=(const Sheet_SoulGuwen_suit& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_SoulGuwen_suit& default_instance();
+
+  void Swap(Sheet_SoulGuwen_suit* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_SoulGuwen_suit* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_SoulGuwen_suit& from);
+  void MergeFrom(const Sheet_SoulGuwen_suit& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_SoulGuwen_suit E_SoulGuwen_suit_List = 1;
+  inline int e_soulguwen_suit_list_size() const;
+  inline void clear_e_soulguwen_suit_list();
+  static const int kESoulGuwenSuitListFieldNumber = 1;
+  inline const ::proto_ff::E_SoulGuwen_suit& e_soulguwen_suit_list(int index) const;
+  inline ::proto_ff::E_SoulGuwen_suit* mutable_e_soulguwen_suit_list(int index);
+  inline ::proto_ff::E_SoulGuwen_suit* add_e_soulguwen_suit_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_suit >&
+      e_soulguwen_suit_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_suit >*
+      mutable_e_soulguwen_suit_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SoulGuwen_suit)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_suit > e_soulguwen_suit_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
+  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
+  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_SoulGuwen_suit* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_SoulAffixesAttributeDesc : public ::google::protobuf::Message {
+ public:
+  E_SoulAffixesAttributeDesc();
+  virtual ~E_SoulAffixesAttributeDesc();
+
+  E_SoulAffixesAttributeDesc(const E_SoulAffixesAttributeDesc& from);
+
+  inline E_SoulAffixesAttributeDesc& operator=(const E_SoulAffixesAttributeDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_SoulAffixesAttributeDesc& default_instance();
+
+  void Swap(E_SoulAffixesAttributeDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_SoulAffixesAttributeDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_SoulAffixesAttributeDesc& from);
+  void MergeFrom(const E_SoulAffixesAttributeDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_value = 1;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 1;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
+
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulAffixesAttributeDesc)
+ private:
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_value_;
+  ::google::protobuf::int32 m_type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
+  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
+  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_SoulAffixesAttributeDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_SoulAffixes : public ::google::protobuf::Message {
+ public:
+  E_SoulAffixes();
+  virtual ~E_SoulAffixes();
+
+  E_SoulAffixes(const E_SoulAffixes& from);
+
+  inline E_SoulAffixes& operator=(const E_SoulAffixes& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_SoulAffixes& default_instance();
+
+  void Swap(E_SoulAffixes* other);
+
+  // implements Message ----------------------------------------------
+
+  E_SoulAffixes* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_SoulAffixes& from);
+  void MergeFrom(const E_SoulAffixes& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
+
+  // optional int32 m_quality = 3;
+  inline bool has_m_quality() const;
+  inline void clear_m_quality();
+  static const int kMQualityFieldNumber = 3;
+  inline ::google::protobuf::int32 m_quality() const;
+  inline void set_m_quality(::google::protobuf::int32 value);
+
+  // optional string m_name = 4;
+  inline bool has_m_name() const;
+  inline void clear_m_name();
+  static const int kMNameFieldNumber = 4;
+  inline const ::std::string& m_name() const;
+  inline void set_m_name(const ::std::string& value);
+  inline void set_m_name(const char* value);
+  inline void set_m_name(const char* value, size_t size);
+  inline ::std::string* mutable_m_name();
+  inline ::std::string* release_m_name();
+  inline void set_allocated_m_name(::std::string* m_name);
+
+  // repeated .proto_ff.E_SoulAffixesAttributeDesc m_attribute = 5;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 5;
+  inline const ::proto_ff::E_SoulAffixesAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_SoulAffixesAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_SoulAffixesAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixesAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixesAttributeDesc >*
+      mutable_m_attribute();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulAffixes)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_quality();
+  inline void clear_has_m_quality();
+  inline void set_has_m_name();
+  inline void clear_has_m_name();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_type_;
+  ::std::string* m_name_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixesAttributeDesc > m_attribute_;
+  ::google::protobuf::int32 m_quality_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
+  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
+  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_SoulAffixes* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_SoulAffixes : public ::google::protobuf::Message {
+ public:
+  Sheet_SoulAffixes();
+  virtual ~Sheet_SoulAffixes();
+
+  Sheet_SoulAffixes(const Sheet_SoulAffixes& from);
+
+  inline Sheet_SoulAffixes& operator=(const Sheet_SoulAffixes& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_SoulAffixes& default_instance();
+
+  void Swap(Sheet_SoulAffixes* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_SoulAffixes* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_SoulAffixes& from);
+  void MergeFrom(const Sheet_SoulAffixes& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_SoulAffixes E_SoulAffixes_List = 1;
+  inline int e_soulaffixes_list_size() const;
+  inline void clear_e_soulaffixes_list();
+  static const int kESoulAffixesListFieldNumber = 1;
+  inline const ::proto_ff::E_SoulAffixes& e_soulaffixes_list(int index) const;
+  inline ::proto_ff::E_SoulAffixes* mutable_e_soulaffixes_list(int index);
+  inline ::proto_ff::E_SoulAffixes* add_e_soulaffixes_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes >&
+      e_soulaffixes_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes >*
+      mutable_e_soulaffixes_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SoulAffixes)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes > e_soulaffixes_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
+  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
+  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_SoulAffixes* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_SoulAffixes_suitSkillDesc : public ::google::protobuf::Message {
+ public:
+  E_SoulAffixes_suitSkillDesc();
+  virtual ~E_SoulAffixes_suitSkillDesc();
+
+  E_SoulAffixes_suitSkillDesc(const E_SoulAffixes_suitSkillDesc& from);
+
+  inline E_SoulAffixes_suitSkillDesc& operator=(const E_SoulAffixes_suitSkillDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_SoulAffixes_suitSkillDesc& default_instance();
+
+  void Swap(E_SoulAffixes_suitSkillDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_SoulAffixes_suitSkillDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_SoulAffixes_suitSkillDesc& from);
+  void MergeFrom(const E_SoulAffixes_suitSkillDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_level = 1;
+  inline bool has_m_level() const;
+  inline void clear_m_level();
+  static const int kMLevelFieldNumber = 1;
+  inline ::google::protobuf::int32 m_level() const;
+  inline void set_m_level(::google::protobuf::int32 value);
+
+  // optional int32 m_id = 2;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 2;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulAffixes_suitSkillDesc)
+ private:
+  inline void set_has_m_level();
+  inline void clear_has_m_level();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_level_;
+  ::google::protobuf::int32 m_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
+  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
+  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_SoulAffixes_suitSkillDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_SoulAffixes_suitAttributeDesc : public ::google::protobuf::Message {
+ public:
+  E_SoulAffixes_suitAttributeDesc();
+  virtual ~E_SoulAffixes_suitAttributeDesc();
+
+  E_SoulAffixes_suitAttributeDesc(const E_SoulAffixes_suitAttributeDesc& from);
+
+  inline E_SoulAffixes_suitAttributeDesc& operator=(const E_SoulAffixes_suitAttributeDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_SoulAffixes_suitAttributeDesc& default_instance();
+
+  void Swap(E_SoulAffixes_suitAttributeDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_SoulAffixes_suitAttributeDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_SoulAffixes_suitAttributeDesc& from);
+  void MergeFrom(const E_SoulAffixes_suitAttributeDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_value = 1;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 1;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
+
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulAffixes_suitAttributeDesc)
+ private:
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_value_;
+  ::google::protobuf::int32 m_type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
+  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
+  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_SoulAffixes_suitAttributeDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_SoulAffixes_suit : public ::google::protobuf::Message {
+ public:
+  E_SoulAffixes_suit();
+  virtual ~E_SoulAffixes_suit();
+
+  E_SoulAffixes_suit(const E_SoulAffixes_suit& from);
+
+  inline E_SoulAffixes_suit& operator=(const E_SoulAffixes_suit& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_SoulAffixes_suit& default_instance();
+
+  void Swap(E_SoulAffixes_suit* other);
+
+  // implements Message ----------------------------------------------
+
+  E_SoulAffixes_suit* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_SoulAffixes_suit& from);
+  void MergeFrom(const E_SoulAffixes_suit& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_affixesId = 2;
+  inline bool has_m_affixesid() const;
+  inline void clear_m_affixesid();
+  static const int kMAffixesIdFieldNumber = 2;
+  inline ::google::protobuf::int32 m_affixesid() const;
+  inline void set_m_affixesid(::google::protobuf::int32 value);
+
+  // optional int32 m_num = 3;
+  inline bool has_m_num() const;
+  inline void clear_m_num();
+  static const int kMNumFieldNumber = 3;
+  inline ::google::protobuf::int32 m_num() const;
+  inline void set_m_num(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.E_SoulAffixes_suitSkillDesc m_skill = 4;
+  inline int m_skill_size() const;
+  inline void clear_m_skill();
+  static const int kMSkillFieldNumber = 4;
+  inline const ::proto_ff::E_SoulAffixes_suitSkillDesc& m_skill(int index) const;
+  inline ::proto_ff::E_SoulAffixes_suitSkillDesc* mutable_m_skill(int index);
+  inline ::proto_ff::E_SoulAffixes_suitSkillDesc* add_m_skill();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suitSkillDesc >&
+      m_skill() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suitSkillDesc >*
+      mutable_m_skill();
+
+  // repeated .proto_ff.E_SoulAffixes_suitAttributeDesc m_attribute = 5;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 5;
+  inline const ::proto_ff::E_SoulAffixes_suitAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_SoulAffixes_suitAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_SoulAffixes_suitAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suitAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suitAttributeDesc >*
+      mutable_m_attribute();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulAffixes_suit)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_affixesid();
+  inline void clear_has_m_affixesid();
+  inline void set_has_m_num();
+  inline void clear_has_m_num();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_affixesid_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suitSkillDesc > m_skill_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suitAttributeDesc > m_attribute_;
+  ::google::protobuf::int32 m_num_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
+  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
+  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_SoulAffixes_suit* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_SoulAffixes_suit : public ::google::protobuf::Message {
+ public:
+  Sheet_SoulAffixes_suit();
+  virtual ~Sheet_SoulAffixes_suit();
+
+  Sheet_SoulAffixes_suit(const Sheet_SoulAffixes_suit& from);
+
+  inline Sheet_SoulAffixes_suit& operator=(const Sheet_SoulAffixes_suit& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_SoulAffixes_suit& default_instance();
+
+  void Swap(Sheet_SoulAffixes_suit* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_SoulAffixes_suit* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_SoulAffixes_suit& from);
+  void MergeFrom(const Sheet_SoulAffixes_suit& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_SoulAffixes_suit E_SoulAffixes_suit_List = 1;
+  inline int e_soulaffixes_suit_list_size() const;
+  inline void clear_e_soulaffixes_suit_list();
+  static const int kESoulAffixesSuitListFieldNumber = 1;
+  inline const ::proto_ff::E_SoulAffixes_suit& e_soulaffixes_suit_list(int index) const;
+  inline ::proto_ff::E_SoulAffixes_suit* mutable_e_soulaffixes_suit_list(int index);
+  inline ::proto_ff::E_SoulAffixes_suit* add_e_soulaffixes_suit_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suit >&
+      e_soulaffixes_suit_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suit >*
+      mutable_e_soulaffixes_suit_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SoulAffixes_suit)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suit > e_soulaffixes_suit_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
+  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
+  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_SoulAffixes_suit* default_instance_;
+};
 // ===================================================================
 
 
@@ -7132,6 +9056,1324 @@ Sheet_SoulBonestrong::e_soulbonestrong_list() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulBonestrong >*
 Sheet_SoulBonestrong::mutable_e_soulbonestrong_list() {
   return &e_soulbonestrong_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_SoulGuwen_type
+
+// optional int32 m_id = 1;
+inline bool E_SoulGuwen_type::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_SoulGuwen_type::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_SoulGuwen_type::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_SoulGuwen_type::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_SoulGuwen_type::m_id() const {
+  return m_id_;
+}
+inline void E_SoulGuwen_type::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional string m_name = 2;
+inline bool E_SoulGuwen_type::has_m_name() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_SoulGuwen_type::set_has_m_name() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_SoulGuwen_type::clear_has_m_name() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_SoulGuwen_type::clear_m_name() {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    m_name_->clear();
+  }
+  clear_has_m_name();
+}
+inline const ::std::string& E_SoulGuwen_type::m_name() const {
+  return *m_name_;
+}
+inline void E_SoulGuwen_type::set_m_name(const ::std::string& value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
+  }
+  m_name_->assign(value);
+}
+inline void E_SoulGuwen_type::set_m_name(const char* value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
+  }
+  m_name_->assign(value);
+}
+inline void E_SoulGuwen_type::set_m_name(const char* value, size_t size) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
+  }
+  m_name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_SoulGuwen_type::mutable_m_name() {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
+  }
+  return m_name_;
+}
+inline ::std::string* E_SoulGuwen_type::release_m_name() {
+  clear_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_name_;
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_SoulGuwen_type::set_allocated_m_name(::std::string* m_name) {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_name_;
+  }
+  if (m_name) {
+    set_has_m_name();
+    m_name_ = m_name;
+  } else {
+    clear_has_m_name();
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional int32 m_quality = 3;
+inline bool E_SoulGuwen_type::has_m_quality() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_SoulGuwen_type::set_has_m_quality() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_SoulGuwen_type::clear_has_m_quality() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_SoulGuwen_type::clear_m_quality() {
+  m_quality_ = 0;
+  clear_has_m_quality();
+}
+inline ::google::protobuf::int32 E_SoulGuwen_type::m_quality() const {
+  return m_quality_;
+}
+inline void E_SoulGuwen_type::set_m_quality(::google::protobuf::int32 value) {
+  set_has_m_quality();
+  m_quality_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_SoulGuwen_type
+
+// repeated .proto_ff.E_SoulGuwen_type E_SoulGuwen_type_List = 1;
+inline int Sheet_SoulGuwen_type::e_soulguwen_type_list_size() const {
+  return e_soulguwen_type_list_.size();
+}
+inline void Sheet_SoulGuwen_type::clear_e_soulguwen_type_list() {
+  e_soulguwen_type_list_.Clear();
+}
+inline const ::proto_ff::E_SoulGuwen_type& Sheet_SoulGuwen_type::e_soulguwen_type_list(int index) const {
+  return e_soulguwen_type_list_.Get(index);
+}
+inline ::proto_ff::E_SoulGuwen_type* Sheet_SoulGuwen_type::mutable_e_soulguwen_type_list(int index) {
+  return e_soulguwen_type_list_.Mutable(index);
+}
+inline ::proto_ff::E_SoulGuwen_type* Sheet_SoulGuwen_type::add_e_soulguwen_type_list() {
+  return e_soulguwen_type_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type >&
+Sheet_SoulGuwen_type::e_soulguwen_type_list() const {
+  return e_soulguwen_type_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type >*
+Sheet_SoulGuwen_type::mutable_e_soulguwen_type_list() {
+  return &e_soulguwen_type_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_SoulGuwen_type_suitAttributeDesc
+
+// optional int32 m_value = 1;
+inline bool E_SoulGuwen_type_suitAttributeDesc::has_m_value() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_SoulGuwen_type_suitAttributeDesc::set_has_m_value() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_SoulGuwen_type_suitAttributeDesc::clear_has_m_value() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_SoulGuwen_type_suitAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
+}
+inline ::google::protobuf::int32 E_SoulGuwen_type_suitAttributeDesc::m_value() const {
+  return m_value_;
+}
+inline void E_SoulGuwen_type_suitAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
+}
+
+// optional int32 m_type = 2;
+inline bool E_SoulGuwen_type_suitAttributeDesc::has_m_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_SoulGuwen_type_suitAttributeDesc::set_has_m_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_SoulGuwen_type_suitAttributeDesc::clear_has_m_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_SoulGuwen_type_suitAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
+}
+inline ::google::protobuf::int32 E_SoulGuwen_type_suitAttributeDesc::m_type() const {
+  return m_type_;
+}
+inline void E_SoulGuwen_type_suitAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// E_SoulGuwen_type_suit
+
+// optional int32 m_id = 1;
+inline bool E_SoulGuwen_type_suit::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_SoulGuwen_type_suit::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_SoulGuwen_type_suit::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_SoulGuwen_type_suit::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_SoulGuwen_type_suit::m_id() const {
+  return m_id_;
+}
+inline void E_SoulGuwen_type_suit::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_typeId = 2;
+inline bool E_SoulGuwen_type_suit::has_m_typeid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_SoulGuwen_type_suit::set_has_m_typeid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_SoulGuwen_type_suit::clear_has_m_typeid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_SoulGuwen_type_suit::clear_m_typeid() {
+  m_typeid_ = 0;
+  clear_has_m_typeid();
+}
+inline ::google::protobuf::int32 E_SoulGuwen_type_suit::m_typeid() const {
+  return m_typeid_;
+}
+inline void E_SoulGuwen_type_suit::set_m_typeid(::google::protobuf::int32 value) {
+  set_has_m_typeid();
+  m_typeid_ = value;
+}
+
+// optional int32 m_num = 3;
+inline bool E_SoulGuwen_type_suit::has_m_num() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_SoulGuwen_type_suit::set_has_m_num() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_SoulGuwen_type_suit::clear_has_m_num() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_SoulGuwen_type_suit::clear_m_num() {
+  m_num_ = 0;
+  clear_has_m_num();
+}
+inline ::google::protobuf::int32 E_SoulGuwen_type_suit::m_num() const {
+  return m_num_;
+}
+inline void E_SoulGuwen_type_suit::set_m_num(::google::protobuf::int32 value) {
+  set_has_m_num();
+  m_num_ = value;
+}
+
+// repeated .proto_ff.E_SoulGuwen_type_suitAttributeDesc m_attribute = 4;
+inline int E_SoulGuwen_type_suit::m_attribute_size() const {
+  return m_attribute_.size();
+}
+inline void E_SoulGuwen_type_suit::clear_m_attribute() {
+  m_attribute_.Clear();
+}
+inline const ::proto_ff::E_SoulGuwen_type_suitAttributeDesc& E_SoulGuwen_type_suit::m_attribute(int index) const {
+  return m_attribute_.Get(index);
+}
+inline ::proto_ff::E_SoulGuwen_type_suitAttributeDesc* E_SoulGuwen_type_suit::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
+}
+inline ::proto_ff::E_SoulGuwen_type_suitAttributeDesc* E_SoulGuwen_type_suit::add_m_attribute() {
+  return m_attribute_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type_suitAttributeDesc >&
+E_SoulGuwen_type_suit::m_attribute() const {
+  return m_attribute_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type_suitAttributeDesc >*
+E_SoulGuwen_type_suit::mutable_m_attribute() {
+  return &m_attribute_;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_SoulGuwen_type_suit
+
+// repeated .proto_ff.E_SoulGuwen_type_suit E_SoulGuwen_type_suit_List = 1;
+inline int Sheet_SoulGuwen_type_suit::e_soulguwen_type_suit_list_size() const {
+  return e_soulguwen_type_suit_list_.size();
+}
+inline void Sheet_SoulGuwen_type_suit::clear_e_soulguwen_type_suit_list() {
+  e_soulguwen_type_suit_list_.Clear();
+}
+inline const ::proto_ff::E_SoulGuwen_type_suit& Sheet_SoulGuwen_type_suit::e_soulguwen_type_suit_list(int index) const {
+  return e_soulguwen_type_suit_list_.Get(index);
+}
+inline ::proto_ff::E_SoulGuwen_type_suit* Sheet_SoulGuwen_type_suit::mutable_e_soulguwen_type_suit_list(int index) {
+  return e_soulguwen_type_suit_list_.Mutable(index);
+}
+inline ::proto_ff::E_SoulGuwen_type_suit* Sheet_SoulGuwen_type_suit::add_e_soulguwen_type_suit_list() {
+  return e_soulguwen_type_suit_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type_suit >&
+Sheet_SoulGuwen_type_suit::e_soulguwen_type_suit_list() const {
+  return e_soulguwen_type_suit_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type_suit >*
+Sheet_SoulGuwen_type_suit::mutable_e_soulguwen_type_suit_list() {
+  return &e_soulguwen_type_suit_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_SoulGuwen_skill
+
+// optional int32 m_id = 1;
+inline bool E_SoulGuwen_skill::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_SoulGuwen_skill::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_SoulGuwen_skill::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_SoulGuwen_skill::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_SoulGuwen_skill::m_id() const {
+  return m_id_;
+}
+inline void E_SoulGuwen_skill::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_type = 2;
+inline bool E_SoulGuwen_skill::has_m_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_SoulGuwen_skill::set_has_m_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_SoulGuwen_skill::clear_has_m_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_SoulGuwen_skill::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
+}
+inline ::google::protobuf::int32 E_SoulGuwen_skill::m_type() const {
+  return m_type_;
+}
+inline void E_SoulGuwen_skill::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
+}
+
+// optional int32 m_skillId = 3;
+inline bool E_SoulGuwen_skill::has_m_skillid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_SoulGuwen_skill::set_has_m_skillid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_SoulGuwen_skill::clear_has_m_skillid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_SoulGuwen_skill::clear_m_skillid() {
+  m_skillid_ = 0;
+  clear_has_m_skillid();
+}
+inline ::google::protobuf::int32 E_SoulGuwen_skill::m_skillid() const {
+  return m_skillid_;
+}
+inline void E_SoulGuwen_skill::set_m_skillid(::google::protobuf::int32 value) {
+  set_has_m_skillid();
+  m_skillid_ = value;
+}
+
+// optional int32 m_quality = 4;
+inline bool E_SoulGuwen_skill::has_m_quality() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_SoulGuwen_skill::set_has_m_quality() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_SoulGuwen_skill::clear_has_m_quality() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_SoulGuwen_skill::clear_m_quality() {
+  m_quality_ = 0;
+  clear_has_m_quality();
+}
+inline ::google::protobuf::int32 E_SoulGuwen_skill::m_quality() const {
+  return m_quality_;
+}
+inline void E_SoulGuwen_skill::set_m_quality(::google::protobuf::int32 value) {
+  set_has_m_quality();
+  m_quality_ = value;
+}
+
+// repeated int32 m_skillLevel = 5;
+inline int E_SoulGuwen_skill::m_skilllevel_size() const {
+  return m_skilllevel_.size();
+}
+inline void E_SoulGuwen_skill::clear_m_skilllevel() {
+  m_skilllevel_.Clear();
+}
+inline ::google::protobuf::int32 E_SoulGuwen_skill::m_skilllevel(int index) const {
+  return m_skilllevel_.Get(index);
+}
+inline void E_SoulGuwen_skill::set_m_skilllevel(int index, ::google::protobuf::int32 value) {
+  m_skilllevel_.Set(index, value);
+}
+inline void E_SoulGuwen_skill::add_m_skilllevel(::google::protobuf::int32 value) {
+  m_skilllevel_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+E_SoulGuwen_skill::m_skilllevel() const {
+  return m_skilllevel_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+E_SoulGuwen_skill::mutable_m_skilllevel() {
+  return &m_skilllevel_;
+}
+
+// repeated int32 m_num = 6;
+inline int E_SoulGuwen_skill::m_num_size() const {
+  return m_num_.size();
+}
+inline void E_SoulGuwen_skill::clear_m_num() {
+  m_num_.Clear();
+}
+inline ::google::protobuf::int32 E_SoulGuwen_skill::m_num(int index) const {
+  return m_num_.Get(index);
+}
+inline void E_SoulGuwen_skill::set_m_num(int index, ::google::protobuf::int32 value) {
+  m_num_.Set(index, value);
+}
+inline void E_SoulGuwen_skill::add_m_num(::google::protobuf::int32 value) {
+  m_num_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+E_SoulGuwen_skill::m_num() const {
+  return m_num_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+E_SoulGuwen_skill::mutable_m_num() {
+  return &m_num_;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_SoulGuwen_skill
+
+// repeated .proto_ff.E_SoulGuwen_skill E_SoulGuwen_skill_List = 1;
+inline int Sheet_SoulGuwen_skill::e_soulguwen_skill_list_size() const {
+  return e_soulguwen_skill_list_.size();
+}
+inline void Sheet_SoulGuwen_skill::clear_e_soulguwen_skill_list() {
+  e_soulguwen_skill_list_.Clear();
+}
+inline const ::proto_ff::E_SoulGuwen_skill& Sheet_SoulGuwen_skill::e_soulguwen_skill_list(int index) const {
+  return e_soulguwen_skill_list_.Get(index);
+}
+inline ::proto_ff::E_SoulGuwen_skill* Sheet_SoulGuwen_skill::mutable_e_soulguwen_skill_list(int index) {
+  return e_soulguwen_skill_list_.Mutable(index);
+}
+inline ::proto_ff::E_SoulGuwen_skill* Sheet_SoulGuwen_skill::add_e_soulguwen_skill_list() {
+  return e_soulguwen_skill_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_skill >&
+Sheet_SoulGuwen_skill::e_soulguwen_skill_list() const {
+  return e_soulguwen_skill_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_skill >*
+Sheet_SoulGuwen_skill::mutable_e_soulguwen_skill_list() {
+  return &e_soulguwen_skill_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_SoulGuwen_slot
+
+// optional int32 m_id = 1;
+inline bool E_SoulGuwen_slot::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_SoulGuwen_slot::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_SoulGuwen_slot::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_SoulGuwen_slot::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_SoulGuwen_slot::m_id() const {
+  return m_id_;
+}
+inline void E_SoulGuwen_slot::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional string m_name = 2;
+inline bool E_SoulGuwen_slot::has_m_name() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_SoulGuwen_slot::set_has_m_name() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_SoulGuwen_slot::clear_has_m_name() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_SoulGuwen_slot::clear_m_name() {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    m_name_->clear();
+  }
+  clear_has_m_name();
+}
+inline const ::std::string& E_SoulGuwen_slot::m_name() const {
+  return *m_name_;
+}
+inline void E_SoulGuwen_slot::set_m_name(const ::std::string& value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
+  }
+  m_name_->assign(value);
+}
+inline void E_SoulGuwen_slot::set_m_name(const char* value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
+  }
+  m_name_->assign(value);
+}
+inline void E_SoulGuwen_slot::set_m_name(const char* value, size_t size) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
+  }
+  m_name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_SoulGuwen_slot::mutable_m_name() {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
+  }
+  return m_name_;
+}
+inline ::std::string* E_SoulGuwen_slot::release_m_name() {
+  clear_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_name_;
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_SoulGuwen_slot::set_allocated_m_name(::std::string* m_name) {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_name_;
+  }
+  if (m_name) {
+    set_has_m_name();
+    m_name_ = m_name;
+  } else {
+    clear_has_m_name();
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional int32 m_position = 3;
+inline bool E_SoulGuwen_slot::has_m_position() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_SoulGuwen_slot::set_has_m_position() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_SoulGuwen_slot::clear_has_m_position() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_SoulGuwen_slot::clear_m_position() {
+  m_position_ = 0;
+  clear_has_m_position();
+}
+inline ::google::protobuf::int32 E_SoulGuwen_slot::m_position() const {
+  return m_position_;
+}
+inline void E_SoulGuwen_slot::set_m_position(::google::protobuf::int32 value) {
+  set_has_m_position();
+  m_position_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_SoulGuwen_slot
+
+// repeated .proto_ff.E_SoulGuwen_slot E_SoulGuwen_slot_List = 1;
+inline int Sheet_SoulGuwen_slot::e_soulguwen_slot_list_size() const {
+  return e_soulguwen_slot_list_.size();
+}
+inline void Sheet_SoulGuwen_slot::clear_e_soulguwen_slot_list() {
+  e_soulguwen_slot_list_.Clear();
+}
+inline const ::proto_ff::E_SoulGuwen_slot& Sheet_SoulGuwen_slot::e_soulguwen_slot_list(int index) const {
+  return e_soulguwen_slot_list_.Get(index);
+}
+inline ::proto_ff::E_SoulGuwen_slot* Sheet_SoulGuwen_slot::mutable_e_soulguwen_slot_list(int index) {
+  return e_soulguwen_slot_list_.Mutable(index);
+}
+inline ::proto_ff::E_SoulGuwen_slot* Sheet_SoulGuwen_slot::add_e_soulguwen_slot_list() {
+  return e_soulguwen_slot_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_slot >&
+Sheet_SoulGuwen_slot::e_soulguwen_slot_list() const {
+  return e_soulguwen_slot_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_slot >*
+Sheet_SoulGuwen_slot::mutable_e_soulguwen_slot_list() {
+  return &e_soulguwen_slot_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_SoulGuwen_suitAttributeDesc
+
+// optional int32 m_value = 1;
+inline bool E_SoulGuwen_suitAttributeDesc::has_m_value() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_SoulGuwen_suitAttributeDesc::set_has_m_value() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_SoulGuwen_suitAttributeDesc::clear_has_m_value() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_SoulGuwen_suitAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
+}
+inline ::google::protobuf::int32 E_SoulGuwen_suitAttributeDesc::m_value() const {
+  return m_value_;
+}
+inline void E_SoulGuwen_suitAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
+}
+
+// optional int32 m_type = 2;
+inline bool E_SoulGuwen_suitAttributeDesc::has_m_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_SoulGuwen_suitAttributeDesc::set_has_m_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_SoulGuwen_suitAttributeDesc::clear_has_m_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_SoulGuwen_suitAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
+}
+inline ::google::protobuf::int32 E_SoulGuwen_suitAttributeDesc::m_type() const {
+  return m_type_;
+}
+inline void E_SoulGuwen_suitAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// E_SoulGuwen_suit
+
+// optional int32 m_id = 1;
+inline bool E_SoulGuwen_suit::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_SoulGuwen_suit::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_SoulGuwen_suit::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_SoulGuwen_suit::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_SoulGuwen_suit::m_id() const {
+  return m_id_;
+}
+inline void E_SoulGuwen_suit::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_boneId = 2;
+inline bool E_SoulGuwen_suit::has_m_boneid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_SoulGuwen_suit::set_has_m_boneid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_SoulGuwen_suit::clear_has_m_boneid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_SoulGuwen_suit::clear_m_boneid() {
+  m_boneid_ = 0;
+  clear_has_m_boneid();
+}
+inline ::google::protobuf::int32 E_SoulGuwen_suit::m_boneid() const {
+  return m_boneid_;
+}
+inline void E_SoulGuwen_suit::set_m_boneid(::google::protobuf::int32 value) {
+  set_has_m_boneid();
+  m_boneid_ = value;
+}
+
+// optional int32 m_typeId = 3;
+inline bool E_SoulGuwen_suit::has_m_typeid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_SoulGuwen_suit::set_has_m_typeid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_SoulGuwen_suit::clear_has_m_typeid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_SoulGuwen_suit::clear_m_typeid() {
+  m_typeid_ = 0;
+  clear_has_m_typeid();
+}
+inline ::google::protobuf::int32 E_SoulGuwen_suit::m_typeid() const {
+  return m_typeid_;
+}
+inline void E_SoulGuwen_suit::set_m_typeid(::google::protobuf::int32 value) {
+  set_has_m_typeid();
+  m_typeid_ = value;
+}
+
+// optional int32 m_num = 4;
+inline bool E_SoulGuwen_suit::has_m_num() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_SoulGuwen_suit::set_has_m_num() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_SoulGuwen_suit::clear_has_m_num() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_SoulGuwen_suit::clear_m_num() {
+  m_num_ = 0;
+  clear_has_m_num();
+}
+inline ::google::protobuf::int32 E_SoulGuwen_suit::m_num() const {
+  return m_num_;
+}
+inline void E_SoulGuwen_suit::set_m_num(::google::protobuf::int32 value) {
+  set_has_m_num();
+  m_num_ = value;
+}
+
+// repeated .proto_ff.E_SoulGuwen_suitAttributeDesc m_attribute = 5;
+inline int E_SoulGuwen_suit::m_attribute_size() const {
+  return m_attribute_.size();
+}
+inline void E_SoulGuwen_suit::clear_m_attribute() {
+  m_attribute_.Clear();
+}
+inline const ::proto_ff::E_SoulGuwen_suitAttributeDesc& E_SoulGuwen_suit::m_attribute(int index) const {
+  return m_attribute_.Get(index);
+}
+inline ::proto_ff::E_SoulGuwen_suitAttributeDesc* E_SoulGuwen_suit::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
+}
+inline ::proto_ff::E_SoulGuwen_suitAttributeDesc* E_SoulGuwen_suit::add_m_attribute() {
+  return m_attribute_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_suitAttributeDesc >&
+E_SoulGuwen_suit::m_attribute() const {
+  return m_attribute_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_suitAttributeDesc >*
+E_SoulGuwen_suit::mutable_m_attribute() {
+  return &m_attribute_;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_SoulGuwen_suit
+
+// repeated .proto_ff.E_SoulGuwen_suit E_SoulGuwen_suit_List = 1;
+inline int Sheet_SoulGuwen_suit::e_soulguwen_suit_list_size() const {
+  return e_soulguwen_suit_list_.size();
+}
+inline void Sheet_SoulGuwen_suit::clear_e_soulguwen_suit_list() {
+  e_soulguwen_suit_list_.Clear();
+}
+inline const ::proto_ff::E_SoulGuwen_suit& Sheet_SoulGuwen_suit::e_soulguwen_suit_list(int index) const {
+  return e_soulguwen_suit_list_.Get(index);
+}
+inline ::proto_ff::E_SoulGuwen_suit* Sheet_SoulGuwen_suit::mutable_e_soulguwen_suit_list(int index) {
+  return e_soulguwen_suit_list_.Mutable(index);
+}
+inline ::proto_ff::E_SoulGuwen_suit* Sheet_SoulGuwen_suit::add_e_soulguwen_suit_list() {
+  return e_soulguwen_suit_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_suit >&
+Sheet_SoulGuwen_suit::e_soulguwen_suit_list() const {
+  return e_soulguwen_suit_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_suit >*
+Sheet_SoulGuwen_suit::mutable_e_soulguwen_suit_list() {
+  return &e_soulguwen_suit_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_SoulAffixesAttributeDesc
+
+// optional int32 m_value = 1;
+inline bool E_SoulAffixesAttributeDesc::has_m_value() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_SoulAffixesAttributeDesc::set_has_m_value() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_SoulAffixesAttributeDesc::clear_has_m_value() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_SoulAffixesAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
+}
+inline ::google::protobuf::int32 E_SoulAffixesAttributeDesc::m_value() const {
+  return m_value_;
+}
+inline void E_SoulAffixesAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
+}
+
+// optional int32 m_type = 2;
+inline bool E_SoulAffixesAttributeDesc::has_m_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_SoulAffixesAttributeDesc::set_has_m_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_SoulAffixesAttributeDesc::clear_has_m_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_SoulAffixesAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
+}
+inline ::google::protobuf::int32 E_SoulAffixesAttributeDesc::m_type() const {
+  return m_type_;
+}
+inline void E_SoulAffixesAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// E_SoulAffixes
+
+// optional int32 m_id = 1;
+inline bool E_SoulAffixes::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_SoulAffixes::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_SoulAffixes::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_SoulAffixes::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_SoulAffixes::m_id() const {
+  return m_id_;
+}
+inline void E_SoulAffixes::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_type = 2;
+inline bool E_SoulAffixes::has_m_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_SoulAffixes::set_has_m_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_SoulAffixes::clear_has_m_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_SoulAffixes::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
+}
+inline ::google::protobuf::int32 E_SoulAffixes::m_type() const {
+  return m_type_;
+}
+inline void E_SoulAffixes::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
+}
+
+// optional int32 m_quality = 3;
+inline bool E_SoulAffixes::has_m_quality() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_SoulAffixes::set_has_m_quality() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_SoulAffixes::clear_has_m_quality() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_SoulAffixes::clear_m_quality() {
+  m_quality_ = 0;
+  clear_has_m_quality();
+}
+inline ::google::protobuf::int32 E_SoulAffixes::m_quality() const {
+  return m_quality_;
+}
+inline void E_SoulAffixes::set_m_quality(::google::protobuf::int32 value) {
+  set_has_m_quality();
+  m_quality_ = value;
+}
+
+// optional string m_name = 4;
+inline bool E_SoulAffixes::has_m_name() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_SoulAffixes::set_has_m_name() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_SoulAffixes::clear_has_m_name() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_SoulAffixes::clear_m_name() {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    m_name_->clear();
+  }
+  clear_has_m_name();
+}
+inline const ::std::string& E_SoulAffixes::m_name() const {
+  return *m_name_;
+}
+inline void E_SoulAffixes::set_m_name(const ::std::string& value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
+  }
+  m_name_->assign(value);
+}
+inline void E_SoulAffixes::set_m_name(const char* value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
+  }
+  m_name_->assign(value);
+}
+inline void E_SoulAffixes::set_m_name(const char* value, size_t size) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
+  }
+  m_name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_SoulAffixes::mutable_m_name() {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
+  }
+  return m_name_;
+}
+inline ::std::string* E_SoulAffixes::release_m_name() {
+  clear_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_name_;
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_SoulAffixes::set_allocated_m_name(::std::string* m_name) {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_name_;
+  }
+  if (m_name) {
+    set_has_m_name();
+    m_name_ = m_name;
+  } else {
+    clear_has_m_name();
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// repeated .proto_ff.E_SoulAffixesAttributeDesc m_attribute = 5;
+inline int E_SoulAffixes::m_attribute_size() const {
+  return m_attribute_.size();
+}
+inline void E_SoulAffixes::clear_m_attribute() {
+  m_attribute_.Clear();
+}
+inline const ::proto_ff::E_SoulAffixesAttributeDesc& E_SoulAffixes::m_attribute(int index) const {
+  return m_attribute_.Get(index);
+}
+inline ::proto_ff::E_SoulAffixesAttributeDesc* E_SoulAffixes::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
+}
+inline ::proto_ff::E_SoulAffixesAttributeDesc* E_SoulAffixes::add_m_attribute() {
+  return m_attribute_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixesAttributeDesc >&
+E_SoulAffixes::m_attribute() const {
+  return m_attribute_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixesAttributeDesc >*
+E_SoulAffixes::mutable_m_attribute() {
+  return &m_attribute_;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_SoulAffixes
+
+// repeated .proto_ff.E_SoulAffixes E_SoulAffixes_List = 1;
+inline int Sheet_SoulAffixes::e_soulaffixes_list_size() const {
+  return e_soulaffixes_list_.size();
+}
+inline void Sheet_SoulAffixes::clear_e_soulaffixes_list() {
+  e_soulaffixes_list_.Clear();
+}
+inline const ::proto_ff::E_SoulAffixes& Sheet_SoulAffixes::e_soulaffixes_list(int index) const {
+  return e_soulaffixes_list_.Get(index);
+}
+inline ::proto_ff::E_SoulAffixes* Sheet_SoulAffixes::mutable_e_soulaffixes_list(int index) {
+  return e_soulaffixes_list_.Mutable(index);
+}
+inline ::proto_ff::E_SoulAffixes* Sheet_SoulAffixes::add_e_soulaffixes_list() {
+  return e_soulaffixes_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes >&
+Sheet_SoulAffixes::e_soulaffixes_list() const {
+  return e_soulaffixes_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes >*
+Sheet_SoulAffixes::mutable_e_soulaffixes_list() {
+  return &e_soulaffixes_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_SoulAffixes_suitSkillDesc
+
+// optional int32 m_level = 1;
+inline bool E_SoulAffixes_suitSkillDesc::has_m_level() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_SoulAffixes_suitSkillDesc::set_has_m_level() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_SoulAffixes_suitSkillDesc::clear_has_m_level() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_SoulAffixes_suitSkillDesc::clear_m_level() {
+  m_level_ = 0;
+  clear_has_m_level();
+}
+inline ::google::protobuf::int32 E_SoulAffixes_suitSkillDesc::m_level() const {
+  return m_level_;
+}
+inline void E_SoulAffixes_suitSkillDesc::set_m_level(::google::protobuf::int32 value) {
+  set_has_m_level();
+  m_level_ = value;
+}
+
+// optional int32 m_id = 2;
+inline bool E_SoulAffixes_suitSkillDesc::has_m_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_SoulAffixes_suitSkillDesc::set_has_m_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_SoulAffixes_suitSkillDesc::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_SoulAffixes_suitSkillDesc::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_SoulAffixes_suitSkillDesc::m_id() const {
+  return m_id_;
+}
+inline void E_SoulAffixes_suitSkillDesc::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// E_SoulAffixes_suitAttributeDesc
+
+// optional int32 m_value = 1;
+inline bool E_SoulAffixes_suitAttributeDesc::has_m_value() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_SoulAffixes_suitAttributeDesc::set_has_m_value() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_SoulAffixes_suitAttributeDesc::clear_has_m_value() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_SoulAffixes_suitAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
+}
+inline ::google::protobuf::int32 E_SoulAffixes_suitAttributeDesc::m_value() const {
+  return m_value_;
+}
+inline void E_SoulAffixes_suitAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
+}
+
+// optional int32 m_type = 2;
+inline bool E_SoulAffixes_suitAttributeDesc::has_m_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_SoulAffixes_suitAttributeDesc::set_has_m_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_SoulAffixes_suitAttributeDesc::clear_has_m_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_SoulAffixes_suitAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
+}
+inline ::google::protobuf::int32 E_SoulAffixes_suitAttributeDesc::m_type() const {
+  return m_type_;
+}
+inline void E_SoulAffixes_suitAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// E_SoulAffixes_suit
+
+// optional int32 m_id = 1;
+inline bool E_SoulAffixes_suit::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_SoulAffixes_suit::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_SoulAffixes_suit::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_SoulAffixes_suit::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_SoulAffixes_suit::m_id() const {
+  return m_id_;
+}
+inline void E_SoulAffixes_suit::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_affixesId = 2;
+inline bool E_SoulAffixes_suit::has_m_affixesid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_SoulAffixes_suit::set_has_m_affixesid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_SoulAffixes_suit::clear_has_m_affixesid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_SoulAffixes_suit::clear_m_affixesid() {
+  m_affixesid_ = 0;
+  clear_has_m_affixesid();
+}
+inline ::google::protobuf::int32 E_SoulAffixes_suit::m_affixesid() const {
+  return m_affixesid_;
+}
+inline void E_SoulAffixes_suit::set_m_affixesid(::google::protobuf::int32 value) {
+  set_has_m_affixesid();
+  m_affixesid_ = value;
+}
+
+// optional int32 m_num = 3;
+inline bool E_SoulAffixes_suit::has_m_num() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_SoulAffixes_suit::set_has_m_num() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_SoulAffixes_suit::clear_has_m_num() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_SoulAffixes_suit::clear_m_num() {
+  m_num_ = 0;
+  clear_has_m_num();
+}
+inline ::google::protobuf::int32 E_SoulAffixes_suit::m_num() const {
+  return m_num_;
+}
+inline void E_SoulAffixes_suit::set_m_num(::google::protobuf::int32 value) {
+  set_has_m_num();
+  m_num_ = value;
+}
+
+// repeated .proto_ff.E_SoulAffixes_suitSkillDesc m_skill = 4;
+inline int E_SoulAffixes_suit::m_skill_size() const {
+  return m_skill_.size();
+}
+inline void E_SoulAffixes_suit::clear_m_skill() {
+  m_skill_.Clear();
+}
+inline const ::proto_ff::E_SoulAffixes_suitSkillDesc& E_SoulAffixes_suit::m_skill(int index) const {
+  return m_skill_.Get(index);
+}
+inline ::proto_ff::E_SoulAffixes_suitSkillDesc* E_SoulAffixes_suit::mutable_m_skill(int index) {
+  return m_skill_.Mutable(index);
+}
+inline ::proto_ff::E_SoulAffixes_suitSkillDesc* E_SoulAffixes_suit::add_m_skill() {
+  return m_skill_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suitSkillDesc >&
+E_SoulAffixes_suit::m_skill() const {
+  return m_skill_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suitSkillDesc >*
+E_SoulAffixes_suit::mutable_m_skill() {
+  return &m_skill_;
+}
+
+// repeated .proto_ff.E_SoulAffixes_suitAttributeDesc m_attribute = 5;
+inline int E_SoulAffixes_suit::m_attribute_size() const {
+  return m_attribute_.size();
+}
+inline void E_SoulAffixes_suit::clear_m_attribute() {
+  m_attribute_.Clear();
+}
+inline const ::proto_ff::E_SoulAffixes_suitAttributeDesc& E_SoulAffixes_suit::m_attribute(int index) const {
+  return m_attribute_.Get(index);
+}
+inline ::proto_ff::E_SoulAffixes_suitAttributeDesc* E_SoulAffixes_suit::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
+}
+inline ::proto_ff::E_SoulAffixes_suitAttributeDesc* E_SoulAffixes_suit::add_m_attribute() {
+  return m_attribute_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suitAttributeDesc >&
+E_SoulAffixes_suit::m_attribute() const {
+  return m_attribute_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suitAttributeDesc >*
+E_SoulAffixes_suit::mutable_m_attribute() {
+  return &m_attribute_;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_SoulAffixes_suit
+
+// repeated .proto_ff.E_SoulAffixes_suit E_SoulAffixes_suit_List = 1;
+inline int Sheet_SoulAffixes_suit::e_soulaffixes_suit_list_size() const {
+  return e_soulaffixes_suit_list_.size();
+}
+inline void Sheet_SoulAffixes_suit::clear_e_soulaffixes_suit_list() {
+  e_soulaffixes_suit_list_.Clear();
+}
+inline const ::proto_ff::E_SoulAffixes_suit& Sheet_SoulAffixes_suit::e_soulaffixes_suit_list(int index) const {
+  return e_soulaffixes_suit_list_.Get(index);
+}
+inline ::proto_ff::E_SoulAffixes_suit* Sheet_SoulAffixes_suit::mutable_e_soulaffixes_suit_list(int index) {
+  return e_soulaffixes_suit_list_.Mutable(index);
+}
+inline ::proto_ff::E_SoulAffixes_suit* Sheet_SoulAffixes_suit::add_e_soulaffixes_suit_list() {
+  return e_soulaffixes_suit_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suit >&
+Sheet_SoulAffixes_suit::e_soulaffixes_suit_list() const {
+  return e_soulaffixes_suit_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suit >*
+Sheet_SoulAffixes_suit::mutable_e_soulaffixes_suit_list() {
+  return &e_soulaffixes_suit_list_;
 }
 
 

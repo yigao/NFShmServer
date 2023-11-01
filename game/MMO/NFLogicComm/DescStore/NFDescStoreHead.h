@@ -624,5 +624,12 @@
 #include "DescStore/SoulBoneskillDesc.h"
 #include "DescStore/SoulBonekillDesc.h"
 #include "DescStore/SoulBonestrongDesc.h"
+#include "DescStore/SoulGuwen_typeDesc.h"
+#include "DescStore/SoulGuwen_type_suitDesc.h"
+#include "DescStore/SoulGuwen_skillDesc.h"
+#include "DescStore/SoulGuwen_slotDesc.h"
+#include "DescStore/SoulGuwen_suitDesc.h"
+#include "DescStore/SoulAffixesDesc.h"
+#include "DescStore/SoulAffixes_suitDesc.h"
 #include "DescStoreEx/SoulDescEx.h"
 

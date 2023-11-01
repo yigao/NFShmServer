@@ -51,7 +51,7 @@ int IntimacyGiftDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < (int)table.e_intimacygift_list_size(); i++)
 	{
 		const proto_ff::E_IntimacyGift& desc = table.e_intimacygift_list(i);
-		if (desc.has_m_mallid() == false && desc.ByteSize() == 0)
+		if (desc.m_mallid() == 0 || desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;
@@ -71,7 +71,7 @@ int IntimacyGiftDesc::Load(NFResDB *pDB)
 			}
 			continue;
 		}
-		CHECK_EXPR_ASSERT(m_astDescMap.size() >= m_astDescMap.max_size(), -1, "m_astDescMap Space Not Enough");
+		CHECK_EXPR_ASSERT(m_astDescMap.size() < m_astDescMap.max_size(), -1, "m_astDescMap Space Not Enough");
 		auto pDesc = &m_astDescMap[desc.m_mallid()];
 		CHECK_EXPR_ASSERT(pDesc, -1, "m_astDescMap Insert Failed desc.id:{}", desc.m_mallid());
 		pDesc->read_from_pbmsg(desc);

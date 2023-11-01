@@ -52,7 +52,7 @@ int FestivalMuban_love_taskDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < (int)table.e_festivalmuban_love_task_list_size(); i++)
 	{
 		const proto_ff::E_FestivalMuban_love_task& desc = table.e_festivalmuban_love_task_list(i);
-		if (desc.has_m_id() == false && desc.ByteSize() == 0)
+		if (desc.m_id() == 0 || desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;
@@ -72,7 +72,7 @@ int FestivalMuban_love_taskDesc::Load(NFResDB *pDB)
 			}
 			continue;
 		}
-		CHECK_EXPR_ASSERT(m_astDescMap.size() >= m_astDescMap.max_size(), -1, "m_astDescMap Space Not Enough");
+		CHECK_EXPR_ASSERT(m_astDescMap.size() < m_astDescMap.max_size(), -1, "m_astDescMap Space Not Enough");
 		auto pDesc = &m_astDescMap[desc.m_id()];
 		CHECK_EXPR_ASSERT(pDesc, -1, "m_astDescMap Insert Failed desc.id:{}", desc.m_id());
 		pDesc->read_from_pbmsg(desc);

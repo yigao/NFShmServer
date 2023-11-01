@@ -25,7 +25,8 @@ message E_GodrelicsCondition
 	optional int32 m_count = 4[(yd_fieldoptions.field_cname) = "完成次数"];
 	optional int32 m_rewardItem = 5[(yd_fieldoptions.field_cname) = "奖励道具"];
 	optional int32 m_rewardNumber = 6[(yd_fieldoptions.field_cname) = "奖励道具数量"];
-	repeated int32 m_param = 7[(yd_fieldoptions.field_cname) = "事件完成参数", (yd_fieldoptions.field_arysize) = 3];
+	optional int32 m_determine = 7[(yd_fieldoptions.field_cname) = "判断"];
+	repeated int32 m_param = 8[(yd_fieldoptions.field_cname) = "事件完成参数", (yd_fieldoptions.field_arysize) = 3];
 }
 
 

@@ -52,7 +52,7 @@ message E_DupBplevel
 
 message Sheet_DupBplevel
 {
-	repeated E_DupBplevel E_DupBplevel_List = 1[(yd_fieldoptions.field_arysize)=1024];
+	repeated E_DupBplevel E_DupBplevel_List = 1[(yd_fieldoptions.field_arysize)=2048];
 }
 
 message E_DupTtowerwaveClearDesc

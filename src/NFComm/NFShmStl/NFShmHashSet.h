@@ -10,6 +10,8 @@
 #pragma once
 
 #include "NFShmHashTable.h"
+#include <set>
+#include <unordered_set>
 
 template<class Value, int MAX_SIZE,
         class HashFcn = std::hash<Value>,
@@ -67,6 +69,10 @@ public:
     NFShmHashSet(const value_type *__f, const value_type *__l) { m_hashTable.insert_unique(__f, __l); }
 
     NFShmHashSet(const_iterator __f, const_iterator __l) { m_hashTable.insert_unique(__f, __l); }
+    
+    explicit NFShmHashSet(const std::unordered_set<Value>& set) { m_hashTable.insert_unique(set.begin(), set.end()); }
+    
+    explicit NFShmHashSet(const std::set<Value>& set) { m_hashTable.insert_unique(set.begin(), set.end()); }
 
     int CreateInit()
     {
@@ -77,7 +83,10 @@ public:
     {
         return 0;
     }
-
+    
+    NFShmHashSet<Value, MAX_SIZE> &operator=(const NFShmHashSet<Value, MAX_SIZE> &__x);
+    NFShmHashSet<Value, MAX_SIZE> &operator=(const std::unordered_set<Value> &__x);
+    NFShmHashSet<Value, MAX_SIZE> &operator=(const std::set<Value> &__x);
 public:
     size_type size() const { return m_hashTable.size(); }
 
@@ -147,6 +156,27 @@ public:
 
     size_type elems_in_bucket(size_type __n) const { return m_hashTable.elems_in_bucket(__n); }
 };
+
+template<class Value, int MAX_SIZE, class HashFcn, class EqualKey>
+NFShmHashSet<Value, MAX_SIZE> &NFShmHashSet<Value, MAX_SIZE, HashFcn, EqualKey>::operator=(const set<Value> &__x)
+{
+    m_hashTable.insert_equal(__x.begin(), __x.end());
+    return *this;
+}
+
+template<class Value, int MAX_SIZE, class HashFcn, class EqualKey>
+NFShmHashSet<Value, MAX_SIZE> &NFShmHashSet<Value, MAX_SIZE, HashFcn, EqualKey>::operator=(const unordered_set<Value> &__x)
+{
+    m_hashTable.insert_equal(__x.begin(), __x.end());
+    return *this;
+}
+
+template<class Value, int MAX_SIZE, class HashFcn, class EqualKey>
+NFShmHashSet<Value, MAX_SIZE> &NFShmHashSet<Value, MAX_SIZE, HashFcn, EqualKey>::operator=(const NFShmHashSet<Value, MAX_SIZE> &__x)
+{
+    m_hashTable = __x.m_hashTable;
+    return *this;
+}
 
 template<class _Value, int MAX_SIZE, class _HashFcn, class _EqualKey>
 inline bool

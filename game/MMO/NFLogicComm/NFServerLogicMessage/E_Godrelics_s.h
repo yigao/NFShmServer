@@ -57,6 +57,7 @@ namespace proto_ff_s {
 		int32_t m_count;//完成次数
 		int32_t m_rewardItem;//奖励道具
 		int32_t m_rewardNumber;//奖励道具数量
+		int32_t m_determine;//判断
 		NFShmVector<int32_t, DEFINE_E_GODRELICSCONDITION_M_PARAM_MAX_NUM> m_param;//事件完成参数
 
 		virtual void write_to_pbmsg(::proto_ff::E_GodrelicsCondition & msg) const;

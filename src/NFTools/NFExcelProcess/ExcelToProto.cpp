@@ -837,7 +837,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
     desc_file += "\t{\n";
     desc_file += "\t\tconst proto_ff::E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "& desc = table.e_" +
                  NFStringUtility::Lower(m_excelName) + NFStringUtility::Lower(sheet_name) + "_list(i);\n";
-    desc_file += "\t\tif (desc.has_" + key_en_name + "() == false && desc.ByteSize() == 0)\n";
+    desc_file += "\t\tif (desc." + key_en_name + "() == 0 || desc.ByteSize() == 0)\n";
     desc_file += "\t\t{\n";
     desc_file += "\t\t\tNFLogError(NF_LOG_SYSTEMLOG, 0, \"the desc no value, {}\", desc.Utf8DebugString());\n";
     desc_file += "\t\t\tcontinue;\n";
@@ -859,7 +859,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
     desc_file += "\t\t}\n";
     
     
-    desc_file += "\t\tCHECK_EXPR_ASSERT(m_astDescMap.size() >= m_astDescMap.max_size(), -1, \"m_astDescMap Space Not Enough\");\n";
+    desc_file += "\t\tCHECK_EXPR_ASSERT(m_astDescMap.size() < m_astDescMap.max_size(), -1, \"m_astDescMap Space Not Enough\");\n";
     desc_file += "\t\tauto pDesc = &m_astDescMap[desc." + key_en_name + "()];\n";
     desc_file += "\t\tCHECK_EXPR_ASSERT(pDesc, -1, \"m_astDescMap Insert Failed desc.id:{}\", desc." + key_en_name + "());\n";
     desc_file += "\t\tpDesc->read_from_pbmsg(desc);\n";

@@ -82,6 +82,7 @@ int E_GodrelicsCondition_s::CreateInit() {
 	m_count = (int32_t)0;
 	m_rewardItem = (int32_t)0;
 	m_rewardNumber = (int32_t)0;
+	m_determine = (int32_t)0;
 	return 0;
 }
 
@@ -96,6 +97,7 @@ void E_GodrelicsCondition_s::write_to_pbmsg(::proto_ff::E_GodrelicsCondition & m
 	msg.set_m_count((int32_t)m_count);
 	msg.set_m_rewarditem((int32_t)m_rewardItem);
 	msg.set_m_rewardnumber((int32_t)m_rewardNumber);
+	msg.set_m_determine((int32_t)m_determine);
 	for(int32_t i = 0; i < (int32_t)m_param.size(); ++i) {
 		msg.add_m_param((int32_t)m_param[i]);
 	}
@@ -108,6 +110,7 @@ void E_GodrelicsCondition_s::read_from_pbmsg(const ::proto_ff::E_GodrelicsCondit
 	m_count = msg.m_count();
 	m_rewardItem = msg.m_rewarditem();
 	m_rewardNumber = msg.m_rewardnumber();
+	m_determine = msg.m_determine();
 	m_param.resize((int)msg.m_param_size() > (int)m_param.max_size() ? m_param.max_size() : msg.m_param_size());
 	for(int32_t i = 0; i < (int32_t)m_param.size(); ++i) {
 		m_param[i] = msg.m_param(i);

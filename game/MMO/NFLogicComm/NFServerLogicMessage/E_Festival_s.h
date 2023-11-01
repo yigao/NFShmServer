@@ -500,7 +500,7 @@ namespace proto_ff_s {
 		int32_t m_openDay;//开放天数
 		int32_t m_closeDay;//结束天数
 		NFShmString<64> m_championTitle;//第一名的title
-		int32_t m_rewardShow;//第一名的展示资源
+		NFShmString<64> m_rewardShow;//第一名的展示资源
 		int32_t m_dataGroupID;//排行数据组id
 		int32_t m_rankType;//排行类型
 		NFShmString<64> m_rankGift;//冲榜宝箱名称

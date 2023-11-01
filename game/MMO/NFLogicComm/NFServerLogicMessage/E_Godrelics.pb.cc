@@ -76,13 +76,14 @@ void protobuf_AssignDesc_E_5fGodrelics_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_GodrelicsGodrelics));
   E_GodrelicsCondition_descriptor_ = file->message_type(2);
-  static const int E_GodrelicsCondition_offsets_[7] = {
+  static const int E_GodrelicsCondition_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodrelicsCondition, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodrelicsCondition, m_group_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodrelicsCondition, m_conditon_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodrelicsCondition, m_count_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodrelicsCondition, m_rewarditem_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodrelicsCondition, m_rewardnumber_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodrelicsCondition, m_determine_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GodrelicsCondition, m_param_),
   };
   E_GodrelicsCondition_reflection_ =
@@ -161,17 +162,18 @@ void protobuf_AddDesc_E_5fGodrelics_2eproto() {
     "\302\377\024\013\346\235\241\344\273\266\347\273\204ID\022#\n\tm_skillID\030\004 \001(\005B\020\302\377\024\014"
     "\346\277\200\346\264\273\346\212\200\350\203\275\"c\n\030Sheet_GodrelicsGodrelics"
     "\022G\n\031E_GodrelicsGodrelics_List\030\001 \003(\0132\036.pr"
-    "oto_ff.E_GodrelicsGodrelicsB\004\210\301\024\020\"\234\002\n\024E_"
+    "oto_ff.E_GodrelicsGodrelicsB\004\210\301\024\020\"\275\002\n\024E_"
     "GodrelicsCondition\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id"
     "\022 \n\007m_group\030\002 \001(\005B\017\302\377\024\013\346\235\241\344\273\266\347\273\204id\022$\n\nm_"
     "conditon\030\003 \001(\005B\020\302\377\024\014\346\235\241\344\273\266\347\261\273\345\236\213\022!\n\007m_co"
     "unt\030\004 \001(\005B\020\302\377\024\014\345\256\214\346\210\220\346\254\241\346\225\260\022&\n\014m_rewardI"
     "tem\030\005 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\351\201\223\345\205\267\022.\n\016m_rewardN"
-    "umber\030\006 \001(\005B\026\302\377\024\022\345\245\226\345\212\261\351\201\223\345\205\267\346\225\260\351\207\217\022+\n\007m"
-    "_param\030\007 \003(\005B\032\302\377\024\022\344\272\213\344\273\266\345\256\214\346\210\220\345\217\202\346\225\260\210\301\024\003"
-    "\"d\n\030Sheet_GodrelicsCondition\022H\n\031E_Godrel"
-    "icsCondition_List\030\001 \003(\0132\036.proto_ff.E_God"
-    "relicsConditionB\005\210\301\024\200\001", 702);
+    "umber\030\006 \001(\005B\026\302\377\024\022\345\245\226\345\212\261\351\201\223\345\205\267\346\225\260\351\207\217\022\037\n\013m"
+    "_determine\030\007 \001(\005B\n\302\377\024\006\345\210\244\346\226\255\022+\n\007m_param\030"
+    "\010 \003(\005B\032\302\377\024\022\344\272\213\344\273\266\345\256\214\346\210\220\345\217\202\346\225\260\210\301\024\003\"d\n\030She"
+    "et_GodrelicsCondition\022H\n\031E_GodrelicsCond"
+    "ition_List\030\001 \003(\0132\036.proto_ff.E_GodrelicsC"
+    "onditionB\005\210\301\024\200\001", 735);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Godrelics.proto", &protobuf_RegisterTypes);
   E_GodrelicsGodrelics::default_instance_ = new E_GodrelicsGodrelics();
@@ -732,6 +734,7 @@ const int E_GodrelicsCondition::kMConditonFieldNumber;
 const int E_GodrelicsCondition::kMCountFieldNumber;
 const int E_GodrelicsCondition::kMRewardItemFieldNumber;
 const int E_GodrelicsCondition::kMRewardNumberFieldNumber;
+const int E_GodrelicsCondition::kMDetermineFieldNumber;
 const int E_GodrelicsCondition::kMParamFieldNumber;
 #endif  // !_MSC_VER
 
@@ -757,6 +760,7 @@ void E_GodrelicsCondition::SharedCtor() {
   m_count_ = 0;
   m_rewarditem_ = 0;
   m_rewardnumber_ = 0;
+  m_determine_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -798,6 +802,7 @@ void E_GodrelicsCondition::Clear() {
     m_count_ = 0;
     m_rewarditem_ = 0;
     m_rewardnumber_ = 0;
+    m_determine_ = 0;
   }
   m_param_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -901,18 +906,34 @@ bool E_GodrelicsCondition::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_param;
+        if (input->ExpectTag(56)) goto parse_m_determine;
         break;
       }
 
-      // repeated int32 m_param = 7;
+      // optional int32 m_determine = 7;
       case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_determine:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_determine_)));
+          set_has_m_determine();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(64)) goto parse_m_param;
+        break;
+      }
+
+      // repeated int32 m_param = 8;
+      case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_param:
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 56, input, this->mutable_m_param())));
+                 1, 64, input, this->mutable_m_param())));
         } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
                    == ::google::protobuf::internal::WireFormatLite::
                       WIRETYPE_LENGTH_DELIMITED) {
@@ -922,7 +943,7 @@ bool E_GodrelicsCondition::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_param;
+        if (input->ExpectTag(64)) goto parse_m_param;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -975,10 +996,15 @@ void E_GodrelicsCondition::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_rewardnumber(), output);
   }
 
-  // repeated int32 m_param = 7;
+  // optional int32 m_determine = 7;
+  if (has_m_determine()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_determine(), output);
+  }
+
+  // repeated int32 m_param = 8;
   for (int i = 0; i < this->m_param_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      7, this->m_param(i), output);
+      8, this->m_param(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1019,10 +1045,15 @@ void E_GodrelicsCondition::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_rewardnumber(), target);
   }
 
-  // repeated int32 m_param = 7;
+  // optional int32 m_determine = 7;
+  if (has_m_determine()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_determine(), target);
+  }
+
+  // repeated int32 m_param = 8;
   for (int i = 0; i < this->m_param_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(7, this->m_param(i), target);
+      WriteInt32ToArray(8, this->m_param(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1078,8 +1109,15 @@ int E_GodrelicsCondition::ByteSize() const {
           this->m_rewardnumber());
     }
 
+    // optional int32 m_determine = 7;
+    if (has_m_determine()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_determine());
+    }
+
   }
-  // repeated int32 m_param = 7;
+  // repeated int32 m_param = 8;
   {
     int data_size = 0;
     for (int i = 0; i < this->m_param_size(); i++) {
@@ -1134,6 +1172,9 @@ void E_GodrelicsCondition::MergeFrom(const E_GodrelicsCondition& from) {
     if (from.has_m_rewardnumber()) {
       set_m_rewardnumber(from.m_rewardnumber());
     }
+    if (from.has_m_determine()) {
+      set_m_determine(from.m_determine());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -1163,6 +1204,7 @@ void E_GodrelicsCondition::Swap(E_GodrelicsCondition* other) {
     std::swap(m_count_, other->m_count_);
     std::swap(m_rewarditem_, other->m_rewarditem_);
     std::swap(m_rewardnumber_, other->m_rewardnumber_);
+    std::swap(m_determine_, other->m_determine_);
     m_param_.Swap(&other->m_param_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);

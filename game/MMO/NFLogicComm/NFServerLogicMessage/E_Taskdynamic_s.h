@@ -27,7 +27,7 @@ namespace proto_ff_s {
 		int32_t m_minlv;//最低等级
 		int32_t m_maxlv;//最高等级
 		int32_t m_receCount;//可接取数量
-		NFShmString<64> m_idList;//抽取id列表
+		NFShmString<128> m_idList;//抽取id列表
 
 		virtual void write_to_pbmsg(::proto_ff::E_TaskdynamicTaskdynamic & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_TaskdynamicTaskdynamic & msg);

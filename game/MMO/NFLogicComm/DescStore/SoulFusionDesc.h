@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Soul_s.h"
 
-#define MAX_SOUL_FUSION_NUM 32
+#define MAX_SOUL_FUSION_NUM 64
 
 class SoulFusionDesc : public NFIDescTemplate<SoulFusionDesc, proto_ff_s::E_SoulFusion_s, EOT_CONST_SOUL_FUSION_DESC_ID, MAX_SOUL_FUSION_NUM>
 {

@@ -216,7 +216,7 @@ void protobuf_AddDesc_E_5fTaskreward_2eproto() {
     "(.proto_ff.E_TaskrewardTaskrewardAttrDes"
     "cB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\005\022H\n\006m_item\030\010 \003(\0132(.prot"
     "o_ff.E_TaskrewardTaskrewardItemDescB\016\302\377\024"
-    "\006\347\211\251\345\223\201\210\301\024\005\"j\n\032Sheet_TaskrewardTaskrewar"
+    "\006\347\211\251\345\223\201\210\301\024\010\"j\n\032Sheet_TaskrewardTaskrewar"
     "d\022L\n\033E_TaskrewardTaskreward_List\030\001 \003(\0132 "
     ".proto_ff.E_TaskrewardTaskrewardB\005\210\301\024\200@\""
     "<\n\024E_TaskrewardTasktype\022$\n\nm_taskType\030\001 "

@@ -23,7 +23,7 @@
 #define DEFINE_SHEET_SOULCRYSTALTOP_E_SOULCRYSTALTOP_LIST_MAX_NUM 64
 #define DEFINE_SHEET_SOULCRYSTALHOLE_E_SOULCRYSTALHOLE_LIST_MAX_NUM 16
 #define DEFINE_E_SOULFUSION_M_FUSION_MAX_NUM 2
-#define DEFINE_SHEET_SOULFUSION_E_SOULFUSION_LIST_MAX_NUM 32
+#define DEFINE_SHEET_SOULFUSION_E_SOULFUSION_LIST_MAX_NUM 64
 #define DEFINE_SHEET_SOULBONE_E_SOULBONE_LIST_MAX_NUM 8
 #define DEFINE_SHEET_SOULBONEEQUIP_E_SOULBONEEQUIP_LIST_MAX_NUM 64
 #define DEFINE_E_SOULBONESKILL_M_PASSIVE_MAX_NUM 4
@@ -31,6 +31,20 @@
 #define DEFINE_SHEET_SOULBONEKILL_E_SOULBONEKILL_LIST_MAX_NUM 1024
 #define DEFINE_E_SOULBONESTRONG_M_TYPE_MAX_NUM 4
 #define DEFINE_SHEET_SOULBONESTRONG_E_SOULBONESTRONG_LIST_MAX_NUM 256
+#define DEFINE_SHEET_SOULGUWEN_TYPE_E_SOULGUWEN_TYPE_LIST_MAX_NUM 4
+#define DEFINE_E_SOULGUWEN_TYPE_SUIT_M_ATTRIBUTE_MAX_NUM 9
+#define DEFINE_SHEET_SOULGUWEN_TYPE_SUIT_E_SOULGUWEN_TYPE_SUIT_LIST_MAX_NUM 16
+#define DEFINE_E_SOULGUWEN_SKILL_M_SKILLLEVEL_MAX_NUM 7
+#define DEFINE_E_SOULGUWEN_SKILL_M_NUM_MAX_NUM 7
+#define DEFINE_SHEET_SOULGUWEN_SKILL_E_SOULGUWEN_SKILL_LIST_MAX_NUM 8
+#define DEFINE_SHEET_SOULGUWEN_SLOT_E_SOULGUWEN_SLOT_LIST_MAX_NUM 8
+#define DEFINE_E_SOULGUWEN_SUIT_M_ATTRIBUTE_MAX_NUM 8
+#define DEFINE_SHEET_SOULGUWEN_SUIT_E_SOULGUWEN_SUIT_LIST_MAX_NUM 64
+#define DEFINE_E_SOULAFFIXES_M_ATTRIBUTE_MAX_NUM 6
+#define DEFINE_SHEET_SOULAFFIXES_E_SOULAFFIXES_LIST_MAX_NUM 32
+#define DEFINE_E_SOULAFFIXES_SUIT_M_SKILL_MAX_NUM 2
+#define DEFINE_E_SOULAFFIXES_SUIT_M_ATTRIBUTE_MAX_NUM 6
+#define DEFINE_SHEET_SOULAFFIXES_SUIT_E_SOULAFFIXES_SUIT_LIST_MAX_NUM 128
 
 
 namespace proto_ff_s {
@@ -653,6 +667,301 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_SoulBonestrong make_pbmsg(){ return ::proto_ff::Sheet_SoulBonestrong(); }
 	};
 	typedef struct Sheet_SoulBonestrong_s Sheet_SoulBonestrong_t;
+
+	struct E_SoulGuwen_type_s : public NFDescStoreSeqOP {
+		E_SoulGuwen_type_s();
+		virtual ~E_SoulGuwen_type_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//类型id
+		NFShmString<64> m_name;//名字
+		int32_t m_quality;//镶嵌骨纹品质
+
+		virtual void write_to_pbmsg(::proto_ff::E_SoulGuwen_type & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SoulGuwen_type & msg);
+		static ::proto_ff::E_SoulGuwen_type* new_pbmsg(){ return new ::proto_ff::E_SoulGuwen_type(); }
+		static ::proto_ff::E_SoulGuwen_type make_pbmsg(){ return ::proto_ff::E_SoulGuwen_type(); }
+	};
+	typedef struct E_SoulGuwen_type_s E_SoulGuwen_type_t;
+
+	struct Sheet_SoulGuwen_type_s : public NFDescStoreSeqOP {
+		Sheet_SoulGuwen_type_s();
+		virtual ~Sheet_SoulGuwen_type_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_SoulGuwen_type_s, DEFINE_SHEET_SOULGUWEN_TYPE_E_SOULGUWEN_TYPE_LIST_MAX_NUM> E_SoulGuwen_type_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_SoulGuwen_type & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SoulGuwen_type & msg);
+		static ::proto_ff::Sheet_SoulGuwen_type* new_pbmsg(){ return new ::proto_ff::Sheet_SoulGuwen_type(); }
+		static ::proto_ff::Sheet_SoulGuwen_type make_pbmsg(){ return ::proto_ff::Sheet_SoulGuwen_type(); }
+	};
+	typedef struct Sheet_SoulGuwen_type_s Sheet_SoulGuwen_type_t;
+
+	struct E_SoulGuwen_type_suitAttributeDesc_s : public NFDescStoreSeqOP {
+		E_SoulGuwen_type_suitAttributeDesc_s();
+		virtual ~E_SoulGuwen_type_suitAttributeDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_value;//值
+		int32_t m_type;//ID
+
+		virtual void write_to_pbmsg(::proto_ff::E_SoulGuwen_type_suitAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SoulGuwen_type_suitAttributeDesc & msg);
+		static ::proto_ff::E_SoulGuwen_type_suitAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_SoulGuwen_type_suitAttributeDesc(); }
+		static ::proto_ff::E_SoulGuwen_type_suitAttributeDesc make_pbmsg(){ return ::proto_ff::E_SoulGuwen_type_suitAttributeDesc(); }
+	};
+	typedef struct E_SoulGuwen_type_suitAttributeDesc_s E_SoulGuwen_type_suitAttributeDesc_t;
+
+	struct E_SoulGuwen_type_suit_s : public NFDescStoreSeqOP {
+		E_SoulGuwen_type_suit_s();
+		virtual ~E_SoulGuwen_type_suit_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_typeId;//类型id
+		int32_t m_num;//件数
+		NFShmVector<struct E_SoulGuwen_type_suitAttributeDesc_s, DEFINE_E_SOULGUWEN_TYPE_SUIT_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
+
+		virtual void write_to_pbmsg(::proto_ff::E_SoulGuwen_type_suit & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SoulGuwen_type_suit & msg);
+		static ::proto_ff::E_SoulGuwen_type_suit* new_pbmsg(){ return new ::proto_ff::E_SoulGuwen_type_suit(); }
+		static ::proto_ff::E_SoulGuwen_type_suit make_pbmsg(){ return ::proto_ff::E_SoulGuwen_type_suit(); }
+	};
+	typedef struct E_SoulGuwen_type_suit_s E_SoulGuwen_type_suit_t;
+
+	struct Sheet_SoulGuwen_type_suit_s : public NFDescStoreSeqOP {
+		Sheet_SoulGuwen_type_suit_s();
+		virtual ~Sheet_SoulGuwen_type_suit_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_SoulGuwen_type_suit_s, DEFINE_SHEET_SOULGUWEN_TYPE_SUIT_E_SOULGUWEN_TYPE_SUIT_LIST_MAX_NUM> E_SoulGuwen_type_suit_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_SoulGuwen_type_suit & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SoulGuwen_type_suit & msg);
+		static ::proto_ff::Sheet_SoulGuwen_type_suit* new_pbmsg(){ return new ::proto_ff::Sheet_SoulGuwen_type_suit(); }
+		static ::proto_ff::Sheet_SoulGuwen_type_suit make_pbmsg(){ return ::proto_ff::Sheet_SoulGuwen_type_suit(); }
+	};
+	typedef struct Sheet_SoulGuwen_type_suit_s Sheet_SoulGuwen_type_suit_t;
+
+	struct E_SoulGuwen_skill_s : public NFDescStoreSeqOP {
+		E_SoulGuwen_skill_s();
+		virtual ~E_SoulGuwen_skill_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_type;//技能类型(1专属2被动)
+		int32_t m_skillId;//技能Id
+		int32_t m_quality;//解锁需要骨纹的品质
+		NFShmVector<int32_t, DEFINE_E_SOULGUWEN_SKILL_M_SKILLLEVEL_MAX_NUM> m_skillLevel;//技能等级
+		NFShmVector<int32_t, DEFINE_E_SOULGUWEN_SKILL_M_NUM_MAX_NUM> m_num;//升级条件
+
+		virtual void write_to_pbmsg(::proto_ff::E_SoulGuwen_skill & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SoulGuwen_skill & msg);
+		static ::proto_ff::E_SoulGuwen_skill* new_pbmsg(){ return new ::proto_ff::E_SoulGuwen_skill(); }
+		static ::proto_ff::E_SoulGuwen_skill make_pbmsg(){ return ::proto_ff::E_SoulGuwen_skill(); }
+	};
+	typedef struct E_SoulGuwen_skill_s E_SoulGuwen_skill_t;
+
+	struct Sheet_SoulGuwen_skill_s : public NFDescStoreSeqOP {
+		Sheet_SoulGuwen_skill_s();
+		virtual ~Sheet_SoulGuwen_skill_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_SoulGuwen_skill_s, DEFINE_SHEET_SOULGUWEN_SKILL_E_SOULGUWEN_SKILL_LIST_MAX_NUM> E_SoulGuwen_skill_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_SoulGuwen_skill & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SoulGuwen_skill & msg);
+		static ::proto_ff::Sheet_SoulGuwen_skill* new_pbmsg(){ return new ::proto_ff::Sheet_SoulGuwen_skill(); }
+		static ::proto_ff::Sheet_SoulGuwen_skill make_pbmsg(){ return ::proto_ff::Sheet_SoulGuwen_skill(); }
+	};
+	typedef struct Sheet_SoulGuwen_skill_s Sheet_SoulGuwen_skill_t;
+
+	struct E_SoulGuwen_slot_s : public NFDescStoreSeqOP {
+		E_SoulGuwen_slot_s();
+		virtual ~E_SoulGuwen_slot_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		NFShmString<64> m_name;//名字
+		int32_t m_position;//装备位置
+
+		virtual void write_to_pbmsg(::proto_ff::E_SoulGuwen_slot & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SoulGuwen_slot & msg);
+		static ::proto_ff::E_SoulGuwen_slot* new_pbmsg(){ return new ::proto_ff::E_SoulGuwen_slot(); }
+		static ::proto_ff::E_SoulGuwen_slot make_pbmsg(){ return ::proto_ff::E_SoulGuwen_slot(); }
+	};
+	typedef struct E_SoulGuwen_slot_s E_SoulGuwen_slot_t;
+
+	struct Sheet_SoulGuwen_slot_s : public NFDescStoreSeqOP {
+		Sheet_SoulGuwen_slot_s();
+		virtual ~Sheet_SoulGuwen_slot_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_SoulGuwen_slot_s, DEFINE_SHEET_SOULGUWEN_SLOT_E_SOULGUWEN_SLOT_LIST_MAX_NUM> E_SoulGuwen_slot_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_SoulGuwen_slot & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SoulGuwen_slot & msg);
+		static ::proto_ff::Sheet_SoulGuwen_slot* new_pbmsg(){ return new ::proto_ff::Sheet_SoulGuwen_slot(); }
+		static ::proto_ff::Sheet_SoulGuwen_slot make_pbmsg(){ return ::proto_ff::Sheet_SoulGuwen_slot(); }
+	};
+	typedef struct Sheet_SoulGuwen_slot_s Sheet_SoulGuwen_slot_t;
+
+	struct E_SoulGuwen_suitAttributeDesc_s : public NFDescStoreSeqOP {
+		E_SoulGuwen_suitAttributeDesc_s();
+		virtual ~E_SoulGuwen_suitAttributeDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_value;//值
+		int32_t m_type;//ID
+
+		virtual void write_to_pbmsg(::proto_ff::E_SoulGuwen_suitAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SoulGuwen_suitAttributeDesc & msg);
+		static ::proto_ff::E_SoulGuwen_suitAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_SoulGuwen_suitAttributeDesc(); }
+		static ::proto_ff::E_SoulGuwen_suitAttributeDesc make_pbmsg(){ return ::proto_ff::E_SoulGuwen_suitAttributeDesc(); }
+	};
+	typedef struct E_SoulGuwen_suitAttributeDesc_s E_SoulGuwen_suitAttributeDesc_t;
+
+	struct E_SoulGuwen_suit_s : public NFDescStoreSeqOP {
+		E_SoulGuwen_suit_s();
+		virtual ~E_SoulGuwen_suit_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_boneId;//魂骨id
+		int32_t m_typeId;//类型id
+		int32_t m_num;//件数
+		NFShmVector<struct E_SoulGuwen_suitAttributeDesc_s, DEFINE_E_SOULGUWEN_SUIT_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
+
+		virtual void write_to_pbmsg(::proto_ff::E_SoulGuwen_suit & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SoulGuwen_suit & msg);
+		static ::proto_ff::E_SoulGuwen_suit* new_pbmsg(){ return new ::proto_ff::E_SoulGuwen_suit(); }
+		static ::proto_ff::E_SoulGuwen_suit make_pbmsg(){ return ::proto_ff::E_SoulGuwen_suit(); }
+	};
+	typedef struct E_SoulGuwen_suit_s E_SoulGuwen_suit_t;
+
+	struct Sheet_SoulGuwen_suit_s : public NFDescStoreSeqOP {
+		Sheet_SoulGuwen_suit_s();
+		virtual ~Sheet_SoulGuwen_suit_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_SoulGuwen_suit_s, DEFINE_SHEET_SOULGUWEN_SUIT_E_SOULGUWEN_SUIT_LIST_MAX_NUM> E_SoulGuwen_suit_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_SoulGuwen_suit & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SoulGuwen_suit & msg);
+		static ::proto_ff::Sheet_SoulGuwen_suit* new_pbmsg(){ return new ::proto_ff::Sheet_SoulGuwen_suit(); }
+		static ::proto_ff::Sheet_SoulGuwen_suit make_pbmsg(){ return ::proto_ff::Sheet_SoulGuwen_suit(); }
+	};
+	typedef struct Sheet_SoulGuwen_suit_s Sheet_SoulGuwen_suit_t;
+
+	struct E_SoulAffixesAttributeDesc_s : public NFDescStoreSeqOP {
+		E_SoulAffixesAttributeDesc_s();
+		virtual ~E_SoulAffixesAttributeDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_value;//值
+		int32_t m_type;//ID
+
+		virtual void write_to_pbmsg(::proto_ff::E_SoulAffixesAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SoulAffixesAttributeDesc & msg);
+		static ::proto_ff::E_SoulAffixesAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_SoulAffixesAttributeDesc(); }
+		static ::proto_ff::E_SoulAffixesAttributeDesc make_pbmsg(){ return ::proto_ff::E_SoulAffixesAttributeDesc(); }
+	};
+	typedef struct E_SoulAffixesAttributeDesc_s E_SoulAffixesAttributeDesc_t;
+
+	struct E_SoulAffixes_s : public NFDescStoreSeqOP {
+		E_SoulAffixes_s();
+		virtual ~E_SoulAffixes_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_type;//类型(1攻2防3全)
+		int32_t m_quality;//品质
+		NFShmString<64> m_name;//名字
+		NFShmVector<struct E_SoulAffixesAttributeDesc_s, DEFINE_E_SOULAFFIXES_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
+
+		virtual void write_to_pbmsg(::proto_ff::E_SoulAffixes & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SoulAffixes & msg);
+		static ::proto_ff::E_SoulAffixes* new_pbmsg(){ return new ::proto_ff::E_SoulAffixes(); }
+		static ::proto_ff::E_SoulAffixes make_pbmsg(){ return ::proto_ff::E_SoulAffixes(); }
+	};
+	typedef struct E_SoulAffixes_s E_SoulAffixes_t;
+
+	struct Sheet_SoulAffixes_s : public NFDescStoreSeqOP {
+		Sheet_SoulAffixes_s();
+		virtual ~Sheet_SoulAffixes_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_SoulAffixes_s, DEFINE_SHEET_SOULAFFIXES_E_SOULAFFIXES_LIST_MAX_NUM> E_SoulAffixes_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_SoulAffixes & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SoulAffixes & msg);
+		static ::proto_ff::Sheet_SoulAffixes* new_pbmsg(){ return new ::proto_ff::Sheet_SoulAffixes(); }
+		static ::proto_ff::Sheet_SoulAffixes make_pbmsg(){ return ::proto_ff::Sheet_SoulAffixes(); }
+	};
+	typedef struct Sheet_SoulAffixes_s Sheet_SoulAffixes_t;
+
+	struct E_SoulAffixes_suitSkillDesc_s : public NFDescStoreSeqOP {
+		E_SoulAffixes_suitSkillDesc_s();
+		virtual ~E_SoulAffixes_suitSkillDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_level;//等级
+		int32_t m_id;//ID
+
+		virtual void write_to_pbmsg(::proto_ff::E_SoulAffixes_suitSkillDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SoulAffixes_suitSkillDesc & msg);
+		static ::proto_ff::E_SoulAffixes_suitSkillDesc* new_pbmsg(){ return new ::proto_ff::E_SoulAffixes_suitSkillDesc(); }
+		static ::proto_ff::E_SoulAffixes_suitSkillDesc make_pbmsg(){ return ::proto_ff::E_SoulAffixes_suitSkillDesc(); }
+	};
+	typedef struct E_SoulAffixes_suitSkillDesc_s E_SoulAffixes_suitSkillDesc_t;
+
+	struct E_SoulAffixes_suitAttributeDesc_s : public NFDescStoreSeqOP {
+		E_SoulAffixes_suitAttributeDesc_s();
+		virtual ~E_SoulAffixes_suitAttributeDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_value;//值
+		int32_t m_type;//ID
+
+		virtual void write_to_pbmsg(::proto_ff::E_SoulAffixes_suitAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SoulAffixes_suitAttributeDesc & msg);
+		static ::proto_ff::E_SoulAffixes_suitAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_SoulAffixes_suitAttributeDesc(); }
+		static ::proto_ff::E_SoulAffixes_suitAttributeDesc make_pbmsg(){ return ::proto_ff::E_SoulAffixes_suitAttributeDesc(); }
+	};
+	typedef struct E_SoulAffixes_suitAttributeDesc_s E_SoulAffixes_suitAttributeDesc_t;
+
+	struct E_SoulAffixes_suit_s : public NFDescStoreSeqOP {
+		E_SoulAffixes_suit_s();
+		virtual ~E_SoulAffixes_suit_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_affixesId;//id
+		int32_t m_num;//件数
+		NFShmVector<struct E_SoulAffixes_suitSkillDesc_s, DEFINE_E_SOULAFFIXES_SUIT_M_SKILL_MAX_NUM> m_skill;//技能
+		NFShmVector<struct E_SoulAffixes_suitAttributeDesc_s, DEFINE_E_SOULAFFIXES_SUIT_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
+
+		virtual void write_to_pbmsg(::proto_ff::E_SoulAffixes_suit & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SoulAffixes_suit & msg);
+		static ::proto_ff::E_SoulAffixes_suit* new_pbmsg(){ return new ::proto_ff::E_SoulAffixes_suit(); }
+		static ::proto_ff::E_SoulAffixes_suit make_pbmsg(){ return ::proto_ff::E_SoulAffixes_suit(); }
+	};
+	typedef struct E_SoulAffixes_suit_s E_SoulAffixes_suit_t;
+
+	struct Sheet_SoulAffixes_suit_s : public NFDescStoreSeqOP {
+		Sheet_SoulAffixes_suit_s();
+		virtual ~Sheet_SoulAffixes_suit_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_SoulAffixes_suit_s, DEFINE_SHEET_SOULAFFIXES_SUIT_E_SOULAFFIXES_SUIT_LIST_MAX_NUM> E_SoulAffixes_suit_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_SoulAffixes_suit & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SoulAffixes_suit & msg);
+		static ::proto_ff::Sheet_SoulAffixes_suit* new_pbmsg(){ return new ::proto_ff::Sheet_SoulAffixes_suit(); }
+		static ::proto_ff::Sheet_SoulAffixes_suit make_pbmsg(){ return ::proto_ff::Sheet_SoulAffixes_suit(); }
+	};
+	typedef struct Sheet_SoulAffixes_suit_s Sheet_SoulAffixes_suit_t;
 
 }
 

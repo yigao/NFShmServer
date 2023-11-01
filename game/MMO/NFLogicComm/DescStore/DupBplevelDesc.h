@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Dup_s.h"
 
-#define MAX_DUP_BPLEVEL_NUM 1024
+#define MAX_DUP_BPLEVEL_NUM 2048
 
 class DupBplevelDesc : public NFIDescTemplate<DupBplevelDesc, proto_ff_s::E_DupBplevel_s, EOT_CONST_DUP_BPLEVEL_DESC_ID, MAX_DUP_BPLEVEL_NUM>
 {

@@ -197,7 +197,7 @@ message E_SoulFusion
 
 message Sheet_SoulFusion
 {
-	repeated E_SoulFusion E_SoulFusion_List = 1[(yd_fieldoptions.field_arysize)=32];
+	repeated E_SoulFusion E_SoulFusion_List = 1[(yd_fieldoptions.field_arysize)=64];
 }
 
 message E_SoulBone
@@ -285,4 +285,135 @@ message E_SoulBonestrong
 message Sheet_SoulBonestrong
 {
 	repeated E_SoulBonestrong E_SoulBonestrong_List = 1[(yd_fieldoptions.field_arysize)=256];
+}
+
+message E_SoulGuwen_type
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "类型id"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_quality = 3[(yd_fieldoptions.field_cname) = "镶嵌骨纹品质"];
+}
+
+
+message Sheet_SoulGuwen_type
+{
+	repeated E_SoulGuwen_type E_SoulGuwen_type_List = 1[(yd_fieldoptions.field_arysize)=4];
+}
+
+message E_SoulGuwen_type_suitAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_SoulGuwen_type_suit
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_typeId = 2[(yd_fieldoptions.field_cname) = "类型id"];
+	optional int32 m_num = 3[(yd_fieldoptions.field_cname) = "件数"];
+	repeated E_SoulGuwen_type_suitAttributeDesc m_attribute = 4[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 9];
+}
+
+
+message Sheet_SoulGuwen_type_suit
+{
+	repeated E_SoulGuwen_type_suit E_SoulGuwen_type_suit_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_SoulGuwen_skill
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "技能类型(1专属2被动)"];
+	optional int32 m_skillId = 3[(yd_fieldoptions.field_cname) = "技能Id"];
+	optional int32 m_quality = 4[(yd_fieldoptions.field_cname) = "解锁需要骨纹的品质"];
+	repeated int32 m_skillLevel = 5[(yd_fieldoptions.field_cname) = "技能等级", (yd_fieldoptions.field_arysize) = 7];
+	repeated int32 m_num = 6[(yd_fieldoptions.field_cname) = "升级条件", (yd_fieldoptions.field_arysize) = 7];
+}
+
+
+message Sheet_SoulGuwen_skill
+{
+	repeated E_SoulGuwen_skill E_SoulGuwen_skill_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_SoulGuwen_slot
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_position = 3[(yd_fieldoptions.field_cname) = "装备位置"];
+}
+
+
+message Sheet_SoulGuwen_slot
+{
+	repeated E_SoulGuwen_slot E_SoulGuwen_slot_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_SoulGuwen_suitAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_SoulGuwen_suit
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_boneId = 2[(yd_fieldoptions.field_cname) = "魂骨id"];
+	optional int32 m_typeId = 3[(yd_fieldoptions.field_cname) = "类型id"];
+	optional int32 m_num = 4[(yd_fieldoptions.field_cname) = "件数"];
+	repeated E_SoulGuwen_suitAttributeDesc m_attribute = 5[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 8];
+}
+
+
+message Sheet_SoulGuwen_suit
+{
+	repeated E_SoulGuwen_suit E_SoulGuwen_suit_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_SoulAffixesAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_SoulAffixes
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型(1攻2防3全)"];
+	optional int32 m_quality = 3[(yd_fieldoptions.field_cname) = "品质"];
+	optional string m_name = 4[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 64];
+	repeated E_SoulAffixesAttributeDesc m_attribute = 5[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_SoulAffixes
+{
+	repeated E_SoulAffixes E_SoulAffixes_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_SoulAffixes_suitSkillDesc
+{
+	optional int32 m_level = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_SoulAffixes_suitAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_SoulAffixes_suit
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_affixesId = 2[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_num = 3[(yd_fieldoptions.field_cname) = "件数"];
+	repeated E_SoulAffixes_suitSkillDesc m_skill = 4[(yd_fieldoptions.field_cname) = "技能", (yd_fieldoptions.field_arysize) = 2];
+	repeated E_SoulAffixes_suitAttributeDesc m_attribute = 5[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_SoulAffixes_suit
+{
+	repeated E_SoulAffixes_suit E_SoulAffixes_suit_List = 1[(yd_fieldoptions.field_arysize)=128];
 }

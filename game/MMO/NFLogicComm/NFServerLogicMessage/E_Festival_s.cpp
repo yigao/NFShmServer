@@ -937,7 +937,6 @@ int E_FestivalMuban_severrank_s::CreateInit() {
 	m_period = (int32_t)0;
 	m_openDay = (int32_t)0;
 	m_closeDay = (int32_t)0;
-	m_rewardShow = (int32_t)0;
 	m_dataGroupID = (int32_t)0;
 	m_rankType = (int32_t)0;
 	m_giftItemId = (int32_t)0;
@@ -960,7 +959,7 @@ void E_FestivalMuban_severrank_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_sev
 	msg.set_m_openday((int32_t)m_openDay);
 	msg.set_m_closeday((int32_t)m_closeDay);
 	msg.set_m_championtitle(m_championTitle.data());
-	msg.set_m_rewardshow((int32_t)m_rewardShow);
+	msg.set_m_rewardshow(m_rewardShow.data());
 	msg.set_m_datagroupid((int32_t)m_dataGroupID);
 	msg.set_m_ranktype((int32_t)m_rankType);
 	msg.set_m_rankgift(m_rankGift.data());

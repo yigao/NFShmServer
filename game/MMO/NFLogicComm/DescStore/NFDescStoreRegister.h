@@ -623,5 +623,12 @@ REGISTER_DESCSTORE(SoulBoneequipDesc);\
 REGISTER_DESCSTORE(SoulBoneskillDesc);\
 REGISTER_DESCSTORE(SoulBonekillDesc);\
 REGISTER_DESCSTORE(SoulBonestrongDesc);\
+REGISTER_DESCSTORE(SoulGuwen_typeDesc);\
+REGISTER_DESCSTORE(SoulGuwen_type_suitDesc);\
+REGISTER_DESCSTORE(SoulGuwen_skillDesc);\
+REGISTER_DESCSTORE(SoulGuwen_slotDesc);\
+REGISTER_DESCSTORE(SoulGuwen_suitDesc);\
+REGISTER_DESCSTORE(SoulAffixesDesc);\
+REGISTER_DESCSTORE(SoulAffixes_suitDesc);\
 REGISTER_DESCSTORE_EX(SoulDescEx);\
 

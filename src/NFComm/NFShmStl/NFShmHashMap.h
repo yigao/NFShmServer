@@ -11,6 +11,8 @@
 
 #include "NFShmStl.h"
 #include "NFShmHashTable.h"
+#include <map>
+#include <unordered_map>
 #include "NFShmPair.h"
 #include "NFShmList.h"
 
@@ -74,6 +76,10 @@ public:
     NFShmHashMap(const_iterator __f, const_iterator __l) { m_hashTable.insert_unique(__f, __l); }
 
     NFShmHashMap(iterator __f, iterator __l) { m_hashTable.insert_unique(__f, __l); }
+    
+    explicit NFShmHashMap(const std::unordered_map<Key, Tp>& map) { m_hashTable.insert_unique(map.begin(), map.end()); }
+    
+    explicit NFShmHashMap(const std::map<Key, Tp>& map) { m_hashTable.insert_unique(map.begin(), map.end()); }
 
     int CreateInit()
     {
@@ -84,7 +90,10 @@ public:
     {
         return 0;
     }
-
+    
+    NFShmHashMap<Key, Tp, MAX_SIZE> &operator=(const NFShmHashMap<Key, Tp, MAX_SIZE> &__x);
+    NFShmHashMap<Key, Tp, MAX_SIZE> &operator=(const std::unordered_map<Key, Tp> &__x);
+    NFShmHashMap<Key, Tp, MAX_SIZE> &operator=(const std::map<Key, Tp> &__x);
 public:
     size_type size() const { return m_hashTable.size(); }
 
@@ -160,6 +169,27 @@ public:
 
     size_type elems_in_bucket(size_type __n) const { return m_hashTable.elems_in_bucket(__n); }
 };
+
+template<class Key, class Tp, int MAX_SIZE, class HashFcn, class EqualKey>
+NFShmHashMap<Key, Tp, MAX_SIZE> &NFShmHashMap<Key, Tp, MAX_SIZE, HashFcn, EqualKey>::operator=(const map<Key, Tp> &__x)
+{
+    m_hashTable.insert_equal(__x.begin(), __x.end());
+    return *this;
+}
+
+template<class Key, class Tp, int MAX_SIZE, class HashFcn, class EqualKey>
+NFShmHashMap<Key, Tp, MAX_SIZE> &NFShmHashMap<Key, Tp, MAX_SIZE, HashFcn, EqualKey>::operator=(const unordered_map<Key, Tp> &__x)
+{
+    m_hashTable.insert_equal(__x.begin(), __x.end());
+    return *this;
+}
+
+template<class Key, class Tp, int MAX_SIZE, class HashFcn, class EqualKey>
+NFShmHashMap<Key, Tp, MAX_SIZE> &NFShmHashMap<Key, Tp, MAX_SIZE, HashFcn, EqualKey>::operator=(const NFShmHashMap<Key, Tp, MAX_SIZE> &__x)
+{
+    m_hashTable = __x.m_hashTable;
+    return *this;
+}
 
 template<class _Key, class _Tp, int MAX_SIZE, class _HashFcn, class _EqlKey>
 inline bool

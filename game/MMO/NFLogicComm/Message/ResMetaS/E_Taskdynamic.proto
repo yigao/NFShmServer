@@ -12,7 +12,7 @@ message E_TaskdynamicTaskdynamic
 	optional int32 m_minlv = 5[(yd_fieldoptions.field_cname) = "最低等级"];
 	optional int32 m_maxlv = 6[(yd_fieldoptions.field_cname) = "最高等级"];
 	optional int32 m_receCount = 7[(yd_fieldoptions.field_cname) = "可接取数量"];
-	optional string m_idList = 8[(yd_fieldoptions.field_cname) = "抽取id列表", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_idList = 8[(yd_fieldoptions.field_cname) = "抽取id列表", (yd_fieldoptions.field_bufsize) = 128];
 }
 
 

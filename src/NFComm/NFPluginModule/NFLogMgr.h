@@ -161,6 +161,13 @@ protected:
 #define NFLogError(logID, guid, format, ...) NFLogMgr::Instance()->Log(NLL_ERROR_NORMAL, NFSourceLoc{NFLOG_FILE_BASENAME(__FILE__), __LINE__, NF_MACRO_FUNCTION}, logID, guid, format, ##__VA_ARGS__);
 #define NFLogFatal(logID, guid, format, ...) NFLogMgr::Instance()->Log(NLL_CRITICAL_NORMAL, NFSourceLoc{NFLOG_FILE_BASENAME(__FILE__), __LINE__, NF_MACRO_FUNCTION}, logID, guid, format, ##__VA_ARGS__);
 
+#define NFLogTraceFmt(logID, guid, format, ...) NFLogMgr::Instance()->LogFormat(NLL_TRACE_NORMAL, NFSourceLoc{NFLOG_FILE_BASENAME(__FILE__), __LINE__, NF_MACRO_FUNCTION}, logID, guid, format, ##__VA_ARGS__);
+#define NFLogDebugFmt(logID, guid, format, ...) NFLogMgr::Instance()->LogFormat(NLL_DEBUG_NORMAL, NFSourceLoc{NFLOG_FILE_BASENAME(__FILE__), __LINE__, NF_MACRO_FUNCTION}, logID, guid, format, ##__VA_ARGS__);
+#define NFLogInfoFmt(logID, guid, format, ...) NFLogMgr::Instance()->LogFormat(NLL_INFO_NORMAL, NFSourceLoc{NFLOG_FILE_BASENAME(__FILE__), __LINE__, NF_MACRO_FUNCTION}, logID, guid, format, ##__VA_ARGS__);
+#define NFLogWarningFmt(logID, guid, format, ...) NFLogMgr::Instance()->LogFormat(NLL_WARING_NORMAL, NFSourceLoc{NFLOG_FILE_BASENAME(__FILE__), __LINE__, NF_MACRO_FUNCTION}, logID, guid, format, ##__VA_ARGS__);
+#define NFLogErrorFmt(logID, guid, format, ...) NFLogMgr::Instance()->LogFormat(NLL_ERROR_NORMAL, NFSourceLoc{NFLOG_FILE_BASENAME(__FILE__), __LINE__, NF_MACRO_FUNCTION}, logID, guid, format, ##__VA_ARGS__);
+#define NFLogFatalFmt(logID, guid, format, ...) NFLogMgr::Instance()->LogFormat(NLL_CRITICAL_NORMAL, NFSourceLoc{NFLOG_FILE_BASENAME(__FILE__), __LINE__, NF_MACRO_FUNCTION}, logID, guid, format, ##__VA_ARGS__);
+
 #define NFLogTraceEnable(logID, guid) NFLogMgr::Instance()->IsLogIdEnable(NLL_TRACE_NORMAL, logID, guid)
 #define NFLogDebugEnable(logID, guid) NFLogMgr::Instance()->IsLogIdEnable(NLL_DEBUG_NORMAL, logID, guid)
 #define NFLogInfoEnable(logID, guid) NFLogMgr::Instance()->IsLogIdEnable(NLL_INFO_NORMAL, logID, guid)

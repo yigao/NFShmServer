@@ -3064,12 +3064,17 @@ class E_FestivalMuban_severrank : public ::google::protobuf::Message {
   inline ::std::string* release_m_championtitle();
   inline void set_allocated_m_championtitle(::std::string* m_championtitle);
 
-  // optional int32 m_rewardShow = 8;
+  // optional string m_rewardShow = 8;
   inline bool has_m_rewardshow() const;
   inline void clear_m_rewardshow();
   static const int kMRewardShowFieldNumber = 8;
-  inline ::google::protobuf::int32 m_rewardshow() const;
-  inline void set_m_rewardshow(::google::protobuf::int32 value);
+  inline const ::std::string& m_rewardshow() const;
+  inline void set_m_rewardshow(const ::std::string& value);
+  inline void set_m_rewardshow(const char* value);
+  inline void set_m_rewardshow(const char* value, size_t size);
+  inline ::std::string* mutable_m_rewardshow();
+  inline ::std::string* release_m_rewardshow();
+  inline void set_allocated_m_rewardshow(::std::string* m_rewardshow);
 
   // optional int32 m_dataGroupID = 9;
   inline bool has_m_datagroupid() const;
@@ -3190,12 +3195,12 @@ class E_FestivalMuban_severrank : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_openday_;
   ::google::protobuf::int32 m_closeday_;
   ::std::string* m_championtitle_;
-  ::google::protobuf::int32 m_rewardshow_;
+  ::std::string* m_rewardshow_;
   ::google::protobuf::int32 m_datagroupid_;
-  ::std::string* m_rankgift_;
   ::google::protobuf::int32 m_ranktype_;
-  ::google::protobuf::int32 m_giftitemid_;
+  ::std::string* m_rankgift_;
   ::std::string* m_gifticon_;
+  ::google::protobuf::int32 m_giftitemid_;
   ::google::protobuf::int32 m_originalprice_;
   ::google::protobuf::int32 m_price_;
   ::google::protobuf::int32 m_ratioshow_;
@@ -12051,7 +12056,7 @@ inline void E_FestivalMuban_severrank::set_allocated_m_championtitle(::std::stri
   }
 }
 
-// optional int32 m_rewardShow = 8;
+// optional string m_rewardShow = 8;
 inline bool E_FestivalMuban_severrank::has_m_rewardshow() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -12062,15 +12067,63 @@ inline void E_FestivalMuban_severrank::clear_has_m_rewardshow() {
   _has_bits_[0] &= ~0x00000080u;
 }
 inline void E_FestivalMuban_severrank::clear_m_rewardshow() {
-  m_rewardshow_ = 0;
+  if (m_rewardshow_ != &::google::protobuf::internal::kEmptyString) {
+    m_rewardshow_->clear();
+  }
   clear_has_m_rewardshow();
 }
-inline ::google::protobuf::int32 E_FestivalMuban_severrank::m_rewardshow() const {
+inline const ::std::string& E_FestivalMuban_severrank::m_rewardshow() const {
+  return *m_rewardshow_;
+}
+inline void E_FestivalMuban_severrank::set_m_rewardshow(const ::std::string& value) {
+  set_has_m_rewardshow();
+  if (m_rewardshow_ == &::google::protobuf::internal::kEmptyString) {
+    m_rewardshow_ = new ::std::string;
+  }
+  m_rewardshow_->assign(value);
+}
+inline void E_FestivalMuban_severrank::set_m_rewardshow(const char* value) {
+  set_has_m_rewardshow();
+  if (m_rewardshow_ == &::google::protobuf::internal::kEmptyString) {
+    m_rewardshow_ = new ::std::string;
+  }
+  m_rewardshow_->assign(value);
+}
+inline void E_FestivalMuban_severrank::set_m_rewardshow(const char* value, size_t size) {
+  set_has_m_rewardshow();
+  if (m_rewardshow_ == &::google::protobuf::internal::kEmptyString) {
+    m_rewardshow_ = new ::std::string;
+  }
+  m_rewardshow_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_FestivalMuban_severrank::mutable_m_rewardshow() {
+  set_has_m_rewardshow();
+  if (m_rewardshow_ == &::google::protobuf::internal::kEmptyString) {
+    m_rewardshow_ = new ::std::string;
+  }
   return m_rewardshow_;
 }
-inline void E_FestivalMuban_severrank::set_m_rewardshow(::google::protobuf::int32 value) {
-  set_has_m_rewardshow();
-  m_rewardshow_ = value;
+inline ::std::string* E_FestivalMuban_severrank::release_m_rewardshow() {
+  clear_has_m_rewardshow();
+  if (m_rewardshow_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_rewardshow_;
+    m_rewardshow_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_FestivalMuban_severrank::set_allocated_m_rewardshow(::std::string* m_rewardshow) {
+  if (m_rewardshow_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_rewardshow_;
+  }
+  if (m_rewardshow) {
+    set_has_m_rewardshow();
+    m_rewardshow_ = m_rewardshow;
+  } else {
+    clear_has_m_rewardshow();
+    m_rewardshow_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
 }
 
 // optional int32 m_dataGroupID = 9;

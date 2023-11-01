@@ -217,7 +217,7 @@ message E_FestivalMuban_severrank
 	optional int32 m_openDay = 5[(yd_fieldoptions.field_cname) = "开放天数"];
 	optional int32 m_closeDay = 6[(yd_fieldoptions.field_cname) = "结束天数"];
 	optional string m_championTitle = 7[(yd_fieldoptions.field_cname) = "第一名的title", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_rewardShow = 8[(yd_fieldoptions.field_cname) = "第一名的展示资源"];
+	optional string m_rewardShow = 8[(yd_fieldoptions.field_cname) = "第一名的展示资源", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_dataGroupID = 9[(yd_fieldoptions.field_cname) = "排行数据组id"];
 	optional int32 m_rankType = 10[(yd_fieldoptions.field_cname) = "排行类型"];
 	optional string m_rankGift = 11[(yd_fieldoptions.field_cname) = "冲榜宝箱名称", (yd_fieldoptions.field_bufsize) = 64];

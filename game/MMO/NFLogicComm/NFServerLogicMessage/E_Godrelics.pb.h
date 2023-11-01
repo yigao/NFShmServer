@@ -334,10 +334,17 @@ class E_GodrelicsCondition : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_rewardnumber() const;
   inline void set_m_rewardnumber(::google::protobuf::int32 value);
 
-  // repeated int32 m_param = 7;
+  // optional int32 m_determine = 7;
+  inline bool has_m_determine() const;
+  inline void clear_m_determine();
+  static const int kMDetermineFieldNumber = 7;
+  inline ::google::protobuf::int32 m_determine() const;
+  inline void set_m_determine(::google::protobuf::int32 value);
+
+  // repeated int32 m_param = 8;
   inline int m_param_size() const;
   inline void clear_m_param();
-  static const int kMParamFieldNumber = 7;
+  static const int kMParamFieldNumber = 8;
   inline ::google::protobuf::int32 m_param(int index) const;
   inline void set_m_param(int index, ::google::protobuf::int32 value);
   inline void add_m_param(::google::protobuf::int32 value);
@@ -360,6 +367,8 @@ class E_GodrelicsCondition : public ::google::protobuf::Message {
   inline void clear_has_m_rewarditem();
   inline void set_has_m_rewardnumber();
   inline void clear_has_m_rewardnumber();
+  inline void set_has_m_determine();
+  inline void clear_has_m_determine();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -370,9 +379,10 @@ class E_GodrelicsCondition : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_rewarditem_;
   ::google::protobuf::int32 m_rewardnumber_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > m_param_;
+  ::google::protobuf::int32 m_determine_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fGodrelics_2eproto();
   friend void protobuf_AssignDesc_E_5fGodrelics_2eproto();
@@ -726,7 +736,29 @@ inline void E_GodrelicsCondition::set_m_rewardnumber(::google::protobuf::int32 v
   m_rewardnumber_ = value;
 }
 
-// repeated int32 m_param = 7;
+// optional int32 m_determine = 7;
+inline bool E_GodrelicsCondition::has_m_determine() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void E_GodrelicsCondition::set_has_m_determine() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void E_GodrelicsCondition::clear_has_m_determine() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void E_GodrelicsCondition::clear_m_determine() {
+  m_determine_ = 0;
+  clear_has_m_determine();
+}
+inline ::google::protobuf::int32 E_GodrelicsCondition::m_determine() const {
+  return m_determine_;
+}
+inline void E_GodrelicsCondition::set_m_determine(::google::protobuf::int32 value) {
+  set_has_m_determine();
+  m_determine_ = value;
+}
+
+// repeated int32 m_param = 8;
 inline int E_GodrelicsCondition::m_param_size() const {
   return m_param_.size();
 }

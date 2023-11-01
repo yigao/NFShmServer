@@ -140,6 +140,7 @@ int ExcelToBin::WriteToBin(ExcelSheet &sheet, int row, google::protobuf::Message
         auto pCell = pExcelSheet->getCell(row, col);
         CHECK_EXPR(pCell, -1, "excel:{} can't get data, row:{} col:{}", row, col);
         std::string value = pCell->to_string();
+        NFStringUtility::Trim(value);
         ExcelSheetColIndex &sheelColIndex = iter->second;
         ExcelSheetColInfo *pColInfo = sheelColIndex.m_pColInfo;
 
@@ -156,7 +157,7 @@ int ExcelToBin::WriteToBin(ExcelSheet &sheet, int row, google::protobuf::Message
          */
         if (pColInfo->m_maxSubNum == 0 && pColInfo->m_subInfoMap.empty())
         {
-            std::string field = "m_" + NFStringUtility::Lower(pColInfo->m_structEnName);
+            std::string field = "m_" + pColInfo->m_structEnName;
             mapFields.emplace(field, value);
         }
             /**
@@ -165,14 +166,14 @@ int ExcelToBin::WriteToBin(ExcelSheet &sheet, int row, google::protobuf::Message
         else if (pColInfo->m_maxSubNum > 0 && pColInfo->m_subInfoMap.empty())
         {
             std::string field =
-                    "m_" + NFStringUtility::Lower(pColInfo->m_structEnName) + "_" + NFCommon::tostr(sheelColIndex.m_structNum);
+                    "m_" + pColInfo->m_structEnName + "_" + NFCommon::tostr(sheelColIndex.m_structNum);
             mapFields.emplace(field, value);
         }
         else if (pColInfo->m_maxSubNum > 0 && !pColInfo->m_subInfoMap.empty())
         {
             std::string field =
-                    "m_" + NFStringUtility::Lower(pColInfo->m_structEnName) + "_" + NFCommon::tostr(sheelColIndex.m_structNum) + "_" +
-                    "m_" + NFStringUtility::Lower(sheelColIndex.m_structSubEnName);
+                    "m_" + pColInfo->m_structEnName + "_" + NFCommon::tostr(sheelColIndex.m_structNum) + "_" +
+                    "m_" + sheelColIndex.m_structSubEnName;
             mapFields.emplace(field, value);
         }
         else
@@ -181,6 +182,17 @@ int ExcelToBin::WriteToBin(ExcelSheet &sheet, int row, google::protobuf::Message
         }
     }
 
+    bool allEmpty = true;
+    for(auto iter = mapFields.begin(); iter != mapFields.end(); iter++)
+    {
+        if (!iter->second.empty())
+        {
+            allEmpty = false;
+            break;
+        }
+    }
+    
+    if (allEmpty) return 0;
 
     google::protobuf::Message *pRowMessage = pReflect->AddMessage(pSheetProto, pFieldDesc);
     CHECK_EXPR(pRowMessage, -1, "{} addfield:{} Failed", pSheetProto->GetTypeName(), pFieldDesc->full_name());

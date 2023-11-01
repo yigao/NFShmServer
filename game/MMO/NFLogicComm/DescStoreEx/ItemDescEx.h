@@ -5,6 +5,7 @@
 #include "NFComm/NFShmCore/NFResDb.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
+#include "NFComm/NFShmStl/NFShmHashSet.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFLogicCommon/NFPackageDefine.h"
@@ -12,12 +13,37 @@
 #include "Com.pb.h"
 #include "E_Item_s.h"
 
+#define MAX_NATURAL_BIND_ITEM_NUM (DEFINE_SHEET_ITEMITEM_E_ITEMITEM_LIST_MAX_NUM/10)
+#define MAX_MAP_LIMIT_ITEM_NUM (DEFINE_SHEET_ITEMITEM_E_ITEMITEM_LIST_MAX_NUM/50)
+#define MAX_MAP_LIMIT_ITEM_MAP_NUM 5
+#define MAX_PROF_LIMIT_ITEM_NUM (DEFINE_SHEET_ITEMITEM_E_ITEMITEM_LIST_MAX_NUM/50)
+#define MAX_PROF_LIMIT_ITEM_MAP_NUM 5
+#define MAX_ITEM_FUNC_PARAM_NUM 10
+#define MAX_REPLACE_ITEM_NUM 100
+
+#define MAX_DECOMPOSE_ITEM_KEY_NUM 1000
+#define MAX_DECOMPOSE_ITEM_ONE_KEY_EQUIP_NUM 10
+
+#define MAX_EQUIP_SMELT_EQUIP_NUM 100
+#define MAX_EQUIP_SMELT_EQUIP_MAX_ITEM_NUM 2
+
+//装备分级   星级、阶级、品质、职业、部位  组合成一个key，key对应的列表里面是满足key条件的装备ID
+#define DE_COMPOSE_KEY(star,rank,qua,prof,pos) ((star << 32) | (rank << 24)| (qua << 16) | (prof << 8) | pos)
+
 class ItemDescEx : public NFShmObjGlobalTemplate<ItemDescEx, EOT_CONST_ITEM_DESC_EX_ID, NFIDescStoreEx>
 {
     enum
     {
         VIR_ITEM_ID_MAX_OFFSET = 1000,	//虚拟物品ID最大偏移，虚拟物品ID配置尽量紧凑一些
     };
+    
+    typedef NFShmHashSet<uint64_t, MAX_NATURAL_BIND_ITEM_NUM> NaturalBindSet;
+    typedef NFShmHashMap<uint64_t, NFShmHashSet<int64_t, MAX_MAP_LIMIT_ITEM_MAP_NUM>, MAX_MAP_LIMIT_ITEM_NUM> ItemMapLimitMap;
+    typedef NFShmHashMap<uint64_t, NFShmHashSet<int32_t, MAX_PROF_LIMIT_ITEM_MAP_NUM>, MAX_PROF_LIMIT_ITEM_NUM> ItemProfLimitMap;
+    typedef NFShmHashMap<uint64_t, NFShmVector<int64_t, MAX_ITEM_FUNC_PARAM_NUM>, DEFINE_SHEET_ITEMITEM_E_ITEMITEM_LIST_MAX_NUM> ItemFuncMap;
+    typedef NFShmHashMap<uint64_t, NFShmPair<uint32_t, uint32_t>, MAX_REPLACE_ITEM_NUM> ItemReplaceMap;
+    typedef NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, MAX_DECOMPOSE_ITEM_ONE_KEY_EQUIP_NUM>, MAX_DECOMPOSE_ITEM_KEY_NUM> ItemDecomposeMap;
+    typedef NFShmHashMap<uint64_t, NFShmHashMap<uint64_t, uint64_t, MAX_EQUIP_SMELT_EQUIP_MAX_ITEM_NUM>, MAX_EQUIP_SMELT_EQUIP_NUM> EqupSmeltMap;
 public:
 	ItemDescEx();
 	virtual ~ItemDescEx();
@@ -56,27 +82,27 @@ private:
     bool ProcessStoveExp();
     bool ProcessTSActive();
 private:
-    MAP_UINT64_VEC_INT64 m_mapItemFunc;					//物品表功能参数解析
-    MAP_UINT64_SET_INT32 m_mapItemProfLimit;			//物品的职业限制
-    MAP_UINT64_SET_INT64 m_mapItemMapLimit;				//物品地图限制
+    ItemFuncMap m_mapItemFunc;					//物品表功能参数解析
+    ItemProfLimitMap m_mapItemProfLimit;			//物品的职业限制
+    ItemMapLimitMap m_mapItemMapLimit;				//物品地图限制
     MAP_UINT64_INT32  m_mapItemOrCdGroup;				//物品或CD组 的cd
-    SET_UINT64 m_setNaturalBind;						//天然绑定的物品，不能有非绑定的状态
+    NaturalBindSet m_setNaturalBind;						//天然绑定的物品，不能有非绑定的状态
     
-    uint64_t m_virMinId = 0;							//虚拟物品ID列表中最小的物品ID减1
-    uint16_t m_virOffset[VIR_ITEM_ID_MAX_OFFSET+1];		//虚拟物品ID最大偏移（ 物品ID对应的偏移 = 物品ID - m_virMinId ）
-    uint16_t m_virAttr[proto_ff::A_COMMON_END+1];					//属性ID对应的虚拟物品ID的偏移
+    uint64_t m_virMinId{};							//虚拟物品ID列表中最小的物品ID减1
+    uint16_t m_virOffset[VIR_ITEM_ID_MAX_OFFSET+1]{};		//虚拟物品ID最大偏移（ 物品ID对应的偏移 = 物品ID - m_virMinId ）
+    uint16_t m_virAttr[proto_ff::A_COMMON_END+1]{};		//属性ID对应的虚拟物品ID的偏移
     
     MAP_UINT64_MAP_UINT64_UINT64 m_mapFixAttr;			//物品加永久属性
-    MAP_UINT64_SET_UINT64 m_mapDecompose;				//分解需要的数据
+    ItemDecomposeMap m_mapDecompose;				//分解需要的数据
     
     
-    MAP_UINT64_MAP_UINT64_UINT64  m_mapEquipSmelt;		//装备熔炼配置
+    EqupSmeltMap  m_mapEquipSmelt;		//装备熔炼配置
     MAP_UINT64_MAP_UINT64_UINT64  m_mapEquipStoveExp;   //熔炉配置
     
     MAP_UINT64_INT64  m_mapItemAddMissionCheck;			//使用物品获得任务，需要校验的物品对应的任务ID
     
     MAP_UINT64_SET_INT64 m_mapItemUseCond;				//物品使用条件
-    std::unordered_map<uint64_t, std::pair<uint64_t, int32_t>> m_replaceItem; //ID -> replace itemid , num
+    ItemReplaceMap m_replaceItem; //ID -> replace itemid , num
     MAP_UINT64_UINT32 m_ts_active_id;					//天神激活物品对应天神id
     MAP_UINT64_UINT32 m_dynexp_items;
 };
