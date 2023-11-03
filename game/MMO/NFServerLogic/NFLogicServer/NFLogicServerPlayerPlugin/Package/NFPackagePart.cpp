@@ -8,6 +8,8 @@
 // -------------------------------------------------------------------------
 
 #include "NFPackagePart.h"
+#include "DescStore/ConstantConstantDesc.h"
+#include "Player/NFMallPart.h"
 
 NFPackagePart::NFPackagePart()
 {
@@ -46,9 +48,23 @@ int NFPackagePart::UnInit()
     return NFPart::UnInit();
 }
 
-int NFPackagePart::LoadFromDB(const proto_ff::RoleDBData &data)
+int NFPackagePart::LoadFromDB(const proto_ff::RoleDBData &dbData)
 {
-    return NFPart::LoadFromDB(data);
+    if (dbData.has_bag())
+    {
+        const proto_ff::RoleDBBagData& data = dbData.bag();
+        for (int i = 0; i < data.bags_size(); i++)
+        {
+            const proto_ff::RoleDBUnitBagData& unitBag = data.bags(i);
+            const proto_ff::BagDBSimpleData& unitBagSimple = unitBag.simple();
+            NFPackageBag* pBag = GetPackageByType( unitBagSimple.package_type());
+            if (pBag)
+            {
+                pBag->LoadFromDB(&unitBag);
+            }
+        }
+    }
+    return 0;
 }
 
 int NFPackagePart::InitConfig(const proto_ff::RoleDBData &data)
@@ -58,7 +74,25 @@ int NFPackagePart::InitConfig(const proto_ff::RoleDBData &data)
 
 int NFPackagePart::SaveDB(proto_ff::RoleDBData &dbData)
 {
-    return NFPart::SaveDB(dbData);
+    proto_ff::RoleDBBagData* pItemPackageData = dbData.mutable_bag();
+    if (pItemPackageData == nullptr)
+        return false;
+    
+    
+    for (int nPackageType = proto_ff::EPackageType_Common; nPackageType < proto_ff::EPackageType_Limit; nPackageType++)
+    {
+        NFPackageBag* pBag = GetPackageByType(nPackageType);
+        if (pBag)
+        {
+            proto_ff::RoleDBUnitBagData* pBagDB = pItemPackageData->add_bags();
+            if (pBagDB)
+            {
+                pBag->Save(*pBagDB);
+            }
+        }
+    }
+    
+    return true;
 }
 
 int NFPackagePart::OnLogin()
@@ -73,12 +107,43 @@ int NFPackagePart::OnLogin(proto_ff::PlayerInfoRsp &playerInfo)
 
 int NFPackagePart::RegisterMessage()
 {
-    return NFPart::RegisterMessage();
+    RegisterClientMessage(proto_ff::CLIENT_PACKAGE_INFO_REQ);
+    RegisterClientMessage(proto_ff::CLIENT_TO_LOGIC_PACKAGE_USE);
+    RegisterClientMessage(proto_ff::CLIENT_PACKAGE_SORT_REQ);
+    RegisterClientMessage(proto_ff::CLIENT_TO_LOGIC_PACKAGE_SELL);
+    RegisterClientMessage(proto_ff::CLIENT_STORAGE_OPERATE_REQ);
+    RegisterClientMessage(proto_ff::PACKAGE_EXPAND_REQ);
+    return 0;
 }
 
 int NFPackagePart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
 {
-    return NFPart::OnHandleClientMessage(msgId, packet);
+    switch (msgId)
+    {
+        case proto_ff::CLIENT_PACKAGE_INFO_REQ:
+        {
+            break;
+        }
+        case proto_ff::CLIENT_TO_LOGIC_PACKAGE_USE:
+        {
+            break;
+        }
+        case proto_ff::CLIENT_PACKAGE_SORT_REQ:
+        {
+            break;
+        }
+        case proto_ff::CLIENT_TO_LOGIC_PACKAGE_SELL:
+        {
+            break;
+        }
+        case proto_ff::PACKAGE_EXPAND_REQ:
+        {
+            break;
+        }
+        default:
+            break;
+    }
+    return 0;
 }
 
 int NFPackagePart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
@@ -819,4 +884,146 @@ NFPackageBag *NFPackagePart::GetPackageByType(uint32_t nPackageType)
             return &m_commonBag;
     }
     return nullptr;
+}
+
+int NFPackagePart::PackageInfo(uint32_t msgId, NFDataPackage &packet)
+{
+    proto_ff::PackageInfoReq req;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
+    
+    int32_t nPackageType = req.package_type();
+    NFPackageBag* pBag = GetPackageByType(nPackageType);
+    if (pBag)
+    {
+        pBag->SendPackageInfoToClient();
+    }
+    else {
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "nPackageType:{} not exist", nPackageType);
+    }
+    return 0;
+}
+
+int NFPackagePart::ItemSort(uint32_t msgId, NFDataPackage &packet)
+{
+    proto_ff::PackageSortReq req;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
+    
+    uint32_t nPackageType = req.package_type();
+    NFPackageBag* pBag = GetPackageByType(nPackageType);
+    if (pBag)
+    {
+        pBag->SortItem();
+    }
+    else
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "nPackageType:{} not exist", nPackageType);
+    }
+    
+    return 0;
+}
+
+int NFPackagePart::ItemSell(uint32_t msgId, NFDataPackage &packet)
+{
+    proto_ff::PackageSellReq req;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
+    
+    uint32_t nPackageType = req.package_type();
+    NFPackageBag* pBag = GetPackageByType(nPackageType);
+    if (pBag)
+    {
+        if (nPackageType == proto_ff::EPackageType_turn)
+        {
+            //pBag->ShentiEquipSell(req);
+        }
+        else
+        {
+            pBag->ItemSell(req);
+        }
+    }
+    
+    return 0;
+}
+
+int NFPackagePart::ItemUse(uint32_t msgId, NFDataPackage &packet)
+{
+    proto_ff::PackageUseReq req;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
+    
+    uint16_t nIndex = (uint16_t)req.index();
+    int64_t nNum = 1;
+    if (req.has_num())
+    {
+        nNum = (int64_t)req.num();
+    }
+    
+    proto_ff::UseItemArgProto protoArg;
+    int32_t isize = (int32_t)req.item_lst_size();
+    for (int32_t i = 0; i < isize; ++i)
+    {
+        protoArg.add_item_lst(req.item_lst(i));
+    }
+    
+    const NFItem *pItem = GetPackageItemByIndex(proto_ff::EPackageType_Common, nIndex);
+    CHECK_NULL(pItem);
+    
+    int32_t ret = UseItem(nIndex, nNum, protoArg);
+    if (proto_ff::RET_PACKAGE_WAITING != ret)
+    {
+        proto_ff::PackageUseRet rsp;
+        rsp.set_retcode(ret);
+        m_pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_PACKAGE_USE, rsp);
+    }
+    
+    return 0;
+}
+
+int NFPackagePart::ExpandReq(uint32_t msgId, NFDataPackage &packet)
+{
+    proto_ff::PackageExpandReq req;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
+    
+    int32_t packageType = req.package_type();
+    int32_t expand_grid = req.expand_grid();
+    proto_ff::PackageExpandRsp rsp;
+    
+    int32_t ret = proto_ff::RET_SUCCESS;
+    do
+    {
+        CHECK_BREAK_VALUE(expand_grid > 0, ret, proto_ff::RET_PARMAR_ERROR);
+        auto pCfg = ConstantConstantDesc::Instance()->GetDesc(proto_ff::EConst_ExpandItem);
+        CHECK_BREAK_VALUE(pCfg, ret, proto_ff::RET_CONFIG_ERROR);
+        auto pReplaceCfg = ConstantConstantDesc::Instance()->GetDesc(proto_ff::EConst_ExpandMallId);
+        CHECK_BREAK_VALUE(pReplaceCfg, ret, proto_ff::RET_CONFIG_ERROR);
+        uint32_t itemId = pCfg->m_constantdata;
+        CHECK_BREAK_VALUE(packageType == proto_ff::EPackageType_Common || packageType == proto_ff::EPackageType_Storage, ret, proto_ff::RET_PARMAR_ERROR);
+        NFPackageBag* pBag = GetPackageByType(packageType);
+        CHECK_BREAK_VALUE(pBag, ret, proto_ff::RET_FAIL);
+        uint16_t nLefNum = pBag->GetMaxGridNum()- pBag->GetOpenGrid();
+        CHECK_BREAK_VALUE(nLefNum >= expand_grid, ret, proto_ff::RET_PARMAR_ERROR);
+        NFMallPart* pMallPart = dynamic_cast<NFMallPart*>(m_pMaster->GetPart(PART_MALL));
+        CHECK_BREAK_VALUE(pMallPart, ret, proto_ff::RET_FAIL);
+        int64_t ubd = 0;
+        int64_t bd = 0;
+        int32_t hasNum = GetItemNum(itemId, ubd, bd);
+        int32_t costMallNum = hasNum < expand_grid ? (expand_grid - hasNum) : 0;
+        if (costMallNum > 0)
+        {
+            int64_t price = 0;
+            ret = pMallPart->CostMallItem(pReplaceCfg->m_constantdata, costMallNum, price);
+            CHECK_BREAK(ret == proto_ff::RET_SUCCESS);
+        }
+        int32_t cost_expand_grid = expand_grid - costMallNum;
+        SCommonSource s;
+        if(cost_expand_grid >0)
+            CHECK_BREAK_VALUE(RemoveItem(itemId, cost_expand_grid, s), ret, proto_ff::RET_PACKAGE_ITEM_NUM_LACK);
+        pBag->Expand(expand_grid);
+        pBag->SendPackageInfoToClient();
+        
+    } while (false);
+    
+    rsp.set_ret(ret);
+    
+    m_pMaster->SendMsgToClient(proto_ff::PACKAGE_EXPAND_RSP, rsp);
+    
+    return 0;
 }

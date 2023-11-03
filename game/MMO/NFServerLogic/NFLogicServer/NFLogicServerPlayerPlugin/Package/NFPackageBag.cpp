@@ -67,6 +67,57 @@ int NFPackageBag::Init(NFShmObj *pShmObj, NFPlayer *pMaster)
     return 0;
 }
 
+int NFPackageBag::LoadFromDB(const proto_ff::RoleDBUnitBagData *pUnitBagData)
+{
+    const proto_ff::BagDBSimpleData &refSimpleData = pUnitBagData->simple();
+    m_nExpandNum = refSimpleData.expand_num();
+    m_nOpenGrid += m_nExpandNum;
+    
+    int32_t partSize = pUnitBagData->parts_size();
+    
+    for (int32_t i = 0; i < partSize; ++i)
+    {
+        const proto_ff::BagItemsDBData &refdbItemData = pUnitBagData->parts(i);
+        int32_t partItemSize = refdbItemData.data_size();
+        for (int32_t j = 0; j < partItemSize; ++j)
+        {
+            const proto_ff::ItemProtoInfo &protoItem = refdbItemData.data(j);
+            auto pItemCfg = ItemItemDesc::Instance()->GetDesc(protoItem.item_id());
+            if (nullptr == pItemCfg)
+            {
+                auto pEquipCfg = EquipEquipDesc::Instance()->GetDesc(protoItem.item_id());
+                if (nullptr == pEquipCfg)
+                {
+                    NFLogErrorFmt(NF_LOG_SYSTEMLOG, 0, "[logic] PackageBag::Init..nullptr == pEquipCfg....cid:%lu,itemid:%lu ", m_pMaster->Cid(), protoItem.item_id());
+                    continue;
+                }
+            }
+            NFItem *pItem = NFItemMgr::MakeItemObj(protoItem.item_id());
+            if (nullptr != pItem)
+            {
+                if (!pItem->FromItemProto(protoItem))
+                {
+                    NFLogErrorFmt(NF_LOG_SYSTEMLOG, 0, "[logic] PackagePart::Init, SetItemProto failed....cid:%lu,index:%d, item_id:%lu,num:%ld,bind:%d..", m_pMaster->Cid(), protoItem.index(), protoItem.item_id(), protoItem.item_num(), protoItem.bind());
+                    NFItemMgr::FreeItemObj(pItem);
+                }
+                else
+                {
+                    if (pItem->GetIndex() != SetItemByIndex(pItem->GetIndex(), *pItem))
+                    {
+                        NFLogErrorFmt(NF_LOG_SYSTEMLOG, 0, "[logic] PackagePart::Init, SetItemByIndex failed....cid:%lu,index:%d, item_id:%lu,num:%ld,bind:%d..", m_pMaster->Cid(), protoItem.index(), protoItem.item_id(), protoItem.item_num(), protoItem.bind());
+                        NFItemMgr::FreeItemObj(pItem);
+                    }
+                }
+            }
+            else
+            {
+                NFLogErrorFmt(NF_LOG_SYSTEMLOG, 0, "[logic] PackagePart::Init  , nullptr == pItem...cid:%lu,itemid:%lu ", m_pMaster->Cid(), protoItem.item_id());
+            }
+        }
+    }
+    return 0;
+}
+
 int64_t NFPackageBag::GetItemNum(uint64_t nItemID, int64_t &nUnBindNum, int64_t &nBindNum)
 {
     LIST_ITEM lstOutItem;
@@ -1583,7 +1634,7 @@ bool NFPackageBag::RemoveAllByType(int32_t itemSubType, SCommonSource &sourcePar
     mapIdxNum.clear();
     for (int i = 0; i < m_nOpenGrid; i++)
     {
-        NFItem*pItem = GetItemByIndex(i);
+        NFItem *pItem = GetItemByIndex(i);
         if (nullptr != pItem)
         {
             auto pItemCfg = ItemItemDesc::Instance()->GetDesc(pItem->GetItemID());
@@ -1607,7 +1658,7 @@ bool NFPackageBag::RemoveAllByItemID(uint64_t nItemID, SCommonSource &sourcePara
     mapIdxNum.clear();
     for (int i = 0; i < m_nOpenGrid; i++)
     {
-        NFItem*pItem = GetItemByIndex(i);
+        NFItem *pItem = GetItemByIndex(i);
         if (nullptr != pItem && pItem->GetItemID() == nItemID)
         {
             mapIdxNum[pItem->GetIndex()] = pItem->GetNum();
@@ -1813,7 +1864,7 @@ void NFPackageBag::ProcessItem(const LIST_ITEM &lstItem, LIST_ITEM &outLstItem, 
                     int32_t replaceItemNum = 0;
                     ret = ItemDescEx::Instance()->replaceItem(ref.nItemID, ref.nNum, replaceItemId, replaceItemNum);
                     CHECK_BREAK(ret);
-                    auto pDeityPart = dynamic_cast<NFDeityPart*>(m_pMaster->GetPart(PART_DEITY));
+                    auto pDeityPart = dynamic_cast<NFDeityPart *>(m_pMaster->GetPart(PART_DEITY));
                     CHECK_BREAK(pDeityPart);
                     CHECK_BREAK(pDeityPart->IsActiveDeity(tianshenId));
                     CHECK_BREAK(replaceItemId > 0 && replaceItemNum > 0);
@@ -1830,7 +1881,8 @@ void NFPackageBag::ProcessItem(const LIST_ITEM &lstItem, LIST_ITEM &outLstItem, 
                 }
             } while (false);
             
-            if (!ret) {
+            if (!ret)
+            {
                 outLstItem.push_back(ref);
             }
         }
@@ -1839,13 +1891,13 @@ void NFPackageBag::ProcessItem(const LIST_ITEM &lstItem, LIST_ITEM &outLstItem, 
 
 void NFPackageBag::ProcessItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx, VEC_ITEM_PROTO_EX &vecOutProtoItemsEx, MAP_UINT32_INT64 &mapAttr, bool addFlag)
 {
-    for (auto& e : vecProtoItemsEx)
+    for (auto &e : vecProtoItemsEx)
     {
-        proto_ff::ItemProtoInfo& ref = e;
+        proto_ff::ItemProtoInfo &ref = e;
         uint32_t attrId = 0;
         uint64_t itemId = ref.item_id();
         int32_t itemNum = ref.item_num();
-        CHECK_CONTINUE(itemId > 0 && itemNum >0);
+        CHECK_CONTINUE(itemId > 0 && itemNum > 0);
         //1:ÐéÄâÎïÆ·
         if (NFItemMgr::IsVirItem(itemId, attrId))
         {
@@ -1870,7 +1922,7 @@ void NFPackageBag::ProcessItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx, VEC_ITEM_PROT
                     int32_t replaceItemNum = 0;
                     ret = ItemDescEx::Instance()->replaceItem(itemId, itemNum, replaceItemId, replaceItemNum);
                     CHECK_BREAK(ret);
-                    auto pDeityPart = dynamic_cast<NFDeityPart*>(m_pMaster->GetPart(PART_DEITY));
+                    auto pDeityPart = dynamic_cast<NFDeityPart *>(m_pMaster->GetPart(PART_DEITY));
                     CHECK_BREAK(pDeityPart);
                     CHECK_BREAK(pDeityPart->IsActiveDeity(tianshenId));
                     CHECK_BREAK(replaceItemId > 0 && replaceItemNum > 0);
@@ -1883,7 +1935,7 @@ void NFPackageBag::ProcessItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx, VEC_ITEM_PROT
                     lstItem.push_back(t);
                     VEC_ITEM_PROTO_EX v;
                     CHECK_BREAK(NFItemMgr::CreateItem(lstItem, v, c));
-                    for (auto& e : v)
+                    for (auto &e : v)
                     {
                         vecOutProtoItemsEx.push_back(e);
                     }
@@ -1895,7 +1947,8 @@ void NFPackageBag::ProcessItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx, VEC_ITEM_PROT
                 }
             } while (false);
             
-            if (!ret) {
+            if (!ret)
+            {
                 vecOutProtoItemsEx.push_back(ref);
             }
         }
@@ -2173,4 +2226,45 @@ void NFPackageBag::MergeItemList(LIST_ITEM &inlstItem, VEC_ITEM_PROTO_EX &vecinP
             }
         } // end of if (1 == maxPile)
     } // end of for (; iterProto != vecinProtoEx.end(); ++iterProto)
+}
+
+void NFPackageBag::SendPackageInfoToClient()
+{
+    proto_ff::PackageInfoRsp proto;
+    proto.set_package_type(m_nPackageType);
+    proto.set_init_all_grid(m_initGrid);
+    proto.set_expand_grid(m_nExpandNum);
+    proto.set_max_grid(m_maxGrid);
+    
+    for (uint16_t i = 0; i < m_nOpenGrid; ++i)
+    {
+        NFItem *pItem = GetItemByIndex(i);
+        if (nullptr != pItem)
+        {
+            proto_ff::ItemProtoInfo *protoInfo = proto.add_item_list();
+            if (nullptr != protoInfo)
+            {
+                SetUpdateItemInfo(pItem, protoInfo);
+            }
+        }
+    }
+    
+    m_pMaster->SendMsgToClient(proto_ff::CLIENT_PACKAGE_INFO_RSP, proto);
+}
+
+void NFPackageBag::Save(proto_ff::RoleDBUnitBagData &bagData)
+{
+    proto_ff::BagDBSimpleData *pSimpleData = bagData.mutable_simple();
+    pSimpleData->set_package_type(m_nPackageType);
+    pSimpleData->set_expand_num(m_nExpandNum);
+    proto_ff::BagItemsDBData *pPartItems = bagData.add_parts();
+    for (int i = 0; i < m_nOpenGrid; i++)
+    {
+        NFItem *pItem = GetItemByIndex(i);
+        if (pItem)
+        {
+            proto_ff::ItemProtoInfo *pItemInfo = pPartItems->add_data();
+            NFItemMgr::SetItemProtoInfo(pItem, pItemInfo);
+        }
+    }
 }

@@ -27,4 +27,6 @@ public:
     int CreateInit();
 
     int ResumeInit();
+public:
+    int32_t CostMallItem(int32_t mallId, int32_t num, int64_t& price,bool updateflag = false) { return 0; }
 };

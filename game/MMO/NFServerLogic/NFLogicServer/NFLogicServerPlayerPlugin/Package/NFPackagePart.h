@@ -144,6 +144,19 @@ public:
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
 public:
+private:
+    ////////////////////////////////////  玩家背包逻辑  //////////////////////////////////////
+    //信息
+    int PackageInfo(uint32_t msgId, NFDataPackage &packet);
+    //整理
+    int ItemSort(uint32_t msgId, NFDataPackage &packet);
+    //出售
+    int ItemSell(uint32_t msgId, NFDataPackage &packet);
+    //使用
+    int ItemUse(uint32_t msgId, NFDataPackage &packet);
+    //扩展
+    int ExpandReq(uint32_t msgId, NFDataPackage &packet);
+public:
     virtual uint32_t GetLastErrorCode();
     virtual uint32_t GetPackageNotSpaceErrorCode(uint32_t nPackageType);
     
@@ -218,19 +231,7 @@ public:
     bool AddPackageUpdateInfo(NFItem *pItem, proto_ff::NotifyPackageUpdate &ret, bool bDel = false);
     void UpdatePackage(uint32_t nPackageType, proto_ff::NotifyPackageUpdate &ret);
 
-private:
-    ////////////////////////////////////  玩家背包逻辑  //////////////////////////////////////
-    
-    //信息
-    void PackageInfo(const char *data, uint32_t len);
-    //整理
-    void ItemSort(const char *data, uint32_t len);
-    //出售
-    void ItemSell(const char *data, uint32_t len);
-    //使用
-    void ItemUse(const char *data, uint32_t len);
-    //扩展
-    void ExpandReq(const char *data, uint32_t len);
+
 private:
     
     //通过包裹类型获取物品 byPackageType:包裹类型 详见 EPackageType枚举, nIndex:对应包裹类型格子索引

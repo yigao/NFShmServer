@@ -465,6 +465,17 @@ template<> struct CompileTimeError<true> {};
 	}
 #endif//CHECK_BREAK
 
+#ifndef CHECK_BREAK_VALUE
+#define CHECK_BREAK_VALUE(expr, ret, value)\
+    {\
+        if(unlikely(!(expr)))\
+        {\
+            ret = value;\
+            break;\
+		}\
+	}
+#endif//CHECK_BREAK_VALUE
+
 #ifndef CHECK_NULL_CONTINUE
 #define CHECK_NULL_CONTINUE(ptr) CHECK_EXPR_CONTINUE(ptr)
 #endif//CHECK_NULL_CONTINUE

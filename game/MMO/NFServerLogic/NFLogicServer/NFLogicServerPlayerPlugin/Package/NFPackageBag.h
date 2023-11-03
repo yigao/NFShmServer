@@ -62,6 +62,8 @@ public:
 public:
     virtual int Init(NFShmObj *pShmObj, NFPlayer *pMaster);
     
+    virtual int LoadFromDB(const proto_ff::RoleDBUnitBagData* pUnitBagData);
+    
     virtual int32_t GetPackageType() { return m_nPackageType; }
     
     virtual uint32_t GetOpenGrid() { return m_nOpenGrid; }
@@ -69,6 +71,10 @@ public:
     virtual bool ValidIndex(uint16_t nIndex) { return nIndex < m_nOpenGrid; }
     
     virtual void SetPackageSaveFlag(bool bSave = true);
+    
+    void SendPackageInfoToClient();
+    
+    void Save(proto_ff::RoleDBUnitBagData& bagData);
 public:
     //通过索引获取物品
     virtual bool IsEmptyGridByIndex(uint16_t nIndex) = 0;
