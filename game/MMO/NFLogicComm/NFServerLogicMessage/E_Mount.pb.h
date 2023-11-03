@@ -6353,6 +6353,13 @@ class E_MountEquippart : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
+  // optional int32 m_itemTips = 6;
+  inline bool has_m_itemtips() const;
+  inline void clear_m_itemtips();
+  static const int kMItemTipsFieldNumber = 6;
+  inline ::google::protobuf::int32 m_itemtips() const;
+  inline void set_m_itemtips(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.E_MountEquippart)
  private:
   inline void set_has_m_part();
@@ -6365,6 +6372,8 @@ class E_MountEquippart : public ::google::protobuf::Message {
   inline void clear_has_m_item();
   inline void set_has_m_num();
   inline void clear_has_m_num();
+  inline void set_has_m_itemtips();
+  inline void clear_has_m_itemtips();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -6373,9 +6382,10 @@ class E_MountEquippart : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_honeopen_;
   ::google::protobuf::int32 m_item_;
   ::google::protobuf::int32 m_num_;
+  ::google::protobuf::int32 m_itemtips_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fMount_2eproto();
   friend void protobuf_AssignDesc_E_5fMount_2eproto();
@@ -13247,6 +13257,28 @@ inline ::google::protobuf::int32 E_MountEquippart::m_num() const {
 inline void E_MountEquippart::set_m_num(::google::protobuf::int32 value) {
   set_has_m_num();
   m_num_ = value;
+}
+
+// optional int32 m_itemTips = 6;
+inline bool E_MountEquippart::has_m_itemtips() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void E_MountEquippart::set_has_m_itemtips() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void E_MountEquippart::clear_has_m_itemtips() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void E_MountEquippart::clear_m_itemtips() {
+  m_itemtips_ = 0;
+  clear_has_m_itemtips();
+}
+inline ::google::protobuf::int32 E_MountEquippart::m_itemtips() const {
+  return m_itemtips_;
+}
+inline void E_MountEquippart::set_m_itemtips(::google::protobuf::int32 value) {
+  set_has_m_itemtips();
+  m_itemtips_ = value;
 }
 
 // -------------------------------------------------------------------

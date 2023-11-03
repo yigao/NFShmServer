@@ -195,7 +195,7 @@ void protobuf_AssignDesc_E_5fBoss_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_BossBosstype));
   E_BossLayer_descriptor_ = file->message_type(7);
-  static const int E_BossLayer_offsets_[8] = {
+  static const int E_BossLayer_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BossLayer, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BossLayer, m_bosstype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BossLayer, m_order_),
@@ -204,6 +204,7 @@ void protobuf_AssignDesc_E_5fBoss_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BossLayer, m_unlockcondition_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BossLayer, m_mapid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BossLayer, m_maxlv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_BossLayer, m_unlimit_),
   };
   E_BossLayer_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -339,7 +340,7 @@ void protobuf_AddDesc_E_5fBoss_2eproto() {
     "\200\022C\n\007m_group\030\020 \003(\0132!.proto_ff.E_BossBoss"
     "typeGroupDescB\017\302\377\024\007Boss\347\273\204\210\301\024\003\"Q\n\022Sheet_"
     "BossBosstype\022;\n\023E_BossBosstype_List\030\001 \003("
-    "\0132\030.proto_ff.E_BossBosstypeB\004\210\301\024\020\"\250\002\n\013E_"
+    "\0132\030.proto_ff.E_BossBosstypeB\004\210\301\024\020\"\323\002\n\013E_"
     "BossLayer\022\024\n\004m_ID\030\001 \001(\005B\006\302\377\024\002id\022\036\n\nm_bos"
     "sType\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\033\n\007m_order\030\003 \001(\005"
     "B\n\302\377\024\006\346\216\222\345\272\217\022\035\n\tm_subType\030\004 \001(\005B\n\302\377\024\006\347\261\273"
@@ -347,9 +348,10 @@ void protobuf_AddDesc_E_5fBoss_2eproto() {
     "\245\346\235\241\344\273\266\220\301\024@\022/\n\021m_unlockCondition\030\006 \001(\tB\024"
     "\302\377\024\014\350\247\243\351\224\201\346\235\241\344\273\266\220\301\024@\022\035\n\007m_mapID\030\007 \001(\005B\014\302"
     "\377\024\010\345\234\260\345\233\276ID\022\'\n\007m_maxlv\030\010 \001(\005B\026\302\377\024\022\346\234\200\345\244\247"
-    "\350\277\233\345\205\245\347\255\211\347\272\247\"H\n\017Sheet_BossLayer\0225\n\020E_Bos"
-    "sLayer_List\030\001 \003(\0132\025.proto_ff.E_BossLayer"
-    "B\004\210\301\024@", 2206);
+    "\350\277\233\345\205\245\347\255\211\347\272\247\022)\n\tm_unLimit\030\t \001(\005B\026\302\377\024\022\346\230\257"
+    "\345\220\246\346\227\240\351\231\220\346\254\241\346\225\260\"H\n\017Sheet_BossLayer\0225\n\020E_"
+    "BossLayer_List\030\001 \003(\0132\025.proto_ff.E_BossLa"
+    "yerB\004\210\301\024@", 2249);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Boss.proto", &protobuf_RegisterTypes);
   E_BossRareitem::default_instance_ = new E_BossRareitem();
@@ -3141,6 +3143,7 @@ const int E_BossLayer::kMEnterConditionFieldNumber;
 const int E_BossLayer::kMUnlockConditionFieldNumber;
 const int E_BossLayer::kMMapIDFieldNumber;
 const int E_BossLayer::kMMaxlvFieldNumber;
+const int E_BossLayer::kMUnLimitFieldNumber;
 #endif  // !_MSC_VER
 
 E_BossLayer::E_BossLayer()
@@ -3167,6 +3170,7 @@ void E_BossLayer::SharedCtor() {
   m_unlockcondition_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_mapid_ = 0;
   m_maxlv_ = 0;
+  m_unlimit_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -3224,6 +3228,9 @@ void E_BossLayer::Clear() {
     }
     m_mapid_ = 0;
     m_maxlv_ = 0;
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    m_unlimit_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -3360,6 +3367,22 @@ bool E_BossLayer::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(72)) goto parse_m_unLimit;
+        break;
+      }
+
+      // optional int32 m_unLimit = 9;
+      case 9: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_unLimit:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_unlimit_)));
+          set_has_m_unlimit();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -3430,6 +3453,11 @@ void E_BossLayer::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_maxlv(), output);
   }
 
+  // optional int32 m_unLimit = 9;
+  if (has_m_unlimit()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_unlimit(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -3486,6 +3514,11 @@ void E_BossLayer::SerializeWithCachedSizes(
   // optional int32 m_maxlv = 8;
   if (has_m_maxlv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_maxlv(), target);
+  }
+
+  // optional int32 m_unLimit = 9;
+  if (has_m_unlimit()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_unlimit(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3556,6 +3589,15 @@ int E_BossLayer::ByteSize() const {
     }
 
   }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional int32 m_unLimit = 9;
+    if (has_m_unlimit()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_unlimit());
+    }
+
+  }
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -3607,6 +3649,11 @@ void E_BossLayer::MergeFrom(const E_BossLayer& from) {
       set_m_maxlv(from.m_maxlv());
     }
   }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_m_unlimit()) {
+      set_m_unlimit(from.m_unlimit());
+    }
+  }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
@@ -3637,6 +3684,7 @@ void E_BossLayer::Swap(E_BossLayer* other) {
     std::swap(m_unlockcondition_, other->m_unlockcondition_);
     std::swap(m_mapid_, other->m_mapid_);
     std::swap(m_maxlv_, other->m_maxlv_);
+    std::swap(m_unlimit_, other->m_unlimit_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

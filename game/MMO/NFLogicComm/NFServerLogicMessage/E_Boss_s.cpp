@@ -311,6 +311,7 @@ int E_BossLayer_s::CreateInit() {
 	m_subType = (int32_t)0;
 	m_mapID = (int32_t)0;
 	m_maxlv = (int32_t)0;
+	m_unLimit = (int32_t)0;
 	return 0;
 }
 
@@ -327,6 +328,7 @@ void E_BossLayer_s::write_to_pbmsg(::proto_ff::E_BossLayer & msg) const {
 	msg.set_m_unlockcondition(m_unlockCondition.data());
 	msg.set_m_mapid((int32_t)m_mapID);
 	msg.set_m_maxlv((int32_t)m_maxlv);
+	msg.set_m_unlimit((int32_t)m_unLimit);
 }
 
 void E_BossLayer_s::read_from_pbmsg(const ::proto_ff::E_BossLayer & msg) {
@@ -338,6 +340,7 @@ void E_BossLayer_s::read_from_pbmsg(const ::proto_ff::E_BossLayer & msg) {
 	m_unlockCondition = msg.m_unlockcondition();
 	m_mapID = msg.m_mapid();
 	m_maxlv = msg.m_maxlv();
+	m_unLimit = msg.m_unlimit();
 }
 
 Sheet_BossLayer_s::Sheet_BossLayer_s() {

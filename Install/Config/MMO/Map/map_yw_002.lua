@@ -1,2 +1,2 @@
-MapWidth = 217
-MapHight = 186
+MapWidth = 220
+MapHight = 233

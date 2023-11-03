@@ -160,6 +160,7 @@ namespace proto_ff_s {
 		NFShmString<64> m_unlockCondition;//解锁条件
 		int32_t m_mapID;//地图ID
 		int32_t m_maxlv;//最大进入等级
+		int32_t m_unLimit;//是否无限次数
 
 		virtual void write_to_pbmsg(::proto_ff::E_BossLayer & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_BossLayer & msg);

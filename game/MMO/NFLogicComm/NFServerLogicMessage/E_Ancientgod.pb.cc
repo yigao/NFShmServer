@@ -599,18 +599,18 @@ void protobuf_AddDesc_E_5fAncientgod_2eproto() {
     "e\030\002 \001(\005B\004\302\377\024\000\"\200\001\n\017E_AncientgodAtt\022\032\n\004m_i"
     "d\030\001 \001(\005B\014\302\377\024\010\345\261\236\346\200\247ID\022Q\n\013m_attribute\030\002 \003"
     "(\0132&.proto_ff.E_AncientgodAttAttributeDe"
-    "scB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\005\"T\n\023Sheet_Ancien"
-    "tgodAtt\022=\n\024E_AncientgodAtt_List\030\001 \003(\0132\031."
-    "proto_ff.E_AncientgodAttB\004\210\301\024 \"Y\n$E_Anci"
-    "entgodStarcollectAttributeDesc\022\033\n\007m_valu"
-    "e\030\001 \001(\005B\n\302\377\024\006\346\225\260\345\200\274\022\024\n\006m_type\030\002 \001(\005B\004\302\377\024"
-    "\000\"\216\001\n\027E_AncientgodStarcollect\022\030\n\004m_id\030\001 "
-    "\001(\005B\n\302\377\024\006\346\230\237\346\225\260\022Y\n\013m_attribute\030\002 \003(\0132..p"
-    "roto_ff.E_AncientgodStarcollectAttribute"
-    "DescB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\002\"m\n\033Sheet_Anci"
-    "entgodStarcollect\022N\n\034E_AncientgodStarcol"
-    "lect_List\030\001 \003(\0132!.proto_ff.E_AncientgodS"
-    "tarcollectB\005\210\301\024\200\010", 3057);
+    "scB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\005\"U\n\023Sheet_Ancien"
+    "tgodAtt\022>\n\024E_AncientgodAtt_List\030\001 \003(\0132\031."
+    "proto_ff.E_AncientgodAttB\005\210\301\024\200\020\"Y\n$E_Anc"
+    "ientgodStarcollectAttributeDesc\022\033\n\007m_val"
+    "ue\030\001 \001(\005B\n\302\377\024\006\346\225\260\345\200\274\022\024\n\006m_type\030\002 \001(\005B\004\302\377"
+    "\024\000\"\216\001\n\027E_AncientgodStarcollect\022\030\n\004m_id\030\001"
+    " \001(\005B\n\302\377\024\006\346\230\237\346\225\260\022Y\n\013m_attribute\030\002 \003(\0132.."
+    "proto_ff.E_AncientgodStarcollectAttribut"
+    "eDescB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\002\"m\n\033Sheet_Anc"
+    "ientgodStarcollect\022N\n\034E_AncientgodStarco"
+    "llect_List\030\001 \003(\0132!.proto_ff.E_Ancientgod"
+    "StarcollectB\005\210\301\024\200\010", 3058);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Ancientgod.proto", &protobuf_RegisterTypes);
   E_AncientgodAncientgodFraDesc::default_instance_ = new E_AncientgodAncientgodFraDesc();

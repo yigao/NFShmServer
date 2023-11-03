@@ -83,6 +83,7 @@ message E_BossLayer
 	optional string m_unlockCondition = 6[(yd_fieldoptions.field_cname) = "解锁条件", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_mapID = 7[(yd_fieldoptions.field_cname) = "地图ID"];
 	optional int32 m_maxlv = 8[(yd_fieldoptions.field_cname) = "最大进入等级"];
+	optional int32 m_unLimit = 9[(yd_fieldoptions.field_cname) = "是否无限次数"];
 }
 
 

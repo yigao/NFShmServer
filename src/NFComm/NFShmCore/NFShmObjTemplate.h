@@ -13,6 +13,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFShmCore/NFShmObjIterator.h"
 #include "NFISharedMemModule.h"
+#include "NFComm/NFShmCore/NFShmMgr.h"
 
 template<typename className, int classType, typename parentClassName>
 class NFShmObjTemplate : public parentClassName
@@ -23,6 +24,33 @@ public:
     typedef NFShmObjIterator<className, const className &, const className *, NFISharedMemModule> const_iterator;
     typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
     typedef std::reverse_iterator<iterator> reverse_iterator;
+public:
+    NFShmObjTemplate()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+    
+    int CreateInit()
+    {
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+    
+    virtual ~NFShmObjTemplate()
+    {
+    
+    }
     
     static int GetStaticItemCount(NFIPluginManager *pPluginManager)
     {
@@ -182,7 +210,34 @@ public:
     typedef NFShmObjIterator<className, const className &, const className *, NFISharedMemModule> const_iterator;
     typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
     typedef std::reverse_iterator<iterator> reverse_iterator;
+public:
+    NFShmObjTemplateNoParent()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
     
+    int CreateInit()
+    {
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+    
+    virtual ~NFShmObjTemplateNoParent()
+    {
+    
+    }
+public:
     static int GetStaticItemCount(NFIPluginManager *pPluginManager)
     {
         return pPluginManager->FindModule<NFISharedMemModule>()->GetItemCount(classType);
@@ -340,7 +395,34 @@ public:
     typedef NFShmObjIterator<className, const className &, const className *, NFISharedMemModule> const_iterator;
     typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
     typedef std::reverse_iterator<iterator> reverse_iterator;
+public:
+    NFShmObjGlobalTemplate()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
     
+    int CreateInit()
+    {
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+    
+    virtual ~NFShmObjGlobalTemplate()
+    {
+    
+    }
+public:
     static int GetStaticItemCount()
     {
         return NFGlobalSystem::Instance()->GetGlobalPluginManager()->FindModule<NFISharedMemModule>()->GetItemCount(classType);

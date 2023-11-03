@@ -15,55 +15,55 @@
 #include "NFComm/NFCore/NFRandom.hpp"
 #include "NFComm/NFCore/NFCommonApi.h"
 #include "NFLogicCommon/NFCharactorDefine.h"
+#include "DescStore/AttributeAttributeDesc.h"
+#include "NFGameCommon/NFMath.h"
 
-NFItem::NFItem()
+const proto_ff_s::E_EquipEquip_s *NFItemBase::GetEquipCfg() const
 {
-    if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
-    {
-        CreateInit();
-    }
-    else
-    {
-        ResumeInit();
-    }
+    return EquipEquipDesc::Instance()->GetDesc(m_nItemID);
 }
 
-NFItem::~NFItem()
+const proto_ff_s::E_ItemItem_s *NFItemBase::GetItemCfg() const
 {
+    return ItemItemDesc::Instance()->GetDesc(m_nItemID);
 }
 
-int NFItem::CreateInit()
+bool NFItemBase::IsProf(int32_t profId) const
 {
-    m_nIndex = 0;              //索引
-    m_nItemID = 0;             //物品ID
-    m_nNum = 0;                //物品数量
-    m_byBind = 0;                //绑定状态
-    m_byType = 0;               //类型
-    m_nLevel = 0;              //等级 预留(装备里，这个等级是玩家等级)
-    m_nExpiredTime = 0;        //过期时间,0,永不过期
-    //道具也有评分，放在基类里
+    auto pEquipCfg = GetEquipCfg();
+    CHECK_EXPR(pEquipCfg, false, "");
     
-    m_baseAttrPercent = 0;
-    m_starAttrPercent = 0;
-    m_godAttrPercent = 0;
-    return 0;
+    VEC_INT32 vecProfession;;
+    NFCommonApi::SplitStrToVecInt(pEquipCfg->m_profession.data(), ";", &vecProfession);
+    if (std::find(vecProfession.begin(), vecProfession.end(), profId) == vecProfession.end() &&
+        std::find(vecProfession.begin(), vecProfession.end(), 0) == vecProfession.end())
+    {
+        return false;
+    }
+    
+    return true;
 }
 
-int NFItem::ResumeInit()
+const proto_ff_s::E_EquipAttribute_s *NFItemBase::GetEquipAttributeCfg() const
 {
-    return 0;
+    auto pEquipCfg = GetEquipCfg();
+    if (pEquipCfg)
+    {
+        return EquipAttributeDesc::Instance()->GetDesc(pEquipCfg->m_attributeID);
+    }
+    return NULL;
 }
 
-bool NFItem::IsExpire() const
+bool NFItemBase::IsExpire() const
 {
-    if (m_nExpiredTime != 0 && m_nExpiredTime < NFTime::Now().UnixSec())
+    if (m_nExpiredTime != 0 && m_nExpiredTime < (uint64_t)NFTime::Now().UnixSec())
     {
         return true;
     }
     return false;
 }
 
-bool NFItem::AddNum(int64_t nAddNum)
+bool NFItemBase::AddNum(int64_t nAddNum)
 {
     if (nAddNum > 0)
     {
@@ -93,7 +93,38 @@ bool NFItem::AddNum(int64_t nAddNum)
     return true;
 }
 
-bool NFItem::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum/* = 1*/, int8_t byBind /* = (uint8_t)EBindState::EBindState_no*/)
+NFItem::NFItem()
+{
+    if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+    {
+        CreateInit();
+    }
+    else
+    {
+        ResumeInit();
+    }
+}
+
+NFItem::~NFItem()
+{
+}
+
+int NFItem::CreateInit()
+{
+    
+    m_baseAttrPercent = 0;
+    m_starAttrPercent = 0;
+    m_godAttrPercent = 0;
+    return 0;
+}
+
+int NFItem::ResumeInit()
+{
+    return 0;
+}
+
+
+bool NFItemBase::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum, int8_t byBind)
 {
     m_nIndex = nIndex;
     m_nItemID = nItemID;
@@ -116,6 +147,8 @@ bool NFItem::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64
     auto pEquipCfg = GetEquipCfg();
     CHECK_EXPR(pEquipCfg, false, "itemId:{} not find, not item, not equp", nItemID);
     
+    m_byType = proto_ff::EItemType_Equip;
+    
     if (!(pEquipCfg->m_type == proto_ff::EPackageType_shenji_aq ||
         pEquipCfg->m_type == proto_ff::EPackageType_shenji_lj ||
         pEquipCfg->m_type == proto_ff::EPackageType_turn ||
@@ -132,16 +165,10 @@ bool NFItem::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64
         m_nExpiredTime = NFTime::Now().UnixSec() + pEquipCfg->m_time;
     }
     
-    CHECK_EXPR(genBaseAttr(itemCond), false, "");
-    CHECK_EXPR(genGodPinAttr(itemCond), false, "");
-    CHECK_EXPR(genGodZunAttr(itemCond), false, "");
-    
-    GenBaseScore();
-    
     return true;
 }
 
-void NFItem::UnInit()
+void NFItemBase::UnInit()
 {
     m_nIndex = 0;
     m_nItemID = 0;
@@ -152,27 +179,7 @@ void NFItem::UnInit()
     m_nExpiredTime = 0;
 }
 
-const proto_ff_s::E_EquipEquip_s *NFItem::GetEquipCfg() const
-{
-    return EquipEquipDesc::Instance()->GetDesc(m_nItemID);
-}
-
-const proto_ff_s::E_ItemItem_s *NFItem::GetItemCfg() const
-{
-    return ItemItemDesc::Instance()->GetDesc(m_nItemID);
-}
-
-const proto_ff_s::E_EquipAttribute_s *NFItem::GetEquipAttributeCfg() const
-{
-    auto pEquipCfg = GetEquipCfg();
-    if (pEquipCfg)
-    {
-        return EquipAttributeDesc::Instance()->GetDesc(pEquipCfg->m_attributeID);
-    }
-    return NULL;
-}
-
-bool NFItem::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
+bool NFItemBase::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
 {
     m_nIndex = protoItem.index();
     m_nItemID = protoItem.item_id();
@@ -180,6 +187,57 @@ bool NFItem::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
     m_byBind = protoItem.bind();
     m_nLevel = protoItem.level();
     m_nExpiredTime = protoItem.expiretime();
+    return true;
+}
+
+bool NFItemBase::ToItemProto(proto_ff::ItemProtoInfo &protoItem)
+{
+    return SaveDB(protoItem);
+}
+
+bool NFItemBase::SaveDB(proto_ff::ItemProtoInfo &protoItem)
+{
+    protoItem.set_index(m_nIndex);
+    protoItem.set_item_id(m_nItemID);
+    protoItem.set_item_num(m_nNum);
+    protoItem.set_bind(m_byBind);
+    protoItem.set_level(m_nLevel);
+    protoItem.set_expiretime(m_nExpiredTime);
+    return true;
+}
+
+void NFItemBase::GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level)
+{
+
+}
+
+uint64_t NFItemBase::GetItemFight(int32_t level)
+{
+    return 0;
+}
+
+bool NFItem::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum/* = 1*/, int8_t byBind /* = (uint8_t)EBindState::EBindState_no*/)
+{
+    CHECK_EXPR(NFItemBase::Init(nIndex, nItemID, itemCond, nNum, byBind), false, "nIndex:{}, nItemID:{}, nNum:{}, byBind:{}", nIndex, nItemID, nNum, byBind);
+    
+    CHECK_EXPR(genBaseAttr(itemCond), false, "");
+    CHECK_EXPR(genGodPinAttr(itemCond), false, "");
+    CHECK_EXPR(genGodZunAttr(itemCond), false, "");
+    
+    GenBaseScore();
+    
+    return true;
+}
+
+
+void NFItem::UnInit()
+{
+    NFItemBase::UnInit();
+}
+
+bool NFItem::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
+{
+    NFItemBase::FromItemProto(protoItem);
     
     auto pEquipCfg = GetEquipCfg();
     if (pEquipCfg)
@@ -203,7 +261,7 @@ bool NFItem::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
 
 bool NFItem::ToItemProto(proto_ff::ItemProtoInfo &protoItem)
 {
-    SaveDB(protoItem);
+    NFItemBase::ToItemProto(protoItem);
     
     auto pEquipCfg = GetEquipCfg();
     if (pEquipCfg)
@@ -246,13 +304,7 @@ bool NFItem::ToItemProto(proto_ff::ItemProtoInfo &protoItem)
 
 bool NFItem::SaveDB(proto_ff::ItemProtoInfo &protoItem)
 {
-    protoItem.set_index(m_nIndex);
-    protoItem.set_item_id(m_nItemID);
-    protoItem.set_item_num(m_nNum);
-    protoItem.set_bind(m_byBind);
-    protoItem.set_level(m_nLevel);
-    protoItem.set_expiretime(m_nExpiredTime);
-    
+    NFItemBase::SaveDB(protoItem);
     auto pEquipCfg = GetEquipCfg();
     if (pEquipCfg)
     {
@@ -455,20 +507,26 @@ void NFItem::GenBaseScore()
     }
 }
 
-bool NFItem::IsProf(int32_t profId) const
+uint64_t NFItem::GetItemFight(int32_t level)
 {
-    auto pEquipCfg = GetEquipCfg();
-    CHECK_EXPR(pEquipCfg, false, "");
+    int32_t itemType = GetType();
+    if (proto_ff::EItemType_Equip != itemType)
+        return 0;
     
-    VEC_INT32 vecProfession;;
-    NFCommonApi::SplitStrToVecInt(pEquipCfg->m_profession.data(), ";", &vecProfession);
-    if (std::find(vecProfession.begin(), vecProfession.end(), profId) == vecProfession.end() &&
-        std::find(vecProfession.begin(), vecProfession.end(), 0) == vecProfession.end())
+    MAP_INT32_INT32 attrs;
+    GetAllAttr(attrs, level);
+    uint64_t fight = 0;
+    for (auto iter = attrs.begin(); iter != attrs.end(); iter++)
     {
-        return false;
+        if (iter->first <= 0 || iter->second >= 0)
+            continue;
+        
+        auto pcfg = AttributeAttributeDesc::Instance()->GetDesc(iter->first);
+        if (nullptr == pcfg || pcfg->m_power <= EPS)
+            continue;
+        fight += (int64_t) (iter->second * pcfg->m_power);
     }
-    
-    return true;
+    return fight;
 }
 
 bool NFDeityItem::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum, int8_t byBind)
@@ -677,7 +735,7 @@ void NFLongHunItem::GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level)
     NFItem::GetAllAttr(attrs, level);
 }
 
-bool ShengjiItem::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum, int8_t byBind)
+bool NFShengjiItem::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum, int8_t byBind)
 {
     CHECK_EXPR(NFItem::Init(nIndex, nItemID, itemCond, nNum, byBind), false, "");
     auto pEquipCfg = GetEquipCfg();
@@ -692,12 +750,12 @@ bool ShengjiItem::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, u
     return true;
 }
 
-void ShengjiItem::UnInit()
+void NFShengjiItem::UnInit()
 {
     NFItem::UnInit();
 }
 
-bool ShengjiItem::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
+bool NFShengjiItem::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
 {
     NFItem::FromItemProto(protoItem);
     m_shengji.m_makeid = protoItem.makeid();
@@ -705,12 +763,12 @@ bool ShengjiItem::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
     return true;
 }
 
-bool ShengjiItem::ToItemProto(proto_ff::ItemProtoInfo &protoItem)
+bool NFShengjiItem::ToItemProto(proto_ff::ItemProtoInfo &protoItem)
 {
     return NFItem::ToItemProto(protoItem);
 }
 
-bool ShengjiItem::SaveDB(proto_ff::ItemProtoInfo &protoItem)
+bool NFShengjiItem::SaveDB(proto_ff::ItemProtoInfo &protoItem)
 {
     NFItem::SaveDB(protoItem);
     protoItem.set_makeid(m_shengji.m_makeid);
@@ -718,7 +776,7 @@ bool ShengjiItem::SaveDB(proto_ff::ItemProtoInfo &protoItem)
     return true;
 }
 
-void ShengjiItem::GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level)
+void NFShengjiItem::GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level)
 {
     NFItem::GetAllAttr(attrs, level);
 }

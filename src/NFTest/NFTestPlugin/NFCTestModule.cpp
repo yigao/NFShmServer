@@ -52,10 +52,10 @@ NFCTestModule::~NFCTestModule()
 
 bool NFCTestModule::Init()
 {
-    //TestShmHashMap();
+    TestShmHashMap();
     //TestShmHashMap2();
 
-	SetTimer(1, 1000, 1);
+	//SetTimer(1, 1000, 1);
 	return true;
 }
 

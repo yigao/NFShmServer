@@ -960,7 +960,7 @@ public:
 
         storesvr_sqldata::storesvr_execute selobj;
         std::string clsname = NFProtobufCommon::GetProtoBaseName(data);
-        std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
+        //std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
         CHECK_EXPR(!clsname.empty(), -1, "no clsname ........");
         NFStoreProtoCommon::storesvr_execute(selobj, tempDBName, clsname, mod_key, sql);
         storesvr_sqldata::storesvr_execute_res selobjRes;

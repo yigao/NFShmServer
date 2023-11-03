@@ -2040,6 +2040,7 @@ int E_MountEquippart_s::CreateInit() {
 	m_honeOpen = (int32_t)0;
 	m_item = (int32_t)0;
 	m_num = (int32_t)0;
+	m_itemTips = (int32_t)0;
 	return 0;
 }
 
@@ -2053,6 +2054,7 @@ void E_MountEquippart_s::write_to_pbmsg(::proto_ff::E_MountEquippart & msg) cons
 	msg.set_m_honeopen((int32_t)m_honeOpen);
 	msg.set_m_item((int32_t)m_item);
 	msg.set_m_num((int32_t)m_num);
+	msg.set_m_itemtips((int32_t)m_itemTips);
 }
 
 void E_MountEquippart_s::read_from_pbmsg(const ::proto_ff::E_MountEquippart & msg) {
@@ -2061,6 +2063,7 @@ void E_MountEquippart_s::read_from_pbmsg(const ::proto_ff::E_MountEquippart & ms
 	m_honeOpen = msg.m_honeopen();
 	m_item = msg.m_item();
 	m_num = msg.m_num();
+	m_itemTips = msg.m_itemtips();
 }
 
 Sheet_MountEquippart_s::Sheet_MountEquippart_s() {

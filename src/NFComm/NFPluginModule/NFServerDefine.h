@@ -245,7 +245,7 @@ struct NFDataPackage
         return NF_FORMAT("(mdouleId:{} msgId:{} param1:{} param2:{} nMsgLen:{})", mModuleId, nMsgId, nParam1, nParam2, nMsgLen);
     }
 
-    virtual void Clear()
+    void Clear()
     {
         mModuleId = 0;
         nMsgId = 0;

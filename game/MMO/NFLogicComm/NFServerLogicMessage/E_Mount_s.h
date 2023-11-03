@@ -983,6 +983,7 @@ namespace proto_ff_s {
 		int32_t m_honeOpen;//部位解锁类型
 		int32_t m_item;//所需物品
 		int32_t m_num;//数量
+		int32_t m_itemTips;//展示tips
 
 		virtual void write_to_pbmsg(::proto_ff::E_MountEquippart & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_MountEquippart & msg);

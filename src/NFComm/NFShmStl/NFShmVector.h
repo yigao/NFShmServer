@@ -36,7 +36,7 @@ public:
 
     ~NFShmVectorBase()
     {
-        memset(m_mem, 0, ARRAYSIZE_UNSAFE(m_mem));
+        memset(m_mem, 0, sizeof(m_mem));
         m_size = 0;
         m_data = NULL;
     }
@@ -44,7 +44,7 @@ public:
     int CreateInit()
     {
         m_size = 0;
-        memset(m_mem, 0, ARRAYSIZE_UNSAFE(m_mem));
+        memset(m_mem, 0, sizeof(m_mem));
         m_data = (Tp*)m_mem;
         return 0;
     }
@@ -301,7 +301,7 @@ public:
 
     int push_back(const Tp &__x)
     {
-        if (m_data + m_size != m_data + MAX_SIZE)
+        if (m_size < MAX_SIZE)
         {
             std::_Construct(m_data + m_size, __x);
             ++m_size;
@@ -321,7 +321,7 @@ public:
 
     int push_back()
     {
-        if (m_data + m_size != m_data + MAX_SIZE)
+        if (m_size < MAX_SIZE)
         {
             std::_Construct(m_data + m_size);
             ++m_size;
@@ -347,7 +347,7 @@ public:
     iterator insert(iterator __position, const Tp &__x)
     {
         size_type __n = __position - begin();
-        if (m_data + m_size != m_data + MAX_SIZE && __position == end())
+        if (m_size < MAX_SIZE && __position == end())
         {
             std::_Construct(m_data + m_size, __x);
             ++m_size;
@@ -370,7 +370,7 @@ public:
     iterator insert(iterator __position)
     {
         size_type __n = __position - begin();
-        if (m_data + m_size != m_data + MAX_SIZE && __position == end())
+        if (m_size <  MAX_SIZE && __position == end())
         {
             std::_Construct(m_data + m_size);
             ++m_size;
@@ -787,7 +787,7 @@ void NFShmVector<_Tp, MAX_SIZE>::_M_fill_assign(size_t __n, const value_type &__
 template<class _Tp, size_t MAX_SIZE>
 int NFShmVector<_Tp, MAX_SIZE>::_M_insert_aux(iterator __position, const _Tp &__x)
 {
-    CHECK_EXPR(m_data + m_size != m_data + MAX_SIZE, -1, "The Vector No Enough Space!");
+    CHECK_EXPR(m_size < MAX_SIZE, -1, "The Vector No Enough Space!");
     std::_Construct(m_data + m_size, *(m_data + m_size - 1));
 
     ++m_size;
@@ -800,7 +800,7 @@ int NFShmVector<_Tp, MAX_SIZE>::_M_insert_aux(iterator __position, const _Tp &__
 template<class _Tp, size_t MAX_SIZE>
 int NFShmVector<_Tp, MAX_SIZE>::_M_insert_aux(iterator __position)
 {
-    CHECK_EXPR(m_data + m_size != m_data + MAX_SIZE, -1, "The Vector No Enough Space!");
+    CHECK_EXPR(m_size < MAX_SIZE, -1, "The Vector No Enough Space!");
     std::_Construct(m_data + m_size, *(m_data + m_size - 1));
 
     ++m_size;
@@ -815,7 +815,7 @@ void NFShmVector<_Tp, MAX_SIZE>::_M_fill_insert(iterator __position, size_type _
 {
     if (__n != 0)
     {
-        CHECK_EXPR_NOT_RET(m_data + m_size != m_data + MAX_SIZE, "The Vector No Enough Space! Insert Fail! size:{} max_size:{}", m_size, MAX_SIZE);
+        CHECK_EXPR_NOT_RET(m_size < MAX_SIZE, "The Vector No Enough Space! Insert Fail! size:{} max_size:{}", m_size, MAX_SIZE);
         if (size_type(MAX_SIZE - m_size) < __n)
         {
             NFLogWarning(NF_LOG_SYSTEMLOG, 0, "The Vector Left Space:{} Not Enough! Can't Insert {} Element, Only {}", MAX_SIZE - m_size, __n,
@@ -851,7 +851,7 @@ void NFShmVector<_Tp, MAX_SIZE>::insert(iterator __position,
 {
     if (__first != __last)
     {
-        CHECK_EXPR_NOT_RET(m_data + m_size != m_data + MAX_SIZE, "The Vector No Enough Space! Insert Fail!");
+        CHECK_EXPR_NOT_RET(m_size < MAX_SIZE, "The Vector No Enough Space! Insert Fail!");
         size_type __n = std::distance(__first, __last);
 
         if (size_type(MAX_SIZE - m_size) < __n)
@@ -956,7 +956,7 @@ void NFShmVector<_Tp, MAX_SIZE>::_M_range_insert(iterator __position,
                                                  _ForwardIterator __last,
                                                  std::forward_iterator_tag)
 {
-    CHECK_EXPR_NOT_RET(m_data + m_size != m_data + MAX_SIZE, "The Vector No Enough Space! Insert Fail!");
+    CHECK_EXPR_NOT_RET(m_size < MAX_SIZE, "The Vector No Enough Space! Insert Fail!");
     if (__first != __last)
     {
         size_type __n = std::distance(__first, __last);

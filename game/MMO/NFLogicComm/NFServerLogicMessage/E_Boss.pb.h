@@ -1077,6 +1077,13 @@ class E_BossLayer : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_maxlv() const;
   inline void set_m_maxlv(::google::protobuf::int32 value);
 
+  // optional int32 m_unLimit = 9;
+  inline bool has_m_unlimit() const;
+  inline void clear_m_unlimit();
+  static const int kMUnLimitFieldNumber = 9;
+  inline ::google::protobuf::int32 m_unlimit() const;
+  inline void set_m_unlimit(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.E_BossLayer)
  private:
   inline void set_has_m_id();
@@ -1095,6 +1102,8 @@ class E_BossLayer : public ::google::protobuf::Message {
   inline void clear_has_m_mapid();
   inline void set_has_m_maxlv();
   inline void clear_has_m_maxlv();
+  inline void set_has_m_unlimit();
+  inline void clear_has_m_unlimit();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -1106,9 +1115,10 @@ class E_BossLayer : public ::google::protobuf::Message {
   ::std::string* m_unlockcondition_;
   ::google::protobuf::int32 m_mapid_;
   ::google::protobuf::int32 m_maxlv_;
+  ::google::protobuf::int32 m_unlimit_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fBoss_2eproto();
   friend void protobuf_AssignDesc_E_5fBoss_2eproto();
@@ -2425,6 +2435,28 @@ inline ::google::protobuf::int32 E_BossLayer::m_maxlv() const {
 inline void E_BossLayer::set_m_maxlv(::google::protobuf::int32 value) {
   set_has_m_maxlv();
   m_maxlv_ = value;
+}
+
+// optional int32 m_unLimit = 9;
+inline bool E_BossLayer::has_m_unlimit() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void E_BossLayer::set_has_m_unlimit() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void E_BossLayer::clear_has_m_unlimit() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void E_BossLayer::clear_m_unlimit() {
+  m_unlimit_ = 0;
+  clear_has_m_unlimit();
+}
+inline ::google::protobuf::int32 E_BossLayer::m_unlimit() const {
+  return m_unlimit_;
+}
+inline void E_BossLayer::set_m_unlimit(::google::protobuf::int32 value) {
+  set_has_m_unlimit();
+  m_unlimit_ = value;
 }
 
 // -------------------------------------------------------------------

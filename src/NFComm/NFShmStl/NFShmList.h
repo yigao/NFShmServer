@@ -202,7 +202,7 @@ public:
         clear();
         m_size = 0;
         m_freeStart = 0;
-        memset(m_mem, 0, ARRAYSIZE_UNSAFE(m_mem));
+        memset(m_mem, 0, sizeof(m_mem));
         m_node = NULL;
     }
 
@@ -210,7 +210,7 @@ public:
     {
         m_size = 0;
         m_freeStart = 0;
-        memset(m_mem, 0, ARRAYSIZE_UNSAFE(m_mem));
+        memset(m_mem, 0, sizeof(m_mem));
         m_node = (NFShmListNode<Tp>*)m_mem;
 
         for (size_t i = 0; i < MAX_SIZE; i++)

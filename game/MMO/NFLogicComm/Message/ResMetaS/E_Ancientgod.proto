@@ -126,7 +126,7 @@ message E_AncientgodAtt
 
 message Sheet_AncientgodAtt
 {
-	repeated E_AncientgodAtt E_AncientgodAtt_List = 1[(yd_fieldoptions.field_arysize)=32];
+	repeated E_AncientgodAtt E_AncientgodAtt_List = 1[(yd_fieldoptions.field_arysize)=2048];
 }
 
 message E_AncientgodStarcollectAttributeDesc

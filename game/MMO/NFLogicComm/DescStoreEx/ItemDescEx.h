@@ -13,6 +13,8 @@
 #include "Com.pb.h"
 #include "DescStore/ItemItemDesc.h"
 #include "DescStore/EquipEquipDesc.h"
+#include "DescStore/AvatarChangeDesc.h"
+#include "E_Condition_s.h"
 
 #define MAX_NATURAL_BIND_ITEM_NUM (MAX_ITEM_ITEM_NUM/10)
 #define MAX_MAP_LIMIT_ITEM_NUM (MAX_ITEM_ITEM_NUM/50)
@@ -27,6 +29,8 @@
 
 #define MAX_EQUIP_SMELT_EQUIP_NUM 100
 #define MAX_EQUIP_SMELT_EQUIP_MAX_ITEM_NUM 2
+
+#define MAX_DY_EXP_ITEM_NUM 100
 
 //装备分级   星级、阶级、品质、职业、部位  组合成一个key，key对应的列表里面是满足key条件的装备ID
 #define DE_COMPOSE_KEY(star,rank,qua,prof,pos) ((star << 32) | (rank << 24)| (qua << 16) | (prof << 8) | pos)
@@ -45,6 +49,11 @@ class ItemDescEx : public NFShmObjGlobalTemplate<ItemDescEx, EOT_CONST_ITEM_DESC
     typedef NFShmHashMap<uint64_t, NFShmPair<uint32_t, uint32_t>, MAX_REPLACE_ITEM_NUM> ItemReplaceMap;
     typedef NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, MAX_DECOMPOSE_ITEM_ONE_KEY_EQUIP_NUM>, MAX_DECOMPOSE_ITEM_KEY_NUM> ItemDecomposeMap;
     typedef NFShmHashMap<uint64_t, NFShmHashMap<uint64_t, uint64_t, MAX_EQUIP_SMELT_EQUIP_MAX_ITEM_NUM>, MAX_EQUIP_SMELT_EQUIP_NUM> EqupSmeltMap;
+    typedef NFShmHashMap<uint64_t, uint64_t, MAX_AVATAR_CHANGE_NUM> TsActiveMap;
+    typedef NFShmHashMap<uint64_t, uint32_t, MAX_DY_EXP_ITEM_NUM> DyExpItemMap;
+    typedef NFShmHashMap<uint64_t, NFShmHashSet<int64_t, 5>, 100> ItemUseConditionMap;
+    typedef NFShmHashMap<uint64_t, uint64_t, 100> ItemAddMissionCheckMap;
+    typedef NFShmHashMap<uint64_t, NFShmHashMap<uint64_t, uint64_t, 10>, 100> FixAttrMap;
 public:
 	ItemDescEx();
 	virtual ~ItemDescEx();
@@ -54,7 +63,7 @@ public:
 	virtual int Load() override;
 	virtual int CheckWhenAllDataLoaded() override;
 public:
-    const VEC_INT64 *GetItemFuncParamCfg(uint64_t nItemId);		//获取物品功能配置参数
+    const NFShmVector<int64_t, MAX_ITEM_FUNC_PARAM_NUM> *GetItemFuncParamCfg(uint64_t nItemId);		//获取物品功能配置参数
     int32_t GetItemOrGroupCd(uint64_t itemId_cdGroup);			//获取物品CD
     bool IsNautralBind(uint64_t nItemId);						//是否天然绑定物品
     bool IsMatchProf(uint64_t itemid, uint8_t prof);			//职业是否匹配物品的职业限制
@@ -65,11 +74,11 @@ public:
     uint32_t AttrIdByItem(uint64_t itemId);
     //根据属性ID 获取对应的物品ID
     uint64_t ItemIdByAttrId(uint32_t attrId);
-    const MAP_UINT64_UINT64* GetItemFixAttr(uint64_t nItemId);
+    const NFShmHashMap<uint64_t, uint64_t, 10>* GetItemFixAttr(uint64_t nItemId);
     //获取装备熔炼的材料
-    const MAP_UINT64_UINT64 *GetSmeltMaterialCfg(uint64_t equipid);
+    const NFShmHashMap<uint64_t, uint64_t, MAX_EQUIP_SMELT_EQUIP_MAX_ITEM_NUM> *GetSmeltMaterialCfg(uint64_t equipid);
     //获取需要校验的 使用物品添加任务
-    const MAP_UINT64_INT64 *GetChkItemAddMission() { return &m_mapItemAddMissionCheck; }
+    const ItemAddMissionCheckMap *GetChkItemAddMission() { return &m_mapItemAddMissionCheck; }
     //校验是否满足物品使用条件
     bool CheckItemUseCond(uint64_t itemid,proto_ff::StatisticDataProto &proto);
     int32_t GetEquipStoveExp(int32_t wearQuality, int32_t quality);
@@ -80,8 +89,9 @@ public:
     int32_t GetDynExpType(uint64_t itemId);
 private:
     bool Process();
-    bool ProcessStoveExp();
     bool ProcessTSActive();
+    //是否满足物品使用条件
+    bool CheckItemUseCond(const proto_ff_s::E_ConditionCondition_s *pCondCfg, proto_ff::StatisticDataProto &proto);
 private:
     ItemFuncMap m_mapItemFunc;					//物品表功能参数解析
     ItemProfLimitMap m_mapItemProfLimit;			//物品的职业限制
@@ -93,17 +103,15 @@ private:
     uint16_t m_virOffset[VIR_ITEM_ID_MAX_OFFSET+1]{};		//虚拟物品ID最大偏移（ 物品ID对应的偏移 = 物品ID - m_virMinId ）
     uint16_t m_virAttr[proto_ff::A_COMMON_END+1]{};		//属性ID对应的虚拟物品ID的偏移
     
-    MAP_UINT64_MAP_UINT64_UINT64 m_mapFixAttr;			//物品加永久属性
+    FixAttrMap m_mapFixAttr;			//物品加永久属性
     ItemDecomposeMap m_mapDecompose;				//分解需要的数据
     
-    
     EqupSmeltMap  m_mapEquipSmelt;		//装备熔炼配置
-    MAP_UINT64_MAP_UINT64_UINT64  m_mapEquipStoveExp;   //熔炉配置
     
-    MAP_UINT64_INT64  m_mapItemAddMissionCheck;			//使用物品获得任务，需要校验的物品对应的任务ID
+    ItemAddMissionCheckMap  m_mapItemAddMissionCheck;			//使用物品获得任务，需要校验的物品对应的任务ID
     
-    MAP_UINT64_SET_INT64 m_mapItemUseCond;				//物品使用条件
+    ItemUseConditionMap m_mapItemUseCond;				//物品使用条件
     ItemReplaceMap m_replaceItem; //ID -> replace itemid , num
-    MAP_UINT64_UINT32 m_ts_active_id;					//天神激活物品对应天神id
-    MAP_UINT64_UINT32 m_dynexp_items;
+    TsActiveMap m_ts_active_id;					//天神激活物品对应天神id
+    DyExpItemMap m_dynexp_items;
 };

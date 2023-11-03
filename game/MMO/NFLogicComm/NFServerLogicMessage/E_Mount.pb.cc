@@ -1204,12 +1204,13 @@ void protobuf_AssignDesc_E_5fMount_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_MountEquiptopvalue));
   E_MountEquippart_descriptor_ = file->message_type(55);
-  static const int E_MountEquippart_offsets_[5] = {
+  static const int E_MountEquippart_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MountEquippart, m_part_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MountEquippart, m_quality_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MountEquippart, m_honeopen_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MountEquippart, m_item_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MountEquippart, m_num_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MountEquippart, m_itemtips_),
   };
   E_MountEquippart_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -1969,57 +1970,58 @@ void protobuf_AddDesc_E_5fMount_2eproto() {
     "\252\201\347\240\264\022$\n\007m_value\030\004 \001(\005B\023\302\377\024\017\345\210\235\345\247\213\350\277\233\345\272\246"
     "\345\200\274\"d\n\030Sheet_MountEquiptopvalue\022H\n\031E_Mou"
     "ntEquiptopvalue_List\030\001 \003(\0132\036.proto_ff.E_"
-    "MountEquiptopvalueB\005\210\301\024\200\001\"\274\001\n\020E_MountEqu"
+    "MountEquiptopvalueB\005\210\301\024\200\001\"\340\001\n\020E_MountEqu"
     "ippart\022\032\n\006m_part\030\001 \001(\005B\n\302\377\024\006\351\203\250\344\275\215\022#\n\tm_"
     "quality\030\002 \001(\005B\020\302\377\024\014\345\214\226\351\262\262\345\223\201\350\264\250\022*\n\nm_hon"
     "eOpen\030\003 \001(\005B\026\302\377\024\022\351\203\250\344\275\215\350\247\243\351\224\201\347\261\273\345\236\213\022 \n\006m"
     "_item\030\004 \001(\005B\020\302\377\024\014\346\211\200\351\234\200\347\211\251\345\223\201\022\031\n\005m_num\030\005"
-    " \001(\005B\n\302\377\024\006\346\225\260\351\207\217\"W\n\024Sheet_MountEquippart"
-    "\022\?\n\025E_MountEquippart_List\030\001 \003(\0132\032.proto_"
-    "ff.E_MountEquippartB\004\210\301\024\020\"\261\001\n\035E_MountEmp"
-    "owermenttour_debris\022#\n\rm_fairylandId\030\001 \001"
-    "(\005B\014\302\377\024\010\344\273\231\345\242\203id\0220\n\021m_fairylandNextId\030\002 "
-    "\001(\005B\025\302\377\024\021\344\270\213\344\270\200\344\270\252\344\273\231\345\242\203id\0229\n\017m_fairylan"
-    "dSkin\030\003 \001(\tB \302\377\024\030\344\273\231\345\242\203\350\216\267\345\217\226\347\232\256\350\202\244\351\242\204\350\247"
-    "\210\220\301\024@\"~\n!Sheet_MountEmpowermenttour_debr"
-    "is\022Y\n\"E_MountEmpowermenttour_debris_List"
-    "\030\001 \003(\0132\'.proto_ff.E_MountEmpowermenttour"
-    "_debrisB\004\210\301\024\020\"U\n\032E_MountEmpowermentTourD"
-    "esc\022\033\n\007m_value\030\001 \001(\005B\n\302\377\024\006\346\225\260\345\200\274\022\032\n\006m_ty"
-    "pe\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"\362\001\n\022E_MountEmpowerm"
-    "ent\022\036\n\010m_tourId\030\001 \001(\005B\014\302\377\024\010\346\270\270\350\256\260id\022#\n\rm"
-    "_fairylandId\030\002 \001(\005B\014\302\377\024\010\344\273\231\345\242\203id\022 \n\nm_to"
-    "urItem\030\003 \001(\005B\014\302\377\024\010\347\242\216\347\211\207id\022)\n\014m_tourDebr"
-    "is\030\004 \001(\005B\023\302\377\024\017\346\270\270\350\256\260\346\200\273\347\242\216\347\211\207\022J\n\006m_tour\030"
-    "\005 \003(\0132$.proto_ff.E_MountEmpowermentTourD"
-    "escB\024\302\377\024\014\346\270\270\350\256\260\345\261\236\346\200\247\210\301\024\002\"^\n\026Sheet_Mount"
-    "Empowerment\022D\n\027E_MountEmpowerment_List\030\001"
-    " \003(\0132\034.proto_ff.E_MountEmpowermentB\005\210\301\024\200"
-    "\001\"\231\001\n\033E_MountEmpowerment_position\022+\n\021m_e"
-    "mpowermentSlot\030\001 \001(\005B\020\302\377\024\014\345\216\206\347\273\203\346\247\275\344\275\215\022&"
-    "\n\014m_unlockTime\030\002 \001(\005B\020\302\377\024\014\350\247\243\351\224\201\346\235\241\344\273\266\022%"
-    "\n\013m_unlockNum\030\003 \001(\005B\020\302\377\024\014\350\247\243\351\224\201\346\225\260\351\207\217\"x\n"
-    "\037Sheet_MountEmpowerment_position\022U\n E_Mo"
-    "untEmpowerment_position_List\030\001 \003(\0132%.pro"
-    "to_ff.E_MountEmpowerment_positionB\004\210\301\024\010\""
-    "\366\002\n\027E_MountEmpowerment_slot\022\024\n\004m_id\030\001 \001("
-    "\005B\006\302\377\024\002id\022+\n\021m_dissociateLevel\030\002 \001(\005B\020\302\377"
-    "\024\014\346\270\270\345\216\206\347\272\247\345\210\253\022*\n\020m_dissociateTime\030\003 \001(\005"
-    "B\020\302\377\024\014\346\227\266\351\227\264\346\241\243\344\275\215\022$\n\020m_dissociateHour\030\004"
-    " \001(\005B\n\302\377\024\006\346\227\266\351\225\277\0220\n\020m_dissociateItem\030\005 \001"
-    "(\005B\026\302\377\024\022\346\270\270\347\246\273\347\272\247\345\210\253\346\266\210\350\200\227\022)\n\017m_dissocia"
-    "teNum\030\006 \001(\005B\020\302\377\024\014\346\266\210\350\200\227\346\225\260\351\207\217\022;\n\013m_event"
-    "Time\030\007 \001(\tB&\302\377\024\036\346\222\255\346\224\276\344\272\213\344\273\266\346\227\266\351\227\264\351\227\264\351\232\224"
-    "\350\214\203\345\233\264\220\301\024@\022,\n\017m_dissociateBox\030\010 \001(\005B\023\302\377\024"
-    "\017\346\234\215\345\212\241\345\231\250\345\245\226\345\212\261\"l\n\033Sheet_MountEmpowerme"
-    "nt_slot\022M\n\034E_MountEmpowerment_slot_List\030"
-    "\001 \003(\0132!.proto_ff.E_MountEmpowerment_slot"
-    "B\004\210\301\024\020\"o\n\030E_MountEmpowerment_event\022\024\n\004m_"
-    "id\030\001 \001(\005B\006\302\377\024\002id\022\037\n\013m_eventType\030\002 \001(\005B\n\302"
-    "\377\024\006\347\261\273\345\236\213\022\034\n\010m_weight\030\003 \001(\005B\n\302\377\024\006\346\235\203\351\207\215\""
-    "o\n\034Sheet_MountEmpowerment_event\022O\n\035E_Mou"
-    "ntEmpowerment_event_List\030\001 \003(\0132\".proto_f"
-    "f.E_MountEmpowerment_eventB\004\210\301\024\020", 12032);
+    " \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\"\n\nm_itemTips\030\006 \001(\005B\016\302\377"
+    "\024\n\345\261\225\347\244\272tips\"W\n\024Sheet_MountEquippart\022\?\n\025"
+    "E_MountEquippart_List\030\001 \003(\0132\032.proto_ff.E"
+    "_MountEquippartB\004\210\301\024\020\"\261\001\n\035E_MountEmpower"
+    "menttour_debris\022#\n\rm_fairylandId\030\001 \001(\005B\014"
+    "\302\377\024\010\344\273\231\345\242\203id\0220\n\021m_fairylandNextId\030\002 \001(\005B"
+    "\025\302\377\024\021\344\270\213\344\270\200\344\270\252\344\273\231\345\242\203id\0229\n\017m_fairylandSki"
+    "n\030\003 \001(\tB \302\377\024\030\344\273\231\345\242\203\350\216\267\345\217\226\347\232\256\350\202\244\351\242\204\350\247\210\220\301\024"
+    "@\"~\n!Sheet_MountEmpowermenttour_debris\022Y"
+    "\n\"E_MountEmpowermenttour_debris_List\030\001 \003"
+    "(\0132\'.proto_ff.E_MountEmpowermenttour_deb"
+    "risB\004\210\301\024\020\"U\n\032E_MountEmpowermentTourDesc\022"
+    "\033\n\007m_value\030\001 \001(\005B\n\302\377\024\006\346\225\260\345\200\274\022\032\n\006m_type\030\002"
+    " \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"\362\001\n\022E_MountEmpowerment\022"
+    "\036\n\010m_tourId\030\001 \001(\005B\014\302\377\024\010\346\270\270\350\256\260id\022#\n\rm_fai"
+    "rylandId\030\002 \001(\005B\014\302\377\024\010\344\273\231\345\242\203id\022 \n\nm_tourIt"
+    "em\030\003 \001(\005B\014\302\377\024\010\347\242\216\347\211\207id\022)\n\014m_tourDebris\030\004"
+    " \001(\005B\023\302\377\024\017\346\270\270\350\256\260\346\200\273\347\242\216\347\211\207\022J\n\006m_tour\030\005 \003("
+    "\0132$.proto_ff.E_MountEmpowermentTourDescB"
+    "\024\302\377\024\014\346\270\270\350\256\260\345\261\236\346\200\247\210\301\024\002\"^\n\026Sheet_MountEmpo"
+    "werment\022D\n\027E_MountEmpowerment_List\030\001 \003(\013"
+    "2\034.proto_ff.E_MountEmpowermentB\005\210\301\024\200\001\"\231\001"
+    "\n\033E_MountEmpowerment_position\022+\n\021m_empow"
+    "ermentSlot\030\001 \001(\005B\020\302\377\024\014\345\216\206\347\273\203\346\247\275\344\275\215\022&\n\014m_"
+    "unlockTime\030\002 \001(\005B\020\302\377\024\014\350\247\243\351\224\201\346\235\241\344\273\266\022%\n\013m_"
+    "unlockNum\030\003 \001(\005B\020\302\377\024\014\350\247\243\351\224\201\346\225\260\351\207\217\"x\n\037She"
+    "et_MountEmpowerment_position\022U\n E_MountE"
+    "mpowerment_position_List\030\001 \003(\0132%.proto_f"
+    "f.E_MountEmpowerment_positionB\004\210\301\024\010\"\366\002\n\027"
+    "E_MountEmpowerment_slot\022\024\n\004m_id\030\001 \001(\005B\006\302"
+    "\377\024\002id\022+\n\021m_dissociateLevel\030\002 \001(\005B\020\302\377\024\014\346\270"
+    "\270\345\216\206\347\272\247\345\210\253\022*\n\020m_dissociateTime\030\003 \001(\005B\020\302\377"
+    "\024\014\346\227\266\351\227\264\346\241\243\344\275\215\022$\n\020m_dissociateHour\030\004 \001(\005"
+    "B\n\302\377\024\006\346\227\266\351\225\277\0220\n\020m_dissociateItem\030\005 \001(\005B\026"
+    "\302\377\024\022\346\270\270\347\246\273\347\272\247\345\210\253\346\266\210\350\200\227\022)\n\017m_dissociateNu"
+    "m\030\006 \001(\005B\020\302\377\024\014\346\266\210\350\200\227\346\225\260\351\207\217\022;\n\013m_eventTime"
+    "\030\007 \001(\tB&\302\377\024\036\346\222\255\346\224\276\344\272\213\344\273\266\346\227\266\351\227\264\351\227\264\351\232\224\350\214\203\345"
+    "\233\264\220\301\024@\022,\n\017m_dissociateBox\030\010 \001(\005B\023\302\377\024\017\346\234\215"
+    "\345\212\241\345\231\250\345\245\226\345\212\261\"l\n\033Sheet_MountEmpowerment_s"
+    "lot\022M\n\034E_MountEmpowerment_slot_List\030\001 \003("
+    "\0132!.proto_ff.E_MountEmpowerment_slotB\004\210\301"
+    "\024\020\"o\n\030E_MountEmpowerment_event\022\024\n\004m_id\030\001"
+    " \001(\005B\006\302\377\024\002id\022\037\n\013m_eventType\030\002 \001(\005B\n\302\377\024\006\347"
+    "\261\273\345\236\213\022\034\n\010m_weight\030\003 \001(\005B\n\302\377\024\006\346\235\203\351\207\215\"o\n\034S"
+    "heet_MountEmpowerment_event\022O\n\035E_MountEm"
+    "powerment_event_List\030\001 \003(\0132\".proto_ff.E_"
+    "MountEmpowerment_eventB\004\210\301\024\020", 12068);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Mount.proto", &protobuf_RegisterTypes);
   E_MountFragmentAttributeDesc::default_instance_ = new E_MountFragmentAttributeDesc();
@@ -19641,6 +19643,7 @@ const int E_MountEquippart::kMQualityFieldNumber;
 const int E_MountEquippart::kMHoneOpenFieldNumber;
 const int E_MountEquippart::kMItemFieldNumber;
 const int E_MountEquippart::kMNumFieldNumber;
+const int E_MountEquippart::kMItemTipsFieldNumber;
 #endif  // !_MSC_VER
 
 E_MountEquippart::E_MountEquippart()
@@ -19664,6 +19667,7 @@ void E_MountEquippart::SharedCtor() {
   m_honeopen_ = 0;
   m_item_ = 0;
   m_num_ = 0;
+  m_itemtips_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -19704,6 +19708,7 @@ void E_MountEquippart::Clear() {
     m_honeopen_ = 0;
     m_item_ = 0;
     m_num_ = 0;
+    m_itemtips_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -19790,6 +19795,22 @@ bool E_MountEquippart::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(48)) goto parse_m_itemTips;
+        break;
+      }
+
+      // optional int32 m_itemTips = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_itemTips:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_itemtips_)));
+          set_has_m_itemtips();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -19837,6 +19858,11 @@ void E_MountEquippart::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_num(), output);
   }
 
+  // optional int32 m_itemTips = 6;
+  if (has_m_itemtips()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_itemtips(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -19868,6 +19894,11 @@ void E_MountEquippart::SerializeWithCachedSizes(
   // optional int32 m_num = 5;
   if (has_m_num()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_num(), target);
+  }
+
+  // optional int32 m_itemTips = 6;
+  if (has_m_itemtips()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_itemtips(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -19916,6 +19947,13 @@ int E_MountEquippart::ByteSize() const {
           this->m_num());
     }
 
+    // optional int32 m_itemTips = 6;
+    if (has_m_itemtips()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_itemtips());
+    }
+
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -19958,6 +19996,9 @@ void E_MountEquippart::MergeFrom(const E_MountEquippart& from) {
     if (from.has_m_num()) {
       set_m_num(from.m_num());
     }
+    if (from.has_m_itemtips()) {
+      set_m_itemtips(from.m_itemtips());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -19986,6 +20027,7 @@ void E_MountEquippart::Swap(E_MountEquippart* other) {
     std::swap(m_honeopen_, other->m_honeopen_);
     std::swap(m_item_, other->m_item_);
     std::swap(m_num_, other->m_num_);
+    std::swap(m_itemtips_, other->m_itemtips_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

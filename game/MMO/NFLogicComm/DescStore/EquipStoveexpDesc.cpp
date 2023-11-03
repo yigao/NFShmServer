@@ -77,6 +77,21 @@ int EquipStoveexpDesc::Load(NFResDB *pDB)
 		pDesc->read_from_pbmsg(desc);
 		CHECK_EXPR_ASSERT(GetDesc(desc.m_id()) == pDesc, -1, "GetDesc != pDesc, id:{}", desc.m_id());
 	}
+	m_WearqualityQualityComIndexMap.clear();
+	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
+	{
+		auto pDesc = &iter->second;
+		{
+			EquipStoveexpWearqualityQuality data;
+			data.m_wearQuality = pDesc->m_wearQuality;
+			data.m_quality = pDesc->m_quality;
+			if(m_WearqualityQualityComIndexMap.size() >= m_WearqualityQualityComIndexMap.max_size())
+			{
+				CHECK_EXPR_ASSERT(m_WearqualityQualityComIndexMap.find(data) != m_WearqualityQualityComIndexMap.end(), -1, "space not enough");
+			}
+			m_WearqualityQualityComIndexMap[data] = iter->first;
+		}
+	}
 
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_equipstoveexp_list_size());
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
@@ -86,5 +101,20 @@ int EquipStoveexpDesc::Load(NFResDB *pDB)
 int EquipStoveexpDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
+}
+
+const proto_ff_s::E_EquipStoveexp_s* EquipStoveexpDesc::GetDescByWearqualityQuality(int64_t Wearquality, int64_t Quality)
+{
+	EquipStoveexpWearqualityQuality data;
+	data.m_wearQuality = Wearquality;
+	data.m_quality = Quality;
+	auto iter = m_WearqualityQualityComIndexMap.find(data);
+	if(iter != m_WearqualityQualityComIndexMap.end())
+	{
+		auto pDesc = GetDesc(iter->second);
+		CHECK_EXPR(pDesc, nullptr, "GetDesc failed:{}", iter->second);
+		return pDesc;
+	}
+	return nullptr;
 }
 

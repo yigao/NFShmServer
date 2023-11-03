@@ -447,6 +447,7 @@ message E_MountEquippart
 	optional int32 m_honeOpen = 3[(yd_fieldoptions.field_cname) = "部位解锁类型"];
 	optional int32 m_item = 4[(yd_fieldoptions.field_cname) = "所需物品"];
 	optional int32 m_num = 5[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_itemTips = 6[(yd_fieldoptions.field_cname) = "展示tips"];
 }
 
 

@@ -357,15 +357,42 @@ struct YaoHunExt
     }
 };
 
-class NFItem
+class NFItemBase
 {
 public:
-    NFItem();
+    NFItemBase()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
     
-    virtual ~NFItem();
+    virtual ~NFItemBase()
+    {
     
-    int CreateInit();
-    int ResumeInit();
+    }
+    
+    int CreateInit()
+    {
+        m_nIndex = 0;              //索引
+        m_nItemID = 0;             //物品ID
+        m_nNum = 0;                //物品数量
+        m_byBind = 0;                //绑定状态
+        m_byType = 0;               //类型
+        m_nLevel = 0;              //等级 预留(装备里，这个等级是玩家等级)
+        m_nExpiredTime = 0;        //过期时间,0,永不过期
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
 public:
     uint16_t GetIndex() const { return m_nIndex; }
     uint64_t GetItemID() const { return m_nItemID; }
@@ -391,11 +418,32 @@ public:
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
     virtual uint64_t GetBaseScore() { return 0; }
+    virtual uint64_t GetItemFight(int32_t level);
 public:
     const proto_ff_s::E_EquipEquip_s *GetEquipCfg() const;
     const proto_ff_s::E_ItemItem_s *GetItemCfg() const;
     const proto_ff_s::E_EquipAttribute_s *GetEquipAttributeCfg() const;
     bool IsProf(int32_t profId) const;                        //是否属于某个职业
+protected:
+    uint16_t m_nIndex;              //索引
+    uint64_t m_nItemID;             //物品ID
+    uint32_t m_nNum;                //物品数量
+    int8_t m_byBind;                //绑定状态
+    uint8_t m_byType;               //类型
+    uint32_t m_nLevel;              //等级 预留(装备里，这个等级是玩家等级)
+    uint64_t m_nExpiredTime;        //过期时间,0,永不过期
+    //道具也有评分，放在基类里
+};
+
+class NFItem : public NFItemBase
+{
+public:
+    NFItem();
+    
+    virtual ~NFItem();
+    
+    int CreateInit();
+    int ResumeInit();
 public:
     virtual MAP_INT32_INT32 GetBaseAttr();
     virtual VEC_STAR_ATTR GetStarAttr();
@@ -406,16 +454,16 @@ protected:
     bool genGodPinAttr(SItemCond &itemCond);            //生成仙品属性(两部分 星级属性和蓝星属性)
     bool genGodZunAttr(SItemCond &itemCond);            //生成仙尊属性
     void GenBaseScore();
+public:
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
+    virtual void UnInit();
+    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
+    virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    virtual uint64_t GetBaseScore() { return 0; }
+    virtual uint64_t GetItemFight(int32_t level);
 protected:
-    uint16_t m_nIndex;              //索引
-    uint64_t m_nItemID;             //物品ID
-    uint32_t m_nNum;                //物品数量
-    int8_t m_byBind;                //绑定状态
-    uint8_t m_byType;               //类型
-    uint32_t m_nLevel;              //等级 预留(装备里，这个等级是玩家等级)
-    uint64_t m_nExpiredTime;        //过期时间,0,永不过期
-    //道具也有评分，放在基类里
-    
     uint32_t m_baseAttrPercent;     //基础属性
     //仙品属性 = 星级属性(带★) + 蓝星属性(不带★)
     uint32_t m_starAttrPercent;     //星级属性
@@ -529,10 +577,10 @@ public:
 
 //EPackageType_shenji_aq = 11;	//神机装备暗器
 //EPackageType_shenji_lj = 12;	//神机装备灵甲
-class ShengjiItem : public NFItem
+class NFShengjiItem : public NFItem
 {
 public:
-    ShengjiItem()
+    NFShengjiItem()
     {
         if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
@@ -738,6 +786,9 @@ public:
     
     YaoHunExt m_yaoHun;               //EPackageType_YaoHun = 17;	//妖魂装备
 };
+
+//背包物品
+typedef vector<NFItem*> VEC_PACKAGE_ITEM;
 
 //proto物品
 typedef vector<proto_ff::ItemProtoInfo*> VEC_ITEM_PROTO;

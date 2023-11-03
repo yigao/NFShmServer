@@ -526,7 +526,7 @@ public:                         // Insert
             return *this;
         size_type __len = (std::min)(__n, __s.size() - __beg);
         if (size() > max_size() - __len)
-            *this;
+            return *this;
         insert(m_data + __pos,
                __s.begin() + __beg, __s.begin() + __beg + __len);
         return *this;

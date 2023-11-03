@@ -27,4 +27,6 @@ public:
     int CreateInit();
 
     int ResumeInit();
+public:
+    bool IsActiveDeity(int64_t id) { return false; }
 };

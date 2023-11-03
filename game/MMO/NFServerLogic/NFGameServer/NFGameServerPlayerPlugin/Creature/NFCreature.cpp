@@ -681,7 +681,7 @@ int NFCreature::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xDat
     uint32_t gateId = 0;
     uint32_t zid = 0;
 
-    MAP_UINT32_LST_UINT32 gateClientsMap;
+    //MAP_UINT32_LST_UINT32 gateClientsMap;
     if (IncludeMyself && m_kind == CREATURE_PLAYER)
     {
         zid = GetZid();

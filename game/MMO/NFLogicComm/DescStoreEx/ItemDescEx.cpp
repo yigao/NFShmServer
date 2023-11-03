@@ -4,7 +4,9 @@
 #include "DescStore/ConflatePropDesc.h"
 #include "NFComm/NFCore/NFCommonApi.h"
 #include "DescStore/ConditionConditionDesc.h"
-
+#include "DescStore/EquipStoveexpDesc.h"
+#include "DescStore/AvatarChangeDesc.h"
+#include "NFComm/NFCore/NFRandom.hpp"
 
 ItemDescEx::ItemDescEx()
 {
@@ -37,17 +39,13 @@ int ItemDescEx::Load()
 {
     if (!Process())
     {
-        return false;
-    }
-    if (!ProcessStoveExp())
-    {
-        return false;
+        return -1;
     }
     if (!ProcessTSActive())
     {
-        return false;
+        return -1;
     }
-    return true;
+    return 0;
 }
 
 int ItemDescEx::CheckWhenAllDataLoaded()
@@ -56,11 +54,8 @@ int ItemDescEx::CheckWhenAllDataLoaded()
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_mapItemProfLimit Space Use, size:{} max_size:{} calc:{}", m_mapItemProfLimit.size(), m_mapItemProfLimit.max_size(), (double)m_mapItemProfLimit.size() * 100 / m_mapItemProfLimit.max_size());
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_mapItemOrCdGroup Space Use, size:{} max_size:{} calc:{}", m_mapItemOrCdGroup.size(), m_mapItemOrCdGroup.max_size(), (double)m_mapItemOrCdGroup.size() * 100 / m_mapItemOrCdGroup.max_size());
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_setNaturalBind Space Use, size:{} max_size:{} calc:{}", m_setNaturalBind.size(), m_setNaturalBind.max_size(), (double)m_setNaturalBind.size() * 100 / m_setNaturalBind.max_size());
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_mapFixAttr Space Use, size:{} max_size:{} calc:{}", m_mapFixAttr.size(), m_mapFixAttr.max_size(), (double)m_mapFixAttr.size() * 100 / m_mapFixAttr.max_size());
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_mapDecompose Space Use, size:{} max_size:{} calc:{}", m_mapDecompose.size(), m_mapDecompose.max_size(), (double)m_mapDecompose.size() * 100 / m_mapDecompose.max_size());
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_mapEquipSmelt Space Use, size:{} max_size:{} calc:{}", m_mapEquipSmelt.size(), m_mapEquipSmelt.max_size(), (double)m_mapEquipSmelt.size() * 100 / m_mapEquipSmelt.max_size());
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_mapEquipStoveExp Space Use, size:{} max_size:{} calc:{}", m_mapEquipStoveExp.size(), m_mapEquipStoveExp.max_size(), (double)m_mapEquipStoveExp.size() * 100 / m_mapEquipStoveExp.max_size());
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_mapItemAddMissionCheck Space Use, size:{} max_size:{} calc:{}", m_mapItemAddMissionCheck.size(), m_mapItemAddMissionCheck.max_size(), (double)m_mapItemAddMissionCheck.size() * 100 / m_mapItemAddMissionCheck.max_size());
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_mapItemUseCond Space Use, size:{} max_size:{} calc:{}", m_mapItemUseCond.size(), m_mapItemUseCond.max_size(), (double)m_mapItemUseCond.size() * 100 / m_mapItemUseCond.max_size());
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_replaceItem Space Use, size:{} max_size:{} calc:{}", m_replaceItem.size(), m_replaceItem.max_size(), (double)m_replaceItem.size() * 100 / m_replaceItem.max_size());
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_ts_active_id Space Use, size:{} max_size:{} calc:{}", m_ts_active_id.size(), m_ts_active_id.max_size(), (double)m_ts_active_id.size() * 100 / m_ts_active_id.max_size());
@@ -69,89 +64,232 @@ int ItemDescEx::CheckWhenAllDataLoaded()
     return 0;
 }
 
-const VEC_INT64 *ItemDescEx::GetItemFuncParamCfg(uint64_t nItemId)
+const NFShmVector<int64_t, MAX_ITEM_FUNC_PARAM_NUM> *ItemDescEx::GetItemFuncParamCfg(uint64_t nItemId)
 {
-    return nullptr;
+    auto iter = m_mapItemFunc.find(nItemId);
+    return (iter != m_mapItemFunc.end()) ? &iter->second : nullptr;
 }
 
 int32_t ItemDescEx::GetItemOrGroupCd(uint64_t itemId_cdGroup)
 {
-    return 0;
+    auto iter = m_mapItemOrCdGroup.find(itemId_cdGroup);
+    return (iter != m_mapItemOrCdGroup.end()) ? iter->second : 0;
 }
 
 bool ItemDescEx::IsNautralBind(uint64_t nItemId)
 {
-    return false;
+    return m_setNaturalBind.find(nItemId) != m_setNaturalBind.end();
 }
 
 bool ItemDescEx::IsMatchProf(uint64_t itemid, uint8_t prof)
 {
-    return false;
+    if (0 == prof) //0 表示 通用职业，通用职业和任何物品都匹配
+    {
+        return true;
+    }
+    auto iter = m_mapItemProfLimit.find(itemid);
+    if (iter == m_mapItemProfLimit.end()) //找不到表示物品是 通用职业
+    {
+        return true;
+    }
+    
+    auto &setProf = iter->second;
+    if (setProf.find(0) != setProf.end()) return true;
+    
+    auto iterProf = setProf.find(prof);
+    return (iterProf != setProf.end()) ? true : false;
 }
 
 bool ItemDescEx::IsNotAllowMap(uint64_t itemid, uint64_t mapid)
 {
-    return false;
+    auto iter = m_mapItemMapLimit.find(itemid);
+    if (iter == m_mapItemMapLimit.end())
+    {
+        return false;
+    }
+    auto &setmap = iter->second;
+    auto iterf = setmap.find(mapid);
+    return (iterf != setmap.end()) ? true : false;
 }
 
 uint64_t ItemDescEx::RandDeComposeEquip(int64_t star, int64_t rank, int64_t qua, int64_t prof, int64_t pos)
 {
+    uint64_t key = DE_COMPOSE_KEY(star,rank,qua,prof,pos);
+    auto iter = m_mapDecompose.find(key);
+    if (iter != m_mapDecompose.end())
+    {
+        auto &setEquip = iter->second;
+        uint32_t isize = (uint32_t)setEquip.size();
+        if (isize > 0)
+        {
+            uint32_t rnd = NFRandInt((uint32_t)0, isize);//0 - (isize -1)
+            auto iterEquip = setEquip.begin();
+            for (uint32_t i = 0; i < rnd; ++i)
+            {
+                ++iterEquip;
+            }
+            //校验下
+            
+            uint64_t itemid = (*setEquip.begin());
+            if (iterEquip != setEquip.end())
+            {
+                itemid = (*iterEquip);
+            }
+            return itemid;
+        }
+    }
     return 0;
 }
 
 uint32_t ItemDescEx::AttrIdByItem(uint64_t itemId)
 {
+    int64_t offset = (int64_t)itemId - (int64_t)m_virMinId;
+    if (offset > 0 && offset < VIR_ITEM_ID_MAX_OFFSET) return m_virOffset[offset];
     return 0;
 }
 
 uint64_t ItemDescEx::ItemIdByAttrId(uint32_t attrId)
 {
+    if (attrId <= 0 || attrId >= proto_ff::A_COMMON_END) return 0;
+    uint16_t offset = m_virAttr[attrId];
+    if (offset > 0) return (uint64_t)(m_virMinId + offset);
     return 0;
 }
 
-const MAP_UINT64_UINT64 *ItemDescEx::GetItemFixAttr(uint64_t nItemId)
+const NFShmHashMap<uint64_t, uint64_t, 10> *ItemDescEx::GetItemFixAttr(uint64_t nItemId)
 {
-    return nullptr;
+    auto iter = m_mapFixAttr.find(nItemId);
+    if (iter == m_mapFixAttr.end())
+        return nullptr;
+    return &iter->second;
 }
 
-const MAP_UINT64_UINT64 *ItemDescEx::GetSmeltMaterialCfg(uint64_t equipid)
+const NFShmHashMap<uint64_t, uint64_t, MAX_EQUIP_SMELT_EQUIP_MAX_ITEM_NUM> *ItemDescEx::GetSmeltMaterialCfg(uint64_t equipid)
 {
-    return nullptr;
+    auto iter = m_mapEquipSmelt.find(equipid);
+    return (iter != m_mapEquipSmelt.end()) ? &iter->second : nullptr;
 }
 
 bool ItemDescEx::CheckItemUseCond(uint64_t itemid, proto_ff::StatisticDataProto &proto)
 {
-    return false;
+    auto iterItem = m_mapItemUseCond.find(itemid);
+    if (iterItem == m_mapItemUseCond.end())
+    {
+        return true;
+    }
+    auto &setCond = iterItem->second; //每个条件之间为或关系
+    if (setCond.size() <= 0)
+    {
+        return true;
+    }
+    bool result = true;
+    auto itercond = setCond.begin();
+    for (; itercond != setCond.end(); ++itercond)
+    {
+        int64_t condid = (*itercond);
+        auto pCondCfg = ConditionConditionDesc::Instance()->GetDesc(condid);
+        if (nullptr == pCondCfg)
+        {
+            continue;
+        }
+        if (CheckItemUseCond(pCondCfg,proto))
+        {
+            return true;
+        }
+        result = false;
+    }
+    //
+    return result;
+}
+
+bool ItemDescEx::CheckItemUseCond(const proto_ff_s::E_ConditionCondition_s *pCondCfg, proto_ff::StatisticDataProto &proto)
+{
+    if (nullptr == pCondCfg)
+    {
+        return false;
+    }
+
+/*
+	1.等级
+	2.今日充值金额
+	3.历史充值总额
+	4.历史登陆天数
+	*/
+    
+    bool result = true;
+    //条件列表中条件之间是并且的关系
+    for (auto iter = pCondCfg->m_condition.begin(); iter != pCondCfg->m_condition.end(); ++iter)
+    {
+        const proto_ff_s::E_ConditionConditionConditionDesc_s &info = (*iter);
+        if (1 == info.m_Type)
+        {
+            result = (proto.level() >= info.m_Param);
+        }
+        else if (2 == info.m_Type)
+        {
+            result = (proto.today_rmb() >= (uint32_t)info.m_Param);
+        }
+        else if (3 == info.m_Type)
+        {
+            result = (proto.total_rmb() >= (uint32_t)info.m_Param);
+        }
+        else if (4 == info.m_Type)
+        {
+            result = (proto.total_login_day() >= (uint32_t)info.m_Param);
+        }
+        if (!result)
+        {
+            return false;
+        }
+    }
+    return result;
 }
 
 int32_t ItemDescEx::GetEquipStoveExp(int32_t wearQuality, int32_t quality)
 {
+    auto pDesc = EquipStoveexpDesc::Instance()->GetDescByWearqualityQuality(wearQuality, quality);
+    if (pDesc)
+    {
+        return pDesc->m_exp;
+    }
     return 0;
 }
 
 bool ItemDescEx::replaceItem(uint64_t itemId, int32_t num, uint64_t &outItemId, int32_t &outNum)
 {
-    return false;
+    auto iter = m_replaceItem.find(itemId);
+    if (iter == m_replaceItem.end()) return false;
+    outItemId = iter->second.first;
+    outNum = iter->second.second * num;
+    return true;
 }
 
 bool ItemDescEx::IsTianShenActiveNum(const proto_ff_s::E_ItemItem_s *itemCfg)
 {
+    CHECK_EXPR(itemCfg, false, "");
+    if (itemCfg->m_itemType == 3 && itemCfg->m_subType == 56) //天神激活物品
+    {
+        return true;
+    }
     return false;
 }
 
 int32_t ItemDescEx::GetTianShenId(uint64_t itemId)
 {
-    return 0;
+    auto iter = m_ts_active_id.find(itemId);
+    return iter != m_ts_active_id.end() ? iter->second : 0;
 }
 
 bool ItemDescEx::IsDynExpItem(uint64_t itemId)
 {
-    return false;
+    auto iter = m_dynexp_items.find(itemId);
+    return iter != m_dynexp_items.end();
 }
 
 int32_t ItemDescEx::GetDynExpType(uint64_t itemId)
 {
-    return 0;
+    auto iter = m_dynexp_items.find(itemId);
+    return iter != m_dynexp_items.end() ? iter->second : 0;
 }
 
 bool ItemDescEx::Process()
@@ -527,13 +665,14 @@ bool ItemDescEx::Process()
     return true;
 }
 
-bool ItemDescEx::ProcessStoveExp()
-{
-    return false;
-}
-
 bool ItemDescEx::ProcessTSActive()
 {
-    return false;
+    auto pCfgMap = AvatarChangeDesc::Instance()->GetResDescPtr();
+    for (auto& e : *pCfgMap)
+    {
+        m_ts_active_id[e.second.m_activationItem] = e.second.m_id;
+    }
+    
+    return true;
 }
 

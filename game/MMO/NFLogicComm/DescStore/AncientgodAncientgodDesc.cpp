@@ -1,5 +1,6 @@
 #include "AncientgodAncientgodDesc.h"
 #include "AncientgodAttDesc.h"
+#include "AttributeAttributeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
 AncientgodAncientgodDesc::AncientgodAncientgodDesc()
@@ -92,7 +93,7 @@ int AncientgodAncientgodDesc::CheckWhenAllDataLoaded()
 		auto pDesc = &iter->second;
 		for(int j = 0; j < (int)pDesc->m_fra.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_fra[j].m_attID <= 0 || AncientgodAttDesc::Instance()->GetDesc(pDesc->m_fra[j].m_attID)), result, "can't find the fra:{} in the  excel:ancientgod sheet:att", pDesc->m_fra[j].m_attID);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_fra[j].m_attID <= 0 || AncientgodAttDesc::Instance()->GetDesc(pDesc->m_fra[j].m_attID)) || (pDesc->m_fra[j].m_attID <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_fra[j].m_attID)), result, "can't find the fra:{} in the  excel:ancientgod sheet:att or  excel:attribute sheet:attribute", pDesc->m_fra[j].m_attID);
 		}
 	}
 	return result;
