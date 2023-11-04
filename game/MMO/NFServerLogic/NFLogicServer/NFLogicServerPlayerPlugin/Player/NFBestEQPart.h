@@ -27,4 +27,6 @@ public:
     int CreateInit();
 
     int ResumeInit();
+    
+    bool IsCmptTaskAll() { return true; }
 };

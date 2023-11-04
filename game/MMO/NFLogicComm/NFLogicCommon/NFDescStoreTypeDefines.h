@@ -16,7 +16,7 @@ typedef enum
 {
     EOT_DS_BEGIN_ID = EOT_DESC_STORE_BEGIN_ID,
     EOT_DESC_STORE_ALL_ID_DEFINE
-
+    EOT_CONST_GROW_DESC_EX_ID,
     ///////////////////////////////////DescStoreEX///////////////////////////////////////////
     EOT_DS_END_ID = EOT_DESC_STORE_END_ID,
 } EN_DESC_STORE_SHMOBJ_TYPE;

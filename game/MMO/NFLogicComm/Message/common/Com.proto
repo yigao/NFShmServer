@@ -1381,6 +1381,7 @@ message CharacterDBMissionTrack
 	optional uint64 acceptMissionTime			 = 4; //接收任务时间
 	repeated CharacterDBMissionItemInfo itemInfo = 5; //任务的步骤信息数据
 	optional uint64 textid						 = 6; //前端显示用的id(对应taskcontent中text表)
+	optional uint32 missiontype				 = 7;
 }
 
 message CharacterDBDyMissionBountyParam

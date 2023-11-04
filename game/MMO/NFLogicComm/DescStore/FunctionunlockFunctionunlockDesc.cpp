@@ -77,6 +77,22 @@ int FunctionunlockFunctionunlockDesc::Load(NFResDB *pDB)
 		pDesc->read_from_pbmsg(desc);
 		CHECK_EXPR_ASSERT(GetDesc(desc.m_functionid()) == pDesc, -1, "GetDesc != pDesc, id:{}", desc.m_functionid());
 	}
+	m_OpentypeOpenvalComIndexMap.clear();
+	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
+	{
+		auto pDesc = &iter->second;
+		{
+			FunctionunlockFunctionunlockOpentypeOpenval data;
+			data.m_openType = pDesc->m_openType;
+			data.m_openVal = pDesc->m_openVal;
+			if(m_OpentypeOpenvalComIndexMap.size() >= m_OpentypeOpenvalComIndexMap.max_size())
+			{
+				CHECK_EXPR_ASSERT(m_OpentypeOpenvalComIndexMap.find(data) != m_OpentypeOpenvalComIndexMap.end(), -1, "space not enough");
+			}
+			CHECK_EXPR_ASSERT(m_OpentypeOpenvalComIndexMap[data].size() < m_OpentypeOpenvalComIndexMap[data].max_size(), -1, "space not enough");
+			m_OpentypeOpenvalComIndexMap[data].push_back(iter->first);
+		}
+	}
 
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_functionunlockfunctionunlock_list_size());
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
@@ -86,5 +102,24 @@ int FunctionunlockFunctionunlockDesc::Load(NFResDB *pDB)
 int FunctionunlockFunctionunlockDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
+}
+
+std::vector<const proto_ff_s::E_FunctionunlockFunctionunlock_s*> FunctionunlockFunctionunlockDesc::GetDescByOpentypeOpenval(int64_t Opentype, int64_t Openval)
+{
+	FunctionunlockFunctionunlockOpentypeOpenval data;
+	data.m_openType = Opentype;
+	data.m_openVal = Openval;
+	std::vector<const proto_ff_s::E_FunctionunlockFunctionunlock_s*> m_vec;
+	auto iter = m_OpentypeOpenvalComIndexMap.find(data);
+	if(iter != m_OpentypeOpenvalComIndexMap.end())
+	{
+		for(int i = 0; i < (int)iter->second.size(); i++)
+		{
+			auto pDesc = GetDesc(iter->second[i]);
+			CHECK_EXPR_CONTINUE(pDesc, "GetDesc failed:{}", iter->second[i]);
+			m_vec.push_back(pDesc);
+		}
+	}
+	return m_vec;
 }
 

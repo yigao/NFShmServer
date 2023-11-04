@@ -27,4 +27,6 @@ public:
     int CreateInit();
 
     int ResumeInit();
+    
+    bool IsPassDup(uint64_t dupId) { return false; }
 };

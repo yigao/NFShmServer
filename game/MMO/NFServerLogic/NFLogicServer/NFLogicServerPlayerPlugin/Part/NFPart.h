@@ -197,6 +197,7 @@ public:
     void SetPartType(uint32_t partType) { m_partType = partType; }
 public:
     virtual uint32_t GetCurRoleDetailSeq() const;
+    void SetNeedSave(bool save) { MarkDirty(); }
 protected:
     NFShmPtr<NFPlayer> m_pMaster;
     uint64_t m_playerId;

@@ -13,9 +13,9 @@
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFComm/NFShmStl/NFShmHashSet.h"
-#include "NFLogicCommon/NFComTypeDefine.h"
+#include "NFGameCommon/NFComTypeDefine.h"
 #include "Mission.pb.h"
-#include "PackageDefine.h"
+#include "NFPackageDefine.h"
 
 #define INVALID_MISSION_ID          (0)    //非法任务id
 #define MISSION_COND_TYPE_TO_EVENT(type)    (type / 100) //任务完成条件类型转换到事件类型

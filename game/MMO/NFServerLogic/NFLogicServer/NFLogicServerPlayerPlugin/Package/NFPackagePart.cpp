@@ -122,22 +122,27 @@ int NFPackagePart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
     {
         case proto_ff::CLIENT_PACKAGE_INFO_REQ:
         {
+            PackageInfo(msgId, packet);
             break;
         }
         case proto_ff::CLIENT_TO_LOGIC_PACKAGE_USE:
         {
+            ItemUse(msgId, packet);
             break;
         }
         case proto_ff::CLIENT_PACKAGE_SORT_REQ:
         {
+            ItemSort(msgId, packet);
             break;
         }
         case proto_ff::CLIENT_TO_LOGIC_PACKAGE_SELL:
         {
+            ItemSell(msgId, packet);
             break;
         }
         case proto_ff::PACKAGE_EXPAND_REQ:
         {
+            ExpandReq(msgId, packet);
             break;
         }
         default:

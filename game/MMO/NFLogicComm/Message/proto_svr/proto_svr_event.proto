@@ -7,6 +7,7 @@ import "Com.proto";
 message FunctionUnlockEvent
 {
   optional uint64 functionId = 1;
+  optional bool sync = 2;
 }
 
 message PlayerLeveUpEvent
@@ -100,4 +101,44 @@ message GrowPartDressEvent
   optional int32 type = 1;
   optional int32 id = 2;
   optional int32 curLv = 3;
+};
+
+//外观改变
+message ChangeFacadeEvent
+{
+  optional uint64 cid = 1;
+  optional  uint64 wingId = 2;      //翅膀ID
+  optional  uint64 fashionClothesId = 3;  //时装衣服
+  optional  uint64 fashionWeaponId = 4;  //时装武器
+  optional  uint64 occupationId = 5;    //转职ID
+  optional  uint64 mountId = 6;      //坐骑ID
+  optional  uint64 treasure_id = 7;    //宝具ID
+  optional  int32 treasure_type = 8;    //宝具类型
+  optional  uint64 artifact_id = 9;    //神器ID
+  optional  uint64 head_id = 10;      //头像ID
+  optional  uint64 frame_id = 11;      //相框ID
+  optional  uint64 bubble_id = 12;      //气泡ID
+};
+
+//充值
+message PayEvent
+{
+  optional uint32 payIndex = 1;		    //充值配置表索引值
+  optional uint32 money = 2;			    //充值金额(这里金额是游戏中用到的，可能跟实际充值的人名币不一样,用于活动中的计数)
+  optional uint32 price = 3;			    //实际充值的人名币
+  optional uint32 type = 4;			    //充值类型
+  optional uint32 quantity = 5;		    //领取钻石档位
+  optional bool indexFirst = 6;	//此档位首充
+  optional bool allFirst = 7;		//全档位首充
+  optional uint32 chanid = 8;		//渠道ID
+  optional string productid = 9;		        //计费点ID
+};
+
+//通关副本
+message PassDupEvent
+{
+  optional uint64 dupId = 1;		//副本ID
+  optional uint64 groupId = 2;	//副本组ID
+  optional uint32 star = 3;		//星级
+  optional uint32 zid = 4;		//副本所属的区服ID
 };

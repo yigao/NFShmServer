@@ -1932,6 +1932,7 @@ namespace proto_ff_s {
 		uint64_t acceptMissionTime;//
 		NFShmVector<struct CharacterDBMissionItemInfo_s, DEFINE_CHARACTERDBMISSIONTRACK_ITEMINFO_MAX_NUM> itemInfo;//
 		uint64_t textid;//
+		uint32_t missiontype;//
 
 		virtual void write_to_pbmsg(::proto_ff::CharacterDBMissionTrack & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::CharacterDBMissionTrack & msg);

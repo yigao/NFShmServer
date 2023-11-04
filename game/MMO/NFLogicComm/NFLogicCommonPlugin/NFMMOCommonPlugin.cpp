@@ -14,6 +14,7 @@
 #include "DescStore/NFDescStoreHead.h"
 #include "DescStore/NFDescStoreRegister.h"
 #include "NFLogicCommon/Attr/NFAttrMgr.h"
+#include "DescStoreEx/NFGrowDescEx.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -59,6 +60,7 @@ bool NFMMOCommonPlugin::InitShmObjectRegister()
     EOT_DESC_STORE_ALL_REGISTER_DEFINE
     
     REGISTER_SINGLETON_SHM_OBJ(NFAttrMgr);//
+    REGISTER_DESCSTORE_EX(NFGrowDescEx);
     ///////////////////////////////////////////////
 	return true;
 }

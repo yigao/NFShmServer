@@ -62,6 +62,7 @@ enum PartType
     PART_STAR,              //灭星辰
     PART_GMA,				//神元区域
     PART_TURN,				//神体
+    PART_SOUL,				//战魂
     PART_MAX,
 };
 

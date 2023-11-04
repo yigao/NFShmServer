@@ -48,6 +48,9 @@ class SyncSceneState;
 class GrowPartActiveEvent;
 class GrowPartLvUpEvent;
 class GrowPartDressEvent;
+class ChangeFacadeEvent;
+class PayEvent;
+class PassDupEvent;
 
 // ===================================================================
 
@@ -112,17 +115,27 @@ class FunctionUnlockEvent : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 functionid() const;
   inline void set_functionid(::google::protobuf::uint64 value);
 
+  // optional bool sync = 2;
+  inline bool has_sync() const;
+  inline void clear_sync();
+  static const int kSyncFieldNumber = 2;
+  inline bool sync() const;
+  inline void set_sync(bool value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.FunctionUnlockEvent)
  private:
   inline void set_has_functionid();
   inline void clear_has_functionid();
+  inline void set_has_sync();
+  inline void clear_has_sync();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint64 functionid_;
+  bool sync_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
   friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
@@ -1367,6 +1380,477 @@ class GrowPartDressEvent : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static GrowPartDressEvent* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class ChangeFacadeEvent : public ::google::protobuf::Message {
+ public:
+  ChangeFacadeEvent();
+  virtual ~ChangeFacadeEvent();
+
+  ChangeFacadeEvent(const ChangeFacadeEvent& from);
+
+  inline ChangeFacadeEvent& operator=(const ChangeFacadeEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ChangeFacadeEvent& default_instance();
+
+  void Swap(ChangeFacadeEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  ChangeFacadeEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ChangeFacadeEvent& from);
+  void MergeFrom(const ChangeFacadeEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional uint64 wingId = 2;
+  inline bool has_wingid() const;
+  inline void clear_wingid();
+  static const int kWingIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 wingid() const;
+  inline void set_wingid(::google::protobuf::uint64 value);
+
+  // optional uint64 fashionClothesId = 3;
+  inline bool has_fashionclothesid() const;
+  inline void clear_fashionclothesid();
+  static const int kFashionClothesIdFieldNumber = 3;
+  inline ::google::protobuf::uint64 fashionclothesid() const;
+  inline void set_fashionclothesid(::google::protobuf::uint64 value);
+
+  // optional uint64 fashionWeaponId = 4;
+  inline bool has_fashionweaponid() const;
+  inline void clear_fashionweaponid();
+  static const int kFashionWeaponIdFieldNumber = 4;
+  inline ::google::protobuf::uint64 fashionweaponid() const;
+  inline void set_fashionweaponid(::google::protobuf::uint64 value);
+
+  // optional uint64 occupationId = 5;
+  inline bool has_occupationid() const;
+  inline void clear_occupationid();
+  static const int kOccupationIdFieldNumber = 5;
+  inline ::google::protobuf::uint64 occupationid() const;
+  inline void set_occupationid(::google::protobuf::uint64 value);
+
+  // optional uint64 mountId = 6;
+  inline bool has_mountid() const;
+  inline void clear_mountid();
+  static const int kMountIdFieldNumber = 6;
+  inline ::google::protobuf::uint64 mountid() const;
+  inline void set_mountid(::google::protobuf::uint64 value);
+
+  // optional uint64 treasure_id = 7;
+  inline bool has_treasure_id() const;
+  inline void clear_treasure_id();
+  static const int kTreasureIdFieldNumber = 7;
+  inline ::google::protobuf::uint64 treasure_id() const;
+  inline void set_treasure_id(::google::protobuf::uint64 value);
+
+  // optional int32 treasure_type = 8;
+  inline bool has_treasure_type() const;
+  inline void clear_treasure_type();
+  static const int kTreasureTypeFieldNumber = 8;
+  inline ::google::protobuf::int32 treasure_type() const;
+  inline void set_treasure_type(::google::protobuf::int32 value);
+
+  // optional uint64 artifact_id = 9;
+  inline bool has_artifact_id() const;
+  inline void clear_artifact_id();
+  static const int kArtifactIdFieldNumber = 9;
+  inline ::google::protobuf::uint64 artifact_id() const;
+  inline void set_artifact_id(::google::protobuf::uint64 value);
+
+  // optional uint64 head_id = 10;
+  inline bool has_head_id() const;
+  inline void clear_head_id();
+  static const int kHeadIdFieldNumber = 10;
+  inline ::google::protobuf::uint64 head_id() const;
+  inline void set_head_id(::google::protobuf::uint64 value);
+
+  // optional uint64 frame_id = 11;
+  inline bool has_frame_id() const;
+  inline void clear_frame_id();
+  static const int kFrameIdFieldNumber = 11;
+  inline ::google::protobuf::uint64 frame_id() const;
+  inline void set_frame_id(::google::protobuf::uint64 value);
+
+  // optional uint64 bubble_id = 12;
+  inline bool has_bubble_id() const;
+  inline void clear_bubble_id();
+  static const int kBubbleIdFieldNumber = 12;
+  inline ::google::protobuf::uint64 bubble_id() const;
+  inline void set_bubble_id(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.ChangeFacadeEvent)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_wingid();
+  inline void clear_has_wingid();
+  inline void set_has_fashionclothesid();
+  inline void clear_has_fashionclothesid();
+  inline void set_has_fashionweaponid();
+  inline void clear_has_fashionweaponid();
+  inline void set_has_occupationid();
+  inline void clear_has_occupationid();
+  inline void set_has_mountid();
+  inline void clear_has_mountid();
+  inline void set_has_treasure_id();
+  inline void clear_has_treasure_id();
+  inline void set_has_treasure_type();
+  inline void clear_has_treasure_type();
+  inline void set_has_artifact_id();
+  inline void clear_has_artifact_id();
+  inline void set_has_head_id();
+  inline void clear_has_head_id();
+  inline void set_has_frame_id();
+  inline void clear_has_frame_id();
+  inline void set_has_bubble_id();
+  inline void clear_has_bubble_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 wingid_;
+  ::google::protobuf::uint64 fashionclothesid_;
+  ::google::protobuf::uint64 fashionweaponid_;
+  ::google::protobuf::uint64 occupationid_;
+  ::google::protobuf::uint64 mountid_;
+  ::google::protobuf::uint64 treasure_id_;
+  ::google::protobuf::uint64 artifact_id_;
+  ::google::protobuf::uint64 head_id_;
+  ::google::protobuf::uint64 frame_id_;
+  ::google::protobuf::uint64 bubble_id_;
+  ::google::protobuf::int32 treasure_type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(12 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static ChangeFacadeEvent* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PayEvent : public ::google::protobuf::Message {
+ public:
+  PayEvent();
+  virtual ~PayEvent();
+
+  PayEvent(const PayEvent& from);
+
+  inline PayEvent& operator=(const PayEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PayEvent& default_instance();
+
+  void Swap(PayEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  PayEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PayEvent& from);
+  void MergeFrom(const PayEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 payIndex = 1;
+  inline bool has_payindex() const;
+  inline void clear_payindex();
+  static const int kPayIndexFieldNumber = 1;
+  inline ::google::protobuf::uint32 payindex() const;
+  inline void set_payindex(::google::protobuf::uint32 value);
+
+  // optional uint32 money = 2;
+  inline bool has_money() const;
+  inline void clear_money();
+  static const int kMoneyFieldNumber = 2;
+  inline ::google::protobuf::uint32 money() const;
+  inline void set_money(::google::protobuf::uint32 value);
+
+  // optional uint32 price = 3;
+  inline bool has_price() const;
+  inline void clear_price();
+  static const int kPriceFieldNumber = 3;
+  inline ::google::protobuf::uint32 price() const;
+  inline void set_price(::google::protobuf::uint32 value);
+
+  // optional uint32 type = 4;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 4;
+  inline ::google::protobuf::uint32 type() const;
+  inline void set_type(::google::protobuf::uint32 value);
+
+  // optional uint32 quantity = 5;
+  inline bool has_quantity() const;
+  inline void clear_quantity();
+  static const int kQuantityFieldNumber = 5;
+  inline ::google::protobuf::uint32 quantity() const;
+  inline void set_quantity(::google::protobuf::uint32 value);
+
+  // optional bool indexFirst = 6;
+  inline bool has_indexfirst() const;
+  inline void clear_indexfirst();
+  static const int kIndexFirstFieldNumber = 6;
+  inline bool indexfirst() const;
+  inline void set_indexfirst(bool value);
+
+  // optional bool allFirst = 7;
+  inline bool has_allfirst() const;
+  inline void clear_allfirst();
+  static const int kAllFirstFieldNumber = 7;
+  inline bool allfirst() const;
+  inline void set_allfirst(bool value);
+
+  // optional uint32 chanid = 8;
+  inline bool has_chanid() const;
+  inline void clear_chanid();
+  static const int kChanidFieldNumber = 8;
+  inline ::google::protobuf::uint32 chanid() const;
+  inline void set_chanid(::google::protobuf::uint32 value);
+
+  // optional string productid = 9;
+  inline bool has_productid() const;
+  inline void clear_productid();
+  static const int kProductidFieldNumber = 9;
+  inline const ::std::string& productid() const;
+  inline void set_productid(const ::std::string& value);
+  inline void set_productid(const char* value);
+  inline void set_productid(const char* value, size_t size);
+  inline ::std::string* mutable_productid();
+  inline ::std::string* release_productid();
+  inline void set_allocated_productid(::std::string* productid);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PayEvent)
+ private:
+  inline void set_has_payindex();
+  inline void clear_has_payindex();
+  inline void set_has_money();
+  inline void clear_has_money();
+  inline void set_has_price();
+  inline void clear_has_price();
+  inline void set_has_type();
+  inline void clear_has_type();
+  inline void set_has_quantity();
+  inline void clear_has_quantity();
+  inline void set_has_indexfirst();
+  inline void clear_has_indexfirst();
+  inline void set_has_allfirst();
+  inline void clear_has_allfirst();
+  inline void set_has_chanid();
+  inline void clear_has_chanid();
+  inline void set_has_productid();
+  inline void clear_has_productid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 payindex_;
+  ::google::protobuf::uint32 money_;
+  ::google::protobuf::uint32 price_;
+  ::google::protobuf::uint32 type_;
+  ::google::protobuf::uint32 quantity_;
+  bool indexfirst_;
+  bool allfirst_;
+  ::std::string* productid_;
+  ::google::protobuf::uint32 chanid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static PayEvent* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PassDupEvent : public ::google::protobuf::Message {
+ public:
+  PassDupEvent();
+  virtual ~PassDupEvent();
+
+  PassDupEvent(const PassDupEvent& from);
+
+  inline PassDupEvent& operator=(const PassDupEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PassDupEvent& default_instance();
+
+  void Swap(PassDupEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  PassDupEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PassDupEvent& from);
+  void MergeFrom(const PassDupEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 dupId = 1;
+  inline bool has_dupid() const;
+  inline void clear_dupid();
+  static const int kDupIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 dupid() const;
+  inline void set_dupid(::google::protobuf::uint64 value);
+
+  // optional uint64 groupId = 2;
+  inline bool has_groupid() const;
+  inline void clear_groupid();
+  static const int kGroupIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 groupid() const;
+  inline void set_groupid(::google::protobuf::uint64 value);
+
+  // optional uint32 star = 3;
+  inline bool has_star() const;
+  inline void clear_star();
+  static const int kStarFieldNumber = 3;
+  inline ::google::protobuf::uint32 star() const;
+  inline void set_star(::google::protobuf::uint32 value);
+
+  // optional uint32 zid = 4;
+  inline bool has_zid() const;
+  inline void clear_zid();
+  static const int kZidFieldNumber = 4;
+  inline ::google::protobuf::uint32 zid() const;
+  inline void set_zid(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PassDupEvent)
+ private:
+  inline void set_has_dupid();
+  inline void clear_has_dupid();
+  inline void set_has_groupid();
+  inline void clear_has_groupid();
+  inline void set_has_star();
+  inline void clear_has_star();
+  inline void set_has_zid();
+  inline void clear_has_zid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 dupid_;
+  ::google::protobuf::uint64 groupid_;
+  ::google::protobuf::uint32 star_;
+  ::google::protobuf::uint32 zid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static PassDupEvent* default_instance_;
+};
 // ===================================================================
 
 
@@ -1394,6 +1878,28 @@ inline ::google::protobuf::uint64 FunctionUnlockEvent::functionid() const {
 inline void FunctionUnlockEvent::set_functionid(::google::protobuf::uint64 value) {
   set_has_functionid();
   functionid_ = value;
+}
+
+// optional bool sync = 2;
+inline bool FunctionUnlockEvent::has_sync() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FunctionUnlockEvent::set_has_sync() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FunctionUnlockEvent::clear_has_sync() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FunctionUnlockEvent::clear_sync() {
+  sync_ = false;
+  clear_has_sync();
+}
+inline bool FunctionUnlockEvent::sync() const {
+  return sync_;
+}
+inline void FunctionUnlockEvent::set_sync(bool value) {
+  set_has_sync();
+  sync_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -2272,6 +2778,616 @@ inline ::google::protobuf::int32 GrowPartDressEvent::curlv() const {
 inline void GrowPartDressEvent::set_curlv(::google::protobuf::int32 value) {
   set_has_curlv();
   curlv_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// ChangeFacadeEvent
+
+// optional uint64 cid = 1;
+inline bool ChangeFacadeEvent::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ChangeFacadeEvent::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ChangeFacadeEvent::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ChangeFacadeEvent::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 ChangeFacadeEvent::cid() const {
+  return cid_;
+}
+inline void ChangeFacadeEvent::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional uint64 wingId = 2;
+inline bool ChangeFacadeEvent::has_wingid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void ChangeFacadeEvent::set_has_wingid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void ChangeFacadeEvent::clear_has_wingid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void ChangeFacadeEvent::clear_wingid() {
+  wingid_ = GOOGLE_ULONGLONG(0);
+  clear_has_wingid();
+}
+inline ::google::protobuf::uint64 ChangeFacadeEvent::wingid() const {
+  return wingid_;
+}
+inline void ChangeFacadeEvent::set_wingid(::google::protobuf::uint64 value) {
+  set_has_wingid();
+  wingid_ = value;
+}
+
+// optional uint64 fashionClothesId = 3;
+inline bool ChangeFacadeEvent::has_fashionclothesid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void ChangeFacadeEvent::set_has_fashionclothesid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void ChangeFacadeEvent::clear_has_fashionclothesid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void ChangeFacadeEvent::clear_fashionclothesid() {
+  fashionclothesid_ = GOOGLE_ULONGLONG(0);
+  clear_has_fashionclothesid();
+}
+inline ::google::protobuf::uint64 ChangeFacadeEvent::fashionclothesid() const {
+  return fashionclothesid_;
+}
+inline void ChangeFacadeEvent::set_fashionclothesid(::google::protobuf::uint64 value) {
+  set_has_fashionclothesid();
+  fashionclothesid_ = value;
+}
+
+// optional uint64 fashionWeaponId = 4;
+inline bool ChangeFacadeEvent::has_fashionweaponid() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void ChangeFacadeEvent::set_has_fashionweaponid() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void ChangeFacadeEvent::clear_has_fashionweaponid() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void ChangeFacadeEvent::clear_fashionweaponid() {
+  fashionweaponid_ = GOOGLE_ULONGLONG(0);
+  clear_has_fashionweaponid();
+}
+inline ::google::protobuf::uint64 ChangeFacadeEvent::fashionweaponid() const {
+  return fashionweaponid_;
+}
+inline void ChangeFacadeEvent::set_fashionweaponid(::google::protobuf::uint64 value) {
+  set_has_fashionweaponid();
+  fashionweaponid_ = value;
+}
+
+// optional uint64 occupationId = 5;
+inline bool ChangeFacadeEvent::has_occupationid() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void ChangeFacadeEvent::set_has_occupationid() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void ChangeFacadeEvent::clear_has_occupationid() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void ChangeFacadeEvent::clear_occupationid() {
+  occupationid_ = GOOGLE_ULONGLONG(0);
+  clear_has_occupationid();
+}
+inline ::google::protobuf::uint64 ChangeFacadeEvent::occupationid() const {
+  return occupationid_;
+}
+inline void ChangeFacadeEvent::set_occupationid(::google::protobuf::uint64 value) {
+  set_has_occupationid();
+  occupationid_ = value;
+}
+
+// optional uint64 mountId = 6;
+inline bool ChangeFacadeEvent::has_mountid() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void ChangeFacadeEvent::set_has_mountid() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void ChangeFacadeEvent::clear_has_mountid() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void ChangeFacadeEvent::clear_mountid() {
+  mountid_ = GOOGLE_ULONGLONG(0);
+  clear_has_mountid();
+}
+inline ::google::protobuf::uint64 ChangeFacadeEvent::mountid() const {
+  return mountid_;
+}
+inline void ChangeFacadeEvent::set_mountid(::google::protobuf::uint64 value) {
+  set_has_mountid();
+  mountid_ = value;
+}
+
+// optional uint64 treasure_id = 7;
+inline bool ChangeFacadeEvent::has_treasure_id() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void ChangeFacadeEvent::set_has_treasure_id() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void ChangeFacadeEvent::clear_has_treasure_id() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void ChangeFacadeEvent::clear_treasure_id() {
+  treasure_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_treasure_id();
+}
+inline ::google::protobuf::uint64 ChangeFacadeEvent::treasure_id() const {
+  return treasure_id_;
+}
+inline void ChangeFacadeEvent::set_treasure_id(::google::protobuf::uint64 value) {
+  set_has_treasure_id();
+  treasure_id_ = value;
+}
+
+// optional int32 treasure_type = 8;
+inline bool ChangeFacadeEvent::has_treasure_type() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void ChangeFacadeEvent::set_has_treasure_type() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void ChangeFacadeEvent::clear_has_treasure_type() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void ChangeFacadeEvent::clear_treasure_type() {
+  treasure_type_ = 0;
+  clear_has_treasure_type();
+}
+inline ::google::protobuf::int32 ChangeFacadeEvent::treasure_type() const {
+  return treasure_type_;
+}
+inline void ChangeFacadeEvent::set_treasure_type(::google::protobuf::int32 value) {
+  set_has_treasure_type();
+  treasure_type_ = value;
+}
+
+// optional uint64 artifact_id = 9;
+inline bool ChangeFacadeEvent::has_artifact_id() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void ChangeFacadeEvent::set_has_artifact_id() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void ChangeFacadeEvent::clear_has_artifact_id() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void ChangeFacadeEvent::clear_artifact_id() {
+  artifact_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_artifact_id();
+}
+inline ::google::protobuf::uint64 ChangeFacadeEvent::artifact_id() const {
+  return artifact_id_;
+}
+inline void ChangeFacadeEvent::set_artifact_id(::google::protobuf::uint64 value) {
+  set_has_artifact_id();
+  artifact_id_ = value;
+}
+
+// optional uint64 head_id = 10;
+inline bool ChangeFacadeEvent::has_head_id() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void ChangeFacadeEvent::set_has_head_id() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void ChangeFacadeEvent::clear_has_head_id() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void ChangeFacadeEvent::clear_head_id() {
+  head_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_head_id();
+}
+inline ::google::protobuf::uint64 ChangeFacadeEvent::head_id() const {
+  return head_id_;
+}
+inline void ChangeFacadeEvent::set_head_id(::google::protobuf::uint64 value) {
+  set_has_head_id();
+  head_id_ = value;
+}
+
+// optional uint64 frame_id = 11;
+inline bool ChangeFacadeEvent::has_frame_id() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void ChangeFacadeEvent::set_has_frame_id() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void ChangeFacadeEvent::clear_has_frame_id() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void ChangeFacadeEvent::clear_frame_id() {
+  frame_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_frame_id();
+}
+inline ::google::protobuf::uint64 ChangeFacadeEvent::frame_id() const {
+  return frame_id_;
+}
+inline void ChangeFacadeEvent::set_frame_id(::google::protobuf::uint64 value) {
+  set_has_frame_id();
+  frame_id_ = value;
+}
+
+// optional uint64 bubble_id = 12;
+inline bool ChangeFacadeEvent::has_bubble_id() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void ChangeFacadeEvent::set_has_bubble_id() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void ChangeFacadeEvent::clear_has_bubble_id() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void ChangeFacadeEvent::clear_bubble_id() {
+  bubble_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_bubble_id();
+}
+inline ::google::protobuf::uint64 ChangeFacadeEvent::bubble_id() const {
+  return bubble_id_;
+}
+inline void ChangeFacadeEvent::set_bubble_id(::google::protobuf::uint64 value) {
+  set_has_bubble_id();
+  bubble_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PayEvent
+
+// optional uint32 payIndex = 1;
+inline bool PayEvent::has_payindex() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PayEvent::set_has_payindex() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PayEvent::clear_has_payindex() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PayEvent::clear_payindex() {
+  payindex_ = 0u;
+  clear_has_payindex();
+}
+inline ::google::protobuf::uint32 PayEvent::payindex() const {
+  return payindex_;
+}
+inline void PayEvent::set_payindex(::google::protobuf::uint32 value) {
+  set_has_payindex();
+  payindex_ = value;
+}
+
+// optional uint32 money = 2;
+inline bool PayEvent::has_money() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PayEvent::set_has_money() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PayEvent::clear_has_money() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PayEvent::clear_money() {
+  money_ = 0u;
+  clear_has_money();
+}
+inline ::google::protobuf::uint32 PayEvent::money() const {
+  return money_;
+}
+inline void PayEvent::set_money(::google::protobuf::uint32 value) {
+  set_has_money();
+  money_ = value;
+}
+
+// optional uint32 price = 3;
+inline bool PayEvent::has_price() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void PayEvent::set_has_price() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void PayEvent::clear_has_price() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void PayEvent::clear_price() {
+  price_ = 0u;
+  clear_has_price();
+}
+inline ::google::protobuf::uint32 PayEvent::price() const {
+  return price_;
+}
+inline void PayEvent::set_price(::google::protobuf::uint32 value) {
+  set_has_price();
+  price_ = value;
+}
+
+// optional uint32 type = 4;
+inline bool PayEvent::has_type() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void PayEvent::set_has_type() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void PayEvent::clear_has_type() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void PayEvent::clear_type() {
+  type_ = 0u;
+  clear_has_type();
+}
+inline ::google::protobuf::uint32 PayEvent::type() const {
+  return type_;
+}
+inline void PayEvent::set_type(::google::protobuf::uint32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// optional uint32 quantity = 5;
+inline bool PayEvent::has_quantity() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void PayEvent::set_has_quantity() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void PayEvent::clear_has_quantity() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void PayEvent::clear_quantity() {
+  quantity_ = 0u;
+  clear_has_quantity();
+}
+inline ::google::protobuf::uint32 PayEvent::quantity() const {
+  return quantity_;
+}
+inline void PayEvent::set_quantity(::google::protobuf::uint32 value) {
+  set_has_quantity();
+  quantity_ = value;
+}
+
+// optional bool indexFirst = 6;
+inline bool PayEvent::has_indexfirst() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void PayEvent::set_has_indexfirst() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void PayEvent::clear_has_indexfirst() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void PayEvent::clear_indexfirst() {
+  indexfirst_ = false;
+  clear_has_indexfirst();
+}
+inline bool PayEvent::indexfirst() const {
+  return indexfirst_;
+}
+inline void PayEvent::set_indexfirst(bool value) {
+  set_has_indexfirst();
+  indexfirst_ = value;
+}
+
+// optional bool allFirst = 7;
+inline bool PayEvent::has_allfirst() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void PayEvent::set_has_allfirst() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void PayEvent::clear_has_allfirst() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void PayEvent::clear_allfirst() {
+  allfirst_ = false;
+  clear_has_allfirst();
+}
+inline bool PayEvent::allfirst() const {
+  return allfirst_;
+}
+inline void PayEvent::set_allfirst(bool value) {
+  set_has_allfirst();
+  allfirst_ = value;
+}
+
+// optional uint32 chanid = 8;
+inline bool PayEvent::has_chanid() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void PayEvent::set_has_chanid() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void PayEvent::clear_has_chanid() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void PayEvent::clear_chanid() {
+  chanid_ = 0u;
+  clear_has_chanid();
+}
+inline ::google::protobuf::uint32 PayEvent::chanid() const {
+  return chanid_;
+}
+inline void PayEvent::set_chanid(::google::protobuf::uint32 value) {
+  set_has_chanid();
+  chanid_ = value;
+}
+
+// optional string productid = 9;
+inline bool PayEvent::has_productid() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void PayEvent::set_has_productid() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void PayEvent::clear_has_productid() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void PayEvent::clear_productid() {
+  if (productid_ != &::google::protobuf::internal::kEmptyString) {
+    productid_->clear();
+  }
+  clear_has_productid();
+}
+inline const ::std::string& PayEvent::productid() const {
+  return *productid_;
+}
+inline void PayEvent::set_productid(const ::std::string& value) {
+  set_has_productid();
+  if (productid_ == &::google::protobuf::internal::kEmptyString) {
+    productid_ = new ::std::string;
+  }
+  productid_->assign(value);
+}
+inline void PayEvent::set_productid(const char* value) {
+  set_has_productid();
+  if (productid_ == &::google::protobuf::internal::kEmptyString) {
+    productid_ = new ::std::string;
+  }
+  productid_->assign(value);
+}
+inline void PayEvent::set_productid(const char* value, size_t size) {
+  set_has_productid();
+  if (productid_ == &::google::protobuf::internal::kEmptyString) {
+    productid_ = new ::std::string;
+  }
+  productid_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* PayEvent::mutable_productid() {
+  set_has_productid();
+  if (productid_ == &::google::protobuf::internal::kEmptyString) {
+    productid_ = new ::std::string;
+  }
+  return productid_;
+}
+inline ::std::string* PayEvent::release_productid() {
+  clear_has_productid();
+  if (productid_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = productid_;
+    productid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void PayEvent::set_allocated_productid(::std::string* productid) {
+  if (productid_ != &::google::protobuf::internal::kEmptyString) {
+    delete productid_;
+  }
+  if (productid) {
+    set_has_productid();
+    productid_ = productid;
+  } else {
+    clear_has_productid();
+    productid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// PassDupEvent
+
+// optional uint64 dupId = 1;
+inline bool PassDupEvent::has_dupid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PassDupEvent::set_has_dupid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PassDupEvent::clear_has_dupid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PassDupEvent::clear_dupid() {
+  dupid_ = GOOGLE_ULONGLONG(0);
+  clear_has_dupid();
+}
+inline ::google::protobuf::uint64 PassDupEvent::dupid() const {
+  return dupid_;
+}
+inline void PassDupEvent::set_dupid(::google::protobuf::uint64 value) {
+  set_has_dupid();
+  dupid_ = value;
+}
+
+// optional uint64 groupId = 2;
+inline bool PassDupEvent::has_groupid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PassDupEvent::set_has_groupid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PassDupEvent::clear_has_groupid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PassDupEvent::clear_groupid() {
+  groupid_ = GOOGLE_ULONGLONG(0);
+  clear_has_groupid();
+}
+inline ::google::protobuf::uint64 PassDupEvent::groupid() const {
+  return groupid_;
+}
+inline void PassDupEvent::set_groupid(::google::protobuf::uint64 value) {
+  set_has_groupid();
+  groupid_ = value;
+}
+
+// optional uint32 star = 3;
+inline bool PassDupEvent::has_star() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void PassDupEvent::set_has_star() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void PassDupEvent::clear_has_star() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void PassDupEvent::clear_star() {
+  star_ = 0u;
+  clear_has_star();
+}
+inline ::google::protobuf::uint32 PassDupEvent::star() const {
+  return star_;
+}
+inline void PassDupEvent::set_star(::google::protobuf::uint32 value) {
+  set_has_star();
+  star_ = value;
+}
+
+// optional uint32 zid = 4;
+inline bool PassDupEvent::has_zid() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void PassDupEvent::set_has_zid() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void PassDupEvent::clear_has_zid() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void PassDupEvent::clear_zid() {
+  zid_ = 0u;
+  clear_has_zid();
+}
+inline ::google::protobuf::uint32 PassDupEvent::zid() const {
+  return zid_;
+}
+inline void PassDupEvent::set_zid(::google::protobuf::uint32 value) {
+  set_has_zid();
+  zid_ = value;
 }
 
 

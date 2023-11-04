@@ -27,4 +27,6 @@ public:
     int CreateInit();
 
     int ResumeInit();
+    
+    bool IsCmptTask() { return false; }
 };

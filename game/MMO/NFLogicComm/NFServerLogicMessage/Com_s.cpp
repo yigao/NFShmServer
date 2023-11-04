@@ -3882,6 +3882,7 @@ int CharacterDBMissionTrack_s::CreateInit() {
 	status = (uint32_t)0;
 	acceptMissionTime = (uint64_t)0;
 	textid = (uint64_t)0;
+	missiontype = (uint32_t)0;
 	return 0;
 }
 
@@ -3899,6 +3900,7 @@ void CharacterDBMissionTrack_s::write_to_pbmsg(::proto_ff::CharacterDBMissionTra
 		itemInfo[i].write_to_pbmsg(*temp_iteminfo);
 	}
 	msg.set_textid((uint64_t)textid);
+	msg.set_missiontype((uint32_t)missiontype);
 }
 
 void CharacterDBMissionTrack_s::read_from_pbmsg(const ::proto_ff::CharacterDBMissionTrack & msg) {
@@ -3912,6 +3914,7 @@ void CharacterDBMissionTrack_s::read_from_pbmsg(const ::proto_ff::CharacterDBMis
 		itemInfo[i].read_from_pbmsg(temp_iteminfo);
 	}
 	textid = msg.textid();
+	missiontype = msg.missiontype();
 }
 
 CharacterDBDyMissionBountyParam_s::CharacterDBDyMissionBountyParam_s() {

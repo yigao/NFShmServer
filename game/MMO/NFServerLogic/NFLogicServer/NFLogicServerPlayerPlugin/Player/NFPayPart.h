@@ -27,4 +27,7 @@ public:
     int CreateInit();
 
     int ResumeInit();
+    
+    //累计充值人名币
+    uint32_t RealRmb() { return 0; }
 };

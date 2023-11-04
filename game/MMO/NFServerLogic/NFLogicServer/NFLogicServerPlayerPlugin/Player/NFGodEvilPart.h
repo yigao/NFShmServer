@@ -33,4 +33,6 @@ public:
 
     //处理 增加神魔之息
     void OnAddExp(int64_t &value) {}
+    
+    bool IsActive() { return false; }
 };
