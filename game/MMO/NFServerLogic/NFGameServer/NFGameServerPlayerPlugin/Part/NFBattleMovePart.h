@@ -100,10 +100,11 @@ public:
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
 
 public:
-    static int RegisterClientMessage(NFIPluginManager *pPluginManager);
-
-    static int RetisterServerMessage(NFIPluginManager *pPluginManager);
-
+    /**
+     * @brief 注册要处理的消息
+     * @return
+     */
+    virtual int RegisterMessage();
 public:
     int ClientMoveReq(uint32_t msgId, NFDataPackage &packet);
 

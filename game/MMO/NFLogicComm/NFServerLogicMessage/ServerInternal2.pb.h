@@ -51,6 +51,7 @@ class ReigsterMapInfoRsp;
 class ClientEnterGameInternalRsp;
 class EnterSceneReq;
 class EnterSceneRsp;
+class NotifyPlayerEnterServer;
 
 // ===================================================================
 
@@ -1566,6 +1567,118 @@ class EnterSceneRsp : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static EnterSceneRsp* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class NotifyPlayerEnterServer : public ::google::protobuf::Message {
+ public:
+  NotifyPlayerEnterServer();
+  virtual ~NotifyPlayerEnterServer();
+
+  NotifyPlayerEnterServer(const NotifyPlayerEnterServer& from);
+
+  inline NotifyPlayerEnterServer& operator=(const NotifyPlayerEnterServer& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NotifyPlayerEnterServer& default_instance();
+
+  void Swap(NotifyPlayerEnterServer* other);
+
+  // implements Message ----------------------------------------------
+
+  NotifyPlayerEnterServer* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NotifyPlayerEnterServer& from);
+  void MergeFrom(const NotifyPlayerEnterServer& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 uid = 1;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 1;
+  inline ::google::protobuf::uint32 uid() const;
+  inline void set_uid(::google::protobuf::uint32 value);
+
+  // optional uint64 cid = 2;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 2;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional uint32 logic_id = 3;
+  inline bool has_logic_id() const;
+  inline void clear_logic_id();
+  static const int kLogicIdFieldNumber = 3;
+  inline ::google::protobuf::uint32 logic_id() const;
+  inline void set_logic_id(::google::protobuf::uint32 value);
+
+  // optional uint32 sns_id = 4;
+  inline bool has_sns_id() const;
+  inline void clear_sns_id();
+  static const int kSnsIdFieldNumber = 4;
+  inline ::google::protobuf::uint32 sns_id() const;
+  inline void set_sns_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NotifyPlayerEnterServer)
+ private:
+  inline void set_has_uid();
+  inline void clear_has_uid();
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_logic_id();
+  inline void clear_has_logic_id();
+  inline void set_has_sns_id();
+  inline void clear_has_sns_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint32 uid_;
+  ::google::protobuf::uint32 logic_id_;
+  ::google::protobuf::uint32 sns_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal2_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal2_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal2_2eproto();
+
+  void InitAsDefaultInstance();
+  static NotifyPlayerEnterServer* default_instance_;
+};
 // ===================================================================
 
 
@@ -2789,6 +2902,98 @@ inline void EnterSceneRsp::set_allocated_pos(::proto_ff::Vector3PB* pos) {
   } else {
     clear_has_pos();
   }
+}
+
+// -------------------------------------------------------------------
+
+// NotifyPlayerEnterServer
+
+// optional uint32 uid = 1;
+inline bool NotifyPlayerEnterServer::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NotifyPlayerEnterServer::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NotifyPlayerEnterServer::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NotifyPlayerEnterServer::clear_uid() {
+  uid_ = 0u;
+  clear_has_uid();
+}
+inline ::google::protobuf::uint32 NotifyPlayerEnterServer::uid() const {
+  return uid_;
+}
+inline void NotifyPlayerEnterServer::set_uid(::google::protobuf::uint32 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// optional uint64 cid = 2;
+inline bool NotifyPlayerEnterServer::has_cid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NotifyPlayerEnterServer::set_has_cid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NotifyPlayerEnterServer::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NotifyPlayerEnterServer::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 NotifyPlayerEnterServer::cid() const {
+  return cid_;
+}
+inline void NotifyPlayerEnterServer::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional uint32 logic_id = 3;
+inline bool NotifyPlayerEnterServer::has_logic_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NotifyPlayerEnterServer::set_has_logic_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NotifyPlayerEnterServer::clear_has_logic_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NotifyPlayerEnterServer::clear_logic_id() {
+  logic_id_ = 0u;
+  clear_has_logic_id();
+}
+inline ::google::protobuf::uint32 NotifyPlayerEnterServer::logic_id() const {
+  return logic_id_;
+}
+inline void NotifyPlayerEnterServer::set_logic_id(::google::protobuf::uint32 value) {
+  set_has_logic_id();
+  logic_id_ = value;
+}
+
+// optional uint32 sns_id = 4;
+inline bool NotifyPlayerEnterServer::has_sns_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void NotifyPlayerEnterServer::set_has_sns_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void NotifyPlayerEnterServer::clear_has_sns_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void NotifyPlayerEnterServer::clear_sns_id() {
+  sns_id_ = 0u;
+  clear_has_sns_id();
+}
+inline ::google::protobuf::uint32 NotifyPlayerEnterServer::sns_id() const {
+  return sns_id_;
+}
+inline void NotifyPlayerEnterServer::set_sns_id(::google::protobuf::uint32 value) {
+  set_has_sns_id();
+  sns_id_ = value;
 }
 
 

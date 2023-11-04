@@ -32,6 +32,7 @@ bool NFBattlePartModule::Awake()
         auto pPart = dynamic_cast<NFBattlePart*>(FindModule<NFISharedMemModule>()->CreateObj(EOT_NFBattlePart_ID+i));
         if (pPart)
         {
+            pPart->SetPartType(i);
             pPart->RegisterMessage();
             FindModule<NFISharedMemModule>()->DestroyObj(pPart);
         }
@@ -49,7 +50,7 @@ bool NFBattlePartModule::OnDynamicPlugin()
     return NFIModule::OnDynamicPlugin();
 }
 
-int NFBattlePartModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet, uint64_t uid, uint64_t roleId)
+int NFBattlePartModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet, uint64_t roleId, uint64_t param2)
 {
     NFBattlePlayer *pPlayer = NFCreatureMgr::Instance(m_pObjPluginManager)->GetBattlePlayer(roleId);
     if (pPlayer)
@@ -62,6 +63,9 @@ int NFBattlePartModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &pac
                 return pPart->OnHandleClientMessage(msgId, packet);
             }
         }
+        else {
+            NFLogError(NF_LOG_SYSTEMLOG, roleId, "can't find msg register, roleId:{}, drop the msg:{}", roleId, packet.ToString());
+        }
     }
     else {
         NFLogError(NF_LOG_SYSTEMLOG, roleId, "can't find player by roleId:{}, drop the msg:{}", roleId, packet.ToString());
@@ -69,7 +73,7 @@ int NFBattlePartModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &pac
     return 0;
 }
 
-int NFBattlePartModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, uint64_t uid, uint64_t roleId)
+int NFBattlePartModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, uint64_t roleId, uint64_t param2)
 {
     NFBattlePlayer *pPlayer = NFCreatureMgr::Instance(m_pObjPluginManager)->GetBattlePlayer(roleId);
     if (pPlayer)
@@ -89,18 +93,28 @@ int NFBattlePartModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &pac
     return 0;
 }
 
-int NFBattlePartModule::RegisterClientPartMsg(uint32_t nMsgID, uint32_t partType)
+int NFBattlePartModule::RegisterClientPartMsg(uint32_t nMsgID, uint32_t partType, bool createCo)
 {
     CHECK_EXPR_ASSERT(nMsgID < m_clientMsgToPartMap.size(), -1, "");
-    RegisterClientMessage(NF_ST_GAME_SERVER, nMsgID);
+    RegisterClientMessage(NF_ST_GAME_SERVER, nMsgID, createCo);
+    if (m_clientMsgToPartMap[nMsgID] != 0)
+    {
+        NFLogWarning(NF_LOG_SYSTEMLOG, 0, "RegisterClientMsg nMsgId:{} has be registtered by part:{}, can't be registerd by part:{}", nMsgID, m_clientMsgToPartMap[nMsgID], partType);
+        return 0;
+    }
     m_clientMsgToPartMap[nMsgID] = partType;
     return 0;
 }
 
-int NFBattlePartModule::RegisterServerPartMsg(uint32_t nMsgID, uint32_t partType)
+int NFBattlePartModule::RegisterServerPartMsg(uint32_t nMsgID, uint32_t partType, bool createCo)
 {
     CHECK_EXPR_ASSERT(nMsgID < m_serverMsgToPartMap.size(), -1, "");
-    RegisterServerMessage(NF_ST_GAME_SERVER, nMsgID);
+    RegisterServerMessage(NF_ST_GAME_SERVER, nMsgID, createCo);
+    if (m_serverMsgToPartMap[nMsgID] != 0)
+    {
+        NFLogWarning(NF_LOG_SYSTEMLOG, 0, "RegisterServerPartMsg nMsgId:{} has be registtered by part:{}, can't be registerd by part:{}", nMsgID, m_serverMsgToPartMap[nMsgID], partType);
+        return 0;
+    }
     m_serverMsgToPartMap[nMsgID] = partType;
     return 0;
 }

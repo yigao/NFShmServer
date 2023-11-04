@@ -596,16 +596,20 @@ bool NFFunctionUnlockPart::CheckUnlock(int32_t Lev, int32_t occupationLev, uint3
 
 uint32_t NFFunctionUnlockPart::OpenDays()
 {
-/*    uint32_t zid = m_pMaster->GetZid();
-    if (g_GetLogicService()->IsMerged(zid))
+    //uint32_t zid = m_pMaster->GetZid();
+/*    if (g_GetLogicService()->IsMerged(zid))
     {
         //合服之后，不需要再判定开服天数了，为了逻辑上统一，合服之后开服天数返回一个很大的值
         return INT32_MAX;
-    }
+    }*/
+
+/*    auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
+    CHECK_EXPR(pConfig, 1, "");
+    
+    pConfig->GetDayFromOpen(uint32_t zid)
     return g_GetLogicService()->GetDayFromOpen(zid);*/
 
-    
-    return 0;
+    return 1;
 }
 
 int NFFunctionUnlockPart::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage)

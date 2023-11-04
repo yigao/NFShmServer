@@ -79,4 +79,6 @@ public:
      * @return
      */
     int NotifyGateLeave(uint32_t proxyId, uint64_t clientId, proto_ff::LOGOUT_TYPE leaveFlag);
+    
+    int OnHandleNotifyPlayerEnterServer(uint64_t unLinkId, NFDataPackage &packet);
 };

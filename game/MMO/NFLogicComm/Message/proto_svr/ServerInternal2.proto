@@ -115,3 +115,12 @@ message EnterSceneRsp
   optional uint64 scene_id = 4;
   optional Vector3PB pos = 5;
 }
+
+//STS_NOTIFY_ROLE_ENTER_SERVER = 5005; //通知玩家服务器消息改变
+message NotifyPlayerEnterServer
+{
+  optional uint32 uid = 1;
+  optional uint64 cid = 2;
+  optional uint32 logic_id = 3;
+  optional uint32 sns_id = 4;
+}

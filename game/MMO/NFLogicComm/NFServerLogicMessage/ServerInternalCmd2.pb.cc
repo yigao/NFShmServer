@@ -61,11 +61,12 @@ void protobuf_AddDesc_ServerInternalCmd2_2eproto() {
   ::proto_ff::protobuf_AddDesc_ComDefine_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\030ServerInternalCmd2.proto\022\010proto_ff\032\tCo"
-    "m.proto\032\017ComDefine.proto*\217\001\n\022ServerInter"
+    "m.proto\032\017ComDefine.proto*\262\001\n\022ServerInter"
     "nalCmd2\022\033\n\026SERVER_INTERNAL2_BEGIN\020\210\'\022\022\n\r"
     "LTS_LOGIN_RPC\020\211\'\022\024\n\017STS_MAP_REG_RPC\020\212\'\022\030"
     "\n\023STS_ENTER_SCENE_REQ\020\213\'\022\030\n\023STS_ENTER_SC"
-    "ENE_RSP\020\214\'", 210);
+    "ENE_RSP\020\214\'\022!\n\034STS_NOTIFY_ROLE_ENTER_SERV"
+    "ER\020\215\'", 245);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternalCmd2.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerInternalCmd2_2eproto);
@@ -88,6 +89,7 @@ bool ServerInternalCmd2_IsValid(int value) {
     case 5002:
     case 5003:
     case 5004:
+    case 5005:
       return true;
     default:
       return false;

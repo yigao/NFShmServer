@@ -85,6 +85,7 @@ public:
     int OnHandleOtherServerToClientMsg(uint64_t unLinkId, NFDataPackage &packet);
 public:
     int OnHandleRedirectMsg(uint64_t unLinkId, NFDataPackage &packet);
+    int OnHandleNotifyPlayerEnterServer(uint64_t unLinkId, NFDataPackage &packet);
 public:
     /*
      * 处理心跳包

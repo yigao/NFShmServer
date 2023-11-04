@@ -33,6 +33,7 @@ bool NFPartModule::Awake()
         auto pPart = dynamic_cast<NFPart*>(FindModule<NFISharedMemModule>()->CreateObj(EOT_LOGIC_PART_ID+i));
         if (pPart)
         {
+            pPart->SetPartType(i);
             pPart->RegisterMessage();
             FindModule<NFISharedMemModule>()->DestroyObj(pPart);
         }
@@ -137,9 +138,9 @@ int NFPartModule::RegisterServerPartMsg(uint32_t nMsgID, uint32_t partType, bool
 {
     CHECK_EXPR_ASSERT(nMsgID < m_serverMsgToPartMap.size(), -1, "");
     RegisterServerMessage(NF_ST_LOGIC_SERVER, nMsgID, createCo);
-    if (m_clientMsgToPartMap[nMsgID] != 0)
+    if (m_serverMsgToPartMap[nMsgID] != 0)
     {
-        NFLogWarning(NF_LOG_SYSTEMLOG, 0, "RegisterServerPartMsg nMsgId:{} has be registtered by part:{}, can't be registerd by part:{}", nMsgID, m_clientMsgToPartMap[nMsgID], partType);
+        NFLogWarning(NF_LOG_SYSTEMLOG, 0, "RegisterServerPartMsg nMsgId:{} has be registtered by part:{}, can't be registerd by part:{}", nMsgID, m_serverMsgToPartMap[nMsgID], partType);
         return 0;
     }
     m_serverMsgToPartMap[nMsgID] = partType;

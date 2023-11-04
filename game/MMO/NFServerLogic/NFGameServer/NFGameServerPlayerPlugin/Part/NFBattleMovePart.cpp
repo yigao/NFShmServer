@@ -27,6 +27,7 @@
 
 NFBattleMovePart::NFBattleMovePart()
 {
+    m_partType = BATTLE_PART_MOVE;
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {
         CreateInit();
@@ -100,18 +101,12 @@ int NFBattleMovePart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packe
     return NFBattlePart::OnHandleServerMessage(msgId, packet);
 }
 
-int NFBattleMovePart::RegisterClientMessage(NFIPluginManager *pPluginManager)
+int NFBattleMovePart::RegisterMessage()
 {
-    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_MOVE_REQ, BATTLE_PART_MOVE);
-    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_LOAD_MAP_FINISH, BATTLE_PART_MOVE);
+    RegisterClientMessage(proto_ff::CLIENT_MOVE_REQ);
+    RegisterClientMessage(proto_ff::CLIENT_LOAD_MAP_FINISH);
+    RegisterClientMessage(proto_ff::CLIENT_TO_LOGIC_PLAYER_SEAT_REQ);
 
-    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_LOGIC_PLAYER_SEAT_REQ, BATTLE_PART_MOVE);
-
-    return 0;
-}
-
-int NFBattleMovePart::RetisterServerMessage(NFIPluginManager *pPluginManager)
-{
     return 0;
 }
 

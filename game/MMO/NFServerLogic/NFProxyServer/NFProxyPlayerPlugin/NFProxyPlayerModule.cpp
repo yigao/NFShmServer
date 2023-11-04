@@ -35,7 +35,9 @@ bool NFCProxyPlayerModule::Awake()
     RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::CLIENT_RECONNECT_REQ, true);
     RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::CLIENT_CREATE_ROLE_REQ, true);
     RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::CLIENT_ENTER_GAME_REQ, true);
-
+    
+    RegisterServerMessage(NF_ST_PROXY_SERVER, proto_ff::STS_NOTIFY_ROLE_ENTER_SERVER);
+    
 
     /////////来自Login Server返回的协议//////////////////////////////////////////////////
     /////来自World Server返回的协议////////////////////////////////////////
@@ -199,6 +201,11 @@ int NFCProxyPlayerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage
             OnHandleRedirectMsg(unLinkId, packet);
             break;
         }
+        case proto_ff::STS_NOTIFY_ROLE_ENTER_SERVER:
+        {
+            OnHandleNotifyPlayerEnterServer(unLinkId, packet);
+            break;
+        }
         default:
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "Server MsgId:{} Register, But Not Handle, Package:{}", packet.nMsgId, packet.ToString());
@@ -316,7 +323,7 @@ int NFCProxyPlayerModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
             NFLogDebug(NF_LOG_SYSTEMLOG, pAccount->GetUid(), "recv packet = {}, transfer to logic server", packet.ToString());
             FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pAccount->GetLogicBusId(), NF_MODULE_CLIENT,
                                                                       msgId,
-                                                                      packet.GetBuffer(), packet.GetSize(), pAccount->GetUid(),
+                                                                      packet.GetBuffer(), packet.GetSize(), pAccount->GetCid(),
                                                                       0);
         }
         else
@@ -331,7 +338,7 @@ int NFCProxyPlayerModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
             NFLogDebug(NF_LOG_SYSTEMLOG, pAccount->GetUid(), "recv packet = {}, transfer to game server", packet.ToString());
             FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pAccount->GetGameBusId(), NF_MODULE_CLIENT,
                                                                       msgId,
-                                                                      packet.GetBuffer(), packet.GetSize(), pAccount->GetUid(),
+                                                                      packet.GetBuffer(), packet.GetSize(), pAccount->GetCid(),
                                                                       0);
         }
         else
@@ -349,7 +356,7 @@ int NFCProxyPlayerModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
             NFLogDebug(NF_LOG_SYSTEMLOG, pAccount->GetUid(), "recv packet = {}, transfer to sns server", packet.ToString());
             FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pSnsServer->mServerInfo.bus_id(), NF_MODULE_CLIENT,
                                                                       msgId,
-                                                                      packet.GetBuffer(), packet.GetSize(), pAccount->GetUid(),
+                                                                      packet.GetBuffer(), packet.GetSize(), pAccount->GetCid(),
                                                                       0);
         }
         else
@@ -505,6 +512,21 @@ int NFCProxyPlayerModule::OnHandleRedirectMsg(uint64_t unLinkId, NFDataPackage &
         }
     }
 
+    return 0;
+}
+
+int NFCProxyPlayerModule::OnHandleNotifyPlayerEnterServer(uint64_t unLinkId, NFDataPackage &packet)
+{
+    proto_ff::NotifyPlayerEnterServer xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+    
+    NF_SHARE_PTR<NFProxyAccount> pPlayerInfo = mAccountMap.GetElement(xMsg.uid());
+    if (pPlayerInfo)
+    {
+        pPlayerInfo->SetCid(xMsg.cid());
+        pPlayerInfo->SetLogicBusId(xMsg.logic_id());
+        pPlayerInfo->SetSnsBusId(xMsg.sns_id());
+    }
     return 0;
 }
 

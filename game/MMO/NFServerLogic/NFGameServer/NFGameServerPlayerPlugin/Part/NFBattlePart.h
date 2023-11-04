@@ -45,6 +45,22 @@ public:
      */
     virtual int RegisterMessage();
 public:
+    /**
+     * @brief
+     * @param nMsgID
+     * @param createCo
+     * @return
+     */
+    virtual int RegisterClientMessage(uint32_t nMsgID, bool createCo = false);
+    
+    /**
+     * @brief
+     * @param nMsgID
+     * @param createCo
+     * @return
+     */
+    virtual int RegisterServerMessage(uint32_t nMsgID, bool createCo = false);
+public:
     virtual uint32_t GetCurRoleDetailSeq() const;
 public:
     /**
@@ -62,10 +78,6 @@ public:
      * @return
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
-public:
-    static int RegisterClientPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType);
-
-    static int RegisterServerPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType);
 public:
     virtual int BroadCast(uint32_t nMsgId, const google::protobuf::Message &xData, bool IncludeMyself = false);
 
@@ -142,7 +154,7 @@ public:
 public:
     //部件类型
     uint32_t PartType() { return m_partType; }
-
+    void SetPartType(uint32_t partType) { m_partType = partType; }
 public:
     NFCreature* GetMaster();
 protected:

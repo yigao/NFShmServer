@@ -12,5 +12,6 @@ enum ServerInternalCmd2
   STS_MAP_REG_RPC = 5002; //注册地图信息
   STS_ENTER_SCENE_REQ = 5003; //进入场景RPC
   STS_ENTER_SCENE_RSP = 5004; //进入场景RPC
+  STS_NOTIFY_ROLE_ENTER_SERVER = 5005; //通知玩家服务器消息改变
 };
 

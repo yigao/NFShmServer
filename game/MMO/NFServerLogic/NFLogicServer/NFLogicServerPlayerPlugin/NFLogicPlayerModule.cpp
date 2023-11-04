@@ -100,6 +100,9 @@ int NFCLogicPlayerModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &p
 int NFCLogicPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& request, proto_ff::ClientEnterGameInternalRsp& respone, uint64_t worldId, uint64_t proxyId)
 {
     uint64_t cid = request.cid();
+    
+    auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
+    CHECK_NULL(pConfig);
 
     NFPlayer* pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->GetPlayer(cid);
     if (pPlayer == NULL)
@@ -126,6 +129,13 @@ int NFCLogicPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& re
     pPlayer->SetProxyId(proxyId);
     pPlayer->SetWorldId(worldId);
     pPlayer->SetSnsId(0);
+    
+    proto_ff::NotifyPlayerEnterServer notify;
+    notify.set_uid(pPlayer->GetUid());
+    notify.set_cid(pPlayer->Cid());
+    notify.set_logic_id(pConfig->GetBusId());
+    notify.set_sns_id(pPlayer->GetSnsId());
+    pPlayer->SendMsgToWorldServer(proto_ff::STS_NOTIFY_ROLE_ENTER_SERVER, notify);
 
     /**
      * 登陆前处理一些计算
@@ -158,9 +168,7 @@ int NFCLogicPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& re
         respone.set_ret_code(iRet);
         return 0;
     }
-    
-    auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
-    CHECK_NULL(pConfig);
+
     
     respone.set_ret_code(proto_ff::RET_SUCCESS);
     respone.set_game_id(pPlayer->GetGameId());

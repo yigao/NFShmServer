@@ -44,7 +44,8 @@ bool NFCWorldPlayerModule::Awake()
 
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::CLIENT_ENTER_GAME_RSP>(NF_ST_WORLD_SERVER, this,
                                                                                     &NFCWorldPlayerModule::OnRpcServiceEnterGame, true);
-
+    
+    RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::STS_NOTIFY_ROLE_ENTER_SERVER);
     /////////////////////////////////server msg, player disconnect logout////////////////////////////////////////////
 
     //////////player enter game////////////////////////////////////
@@ -111,6 +112,11 @@ int NFCWorldPlayerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage
 
     switch (packet.nMsgId)
     {
+        case proto_ff::STS_NOTIFY_ROLE_ENTER_SERVER:
+        {
+            OnHandleNotifyPlayerEnterServer(unLinkId, packet);
+            break;
+        }
         default:
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "Server MsgId:{} Register, But Not Handle, Package:{}", packet.nMsgId, packet.ToString());
@@ -557,5 +563,26 @@ int NFCWorldPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& re
         NFLogError(NF_LOG_SYSTEMLOG, cid, "Player Enter Game Failed, uid:{} cid:{}", uid, cid);
     }
     
+    return 0;
+}
+
+int NFCWorldPlayerModule::OnHandleNotifyPlayerEnterServer(uint64_t unLinkId, NFDataPackage &packet)
+{
+    proto_ff::NotifyPlayerEnterServer xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+    
+    /**
+     * @brief 异步后，重新获取指针
+     */
+    auto pAccountInfo = NFWorldAccountMgr::GetInstance(m_pObjPluginManager)->GetAccount(xMsg.uid());
+    CHECK_NULL(pAccountInfo);
+    
+    auto pRole = NFWorldRoleMgr::Instance(m_pObjPluginManager)->GetRole(xMsg.cid());
+    CHECK_NULL(pRole);
+    
+    pRole->SetSnsId(xMsg.sns_id());
+    pRole->SetLogicId(xMsg.logic_id());
+    
+    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, pAccountInfo->GetProxyId(), packet.nMsgId, xMsg);
     return 0;
 }
