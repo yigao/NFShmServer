@@ -23,7 +23,7 @@
 #define MISSION_ALL_DY_MISSION_TYPE -1 //所有的动态任务类型
 #define MISSION_ALL_DY_ITEM_LEVEL -1 //所有的物品等级
 #define MISSION_INFINITE_COUNT -1 //无限次数
-#define MISSION_COMCOND_MAX_COUNT 2 //最大物品条件数
+#define MISSION_COMCOND_MAX_COUNT 10 //最大物品条件数
 
 #define MISSION_ARE_MONS_PER_NUM  5 //怪追踪区域每次刷新的怪物数量(到达区域直接杀怪)
 #define MISSION_RATION_BASE 10 //任务奖励倍率基数
@@ -281,7 +281,7 @@ struct DyMissionInfo
     uint32_t minLev;                //最低等级
     uint32_t maxLev;                //最高等级
     uint32_t canAccept;                //可接取数量
-    NFShmHashSet<int64_t, 10> setComplete;            //抽取的完成条件ID
+    NFShmHashSet<int64_t, 30> setComplete;            //抽取的完成条件ID
     int32_t totalRate;                //抽取的总概率
     DyMissionInfo()
     {

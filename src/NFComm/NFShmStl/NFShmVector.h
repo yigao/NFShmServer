@@ -301,17 +301,10 @@ public:
 
     int push_back(const Tp &__x)
     {
-        if (m_size < MAX_SIZE)
-        {
-            std::_Construct(m_data + m_size, __x);
-            ++m_size;
-            return 0;
-        }
-        else
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "NFShmVector push_back Failed, Vector Not Enough Space");
-            return -1;
-        }
+        CHECK_EXPR_ASSERT(m_size < MAX_SIZE, -1, "NFShmVector push_back Failed, Vector Not Enough Space");
+        std::_Construct(m_data + m_size, __x);
+        ++m_size;
+        return 0;
     }
 
     int emplace_back()
@@ -572,11 +565,6 @@ public:
     void random_shuffle()
     {
         std::random_shuffle(begin(), end());
-    }
-
-    void shuffle()
-    {
-        std::shuffle(begin(), end());
     }
 
     void remove(const Tp& value)

@@ -44,7 +44,6 @@
 
 using namespace std;
 
-#ifdef NF_DEBUG_MODE
 
 #include <assert.h>
 
@@ -60,13 +59,11 @@ inline void NFCommAssertFail(const char *const file, const unsigned int line, co
     }
 
     fprintf(stderr, "\n");
+#ifdef NF_DEBUG_MODE
     assert(false);
-}
-
 #else
-#define NF_COMM_ASSERT(condition)
-#define NF_COMM_ASSERT_MSG(condition, msg_)
 #endif
+}
 
 #if NF_PLATFORM == NF_PLATFORM_WIN
 #define __WORDSIZE 64

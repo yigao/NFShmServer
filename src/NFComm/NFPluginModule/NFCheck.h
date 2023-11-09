@@ -250,7 +250,7 @@
             catch (fmt::v5::format_error& error) {\
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
             }\
-			assert_i(expr);\
+			NF_COMM_ASSERT(expr);\
 			return ret;\
         }\
     }while(0)
@@ -268,7 +268,7 @@
             catch (fmt::v5::format_error& error) {\
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
             }                                \
-            assert_i(expr);\
+            NF_COMM_ASSERT(expr);\
             return;\
         }\
     }while(0)
@@ -377,7 +377,7 @@
             catch (fmt::v5::format_error& error) {\
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
             }\
-			assert_i(expr);\
+			NF_COMM_ASSERT(expr);\
 			return ret;\
         }\
     }while(0)

@@ -201,11 +201,7 @@ private:
     _Node *_M_get_node()
     {
         //已经没有可用的节点了
-        if (m_firstFreeIdx < 0)
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "The NFShmHashTable No Enough Space! New Node Failed!");
-            return NULL;
-        }
+        CHECK_EXPR_ASSERT(m_firstFreeIdx >= 0, NULL, "The NFShmHashTable No Enough Space! New Node Failed!");
 
         int iNowAssignIdx = m_firstFreeIdx;
         m_firstFreeIdx = m_buckets[m_firstFreeIdx].m_next;
