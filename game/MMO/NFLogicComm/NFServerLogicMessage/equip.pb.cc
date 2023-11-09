@@ -1209,7 +1209,7 @@ void protobuf_AddDesc_equip_2eproto() {
     "p\022\013\n\003ret\030\001 \001(\005\022\022\n\nequip_slot\030\002 \001(\005\022\021\n\twa"
     "sh_slot\030\003 \001(\005\022\017\n\007useItem\030\004 \001(\005\"K\n\014EquipW"
     "ashReq\022\022\n\nequip_slot\030\001 \001(\005\022\026\n\016lock_wash_"
-    "m_slot\030\002 \003(\005\022\017\n\007useItem\030\003 \001(\003\"R\n\014EquipWash"
+    "slot\030\002 \003(\005\022\017\n\007useItem\030\003 \001(\003\"R\n\014EquipWash"
     "Rsp\022\013\n\003ret\030\001 \001(\005\022\022\n\nequip_slot\030\002 \001(\005\022\020\n\010"
     "lockslot\030\003 \003(\005\022\017\n\007useItem\030\004 \001(\003\"#\n\016Equip"
     "SuitLvReq\022\021\n\tequip_pos\030\001 \001(\005\"@\n\016EquipSui"

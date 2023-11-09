@@ -3765,7 +3765,7 @@ void protobuf_AddDesc_Faction_2eproto() {
     " \001(\004\0220\n\003mem\030\014 \001(\0132#.proto_ff.FactionMemS"
     "impleListProto\"L\n\022FactionRecordProto\022\014\n\004"
     "name\030\001 \001(\014\022\014\n\004time\030\002 \001(\004\022\n\n\002op\030\003 \001(\005\022\016\n\006"
-    "param0\030\004 \001(\003\"J\n\026FactionRecordListProto\0220"
+    "param1\030\004 \001(\003\"J\n\026FactionRecordListProto\0220"
     "\n\nrecord_lst\030\001 \003(\0132\034.proto_ff.FactionRec"
     "ordProto\"<\n\022FactionSalaryProto\022\n\n\002id\030\001 \001"
     "(\005\022\013\n\003cur\030\002 \001(\005\022\r\n\005fetch\030\003 \001(\005\"D\n\026Factio"

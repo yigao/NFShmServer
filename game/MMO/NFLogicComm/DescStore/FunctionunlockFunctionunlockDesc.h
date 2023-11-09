@@ -59,7 +59,6 @@ namespace std
 
 class FunctionunlockFunctionunlockDesc : public NFIDescTemplate<FunctionunlockFunctionunlockDesc, proto_ff_s::E_FunctionunlockFunctionunlock_s, EOT_CONST_FUNCTIONUNLOCK_FUNCTIONUNLOCK_DESC_ID, MAX_FUNCTIONUNLOCK_FUNCTIONUNLOCK_NUM>
 {
-    friend class FunctionunlockDescEx;
 public:
 	FunctionunlockFunctionunlockDesc();
 	virtual ~FunctionunlockFunctionunlockDesc();
