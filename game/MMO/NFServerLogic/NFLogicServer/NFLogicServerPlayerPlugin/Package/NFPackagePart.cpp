@@ -534,17 +534,17 @@ int32_t NFPackagePart::ExpandStorage(int32_t &nNum)
     return proto_ff::RET_FAIL;
 }
 
-const NFItem *NFPackagePart::GetItem(uint16_t nIndex)
+NFItem *NFPackagePart::GetItem(uint16_t nIndex)
 {
     return GetPackageItemByIndex(proto_ff::EPackageType_Common, nIndex);
 }
 
-const NFItem *NFPackagePart::GetItem(uint32_t packageType, uint16_t nIndex)
+NFItem *NFPackagePart::GetItem(uint32_t packageType, uint16_t nIndex)
 {
     return GetPackageItemByIndex(packageType, nIndex);
 }
 
-const NFItem *NFPackagePart::GetPackageItemByIndex(uint32_t nPackageType, uint32_t nIndex)
+NFItem *NFPackagePart::GetPackageItemByIndex(uint32_t nPackageType, uint32_t nIndex)
 {
     NFPackageBag* pBag = GetPackageByType(nPackageType);
     if (pBag)
@@ -688,6 +688,16 @@ uint16_t NFPackagePart::SetItemByIndex(uint32_t nPackageType, uint16_t nIndex, c
     if (pBag)
     {
         return pBag->SetItemByIndex(nIndex, item);
+    }
+    return 0;
+}
+
+uint16_t NFPackagePart::SetItemByIndex(uint32_t nPackageType, uint16_t nIndex, const NFItem* pItem)
+{
+    NFPackageBag* pBag = GetPackageByType(nPackageType);
+    if (pBag)
+    {
+        return pBag->SetItemByIndex(nIndex, pItem);
     }
     return 0;
 }
@@ -860,6 +870,9 @@ uint32_t NFPackagePart::GetItemPackageType(uint64_t nItemID)
         case proto_ff::EItemType_Other:
             nPackageType = proto_ff::EPackageType_Common;
             break;
+        case proto_ff::EItemType_Task:
+            nPackageType = proto_ff::EPackageType_Common;
+            break;
         case proto_ff::EItemType_MountEgg:
             nPackageType = proto_ff::EPackageType_MountEgg;
             break;
@@ -885,6 +898,8 @@ NFPackageBag *NFPackagePart::GetPackageByType(uint32_t nPackageType)
             return &m_commonBag;
         case proto_ff::EPackageType_Storage:
             return &m_storeageBag;
+        case proto_ff::EPackageType_DeityEquip:
+            return &m_deityBag;
         default:
             return &m_commonBag;
     }

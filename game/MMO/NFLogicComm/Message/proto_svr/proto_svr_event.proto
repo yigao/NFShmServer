@@ -142,3 +142,16 @@ message PassDupEvent
   optional uint32 star = 3;		//星级
   optional uint32 zid = 4;		//副本所属的区服ID
 };
+
+//EVENT_DEITY_FANTASY_BATTLE
+message DeityFantasyBattleEvent
+{
+  optional uint32 num = 1;
+};
+
+//    //天神
+//    EVENT_DEITY_FANTASY_ACTIVE,         //激活一个天神
+message DeityActiveEvent
+{
+  optional int64 id = 1;
+};

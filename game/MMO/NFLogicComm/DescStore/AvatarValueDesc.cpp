@@ -78,6 +78,21 @@ int AvatarValueDesc::Load(NFResDB *pDB)
 		pDesc->read_from_pbmsg(desc);
 		CHECK_EXPR_ASSERT(GetDesc(desc.m_id()) == pDesc, -1, "GetDesc != pDesc, id:{}", desc.m_id());
 	}
+	m_TypeLvComIndexMap.clear();
+	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
+	{
+		auto pDesc = &iter->second;
+		{
+			AvatarValueTypeLv data;
+			data.m_type = pDesc->m_type;
+			data.m_lv = pDesc->m_lv;
+			if(m_TypeLvComIndexMap.size() >= m_TypeLvComIndexMap.max_size())
+			{
+				CHECK_EXPR_ASSERT(m_TypeLvComIndexMap.find(data) != m_TypeLvComIndexMap.end(), -1, "space not enough");
+			}
+			m_TypeLvComIndexMap[data] = iter->first;
+		}
+	}
 
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_avatarvalue_list_size());
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
@@ -96,5 +111,20 @@ int AvatarValueDesc::CheckWhenAllDataLoaded()
 		}
 	}
 	return result;
+}
+
+const proto_ff_s::E_AvatarValue_s* AvatarValueDesc::GetDescByTypeLv(int64_t Type, int64_t Lv)
+{
+	AvatarValueTypeLv data;
+	data.m_type = Type;
+	data.m_lv = Lv;
+	auto iter = m_TypeLvComIndexMap.find(data);
+	if(iter != m_TypeLvComIndexMap.end())
+	{
+		auto pDesc = GetDesc(iter->second);
+		CHECK_EXPR(pDesc, nullptr, "GetDesc failed:{}", iter->second);
+		return pDesc;
+	}
+	return nullptr;
 }
 

@@ -81,6 +81,12 @@ struct DeityEquipExt
         return 0;
     }
     
+    void Clear()
+    {
+        m_stronglv = 0;
+        m_strongWearQuality = 0;
+    }
+    
     uint32_t m_stronglv; //强化等级
     uint32_t m_strongWearQuality; //强化阶级
 };
@@ -111,6 +117,13 @@ struct BeastEquipExt
     int ResumeInit()
     {
         return 0;
+    }
+    
+    void Clear()
+    {
+        m_stronglv = 0;
+        m_strongExp = 0;
+        m_strongWearQuality = 0;
     }
     
     uint32_t m_stronglv; //强化等级
@@ -150,6 +163,15 @@ struct LongHunExt
         return 0;
     }
     
+    void Clear()
+    {
+        m_stronglv = 0;
+        m_strongExp = 0;
+        m_strongWearQuality = 0;
+        m_strongWearQualityExp = 0;
+        m_awaken_lv = 0;
+    }
+    
     uint32_t m_stronglv; //强化等级
     uint64_t m_strongExp; //强化等级经验
     uint32_t m_strongWearQuality; //强化阶级
@@ -186,6 +208,12 @@ struct ShengjiExt
         return 0;
     }
     
+    void Clear()
+    {
+        m_makeid = 0;
+        m_state = 0;
+    }
+    
     uint32_t m_makeid;//打造ID。神机装备用
     uint32_t m_state;//神机装备用0：未装备 1统御 2装备
 };
@@ -219,6 +247,16 @@ struct GodEvilExt
     int ResumeInit()
     {
         return 0;
+    }
+    
+    void Clear()
+    {
+        m_stronglv = 0;
+        m_strongExp = 0;
+        m_speclv = 0;
+        m_savvy = 0;
+        m_strongWearQualityExp = 0;
+        m_make_time = 0;
     }
     
     uint32_t m_stronglv; //强化等级
@@ -262,6 +300,14 @@ struct StarExt
         return 0;
     }
     
+    void Clear()
+    {
+        m_stronglv = 0;
+        m_strongExp = 0;
+        m_strongWearQuality = 0;
+        m_strongWearQualityExp = 0;
+    }
+    
     uint32_t m_stronglv; //强化等级
     uint64_t m_strongExp; //强化等级经验
     uint32_t m_strongWearQuality; //强化阶级
@@ -291,6 +337,10 @@ struct TurnExt
     int ResumeInit()
     {
         return 0;
+    }
+    
+    void Clear()
+    {
     }
 };
 
@@ -324,6 +374,15 @@ struct MountKunExt
         return 0;
     }
     
+    void Clear()
+    {
+        m_stronglv = 0;
+        m_strongWearQuality = 0;
+        m_awaken_lv = 0;
+        m_awaken_exp = 0;
+        m_awaken_star = 0;
+    }
+    
     uint32_t m_stronglv; //强化等级
     uint32_t m_strongWearQuality; //强化阶级
     uint32_t m_awaken_lv;   //突破等级
@@ -355,12 +414,16 @@ struct YaoHunExt
     {
         return 0;
     }
+    
+    void Clear()
+    {
+    }
 };
 
-class NFItemBase
+class NFItem
 {
 public:
-    NFItemBase()
+    NFItem()
     {
         if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
@@ -372,7 +435,7 @@ public:
         }
     }
     
-    virtual ~NFItemBase()
+    virtual ~NFItem()
     {
     
     }
@@ -393,22 +456,48 @@ public:
     {
         return 0;
     }
+    
+    virtual void Clear()
+    {
+        m_nIndex = 0;              //索引
+        m_nItemID = 0;             //物品ID
+        m_nNum = 0;                //物品数量
+        m_byBind = 0;                //绑定状态
+        m_byType = 0;               //类型
+        m_nLevel = 0;              //等级 预留(装备里，这个等级是玩家等级)
+        m_nExpiredTime = 0;        //过期时间,0,永不过期
+    }
+
 public:
     uint16_t GetIndex() const { return m_nIndex; }
+    
     uint64_t GetItemID() const { return m_nItemID; }
+    
     uint64_t GetNum() const { return m_nNum; }
+    
     int8_t GetBind() const { return m_byBind; }
+    
     uint8_t GetType() const { return m_byType; }
+    
     uint32_t GetLevel() const { return m_nLevel; }
+    
     int64_t GetExpireTime() const { return m_nExpiredTime; }
+
 public:
     bool IsExpire() const;
+    
     void SetIndex(uint16_t nIndex) { m_nIndex = nIndex; }
+    
     void SetType(uint8_t type) { m_byType = type; }
+    
     void SetBind(int8_t byBind) { m_byBind = byBind; }
+    
     void SetNum(uint64_t nNum) { m_nNum = nNum; }
+    
     void SetLevel(uint32_t nLevel) { m_nLevel = nLevel; }
+    
     void SetExpireTime(int64_t tick) { m_nExpiredTime = tick; }
+    
     bool AddNum(int64_t nAddNum);
 public:
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
@@ -417,7 +506,11 @@ public:
     virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    virtual void CopyFrom(const NFItem &item);
+    NFItem& operator=(const NFItem& item);
+    
     virtual uint64_t GetBaseScore() { return 0; }
+    
     virtual uint64_t GetItemFight(int32_t level);
 public:
     const proto_ff_s::E_EquipEquip_s *GetEquipCfg() const;
@@ -435,15 +528,24 @@ protected:
     //道具也有评分，放在基类里
 };
 
-class NFItem : public NFItemBase
+class NFEquip : public NFItem
 {
 public:
-    NFItem();
+    NFEquip();
     
-    virtual ~NFItem();
+    virtual ~NFEquip();
     
     int CreateInit();
     int ResumeInit();
+    
+    virtual void Clear()
+    {
+        NFItem::Clear();
+        m_baseAttrPercent = 0;
+        m_starAttrPercent = 0;
+        m_godAttrPercent = 0;
+    }
+
 public:
     virtual MAP_INT32_INT32 GetBaseAttr();
     virtual VEC_STAR_ATTR GetStarAttr();
@@ -461,7 +563,13 @@ public:
     virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    virtual void CopyFrom(const NFItem &item);
+    virtual void CopyFrom(const NFEquip &equip);
+    NFEquip& operator=(const NFItem& item);
+    NFEquip& operator=(const NFEquip& item);
+    
     virtual uint64_t GetBaseScore() { return 0; }
+    
     virtual uint64_t GetItemFight(int32_t level);
 protected:
     uint32_t m_baseAttrPercent;     //基础属性
@@ -470,10 +578,10 @@ protected:
     uint32_t m_godAttrPercent;      //仙尊属性 (神兽装备黄星属性)
 };
 
-class NFDeityItem : public NFItem
+class NFDeityEquip : public NFEquip
 {
 public:
-    NFDeityItem()
+    NFDeityEquip()
     {
         if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
@@ -495,20 +603,32 @@ public:
         return 0;
     }
     
+    virtual void Clear()
+    {
+        NFItem::Clear();
+        m_deityEquip.Clear();
+    }
+    
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
     virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
     virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    virtual void CopyFrom(const NFItem &item);
+    virtual void CopyFrom(const NFEquip &equip);
+    virtual void CopyFrom(const NFDeityEquip &equip);
+    NFDeityEquip& operator=(const NFItem& item);
+    NFDeityEquip& operator=(const NFEquip& item);
+    NFDeityEquip& operator=(const NFDeityEquip& item);
     
     DeityEquipExt m_deityEquip;       //EPackageType_DeityEquip = 5;	//天神神饰
 };
 
-class NFBeastItem : public NFItem
+class NFBeastEquip : public NFEquip
 {
 public:
-    NFBeastItem()
+    NFBeastEquip()
     {
         if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
@@ -530,20 +650,32 @@ public:
         return 0;
     }
     
+    virtual void Clear()
+    {
+        NFItem::Clear();
+        m_beastEquip.Clear();
+    }
+    
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
     virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
     virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    virtual void CopyFrom(const NFItem &item);
+    virtual void CopyFrom(const NFEquip &equip);
+    virtual void CopyFrom(const NFBeastEquip &equip);
+    NFBeastEquip& operator=(const NFItem& item);
+    NFBeastEquip& operator=(const NFEquip& item);
+    NFBeastEquip& operator=(const NFBeastEquip& item);
     
     BeastEquipExt m_beastEquip;       //EPackageType_BeastEquip = 7;	//神兽装备背包
 };
 
-class NFLongHunItem : public NFItem
+class NFLongHunEquip : public NFEquip
 {
 public:
-    NFLongHunItem()
+    NFLongHunEquip()
     {
         if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
@@ -565,22 +697,34 @@ public:
         return 0;
     }
     
+    virtual void Clear()
+    {
+        NFItem::Clear();
+        m_longHun.Clear();
+    }
+    
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
     virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
     virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    virtual void CopyFrom(const NFItem &item);
+    virtual void CopyFrom(const NFEquip &equip);
+    virtual void CopyFrom(const NFLongHunEquip &equip);
+    NFLongHunEquip& operator=(const NFItem& item);
+    NFLongHunEquip& operator=(const NFEquip& item);
+    NFLongHunEquip& operator=(const NFLongHunEquip& item);
     
     LongHunExt m_longHun;             //EPackageType_Longhun = 8;		//龙魂
 };
 
 //EPackageType_shenji_aq = 11;	//神机装备暗器
 //EPackageType_shenji_lj = 12;	//神机装备灵甲
-class NFShengjiItem : public NFItem
+class NFShengjiEquip : public NFEquip
 {
 public:
-    NFShengjiItem()
+    NFShengjiEquip()
     {
         if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
@@ -602,20 +746,32 @@ public:
         return 0;
     }
     
+    virtual void Clear()
+    {
+        NFItem::Clear();
+        m_shengji.Clear();
+    }
+    
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
     virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
     virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    virtual void CopyFrom(const NFItem &item);
+    virtual void CopyFrom(const NFEquip &equip);
+    virtual void CopyFrom(const NFShengjiEquip &equip);
+    NFShengjiEquip& operator=(const NFItem& item);
+    NFShengjiEquip& operator=(const NFEquip& item);
+    NFShengjiEquip& operator=(const NFShengjiEquip& item);
     
     ShengjiExt m_shengji;
 };
 
-class NFGodEvilItem : public NFItem
+class NFGodEvilEquip : public NFEquip
 {
 public:
-    NFGodEvilItem()
+    NFGodEvilEquip()
     {
         if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
@@ -637,20 +793,32 @@ public:
         return 0;
     }
     
+    virtual void Clear()
+    {
+        NFItem::Clear();
+        m_godEvil.Clear();
+    }
+    
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
     virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
     virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    virtual void CopyFrom(const NFItem &item);
+    virtual void CopyFrom(const NFEquip &equip);
+    virtual void CopyFrom(const NFGodEvilEquip &equip);
+    NFGodEvilEquip& operator=(const NFItem& item);
+    NFGodEvilEquip& operator=(const NFEquip& item);
+    NFGodEvilEquip& operator=(const NFGodEvilEquip& item);
     
     GodEvilExt m_godEvil;             //EPackageType_GodEvil = 13;		//神魔背包
 };
 
-class NFStarItem : public NFItem
+class NFStarEquip : public NFEquip
 {
 public:
-    NFStarItem()
+    NFStarEquip()
     {
         if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
@@ -672,20 +840,32 @@ public:
         return 0;
     }
     
+    virtual void Clear()
+    {
+        NFItem::Clear();
+        m_star.Clear();
+    }
+    
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
     virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
     virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    virtual void CopyFrom(const NFItem &item);
+    virtual void CopyFrom(const NFEquip &equip);
+    virtual void CopyFrom(const NFStarEquip &equip);
+    NFStarEquip& operator=(const NFItem& item);
+    NFStarEquip& operator=(const NFEquip& item);
+    NFStarEquip& operator=(const NFStarEquip& item);
     
     StarExt m_star;                   //EPackageType_star = 14;		//不灭星辰
 };
 
-class NFMountKunItem : public NFItem
+class NFMountKunEquip : public NFEquip
 {
 public:
-    NFMountKunItem()
+    NFMountKunEquip()
     {
         if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
@@ -707,20 +887,32 @@ public:
         return 0;
     }
     
+    virtual void Clear()
+    {
+        NFItem::Clear();
+        m_mountKun.Clear();
+    }
+    
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
     virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
     virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    virtual void CopyFrom(const NFItem &item);
+    virtual void CopyFrom(const NFEquip &equip);
+    virtual void CopyFrom(const NFMountKunEquip &equip);
+    NFMountKunEquip& operator=(const NFItem& item);
+    NFMountKunEquip& operator=(const NFEquip& item);
+    NFMountKunEquip& operator=(const NFMountKunEquip& item);
     
     MountKunExt m_mountKun;           //EPackageType_MountKun = 16;		//坐化鲲装备
 };
 
-class NFTurnItem : public NFItem
+class NFTurnEquip : public NFEquip
 {
 public:
-    NFTurnItem()
+    NFTurnEquip()
     {
         if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
@@ -742,20 +934,32 @@ public:
         return 0;
     }
     
+    virtual void Clear()
+    {
+        NFItem::Clear();
+        m_turn.Clear();
+    }
+    
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
     virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
     virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    virtual void CopyFrom(const NFItem &item);
+    virtual void CopyFrom(const NFEquip &equip);
+    virtual void CopyFrom(const NFTurnEquip &equip);
+    NFTurnEquip& operator=(const NFItem& item);
+    NFTurnEquip& operator=(const NFEquip& item);
+    NFTurnEquip& operator=(const NFTurnEquip& item);
     
     TurnExt m_turn;                   //EPackageType_turn = 15;		//转生装备
 };
 
-class NFYaoHunItem : public NFItem
+class NFYaoHunEquip : public NFEquip
 {
 public:
-    NFYaoHunItem()
+    NFYaoHunEquip()
     {
         if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
@@ -777,20 +981,32 @@ public:
         return 0;
     }
     
+    virtual void Clear()
+    {
+        NFItem::Clear();
+        m_yaoHun.Clear();
+    }
+    
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
     virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
     virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    virtual void CopyFrom(const NFItem &item);
+    virtual void CopyFrom(const NFEquip &equip);
+    virtual void CopyFrom(const NFYaoHunEquip &equip);
+    NFYaoHunEquip& operator=(const NFItem& item);
+    NFYaoHunEquip& operator=(const NFEquip& item);
+    NFYaoHunEquip& operator=(const NFYaoHunEquip& item);
     
     YaoHunExt m_yaoHun;               //EPackageType_YaoHun = 17;	//妖魂装备
 };
 
 //背包物品
-typedef vector<NFItem*> VEC_PACKAGE_ITEM;
+typedef vector<NFItem *> VEC_PACKAGE_ITEM;
 
 //proto物品
-typedef vector<proto_ff::ItemProtoInfo*> VEC_ITEM_PROTO;
-typedef vector<proto_ff::ItemProtoInfo>  VEC_ITEM_PROTO_EX;
+typedef vector<proto_ff::ItemProtoInfo *> VEC_ITEM_PROTO;
+typedef vector<proto_ff::ItemProtoInfo> VEC_ITEM_PROTO_EX;
 typedef map<uint16_t, proto_ff::ItemProtoInfo> MAP_ITEM_PROTO_EX;

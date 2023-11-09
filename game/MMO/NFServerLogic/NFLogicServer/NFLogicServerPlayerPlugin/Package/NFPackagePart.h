@@ -202,9 +202,9 @@ public:
     virtual int32_t ExpandStorage(int32_t &nNum);
     
     //获取索引位置物品
-    virtual const NFItem *GetItem(uint16_t nIndex);
-    virtual const NFItem *GetItem(uint32_t packageType, uint16_t nIndex);
-    virtual const NFItem *GetPackageItemByIndex(uint32_t nPackageType, uint32_t nIndex);
+    virtual NFItem *GetItem(uint16_t nIndex);
+    virtual NFItem *GetItem(uint32_t packageType, uint16_t nIndex);
+    virtual NFItem *GetPackageItemByIndex(uint32_t nPackageType, uint32_t nIndex);
     // 	//获取第一个指定ID的物品
     virtual NFItem *GetFirstItemById(uint32_t nPackageType, uint64_t item_id);
     //移除所有指定类型的物品（根据 tem.xlsx 表中 subType 字段 移除物品）
@@ -222,6 +222,7 @@ public:
     int32_t GetEmptyGrid(uint32_t nPackageType);
     //设置物品
     uint16_t SetItemByIndex(uint32_t nPackageType, uint16_t nIndex, const NFItem& item);
+    uint16_t SetItemByIndex(uint32_t nPackageType, uint16_t nIndex, const NFItem* pItem);
     //整理
     void ItemSortByPackageType(uint32_t nPackageType);
     //更新背包物品
@@ -272,8 +273,9 @@ private:
     NFPackageBag *GetItemPackageBag(uint64_t nItemID);
     uint32_t GetItemPackageType(uint64_t nItemID);
 private:
-    NFBagPage<NFItem, proto_ff::EPackageType_Common, COMMON_PACKAGE_INIT_GRID_NUM, COMMON_PACKAGE_MAX_GRID_NUM> m_commonBag;
-    NFBagPage<NFItem, proto_ff::EPackageType_Storage, STORAGE_PACKAGE_INIT_GRID_NUM, STORAGE_PACKAGE_MAX_GRID_NUM> m_storeageBag;
+    NFBagPage<NFEquip, proto_ff::EPackageType_Common, COMMON_PACKAGE_INIT_GRID_NUM, COMMON_PACKAGE_MAX_GRID_NUM> m_commonBag;
+    NFBagPage<NFEquip, proto_ff::EPackageType_Storage, STORAGE_PACKAGE_INIT_GRID_NUM, STORAGE_PACKAGE_MAX_GRID_NUM> m_storeageBag;
+    NFBagPage<NFDeityEquip, proto_ff::EPackageType_DeityEquip, DEITY_EQUP_PACKAGE_INIT_GRID_NUM, DEITY_EQUIP_PACKAGE_MAX_GRID_NUM> m_deityBag;
     
     uint32_t m_nLastErrorCode;
     SET_UINT16 m_setIdxRecord;                        //记录每次加物品 数量有增加的格子索引，在每次加物品之前先清空

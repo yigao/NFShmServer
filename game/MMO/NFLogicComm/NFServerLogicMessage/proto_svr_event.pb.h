@@ -51,6 +51,8 @@ class GrowPartDressEvent;
 class ChangeFacadeEvent;
 class PayEvent;
 class PassDupEvent;
+class DeityFantasyBattleEvent;
+class DeityActiveEvent;
 
 // ===================================================================
 
@@ -1851,6 +1853,170 @@ class PassDupEvent : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static PassDupEvent* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class DeityFantasyBattleEvent : public ::google::protobuf::Message {
+ public:
+  DeityFantasyBattleEvent();
+  virtual ~DeityFantasyBattleEvent();
+
+  DeityFantasyBattleEvent(const DeityFantasyBattleEvent& from);
+
+  inline DeityFantasyBattleEvent& operator=(const DeityFantasyBattleEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DeityFantasyBattleEvent& default_instance();
+
+  void Swap(DeityFantasyBattleEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  DeityFantasyBattleEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DeityFantasyBattleEvent& from);
+  void MergeFrom(const DeityFantasyBattleEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 num = 1;
+  inline bool has_num() const;
+  inline void clear_num();
+  static const int kNumFieldNumber = 1;
+  inline ::google::protobuf::uint32 num() const;
+  inline void set_num(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DeityFantasyBattleEvent)
+ private:
+  inline void set_has_num();
+  inline void clear_has_num();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 num_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static DeityFantasyBattleEvent* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DeityActiveEvent : public ::google::protobuf::Message {
+ public:
+  DeityActiveEvent();
+  virtual ~DeityActiveEvent();
+
+  DeityActiveEvent(const DeityActiveEvent& from);
+
+  inline DeityActiveEvent& operator=(const DeityActiveEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DeityActiveEvent& default_instance();
+
+  void Swap(DeityActiveEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  DeityActiveEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DeityActiveEvent& from);
+  void MergeFrom(const DeityActiveEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int64 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int64 id() const;
+  inline void set_id(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DeityActiveEvent)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static DeityActiveEvent* default_instance_;
+};
 // ===================================================================
 
 
@@ -3388,6 +3554,58 @@ inline ::google::protobuf::uint32 PassDupEvent::zid() const {
 inline void PassDupEvent::set_zid(::google::protobuf::uint32 value) {
   set_has_zid();
   zid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// DeityFantasyBattleEvent
+
+// optional uint32 num = 1;
+inline bool DeityFantasyBattleEvent::has_num() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DeityFantasyBattleEvent::set_has_num() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DeityFantasyBattleEvent::clear_has_num() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DeityFantasyBattleEvent::clear_num() {
+  num_ = 0u;
+  clear_has_num();
+}
+inline ::google::protobuf::uint32 DeityFantasyBattleEvent::num() const {
+  return num_;
+}
+inline void DeityFantasyBattleEvent::set_num(::google::protobuf::uint32 value) {
+  set_has_num();
+  num_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// DeityActiveEvent
+
+// optional int64 id = 1;
+inline bool DeityActiveEvent::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DeityActiveEvent::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DeityActiveEvent::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DeityActiveEvent::clear_id() {
+  id_ = GOOGLE_LONGLONG(0);
+  clear_has_id();
+}
+inline ::google::protobuf::int64 DeityActiveEvent::id() const {
+  return id_;
+}
+inline void DeityActiveEvent::set_id(::google::protobuf::int64 value) {
+  set_has_id();
+  id_ = value;
 }
 
 

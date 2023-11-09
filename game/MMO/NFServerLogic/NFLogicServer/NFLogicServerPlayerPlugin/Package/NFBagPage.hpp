@@ -9,14 +9,13 @@
 
 #pragma once
 
-
 #include "NFPackageBag.h"
 
 template<class ItemType, int nPackageType, int InitGridNum, int MaxGridNum>
 class NFBagPage : public NFPackageBag
 {
     static_assert(InitGridNum <= MaxGridNum, "InitGridNum > MaxGridNum");
-    static_assert(!std::is_base_of<ItemType, NFItemBase>::value, "ItemType is not base of NFItemBase");
+    static_assert(!(std::is_base_of<ItemType, NFItem>::value || std::is_same<ItemType, NFItem>::value), "ItemType is not base of NFItemBase");
     typedef NFShmVector<ItemType, MaxGridNum> BAG_VEC_PACKAGE_ITEM;
 public:
     NFBagPage()
@@ -38,7 +37,7 @@ public:
     
     int CreateInit()
     {
-
+        
         return 0;
     }
     
@@ -54,6 +53,7 @@ public:
     virtual bool IsEmptyGridByIndex(uint16_t nIndex);
     virtual NFItem *GetItemByIndex(uint16_t nIndex);
     virtual uint16_t SetItemByIndex(uint16_t nIndex, const NFItem &item);
+    virtual uint16_t SetItemByIndex(uint16_t nIndex, const NFItem *pItem);
 protected:
     BAG_VEC_PACKAGE_ITEM m_vecItems;                    //±³°üÊý¾Ý
 };
@@ -69,7 +69,7 @@ int NFBagPage<ItemType, nPackageType, InitGridNum, MaxGridNum>::Init(NFShmObj *p
     m_initGrid = InitGridNum;
     m_maxGrid = MaxGridNum;
     m_vecItems.resize(MaxGridNum);
-
+    
     return 0;
 }
 
@@ -108,4 +108,21 @@ uint16_t NFBagPage<ItemType, nPackageType, InitGridNum, MaxGridNum>::SetItemByIn
         return nIndex;
     }
     return -1;
+}
+
+template<class ItemType, int nPackageType, int InitGridNum, int MaxGridNum>
+uint16_t NFBagPage<ItemType, nPackageType, InitGridNum, MaxGridNum>::SetItemByIndex(uint16_t nIndex, const NFItem *pItem)
+{
+    if (pItem)
+    {
+        SetItemByIndex(nIndex, *pItem);
+    }
+    else {
+        if (nIndex < m_nOpenGrid)
+        {
+            m_vecItems[nIndex].Clear();
+            return nIndex;
+        }
+    }
+    return 0;
 }

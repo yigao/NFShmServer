@@ -1159,12 +1159,7 @@ struct GodRelicsFinish
     int64_t id = 0;
 };
 
-//    //天神
-//    EVENT_DEITY_FANTASY_ACTIVE,         //激活一个天神
-struct DeityActiveEvent
-{
-    int64_t id = 0;
-};
+
 
 //完成神机装备前置任务
 struct MarryCmptTaskEvent
@@ -1219,13 +1214,6 @@ struct ActiveDragonSoulSlot
     uint64_t cid = 0;	//玩家cid
     uint32_t slot = 0;	//
 };
-
-//EVENT_DEITY_FANTASY_BATTLE
-struct DeityFantasyBattleEvent
-{
-    int num = 0;
-};
-
 
 //EVENT_HANDBOOK_BEAST_ACTIVE,        //激活图鉴神兽
 struct HandeBookBeastActiveEvent

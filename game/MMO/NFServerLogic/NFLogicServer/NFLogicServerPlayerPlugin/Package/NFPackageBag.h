@@ -80,6 +80,7 @@ public:
     virtual bool IsEmptyGridByIndex(uint16_t nIndex) = 0;
     virtual NFItem *GetItemByIndex(uint16_t nIndex) = 0;
     virtual uint16_t SetItemByIndex(uint16_t nIndex, const NFItem &item) = 0;
+    virtual uint16_t SetItemByIndex(uint16_t nIndex, const NFItem *pItem) = 0;
     //获取指定物品数量
     virtual int64_t GetItemNum(uint64_t nItemID, int64_t &nUnBindNum, int64_t &nBindNum);
     //获取指定物品绑定和非绑定数量

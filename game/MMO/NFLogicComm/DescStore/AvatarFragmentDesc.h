@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Avatar_s.h"
 
-#define MAX_AVATAR_FRAGMENT_NUM 16
+#define MAX_AVATAR_FRAGMENT_NUM 4
 
 class AvatarFragmentDesc : public NFIDescTemplate<AvatarFragmentDesc, proto_ff_s::E_AvatarFragment_s, EOT_CONST_AVATAR_FRAGMENT_DESC_ID, MAX_AVATAR_FRAGMENT_NUM>
 {

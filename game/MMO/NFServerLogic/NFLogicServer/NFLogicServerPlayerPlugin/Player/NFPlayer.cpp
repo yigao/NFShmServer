@@ -620,7 +620,7 @@ int NFPlayer::NotifyPlayerInfo()
     rsp.set_cid(Cid());
     rsp.set_name(GetName());
     rsp.set_zid(GetZid());
-    rsp.set_opentime(pServerConfig->GetServerOpenTime());
+    rsp.set_opentime(pServerConfig->GetOpenTime());
     rsp.set_createtime(m_createTime);
     rsp.set_state(GetState());
 /*    rsp.set_marry_dst_name(GetMarryDstName());

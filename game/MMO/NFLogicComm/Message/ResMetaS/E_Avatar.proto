@@ -20,7 +20,7 @@ message E_AvatarFragment
 
 message Sheet_AvatarFragment
 {
-	repeated E_AvatarFragment E_AvatarFragment_List = 1[(yd_fieldoptions.field_arysize)=16];
+	repeated E_AvatarFragment E_AvatarFragment_List = 1[(yd_fieldoptions.field_arysize)=4];
 }
 
 message E_AvatarValueAttributeDesc
@@ -109,7 +109,7 @@ message E_AvatarChange
 
 message Sheet_AvatarChange
 {
-	repeated E_AvatarChange E_AvatarChange_List = 1[(yd_fieldoptions.field_arysize)=32];
+	repeated E_AvatarChange E_AvatarChange_List = 1[(yd_fieldoptions.field_arysize)=8];
 }
 
 message E_AvatarChangetab
@@ -154,7 +154,7 @@ message E_AvatarAdvance
 
 message Sheet_AvatarAdvance
 {
-	repeated E_AvatarAdvance E_AvatarAdvance_List = 1[(yd_fieldoptions.field_arysize)=64];
+	repeated E_AvatarAdvance E_AvatarAdvance_List = 1[(yd_fieldoptions.field_arysize)=32];
 }
 
 message E_AvatarSkill

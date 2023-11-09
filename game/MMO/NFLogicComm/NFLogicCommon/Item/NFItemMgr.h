@@ -85,4 +85,9 @@ public:
     static bool CreateItem(const LIST_ITEM &lstItem, VEC_PACKAGE_ITEM &vecItems, SItemCond &itemCond, bool bMerge = true);
     //校验物品
     static bool CheckItem(const VEC_ITEM_PROTO_EX &vecProtoItems);
+public:
+    static int32_t GetEquipType(int64_t itemId);
+    static bool IsComEquip(int32_t pos);
+    static bool IsXQEquip(int32_t pos);
+    static bool IsMarryEquip(int32_t pos);
 };

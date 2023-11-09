@@ -68,6 +68,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* PassDupEvent_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   PassDupEvent_reflection_ = NULL;
+const ::google::protobuf::Descriptor* DeityFantasyBattleEvent_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  DeityFantasyBattleEvent_reflection_ = NULL;
+const ::google::protobuf::Descriptor* DeityActiveEvent_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  DeityActiveEvent_reflection_ = NULL;
 
 }  // namespace
 
@@ -366,6 +372,36 @@ void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PassDupEvent));
+  DeityFantasyBattleEvent_descriptor_ = file->message_type(16);
+  static const int DeityFantasyBattleEvent_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFantasyBattleEvent, num_),
+  };
+  DeityFantasyBattleEvent_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      DeityFantasyBattleEvent_descriptor_,
+      DeityFantasyBattleEvent::default_instance_,
+      DeityFantasyBattleEvent_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFantasyBattleEvent, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityFantasyBattleEvent, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(DeityFantasyBattleEvent));
+  DeityActiveEvent_descriptor_ = file->message_type(17);
+  static const int DeityActiveEvent_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityActiveEvent, id_),
+  };
+  DeityActiveEvent_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      DeityActiveEvent_descriptor_,
+      DeityActiveEvent::default_instance_,
+      DeityActiveEvent_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityActiveEvent, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityActiveEvent, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(DeityActiveEvent));
 }
 
 namespace {
@@ -410,6 +446,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     PayEvent_descriptor_, &PayEvent::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     PassDupEvent_descriptor_, &PassDupEvent::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    DeityFantasyBattleEvent_descriptor_, &DeityFantasyBattleEvent::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    DeityActiveEvent_descriptor_, &DeityActiveEvent::default_instance());
 }
 
 }  // namespace
@@ -447,6 +487,10 @@ void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto() {
   delete PayEvent_reflection_;
   delete PassDupEvent::default_instance_;
   delete PassDupEvent_reflection_;
+  delete DeityFantasyBattleEvent::default_instance_;
+  delete DeityFantasyBattleEvent_reflection_;
+  delete DeityActiveEvent::default_instance_;
+  delete DeityActiveEvent_reflection_;
 }
 
 void protobuf_AddDesc_proto_5fsvr_5fevent_2eproto() {
@@ -493,7 +537,9 @@ void protobuf_AddDesc_proto_5fsvr_5fevent_2eproto() {
     "ndexFirst\030\006 \001(\010\022\020\n\010allFirst\030\007 \001(\010\022\016\n\006cha"
     "nid\030\010 \001(\r\022\021\n\tproductid\030\t \001(\t\"I\n\014PassDupE"
     "vent\022\r\n\005dupId\030\001 \001(\004\022\017\n\007groupId\030\002 \001(\004\022\014\n\004"
-    "star\030\003 \001(\r\022\013\n\003zid\030\004 \001(\r", 1423);
+    "star\030\003 \001(\r\022\013\n\003zid\030\004 \001(\r\"&\n\027DeityFantasyB"
+    "attleEvent\022\013\n\003num\030\001 \001(\r\"\036\n\020DeityActiveEv"
+    "ent\022\n\n\002id\030\001 \001(\003", 1495);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_svr_event.proto", &protobuf_RegisterTypes);
   FunctionUnlockEvent::default_instance_ = new FunctionUnlockEvent();
@@ -512,6 +558,8 @@ void protobuf_AddDesc_proto_5fsvr_5fevent_2eproto() {
   ChangeFacadeEvent::default_instance_ = new ChangeFacadeEvent();
   PayEvent::default_instance_ = new PayEvent();
   PassDupEvent::default_instance_ = new PassDupEvent();
+  DeityFantasyBattleEvent::default_instance_ = new DeityFantasyBattleEvent();
+  DeityActiveEvent::default_instance_ = new DeityActiveEvent();
   FunctionUnlockEvent::default_instance_->InitAsDefaultInstance();
   PlayerLeveUpEvent::default_instance_->InitAsDefaultInstance();
   ItemUseEvent::default_instance_->InitAsDefaultInstance();
@@ -528,6 +576,8 @@ void protobuf_AddDesc_proto_5fsvr_5fevent_2eproto() {
   ChangeFacadeEvent::default_instance_->InitAsDefaultInstance();
   PayEvent::default_instance_->InitAsDefaultInstance();
   PassDupEvent::default_instance_->InitAsDefaultInstance();
+  DeityFantasyBattleEvent::default_instance_->InitAsDefaultInstance();
+  DeityActiveEvent::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto);
 }
 
@@ -5811,6 +5861,422 @@ void PassDupEvent::Swap(PassDupEvent* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = PassDupEvent_descriptor_;
   metadata.reflection = PassDupEvent_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int DeityFantasyBattleEvent::kNumFieldNumber;
+#endif  // !_MSC_VER
+
+DeityFantasyBattleEvent::DeityFantasyBattleEvent()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void DeityFantasyBattleEvent::InitAsDefaultInstance() {
+}
+
+DeityFantasyBattleEvent::DeityFantasyBattleEvent(const DeityFantasyBattleEvent& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void DeityFantasyBattleEvent::SharedCtor() {
+  _cached_size_ = 0;
+  num_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+DeityFantasyBattleEvent::~DeityFantasyBattleEvent() {
+  SharedDtor();
+}
+
+void DeityFantasyBattleEvent::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void DeityFantasyBattleEvent::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* DeityFantasyBattleEvent::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return DeityFantasyBattleEvent_descriptor_;
+}
+
+const DeityFantasyBattleEvent& DeityFantasyBattleEvent::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  return *default_instance_;
+}
+
+DeityFantasyBattleEvent* DeityFantasyBattleEvent::default_instance_ = NULL;
+
+DeityFantasyBattleEvent* DeityFantasyBattleEvent::New() const {
+  return new DeityFantasyBattleEvent;
+}
+
+void DeityFantasyBattleEvent::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    num_ = 0u;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool DeityFantasyBattleEvent::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint32 num = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &num_)));
+          set_has_num();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void DeityFantasyBattleEvent::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint32 num = 1;
+  if (has_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->num(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* DeityFantasyBattleEvent::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint32 num = 1;
+  if (has_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->num(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int DeityFantasyBattleEvent::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint32 num = 1;
+    if (has_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->num());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DeityFantasyBattleEvent::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const DeityFantasyBattleEvent* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const DeityFantasyBattleEvent*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void DeityFantasyBattleEvent::MergeFrom(const DeityFantasyBattleEvent& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_num()) {
+      set_num(from.num());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void DeityFantasyBattleEvent::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DeityFantasyBattleEvent::CopyFrom(const DeityFantasyBattleEvent& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DeityFantasyBattleEvent::IsInitialized() const {
+
+  return true;
+}
+
+void DeityFantasyBattleEvent::Swap(DeityFantasyBattleEvent* other) {
+  if (other != this) {
+    std::swap(num_, other->num_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata DeityFantasyBattleEvent::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = DeityFantasyBattleEvent_descriptor_;
+  metadata.reflection = DeityFantasyBattleEvent_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int DeityActiveEvent::kIdFieldNumber;
+#endif  // !_MSC_VER
+
+DeityActiveEvent::DeityActiveEvent()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void DeityActiveEvent::InitAsDefaultInstance() {
+}
+
+DeityActiveEvent::DeityActiveEvent(const DeityActiveEvent& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void DeityActiveEvent::SharedCtor() {
+  _cached_size_ = 0;
+  id_ = GOOGLE_LONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+DeityActiveEvent::~DeityActiveEvent() {
+  SharedDtor();
+}
+
+void DeityActiveEvent::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void DeityActiveEvent::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* DeityActiveEvent::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return DeityActiveEvent_descriptor_;
+}
+
+const DeityActiveEvent& DeityActiveEvent::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  return *default_instance_;
+}
+
+DeityActiveEvent* DeityActiveEvent::default_instance_ = NULL;
+
+DeityActiveEvent* DeityActiveEvent::New() const {
+  return new DeityActiveEvent;
+}
+
+void DeityActiveEvent::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    id_ = GOOGLE_LONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool DeityActiveEvent::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int64 id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &id_)));
+          set_has_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void DeityActiveEvent::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int64 id = 1;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* DeityActiveEvent::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int64 id = 1;
+  if (has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int DeityActiveEvent::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int64 id = 1;
+    if (has_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DeityActiveEvent::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const DeityActiveEvent* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const DeityActiveEvent*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void DeityActiveEvent::MergeFrom(const DeityActiveEvent& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_id()) {
+      set_id(from.id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void DeityActiveEvent::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DeityActiveEvent::CopyFrom(const DeityActiveEvent& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DeityActiveEvent::IsInitialized() const {
+
+  return true;
+}
+
+void DeityActiveEvent::Swap(DeityActiveEvent* other) {
+  if (other != this) {
+    std::swap(id_, other->id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata DeityActiveEvent::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = DeityActiveEvent_descriptor_;
+  metadata.reflection = DeityActiveEvent_reflection_;
   return metadata;
 }
 

@@ -242,6 +242,7 @@ enum EEquipType
     EEquipType_nomal = 1,		//普通装备
     EEquipType_xq = 2,			//仙器
     EEquipType_deity = 3,       //天神
+    EEquipType_max = 4,
 };
 
 enum EEquipTotalType

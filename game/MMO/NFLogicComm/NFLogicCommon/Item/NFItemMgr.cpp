@@ -10,6 +10,30 @@
 #include "NFItemMgr.h"
 #include "DescStoreEx/ItemDescEx.h"
 
+static const VEC_INT32 const_equip_normal = {
+    proto_ff::EEquipPos_m_weapon,
+    proto_ff::EEquipPos_s_weapon,
+    proto_ff::EEquipPos_hat,
+    proto_ff::EEquipPos_clothes,
+    proto_ff::EEquipPos_hand,
+    proto_ff::EEquipPos_belt,
+    proto_ff::EEquipPos_shoe
+};
+
+static const VEC_INT32 const_equip_xq = {
+    proto_ff::EEquipPos_necklace,
+    proto_ff::EEquipPos_bracelet,
+    proto_ff::EEquipPos_ring
+//	EEquipPos_marry
+};
+
+static const VEC_INT32 const_deity_equip_normal = {
+    proto_ff::EDeityEquipPos_start+proto_ff::EDeityEquipPos_ring,
+    proto_ff::EDeityEquipPos_start+proto_ff::EDeityEquipPos_bracelet,
+    proto_ff::EDeityEquipPos_start+proto_ff::EDeityEquipPos_jade,
+    proto_ff::EDeityEquipPos_start+proto_ff::EDeityEquipPos_necklace,
+};
+
 bool NFItemMgr::IsVirItem(uint64_t itemId)
 {
     return (ItemDescEx::Instance()->AttrIdByItem(itemId) > 0);
@@ -380,32 +404,32 @@ NFItem *NFItemMgr::MakeItemObj(uint64_t nItemId)
         //神机装备处理
         if (pEquipCfg->m_type == proto_ff::EPackageType_shenji_aq || pEquipCfg->m_type == proto_ff::EPackageType_shenji_lj)
         {
-            pItem = new NFShengjiItem();
+            pItem = new NFShengjiEquip();
         }
         else if (pEquipCfg->m_type == proto_ff::EPackageType_Longhun)
         {
-            pItem = new NFLongHunItem();
+            pItem = new NFLongHunEquip();
         }
         else if (pEquipCfg->m_type == proto_ff::EPackageType_BeastEquip)
         {
-            pItem = new NFBeastItem();
+            pItem = new NFBeastEquip();
         }
         else if (pEquipCfg->m_type == proto_ff::EPackageType_DeityEquip)
         {
-            pItem = new NFDeityItem();
+            pItem = new NFDeityEquip();
         }
         else if (pEquipCfg->m_type == proto_ff::EPackageType_MountKun)
         {
-            pItem = new NFMountKunItem();
+            pItem = new NFMountKunEquip();
         }
         else if (pEquipCfg->m_type == proto_ff::EPackageType_star)
         {
-            pItem = new NFStarItem();
+            pItem = new NFStarEquip();
         }
         //神魔装备
         else if (pEquipCfg->m_type == proto_ff::EPackageType_GodEvil)
         {
-            pItem = new NFGodEvilItem();
+            pItem = new NFGodEvilEquip();
         }
         else {
             pItem = new NFItem();
@@ -708,6 +732,44 @@ bool NFItemMgr::GetItemData(uint32_t itemId, uint8_t bindType, uint8_t &outItemT
         maxPile = ItemMaxPile(pItemCfg);
     }
     return true;
+}
+
+int32_t NFItemMgr::GetEquipType(int64_t itemId)
+{
+    auto pEquipCfg = EquipEquipDesc::Instance()->GetDesc(itemId);
+    CHECK_EXPR(pEquipCfg, EEquipType_none, "");
+    
+    int32_t pos = pEquipCfg->m_position;
+    auto iter_n = std::find(const_equip_normal.begin(), const_equip_normal.end(), pos);
+    if (iter_n != const_equip_normal.end())
+        return EEquipType_nomal;
+    
+    auto iter_x = std::find(const_equip_xq.begin(), const_equip_xq.end(), pos);
+    if (iter_x != const_equip_xq.end())
+        return EEquipType_xq;
+    
+    auto iter_y = std::find(const_deity_equip_normal.begin(), const_deity_equip_normal.end(), pos);
+    if (iter_y != const_deity_equip_normal.end())
+        return EEquipType_deity;
+    
+    return EEquipType_none;
+}
+
+bool NFItemMgr::IsComEquip(int32_t pos)
+{
+    auto iter_n = std::find(const_equip_normal.begin(), const_equip_normal.end(), pos);
+    return iter_n != const_equip_normal.end();
+}
+
+bool NFItemMgr::IsXQEquip(int32_t pos)
+{
+    auto iter_n = std::find(const_equip_xq.begin(), const_equip_xq.end(), pos);
+    return iter_n != const_equip_xq.end();
+}
+
+bool NFItemMgr::IsMarryEquip(int32_t pos)
+{
+    return pos == proto_ff::EEquipPos_marry;
 }
 
 

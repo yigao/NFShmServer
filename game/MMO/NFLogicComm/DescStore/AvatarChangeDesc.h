@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Avatar_s.h"
 
-#define MAX_AVATAR_CHANGE_NUM 32
+#define MAX_AVATAR_CHANGE_NUM 8
 
 class AvatarChangeDesc : public NFIDescTemplate<AvatarChangeDesc, proto_ff_s::E_AvatarChange_s, EOT_CONST_AVATAR_CHANGE_DESC_ID, MAX_AVATAR_CHANGE_NUM>
 {
