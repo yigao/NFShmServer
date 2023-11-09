@@ -1,9 +1,11 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
-    <inspection_tool class="ClangTidy" enabled="true" level="WARNING" enabled_by_default="true">
+    <inspection_tool class="ClangTidy" enabled="false" level="WARNING" enabled_by_default="false">
       <option name="clangTidyChecks" value="-*,mpi-*,cert-err52-cpp,cert-err60-cpp,cert-err34-c,cert-str34-c,cert-dcl21-cpp,cert-msc50-cpp,cert-msc51-cpp,cert-dcl58-cpp,cert-flp30-c,cppcoreguidelines-pro-type-member-init,cppcoreguidelines-slicing,cppcoreguidelines-interfaces-global-init,cppcoreguidelines-pro-type-static-cast-downcast,cppcoreguidelines-narrowing-conversions,google-default-arguments,google-runtime-operator,google-explicit-constructor,hicpp-multiway-paths-covered,hicpp-exception-baseclass,misc-misplaced-const,misc-new-delete-overloads,misc-non-copyable-objects,misc-no-recursion,openmp-use-default-none,performance-*,-performance-no-int-to-ptr,-performance-avoid-endl,portability-simd-intrinsics" />
     </inspection_tool>
+    <inspection_tool class="ClangdErrorsAndWarnings" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="Clazy" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="EmptyDeclOrStmt" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="HidingNonVirtualFunction" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="UnusedParameter" enabled="false" level="WARNING" enabled_by_default="false" />

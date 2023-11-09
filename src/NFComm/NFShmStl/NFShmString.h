@@ -42,7 +42,7 @@ protected:
     int CreateInit()
     {
         m_size = 0;
-        memset(m_data, 0, sizeof(Tp) * (MAX_SIZE + 1));
+        memset(m_data, 0, sizeof(m_data));
         return 0;
     }
 

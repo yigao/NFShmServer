@@ -25,6 +25,8 @@
 #include "DescStore/AvatarEquipsuitDesc.h"
 #include "DescStore/AvatarBattleslotDesc.h"
 #include "NFComm/NFShmCore/NFRawShmObj.h"
+#include "ClientServer.pb.h"
+#include "DescStoreEx/EquipDescEx.h"
 
 #define MAX_DEITY_BATTLE_SLOT_NUM 4
 #define MAX_DEITY_SKILL_NUM 5
@@ -157,6 +159,8 @@ public:
         
         return 0;
     }
+    
+    virtual int OnTimer(int timeId, int callcount);
     
     uint32_t m_curState;
     int64_t m_deityId;
@@ -293,14 +297,12 @@ public:
             
             int32_t pos = pEquipCfg->m_position;
             int32_t wearQuality = pEquipCfg->m_wearQuality;
-            auto pEquipStrongCfg = EquipStrongDesc::Instance()->GetDescByPositionWearquality(pos, wearQuality);
+            stEquipStrongCfg* pEquipStrongCfg = EquipDescEx::Instance()->GetStrongCfg(EQUIP_STRONG_ID(pos,wearQuality));
             CHECK_EXPR_CONTINUE(pEquipStrongCfg, "");
             
-            for (auto &e1 : pEquipStrongCfg->m_type)
+            for (auto& e1 : pEquipStrongCfg->attr)
             {
-                std::vector<int> vec;
-                NFCommonApi::SplitStrToVecInt(e1.m_num.data(), ";", &vec);
-                outAttr[e1.m_id] += vec.at(0) * slotLv * slotLv + vec.at(1) * slotLv + vec.at(2);
+                outAttr[e1.attrId] += e1.param0 * slotLv * slotLv + e1.param1 * slotLv + e1.param2;
             }
         }
     }
@@ -437,6 +439,8 @@ public:
      * @return
      */
     virtual int UnInit();
+    
+    virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage);
 public:
     /**
      * @brief 从数据库中加载数据

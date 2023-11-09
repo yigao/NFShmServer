@@ -195,6 +195,7 @@ public:
     //部件类型
     uint32_t PartType() { return m_partType; }
     void SetPartType(uint32_t partType) { m_partType = partType; }
+    NFPlayer* GetMaster() { return m_pMaster.GetPoint(); }
 public:
     virtual uint32_t GetCurRoleDetailSeq() const;
     void SetNeedSave(bool save) { MarkDirty(); }

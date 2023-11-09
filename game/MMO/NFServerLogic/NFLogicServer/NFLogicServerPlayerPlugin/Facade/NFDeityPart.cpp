@@ -18,6 +18,31 @@
 #include "Player/NFFunctionUnlockPart.h"
 #include "DescStoreEx/EquipDescEx.h"
 
+int DeityBattleSlot::OnTimer(int timeId, int callcount)
+{
+    if (m_curState != proto_ff::DEITY_BATTLE_SLOT_STATE_USING || m_deityId <= 0 || m_enterWarTime <= 0)
+    {
+        return 0;
+    }
+    
+    m_enterWarTime = 0;
+    NFDeityPart* pPart = dynamic_cast<NFDeityPart*>(GetShmObj());
+    if (pPart)
+    {
+        pPart->SetNeedSave(true);
+        auto pMaster = pPart->GetMaster();
+        if (pMaster)
+        {
+            proto_ff::DeityFantasyEnterWarRsp xDataRsp;
+            xDataRsp.set_ret_code(proto_ff::RET_SUCCESS);
+            WriteToPB(xDataRsp.mutable_battle_data());
+            pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_DEITY_FANTASY_ENTER_WAR_RSP, xDataRsp);
+        }
+    }
+    
+    return 0;
+}
+
 NFDeityPart::NFDeityPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
@@ -90,26 +115,23 @@ int NFDeityPart::LoadFromDB(const proto_ff::RoleDBData &data)
     for (int i = 0; i < (int) dbInfo.battle_data_size(); i++)
     {
         auto pSlotInfo = &m_battleDeityList[dbInfo.battle_data(i).id()];
-        if (pSlotInfo)
+        pSlotInfo->InitShmObj(this);
+        pSlotInfo->ReadFromPB(dbInfo.battle_data(i));
+        if (pSlotInfo->m_curState == proto_ff::DEITY_BATTLE_SLOT_STATE_USING && pSlotInfo->m_deityId > 0 && pSlotInfo->m_enterWarTime > 0)
         {
-            pSlotInfo->InitShmObj(this);
-            pSlotInfo->ReadFromPB(dbInfo.battle_data(i));
-            if (pSlotInfo->m_curState == proto_ff::DEITY_BATTLE_SLOT_STATE_USING && pSlotInfo->m_deityId > 0 && pSlotInfo->m_enterWarTime > 0)
-            {
-                uint64_t leftTime = pSlotInfo->GetLeftWarTime();
-                if (leftTime <= 0)
-                {
-                    pSlotInfo->m_enterWarTime = 0;
-                }
-                else
-                {
-                    pSlotInfo->SetTimer(0, 0, leftTime, 0);
-                }
-            }
-            else
+            uint64_t leftTime = pSlotInfo->GetLeftWarTime();
+            if (leftTime <= 0)
             {
                 pSlotInfo->m_enterWarTime = 0;
             }
+            else
+            {
+                pSlotInfo->SetTimer(0, 0, leftTime, 0);
+            }
+        }
+        else
+        {
+            pSlotInfo->m_enterWarTime = 0;
         }
     }
     return 0;
@@ -179,12 +201,135 @@ int NFDeityPart::FillFacadeProto(proto_ff::RoleFacadeProto &outproto)
 
 int NFDeityPart::RegisterMessage()
 {
-    return NFPart::RegisterMessage();
+    RegisterClientMessage(proto_ff::CLIENT_TO_LOGIC_DEITY_INFO_REQ);
+    RegisterClientMessage(proto_ff::CLIENT_TO_LOGIC_DEITY_LEVUP_REQ);
+    RegisterClientMessage(proto_ff::CLIENT_TO_LOGIC_DEITY_FANTASY_BATTLE_REQ);
+    RegisterClientMessage(proto_ff::CLIENT_TO_LOGIC_DEITY_FANTASY_QUIT_BATTLE_REQ);
+    RegisterClientMessage(proto_ff::CLIENT_TO_LOGIC_DEITY_FRAGEMNT_USE_REQ);
+    RegisterClientMessage(proto_ff::CLIENT_TO_LOGIC_DEITY_FANTASY_INFO_REQ);
+    RegisterClientMessage(proto_ff::CLIENT_TO_LOGIC_DEITY_SHOW_FANTASY_LIST_REQ);
+    RegisterClientMessage(proto_ff::CLIENT_TO_LOGIC_DEITY_FANTASY_ACTIVE_REQ);
+    RegisterClientMessage(proto_ff::CLIENT_TO_LOGIC_DEITY_FANTASY_LEVELUP_REQ);
+    RegisterClientMessage(proto_ff::CLIENT_TO_LOGIC_DEITY_FANTASY_STARUP_REQ);
+    RegisterClientMessage(proto_ff::CLIENT_TO_LOGIC_DEITY_UNLOCK_BATTLE_SLOT_REQ);
+    RegisterClientMessage(proto_ff::CLIENT_TO_LOGIC_DEITY_FANTASY_ENTER_WAR_REQ);
+    //////////////////////////////////////////////////////////////////////
+    RegisterClientMessage(proto_ff::CLIENT_DEITY_EQUIP_DRESS_REQ);
+    RegisterClientMessage(proto_ff::CLIENT_DEITY_EQUIP_UNDRESS_REQ);
+    RegisterClientMessage(proto_ff::CLIENT_DEITY_EQUIP_STRONG_REQ);
+    RegisterClientMessage(proto_ff::CLIENT_DEITY_EQUIP_STRONG_LV_REQ);
+    RegisterClientMessage(proto_ff::CLIENT_DEITY_EQUIP_SUIT_ACTIVE_REQ);
+
+    RegisterClientMessage(proto_ff::CLIENT_DEITY_EQUIP_DECOMPOSE_REQ);
+
+    RegisterClientMessage(proto_ff::CLIENT_DEITY_EQUIP_DISASSEMBLE_REQ);
+    return 0;
 }
 
 int NFDeityPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
 {
-    return NFPart::OnHandleClientMessage(msgId, packet);
+    switch (msgId)
+    {
+        case proto_ff::CLIENT_TO_LOGIC_DEITY_INFO_REQ:
+        {
+            OnHandleDeityInfoReq(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_TO_LOGIC_DEITY_LEVUP_REQ:
+        {
+            OnHandleDeityLevelUpReq(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_TO_LOGIC_DEITY_FANTASY_BATTLE_REQ:
+        {
+            OnHandleDeityFantasyBattleReq(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_TO_LOGIC_DEITY_FANTASY_QUIT_BATTLE_REQ:
+        {
+            OnHandleDeityFantasyQuitBattleReq(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_TO_LOGIC_DEITY_FRAGEMNT_USE_REQ:
+        {
+            OnHandleDeityFragmentUseReq(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_TO_LOGIC_DEITY_FANTASY_INFO_REQ:
+        {
+            OnHandleDeityFantasyInfoReq(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_TO_LOGIC_DEITY_SHOW_FANTASY_LIST_REQ:
+        {
+            OnHandleDeityShowFantasyListReq(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_TO_LOGIC_DEITY_FANTASY_ACTIVE_REQ:
+        {
+            OnHandleDeityFantasyActiveReq(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_TO_LOGIC_DEITY_FANTASY_LEVELUP_REQ:
+        {
+            OnHandleDeityFantasyLevelUpReq(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_TO_LOGIC_DEITY_FANTASY_STARUP_REQ:
+        {
+            OnHandleDeityFantasyStarupReq(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_TO_LOGIC_DEITY_UNLOCK_BATTLE_SLOT_REQ:
+        {
+            OnHandleDeityUnlockBattleSlotReq(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_TO_LOGIC_DEITY_FANTASY_ENTER_WAR_REQ:
+        {
+            OnHandleDeityFantasyEnterWarReq(msgId, packet);
+            break;
+        }
+            //////////////////////////////////////////////////////////////////////
+        case proto_ff::CLIENT_DEITY_EQUIP_DRESS_REQ:
+        {
+            OnHandleDeityEquipDressReq(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_DEITY_EQUIP_UNDRESS_REQ:
+        {
+            OnHandleDeityEquipUndressReq(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_DEITY_EQUIP_STRONG_REQ:
+        {
+            OnHandleDeityEquipStrongReq(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_DEITY_EQUIP_STRONG_LV_REQ:
+        {
+            OnHandleDeityEquipStrongLvReq(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_DEITY_EQUIP_SUIT_ACTIVE_REQ:
+        {
+            OnHandleDeityEquipSuitActive(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_DEITY_EQUIP_DECOMPOSE_REQ:
+        {
+            OnHandleDeityEquipDecomposeReq(msgId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_DEITY_EQUIP_DISASSEMBLE_REQ:
+        {
+            OnHandleEquipDisassmbleReq(msgId, packet);
+            break;
+        }
+        default:
+            break;
+    }
+    return 0;
 }
 
 int NFDeityPart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
@@ -251,7 +396,7 @@ const proto_ff_s::E_AvatarDisplay_s* NFDeityPart::GetDefaultDeityDisplay()
     auto pMap = AvatarDisplayDesc::Instance()->GetResDescPtr();
     for (auto iter = pMap->begin(); iter != pMap->end(); ++iter)
     {
-        return &iter->second;
+        return &iter->second; //-V612
     }
     return NULL;
 }
@@ -294,10 +439,10 @@ void NFDeityPart::checkBattleSlot(uint32_t playerLev)
     for (auto iter = m_battleDeityList.begin(); iter != m_battleDeityList.end(); iter++)
     {
         DeityBattleSlot *pSlot = &iter->second;
-        if (pSlot && pSlot->m_curState == proto_ff::DEITY_BATTLE_SLOT_STATE_LOCK)
+        if (pSlot->m_curState == proto_ff::DEITY_BATTLE_SLOT_STATE_LOCK)
         {
             auto pSlotCfg = AvatarBattleslotDesc::Instance()->GetDesc(pSlot->m_id);
-            if (pSlotCfg->m_type == 1 && playerLev >= (uint32_t) NFCommonApi::StrToInt(pSlotCfg->m_arg.data()))
+            if (pSlotCfg && pSlotCfg->m_type == 1 && playerLev >= (uint32_t) NFCommonApi::StrToInt(pSlotCfg->m_arg.data()))
             {
                 pSlot->m_curState = proto_ff::DEITY_BATTLE_SLOT_STATE_EMPTY;
                 SetNeedSave(true);
@@ -1599,7 +1744,7 @@ int NFDeityPart::OnHandleDeityEquipDressReq(uint32_t msgId, NFDataPackage &packe
     //已穿戴的装备
     proto_ff::NotifyPackageUpdate bagNotify;
     NFDeityEquip *pSlotEquip = &pDressEquipInfo->m_equip;
-    if (pSlotEquip)
+    if (pSlotEquip->GetItemID() > 0)
     {
         int32_t oldStrongLv = pSlotEquip->m_deityEquip.m_stronglv;
         int32_t oldStrongWearQualiy = pSlotEquip->m_deityEquip.m_strongWearQuality;
@@ -2466,4 +2611,33 @@ DeityBattleSlot* NFDeityPart::GetDeityBattleSlot(uint64_t battleSlot)
         return &iter->second;
     }
     return nullptr;
+}
+
+int NFDeityPart::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage)
+{
+    switch (nEventID)
+    {
+        case EVENT_FUNCTIONUNLOCK:
+        {
+            const proto_ff::FunctionUnlockEvent* pEvent = dynamic_cast<const proto_ff::FunctionUnlockEvent*>(pMessage);
+            CHECK_NULL(pEvent);
+            if (pEvent->functionid() == proto_ff::FunctionUnlock_ID_TYPE_DIETY)
+            {
+                ActiveDefaultDeity(true);
+            }
+            break;
+        }
+        case EVENT_LEVELUP:
+        {
+            const proto_ff::PlayerLeveUpEvent *pEvent = dynamic_cast<const proto_ff::PlayerLeveUpEvent *>(pMessage);
+            CHECK_NULL(pEvent);
+
+            checkBattleSlot(pEvent->level());
+            break;
+        }
+        default:
+            break;
+    }
+    
+    return 0;
 }

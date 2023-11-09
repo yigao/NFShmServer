@@ -101,7 +101,7 @@ struct NFShmHashTableIterator
     NFShmHashTableIterator(_Node *__n, _Hashtable *__tab)
             : m_curNode(__n), m_hashTable(__tab) {}
 
-    NFShmHashTableIterator() {}
+    NFShmHashTableIterator():m_curNode(NULL), m_hashTable(NULL) {}
 
     reference operator*() const { return m_curNode->m_value; }
 
@@ -144,7 +144,7 @@ struct NFShmHashTableConstIterator
     NFShmHashTableConstIterator(const _Node *__n, const _Hashtable *__tab)
             : m_curNode(__n), m_hashTable(__tab) {}
 
-    NFShmHashTableConstIterator() {}
+    NFShmHashTableConstIterator(): m_curNode(NULL), m_hashTable(NULL) {}
 
     NFShmHashTableConstIterator(const iterator &__it)
             : m_curNode(__it.m_curNode), m_hashTable(__it.m_hashTable) {}

@@ -1,0 +1,245 @@
+{
+  "warnings": [
+    {
+      "FileName": "NFShmString.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027NFShmStringBase\u0027 constructor contains potentially uninitialized members. Inspect the following: m_size.",
+      "CodePrev": 0,
+      "CodeCurrent": 7469029,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFPoint2.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027NFPoint_\u0027 constructor contains potentially uninitialized members. Inspect the following: x, y.",
+      "CodePrev": 5816,
+      "CodeCurrent": 2495761,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFShmObjTemplate.h",
+      "ErrorCode": "V1062",
+      "Message": "The \u0027NFShmObjTemplateNoParent\u0027 class defines a custom \u0027new\u0027 operator. The \u0027delete\u0027 operator must also be defined.",
+      "CodePrev": 1012388892,
+      "CodeCurrent": 2040642424,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFCommonApi.h",
+      "ErrorCode": "V576",
+      "Message": "Incorrect format. Consider checking the third actual argument of the \u0027sscanf\u0027 function. A pointer to the unsigned int type is expected.",
+      "CodePrev": 0,
+      "CodeCurrent": 1025104001,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "NFShmVector.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027NFShmVectorBase\u0027 constructor contains potentially uninitialized members. Inspect the following: m_size, m_mem.",
+      "CodePrev": 5816,
+      "CodeCurrent": 1278583077,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFStringUtility.h",
+      "ErrorCode": "V575",
+      "Message": "The potential null pointer is passed into \u0027bzero\u0027 function. Inspect the first argument. Check lines: _, _.",
+      "CodePrev": -1996854353,
+      "CodeCurrent": 165037737,
+      "CodeNext": 559694907
+    },
+    {
+      "FileName": "NFStringUtility.h",
+      "ErrorCode": "V575",
+      "Message": "The potential null pointer is passed into \u0027bzero\u0027 function. Inspect the first argument. Check lines: _, _.",
+      "CodePrev": -1996854353,
+      "CodeCurrent": 165037737,
+      "CodeNext": 1119443517
+    },
+    {
+      "FileName": "NFIAsycModule.h",
+      "ErrorCode": "V1048",
+      "Message": "The \u0027maxThread\u0027 variable was assigned the same value.",
+      "CodePrev": 123,
+      "CodeCurrent": 158141,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "NFIMessageModule.h",
+      "ErrorCode": "V547",
+      "Message": "Expression \u0027iRet \u003d\u003d _\u0027 is always false.",
+      "CodePrev": 1860248673,
+      "CodeCurrent": -1040478228,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "NFIMessageModule.h",
+      "ErrorCode": "V547",
+      "Message": "Expression \u0027iRet \u003d\u003d _\u0027 is always false.",
+      "CodePrev": 0,
+      "CodeCurrent": -686895651,
+      "CodeNext": 362533949
+    },
+    {
+      "FileName": "NFIMessageModule.h",
+      "ErrorCode": "V547",
+      "Message": "Expression \u0027iRet \u003d\u003d _\u0027 is always false.",
+      "CodePrev": 930124423,
+      "CodeCurrent": -1040478228,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "NFIMessageModule.h",
+      "ErrorCode": "V547",
+      "Message": "Expression \u0027iRet \u003d\u003d _\u0027 is always false.",
+      "CodePrev": 0,
+      "CodeCurrent": -1040478228,
+      "CodeNext": 88199
+    },
+    {
+      "FileName": "NFCommonApi.h",
+      "ErrorCode": "V1051",
+      "Message": "Consider checking for misprints. It\u0027s possible that the \u0027iIndex\u0027 should be checked here.",
+      "CodePrev": 152332806,
+      "CodeCurrent": 3014005,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFShmHashTable.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027NFShmHashTableNode\u0027 constructor contains potentially uninitialized members. Inspect the following: m_valid, m_next, m_self.",
+      "CodePrev": 123,
+      "CodeCurrent": 59441853,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFShmPair.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027NFShmPair\u0027 constructor contains potentially uninitialized members. Inspect the following: first, second.",
+      "CodePrev": 0,
+      "CodeCurrent": 116393,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFShmPtr.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027NFShmPtr\u0027 constructor contains potentially uninitialized members. Inspect the following: m_pObj, m_iObjSeq.",
+      "CodePrev": 113,
+      "CodeCurrent": 9988913,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFShmObjIterator.h",
+      "ErrorCode": "V522",
+      "Message": "Instantiation of NFShmObjIterator \u003c NFShmObj, const Tp\u0026, const Tp*, NFISharedMemModule \u003e: There might be dereferencing of a potential null pointer.",
+      "CodePrev": 0,
+      "CodeCurrent": -1580256284,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "NFDeityPart.cpp",
+      "ErrorCode": "V1051",
+      "Message": "Consider checking for misprints. It\u0027s possible that the \u0027pStrongCfgCfg\u0027 should be checked here.",
+      "CodePrev": -1543357021,
+      "CodeCurrent": 1323031,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFDeityPart.cpp",
+      "ErrorCode": "V547",
+      "Message": "Expression \u0027!pStrongCfg\u0027 is always false.",
+      "CodePrev": -1543357021,
+      "CodeCurrent": 1323031,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFCommonApi.h",
+      "ErrorCode": "V1051",
+      "Message": "Consider checking for misprints. It\u0027s possible that the \u0027iOldIndex\u0027 should be checked here.",
+      "CodePrev": -100052702,
+      "CodeCurrent": -1566210218,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFShmPtr.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027NFRawShmPtr\u0027 constructor contains potentially uninitialized members. Inspect the following: m_pObj.",
+      "CodePrev": 113,
+      "CodeCurrent": 79909937,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFSeqOP.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027NFDescStoreSeqOP\u0027 constructor contains potentially uninitialized members. Inspect the following: m_dwCurSeq, m_bIsUrgentNeedSave.",
+      "CodePrev": 5816,
+      "CodeCurrent": 30782745,
+      "CodeNext": -1094507376
+    },
+    {
+      "FileName": "NFShmHashTable.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027NFShmHashTable\u0027 constructor contains potentially uninitialized members. Inspect the following: m_num_elements, m_firstFreeIdx.",
+      "CodePrev": 5816,
+      "CodeCurrent": 3715213,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFIMessageModule.h",
+      "ErrorCode": "V547",
+      "Message": "Expression \u0027!(pConfig)\u0027 is always true.",
+      "CodePrev": 1931697518,
+      "CodeCurrent": 1954096792,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "NFShmObjTemplate.h",
+      "ErrorCode": "V1062",
+      "Message": "The \u0027NFShmObjTemplate\u0027 class defines a custom \u0027new\u0027 operator. The \u0027delete\u0027 operator must also be defined.",
+      "CodePrev": 541944156,
+      "CodeCurrent": 1622442291,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFDeityPart.cpp",
+      "ErrorCode": "V547",
+      "Message": "Expression \u0027nullptr !\u003d pslot\u0027 is always false.",
+      "CodePrev": 125,
+      "CodeCurrent": -1894769039,
+      "CodeNext": 682861843
+    },
+    {
+      "FileName": "NFShmObjTemplate.h",
+      "ErrorCode": "V1062",
+      "Message": "The \u0027NFShmObjGlobalTemplate\u0027 class defines a custom \u0027new\u0027 operator. The \u0027delete\u0027 operator must also be defined.",
+      "CodePrev": 541944156,
+      "CodeCurrent": 1626473962,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFCommonApi.h",
+      "ErrorCode": "V560",
+      "Message": "A part of conditional expression is always true: iIndex !\u003d (size_t) - _.",
+      "CodePrev": 1385045951,
+      "CodeCurrent": -1491416746,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFSeqOP.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027NFSeqOP\u0027 constructor contains potentially uninitialized members. Inspect the following: m_dwCurSeq, m_bIsUrgentNeedSave.",
+      "CodePrev": 5816,
+      "CodeCurrent": 57881,
+      "CodeNext": -1094507376
+    },
+    {
+      "FileName": "NFPoint3.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027NFPoint_\u0027 constructor contains potentially uninitialized members. Inspect the following: x, y, z.",
+      "CodePrev": 5816,
+      "CodeCurrent": 2495765,
+      "CodeNext": 123
+    }
+  ],
+  "version": 2
+}

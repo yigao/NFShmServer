@@ -223,21 +223,35 @@ struct NFDataPackage
     {
         if (this != &data)
         {
-            mModuleId = data.mModuleId;
-            nMsgId = data.nMsgId;
-            nParam1 = data.nParam1;
-            nParam2 = data.nParam2;
-            nSrcId = data.nSrcId;
-            nDstId = data.nDstId;
-            nSendBusLinkId = data.nSendBusLinkId;
-            bCompress = data.bCompress;
-            nServerLinkId = data.nServerLinkId;
-            nObjectLinkId = data.nObjectLinkId;
-            nPacketParseType = data.nPacketParseType;
-            isSecurity = data.isSecurity;
-            nBuffer = data.nBuffer;
-            nMsgLen = data.nMsgLen;
+            Copy(data);
         }
+    }
+    
+    NFDataPackage& operator=(const NFDataPackage& data)
+    {
+        if (this != &data)
+        {
+            Copy(data);
+        }
+        return *this;
+    }
+    
+    void Copy(const NFDataPackage& data)
+    {
+        mModuleId = data.mModuleId;
+        nMsgId = data.nMsgId;
+        nParam1 = data.nParam1;
+        nParam2 = data.nParam2;
+        nSrcId = data.nSrcId;
+        nDstId = data.nDstId;
+        nSendBusLinkId = data.nSendBusLinkId;
+        bCompress = data.bCompress;
+        nServerLinkId = data.nServerLinkId;
+        nObjectLinkId = data.nObjectLinkId;
+        nPacketParseType = data.nPacketParseType;
+        isSecurity = data.isSecurity;
+        nBuffer = data.nBuffer;
+        nMsgLen = data.nMsgLen;
     }
 
     std::string ToString() const
