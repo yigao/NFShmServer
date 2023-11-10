@@ -25,6 +25,7 @@
 #include "E_Item_s.h"
 #include "E_Dragonsoul_s.h"
 #include "E_Encyclopedia_s.h"
+#include "NFComm/NFCore/NFNonCopyable.h"
 
 enum RandAttrType
 {
@@ -124,6 +125,8 @@ struct BeastEquipExt
         m_stronglv = 0;
         m_strongExp = 0;
         m_strongWearQuality = 0;
+        m_blueAttr.clear();
+        m_godAttr.clear();
     }
     
     uint32_t m_stronglv; //强化等级
@@ -170,6 +173,7 @@ struct LongHunExt
         m_strongWearQuality = 0;
         m_strongWearQualityExp = 0;
         m_awaken_lv = 0;
+        m_flyAttr.clear();
     }
     
     uint32_t m_stronglv; //强化等级
@@ -257,6 +261,9 @@ struct GodEvilExt
         m_savvy = 0;
         m_strongWearQualityExp = 0;
         m_make_time = 0;
+        m_goldStar.clear();
+        m_silverStar.clear();
+        m_skillMap.clear();
     }
     
     uint32_t m_stronglv; //强化等级
@@ -457,6 +464,17 @@ public:
         return 0;
     }
     
+    NFItem(const NFItem& item)
+    {
+        m_nIndex = item.m_nIndex;
+        m_nItemID = item.m_nItemID;
+        m_nNum = item.m_nNum;
+        m_byBind = item.m_byBind;
+        m_nLevel = item.m_nLevel;
+        m_nExpiredTime = item.m_nExpiredTime;
+        m_byType = item.m_byType;
+    }
+    
     virtual void Clear()
     {
         m_nIndex = 0;              //索引
@@ -517,6 +535,7 @@ public:
     const proto_ff_s::E_ItemItem_s *GetItemCfg() const;
     const proto_ff_s::E_EquipAttribute_s *GetEquipAttributeCfg() const;
     bool IsProf(int32_t profId) const;                        //是否属于某个职业
+private:
 protected:
     uint16_t m_nIndex;              //索引
     uint64_t m_nItemID;             //物品ID
@@ -537,6 +556,14 @@ public:
     
     int CreateInit();
     int ResumeInit();
+    
+    NFEquip(const NFEquip& equip):NFItem(equip)
+    {
+        m_baseAttrPercent = equip.m_baseAttrPercent;     //基础属性
+        //仙品属性 = 星级属性(带★) + 蓝星属性(不带★)
+        m_starAttrPercent = equip.m_starAttrPercent;     //星级属性
+        m_godAttrPercent = equip.m_godAttrPercent;      //仙尊属性 (神兽装备黄星属性)
+    }
     
     virtual void Clear()
     {
@@ -593,6 +620,11 @@ public:
         }
     }
     
+    NFDeityEquip(const NFDeityEquip& item)
+    {
+        CopyFrom(item);
+    }
+    
     int CreateInit()
     {
         return 0;
@@ -617,7 +649,7 @@ public:
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
     virtual void CopyFrom(const NFItem &item);
     virtual void CopyFrom(const NFEquip &equip);
-    virtual void CopyFrom(const NFDeityEquip &equip);
+    void CopyFrom(const NFDeityEquip &equip);
     NFDeityEquip& operator=(const NFItem& item);
     NFDeityEquip& operator=(const NFEquip& item);
     NFDeityEquip& operator=(const NFDeityEquip& item);
@@ -638,6 +670,11 @@ public:
         {
             ResumeInit();
         }
+    }
+    
+    NFBeastEquip(const NFBeastEquip& item)
+    {
+        CopyFrom(item);
     }
     
     int CreateInit()
@@ -664,7 +701,7 @@ public:
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
     virtual void CopyFrom(const NFItem &item);
     virtual void CopyFrom(const NFEquip &equip);
-    virtual void CopyFrom(const NFBeastEquip &equip);
+    void CopyFrom(const NFBeastEquip &equip);
     NFBeastEquip& operator=(const NFItem& item);
     NFBeastEquip& operator=(const NFEquip& item);
     NFBeastEquip& operator=(const NFBeastEquip& item);
@@ -685,6 +722,11 @@ public:
         {
             ResumeInit();
         }
+    }
+    
+    NFLongHunEquip(const NFLongHunEquip& item)
+    {
+        CopyFrom(item);
     }
     
     int CreateInit()
@@ -711,7 +753,7 @@ public:
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
     virtual void CopyFrom(const NFItem &item);
     virtual void CopyFrom(const NFEquip &equip);
-    virtual void CopyFrom(const NFLongHunEquip &equip);
+    void CopyFrom(const NFLongHunEquip &equip);
     NFLongHunEquip& operator=(const NFItem& item);
     NFLongHunEquip& operator=(const NFEquip& item);
     NFLongHunEquip& operator=(const NFLongHunEquip& item);
@@ -734,6 +776,11 @@ public:
         {
             ResumeInit();
         }
+    }
+    
+    NFShengjiEquip(const NFShengjiEquip& item)
+    {
+        CopyFrom(item);
     }
     
     int CreateInit()
@@ -760,7 +807,7 @@ public:
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
     virtual void CopyFrom(const NFItem &item);
     virtual void CopyFrom(const NFEquip &equip);
-    virtual void CopyFrom(const NFShengjiEquip &equip);
+    void CopyFrom(const NFShengjiEquip &equip);
     NFShengjiEquip& operator=(const NFItem& item);
     NFShengjiEquip& operator=(const NFEquip& item);
     NFShengjiEquip& operator=(const NFShengjiEquip& item);
@@ -781,6 +828,11 @@ public:
         {
             ResumeInit();
         }
+    }
+    
+    NFGodEvilEquip(const NFGodEvilEquip& item)
+    {
+        CopyFrom(item);
     }
     
     int CreateInit()
@@ -807,7 +859,7 @@ public:
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
     virtual void CopyFrom(const NFItem &item);
     virtual void CopyFrom(const NFEquip &equip);
-    virtual void CopyFrom(const NFGodEvilEquip &equip);
+    void CopyFrom(const NFGodEvilEquip &equip);
     NFGodEvilEquip& operator=(const NFItem& item);
     NFGodEvilEquip& operator=(const NFEquip& item);
     NFGodEvilEquip& operator=(const NFGodEvilEquip& item);
@@ -828,6 +880,11 @@ public:
         {
             ResumeInit();
         }
+    }
+    
+    NFStarEquip(const NFStarEquip& item)
+    {
+        CopyFrom(item);
     }
     
     int CreateInit()
@@ -854,7 +911,7 @@ public:
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
     virtual void CopyFrom(const NFItem &item);
     virtual void CopyFrom(const NFEquip &equip);
-    virtual void CopyFrom(const NFStarEquip &equip);
+    void CopyFrom(const NFStarEquip &equip);
     NFStarEquip& operator=(const NFItem& item);
     NFStarEquip& operator=(const NFEquip& item);
     NFStarEquip& operator=(const NFStarEquip& item);
@@ -875,6 +932,11 @@ public:
         {
             ResumeInit();
         }
+    }
+    
+    NFMountKunEquip(const NFMountKunEquip& item)
+    {
+        CopyFrom(item);
     }
     
     int CreateInit()
@@ -901,7 +963,7 @@ public:
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
     virtual void CopyFrom(const NFItem &item);
     virtual void CopyFrom(const NFEquip &equip);
-    virtual void CopyFrom(const NFMountKunEquip &equip);
+    void CopyFrom(const NFMountKunEquip &equip);
     NFMountKunEquip& operator=(const NFItem& item);
     NFMountKunEquip& operator=(const NFEquip& item);
     NFMountKunEquip& operator=(const NFMountKunEquip& item);
@@ -922,6 +984,11 @@ public:
         {
             ResumeInit();
         }
+    }
+    
+    NFTurnEquip(const NFTurnEquip& item)
+    {
+        CopyFrom(item);
     }
     
     int CreateInit()
@@ -948,7 +1015,7 @@ public:
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
     virtual void CopyFrom(const NFItem &item);
     virtual void CopyFrom(const NFEquip &equip);
-    virtual void CopyFrom(const NFTurnEquip &equip);
+    void CopyFrom(const NFTurnEquip &equip);
     NFTurnEquip& operator=(const NFItem& item);
     NFTurnEquip& operator=(const NFEquip& item);
     NFTurnEquip& operator=(const NFTurnEquip& item);
@@ -969,6 +1036,11 @@ public:
         {
             ResumeInit();
         }
+    }
+    
+    NFYaoHunEquip(const NFYaoHunEquip& item)
+    {
+        CopyFrom(item);
     }
     
     int CreateInit()
@@ -995,7 +1067,7 @@ public:
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
     virtual void CopyFrom(const NFItem &item);
     virtual void CopyFrom(const NFEquip &equip);
-    virtual void CopyFrom(const NFYaoHunEquip &equip);
+    void CopyFrom(const NFYaoHunEquip &equip);
     NFYaoHunEquip& operator=(const NFItem& item);
     NFYaoHunEquip& operator=(const NFEquip& item);
     NFYaoHunEquip& operator=(const NFYaoHunEquip& item);

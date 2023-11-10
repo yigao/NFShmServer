@@ -138,11 +138,6 @@ public:
         m_szMD5 = pszMD5;
     }
 
-    std::string GetMD5()
-    {
-        return m_szMD5.GetString();
-    }
-
     std::string GetFileMD5()
     {
         return m_szMD5.GetString();

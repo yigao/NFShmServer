@@ -131,12 +131,30 @@ class NFDressEquipInfo
 public:
     NFDressEquipInfo()
     {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+    
+    int CreateInit()
+    {
         m_equips.resize(slotNum);
         for (int32_t i = 0; i < (int) m_equips.size(); i++)
         {
             m_equips[i].m_slot.m_slot_pos = startPos + i;
             m_equips[i].m_pos = i;
         }
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
     }
     
     ~NFDressEquipInfo()

@@ -682,7 +682,7 @@ void NFDeityPart::calcDeityAttr(MAP_INT32_INT64 &outAttr)
     PrintAttr(outAttr);
 }
 
-void NFDeityPart::MergeAttr(MAP_INT32_INT64 &src, MAP_INT32_INT64 &dst)
+void NFDeityPart::MergeAttr(const MAP_INT32_INT64 &src, MAP_INT32_INT64 &dst)
 {
     for (auto &e: src)
     {
@@ -690,7 +690,7 @@ void NFDeityPart::MergeAttr(MAP_INT32_INT64 &src, MAP_INT32_INT64 &dst)
     }
 }
 
-void NFDeityPart::PrintAttr(MAP_INT32_INT64 &attr)
+void NFDeityPart::PrintAttr(const MAP_INT32_INT64 &attr)
 {
 
 }
@@ -699,10 +699,11 @@ void NFDeityPart::calcFantasyAttr(MAP_INT32_INT64 &outAttr)
 {
     for(auto iter = m_mapFantasyDeity.begin(); iter != m_mapFantasyDeity.end(); iter++)
     {
-        iter->second.calcAdvanceAttr(outAttr);
-        iter->second.calcDressAttr(m_pMaster, outAttr);
-        iter->second.calcStrongAttr(outAttr);
-        iter->second.calcSuitAttr(outAttr);
+        FantasyDeityData& data = iter->second;
+        data.calcAdvanceAttr(outAttr);
+        data.calcDressAttr(m_pMaster, outAttr);
+        data.calcStrongAttr(outAttr);
+        data.calcSuitAttr(outAttr);
     }
 }
 
@@ -750,9 +751,10 @@ int64_t NFDeityPart::GetCurEnterWarDeity()
 {
     for (auto iter = m_battleDeityList.begin(); iter != m_battleDeityList.end(); iter++)
     {
-        if (iter->second.m_curState == proto_ff::DEITY_BATTLE_SLOT_STATE_USING && iter->second.m_enterWarTime > 0)
+        auto& slot = iter->second;
+        if (slot.m_curState == proto_ff::DEITY_BATTLE_SLOT_STATE_USING && slot.m_enterWarTime > 0)
         {
-            return iter->second.m_deityId;
+            return slot.m_deityId;
         }
     }
     return 0;
@@ -2067,10 +2069,11 @@ int NFDeityPart::OnHandleDeityEquipStrongLvReq(uint32_t msgId, NFDataPackage &pa
         for(int i = 0; i < (int)pBreakCfgInfo->m_break.size(); i++)
         {
             SItem item;
-            if (pBreakCfgInfo->m_break[i].m_Item > 0 && pBreakCfgInfo->m_break[i].m_Num > 0)
+            auto& itemCfg = pBreakCfgInfo->m_break[i];
+            if (itemCfg.m_Item > 0 && itemCfg.m_Num > 0)
             {
-                item.nItemID = pBreakCfgInfo->m_break[i].m_Item;
-                item.nNum = pBreakCfgInfo->m_break[i].m_Num;
+                item.nItemID = itemCfg.m_Item;
+                item.nNum = itemCfg.m_Num;
                 itemList.push_back(item);
             }
         }
@@ -2251,7 +2254,6 @@ int NFDeityPart::OnHandleEquipDisassmbleReq(uint32_t msgId, NFDataPackage &packe
     proto_ff::DeityEquipDisassembleRsp rsp;
     rsp.set_ret_code(proto_ff::RET_SUCCESS);
     
-    MAP_UINT16_INT64 mapIndexItem;
     SCommonSource sourceParam;
     
     NFDeityEquip *pEquip = dynamic_cast<NFDeityEquip *>(pPackagePart->GetPackageItemByIndex(proto_ff::EPackageType_DeityEquip, req.grid()));

@@ -393,7 +393,7 @@ public:
         return nFightTotal;
     }
     
-    void MergeAttr(MAP_INT32_INT64 &src, MAP_INT32_INT64 &dst)
+    void MergeAttr(const MAP_INT32_INT64 &src, MAP_INT32_INT64 &dst)
     {
         for (auto &e : src)
         {
@@ -561,8 +561,8 @@ public:
 public:
     void calcAttr(bool sync);
     void calcDeityAttr(MAP_INT32_INT64& outAttr);
-    void MergeAttr(MAP_INT32_INT64& src, MAP_INT32_INT64& dst);
-    void PrintAttr(MAP_INT32_INT64& attr);
+    void MergeAttr(const MAP_INT32_INT64& src, MAP_INT32_INT64& dst);
+    void PrintAttr(const MAP_INT32_INT64& attr);
     void calcFantasyAttr(MAP_INT32_INT64& outAttr);						//计算身上穿戴的属性
     bool IsSpecAttr(int32_t spec_attrid);          //是否是特殊属性ID
     int32_t GetComAttrBySpec(int32_t spec_attrid);

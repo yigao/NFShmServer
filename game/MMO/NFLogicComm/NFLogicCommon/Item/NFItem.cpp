@@ -191,6 +191,7 @@ void NFItem::CopyFrom(const NFItem &item)
     m_byBind = item.m_byBind;
     m_nLevel = item.m_nLevel;
     m_nExpiredTime = item.m_nExpiredTime;
+    m_byType = item.m_byType;
 }
 
 NFItem &NFItem::operator=(const NFItem &item)
