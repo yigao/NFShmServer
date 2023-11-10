@@ -408,13 +408,14 @@ void NFDeityPart::ActiveDefaultBattleSlot()
         auto pSlotMap = AvatarBattleslotDesc::Instance()->GetResDescPtr();
         for (auto iter = pSlotMap->begin(); iter != pSlotMap->end(); iter++)
         {
-            if (m_battleDeityList.find(iter->second.m_id) == m_battleDeityList.end())
+            auto& cfg = iter->second;
+            if (m_battleDeityList.find(cfg.m_id) == m_battleDeityList.end())
             {
-                DeityBattleSlot& slot = m_battleDeityList[iter->second.m_id];
+                DeityBattleSlot& slot = m_battleDeityList[cfg.m_id];
                 slot.InitShmObj(this);
                 slot.m_curState = proto_ff::DEITY_BATTLE_SLOT_STATE_LOCK;
                 slot.m_deityId = 0;
-                slot.m_id = iter->second.m_id;
+                slot.m_id = cfg.m_id;
             }
         }
     }
@@ -813,7 +814,8 @@ int NFDeityPart::OnHandleDeityLevelUpReq(uint32_t msgId, NFDataPackage &packet)
     bool bSuccess = false;
     for (int i = 0; i < (int) pDeityCfg->m_material.size(); i++)
     {
-        if (materialId != (uint64_t) pDeityCfg->m_material[i].m_id)
+        auto& cfg = pDeityCfg->m_material[i];
+        if (materialId != (uint64_t) cfg.m_id)
         {
             continue;
         }
@@ -822,7 +824,7 @@ int NFDeityPart::OnHandleDeityLevelUpReq(uint32_t msgId, NFDataPackage &packet)
         int64_t unBindNum = 0;
         uint32_t itemNum = pPackagePart->GetItemNum(materialId, bindNum, unBindNum);
         //最大可使用数量（升级到满级）
-        uint32_t needMax = CalNeedItemNum(pDeityCfg->m_UpLvType, m_nDeityLev, pDeityCfg->m_material[i].m_exp);
+        uint32_t needMax = CalNeedItemNum(pDeityCfg->m_UpLvType, m_nDeityLev, cfg.m_exp);
         if (0 == needMax)
         {
             break;
@@ -842,7 +844,7 @@ int NFDeityPart::OnHandleDeityLevelUpReq(uint32_t msgId, NFDataPackage &packet)
             {
                 continue;
             }
-            int64_t addExp = pDeityCfg->m_material[i].m_exp * useItemNum;
+            int64_t addExp = cfg.m_exp * useItemNum;
             m_nDeityExp = m_nDeityExp + addExp;
             bSuccess = true;
             break;
@@ -1302,7 +1304,8 @@ int NFDeityPart::OnHandleDeityFantasyLevelUpReq(uint32_t msgId, NFDataPackage &p
     bool bSuccess = false;
     for (int i = 0; i < (int) pFantasyInfo->m_material.size(); i++)
     {
-        if (materialId != (uint64_t) pFantasyInfo->m_material[i].m_id)
+        auto& cfg = pFantasyInfo->m_material[i];
+        if (materialId != (uint64_t) cfg.m_id)
         {
             continue;
         }
@@ -1311,7 +1314,7 @@ int NFDeityPart::OnHandleDeityFantasyLevelUpReq(uint32_t msgId, NFDataPackage &p
         int64_t unBindNum = 0;
         uint32_t itemNum = pPackagePart->GetItemNum(materialId, bindNum, unBindNum);
         //最大可使用数量（升级到满级）
-        uint32_t needMax = CalFantasyLevelNeedItemNum(pFantasyInfo->m_UpLvType, pFantasyData->m_level, pFantasyInfo->m_material[i].m_exp);
+        uint32_t needMax = CalFantasyLevelNeedItemNum(pFantasyInfo->m_UpLvType, pFantasyData->m_level, cfg.m_exp);
         if (0 == needMax)
         {
             break;
@@ -1331,7 +1334,7 @@ int NFDeityPart::OnHandleDeityFantasyLevelUpReq(uint32_t msgId, NFDataPackage &p
             {
                 continue;
             }
-            int64_t addExp = pFantasyInfo->m_material[i].m_exp * useItemNum;
+            int64_t addExp = cfg.m_exp * useItemNum;
             pFantasyData->m_exp = pFantasyData->m_exp + addExp;
             bSuccess = true;
             break;
@@ -2448,27 +2451,28 @@ int NFDeityPart::SendDeityShowFantasyList()
     auto pFantasyMap = AvatarChangeDesc::Instance()->GetResDescPtr();
     for (auto iter = pFantasyMap->begin(); iter != pFantasyMap->end(); iter++)
     {
-        if (m_mapFantasyDeity.find(iter->second.m_id) != m_mapFantasyDeity.end())
+        auto& cfg = iter->second;
+        if (m_mapFantasyDeity.find(cfg.m_id) != m_mapFantasyDeity.end())
         {
             auto pAdd = rsp.add_fantasy_data();
-            pAdd->set_fantasy_id(iter->second.m_id);
+            pAdd->set_fantasy_id(cfg.m_id);
             pAdd->set_active(true);
         }
         else
         {
-            if (iter->second.m_funUnlock > 0)
+            if (cfg.m_funUnlock > 0)
             {
-                if (pFunction->isFunctionUnlock(iter->second.m_funUnlock))
+                if (pFunction->isFunctionUnlock(cfg.m_funUnlock))
                 {
                     auto pAdd = rsp.add_fantasy_data();
-                    pAdd->set_fantasy_id(iter->second.m_id);
+                    pAdd->set_fantasy_id(cfg.m_id);
                     pAdd->set_active(false);
                 }
             }
             else
             {
                 auto pAdd = rsp.add_fantasy_data();
-                pAdd->set_fantasy_id(iter->second.m_id);
+                pAdd->set_fantasy_id(cfg.m_id);
                 pAdd->set_active(false);
             }
         }
