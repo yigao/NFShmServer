@@ -301,7 +301,7 @@ bool NFItemMgr::IsTaskItem(uint64_t itemId)
     return false;
 }
 
-bool NFItemMgr::CreateItem(const LIST_ITEM &lstItem, VEC_PACKAGE_ITEM &vecItems, SItemCond &itemCond, bool bMerge)
+bool NFItemMgr::CreateItem(const LIST_ITEM &lstItem, VEC_PACKAGE_ITEM &vecItems, const SItemCond &itemCond, bool bMerge)
 {
     if (!ValidInitAttrType((int8_t) itemCond.inittype))
     {

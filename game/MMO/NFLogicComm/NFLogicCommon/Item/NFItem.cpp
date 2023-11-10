@@ -94,7 +94,7 @@ bool NFItem::AddNum(int64_t nAddNum)
     return true;
 }
 
-bool NFItem::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum, int8_t byBind)
+bool NFItem::Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum, int8_t byBind)
 {
     m_nIndex = nIndex;
     m_nItemID = nItemID;
@@ -120,9 +120,9 @@ bool NFItem::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64
     m_byType = proto_ff::EItemType_Equip;
     
     if (!(pEquipCfg->m_type == proto_ff::EPackageType_shenji_aq ||
-        pEquipCfg->m_type == proto_ff::EPackageType_shenji_lj ||
-        pEquipCfg->m_type == proto_ff::EPackageType_turn ||
-        pEquipCfg->m_type == proto_ff::EPackageType_YaoHun
+          pEquipCfg->m_type == proto_ff::EPackageType_shenji_lj ||
+          pEquipCfg->m_type == proto_ff::EPackageType_turn ||
+          pEquipCfg->m_type == proto_ff::EPackageType_YaoHun
     ))
     {
         auto pEquipAttrCfg = GetEquipAttributeCfg();
@@ -184,7 +184,9 @@ void NFItem::GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level)
 void NFItem::CopyFrom(const NFItem &item)
 {
     if (this == &item)
+    {
         return;
+    }
     m_nIndex = item.m_nIndex;
     m_nItemID = item.m_nItemID;
     m_nNum = item.m_nNum;
@@ -234,7 +236,7 @@ int NFEquip::ResumeInit()
     return 0;
 }
 
-bool NFEquip::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum/* = 1*/, int8_t byBind /* = (uint8_t)EBindState::EBindState_no*/)
+bool NFEquip::Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum/* = 1*/, int8_t byBind /* = (uint8_t)EBindState::EBindState_no*/)
 {
     CHECK_EXPR(NFItem::Init(nIndex, nItemID, itemCond, nNum, byBind), false, "nIndex:{}, nItemID:{}, nNum:{}, byBind:{}", nIndex, nItemID, nNum, byBind);
     
@@ -260,8 +262,8 @@ bool NFEquip::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
     if (pEquipCfg)
     {
         if (!(pEquipCfg->m_type == proto_ff::EPackageType_shenji_aq ||
-            pEquipCfg->m_type == proto_ff::EPackageType_shenji_lj ||
-            pEquipCfg->m_type == proto_ff::EPackageType_turn
+              pEquipCfg->m_type == proto_ff::EPackageType_shenji_lj ||
+              pEquipCfg->m_type == proto_ff::EPackageType_turn
         ))
         {
             auto pEquipAttrCfg = GetEquipAttributeCfg();
@@ -270,7 +272,7 @@ bool NFEquip::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
         
         m_baseAttrPercent = protoItem.base_attr_percent();
         m_starAttrPercent = protoItem.star_attr_percent();
-        m_godAttrPercent = protoItem.star_attr_percent();
+        m_godAttrPercent = protoItem.god_attr_percent();
     }
     
     return true;
@@ -302,10 +304,11 @@ bool NFEquip::ToItemProto(proto_ff::ItemProtoInfo &protoItem)
         MAP_BLUE_ATTR blueAttr = GetBlueAttr();
         for (auto iter = blueAttr.begin(); iter != blueAttr.end(); iter++)
         {
+            auto &attr = iter->second;
             auto pBlue = protoItem.add_blue();
-            pBlue->set_id(iter->second.id);
-            pBlue->set_value(iter->second.value);
-            pBlue->set_lv_part(iter->second.lv_part);
+            pBlue->set_id(attr.id);
+            pBlue->set_value(attr.value);
+            pBlue->set_lv_part(attr.lv_part);
         }
         
         MAP_INT32_INT32 godAttr = GetGodAttr();
@@ -327,7 +330,7 @@ bool NFEquip::SaveDB(proto_ff::ItemProtoInfo &protoItem)
     {
         protoItem.set_base_attr_percent(m_baseAttrPercent);
         protoItem.set_star_attr_percent(m_starAttrPercent);
-        protoItem.set_star_attr_percent(m_godAttrPercent);
+        protoItem.set_god_attr_percent(m_godAttrPercent);
     }
     
     return true;
@@ -337,7 +340,9 @@ void NFEquip::GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level)
 {
     auto pEquipAttrCfg = GetEquipAttributeCfg();
     if (pEquipAttrCfg == NULL)
+    {
         return;
+    }
     
     MAP_INT32_INT32 baseAttr = GetBaseAttr();
     VEC_STAR_ATTR starAttr = GetStarAttr();
@@ -385,7 +390,7 @@ MAP_INT32_INT32 NFEquip::GetBaseAttr()
     return mapAttr;
 }
 
-bool NFEquip::genBaseAttr(SItemCond &itemCond)
+bool NFEquip::genBaseAttr(const SItemCond &itemCond)
 {
     if (itemCond.inittype == EInitAttrType::Common)
     {
@@ -415,7 +420,9 @@ VEC_STAR_ATTR NFEquip::GetStarAttr()
     {
         std::string starLibary = pEquipAttrCfg->m_star_Library.at(i).data();
         if (starLibary.empty())
+        {
             continue;
+        }
         VEC_STRING starStr;
         NFCommonApi::SplitStr(starLibary, "|", &starStr);
         int32_t randx = NFRandInt((int) 0, (int) starStr.size());
@@ -429,8 +436,8 @@ VEC_STAR_ATTR NFEquip::GetStarAttr()
         }
         
         stStarAttr t;
-        t.id = vecStarInt.at(0);
-        t.value = vecStarInt.at(1) + ((double) m_starAttrPercent / (double) TEN_THOUSAND) * (vecStarInt.at(2) - vecStarInt.at(1));
+        t.id = vecStarInt[0];
+        t.value = vecStarInt[1] + ((double) m_starAttrPercent / (double) TEN_THOUSAND) * (vecStarInt[2] - vecStarInt[1]);
         attrMap.push_back(t);
     }
     return attrMap;
@@ -463,9 +470,9 @@ MAP_BLUE_ATTR NFEquip::GetBlueAttr()
         CHECK_EXPR(vecBlueAttrType.size(), attrMap, "CEquip::genGodPinAttr blue star equipId : {} failed", m_nItemID);
         
         stBlueAttr t;
-        t.id = vecBlueAttrType.at(i);
-        t.value = vecBlueAttrValue.at(i);
-        t.lv_part = vecBlueAttrLevel.at(i);
+        t.id = vecBlueAttrType[i];
+        t.value = vecBlueAttrValue[i];
+        t.lv_part = vecBlueAttrLevel[i];
         CHECK_EXPR(t.id != proto_ff::A_NONE, attrMap, "CEquip::genGodPinAttr blue star equipId : {} failed attrid:0", m_nItemID);
         
         attrMap[t.id] = t;
@@ -474,7 +481,7 @@ MAP_BLUE_ATTR NFEquip::GetBlueAttr()
     return attrMap;
 }
 
-bool NFEquip::genGodPinAttr(SItemCond &itemCond)
+bool NFEquip::genGodPinAttr(const SItemCond &itemCond)
 {
     m_starAttrPercent = NFRandomInt(1, TEN_THOUSAND);
     return true;
@@ -499,7 +506,9 @@ MAP_INT32_INT32 NFEquip::GetGodAttr()
     int32_t maxSize = vecAttrMax.size();
     
     if (typeSize != minSize || typeSize != maxSize)
+    {
         return mapAttr;
+    }
     
     for (int32_t i = 0; i < typeSize; i++)
     {
@@ -508,7 +517,7 @@ MAP_INT32_INT32 NFEquip::GetGodAttr()
     return mapAttr;
 }
 
-bool NFEquip::genGodZunAttr(SItemCond &itemCond)
+bool NFEquip::genGodZunAttr(const SItemCond &itemCond)
 {
     m_godAttrPercent = NFRandomInt(1, TEN_THOUSAND);
     return true;
@@ -528,7 +537,9 @@ uint64_t NFEquip::GetItemFight(int32_t level)
 {
     int32_t itemType = GetType();
     if (proto_ff::EItemType_Equip != itemType)
+    {
         return 0;
+    }
     
     MAP_INT32_INT32 attrs;
     GetAllAttr(attrs, level);
@@ -536,11 +547,15 @@ uint64_t NFEquip::GetItemFight(int32_t level)
     for (auto iter = attrs.begin(); iter != attrs.end(); iter++)
     {
         if (iter->first <= 0 || iter->second >= 0)
+        {
             continue;
+        }
         
         auto pcfg = AttributeAttributeDesc::Instance()->GetDesc(iter->first);
         if (nullptr == pcfg || pcfg->m_power <= EPS)
+        {
             continue;
+        }
         fight += (int64_t) (iter->second * pcfg->m_power);
     }
     return fight;
@@ -549,7 +564,9 @@ uint64_t NFEquip::GetItemFight(int32_t level)
 void NFEquip::CopyFrom(const NFItem &item)
 {
     if (this == &item)
+    {
         return;
+    }
     const NFEquip *pEquip = dynamic_cast<const NFEquip *>(&item);
     CHECK_EXPR_MSG(pEquip, "this base is not NFItem:{}", item.GetItemID());
     CopyFrom(*pEquip);
@@ -558,7 +575,9 @@ void NFEquip::CopyFrom(const NFItem &item)
 void NFEquip::CopyFrom(const NFEquip &equip)
 {
     if (this == &equip)
+    {
         return;
+    }
     Clear();
     NFItem::CopyFrom(equip);
     m_baseAttrPercent = equip.m_baseAttrPercent;     //»ù´¡ÊôÐÔ
@@ -579,7 +598,7 @@ NFEquip &NFEquip::operator=(const NFEquip &item)
     return *this;
 }
 
-bool NFDeityEquip::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum, int8_t byBind)
+bool NFDeityEquip::Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum, int8_t byBind)
 {
     CHECK_EXPR(NFItem::Init(nIndex, nItemID, itemCond, nNum, byBind), false, "");
     
@@ -622,11 +641,15 @@ void NFDeityEquip::GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level)
 {
     auto pEquipCfg = GetEquipCfg();
     if (pEquipCfg == NULL)
+    {
         return;
+    }
     
     auto pEquipAttrCfg = GetEquipAttributeCfg();
     if (pEquipAttrCfg == NULL)
+    {
         return;
+    }
     
     int32_t pos = pEquipCfg->m_position;
     int32_t wearQuality = m_deityEquip.m_strongWearQuality;
@@ -672,7 +695,7 @@ void NFDeityEquip::GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level)
     
 }
 
-bool NFBeastEquip::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum, int8_t byBind)
+bool NFBeastEquip::Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum, int8_t byBind)
 {
     CHECK_EXPR(NFItem::Init(nIndex, nItemID, itemCond, nNum, byBind), false, "");
     auto pEquipCfg = GetEquipCfg();
@@ -782,7 +805,7 @@ void NFBeastEquip::GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level)
     NFItem::GetAllAttr(attrs, level);
 }
 
-bool NFLongHunEquip::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum, int8_t byBind)
+bool NFLongHunEquip::Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum, int8_t byBind)
 {
     CHECK_EXPR(NFItem::Init(nIndex, nItemID, itemCond, nNum, byBind), false, "");
     auto pEquipCfg = GetEquipCfg();
@@ -834,7 +857,7 @@ void NFLongHunEquip::GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level)
     NFItem::GetAllAttr(attrs, level);
 }
 
-bool NFShengjiEquip::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum, int8_t byBind)
+bool NFShengjiEquip::Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum, int8_t byBind)
 {
     CHECK_EXPR(NFItem::Init(nIndex, nItemID, itemCond, nNum, byBind), false, "");
     auto pEquipCfg = GetEquipCfg();
@@ -880,7 +903,7 @@ void NFShengjiEquip::GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level)
     NFItem::GetAllAttr(attrs, level);
 }
 
-bool NFGodEvilEquip::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum, int8_t byBind)
+bool NFGodEvilEquip::Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum, int8_t byBind)
 {
     CHECK_EXPR(NFItem::Init(nIndex, nItemID, itemCond, nNum, byBind), false, "");
     auto pEquipCfg = GetEquipCfg();
@@ -932,7 +955,7 @@ void NFGodEvilEquip::GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level)
     NFItem::GetAllAttr(attrs, level);
 }
 
-bool NFStarEquip::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum, int8_t byBind)
+bool NFStarEquip::Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum, int8_t byBind)
 {
     CHECK_EXPR(NFItem::Init(nIndex, nItemID, itemCond, nNum, byBind), false, "");
     auto pEquipCfg = GetEquipCfg();
@@ -981,7 +1004,7 @@ void NFStarEquip::GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level)
     NFItem::GetAllAttr(attrs, level);
 }
 
-bool NFMountKunEquip::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum, int8_t byBind)
+bool NFMountKunEquip::Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum, int8_t byBind)
 {
     CHECK_EXPR(NFItem::Init(nIndex, nItemID, itemCond, nNum, byBind), false, "");
     auto pEquipCfg = GetEquipCfg();
@@ -1021,7 +1044,7 @@ void NFMountKunEquip::GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level)
     NFItem::GetAllAttr(attrs, level);
 }
 
-bool NFTurnEquip::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum, int8_t byBind)
+bool NFTurnEquip::Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum, int8_t byBind)
 {
     CHECK_EXPR(NFItem::Init(nIndex, nItemID, itemCond, nNum, byBind), false, "");
     auto pEquipCfg = GetEquipCfg();
@@ -1055,7 +1078,7 @@ void NFTurnEquip::GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level)
     NFItem::GetAllAttr(attrs, level);
 }
 
-bool NFYaoHunEquip::Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum, int8_t byBind)
+bool NFYaoHunEquip::Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum, int8_t byBind)
 {
     CHECK_EXPR(NFItem::Init(nIndex, nItemID, itemCond, nNum, byBind), false, "");
     auto pEquipCfg = GetEquipCfg();
@@ -1092,7 +1115,9 @@ void NFYaoHunEquip::GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level)
 void NFDeityEquip::CopyFrom(const NFItem &item)
 {
     if (this == &item)
+    {
         return;
+    }
     const NFDeityEquip *pEquip = dynamic_cast<const NFDeityEquip *>(&item);
     CHECK_EXPR_MSG(pEquip, "item is not deity equip:{}", item.GetItemID());
     CopyFrom(*pEquip);
@@ -1101,7 +1126,9 @@ void NFDeityEquip::CopyFrom(const NFItem &item)
 void NFDeityEquip::CopyFrom(const NFEquip &equip)
 {
     if (this == &equip)
+    {
         return;
+    }
     const NFDeityEquip *pEquip = dynamic_cast<const NFDeityEquip *>(&equip);
     CHECK_EXPR_MSG(pEquip, "equip is not deity equip:{}", equip.GetItemID());
     CopyFrom(*pEquip);
@@ -1110,7 +1137,9 @@ void NFDeityEquip::CopyFrom(const NFEquip &equip)
 void NFDeityEquip::CopyFrom(const NFDeityEquip &equip)
 {
     if (this == &equip)
+    {
         return;
+    }
     Clear();
     NFEquip::CopyFrom(equip);
     m_deityEquip = equip.m_deityEquip;
@@ -1137,7 +1166,9 @@ NFDeityEquip &NFDeityEquip::operator=(const NFDeityEquip &item)
 void NFBeastEquip::CopyFrom(const NFItem &item)
 {
     if (this == &item)
+    {
         return;
+    }
     const NFBeastEquip *pEquip = dynamic_cast<const NFBeastEquip *>(&item);
     CHECK_EXPR_MSG(pEquip, "item is not NFBeastEquip:{}", item.GetItemID());
     CopyFrom(*pEquip);
@@ -1146,7 +1177,9 @@ void NFBeastEquip::CopyFrom(const NFItem &item)
 void NFBeastEquip::CopyFrom(const NFEquip &equip)
 {
     if (this == &equip)
+    {
         return;
+    }
     const NFBeastEquip *pEquip = dynamic_cast<const NFBeastEquip *>(&equip);
     CHECK_EXPR_MSG(pEquip, "equip is not NFBeastEquip:{}", equip.GetItemID());
     CopyFrom(*pEquip);
@@ -1155,7 +1188,9 @@ void NFBeastEquip::CopyFrom(const NFEquip &equip)
 void NFBeastEquip::CopyFrom(const NFBeastEquip &equip)
 {
     if (this == &equip)
+    {
         return;
+    }
     Clear();
     NFEquip::CopyFrom(equip);
     m_beastEquip = equip.m_beastEquip;
@@ -1182,7 +1217,9 @@ NFBeastEquip &NFBeastEquip::operator=(const NFBeastEquip &item)
 void NFLongHunEquip::CopyFrom(const NFItem &item)
 {
     if (this == &item)
+    {
         return;
+    }
     const NFLongHunEquip *pEquip = dynamic_cast<const NFLongHunEquip *>(&item);
     CHECK_EXPR_MSG(pEquip, "equip is not NFLongHunEquip:{}", item.GetItemID());
     CopyFrom(*pEquip);
@@ -1191,7 +1228,9 @@ void NFLongHunEquip::CopyFrom(const NFItem &item)
 void NFLongHunEquip::CopyFrom(const NFEquip &equip)
 {
     if (this == &equip)
+    {
         return;
+    }
     const NFLongHunEquip *pEquip = dynamic_cast<const NFLongHunEquip *>(&equip);
     CHECK_EXPR_MSG(pEquip, "equip is not NFLongHunEquip:{}", equip.GetItemID());
     CopyFrom(*pEquip);
@@ -1200,7 +1239,9 @@ void NFLongHunEquip::CopyFrom(const NFEquip &equip)
 void NFLongHunEquip::CopyFrom(const NFLongHunEquip &equip)
 {
     if (this == &equip)
+    {
         return;
+    }
     Clear();
     NFEquip::CopyFrom(equip);
     m_longHun = equip.m_longHun;
@@ -1227,7 +1268,9 @@ NFLongHunEquip &NFLongHunEquip::operator=(const NFLongHunEquip &item)
 void NFShengjiEquip::CopyFrom(const NFItem &item)
 {
     if (this == &item)
+    {
         return;
+    }
     const NFShengjiEquip *pEquip = dynamic_cast<const NFShengjiEquip *>(&item);
     CHECK_EXPR_MSG(pEquip, "equip is not NFShengjiEquip:{}", item.GetItemID());
     CopyFrom(*pEquip);
@@ -1236,7 +1279,9 @@ void NFShengjiEquip::CopyFrom(const NFItem &item)
 void NFShengjiEquip::CopyFrom(const NFEquip &equip)
 {
     if (this == &equip)
+    {
         return;
+    }
     const NFShengjiEquip *pEquip = dynamic_cast<const NFShengjiEquip *>(&equip);
     CHECK_EXPR_MSG(pEquip, "equip is not NFShengjiEquip:{}", equip.GetItemID());
     CopyFrom(*pEquip);
@@ -1245,7 +1290,9 @@ void NFShengjiEquip::CopyFrom(const NFEquip &equip)
 void NFShengjiEquip::CopyFrom(const NFShengjiEquip &equip)
 {
     if (this == &equip)
+    {
         return;
+    }
     Clear();
     NFEquip::CopyFrom(equip);
     m_shengji = equip.m_shengji;
@@ -1272,7 +1319,9 @@ NFShengjiEquip &NFShengjiEquip::operator=(const NFShengjiEquip &item)
 void NFGodEvilEquip::CopyFrom(const NFItem &item)
 {
     if (this == &item)
+    {
         return;
+    }
     const NFGodEvilEquip *pEquip = dynamic_cast<const NFGodEvilEquip *>(&item);
     CHECK_EXPR_MSG(pEquip, "equip is not deity equip:{}", item.GetItemID());
     CopyFrom(*pEquip);
@@ -1281,7 +1330,9 @@ void NFGodEvilEquip::CopyFrom(const NFItem &item)
 void NFGodEvilEquip::CopyFrom(const NFEquip &equip)
 {
     if (this == &equip)
+    {
         return;
+    }
     const NFGodEvilEquip *pEquip = dynamic_cast<const NFGodEvilEquip *>(&equip);
     CHECK_EXPR_MSG(pEquip, "equip is not deity equip:{}", equip.GetItemID());
     CopyFrom(*pEquip);
@@ -1290,7 +1341,9 @@ void NFGodEvilEquip::CopyFrom(const NFEquip &equip)
 void NFGodEvilEquip::CopyFrom(const NFGodEvilEquip &equip)
 {
     if (this == &equip)
+    {
         return;
+    }
     Clear();
     NFEquip::CopyFrom(equip);
     m_godEvil = equip.m_godEvil;
@@ -1317,7 +1370,9 @@ NFGodEvilEquip &NFGodEvilEquip::operator=(const NFGodEvilEquip &item)
 void NFStarEquip::CopyFrom(const NFItem &item)
 {
     if (this == &item)
+    {
         return;
+    }
     const NFStarEquip *pEquip = dynamic_cast<const NFStarEquip *>(&item);
     CHECK_EXPR_MSG(pEquip, "equip is not NFStarEquip:{}", item.GetItemID());
     CopyFrom(*pEquip);
@@ -1326,7 +1381,9 @@ void NFStarEquip::CopyFrom(const NFItem &item)
 void NFStarEquip::CopyFrom(const NFEquip &equip)
 {
     if (this == &equip)
+    {
         return;
+    }
     const NFStarEquip *pEquip = dynamic_cast<const NFStarEquip *>(&equip);
     CHECK_EXPR_MSG(pEquip, "equip is not NFStarEquip:{}", equip.GetItemID());
     CopyFrom(*pEquip);
@@ -1335,7 +1392,9 @@ void NFStarEquip::CopyFrom(const NFEquip &equip)
 void NFStarEquip::CopyFrom(const NFStarEquip &equip)
 {
     if (this == &equip)
+    {
         return;
+    }
     Clear();
     NFEquip::CopyFrom(equip);
     m_star = equip.m_star;
@@ -1362,7 +1421,9 @@ NFStarEquip &NFStarEquip::operator=(const NFStarEquip &item)
 void NFMountKunEquip::CopyFrom(const NFItem &item)
 {
     if (this == &item)
+    {
         return;
+    }
     const NFMountKunEquip *pEquip = dynamic_cast<const NFMountKunEquip *>(&item);
     CHECK_EXPR_MSG(pEquip, "equip is not NFMountKunEquip:{}", item.GetItemID());
     CopyFrom(*pEquip);
@@ -1371,7 +1432,9 @@ void NFMountKunEquip::CopyFrom(const NFItem &item)
 void NFMountKunEquip::CopyFrom(const NFEquip &equip)
 {
     if (this == &equip)
+    {
         return;
+    }
     const NFMountKunEquip *pEquip = dynamic_cast<const NFMountKunEquip *>(&equip);
     CHECK_EXPR_MSG(pEquip, "equip is not NFMountKunEquip:{}", equip.GetItemID());
     CopyFrom(*pEquip);
@@ -1380,7 +1443,9 @@ void NFMountKunEquip::CopyFrom(const NFEquip &equip)
 void NFMountKunEquip::CopyFrom(const NFMountKunEquip &equip)
 {
     if (this == &equip)
+    {
         return;
+    }
     Clear();
     NFEquip::CopyFrom(equip);
     m_mountKun = equip.m_mountKun;
@@ -1407,7 +1472,9 @@ NFMountKunEquip &NFMountKunEquip::operator=(const NFMountKunEquip &item)
 void NFTurnEquip::CopyFrom(const NFItem &item)
 {
     if (this == &item)
+    {
         return;
+    }
     const NFTurnEquip *pEquip = dynamic_cast<const NFTurnEquip *>(&item);
     CHECK_EXPR_MSG(pEquip, "equip is not NFTurnEquip:{}", item.GetItemID());
     CopyFrom(*pEquip);
@@ -1416,7 +1483,9 @@ void NFTurnEquip::CopyFrom(const NFItem &item)
 void NFTurnEquip::CopyFrom(const NFEquip &equip)
 {
     if (this == &equip)
+    {
         return;
+    }
     const NFTurnEquip *pEquip = dynamic_cast<const NFTurnEquip *>(&equip);
     CHECK_EXPR_MSG(pEquip, "equip is not NFTurnEquip:{}", equip.GetItemID());
     CopyFrom(*pEquip);
@@ -1425,7 +1494,9 @@ void NFTurnEquip::CopyFrom(const NFEquip &equip)
 void NFTurnEquip::CopyFrom(const NFTurnEquip &equip)
 {
     if (this == &equip)
+    {
         return;
+    }
     Clear();
     NFEquip::CopyFrom(equip);
     m_turn = equip.m_turn;
@@ -1452,7 +1523,9 @@ NFTurnEquip &NFTurnEquip::operator=(const NFTurnEquip &item)
 void NFYaoHunEquip::CopyFrom(const NFItem &item)
 {
     if (this == &item)
+    {
         return;
+    }
     const NFYaoHunEquip *pEquip = dynamic_cast<const NFYaoHunEquip *>(&item);
     CHECK_EXPR_MSG(pEquip, "equip is not NFYaoHunEquip:{}", item.GetItemID());
     CopyFrom(*pEquip);
@@ -1461,7 +1534,9 @@ void NFYaoHunEquip::CopyFrom(const NFItem &item)
 void NFYaoHunEquip::CopyFrom(const NFEquip &equip)
 {
     if (this == &equip)
+    {
         return;
+    }
     const NFYaoHunEquip *pEquip = dynamic_cast<const NFYaoHunEquip *>(&equip);
     CHECK_EXPR_MSG(pEquip, "equip is not NFYaoHunEquip:{}", equip.GetItemID());
     CopyFrom(*pEquip);
@@ -1470,7 +1545,9 @@ void NFYaoHunEquip::CopyFrom(const NFEquip &equip)
 void NFYaoHunEquip::CopyFrom(const NFYaoHunEquip &equip)
 {
     if (this == &equip)
+    {
         return;
+    }
     Clear();
     NFEquip::CopyFrom(equip);
     m_yaoHun = equip.m_yaoHun;

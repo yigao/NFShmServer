@@ -518,7 +518,7 @@ public:
     
     bool AddNum(int64_t nAddNum);
 public:
-    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
     virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
     virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
@@ -579,12 +579,12 @@ public:
     virtual MAP_BLUE_ATTR GetBlueAttr();
     virtual MAP_INT32_INT32 GetGodAttr();
 protected:
-    bool genBaseAttr(SItemCond &itemCond);                //生成基础属性
-    bool genGodPinAttr(SItemCond &itemCond);            //生成仙品属性(两部分 星级属性和蓝星属性)
-    bool genGodZunAttr(SItemCond &itemCond);            //生成仙尊属性
+    bool genBaseAttr(const SItemCond &itemCond);                //生成基础属性
+    bool genGodPinAttr(const SItemCond &itemCond);            //生成仙品属性(两部分 星级属性和蓝星属性)
+    bool genGodZunAttr(const SItemCond &itemCond);            //生成仙尊属性
     void GenBaseScore();
 public:
-    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
     virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
     virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
@@ -641,7 +641,7 @@ public:
         m_deityEquip.Clear();
     }
     
-    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
     virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
     virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
@@ -693,7 +693,7 @@ public:
         m_beastEquip.Clear();
     }
     
-    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
     virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
     virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
@@ -745,7 +745,7 @@ public:
         m_longHun.Clear();
     }
     
-    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
     virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
     virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
@@ -799,7 +799,7 @@ public:
         m_shengji.Clear();
     }
     
-    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
     virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
     virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
@@ -851,7 +851,7 @@ public:
         m_godEvil.Clear();
     }
     
-    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
     virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
     virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
@@ -903,7 +903,7 @@ public:
         m_star.Clear();
     }
     
-    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
     virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
     virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
@@ -955,7 +955,7 @@ public:
         m_mountKun.Clear();
     }
     
-    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
     virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
     virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
@@ -1007,7 +1007,7 @@ public:
         m_turn.Clear();
     }
     
-    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
     virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
     virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
@@ -1059,7 +1059,7 @@ public:
         m_yaoHun.Clear();
     }
     
-    virtual bool Init(uint16_t nIndex, uint64_t nItemID, SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
     virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
     virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);

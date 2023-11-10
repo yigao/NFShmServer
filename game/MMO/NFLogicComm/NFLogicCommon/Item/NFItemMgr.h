@@ -82,7 +82,7 @@ public:
     static uint64_t GetItemFight(NFItem *pItem, int32_t level);
 public:
     //创建物品
-    static bool CreateItem(const LIST_ITEM &lstItem, VEC_PACKAGE_ITEM &vecItems, SItemCond &itemCond, bool bMerge = true);
+    static bool CreateItem(const LIST_ITEM &lstItem, VEC_PACKAGE_ITEM &vecItems, const SItemCond &itemCond, bool bMerge = true);
     //校验物品
     static bool CheckItem(const VEC_ITEM_PROTO_EX &vecProtoItems);
 public:

@@ -123,8 +123,6 @@ class NFAttrMgr : public NFShmObjTemplate<NFAttrMgr, EOT_SERVER_COMMON_ATTR_MGR_
     //伙伴视野数据中用到的属性ID
     const NFShmHashSet<int32_t, proto_ff::A_COMMON_END> &PartnerViewAttr();
     
-    //需要同步给的战斗服务器属性用到的 属性ID
-    const NFShmHashSet<int32_t, proto_ff::A_COMMON_END> &GameSyncAttr();
     public:
     //初始化战斗属性和索引之间的映射
     bool InitFightAttrToIndex();

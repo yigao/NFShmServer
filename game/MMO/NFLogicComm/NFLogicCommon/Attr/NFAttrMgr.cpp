@@ -8,7 +8,6 @@
 // -------------------------------------------------------------------------
 
 #include "NFAttrMgr.h"
-#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "DescStore/AttributeAttributeDesc.h"
 
 NFAttrMgr::NFAttrMgr()
