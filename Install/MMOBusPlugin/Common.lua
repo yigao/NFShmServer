@@ -19,7 +19,7 @@ NF_ST_MAX = 20;
 --大世界
 NF_ST_WORLD_ID=1
 --区分ID
-NF_ST_ZONE_ID=9
+NF_ST_ZONE_ID=13
 --心跳包超时 正式服 30秒
 NF_CLIENT_HEART_BEAT_TIME_OUT = 300
 --外部客户端活跃超时 正式服 120秒
