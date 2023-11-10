@@ -42,8 +42,8 @@ LoadPlugin =
 			--"NFRouteServerPlugin",
 			"NFRouteAgentServerPlugin",
 			"NFStoreServerPlugin",
-			--"NFProxyServerPlugin",
-			--"NFProxyClientPlugin",
+			"NFProxyServerPlugin",
+			"NFProxyClientPlugin",
 			"NFProxyAgentServerPlugin",
 			"NFLoginServerPlugin",
 			"NFGameServerPlugin",
@@ -56,7 +56,7 @@ LoadPlugin =
 
 		WorkPlugins = {
 			"NFMMOCommonPlugin",
-			--"NFMMOProxyPlayerPlugin",
+			"NFMMOProxyPlayerPlugin",
 			"NFMMOWorldPlayerPlugin",
 			"NFMMOLogicPlayerPlugin",
 			"NFMMOSnsPlayerPlugin",
