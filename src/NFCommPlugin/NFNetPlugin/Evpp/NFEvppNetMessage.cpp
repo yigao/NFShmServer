@@ -417,15 +417,16 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
 {
 	if (msg)
 	{
+        if (bSecurity)
+        {
+            Decryption((char*)msg->data(), msg->size());
+        }
+        
 		while (true)
 		{
             char* outData = nullptr;
             uint32_t outLen = 0;
             uint32_t allLen = 0;
-            if (bSecurity)
-            {
-                Decryption((char*)msg->data(), msg->size());
-            }
 
             NFDataPackage codePackage;
             int ret = NFIPacketParse::DeCode(packetparse, msg->data(), msg->size(), outData, outLen, allLen, codePackage);

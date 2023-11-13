@@ -13,10 +13,10 @@ ProxyServer = {
         IdleSleepUS = 1000,
         BusLength = NF_COMMON_BUS_LENGTH,     --20M共享内存
         MaxConnectNum = NF_EXTERN_MAX_CONNECT,
-        NetThreadNum = 5,
+        NetThreadNum = 1,
         WorkThreadNum = 1,
         ParseType = 1, --0是内网协议，1是MMO外网协议
-        ServerIp = NF_EXTER_SERVER_IP,
+        ServerIp = "192.168.225.128",
         ServerPort = NF_INTER_SERVER_PORT+NF_ST_PROXY_SERVER*10+1,
 	    ExternalServerIp = "192.168.225.128",
 	    ExternalServerPort = NF_EXTER_PROXY_SERVER_PORT,
@@ -31,8 +31,8 @@ ProxyServer = {
         Security = true,
 	};
 
-    ProxyServer_4_2 = {
-        ServerName = "ProxyServer_4_2",
+    ProxyServer_2 = {
+        ServerName = "ProxyServer_2",
         ServerType = NF_ST_PROXY_SERVER,
         ServerId = NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_PROXY_SERVER..".2",			--对每一个服务器来说都是唯一的， 应用程序需要通过这个ServerId才能知道需要加载的配置是他
         IdleSleepUS = 1000,
@@ -52,6 +52,6 @@ ProxyServer = {
             MasterIp = NF_MASTER_IP,
             MasterPort = NF_MASTER_PORT,
         },
-        Security = false,
+        Security = true,
     };
 };
