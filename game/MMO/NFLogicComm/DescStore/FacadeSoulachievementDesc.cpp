@@ -77,6 +77,16 @@ int FacadeSoulachievementDesc::Load(NFResDB *pDB)
 		pDesc->read_from_pbmsg(desc);
 		CHECK_EXPR_ASSERT(GetDesc(desc.m_id()) == pDesc, -1, "GetDesc != pDesc, id:{}", desc.m_id());
 	}
+	m_SoulidIndexMap.clear();
+	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
+	{
+		auto pDesc = &iter->second;
+		if(m_SoulidIndexMap.size() >= m_SoulidIndexMap.max_size())
+		{
+			CHECK_EXPR_ASSERT(m_SoulidIndexMap.find(pDesc->m_soulID) != m_SoulidIndexMap.end(), -1, "index:soulID key:{}, space not enough", pDesc->m_soulID);
+		}
+		m_SoulidIndexMap[pDesc->m_soulID].push_back(iter->first);
+	}
 
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_facadesoulachievement_list_size());
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
@@ -86,5 +96,21 @@ int FacadeSoulachievementDesc::Load(NFResDB *pDB)
 int FacadeSoulachievementDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
+}
+
+std::vector<const proto_ff_s::E_FacadeSoulachievement_s*> FacadeSoulachievementDesc::GetDescBySoulid(int64_t Soulid) const
+{
+	std::vector<const proto_ff_s::E_FacadeSoulachievement_s*> m_vec;
+	auto iter = m_SoulidIndexMap.find(Soulid);
+	if(iter != m_SoulidIndexMap.end())
+	{
+		for(int i = 0; i < (int)iter->second.size(); i++)
+		{
+			auto pDesc = GetDesc(iter->second[i]);
+			CHECK_EXPR_CONTINUE(pDesc, "key:{} GetDesc error:{}", Soulid, iter->second[i]);
+			m_vec.push_back(pDesc);
+		}
+	}
+	return m_vec;
 }
 

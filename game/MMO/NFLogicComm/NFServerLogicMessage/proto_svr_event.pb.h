@@ -53,6 +53,20 @@ class PayEvent;
 class PassDupEvent;
 class DeityFantasyBattleEvent;
 class DeityActiveEvent;
+class WingFightChgEvent;
+class PartnerFightChgEvent;
+class ArtifactFightChgEvent;
+class TreasureFightChgEvent;
+class ArtifactFantasy;
+class TreasureFantasy;
+class WingFantasy;
+class PartnerFantasy;
+class WingAdvance;
+class TreasureAdvance;
+class ArtifactAdvance;
+class MountAdvance;
+class OccupationAdvance;
+class PartnerAdvance;
 
 // ===================================================================
 
@@ -2017,6 +2031,1274 @@ class DeityActiveEvent : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static DeityActiveEvent* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class WingFightChgEvent : public ::google::protobuf::Message {
+ public:
+  WingFightChgEvent();
+  virtual ~WingFightChgEvent();
+
+  WingFightChgEvent(const WingFightChgEvent& from);
+
+  inline WingFightChgEvent& operator=(const WingFightChgEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const WingFightChgEvent& default_instance();
+
+  void Swap(WingFightChgEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  WingFightChgEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const WingFightChgEvent& from);
+  void MergeFrom(const WingFightChgEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional uint64 fight = 2;
+  inline bool has_fight() const;
+  inline void clear_fight();
+  static const int kFightFieldNumber = 2;
+  inline ::google::protobuf::uint64 fight() const;
+  inline void set_fight(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.WingFightChgEvent)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_fight();
+  inline void clear_has_fight();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 fight_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static WingFightChgEvent* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PartnerFightChgEvent : public ::google::protobuf::Message {
+ public:
+  PartnerFightChgEvent();
+  virtual ~PartnerFightChgEvent();
+
+  PartnerFightChgEvent(const PartnerFightChgEvent& from);
+
+  inline PartnerFightChgEvent& operator=(const PartnerFightChgEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PartnerFightChgEvent& default_instance();
+
+  void Swap(PartnerFightChgEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  PartnerFightChgEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PartnerFightChgEvent& from);
+  void MergeFrom(const PartnerFightChgEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional uint64 fight = 2;
+  inline bool has_fight() const;
+  inline void clear_fight();
+  static const int kFightFieldNumber = 2;
+  inline ::google::protobuf::uint64 fight() const;
+  inline void set_fight(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PartnerFightChgEvent)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_fight();
+  inline void clear_has_fight();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 fight_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static PartnerFightChgEvent* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ArtifactFightChgEvent : public ::google::protobuf::Message {
+ public:
+  ArtifactFightChgEvent();
+  virtual ~ArtifactFightChgEvent();
+
+  ArtifactFightChgEvent(const ArtifactFightChgEvent& from);
+
+  inline ArtifactFightChgEvent& operator=(const ArtifactFightChgEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ArtifactFightChgEvent& default_instance();
+
+  void Swap(ArtifactFightChgEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  ArtifactFightChgEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ArtifactFightChgEvent& from);
+  void MergeFrom(const ArtifactFightChgEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional uint64 fight = 2;
+  inline bool has_fight() const;
+  inline void clear_fight();
+  static const int kFightFieldNumber = 2;
+  inline ::google::protobuf::uint64 fight() const;
+  inline void set_fight(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.ArtifactFightChgEvent)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_fight();
+  inline void clear_has_fight();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 fight_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static ArtifactFightChgEvent* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class TreasureFightChgEvent : public ::google::protobuf::Message {
+ public:
+  TreasureFightChgEvent();
+  virtual ~TreasureFightChgEvent();
+
+  TreasureFightChgEvent(const TreasureFightChgEvent& from);
+
+  inline TreasureFightChgEvent& operator=(const TreasureFightChgEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const TreasureFightChgEvent& default_instance();
+
+  void Swap(TreasureFightChgEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  TreasureFightChgEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const TreasureFightChgEvent& from);
+  void MergeFrom(const TreasureFightChgEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional uint64 fight = 2;
+  inline bool has_fight() const;
+  inline void clear_fight();
+  static const int kFightFieldNumber = 2;
+  inline ::google::protobuf::uint64 fight() const;
+  inline void set_fight(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.TreasureFightChgEvent)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_fight();
+  inline void clear_has_fight();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 fight_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static TreasureFightChgEvent* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ArtifactFantasy : public ::google::protobuf::Message {
+ public:
+  ArtifactFantasy();
+  virtual ~ArtifactFantasy();
+
+  ArtifactFantasy(const ArtifactFantasy& from);
+
+  inline ArtifactFantasy& operator=(const ArtifactFantasy& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ArtifactFantasy& default_instance();
+
+  void Swap(ArtifactFantasy* other);
+
+  // implements Message ----------------------------------------------
+
+  ArtifactFantasy* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ArtifactFantasy& from);
+  void MergeFrom(const ArtifactFantasy& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 nFantasyId = 1;
+  inline bool has_nfantasyid() const;
+  inline void clear_nfantasyid();
+  static const int kNFantasyIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 nfantasyid() const;
+  inline void set_nfantasyid(::google::protobuf::uint64 value);
+
+  // optional uint32 nLevel = 2;
+  inline bool has_nlevel() const;
+  inline void clear_nlevel();
+  static const int kNLevelFieldNumber = 2;
+  inline ::google::protobuf::uint32 nlevel() const;
+  inline void set_nlevel(::google::protobuf::uint32 value);
+
+  // optional uint32 nTotalLv = 3;
+  inline bool has_ntotallv() const;
+  inline void clear_ntotallv();
+  static const int kNTotalLvFieldNumber = 3;
+  inline ::google::protobuf::uint32 ntotallv() const;
+  inline void set_ntotallv(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.ArtifactFantasy)
+ private:
+  inline void set_has_nfantasyid();
+  inline void clear_has_nfantasyid();
+  inline void set_has_nlevel();
+  inline void clear_has_nlevel();
+  inline void set_has_ntotallv();
+  inline void clear_has_ntotallv();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 nfantasyid_;
+  ::google::protobuf::uint32 nlevel_;
+  ::google::protobuf::uint32 ntotallv_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static ArtifactFantasy* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class TreasureFantasy : public ::google::protobuf::Message {
+ public:
+  TreasureFantasy();
+  virtual ~TreasureFantasy();
+
+  TreasureFantasy(const TreasureFantasy& from);
+
+  inline TreasureFantasy& operator=(const TreasureFantasy& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const TreasureFantasy& default_instance();
+
+  void Swap(TreasureFantasy* other);
+
+  // implements Message ----------------------------------------------
+
+  TreasureFantasy* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const TreasureFantasy& from);
+  void MergeFrom(const TreasureFantasy& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 nFantasyId = 1;
+  inline bool has_nfantasyid() const;
+  inline void clear_nfantasyid();
+  static const int kNFantasyIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 nfantasyid() const;
+  inline void set_nfantasyid(::google::protobuf::uint64 value);
+
+  // optional uint32 nLevel = 2;
+  inline bool has_nlevel() const;
+  inline void clear_nlevel();
+  static const int kNLevelFieldNumber = 2;
+  inline ::google::protobuf::uint32 nlevel() const;
+  inline void set_nlevel(::google::protobuf::uint32 value);
+
+  // optional uint32 nTotalLv = 3;
+  inline bool has_ntotallv() const;
+  inline void clear_ntotallv();
+  static const int kNTotalLvFieldNumber = 3;
+  inline ::google::protobuf::uint32 ntotallv() const;
+  inline void set_ntotallv(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.TreasureFantasy)
+ private:
+  inline void set_has_nfantasyid();
+  inline void clear_has_nfantasyid();
+  inline void set_has_nlevel();
+  inline void clear_has_nlevel();
+  inline void set_has_ntotallv();
+  inline void clear_has_ntotallv();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 nfantasyid_;
+  ::google::protobuf::uint32 nlevel_;
+  ::google::protobuf::uint32 ntotallv_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static TreasureFantasy* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class WingFantasy : public ::google::protobuf::Message {
+ public:
+  WingFantasy();
+  virtual ~WingFantasy();
+
+  WingFantasy(const WingFantasy& from);
+
+  inline WingFantasy& operator=(const WingFantasy& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const WingFantasy& default_instance();
+
+  void Swap(WingFantasy* other);
+
+  // implements Message ----------------------------------------------
+
+  WingFantasy* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const WingFantasy& from);
+  void MergeFrom(const WingFantasy& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 nFantasyId = 1;
+  inline bool has_nfantasyid() const;
+  inline void clear_nfantasyid();
+  static const int kNFantasyIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 nfantasyid() const;
+  inline void set_nfantasyid(::google::protobuf::uint64 value);
+
+  // optional uint32 nLevel = 2;
+  inline bool has_nlevel() const;
+  inline void clear_nlevel();
+  static const int kNLevelFieldNumber = 2;
+  inline ::google::protobuf::uint32 nlevel() const;
+  inline void set_nlevel(::google::protobuf::uint32 value);
+
+  // optional uint32 nTotalLv = 3;
+  inline bool has_ntotallv() const;
+  inline void clear_ntotallv();
+  static const int kNTotalLvFieldNumber = 3;
+  inline ::google::protobuf::uint32 ntotallv() const;
+  inline void set_ntotallv(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.WingFantasy)
+ private:
+  inline void set_has_nfantasyid();
+  inline void clear_has_nfantasyid();
+  inline void set_has_nlevel();
+  inline void clear_has_nlevel();
+  inline void set_has_ntotallv();
+  inline void clear_has_ntotallv();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 nfantasyid_;
+  ::google::protobuf::uint32 nlevel_;
+  ::google::protobuf::uint32 ntotallv_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static WingFantasy* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PartnerFantasy : public ::google::protobuf::Message {
+ public:
+  PartnerFantasy();
+  virtual ~PartnerFantasy();
+
+  PartnerFantasy(const PartnerFantasy& from);
+
+  inline PartnerFantasy& operator=(const PartnerFantasy& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PartnerFantasy& default_instance();
+
+  void Swap(PartnerFantasy* other);
+
+  // implements Message ----------------------------------------------
+
+  PartnerFantasy* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PartnerFantasy& from);
+  void MergeFrom(const PartnerFantasy& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 nFantasyId = 1;
+  inline bool has_nfantasyid() const;
+  inline void clear_nfantasyid();
+  static const int kNFantasyIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 nfantasyid() const;
+  inline void set_nfantasyid(::google::protobuf::uint64 value);
+
+  // optional uint32 nLevel = 2;
+  inline bool has_nlevel() const;
+  inline void clear_nlevel();
+  static const int kNLevelFieldNumber = 2;
+  inline ::google::protobuf::uint32 nlevel() const;
+  inline void set_nlevel(::google::protobuf::uint32 value);
+
+  // optional uint32 nTotalLv = 3;
+  inline bool has_ntotallv() const;
+  inline void clear_ntotallv();
+  static const int kNTotalLvFieldNumber = 3;
+  inline ::google::protobuf::uint32 ntotallv() const;
+  inline void set_ntotallv(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PartnerFantasy)
+ private:
+  inline void set_has_nfantasyid();
+  inline void clear_has_nfantasyid();
+  inline void set_has_nlevel();
+  inline void clear_has_nlevel();
+  inline void set_has_ntotallv();
+  inline void clear_has_ntotallv();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 nfantasyid_;
+  ::google::protobuf::uint32 nlevel_;
+  ::google::protobuf::uint32 ntotallv_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static PartnerFantasy* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class WingAdvance : public ::google::protobuf::Message {
+ public:
+  WingAdvance();
+  virtual ~WingAdvance();
+
+  WingAdvance(const WingAdvance& from);
+
+  inline WingAdvance& operator=(const WingAdvance& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const WingAdvance& default_instance();
+
+  void Swap(WingAdvance* other);
+
+  // implements Message ----------------------------------------------
+
+  WingAdvance* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const WingAdvance& from);
+  void MergeFrom(const WingAdvance& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 nLevel = 1;
+  inline bool has_nlevel() const;
+  inline void clear_nlevel();
+  static const int kNLevelFieldNumber = 1;
+  inline ::google::protobuf::uint32 nlevel() const;
+  inline void set_nlevel(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.WingAdvance)
+ private:
+  inline void set_has_nlevel();
+  inline void clear_has_nlevel();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 nlevel_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static WingAdvance* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class TreasureAdvance : public ::google::protobuf::Message {
+ public:
+  TreasureAdvance();
+  virtual ~TreasureAdvance();
+
+  TreasureAdvance(const TreasureAdvance& from);
+
+  inline TreasureAdvance& operator=(const TreasureAdvance& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const TreasureAdvance& default_instance();
+
+  void Swap(TreasureAdvance* other);
+
+  // implements Message ----------------------------------------------
+
+  TreasureAdvance* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const TreasureAdvance& from);
+  void MergeFrom(const TreasureAdvance& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 nLevel = 1;
+  inline bool has_nlevel() const;
+  inline void clear_nlevel();
+  static const int kNLevelFieldNumber = 1;
+  inline ::google::protobuf::uint32 nlevel() const;
+  inline void set_nlevel(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.TreasureAdvance)
+ private:
+  inline void set_has_nlevel();
+  inline void clear_has_nlevel();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 nlevel_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static TreasureAdvance* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ArtifactAdvance : public ::google::protobuf::Message {
+ public:
+  ArtifactAdvance();
+  virtual ~ArtifactAdvance();
+
+  ArtifactAdvance(const ArtifactAdvance& from);
+
+  inline ArtifactAdvance& operator=(const ArtifactAdvance& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ArtifactAdvance& default_instance();
+
+  void Swap(ArtifactAdvance* other);
+
+  // implements Message ----------------------------------------------
+
+  ArtifactAdvance* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ArtifactAdvance& from);
+  void MergeFrom(const ArtifactAdvance& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 nLevel = 1;
+  inline bool has_nlevel() const;
+  inline void clear_nlevel();
+  static const int kNLevelFieldNumber = 1;
+  inline ::google::protobuf::uint32 nlevel() const;
+  inline void set_nlevel(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.ArtifactAdvance)
+ private:
+  inline void set_has_nlevel();
+  inline void clear_has_nlevel();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 nlevel_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static ArtifactAdvance* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MountAdvance : public ::google::protobuf::Message {
+ public:
+  MountAdvance();
+  virtual ~MountAdvance();
+
+  MountAdvance(const MountAdvance& from);
+
+  inline MountAdvance& operator=(const MountAdvance& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MountAdvance& default_instance();
+
+  void Swap(MountAdvance* other);
+
+  // implements Message ----------------------------------------------
+
+  MountAdvance* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MountAdvance& from);
+  void MergeFrom(const MountAdvance& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 nLevel = 1;
+  inline bool has_nlevel() const;
+  inline void clear_nlevel();
+  static const int kNLevelFieldNumber = 1;
+  inline ::google::protobuf::uint32 nlevel() const;
+  inline void set_nlevel(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.MountAdvance)
+ private:
+  inline void set_has_nlevel();
+  inline void clear_has_nlevel();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 nlevel_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static MountAdvance* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class OccupationAdvance : public ::google::protobuf::Message {
+ public:
+  OccupationAdvance();
+  virtual ~OccupationAdvance();
+
+  OccupationAdvance(const OccupationAdvance& from);
+
+  inline OccupationAdvance& operator=(const OccupationAdvance& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const OccupationAdvance& default_instance();
+
+  void Swap(OccupationAdvance* other);
+
+  // implements Message ----------------------------------------------
+
+  OccupationAdvance* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const OccupationAdvance& from);
+  void MergeFrom(const OccupationAdvance& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 nGrade = 1;
+  inline bool has_ngrade() const;
+  inline void clear_ngrade();
+  static const int kNGradeFieldNumber = 1;
+  inline ::google::protobuf::uint32 ngrade() const;
+  inline void set_ngrade(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.OccupationAdvance)
+ private:
+  inline void set_has_ngrade();
+  inline void clear_has_ngrade();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 ngrade_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static OccupationAdvance* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PartnerAdvance : public ::google::protobuf::Message {
+ public:
+  PartnerAdvance();
+  virtual ~PartnerAdvance();
+
+  PartnerAdvance(const PartnerAdvance& from);
+
+  inline PartnerAdvance& operator=(const PartnerAdvance& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PartnerAdvance& default_instance();
+
+  void Swap(PartnerAdvance* other);
+
+  // implements Message ----------------------------------------------
+
+  PartnerAdvance* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PartnerAdvance& from);
+  void MergeFrom(const PartnerAdvance& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 nLevel = 1;
+  inline bool has_nlevel() const;
+  inline void clear_nlevel();
+  static const int kNLevelFieldNumber = 1;
+  inline ::google::protobuf::uint32 nlevel() const;
+  inline void set_nlevel(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PartnerAdvance)
+ private:
+  inline void set_has_nlevel();
+  inline void clear_has_nlevel();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 nlevel_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static PartnerAdvance* default_instance_;
+};
 // ===================================================================
 
 
@@ -3606,6 +4888,634 @@ inline ::google::protobuf::int64 DeityActiveEvent::id() const {
 inline void DeityActiveEvent::set_id(::google::protobuf::int64 value) {
   set_has_id();
   id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// WingFightChgEvent
+
+// optional uint64 cid = 1;
+inline bool WingFightChgEvent::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void WingFightChgEvent::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void WingFightChgEvent::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void WingFightChgEvent::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 WingFightChgEvent::cid() const {
+  return cid_;
+}
+inline void WingFightChgEvent::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional uint64 fight = 2;
+inline bool WingFightChgEvent::has_fight() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void WingFightChgEvent::set_has_fight() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void WingFightChgEvent::clear_has_fight() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void WingFightChgEvent::clear_fight() {
+  fight_ = GOOGLE_ULONGLONG(0);
+  clear_has_fight();
+}
+inline ::google::protobuf::uint64 WingFightChgEvent::fight() const {
+  return fight_;
+}
+inline void WingFightChgEvent::set_fight(::google::protobuf::uint64 value) {
+  set_has_fight();
+  fight_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PartnerFightChgEvent
+
+// optional uint64 cid = 1;
+inline bool PartnerFightChgEvent::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PartnerFightChgEvent::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PartnerFightChgEvent::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PartnerFightChgEvent::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 PartnerFightChgEvent::cid() const {
+  return cid_;
+}
+inline void PartnerFightChgEvent::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional uint64 fight = 2;
+inline bool PartnerFightChgEvent::has_fight() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PartnerFightChgEvent::set_has_fight() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PartnerFightChgEvent::clear_has_fight() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PartnerFightChgEvent::clear_fight() {
+  fight_ = GOOGLE_ULONGLONG(0);
+  clear_has_fight();
+}
+inline ::google::protobuf::uint64 PartnerFightChgEvent::fight() const {
+  return fight_;
+}
+inline void PartnerFightChgEvent::set_fight(::google::protobuf::uint64 value) {
+  set_has_fight();
+  fight_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// ArtifactFightChgEvent
+
+// optional uint64 cid = 1;
+inline bool ArtifactFightChgEvent::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ArtifactFightChgEvent::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ArtifactFightChgEvent::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ArtifactFightChgEvent::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 ArtifactFightChgEvent::cid() const {
+  return cid_;
+}
+inline void ArtifactFightChgEvent::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional uint64 fight = 2;
+inline bool ArtifactFightChgEvent::has_fight() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void ArtifactFightChgEvent::set_has_fight() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void ArtifactFightChgEvent::clear_has_fight() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void ArtifactFightChgEvent::clear_fight() {
+  fight_ = GOOGLE_ULONGLONG(0);
+  clear_has_fight();
+}
+inline ::google::protobuf::uint64 ArtifactFightChgEvent::fight() const {
+  return fight_;
+}
+inline void ArtifactFightChgEvent::set_fight(::google::protobuf::uint64 value) {
+  set_has_fight();
+  fight_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// TreasureFightChgEvent
+
+// optional uint64 cid = 1;
+inline bool TreasureFightChgEvent::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void TreasureFightChgEvent::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void TreasureFightChgEvent::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void TreasureFightChgEvent::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 TreasureFightChgEvent::cid() const {
+  return cid_;
+}
+inline void TreasureFightChgEvent::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional uint64 fight = 2;
+inline bool TreasureFightChgEvent::has_fight() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void TreasureFightChgEvent::set_has_fight() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void TreasureFightChgEvent::clear_has_fight() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void TreasureFightChgEvent::clear_fight() {
+  fight_ = GOOGLE_ULONGLONG(0);
+  clear_has_fight();
+}
+inline ::google::protobuf::uint64 TreasureFightChgEvent::fight() const {
+  return fight_;
+}
+inline void TreasureFightChgEvent::set_fight(::google::protobuf::uint64 value) {
+  set_has_fight();
+  fight_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// ArtifactFantasy
+
+// optional uint64 nFantasyId = 1;
+inline bool ArtifactFantasy::has_nfantasyid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ArtifactFantasy::set_has_nfantasyid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ArtifactFantasy::clear_has_nfantasyid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ArtifactFantasy::clear_nfantasyid() {
+  nfantasyid_ = GOOGLE_ULONGLONG(0);
+  clear_has_nfantasyid();
+}
+inline ::google::protobuf::uint64 ArtifactFantasy::nfantasyid() const {
+  return nfantasyid_;
+}
+inline void ArtifactFantasy::set_nfantasyid(::google::protobuf::uint64 value) {
+  set_has_nfantasyid();
+  nfantasyid_ = value;
+}
+
+// optional uint32 nLevel = 2;
+inline bool ArtifactFantasy::has_nlevel() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void ArtifactFantasy::set_has_nlevel() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void ArtifactFantasy::clear_has_nlevel() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void ArtifactFantasy::clear_nlevel() {
+  nlevel_ = 0u;
+  clear_has_nlevel();
+}
+inline ::google::protobuf::uint32 ArtifactFantasy::nlevel() const {
+  return nlevel_;
+}
+inline void ArtifactFantasy::set_nlevel(::google::protobuf::uint32 value) {
+  set_has_nlevel();
+  nlevel_ = value;
+}
+
+// optional uint32 nTotalLv = 3;
+inline bool ArtifactFantasy::has_ntotallv() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void ArtifactFantasy::set_has_ntotallv() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void ArtifactFantasy::clear_has_ntotallv() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void ArtifactFantasy::clear_ntotallv() {
+  ntotallv_ = 0u;
+  clear_has_ntotallv();
+}
+inline ::google::protobuf::uint32 ArtifactFantasy::ntotallv() const {
+  return ntotallv_;
+}
+inline void ArtifactFantasy::set_ntotallv(::google::protobuf::uint32 value) {
+  set_has_ntotallv();
+  ntotallv_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// TreasureFantasy
+
+// optional uint64 nFantasyId = 1;
+inline bool TreasureFantasy::has_nfantasyid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void TreasureFantasy::set_has_nfantasyid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void TreasureFantasy::clear_has_nfantasyid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void TreasureFantasy::clear_nfantasyid() {
+  nfantasyid_ = GOOGLE_ULONGLONG(0);
+  clear_has_nfantasyid();
+}
+inline ::google::protobuf::uint64 TreasureFantasy::nfantasyid() const {
+  return nfantasyid_;
+}
+inline void TreasureFantasy::set_nfantasyid(::google::protobuf::uint64 value) {
+  set_has_nfantasyid();
+  nfantasyid_ = value;
+}
+
+// optional uint32 nLevel = 2;
+inline bool TreasureFantasy::has_nlevel() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void TreasureFantasy::set_has_nlevel() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void TreasureFantasy::clear_has_nlevel() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void TreasureFantasy::clear_nlevel() {
+  nlevel_ = 0u;
+  clear_has_nlevel();
+}
+inline ::google::protobuf::uint32 TreasureFantasy::nlevel() const {
+  return nlevel_;
+}
+inline void TreasureFantasy::set_nlevel(::google::protobuf::uint32 value) {
+  set_has_nlevel();
+  nlevel_ = value;
+}
+
+// optional uint32 nTotalLv = 3;
+inline bool TreasureFantasy::has_ntotallv() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void TreasureFantasy::set_has_ntotallv() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void TreasureFantasy::clear_has_ntotallv() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void TreasureFantasy::clear_ntotallv() {
+  ntotallv_ = 0u;
+  clear_has_ntotallv();
+}
+inline ::google::protobuf::uint32 TreasureFantasy::ntotallv() const {
+  return ntotallv_;
+}
+inline void TreasureFantasy::set_ntotallv(::google::protobuf::uint32 value) {
+  set_has_ntotallv();
+  ntotallv_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// WingFantasy
+
+// optional uint64 nFantasyId = 1;
+inline bool WingFantasy::has_nfantasyid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void WingFantasy::set_has_nfantasyid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void WingFantasy::clear_has_nfantasyid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void WingFantasy::clear_nfantasyid() {
+  nfantasyid_ = GOOGLE_ULONGLONG(0);
+  clear_has_nfantasyid();
+}
+inline ::google::protobuf::uint64 WingFantasy::nfantasyid() const {
+  return nfantasyid_;
+}
+inline void WingFantasy::set_nfantasyid(::google::protobuf::uint64 value) {
+  set_has_nfantasyid();
+  nfantasyid_ = value;
+}
+
+// optional uint32 nLevel = 2;
+inline bool WingFantasy::has_nlevel() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void WingFantasy::set_has_nlevel() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void WingFantasy::clear_has_nlevel() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void WingFantasy::clear_nlevel() {
+  nlevel_ = 0u;
+  clear_has_nlevel();
+}
+inline ::google::protobuf::uint32 WingFantasy::nlevel() const {
+  return nlevel_;
+}
+inline void WingFantasy::set_nlevel(::google::protobuf::uint32 value) {
+  set_has_nlevel();
+  nlevel_ = value;
+}
+
+// optional uint32 nTotalLv = 3;
+inline bool WingFantasy::has_ntotallv() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void WingFantasy::set_has_ntotallv() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void WingFantasy::clear_has_ntotallv() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void WingFantasy::clear_ntotallv() {
+  ntotallv_ = 0u;
+  clear_has_ntotallv();
+}
+inline ::google::protobuf::uint32 WingFantasy::ntotallv() const {
+  return ntotallv_;
+}
+inline void WingFantasy::set_ntotallv(::google::protobuf::uint32 value) {
+  set_has_ntotallv();
+  ntotallv_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PartnerFantasy
+
+// optional uint64 nFantasyId = 1;
+inline bool PartnerFantasy::has_nfantasyid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PartnerFantasy::set_has_nfantasyid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PartnerFantasy::clear_has_nfantasyid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PartnerFantasy::clear_nfantasyid() {
+  nfantasyid_ = GOOGLE_ULONGLONG(0);
+  clear_has_nfantasyid();
+}
+inline ::google::protobuf::uint64 PartnerFantasy::nfantasyid() const {
+  return nfantasyid_;
+}
+inline void PartnerFantasy::set_nfantasyid(::google::protobuf::uint64 value) {
+  set_has_nfantasyid();
+  nfantasyid_ = value;
+}
+
+// optional uint32 nLevel = 2;
+inline bool PartnerFantasy::has_nlevel() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PartnerFantasy::set_has_nlevel() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PartnerFantasy::clear_has_nlevel() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PartnerFantasy::clear_nlevel() {
+  nlevel_ = 0u;
+  clear_has_nlevel();
+}
+inline ::google::protobuf::uint32 PartnerFantasy::nlevel() const {
+  return nlevel_;
+}
+inline void PartnerFantasy::set_nlevel(::google::protobuf::uint32 value) {
+  set_has_nlevel();
+  nlevel_ = value;
+}
+
+// optional uint32 nTotalLv = 3;
+inline bool PartnerFantasy::has_ntotallv() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void PartnerFantasy::set_has_ntotallv() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void PartnerFantasy::clear_has_ntotallv() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void PartnerFantasy::clear_ntotallv() {
+  ntotallv_ = 0u;
+  clear_has_ntotallv();
+}
+inline ::google::protobuf::uint32 PartnerFantasy::ntotallv() const {
+  return ntotallv_;
+}
+inline void PartnerFantasy::set_ntotallv(::google::protobuf::uint32 value) {
+  set_has_ntotallv();
+  ntotallv_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// WingAdvance
+
+// optional uint32 nLevel = 1;
+inline bool WingAdvance::has_nlevel() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void WingAdvance::set_has_nlevel() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void WingAdvance::clear_has_nlevel() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void WingAdvance::clear_nlevel() {
+  nlevel_ = 0u;
+  clear_has_nlevel();
+}
+inline ::google::protobuf::uint32 WingAdvance::nlevel() const {
+  return nlevel_;
+}
+inline void WingAdvance::set_nlevel(::google::protobuf::uint32 value) {
+  set_has_nlevel();
+  nlevel_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// TreasureAdvance
+
+// optional uint32 nLevel = 1;
+inline bool TreasureAdvance::has_nlevel() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void TreasureAdvance::set_has_nlevel() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void TreasureAdvance::clear_has_nlevel() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void TreasureAdvance::clear_nlevel() {
+  nlevel_ = 0u;
+  clear_has_nlevel();
+}
+inline ::google::protobuf::uint32 TreasureAdvance::nlevel() const {
+  return nlevel_;
+}
+inline void TreasureAdvance::set_nlevel(::google::protobuf::uint32 value) {
+  set_has_nlevel();
+  nlevel_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// ArtifactAdvance
+
+// optional uint32 nLevel = 1;
+inline bool ArtifactAdvance::has_nlevel() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ArtifactAdvance::set_has_nlevel() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ArtifactAdvance::clear_has_nlevel() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ArtifactAdvance::clear_nlevel() {
+  nlevel_ = 0u;
+  clear_has_nlevel();
+}
+inline ::google::protobuf::uint32 ArtifactAdvance::nlevel() const {
+  return nlevel_;
+}
+inline void ArtifactAdvance::set_nlevel(::google::protobuf::uint32 value) {
+  set_has_nlevel();
+  nlevel_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// MountAdvance
+
+// optional uint32 nLevel = 1;
+inline bool MountAdvance::has_nlevel() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MountAdvance::set_has_nlevel() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MountAdvance::clear_has_nlevel() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MountAdvance::clear_nlevel() {
+  nlevel_ = 0u;
+  clear_has_nlevel();
+}
+inline ::google::protobuf::uint32 MountAdvance::nlevel() const {
+  return nlevel_;
+}
+inline void MountAdvance::set_nlevel(::google::protobuf::uint32 value) {
+  set_has_nlevel();
+  nlevel_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// OccupationAdvance
+
+// optional uint32 nGrade = 1;
+inline bool OccupationAdvance::has_ngrade() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void OccupationAdvance::set_has_ngrade() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void OccupationAdvance::clear_has_ngrade() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void OccupationAdvance::clear_ngrade() {
+  ngrade_ = 0u;
+  clear_has_ngrade();
+}
+inline ::google::protobuf::uint32 OccupationAdvance::ngrade() const {
+  return ngrade_;
+}
+inline void OccupationAdvance::set_ngrade(::google::protobuf::uint32 value) {
+  set_has_ngrade();
+  ngrade_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PartnerAdvance
+
+// optional uint32 nLevel = 1;
+inline bool PartnerAdvance::has_nlevel() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PartnerAdvance::set_has_nlevel() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PartnerAdvance::clear_has_nlevel() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PartnerAdvance::clear_nlevel() {
+  nlevel_ = 0u;
+  clear_has_nlevel();
+}
+inline ::google::protobuf::uint32 PartnerAdvance::nlevel() const {
+  return nlevel_;
+}
+inline void PartnerAdvance::set_nlevel(::google::protobuf::uint32 value) {
+  set_has_nlevel();
+  nlevel_ = value;
 }
 
 

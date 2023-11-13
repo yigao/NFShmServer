@@ -77,6 +77,16 @@ int FacadeChangeDesc::Load(NFResDB *pDB)
 		pDesc->read_from_pbmsg(desc);
 		CHECK_EXPR_ASSERT(GetDesc(desc.m_id()) == pDesc, -1, "GetDesc != pDesc, id:{}", desc.m_id());
 	}
+	m_TypeIndexMap.clear();
+	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
+	{
+		auto pDesc = &iter->second;
+		if(m_TypeIndexMap.size() >= m_TypeIndexMap.max_size())
+		{
+			CHECK_EXPR_ASSERT(m_TypeIndexMap.find(pDesc->m_type) != m_TypeIndexMap.end(), -1, "index:type key:{}, space not enough", pDesc->m_type);
+		}
+		m_TypeIndexMap[pDesc->m_type].push_back(iter->first);
+	}
 
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_facadechange_list_size());
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
@@ -86,5 +96,21 @@ int FacadeChangeDesc::Load(NFResDB *pDB)
 int FacadeChangeDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
+}
+
+std::vector<const proto_ff_s::E_FacadeChange_s*> FacadeChangeDesc::GetDescByType(int64_t Type) const
+{
+	std::vector<const proto_ff_s::E_FacadeChange_s*> m_vec;
+	auto iter = m_TypeIndexMap.find(Type);
+	if(iter != m_TypeIndexMap.end())
+	{
+		for(int i = 0; i < (int)iter->second.size(); i++)
+		{
+			auto pDesc = GetDesc(iter->second[i]);
+			CHECK_EXPR_CONTINUE(pDesc, "key:{} GetDesc error:{}", Type, iter->second[i]);
+			m_vec.push_back(pDesc);
+		}
+	}
+	return m_vec;
 }
 

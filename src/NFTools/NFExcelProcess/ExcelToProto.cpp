@@ -898,7 +898,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
         {
             ExcelSheetIndex &index = iter->second;
             std::string index_key = index.m_key;
-            std::string index_key_en_name = "m_" + NFStringUtility::Lower(index_key);
+            std::string index_key_en_name = "m_" + index_key;
             std::string index_map = "m_" + NFStringUtility::Capitalize(index_key) + "IndexMap";
             if (index.m_unique)
             {

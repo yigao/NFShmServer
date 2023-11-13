@@ -155,3 +155,85 @@ message DeityActiveEvent
 {
   optional int64 id = 1;
 };
+
+message WingFightChgEvent
+{
+  optional uint64 cid = 1;		//玩家cid
+  optional uint64 fight = 2;		//战力值
+};
+
+message PartnerFightChgEvent
+{
+  optional uint64 cid = 1;		//玩家cid
+  optional uint64 fight = 2;		//战力值
+};
+
+message ArtifactFightChgEvent
+{
+  optional uint64 cid = 1;		//玩家cid
+  optional uint64 fight = 2;		//战力值
+};
+
+message TreasureFightChgEvent
+{
+  optional uint64 cid = 1;		//玩家cid
+  optional uint64 fight = 2;		//战力值
+};
+
+message ArtifactFantasy
+{
+  optional uint64 nFantasyId = 1;
+  optional uint32 nLevel = 2;
+  optional uint32 nTotalLv = 3;
+};
+
+message TreasureFantasy
+{
+  optional uint64 nFantasyId = 1;
+  optional uint32 nLevel = 2;
+  optional uint32 nTotalLv = 3;
+};
+
+message WingFantasy
+{
+  optional uint64 nFantasyId = 1;
+  optional uint32 nLevel = 2;
+  optional uint32 nTotalLv = 3;
+};
+
+message PartnerFantasy
+{
+  optional uint64 nFantasyId = 1;
+  optional uint32 nLevel = 2;
+  optional uint32 nTotalLv = 3;
+};
+
+message WingAdvance
+{
+  optional uint32 nLevel = 1;
+};
+
+message TreasureAdvance
+{
+  optional uint32 nLevel = 1;
+};
+
+message ArtifactAdvance
+{
+  optional uint32 nLevel = 1;
+};
+
+message MountAdvance
+{
+  optional uint32 nLevel = 1;
+};
+
+message OccupationAdvance
+{
+  optional uint32 nGrade = 1;
+};
+
+message PartnerAdvance
+{
+  optional uint32 nLevel = 1;
+};

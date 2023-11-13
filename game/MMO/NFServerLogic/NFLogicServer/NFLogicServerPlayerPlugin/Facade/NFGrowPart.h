@@ -221,6 +221,7 @@ public:
     int HanlderLvUpReq(uint32_t msgId, NFDataPackage &packet);        //升级
     int HanlderDressReq(uint32_t msgId, NFDataPackage &packet);        //穿戴
     int HanlderUnDressReq(uint32_t msgId, NFDataPackage &packet);        //卸载
+    bool UnDress(int32_t type,bool sync_facade)	{ return true; }						//卸载光环
 public:
     int OnActivePartEntry(int64_t id);                            //处理激活
     int OnLvupPartEntry(int64_t id);                            //处理升级
@@ -242,7 +243,6 @@ public:
 
 private:
     void initParts();
-
 protected:
     GrowPartMap m_partsMap;                    //所有养成的部件
 };

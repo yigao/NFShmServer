@@ -299,20 +299,53 @@ enum ESource
     S_Soul_pool_bless_lv		= 270,	//聚灵池祝福
     S_Soul_pool_pg_lv			= 271,	//聚灵池特权升级
     S_Equip_Gem_open			= 272,	//宝石解锁
-    
+    S_Rune_dress				= 273,	//符文穿戴
+    S_Rune_undress				= 274,  //符文卸载
+    S_Rune_lv					= 275,  //符文升级
+    S_Rune_step					= 276,	//符文进阶
+    S_Rune_make					= 277,	//符文淬炼
+    S_Rune_star					= 278,	//符语升星
+    S_Rune_jj_active			= 279,	//符文绝技激活
+    S_Rune_decompose			= 280,	//符文分解
     //deity
-    S_Deity_SKILL               = 280, //天神技能
-    S_DEITY_LV                  = 281, //天神升级
-    S_DEITY_RRAGMENT             = 282, //天神碎片
-    S_DEITY_ACTIVE_FANTASY      = 283, //天神幻化激活
-    S_DEITY_FANTASY_LV      = 284, //天神幻化升级
-    S_DEITY_FANTASY_STAR      = 285, //天神幻化升星
-    S_DEITY_UNLOCK_BATTLE_SLOT = 286, //天神幻化解锁战斗槽位
-    S_DEITY_FANTASY_EQUIP_STRONG = 287, //天神幻化强化装备
-    S_DEITY_FANTASY_EQUIP_STRONG_QUALITY = 288, //天神幻化强化装备品质
-    S_DEITY_FANTASY_EQUIP_DRESS = 289, //天神幻化装备穿戴 卸下
-    S_DEITY_FANTASY_EQUIP_UNDRESS = 290, //天神幻化装备卸下
-    S_DEITY_FANTASY_EQUIP_DECOMPOSE = 291, //天神幻化装备分解
+    S_Deity_SKILL               = 281, //天神技能
+    S_DEITY_LV                  = 282, //天神升级
+    S_DEITY_RRAGMENT             = 283, //天神碎片
+    S_DEITY_ACTIVE_FANTASY      = 284, //天神幻化激活
+    S_DEITY_FANTASY_LV      = 285, //天神幻化升级
+    S_DEITY_FANTASY_STAR      = 286, //天神幻化升星
+    S_DEITY_UNLOCK_BATTLE_SLOT = 287, //天神幻化解锁战斗槽位
+    S_DEITY_FANTASY_EQUIP_STRONG = 288, //天神幻化强化装备
+    S_DEITY_FANTASY_EQUIP_STRONG_QUALITY = 289, //天神幻化强化装备品质
+    S_DEITY_FANTASY_EQUIP_DRESS = 290, //天神幻化装备穿戴 卸下
+    S_DEITY_FANTASY_EQUIP_UNDRESS = 291, //天神幻化装备卸下
+    S_DEITY_FANTASY_EQUIP_DECOMPOSE = 292, //天神幻化装备分解
+    
+    //奇门八卦
+    S_MoFa_UNLOCK_SLOT = 300, //解锁槽位
+    S_MoFa_UnDress_Equip = 301, //卸装备
+    S_MoFa_ZuFu = 302, //祝福
+    S_MoFa_Equip_LV = 303, //装备升级
+    S_MoFa_Equip_WAKE = 304, //装备觉醒
+    S_MoFa_Exchange = 305, //兑现
+    S_MoFa_Decompose = 306, //装备分解
+    
+    S_Treasure_ActiveSoul			= 310,	//宝具 激活器魂
+    S_Wing_ActiveSoul				= 311,	//翅膀 激活器魂
+    S_Artifact_ActiveSoul			= 312,	//神器幻化 激活器魂
+    S_Partner_ActiveSoul			= 313,	//伙伴 激活器魂
+    S_Treasure_SoulLv			= 314,	//宝具 器魂升级
+    S_Wing_SoulLv				= 315,	//翅膀 器魂升级
+    S_Artifact_SoulLv			= 316,	//神器幻化器魂升级
+    S_Partner_SoulLv			= 317,	//伙伴 器魂升级
+    S_Treasure_SoulRecv			= 318,	//宝具 器魂成就领取
+    S_Wing_SoulRecv				= 319,	//翅膀 器魂成就领取
+    S_Artifact_SoulRecv			= 320,	//神器幻化器魂成就领取
+    S_Partner_SoulRecv			= 321,	//伙伴 器魂成就领取
+    S_Treasure_SoulResetSkill			= 322,	//宝具 器魂重置技能
+    S_Wing_SoulResetSkill				= 323,	//翅膀 器魂重置技能
+    S_Artifact_SoulResetSkill			= 324,	//神器幻化器魂重置技能
+    S_Partner_SoulResetSkill			= 325,	//伙伴 器魂重置技能
     S_END,
 };
 

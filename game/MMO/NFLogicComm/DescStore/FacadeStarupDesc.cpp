@@ -77,6 +77,21 @@ int FacadeStarupDesc::Load(NFResDB *pDB)
 		pDesc->read_from_pbmsg(desc);
 		CHECK_EXPR_ASSERT(GetDesc(desc.m_id()) == pDesc, -1, "GetDesc != pDesc, id:{}", desc.m_id());
 	}
+	m_UpattributeidStaridComIndexMap.clear();
+	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
+	{
+		auto pDesc = &iter->second;
+		{
+			FacadeStarupUpattributeidStarid data;
+			data.m_upAttributeId = pDesc->m_upAttributeId;
+			data.m_starID = pDesc->m_starID;
+			if(m_UpattributeidStaridComIndexMap.size() >= m_UpattributeidStaridComIndexMap.max_size())
+			{
+				CHECK_EXPR_ASSERT(m_UpattributeidStaridComIndexMap.find(data) != m_UpattributeidStaridComIndexMap.end(), -1, "space not enough");
+			}
+			m_UpattributeidStaridComIndexMap[data] = iter->first;
+		}
+	}
 
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_facadestarup_list_size());
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
@@ -86,5 +101,20 @@ int FacadeStarupDesc::Load(NFResDB *pDB)
 int FacadeStarupDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
+}
+
+const proto_ff_s::E_FacadeStarup_s* FacadeStarupDesc::GetDescByUpattributeidStarid(int64_t Upattributeid, int64_t Starid)
+{
+	FacadeStarupUpattributeidStarid data;
+	data.m_upAttributeId = Upattributeid;
+	data.m_starID = Starid;
+	auto iter = m_UpattributeidStaridComIndexMap.find(data);
+	if(iter != m_UpattributeidStaridComIndexMap.end())
+	{
+		auto pDesc = GetDesc(iter->second);
+		CHECK_EXPR(pDesc, nullptr, "GetDesc failed:{}", iter->second);
+		return pDesc;
+	}
+	return nullptr;
 }
 

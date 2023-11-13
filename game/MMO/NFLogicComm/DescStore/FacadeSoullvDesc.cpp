@@ -77,6 +77,21 @@ int FacadeSoullvDesc::Load(NFResDB *pDB)
 		pDesc->read_from_pbmsg(desc);
 		CHECK_EXPR_ASSERT(GetDesc(desc.m_id()) == pDesc, -1, "GetDesc != pDesc, id:{}", desc.m_id());
 	}
+	m_SoulidSoulllvComIndexMap.clear();
+	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
+	{
+		auto pDesc = &iter->second;
+		{
+			FacadeSoullvSoulidSoulllv data;
+			data.m_soulID = pDesc->m_soulID;
+			data.m_soullLv = pDesc->m_soullLv;
+			if(m_SoulidSoulllvComIndexMap.size() >= m_SoulidSoulllvComIndexMap.max_size())
+			{
+				CHECK_EXPR_ASSERT(m_SoulidSoulllvComIndexMap.find(data) != m_SoulidSoulllvComIndexMap.end(), -1, "space not enough");
+			}
+			m_SoulidSoulllvComIndexMap[data] = iter->first;
+		}
+	}
 
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_facadesoullv_list_size());
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
@@ -86,5 +101,20 @@ int FacadeSoullvDesc::Load(NFResDB *pDB)
 int FacadeSoullvDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
+}
+
+const proto_ff_s::E_FacadeSoullv_s* FacadeSoullvDesc::GetDescBySoulidSoulllv(int64_t Soulid, int64_t Soulllv)
+{
+	FacadeSoullvSoulidSoulllv data;
+	data.m_soulID = Soulid;
+	data.m_soullLv = Soulllv;
+	auto iter = m_SoulidSoulllvComIndexMap.find(data);
+	if(iter != m_SoulidSoulllvComIndexMap.end())
+	{
+		auto pDesc = GetDesc(iter->second);
+		CHECK_EXPR(pDesc, nullptr, "GetDesc failed:{}", iter->second);
+		return pDesc;
+	}
+	return nullptr;
 }
 

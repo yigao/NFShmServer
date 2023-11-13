@@ -183,7 +183,7 @@ message E_FacadeSoul
 
 message Sheet_FacadeSoul
 {
-	repeated E_FacadeSoul E_FacadeSoul_List = 1[(yd_fieldoptions.field_arysize)=8];
+	repeated E_FacadeSoul E_FacadeSoul_List = 1[(yd_fieldoptions.field_arysize)=4];
 }
 
 message E_FacadeSoulactiveUnlockDesc
