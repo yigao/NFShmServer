@@ -1,0 +1,163 @@
+package proto_ff;
+import "Com.proto";
+import "ComDefine.proto";
+
+
+
+
+//======================================通信===================================//
+
+//1:  更新符文信息 NOTIFY_RUNE_LIST
+message NotifyRuneList
+{
+	optional int32 type =1;  	//1:全更新(上线通知) 2:单更新
+	repeated RuneEntry list = 2;
+}
+
+//2-1:穿戴符文 RUNE_DRESS_REQ
+message RuneDressReq
+{
+	optional int32 equip_pos = 1;
+	optional int32 slot_pos = 2;
+	optional int32 bag_pos = 3; 		//背包要穿戴的符文
+}
+
+//2-2:穿戴符文返回  RUNE_DRESS_RSP
+message RuneDressRsp
+{
+	optional int32 ret = 1;
+	optional int32 equip_pos = 2;
+	optional int32 slot_pos = 3;
+	optional int32 return_val = 4;		//返还的符文精粹
+}
+
+//3-1:卸载符文 RUNE_UNDRESS_REQ
+message RuneUnDressReq
+{
+	optional int32 equip_pos = 1;
+	optional int32 slot_pos = 2;
+}
+
+//3-2:卸载符文 RUNE_UNDRESS_RSP
+message RuneUnDressRsp
+{
+	optional int32 ret = 1;
+	optional int32 equip_pos = 2;
+	optional int32 slot_pos = 3;
+}
+
+//4-1:符文养成  RUNE_GROW_REQ
+message RuneGrowReq
+{
+	optional int32 type =1; //1:升级 2：进阶
+	optional int32 equip_pos = 2;
+	optional int32 slot_pos = 3;
+}
+
+//4-2:符文养成返回  RUNE_GROW_RSP
+message RuneGrowRsp
+{
+	optional int32 ret = 1;
+	optional int32 type =2; //1:升级 2：进阶
+	optional int32 equip_pos = 3;
+	optional int32 slot_pos = 4;
+}
+
+//5-1:符文淬炼请求 RUNE_MAKE_REQ
+message RuneMakeReq
+{
+	optional int32 equip_pos = 1;
+	optional int32 slot_pos = 2;
+	optional int32 bag_pos = 3; //符文之语背包位置
+}
+
+//5-1:符文淬炼返回 RUNE_MAKE_RSP
+message RuneMakeRsp
+{
+	optional int32 ret = 1;
+	optional int32 equip_pos = 2;
+	optional int32 slot_pos = 3;
+	optional int32 bag_pos = 4;
+}
+
+//6-1:符文之语升星 RUNE_WORD_STARLV_REQ
+message RuneWordStarLvReq
+{
+	optional int32 equip_pos = 1;
+	optional int32 slot_pos = 2;
+	optional int32 word_pos = 3;
+}
+
+
+//6-2:符文之语升星返回 RUNE_WORD_STARLV_RSP
+message RuneWordStarLvRsp
+{
+	optional int32 ret = 1;
+	optional int32 equip_pos = 2;
+	optional int32 slot_pos = 3;
+	optional int32 word_pos = 4;
+}
+ 
+//7-1:符文之语封印  RUNE_WORD_FENGYIN_REQ
+message RuneWordFengYinReq
+{
+	optional int32 equip_pos = 1;
+	optional int32 slot_pos = 2;
+	optional int32 word_pos = 3;
+}
+
+//7-2:符文之语封印返回 RUNE_WORD_FENGYIN_RSP
+message RuneWordFengYinRsp
+{
+	optional int32 ret = 1;
+	optional int32 equip_pos = 2;
+	optional int32 slot_pos = 3;
+	optional int32 word_pos = 4;
+}
+
+//8-1:激活绝技 RUNE_ACTIVE_JUEJI_REQ
+message RuneActiveJuejiReq
+{
+	optional int32 equip_pos = 1;
+	optional int32 id = 2;
+}
+
+//8-2:激活绝技 RUNE_ACTIVE_JUEJI_RSP
+message RuneActiveJuejiRsp
+{
+	optional int32 ret = 1;
+	optional int32 equip_pos = 2;
+	optional int32 id = 3;
+}
+ 
+//9-1：符文飞升激活 RUNE_FEI_SHENG_REQ
+message RuneFeiShengReq
+{
+	optional int32 equip_pos = 1;
+	optional int32 slot_pos = 2;
+}
+
+//9-2：符文飞升激活返回 RUNE_FEI_SHENG_RSP
+message RuneFeiShengRsp
+{
+	optional int32 ret = 1;
+	optional int32 equip_pos = 2;
+	optional int32 slot_pos = 3;
+}
+
+//10-1:符文分解 RUNE_DECOMPOSE_REQ
+message RuneDecomposeReq
+{
+	repeated int32 rune_pos_list = 1;  //符文背包列表
+	repeated int32 word_pos_list = 2;  //普通背包符语列表
+}
+
+//10-2:符文分解返回 RUNE_DECOMPOSE_RSP
+message RuneDecomposeRsp
+{
+	optional int32 ret = 1;
+	repeated int32 rune_pos_list = 2;  //符文背包列表
+	repeated int32 word_pos_list = 3;  //普通背包符语列表
+}
+
+//================================================================================//

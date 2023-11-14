@@ -1,0 +1,88 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_TianxiafirstActivateAttDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_TianxiafirstActivateModelDesc
+{
+	optional int32 m_condition = 1[(yd_fieldoptions.field_cname) = "激活条件"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_TianxiafirstActivate
+{
+	optional int32 m_artifactId = 1[(yd_fieldoptions.field_cname) = "神器id"];
+	optional int32 m_preId = 2[(yd_fieldoptions.field_cname) = "激活条件-前置id"];
+	optional int32 m_condition = 3[(yd_fieldoptions.field_cname) = "激活条件"];
+	repeated E_TianxiafirstActivateAttDesc m_att = 4[(yd_fieldoptions.field_cname) = "激活属性", (yd_fieldoptions.field_arysize) = 5];
+	repeated E_TianxiafirstActivateModelDesc m_model = 5[(yd_fieldoptions.field_cname) = "神器外观", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_TianxiafirstActivate
+{
+	repeated E_TianxiafirstActivate E_TianxiafirstActivate_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_TianxiafirstStrongTypeDesc
+{
+	optional string m_num = 1[(yd_fieldoptions.field_cname) = "值", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_TianxiafirstStrong
+{
+	optional int32 m_artifactId = 1[(yd_fieldoptions.field_cname) = "神器id"];
+	optional int32 m_strongUp = 2[(yd_fieldoptions.field_cname) = "强化上限"];
+	optional string m_exp = 3[(yd_fieldoptions.field_cname) = "强化所需经验", (yd_fieldoptions.field_bufsize) = 64];
+	repeated E_TianxiafirstStrongTypeDesc m_type = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_TianxiafirstStrong
+{
+	repeated E_TianxiafirstStrong E_TianxiafirstStrong_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_TianxiafirstStrongitem
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "强化道具id"];
+	optional int32 m_addExp = 2[(yd_fieldoptions.field_cname) = "增加强化经验"];
+}
+
+
+message Sheet_TianxiafirstStrongitem
+{
+	repeated E_TianxiafirstStrongitem E_TianxiafirstStrongitem_List = 1[(yd_fieldoptions.field_arysize)=2];
+}
+
+message E_TianxiafirstRefineAttDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_TianxiafirstRefine
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_artifactId = 2[(yd_fieldoptions.field_cname) = "神器id"];
+	optional int32 m_stage = 3[(yd_fieldoptions.field_cname) = "精炼阶级"];
+	optional int32 m_star = 4[(yd_fieldoptions.field_cname) = "精炼星数"];
+	optional int32 m_success = 5[(yd_fieldoptions.field_cname) = "成功率"];
+	optional int32 m_consumeItem = 6[(yd_fieldoptions.field_cname) = "消耗物品"];
+	optional int32 m_consumeNum = 7[(yd_fieldoptions.field_cname) = "消耗数量"];
+	optional int32 m_guarant = 8[(yd_fieldoptions.field_cname) = "保底次数"];
+	repeated E_TianxiafirstRefineAttDesc m_att = 9[(yd_fieldoptions.field_cname) = "精炼属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_TianxiafirstRefine
+{
+	repeated E_TianxiafirstRefine E_TianxiafirstRefine_List = 1[(yd_fieldoptions.field_arysize)=128];
+}

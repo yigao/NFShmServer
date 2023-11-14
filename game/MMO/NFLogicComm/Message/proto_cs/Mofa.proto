@@ -1,0 +1,139 @@
+package proto_ff;
+import "Com.proto";
+import "ComDefine.proto";
+
+
+
+//奇门八卦4700-4750
+//CL_MOFA_GET_INFO_REQ = 4700; //奇门八卦获取信息
+message CLMoFaGetInfoReq
+{
+
+}
+
+//LC_MOFA_GET_INFO_RSP = 4701; //奇门八卦获取信息
+message LCMoFaGetInfoRsp
+{
+  repeated MoFaEquipInfo data = 1;
+}
+
+//CL_MOFA_DRESS_REQ = 4702; //带上装备
+message CLMoFaDressReq
+{
+  optional uint32 slot_pos = 1;
+  optional uint32 equip_pos = 2; //槽位里的装备位置
+  optional uint32 bag_pos = 3; //背包中的装备位置
+}
+
+//LC_MOFA_DRESS_RSP = 4703; //带上装备
+message LCMoFaDressRsp
+{
+  optional int32 ret_code = 1;
+  optional MoFaEquipInfo data = 2;
+}
+
+//CL_MOFA_UNDRESS_REQ = 4704; //卸载装备
+message CLMoFaUnDressReq
+{
+  optional uint32 slot_pos = 1;
+  optional uint32 equip_pos = 2;
+}
+
+//LC_MOFA_UNDRESS_RSP = 4705; //卸载装备
+message LCMoFaUnDressRsp
+{
+  optional int32 ret_code = 1;
+  optional MoFaEquipInfo data = 2;
+}
+
+//CL_MOFA_SLOT_ZUFU_REQ = 4706; //阵眼祝福
+message CLMoFaSlotZuFuReq
+{
+  optional uint32 slot_pos = 1;
+}
+
+//LC_MOFA_SLOT_ZUFU_RSP = 4707; //阵眼祝福
+message LCMoFaSlotZuFuRsp
+{
+  optional int32 ret_code = 1;
+  optional MoFaEquipInfo data = 2;
+}
+
+//CL_MOFA_SLOT_WAKE_REQ = 4708; //阵眼觉醒
+message CLMoFaSlotWakeReq
+{
+  optional uint32 slot_pos = 1;
+}
+
+//LC_MOFA_SLOT_WAKE_RSP = 4709; //阵眼觉醒
+message LCMoFaSlotWakeRsp
+{
+  optional int32 ret_code = 1;
+  optional MoFaEquipInfo data = 2;
+}
+
+//CL_MOFA_EQUIP_LV_REQ = 4710; //装备升级
+message CLMoFaEquipLvReq
+{
+  optional uint32 slot_pos = 1;
+  optional uint32 equip_pos = 2;
+}
+
+//LC_MOFA_EQUIP_LV_RSP = 4711; //装备升级
+message LCMoFaEquipLvRsp
+{
+  optional int32 ret_code = 1;
+  optional MoFaEquipInfo data = 2;
+}
+
+//CL_MOFA_EQUIP_WAKE_REQ = 4712; //装备觉醒
+message CLMoFaEquipWakeReq
+{
+  optional uint32 slot_pos = 1;
+  optional uint32 equip_pos = 2;
+  repeated uint32 grid_list = 3;
+}
+
+//LC_MOFA_EQUIP_WAKE_RSP = 4713; //装备觉醒
+message LCMoFaEquipWakeRsp
+{
+  optional int32 ret_code = 1;
+  optional MoFaEquipInfo data = 2;
+}
+
+//CL_MOFA_EQUIP_DECOMPOSE_REQ = 4714; //装备一键分解
+message CLMoFaEquipDecomposeReq
+{
+  repeated int32 grid_list = 1;
+}
+
+//LC_MOFA_EQUIP_DECOMPOSE_RSP = 4715; //装备一键分解
+message LCMoFaEquipDecomposeRsp
+{
+  optional int32 ret_code = 1;
+}
+
+//CL_MOFA_EXCHANGE_REQ = 4716; //兑换
+message CLMoFaExchangeReq
+{
+  optional int32 exchange_id = 1;
+}
+
+//LC_MOFA_EXCHANGE_RSP = 4717; //兑换
+message LCMoFaExchangeRsp
+{
+  optional int32 ret_code = 1;
+}
+
+//CL_MOFA_SLOT_UNLOCK_REQ = 4718; //解锁
+message CLMoFaSlotUnlockReq
+{
+  optional uint32 slot_pos = 1;
+}
+
+//LC_MOFA_SLOT_UNLOCK_RSP = 4719; //解锁
+message CLMoFaSlotUnlockRsp
+{
+  optional int32 ret_code = 1;
+  optional MoFaEquipInfo data = 2;
+}

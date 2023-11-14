@@ -1,0 +1,189 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_NickgodConstant
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 m_skill = 2[(yd_fieldoptions.field_cname) = "模版技能"];
+	optional int32 m_time = 3[(yd_fieldoptions.field_cname) = "备战时间上限"];
+	optional int32 m_maxUser = 4[(yd_fieldoptions.field_cname) = "备战人数上限"];
+	optional int32 m_floorsMax = 5[(yd_fieldoptions.field_cname) = "宝库最大层数"];
+	optional int32 m_lattice = 6[(yd_fieldoptions.field_cname) = "每层格子数"];
+	optional int32 m_repairItem = 7[(yd_fieldoptions.field_cname) = "道具补足货币"];
+	optional int32 m_repairNum = 8[(yd_fieldoptions.field_cname) = "道具补足数量"];
+	optional int32 m_openItem = 9[(yd_fieldoptions.field_cname) = "特权开通货币"];
+	optional int32 m_openNum = 10[(yd_fieldoptions.field_cname) = "特权开通数量"];
+	optional string m_week = 11[(yd_fieldoptions.field_cname) = "特权特惠开启周", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_opentime = 12[(yd_fieldoptions.field_cname) = "特权特惠开启时间"];
+	optional int32 m_endtime = 13[(yd_fieldoptions.field_cname) = "特权特惠结束时间"];
+	optional int32 m_logMax = 14[(yd_fieldoptions.field_cname) = "日志最大数量"];
+	optional int32 m_readyMap = 15[(yd_fieldoptions.field_cname) = "备战地图"];
+	optional int32 m_readyPiont = 16[(yd_fieldoptions.field_cname) = "备战出生点"];
+	optional int32 m_actId = 17[(yd_fieldoptions.field_cname) = "活动id"];
+}
+
+
+message Sheet_NickgodConstant
+{
+	repeated E_NickgodConstant E_NickgodConstant_List = 1[(yd_fieldoptions.field_arysize)=2];
+}
+
+message E_NickgodName
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 64];
+}
+
+
+message Sheet_NickgodName
+{
+	repeated E_NickgodName E_NickgodName_List = 1[(yd_fieldoptions.field_arysize)=4];
+}
+
+message E_NickgodStageMosDesc
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_point = 2[(yd_fieldoptions.field_cname) = "刷新点"];
+}
+
+message E_NickgodStageBossDesc
+{
+	optional int32 m_dropPreview = 1[(yd_fieldoptions.field_cname) = "掉落预览"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_point = 3[(yd_fieldoptions.field_cname) = "刷新点"];
+}
+
+message E_NickgodStage
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "阶段id"];
+	optional int32 m_map = 2[(yd_fieldoptions.field_cname) = "阶段地图id"];
+	optional int32 m_duration = 3[(yd_fieldoptions.field_cname) = "阶段持续时间"];
+	optional int32 m_mosDieRefresh = 4[(yd_fieldoptions.field_cname) = "小怪死亡刷新时间"];
+	optional int32 m_bossFirstRefresh = 5[(yd_fieldoptions.field_cname) = "boss初始刷新时间"];
+	optional int32 m_bossDieRefresh = 6[(yd_fieldoptions.field_cname) = "boss死亡刷新时间"];
+	optional int32 m_playerDieDrop = 7[(yd_fieldoptions.field_cname) = "玩家死亡掉落装备概率"];
+	optional int32 m_sceneIntegralTime = 8[(yd_fieldoptions.field_cname) = "场景积分间隔时间"];
+	optional int32 m_sceneIntegral = 9[(yd_fieldoptions.field_cname) = "场景积分"];
+	optional int32 m_killmosIntegral = 10[(yd_fieldoptions.field_cname) = "击杀小怪积分"];
+	optional int32 m_killbossIntegral = 11[(yd_fieldoptions.field_cname) = "击杀boss积分"];
+	optional int32 m_killplayerIntegral = 12[(yd_fieldoptions.field_cname) = "击杀玩家积分"];
+	optional int32 m_assistplayerIntegral = 13[(yd_fieldoptions.field_cname) = "助攻玩家积分"];
+	repeated E_NickgodStageMosDesc m_mos = 14[(yd_fieldoptions.field_cname) = "小怪", (yd_fieldoptions.field_arysize) = 10];
+	repeated E_NickgodStageBossDesc m_boss = 15[(yd_fieldoptions.field_cname) = "boss", (yd_fieldoptions.field_arysize) = 3];
+	repeated int32 m_revivalPoint = 16[(yd_fieldoptions.field_cname) = "复活点", (yd_fieldoptions.field_arysize) = 8];
+}
+
+
+message Sheet_NickgodStage
+{
+	repeated E_NickgodStage E_NickgodStage_List = 1[(yd_fieldoptions.field_arysize)=4];
+}
+
+message E_NickgodRewardsRewardDesc
+{
+	optional int32 m_Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 m_ID = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_NickgodRewards
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 m_rankingMin = 2[(yd_fieldoptions.field_cname) = "名次最小值"];
+	optional int32 m_rankingMax = 3[(yd_fieldoptions.field_cname) = "名次最大值"];
+	optional int32 m_score = 4[(yd_fieldoptions.field_cname) = "积分数量"];
+	repeated E_NickgodRewardsRewardDesc m_reward = 5[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_NickgodRewards
+{
+	repeated E_NickgodRewards E_NickgodRewards_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_NickgodLattice
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "格子id"];
+	optional int32 m_itemId = 2[(yd_fieldoptions.field_cname) = "消耗道具"];
+	optional int32 m_itemNum = 3[(yd_fieldoptions.field_cname) = "道具数量"];
+}
+
+
+message Sheet_NickgodLattice
+{
+	repeated E_NickgodLattice E_NickgodLattice_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_NickgodTreasury
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "层数"];
+	optional int32 m_boxId = 2[(yd_fieldoptions.field_cname) = "宝库box"];
+}
+
+
+message Sheet_NickgodTreasury
+{
+	repeated E_NickgodTreasury E_NickgodTreasury_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_NickgodPrivilegeRewardDesc
+{
+	optional int32 m_Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 m_ID = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_NickgodPrivilege
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "奖励id"];
+	optional int32 m_condition = 2[(yd_fieldoptions.field_cname) = "领取条件"];
+	optional int32 m_param = 3[(yd_fieldoptions.field_cname) = "参数"];
+	optional int32 m_open = 4[(yd_fieldoptions.field_cname) = "是否需要开通特权"];
+	repeated E_NickgodPrivilegeRewardDesc m_reward = 5[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_NickgodPrivilege
+{
+	repeated E_NickgodPrivilege E_NickgodPrivilege_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_NickgodSaleItemDesc
+{
+	optional int32 m_Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 m_ID = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_NickgodSale
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "礼包id"];
+	optional string m_discount = 2[(yd_fieldoptions.field_cname) = "折扣", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_money = 3[(yd_fieldoptions.field_cname) = "购买货币"];
+	optional int32 m_price = 4[(yd_fieldoptions.field_cname) = "购买价格"];
+	optional int32 m_buyLimit = 5[(yd_fieldoptions.field_cname) = "限购次数"];
+	repeated E_NickgodSaleItemDesc m_item = 6[(yd_fieldoptions.field_cname) = "物品", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_NickgodSale
+{
+	repeated E_NickgodSale E_NickgodSale_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_NickgodChargeupRewardDesc
+{
+	optional int32 m_Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 m_ID = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_NickgodChargeup
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "累充id"];
+	repeated E_NickgodChargeupRewardDesc m_reward = 2[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_NickgodChargeup
+{
+	repeated E_NickgodChargeup E_NickgodChargeup_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
