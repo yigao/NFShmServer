@@ -33,7 +33,6 @@ int NFPart::CreateInit()
 {
     m_pMaster = NULL;
     m_partType = 0;
-    m_playerId = 0;
     return 0;
 }
 
@@ -46,7 +45,6 @@ int NFPart::Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::RoleDBDat
 {
     CHECK_NULL(pMaster);
     m_pMaster = pMaster;
-    m_playerId = pMaster->GetCid();
     m_partType = partType;
 
     LoadFromDB(dbData);

@@ -52,6 +52,7 @@ struct GrowInfoCfg
         activationNum = 0;
         startItem =0;
         starBar = 0;
+        timeLimit = 0;
         return 0;
     }
     
@@ -70,6 +71,7 @@ struct GrowInfoCfg
     int32_t starBar;			//每次升星属性增加的百分比值
     NFShmHashMap<int32_t, int32_t, MAX_GROW_ACTIVE_ATTR_NUM> attrsMap;		//属性加成 key->value attrid->attrvalue
     NFShmHashMap<int32_t, int32_t, MAX_GROW_ACTIVE_ATTR_NUM> activeAttrMap;	//激活加成的属性
+    int32_t timeLimit;			//限时
     bool LimitProf(int32_t prof);
     int32_t GetStarLvNum(int32_t lv);
 };

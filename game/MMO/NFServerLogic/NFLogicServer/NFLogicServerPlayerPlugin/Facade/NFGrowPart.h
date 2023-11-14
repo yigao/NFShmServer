@@ -9,7 +9,6 @@
 
 #pragma once
 
-
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
@@ -18,20 +17,17 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "Grow.pb.h"
 
-class NFGrowPart : public NFShmObjTemplate<NFGrowPart, EOT_LOGIC_PART_ID+PART_GROW, NFPart>
-{
+#define grow_expire_interval 1000
+
+class NFGrowPart : public NFShmObjTemplate<NFGrowPart, EOT_LOGIC_PART_ID + PART_GROW, NFPart> {
 public:
     //部件元素
-    struct GrowPartEntry
-    {
+    struct GrowPartEntry {
         GrowPartEntry()
         {
-            if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
-            {
+            if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
                 CreateInit();
-            }
-            else
-            {
+            } else {
                 ResumeInit();
             }
         }
@@ -40,6 +36,7 @@ public:
         {
             id = 0;
             lv = 0;
+            time = 0;
             return 0;
         }
         
@@ -48,23 +45,20 @@ public:
             return 0;
         }
         
-        int64_t id = 0;
-        int32_t lv = 0;
+        int64_t id;
+        int32_t lv;
+        uint64_t time; //有效时间
     };
     
     typedef NFShmHashMap<int64_t, GrowPartEntry, 10> GrowPartEntryMap;
     
     //养成部件
-    struct GrowPartData
-    {
+    struct GrowPartData {
         GrowPartData()
         {
-            if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
-            {
+            if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
                 CreateInit();
-            }
-            else
-            {
+            } else {
                 ResumeInit();
             }
         }
@@ -90,16 +84,17 @@ public:
         void SetPartEntry(GrowPartEntry &entry);
     };
     
-    typedef NFShmHashMap<int32_t, GrowPartData, proto_ff::GrowType_MAX> GrowPartMap;
+    typedef NFShmHashMap<int32_t, GrowPartData, proto_ff::GrowType_head> GrowPartMap;
 public:
     NFGrowPart();
-
+    
     virtual ~NFGrowPart();
-
+    
     int CreateInit();
-
+    
     int ResumeInit();
-
+    
+    virtual int OnTimer(int timeId, int callcount);
 public:
     //******************part调用接口******************
     /**
@@ -117,19 +112,20 @@ public:
      * @return
      */
     virtual int UnInit();
+
 public:
     /**
      * @brief 从数据库中加载数据
      * @param data
      * @return
      */
-    virtual int LoadFromDB(const proto_ff::RoleDBData& data);
+    virtual int LoadFromDB(const proto_ff::RoleDBData &data);
     
     /**
      * @brief 从配置中初始化数据
      * @return
      */
-    virtual int InitConfig(const proto_ff::RoleDBData& data);
+    virtual int InitConfig(const proto_ff::RoleDBData &data);
     
     /**
      * @brief 存储DB部件入口
@@ -143,7 +139,8 @@ public:
      * @return
      */
     virtual int OnLogin();
-    virtual int OnLogin(proto_ff::PlayerInfoRsp& playerInfo) { return 0; }
+    
+    virtual int OnLogin(proto_ff::PlayerInfoRsp &playerInfo) { return 0; }
     
     /**
      * @brief 登出入口
@@ -186,9 +183,11 @@ public:
      * 设置外观信息
      * @param outproto
      */
-    virtual int FillFacadeProto(proto_ff::RoleFacadeProto& outproto);
+    virtual int FillFacadeProto(proto_ff::RoleFacadeProto &outproto);
+    
     //填充头像数据
-    void FillHeadProto(proto_ff::RoleHeadPicProto& proto);
+    void FillHeadProto(proto_ff::RoleHeadPicProto &proto);
+
 public:
     /**
      * @brief update
@@ -201,6 +200,7 @@ public:
      * @return
      */
     virtual int RegisterMessage();
+
 public:
     /**
      * @brief 处理客户端消息
@@ -217,14 +217,17 @@ public:
      * @return
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
+
 public:
     int HanlderLvUpReq(uint32_t msgId, NFDataPackage &packet);        //升级
     int HanlderDressReq(uint32_t msgId, NFDataPackage &packet);        //穿戴
     int HanlderUnDressReq(uint32_t msgId, NFDataPackage &packet);        //卸载
-    bool UnDress(int32_t type,bool sync_facade)	{ return true; }						//卸载光环
 public:
+    int UnDress(uint64_t id, int32_t code = 0);
     int OnActivePartEntry(int64_t id);                            //处理激活
     int OnLvupPartEntry(int64_t id);                            //处理升级
+    bool UnDressHalo(bool sync_facade);							//卸载光环
+    bool UnDress(int32_t type,bool sync_facade);							//卸载光环
 public:
     int FillProto(const GrowPartData &part, proto_ff::GrowSubInfo &proto);
     
@@ -243,6 +246,8 @@ public:
 
 private:
     void initParts();
+
 protected:
     GrowPartMap m_partsMap;                    //所有养成的部件
+    int m_timerId;
 };

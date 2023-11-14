@@ -201,6 +201,5 @@ public:
     void SetNeedSave(bool save) { MarkDirty(); }
 protected:
     NFShmPtr<NFPlayer> m_pMaster;
-    uint64_t m_playerId;
     uint32_t m_partType;
 };

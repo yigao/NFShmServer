@@ -111,6 +111,7 @@ bool NFGrowDescEx::ProcessFashion()
         GrowInfoCfg c;
         c.id = e.m_ID;
         c.type = type;
+        c.timeLimit = e.m_timeLimit;
         NFCommonApi::SplitStrToSetInt32(e.m_professionLimit.data(), ";", &c.profLimits);
         c.activationItem = e.m_activationItem;
         c.activationNum = e.m_activationNum;

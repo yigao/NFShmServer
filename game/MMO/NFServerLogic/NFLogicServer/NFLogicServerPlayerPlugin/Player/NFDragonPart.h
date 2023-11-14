@@ -27,4 +27,7 @@ public:
     int CreateInit();
 
     int ResumeInit();
+    
+    //卸载当前光环
+    bool UnDressHalo(bool sync_facade) { return true; }
 };
