@@ -31,6 +31,7 @@ bool NFSnsPartModule::Awake()
         auto pPart = dynamic_cast<NFSnsPart*>(FindModule<NFISharedMemModule>()->CreateObj(EOT_SNS_PART_ID+i));
         if (pPart)
         {
+            pPart->SetPartType(i);
             pPart->RegisterMessage();
             FindModule<NFISharedMemModule>()->DestroyObj(pPart);
         }

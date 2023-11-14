@@ -607,7 +607,7 @@ int NFPlayer::OnPrevLogin()
     if (maxhp <= 0) maxhp = 1;
     SetAttr(proto_ff::A_CUR_HP, maxhp);
     
-    NotifyPlayerInfo();
+    //NotifyPlayerInfo();
     return 0;
 }
 
@@ -680,11 +680,17 @@ int NFPlayer::NotifyPlayerInfo()
 
 int NFPlayer::LoginSns()
 {
+    auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
+    CHECK_NULL(pConfig);
+    
     proto_ff::LTSLoginReq cgMsg;
     cgMsg.set_cid(GetCid());
     cgMsg.set_uid(GetUid());
     cgMsg.set_zid(GetZid());
     SetBaseData(cgMsg.mutable_base());
+    cgMsg.set_proxy_id(GetProxyId());
+    cgMsg.set_logic_id(pConfig->GetBusId());
+    cgMsg.set_game_id(GetGameId());
     
     proto_ff::STLLoginRsp rspMsg;
     int iRet = GetRpcService<proto_ff::LTS_LOGIN_RPC>(NF_ST_SNS_SERVER, GetSnsId(), cgMsg, rspMsg);
