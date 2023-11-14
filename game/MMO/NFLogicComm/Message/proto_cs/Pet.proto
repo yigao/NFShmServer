@@ -319,6 +319,9 @@ message PetLianYaoRsp
 	optional int32 yaolu_add_exp = 3; 		//妖炉加成经验
 	optional int32 yaolu_exp_flag = 4; 		//妖炉经验加成特权标志，1：显示特权加成。0没有特权加成
 	optional int32 yaohun_add = 5;			//增加的妖气
+	optional int32 fin_exp = 6;				//最終经验
+	optional int32 fin_lv = 7;				//最终等级
+	optional int32 last_lv = 8;				//升级前等级
 }
 
 //19-1:妖魂兑换 PET_YAOHUN_EXCHANGE_REQ

@@ -63,9 +63,6 @@ class E_SoulFusion;
 class Sheet_SoulFusion;
 class E_SoulBone;
 class Sheet_SoulBone;
-class E_SoulBoneequip;
-class Sheet_SoulBoneequip;
-class E_SoulBoneskillPassiveDesc;
 class E_SoulBoneskill;
 class Sheet_SoulBoneskill;
 class E_SoulBonekill;
@@ -73,25 +70,27 @@ class Sheet_SoulBonekill;
 class E_SoulBonestrongTypeDesc;
 class E_SoulBonestrong;
 class Sheet_SoulBonestrong;
-class E_SoulGuwen_type;
-class Sheet_SoulGuwen_type;
-class E_SoulGuwen_type_suitAttributeDesc;
-class E_SoulGuwen_type_suit;
-class Sheet_SoulGuwen_type_suit;
-class E_SoulGuwen_skill;
-class Sheet_SoulGuwen_skill;
-class E_SoulGuwen_slot;
-class Sheet_SoulGuwen_slot;
-class E_SoulGuwen_suitAttributeDesc;
-class E_SoulGuwen_suit;
-class Sheet_SoulGuwen_suit;
+class E_SoulGuwentype;
+class Sheet_SoulGuwentype;
+class E_SoulGuwentypesuitAttributeDesc;
+class E_SoulGuwentypesuit;
+class Sheet_SoulGuwentypesuit;
+class E_SoulGuwenskill;
+class Sheet_SoulGuwenskill;
+class E_SoulGuwenslot;
+class Sheet_SoulGuwenslot;
+class E_SoulGuwensuitAttributeDesc;
+class E_SoulGuwensuit;
+class Sheet_SoulGuwensuit;
+class E_SoulGuwenupstar;
+class Sheet_SoulGuwenupstar;
 class E_SoulAffixesAttributeDesc;
 class E_SoulAffixes;
 class Sheet_SoulAffixes;
-class E_SoulAffixes_suitSkillDesc;
-class E_SoulAffixes_suitAttributeDesc;
-class E_SoulAffixes_suit;
-class Sheet_SoulAffixes_suit;
+class E_SoulAffixessuitSkillDesc;
+class E_SoulAffixessuitAttributeDesc;
+class E_SoulAffixessuit;
+class Sheet_SoulAffixessuit;
 
 // ===================================================================
 
@@ -3119,310 +3118,6 @@ class Sheet_SoulBone : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class E_SoulBoneequip : public ::google::protobuf::Message {
- public:
-  E_SoulBoneequip();
-  virtual ~E_SoulBoneequip();
-
-  E_SoulBoneequip(const E_SoulBoneequip& from);
-
-  inline E_SoulBoneequip& operator=(const E_SoulBoneequip& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const E_SoulBoneequip& default_instance();
-
-  void Swap(E_SoulBoneequip* other);
-
-  // implements Message ----------------------------------------------
-
-  E_SoulBoneequip* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const E_SoulBoneequip& from);
-  void MergeFrom(const E_SoulBoneequip& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional int32 m_equipId = 1;
-  inline bool has_m_equipid() const;
-  inline void clear_m_equipid();
-  static const int kMEquipIdFieldNumber = 1;
-  inline ::google::protobuf::int32 m_equipid() const;
-  inline void set_m_equipid(::google::protobuf::int32 value);
-
-  // optional string m_name = 2;
-  inline bool has_m_name() const;
-  inline void clear_m_name();
-  static const int kMNameFieldNumber = 2;
-  inline const ::std::string& m_name() const;
-  inline void set_m_name(const ::std::string& value);
-  inline void set_m_name(const char* value);
-  inline void set_m_name(const char* value, size_t size);
-  inline ::std::string* mutable_m_name();
-  inline ::std::string* release_m_name();
-  inline void set_allocated_m_name(::std::string* m_name);
-
-  // optional int32 m_part = 3;
-  inline bool has_m_part() const;
-  inline void clear_m_part();
-  static const int kMPartFieldNumber = 3;
-  inline ::google::protobuf::int32 m_part() const;
-  inline void set_m_part(::google::protobuf::int32 value);
-
-  // optional int32 m_quality = 4;
-  inline bool has_m_quality() const;
-  inline void clear_m_quality();
-  static const int kMQualityFieldNumber = 4;
-  inline ::google::protobuf::int32 m_quality() const;
-  inline void set_m_quality(::google::protobuf::int32 value);
-
-  // optional int32 m_star = 5;
-  inline bool has_m_star() const;
-  inline void clear_m_star();
-  static const int kMStarFieldNumber = 5;
-  inline ::google::protobuf::int32 m_star() const;
-  inline void set_m_star(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulBoneequip)
- private:
-  inline void set_has_m_equipid();
-  inline void clear_has_m_equipid();
-  inline void set_has_m_name();
-  inline void clear_has_m_name();
-  inline void set_has_m_part();
-  inline void clear_has_m_part();
-  inline void set_has_m_quality();
-  inline void clear_has_m_quality();
-  inline void set_has_m_star();
-  inline void clear_has_m_star();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::std::string* m_name_;
-  ::google::protobuf::int32 m_equipid_;
-  ::google::protobuf::int32 m_part_;
-  ::google::protobuf::int32 m_quality_;
-  ::google::protobuf::int32 m_star_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
-
-  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
-  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
-  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
-
-  void InitAsDefaultInstance();
-  static E_SoulBoneequip* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class Sheet_SoulBoneequip : public ::google::protobuf::Message {
- public:
-  Sheet_SoulBoneequip();
-  virtual ~Sheet_SoulBoneequip();
-
-  Sheet_SoulBoneequip(const Sheet_SoulBoneequip& from);
-
-  inline Sheet_SoulBoneequip& operator=(const Sheet_SoulBoneequip& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_SoulBoneequip& default_instance();
-
-  void Swap(Sheet_SoulBoneequip* other);
-
-  // implements Message ----------------------------------------------
-
-  Sheet_SoulBoneequip* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_SoulBoneequip& from);
-  void MergeFrom(const Sheet_SoulBoneequip& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // repeated .proto_ff.E_SoulBoneequip E_SoulBoneequip_List = 1;
-  inline int e_soulboneequip_list_size() const;
-  inline void clear_e_soulboneequip_list();
-  static const int kESoulBoneequipListFieldNumber = 1;
-  inline const ::proto_ff::E_SoulBoneequip& e_soulboneequip_list(int index) const;
-  inline ::proto_ff::E_SoulBoneequip* mutable_e_soulboneequip_list(int index);
-  inline ::proto_ff::E_SoulBoneequip* add_e_soulboneequip_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulBoneequip >&
-      e_soulboneequip_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulBoneequip >*
-      mutable_e_soulboneequip_list();
-
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SoulBoneequip)
- private:
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulBoneequip > e_soulboneequip_list_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
-
-  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
-  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
-  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
-
-  void InitAsDefaultInstance();
-  static Sheet_SoulBoneequip* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class E_SoulBoneskillPassiveDesc : public ::google::protobuf::Message {
- public:
-  E_SoulBoneskillPassiveDesc();
-  virtual ~E_SoulBoneskillPassiveDesc();
-
-  E_SoulBoneskillPassiveDesc(const E_SoulBoneskillPassiveDesc& from);
-
-  inline E_SoulBoneskillPassiveDesc& operator=(const E_SoulBoneskillPassiveDesc& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const E_SoulBoneskillPassiveDesc& default_instance();
-
-  void Swap(E_SoulBoneskillPassiveDesc* other);
-
-  // implements Message ----------------------------------------------
-
-  E_SoulBoneskillPassiveDesc* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const E_SoulBoneskillPassiveDesc& from);
-  void MergeFrom(const E_SoulBoneskillPassiveDesc& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional int32 m_Lv = 1;
-  inline bool has_m_lv() const;
-  inline void clear_m_lv();
-  static const int kMLvFieldNumber = 1;
-  inline ::google::protobuf::int32 m_lv() const;
-  inline void set_m_lv(::google::protobuf::int32 value);
-
-  // optional int32 m_Skill = 2;
-  inline bool has_m_skill() const;
-  inline void clear_m_skill();
-  static const int kMSkillFieldNumber = 2;
-  inline ::google::protobuf::int32 m_skill() const;
-  inline void set_m_skill(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulBoneskillPassiveDesc)
- private:
-  inline void set_has_m_lv();
-  inline void clear_has_m_lv();
-  inline void set_has_m_skill();
-  inline void clear_has_m_skill();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::int32 m_lv_;
-  ::google::protobuf::int32 m_skill_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
-
-  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
-  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
-  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
-
-  void InitAsDefaultInstance();
-  static E_SoulBoneskillPassiveDesc* default_instance_;
-};
-// -------------------------------------------------------------------
-
 class E_SoulBoneskill : public ::google::protobuf::Message {
  public:
   E_SoulBoneskill();
@@ -3519,17 +3214,17 @@ class E_SoulBoneskill : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_activeskilllv() const;
   inline void set_m_activeskilllv(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_SoulBoneskillPassiveDesc m_passive = 7;
-  inline int m_passive_size() const;
-  inline void clear_m_passive();
-  static const int kMPassiveFieldNumber = 7;
-  inline const ::proto_ff::E_SoulBoneskillPassiveDesc& m_passive(int index) const;
-  inline ::proto_ff::E_SoulBoneskillPassiveDesc* mutable_m_passive(int index);
-  inline ::proto_ff::E_SoulBoneskillPassiveDesc* add_m_passive();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulBoneskillPassiveDesc >&
-      m_passive() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulBoneskillPassiveDesc >*
-      mutable_m_passive();
+  // repeated int32 m_passive_Skill = 7;
+  inline int m_passive_skill_size() const;
+  inline void clear_m_passive_skill();
+  static const int kMPassiveSkillFieldNumber = 7;
+  inline ::google::protobuf::int32 m_passive_skill(int index) const;
+  inline void set_m_passive_skill(int index, ::google::protobuf::int32 value);
+  inline void add_m_passive_skill(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      m_passive_skill() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_m_passive_skill();
 
   // @@protoc_insertion_point(class_scope:proto_ff.E_SoulBoneskill)
  private:
@@ -3554,7 +3249,7 @@ class E_SoulBoneskill : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_star_;
   ::google::protobuf::int32 m_activeskill_;
   ::google::protobuf::int32 m_activeskilllv_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulBoneskillPassiveDesc > m_passive_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > m_passive_skill_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
@@ -4127,14 +3822,14 @@ class Sheet_SoulBonestrong : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class E_SoulGuwen_type : public ::google::protobuf::Message {
+class E_SoulGuwentype : public ::google::protobuf::Message {
  public:
-  E_SoulGuwen_type();
-  virtual ~E_SoulGuwen_type();
+  E_SoulGuwentype();
+  virtual ~E_SoulGuwentype();
 
-  E_SoulGuwen_type(const E_SoulGuwen_type& from);
+  E_SoulGuwentype(const E_SoulGuwentype& from);
 
-  inline E_SoulGuwen_type& operator=(const E_SoulGuwen_type& from) {
+  inline E_SoulGuwentype& operator=(const E_SoulGuwentype& from) {
     CopyFrom(from);
     return *this;
   }
@@ -4148,17 +3843,17 @@ class E_SoulGuwen_type : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const E_SoulGuwen_type& default_instance();
+  static const E_SoulGuwentype& default_instance();
 
-  void Swap(E_SoulGuwen_type* other);
+  void Swap(E_SoulGuwentype* other);
 
   // implements Message ----------------------------------------------
 
-  E_SoulGuwen_type* New() const;
+  E_SoulGuwentype* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const E_SoulGuwen_type& from);
-  void MergeFrom(const E_SoulGuwen_type& from);
+  void CopyFrom(const E_SoulGuwentype& from);
+  void MergeFrom(const E_SoulGuwentype& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -4207,7 +3902,7 @@ class E_SoulGuwen_type : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_quality() const;
   inline void set_m_quality(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulGuwen_type)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulGuwentype)
  private:
   inline void set_has_m_id();
   inline void clear_has_m_id();
@@ -4230,18 +3925,18 @@ class E_SoulGuwen_type : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
 
   void InitAsDefaultInstance();
-  static E_SoulGuwen_type* default_instance_;
+  static E_SoulGuwentype* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_SoulGuwen_type : public ::google::protobuf::Message {
+class Sheet_SoulGuwentype : public ::google::protobuf::Message {
  public:
-  Sheet_SoulGuwen_type();
-  virtual ~Sheet_SoulGuwen_type();
+  Sheet_SoulGuwentype();
+  virtual ~Sheet_SoulGuwentype();
 
-  Sheet_SoulGuwen_type(const Sheet_SoulGuwen_type& from);
+  Sheet_SoulGuwentype(const Sheet_SoulGuwentype& from);
 
-  inline Sheet_SoulGuwen_type& operator=(const Sheet_SoulGuwen_type& from) {
+  inline Sheet_SoulGuwentype& operator=(const Sheet_SoulGuwentype& from) {
     CopyFrom(from);
     return *this;
   }
@@ -4255,17 +3950,17 @@ class Sheet_SoulGuwen_type : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_SoulGuwen_type& default_instance();
+  static const Sheet_SoulGuwentype& default_instance();
 
-  void Swap(Sheet_SoulGuwen_type* other);
+  void Swap(Sheet_SoulGuwentype* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_SoulGuwen_type* New() const;
+  Sheet_SoulGuwentype* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_SoulGuwen_type& from);
-  void MergeFrom(const Sheet_SoulGuwen_type& from);
+  void CopyFrom(const Sheet_SoulGuwentype& from);
+  void MergeFrom(const Sheet_SoulGuwentype& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -4288,24 +3983,24 @@ class Sheet_SoulGuwen_type : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.E_SoulGuwen_type E_SoulGuwen_type_List = 1;
-  inline int e_soulguwen_type_list_size() const;
-  inline void clear_e_soulguwen_type_list();
-  static const int kESoulGuwenTypeListFieldNumber = 1;
-  inline const ::proto_ff::E_SoulGuwen_type& e_soulguwen_type_list(int index) const;
-  inline ::proto_ff::E_SoulGuwen_type* mutable_e_soulguwen_type_list(int index);
-  inline ::proto_ff::E_SoulGuwen_type* add_e_soulguwen_type_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type >&
-      e_soulguwen_type_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type >*
-      mutable_e_soulguwen_type_list();
+  // repeated .proto_ff.E_SoulGuwentype E_SoulGuwentype_List = 1;
+  inline int e_soulguwentype_list_size() const;
+  inline void clear_e_soulguwentype_list();
+  static const int kESoulGuwentypeListFieldNumber = 1;
+  inline const ::proto_ff::E_SoulGuwentype& e_soulguwentype_list(int index) const;
+  inline ::proto_ff::E_SoulGuwentype* mutable_e_soulguwentype_list(int index);
+  inline ::proto_ff::E_SoulGuwentype* add_e_soulguwentype_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwentype >&
+      e_soulguwentype_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwentype >*
+      mutable_e_soulguwentype_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SoulGuwen_type)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SoulGuwentype)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type > e_soulguwen_type_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwentype > e_soulguwentype_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -4315,18 +4010,18 @@ class Sheet_SoulGuwen_type : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_SoulGuwen_type* default_instance_;
+  static Sheet_SoulGuwentype* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class E_SoulGuwen_type_suitAttributeDesc : public ::google::protobuf::Message {
+class E_SoulGuwentypesuitAttributeDesc : public ::google::protobuf::Message {
  public:
-  E_SoulGuwen_type_suitAttributeDesc();
-  virtual ~E_SoulGuwen_type_suitAttributeDesc();
+  E_SoulGuwentypesuitAttributeDesc();
+  virtual ~E_SoulGuwentypesuitAttributeDesc();
 
-  E_SoulGuwen_type_suitAttributeDesc(const E_SoulGuwen_type_suitAttributeDesc& from);
+  E_SoulGuwentypesuitAttributeDesc(const E_SoulGuwentypesuitAttributeDesc& from);
 
-  inline E_SoulGuwen_type_suitAttributeDesc& operator=(const E_SoulGuwen_type_suitAttributeDesc& from) {
+  inline E_SoulGuwentypesuitAttributeDesc& operator=(const E_SoulGuwentypesuitAttributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -4340,17 +4035,17 @@ class E_SoulGuwen_type_suitAttributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const E_SoulGuwen_type_suitAttributeDesc& default_instance();
+  static const E_SoulGuwentypesuitAttributeDesc& default_instance();
 
-  void Swap(E_SoulGuwen_type_suitAttributeDesc* other);
+  void Swap(E_SoulGuwentypesuitAttributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  E_SoulGuwen_type_suitAttributeDesc* New() const;
+  E_SoulGuwentypesuitAttributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const E_SoulGuwen_type_suitAttributeDesc& from);
-  void MergeFrom(const E_SoulGuwen_type_suitAttributeDesc& from);
+  void CopyFrom(const E_SoulGuwentypesuitAttributeDesc& from);
+  void MergeFrom(const E_SoulGuwentypesuitAttributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -4387,7 +4082,7 @@ class E_SoulGuwen_type_suitAttributeDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_type() const;
   inline void set_m_type(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulGuwen_type_suitAttributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulGuwentypesuitAttributeDesc)
  private:
   inline void set_has_m_value();
   inline void clear_has_m_value();
@@ -4407,18 +4102,18 @@ class E_SoulGuwen_type_suitAttributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
 
   void InitAsDefaultInstance();
-  static E_SoulGuwen_type_suitAttributeDesc* default_instance_;
+  static E_SoulGuwentypesuitAttributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class E_SoulGuwen_type_suit : public ::google::protobuf::Message {
+class E_SoulGuwentypesuit : public ::google::protobuf::Message {
  public:
-  E_SoulGuwen_type_suit();
-  virtual ~E_SoulGuwen_type_suit();
+  E_SoulGuwentypesuit();
+  virtual ~E_SoulGuwentypesuit();
 
-  E_SoulGuwen_type_suit(const E_SoulGuwen_type_suit& from);
+  E_SoulGuwentypesuit(const E_SoulGuwentypesuit& from);
 
-  inline E_SoulGuwen_type_suit& operator=(const E_SoulGuwen_type_suit& from) {
+  inline E_SoulGuwentypesuit& operator=(const E_SoulGuwentypesuit& from) {
     CopyFrom(from);
     return *this;
   }
@@ -4432,17 +4127,17 @@ class E_SoulGuwen_type_suit : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const E_SoulGuwen_type_suit& default_instance();
+  static const E_SoulGuwentypesuit& default_instance();
 
-  void Swap(E_SoulGuwen_type_suit* other);
+  void Swap(E_SoulGuwentypesuit* other);
 
   // implements Message ----------------------------------------------
 
-  E_SoulGuwen_type_suit* New() const;
+  E_SoulGuwentypesuit* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const E_SoulGuwen_type_suit& from);
-  void MergeFrom(const E_SoulGuwen_type_suit& from);
+  void CopyFrom(const E_SoulGuwentypesuit& from);
+  void MergeFrom(const E_SoulGuwentypesuit& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -4486,19 +4181,19 @@ class E_SoulGuwen_type_suit : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_SoulGuwen_type_suitAttributeDesc m_attribute = 4;
+  // repeated .proto_ff.E_SoulGuwentypesuitAttributeDesc m_attribute = 4;
   inline int m_attribute_size() const;
   inline void clear_m_attribute();
   static const int kMAttributeFieldNumber = 4;
-  inline const ::proto_ff::E_SoulGuwen_type_suitAttributeDesc& m_attribute(int index) const;
-  inline ::proto_ff::E_SoulGuwen_type_suitAttributeDesc* mutable_m_attribute(int index);
-  inline ::proto_ff::E_SoulGuwen_type_suitAttributeDesc* add_m_attribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type_suitAttributeDesc >&
+  inline const ::proto_ff::E_SoulGuwentypesuitAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_SoulGuwentypesuitAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_SoulGuwentypesuitAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwentypesuitAttributeDesc >&
       m_attribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type_suitAttributeDesc >*
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwentypesuitAttributeDesc >*
       mutable_m_attribute();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulGuwen_type_suit)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulGuwentypesuit)
  private:
   inline void set_has_m_id();
   inline void clear_has_m_id();
@@ -4511,7 +4206,7 @@ class E_SoulGuwen_type_suit : public ::google::protobuf::Message {
 
   ::google::protobuf::int32 m_id_;
   ::google::protobuf::int32 m_typeid_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type_suitAttributeDesc > m_attribute_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwentypesuitAttributeDesc > m_attribute_;
   ::google::protobuf::int32 m_num_;
 
   mutable int _cached_size_;
@@ -4522,18 +4217,18 @@ class E_SoulGuwen_type_suit : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
 
   void InitAsDefaultInstance();
-  static E_SoulGuwen_type_suit* default_instance_;
+  static E_SoulGuwentypesuit* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_SoulGuwen_type_suit : public ::google::protobuf::Message {
+class Sheet_SoulGuwentypesuit : public ::google::protobuf::Message {
  public:
-  Sheet_SoulGuwen_type_suit();
-  virtual ~Sheet_SoulGuwen_type_suit();
+  Sheet_SoulGuwentypesuit();
+  virtual ~Sheet_SoulGuwentypesuit();
 
-  Sheet_SoulGuwen_type_suit(const Sheet_SoulGuwen_type_suit& from);
+  Sheet_SoulGuwentypesuit(const Sheet_SoulGuwentypesuit& from);
 
-  inline Sheet_SoulGuwen_type_suit& operator=(const Sheet_SoulGuwen_type_suit& from) {
+  inline Sheet_SoulGuwentypesuit& operator=(const Sheet_SoulGuwentypesuit& from) {
     CopyFrom(from);
     return *this;
   }
@@ -4547,17 +4242,17 @@ class Sheet_SoulGuwen_type_suit : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_SoulGuwen_type_suit& default_instance();
+  static const Sheet_SoulGuwentypesuit& default_instance();
 
-  void Swap(Sheet_SoulGuwen_type_suit* other);
+  void Swap(Sheet_SoulGuwentypesuit* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_SoulGuwen_type_suit* New() const;
+  Sheet_SoulGuwentypesuit* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_SoulGuwen_type_suit& from);
-  void MergeFrom(const Sheet_SoulGuwen_type_suit& from);
+  void CopyFrom(const Sheet_SoulGuwentypesuit& from);
+  void MergeFrom(const Sheet_SoulGuwentypesuit& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -4580,24 +4275,24 @@ class Sheet_SoulGuwen_type_suit : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.E_SoulGuwen_type_suit E_SoulGuwen_type_suit_List = 1;
-  inline int e_soulguwen_type_suit_list_size() const;
-  inline void clear_e_soulguwen_type_suit_list();
-  static const int kESoulGuwenTypeSuitListFieldNumber = 1;
-  inline const ::proto_ff::E_SoulGuwen_type_suit& e_soulguwen_type_suit_list(int index) const;
-  inline ::proto_ff::E_SoulGuwen_type_suit* mutable_e_soulguwen_type_suit_list(int index);
-  inline ::proto_ff::E_SoulGuwen_type_suit* add_e_soulguwen_type_suit_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type_suit >&
-      e_soulguwen_type_suit_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type_suit >*
-      mutable_e_soulguwen_type_suit_list();
+  // repeated .proto_ff.E_SoulGuwentypesuit E_SoulGuwentypesuit_List = 1;
+  inline int e_soulguwentypesuit_list_size() const;
+  inline void clear_e_soulguwentypesuit_list();
+  static const int kESoulGuwentypesuitListFieldNumber = 1;
+  inline const ::proto_ff::E_SoulGuwentypesuit& e_soulguwentypesuit_list(int index) const;
+  inline ::proto_ff::E_SoulGuwentypesuit* mutable_e_soulguwentypesuit_list(int index);
+  inline ::proto_ff::E_SoulGuwentypesuit* add_e_soulguwentypesuit_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwentypesuit >&
+      e_soulguwentypesuit_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwentypesuit >*
+      mutable_e_soulguwentypesuit_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SoulGuwen_type_suit)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SoulGuwentypesuit)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type_suit > e_soulguwen_type_suit_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwentypesuit > e_soulguwentypesuit_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -4607,18 +4302,18 @@ class Sheet_SoulGuwen_type_suit : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_SoulGuwen_type_suit* default_instance_;
+  static Sheet_SoulGuwentypesuit* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class E_SoulGuwen_skill : public ::google::protobuf::Message {
+class E_SoulGuwenskill : public ::google::protobuf::Message {
  public:
-  E_SoulGuwen_skill();
-  virtual ~E_SoulGuwen_skill();
+  E_SoulGuwenskill();
+  virtual ~E_SoulGuwenskill();
 
-  E_SoulGuwen_skill(const E_SoulGuwen_skill& from);
+  E_SoulGuwenskill(const E_SoulGuwenskill& from);
 
-  inline E_SoulGuwen_skill& operator=(const E_SoulGuwen_skill& from) {
+  inline E_SoulGuwenskill& operator=(const E_SoulGuwenskill& from) {
     CopyFrom(from);
     return *this;
   }
@@ -4632,17 +4327,17 @@ class E_SoulGuwen_skill : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const E_SoulGuwen_skill& default_instance();
+  static const E_SoulGuwenskill& default_instance();
 
-  void Swap(E_SoulGuwen_skill* other);
+  void Swap(E_SoulGuwenskill* other);
 
   // implements Message ----------------------------------------------
 
-  E_SoulGuwen_skill* New() const;
+  E_SoulGuwenskill* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const E_SoulGuwen_skill& from);
-  void MergeFrom(const E_SoulGuwen_skill& from);
+  void CopyFrom(const E_SoulGuwenskill& from);
+  void MergeFrom(const E_SoulGuwenskill& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -4717,7 +4412,7 @@ class E_SoulGuwen_skill : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_m_num();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulGuwen_skill)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulGuwenskill)
  private:
   inline void set_has_m_id();
   inline void clear_has_m_id();
@@ -4745,18 +4440,18 @@ class E_SoulGuwen_skill : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
 
   void InitAsDefaultInstance();
-  static E_SoulGuwen_skill* default_instance_;
+  static E_SoulGuwenskill* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_SoulGuwen_skill : public ::google::protobuf::Message {
+class Sheet_SoulGuwenskill : public ::google::protobuf::Message {
  public:
-  Sheet_SoulGuwen_skill();
-  virtual ~Sheet_SoulGuwen_skill();
+  Sheet_SoulGuwenskill();
+  virtual ~Sheet_SoulGuwenskill();
 
-  Sheet_SoulGuwen_skill(const Sheet_SoulGuwen_skill& from);
+  Sheet_SoulGuwenskill(const Sheet_SoulGuwenskill& from);
 
-  inline Sheet_SoulGuwen_skill& operator=(const Sheet_SoulGuwen_skill& from) {
+  inline Sheet_SoulGuwenskill& operator=(const Sheet_SoulGuwenskill& from) {
     CopyFrom(from);
     return *this;
   }
@@ -4770,17 +4465,17 @@ class Sheet_SoulGuwen_skill : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_SoulGuwen_skill& default_instance();
+  static const Sheet_SoulGuwenskill& default_instance();
 
-  void Swap(Sheet_SoulGuwen_skill* other);
+  void Swap(Sheet_SoulGuwenskill* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_SoulGuwen_skill* New() const;
+  Sheet_SoulGuwenskill* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_SoulGuwen_skill& from);
-  void MergeFrom(const Sheet_SoulGuwen_skill& from);
+  void CopyFrom(const Sheet_SoulGuwenskill& from);
+  void MergeFrom(const Sheet_SoulGuwenskill& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -4803,24 +4498,24 @@ class Sheet_SoulGuwen_skill : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.E_SoulGuwen_skill E_SoulGuwen_skill_List = 1;
-  inline int e_soulguwen_skill_list_size() const;
-  inline void clear_e_soulguwen_skill_list();
-  static const int kESoulGuwenSkillListFieldNumber = 1;
-  inline const ::proto_ff::E_SoulGuwen_skill& e_soulguwen_skill_list(int index) const;
-  inline ::proto_ff::E_SoulGuwen_skill* mutable_e_soulguwen_skill_list(int index);
-  inline ::proto_ff::E_SoulGuwen_skill* add_e_soulguwen_skill_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_skill >&
-      e_soulguwen_skill_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_skill >*
-      mutable_e_soulguwen_skill_list();
+  // repeated .proto_ff.E_SoulGuwenskill E_SoulGuwenskill_List = 1;
+  inline int e_soulguwenskill_list_size() const;
+  inline void clear_e_soulguwenskill_list();
+  static const int kESoulGuwenskillListFieldNumber = 1;
+  inline const ::proto_ff::E_SoulGuwenskill& e_soulguwenskill_list(int index) const;
+  inline ::proto_ff::E_SoulGuwenskill* mutable_e_soulguwenskill_list(int index);
+  inline ::proto_ff::E_SoulGuwenskill* add_e_soulguwenskill_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwenskill >&
+      e_soulguwenskill_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwenskill >*
+      mutable_e_soulguwenskill_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SoulGuwen_skill)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SoulGuwenskill)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_skill > e_soulguwen_skill_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwenskill > e_soulguwenskill_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -4830,18 +4525,18 @@ class Sheet_SoulGuwen_skill : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_SoulGuwen_skill* default_instance_;
+  static Sheet_SoulGuwenskill* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class E_SoulGuwen_slot : public ::google::protobuf::Message {
+class E_SoulGuwenslot : public ::google::protobuf::Message {
  public:
-  E_SoulGuwen_slot();
-  virtual ~E_SoulGuwen_slot();
+  E_SoulGuwenslot();
+  virtual ~E_SoulGuwenslot();
 
-  E_SoulGuwen_slot(const E_SoulGuwen_slot& from);
+  E_SoulGuwenslot(const E_SoulGuwenslot& from);
 
-  inline E_SoulGuwen_slot& operator=(const E_SoulGuwen_slot& from) {
+  inline E_SoulGuwenslot& operator=(const E_SoulGuwenslot& from) {
     CopyFrom(from);
     return *this;
   }
@@ -4855,17 +4550,17 @@ class E_SoulGuwen_slot : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const E_SoulGuwen_slot& default_instance();
+  static const E_SoulGuwenslot& default_instance();
 
-  void Swap(E_SoulGuwen_slot* other);
+  void Swap(E_SoulGuwenslot* other);
 
   // implements Message ----------------------------------------------
 
-  E_SoulGuwen_slot* New() const;
+  E_SoulGuwenslot* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const E_SoulGuwen_slot& from);
-  void MergeFrom(const E_SoulGuwen_slot& from);
+  void CopyFrom(const E_SoulGuwenslot& from);
+  void MergeFrom(const E_SoulGuwenslot& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -4914,7 +4609,7 @@ class E_SoulGuwen_slot : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_position() const;
   inline void set_m_position(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulGuwen_slot)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulGuwenslot)
  private:
   inline void set_has_m_id();
   inline void clear_has_m_id();
@@ -4937,18 +4632,18 @@ class E_SoulGuwen_slot : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
 
   void InitAsDefaultInstance();
-  static E_SoulGuwen_slot* default_instance_;
+  static E_SoulGuwenslot* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_SoulGuwen_slot : public ::google::protobuf::Message {
+class Sheet_SoulGuwenslot : public ::google::protobuf::Message {
  public:
-  Sheet_SoulGuwen_slot();
-  virtual ~Sheet_SoulGuwen_slot();
+  Sheet_SoulGuwenslot();
+  virtual ~Sheet_SoulGuwenslot();
 
-  Sheet_SoulGuwen_slot(const Sheet_SoulGuwen_slot& from);
+  Sheet_SoulGuwenslot(const Sheet_SoulGuwenslot& from);
 
-  inline Sheet_SoulGuwen_slot& operator=(const Sheet_SoulGuwen_slot& from) {
+  inline Sheet_SoulGuwenslot& operator=(const Sheet_SoulGuwenslot& from) {
     CopyFrom(from);
     return *this;
   }
@@ -4962,17 +4657,17 @@ class Sheet_SoulGuwen_slot : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_SoulGuwen_slot& default_instance();
+  static const Sheet_SoulGuwenslot& default_instance();
 
-  void Swap(Sheet_SoulGuwen_slot* other);
+  void Swap(Sheet_SoulGuwenslot* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_SoulGuwen_slot* New() const;
+  Sheet_SoulGuwenslot* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_SoulGuwen_slot& from);
-  void MergeFrom(const Sheet_SoulGuwen_slot& from);
+  void CopyFrom(const Sheet_SoulGuwenslot& from);
+  void MergeFrom(const Sheet_SoulGuwenslot& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -4995,24 +4690,24 @@ class Sheet_SoulGuwen_slot : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.E_SoulGuwen_slot E_SoulGuwen_slot_List = 1;
-  inline int e_soulguwen_slot_list_size() const;
-  inline void clear_e_soulguwen_slot_list();
-  static const int kESoulGuwenSlotListFieldNumber = 1;
-  inline const ::proto_ff::E_SoulGuwen_slot& e_soulguwen_slot_list(int index) const;
-  inline ::proto_ff::E_SoulGuwen_slot* mutable_e_soulguwen_slot_list(int index);
-  inline ::proto_ff::E_SoulGuwen_slot* add_e_soulguwen_slot_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_slot >&
-      e_soulguwen_slot_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_slot >*
-      mutable_e_soulguwen_slot_list();
+  // repeated .proto_ff.E_SoulGuwenslot E_SoulGuwenslot_List = 1;
+  inline int e_soulguwenslot_list_size() const;
+  inline void clear_e_soulguwenslot_list();
+  static const int kESoulGuwenslotListFieldNumber = 1;
+  inline const ::proto_ff::E_SoulGuwenslot& e_soulguwenslot_list(int index) const;
+  inline ::proto_ff::E_SoulGuwenslot* mutable_e_soulguwenslot_list(int index);
+  inline ::proto_ff::E_SoulGuwenslot* add_e_soulguwenslot_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwenslot >&
+      e_soulguwenslot_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwenslot >*
+      mutable_e_soulguwenslot_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SoulGuwen_slot)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SoulGuwenslot)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_slot > e_soulguwen_slot_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwenslot > e_soulguwenslot_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -5022,18 +4717,18 @@ class Sheet_SoulGuwen_slot : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_SoulGuwen_slot* default_instance_;
+  static Sheet_SoulGuwenslot* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class E_SoulGuwen_suitAttributeDesc : public ::google::protobuf::Message {
+class E_SoulGuwensuitAttributeDesc : public ::google::protobuf::Message {
  public:
-  E_SoulGuwen_suitAttributeDesc();
-  virtual ~E_SoulGuwen_suitAttributeDesc();
+  E_SoulGuwensuitAttributeDesc();
+  virtual ~E_SoulGuwensuitAttributeDesc();
 
-  E_SoulGuwen_suitAttributeDesc(const E_SoulGuwen_suitAttributeDesc& from);
+  E_SoulGuwensuitAttributeDesc(const E_SoulGuwensuitAttributeDesc& from);
 
-  inline E_SoulGuwen_suitAttributeDesc& operator=(const E_SoulGuwen_suitAttributeDesc& from) {
+  inline E_SoulGuwensuitAttributeDesc& operator=(const E_SoulGuwensuitAttributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -5047,17 +4742,17 @@ class E_SoulGuwen_suitAttributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const E_SoulGuwen_suitAttributeDesc& default_instance();
+  static const E_SoulGuwensuitAttributeDesc& default_instance();
 
-  void Swap(E_SoulGuwen_suitAttributeDesc* other);
+  void Swap(E_SoulGuwensuitAttributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  E_SoulGuwen_suitAttributeDesc* New() const;
+  E_SoulGuwensuitAttributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const E_SoulGuwen_suitAttributeDesc& from);
-  void MergeFrom(const E_SoulGuwen_suitAttributeDesc& from);
+  void CopyFrom(const E_SoulGuwensuitAttributeDesc& from);
+  void MergeFrom(const E_SoulGuwensuitAttributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -5094,7 +4789,7 @@ class E_SoulGuwen_suitAttributeDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_type() const;
   inline void set_m_type(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulGuwen_suitAttributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulGuwensuitAttributeDesc)
  private:
   inline void set_has_m_value();
   inline void clear_has_m_value();
@@ -5114,18 +4809,18 @@ class E_SoulGuwen_suitAttributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
 
   void InitAsDefaultInstance();
-  static E_SoulGuwen_suitAttributeDesc* default_instance_;
+  static E_SoulGuwensuitAttributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class E_SoulGuwen_suit : public ::google::protobuf::Message {
+class E_SoulGuwensuit : public ::google::protobuf::Message {
  public:
-  E_SoulGuwen_suit();
-  virtual ~E_SoulGuwen_suit();
+  E_SoulGuwensuit();
+  virtual ~E_SoulGuwensuit();
 
-  E_SoulGuwen_suit(const E_SoulGuwen_suit& from);
+  E_SoulGuwensuit(const E_SoulGuwensuit& from);
 
-  inline E_SoulGuwen_suit& operator=(const E_SoulGuwen_suit& from) {
+  inline E_SoulGuwensuit& operator=(const E_SoulGuwensuit& from) {
     CopyFrom(from);
     return *this;
   }
@@ -5139,17 +4834,17 @@ class E_SoulGuwen_suit : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const E_SoulGuwen_suit& default_instance();
+  static const E_SoulGuwensuit& default_instance();
 
-  void Swap(E_SoulGuwen_suit* other);
+  void Swap(E_SoulGuwensuit* other);
 
   // implements Message ----------------------------------------------
 
-  E_SoulGuwen_suit* New() const;
+  E_SoulGuwensuit* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const E_SoulGuwen_suit& from);
-  void MergeFrom(const E_SoulGuwen_suit& from);
+  void CopyFrom(const E_SoulGuwensuit& from);
+  void MergeFrom(const E_SoulGuwensuit& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -5200,19 +4895,19 @@ class E_SoulGuwen_suit : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_SoulGuwen_suitAttributeDesc m_attribute = 5;
+  // repeated .proto_ff.E_SoulGuwensuitAttributeDesc m_attribute = 5;
   inline int m_attribute_size() const;
   inline void clear_m_attribute();
   static const int kMAttributeFieldNumber = 5;
-  inline const ::proto_ff::E_SoulGuwen_suitAttributeDesc& m_attribute(int index) const;
-  inline ::proto_ff::E_SoulGuwen_suitAttributeDesc* mutable_m_attribute(int index);
-  inline ::proto_ff::E_SoulGuwen_suitAttributeDesc* add_m_attribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_suitAttributeDesc >&
+  inline const ::proto_ff::E_SoulGuwensuitAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_SoulGuwensuitAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_SoulGuwensuitAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwensuitAttributeDesc >&
       m_attribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_suitAttributeDesc >*
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwensuitAttributeDesc >*
       mutable_m_attribute();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulGuwen_suit)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulGuwensuit)
  private:
   inline void set_has_m_id();
   inline void clear_has_m_id();
@@ -5229,7 +4924,7 @@ class E_SoulGuwen_suit : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_boneid_;
   ::google::protobuf::int32 m_typeid_;
   ::google::protobuf::int32 m_num_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_suitAttributeDesc > m_attribute_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwensuitAttributeDesc > m_attribute_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
@@ -5239,18 +4934,18 @@ class E_SoulGuwen_suit : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
 
   void InitAsDefaultInstance();
-  static E_SoulGuwen_suit* default_instance_;
+  static E_SoulGuwensuit* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_SoulGuwen_suit : public ::google::protobuf::Message {
+class Sheet_SoulGuwensuit : public ::google::protobuf::Message {
  public:
-  Sheet_SoulGuwen_suit();
-  virtual ~Sheet_SoulGuwen_suit();
+  Sheet_SoulGuwensuit();
+  virtual ~Sheet_SoulGuwensuit();
 
-  Sheet_SoulGuwen_suit(const Sheet_SoulGuwen_suit& from);
+  Sheet_SoulGuwensuit(const Sheet_SoulGuwensuit& from);
 
-  inline Sheet_SoulGuwen_suit& operator=(const Sheet_SoulGuwen_suit& from) {
+  inline Sheet_SoulGuwensuit& operator=(const Sheet_SoulGuwensuit& from) {
     CopyFrom(from);
     return *this;
   }
@@ -5264,17 +4959,17 @@ class Sheet_SoulGuwen_suit : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_SoulGuwen_suit& default_instance();
+  static const Sheet_SoulGuwensuit& default_instance();
 
-  void Swap(Sheet_SoulGuwen_suit* other);
+  void Swap(Sheet_SoulGuwensuit* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_SoulGuwen_suit* New() const;
+  Sheet_SoulGuwensuit* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_SoulGuwen_suit& from);
-  void MergeFrom(const Sheet_SoulGuwen_suit& from);
+  void CopyFrom(const Sheet_SoulGuwensuit& from);
+  void MergeFrom(const Sheet_SoulGuwensuit& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -5297,24 +4992,24 @@ class Sheet_SoulGuwen_suit : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.E_SoulGuwen_suit E_SoulGuwen_suit_List = 1;
-  inline int e_soulguwen_suit_list_size() const;
-  inline void clear_e_soulguwen_suit_list();
-  static const int kESoulGuwenSuitListFieldNumber = 1;
-  inline const ::proto_ff::E_SoulGuwen_suit& e_soulguwen_suit_list(int index) const;
-  inline ::proto_ff::E_SoulGuwen_suit* mutable_e_soulguwen_suit_list(int index);
-  inline ::proto_ff::E_SoulGuwen_suit* add_e_soulguwen_suit_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_suit >&
-      e_soulguwen_suit_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_suit >*
-      mutable_e_soulguwen_suit_list();
+  // repeated .proto_ff.E_SoulGuwensuit E_SoulGuwensuit_List = 1;
+  inline int e_soulguwensuit_list_size() const;
+  inline void clear_e_soulguwensuit_list();
+  static const int kESoulGuwensuitListFieldNumber = 1;
+  inline const ::proto_ff::E_SoulGuwensuit& e_soulguwensuit_list(int index) const;
+  inline ::proto_ff::E_SoulGuwensuit* mutable_e_soulguwensuit_list(int index);
+  inline ::proto_ff::E_SoulGuwensuit* add_e_soulguwensuit_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwensuit >&
+      e_soulguwensuit_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwensuit >*
+      mutable_e_soulguwensuit_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SoulGuwen_suit)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SoulGuwensuit)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_suit > e_soulguwen_suit_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwensuit > e_soulguwensuit_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -5324,7 +5019,244 @@ class Sheet_SoulGuwen_suit : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_SoulGuwen_suit* default_instance_;
+  static Sheet_SoulGuwensuit* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_SoulGuwenupstar : public ::google::protobuf::Message {
+ public:
+  E_SoulGuwenupstar();
+  virtual ~E_SoulGuwenupstar();
+
+  E_SoulGuwenupstar(const E_SoulGuwenupstar& from);
+
+  inline E_SoulGuwenupstar& operator=(const E_SoulGuwenupstar& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_SoulGuwenupstar& default_instance();
+
+  void Swap(E_SoulGuwenupstar* other);
+
+  // implements Message ----------------------------------------------
+
+  E_SoulGuwenupstar* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_SoulGuwenupstar& from);
+  void MergeFrom(const E_SoulGuwenupstar& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_quality = 2;
+  inline bool has_m_quality() const;
+  inline void clear_m_quality();
+  static const int kMQualityFieldNumber = 2;
+  inline ::google::protobuf::int32 m_quality() const;
+  inline void set_m_quality(::google::protobuf::int32 value);
+
+  // optional int32 m_star = 3;
+  inline bool has_m_star() const;
+  inline void clear_m_star();
+  static const int kMStarFieldNumber = 3;
+  inline ::google::protobuf::int32 m_star() const;
+  inline void set_m_star(::google::protobuf::int32 value);
+
+  // optional int32 m_targetQuality = 4;
+  inline bool has_m_targetquality() const;
+  inline void clear_m_targetquality();
+  static const int kMTargetQualityFieldNumber = 4;
+  inline ::google::protobuf::int32 m_targetquality() const;
+  inline void set_m_targetquality(::google::protobuf::int32 value);
+
+  // optional int32 m_targetStar = 5;
+  inline bool has_m_targetstar() const;
+  inline void clear_m_targetstar();
+  static const int kMTargetStarFieldNumber = 5;
+  inline ::google::protobuf::int32 m_targetstar() const;
+  inline void set_m_targetstar(::google::protobuf::int32 value);
+
+  // optional int32 m_samePosNum = 6;
+  inline bool has_m_sameposnum() const;
+  inline void clear_m_sameposnum();
+  static const int kMSamePosNumFieldNumber = 6;
+  inline ::google::protobuf::int32 m_sameposnum() const;
+  inline void set_m_sameposnum(::google::protobuf::int32 value);
+
+  // optional int32 m_samePosQuality = 7;
+  inline bool has_m_sameposquality() const;
+  inline void clear_m_sameposquality();
+  static const int kMSamePosQualityFieldNumber = 7;
+  inline ::google::protobuf::int32 m_sameposquality() const;
+  inline void set_m_sameposquality(::google::protobuf::int32 value);
+
+  // optional int32 m_samePosStar = 8;
+  inline bool has_m_sameposstar() const;
+  inline void clear_m_sameposstar();
+  static const int kMSamePosStarFieldNumber = 8;
+  inline ::google::protobuf::int32 m_sameposstar() const;
+  inline void set_m_sameposstar(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulGuwenupstar)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_quality();
+  inline void clear_has_m_quality();
+  inline void set_has_m_star();
+  inline void clear_has_m_star();
+  inline void set_has_m_targetquality();
+  inline void clear_has_m_targetquality();
+  inline void set_has_m_targetstar();
+  inline void clear_has_m_targetstar();
+  inline void set_has_m_sameposnum();
+  inline void clear_has_m_sameposnum();
+  inline void set_has_m_sameposquality();
+  inline void clear_has_m_sameposquality();
+  inline void set_has_m_sameposstar();
+  inline void clear_has_m_sameposstar();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_quality_;
+  ::google::protobuf::int32 m_star_;
+  ::google::protobuf::int32 m_targetquality_;
+  ::google::protobuf::int32 m_targetstar_;
+  ::google::protobuf::int32 m_sameposnum_;
+  ::google::protobuf::int32 m_sameposquality_;
+  ::google::protobuf::int32 m_sameposstar_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
+  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
+  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_SoulGuwenupstar* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_SoulGuwenupstar : public ::google::protobuf::Message {
+ public:
+  Sheet_SoulGuwenupstar();
+  virtual ~Sheet_SoulGuwenupstar();
+
+  Sheet_SoulGuwenupstar(const Sheet_SoulGuwenupstar& from);
+
+  inline Sheet_SoulGuwenupstar& operator=(const Sheet_SoulGuwenupstar& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_SoulGuwenupstar& default_instance();
+
+  void Swap(Sheet_SoulGuwenupstar* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_SoulGuwenupstar* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_SoulGuwenupstar& from);
+  void MergeFrom(const Sheet_SoulGuwenupstar& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_SoulGuwenupstar E_SoulGuwenupstar_List = 1;
+  inline int e_soulguwenupstar_list_size() const;
+  inline void clear_e_soulguwenupstar_list();
+  static const int kESoulGuwenupstarListFieldNumber = 1;
+  inline const ::proto_ff::E_SoulGuwenupstar& e_soulguwenupstar_list(int index) const;
+  inline ::proto_ff::E_SoulGuwenupstar* mutable_e_soulguwenupstar_list(int index);
+  inline ::proto_ff::E_SoulGuwenupstar* add_e_soulguwenupstar_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwenupstar >&
+      e_soulguwenupstar_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwenupstar >*
+      mutable_e_soulguwenupstar_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SoulGuwenupstar)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwenupstar > e_soulguwenupstar_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fSoul_2eproto();
+  friend void protobuf_AssignDesc_E_5fSoul_2eproto();
+  friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_SoulGuwenupstar* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -5635,14 +5567,14 @@ class Sheet_SoulAffixes : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class E_SoulAffixes_suitSkillDesc : public ::google::protobuf::Message {
+class E_SoulAffixessuitSkillDesc : public ::google::protobuf::Message {
  public:
-  E_SoulAffixes_suitSkillDesc();
-  virtual ~E_SoulAffixes_suitSkillDesc();
+  E_SoulAffixessuitSkillDesc();
+  virtual ~E_SoulAffixessuitSkillDesc();
 
-  E_SoulAffixes_suitSkillDesc(const E_SoulAffixes_suitSkillDesc& from);
+  E_SoulAffixessuitSkillDesc(const E_SoulAffixessuitSkillDesc& from);
 
-  inline E_SoulAffixes_suitSkillDesc& operator=(const E_SoulAffixes_suitSkillDesc& from) {
+  inline E_SoulAffixessuitSkillDesc& operator=(const E_SoulAffixessuitSkillDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -5656,17 +5588,17 @@ class E_SoulAffixes_suitSkillDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const E_SoulAffixes_suitSkillDesc& default_instance();
+  static const E_SoulAffixessuitSkillDesc& default_instance();
 
-  void Swap(E_SoulAffixes_suitSkillDesc* other);
+  void Swap(E_SoulAffixessuitSkillDesc* other);
 
   // implements Message ----------------------------------------------
 
-  E_SoulAffixes_suitSkillDesc* New() const;
+  E_SoulAffixessuitSkillDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const E_SoulAffixes_suitSkillDesc& from);
-  void MergeFrom(const E_SoulAffixes_suitSkillDesc& from);
+  void CopyFrom(const E_SoulAffixessuitSkillDesc& from);
+  void MergeFrom(const E_SoulAffixessuitSkillDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -5703,7 +5635,7 @@ class E_SoulAffixes_suitSkillDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulAffixes_suitSkillDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulAffixessuitSkillDesc)
  private:
   inline void set_has_m_level();
   inline void clear_has_m_level();
@@ -5723,18 +5655,18 @@ class E_SoulAffixes_suitSkillDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
 
   void InitAsDefaultInstance();
-  static E_SoulAffixes_suitSkillDesc* default_instance_;
+  static E_SoulAffixessuitSkillDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class E_SoulAffixes_suitAttributeDesc : public ::google::protobuf::Message {
+class E_SoulAffixessuitAttributeDesc : public ::google::protobuf::Message {
  public:
-  E_SoulAffixes_suitAttributeDesc();
-  virtual ~E_SoulAffixes_suitAttributeDesc();
+  E_SoulAffixessuitAttributeDesc();
+  virtual ~E_SoulAffixessuitAttributeDesc();
 
-  E_SoulAffixes_suitAttributeDesc(const E_SoulAffixes_suitAttributeDesc& from);
+  E_SoulAffixessuitAttributeDesc(const E_SoulAffixessuitAttributeDesc& from);
 
-  inline E_SoulAffixes_suitAttributeDesc& operator=(const E_SoulAffixes_suitAttributeDesc& from) {
+  inline E_SoulAffixessuitAttributeDesc& operator=(const E_SoulAffixessuitAttributeDesc& from) {
     CopyFrom(from);
     return *this;
   }
@@ -5748,17 +5680,17 @@ class E_SoulAffixes_suitAttributeDesc : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const E_SoulAffixes_suitAttributeDesc& default_instance();
+  static const E_SoulAffixessuitAttributeDesc& default_instance();
 
-  void Swap(E_SoulAffixes_suitAttributeDesc* other);
+  void Swap(E_SoulAffixessuitAttributeDesc* other);
 
   // implements Message ----------------------------------------------
 
-  E_SoulAffixes_suitAttributeDesc* New() const;
+  E_SoulAffixessuitAttributeDesc* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const E_SoulAffixes_suitAttributeDesc& from);
-  void MergeFrom(const E_SoulAffixes_suitAttributeDesc& from);
+  void CopyFrom(const E_SoulAffixessuitAttributeDesc& from);
+  void MergeFrom(const E_SoulAffixessuitAttributeDesc& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -5795,7 +5727,7 @@ class E_SoulAffixes_suitAttributeDesc : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_type() const;
   inline void set_m_type(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulAffixes_suitAttributeDesc)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulAffixessuitAttributeDesc)
  private:
   inline void set_has_m_value();
   inline void clear_has_m_value();
@@ -5815,18 +5747,18 @@ class E_SoulAffixes_suitAttributeDesc : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
 
   void InitAsDefaultInstance();
-  static E_SoulAffixes_suitAttributeDesc* default_instance_;
+  static E_SoulAffixessuitAttributeDesc* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class E_SoulAffixes_suit : public ::google::protobuf::Message {
+class E_SoulAffixessuit : public ::google::protobuf::Message {
  public:
-  E_SoulAffixes_suit();
-  virtual ~E_SoulAffixes_suit();
+  E_SoulAffixessuit();
+  virtual ~E_SoulAffixessuit();
 
-  E_SoulAffixes_suit(const E_SoulAffixes_suit& from);
+  E_SoulAffixessuit(const E_SoulAffixessuit& from);
 
-  inline E_SoulAffixes_suit& operator=(const E_SoulAffixes_suit& from) {
+  inline E_SoulAffixessuit& operator=(const E_SoulAffixessuit& from) {
     CopyFrom(from);
     return *this;
   }
@@ -5840,17 +5772,17 @@ class E_SoulAffixes_suit : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const E_SoulAffixes_suit& default_instance();
+  static const E_SoulAffixessuit& default_instance();
 
-  void Swap(E_SoulAffixes_suit* other);
+  void Swap(E_SoulAffixessuit* other);
 
   // implements Message ----------------------------------------------
 
-  E_SoulAffixes_suit* New() const;
+  E_SoulAffixessuit* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const E_SoulAffixes_suit& from);
-  void MergeFrom(const E_SoulAffixes_suit& from);
+  void CopyFrom(const E_SoulAffixessuit& from);
+  void MergeFrom(const E_SoulAffixessuit& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -5894,31 +5826,31 @@ class E_SoulAffixes_suit : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_SoulAffixes_suitSkillDesc m_skill = 4;
+  // repeated .proto_ff.E_SoulAffixessuitSkillDesc m_skill = 4;
   inline int m_skill_size() const;
   inline void clear_m_skill();
   static const int kMSkillFieldNumber = 4;
-  inline const ::proto_ff::E_SoulAffixes_suitSkillDesc& m_skill(int index) const;
-  inline ::proto_ff::E_SoulAffixes_suitSkillDesc* mutable_m_skill(int index);
-  inline ::proto_ff::E_SoulAffixes_suitSkillDesc* add_m_skill();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suitSkillDesc >&
+  inline const ::proto_ff::E_SoulAffixessuitSkillDesc& m_skill(int index) const;
+  inline ::proto_ff::E_SoulAffixessuitSkillDesc* mutable_m_skill(int index);
+  inline ::proto_ff::E_SoulAffixessuitSkillDesc* add_m_skill();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixessuitSkillDesc >&
       m_skill() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suitSkillDesc >*
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixessuitSkillDesc >*
       mutable_m_skill();
 
-  // repeated .proto_ff.E_SoulAffixes_suitAttributeDesc m_attribute = 5;
+  // repeated .proto_ff.E_SoulAffixessuitAttributeDesc m_attribute = 5;
   inline int m_attribute_size() const;
   inline void clear_m_attribute();
   static const int kMAttributeFieldNumber = 5;
-  inline const ::proto_ff::E_SoulAffixes_suitAttributeDesc& m_attribute(int index) const;
-  inline ::proto_ff::E_SoulAffixes_suitAttributeDesc* mutable_m_attribute(int index);
-  inline ::proto_ff::E_SoulAffixes_suitAttributeDesc* add_m_attribute();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suitAttributeDesc >&
+  inline const ::proto_ff::E_SoulAffixessuitAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_SoulAffixessuitAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_SoulAffixessuitAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixessuitAttributeDesc >&
       m_attribute() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suitAttributeDesc >*
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixessuitAttributeDesc >*
       mutable_m_attribute();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulAffixes_suit)
+  // @@protoc_insertion_point(class_scope:proto_ff.E_SoulAffixessuit)
  private:
   inline void set_has_m_id();
   inline void clear_has_m_id();
@@ -5931,8 +5863,8 @@ class E_SoulAffixes_suit : public ::google::protobuf::Message {
 
   ::google::protobuf::int32 m_id_;
   ::google::protobuf::int32 m_affixesid_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suitSkillDesc > m_skill_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suitAttributeDesc > m_attribute_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixessuitSkillDesc > m_skill_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixessuitAttributeDesc > m_attribute_;
   ::google::protobuf::int32 m_num_;
 
   mutable int _cached_size_;
@@ -5943,18 +5875,18 @@ class E_SoulAffixes_suit : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
 
   void InitAsDefaultInstance();
-  static E_SoulAffixes_suit* default_instance_;
+  static E_SoulAffixessuit* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class Sheet_SoulAffixes_suit : public ::google::protobuf::Message {
+class Sheet_SoulAffixessuit : public ::google::protobuf::Message {
  public:
-  Sheet_SoulAffixes_suit();
-  virtual ~Sheet_SoulAffixes_suit();
+  Sheet_SoulAffixessuit();
+  virtual ~Sheet_SoulAffixessuit();
 
-  Sheet_SoulAffixes_suit(const Sheet_SoulAffixes_suit& from);
+  Sheet_SoulAffixessuit(const Sheet_SoulAffixessuit& from);
 
-  inline Sheet_SoulAffixes_suit& operator=(const Sheet_SoulAffixes_suit& from) {
+  inline Sheet_SoulAffixessuit& operator=(const Sheet_SoulAffixessuit& from) {
     CopyFrom(from);
     return *this;
   }
@@ -5968,17 +5900,17 @@ class Sheet_SoulAffixes_suit : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Sheet_SoulAffixes_suit& default_instance();
+  static const Sheet_SoulAffixessuit& default_instance();
 
-  void Swap(Sheet_SoulAffixes_suit* other);
+  void Swap(Sheet_SoulAffixessuit* other);
 
   // implements Message ----------------------------------------------
 
-  Sheet_SoulAffixes_suit* New() const;
+  Sheet_SoulAffixessuit* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Sheet_SoulAffixes_suit& from);
-  void MergeFrom(const Sheet_SoulAffixes_suit& from);
+  void CopyFrom(const Sheet_SoulAffixessuit& from);
+  void MergeFrom(const Sheet_SoulAffixessuit& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -6001,24 +5933,24 @@ class Sheet_SoulAffixes_suit : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.E_SoulAffixes_suit E_SoulAffixes_suit_List = 1;
-  inline int e_soulaffixes_suit_list_size() const;
-  inline void clear_e_soulaffixes_suit_list();
-  static const int kESoulAffixesSuitListFieldNumber = 1;
-  inline const ::proto_ff::E_SoulAffixes_suit& e_soulaffixes_suit_list(int index) const;
-  inline ::proto_ff::E_SoulAffixes_suit* mutable_e_soulaffixes_suit_list(int index);
-  inline ::proto_ff::E_SoulAffixes_suit* add_e_soulaffixes_suit_list();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suit >&
-      e_soulaffixes_suit_list() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suit >*
-      mutable_e_soulaffixes_suit_list();
+  // repeated .proto_ff.E_SoulAffixessuit E_SoulAffixessuit_List = 1;
+  inline int e_soulaffixessuit_list_size() const;
+  inline void clear_e_soulaffixessuit_list();
+  static const int kESoulAffixessuitListFieldNumber = 1;
+  inline const ::proto_ff::E_SoulAffixessuit& e_soulaffixessuit_list(int index) const;
+  inline ::proto_ff::E_SoulAffixessuit* mutable_e_soulaffixessuit_list(int index);
+  inline ::proto_ff::E_SoulAffixessuit* add_e_soulaffixessuit_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixessuit >&
+      e_soulaffixessuit_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixessuit >*
+      mutable_e_soulaffixessuit_list();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SoulAffixes_suit)
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_SoulAffixessuit)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suit > e_soulaffixes_suit_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixessuit > e_soulaffixessuit_list_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -6028,7 +5960,7 @@ class Sheet_SoulAffixes_suit : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_E_5fSoul_2eproto();
 
   void InitAsDefaultInstance();
-  static Sheet_SoulAffixes_suit* default_instance_;
+  static Sheet_SoulAffixessuit* default_instance_;
 };
 // ===================================================================
 
@@ -8334,245 +8266,6 @@ Sheet_SoulBone::mutable_e_soulbone_list() {
 
 // -------------------------------------------------------------------
 
-// E_SoulBoneequip
-
-// optional int32 m_equipId = 1;
-inline bool E_SoulBoneequip::has_m_equipid() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void E_SoulBoneequip::set_has_m_equipid() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void E_SoulBoneequip::clear_has_m_equipid() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void E_SoulBoneequip::clear_m_equipid() {
-  m_equipid_ = 0;
-  clear_has_m_equipid();
-}
-inline ::google::protobuf::int32 E_SoulBoneequip::m_equipid() const {
-  return m_equipid_;
-}
-inline void E_SoulBoneequip::set_m_equipid(::google::protobuf::int32 value) {
-  set_has_m_equipid();
-  m_equipid_ = value;
-}
-
-// optional string m_name = 2;
-inline bool E_SoulBoneequip::has_m_name() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void E_SoulBoneequip::set_has_m_name() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void E_SoulBoneequip::clear_has_m_name() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void E_SoulBoneequip::clear_m_name() {
-  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
-    m_name_->clear();
-  }
-  clear_has_m_name();
-}
-inline const ::std::string& E_SoulBoneequip::m_name() const {
-  return *m_name_;
-}
-inline void E_SoulBoneequip::set_m_name(const ::std::string& value) {
-  set_has_m_name();
-  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
-    m_name_ = new ::std::string;
-  }
-  m_name_->assign(value);
-}
-inline void E_SoulBoneequip::set_m_name(const char* value) {
-  set_has_m_name();
-  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
-    m_name_ = new ::std::string;
-  }
-  m_name_->assign(value);
-}
-inline void E_SoulBoneequip::set_m_name(const char* value, size_t size) {
-  set_has_m_name();
-  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
-    m_name_ = new ::std::string;
-  }
-  m_name_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* E_SoulBoneequip::mutable_m_name() {
-  set_has_m_name();
-  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
-    m_name_ = new ::std::string;
-  }
-  return m_name_;
-}
-inline ::std::string* E_SoulBoneequip::release_m_name() {
-  clear_has_m_name();
-  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = m_name_;
-    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void E_SoulBoneequip::set_allocated_m_name(::std::string* m_name) {
-  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
-    delete m_name_;
-  }
-  if (m_name) {
-    set_has_m_name();
-    m_name_ = m_name;
-  } else {
-    clear_has_m_name();
-    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// optional int32 m_part = 3;
-inline bool E_SoulBoneequip::has_m_part() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void E_SoulBoneequip::set_has_m_part() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void E_SoulBoneequip::clear_has_m_part() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void E_SoulBoneequip::clear_m_part() {
-  m_part_ = 0;
-  clear_has_m_part();
-}
-inline ::google::protobuf::int32 E_SoulBoneequip::m_part() const {
-  return m_part_;
-}
-inline void E_SoulBoneequip::set_m_part(::google::protobuf::int32 value) {
-  set_has_m_part();
-  m_part_ = value;
-}
-
-// optional int32 m_quality = 4;
-inline bool E_SoulBoneequip::has_m_quality() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void E_SoulBoneequip::set_has_m_quality() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void E_SoulBoneequip::clear_has_m_quality() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void E_SoulBoneequip::clear_m_quality() {
-  m_quality_ = 0;
-  clear_has_m_quality();
-}
-inline ::google::protobuf::int32 E_SoulBoneequip::m_quality() const {
-  return m_quality_;
-}
-inline void E_SoulBoneequip::set_m_quality(::google::protobuf::int32 value) {
-  set_has_m_quality();
-  m_quality_ = value;
-}
-
-// optional int32 m_star = 5;
-inline bool E_SoulBoneequip::has_m_star() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void E_SoulBoneequip::set_has_m_star() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void E_SoulBoneequip::clear_has_m_star() {
-  _has_bits_[0] &= ~0x00000010u;
-}
-inline void E_SoulBoneequip::clear_m_star() {
-  m_star_ = 0;
-  clear_has_m_star();
-}
-inline ::google::protobuf::int32 E_SoulBoneequip::m_star() const {
-  return m_star_;
-}
-inline void E_SoulBoneequip::set_m_star(::google::protobuf::int32 value) {
-  set_has_m_star();
-  m_star_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// Sheet_SoulBoneequip
-
-// repeated .proto_ff.E_SoulBoneequip E_SoulBoneequip_List = 1;
-inline int Sheet_SoulBoneequip::e_soulboneequip_list_size() const {
-  return e_soulboneequip_list_.size();
-}
-inline void Sheet_SoulBoneequip::clear_e_soulboneequip_list() {
-  e_soulboneequip_list_.Clear();
-}
-inline const ::proto_ff::E_SoulBoneequip& Sheet_SoulBoneequip::e_soulboneequip_list(int index) const {
-  return e_soulboneequip_list_.Get(index);
-}
-inline ::proto_ff::E_SoulBoneequip* Sheet_SoulBoneequip::mutable_e_soulboneequip_list(int index) {
-  return e_soulboneequip_list_.Mutable(index);
-}
-inline ::proto_ff::E_SoulBoneequip* Sheet_SoulBoneequip::add_e_soulboneequip_list() {
-  return e_soulboneequip_list_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulBoneequip >&
-Sheet_SoulBoneequip::e_soulboneequip_list() const {
-  return e_soulboneequip_list_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulBoneequip >*
-Sheet_SoulBoneequip::mutable_e_soulboneequip_list() {
-  return &e_soulboneequip_list_;
-}
-
-// -------------------------------------------------------------------
-
-// E_SoulBoneskillPassiveDesc
-
-// optional int32 m_Lv = 1;
-inline bool E_SoulBoneskillPassiveDesc::has_m_lv() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void E_SoulBoneskillPassiveDesc::set_has_m_lv() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void E_SoulBoneskillPassiveDesc::clear_has_m_lv() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void E_SoulBoneskillPassiveDesc::clear_m_lv() {
-  m_lv_ = 0;
-  clear_has_m_lv();
-}
-inline ::google::protobuf::int32 E_SoulBoneskillPassiveDesc::m_lv() const {
-  return m_lv_;
-}
-inline void E_SoulBoneskillPassiveDesc::set_m_lv(::google::protobuf::int32 value) {
-  set_has_m_lv();
-  m_lv_ = value;
-}
-
-// optional int32 m_Skill = 2;
-inline bool E_SoulBoneskillPassiveDesc::has_m_skill() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void E_SoulBoneskillPassiveDesc::set_has_m_skill() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void E_SoulBoneskillPassiveDesc::clear_has_m_skill() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void E_SoulBoneskillPassiveDesc::clear_m_skill() {
-  m_skill_ = 0;
-  clear_has_m_skill();
-}
-inline ::google::protobuf::int32 E_SoulBoneskillPassiveDesc::m_skill() const {
-  return m_skill_;
-}
-inline void E_SoulBoneskillPassiveDesc::set_m_skill(::google::protobuf::int32 value) {
-  set_has_m_skill();
-  m_skill_ = value;
-}
-
-// -------------------------------------------------------------------
-
 // E_SoulBoneskill
 
 // optional int32 m_id = 1;
@@ -8707,29 +8400,29 @@ inline void E_SoulBoneskill::set_m_activeskilllv(::google::protobuf::int32 value
   m_activeskilllv_ = value;
 }
 
-// repeated .proto_ff.E_SoulBoneskillPassiveDesc m_passive = 7;
-inline int E_SoulBoneskill::m_passive_size() const {
-  return m_passive_.size();
+// repeated int32 m_passive_Skill = 7;
+inline int E_SoulBoneskill::m_passive_skill_size() const {
+  return m_passive_skill_.size();
 }
-inline void E_SoulBoneskill::clear_m_passive() {
-  m_passive_.Clear();
+inline void E_SoulBoneskill::clear_m_passive_skill() {
+  m_passive_skill_.Clear();
 }
-inline const ::proto_ff::E_SoulBoneskillPassiveDesc& E_SoulBoneskill::m_passive(int index) const {
-  return m_passive_.Get(index);
+inline ::google::protobuf::int32 E_SoulBoneskill::m_passive_skill(int index) const {
+  return m_passive_skill_.Get(index);
 }
-inline ::proto_ff::E_SoulBoneskillPassiveDesc* E_SoulBoneskill::mutable_m_passive(int index) {
-  return m_passive_.Mutable(index);
+inline void E_SoulBoneskill::set_m_passive_skill(int index, ::google::protobuf::int32 value) {
+  m_passive_skill_.Set(index, value);
 }
-inline ::proto_ff::E_SoulBoneskillPassiveDesc* E_SoulBoneskill::add_m_passive() {
-  return m_passive_.Add();
+inline void E_SoulBoneskill::add_m_passive_skill(::google::protobuf::int32 value) {
+  m_passive_skill_.Add(value);
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulBoneskillPassiveDesc >&
-E_SoulBoneskill::m_passive() const {
-  return m_passive_;
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+E_SoulBoneskill::m_passive_skill() const {
+  return m_passive_skill_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulBoneskillPassiveDesc >*
-E_SoulBoneskill::mutable_m_passive() {
-  return &m_passive_;
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+E_SoulBoneskill::mutable_m_passive_skill() {
+  return &m_passive_skill_;
 }
 
 // -------------------------------------------------------------------
@@ -9060,78 +8753,78 @@ Sheet_SoulBonestrong::mutable_e_soulbonestrong_list() {
 
 // -------------------------------------------------------------------
 
-// E_SoulGuwen_type
+// E_SoulGuwentype
 
 // optional int32 m_id = 1;
-inline bool E_SoulGuwen_type::has_m_id() const {
+inline bool E_SoulGuwentype::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void E_SoulGuwen_type::set_has_m_id() {
+inline void E_SoulGuwentype::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void E_SoulGuwen_type::clear_has_m_id() {
+inline void E_SoulGuwentype::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void E_SoulGuwen_type::clear_m_id() {
+inline void E_SoulGuwentype::clear_m_id() {
   m_id_ = 0;
   clear_has_m_id();
 }
-inline ::google::protobuf::int32 E_SoulGuwen_type::m_id() const {
+inline ::google::protobuf::int32 E_SoulGuwentype::m_id() const {
   return m_id_;
 }
-inline void E_SoulGuwen_type::set_m_id(::google::protobuf::int32 value) {
+inline void E_SoulGuwentype::set_m_id(::google::protobuf::int32 value) {
   set_has_m_id();
   m_id_ = value;
 }
 
 // optional string m_name = 2;
-inline bool E_SoulGuwen_type::has_m_name() const {
+inline bool E_SoulGuwentype::has_m_name() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void E_SoulGuwen_type::set_has_m_name() {
+inline void E_SoulGuwentype::set_has_m_name() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void E_SoulGuwen_type::clear_has_m_name() {
+inline void E_SoulGuwentype::clear_has_m_name() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void E_SoulGuwen_type::clear_m_name() {
+inline void E_SoulGuwentype::clear_m_name() {
   if (m_name_ != &::google::protobuf::internal::kEmptyString) {
     m_name_->clear();
   }
   clear_has_m_name();
 }
-inline const ::std::string& E_SoulGuwen_type::m_name() const {
+inline const ::std::string& E_SoulGuwentype::m_name() const {
   return *m_name_;
 }
-inline void E_SoulGuwen_type::set_m_name(const ::std::string& value) {
+inline void E_SoulGuwentype::set_m_name(const ::std::string& value) {
   set_has_m_name();
   if (m_name_ == &::google::protobuf::internal::kEmptyString) {
     m_name_ = new ::std::string;
   }
   m_name_->assign(value);
 }
-inline void E_SoulGuwen_type::set_m_name(const char* value) {
+inline void E_SoulGuwentype::set_m_name(const char* value) {
   set_has_m_name();
   if (m_name_ == &::google::protobuf::internal::kEmptyString) {
     m_name_ = new ::std::string;
   }
   m_name_->assign(value);
 }
-inline void E_SoulGuwen_type::set_m_name(const char* value, size_t size) {
+inline void E_SoulGuwentype::set_m_name(const char* value, size_t size) {
   set_has_m_name();
   if (m_name_ == &::google::protobuf::internal::kEmptyString) {
     m_name_ = new ::std::string;
   }
   m_name_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* E_SoulGuwen_type::mutable_m_name() {
+inline ::std::string* E_SoulGuwentype::mutable_m_name() {
   set_has_m_name();
   if (m_name_ == &::google::protobuf::internal::kEmptyString) {
     m_name_ = new ::std::string;
   }
   return m_name_;
 }
-inline ::std::string* E_SoulGuwen_type::release_m_name() {
+inline ::std::string* E_SoulGuwentype::release_m_name() {
   clear_has_m_name();
   if (m_name_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -9141,7 +8834,7 @@ inline ::std::string* E_SoulGuwen_type::release_m_name() {
     return temp;
   }
 }
-inline void E_SoulGuwen_type::set_allocated_m_name(::std::string* m_name) {
+inline void E_SoulGuwentype::set_allocated_m_name(::std::string* m_name) {
   if (m_name_ != &::google::protobuf::internal::kEmptyString) {
     delete m_name_;
   }
@@ -9155,473 +8848,473 @@ inline void E_SoulGuwen_type::set_allocated_m_name(::std::string* m_name) {
 }
 
 // optional int32 m_quality = 3;
-inline bool E_SoulGuwen_type::has_m_quality() const {
+inline bool E_SoulGuwentype::has_m_quality() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void E_SoulGuwen_type::set_has_m_quality() {
+inline void E_SoulGuwentype::set_has_m_quality() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void E_SoulGuwen_type::clear_has_m_quality() {
+inline void E_SoulGuwentype::clear_has_m_quality() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void E_SoulGuwen_type::clear_m_quality() {
+inline void E_SoulGuwentype::clear_m_quality() {
   m_quality_ = 0;
   clear_has_m_quality();
 }
-inline ::google::protobuf::int32 E_SoulGuwen_type::m_quality() const {
+inline ::google::protobuf::int32 E_SoulGuwentype::m_quality() const {
   return m_quality_;
 }
-inline void E_SoulGuwen_type::set_m_quality(::google::protobuf::int32 value) {
+inline void E_SoulGuwentype::set_m_quality(::google::protobuf::int32 value) {
   set_has_m_quality();
   m_quality_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_SoulGuwen_type
+// Sheet_SoulGuwentype
 
-// repeated .proto_ff.E_SoulGuwen_type E_SoulGuwen_type_List = 1;
-inline int Sheet_SoulGuwen_type::e_soulguwen_type_list_size() const {
-  return e_soulguwen_type_list_.size();
+// repeated .proto_ff.E_SoulGuwentype E_SoulGuwentype_List = 1;
+inline int Sheet_SoulGuwentype::e_soulguwentype_list_size() const {
+  return e_soulguwentype_list_.size();
 }
-inline void Sheet_SoulGuwen_type::clear_e_soulguwen_type_list() {
-  e_soulguwen_type_list_.Clear();
+inline void Sheet_SoulGuwentype::clear_e_soulguwentype_list() {
+  e_soulguwentype_list_.Clear();
 }
-inline const ::proto_ff::E_SoulGuwen_type& Sheet_SoulGuwen_type::e_soulguwen_type_list(int index) const {
-  return e_soulguwen_type_list_.Get(index);
+inline const ::proto_ff::E_SoulGuwentype& Sheet_SoulGuwentype::e_soulguwentype_list(int index) const {
+  return e_soulguwentype_list_.Get(index);
 }
-inline ::proto_ff::E_SoulGuwen_type* Sheet_SoulGuwen_type::mutable_e_soulguwen_type_list(int index) {
-  return e_soulguwen_type_list_.Mutable(index);
+inline ::proto_ff::E_SoulGuwentype* Sheet_SoulGuwentype::mutable_e_soulguwentype_list(int index) {
+  return e_soulguwentype_list_.Mutable(index);
 }
-inline ::proto_ff::E_SoulGuwen_type* Sheet_SoulGuwen_type::add_e_soulguwen_type_list() {
-  return e_soulguwen_type_list_.Add();
+inline ::proto_ff::E_SoulGuwentype* Sheet_SoulGuwentype::add_e_soulguwentype_list() {
+  return e_soulguwentype_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type >&
-Sheet_SoulGuwen_type::e_soulguwen_type_list() const {
-  return e_soulguwen_type_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwentype >&
+Sheet_SoulGuwentype::e_soulguwentype_list() const {
+  return e_soulguwentype_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type >*
-Sheet_SoulGuwen_type::mutable_e_soulguwen_type_list() {
-  return &e_soulguwen_type_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwentype >*
+Sheet_SoulGuwentype::mutable_e_soulguwentype_list() {
+  return &e_soulguwentype_list_;
 }
 
 // -------------------------------------------------------------------
 
-// E_SoulGuwen_type_suitAttributeDesc
+// E_SoulGuwentypesuitAttributeDesc
 
 // optional int32 m_value = 1;
-inline bool E_SoulGuwen_type_suitAttributeDesc::has_m_value() const {
+inline bool E_SoulGuwentypesuitAttributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void E_SoulGuwen_type_suitAttributeDesc::set_has_m_value() {
+inline void E_SoulGuwentypesuitAttributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void E_SoulGuwen_type_suitAttributeDesc::clear_has_m_value() {
+inline void E_SoulGuwentypesuitAttributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void E_SoulGuwen_type_suitAttributeDesc::clear_m_value() {
+inline void E_SoulGuwentypesuitAttributeDesc::clear_m_value() {
   m_value_ = 0;
   clear_has_m_value();
 }
-inline ::google::protobuf::int32 E_SoulGuwen_type_suitAttributeDesc::m_value() const {
+inline ::google::protobuf::int32 E_SoulGuwentypesuitAttributeDesc::m_value() const {
   return m_value_;
 }
-inline void E_SoulGuwen_type_suitAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+inline void E_SoulGuwentypesuitAttributeDesc::set_m_value(::google::protobuf::int32 value) {
   set_has_m_value();
   m_value_ = value;
 }
 
 // optional int32 m_type = 2;
-inline bool E_SoulGuwen_type_suitAttributeDesc::has_m_type() const {
+inline bool E_SoulGuwentypesuitAttributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void E_SoulGuwen_type_suitAttributeDesc::set_has_m_type() {
+inline void E_SoulGuwentypesuitAttributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void E_SoulGuwen_type_suitAttributeDesc::clear_has_m_type() {
+inline void E_SoulGuwentypesuitAttributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void E_SoulGuwen_type_suitAttributeDesc::clear_m_type() {
+inline void E_SoulGuwentypesuitAttributeDesc::clear_m_type() {
   m_type_ = 0;
   clear_has_m_type();
 }
-inline ::google::protobuf::int32 E_SoulGuwen_type_suitAttributeDesc::m_type() const {
+inline ::google::protobuf::int32 E_SoulGuwentypesuitAttributeDesc::m_type() const {
   return m_type_;
 }
-inline void E_SoulGuwen_type_suitAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+inline void E_SoulGuwentypesuitAttributeDesc::set_m_type(::google::protobuf::int32 value) {
   set_has_m_type();
   m_type_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// E_SoulGuwen_type_suit
+// E_SoulGuwentypesuit
 
 // optional int32 m_id = 1;
-inline bool E_SoulGuwen_type_suit::has_m_id() const {
+inline bool E_SoulGuwentypesuit::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void E_SoulGuwen_type_suit::set_has_m_id() {
+inline void E_SoulGuwentypesuit::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void E_SoulGuwen_type_suit::clear_has_m_id() {
+inline void E_SoulGuwentypesuit::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void E_SoulGuwen_type_suit::clear_m_id() {
+inline void E_SoulGuwentypesuit::clear_m_id() {
   m_id_ = 0;
   clear_has_m_id();
 }
-inline ::google::protobuf::int32 E_SoulGuwen_type_suit::m_id() const {
+inline ::google::protobuf::int32 E_SoulGuwentypesuit::m_id() const {
   return m_id_;
 }
-inline void E_SoulGuwen_type_suit::set_m_id(::google::protobuf::int32 value) {
+inline void E_SoulGuwentypesuit::set_m_id(::google::protobuf::int32 value) {
   set_has_m_id();
   m_id_ = value;
 }
 
 // optional int32 m_typeId = 2;
-inline bool E_SoulGuwen_type_suit::has_m_typeid() const {
+inline bool E_SoulGuwentypesuit::has_m_typeid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void E_SoulGuwen_type_suit::set_has_m_typeid() {
+inline void E_SoulGuwentypesuit::set_has_m_typeid() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void E_SoulGuwen_type_suit::clear_has_m_typeid() {
+inline void E_SoulGuwentypesuit::clear_has_m_typeid() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void E_SoulGuwen_type_suit::clear_m_typeid() {
+inline void E_SoulGuwentypesuit::clear_m_typeid() {
   m_typeid_ = 0;
   clear_has_m_typeid();
 }
-inline ::google::protobuf::int32 E_SoulGuwen_type_suit::m_typeid() const {
+inline ::google::protobuf::int32 E_SoulGuwentypesuit::m_typeid() const {
   return m_typeid_;
 }
-inline void E_SoulGuwen_type_suit::set_m_typeid(::google::protobuf::int32 value) {
+inline void E_SoulGuwentypesuit::set_m_typeid(::google::protobuf::int32 value) {
   set_has_m_typeid();
   m_typeid_ = value;
 }
 
 // optional int32 m_num = 3;
-inline bool E_SoulGuwen_type_suit::has_m_num() const {
+inline bool E_SoulGuwentypesuit::has_m_num() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void E_SoulGuwen_type_suit::set_has_m_num() {
+inline void E_SoulGuwentypesuit::set_has_m_num() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void E_SoulGuwen_type_suit::clear_has_m_num() {
+inline void E_SoulGuwentypesuit::clear_has_m_num() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void E_SoulGuwen_type_suit::clear_m_num() {
+inline void E_SoulGuwentypesuit::clear_m_num() {
   m_num_ = 0;
   clear_has_m_num();
 }
-inline ::google::protobuf::int32 E_SoulGuwen_type_suit::m_num() const {
+inline ::google::protobuf::int32 E_SoulGuwentypesuit::m_num() const {
   return m_num_;
 }
-inline void E_SoulGuwen_type_suit::set_m_num(::google::protobuf::int32 value) {
+inline void E_SoulGuwentypesuit::set_m_num(::google::protobuf::int32 value) {
   set_has_m_num();
   m_num_ = value;
 }
 
-// repeated .proto_ff.E_SoulGuwen_type_suitAttributeDesc m_attribute = 4;
-inline int E_SoulGuwen_type_suit::m_attribute_size() const {
+// repeated .proto_ff.E_SoulGuwentypesuitAttributeDesc m_attribute = 4;
+inline int E_SoulGuwentypesuit::m_attribute_size() const {
   return m_attribute_.size();
 }
-inline void E_SoulGuwen_type_suit::clear_m_attribute() {
+inline void E_SoulGuwentypesuit::clear_m_attribute() {
   m_attribute_.Clear();
 }
-inline const ::proto_ff::E_SoulGuwen_type_suitAttributeDesc& E_SoulGuwen_type_suit::m_attribute(int index) const {
+inline const ::proto_ff::E_SoulGuwentypesuitAttributeDesc& E_SoulGuwentypesuit::m_attribute(int index) const {
   return m_attribute_.Get(index);
 }
-inline ::proto_ff::E_SoulGuwen_type_suitAttributeDesc* E_SoulGuwen_type_suit::mutable_m_attribute(int index) {
+inline ::proto_ff::E_SoulGuwentypesuitAttributeDesc* E_SoulGuwentypesuit::mutable_m_attribute(int index) {
   return m_attribute_.Mutable(index);
 }
-inline ::proto_ff::E_SoulGuwen_type_suitAttributeDesc* E_SoulGuwen_type_suit::add_m_attribute() {
+inline ::proto_ff::E_SoulGuwentypesuitAttributeDesc* E_SoulGuwentypesuit::add_m_attribute() {
   return m_attribute_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type_suitAttributeDesc >&
-E_SoulGuwen_type_suit::m_attribute() const {
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwentypesuitAttributeDesc >&
+E_SoulGuwentypesuit::m_attribute() const {
   return m_attribute_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type_suitAttributeDesc >*
-E_SoulGuwen_type_suit::mutable_m_attribute() {
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwentypesuitAttributeDesc >*
+E_SoulGuwentypesuit::mutable_m_attribute() {
   return &m_attribute_;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_SoulGuwen_type_suit
+// Sheet_SoulGuwentypesuit
 
-// repeated .proto_ff.E_SoulGuwen_type_suit E_SoulGuwen_type_suit_List = 1;
-inline int Sheet_SoulGuwen_type_suit::e_soulguwen_type_suit_list_size() const {
-  return e_soulguwen_type_suit_list_.size();
+// repeated .proto_ff.E_SoulGuwentypesuit E_SoulGuwentypesuit_List = 1;
+inline int Sheet_SoulGuwentypesuit::e_soulguwentypesuit_list_size() const {
+  return e_soulguwentypesuit_list_.size();
 }
-inline void Sheet_SoulGuwen_type_suit::clear_e_soulguwen_type_suit_list() {
-  e_soulguwen_type_suit_list_.Clear();
+inline void Sheet_SoulGuwentypesuit::clear_e_soulguwentypesuit_list() {
+  e_soulguwentypesuit_list_.Clear();
 }
-inline const ::proto_ff::E_SoulGuwen_type_suit& Sheet_SoulGuwen_type_suit::e_soulguwen_type_suit_list(int index) const {
-  return e_soulguwen_type_suit_list_.Get(index);
+inline const ::proto_ff::E_SoulGuwentypesuit& Sheet_SoulGuwentypesuit::e_soulguwentypesuit_list(int index) const {
+  return e_soulguwentypesuit_list_.Get(index);
 }
-inline ::proto_ff::E_SoulGuwen_type_suit* Sheet_SoulGuwen_type_suit::mutable_e_soulguwen_type_suit_list(int index) {
-  return e_soulguwen_type_suit_list_.Mutable(index);
+inline ::proto_ff::E_SoulGuwentypesuit* Sheet_SoulGuwentypesuit::mutable_e_soulguwentypesuit_list(int index) {
+  return e_soulguwentypesuit_list_.Mutable(index);
 }
-inline ::proto_ff::E_SoulGuwen_type_suit* Sheet_SoulGuwen_type_suit::add_e_soulguwen_type_suit_list() {
-  return e_soulguwen_type_suit_list_.Add();
+inline ::proto_ff::E_SoulGuwentypesuit* Sheet_SoulGuwentypesuit::add_e_soulguwentypesuit_list() {
+  return e_soulguwentypesuit_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type_suit >&
-Sheet_SoulGuwen_type_suit::e_soulguwen_type_suit_list() const {
-  return e_soulguwen_type_suit_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwentypesuit >&
+Sheet_SoulGuwentypesuit::e_soulguwentypesuit_list() const {
+  return e_soulguwentypesuit_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_type_suit >*
-Sheet_SoulGuwen_type_suit::mutable_e_soulguwen_type_suit_list() {
-  return &e_soulguwen_type_suit_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwentypesuit >*
+Sheet_SoulGuwentypesuit::mutable_e_soulguwentypesuit_list() {
+  return &e_soulguwentypesuit_list_;
 }
 
 // -------------------------------------------------------------------
 
-// E_SoulGuwen_skill
+// E_SoulGuwenskill
 
 // optional int32 m_id = 1;
-inline bool E_SoulGuwen_skill::has_m_id() const {
+inline bool E_SoulGuwenskill::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void E_SoulGuwen_skill::set_has_m_id() {
+inline void E_SoulGuwenskill::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void E_SoulGuwen_skill::clear_has_m_id() {
+inline void E_SoulGuwenskill::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void E_SoulGuwen_skill::clear_m_id() {
+inline void E_SoulGuwenskill::clear_m_id() {
   m_id_ = 0;
   clear_has_m_id();
 }
-inline ::google::protobuf::int32 E_SoulGuwen_skill::m_id() const {
+inline ::google::protobuf::int32 E_SoulGuwenskill::m_id() const {
   return m_id_;
 }
-inline void E_SoulGuwen_skill::set_m_id(::google::protobuf::int32 value) {
+inline void E_SoulGuwenskill::set_m_id(::google::protobuf::int32 value) {
   set_has_m_id();
   m_id_ = value;
 }
 
 // optional int32 m_type = 2;
-inline bool E_SoulGuwen_skill::has_m_type() const {
+inline bool E_SoulGuwenskill::has_m_type() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void E_SoulGuwen_skill::set_has_m_type() {
+inline void E_SoulGuwenskill::set_has_m_type() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void E_SoulGuwen_skill::clear_has_m_type() {
+inline void E_SoulGuwenskill::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void E_SoulGuwen_skill::clear_m_type() {
+inline void E_SoulGuwenskill::clear_m_type() {
   m_type_ = 0;
   clear_has_m_type();
 }
-inline ::google::protobuf::int32 E_SoulGuwen_skill::m_type() const {
+inline ::google::protobuf::int32 E_SoulGuwenskill::m_type() const {
   return m_type_;
 }
-inline void E_SoulGuwen_skill::set_m_type(::google::protobuf::int32 value) {
+inline void E_SoulGuwenskill::set_m_type(::google::protobuf::int32 value) {
   set_has_m_type();
   m_type_ = value;
 }
 
 // optional int32 m_skillId = 3;
-inline bool E_SoulGuwen_skill::has_m_skillid() const {
+inline bool E_SoulGuwenskill::has_m_skillid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void E_SoulGuwen_skill::set_has_m_skillid() {
+inline void E_SoulGuwenskill::set_has_m_skillid() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void E_SoulGuwen_skill::clear_has_m_skillid() {
+inline void E_SoulGuwenskill::clear_has_m_skillid() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void E_SoulGuwen_skill::clear_m_skillid() {
+inline void E_SoulGuwenskill::clear_m_skillid() {
   m_skillid_ = 0;
   clear_has_m_skillid();
 }
-inline ::google::protobuf::int32 E_SoulGuwen_skill::m_skillid() const {
+inline ::google::protobuf::int32 E_SoulGuwenskill::m_skillid() const {
   return m_skillid_;
 }
-inline void E_SoulGuwen_skill::set_m_skillid(::google::protobuf::int32 value) {
+inline void E_SoulGuwenskill::set_m_skillid(::google::protobuf::int32 value) {
   set_has_m_skillid();
   m_skillid_ = value;
 }
 
 // optional int32 m_quality = 4;
-inline bool E_SoulGuwen_skill::has_m_quality() const {
+inline bool E_SoulGuwenskill::has_m_quality() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void E_SoulGuwen_skill::set_has_m_quality() {
+inline void E_SoulGuwenskill::set_has_m_quality() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void E_SoulGuwen_skill::clear_has_m_quality() {
+inline void E_SoulGuwenskill::clear_has_m_quality() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void E_SoulGuwen_skill::clear_m_quality() {
+inline void E_SoulGuwenskill::clear_m_quality() {
   m_quality_ = 0;
   clear_has_m_quality();
 }
-inline ::google::protobuf::int32 E_SoulGuwen_skill::m_quality() const {
+inline ::google::protobuf::int32 E_SoulGuwenskill::m_quality() const {
   return m_quality_;
 }
-inline void E_SoulGuwen_skill::set_m_quality(::google::protobuf::int32 value) {
+inline void E_SoulGuwenskill::set_m_quality(::google::protobuf::int32 value) {
   set_has_m_quality();
   m_quality_ = value;
 }
 
 // repeated int32 m_skillLevel = 5;
-inline int E_SoulGuwen_skill::m_skilllevel_size() const {
+inline int E_SoulGuwenskill::m_skilllevel_size() const {
   return m_skilllevel_.size();
 }
-inline void E_SoulGuwen_skill::clear_m_skilllevel() {
+inline void E_SoulGuwenskill::clear_m_skilllevel() {
   m_skilllevel_.Clear();
 }
-inline ::google::protobuf::int32 E_SoulGuwen_skill::m_skilllevel(int index) const {
+inline ::google::protobuf::int32 E_SoulGuwenskill::m_skilllevel(int index) const {
   return m_skilllevel_.Get(index);
 }
-inline void E_SoulGuwen_skill::set_m_skilllevel(int index, ::google::protobuf::int32 value) {
+inline void E_SoulGuwenskill::set_m_skilllevel(int index, ::google::protobuf::int32 value) {
   m_skilllevel_.Set(index, value);
 }
-inline void E_SoulGuwen_skill::add_m_skilllevel(::google::protobuf::int32 value) {
+inline void E_SoulGuwenskill::add_m_skilllevel(::google::protobuf::int32 value) {
   m_skilllevel_.Add(value);
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-E_SoulGuwen_skill::m_skilllevel() const {
+E_SoulGuwenskill::m_skilllevel() const {
   return m_skilllevel_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-E_SoulGuwen_skill::mutable_m_skilllevel() {
+E_SoulGuwenskill::mutable_m_skilllevel() {
   return &m_skilllevel_;
 }
 
 // repeated int32 m_num = 6;
-inline int E_SoulGuwen_skill::m_num_size() const {
+inline int E_SoulGuwenskill::m_num_size() const {
   return m_num_.size();
 }
-inline void E_SoulGuwen_skill::clear_m_num() {
+inline void E_SoulGuwenskill::clear_m_num() {
   m_num_.Clear();
 }
-inline ::google::protobuf::int32 E_SoulGuwen_skill::m_num(int index) const {
+inline ::google::protobuf::int32 E_SoulGuwenskill::m_num(int index) const {
   return m_num_.Get(index);
 }
-inline void E_SoulGuwen_skill::set_m_num(int index, ::google::protobuf::int32 value) {
+inline void E_SoulGuwenskill::set_m_num(int index, ::google::protobuf::int32 value) {
   m_num_.Set(index, value);
 }
-inline void E_SoulGuwen_skill::add_m_num(::google::protobuf::int32 value) {
+inline void E_SoulGuwenskill::add_m_num(::google::protobuf::int32 value) {
   m_num_.Add(value);
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-E_SoulGuwen_skill::m_num() const {
+E_SoulGuwenskill::m_num() const {
   return m_num_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-E_SoulGuwen_skill::mutable_m_num() {
+E_SoulGuwenskill::mutable_m_num() {
   return &m_num_;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_SoulGuwen_skill
+// Sheet_SoulGuwenskill
 
-// repeated .proto_ff.E_SoulGuwen_skill E_SoulGuwen_skill_List = 1;
-inline int Sheet_SoulGuwen_skill::e_soulguwen_skill_list_size() const {
-  return e_soulguwen_skill_list_.size();
+// repeated .proto_ff.E_SoulGuwenskill E_SoulGuwenskill_List = 1;
+inline int Sheet_SoulGuwenskill::e_soulguwenskill_list_size() const {
+  return e_soulguwenskill_list_.size();
 }
-inline void Sheet_SoulGuwen_skill::clear_e_soulguwen_skill_list() {
-  e_soulguwen_skill_list_.Clear();
+inline void Sheet_SoulGuwenskill::clear_e_soulguwenskill_list() {
+  e_soulguwenskill_list_.Clear();
 }
-inline const ::proto_ff::E_SoulGuwen_skill& Sheet_SoulGuwen_skill::e_soulguwen_skill_list(int index) const {
-  return e_soulguwen_skill_list_.Get(index);
+inline const ::proto_ff::E_SoulGuwenskill& Sheet_SoulGuwenskill::e_soulguwenskill_list(int index) const {
+  return e_soulguwenskill_list_.Get(index);
 }
-inline ::proto_ff::E_SoulGuwen_skill* Sheet_SoulGuwen_skill::mutable_e_soulguwen_skill_list(int index) {
-  return e_soulguwen_skill_list_.Mutable(index);
+inline ::proto_ff::E_SoulGuwenskill* Sheet_SoulGuwenskill::mutable_e_soulguwenskill_list(int index) {
+  return e_soulguwenskill_list_.Mutable(index);
 }
-inline ::proto_ff::E_SoulGuwen_skill* Sheet_SoulGuwen_skill::add_e_soulguwen_skill_list() {
-  return e_soulguwen_skill_list_.Add();
+inline ::proto_ff::E_SoulGuwenskill* Sheet_SoulGuwenskill::add_e_soulguwenskill_list() {
+  return e_soulguwenskill_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_skill >&
-Sheet_SoulGuwen_skill::e_soulguwen_skill_list() const {
-  return e_soulguwen_skill_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwenskill >&
+Sheet_SoulGuwenskill::e_soulguwenskill_list() const {
+  return e_soulguwenskill_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_skill >*
-Sheet_SoulGuwen_skill::mutable_e_soulguwen_skill_list() {
-  return &e_soulguwen_skill_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwenskill >*
+Sheet_SoulGuwenskill::mutable_e_soulguwenskill_list() {
+  return &e_soulguwenskill_list_;
 }
 
 // -------------------------------------------------------------------
 
-// E_SoulGuwen_slot
+// E_SoulGuwenslot
 
 // optional int32 m_id = 1;
-inline bool E_SoulGuwen_slot::has_m_id() const {
+inline bool E_SoulGuwenslot::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void E_SoulGuwen_slot::set_has_m_id() {
+inline void E_SoulGuwenslot::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void E_SoulGuwen_slot::clear_has_m_id() {
+inline void E_SoulGuwenslot::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void E_SoulGuwen_slot::clear_m_id() {
+inline void E_SoulGuwenslot::clear_m_id() {
   m_id_ = 0;
   clear_has_m_id();
 }
-inline ::google::protobuf::int32 E_SoulGuwen_slot::m_id() const {
+inline ::google::protobuf::int32 E_SoulGuwenslot::m_id() const {
   return m_id_;
 }
-inline void E_SoulGuwen_slot::set_m_id(::google::protobuf::int32 value) {
+inline void E_SoulGuwenslot::set_m_id(::google::protobuf::int32 value) {
   set_has_m_id();
   m_id_ = value;
 }
 
 // optional string m_name = 2;
-inline bool E_SoulGuwen_slot::has_m_name() const {
+inline bool E_SoulGuwenslot::has_m_name() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void E_SoulGuwen_slot::set_has_m_name() {
+inline void E_SoulGuwenslot::set_has_m_name() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void E_SoulGuwen_slot::clear_has_m_name() {
+inline void E_SoulGuwenslot::clear_has_m_name() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void E_SoulGuwen_slot::clear_m_name() {
+inline void E_SoulGuwenslot::clear_m_name() {
   if (m_name_ != &::google::protobuf::internal::kEmptyString) {
     m_name_->clear();
   }
   clear_has_m_name();
 }
-inline const ::std::string& E_SoulGuwen_slot::m_name() const {
+inline const ::std::string& E_SoulGuwenslot::m_name() const {
   return *m_name_;
 }
-inline void E_SoulGuwen_slot::set_m_name(const ::std::string& value) {
+inline void E_SoulGuwenslot::set_m_name(const ::std::string& value) {
   set_has_m_name();
   if (m_name_ == &::google::protobuf::internal::kEmptyString) {
     m_name_ = new ::std::string;
   }
   m_name_->assign(value);
 }
-inline void E_SoulGuwen_slot::set_m_name(const char* value) {
+inline void E_SoulGuwenslot::set_m_name(const char* value) {
   set_has_m_name();
   if (m_name_ == &::google::protobuf::internal::kEmptyString) {
     m_name_ = new ::std::string;
   }
   m_name_->assign(value);
 }
-inline void E_SoulGuwen_slot::set_m_name(const char* value, size_t size) {
+inline void E_SoulGuwenslot::set_m_name(const char* value, size_t size) {
   set_has_m_name();
   if (m_name_ == &::google::protobuf::internal::kEmptyString) {
     m_name_ = new ::std::string;
   }
   m_name_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* E_SoulGuwen_slot::mutable_m_name() {
+inline ::std::string* E_SoulGuwenslot::mutable_m_name() {
   set_has_m_name();
   if (m_name_ == &::google::protobuf::internal::kEmptyString) {
     m_name_ = new ::std::string;
   }
   return m_name_;
 }
-inline ::std::string* E_SoulGuwen_slot::release_m_name() {
+inline ::std::string* E_SoulGuwenslot::release_m_name() {
   clear_has_m_name();
   if (m_name_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -9631,7 +9324,7 @@ inline ::std::string* E_SoulGuwen_slot::release_m_name() {
     return temp;
   }
 }
-inline void E_SoulGuwen_slot::set_allocated_m_name(::std::string* m_name) {
+inline void E_SoulGuwenslot::set_allocated_m_name(::std::string* m_name) {
   if (m_name_ != &::google::protobuf::internal::kEmptyString) {
     delete m_name_;
   }
@@ -9645,248 +9338,457 @@ inline void E_SoulGuwen_slot::set_allocated_m_name(::std::string* m_name) {
 }
 
 // optional int32 m_position = 3;
-inline bool E_SoulGuwen_slot::has_m_position() const {
+inline bool E_SoulGuwenslot::has_m_position() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void E_SoulGuwen_slot::set_has_m_position() {
+inline void E_SoulGuwenslot::set_has_m_position() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void E_SoulGuwen_slot::clear_has_m_position() {
+inline void E_SoulGuwenslot::clear_has_m_position() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void E_SoulGuwen_slot::clear_m_position() {
+inline void E_SoulGuwenslot::clear_m_position() {
   m_position_ = 0;
   clear_has_m_position();
 }
-inline ::google::protobuf::int32 E_SoulGuwen_slot::m_position() const {
+inline ::google::protobuf::int32 E_SoulGuwenslot::m_position() const {
   return m_position_;
 }
-inline void E_SoulGuwen_slot::set_m_position(::google::protobuf::int32 value) {
+inline void E_SoulGuwenslot::set_m_position(::google::protobuf::int32 value) {
   set_has_m_position();
   m_position_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_SoulGuwen_slot
+// Sheet_SoulGuwenslot
 
-// repeated .proto_ff.E_SoulGuwen_slot E_SoulGuwen_slot_List = 1;
-inline int Sheet_SoulGuwen_slot::e_soulguwen_slot_list_size() const {
-  return e_soulguwen_slot_list_.size();
+// repeated .proto_ff.E_SoulGuwenslot E_SoulGuwenslot_List = 1;
+inline int Sheet_SoulGuwenslot::e_soulguwenslot_list_size() const {
+  return e_soulguwenslot_list_.size();
 }
-inline void Sheet_SoulGuwen_slot::clear_e_soulguwen_slot_list() {
-  e_soulguwen_slot_list_.Clear();
+inline void Sheet_SoulGuwenslot::clear_e_soulguwenslot_list() {
+  e_soulguwenslot_list_.Clear();
 }
-inline const ::proto_ff::E_SoulGuwen_slot& Sheet_SoulGuwen_slot::e_soulguwen_slot_list(int index) const {
-  return e_soulguwen_slot_list_.Get(index);
+inline const ::proto_ff::E_SoulGuwenslot& Sheet_SoulGuwenslot::e_soulguwenslot_list(int index) const {
+  return e_soulguwenslot_list_.Get(index);
 }
-inline ::proto_ff::E_SoulGuwen_slot* Sheet_SoulGuwen_slot::mutable_e_soulguwen_slot_list(int index) {
-  return e_soulguwen_slot_list_.Mutable(index);
+inline ::proto_ff::E_SoulGuwenslot* Sheet_SoulGuwenslot::mutable_e_soulguwenslot_list(int index) {
+  return e_soulguwenslot_list_.Mutable(index);
 }
-inline ::proto_ff::E_SoulGuwen_slot* Sheet_SoulGuwen_slot::add_e_soulguwen_slot_list() {
-  return e_soulguwen_slot_list_.Add();
+inline ::proto_ff::E_SoulGuwenslot* Sheet_SoulGuwenslot::add_e_soulguwenslot_list() {
+  return e_soulguwenslot_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_slot >&
-Sheet_SoulGuwen_slot::e_soulguwen_slot_list() const {
-  return e_soulguwen_slot_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwenslot >&
+Sheet_SoulGuwenslot::e_soulguwenslot_list() const {
+  return e_soulguwenslot_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_slot >*
-Sheet_SoulGuwen_slot::mutable_e_soulguwen_slot_list() {
-  return &e_soulguwen_slot_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwenslot >*
+Sheet_SoulGuwenslot::mutable_e_soulguwenslot_list() {
+  return &e_soulguwenslot_list_;
 }
 
 // -------------------------------------------------------------------
 
-// E_SoulGuwen_suitAttributeDesc
+// E_SoulGuwensuitAttributeDesc
 
 // optional int32 m_value = 1;
-inline bool E_SoulGuwen_suitAttributeDesc::has_m_value() const {
+inline bool E_SoulGuwensuitAttributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void E_SoulGuwen_suitAttributeDesc::set_has_m_value() {
+inline void E_SoulGuwensuitAttributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void E_SoulGuwen_suitAttributeDesc::clear_has_m_value() {
+inline void E_SoulGuwensuitAttributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void E_SoulGuwen_suitAttributeDesc::clear_m_value() {
+inline void E_SoulGuwensuitAttributeDesc::clear_m_value() {
   m_value_ = 0;
   clear_has_m_value();
 }
-inline ::google::protobuf::int32 E_SoulGuwen_suitAttributeDesc::m_value() const {
+inline ::google::protobuf::int32 E_SoulGuwensuitAttributeDesc::m_value() const {
   return m_value_;
 }
-inline void E_SoulGuwen_suitAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+inline void E_SoulGuwensuitAttributeDesc::set_m_value(::google::protobuf::int32 value) {
   set_has_m_value();
   m_value_ = value;
 }
 
 // optional int32 m_type = 2;
-inline bool E_SoulGuwen_suitAttributeDesc::has_m_type() const {
+inline bool E_SoulGuwensuitAttributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void E_SoulGuwen_suitAttributeDesc::set_has_m_type() {
+inline void E_SoulGuwensuitAttributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void E_SoulGuwen_suitAttributeDesc::clear_has_m_type() {
+inline void E_SoulGuwensuitAttributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void E_SoulGuwen_suitAttributeDesc::clear_m_type() {
+inline void E_SoulGuwensuitAttributeDesc::clear_m_type() {
   m_type_ = 0;
   clear_has_m_type();
 }
-inline ::google::protobuf::int32 E_SoulGuwen_suitAttributeDesc::m_type() const {
+inline ::google::protobuf::int32 E_SoulGuwensuitAttributeDesc::m_type() const {
   return m_type_;
 }
-inline void E_SoulGuwen_suitAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+inline void E_SoulGuwensuitAttributeDesc::set_m_type(::google::protobuf::int32 value) {
   set_has_m_type();
   m_type_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// E_SoulGuwen_suit
+// E_SoulGuwensuit
 
 // optional int32 m_id = 1;
-inline bool E_SoulGuwen_suit::has_m_id() const {
+inline bool E_SoulGuwensuit::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void E_SoulGuwen_suit::set_has_m_id() {
+inline void E_SoulGuwensuit::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void E_SoulGuwen_suit::clear_has_m_id() {
+inline void E_SoulGuwensuit::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void E_SoulGuwen_suit::clear_m_id() {
+inline void E_SoulGuwensuit::clear_m_id() {
   m_id_ = 0;
   clear_has_m_id();
 }
-inline ::google::protobuf::int32 E_SoulGuwen_suit::m_id() const {
+inline ::google::protobuf::int32 E_SoulGuwensuit::m_id() const {
   return m_id_;
 }
-inline void E_SoulGuwen_suit::set_m_id(::google::protobuf::int32 value) {
+inline void E_SoulGuwensuit::set_m_id(::google::protobuf::int32 value) {
   set_has_m_id();
   m_id_ = value;
 }
 
 // optional int32 m_boneId = 2;
-inline bool E_SoulGuwen_suit::has_m_boneid() const {
+inline bool E_SoulGuwensuit::has_m_boneid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void E_SoulGuwen_suit::set_has_m_boneid() {
+inline void E_SoulGuwensuit::set_has_m_boneid() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void E_SoulGuwen_suit::clear_has_m_boneid() {
+inline void E_SoulGuwensuit::clear_has_m_boneid() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void E_SoulGuwen_suit::clear_m_boneid() {
+inline void E_SoulGuwensuit::clear_m_boneid() {
   m_boneid_ = 0;
   clear_has_m_boneid();
 }
-inline ::google::protobuf::int32 E_SoulGuwen_suit::m_boneid() const {
+inline ::google::protobuf::int32 E_SoulGuwensuit::m_boneid() const {
   return m_boneid_;
 }
-inline void E_SoulGuwen_suit::set_m_boneid(::google::protobuf::int32 value) {
+inline void E_SoulGuwensuit::set_m_boneid(::google::protobuf::int32 value) {
   set_has_m_boneid();
   m_boneid_ = value;
 }
 
 // optional int32 m_typeId = 3;
-inline bool E_SoulGuwen_suit::has_m_typeid() const {
+inline bool E_SoulGuwensuit::has_m_typeid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void E_SoulGuwen_suit::set_has_m_typeid() {
+inline void E_SoulGuwensuit::set_has_m_typeid() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void E_SoulGuwen_suit::clear_has_m_typeid() {
+inline void E_SoulGuwensuit::clear_has_m_typeid() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void E_SoulGuwen_suit::clear_m_typeid() {
+inline void E_SoulGuwensuit::clear_m_typeid() {
   m_typeid_ = 0;
   clear_has_m_typeid();
 }
-inline ::google::protobuf::int32 E_SoulGuwen_suit::m_typeid() const {
+inline ::google::protobuf::int32 E_SoulGuwensuit::m_typeid() const {
   return m_typeid_;
 }
-inline void E_SoulGuwen_suit::set_m_typeid(::google::protobuf::int32 value) {
+inline void E_SoulGuwensuit::set_m_typeid(::google::protobuf::int32 value) {
   set_has_m_typeid();
   m_typeid_ = value;
 }
 
 // optional int32 m_num = 4;
-inline bool E_SoulGuwen_suit::has_m_num() const {
+inline bool E_SoulGuwensuit::has_m_num() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void E_SoulGuwen_suit::set_has_m_num() {
+inline void E_SoulGuwensuit::set_has_m_num() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void E_SoulGuwen_suit::clear_has_m_num() {
+inline void E_SoulGuwensuit::clear_has_m_num() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void E_SoulGuwen_suit::clear_m_num() {
+inline void E_SoulGuwensuit::clear_m_num() {
   m_num_ = 0;
   clear_has_m_num();
 }
-inline ::google::protobuf::int32 E_SoulGuwen_suit::m_num() const {
+inline ::google::protobuf::int32 E_SoulGuwensuit::m_num() const {
   return m_num_;
 }
-inline void E_SoulGuwen_suit::set_m_num(::google::protobuf::int32 value) {
+inline void E_SoulGuwensuit::set_m_num(::google::protobuf::int32 value) {
   set_has_m_num();
   m_num_ = value;
 }
 
-// repeated .proto_ff.E_SoulGuwen_suitAttributeDesc m_attribute = 5;
-inline int E_SoulGuwen_suit::m_attribute_size() const {
+// repeated .proto_ff.E_SoulGuwensuitAttributeDesc m_attribute = 5;
+inline int E_SoulGuwensuit::m_attribute_size() const {
   return m_attribute_.size();
 }
-inline void E_SoulGuwen_suit::clear_m_attribute() {
+inline void E_SoulGuwensuit::clear_m_attribute() {
   m_attribute_.Clear();
 }
-inline const ::proto_ff::E_SoulGuwen_suitAttributeDesc& E_SoulGuwen_suit::m_attribute(int index) const {
+inline const ::proto_ff::E_SoulGuwensuitAttributeDesc& E_SoulGuwensuit::m_attribute(int index) const {
   return m_attribute_.Get(index);
 }
-inline ::proto_ff::E_SoulGuwen_suitAttributeDesc* E_SoulGuwen_suit::mutable_m_attribute(int index) {
+inline ::proto_ff::E_SoulGuwensuitAttributeDesc* E_SoulGuwensuit::mutable_m_attribute(int index) {
   return m_attribute_.Mutable(index);
 }
-inline ::proto_ff::E_SoulGuwen_suitAttributeDesc* E_SoulGuwen_suit::add_m_attribute() {
+inline ::proto_ff::E_SoulGuwensuitAttributeDesc* E_SoulGuwensuit::add_m_attribute() {
   return m_attribute_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_suitAttributeDesc >&
-E_SoulGuwen_suit::m_attribute() const {
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwensuitAttributeDesc >&
+E_SoulGuwensuit::m_attribute() const {
   return m_attribute_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_suitAttributeDesc >*
-E_SoulGuwen_suit::mutable_m_attribute() {
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwensuitAttributeDesc >*
+E_SoulGuwensuit::mutable_m_attribute() {
   return &m_attribute_;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_SoulGuwen_suit
+// Sheet_SoulGuwensuit
 
-// repeated .proto_ff.E_SoulGuwen_suit E_SoulGuwen_suit_List = 1;
-inline int Sheet_SoulGuwen_suit::e_soulguwen_suit_list_size() const {
-  return e_soulguwen_suit_list_.size();
+// repeated .proto_ff.E_SoulGuwensuit E_SoulGuwensuit_List = 1;
+inline int Sheet_SoulGuwensuit::e_soulguwensuit_list_size() const {
+  return e_soulguwensuit_list_.size();
 }
-inline void Sheet_SoulGuwen_suit::clear_e_soulguwen_suit_list() {
-  e_soulguwen_suit_list_.Clear();
+inline void Sheet_SoulGuwensuit::clear_e_soulguwensuit_list() {
+  e_soulguwensuit_list_.Clear();
 }
-inline const ::proto_ff::E_SoulGuwen_suit& Sheet_SoulGuwen_suit::e_soulguwen_suit_list(int index) const {
-  return e_soulguwen_suit_list_.Get(index);
+inline const ::proto_ff::E_SoulGuwensuit& Sheet_SoulGuwensuit::e_soulguwensuit_list(int index) const {
+  return e_soulguwensuit_list_.Get(index);
 }
-inline ::proto_ff::E_SoulGuwen_suit* Sheet_SoulGuwen_suit::mutable_e_soulguwen_suit_list(int index) {
-  return e_soulguwen_suit_list_.Mutable(index);
+inline ::proto_ff::E_SoulGuwensuit* Sheet_SoulGuwensuit::mutable_e_soulguwensuit_list(int index) {
+  return e_soulguwensuit_list_.Mutable(index);
 }
-inline ::proto_ff::E_SoulGuwen_suit* Sheet_SoulGuwen_suit::add_e_soulguwen_suit_list() {
-  return e_soulguwen_suit_list_.Add();
+inline ::proto_ff::E_SoulGuwensuit* Sheet_SoulGuwensuit::add_e_soulguwensuit_list() {
+  return e_soulguwensuit_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_suit >&
-Sheet_SoulGuwen_suit::e_soulguwen_suit_list() const {
-  return e_soulguwen_suit_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwensuit >&
+Sheet_SoulGuwensuit::e_soulguwensuit_list() const {
+  return e_soulguwensuit_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwen_suit >*
-Sheet_SoulGuwen_suit::mutable_e_soulguwen_suit_list() {
-  return &e_soulguwen_suit_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwensuit >*
+Sheet_SoulGuwensuit::mutable_e_soulguwensuit_list() {
+  return &e_soulguwensuit_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_SoulGuwenupstar
+
+// optional int32 m_id = 1;
+inline bool E_SoulGuwenupstar::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_SoulGuwenupstar::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_SoulGuwenupstar::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_SoulGuwenupstar::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_SoulGuwenupstar::m_id() const {
+  return m_id_;
+}
+inline void E_SoulGuwenupstar::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_quality = 2;
+inline bool E_SoulGuwenupstar::has_m_quality() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_SoulGuwenupstar::set_has_m_quality() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_SoulGuwenupstar::clear_has_m_quality() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_SoulGuwenupstar::clear_m_quality() {
+  m_quality_ = 0;
+  clear_has_m_quality();
+}
+inline ::google::protobuf::int32 E_SoulGuwenupstar::m_quality() const {
+  return m_quality_;
+}
+inline void E_SoulGuwenupstar::set_m_quality(::google::protobuf::int32 value) {
+  set_has_m_quality();
+  m_quality_ = value;
+}
+
+// optional int32 m_star = 3;
+inline bool E_SoulGuwenupstar::has_m_star() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_SoulGuwenupstar::set_has_m_star() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_SoulGuwenupstar::clear_has_m_star() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_SoulGuwenupstar::clear_m_star() {
+  m_star_ = 0;
+  clear_has_m_star();
+}
+inline ::google::protobuf::int32 E_SoulGuwenupstar::m_star() const {
+  return m_star_;
+}
+inline void E_SoulGuwenupstar::set_m_star(::google::protobuf::int32 value) {
+  set_has_m_star();
+  m_star_ = value;
+}
+
+// optional int32 m_targetQuality = 4;
+inline bool E_SoulGuwenupstar::has_m_targetquality() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_SoulGuwenupstar::set_has_m_targetquality() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_SoulGuwenupstar::clear_has_m_targetquality() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_SoulGuwenupstar::clear_m_targetquality() {
+  m_targetquality_ = 0;
+  clear_has_m_targetquality();
+}
+inline ::google::protobuf::int32 E_SoulGuwenupstar::m_targetquality() const {
+  return m_targetquality_;
+}
+inline void E_SoulGuwenupstar::set_m_targetquality(::google::protobuf::int32 value) {
+  set_has_m_targetquality();
+  m_targetquality_ = value;
+}
+
+// optional int32 m_targetStar = 5;
+inline bool E_SoulGuwenupstar::has_m_targetstar() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void E_SoulGuwenupstar::set_has_m_targetstar() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void E_SoulGuwenupstar::clear_has_m_targetstar() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void E_SoulGuwenupstar::clear_m_targetstar() {
+  m_targetstar_ = 0;
+  clear_has_m_targetstar();
+}
+inline ::google::protobuf::int32 E_SoulGuwenupstar::m_targetstar() const {
+  return m_targetstar_;
+}
+inline void E_SoulGuwenupstar::set_m_targetstar(::google::protobuf::int32 value) {
+  set_has_m_targetstar();
+  m_targetstar_ = value;
+}
+
+// optional int32 m_samePosNum = 6;
+inline bool E_SoulGuwenupstar::has_m_sameposnum() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void E_SoulGuwenupstar::set_has_m_sameposnum() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void E_SoulGuwenupstar::clear_has_m_sameposnum() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void E_SoulGuwenupstar::clear_m_sameposnum() {
+  m_sameposnum_ = 0;
+  clear_has_m_sameposnum();
+}
+inline ::google::protobuf::int32 E_SoulGuwenupstar::m_sameposnum() const {
+  return m_sameposnum_;
+}
+inline void E_SoulGuwenupstar::set_m_sameposnum(::google::protobuf::int32 value) {
+  set_has_m_sameposnum();
+  m_sameposnum_ = value;
+}
+
+// optional int32 m_samePosQuality = 7;
+inline bool E_SoulGuwenupstar::has_m_sameposquality() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void E_SoulGuwenupstar::set_has_m_sameposquality() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void E_SoulGuwenupstar::clear_has_m_sameposquality() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void E_SoulGuwenupstar::clear_m_sameposquality() {
+  m_sameposquality_ = 0;
+  clear_has_m_sameposquality();
+}
+inline ::google::protobuf::int32 E_SoulGuwenupstar::m_sameposquality() const {
+  return m_sameposquality_;
+}
+inline void E_SoulGuwenupstar::set_m_sameposquality(::google::protobuf::int32 value) {
+  set_has_m_sameposquality();
+  m_sameposquality_ = value;
+}
+
+// optional int32 m_samePosStar = 8;
+inline bool E_SoulGuwenupstar::has_m_sameposstar() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void E_SoulGuwenupstar::set_has_m_sameposstar() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void E_SoulGuwenupstar::clear_has_m_sameposstar() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void E_SoulGuwenupstar::clear_m_sameposstar() {
+  m_sameposstar_ = 0;
+  clear_has_m_sameposstar();
+}
+inline ::google::protobuf::int32 E_SoulGuwenupstar::m_sameposstar() const {
+  return m_sameposstar_;
+}
+inline void E_SoulGuwenupstar::set_m_sameposstar(::google::protobuf::int32 value) {
+  set_has_m_sameposstar();
+  m_sameposstar_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_SoulGuwenupstar
+
+// repeated .proto_ff.E_SoulGuwenupstar E_SoulGuwenupstar_List = 1;
+inline int Sheet_SoulGuwenupstar::e_soulguwenupstar_list_size() const {
+  return e_soulguwenupstar_list_.size();
+}
+inline void Sheet_SoulGuwenupstar::clear_e_soulguwenupstar_list() {
+  e_soulguwenupstar_list_.Clear();
+}
+inline const ::proto_ff::E_SoulGuwenupstar& Sheet_SoulGuwenupstar::e_soulguwenupstar_list(int index) const {
+  return e_soulguwenupstar_list_.Get(index);
+}
+inline ::proto_ff::E_SoulGuwenupstar* Sheet_SoulGuwenupstar::mutable_e_soulguwenupstar_list(int index) {
+  return e_soulguwenupstar_list_.Mutable(index);
+}
+inline ::proto_ff::E_SoulGuwenupstar* Sheet_SoulGuwenupstar::add_e_soulguwenupstar_list() {
+  return e_soulguwenupstar_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwenupstar >&
+Sheet_SoulGuwenupstar::e_soulguwenupstar_list() const {
+  return e_soulguwenupstar_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulGuwenupstar >*
+Sheet_SoulGuwenupstar::mutable_e_soulguwenupstar_list() {
+  return &e_soulguwenupstar_list_;
 }
 
 // -------------------------------------------------------------------
@@ -10133,247 +10035,247 @@ Sheet_SoulAffixes::mutable_e_soulaffixes_list() {
 
 // -------------------------------------------------------------------
 
-// E_SoulAffixes_suitSkillDesc
+// E_SoulAffixessuitSkillDesc
 
 // optional int32 m_level = 1;
-inline bool E_SoulAffixes_suitSkillDesc::has_m_level() const {
+inline bool E_SoulAffixessuitSkillDesc::has_m_level() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void E_SoulAffixes_suitSkillDesc::set_has_m_level() {
+inline void E_SoulAffixessuitSkillDesc::set_has_m_level() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void E_SoulAffixes_suitSkillDesc::clear_has_m_level() {
+inline void E_SoulAffixessuitSkillDesc::clear_has_m_level() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void E_SoulAffixes_suitSkillDesc::clear_m_level() {
+inline void E_SoulAffixessuitSkillDesc::clear_m_level() {
   m_level_ = 0;
   clear_has_m_level();
 }
-inline ::google::protobuf::int32 E_SoulAffixes_suitSkillDesc::m_level() const {
+inline ::google::protobuf::int32 E_SoulAffixessuitSkillDesc::m_level() const {
   return m_level_;
 }
-inline void E_SoulAffixes_suitSkillDesc::set_m_level(::google::protobuf::int32 value) {
+inline void E_SoulAffixessuitSkillDesc::set_m_level(::google::protobuf::int32 value) {
   set_has_m_level();
   m_level_ = value;
 }
 
 // optional int32 m_id = 2;
-inline bool E_SoulAffixes_suitSkillDesc::has_m_id() const {
+inline bool E_SoulAffixessuitSkillDesc::has_m_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void E_SoulAffixes_suitSkillDesc::set_has_m_id() {
+inline void E_SoulAffixessuitSkillDesc::set_has_m_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void E_SoulAffixes_suitSkillDesc::clear_has_m_id() {
+inline void E_SoulAffixessuitSkillDesc::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void E_SoulAffixes_suitSkillDesc::clear_m_id() {
+inline void E_SoulAffixessuitSkillDesc::clear_m_id() {
   m_id_ = 0;
   clear_has_m_id();
 }
-inline ::google::protobuf::int32 E_SoulAffixes_suitSkillDesc::m_id() const {
+inline ::google::protobuf::int32 E_SoulAffixessuitSkillDesc::m_id() const {
   return m_id_;
 }
-inline void E_SoulAffixes_suitSkillDesc::set_m_id(::google::protobuf::int32 value) {
+inline void E_SoulAffixessuitSkillDesc::set_m_id(::google::protobuf::int32 value) {
   set_has_m_id();
   m_id_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// E_SoulAffixes_suitAttributeDesc
+// E_SoulAffixessuitAttributeDesc
 
 // optional int32 m_value = 1;
-inline bool E_SoulAffixes_suitAttributeDesc::has_m_value() const {
+inline bool E_SoulAffixessuitAttributeDesc::has_m_value() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void E_SoulAffixes_suitAttributeDesc::set_has_m_value() {
+inline void E_SoulAffixessuitAttributeDesc::set_has_m_value() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void E_SoulAffixes_suitAttributeDesc::clear_has_m_value() {
+inline void E_SoulAffixessuitAttributeDesc::clear_has_m_value() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void E_SoulAffixes_suitAttributeDesc::clear_m_value() {
+inline void E_SoulAffixessuitAttributeDesc::clear_m_value() {
   m_value_ = 0;
   clear_has_m_value();
 }
-inline ::google::protobuf::int32 E_SoulAffixes_suitAttributeDesc::m_value() const {
+inline ::google::protobuf::int32 E_SoulAffixessuitAttributeDesc::m_value() const {
   return m_value_;
 }
-inline void E_SoulAffixes_suitAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+inline void E_SoulAffixessuitAttributeDesc::set_m_value(::google::protobuf::int32 value) {
   set_has_m_value();
   m_value_ = value;
 }
 
 // optional int32 m_type = 2;
-inline bool E_SoulAffixes_suitAttributeDesc::has_m_type() const {
+inline bool E_SoulAffixessuitAttributeDesc::has_m_type() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void E_SoulAffixes_suitAttributeDesc::set_has_m_type() {
+inline void E_SoulAffixessuitAttributeDesc::set_has_m_type() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void E_SoulAffixes_suitAttributeDesc::clear_has_m_type() {
+inline void E_SoulAffixessuitAttributeDesc::clear_has_m_type() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void E_SoulAffixes_suitAttributeDesc::clear_m_type() {
+inline void E_SoulAffixessuitAttributeDesc::clear_m_type() {
   m_type_ = 0;
   clear_has_m_type();
 }
-inline ::google::protobuf::int32 E_SoulAffixes_suitAttributeDesc::m_type() const {
+inline ::google::protobuf::int32 E_SoulAffixessuitAttributeDesc::m_type() const {
   return m_type_;
 }
-inline void E_SoulAffixes_suitAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+inline void E_SoulAffixessuitAttributeDesc::set_m_type(::google::protobuf::int32 value) {
   set_has_m_type();
   m_type_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// E_SoulAffixes_suit
+// E_SoulAffixessuit
 
 // optional int32 m_id = 1;
-inline bool E_SoulAffixes_suit::has_m_id() const {
+inline bool E_SoulAffixessuit::has_m_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void E_SoulAffixes_suit::set_has_m_id() {
+inline void E_SoulAffixessuit::set_has_m_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void E_SoulAffixes_suit::clear_has_m_id() {
+inline void E_SoulAffixessuit::clear_has_m_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void E_SoulAffixes_suit::clear_m_id() {
+inline void E_SoulAffixessuit::clear_m_id() {
   m_id_ = 0;
   clear_has_m_id();
 }
-inline ::google::protobuf::int32 E_SoulAffixes_suit::m_id() const {
+inline ::google::protobuf::int32 E_SoulAffixessuit::m_id() const {
   return m_id_;
 }
-inline void E_SoulAffixes_suit::set_m_id(::google::protobuf::int32 value) {
+inline void E_SoulAffixessuit::set_m_id(::google::protobuf::int32 value) {
   set_has_m_id();
   m_id_ = value;
 }
 
 // optional int32 m_affixesId = 2;
-inline bool E_SoulAffixes_suit::has_m_affixesid() const {
+inline bool E_SoulAffixessuit::has_m_affixesid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void E_SoulAffixes_suit::set_has_m_affixesid() {
+inline void E_SoulAffixessuit::set_has_m_affixesid() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void E_SoulAffixes_suit::clear_has_m_affixesid() {
+inline void E_SoulAffixessuit::clear_has_m_affixesid() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void E_SoulAffixes_suit::clear_m_affixesid() {
+inline void E_SoulAffixessuit::clear_m_affixesid() {
   m_affixesid_ = 0;
   clear_has_m_affixesid();
 }
-inline ::google::protobuf::int32 E_SoulAffixes_suit::m_affixesid() const {
+inline ::google::protobuf::int32 E_SoulAffixessuit::m_affixesid() const {
   return m_affixesid_;
 }
-inline void E_SoulAffixes_suit::set_m_affixesid(::google::protobuf::int32 value) {
+inline void E_SoulAffixessuit::set_m_affixesid(::google::protobuf::int32 value) {
   set_has_m_affixesid();
   m_affixesid_ = value;
 }
 
 // optional int32 m_num = 3;
-inline bool E_SoulAffixes_suit::has_m_num() const {
+inline bool E_SoulAffixessuit::has_m_num() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void E_SoulAffixes_suit::set_has_m_num() {
+inline void E_SoulAffixessuit::set_has_m_num() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void E_SoulAffixes_suit::clear_has_m_num() {
+inline void E_SoulAffixessuit::clear_has_m_num() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void E_SoulAffixes_suit::clear_m_num() {
+inline void E_SoulAffixessuit::clear_m_num() {
   m_num_ = 0;
   clear_has_m_num();
 }
-inline ::google::protobuf::int32 E_SoulAffixes_suit::m_num() const {
+inline ::google::protobuf::int32 E_SoulAffixessuit::m_num() const {
   return m_num_;
 }
-inline void E_SoulAffixes_suit::set_m_num(::google::protobuf::int32 value) {
+inline void E_SoulAffixessuit::set_m_num(::google::protobuf::int32 value) {
   set_has_m_num();
   m_num_ = value;
 }
 
-// repeated .proto_ff.E_SoulAffixes_suitSkillDesc m_skill = 4;
-inline int E_SoulAffixes_suit::m_skill_size() const {
+// repeated .proto_ff.E_SoulAffixessuitSkillDesc m_skill = 4;
+inline int E_SoulAffixessuit::m_skill_size() const {
   return m_skill_.size();
 }
-inline void E_SoulAffixes_suit::clear_m_skill() {
+inline void E_SoulAffixessuit::clear_m_skill() {
   m_skill_.Clear();
 }
-inline const ::proto_ff::E_SoulAffixes_suitSkillDesc& E_SoulAffixes_suit::m_skill(int index) const {
+inline const ::proto_ff::E_SoulAffixessuitSkillDesc& E_SoulAffixessuit::m_skill(int index) const {
   return m_skill_.Get(index);
 }
-inline ::proto_ff::E_SoulAffixes_suitSkillDesc* E_SoulAffixes_suit::mutable_m_skill(int index) {
+inline ::proto_ff::E_SoulAffixessuitSkillDesc* E_SoulAffixessuit::mutable_m_skill(int index) {
   return m_skill_.Mutable(index);
 }
-inline ::proto_ff::E_SoulAffixes_suitSkillDesc* E_SoulAffixes_suit::add_m_skill() {
+inline ::proto_ff::E_SoulAffixessuitSkillDesc* E_SoulAffixessuit::add_m_skill() {
   return m_skill_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suitSkillDesc >&
-E_SoulAffixes_suit::m_skill() const {
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixessuitSkillDesc >&
+E_SoulAffixessuit::m_skill() const {
   return m_skill_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suitSkillDesc >*
-E_SoulAffixes_suit::mutable_m_skill() {
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixessuitSkillDesc >*
+E_SoulAffixessuit::mutable_m_skill() {
   return &m_skill_;
 }
 
-// repeated .proto_ff.E_SoulAffixes_suitAttributeDesc m_attribute = 5;
-inline int E_SoulAffixes_suit::m_attribute_size() const {
+// repeated .proto_ff.E_SoulAffixessuitAttributeDesc m_attribute = 5;
+inline int E_SoulAffixessuit::m_attribute_size() const {
   return m_attribute_.size();
 }
-inline void E_SoulAffixes_suit::clear_m_attribute() {
+inline void E_SoulAffixessuit::clear_m_attribute() {
   m_attribute_.Clear();
 }
-inline const ::proto_ff::E_SoulAffixes_suitAttributeDesc& E_SoulAffixes_suit::m_attribute(int index) const {
+inline const ::proto_ff::E_SoulAffixessuitAttributeDesc& E_SoulAffixessuit::m_attribute(int index) const {
   return m_attribute_.Get(index);
 }
-inline ::proto_ff::E_SoulAffixes_suitAttributeDesc* E_SoulAffixes_suit::mutable_m_attribute(int index) {
+inline ::proto_ff::E_SoulAffixessuitAttributeDesc* E_SoulAffixessuit::mutable_m_attribute(int index) {
   return m_attribute_.Mutable(index);
 }
-inline ::proto_ff::E_SoulAffixes_suitAttributeDesc* E_SoulAffixes_suit::add_m_attribute() {
+inline ::proto_ff::E_SoulAffixessuitAttributeDesc* E_SoulAffixessuit::add_m_attribute() {
   return m_attribute_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suitAttributeDesc >&
-E_SoulAffixes_suit::m_attribute() const {
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixessuitAttributeDesc >&
+E_SoulAffixessuit::m_attribute() const {
   return m_attribute_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suitAttributeDesc >*
-E_SoulAffixes_suit::mutable_m_attribute() {
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixessuitAttributeDesc >*
+E_SoulAffixessuit::mutable_m_attribute() {
   return &m_attribute_;
 }
 
 // -------------------------------------------------------------------
 
-// Sheet_SoulAffixes_suit
+// Sheet_SoulAffixessuit
 
-// repeated .proto_ff.E_SoulAffixes_suit E_SoulAffixes_suit_List = 1;
-inline int Sheet_SoulAffixes_suit::e_soulaffixes_suit_list_size() const {
-  return e_soulaffixes_suit_list_.size();
+// repeated .proto_ff.E_SoulAffixessuit E_SoulAffixessuit_List = 1;
+inline int Sheet_SoulAffixessuit::e_soulaffixessuit_list_size() const {
+  return e_soulaffixessuit_list_.size();
 }
-inline void Sheet_SoulAffixes_suit::clear_e_soulaffixes_suit_list() {
-  e_soulaffixes_suit_list_.Clear();
+inline void Sheet_SoulAffixessuit::clear_e_soulaffixessuit_list() {
+  e_soulaffixessuit_list_.Clear();
 }
-inline const ::proto_ff::E_SoulAffixes_suit& Sheet_SoulAffixes_suit::e_soulaffixes_suit_list(int index) const {
-  return e_soulaffixes_suit_list_.Get(index);
+inline const ::proto_ff::E_SoulAffixessuit& Sheet_SoulAffixessuit::e_soulaffixessuit_list(int index) const {
+  return e_soulaffixessuit_list_.Get(index);
 }
-inline ::proto_ff::E_SoulAffixes_suit* Sheet_SoulAffixes_suit::mutable_e_soulaffixes_suit_list(int index) {
-  return e_soulaffixes_suit_list_.Mutable(index);
+inline ::proto_ff::E_SoulAffixessuit* Sheet_SoulAffixessuit::mutable_e_soulaffixessuit_list(int index) {
+  return e_soulaffixessuit_list_.Mutable(index);
 }
-inline ::proto_ff::E_SoulAffixes_suit* Sheet_SoulAffixes_suit::add_e_soulaffixes_suit_list() {
-  return e_soulaffixes_suit_list_.Add();
+inline ::proto_ff::E_SoulAffixessuit* Sheet_SoulAffixessuit::add_e_soulaffixessuit_list() {
+  return e_soulaffixessuit_list_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suit >&
-Sheet_SoulAffixes_suit::e_soulaffixes_suit_list() const {
-  return e_soulaffixes_suit_list_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixessuit >&
+Sheet_SoulAffixessuit::e_soulaffixessuit_list() const {
+  return e_soulaffixessuit_list_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixes_suit >*
-Sheet_SoulAffixes_suit::mutable_e_soulaffixes_suit_list() {
-  return &e_soulaffixes_suit_list_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_SoulAffixessuit >*
+Sheet_SoulAffixessuit::mutable_e_soulaffixessuit_list() {
+  return &e_soulaffixessuit_list_;
 }
 
 

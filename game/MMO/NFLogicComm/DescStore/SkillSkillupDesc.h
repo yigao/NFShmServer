@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Skill_s.h"
 
-#define MAX_SKILL_SKILLUP_NUM 4096
+#define MAX_SKILL_SKILLUP_NUM 8192
 
 class SkillSkillupDesc : public NFIDescTemplate<SkillSkillupDesc, proto_ff_s::E_SkillSkillup_s, EOT_CONST_SKILL_SKILLUP_DESC_ID, MAX_SKILL_SKILLUP_NUM>
 {

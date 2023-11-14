@@ -359,6 +359,10 @@ enum ServerInternalCmd
 	GVB_RoomReq						=1160;
 	GVB_RoomRsp						=1161;
 	GVB_RoomCloseReq				=1166;
+	GVB_RoomSetEntryMapReq			=1167;
+	GVB_RoomKickPlayer				=1168;
+	GVB_RoomUniqueIdReq				=1169;
+	GVB_RoomUniqueIdRsp				=1170;
 	
 	//排行榜1180-1200
 	LOGIC_TO_CENTER_RANKDATA									= 1180;	//逻辑服通知中心服取排行榜数据
@@ -514,5 +518,10 @@ enum ServerInternalCmd
 	NOTIFY_DUP_TEAM_DIS_REQ = 1511;						//逻辑服请求解散副本队伍
 	LC_NOTIFY_YAOTA_FIRST_PASS_REQ = 1512;				//九层妖塔数据发到中心服
 	CL_YAOTA_RECV_REQ = 1513;							//九层妖塔数据領取奖励
+
+	//封神之战1530-1550
+	NGPD_BattleReq = 1530; //数据请求
+	NGPD_BattleRsp =1531;
+	NGPD_BattleSaveReq=1532;
 	SERVER_INTER_MAX_CMD					= 5000;	  //最大协议ID
 };

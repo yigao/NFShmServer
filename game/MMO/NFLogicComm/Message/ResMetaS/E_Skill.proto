@@ -180,7 +180,7 @@ message E_SkillSkillup
 
 message Sheet_SkillSkillup
 {
-	repeated E_SkillSkillup E_SkillSkillup_List = 1[(yd_fieldoptions.field_arysize)=4096];
+	repeated E_SkillSkillup E_SkillSkillup_List = 1[(yd_fieldoptions.field_arysize)=8192];
 }
 
 message E_SkillSkillawake

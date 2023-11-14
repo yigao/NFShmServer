@@ -137,6 +137,7 @@ message E_DupSweepmonsternum
 	optional int32 m_maxLevel = 4[(yd_fieldoptions.field_cname) = "玩家等极上限"];
 	optional int32 m_killNumber = 5[(yd_fieldoptions.field_cname) = "杀怪标准数量"];
 	optional int32 m_monstervaluetype = 6[(yd_fieldoptions.field_cname) = "怪物数值类型"];
+	optional int32 m_monstervalueParam = 7[(yd_fieldoptions.field_cname) = "怪物数值类型"];
 }
 
 

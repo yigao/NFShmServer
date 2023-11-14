@@ -137,6 +137,11 @@ class FMarryRoleDB;
 class DayTotalRechargeDBProto;
 class TotalRechargeDBProto;
 class LoginRewardDBProto;
+class ContiRechargeDBProto;
+class ContiRechargeDBProto_DayFetchInfo;
+class ContiRechargeDBProto_GearFetchInfo;
+class LimitSaleDBProto;
+class LimitSaleDBProto_ShopProto;
 class FestDetailDBProto;
 class FestDBData;
 class ShadowDBProto;
@@ -145,6 +150,8 @@ class DragonDBData;
 class RoleDBTurnData;
 class GMADbData;
 class SoulDBData;
+class MoFaDBData;
+class RuneDBData;
 class RoleDBData;
 class RedWaitDBProto;
 class RedTriggerDBProto;
@@ -12299,6 +12306,532 @@ class LoginRewardDBProto : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class ContiRechargeDBProto_DayFetchInfo : public ::google::protobuf::Message {
+ public:
+  ContiRechargeDBProto_DayFetchInfo();
+  virtual ~ContiRechargeDBProto_DayFetchInfo();
+
+  ContiRechargeDBProto_DayFetchInfo(const ContiRechargeDBProto_DayFetchInfo& from);
+
+  inline ContiRechargeDBProto_DayFetchInfo& operator=(const ContiRechargeDBProto_DayFetchInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ContiRechargeDBProto_DayFetchInfo& default_instance();
+
+  void Swap(ContiRechargeDBProto_DayFetchInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  ContiRechargeDBProto_DayFetchInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ContiRechargeDBProto_DayFetchInfo& from);
+  void MergeFrom(const ContiRechargeDBProto_DayFetchInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 day = 1;
+  inline bool has_day() const;
+  inline void clear_day();
+  static const int kDayFieldNumber = 1;
+  inline ::google::protobuf::int32 day() const;
+  inline void set_day(::google::protobuf::int32 value);
+
+  // repeated int32 gear_lst = 2;
+  inline int gear_lst_size() const;
+  inline void clear_gear_lst();
+  static const int kGearLstFieldNumber = 2;
+  inline ::google::protobuf::int32 gear_lst(int index) const;
+  inline void set_gear_lst(int index, ::google::protobuf::int32 value);
+  inline void add_gear_lst(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      gear_lst() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_gear_lst();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.ContiRechargeDBProto.DayFetchInfo)
+ private:
+  inline void set_has_day();
+  inline void clear_has_day();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > gear_lst_;
+  ::google::protobuf::int32 day_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProxy_2eproto();
+  friend void protobuf_AssignDesc_DBProxy_2eproto();
+  friend void protobuf_ShutdownFile_DBProxy_2eproto();
+
+  void InitAsDefaultInstance();
+  static ContiRechargeDBProto_DayFetchInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ContiRechargeDBProto_GearFetchInfo : public ::google::protobuf::Message {
+ public:
+  ContiRechargeDBProto_GearFetchInfo();
+  virtual ~ContiRechargeDBProto_GearFetchInfo();
+
+  ContiRechargeDBProto_GearFetchInfo(const ContiRechargeDBProto_GearFetchInfo& from);
+
+  inline ContiRechargeDBProto_GearFetchInfo& operator=(const ContiRechargeDBProto_GearFetchInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ContiRechargeDBProto_GearFetchInfo& default_instance();
+
+  void Swap(ContiRechargeDBProto_GearFetchInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  ContiRechargeDBProto_GearFetchInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ContiRechargeDBProto_GearFetchInfo& from);
+  void MergeFrom(const ContiRechargeDBProto_GearFetchInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 gear = 1;
+  inline bool has_gear() const;
+  inline void clear_gear();
+  static const int kGearFieldNumber = 1;
+  inline ::google::protobuf::int32 gear() const;
+  inline void set_gear(::google::protobuf::int32 value);
+
+  // repeated int32 day_lst = 2;
+  inline int day_lst_size() const;
+  inline void clear_day_lst();
+  static const int kDayLstFieldNumber = 2;
+  inline ::google::protobuf::int32 day_lst(int index) const;
+  inline void set_day_lst(int index, ::google::protobuf::int32 value);
+  inline void add_day_lst(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      day_lst() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_day_lst();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.ContiRechargeDBProto.GearFetchInfo)
+ private:
+  inline void set_has_gear();
+  inline void clear_has_gear();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > day_lst_;
+  ::google::protobuf::int32 gear_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProxy_2eproto();
+  friend void protobuf_AssignDesc_DBProxy_2eproto();
+  friend void protobuf_ShutdownFile_DBProxy_2eproto();
+
+  void InitAsDefaultInstance();
+  static ContiRechargeDBProto_GearFetchInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ContiRechargeDBProto : public ::google::protobuf::Message {
+ public:
+  ContiRechargeDBProto();
+  virtual ~ContiRechargeDBProto();
+
+  ContiRechargeDBProto(const ContiRechargeDBProto& from);
+
+  inline ContiRechargeDBProto& operator=(const ContiRechargeDBProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ContiRechargeDBProto& default_instance();
+
+  void Swap(ContiRechargeDBProto* other);
+
+  // implements Message ----------------------------------------------
+
+  ContiRechargeDBProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ContiRechargeDBProto& from);
+  void MergeFrom(const ContiRechargeDBProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  typedef ContiRechargeDBProto_DayFetchInfo DayFetchInfo;
+  typedef ContiRechargeDBProto_GearFetchInfo GearFetchInfo;
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 recharge = 1;
+  inline bool has_recharge() const;
+  inline void clear_recharge();
+  static const int kRechargeFieldNumber = 1;
+  inline ::google::protobuf::uint32 recharge() const;
+  inline void set_recharge(::google::protobuf::uint32 value);
+
+  // optional int32 supplement = 2;
+  inline bool has_supplement() const;
+  inline void clear_supplement();
+  static const int kSupplementFieldNumber = 2;
+  inline ::google::protobuf::int32 supplement() const;
+  inline void set_supplement(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.ContiRechargeDBProto.DayFetchInfo day_fetch = 3;
+  inline int day_fetch_size() const;
+  inline void clear_day_fetch();
+  static const int kDayFetchFieldNumber = 3;
+  inline const ::proto_ff::ContiRechargeDBProto_DayFetchInfo& day_fetch(int index) const;
+  inline ::proto_ff::ContiRechargeDBProto_DayFetchInfo* mutable_day_fetch(int index);
+  inline ::proto_ff::ContiRechargeDBProto_DayFetchInfo* add_day_fetch();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ContiRechargeDBProto_DayFetchInfo >&
+      day_fetch() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ContiRechargeDBProto_DayFetchInfo >*
+      mutable_day_fetch();
+
+  // repeated .proto_ff.ContiRechargeDBProto.GearFetchInfo gear_fetch = 4;
+  inline int gear_fetch_size() const;
+  inline void clear_gear_fetch();
+  static const int kGearFetchFieldNumber = 4;
+  inline const ::proto_ff::ContiRechargeDBProto_GearFetchInfo& gear_fetch(int index) const;
+  inline ::proto_ff::ContiRechargeDBProto_GearFetchInfo* mutable_gear_fetch(int index);
+  inline ::proto_ff::ContiRechargeDBProto_GearFetchInfo* add_gear_fetch();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ContiRechargeDBProto_GearFetchInfo >&
+      gear_fetch() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ContiRechargeDBProto_GearFetchInfo >*
+      mutable_gear_fetch();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.ContiRechargeDBProto)
+ private:
+  inline void set_has_recharge();
+  inline void clear_has_recharge();
+  inline void set_has_supplement();
+  inline void clear_has_supplement();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 recharge_;
+  ::google::protobuf::int32 supplement_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ContiRechargeDBProto_DayFetchInfo > day_fetch_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ContiRechargeDBProto_GearFetchInfo > gear_fetch_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProxy_2eproto();
+  friend void protobuf_AssignDesc_DBProxy_2eproto();
+  friend void protobuf_ShutdownFile_DBProxy_2eproto();
+
+  void InitAsDefaultInstance();
+  static ContiRechargeDBProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LimitSaleDBProto_ShopProto : public ::google::protobuf::Message {
+ public:
+  LimitSaleDBProto_ShopProto();
+  virtual ~LimitSaleDBProto_ShopProto();
+
+  LimitSaleDBProto_ShopProto(const LimitSaleDBProto_ShopProto& from);
+
+  inline LimitSaleDBProto_ShopProto& operator=(const LimitSaleDBProto_ShopProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LimitSaleDBProto_ShopProto& default_instance();
+
+  void Swap(LimitSaleDBProto_ShopProto* other);
+
+  // implements Message ----------------------------------------------
+
+  LimitSaleDBProto_ShopProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const LimitSaleDBProto_ShopProto& from);
+  void MergeFrom(const LimitSaleDBProto_ShopProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 type = 1;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 type() const;
+  inline void set_type(::google::protobuf::int32 value);
+
+  // optional uint32 total = 2;
+  inline bool has_total() const;
+  inline void clear_total();
+  static const int kTotalFieldNumber = 2;
+  inline ::google::protobuf::uint32 total() const;
+  inline void set_total(::google::protobuf::uint32 value);
+
+  // repeated int32 fetch = 3;
+  inline int fetch_size() const;
+  inline void clear_fetch();
+  static const int kFetchFieldNumber = 3;
+  inline ::google::protobuf::int32 fetch(int index) const;
+  inline void set_fetch(int index, ::google::protobuf::int32 value);
+  inline void add_fetch(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      fetch() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_fetch();
+
+  // repeated .proto_ff.ComPair buy = 4;
+  inline int buy_size() const;
+  inline void clear_buy();
+  static const int kBuyFieldNumber = 4;
+  inline const ::proto_ff::ComPair& buy(int index) const;
+  inline ::proto_ff::ComPair* mutable_buy(int index);
+  inline ::proto_ff::ComPair* add_buy();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+      buy() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+      mutable_buy();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.LimitSaleDBProto.ShopProto)
+ private:
+  inline void set_has_type();
+  inline void clear_has_type();
+  inline void set_has_total();
+  inline void clear_has_total();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 type_;
+  ::google::protobuf::uint32 total_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > fetch_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair > buy_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProxy_2eproto();
+  friend void protobuf_AssignDesc_DBProxy_2eproto();
+  friend void protobuf_ShutdownFile_DBProxy_2eproto();
+
+  void InitAsDefaultInstance();
+  static LimitSaleDBProto_ShopProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LimitSaleDBProto : public ::google::protobuf::Message {
+ public:
+  LimitSaleDBProto();
+  virtual ~LimitSaleDBProto();
+
+  LimitSaleDBProto(const LimitSaleDBProto& from);
+
+  inline LimitSaleDBProto& operator=(const LimitSaleDBProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LimitSaleDBProto& default_instance();
+
+  void Swap(LimitSaleDBProto* other);
+
+  // implements Message ----------------------------------------------
+
+  LimitSaleDBProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const LimitSaleDBProto& from);
+  void MergeFrom(const LimitSaleDBProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  typedef LimitSaleDBProto_ShopProto ShopProto;
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.LimitSaleDBProto.ShopProto shop = 1;
+  inline int shop_size() const;
+  inline void clear_shop();
+  static const int kShopFieldNumber = 1;
+  inline const ::proto_ff::LimitSaleDBProto_ShopProto& shop(int index) const;
+  inline ::proto_ff::LimitSaleDBProto_ShopProto* mutable_shop(int index);
+  inline ::proto_ff::LimitSaleDBProto_ShopProto* add_shop();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::LimitSaleDBProto_ShopProto >&
+      shop() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::LimitSaleDBProto_ShopProto >*
+      mutable_shop();
+
+  // optional uint64 fresh_time = 2;
+  inline bool has_fresh_time() const;
+  inline void clear_fresh_time();
+  static const int kFreshTimeFieldNumber = 2;
+  inline ::google::protobuf::uint64 fresh_time() const;
+  inline void set_fresh_time(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.LimitSaleDBProto)
+ private:
+  inline void set_has_fresh_time();
+  inline void clear_has_fresh_time();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::LimitSaleDBProto_ShopProto > shop_;
+  ::google::protobuf::uint64 fresh_time_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProxy_2eproto();
+  friend void protobuf_AssignDesc_DBProxy_2eproto();
+  friend void protobuf_ShutdownFile_DBProxy_2eproto();
+
+  void InitAsDefaultInstance();
+  static LimitSaleDBProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class FestDetailDBProto : public ::google::protobuf::Message {
  public:
   FestDetailDBProto();
@@ -12554,6 +13087,24 @@ class FestDetailDBProto : public ::google::protobuf::Message {
   inline ::proto_ff::LoginRewardDBProto* release_login();
   inline void set_allocated_login(::proto_ff::LoginRewardDBProto* login);
 
+  // optional .proto_ff.ContiRechargeDBProto conti_recharge = 24;
+  inline bool has_conti_recharge() const;
+  inline void clear_conti_recharge();
+  static const int kContiRechargeFieldNumber = 24;
+  inline const ::proto_ff::ContiRechargeDBProto& conti_recharge() const;
+  inline ::proto_ff::ContiRechargeDBProto* mutable_conti_recharge();
+  inline ::proto_ff::ContiRechargeDBProto* release_conti_recharge();
+  inline void set_allocated_conti_recharge(::proto_ff::ContiRechargeDBProto* conti_recharge);
+
+  // optional .proto_ff.LimitSaleDBProto limit_sale = 25;
+  inline bool has_limit_sale() const;
+  inline void clear_limit_sale();
+  static const int kLimitSaleFieldNumber = 25;
+  inline const ::proto_ff::LimitSaleDBProto& limit_sale() const;
+  inline ::proto_ff::LimitSaleDBProto* mutable_limit_sale();
+  inline ::proto_ff::LimitSaleDBProto* release_limit_sale();
+  inline void set_allocated_limit_sale(::proto_ff::LimitSaleDBProto* limit_sale);
+
   // @@protoc_insertion_point(class_scope:proto_ff.FestDetailDBProto)
  private:
   inline void set_has_template_id();
@@ -12602,6 +13153,10 @@ class FestDetailDBProto : public ::google::protobuf::Message {
   inline void clear_has_total_recharge();
   inline void set_has_login();
   inline void clear_has_login();
+  inline void set_has_conti_recharge();
+  inline void clear_has_conti_recharge();
+  inline void set_has_limit_sale();
+  inline void clear_has_limit_sale();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -12628,9 +13183,11 @@ class FestDetailDBProto : public ::google::protobuf::Message {
   ::proto_ff::DayTotalRechargeDBProto* day_total_recharge_;
   ::proto_ff::TotalRechargeDBProto* total_recharge_;
   ::proto_ff::LoginRewardDBProto* login_;
+  ::proto_ff::ContiRechargeDBProto* conti_recharge_;
+  ::proto_ff::LimitSaleDBProto* limit_sale_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(23 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(25 + 31) / 32];
 
   friend void  protobuf_AddDesc_DBProxy_2eproto();
   friend void protobuf_AssignDesc_DBProxy_2eproto();
@@ -13459,6 +14016,176 @@ class SoulDBData : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class MoFaDBData : public ::google::protobuf::Message {
+ public:
+  MoFaDBData();
+  virtual ~MoFaDBData();
+
+  MoFaDBData(const MoFaDBData& from);
+
+  inline MoFaDBData& operator=(const MoFaDBData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MoFaDBData& default_instance();
+
+  void Swap(MoFaDBData* other);
+
+  // implements Message ----------------------------------------------
+
+  MoFaDBData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MoFaDBData& from);
+  void MergeFrom(const MoFaDBData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.MoFaEquipInfo data = 1;
+  inline int data_size() const;
+  inline void clear_data();
+  static const int kDataFieldNumber = 1;
+  inline const ::proto_ff::MoFaEquipInfo& data(int index) const;
+  inline ::proto_ff::MoFaEquipInfo* mutable_data(int index);
+  inline ::proto_ff::MoFaEquipInfo* add_data();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::MoFaEquipInfo >&
+      data() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::MoFaEquipInfo >*
+      mutable_data();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.MoFaDBData)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::MoFaEquipInfo > data_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProxy_2eproto();
+  friend void protobuf_AssignDesc_DBProxy_2eproto();
+  friend void protobuf_ShutdownFile_DBProxy_2eproto();
+
+  void InitAsDefaultInstance();
+  static MoFaDBData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class RuneDBData : public ::google::protobuf::Message {
+ public:
+  RuneDBData();
+  virtual ~RuneDBData();
+
+  RuneDBData(const RuneDBData& from);
+
+  inline RuneDBData& operator=(const RuneDBData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RuneDBData& default_instance();
+
+  void Swap(RuneDBData* other);
+
+  // implements Message ----------------------------------------------
+
+  RuneDBData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const RuneDBData& from);
+  void MergeFrom(const RuneDBData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.RuneEntry entrys = 1;
+  inline int entrys_size() const;
+  inline void clear_entrys();
+  static const int kEntrysFieldNumber = 1;
+  inline const ::proto_ff::RuneEntry& entrys(int index) const;
+  inline ::proto_ff::RuneEntry* mutable_entrys(int index);
+  inline ::proto_ff::RuneEntry* add_entrys();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RuneEntry >&
+      entrys() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RuneEntry >*
+      mutable_entrys();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.RuneDBData)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::RuneEntry > entrys_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProxy_2eproto();
+  friend void protobuf_AssignDesc_DBProxy_2eproto();
+  friend void protobuf_ShutdownFile_DBProxy_2eproto();
+
+  void InitAsDefaultInstance();
+  static RuneDBData* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class RoleDBData : public ::google::protobuf::Message {
  public:
   RoleDBData();
@@ -13973,6 +14700,24 @@ class RoleDBData : public ::google::protobuf::Message {
   inline ::proto_ff::SoulDBData* release_soul();
   inline void set_allocated_soul(::proto_ff::SoulDBData* soul);
 
+  // optional .proto_ff.MoFaDBData mofa = 53;
+  inline bool has_mofa() const;
+  inline void clear_mofa();
+  static const int kMofaFieldNumber = 53;
+  inline const ::proto_ff::MoFaDBData& mofa() const;
+  inline ::proto_ff::MoFaDBData* mutable_mofa();
+  inline ::proto_ff::MoFaDBData* release_mofa();
+  inline void set_allocated_mofa(::proto_ff::MoFaDBData* mofa);
+
+  // optional .proto_ff.RuneDBData rune = 54;
+  inline bool has_rune() const;
+  inline void clear_rune();
+  static const int kRuneFieldNumber = 54;
+  inline const ::proto_ff::RuneDBData& rune() const;
+  inline ::proto_ff::RuneDBData* mutable_rune();
+  inline ::proto_ff::RuneDBData* release_rune();
+  inline void set_allocated_rune(::proto_ff::RuneDBData* rune);
+
   // @@protoc_insertion_point(class_scope:proto_ff.RoleDBData)
  private:
   inline void set_has_cid();
@@ -14079,6 +14824,10 @@ class RoleDBData : public ::google::protobuf::Message {
   inline void clear_has_gma_datas();
   inline void set_has_soul();
   inline void clear_has_soul();
+  inline void set_has_mofa();
+  inline void clear_has_mofa();
+  inline void set_has_rune();
+  inline void clear_has_rune();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -14133,10 +14882,12 @@ class RoleDBData : public ::google::protobuf::Message {
   ::proto_ff::RoleDBTurnData* turn_;
   ::proto_ff::GMADbData* gma_datas_;
   ::proto_ff::SoulDBData* soul_;
+  ::proto_ff::MoFaDBData* mofa_;
+  ::proto_ff::RuneDBData* rune_;
   ::google::protobuf::int32 change_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(52 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(54 + 31) / 32];
 
   friend void  protobuf_AddDesc_DBProxy_2eproto();
   friend void protobuf_AssignDesc_DBProxy_2eproto();
@@ -15164,6 +15915,13 @@ class RoleMirrorData : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 campid() const;
   inline void set_campid(::google::protobuf::int32 value);
 
+  // optional int32 relive = 12;
+  inline bool has_relive() const;
+  inline void clear_relive();
+  static const int kReliveFieldNumber = 12;
+  inline ::google::protobuf::int32 relive() const;
+  inline void set_relive(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.RoleMirrorData)
  private:
   inline void set_has_cid();
@@ -15184,6 +15942,8 @@ class RoleMirrorData : public ::google::protobuf::Message {
   inline void clear_has_equip();
   inline void set_has_campid();
   inline void clear_has_campid();
+  inline void set_has_relive();
+  inline void clear_has_relive();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -15198,9 +15958,10 @@ class RoleMirrorData : public ::google::protobuf::Message {
   ::proto_ff::RoleDBEquipData* equip_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::BestEQEquipInfo > beast_equips_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::BestEQSlotInfo > beast_slots_;
+  ::google::protobuf::int32 relive_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(11 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(12 + 31) / 32];
 
   friend void  protobuf_AddDesc_DBProxy_2eproto();
   friend void protobuf_AssignDesc_DBProxy_2eproto();
@@ -38644,6 +39405,355 @@ LoginRewardDBProto::mutable_fetch() {
 
 // -------------------------------------------------------------------
 
+// ContiRechargeDBProto_DayFetchInfo
+
+// optional int32 day = 1;
+inline bool ContiRechargeDBProto_DayFetchInfo::has_day() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ContiRechargeDBProto_DayFetchInfo::set_has_day() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ContiRechargeDBProto_DayFetchInfo::clear_has_day() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ContiRechargeDBProto_DayFetchInfo::clear_day() {
+  day_ = 0;
+  clear_has_day();
+}
+inline ::google::protobuf::int32 ContiRechargeDBProto_DayFetchInfo::day() const {
+  return day_;
+}
+inline void ContiRechargeDBProto_DayFetchInfo::set_day(::google::protobuf::int32 value) {
+  set_has_day();
+  day_ = value;
+}
+
+// repeated int32 gear_lst = 2;
+inline int ContiRechargeDBProto_DayFetchInfo::gear_lst_size() const {
+  return gear_lst_.size();
+}
+inline void ContiRechargeDBProto_DayFetchInfo::clear_gear_lst() {
+  gear_lst_.Clear();
+}
+inline ::google::protobuf::int32 ContiRechargeDBProto_DayFetchInfo::gear_lst(int index) const {
+  return gear_lst_.Get(index);
+}
+inline void ContiRechargeDBProto_DayFetchInfo::set_gear_lst(int index, ::google::protobuf::int32 value) {
+  gear_lst_.Set(index, value);
+}
+inline void ContiRechargeDBProto_DayFetchInfo::add_gear_lst(::google::protobuf::int32 value) {
+  gear_lst_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+ContiRechargeDBProto_DayFetchInfo::gear_lst() const {
+  return gear_lst_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+ContiRechargeDBProto_DayFetchInfo::mutable_gear_lst() {
+  return &gear_lst_;
+}
+
+// -------------------------------------------------------------------
+
+// ContiRechargeDBProto_GearFetchInfo
+
+// optional int32 gear = 1;
+inline bool ContiRechargeDBProto_GearFetchInfo::has_gear() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ContiRechargeDBProto_GearFetchInfo::set_has_gear() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ContiRechargeDBProto_GearFetchInfo::clear_has_gear() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ContiRechargeDBProto_GearFetchInfo::clear_gear() {
+  gear_ = 0;
+  clear_has_gear();
+}
+inline ::google::protobuf::int32 ContiRechargeDBProto_GearFetchInfo::gear() const {
+  return gear_;
+}
+inline void ContiRechargeDBProto_GearFetchInfo::set_gear(::google::protobuf::int32 value) {
+  set_has_gear();
+  gear_ = value;
+}
+
+// repeated int32 day_lst = 2;
+inline int ContiRechargeDBProto_GearFetchInfo::day_lst_size() const {
+  return day_lst_.size();
+}
+inline void ContiRechargeDBProto_GearFetchInfo::clear_day_lst() {
+  day_lst_.Clear();
+}
+inline ::google::protobuf::int32 ContiRechargeDBProto_GearFetchInfo::day_lst(int index) const {
+  return day_lst_.Get(index);
+}
+inline void ContiRechargeDBProto_GearFetchInfo::set_day_lst(int index, ::google::protobuf::int32 value) {
+  day_lst_.Set(index, value);
+}
+inline void ContiRechargeDBProto_GearFetchInfo::add_day_lst(::google::protobuf::int32 value) {
+  day_lst_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+ContiRechargeDBProto_GearFetchInfo::day_lst() const {
+  return day_lst_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+ContiRechargeDBProto_GearFetchInfo::mutable_day_lst() {
+  return &day_lst_;
+}
+
+// -------------------------------------------------------------------
+
+// ContiRechargeDBProto
+
+// optional uint32 recharge = 1;
+inline bool ContiRechargeDBProto::has_recharge() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ContiRechargeDBProto::set_has_recharge() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ContiRechargeDBProto::clear_has_recharge() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ContiRechargeDBProto::clear_recharge() {
+  recharge_ = 0u;
+  clear_has_recharge();
+}
+inline ::google::protobuf::uint32 ContiRechargeDBProto::recharge() const {
+  return recharge_;
+}
+inline void ContiRechargeDBProto::set_recharge(::google::protobuf::uint32 value) {
+  set_has_recharge();
+  recharge_ = value;
+}
+
+// optional int32 supplement = 2;
+inline bool ContiRechargeDBProto::has_supplement() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void ContiRechargeDBProto::set_has_supplement() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void ContiRechargeDBProto::clear_has_supplement() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void ContiRechargeDBProto::clear_supplement() {
+  supplement_ = 0;
+  clear_has_supplement();
+}
+inline ::google::protobuf::int32 ContiRechargeDBProto::supplement() const {
+  return supplement_;
+}
+inline void ContiRechargeDBProto::set_supplement(::google::protobuf::int32 value) {
+  set_has_supplement();
+  supplement_ = value;
+}
+
+// repeated .proto_ff.ContiRechargeDBProto.DayFetchInfo day_fetch = 3;
+inline int ContiRechargeDBProto::day_fetch_size() const {
+  return day_fetch_.size();
+}
+inline void ContiRechargeDBProto::clear_day_fetch() {
+  day_fetch_.Clear();
+}
+inline const ::proto_ff::ContiRechargeDBProto_DayFetchInfo& ContiRechargeDBProto::day_fetch(int index) const {
+  return day_fetch_.Get(index);
+}
+inline ::proto_ff::ContiRechargeDBProto_DayFetchInfo* ContiRechargeDBProto::mutable_day_fetch(int index) {
+  return day_fetch_.Mutable(index);
+}
+inline ::proto_ff::ContiRechargeDBProto_DayFetchInfo* ContiRechargeDBProto::add_day_fetch() {
+  return day_fetch_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ContiRechargeDBProto_DayFetchInfo >&
+ContiRechargeDBProto::day_fetch() const {
+  return day_fetch_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ContiRechargeDBProto_DayFetchInfo >*
+ContiRechargeDBProto::mutable_day_fetch() {
+  return &day_fetch_;
+}
+
+// repeated .proto_ff.ContiRechargeDBProto.GearFetchInfo gear_fetch = 4;
+inline int ContiRechargeDBProto::gear_fetch_size() const {
+  return gear_fetch_.size();
+}
+inline void ContiRechargeDBProto::clear_gear_fetch() {
+  gear_fetch_.Clear();
+}
+inline const ::proto_ff::ContiRechargeDBProto_GearFetchInfo& ContiRechargeDBProto::gear_fetch(int index) const {
+  return gear_fetch_.Get(index);
+}
+inline ::proto_ff::ContiRechargeDBProto_GearFetchInfo* ContiRechargeDBProto::mutable_gear_fetch(int index) {
+  return gear_fetch_.Mutable(index);
+}
+inline ::proto_ff::ContiRechargeDBProto_GearFetchInfo* ContiRechargeDBProto::add_gear_fetch() {
+  return gear_fetch_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ContiRechargeDBProto_GearFetchInfo >&
+ContiRechargeDBProto::gear_fetch() const {
+  return gear_fetch_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ContiRechargeDBProto_GearFetchInfo >*
+ContiRechargeDBProto::mutable_gear_fetch() {
+  return &gear_fetch_;
+}
+
+// -------------------------------------------------------------------
+
+// LimitSaleDBProto_ShopProto
+
+// optional int32 type = 1;
+inline bool LimitSaleDBProto_ShopProto::has_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void LimitSaleDBProto_ShopProto::set_has_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void LimitSaleDBProto_ShopProto::clear_has_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void LimitSaleDBProto_ShopProto::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+inline ::google::protobuf::int32 LimitSaleDBProto_ShopProto::type() const {
+  return type_;
+}
+inline void LimitSaleDBProto_ShopProto::set_type(::google::protobuf::int32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// optional uint32 total = 2;
+inline bool LimitSaleDBProto_ShopProto::has_total() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void LimitSaleDBProto_ShopProto::set_has_total() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void LimitSaleDBProto_ShopProto::clear_has_total() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void LimitSaleDBProto_ShopProto::clear_total() {
+  total_ = 0u;
+  clear_has_total();
+}
+inline ::google::protobuf::uint32 LimitSaleDBProto_ShopProto::total() const {
+  return total_;
+}
+inline void LimitSaleDBProto_ShopProto::set_total(::google::protobuf::uint32 value) {
+  set_has_total();
+  total_ = value;
+}
+
+// repeated int32 fetch = 3;
+inline int LimitSaleDBProto_ShopProto::fetch_size() const {
+  return fetch_.size();
+}
+inline void LimitSaleDBProto_ShopProto::clear_fetch() {
+  fetch_.Clear();
+}
+inline ::google::protobuf::int32 LimitSaleDBProto_ShopProto::fetch(int index) const {
+  return fetch_.Get(index);
+}
+inline void LimitSaleDBProto_ShopProto::set_fetch(int index, ::google::protobuf::int32 value) {
+  fetch_.Set(index, value);
+}
+inline void LimitSaleDBProto_ShopProto::add_fetch(::google::protobuf::int32 value) {
+  fetch_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+LimitSaleDBProto_ShopProto::fetch() const {
+  return fetch_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+LimitSaleDBProto_ShopProto::mutable_fetch() {
+  return &fetch_;
+}
+
+// repeated .proto_ff.ComPair buy = 4;
+inline int LimitSaleDBProto_ShopProto::buy_size() const {
+  return buy_.size();
+}
+inline void LimitSaleDBProto_ShopProto::clear_buy() {
+  buy_.Clear();
+}
+inline const ::proto_ff::ComPair& LimitSaleDBProto_ShopProto::buy(int index) const {
+  return buy_.Get(index);
+}
+inline ::proto_ff::ComPair* LimitSaleDBProto_ShopProto::mutable_buy(int index) {
+  return buy_.Mutable(index);
+}
+inline ::proto_ff::ComPair* LimitSaleDBProto_ShopProto::add_buy() {
+  return buy_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+LimitSaleDBProto_ShopProto::buy() const {
+  return buy_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+LimitSaleDBProto_ShopProto::mutable_buy() {
+  return &buy_;
+}
+
+// -------------------------------------------------------------------
+
+// LimitSaleDBProto
+
+// repeated .proto_ff.LimitSaleDBProto.ShopProto shop = 1;
+inline int LimitSaleDBProto::shop_size() const {
+  return shop_.size();
+}
+inline void LimitSaleDBProto::clear_shop() {
+  shop_.Clear();
+}
+inline const ::proto_ff::LimitSaleDBProto_ShopProto& LimitSaleDBProto::shop(int index) const {
+  return shop_.Get(index);
+}
+inline ::proto_ff::LimitSaleDBProto_ShopProto* LimitSaleDBProto::mutable_shop(int index) {
+  return shop_.Mutable(index);
+}
+inline ::proto_ff::LimitSaleDBProto_ShopProto* LimitSaleDBProto::add_shop() {
+  return shop_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::LimitSaleDBProto_ShopProto >&
+LimitSaleDBProto::shop() const {
+  return shop_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::LimitSaleDBProto_ShopProto >*
+LimitSaleDBProto::mutable_shop() {
+  return &shop_;
+}
+
+// optional uint64 fresh_time = 2;
+inline bool LimitSaleDBProto::has_fresh_time() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void LimitSaleDBProto::set_has_fresh_time() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void LimitSaleDBProto::clear_has_fresh_time() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void LimitSaleDBProto::clear_fresh_time() {
+  fresh_time_ = GOOGLE_ULONGLONG(0);
+  clear_has_fresh_time();
+}
+inline ::google::protobuf::uint64 LimitSaleDBProto::fresh_time() const {
+  return fresh_time_;
+}
+inline void LimitSaleDBProto::set_fresh_time(::google::protobuf::uint64 value) {
+  set_has_fresh_time();
+  fresh_time_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // FestDetailDBProto
 
 // required int32 template_id = 1;
@@ -39472,6 +40582,82 @@ inline void FestDetailDBProto::set_allocated_login(::proto_ff::LoginRewardDBProt
   }
 }
 
+// optional .proto_ff.ContiRechargeDBProto conti_recharge = 24;
+inline bool FestDetailDBProto::has_conti_recharge() const {
+  return (_has_bits_[0] & 0x00800000u) != 0;
+}
+inline void FestDetailDBProto::set_has_conti_recharge() {
+  _has_bits_[0] |= 0x00800000u;
+}
+inline void FestDetailDBProto::clear_has_conti_recharge() {
+  _has_bits_[0] &= ~0x00800000u;
+}
+inline void FestDetailDBProto::clear_conti_recharge() {
+  if (conti_recharge_ != NULL) conti_recharge_->::proto_ff::ContiRechargeDBProto::Clear();
+  clear_has_conti_recharge();
+}
+inline const ::proto_ff::ContiRechargeDBProto& FestDetailDBProto::conti_recharge() const {
+  return conti_recharge_ != NULL ? *conti_recharge_ : *default_instance_->conti_recharge_;
+}
+inline ::proto_ff::ContiRechargeDBProto* FestDetailDBProto::mutable_conti_recharge() {
+  set_has_conti_recharge();
+  if (conti_recharge_ == NULL) conti_recharge_ = new ::proto_ff::ContiRechargeDBProto;
+  return conti_recharge_;
+}
+inline ::proto_ff::ContiRechargeDBProto* FestDetailDBProto::release_conti_recharge() {
+  clear_has_conti_recharge();
+  ::proto_ff::ContiRechargeDBProto* temp = conti_recharge_;
+  conti_recharge_ = NULL;
+  return temp;
+}
+inline void FestDetailDBProto::set_allocated_conti_recharge(::proto_ff::ContiRechargeDBProto* conti_recharge) {
+  delete conti_recharge_;
+  conti_recharge_ = conti_recharge;
+  if (conti_recharge) {
+    set_has_conti_recharge();
+  } else {
+    clear_has_conti_recharge();
+  }
+}
+
+// optional .proto_ff.LimitSaleDBProto limit_sale = 25;
+inline bool FestDetailDBProto::has_limit_sale() const {
+  return (_has_bits_[0] & 0x01000000u) != 0;
+}
+inline void FestDetailDBProto::set_has_limit_sale() {
+  _has_bits_[0] |= 0x01000000u;
+}
+inline void FestDetailDBProto::clear_has_limit_sale() {
+  _has_bits_[0] &= ~0x01000000u;
+}
+inline void FestDetailDBProto::clear_limit_sale() {
+  if (limit_sale_ != NULL) limit_sale_->::proto_ff::LimitSaleDBProto::Clear();
+  clear_has_limit_sale();
+}
+inline const ::proto_ff::LimitSaleDBProto& FestDetailDBProto::limit_sale() const {
+  return limit_sale_ != NULL ? *limit_sale_ : *default_instance_->limit_sale_;
+}
+inline ::proto_ff::LimitSaleDBProto* FestDetailDBProto::mutable_limit_sale() {
+  set_has_limit_sale();
+  if (limit_sale_ == NULL) limit_sale_ = new ::proto_ff::LimitSaleDBProto;
+  return limit_sale_;
+}
+inline ::proto_ff::LimitSaleDBProto* FestDetailDBProto::release_limit_sale() {
+  clear_has_limit_sale();
+  ::proto_ff::LimitSaleDBProto* temp = limit_sale_;
+  limit_sale_ = NULL;
+  return temp;
+}
+inline void FestDetailDBProto::set_allocated_limit_sale(::proto_ff::LimitSaleDBProto* limit_sale) {
+  delete limit_sale_;
+  limit_sale_ = limit_sale;
+  if (limit_sale) {
+    set_has_limit_sale();
+  } else {
+    clear_has_limit_sale();
+  }
+}
+
 // -------------------------------------------------------------------
 
 // FestDBData
@@ -40218,6 +41404,64 @@ SoulDBData::tasks() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
 SoulDBData::mutable_tasks() {
   return &tasks_;
+}
+
+// -------------------------------------------------------------------
+
+// MoFaDBData
+
+// repeated .proto_ff.MoFaEquipInfo data = 1;
+inline int MoFaDBData::data_size() const {
+  return data_.size();
+}
+inline void MoFaDBData::clear_data() {
+  data_.Clear();
+}
+inline const ::proto_ff::MoFaEquipInfo& MoFaDBData::data(int index) const {
+  return data_.Get(index);
+}
+inline ::proto_ff::MoFaEquipInfo* MoFaDBData::mutable_data(int index) {
+  return data_.Mutable(index);
+}
+inline ::proto_ff::MoFaEquipInfo* MoFaDBData::add_data() {
+  return data_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::MoFaEquipInfo >&
+MoFaDBData::data() const {
+  return data_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::MoFaEquipInfo >*
+MoFaDBData::mutable_data() {
+  return &data_;
+}
+
+// -------------------------------------------------------------------
+
+// RuneDBData
+
+// repeated .proto_ff.RuneEntry entrys = 1;
+inline int RuneDBData::entrys_size() const {
+  return entrys_.size();
+}
+inline void RuneDBData::clear_entrys() {
+  entrys_.Clear();
+}
+inline const ::proto_ff::RuneEntry& RuneDBData::entrys(int index) const {
+  return entrys_.Get(index);
+}
+inline ::proto_ff::RuneEntry* RuneDBData::mutable_entrys(int index) {
+  return entrys_.Mutable(index);
+}
+inline ::proto_ff::RuneEntry* RuneDBData::add_entrys() {
+  return entrys_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RuneEntry >&
+RuneDBData::entrys() const {
+  return entrys_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RuneEntry >*
+RuneDBData::mutable_entrys() {
+  return &entrys_;
 }
 
 // -------------------------------------------------------------------
@@ -42136,6 +43380,82 @@ inline void RoleDBData::set_allocated_soul(::proto_ff::SoulDBData* soul) {
   }
 }
 
+// optional .proto_ff.MoFaDBData mofa = 53;
+inline bool RoleDBData::has_mofa() const {
+  return (_has_bits_[1] & 0x00100000u) != 0;
+}
+inline void RoleDBData::set_has_mofa() {
+  _has_bits_[1] |= 0x00100000u;
+}
+inline void RoleDBData::clear_has_mofa() {
+  _has_bits_[1] &= ~0x00100000u;
+}
+inline void RoleDBData::clear_mofa() {
+  if (mofa_ != NULL) mofa_->::proto_ff::MoFaDBData::Clear();
+  clear_has_mofa();
+}
+inline const ::proto_ff::MoFaDBData& RoleDBData::mofa() const {
+  return mofa_ != NULL ? *mofa_ : *default_instance_->mofa_;
+}
+inline ::proto_ff::MoFaDBData* RoleDBData::mutable_mofa() {
+  set_has_mofa();
+  if (mofa_ == NULL) mofa_ = new ::proto_ff::MoFaDBData;
+  return mofa_;
+}
+inline ::proto_ff::MoFaDBData* RoleDBData::release_mofa() {
+  clear_has_mofa();
+  ::proto_ff::MoFaDBData* temp = mofa_;
+  mofa_ = NULL;
+  return temp;
+}
+inline void RoleDBData::set_allocated_mofa(::proto_ff::MoFaDBData* mofa) {
+  delete mofa_;
+  mofa_ = mofa;
+  if (mofa) {
+    set_has_mofa();
+  } else {
+    clear_has_mofa();
+  }
+}
+
+// optional .proto_ff.RuneDBData rune = 54;
+inline bool RoleDBData::has_rune() const {
+  return (_has_bits_[1] & 0x00200000u) != 0;
+}
+inline void RoleDBData::set_has_rune() {
+  _has_bits_[1] |= 0x00200000u;
+}
+inline void RoleDBData::clear_has_rune() {
+  _has_bits_[1] &= ~0x00200000u;
+}
+inline void RoleDBData::clear_rune() {
+  if (rune_ != NULL) rune_->::proto_ff::RuneDBData::Clear();
+  clear_has_rune();
+}
+inline const ::proto_ff::RuneDBData& RoleDBData::rune() const {
+  return rune_ != NULL ? *rune_ : *default_instance_->rune_;
+}
+inline ::proto_ff::RuneDBData* RoleDBData::mutable_rune() {
+  set_has_rune();
+  if (rune_ == NULL) rune_ = new ::proto_ff::RuneDBData;
+  return rune_;
+}
+inline ::proto_ff::RuneDBData* RoleDBData::release_rune() {
+  clear_has_rune();
+  ::proto_ff::RuneDBData* temp = rune_;
+  rune_ = NULL;
+  return temp;
+}
+inline void RoleDBData::set_allocated_rune(::proto_ff::RuneDBData* rune) {
+  delete rune_;
+  rune_ = rune;
+  if (rune) {
+    set_has_rune();
+  } else {
+    clear_has_rune();
+  }
+}
+
 // -------------------------------------------------------------------
 
 // RedWaitDBProto
@@ -43245,6 +44565,28 @@ inline ::google::protobuf::int32 RoleMirrorData::campid() const {
 inline void RoleMirrorData::set_campid(::google::protobuf::int32 value) {
   set_has_campid();
   campid_ = value;
+}
+
+// optional int32 relive = 12;
+inline bool RoleMirrorData::has_relive() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void RoleMirrorData::set_has_relive() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void RoleMirrorData::clear_has_relive() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void RoleMirrorData::clear_relive() {
+  relive_ = 0;
+  clear_has_relive();
+}
+inline ::google::protobuf::int32 RoleMirrorData::relive() const {
+  return relive_;
+}
+inline void RoleMirrorData::set_relive(::google::protobuf::int32 value) {
+  set_has_relive();
+  relive_ = value;
 }
 
 // -------------------------------------------------------------------

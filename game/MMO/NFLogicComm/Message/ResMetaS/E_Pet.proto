@@ -287,7 +287,7 @@ message E_PetWraithsAttributebctDesc
 message E_PetWraiths
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "装备id"];
-	optional int32 m_name = 2[(yd_fieldoptions.field_cname) = "妖魂名称"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "妖魂名称", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_affix = 3[(yd_fieldoptions.field_cname) = "词缀类型"];
 	optional int32 m_position = 4[(yd_fieldoptions.field_cname) = "妖魂部位"];
 	optional int32 m_quality = 5[(yd_fieldoptions.field_cname) = "妖魂品质"];
@@ -440,17 +440,10 @@ message E_PetTopAttributeDesc
 	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
 }
 
-message E_PetTopStarattDesc
-{
-	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
-	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
-}
-
 message E_PetTop
 {
 	optional int32 m_topType = 1[(yd_fieldoptions.field_cname) = "突破类型"];
-	repeated E_PetTopAttributeDesc m_attribute = 2[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 8];
-	repeated E_PetTopStarattDesc m_starAtt = 3[(yd_fieldoptions.field_cname) = "星级属性", (yd_fieldoptions.field_arysize) = 8];
+	repeated E_PetTopAttributeDesc m_attribute = 2[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 16];
 }
 
 

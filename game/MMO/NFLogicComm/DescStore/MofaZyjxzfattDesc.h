@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Mofa_s.h"
 
-#define MAX_MOFA_ZYJXZFATT_NUM 64
+#define MAX_MOFA_ZYJXZFATT_NUM 128
 
 class MofaZyjxzfattDesc : public NFIDescTemplate<MofaZyjxzfattDesc, proto_ff_s::E_MofaZyjxzfatt_s, EOT_CONST_MOFA_ZYJXZFATT_DESC_ID, MAX_MOFA_ZYJXZFATT_NUM>
 {

@@ -125,8 +125,7 @@ void protobuf_AssignDesc_E_5fMofa_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_MofaSetupZfDesc));
   E_MofaSetup_descriptor_ = file->message_type(1);
-  static const int E_MofaSetup_offsets_[10] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MofaSetup, m_id_),
+  static const int E_MofaSetup_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MofaSetup, m_positionid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MofaSetup, m_unlock_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MofaSetup, m_zyatt_),
@@ -197,7 +196,7 @@ void protobuf_AssignDesc_E_5fMofa_2eproto() {
       sizeof(E_MofaYuansuAwakenDesc));
   E_MofaYuansu_descriptor_ = file->message_type(5);
   static const int E_MofaYuansu_offsets_[9] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MofaYuansu, m_itemid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MofaYuansu, m_equipid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MofaYuansu, m_attritype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MofaYuansu, m_mosaic_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MofaYuansu, m_lvitem_),
@@ -234,8 +233,7 @@ void protobuf_AssignDesc_E_5fMofa_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_MofaYuansu));
   E_MofaDecompose_descriptor_ = file->message_type(7);
-  static const int E_MofaDecompose_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MofaDecompose, m_id_),
+  static const int E_MofaDecompose_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MofaDecompose, m_dpqua_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MofaDecompose, m_dpitem_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MofaDecompose, m_dpess_),
@@ -476,9 +474,8 @@ void protobuf_AssignDesc_E_5fMofa_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_MofaZyjxzfatt));
   E_MofaExchange_descriptor_ = file->message_type(22);
-  static const int E_MofaExchange_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MofaExchange, m_itemid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MofaExchange, m_quality_),
+  static const int E_MofaExchange_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MofaExchange, m_equipid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MofaExchange, m_ecitem_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MofaExchange, m_ecnum_),
   };
@@ -673,86 +670,84 @@ void protobuf_AddDesc_E_5fMofa_2eproto() {
     "\n\014E_Mofa.proto\022\010proto_ff\032\025yd_fieldoption"
     "s.proto\"I\n\021E_MofaSetupZfDesc\022\030\n\007m_value\030"
     "\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006\347\261\273\345"
-    "\236\213\"\274\003\n\013E_MofaSetup\022\030\n\004m_ID\030\001 \001(\005B\n\302\377\024\006\346\216"
-    "\222\345\272\217\022\"\n\014m_PositionID\030\002 \001(\005B\014\302\377\024\010\351\203\250\344\275\215id"
-    "\022\"\n\010m_Unlock\030\003 \001(\005B\020\302\377\024\014\350\247\243\351\224\201\351\201\223\345\205\267\022$\n\007"
-    "m_ZyAtt\030\004 \001(\005B\023\302\377\024\017\351\230\265\347\234\274\345\261\236\346\200\247\347\273\204\022!\n\007m_"
-    "Bless\030\005 \001(\005B\020\302\377\024\014\347\245\235\347\246\217\351\201\223\345\205\267\022,\n\014m_Bless"
-    "Bonus\030\006 \001(\005B\026\302\377\024\022\347\245\235\347\246\217\345\261\236\346\200\247\345\212\240\346\210\220\022,\n\tm"
-    "_JxZyAtt\030\007 \001(\005B\031\302\377\024\025\350\247\211\351\206\222\351\230\265\347\234\274\345\261\236\346\200\247\347\273"
-    "\204\0224\n\016m_JxBlessBonus\030\010 \001(\005B\034\302\377\024\030\350\247\211\351\206\222\347\245\235"
-    "\347\246\217\345\261\236\346\200\247\345\212\240\346\210\220\022/\n\014m_JxBlessAtt\030\t \001(\005B\031\302"
-    "\377\024\025\350\247\211\351\206\222\347\245\235\347\246\217\345\261\236\346\200\247\347\273\204\022\?\n\004m_ZF\030\n \003(\0132\033"
-    ".proto_ff.E_MofaSetupZfDescB\024\302\377\024\014\347\245\235\347\246\217\345"
-    "\261\236\346\200\247\210\301\024\003\"H\n\017Sheet_MofaSetup\0225\n\020E_MofaSe"
-    "tup_List\030\001 \003(\0132\025.proto_ff.E_MofaSetupB\004\210"
-    "\301\024\020\"Q\n\031E_MofaYuansuAttributeDesc\022\030\n\007m_va"
-    "lue\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006"
-    "\347\261\273\345\236\213\"p\n\026E_MofaYuansuAwakenDesc\0225\n\014m_lv"
-    "Addratio\030\001 \001(\005B\037\302\377\024\033\345\215\207\347\272\247\345\261\236\346\200\247\345\212\240\346\210\220\347\231"
-    "\276\345\210\206\346\257\224\022\037\n\005m_num\030\002 \001(\005B\020\302\377\024\014\346\235\220\346\226\231\346\225\260\351\207\217"
-    "\"\262\003\n\014E_MofaYuansu\022\036\n\010m_ItemID\030\001 \001(\005B\014\302\377\024"
-    "\010\351\201\223\345\205\267ID\022+\n\013m_AttriType\030\002 \001(\005B\026\302\377\024\022\347\211\251\345"
-    "\223\201\347\261\273\345\236\213\346\216\222\345\272\217\022%\n\010m_mosaic\030\003 \001(\005B\023\302\377\024\017\345\217"
-    "\257\351\225\266\345\265\214\351\203\250\344\275\215\022\"\n\010m_LvItem\030\004 \001(\005B\020\302\377\024\014\345\215\207"
-    "\347\272\247\351\201\223\345\205\267\022)\n\014m_awaken_can\030\005 \001(\005B\023\302\377\024\017\346\230\257"
-    "\345\220\246\345\217\257\350\247\211\351\206\222\022(\n\016m_awaken_Lvmax\030\006 \001(\005B\020\302\377"
-    "\024\014\350\247\211\351\206\222\344\270\212\351\231\220\022\'\n\rm_awaken_item\030\007 \001(\005B\020\302"
-    "\377\024\014\350\247\211\351\206\222\346\235\220\346\226\231\022H\n\013m_attribute\030\010 \003(\0132#.p"
-    "roto_ff.E_MofaYuansuAttributeDescB\016\302\377\024\006\345"
-    "\261\236\346\200\247\210\301\024\002\022B\n\010m_awaken\030\t \003(\0132 .proto_ff.E"
-    "_MofaYuansuAwakenDescB\016\302\377\024\006\350\247\211\351\206\222\210\301\024\006\"K\n"
-    "\020Sheet_MofaYuansu\0227\n\021E_MofaYuansu_List\030\001"
-    " \003(\0132\026.proto_ff.E_MofaYuansuB\004\210\301\024@\"\227\001\n\017E"
-    "_MofaDecompose\022\024\n\004m_Id\030\001 \001(\005B\006\302\377\024\002id\022!\n\007"
-    "m_DpQua\030\002 \001(\005B\020\302\377\024\014\345\210\206\350\247\243\345\223\201\350\264\250\022(\n\010m_DpI"
-    "tem\030\003 \001(\005B\026\302\377\024\022\345\210\206\350\247\243\350\277\224\350\277\230\351\201\223\345\205\267\022!\n\007m_D"
-    "pEss\030\004 \001(\005B\020\302\377\024\014\345\210\206\350\247\243\347\262\276\345\215\216\"T\n\023Sheet_Mo"
-    "faDecompose\022=\n\024E_MofaDecompose_List\030\001 \003("
-    "\0132\031.proto_ff.E_MofaDecomposeB\004\210\301\024\010\"N\n\013E_"
-    "MofaLvexp\022\030\n\004m_lv\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022%\n\005m"
-    "_exp\030\002 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\346\211\200\351\234\200\347\273\217\351\252\214\"I\n\017Sh"
-    "eet_MofaLvexp\0226\n\020E_MofaLvexp_List\030\001 \003(\0132"
-    "\025.proto_ff.E_MofaLvexpB\005\210\301\024\200\001\"T\n\013E_MofaL"
-    "vatt\022 \n\007m_attId\030\001 \001(\003B\017\302\377\024\013\345\261\236\346\200\247\347\273\204id\022#"
-    "\n\005m_att\030\002 \003(\005B\024\302\377\024\014\345\261\236\346\200\247\347\255\211\347\272\247\210\301\024d\"I\n\017S"
-    "heet_MofaLvatt\0226\n\020E_MofaLvatt_List\030\001 \003(\013"
-    "2\025.proto_ff.E_MofaLvattB\005\210\301\024\200\001\"I\n\021E_Mofa"
-    "ZyattZyDesc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n"
-    "\006m_type\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"\240\001\n\013E_MofaZyat"
-    "t\022\030\n\004m_ID\030\001 \001(\005B\n\302\377\024\006\346\216\222\345\272\217\022\035\n\007m_AttID\030\002"
-    " \001(\003B\014\302\377\024\010\345\261\236\346\200\247ID\022\035\n\tm_quality\030\003 \001(\005B\n\302"
-    "\377\024\006\345\223\201\350\264\250\0229\n\004m_ZY\030\004 \003(\0132\033.proto_ff.E_Mof"
-    "aZyattZyDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\002\"H\n\017Sheet_Mo"
-    "faZyatt\0225\n\020E_MofaZyatt_List\030\001 \003(\0132\025.prot"
-    "o_ff.E_MofaZyattB\004\210\301\024 \"M\n\025E_MofaZyjxattZ"
-    "yjxDesc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_t"
-    "ype\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"\253\001\n\rE_MofaZyjxatt\022"
-    "\030\n\004m_ID\030\001 \001(\005B\n\302\377\024\006\346\216\222\345\272\217\022\035\n\007m_AttID\030\002 \001"
-    "(\003B\014\302\377\024\010\345\261\236\346\200\247ID\022 \n\006m_JxLv\030\003 \001(\005B\020\302\377\024\014\350\247"
-    "\211\351\206\222\351\234\200\346\261\202\022\?\n\006m_ZyJx\030\004 \003(\0132\037.proto_ff.E_"
-    "MofaZyjxattZyjxDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\003\"N\n\021S"
-    "heet_MofaZyjxatt\0229\n\022E_MofaZyjxatt_List\030\001"
-    " \003(\0132\027.proto_ff.E_MofaZyjxattB\004\210\301\024@\"Q\n\031E"
-    "_MofaZyjxzfattZyjxzfDesc\022\030\n\007m_value\030\001 \001("
-    "\005B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"\263"
-    "\001\n\017E_MofaZyjxzfatt\022\030\n\004m_ID\030\001 \001(\005B\n\302\377\024\006\346\216"
-    "\222\345\272\217\022\035\n\007m_AttID\030\002 \001(\003B\014\302\377\024\010\345\261\236\346\200\247ID\022 \n\006m"
-    "_JxLv\030\003 \001(\005B\020\302\377\024\014\350\247\211\351\206\222\351\234\200\346\261\202\022E\n\010m_ZyJxZ"
-    "f\030\004 \003(\0132#.proto_ff.E_MofaZyjxzfattZyjxzf"
-    "DescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\003\"T\n\023Sheet_MofaZyjxzf"
-    "att\022=\n\024E_MofaZyjxzfatt_List\030\001 \003(\0132\031.prot"
-    "o_ff.E_MofaZyjxzfattB\004\210\301\024@\"\234\001\n\016E_MofaExc"
-    "hange\022\036\n\010m_ItemID\030\001 \001(\005B\014\302\377\024\010\351\201\223\345\205\267ID\022\035\n"
-    "\tm_quality\030\002 \001(\005B\n\302\377\024\006\345\223\201\350\264\250\022\"\n\010m_EcItem"
-    "\030\003 \001(\005B\020\302\377\024\014\345\205\221\346\215\242\351\201\223\345\205\267\022\'\n\007m_EcNum\030\004 \001("
-    "\005B\026\302\377\024\022\345\205\221\346\215\242\351\201\223\345\205\267\346\225\260\351\207\217\"Q\n\022Sheet_MofaE"
-    "xchange\022;\n\023E_MofaExchange_List\030\001 \003(\0132\030.p"
-    "roto_ff.E_MofaExchangeB\004\210\301\024 \"F\n\nE_MofaNa"
-    "me\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\"\n\014m_functionid"
-    "\030\002 \001(\005B\014\302\377\024\010\345\212\237\350\203\275id\"E\n\016Sheet_MofaName\0223"
-    "\n\017E_MofaName_List\030\001 \003(\0132\024.proto_ff.E_Mof"
-    "aNameB\004\210\301\024\010", 3291);
+    "\236\213\"\242\003\n\013E_MofaSetup\022\"\n\014m_PositionID\030\001 \001(\005"
+    "B\014\302\377\024\010\351\203\250\344\275\215id\022\"\n\010m_Unlock\030\002 \001(\005B\020\302\377\024\014\350\247"
+    "\243\351\224\201\351\201\223\345\205\267\022$\n\007m_ZyAtt\030\003 \001(\005B\023\302\377\024\017\351\230\265\347\234\274\345"
+    "\261\236\346\200\247\347\273\204\022!\n\007m_Bless\030\004 \001(\005B\020\302\377\024\014\347\245\235\347\246\217\351\201\223"
+    "\345\205\267\022,\n\014m_BlessBonus\030\005 \001(\005B\026\302\377\024\022\347\245\235\347\246\217\345\261\236"
+    "\346\200\247\345\212\240\346\210\220\022,\n\tm_JxZyAtt\030\006 \001(\005B\031\302\377\024\025\350\247\211\351\206\222"
+    "\351\230\265\347\234\274\345\261\236\346\200\247\347\273\204\0224\n\016m_JxBlessBonus\030\007 \001(\005B"
+    "\034\302\377\024\030\350\247\211\351\206\222\347\245\235\347\246\217\345\261\236\346\200\247\345\212\240\346\210\220\022/\n\014m_JxBle"
+    "ssAtt\030\010 \001(\005B\031\302\377\024\025\350\247\211\351\206\222\347\245\235\347\246\217\345\261\236\346\200\247\347\273\204\022\?"
+    "\n\004m_ZF\030\t \003(\0132\033.proto_ff.E_MofaSetupZfDes"
+    "cB\024\302\377\024\014\347\245\235\347\246\217\345\261\236\346\200\247\210\301\024\003\"H\n\017Sheet_MofaSet"
+    "up\0225\n\020E_MofaSetup_List\030\001 \003(\0132\025.proto_ff."
+    "E_MofaSetupB\004\210\301\024\020\"Q\n\031E_MofaYuansuAttribu"
+    "teDesc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_ty"
+    "pe\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"g\n\026E_MofaYuansuAwak"
+    "enDesc\022,\n\014m_lvAddratio\030\001 \001(\005B\026\302\377\024\022\345\215\207\347\272\247"
+    "\345\261\236\346\200\247\345\212\240\346\210\220\022\037\n\005m_num\030\002 \001(\005B\020\302\377\024\014\346\235\220\346\226\231\346"
+    "\225\260\351\207\217\"\263\003\n\014E_MofaYuansu\022\037\n\tm_EquipID\030\001 \001("
+    "\005B\014\302\377\024\010\350\243\205\345\244\207ID\022+\n\013m_AttriType\030\002 \001(\005B\026\302\377"
+    "\024\022\347\211\251\345\223\201\347\261\273\345\236\213\346\216\222\345\272\217\022%\n\010m_mosaic\030\003 \001(\005B\023"
+    "\302\377\024\017\345\217\257\351\225\266\345\265\214\351\203\250\344\275\215\022\"\n\010m_LvItem\030\004 \001(\005B\020\302"
+    "\377\024\014\345\215\207\347\272\247\351\201\223\345\205\267\022)\n\014m_awaken_can\030\005 \001(\005B\023\302"
+    "\377\024\017\346\230\257\345\220\246\345\217\257\350\247\211\351\206\222\022(\n\016m_awaken_Lvmax\030\006 \001"
+    "(\005B\020\302\377\024\014\350\247\211\351\206\222\344\270\212\351\231\220\022\'\n\rm_awaken_item\030\007 "
+    "\001(\005B\020\302\377\024\014\350\247\211\351\206\222\346\235\220\346\226\231\022H\n\013m_attribute\030\010 \003"
+    "(\0132#.proto_ff.E_MofaYuansuAttributeDescB"
+    "\016\302\377\024\006\345\261\236\346\200\247\210\301\024\002\022B\n\010m_awaken\030\t \003(\0132 .prot"
+    "o_ff.E_MofaYuansuAwakenDescB\016\302\377\024\006\350\247\211\351\206\222\210"
+    "\301\024\n\"K\n\020Sheet_MofaYuansu\0227\n\021E_MofaYuansu_"
+    "List\030\001 \003(\0132\026.proto_ff.E_MofaYuansuB\004\210\301\024@"
+    "\"\201\001\n\017E_MofaDecompose\022!\n\007m_DpQua\030\001 \001(\005B\020\302"
+    "\377\024\014\345\210\206\350\247\243\345\223\201\350\264\250\022(\n\010m_DpItem\030\002 \001(\005B\026\302\377\024\022\345"
+    "\210\206\350\247\243\350\277\224\350\277\230\351\201\223\345\205\267\022!\n\007m_DpEss\030\003 \001(\005B\020\302\377\024\014"
+    "\345\210\206\350\247\243\347\262\276\345\215\216\"T\n\023Sheet_MofaDecompose\022=\n\024E"
+    "_MofaDecompose_List\030\001 \003(\0132\031.proto_ff.E_M"
+    "ofaDecomposeB\004\210\301\024\010\"N\n\013E_MofaLvexp\022\030\n\004m_l"
+    "v\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022%\n\005m_exp\030\002 \001(\005B\026\302\377\024\022"
+    "\345\215\207\347\272\247\346\211\200\351\234\200\347\273\217\351\252\214\"I\n\017Sheet_MofaLvexp\0226\n"
+    "\020E_MofaLvexp_List\030\001 \003(\0132\025.proto_ff.E_Mof"
+    "aLvexpB\005\210\301\024\200\001\"T\n\013E_MofaLvatt\022 \n\007m_attId\030"
+    "\001 \001(\003B\017\302\377\024\013\345\261\236\346\200\247\347\273\204id\022#\n\005m_att\030\002 \003(\005B\024\302"
+    "\377\024\014\345\261\236\346\200\247\347\255\211\347\272\247\210\301\024d\"I\n\017Sheet_MofaLvatt\0226"
+    "\n\020E_MofaLvatt_List\030\001 \003(\0132\025.proto_ff.E_Mo"
+    "faLvattB\005\210\301\024\200\001\"I\n\021E_MofaZyattZyDesc\022\030\n\007m"
+    "_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302"
+    "\377\024\006\347\261\273\345\236\213\"\240\001\n\013E_MofaZyatt\022\030\n\004m_ID\030\001 \001(\005B"
+    "\n\302\377\024\006\346\216\222\345\272\217\022\035\n\007m_AttID\030\002 \001(\003B\014\302\377\024\010\345\261\236\346\200\247"
+    "ID\022\035\n\tm_quality\030\003 \001(\005B\n\302\377\024\006\345\223\201\350\264\250\0229\n\004m_Z"
+    "Y\030\004 \003(\0132\033.proto_ff.E_MofaZyattZyDescB\016\302\377"
+    "\024\006\345\261\236\346\200\247\210\301\024\003\"H\n\017Sheet_MofaZyatt\0225\n\020E_Mof"
+    "aZyatt_List\030\001 \003(\0132\025.proto_ff.E_MofaZyatt"
+    "B\004\210\301\024 \"M\n\025E_MofaZyjxattZyjxDesc\022\030\n\007m_val"
+    "ue\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006\347"
+    "\261\273\345\236\213\"\253\001\n\rE_MofaZyjxatt\022\030\n\004m_ID\030\001 \001(\005B\n\302"
+    "\377\024\006\346\216\222\345\272\217\022\035\n\007m_AttID\030\002 \001(\003B\014\302\377\024\010\345\261\236\346\200\247ID"
+    "\022 \n\006m_JxLv\030\003 \001(\005B\020\302\377\024\014\350\247\211\351\206\222\351\234\200\346\261\202\022\?\n\006m_"
+    "ZyJx\030\004 \003(\0132\037.proto_ff.E_MofaZyjxattZyjxD"
+    "escB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\003\"O\n\021Sheet_MofaZyjxatt"
+    "\022:\n\022E_MofaZyjxatt_List\030\001 \003(\0132\027.proto_ff."
+    "E_MofaZyjxattB\005\210\301\024\200\001\"Q\n\031E_MofaZyjxzfattZ"
+    "yjxzfDesc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m"
+    "_type\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"\263\001\n\017E_MofaZyjxzf"
+    "att\022\030\n\004m_ID\030\001 \001(\005B\n\302\377\024\006\346\216\222\345\272\217\022\035\n\007m_AttID"
+    "\030\002 \001(\003B\014\302\377\024\010\345\261\236\346\200\247ID\022 \n\006m_JxLv\030\003 \001(\005B\020\302\377"
+    "\024\014\350\247\211\351\206\222\351\234\200\346\261\202\022E\n\010m_ZyJxZf\030\004 \003(\0132#.proto"
+    "_ff.E_MofaZyjxzfattZyjxzfDescB\016\302\377\024\006\345\261\236\346\200"
+    "\247\210\301\024\003\"U\n\023Sheet_MofaZyjxzfatt\022>\n\024E_MofaZy"
+    "jxzfatt_List\030\001 \003(\0132\031.proto_ff.E_MofaZyjx"
+    "zfattB\005\210\301\024\200\001\"~\n\016E_MofaExchange\022\037\n\tm_Equi"
+    "pID\030\001 \001(\005B\014\302\377\024\010\350\243\205\345\244\207ID\022\"\n\010m_EcItem\030\002 \001("
+    "\005B\020\302\377\024\014\345\205\221\346\215\242\351\201\223\345\205\267\022\'\n\007m_EcNum\030\003 \001(\005B\026\302\377"
+    "\024\022\345\205\221\346\215\242\351\201\223\345\205\267\346\225\260\351\207\217\"Q\n\022Sheet_MofaExchan"
+    "ge\022;\n\023E_MofaExchange_List\030\001 \003(\0132\030.proto_"
+    "ff.E_MofaExchangeB\004\210\301\024 \"F\n\nE_MofaName\022\024\n"
+    "\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\"\n\014m_functionid\030\002 \001("
+    "\005B\014\302\377\024\010\345\212\237\350\203\275id\"E\n\016Sheet_MofaName\0223\n\017E_M"
+    "ofaName_List\030\001 \003(\0132\024.proto_ff.E_MofaName"
+    "B\004\210\301\024\010", 3206);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Mofa.proto", &protobuf_RegisterTypes);
   E_MofaSetupZfDesc::default_instance_ = new E_MofaSetupZfDesc();
@@ -1068,7 +1063,6 @@ void E_MofaSetupZfDesc::Swap(E_MofaSetupZfDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_MofaSetup::kMIDFieldNumber;
 const int E_MofaSetup::kMPositionIDFieldNumber;
 const int E_MofaSetup::kMUnlockFieldNumber;
 const int E_MofaSetup::kMZyAttFieldNumber;
@@ -1096,7 +1090,6 @@ E_MofaSetup::E_MofaSetup(const E_MofaSetup& from)
 
 void E_MofaSetup::SharedCtor() {
   _cached_size_ = 0;
-  m_id_ = 0;
   m_positionid_ = 0;
   m_unlock_ = 0;
   m_zyatt_ = 0;
@@ -1140,7 +1133,6 @@ E_MofaSetup* E_MofaSetup::New() const {
 
 void E_MofaSetup::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    m_id_ = 0;
     m_positionid_ = 0;
     m_unlock_ = 0;
     m_zyatt_ = 0;
@@ -1148,8 +1140,6 @@ void E_MofaSetup::Clear() {
     m_blessbonus_ = 0;
     m_jxzyatt_ = 0;
     m_jxblessbonus_ = 0;
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     m_jxblessatt_ = 0;
   }
   m_zf_.Clear();
@@ -1163,26 +1153,10 @@ bool E_MofaSetup::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_ID = 1;
+      // optional int32 m_PositionID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_id_)));
-          set_has_m_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_m_PositionID;
-        break;
-      }
-
-      // optional int32 m_PositionID = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_PositionID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_positionid_)));
@@ -1190,12 +1164,12 @@ bool E_MofaSetup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_Unlock;
+        if (input->ExpectTag(16)) goto parse_m_Unlock;
         break;
       }
 
-      // optional int32 m_Unlock = 3;
-      case 3: {
+      // optional int32 m_Unlock = 2;
+      case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_Unlock:
@@ -1206,12 +1180,12 @@ bool E_MofaSetup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_ZyAtt;
+        if (input->ExpectTag(24)) goto parse_m_ZyAtt;
         break;
       }
 
-      // optional int32 m_ZyAtt = 4;
-      case 4: {
+      // optional int32 m_ZyAtt = 3;
+      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_ZyAtt:
@@ -1222,12 +1196,12 @@ bool E_MofaSetup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_Bless;
+        if (input->ExpectTag(32)) goto parse_m_Bless;
         break;
       }
 
-      // optional int32 m_Bless = 5;
-      case 5: {
+      // optional int32 m_Bless = 4;
+      case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_Bless:
@@ -1238,12 +1212,12 @@ bool E_MofaSetup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_BlessBonus;
+        if (input->ExpectTag(40)) goto parse_m_BlessBonus;
         break;
       }
 
-      // optional int32 m_BlessBonus = 6;
-      case 6: {
+      // optional int32 m_BlessBonus = 5;
+      case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_BlessBonus:
@@ -1254,12 +1228,12 @@ bool E_MofaSetup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_JxZyAtt;
+        if (input->ExpectTag(48)) goto parse_m_JxZyAtt;
         break;
       }
 
-      // optional int32 m_JxZyAtt = 7;
-      case 7: {
+      // optional int32 m_JxZyAtt = 6;
+      case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_JxZyAtt:
@@ -1270,12 +1244,12 @@ bool E_MofaSetup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_JxBlessBonus;
+        if (input->ExpectTag(56)) goto parse_m_JxBlessBonus;
         break;
       }
 
-      // optional int32 m_JxBlessBonus = 8;
-      case 8: {
+      // optional int32 m_JxBlessBonus = 7;
+      case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_JxBlessBonus:
@@ -1286,12 +1260,12 @@ bool E_MofaSetup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_JxBlessAtt;
+        if (input->ExpectTag(64)) goto parse_m_JxBlessAtt;
         break;
       }
 
-      // optional int32 m_JxBlessAtt = 9;
-      case 9: {
+      // optional int32 m_JxBlessAtt = 8;
+      case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_JxBlessAtt:
@@ -1302,12 +1276,12 @@ bool E_MofaSetup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(82)) goto parse_m_ZF;
+        if (input->ExpectTag(74)) goto parse_m_ZF;
         break;
       }
 
-      // repeated .proto_ff.E_MofaSetupZfDesc m_ZF = 10;
-      case 10: {
+      // repeated .proto_ff.E_MofaSetupZfDesc m_ZF = 9;
+      case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_ZF:
@@ -1316,7 +1290,7 @@ bool E_MofaSetup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(82)) goto parse_m_ZF;
+        if (input->ExpectTag(74)) goto parse_m_ZF;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1339,55 +1313,50 @@ bool E_MofaSetup::MergePartialFromCodedStream(
 
 void E_MofaSetup::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_ID = 1;
-  if (has_m_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
-  }
-
-  // optional int32 m_PositionID = 2;
+  // optional int32 m_PositionID = 1;
   if (has_m_positionid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_positionid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_positionid(), output);
   }
 
-  // optional int32 m_Unlock = 3;
+  // optional int32 m_Unlock = 2;
   if (has_m_unlock()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_unlock(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_unlock(), output);
   }
 
-  // optional int32 m_ZyAtt = 4;
+  // optional int32 m_ZyAtt = 3;
   if (has_m_zyatt()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_zyatt(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_zyatt(), output);
   }
 
-  // optional int32 m_Bless = 5;
+  // optional int32 m_Bless = 4;
   if (has_m_bless()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_bless(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_bless(), output);
   }
 
-  // optional int32 m_BlessBonus = 6;
+  // optional int32 m_BlessBonus = 5;
   if (has_m_blessbonus()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_blessbonus(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_blessbonus(), output);
   }
 
-  // optional int32 m_JxZyAtt = 7;
+  // optional int32 m_JxZyAtt = 6;
   if (has_m_jxzyatt()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_jxzyatt(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_jxzyatt(), output);
   }
 
-  // optional int32 m_JxBlessBonus = 8;
+  // optional int32 m_JxBlessBonus = 7;
   if (has_m_jxblessbonus()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_jxblessbonus(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_jxblessbonus(), output);
   }
 
-  // optional int32 m_JxBlessAtt = 9;
+  // optional int32 m_JxBlessAtt = 8;
   if (has_m_jxblessatt()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_jxblessatt(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_jxblessatt(), output);
   }
 
-  // repeated .proto_ff.E_MofaSetupZfDesc m_ZF = 10;
+  // repeated .proto_ff.E_MofaSetupZfDesc m_ZF = 9;
   for (int i = 0; i < this->m_zf_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      10, this->m_zf(i), output);
+      9, this->m_zf(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1398,56 +1367,51 @@ void E_MofaSetup::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_MofaSetup::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_ID = 1;
-  if (has_m_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
-  }
-
-  // optional int32 m_PositionID = 2;
+  // optional int32 m_PositionID = 1;
   if (has_m_positionid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_positionid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_positionid(), target);
   }
 
-  // optional int32 m_Unlock = 3;
+  // optional int32 m_Unlock = 2;
   if (has_m_unlock()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_unlock(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_unlock(), target);
   }
 
-  // optional int32 m_ZyAtt = 4;
+  // optional int32 m_ZyAtt = 3;
   if (has_m_zyatt()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_zyatt(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_zyatt(), target);
   }
 
-  // optional int32 m_Bless = 5;
+  // optional int32 m_Bless = 4;
   if (has_m_bless()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_bless(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_bless(), target);
   }
 
-  // optional int32 m_BlessBonus = 6;
+  // optional int32 m_BlessBonus = 5;
   if (has_m_blessbonus()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_blessbonus(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_blessbonus(), target);
   }
 
-  // optional int32 m_JxZyAtt = 7;
+  // optional int32 m_JxZyAtt = 6;
   if (has_m_jxzyatt()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_jxzyatt(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_jxzyatt(), target);
   }
 
-  // optional int32 m_JxBlessBonus = 8;
+  // optional int32 m_JxBlessBonus = 7;
   if (has_m_jxblessbonus()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_jxblessbonus(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_jxblessbonus(), target);
   }
 
-  // optional int32 m_JxBlessAtt = 9;
+  // optional int32 m_JxBlessAtt = 8;
   if (has_m_jxblessatt()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_jxblessatt(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_jxblessatt(), target);
   }
 
-  // repeated .proto_ff.E_MofaSetupZfDesc m_ZF = 10;
+  // repeated .proto_ff.E_MofaSetupZfDesc m_ZF = 9;
   for (int i = 0; i < this->m_zf_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        10, this->m_zf(i), target);
+        9, this->m_zf(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1461,65 +1425,56 @@ int E_MofaSetup::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_ID = 1;
-    if (has_m_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_id());
-    }
-
-    // optional int32 m_PositionID = 2;
+    // optional int32 m_PositionID = 1;
     if (has_m_positionid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_positionid());
     }
 
-    // optional int32 m_Unlock = 3;
+    // optional int32 m_Unlock = 2;
     if (has_m_unlock()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_unlock());
     }
 
-    // optional int32 m_ZyAtt = 4;
+    // optional int32 m_ZyAtt = 3;
     if (has_m_zyatt()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_zyatt());
     }
 
-    // optional int32 m_Bless = 5;
+    // optional int32 m_Bless = 4;
     if (has_m_bless()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_bless());
     }
 
-    // optional int32 m_BlessBonus = 6;
+    // optional int32 m_BlessBonus = 5;
     if (has_m_blessbonus()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_blessbonus());
     }
 
-    // optional int32 m_JxZyAtt = 7;
+    // optional int32 m_JxZyAtt = 6;
     if (has_m_jxzyatt()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_jxzyatt());
     }
 
-    // optional int32 m_JxBlessBonus = 8;
+    // optional int32 m_JxBlessBonus = 7;
     if (has_m_jxblessbonus()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_jxblessbonus());
     }
 
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_JxBlessAtt = 9;
+    // optional int32 m_JxBlessAtt = 8;
     if (has_m_jxblessatt()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1527,7 +1482,7 @@ int E_MofaSetup::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.E_MofaSetupZfDesc m_ZF = 10;
+  // repeated .proto_ff.E_MofaSetupZfDesc m_ZF = 9;
   total_size += 1 * this->m_zf_size();
   for (int i = 0; i < this->m_zf_size(); i++) {
     total_size +=
@@ -1562,9 +1517,6 @@ void E_MofaSetup::MergeFrom(const E_MofaSetup& from) {
   GOOGLE_CHECK_NE(&from, this);
   m_zf_.MergeFrom(from.m_zf_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_m_id()) {
-      set_m_id(from.m_id());
-    }
     if (from.has_m_positionid()) {
       set_m_positionid(from.m_positionid());
     }
@@ -1586,8 +1538,6 @@ void E_MofaSetup::MergeFrom(const E_MofaSetup& from) {
     if (from.has_m_jxblessbonus()) {
       set_m_jxblessbonus(from.m_jxblessbonus());
     }
-  }
-  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_m_jxblessatt()) {
       set_m_jxblessatt(from.m_jxblessatt());
     }
@@ -1614,7 +1564,6 @@ bool E_MofaSetup::IsInitialized() const {
 
 void E_MofaSetup::Swap(E_MofaSetup* other) {
   if (other != this) {
-    std::swap(m_id_, other->m_id_);
     std::swap(m_positionid_, other->m_positionid_);
     std::swap(m_unlock_, other->m_unlock_);
     std::swap(m_zyatt_, other->m_zyatt_);
@@ -2341,7 +2290,7 @@ void E_MofaYuansuAwakenDesc::Swap(E_MofaYuansuAwakenDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_MofaYuansu::kMItemIDFieldNumber;
+const int E_MofaYuansu::kMEquipIDFieldNumber;
 const int E_MofaYuansu::kMAttriTypeFieldNumber;
 const int E_MofaYuansu::kMMosaicFieldNumber;
 const int E_MofaYuansu::kMLvItemFieldNumber;
@@ -2368,7 +2317,7 @@ E_MofaYuansu::E_MofaYuansu(const E_MofaYuansu& from)
 
 void E_MofaYuansu::SharedCtor() {
   _cached_size_ = 0;
-  m_itemid_ = 0;
+  m_equipid_ = 0;
   m_attritype_ = 0;
   m_mosaic_ = 0;
   m_lvitem_ = 0;
@@ -2410,7 +2359,7 @@ E_MofaYuansu* E_MofaYuansu::New() const {
 
 void E_MofaYuansu::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    m_itemid_ = 0;
+    m_equipid_ = 0;
     m_attritype_ = 0;
     m_mosaic_ = 0;
     m_lvitem_ = 0;
@@ -2430,14 +2379,14 @@ bool E_MofaYuansu::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_ItemID = 1;
+      // optional int32 m_EquipID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_itemid_)));
-          set_has_m_itemid();
+                 input, &m_equipid_)));
+          set_has_m_equipid();
         } else {
           goto handle_uninterpreted;
         }
@@ -2589,9 +2538,9 @@ bool E_MofaYuansu::MergePartialFromCodedStream(
 
 void E_MofaYuansu::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_ItemID = 1;
-  if (has_m_itemid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_itemid(), output);
+  // optional int32 m_EquipID = 1;
+  if (has_m_equipid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_equipid(), output);
   }
 
   // optional int32 m_AttriType = 2;
@@ -2644,9 +2593,9 @@ void E_MofaYuansu::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_MofaYuansu::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_ItemID = 1;
-  if (has_m_itemid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_itemid(), target);
+  // optional int32 m_EquipID = 1;
+  if (has_m_equipid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_equipid(), target);
   }
 
   // optional int32 m_AttriType = 2;
@@ -2704,11 +2653,11 @@ int E_MofaYuansu::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_ItemID = 1;
-    if (has_m_itemid()) {
+    // optional int32 m_EquipID = 1;
+    if (has_m_equipid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_itemid());
+          this->m_equipid());
     }
 
     // optional int32 m_AttriType = 2;
@@ -2798,8 +2747,8 @@ void E_MofaYuansu::MergeFrom(const E_MofaYuansu& from) {
   m_attribute_.MergeFrom(from.m_attribute_);
   m_awaken_.MergeFrom(from.m_awaken_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_m_itemid()) {
-      set_m_itemid(from.m_itemid());
+    if (from.has_m_equipid()) {
+      set_m_equipid(from.m_equipid());
     }
     if (from.has_m_attritype()) {
       set_m_attritype(from.m_attritype());
@@ -2842,7 +2791,7 @@ bool E_MofaYuansu::IsInitialized() const {
 
 void E_MofaYuansu::Swap(E_MofaYuansu* other) {
   if (other != this) {
-    std::swap(m_itemid_, other->m_itemid_);
+    std::swap(m_equipid_, other->m_equipid_);
     std::swap(m_attritype_, other->m_attritype_);
     std::swap(m_mosaic_, other->m_mosaic_);
     std::swap(m_lvitem_, other->m_lvitem_);
@@ -3072,7 +3021,6 @@ void Sheet_MofaYuansu::Swap(Sheet_MofaYuansu* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_MofaDecompose::kMIdFieldNumber;
 const int E_MofaDecompose::kMDpQuaFieldNumber;
 const int E_MofaDecompose::kMDpItemFieldNumber;
 const int E_MofaDecompose::kMDpEssFieldNumber;
@@ -3094,7 +3042,6 @@ E_MofaDecompose::E_MofaDecompose(const E_MofaDecompose& from)
 
 void E_MofaDecompose::SharedCtor() {
   _cached_size_ = 0;
-  m_id_ = 0;
   m_dpqua_ = 0;
   m_dpitem_ = 0;
   m_dpess_ = 0;
@@ -3133,7 +3080,6 @@ E_MofaDecompose* E_MofaDecompose::New() const {
 
 void E_MofaDecompose::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    m_id_ = 0;
     m_dpqua_ = 0;
     m_dpitem_ = 0;
     m_dpess_ = 0;
@@ -3148,26 +3094,10 @@ bool E_MofaDecompose::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_Id = 1;
+      // optional int32 m_DpQua = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_id_)));
-          set_has_m_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_m_DpQua;
-        break;
-      }
-
-      // optional int32 m_DpQua = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_DpQua:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_dpqua_)));
@@ -3175,12 +3105,12 @@ bool E_MofaDecompose::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_DpItem;
+        if (input->ExpectTag(16)) goto parse_m_DpItem;
         break;
       }
 
-      // optional int32 m_DpItem = 3;
-      case 3: {
+      // optional int32 m_DpItem = 2;
+      case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_DpItem:
@@ -3191,12 +3121,12 @@ bool E_MofaDecompose::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_DpEss;
+        if (input->ExpectTag(24)) goto parse_m_DpEss;
         break;
       }
 
-      // optional int32 m_DpEss = 4;
-      case 4: {
+      // optional int32 m_DpEss = 3;
+      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_DpEss:
@@ -3229,24 +3159,19 @@ bool E_MofaDecompose::MergePartialFromCodedStream(
 
 void E_MofaDecompose::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_Id = 1;
-  if (has_m_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
-  }
-
-  // optional int32 m_DpQua = 2;
+  // optional int32 m_DpQua = 1;
   if (has_m_dpqua()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_dpqua(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_dpqua(), output);
   }
 
-  // optional int32 m_DpItem = 3;
+  // optional int32 m_DpItem = 2;
   if (has_m_dpitem()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_dpitem(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_dpitem(), output);
   }
 
-  // optional int32 m_DpEss = 4;
+  // optional int32 m_DpEss = 3;
   if (has_m_dpess()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_dpess(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_dpess(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -3257,24 +3182,19 @@ void E_MofaDecompose::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_MofaDecompose::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_Id = 1;
-  if (has_m_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
-  }
-
-  // optional int32 m_DpQua = 2;
+  // optional int32 m_DpQua = 1;
   if (has_m_dpqua()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_dpqua(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_dpqua(), target);
   }
 
-  // optional int32 m_DpItem = 3;
+  // optional int32 m_DpItem = 2;
   if (has_m_dpitem()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_dpitem(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_dpitem(), target);
   }
 
-  // optional int32 m_DpEss = 4;
+  // optional int32 m_DpEss = 3;
   if (has_m_dpess()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_dpess(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_dpess(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3288,28 +3208,21 @@ int E_MofaDecompose::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_Id = 1;
-    if (has_m_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_id());
-    }
-
-    // optional int32 m_DpQua = 2;
+    // optional int32 m_DpQua = 1;
     if (has_m_dpqua()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_dpqua());
     }
 
-    // optional int32 m_DpItem = 3;
+    // optional int32 m_DpItem = 2;
     if (has_m_dpitem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_dpitem());
     }
 
-    // optional int32 m_DpEss = 4;
+    // optional int32 m_DpEss = 3;
     if (has_m_dpess()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3343,9 +3256,6 @@ void E_MofaDecompose::MergeFrom(const ::google::protobuf::Message& from) {
 void E_MofaDecompose::MergeFrom(const E_MofaDecompose& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_m_id()) {
-      set_m_id(from.m_id());
-    }
     if (from.has_m_dpqua()) {
       set_m_dpqua(from.m_dpqua());
     }
@@ -3378,7 +3288,6 @@ bool E_MofaDecompose::IsInitialized() const {
 
 void E_MofaDecompose::Swap(E_MofaDecompose* other) {
   if (other != this) {
-    std::swap(m_id_, other->m_id_);
     std::swap(m_dpqua_, other->m_dpqua_);
     std::swap(m_dpitem_, other->m_dpitem_);
     std::swap(m_dpess_, other->m_dpess_);
@@ -6850,8 +6759,7 @@ void Sheet_MofaZyjxzfatt::Swap(Sheet_MofaZyjxzfatt* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_MofaExchange::kMItemIDFieldNumber;
-const int E_MofaExchange::kMQualityFieldNumber;
+const int E_MofaExchange::kMEquipIDFieldNumber;
 const int E_MofaExchange::kMEcItemFieldNumber;
 const int E_MofaExchange::kMEcNumFieldNumber;
 #endif  // !_MSC_VER
@@ -6872,8 +6780,7 @@ E_MofaExchange::E_MofaExchange(const E_MofaExchange& from)
 
 void E_MofaExchange::SharedCtor() {
   _cached_size_ = 0;
-  m_itemid_ = 0;
-  m_quality_ = 0;
+  m_equipid_ = 0;
   m_ecitem_ = 0;
   m_ecnum_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -6911,8 +6818,7 @@ E_MofaExchange* E_MofaExchange::New() const {
 
 void E_MofaExchange::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    m_itemid_ = 0;
-    m_quality_ = 0;
+    m_equipid_ = 0;
     m_ecitem_ = 0;
     m_ecnum_ = 0;
   }
@@ -6926,39 +6832,23 @@ bool E_MofaExchange::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_ItemID = 1;
+      // optional int32 m_EquipID = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_itemid_)));
-          set_has_m_itemid();
+                 input, &m_equipid_)));
+          set_has_m_equipid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_quality;
+        if (input->ExpectTag(16)) goto parse_m_EcItem;
         break;
       }
 
-      // optional int32 m_quality = 2;
+      // optional int32 m_EcItem = 2;
       case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_quality:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_quality_)));
-          set_has_m_quality();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(24)) goto parse_m_EcItem;
-        break;
-      }
-
-      // optional int32 m_EcItem = 3;
-      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_EcItem:
@@ -6969,12 +6859,12 @@ bool E_MofaExchange::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_EcNum;
+        if (input->ExpectTag(24)) goto parse_m_EcNum;
         break;
       }
 
-      // optional int32 m_EcNum = 4;
-      case 4: {
+      // optional int32 m_EcNum = 3;
+      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_EcNum:
@@ -7007,24 +6897,19 @@ bool E_MofaExchange::MergePartialFromCodedStream(
 
 void E_MofaExchange::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_ItemID = 1;
-  if (has_m_itemid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_itemid(), output);
+  // optional int32 m_EquipID = 1;
+  if (has_m_equipid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_equipid(), output);
   }
 
-  // optional int32 m_quality = 2;
-  if (has_m_quality()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_quality(), output);
-  }
-
-  // optional int32 m_EcItem = 3;
+  // optional int32 m_EcItem = 2;
   if (has_m_ecitem()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_ecitem(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_ecitem(), output);
   }
 
-  // optional int32 m_EcNum = 4;
+  // optional int32 m_EcNum = 3;
   if (has_m_ecnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_ecnum(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_ecnum(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -7035,24 +6920,19 @@ void E_MofaExchange::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_MofaExchange::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_ItemID = 1;
-  if (has_m_itemid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_itemid(), target);
+  // optional int32 m_EquipID = 1;
+  if (has_m_equipid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_equipid(), target);
   }
 
-  // optional int32 m_quality = 2;
-  if (has_m_quality()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_quality(), target);
-  }
-
-  // optional int32 m_EcItem = 3;
+  // optional int32 m_EcItem = 2;
   if (has_m_ecitem()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_ecitem(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_ecitem(), target);
   }
 
-  // optional int32 m_EcNum = 4;
+  // optional int32 m_EcNum = 3;
   if (has_m_ecnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_ecnum(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_ecnum(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -7066,28 +6946,21 @@ int E_MofaExchange::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_ItemID = 1;
-    if (has_m_itemid()) {
+    // optional int32 m_EquipID = 1;
+    if (has_m_equipid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_itemid());
+          this->m_equipid());
     }
 
-    // optional int32 m_quality = 2;
-    if (has_m_quality()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_quality());
-    }
-
-    // optional int32 m_EcItem = 3;
+    // optional int32 m_EcItem = 2;
     if (has_m_ecitem()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_ecitem());
     }
 
-    // optional int32 m_EcNum = 4;
+    // optional int32 m_EcNum = 3;
     if (has_m_ecnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -7121,11 +6994,8 @@ void E_MofaExchange::MergeFrom(const ::google::protobuf::Message& from) {
 void E_MofaExchange::MergeFrom(const E_MofaExchange& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_m_itemid()) {
-      set_m_itemid(from.m_itemid());
-    }
-    if (from.has_m_quality()) {
-      set_m_quality(from.m_quality());
+    if (from.has_m_equipid()) {
+      set_m_equipid(from.m_equipid());
     }
     if (from.has_m_ecitem()) {
       set_m_ecitem(from.m_ecitem());
@@ -7156,8 +7026,7 @@ bool E_MofaExchange::IsInitialized() const {
 
 void E_MofaExchange::Swap(E_MofaExchange* other) {
   if (other != this) {
-    std::swap(m_itemid_, other->m_itemid_);
-    std::swap(m_quality_, other->m_quality_);
+    std::swap(m_equipid_, other->m_equipid_);
     std::swap(m_ecitem_, other->m_ecitem_);
     std::swap(m_ecnum_, other->m_ecnum_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);

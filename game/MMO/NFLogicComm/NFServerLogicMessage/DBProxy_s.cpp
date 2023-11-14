@@ -4160,6 +4160,86 @@ void LoginRewardDBProto_s::read_from_pbmsg(const ::proto_ff::LoginRewardDBProto 
 	}
 }
 
+ContiRechargeDBProto_s::ContiRechargeDBProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int ContiRechargeDBProto_s::CreateInit() {
+	recharge = (uint32_t)0;
+	supplement = (int32_t)0;
+	return 0;
+}
+
+int ContiRechargeDBProto_s::ResumeInit() {
+	return 0;
+}
+
+void ContiRechargeDBProto_s::write_to_pbmsg(::proto_ff::ContiRechargeDBProto & msg) const {
+	msg.set_recharge((uint32_t)recharge);
+	msg.set_supplement((int32_t)supplement);
+	for(int32_t i = 0; i < (int32_t)day_fetch.size(); ++i) {
+		::proto_ff::DayFetchInfo* temp_day_fetch = msg.add_day_fetch();
+		day_fetch[i].write_to_pbmsg(*temp_day_fetch);
+	}
+	for(int32_t i = 0; i < (int32_t)gear_fetch.size(); ++i) {
+		::proto_ff::GearFetchInfo* temp_gear_fetch = msg.add_gear_fetch();
+		gear_fetch[i].write_to_pbmsg(*temp_gear_fetch);
+	}
+}
+
+void ContiRechargeDBProto_s::read_from_pbmsg(const ::proto_ff::ContiRechargeDBProto & msg) {
+	recharge = msg.recharge();
+	supplement = msg.supplement();
+	day_fetch.resize((int)msg.day_fetch_size() > (int)day_fetch.max_size() ? day_fetch.max_size() : msg.day_fetch_size());
+	for(int32_t i = 0; i < (int32_t)day_fetch.size(); ++i) {
+		const ::proto_ff::DayFetchInfo & temp_day_fetch = msg.day_fetch(i);
+		day_fetch[i].read_from_pbmsg(temp_day_fetch);
+	}
+	gear_fetch.resize((int)msg.gear_fetch_size() > (int)gear_fetch.max_size() ? gear_fetch.max_size() : msg.gear_fetch_size());
+	for(int32_t i = 0; i < (int32_t)gear_fetch.size(); ++i) {
+		const ::proto_ff::GearFetchInfo & temp_gear_fetch = msg.gear_fetch(i);
+		gear_fetch[i].read_from_pbmsg(temp_gear_fetch);
+	}
+}
+
+LimitSaleDBProto_s::LimitSaleDBProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int LimitSaleDBProto_s::CreateInit() {
+	fresh_time = (uint64_t)0;
+	return 0;
+}
+
+int LimitSaleDBProto_s::ResumeInit() {
+	return 0;
+}
+
+void LimitSaleDBProto_s::write_to_pbmsg(::proto_ff::LimitSaleDBProto & msg) const {
+	for(int32_t i = 0; i < (int32_t)shop.size(); ++i) {
+		::proto_ff::ShopProto* temp_shop = msg.add_shop();
+		shop[i].write_to_pbmsg(*temp_shop);
+	}
+	msg.set_fresh_time((uint64_t)fresh_time);
+}
+
+void LimitSaleDBProto_s::read_from_pbmsg(const ::proto_ff::LimitSaleDBProto & msg) {
+	shop.resize((int)msg.shop_size() > (int)shop.max_size() ? shop.max_size() : msg.shop_size());
+	for(int32_t i = 0; i < (int32_t)shop.size(); ++i) {
+		const ::proto_ff::ShopProto & temp_shop = msg.shop(i);
+		shop[i].read_from_pbmsg(temp_shop);
+	}
+	fresh_time = msg.fresh_time();
+}
+
 FestDetailDBProto_s::FestDetailDBProto_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -4223,6 +4303,10 @@ void FestDetailDBProto_s::write_to_pbmsg(::proto_ff::FestDetailDBProto & msg) co
 	total_recharge.write_to_pbmsg(*temp_total_recharge);
 	::proto_ff::LoginRewardDBProto* temp_login = msg.mutable_login();
 	login.write_to_pbmsg(*temp_login);
+	::proto_ff::ContiRechargeDBProto* temp_conti_recharge = msg.mutable_conti_recharge();
+	conti_recharge.write_to_pbmsg(*temp_conti_recharge);
+	::proto_ff::LimitSaleDBProto* temp_limit_sale = msg.mutable_limit_sale();
+	limit_sale.write_to_pbmsg(*temp_limit_sale);
 }
 
 void FestDetailDBProto_s::read_from_pbmsg(const ::proto_ff::FestDetailDBProto & msg) {
@@ -4269,6 +4353,10 @@ void FestDetailDBProto_s::read_from_pbmsg(const ::proto_ff::FestDetailDBProto & 
 	total_recharge.read_from_pbmsg(temp_total_recharge);
 	const ::proto_ff::LoginRewardDBProto & temp_login = msg.login();
 	login.read_from_pbmsg(temp_login);
+	const ::proto_ff::ContiRechargeDBProto & temp_conti_recharge = msg.conti_recharge();
+	conti_recharge.read_from_pbmsg(temp_conti_recharge);
+	const ::proto_ff::LimitSaleDBProto & temp_limit_sale = msg.limit_sale();
+	limit_sale.read_from_pbmsg(temp_limit_sale);
 }
 
 FestDBData_s::FestDBData_s() {
@@ -4560,6 +4648,68 @@ void SoulDBData_s::read_from_pbmsg(const ::proto_ff::SoulDBData & msg) {
 	}
 }
 
+MoFaDBData_s::MoFaDBData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int MoFaDBData_s::CreateInit() {
+	return 0;
+}
+
+int MoFaDBData_s::ResumeInit() {
+	return 0;
+}
+
+void MoFaDBData_s::write_to_pbmsg(::proto_ff::MoFaDBData & msg) const {
+	for(int32_t i = 0; i < (int32_t)data.size(); ++i) {
+		::proto_ff::MoFaEquipInfo* temp_data = msg.add_data();
+		data[i].write_to_pbmsg(*temp_data);
+	}
+}
+
+void MoFaDBData_s::read_from_pbmsg(const ::proto_ff::MoFaDBData & msg) {
+	data.resize((int)msg.data_size() > (int)data.max_size() ? data.max_size() : msg.data_size());
+	for(int32_t i = 0; i < (int32_t)data.size(); ++i) {
+		const ::proto_ff::MoFaEquipInfo & temp_data = msg.data(i);
+		data[i].read_from_pbmsg(temp_data);
+	}
+}
+
+RuneDBData_s::RuneDBData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int RuneDBData_s::CreateInit() {
+	return 0;
+}
+
+int RuneDBData_s::ResumeInit() {
+	return 0;
+}
+
+void RuneDBData_s::write_to_pbmsg(::proto_ff::RuneDBData & msg) const {
+	for(int32_t i = 0; i < (int32_t)entrys.size(); ++i) {
+		::proto_ff::RuneEntry* temp_entrys = msg.add_entrys();
+		entrys[i].write_to_pbmsg(*temp_entrys);
+	}
+}
+
+void RuneDBData_s::read_from_pbmsg(const ::proto_ff::RuneDBData & msg) {
+	entrys.resize((int)msg.entrys_size() > (int)entrys.max_size() ? entrys.max_size() : msg.entrys_size());
+	for(int32_t i = 0; i < (int32_t)entrys.size(); ++i) {
+		const ::proto_ff::RuneEntry & temp_entrys = msg.entrys(i);
+		entrys[i].read_from_pbmsg(temp_entrys);
+	}
+}
+
 RoleDBData_s::RoleDBData_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -4681,6 +4831,10 @@ void RoleDBData_s::write_to_pbmsg(::proto_ff::RoleDBData & msg) const {
 	gma_datas.write_to_pbmsg(*temp_gma_datas);
 	::proto_ff::SoulDBData* temp_soul = msg.mutable_soul();
 	soul.write_to_pbmsg(*temp_soul);
+	::proto_ff::MoFaDBData* temp_mofa = msg.mutable_mofa();
+	mofa.write_to_pbmsg(*temp_mofa);
+	::proto_ff::RuneDBData* temp_rune = msg.mutable_rune();
+	rune.write_to_pbmsg(*temp_rune);
 }
 
 void RoleDBData_s::read_from_pbmsg(const ::proto_ff::RoleDBData & msg) {
@@ -4784,6 +4938,10 @@ void RoleDBData_s::read_from_pbmsg(const ::proto_ff::RoleDBData & msg) {
 	gma_datas.read_from_pbmsg(temp_gma_datas);
 	const ::proto_ff::SoulDBData & temp_soul = msg.soul();
 	soul.read_from_pbmsg(temp_soul);
+	const ::proto_ff::MoFaDBData & temp_mofa = msg.mofa();
+	mofa.read_from_pbmsg(temp_mofa);
+	const ::proto_ff::RuneDBData & temp_rune = msg.rune();
+	rune.read_from_pbmsg(temp_rune);
 }
 
 RedWaitDBProto_s::RedWaitDBProto_s() {
@@ -5087,6 +5245,7 @@ int RoleMirrorData_s::CreateInit() {
 	teamid = (uint32_t)0;
 	zid = (uint32_t)0;
 	campid = (int32_t)0;
+	relive = (int32_t)0;
 	return 0;
 }
 
@@ -5116,6 +5275,7 @@ void RoleMirrorData_s::write_to_pbmsg(::proto_ff::RoleMirrorData & msg) const {
 		beast_slots[i].write_to_pbmsg(*temp_beast_slots);
 	}
 	msg.set_campid((int32_t)campid);
+	msg.set_relive((int32_t)relive);
 }
 
 void RoleMirrorData_s::read_from_pbmsg(const ::proto_ff::RoleMirrorData & msg) {
@@ -5142,6 +5302,7 @@ void RoleMirrorData_s::read_from_pbmsg(const ::proto_ff::RoleMirrorData & msg) {
 		beast_slots[i].read_from_pbmsg(temp_beast_slots);
 	}
 	campid = msg.campid();
+	relive = msg.relive();
 }
 
 FactionMemDBProto_s::FactionMemDBProto_s() {

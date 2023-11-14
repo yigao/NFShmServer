@@ -209,73 +209,66 @@ class E_MofaSetup : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_ID = 1;
-  inline bool has_m_id() const;
-  inline void clear_m_id();
-  static const int kMIDFieldNumber = 1;
-  inline ::google::protobuf::int32 m_id() const;
-  inline void set_m_id(::google::protobuf::int32 value);
-
-  // optional int32 m_PositionID = 2;
+  // optional int32 m_PositionID = 1;
   inline bool has_m_positionid() const;
   inline void clear_m_positionid();
-  static const int kMPositionIDFieldNumber = 2;
+  static const int kMPositionIDFieldNumber = 1;
   inline ::google::protobuf::int32 m_positionid() const;
   inline void set_m_positionid(::google::protobuf::int32 value);
 
-  // optional int32 m_Unlock = 3;
+  // optional int32 m_Unlock = 2;
   inline bool has_m_unlock() const;
   inline void clear_m_unlock();
-  static const int kMUnlockFieldNumber = 3;
+  static const int kMUnlockFieldNumber = 2;
   inline ::google::protobuf::int32 m_unlock() const;
   inline void set_m_unlock(::google::protobuf::int32 value);
 
-  // optional int32 m_ZyAtt = 4;
+  // optional int32 m_ZyAtt = 3;
   inline bool has_m_zyatt() const;
   inline void clear_m_zyatt();
-  static const int kMZyAttFieldNumber = 4;
+  static const int kMZyAttFieldNumber = 3;
   inline ::google::protobuf::int32 m_zyatt() const;
   inline void set_m_zyatt(::google::protobuf::int32 value);
 
-  // optional int32 m_Bless = 5;
+  // optional int32 m_Bless = 4;
   inline bool has_m_bless() const;
   inline void clear_m_bless();
-  static const int kMBlessFieldNumber = 5;
+  static const int kMBlessFieldNumber = 4;
   inline ::google::protobuf::int32 m_bless() const;
   inline void set_m_bless(::google::protobuf::int32 value);
 
-  // optional int32 m_BlessBonus = 6;
+  // optional int32 m_BlessBonus = 5;
   inline bool has_m_blessbonus() const;
   inline void clear_m_blessbonus();
-  static const int kMBlessBonusFieldNumber = 6;
+  static const int kMBlessBonusFieldNumber = 5;
   inline ::google::protobuf::int32 m_blessbonus() const;
   inline void set_m_blessbonus(::google::protobuf::int32 value);
 
-  // optional int32 m_JxZyAtt = 7;
+  // optional int32 m_JxZyAtt = 6;
   inline bool has_m_jxzyatt() const;
   inline void clear_m_jxzyatt();
-  static const int kMJxZyAttFieldNumber = 7;
+  static const int kMJxZyAttFieldNumber = 6;
   inline ::google::protobuf::int32 m_jxzyatt() const;
   inline void set_m_jxzyatt(::google::protobuf::int32 value);
 
-  // optional int32 m_JxBlessBonus = 8;
+  // optional int32 m_JxBlessBonus = 7;
   inline bool has_m_jxblessbonus() const;
   inline void clear_m_jxblessbonus();
-  static const int kMJxBlessBonusFieldNumber = 8;
+  static const int kMJxBlessBonusFieldNumber = 7;
   inline ::google::protobuf::int32 m_jxblessbonus() const;
   inline void set_m_jxblessbonus(::google::protobuf::int32 value);
 
-  // optional int32 m_JxBlessAtt = 9;
+  // optional int32 m_JxBlessAtt = 8;
   inline bool has_m_jxblessatt() const;
   inline void clear_m_jxblessatt();
-  static const int kMJxBlessAttFieldNumber = 9;
+  static const int kMJxBlessAttFieldNumber = 8;
   inline ::google::protobuf::int32 m_jxblessatt() const;
   inline void set_m_jxblessatt(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_MofaSetupZfDesc m_ZF = 10;
+  // repeated .proto_ff.E_MofaSetupZfDesc m_ZF = 9;
   inline int m_zf_size() const;
   inline void clear_m_zf();
-  static const int kMZFFieldNumber = 10;
+  static const int kMZFFieldNumber = 9;
   inline const ::proto_ff::E_MofaSetupZfDesc& m_zf(int index) const;
   inline ::proto_ff::E_MofaSetupZfDesc* mutable_m_zf(int index);
   inline ::proto_ff::E_MofaSetupZfDesc* add_m_zf();
@@ -286,8 +279,6 @@ class E_MofaSetup : public ::google::protobuf::Message {
 
   // @@protoc_insertion_point(class_scope:proto_ff.E_MofaSetup)
  private:
-  inline void set_has_m_id();
-  inline void clear_has_m_id();
   inline void set_has_m_positionid();
   inline void clear_has_m_positionid();
   inline void set_has_m_unlock();
@@ -307,7 +298,6 @@ class E_MofaSetup : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 m_id_;
   ::google::protobuf::int32 m_positionid_;
   ::google::protobuf::int32 m_unlock_;
   ::google::protobuf::int32 m_zyatt_;
@@ -315,11 +305,11 @@ class E_MofaSetup : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_blessbonus_;
   ::google::protobuf::int32 m_jxzyatt_;
   ::google::protobuf::int32 m_jxblessbonus_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MofaSetupZfDesc > m_zf_;
   ::google::protobuf::int32 m_jxblessatt_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MofaSetupZfDesc > m_zf_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(10 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fMofa_2eproto();
   friend void protobuf_AssignDesc_E_5fMofa_2eproto();
@@ -653,12 +643,12 @@ class E_MofaYuansu : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_ItemID = 1;
-  inline bool has_m_itemid() const;
-  inline void clear_m_itemid();
-  static const int kMItemIDFieldNumber = 1;
-  inline ::google::protobuf::int32 m_itemid() const;
-  inline void set_m_itemid(::google::protobuf::int32 value);
+  // optional int32 m_EquipID = 1;
+  inline bool has_m_equipid() const;
+  inline void clear_m_equipid();
+  static const int kMEquipIDFieldNumber = 1;
+  inline ::google::protobuf::int32 m_equipid() const;
+  inline void set_m_equipid(::google::protobuf::int32 value);
 
   // optional int32 m_AttriType = 2;
   inline bool has_m_attritype() const;
@@ -728,8 +718,8 @@ class E_MofaYuansu : public ::google::protobuf::Message {
 
   // @@protoc_insertion_point(class_scope:proto_ff.E_MofaYuansu)
  private:
-  inline void set_has_m_itemid();
-  inline void clear_has_m_itemid();
+  inline void set_has_m_equipid();
+  inline void clear_has_m_equipid();
   inline void set_has_m_attritype();
   inline void clear_has_m_attritype();
   inline void set_has_m_mosaic();
@@ -745,7 +735,7 @@ class E_MofaYuansu : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 m_itemid_;
+  ::google::protobuf::int32 m_equipid_;
   ::google::protobuf::int32 m_attritype_;
   ::google::protobuf::int32 m_mosaic_;
   ::google::protobuf::int32 m_lvitem_;
@@ -906,38 +896,29 @@ class E_MofaDecompose : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_Id = 1;
-  inline bool has_m_id() const;
-  inline void clear_m_id();
-  static const int kMIdFieldNumber = 1;
-  inline ::google::protobuf::int32 m_id() const;
-  inline void set_m_id(::google::protobuf::int32 value);
-
-  // optional int32 m_DpQua = 2;
+  // optional int32 m_DpQua = 1;
   inline bool has_m_dpqua() const;
   inline void clear_m_dpqua();
-  static const int kMDpQuaFieldNumber = 2;
+  static const int kMDpQuaFieldNumber = 1;
   inline ::google::protobuf::int32 m_dpqua() const;
   inline void set_m_dpqua(::google::protobuf::int32 value);
 
-  // optional int32 m_DpItem = 3;
+  // optional int32 m_DpItem = 2;
   inline bool has_m_dpitem() const;
   inline void clear_m_dpitem();
-  static const int kMDpItemFieldNumber = 3;
+  static const int kMDpItemFieldNumber = 2;
   inline ::google::protobuf::int32 m_dpitem() const;
   inline void set_m_dpitem(::google::protobuf::int32 value);
 
-  // optional int32 m_DpEss = 4;
+  // optional int32 m_DpEss = 3;
   inline bool has_m_dpess() const;
   inline void clear_m_dpess();
-  static const int kMDpEssFieldNumber = 4;
+  static const int kMDpEssFieldNumber = 3;
   inline ::google::protobuf::int32 m_dpess() const;
   inline void set_m_dpess(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:proto_ff.E_MofaDecompose)
  private:
-  inline void set_has_m_id();
-  inline void clear_has_m_id();
   inline void set_has_m_dpqua();
   inline void clear_has_m_dpqua();
   inline void set_has_m_dpitem();
@@ -947,13 +928,12 @@ class E_MofaDecompose : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 m_id_;
   ::google::protobuf::int32 m_dpqua_;
   ::google::protobuf::int32 m_dpitem_;
   ::google::protobuf::int32 m_dpess_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fMofa_2eproto();
   friend void protobuf_AssignDesc_E_5fMofa_2eproto();
@@ -2336,40 +2316,31 @@ class E_MofaExchange : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_ItemID = 1;
-  inline bool has_m_itemid() const;
-  inline void clear_m_itemid();
-  static const int kMItemIDFieldNumber = 1;
-  inline ::google::protobuf::int32 m_itemid() const;
-  inline void set_m_itemid(::google::protobuf::int32 value);
+  // optional int32 m_EquipID = 1;
+  inline bool has_m_equipid() const;
+  inline void clear_m_equipid();
+  static const int kMEquipIDFieldNumber = 1;
+  inline ::google::protobuf::int32 m_equipid() const;
+  inline void set_m_equipid(::google::protobuf::int32 value);
 
-  // optional int32 m_quality = 2;
-  inline bool has_m_quality() const;
-  inline void clear_m_quality();
-  static const int kMQualityFieldNumber = 2;
-  inline ::google::protobuf::int32 m_quality() const;
-  inline void set_m_quality(::google::protobuf::int32 value);
-
-  // optional int32 m_EcItem = 3;
+  // optional int32 m_EcItem = 2;
   inline bool has_m_ecitem() const;
   inline void clear_m_ecitem();
-  static const int kMEcItemFieldNumber = 3;
+  static const int kMEcItemFieldNumber = 2;
   inline ::google::protobuf::int32 m_ecitem() const;
   inline void set_m_ecitem(::google::protobuf::int32 value);
 
-  // optional int32 m_EcNum = 4;
+  // optional int32 m_EcNum = 3;
   inline bool has_m_ecnum() const;
   inline void clear_m_ecnum();
-  static const int kMEcNumFieldNumber = 4;
+  static const int kMEcNumFieldNumber = 3;
   inline ::google::protobuf::int32 m_ecnum() const;
   inline void set_m_ecnum(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:proto_ff.E_MofaExchange)
  private:
-  inline void set_has_m_itemid();
-  inline void clear_has_m_itemid();
-  inline void set_has_m_quality();
-  inline void clear_has_m_quality();
+  inline void set_has_m_equipid();
+  inline void clear_has_m_equipid();
   inline void set_has_m_ecitem();
   inline void clear_has_m_ecitem();
   inline void set_has_m_ecnum();
@@ -2377,13 +2348,12 @@ class E_MofaExchange : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 m_itemid_;
-  ::google::protobuf::int32 m_quality_;
+  ::google::protobuf::int32 m_equipid_;
   ::google::protobuf::int32 m_ecitem_;
   ::google::protobuf::int32 m_ecnum_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fMofa_2eproto();
   friend void protobuf_AssignDesc_E_5fMofa_2eproto();
@@ -2709,37 +2679,15 @@ inline void E_MofaSetupZfDesc::set_m_type(::google::protobuf::int32 value) {
 
 // E_MofaSetup
 
-// optional int32 m_ID = 1;
-inline bool E_MofaSetup::has_m_id() const {
+// optional int32 m_PositionID = 1;
+inline bool E_MofaSetup::has_m_positionid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void E_MofaSetup::set_has_m_id() {
+inline void E_MofaSetup::set_has_m_positionid() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void E_MofaSetup::clear_has_m_id() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void E_MofaSetup::clear_m_id() {
-  m_id_ = 0;
-  clear_has_m_id();
-}
-inline ::google::protobuf::int32 E_MofaSetup::m_id() const {
-  return m_id_;
-}
-inline void E_MofaSetup::set_m_id(::google::protobuf::int32 value) {
-  set_has_m_id();
-  m_id_ = value;
-}
-
-// optional int32 m_PositionID = 2;
-inline bool E_MofaSetup::has_m_positionid() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void E_MofaSetup::set_has_m_positionid() {
-  _has_bits_[0] |= 0x00000002u;
-}
 inline void E_MofaSetup::clear_has_m_positionid() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline void E_MofaSetup::clear_m_positionid() {
   m_positionid_ = 0;
@@ -2753,15 +2701,15 @@ inline void E_MofaSetup::set_m_positionid(::google::protobuf::int32 value) {
   m_positionid_ = value;
 }
 
-// optional int32 m_Unlock = 3;
+// optional int32 m_Unlock = 2;
 inline bool E_MofaSetup::has_m_unlock() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
 inline void E_MofaSetup::set_has_m_unlock() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000002u;
 }
 inline void E_MofaSetup::clear_has_m_unlock() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void E_MofaSetup::clear_m_unlock() {
   m_unlock_ = 0;
@@ -2775,15 +2723,15 @@ inline void E_MofaSetup::set_m_unlock(::google::protobuf::int32 value) {
   m_unlock_ = value;
 }
 
-// optional int32 m_ZyAtt = 4;
+// optional int32 m_ZyAtt = 3;
 inline bool E_MofaSetup::has_m_zyatt() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void E_MofaSetup::set_has_m_zyatt() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void E_MofaSetup::clear_has_m_zyatt() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void E_MofaSetup::clear_m_zyatt() {
   m_zyatt_ = 0;
@@ -2797,15 +2745,15 @@ inline void E_MofaSetup::set_m_zyatt(::google::protobuf::int32 value) {
   m_zyatt_ = value;
 }
 
-// optional int32 m_Bless = 5;
+// optional int32 m_Bless = 4;
 inline bool E_MofaSetup::has_m_bless() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void E_MofaSetup::set_has_m_bless() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void E_MofaSetup::clear_has_m_bless() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void E_MofaSetup::clear_m_bless() {
   m_bless_ = 0;
@@ -2819,15 +2767,15 @@ inline void E_MofaSetup::set_m_bless(::google::protobuf::int32 value) {
   m_bless_ = value;
 }
 
-// optional int32 m_BlessBonus = 6;
+// optional int32 m_BlessBonus = 5;
 inline bool E_MofaSetup::has_m_blessbonus() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void E_MofaSetup::set_has_m_blessbonus() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void E_MofaSetup::clear_has_m_blessbonus() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void E_MofaSetup::clear_m_blessbonus() {
   m_blessbonus_ = 0;
@@ -2841,15 +2789,15 @@ inline void E_MofaSetup::set_m_blessbonus(::google::protobuf::int32 value) {
   m_blessbonus_ = value;
 }
 
-// optional int32 m_JxZyAtt = 7;
+// optional int32 m_JxZyAtt = 6;
 inline bool E_MofaSetup::has_m_jxzyatt() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void E_MofaSetup::set_has_m_jxzyatt() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void E_MofaSetup::clear_has_m_jxzyatt() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void E_MofaSetup::clear_m_jxzyatt() {
   m_jxzyatt_ = 0;
@@ -2863,15 +2811,15 @@ inline void E_MofaSetup::set_m_jxzyatt(::google::protobuf::int32 value) {
   m_jxzyatt_ = value;
 }
 
-// optional int32 m_JxBlessBonus = 8;
+// optional int32 m_JxBlessBonus = 7;
 inline bool E_MofaSetup::has_m_jxblessbonus() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void E_MofaSetup::set_has_m_jxblessbonus() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void E_MofaSetup::clear_has_m_jxblessbonus() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void E_MofaSetup::clear_m_jxblessbonus() {
   m_jxblessbonus_ = 0;
@@ -2885,15 +2833,15 @@ inline void E_MofaSetup::set_m_jxblessbonus(::google::protobuf::int32 value) {
   m_jxblessbonus_ = value;
 }
 
-// optional int32 m_JxBlessAtt = 9;
+// optional int32 m_JxBlessAtt = 8;
 inline bool E_MofaSetup::has_m_jxblessatt() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 inline void E_MofaSetup::set_has_m_jxblessatt() {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000080u;
 }
 inline void E_MofaSetup::clear_has_m_jxblessatt() {
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline void E_MofaSetup::clear_m_jxblessatt() {
   m_jxblessatt_ = 0;
@@ -2907,7 +2855,7 @@ inline void E_MofaSetup::set_m_jxblessatt(::google::protobuf::int32 value) {
   m_jxblessatt_ = value;
 }
 
-// repeated .proto_ff.E_MofaSetupZfDesc m_ZF = 10;
+// repeated .proto_ff.E_MofaSetupZfDesc m_ZF = 9;
 inline int E_MofaSetup::m_zf_size() const {
   return m_zf_.size();
 }
@@ -3061,26 +3009,26 @@ inline void E_MofaYuansuAwakenDesc::set_m_num(::google::protobuf::int32 value) {
 
 // E_MofaYuansu
 
-// optional int32 m_ItemID = 1;
-inline bool E_MofaYuansu::has_m_itemid() const {
+// optional int32 m_EquipID = 1;
+inline bool E_MofaYuansu::has_m_equipid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void E_MofaYuansu::set_has_m_itemid() {
+inline void E_MofaYuansu::set_has_m_equipid() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void E_MofaYuansu::clear_has_m_itemid() {
+inline void E_MofaYuansu::clear_has_m_equipid() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void E_MofaYuansu::clear_m_itemid() {
-  m_itemid_ = 0;
-  clear_has_m_itemid();
+inline void E_MofaYuansu::clear_m_equipid() {
+  m_equipid_ = 0;
+  clear_has_m_equipid();
 }
-inline ::google::protobuf::int32 E_MofaYuansu::m_itemid() const {
-  return m_itemid_;
+inline ::google::protobuf::int32 E_MofaYuansu::m_equipid() const {
+  return m_equipid_;
 }
-inline void E_MofaYuansu::set_m_itemid(::google::protobuf::int32 value) {
-  set_has_m_itemid();
-  m_itemid_ = value;
+inline void E_MofaYuansu::set_m_equipid(::google::protobuf::int32 value) {
+  set_has_m_equipid();
+  m_equipid_ = value;
 }
 
 // optional int32 m_AttriType = 2;
@@ -3298,37 +3246,15 @@ Sheet_MofaYuansu::mutable_e_mofayuansu_list() {
 
 // E_MofaDecompose
 
-// optional int32 m_Id = 1;
-inline bool E_MofaDecompose::has_m_id() const {
+// optional int32 m_DpQua = 1;
+inline bool E_MofaDecompose::has_m_dpqua() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void E_MofaDecompose::set_has_m_id() {
+inline void E_MofaDecompose::set_has_m_dpqua() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void E_MofaDecompose::clear_has_m_id() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void E_MofaDecompose::clear_m_id() {
-  m_id_ = 0;
-  clear_has_m_id();
-}
-inline ::google::protobuf::int32 E_MofaDecompose::m_id() const {
-  return m_id_;
-}
-inline void E_MofaDecompose::set_m_id(::google::protobuf::int32 value) {
-  set_has_m_id();
-  m_id_ = value;
-}
-
-// optional int32 m_DpQua = 2;
-inline bool E_MofaDecompose::has_m_dpqua() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void E_MofaDecompose::set_has_m_dpqua() {
-  _has_bits_[0] |= 0x00000002u;
-}
 inline void E_MofaDecompose::clear_has_m_dpqua() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline void E_MofaDecompose::clear_m_dpqua() {
   m_dpqua_ = 0;
@@ -3342,15 +3268,15 @@ inline void E_MofaDecompose::set_m_dpqua(::google::protobuf::int32 value) {
   m_dpqua_ = value;
 }
 
-// optional int32 m_DpItem = 3;
+// optional int32 m_DpItem = 2;
 inline bool E_MofaDecompose::has_m_dpitem() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
 inline void E_MofaDecompose::set_has_m_dpitem() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000002u;
 }
 inline void E_MofaDecompose::clear_has_m_dpitem() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void E_MofaDecompose::clear_m_dpitem() {
   m_dpitem_ = 0;
@@ -3364,15 +3290,15 @@ inline void E_MofaDecompose::set_m_dpitem(::google::protobuf::int32 value) {
   m_dpitem_ = value;
 }
 
-// optional int32 m_DpEss = 4;
+// optional int32 m_DpEss = 3;
 inline bool E_MofaDecompose::has_m_dpess() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void E_MofaDecompose::set_has_m_dpess() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void E_MofaDecompose::clear_has_m_dpess() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void E_MofaDecompose::clear_m_dpess() {
   m_dpess_ = 0;
@@ -4092,59 +4018,37 @@ Sheet_MofaZyjxzfatt::mutable_e_mofazyjxzfatt_list() {
 
 // E_MofaExchange
 
-// optional int32 m_ItemID = 1;
-inline bool E_MofaExchange::has_m_itemid() const {
+// optional int32 m_EquipID = 1;
+inline bool E_MofaExchange::has_m_equipid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void E_MofaExchange::set_has_m_itemid() {
+inline void E_MofaExchange::set_has_m_equipid() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void E_MofaExchange::clear_has_m_itemid() {
+inline void E_MofaExchange::clear_has_m_equipid() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void E_MofaExchange::clear_m_itemid() {
-  m_itemid_ = 0;
-  clear_has_m_itemid();
+inline void E_MofaExchange::clear_m_equipid() {
+  m_equipid_ = 0;
+  clear_has_m_equipid();
 }
-inline ::google::protobuf::int32 E_MofaExchange::m_itemid() const {
-  return m_itemid_;
+inline ::google::protobuf::int32 E_MofaExchange::m_equipid() const {
+  return m_equipid_;
 }
-inline void E_MofaExchange::set_m_itemid(::google::protobuf::int32 value) {
-  set_has_m_itemid();
-  m_itemid_ = value;
+inline void E_MofaExchange::set_m_equipid(::google::protobuf::int32 value) {
+  set_has_m_equipid();
+  m_equipid_ = value;
 }
 
-// optional int32 m_quality = 2;
-inline bool E_MofaExchange::has_m_quality() const {
+// optional int32 m_EcItem = 2;
+inline bool E_MofaExchange::has_m_ecitem() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void E_MofaExchange::set_has_m_quality() {
+inline void E_MofaExchange::set_has_m_ecitem() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void E_MofaExchange::clear_has_m_quality() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void E_MofaExchange::clear_m_quality() {
-  m_quality_ = 0;
-  clear_has_m_quality();
-}
-inline ::google::protobuf::int32 E_MofaExchange::m_quality() const {
-  return m_quality_;
-}
-inline void E_MofaExchange::set_m_quality(::google::protobuf::int32 value) {
-  set_has_m_quality();
-  m_quality_ = value;
-}
-
-// optional int32 m_EcItem = 3;
-inline bool E_MofaExchange::has_m_ecitem() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void E_MofaExchange::set_has_m_ecitem() {
-  _has_bits_[0] |= 0x00000004u;
-}
 inline void E_MofaExchange::clear_has_m_ecitem() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void E_MofaExchange::clear_m_ecitem() {
   m_ecitem_ = 0;
@@ -4158,15 +4062,15 @@ inline void E_MofaExchange::set_m_ecitem(::google::protobuf::int32 value) {
   m_ecitem_ = value;
 }
 
-// optional int32 m_EcNum = 4;
+// optional int32 m_EcNum = 3;
 inline bool E_MofaExchange::has_m_ecnum() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void E_MofaExchange::set_has_m_ecnum() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void E_MofaExchange::clear_has_m_ecnum() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void E_MofaExchange::clear_m_ecnum() {
   m_ecnum_ = 0;

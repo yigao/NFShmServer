@@ -9,9 +9,9 @@
 #include "E_Boss_s.h"
 
 #define DEFINE_SHEET_BOSSRAREITEM_E_BOSSRAREITEM_LIST_MAX_NUM 1024
-#define DEFINE_SHEET_BOSSBOSS_E_BOSSBOSS_LIST_MAX_NUM 1024
 #define DEFINE_E_BOSSBOSSTYPE_M_GROUP_MAX_NUM 3
 #define DEFINE_SHEET_BOSSBOSSTYPE_E_BOSSBOSSTYPE_LIST_MAX_NUM 16
+#define DEFINE_SHEET_BOSSBOSS_E_BOSSBOSS_LIST_MAX_NUM 1024
 #define DEFINE_SHEET_BOSSLAYER_E_BOSSLAYER_LIST_MAX_NUM 64
 
 
@@ -45,49 +45,6 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_BossRareitem make_pbmsg(){ return ::proto_ff::Sheet_BossRareitem(); }
 	};
 	typedef struct Sheet_BossRareitem_s Sheet_BossRareitem_t;
-
-	struct E_BossBoss_s : public NFDescStoreSeqOP {
-		E_BossBoss_s();
-		virtual ~E_BossBoss_s(){}
-		int CreateInit();
-		int ResumeInit();
-		int32_t m_id;//bossID
-		int32_t m_bossType;//BOSS类型
-		int32_t m_monsterID;//怪物ID
-		int32_t m_classOrder;//阶次
-		int32_t m_sceneOrder;//所属层级
-		int32_t m_duplicateID;//副本ID
-		int32_t m_peaceMask;//和平标记
-		int32_t m_pointID;//位置点
-		int32_t m_flashNum;//刷新数量
-		int32_t m_group_type;//组类型
-		int32_t m_ishide;//是否是隐藏boss
-		int32_t m_triggerPro;//触发隐藏的概率
-		int32_t m_flashTime;//刷新间隔
-		int32_t m_retrieveGiftID;//找回礼包id
-		int32_t m_noTimes;//是否不消耗次数
-		int32_t m_assistPrestige;//协助击杀奖励的声望
-
-		virtual void write_to_pbmsg(::proto_ff::E_BossBoss & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::E_BossBoss & msg);
-		static ::proto_ff::E_BossBoss* new_pbmsg(){ return new ::proto_ff::E_BossBoss(); }
-		static ::proto_ff::E_BossBoss make_pbmsg(){ return ::proto_ff::E_BossBoss(); }
-	};
-	typedef struct E_BossBoss_s E_BossBoss_t;
-
-	struct Sheet_BossBoss_s : public NFDescStoreSeqOP {
-		Sheet_BossBoss_s();
-		virtual ~Sheet_BossBoss_s(){}
-		int CreateInit();
-		int ResumeInit();
-		NFShmVector<struct E_BossBoss_s, DEFINE_SHEET_BOSSBOSS_E_BOSSBOSS_LIST_MAX_NUM> E_BossBoss_List;//
-
-		virtual void write_to_pbmsg(::proto_ff::Sheet_BossBoss & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_BossBoss & msg);
-		static ::proto_ff::Sheet_BossBoss* new_pbmsg(){ return new ::proto_ff::Sheet_BossBoss(); }
-		static ::proto_ff::Sheet_BossBoss make_pbmsg(){ return ::proto_ff::Sheet_BossBoss(); }
-	};
-	typedef struct Sheet_BossBoss_s Sheet_BossBoss_t;
 
 	struct E_BossBosstypeGroupDesc_s : public NFDescStoreSeqOP {
 		E_BossBosstypeGroupDesc_s();
@@ -146,6 +103,49 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_BossBosstype make_pbmsg(){ return ::proto_ff::Sheet_BossBosstype(); }
 	};
 	typedef struct Sheet_BossBosstype_s Sheet_BossBosstype_t;
+
+	struct E_BossBoss_s : public NFDescStoreSeqOP {
+		E_BossBoss_s();
+		virtual ~E_BossBoss_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//bossID
+		int32_t m_bossType;//BOSS类型
+		int32_t m_monsterID;//怪物ID
+		int32_t m_classOrder;//阶次
+		int32_t m_sceneOrder;//所属层级
+		int32_t m_duplicateID;//副本ID
+		int32_t m_peaceMask;//和平标记
+		int32_t m_pointID;//位置点
+		int32_t m_flashNum;//刷新数量
+		int32_t m_group_type;//组类型
+		int32_t m_ishide;//是否是隐藏boss
+		int32_t m_triggerPro;//触发隐藏的概率
+		int32_t m_flashTime;//刷新间隔
+		int32_t m_retrieveGiftID;//找回礼包id
+		int32_t m_noTimes;//是否不消耗次数
+		int32_t m_assistPrestige;//协助击杀奖励的声望
+
+		virtual void write_to_pbmsg(::proto_ff::E_BossBoss & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_BossBoss & msg);
+		static ::proto_ff::E_BossBoss* new_pbmsg(){ return new ::proto_ff::E_BossBoss(); }
+		static ::proto_ff::E_BossBoss make_pbmsg(){ return ::proto_ff::E_BossBoss(); }
+	};
+	typedef struct E_BossBoss_s E_BossBoss_t;
+
+	struct Sheet_BossBoss_s : public NFDescStoreSeqOP {
+		Sheet_BossBoss_s();
+		virtual ~Sheet_BossBoss_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_BossBoss_s, DEFINE_SHEET_BOSSBOSS_E_BOSSBOSS_LIST_MAX_NUM> E_BossBoss_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_BossBoss & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_BossBoss & msg);
+		static ::proto_ff::Sheet_BossBoss* new_pbmsg(){ return new ::proto_ff::Sheet_BossBoss(); }
+		static ::proto_ff::Sheet_BossBoss make_pbmsg(){ return ::proto_ff::Sheet_BossBoss(); }
+	};
+	typedef struct Sheet_BossBoss_s Sheet_BossBoss_t;
 
 	struct E_BossLayer_s : public NFDescStoreSeqOP {
 		E_BossLayer_s();

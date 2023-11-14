@@ -40,6 +40,18 @@ class E_FestivalFestival;
 class Sheet_FestivalFestival;
 class E_FestivalTemplate;
 class Sheet_FestivalTemplate;
+class E_FestivalMuban_rebatestoreExpendDesc;
+class E_FestivalMuban_rebatestore;
+class Sheet_FestivalMuban_rebatestore;
+class E_FestivalMuban_rebatestore_mall;
+class Sheet_FestivalMuban_rebatestore_mall;
+class E_FestivalMuban_contrecharge;
+class Sheet_FestivalMuban_contrecharge;
+class E_FestivalMuban_contrecharge_totalTotalDesc;
+class E_FestivalMuban_contrecharge_total;
+class Sheet_FestivalMuban_contrecharge_total;
+class E_FestivalMuban_contrecharge_day;
+class Sheet_FestivalMuban_contrecharge_day;
 class E_FestivalMuban_login;
 class Sheet_FestivalMuban_login;
 class E_FestivalMuban_firstrecharge;
@@ -790,6 +802,1281 @@ class Sheet_FestivalTemplate : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static Sheet_FestivalTemplate* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_FestivalMuban_rebatestoreExpendDesc : public ::google::protobuf::Message {
+ public:
+  E_FestivalMuban_rebatestoreExpendDesc();
+  virtual ~E_FestivalMuban_rebatestoreExpendDesc();
+
+  E_FestivalMuban_rebatestoreExpendDesc(const E_FestivalMuban_rebatestoreExpendDesc& from);
+
+  inline E_FestivalMuban_rebatestoreExpendDesc& operator=(const E_FestivalMuban_rebatestoreExpendDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_FestivalMuban_rebatestoreExpendDesc& default_instance();
+
+  void Swap(E_FestivalMuban_rebatestoreExpendDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_FestivalMuban_rebatestoreExpendDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_FestivalMuban_rebatestoreExpendDesc& from);
+  void MergeFrom(const E_FestivalMuban_rebatestoreExpendDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_BoxID = 1;
+  inline bool has_m_boxid() const;
+  inline void clear_m_boxid();
+  static const int kMBoxIDFieldNumber = 1;
+  inline ::google::protobuf::int32 m_boxid() const;
+  inline void set_m_boxid(::google::protobuf::int32 value);
+
+  // optional int32 m_Value = 2;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 2;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FestivalMuban_rebatestoreExpendDesc)
+ private:
+  inline void set_has_m_boxid();
+  inline void clear_has_m_boxid();
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_boxid_;
+  ::google::protobuf::int32 m_value_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fFestival_2eproto();
+  friend void protobuf_AssignDesc_E_5fFestival_2eproto();
+  friend void protobuf_ShutdownFile_E_5fFestival_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_FestivalMuban_rebatestoreExpendDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_FestivalMuban_rebatestore : public ::google::protobuf::Message {
+ public:
+  E_FestivalMuban_rebatestore();
+  virtual ~E_FestivalMuban_rebatestore();
+
+  E_FestivalMuban_rebatestore(const E_FestivalMuban_rebatestore& from);
+
+  inline E_FestivalMuban_rebatestore& operator=(const E_FestivalMuban_rebatestore& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_FestivalMuban_rebatestore& default_instance();
+
+  void Swap(E_FestivalMuban_rebatestore* other);
+
+  // implements Message ----------------------------------------------
+
+  E_FestivalMuban_rebatestore* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_FestivalMuban_rebatestore& from);
+  void MergeFrom(const E_FestivalMuban_rebatestore& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_period = 2;
+  inline bool has_m_period() const;
+  inline void clear_m_period();
+  static const int kMPeriodFieldNumber = 2;
+  inline ::google::protobuf::int32 m_period() const;
+  inline void set_m_period(::google::protobuf::int32 value);
+
+  // optional int32 m_groupID = 3;
+  inline bool has_m_groupid() const;
+  inline void clear_m_groupid();
+  static const int kMGroupIDFieldNumber = 3;
+  inline ::google::protobuf::int32 m_groupid() const;
+  inline void set_m_groupid(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.E_FestivalMuban_rebatestoreExpendDesc m_expend = 4;
+  inline int m_expend_size() const;
+  inline void clear_m_expend();
+  static const int kMExpendFieldNumber = 4;
+  inline const ::proto_ff::E_FestivalMuban_rebatestoreExpendDesc& m_expend(int index) const;
+  inline ::proto_ff::E_FestivalMuban_rebatestoreExpendDesc* mutable_m_expend(int index);
+  inline ::proto_ff::E_FestivalMuban_rebatestoreExpendDesc* add_m_expend();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_rebatestoreExpendDesc >&
+      m_expend() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_rebatestoreExpendDesc >*
+      mutable_m_expend();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FestivalMuban_rebatestore)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_period();
+  inline void clear_has_m_period();
+  inline void set_has_m_groupid();
+  inline void clear_has_m_groupid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_period_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_rebatestoreExpendDesc > m_expend_;
+  ::google::protobuf::int32 m_groupid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fFestival_2eproto();
+  friend void protobuf_AssignDesc_E_5fFestival_2eproto();
+  friend void protobuf_ShutdownFile_E_5fFestival_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_FestivalMuban_rebatestore* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_FestivalMuban_rebatestore : public ::google::protobuf::Message {
+ public:
+  Sheet_FestivalMuban_rebatestore();
+  virtual ~Sheet_FestivalMuban_rebatestore();
+
+  Sheet_FestivalMuban_rebatestore(const Sheet_FestivalMuban_rebatestore& from);
+
+  inline Sheet_FestivalMuban_rebatestore& operator=(const Sheet_FestivalMuban_rebatestore& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_FestivalMuban_rebatestore& default_instance();
+
+  void Swap(Sheet_FestivalMuban_rebatestore* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_FestivalMuban_rebatestore* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_FestivalMuban_rebatestore& from);
+  void MergeFrom(const Sheet_FestivalMuban_rebatestore& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_FestivalMuban_rebatestore E_FestivalMuban_rebatestore_List = 1;
+  inline int e_festivalmuban_rebatestore_list_size() const;
+  inline void clear_e_festivalmuban_rebatestore_list();
+  static const int kEFestivalMubanRebatestoreListFieldNumber = 1;
+  inline const ::proto_ff::E_FestivalMuban_rebatestore& e_festivalmuban_rebatestore_list(int index) const;
+  inline ::proto_ff::E_FestivalMuban_rebatestore* mutable_e_festivalmuban_rebatestore_list(int index);
+  inline ::proto_ff::E_FestivalMuban_rebatestore* add_e_festivalmuban_rebatestore_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_rebatestore >&
+      e_festivalmuban_rebatestore_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_rebatestore >*
+      mutable_e_festivalmuban_rebatestore_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_FestivalMuban_rebatestore)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_rebatestore > e_festivalmuban_rebatestore_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fFestival_2eproto();
+  friend void protobuf_AssignDesc_E_5fFestival_2eproto();
+  friend void protobuf_ShutdownFile_E_5fFestival_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_FestivalMuban_rebatestore* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_FestivalMuban_rebatestore_mall : public ::google::protobuf::Message {
+ public:
+  E_FestivalMuban_rebatestore_mall();
+  virtual ~E_FestivalMuban_rebatestore_mall();
+
+  E_FestivalMuban_rebatestore_mall(const E_FestivalMuban_rebatestore_mall& from);
+
+  inline E_FestivalMuban_rebatestore_mall& operator=(const E_FestivalMuban_rebatestore_mall& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_FestivalMuban_rebatestore_mall& default_instance();
+
+  void Swap(E_FestivalMuban_rebatestore_mall* other);
+
+  // implements Message ----------------------------------------------
+
+  E_FestivalMuban_rebatestore_mall* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_FestivalMuban_rebatestore_mall& from);
+  void MergeFrom(const E_FestivalMuban_rebatestore_mall& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_groupID = 2;
+  inline bool has_m_groupid() const;
+  inline void clear_m_groupid();
+  static const int kMGroupIDFieldNumber = 2;
+  inline ::google::protobuf::int32 m_groupid() const;
+  inline void set_m_groupid(::google::protobuf::int32 value);
+
+  // optional int32 m_mallType = 3;
+  inline bool has_m_malltype() const;
+  inline void clear_m_malltype();
+  static const int kMMallTypeFieldNumber = 3;
+  inline ::google::protobuf::int32 m_malltype() const;
+  inline void set_m_malltype(::google::protobuf::int32 value);
+
+  // optional int32 m_itemID = 4;
+  inline bool has_m_itemid() const;
+  inline void clear_m_itemid();
+  static const int kMItemIDFieldNumber = 4;
+  inline ::google::protobuf::int32 m_itemid() const;
+  inline void set_m_itemid(::google::protobuf::int32 value);
+
+  // optional int32 m_price = 5;
+  inline bool has_m_price() const;
+  inline void clear_m_price();
+  static const int kMPriceFieldNumber = 5;
+  inline ::google::protobuf::int32 m_price() const;
+  inline void set_m_price(::google::protobuf::int32 value);
+
+  // optional int32 m_originPrice = 6;
+  inline bool has_m_originprice() const;
+  inline void clear_m_originprice();
+  static const int kMOriginPriceFieldNumber = 6;
+  inline ::google::protobuf::int32 m_originprice() const;
+  inline void set_m_originprice(::google::protobuf::int32 value);
+
+  // optional int32 m_discount = 7;
+  inline bool has_m_discount() const;
+  inline void clear_m_discount();
+  static const int kMDiscountFieldNumber = 7;
+  inline ::google::protobuf::int32 m_discount() const;
+  inline void set_m_discount(::google::protobuf::int32 value);
+
+  // optional int32 m_daily = 8;
+  inline bool has_m_daily() const;
+  inline void clear_m_daily();
+  static const int kMDailyFieldNumber = 8;
+  inline ::google::protobuf::int32 m_daily() const;
+  inline void set_m_daily(::google::protobuf::int32 value);
+
+  // optional int32 m_buyAmount = 9;
+  inline bool has_m_buyamount() const;
+  inline void clear_m_buyamount();
+  static const int kMBuyAmountFieldNumber = 9;
+  inline ::google::protobuf::int32 m_buyamount() const;
+  inline void set_m_buyamount(::google::protobuf::int32 value);
+
+  // optional int32 m_functionUnlock = 10;
+  inline bool has_m_functionunlock() const;
+  inline void clear_m_functionunlock();
+  static const int kMFunctionUnlockFieldNumber = 10;
+  inline ::google::protobuf::int32 m_functionunlock() const;
+  inline void set_m_functionunlock(::google::protobuf::int32 value);
+
+  // optional int32 m_openDay = 11;
+  inline bool has_m_openday() const;
+  inline void clear_m_openday();
+  static const int kMOpenDayFieldNumber = 11;
+  inline ::google::protobuf::int32 m_openday() const;
+  inline void set_m_openday(::google::protobuf::int32 value);
+
+  // optional int32 m_closeDay = 12;
+  inline bool has_m_closeday() const;
+  inline void clear_m_closeday();
+  static const int kMCloseDayFieldNumber = 12;
+  inline ::google::protobuf::int32 m_closeday() const;
+  inline void set_m_closeday(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FestivalMuban_rebatestore_mall)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_groupid();
+  inline void clear_has_m_groupid();
+  inline void set_has_m_malltype();
+  inline void clear_has_m_malltype();
+  inline void set_has_m_itemid();
+  inline void clear_has_m_itemid();
+  inline void set_has_m_price();
+  inline void clear_has_m_price();
+  inline void set_has_m_originprice();
+  inline void clear_has_m_originprice();
+  inline void set_has_m_discount();
+  inline void clear_has_m_discount();
+  inline void set_has_m_daily();
+  inline void clear_has_m_daily();
+  inline void set_has_m_buyamount();
+  inline void clear_has_m_buyamount();
+  inline void set_has_m_functionunlock();
+  inline void clear_has_m_functionunlock();
+  inline void set_has_m_openday();
+  inline void clear_has_m_openday();
+  inline void set_has_m_closeday();
+  inline void clear_has_m_closeday();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_groupid_;
+  ::google::protobuf::int32 m_malltype_;
+  ::google::protobuf::int32 m_itemid_;
+  ::google::protobuf::int32 m_price_;
+  ::google::protobuf::int32 m_originprice_;
+  ::google::protobuf::int32 m_discount_;
+  ::google::protobuf::int32 m_daily_;
+  ::google::protobuf::int32 m_buyamount_;
+  ::google::protobuf::int32 m_functionunlock_;
+  ::google::protobuf::int32 m_openday_;
+  ::google::protobuf::int32 m_closeday_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(12 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fFestival_2eproto();
+  friend void protobuf_AssignDesc_E_5fFestival_2eproto();
+  friend void protobuf_ShutdownFile_E_5fFestival_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_FestivalMuban_rebatestore_mall* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_FestivalMuban_rebatestore_mall : public ::google::protobuf::Message {
+ public:
+  Sheet_FestivalMuban_rebatestore_mall();
+  virtual ~Sheet_FestivalMuban_rebatestore_mall();
+
+  Sheet_FestivalMuban_rebatestore_mall(const Sheet_FestivalMuban_rebatestore_mall& from);
+
+  inline Sheet_FestivalMuban_rebatestore_mall& operator=(const Sheet_FestivalMuban_rebatestore_mall& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_FestivalMuban_rebatestore_mall& default_instance();
+
+  void Swap(Sheet_FestivalMuban_rebatestore_mall* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_FestivalMuban_rebatestore_mall* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_FestivalMuban_rebatestore_mall& from);
+  void MergeFrom(const Sheet_FestivalMuban_rebatestore_mall& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_FestivalMuban_rebatestore_mall E_FestivalMuban_rebatestore_mall_List = 1;
+  inline int e_festivalmuban_rebatestore_mall_list_size() const;
+  inline void clear_e_festivalmuban_rebatestore_mall_list();
+  static const int kEFestivalMubanRebatestoreMallListFieldNumber = 1;
+  inline const ::proto_ff::E_FestivalMuban_rebatestore_mall& e_festivalmuban_rebatestore_mall_list(int index) const;
+  inline ::proto_ff::E_FestivalMuban_rebatestore_mall* mutable_e_festivalmuban_rebatestore_mall_list(int index);
+  inline ::proto_ff::E_FestivalMuban_rebatestore_mall* add_e_festivalmuban_rebatestore_mall_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_rebatestore_mall >&
+      e_festivalmuban_rebatestore_mall_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_rebatestore_mall >*
+      mutable_e_festivalmuban_rebatestore_mall_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_FestivalMuban_rebatestore_mall)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_rebatestore_mall > e_festivalmuban_rebatestore_mall_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fFestival_2eproto();
+  friend void protobuf_AssignDesc_E_5fFestival_2eproto();
+  friend void protobuf_ShutdownFile_E_5fFestival_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_FestivalMuban_rebatestore_mall* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_FestivalMuban_contrecharge : public ::google::protobuf::Message {
+ public:
+  E_FestivalMuban_contrecharge();
+  virtual ~E_FestivalMuban_contrecharge();
+
+  E_FestivalMuban_contrecharge(const E_FestivalMuban_contrecharge& from);
+
+  inline E_FestivalMuban_contrecharge& operator=(const E_FestivalMuban_contrecharge& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_FestivalMuban_contrecharge& default_instance();
+
+  void Swap(E_FestivalMuban_contrecharge* other);
+
+  // implements Message ----------------------------------------------
+
+  E_FestivalMuban_contrecharge* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_FestivalMuban_contrecharge& from);
+  void MergeFrom(const E_FestivalMuban_contrecharge& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_period = 2;
+  inline bool has_m_period() const;
+  inline void clear_m_period();
+  static const int kMPeriodFieldNumber = 2;
+  inline ::google::protobuf::int32 m_period() const;
+  inline void set_m_period(::google::protobuf::int32 value);
+
+  // optional int32 m_totalGroup = 3;
+  inline bool has_m_totalgroup() const;
+  inline void clear_m_totalgroup();
+  static const int kMTotalGroupFieldNumber = 3;
+  inline ::google::protobuf::int32 m_totalgroup() const;
+  inline void set_m_totalgroup(::google::protobuf::int32 value);
+
+  // optional int32 m_dailyGroup = 4;
+  inline bool has_m_dailygroup() const;
+  inline void clear_m_dailygroup();
+  static const int kMDailyGroupFieldNumber = 4;
+  inline ::google::protobuf::int32 m_dailygroup() const;
+  inline void set_m_dailygroup(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FestivalMuban_contrecharge)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_period();
+  inline void clear_has_m_period();
+  inline void set_has_m_totalgroup();
+  inline void clear_has_m_totalgroup();
+  inline void set_has_m_dailygroup();
+  inline void clear_has_m_dailygroup();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_period_;
+  ::google::protobuf::int32 m_totalgroup_;
+  ::google::protobuf::int32 m_dailygroup_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fFestival_2eproto();
+  friend void protobuf_AssignDesc_E_5fFestival_2eproto();
+  friend void protobuf_ShutdownFile_E_5fFestival_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_FestivalMuban_contrecharge* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_FestivalMuban_contrecharge : public ::google::protobuf::Message {
+ public:
+  Sheet_FestivalMuban_contrecharge();
+  virtual ~Sheet_FestivalMuban_contrecharge();
+
+  Sheet_FestivalMuban_contrecharge(const Sheet_FestivalMuban_contrecharge& from);
+
+  inline Sheet_FestivalMuban_contrecharge& operator=(const Sheet_FestivalMuban_contrecharge& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_FestivalMuban_contrecharge& default_instance();
+
+  void Swap(Sheet_FestivalMuban_contrecharge* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_FestivalMuban_contrecharge* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_FestivalMuban_contrecharge& from);
+  void MergeFrom(const Sheet_FestivalMuban_contrecharge& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_FestivalMuban_contrecharge E_FestivalMuban_contrecharge_List = 1;
+  inline int e_festivalmuban_contrecharge_list_size() const;
+  inline void clear_e_festivalmuban_contrecharge_list();
+  static const int kEFestivalMubanContrechargeListFieldNumber = 1;
+  inline const ::proto_ff::E_FestivalMuban_contrecharge& e_festivalmuban_contrecharge_list(int index) const;
+  inline ::proto_ff::E_FestivalMuban_contrecharge* mutable_e_festivalmuban_contrecharge_list(int index);
+  inline ::proto_ff::E_FestivalMuban_contrecharge* add_e_festivalmuban_contrecharge_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_contrecharge >&
+      e_festivalmuban_contrecharge_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_contrecharge >*
+      mutable_e_festivalmuban_contrecharge_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_FestivalMuban_contrecharge)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_contrecharge > e_festivalmuban_contrecharge_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fFestival_2eproto();
+  friend void protobuf_AssignDesc_E_5fFestival_2eproto();
+  friend void protobuf_ShutdownFile_E_5fFestival_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_FestivalMuban_contrecharge* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_FestivalMuban_contrecharge_totalTotalDesc : public ::google::protobuf::Message {
+ public:
+  E_FestivalMuban_contrecharge_totalTotalDesc();
+  virtual ~E_FestivalMuban_contrecharge_totalTotalDesc();
+
+  E_FestivalMuban_contrecharge_totalTotalDesc(const E_FestivalMuban_contrecharge_totalTotalDesc& from);
+
+  inline E_FestivalMuban_contrecharge_totalTotalDesc& operator=(const E_FestivalMuban_contrecharge_totalTotalDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_FestivalMuban_contrecharge_totalTotalDesc& default_instance();
+
+  void Swap(E_FestivalMuban_contrecharge_totalTotalDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_FestivalMuban_contrecharge_totalTotalDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_FestivalMuban_contrecharge_totalTotalDesc& from);
+  void MergeFrom(const E_FestivalMuban_contrecharge_totalTotalDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_Box = 1;
+  inline bool has_m_box() const;
+  inline void clear_m_box();
+  static const int kMBoxFieldNumber = 1;
+  inline ::google::protobuf::int32 m_box() const;
+  inline void set_m_box(::google::protobuf::int32 value);
+
+  // optional int32 m_Days = 2;
+  inline bool has_m_days() const;
+  inline void clear_m_days();
+  static const int kMDaysFieldNumber = 2;
+  inline ::google::protobuf::int32 m_days() const;
+  inline void set_m_days(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FestivalMuban_contrecharge_totalTotalDesc)
+ private:
+  inline void set_has_m_box();
+  inline void clear_has_m_box();
+  inline void set_has_m_days();
+  inline void clear_has_m_days();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_box_;
+  ::google::protobuf::int32 m_days_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fFestival_2eproto();
+  friend void protobuf_AssignDesc_E_5fFestival_2eproto();
+  friend void protobuf_ShutdownFile_E_5fFestival_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_FestivalMuban_contrecharge_totalTotalDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_FestivalMuban_contrecharge_total : public ::google::protobuf::Message {
+ public:
+  E_FestivalMuban_contrecharge_total();
+  virtual ~E_FestivalMuban_contrecharge_total();
+
+  E_FestivalMuban_contrecharge_total(const E_FestivalMuban_contrecharge_total& from);
+
+  inline E_FestivalMuban_contrecharge_total& operator=(const E_FestivalMuban_contrecharge_total& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_FestivalMuban_contrecharge_total& default_instance();
+
+  void Swap(E_FestivalMuban_contrecharge_total* other);
+
+  // implements Message ----------------------------------------------
+
+  E_FestivalMuban_contrecharge_total* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_FestivalMuban_contrecharge_total& from);
+  void MergeFrom(const E_FestivalMuban_contrecharge_total& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_groupID = 2;
+  inline bool has_m_groupid() const;
+  inline void clear_m_groupid();
+  static const int kMGroupIDFieldNumber = 2;
+  inline ::google::protobuf::int32 m_groupid() const;
+  inline void set_m_groupid(::google::protobuf::int32 value);
+
+  // optional int32 m_Gear = 3;
+  inline bool has_m_gear() const;
+  inline void clear_m_gear();
+  static const int kMGearFieldNumber = 3;
+  inline ::google::protobuf::int32 m_gear() const;
+  inline void set_m_gear(::google::protobuf::int32 value);
+
+  // optional int32 m_recharge = 4;
+  inline bool has_m_recharge() const;
+  inline void clear_m_recharge();
+  static const int kMRechargeFieldNumber = 4;
+  inline ::google::protobuf::int32 m_recharge() const;
+  inline void set_m_recharge(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.E_FestivalMuban_contrecharge_totalTotalDesc m_total = 5;
+  inline int m_total_size() const;
+  inline void clear_m_total();
+  static const int kMTotalFieldNumber = 5;
+  inline const ::proto_ff::E_FestivalMuban_contrecharge_totalTotalDesc& m_total(int index) const;
+  inline ::proto_ff::E_FestivalMuban_contrecharge_totalTotalDesc* mutable_m_total(int index);
+  inline ::proto_ff::E_FestivalMuban_contrecharge_totalTotalDesc* add_m_total();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_contrecharge_totalTotalDesc >&
+      m_total() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_contrecharge_totalTotalDesc >*
+      mutable_m_total();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FestivalMuban_contrecharge_total)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_groupid();
+  inline void clear_has_m_groupid();
+  inline void set_has_m_gear();
+  inline void clear_has_m_gear();
+  inline void set_has_m_recharge();
+  inline void clear_has_m_recharge();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_groupid_;
+  ::google::protobuf::int32 m_gear_;
+  ::google::protobuf::int32 m_recharge_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_contrecharge_totalTotalDesc > m_total_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fFestival_2eproto();
+  friend void protobuf_AssignDesc_E_5fFestival_2eproto();
+  friend void protobuf_ShutdownFile_E_5fFestival_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_FestivalMuban_contrecharge_total* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_FestivalMuban_contrecharge_total : public ::google::protobuf::Message {
+ public:
+  Sheet_FestivalMuban_contrecharge_total();
+  virtual ~Sheet_FestivalMuban_contrecharge_total();
+
+  Sheet_FestivalMuban_contrecharge_total(const Sheet_FestivalMuban_contrecharge_total& from);
+
+  inline Sheet_FestivalMuban_contrecharge_total& operator=(const Sheet_FestivalMuban_contrecharge_total& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_FestivalMuban_contrecharge_total& default_instance();
+
+  void Swap(Sheet_FestivalMuban_contrecharge_total* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_FestivalMuban_contrecharge_total* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_FestivalMuban_contrecharge_total& from);
+  void MergeFrom(const Sheet_FestivalMuban_contrecharge_total& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_FestivalMuban_contrecharge_total E_FestivalMuban_contrecharge_total_List = 1;
+  inline int e_festivalmuban_contrecharge_total_list_size() const;
+  inline void clear_e_festivalmuban_contrecharge_total_list();
+  static const int kEFestivalMubanContrechargeTotalListFieldNumber = 1;
+  inline const ::proto_ff::E_FestivalMuban_contrecharge_total& e_festivalmuban_contrecharge_total_list(int index) const;
+  inline ::proto_ff::E_FestivalMuban_contrecharge_total* mutable_e_festivalmuban_contrecharge_total_list(int index);
+  inline ::proto_ff::E_FestivalMuban_contrecharge_total* add_e_festivalmuban_contrecharge_total_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_contrecharge_total >&
+      e_festivalmuban_contrecharge_total_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_contrecharge_total >*
+      mutable_e_festivalmuban_contrecharge_total_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_FestivalMuban_contrecharge_total)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_contrecharge_total > e_festivalmuban_contrecharge_total_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fFestival_2eproto();
+  friend void protobuf_AssignDesc_E_5fFestival_2eproto();
+  friend void protobuf_ShutdownFile_E_5fFestival_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_FestivalMuban_contrecharge_total* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_FestivalMuban_contrecharge_day : public ::google::protobuf::Message {
+ public:
+  E_FestivalMuban_contrecharge_day();
+  virtual ~E_FestivalMuban_contrecharge_day();
+
+  E_FestivalMuban_contrecharge_day(const E_FestivalMuban_contrecharge_day& from);
+
+  inline E_FestivalMuban_contrecharge_day& operator=(const E_FestivalMuban_contrecharge_day& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_FestivalMuban_contrecharge_day& default_instance();
+
+  void Swap(E_FestivalMuban_contrecharge_day* other);
+
+  // implements Message ----------------------------------------------
+
+  E_FestivalMuban_contrecharge_day* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_FestivalMuban_contrecharge_day& from);
+  void MergeFrom(const E_FestivalMuban_contrecharge_day& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_groupID = 2;
+  inline bool has_m_groupid() const;
+  inline void clear_m_groupid();
+  static const int kMGroupIDFieldNumber = 2;
+  inline ::google::protobuf::int32 m_groupid() const;
+  inline void set_m_groupid(::google::protobuf::int32 value);
+
+  // optional int32 m_day = 3;
+  inline bool has_m_day() const;
+  inline void clear_m_day();
+  static const int kMDayFieldNumber = 3;
+  inline ::google::protobuf::int32 m_day() const;
+  inline void set_m_day(::google::protobuf::int32 value);
+
+  // optional int32 m_gear = 4;
+  inline bool has_m_gear() const;
+  inline void clear_m_gear();
+  static const int kMGearFieldNumber = 4;
+  inline ::google::protobuf::int32 m_gear() const;
+  inline void set_m_gear(::google::protobuf::int32 value);
+
+  // optional int32 m_box = 5;
+  inline bool has_m_box() const;
+  inline void clear_m_box();
+  static const int kMBoxFieldNumber = 5;
+  inline ::google::protobuf::int32 m_box() const;
+  inline void set_m_box(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FestivalMuban_contrecharge_day)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_groupid();
+  inline void clear_has_m_groupid();
+  inline void set_has_m_day();
+  inline void clear_has_m_day();
+  inline void set_has_m_gear();
+  inline void clear_has_m_gear();
+  inline void set_has_m_box();
+  inline void clear_has_m_box();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_groupid_;
+  ::google::protobuf::int32 m_day_;
+  ::google::protobuf::int32 m_gear_;
+  ::google::protobuf::int32 m_box_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fFestival_2eproto();
+  friend void protobuf_AssignDesc_E_5fFestival_2eproto();
+  friend void protobuf_ShutdownFile_E_5fFestival_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_FestivalMuban_contrecharge_day* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_FestivalMuban_contrecharge_day : public ::google::protobuf::Message {
+ public:
+  Sheet_FestivalMuban_contrecharge_day();
+  virtual ~Sheet_FestivalMuban_contrecharge_day();
+
+  Sheet_FestivalMuban_contrecharge_day(const Sheet_FestivalMuban_contrecharge_day& from);
+
+  inline Sheet_FestivalMuban_contrecharge_day& operator=(const Sheet_FestivalMuban_contrecharge_day& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_FestivalMuban_contrecharge_day& default_instance();
+
+  void Swap(Sheet_FestivalMuban_contrecharge_day* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_FestivalMuban_contrecharge_day* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_FestivalMuban_contrecharge_day& from);
+  void MergeFrom(const Sheet_FestivalMuban_contrecharge_day& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_FestivalMuban_contrecharge_day E_FestivalMuban_contrecharge_day_List = 1;
+  inline int e_festivalmuban_contrecharge_day_list_size() const;
+  inline void clear_e_festivalmuban_contrecharge_day_list();
+  static const int kEFestivalMubanContrechargeDayListFieldNumber = 1;
+  inline const ::proto_ff::E_FestivalMuban_contrecharge_day& e_festivalmuban_contrecharge_day_list(int index) const;
+  inline ::proto_ff::E_FestivalMuban_contrecharge_day* mutable_e_festivalmuban_contrecharge_day_list(int index);
+  inline ::proto_ff::E_FestivalMuban_contrecharge_day* add_e_festivalmuban_contrecharge_day_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_contrecharge_day >&
+      e_festivalmuban_contrecharge_day_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_contrecharge_day >*
+      mutable_e_festivalmuban_contrecharge_day_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_FestivalMuban_contrecharge_day)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_contrecharge_day > e_festivalmuban_contrecharge_day_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fFestival_2eproto();
+  friend void protobuf_AssignDesc_E_5fFestival_2eproto();
+  friend void protobuf_ShutdownFile_E_5fFestival_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_FestivalMuban_contrecharge_day* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -10069,6 +11356,933 @@ Sheet_FestivalTemplate::e_festivaltemplate_list() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalTemplate >*
 Sheet_FestivalTemplate::mutable_e_festivaltemplate_list() {
   return &e_festivaltemplate_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_FestivalMuban_rebatestoreExpendDesc
+
+// optional int32 m_BoxID = 1;
+inline bool E_FestivalMuban_rebatestoreExpendDesc::has_m_boxid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_FestivalMuban_rebatestoreExpendDesc::set_has_m_boxid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_FestivalMuban_rebatestoreExpendDesc::clear_has_m_boxid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_FestivalMuban_rebatestoreExpendDesc::clear_m_boxid() {
+  m_boxid_ = 0;
+  clear_has_m_boxid();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_rebatestoreExpendDesc::m_boxid() const {
+  return m_boxid_;
+}
+inline void E_FestivalMuban_rebatestoreExpendDesc::set_m_boxid(::google::protobuf::int32 value) {
+  set_has_m_boxid();
+  m_boxid_ = value;
+}
+
+// optional int32 m_Value = 2;
+inline bool E_FestivalMuban_rebatestoreExpendDesc::has_m_value() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_FestivalMuban_rebatestoreExpendDesc::set_has_m_value() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_FestivalMuban_rebatestoreExpendDesc::clear_has_m_value() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_FestivalMuban_rebatestoreExpendDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_rebatestoreExpendDesc::m_value() const {
+  return m_value_;
+}
+inline void E_FestivalMuban_rebatestoreExpendDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// E_FestivalMuban_rebatestore
+
+// optional int32 m_id = 1;
+inline bool E_FestivalMuban_rebatestore::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_FestivalMuban_rebatestore::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_FestivalMuban_rebatestore::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_FestivalMuban_rebatestore::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_rebatestore::m_id() const {
+  return m_id_;
+}
+inline void E_FestivalMuban_rebatestore::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_period = 2;
+inline bool E_FestivalMuban_rebatestore::has_m_period() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_FestivalMuban_rebatestore::set_has_m_period() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_FestivalMuban_rebatestore::clear_has_m_period() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_FestivalMuban_rebatestore::clear_m_period() {
+  m_period_ = 0;
+  clear_has_m_period();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_rebatestore::m_period() const {
+  return m_period_;
+}
+inline void E_FestivalMuban_rebatestore::set_m_period(::google::protobuf::int32 value) {
+  set_has_m_period();
+  m_period_ = value;
+}
+
+// optional int32 m_groupID = 3;
+inline bool E_FestivalMuban_rebatestore::has_m_groupid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_FestivalMuban_rebatestore::set_has_m_groupid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_FestivalMuban_rebatestore::clear_has_m_groupid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_FestivalMuban_rebatestore::clear_m_groupid() {
+  m_groupid_ = 0;
+  clear_has_m_groupid();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_rebatestore::m_groupid() const {
+  return m_groupid_;
+}
+inline void E_FestivalMuban_rebatestore::set_m_groupid(::google::protobuf::int32 value) {
+  set_has_m_groupid();
+  m_groupid_ = value;
+}
+
+// repeated .proto_ff.E_FestivalMuban_rebatestoreExpendDesc m_expend = 4;
+inline int E_FestivalMuban_rebatestore::m_expend_size() const {
+  return m_expend_.size();
+}
+inline void E_FestivalMuban_rebatestore::clear_m_expend() {
+  m_expend_.Clear();
+}
+inline const ::proto_ff::E_FestivalMuban_rebatestoreExpendDesc& E_FestivalMuban_rebatestore::m_expend(int index) const {
+  return m_expend_.Get(index);
+}
+inline ::proto_ff::E_FestivalMuban_rebatestoreExpendDesc* E_FestivalMuban_rebatestore::mutable_m_expend(int index) {
+  return m_expend_.Mutable(index);
+}
+inline ::proto_ff::E_FestivalMuban_rebatestoreExpendDesc* E_FestivalMuban_rebatestore::add_m_expend() {
+  return m_expend_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_rebatestoreExpendDesc >&
+E_FestivalMuban_rebatestore::m_expend() const {
+  return m_expend_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_rebatestoreExpendDesc >*
+E_FestivalMuban_rebatestore::mutable_m_expend() {
+  return &m_expend_;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_FestivalMuban_rebatestore
+
+// repeated .proto_ff.E_FestivalMuban_rebatestore E_FestivalMuban_rebatestore_List = 1;
+inline int Sheet_FestivalMuban_rebatestore::e_festivalmuban_rebatestore_list_size() const {
+  return e_festivalmuban_rebatestore_list_.size();
+}
+inline void Sheet_FestivalMuban_rebatestore::clear_e_festivalmuban_rebatestore_list() {
+  e_festivalmuban_rebatestore_list_.Clear();
+}
+inline const ::proto_ff::E_FestivalMuban_rebatestore& Sheet_FestivalMuban_rebatestore::e_festivalmuban_rebatestore_list(int index) const {
+  return e_festivalmuban_rebatestore_list_.Get(index);
+}
+inline ::proto_ff::E_FestivalMuban_rebatestore* Sheet_FestivalMuban_rebatestore::mutable_e_festivalmuban_rebatestore_list(int index) {
+  return e_festivalmuban_rebatestore_list_.Mutable(index);
+}
+inline ::proto_ff::E_FestivalMuban_rebatestore* Sheet_FestivalMuban_rebatestore::add_e_festivalmuban_rebatestore_list() {
+  return e_festivalmuban_rebatestore_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_rebatestore >&
+Sheet_FestivalMuban_rebatestore::e_festivalmuban_rebatestore_list() const {
+  return e_festivalmuban_rebatestore_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_rebatestore >*
+Sheet_FestivalMuban_rebatestore::mutable_e_festivalmuban_rebatestore_list() {
+  return &e_festivalmuban_rebatestore_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_FestivalMuban_rebatestore_mall
+
+// optional int32 m_id = 1;
+inline bool E_FestivalMuban_rebatestore_mall::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_rebatestore_mall::m_id() const {
+  return m_id_;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_groupID = 2;
+inline bool E_FestivalMuban_rebatestore_mall::has_m_groupid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_has_m_groupid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_has_m_groupid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_m_groupid() {
+  m_groupid_ = 0;
+  clear_has_m_groupid();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_rebatestore_mall::m_groupid() const {
+  return m_groupid_;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_m_groupid(::google::protobuf::int32 value) {
+  set_has_m_groupid();
+  m_groupid_ = value;
+}
+
+// optional int32 m_mallType = 3;
+inline bool E_FestivalMuban_rebatestore_mall::has_m_malltype() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_has_m_malltype() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_has_m_malltype() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_m_malltype() {
+  m_malltype_ = 0;
+  clear_has_m_malltype();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_rebatestore_mall::m_malltype() const {
+  return m_malltype_;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_m_malltype(::google::protobuf::int32 value) {
+  set_has_m_malltype();
+  m_malltype_ = value;
+}
+
+// optional int32 m_itemID = 4;
+inline bool E_FestivalMuban_rebatestore_mall::has_m_itemid() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_has_m_itemid() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_has_m_itemid() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_m_itemid() {
+  m_itemid_ = 0;
+  clear_has_m_itemid();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_rebatestore_mall::m_itemid() const {
+  return m_itemid_;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_m_itemid(::google::protobuf::int32 value) {
+  set_has_m_itemid();
+  m_itemid_ = value;
+}
+
+// optional int32 m_price = 5;
+inline bool E_FestivalMuban_rebatestore_mall::has_m_price() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_has_m_price() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_has_m_price() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_m_price() {
+  m_price_ = 0;
+  clear_has_m_price();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_rebatestore_mall::m_price() const {
+  return m_price_;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_m_price(::google::protobuf::int32 value) {
+  set_has_m_price();
+  m_price_ = value;
+}
+
+// optional int32 m_originPrice = 6;
+inline bool E_FestivalMuban_rebatestore_mall::has_m_originprice() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_has_m_originprice() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_has_m_originprice() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_m_originprice() {
+  m_originprice_ = 0;
+  clear_has_m_originprice();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_rebatestore_mall::m_originprice() const {
+  return m_originprice_;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_m_originprice(::google::protobuf::int32 value) {
+  set_has_m_originprice();
+  m_originprice_ = value;
+}
+
+// optional int32 m_discount = 7;
+inline bool E_FestivalMuban_rebatestore_mall::has_m_discount() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_has_m_discount() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_has_m_discount() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_m_discount() {
+  m_discount_ = 0;
+  clear_has_m_discount();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_rebatestore_mall::m_discount() const {
+  return m_discount_;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_m_discount(::google::protobuf::int32 value) {
+  set_has_m_discount();
+  m_discount_ = value;
+}
+
+// optional int32 m_daily = 8;
+inline bool E_FestivalMuban_rebatestore_mall::has_m_daily() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_has_m_daily() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_has_m_daily() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_m_daily() {
+  m_daily_ = 0;
+  clear_has_m_daily();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_rebatestore_mall::m_daily() const {
+  return m_daily_;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_m_daily(::google::protobuf::int32 value) {
+  set_has_m_daily();
+  m_daily_ = value;
+}
+
+// optional int32 m_buyAmount = 9;
+inline bool E_FestivalMuban_rebatestore_mall::has_m_buyamount() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_has_m_buyamount() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_has_m_buyamount() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_m_buyamount() {
+  m_buyamount_ = 0;
+  clear_has_m_buyamount();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_rebatestore_mall::m_buyamount() const {
+  return m_buyamount_;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_m_buyamount(::google::protobuf::int32 value) {
+  set_has_m_buyamount();
+  m_buyamount_ = value;
+}
+
+// optional int32 m_functionUnlock = 10;
+inline bool E_FestivalMuban_rebatestore_mall::has_m_functionunlock() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_has_m_functionunlock() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_has_m_functionunlock() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_m_functionunlock() {
+  m_functionunlock_ = 0;
+  clear_has_m_functionunlock();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_rebatestore_mall::m_functionunlock() const {
+  return m_functionunlock_;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_m_functionunlock(::google::protobuf::int32 value) {
+  set_has_m_functionunlock();
+  m_functionunlock_ = value;
+}
+
+// optional int32 m_openDay = 11;
+inline bool E_FestivalMuban_rebatestore_mall::has_m_openday() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_has_m_openday() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_has_m_openday() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_m_openday() {
+  m_openday_ = 0;
+  clear_has_m_openday();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_rebatestore_mall::m_openday() const {
+  return m_openday_;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_m_openday(::google::protobuf::int32 value) {
+  set_has_m_openday();
+  m_openday_ = value;
+}
+
+// optional int32 m_closeDay = 12;
+inline bool E_FestivalMuban_rebatestore_mall::has_m_closeday() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_has_m_closeday() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_has_m_closeday() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void E_FestivalMuban_rebatestore_mall::clear_m_closeday() {
+  m_closeday_ = 0;
+  clear_has_m_closeday();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_rebatestore_mall::m_closeday() const {
+  return m_closeday_;
+}
+inline void E_FestivalMuban_rebatestore_mall::set_m_closeday(::google::protobuf::int32 value) {
+  set_has_m_closeday();
+  m_closeday_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_FestivalMuban_rebatestore_mall
+
+// repeated .proto_ff.E_FestivalMuban_rebatestore_mall E_FestivalMuban_rebatestore_mall_List = 1;
+inline int Sheet_FestivalMuban_rebatestore_mall::e_festivalmuban_rebatestore_mall_list_size() const {
+  return e_festivalmuban_rebatestore_mall_list_.size();
+}
+inline void Sheet_FestivalMuban_rebatestore_mall::clear_e_festivalmuban_rebatestore_mall_list() {
+  e_festivalmuban_rebatestore_mall_list_.Clear();
+}
+inline const ::proto_ff::E_FestivalMuban_rebatestore_mall& Sheet_FestivalMuban_rebatestore_mall::e_festivalmuban_rebatestore_mall_list(int index) const {
+  return e_festivalmuban_rebatestore_mall_list_.Get(index);
+}
+inline ::proto_ff::E_FestivalMuban_rebatestore_mall* Sheet_FestivalMuban_rebatestore_mall::mutable_e_festivalmuban_rebatestore_mall_list(int index) {
+  return e_festivalmuban_rebatestore_mall_list_.Mutable(index);
+}
+inline ::proto_ff::E_FestivalMuban_rebatestore_mall* Sheet_FestivalMuban_rebatestore_mall::add_e_festivalmuban_rebatestore_mall_list() {
+  return e_festivalmuban_rebatestore_mall_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_rebatestore_mall >&
+Sheet_FestivalMuban_rebatestore_mall::e_festivalmuban_rebatestore_mall_list() const {
+  return e_festivalmuban_rebatestore_mall_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_rebatestore_mall >*
+Sheet_FestivalMuban_rebatestore_mall::mutable_e_festivalmuban_rebatestore_mall_list() {
+  return &e_festivalmuban_rebatestore_mall_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_FestivalMuban_contrecharge
+
+// optional int32 m_id = 1;
+inline bool E_FestivalMuban_contrecharge::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_FestivalMuban_contrecharge::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_FestivalMuban_contrecharge::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_FestivalMuban_contrecharge::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_contrecharge::m_id() const {
+  return m_id_;
+}
+inline void E_FestivalMuban_contrecharge::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_period = 2;
+inline bool E_FestivalMuban_contrecharge::has_m_period() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_FestivalMuban_contrecharge::set_has_m_period() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_FestivalMuban_contrecharge::clear_has_m_period() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_FestivalMuban_contrecharge::clear_m_period() {
+  m_period_ = 0;
+  clear_has_m_period();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_contrecharge::m_period() const {
+  return m_period_;
+}
+inline void E_FestivalMuban_contrecharge::set_m_period(::google::protobuf::int32 value) {
+  set_has_m_period();
+  m_period_ = value;
+}
+
+// optional int32 m_totalGroup = 3;
+inline bool E_FestivalMuban_contrecharge::has_m_totalgroup() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_FestivalMuban_contrecharge::set_has_m_totalgroup() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_FestivalMuban_contrecharge::clear_has_m_totalgroup() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_FestivalMuban_contrecharge::clear_m_totalgroup() {
+  m_totalgroup_ = 0;
+  clear_has_m_totalgroup();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_contrecharge::m_totalgroup() const {
+  return m_totalgroup_;
+}
+inline void E_FestivalMuban_contrecharge::set_m_totalgroup(::google::protobuf::int32 value) {
+  set_has_m_totalgroup();
+  m_totalgroup_ = value;
+}
+
+// optional int32 m_dailyGroup = 4;
+inline bool E_FestivalMuban_contrecharge::has_m_dailygroup() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_FestivalMuban_contrecharge::set_has_m_dailygroup() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_FestivalMuban_contrecharge::clear_has_m_dailygroup() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_FestivalMuban_contrecharge::clear_m_dailygroup() {
+  m_dailygroup_ = 0;
+  clear_has_m_dailygroup();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_contrecharge::m_dailygroup() const {
+  return m_dailygroup_;
+}
+inline void E_FestivalMuban_contrecharge::set_m_dailygroup(::google::protobuf::int32 value) {
+  set_has_m_dailygroup();
+  m_dailygroup_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_FestivalMuban_contrecharge
+
+// repeated .proto_ff.E_FestivalMuban_contrecharge E_FestivalMuban_contrecharge_List = 1;
+inline int Sheet_FestivalMuban_contrecharge::e_festivalmuban_contrecharge_list_size() const {
+  return e_festivalmuban_contrecharge_list_.size();
+}
+inline void Sheet_FestivalMuban_contrecharge::clear_e_festivalmuban_contrecharge_list() {
+  e_festivalmuban_contrecharge_list_.Clear();
+}
+inline const ::proto_ff::E_FestivalMuban_contrecharge& Sheet_FestivalMuban_contrecharge::e_festivalmuban_contrecharge_list(int index) const {
+  return e_festivalmuban_contrecharge_list_.Get(index);
+}
+inline ::proto_ff::E_FestivalMuban_contrecharge* Sheet_FestivalMuban_contrecharge::mutable_e_festivalmuban_contrecharge_list(int index) {
+  return e_festivalmuban_contrecharge_list_.Mutable(index);
+}
+inline ::proto_ff::E_FestivalMuban_contrecharge* Sheet_FestivalMuban_contrecharge::add_e_festivalmuban_contrecharge_list() {
+  return e_festivalmuban_contrecharge_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_contrecharge >&
+Sheet_FestivalMuban_contrecharge::e_festivalmuban_contrecharge_list() const {
+  return e_festivalmuban_contrecharge_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_contrecharge >*
+Sheet_FestivalMuban_contrecharge::mutable_e_festivalmuban_contrecharge_list() {
+  return &e_festivalmuban_contrecharge_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_FestivalMuban_contrecharge_totalTotalDesc
+
+// optional int32 m_Box = 1;
+inline bool E_FestivalMuban_contrecharge_totalTotalDesc::has_m_box() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_FestivalMuban_contrecharge_totalTotalDesc::set_has_m_box() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_FestivalMuban_contrecharge_totalTotalDesc::clear_has_m_box() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_FestivalMuban_contrecharge_totalTotalDesc::clear_m_box() {
+  m_box_ = 0;
+  clear_has_m_box();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_contrecharge_totalTotalDesc::m_box() const {
+  return m_box_;
+}
+inline void E_FestivalMuban_contrecharge_totalTotalDesc::set_m_box(::google::protobuf::int32 value) {
+  set_has_m_box();
+  m_box_ = value;
+}
+
+// optional int32 m_Days = 2;
+inline bool E_FestivalMuban_contrecharge_totalTotalDesc::has_m_days() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_FestivalMuban_contrecharge_totalTotalDesc::set_has_m_days() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_FestivalMuban_contrecharge_totalTotalDesc::clear_has_m_days() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_FestivalMuban_contrecharge_totalTotalDesc::clear_m_days() {
+  m_days_ = 0;
+  clear_has_m_days();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_contrecharge_totalTotalDesc::m_days() const {
+  return m_days_;
+}
+inline void E_FestivalMuban_contrecharge_totalTotalDesc::set_m_days(::google::protobuf::int32 value) {
+  set_has_m_days();
+  m_days_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// E_FestivalMuban_contrecharge_total
+
+// optional int32 m_id = 1;
+inline bool E_FestivalMuban_contrecharge_total::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_FestivalMuban_contrecharge_total::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_FestivalMuban_contrecharge_total::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_FestivalMuban_contrecharge_total::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_contrecharge_total::m_id() const {
+  return m_id_;
+}
+inline void E_FestivalMuban_contrecharge_total::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_groupID = 2;
+inline bool E_FestivalMuban_contrecharge_total::has_m_groupid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_FestivalMuban_contrecharge_total::set_has_m_groupid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_FestivalMuban_contrecharge_total::clear_has_m_groupid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_FestivalMuban_contrecharge_total::clear_m_groupid() {
+  m_groupid_ = 0;
+  clear_has_m_groupid();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_contrecharge_total::m_groupid() const {
+  return m_groupid_;
+}
+inline void E_FestivalMuban_contrecharge_total::set_m_groupid(::google::protobuf::int32 value) {
+  set_has_m_groupid();
+  m_groupid_ = value;
+}
+
+// optional int32 m_Gear = 3;
+inline bool E_FestivalMuban_contrecharge_total::has_m_gear() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_FestivalMuban_contrecharge_total::set_has_m_gear() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_FestivalMuban_contrecharge_total::clear_has_m_gear() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_FestivalMuban_contrecharge_total::clear_m_gear() {
+  m_gear_ = 0;
+  clear_has_m_gear();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_contrecharge_total::m_gear() const {
+  return m_gear_;
+}
+inline void E_FestivalMuban_contrecharge_total::set_m_gear(::google::protobuf::int32 value) {
+  set_has_m_gear();
+  m_gear_ = value;
+}
+
+// optional int32 m_recharge = 4;
+inline bool E_FestivalMuban_contrecharge_total::has_m_recharge() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_FestivalMuban_contrecharge_total::set_has_m_recharge() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_FestivalMuban_contrecharge_total::clear_has_m_recharge() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_FestivalMuban_contrecharge_total::clear_m_recharge() {
+  m_recharge_ = 0;
+  clear_has_m_recharge();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_contrecharge_total::m_recharge() const {
+  return m_recharge_;
+}
+inline void E_FestivalMuban_contrecharge_total::set_m_recharge(::google::protobuf::int32 value) {
+  set_has_m_recharge();
+  m_recharge_ = value;
+}
+
+// repeated .proto_ff.E_FestivalMuban_contrecharge_totalTotalDesc m_total = 5;
+inline int E_FestivalMuban_contrecharge_total::m_total_size() const {
+  return m_total_.size();
+}
+inline void E_FestivalMuban_contrecharge_total::clear_m_total() {
+  m_total_.Clear();
+}
+inline const ::proto_ff::E_FestivalMuban_contrecharge_totalTotalDesc& E_FestivalMuban_contrecharge_total::m_total(int index) const {
+  return m_total_.Get(index);
+}
+inline ::proto_ff::E_FestivalMuban_contrecharge_totalTotalDesc* E_FestivalMuban_contrecharge_total::mutable_m_total(int index) {
+  return m_total_.Mutable(index);
+}
+inline ::proto_ff::E_FestivalMuban_contrecharge_totalTotalDesc* E_FestivalMuban_contrecharge_total::add_m_total() {
+  return m_total_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_contrecharge_totalTotalDesc >&
+E_FestivalMuban_contrecharge_total::m_total() const {
+  return m_total_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_contrecharge_totalTotalDesc >*
+E_FestivalMuban_contrecharge_total::mutable_m_total() {
+  return &m_total_;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_FestivalMuban_contrecharge_total
+
+// repeated .proto_ff.E_FestivalMuban_contrecharge_total E_FestivalMuban_contrecharge_total_List = 1;
+inline int Sheet_FestivalMuban_contrecharge_total::e_festivalmuban_contrecharge_total_list_size() const {
+  return e_festivalmuban_contrecharge_total_list_.size();
+}
+inline void Sheet_FestivalMuban_contrecharge_total::clear_e_festivalmuban_contrecharge_total_list() {
+  e_festivalmuban_contrecharge_total_list_.Clear();
+}
+inline const ::proto_ff::E_FestivalMuban_contrecharge_total& Sheet_FestivalMuban_contrecharge_total::e_festivalmuban_contrecharge_total_list(int index) const {
+  return e_festivalmuban_contrecharge_total_list_.Get(index);
+}
+inline ::proto_ff::E_FestivalMuban_contrecharge_total* Sheet_FestivalMuban_contrecharge_total::mutable_e_festivalmuban_contrecharge_total_list(int index) {
+  return e_festivalmuban_contrecharge_total_list_.Mutable(index);
+}
+inline ::proto_ff::E_FestivalMuban_contrecharge_total* Sheet_FestivalMuban_contrecharge_total::add_e_festivalmuban_contrecharge_total_list() {
+  return e_festivalmuban_contrecharge_total_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_contrecharge_total >&
+Sheet_FestivalMuban_contrecharge_total::e_festivalmuban_contrecharge_total_list() const {
+  return e_festivalmuban_contrecharge_total_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_contrecharge_total >*
+Sheet_FestivalMuban_contrecharge_total::mutable_e_festivalmuban_contrecharge_total_list() {
+  return &e_festivalmuban_contrecharge_total_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_FestivalMuban_contrecharge_day
+
+// optional int32 m_id = 1;
+inline bool E_FestivalMuban_contrecharge_day::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_FestivalMuban_contrecharge_day::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_FestivalMuban_contrecharge_day::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_FestivalMuban_contrecharge_day::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_contrecharge_day::m_id() const {
+  return m_id_;
+}
+inline void E_FestivalMuban_contrecharge_day::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_groupID = 2;
+inline bool E_FestivalMuban_contrecharge_day::has_m_groupid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_FestivalMuban_contrecharge_day::set_has_m_groupid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_FestivalMuban_contrecharge_day::clear_has_m_groupid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_FestivalMuban_contrecharge_day::clear_m_groupid() {
+  m_groupid_ = 0;
+  clear_has_m_groupid();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_contrecharge_day::m_groupid() const {
+  return m_groupid_;
+}
+inline void E_FestivalMuban_contrecharge_day::set_m_groupid(::google::protobuf::int32 value) {
+  set_has_m_groupid();
+  m_groupid_ = value;
+}
+
+// optional int32 m_day = 3;
+inline bool E_FestivalMuban_contrecharge_day::has_m_day() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_FestivalMuban_contrecharge_day::set_has_m_day() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_FestivalMuban_contrecharge_day::clear_has_m_day() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_FestivalMuban_contrecharge_day::clear_m_day() {
+  m_day_ = 0;
+  clear_has_m_day();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_contrecharge_day::m_day() const {
+  return m_day_;
+}
+inline void E_FestivalMuban_contrecharge_day::set_m_day(::google::protobuf::int32 value) {
+  set_has_m_day();
+  m_day_ = value;
+}
+
+// optional int32 m_gear = 4;
+inline bool E_FestivalMuban_contrecharge_day::has_m_gear() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_FestivalMuban_contrecharge_day::set_has_m_gear() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_FestivalMuban_contrecharge_day::clear_has_m_gear() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_FestivalMuban_contrecharge_day::clear_m_gear() {
+  m_gear_ = 0;
+  clear_has_m_gear();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_contrecharge_day::m_gear() const {
+  return m_gear_;
+}
+inline void E_FestivalMuban_contrecharge_day::set_m_gear(::google::protobuf::int32 value) {
+  set_has_m_gear();
+  m_gear_ = value;
+}
+
+// optional int32 m_box = 5;
+inline bool E_FestivalMuban_contrecharge_day::has_m_box() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void E_FestivalMuban_contrecharge_day::set_has_m_box() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void E_FestivalMuban_contrecharge_day::clear_has_m_box() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void E_FestivalMuban_contrecharge_day::clear_m_box() {
+  m_box_ = 0;
+  clear_has_m_box();
+}
+inline ::google::protobuf::int32 E_FestivalMuban_contrecharge_day::m_box() const {
+  return m_box_;
+}
+inline void E_FestivalMuban_contrecharge_day::set_m_box(::google::protobuf::int32 value) {
+  set_has_m_box();
+  m_box_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_FestivalMuban_contrecharge_day
+
+// repeated .proto_ff.E_FestivalMuban_contrecharge_day E_FestivalMuban_contrecharge_day_List = 1;
+inline int Sheet_FestivalMuban_contrecharge_day::e_festivalmuban_contrecharge_day_list_size() const {
+  return e_festivalmuban_contrecharge_day_list_.size();
+}
+inline void Sheet_FestivalMuban_contrecharge_day::clear_e_festivalmuban_contrecharge_day_list() {
+  e_festivalmuban_contrecharge_day_list_.Clear();
+}
+inline const ::proto_ff::E_FestivalMuban_contrecharge_day& Sheet_FestivalMuban_contrecharge_day::e_festivalmuban_contrecharge_day_list(int index) const {
+  return e_festivalmuban_contrecharge_day_list_.Get(index);
+}
+inline ::proto_ff::E_FestivalMuban_contrecharge_day* Sheet_FestivalMuban_contrecharge_day::mutable_e_festivalmuban_contrecharge_day_list(int index) {
+  return e_festivalmuban_contrecharge_day_list_.Mutable(index);
+}
+inline ::proto_ff::E_FestivalMuban_contrecharge_day* Sheet_FestivalMuban_contrecharge_day::add_e_festivalmuban_contrecharge_day_list() {
+  return e_festivalmuban_contrecharge_day_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_contrecharge_day >&
+Sheet_FestivalMuban_contrecharge_day::e_festivalmuban_contrecharge_day_list() const {
+  return e_festivalmuban_contrecharge_day_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FestivalMuban_contrecharge_day >*
+Sheet_FestivalMuban_contrecharge_day::mutable_e_festivalmuban_contrecharge_day_list() {
+  return &e_festivalmuban_contrecharge_day_list_;
 }
 
 // -------------------------------------------------------------------

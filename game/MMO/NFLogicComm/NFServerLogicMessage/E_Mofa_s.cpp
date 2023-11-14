@@ -39,7 +39,6 @@ E_MofaSetup_s::E_MofaSetup_s() {
 }
 
 int E_MofaSetup_s::CreateInit() {
-	m_ID = (int32_t)0;
 	m_PositionID = (int32_t)0;
 	m_Unlock = (int32_t)0;
 	m_ZyAtt = (int32_t)0;
@@ -56,7 +55,6 @@ int E_MofaSetup_s::ResumeInit() {
 }
 
 void E_MofaSetup_s::write_to_pbmsg(::proto_ff::E_MofaSetup & msg) const {
-	msg.set_m_id((int32_t)m_ID);
 	msg.set_m_positionid((int32_t)m_PositionID);
 	msg.set_m_unlock((int32_t)m_Unlock);
 	msg.set_m_zyatt((int32_t)m_ZyAtt);
@@ -72,7 +70,6 @@ void E_MofaSetup_s::write_to_pbmsg(::proto_ff::E_MofaSetup & msg) const {
 }
 
 void E_MofaSetup_s::read_from_pbmsg(const ::proto_ff::E_MofaSetup & msg) {
-	m_ID = msg.m_id();
 	m_PositionID = msg.m_positionid();
 	m_Unlock = msg.m_unlock();
 	m_ZyAtt = msg.m_zyatt();
@@ -184,7 +181,7 @@ E_MofaYuansu_s::E_MofaYuansu_s() {
 }
 
 int E_MofaYuansu_s::CreateInit() {
-	m_ItemID = (int32_t)0;
+	m_EquipID = (int32_t)0;
 	m_AttriType = (int32_t)0;
 	m_mosaic = (int32_t)0;
 	m_LvItem = (int32_t)0;
@@ -199,7 +196,7 @@ int E_MofaYuansu_s::ResumeInit() {
 }
 
 void E_MofaYuansu_s::write_to_pbmsg(::proto_ff::E_MofaYuansu & msg) const {
-	msg.set_m_itemid((int32_t)m_ItemID);
+	msg.set_m_equipid((int32_t)m_EquipID);
 	msg.set_m_attritype((int32_t)m_AttriType);
 	msg.set_m_mosaic((int32_t)m_mosaic);
 	msg.set_m_lvitem((int32_t)m_LvItem);
@@ -217,7 +214,7 @@ void E_MofaYuansu_s::write_to_pbmsg(::proto_ff::E_MofaYuansu & msg) const {
 }
 
 void E_MofaYuansu_s::read_from_pbmsg(const ::proto_ff::E_MofaYuansu & msg) {
-	m_ItemID = msg.m_itemid();
+	m_EquipID = msg.m_equipid();
 	m_AttriType = msg.m_attritype();
 	m_mosaic = msg.m_mosaic();
 	m_LvItem = msg.m_lvitem();
@@ -276,7 +273,6 @@ E_MofaDecompose_s::E_MofaDecompose_s() {
 }
 
 int E_MofaDecompose_s::CreateInit() {
-	m_Id = (int32_t)0;
 	m_DpQua = (int32_t)0;
 	m_DpItem = (int32_t)0;
 	m_DpEss = (int32_t)0;
@@ -288,14 +284,12 @@ int E_MofaDecompose_s::ResumeInit() {
 }
 
 void E_MofaDecompose_s::write_to_pbmsg(::proto_ff::E_MofaDecompose & msg) const {
-	msg.set_m_id((int32_t)m_Id);
 	msg.set_m_dpqua((int32_t)m_DpQua);
 	msg.set_m_dpitem((int32_t)m_DpItem);
 	msg.set_m_dpess((int32_t)m_DpEss);
 }
 
 void E_MofaDecompose_s::read_from_pbmsg(const ::proto_ff::E_MofaDecompose & msg) {
-	m_Id = msg.m_id();
 	m_DpQua = msg.m_dpqua();
 	m_DpItem = msg.m_dpitem();
 	m_DpEss = msg.m_dpess();
@@ -760,8 +754,7 @@ E_MofaExchange_s::E_MofaExchange_s() {
 }
 
 int E_MofaExchange_s::CreateInit() {
-	m_ItemID = (int32_t)0;
-	m_quality = (int32_t)0;
+	m_EquipID = (int32_t)0;
 	m_EcItem = (int32_t)0;
 	m_EcNum = (int32_t)0;
 	return 0;
@@ -772,15 +765,13 @@ int E_MofaExchange_s::ResumeInit() {
 }
 
 void E_MofaExchange_s::write_to_pbmsg(::proto_ff::E_MofaExchange & msg) const {
-	msg.set_m_itemid((int32_t)m_ItemID);
-	msg.set_m_quality((int32_t)m_quality);
+	msg.set_m_equipid((int32_t)m_EquipID);
 	msg.set_m_ecitem((int32_t)m_EcItem);
 	msg.set_m_ecnum((int32_t)m_EcNum);
 }
 
 void E_MofaExchange_s::read_from_pbmsg(const ::proto_ff::E_MofaExchange & msg) {
-	m_ItemID = msg.m_itemid();
-	m_quality = msg.m_quality();
+	m_EquipID = msg.m_equipid();
 	m_EcItem = msg.m_ecitem();
 	m_EcNum = msg.m_ecnum();
 }

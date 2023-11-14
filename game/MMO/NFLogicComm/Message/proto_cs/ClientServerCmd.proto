@@ -1789,6 +1789,20 @@ enum ClientServerCmd
 	FEST_BOSS_INFO_REQ = 4072;		//boss 数据请求
 	FEST_BOSS_INFO_RSP = 4073;		//boss 数据返回
 
+	FEST_CONTI_RECHARGE_TOTAL_FETCH_REQ = 4076;		//请求领取 连续累充 累计天数奖励
+	FEST_CONTI_RECHARGE_TOTAL_FETCH_RSP = 4077;		//返回 连续累充 累计天数奖励 结果
+	FEST_CONTI_RECHARGE_DAY_FETCH_REQ = 4078;		//请求领取 连续累充 每日奖励
+	FEST_CONTI_RECHARGE_DAY_FETCH_RSP = 4079;		//返回 连续累充 每日奖励 结果
+	FEST_CONTI_RECHARGE_SUPPLEMENT_REQ = 4080;		//请求设置 连续累充 补领标记
+	FEST_CONTI_RECHARGE_SUPPLEMENT_RSP = 4081;		//返回 设置 连续累充 补领标记结果
+	FEST_CONTI_RECHARGE_UPDATE_RSP = 4082;			//更新 连续累充 信息
+
+	FEST_LIMIT_SALE_BUY_REQ	= 4085;					//请求购买 限时秒杀 商品
+	FEST_LIMIT_SALE_BUY_RSP	= 4086;					//返回 限时秒杀 商品结果
+	FEST_LIMIT_SALE_FETCH_TOTAL_REQ = 4087;			//请求领取 限时秒杀 累计消费奖励
+	FEST_LIMIT_SALE_FETCH_TOTAL_RSP = 4088;			//返回 限时秒杀 累计消费奖励 结果
+	FEST_LIMIT_SALE_UPDATE_RSP = 4089;				//更新 限时秒杀 信息
+
 
 
 	//开服比拼 4100-4120
@@ -1995,6 +2009,55 @@ enum ClientServerCmd
 	SOUL_ENTRY_OPT_RSP = 4618;				//战魂操作返回
 	SOUL_POOL_OPT_REQ = 4619;				//战魂聚灵池操作
 	SOUL_POOL_OPT_RSP = 4620;				//战魂聚灵池操作返回
+
+	//奇门八卦4700-4750
+	CL_MOFA_GET_INFO_REQ = 4700; //奇门八卦获取信息
+	LC_MOFA_GET_INFO_RSP = 4701; //奇门八卦获取信息
+	CL_MOFA_DRESS_REQ = 4702; //带上装备
+	LC_MOFA_DRESS_RSP = 4703; //带上装备
+	CL_MOFA_UNDRESS_REQ = 4704; //卸载装备
+	LC_MOFA_UNDRESS_RSP = 4705; //卸载装备
+	CL_MOFA_SLOT_ZUFU_REQ = 4706; //阵眼祝福
+	LC_MOFA_SLOT_ZUFU_RSP = 4707; //阵眼祝福
+	CL_MOFA_SLOT_WAKE_REQ = 4708; //阵眼觉醒
+	LC_MOFA_SLOT_WAKE_RSP = 4709; //阵眼觉醒
+	CL_MOFA_EQUIP_LV_REQ = 4710; //装备升级
+	LC_MOFA_EQUIP_LV_RSP = 4711; //装备升级
+	CL_MOFA_EQUIP_WAKE_REQ = 4712; //装备觉醒
+	LC_MOFA_EQUIP_WAKE_RSP = 4713; //装备觉醒
+	CL_MOFA_EQUIP_DECOMPOSE_REQ = 4714; //装备一键分解
+	LC_MOFA_EQUIP_DECOMPOSE_RSP = 4715; //装备一键分解
+	CL_MOFA_EXCHANGE_REQ = 4716; //兑换
+	LC_MOFA_EXCHANGE_RSP = 4717; //兑换
+	CL_MOFA_SLOT_UNLOCK_REQ = 4718; //解锁
+	LC_MOFA_SLOT_UNLOCK_RSP = 4719; //解锁
+
+	//封神之战4750-4780
+	NGP_DataReq=4750;//请求数据
+	NGP_DataRsp=4751;
+
+
+	//淬炼
+	NOTIFY_RUNE_LIST = 4800;				//淬炼通知
+	RUNE_DRESS_REQ = 4801;					//穿戴符文
+	RUNE_DRESS_RSP = 4802;					//穿戴符文返回
+	RUNE_UNDRESS_REQ = 4803;				//卸载符文
+	RUNE_UNDRESS_RSP = 4804;				//卸载符文
+	RUNE_GROW_REQ = 4805;					//符文养成
+	RUNE_GROW_RSP = 4806;					//符文养成
+	RUNE_MAKE_REQ = 4807;					//符文淬炼请求
+	RUNE_MAKE_RSP = 4808;					//符文淬炼返回
+	RUNE_WORD_STARLV_REQ = 4809;			//符文之语升星
+	RUNE_WORD_STARLV_RSP = 4810;			//符文之语升星返回
+	RUNE_WORD_FENGYIN_REQ = 4811;			//符文之语封印
+	RUNE_WORD_FENGYIN_RSP = 4812;			//符文之语封印
+	RUNE_ACTIVE_JUEJI_REQ = 4813;			//激活绝技
+	RUNE_ACTIVE_JUEJI_RSP = 4814;			//激活绝技
+	RUNE_FEI_SHENG_REQ = 4815;				//符文飞升激活
+	RUNE_FEI_SHENG_RSP = 4816;				//符文飞升激活
+	RUNE_DECOMPOSE_REQ = 4817;				//符文分解
+	RUNE_DECOMPOSE_RSP = 4818;				//符文分解
 	
 	CLIENT_SERVER_MAX_CMD = 5000;	//最大协议ID
+
 };

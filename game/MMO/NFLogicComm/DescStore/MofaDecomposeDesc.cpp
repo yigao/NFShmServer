@@ -51,31 +51,31 @@ int MofaDecomposeDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < (int)table.e_mofadecompose_list_size(); i++)
 	{
 		const proto_ff::E_MofaDecompose& desc = table.e_mofadecompose_list(i);
-		if (desc.has_m_id() == false && desc.ByteSize() == 0)
+		if (desc.has_m_dpqua() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;
 		}
 		//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", desc.Utf8DebugString());
-		if (m_astDescMap.find(desc.m_id()) != m_astDescMap.end())
+		if (m_astDescMap.find(desc.m_dpqua()) != m_astDescMap.end())
 		{
 			if (IsReloading())
 			{
-				auto pDesc = GetDesc(desc.m_id());
-				NF_ASSERT_MSG(pDesc, "the desc:{} Reload, GetDesc Failed!, id:{}", GetClassName(), desc.m_id());
+				auto pDesc = GetDesc(desc.m_dpqua());
+				NF_ASSERT_MSG(pDesc, "the desc:{} Reload, GetDesc Failed!, id:{}", GetClassName(), desc.m_dpqua());
 				pDesc->read_from_pbmsg(desc);
 			}
 			else
 			{
-				NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc:{} id:{} exist", GetClassName(), desc.m_id());
+				NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc:{} id:{} exist", GetClassName(), desc.m_dpqua());
 			}
 			continue;
 		}
 		CHECK_EXPR_ASSERT(m_astDescMap.size() < m_astDescMap.max_size(), -1, "m_astDescMap Space Not Enough");
-		auto pDesc = &m_astDescMap[desc.m_id()];
-		CHECK_EXPR_ASSERT(pDesc, -1, "m_astDescMap Insert Failed desc.id:{}", desc.m_id());
+		auto pDesc = &m_astDescMap[desc.m_dpqua()];
+		CHECK_EXPR_ASSERT(pDesc, -1, "m_astDescMap Insert Failed desc.id:{}", desc.m_dpqua());
 		pDesc->read_from_pbmsg(desc);
-		CHECK_EXPR_ASSERT(GetDesc(desc.m_id()) == pDesc, -1, "GetDesc != pDesc, id:{}", desc.m_id());
+		CHECK_EXPR_ASSERT(GetDesc(desc.m_dpqua()) == pDesc, -1, "GetDesc != pDesc, id:{}", desc.m_dpqua());
 	}
 
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_mofadecompose_list_size());

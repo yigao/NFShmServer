@@ -167,6 +167,43 @@ message FestTotalRechargeProto
 	optional uint32 total_recharge = 2;		//累计充值金额
 }
 
+//连续累充 - 累计充值天数奖励
+message FestContiTotalRewardProto
+{
+	optional int32 gear = 1;		//挡位
+	repeated int32 fetch_day = 2;	//已领取的累充天数奖励 的 天数列表
+}
+//连续累充 - 每日奖励信息
+message FestContiDayRewardProto
+{
+	optional int32 day = 1;			//第几天
+	repeated int32 fetch_gear = 2;	//已领取的挡位列表
+}
+//连续累充
+message FestContiRechargeProto
+{
+	optional uint32 total_recharge = 1;				//活动期间累计充值金额
+	optional int32 supplement = 2;					//是否补领，1-是，0-否
+	repeated FestContiDayRewardProto day = 3;		//已领取的 每日奖励信息
+	repeated FestContiTotalRewardProto total = 4;	//已领取的 累计充值天数奖励
+
+}
+
+//限时秒杀 - 商店信息
+message FestLimitShopProto
+{
+	optional int32 type = 1;			//类型，1-钻石，2-绑钻
+	optional uint32 total = 2;			//累计消费，type为1时才有效
+	repeated int32 fetch_total = 3;		//已领取奖励的 累计消费额度 的奖励(具体的额度值)，type为1时才有效
+	repeated ComPair buy = 4;			//已购买的信息 muban_RebateStore_mall表ID - 已购买的数量
+}
+//限时秒杀
+message FestLimitSaleProto
+{
+	repeated FestLimitShopProto sale = 1;
+}
+
+
 
 //节日活动详细信息
 message FestDetailProto
@@ -193,6 +230,8 @@ message FestDetailProto
 	optional FestDayTotalRechargeProto day_total_recharge = 18;					//每日累充 serverType = 27
 	optional FestTotalRechargeProto total_recharge = 19;						//累计充值 serverType = 17
 	optional FestLoginProto	login = 20;											//登录奖励 serverType = 24
+	optional FestLimitSaleProto limit_sale = 21;								//限时秒杀 serverType = 26
+	optional FestContiRechargeProto conti_recharge = 22;						//连续累充 serverType = 25
 }
 
 
@@ -1316,7 +1355,7 @@ message Fest_XiYouSyncForceClose
 	optional int32 cur_state = 2;
 }
 
-/////////////////////////////////////// 每日首充  serverType = 27 /////////////////////////////////////////
+/////////////////////////////////////// 每日累充  serverType = 27 /////////////////////////////////////////
 
 //请求领取 每日累充 奖励 FEST_DAY_TOTAL_RECHARGE_FETCH_REQ
 message Fest_DayTotalRechargeFetchReq
@@ -1377,4 +1416,88 @@ message Fest_TotalRechargeNotify
 	optional int32 template_id = 1;			//活动模板ID
 	repeated int32 fetch_lst = 2;			//已领取ID列表
 	optional uint32 total_recharge = 3;		//累计充值金额
+}
+
+/////////////////////////////////////////////////// 连续累充 serverType = 25 //////////////////////////////////////
+//请求领取 连续累充 累计天数奖励 FEST_CONTI_RECHARGE_TOTAL_FETCH_REQ 
+message Fest_ContiRechargeTotalFetchReq
+{
+	optional int32 template_id = 1; //活动模板ID
+	optional int32 gear = 2;		//挡位
+	optional int32 total_day = 3;	//累计天数
+}
+//返回 连续累充 累计天数奖励 结果 FEST_CONTI_RECHARGE_TOTAL_FETCH_RSP
+message Fest_ContiRechargeTotalFetchRsp
+{
+	optional int32 template_id = 1; //活动模板ID
+	optional int32 ret = 2;			//返回码
+}
+//请求领取 连续累充 每日奖励 FEST_CONTI_RECHARGE_DAY_FETCH_REQ 
+message Fest_ContiRechargeDayFetchReq
+{
+	optional int32 template_id = 1;		//活动模板ID
+	optional int32 day = 2;				//第几天
+	optional int32 gear = 3;			//挡位
+}
+//返回 连续累充 每日奖励 结果 FEST_CONTI_RECHARGE_DAY_FETCH_RSP
+message Fest_ContiRechargeDayFetchRsp
+{
+	optional int32 template_id = 1; //活动模板ID
+	optional int32 ret = 2;			//返回码
+}
+//请求设置 连续累充 补领标记 FEST_CONTI_RECHARGE_SUPPLEMENT_REQ
+message Fest_ContiRechargeSuppleReq
+{
+	optional int32 template_id = 1;		//活动模板ID
+	optional int32 supplement = 2;		//1-勾选补领，0-取消勾选
+}
+//返回 设置 连续累充 补领标记结果 FEST_CONTI_RECHARGE_SUPPLEMENT_RSP
+message Fest_ContiRechargeSuppleRsp
+{
+	optional int32 template_id = 1; //活动模板ID
+	optional int32 ret = 2;			//返回码
+}
+//更新 连续累充 信息 FEST_CONTI_RECHARGE_UPDATE_RSP
+message Fest_ContiRechargeUpdateRsp
+{
+	optional int32 template_id = 1;					 //活动模板ID
+	optional uint32 total_recharge = 2;				//活动期间累计充值金额(每次都会赋值)
+	optional int32 supplement = 3;					//是否补领，1-是，0-否(每次都会赋值)
+	repeated FestContiDayRewardProto day = 4;		//已领取的 每日奖励信息 (有改变的才更新)
+	repeated FestContiTotalRewardProto total = 5;	//已领取的 累计充值天数奖励 (有改变的才更新)
+}
+
+/////////////////////////////////////////////////// 限时秒杀 serverType = 26 //////////////////////////////////////
+//请求购买 限时秒杀 商品 FEST_LIMIT_SALE_BUY_REQ
+message Fest_LimitSaleBuyReq
+{
+	optional int32 template_id = 1;		//活动模板ID
+	optional int32 id = 2;				//商品ID,muban_RebateStore_mall表ID
+}
+//返回 限时秒杀 商品结果 FEST_LIMIT_SALE_BUY_RSP
+message Fest_LimitSaleBuyRsp
+{
+	optional int32 template_id = 1; //活动模板ID
+	optional int32 ret = 2;			//返回码
+}
+//请求领取 限时秒杀 累计消费奖励 FEST_LIMIT_SALE_FETCH_TOTAL_REQ
+message Fest_LimitSaleFetchReq
+{
+	optional int32 template_id = 1;		//活动模板ID
+	optional int32 val = 2;				//领取哪个消费金额的挡位 奖励
+}
+//返回 限时秒杀 累计消费奖励 结果 FEST_LIMIT_SALE_FETCH_TOTAL_RSP
+message Fest_LimitSaleFetchRsp
+{
+	optional int32 template_id = 1; //活动模板ID
+	optional int32 ret = 2;			//返回码
+}
+//更新 限时秒杀 信息 FEST_LIMIT_SALE_UPDATE_RSP
+message Fest_LimitSaleUpdateRsp
+{
+	optional int32 template_id = 1;		//活动模板ID
+	optional int32 type = 2;			//类型，1-钻石，2-绑钻
+	optional uint32 total = 3;			//累计消费，type为1时才有效
+	repeated int32 fetch_total = 4;		//已领取奖励的 累计消费额度 的奖励(具体的额度值)，type为1时才有效 (有改变的才更新)
+	repeated ComPair buy = 5;			//已购买的信息 muban_RebateStore_mall表ID - 已购买的数量  (有改变的才更新)
 }

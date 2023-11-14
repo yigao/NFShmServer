@@ -881,12 +881,15 @@ void protobuf_AssignDesc_Pet_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PetLianYaoReward));
   PetLianYaoRsp_descriptor_ = file->message_type(42);
-  static const int PetLianYaoRsp_offsets_[5] = {
+  static const int PetLianYaoRsp_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoRsp, rewards_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoRsp, yaolu_add_exp_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoRsp, yaolu_exp_flag_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoRsp, yaohun_add_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoRsp, fin_exp_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoRsp, fin_lv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PetLianYaoRsp, last_lv_),
   };
   PetLianYaoRsp_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -1404,27 +1407,28 @@ void protobuf_AddDesc_Pet_2eproto() {
     "\010lian_num\030\001 \001(\005\022\017\n\007quality\030\002 \001(\005\022\014\n\004star"
     "\030\003 \001(\005\022\r\n\005quick\030\004 \001(\005\022\017\n\007bag_pos\030\005 \003(\005\"D"
     "\n\020PetLianYaoReward\022\016\n\006itemid\030\001 \001(\005\022\013\n\003nu"
-    "m\030\002 \001(\005\022\023\n\013tq_add_flag\030\003 \001(\005\"\214\001\n\rPetLian"
+    "m\030\002 \001(\005\022\023\n\013tq_add_flag\030\003 \001(\005\"\276\001\n\rPetLian"
     "YaoRsp\022\013\n\003ret\030\001 \001(\005\022+\n\007rewards\030\002 \003(\0132\032.p"
     "roto_ff.PetLianYaoReward\022\025\n\ryaolu_add_ex"
     "p\030\003 \001(\005\022\026\n\016yaolu_exp_flag\030\004 \001(\005\022\022\n\nyaohu"
-    "n_add\030\005 \001(\005\"6\n\024PetYaoHunExchangeReq\022\021\n\tt"
-    "arget_id\030\001 \001(\005\022\013\n\003num\030\002 \001(\005\"C\n\024PetYaoHun"
-    "ExchangeRsp\022\013\n\003ret\030\001 \001(\005\022\021\n\ttarget_id\030\002 "
-    "\001(\005\022\013\n\003num\030\003 \001(\005\"5\n\016PetYaoHunLvReq\022\021\n\tfi"
-    "ght_pos\030\001 \001(\005\022\020\n\010slot_pos\030\002 \001(\005\"B\n\016PetYa"
-    "oHunLvRsp\022\013\n\003ret\030\001 \001(\005\022\021\n\tfight_pos\030\002 \001("
-    "\005\022\020\n\010slot_pos\030\003 \001(\005\"8\n\021PetYaoHunBreakReq"
-    "\022\021\n\tfight_pos\030\001 \001(\005\022\020\n\010slot_pos\030\002 \001(\005\"E\n"
-    "\021PetYaoHunBreakRsp\022\013\n\003ret\030\001 \001(\005\022\021\n\tfight"
-    "_pos\030\002 \001(\005\022\020\n\010slot_pos\030\003 \001(\005\"\024\n\022PetLianY"
-    "aoTqBuyReq\"!\n\022PetLianYaoTqBuyRsp\022\013\n\003ret\030"
-    "\001 \001(\005\"6\n\020PetYaoHunSuitReq\022\021\n\tfight_pos\030\001"
-    " \001(\005\022\017\n\007suit_id\030\002 \001(\005\"C\n\020PetYaoHunSuitRs"
-    "p\022\013\n\003ret\030\001 \001(\005\022\021\n\tfight_pos\030\002 \001(\005\022\017\n\007sui"
-    "t_id\030\003 \001(\005\"$\n\021PetYaoHunResetReq\022\017\n\007bag_p"
-    "os\030\001 \001(\005\"1\n\021PetYaoHunResetRsp\022\013\n\003ret\030\001 \001"
-    "(\005\022\017\n\007bag_pos\030\002 \001(\005", 3419);
+    "n_add\030\005 \001(\005\022\017\n\007fin_exp\030\006 \001(\005\022\016\n\006fin_lv\030\007"
+    " \001(\005\022\017\n\007last_lv\030\010 \001(\005\"6\n\024PetYaoHunExchan"
+    "geReq\022\021\n\ttarget_id\030\001 \001(\005\022\013\n\003num\030\002 \001(\005\"C\n"
+    "\024PetYaoHunExchangeRsp\022\013\n\003ret\030\001 \001(\005\022\021\n\tta"
+    "rget_id\030\002 \001(\005\022\013\n\003num\030\003 \001(\005\"5\n\016PetYaoHunL"
+    "vReq\022\021\n\tfight_pos\030\001 \001(\005\022\020\n\010slot_pos\030\002 \001("
+    "\005\"B\n\016PetYaoHunLvRsp\022\013\n\003ret\030\001 \001(\005\022\021\n\tfigh"
+    "t_pos\030\002 \001(\005\022\020\n\010slot_pos\030\003 \001(\005\"8\n\021PetYaoH"
+    "unBreakReq\022\021\n\tfight_pos\030\001 \001(\005\022\020\n\010slot_po"
+    "s\030\002 \001(\005\"E\n\021PetYaoHunBreakRsp\022\013\n\003ret\030\001 \001("
+    "\005\022\021\n\tfight_pos\030\002 \001(\005\022\020\n\010slot_pos\030\003 \001(\005\"\024"
+    "\n\022PetLianYaoTqBuyReq\"!\n\022PetLianYaoTqBuyR"
+    "sp\022\013\n\003ret\030\001 \001(\005\"6\n\020PetYaoHunSuitReq\022\021\n\tf"
+    "ight_pos\030\001 \001(\005\022\017\n\007suit_id\030\002 \001(\005\"C\n\020PetYa"
+    "oHunSuitRsp\022\013\n\003ret\030\001 \001(\005\022\021\n\tfight_pos\030\002 "
+    "\001(\005\022\017\n\007suit_id\030\003 \001(\005\"$\n\021PetYaoHunResetRe"
+    "q\022\017\n\007bag_pos\030\001 \001(\005\"1\n\021PetYaoHunResetRsp\022"
+    "\013\n\003ret\030\001 \001(\005\022\017\n\007bag_pos\030\002 \001(\005", 3469);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Pet.proto", &protobuf_RegisterTypes);
   NotifyPetModuleRsp::default_instance_ = new NotifyPetModuleRsp();
@@ -12553,6 +12557,9 @@ const int PetLianYaoRsp::kRewardsFieldNumber;
 const int PetLianYaoRsp::kYaoluAddExpFieldNumber;
 const int PetLianYaoRsp::kYaoluExpFlagFieldNumber;
 const int PetLianYaoRsp::kYaohunAddFieldNumber;
+const int PetLianYaoRsp::kFinExpFieldNumber;
+const int PetLianYaoRsp::kFinLvFieldNumber;
+const int PetLianYaoRsp::kLastLvFieldNumber;
 #endif  // !_MSC_VER
 
 PetLianYaoRsp::PetLianYaoRsp()
@@ -12575,6 +12582,9 @@ void PetLianYaoRsp::SharedCtor() {
   yaolu_add_exp_ = 0;
   yaolu_exp_flag_ = 0;
   yaohun_add_ = 0;
+  fin_exp_ = 0;
+  fin_lv_ = 0;
+  last_lv_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -12614,6 +12624,9 @@ void PetLianYaoRsp::Clear() {
     yaolu_add_exp_ = 0;
     yaolu_exp_flag_ = 0;
     yaohun_add_ = 0;
+    fin_exp_ = 0;
+    fin_lv_ = 0;
+    last_lv_ = 0;
   }
   rewards_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -12700,6 +12713,54 @@ bool PetLianYaoRsp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(48)) goto parse_fin_exp;
+        break;
+      }
+
+      // optional int32 fin_exp = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_fin_exp:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &fin_exp_)));
+          set_has_fin_exp();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_fin_lv;
+        break;
+      }
+
+      // optional int32 fin_lv = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_fin_lv:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &fin_lv_)));
+          set_has_fin_lv();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(64)) goto parse_last_lv;
+        break;
+      }
+
+      // optional int32 last_lv = 8;
+      case 8: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_last_lv:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &last_lv_)));
+          set_has_last_lv();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -12748,6 +12809,21 @@ void PetLianYaoRsp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->yaohun_add(), output);
   }
 
+  // optional int32 fin_exp = 6;
+  if (has_fin_exp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->fin_exp(), output);
+  }
+
+  // optional int32 fin_lv = 7;
+  if (has_fin_lv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->fin_lv(), output);
+  }
+
+  // optional int32 last_lv = 8;
+  if (has_last_lv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->last_lv(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -12781,6 +12857,21 @@ void PetLianYaoRsp::SerializeWithCachedSizes(
   // optional int32 yaohun_add = 5;
   if (has_yaohun_add()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->yaohun_add(), target);
+  }
+
+  // optional int32 fin_exp = 6;
+  if (has_fin_exp()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->fin_exp(), target);
+  }
+
+  // optional int32 fin_lv = 7;
+  if (has_fin_lv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->fin_lv(), target);
+  }
+
+  // optional int32 last_lv = 8;
+  if (has_last_lv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->last_lv(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -12820,6 +12911,27 @@ int PetLianYaoRsp::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->yaohun_add());
+    }
+
+    // optional int32 fin_exp = 6;
+    if (has_fin_exp()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->fin_exp());
+    }
+
+    // optional int32 fin_lv = 7;
+    if (has_fin_lv()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->fin_lv());
+    }
+
+    // optional int32 last_lv = 8;
+    if (has_last_lv()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->last_lv());
     }
 
   }
@@ -12870,6 +12982,15 @@ void PetLianYaoRsp::MergeFrom(const PetLianYaoRsp& from) {
     if (from.has_yaohun_add()) {
       set_yaohun_add(from.yaohun_add());
     }
+    if (from.has_fin_exp()) {
+      set_fin_exp(from.fin_exp());
+    }
+    if (from.has_fin_lv()) {
+      set_fin_lv(from.fin_lv());
+    }
+    if (from.has_last_lv()) {
+      set_last_lv(from.last_lv());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -12898,6 +13019,9 @@ void PetLianYaoRsp::Swap(PetLianYaoRsp* other) {
     std::swap(yaolu_add_exp_, other->yaolu_add_exp_);
     std::swap(yaolu_exp_flag_, other->yaolu_exp_flag_);
     std::swap(yaohun_add_, other->yaohun_add_);
+    std::swap(fin_exp_, other->fin_exp_);
+    std::swap(fin_lv_, other->fin_lv_);
+    std::swap(last_lv_, other->last_lv_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

@@ -14,7 +14,7 @@ message E_TaskTask
 	optional string m_name = 7[(yd_fieldoptions.field_cname) = "任务名", (yd_fieldoptions.field_bufsize) = 64];
 	optional string m_rececond = 8[(yd_fieldoptions.field_cname) = "接取条件", (yd_fieldoptions.field_bufsize) = 64];
 	optional string m_receadd = 9[(yd_fieldoptions.field_cname) = "过程", (yd_fieldoptions.field_bufsize) = 64];
-	optional string m_comcond = 10[(yd_fieldoptions.field_cname) = "完成条件", (yd_fieldoptions.field_bufsize) = 256];
+	optional string m_comcond = 10[(yd_fieldoptions.field_cname) = "完成条件", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_nexttask = 11[(yd_fieldoptions.field_cname) = "后续任务"];
 	optional string m_tracker = 12[(yd_fieldoptions.field_cname) = "任务追踪", (yd_fieldoptions.field_bufsize) = 64];
 	optional string m_subtype = 13[(yd_fieldoptions.field_cname) = "提交方式", (yd_fieldoptions.field_bufsize) = 64];

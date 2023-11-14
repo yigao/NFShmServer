@@ -937,7 +937,7 @@ void protobuf_AddDesc_E_5fFacade_2eproto() {
     "adeSoulAttributeDescB\032\302\377\024\022\346\277\200\346\264\273\345\237\272\347\241\200\345\261"
     "\236\346\200\247\210\301\024\004\"K\n\020Sheet_FacadeSoul\0227\n\021E_Facade"
     "Soul_List\030\001 \003(\0132\026.proto_ff.E_FacadeSoulB"
-    "\004\210\301\024\004\"a\n\034E_FacadeSoulactiveUnlockDesc\022 \n"
+    "\004\210\301\024\010\"a\n\034E_FacadeSoulactiveUnlockDesc\022 \n"
     "\010m_parama\030\001 \001(\tB\016\302\377\024\006\345\217\202\346\225\260\220\301\024@\022\037\n\013m_con"
     "dition\030\002 \001(\005B\n\302\377\024\006\346\235\241\344\273\266\"z\n\022E_FacadeSoul"
     "active\022\032\n\004m_id\030\001 \001(\003B\014\302\377\024\010\346\212\200\350\203\275ID\022H\n\010m_"

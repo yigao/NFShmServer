@@ -15,32 +15,6 @@ message Sheet_BossRareitem
 	repeated E_BossRareitem E_BossRareitem_List = 1[(yd_fieldoptions.field_arysize)=1024];
 }
 
-message E_BossBoss
-{
-	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "bossID"];
-	optional int32 m_bossType = 2[(yd_fieldoptions.field_cname) = "BOSS类型"];
-	optional int32 m_monsterID = 3[(yd_fieldoptions.field_cname) = "怪物ID"];
-	optional int32 m_classOrder = 4[(yd_fieldoptions.field_cname) = "阶次"];
-	optional int32 m_sceneOrder = 5[(yd_fieldoptions.field_cname) = "所属层级"];
-	optional int32 m_duplicateID = 6[(yd_fieldoptions.field_cname) = "副本ID"];
-	optional int32 m_peaceMask = 7[(yd_fieldoptions.field_cname) = "和平标记"];
-	optional int32 m_pointID = 8[(yd_fieldoptions.field_cname) = "位置点"];
-	optional int32 m_flashNum = 9[(yd_fieldoptions.field_cname) = "刷新数量"];
-	optional int32 m_group_type = 10[(yd_fieldoptions.field_cname) = "组类型"];
-	optional int32 m_ishide = 11[(yd_fieldoptions.field_cname) = "是否是隐藏boss"];
-	optional int32 m_triggerPro = 12[(yd_fieldoptions.field_cname) = "触发隐藏的概率"];
-	optional int32 m_flashTime = 13[(yd_fieldoptions.field_cname) = "刷新间隔"];
-	optional int32 m_retrieveGiftID = 14[(yd_fieldoptions.field_cname) = "找回礼包id"];
-	optional int32 m_noTimes = 15[(yd_fieldoptions.field_cname) = "是否不消耗次数"];
-	optional int32 m_assistPrestige = 16[(yd_fieldoptions.field_cname) = "协助击杀奖励的声望"];
-}
-
-
-message Sheet_BossBoss
-{
-	repeated E_BossBoss E_BossBoss_List = 1[(yd_fieldoptions.field_arysize)=1024];
-}
-
 message E_BossBosstypeGroupDesc
 {
 	optional int32 m_times = 1[(yd_fieldoptions.field_cname) = "次数"];
@@ -71,6 +45,32 @@ message E_BossBosstype
 message Sheet_BossBosstype
 {
 	repeated E_BossBosstype E_BossBosstype_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_BossBoss
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "bossID"];
+	optional int32 m_bossType = 2[(yd_fieldoptions.field_cname) = "BOSS类型"];
+	optional int32 m_monsterID = 3[(yd_fieldoptions.field_cname) = "怪物ID"];
+	optional int32 m_classOrder = 4[(yd_fieldoptions.field_cname) = "阶次"];
+	optional int32 m_sceneOrder = 5[(yd_fieldoptions.field_cname) = "所属层级"];
+	optional int32 m_duplicateID = 6[(yd_fieldoptions.field_cname) = "副本ID"];
+	optional int32 m_peaceMask = 7[(yd_fieldoptions.field_cname) = "和平标记"];
+	optional int32 m_pointID = 8[(yd_fieldoptions.field_cname) = "位置点"];
+	optional int32 m_flashNum = 9[(yd_fieldoptions.field_cname) = "刷新数量"];
+	optional int32 m_group_type = 10[(yd_fieldoptions.field_cname) = "组类型"];
+	optional int32 m_ishide = 11[(yd_fieldoptions.field_cname) = "是否是隐藏boss"];
+	optional int32 m_triggerPro = 12[(yd_fieldoptions.field_cname) = "触发隐藏的概率"];
+	optional int32 m_flashTime = 13[(yd_fieldoptions.field_cname) = "刷新间隔"];
+	optional int32 m_retrieveGiftID = 14[(yd_fieldoptions.field_cname) = "找回礼包id"];
+	optional int32 m_noTimes = 15[(yd_fieldoptions.field_cname) = "是否不消耗次数"];
+	optional int32 m_assistPrestige = 16[(yd_fieldoptions.field_cname) = "协助击杀奖励的声望"];
+}
+
+
+message Sheet_BossBoss
+{
+	repeated E_BossBoss E_BossBoss_List = 1[(yd_fieldoptions.field_arysize)=1024];
 }
 
 message E_BossLayer

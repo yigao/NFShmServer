@@ -106,7 +106,7 @@ enum EPackageType
 	EPackageType_Storage = 2;		//仓库
 	EPackageType_MountEgg = 3;		//坐骑
 	EPackageType_PetEgg = 4;		//宠物蛋
-	EPackageType_DeityEquip = 5;	//天神神饰
+	EPackageType_DeityEquip = 5;	//天神
 	EPackageType_HandBook = 6;		//藏经阁图鉴
 	EPackageType_BeastEquip = 7;	//神兽装备背包
 	EPackageType_Longhun = 8;		//龙魂
@@ -396,7 +396,7 @@ enum ERetCode
 	RET_PACKAGE_USE_ITEM_MAP_LIMIT			= 451;		//该地图上不允许使用
 	RET_PACKAGE_PET_SPACE_NOT_ENOUGH		= 452;		//宠物背包空间不足
 	RET_PACKAGE_GODEVIL_SPACE_NOT_ENOUGH	= 453;		//神魔背包空间不足
-
+	RET_PACKAGE_RUNE_SPACE_NOT_ENOUGH		= 454;		//符文背包空间不足
 	//养成 500 - 510
 	RET_GROW_PART_ENTRY_LEVEL_FULL			= 500;		//星级已满级
 	RET_GROW_PART_NOT_ACTIVE				= 501;		//未激活
@@ -924,6 +924,7 @@ enum ERetCode
 	RET_PAY_REQ_ODER_INVALID_PRODUCT			= 3806;    //申请订单失败，无效的产品id
 	RET_PAY_REQ_ODER_PRODUCT_LST_LEN			= 3807;    //申请订单失败，产品列表长度错误
 	RET_PAY_REQ_ODER_PRICE_ERR					= 3808;    //申请订单失败, 价格错误
+	RET_PAY_REQ_ODER_PRODUCT_TYPE_LIMIT			= 3809;    //申请订单失败, 产品类型限制
 	RET_PAY_WEB_ORDER_RETCODE					= 3850;    //请求订单号，web返回的错误码
 	RET_PAY_WEB_PAY_RETCODE						= 3851;    //请求支付，web返回的错误码
 
@@ -1053,6 +1054,10 @@ enum ERetCode
 	RET_FEST_DIG_EGG_TASK_NOT_EXIST			= 4508;		//任务不存在
 	RET_FEST_DIG_EGG_TASK_NOT_FETCH			= 4509;		//不能领取奖励
 	RET_FEST_REWARD_NOT_EXIST				= 4510;		//奖励不存在
+	RET_FEST_LACK_RECHARGE_NOT_FETCH		= 4511;		//充值金额不足，不能领取奖励
+	RET_FEST_HAS_PRE_GEAR_REWARD			= 4512;		//请先领取前面挡位的奖励
+	RET_FEST_OPEN_DAY_LIMIT					= 4513;		//开放时间限制
+	RTE_FEST_FUNC_UNLOCK_LIMIT				= 4514;		//功能开放限制
 
 
 	//交易行
@@ -1153,8 +1158,21 @@ enum ERetCode
 	RET_HUNLING_LACK					= 5320; //魂灵不足
 	RET_SOUL_STEP_MAX					= 5321; //战魂阶数已满
 	RET_SOUL_POOL_BLESS_MAX				= 5322;	//聚灵池祝福已满级
-	
 
+
+	//淬炼
+	RET_RUNE_CORE_CAN_CORE_DRESS	   = 5500;	//核心孔位只能装备核心符文
+	RET_RUNE_NOC_NO_DRESS_CORE		   = 5501;  //非核心孔位不能装备核心符文
+	RET_RUNE_NO_DRESS_RUNE			   = 5502;	//没有穿戴符文
+	RET_RUNE_LV_MAX					   = 5503;	//符文等级已满
+	RET_RUNE_STEP_MAX				   = 5504;  //符文阶级已满
+	RET_RUNE_QUENCHING_GIRD_LACK	   = 5505;  //淬炼位置不足
+	RET_RUNE_QUENCHING_MAX			   = 5506;  //淬炼条数上限
+	RET_RUNE_WORD_STAR_MAX			   = 5507;  //符语已满星
+	RET_RUNE_FENGYIN_ERROR			   = 5508;  //未封符语裕剩余一个时不可保护
+	RET_RUNE_ACTIVE_JJ_ERROR		   = 5509;  //激活绝技条件不足
+	RET_RUNE_SORING_MAX				   = 5510;	//飞升已满级
+	RET_RUNE_SORING_QUAILTY_LACK	   = 5511;	//飞升品阶不足
 }
 
 //特权类型
@@ -1365,7 +1383,7 @@ enum EDeityEquipPos
 	EDeityEquipPos_bracelet			= 1;	//神镯
 	EDeityEquipPos_jade				= 2;	//神玺
 	EDeityEquipPos_necklace			= 3;	//神坠
-	EDeityEquipPos_limit				= 4;
+	EDeityEquipPos_limit			= 4;
 }
 
 enum EMoneyRewardTaskReward
@@ -1443,7 +1461,6 @@ enum ChannelId
 //不灭星辰位置定义
 enum EStarEquipPos
 {
-	option allow_alias = true;
 	EStarEquipPos_start			= 51;
 	EStarEquipPos_jiao			= 0;
 	EStarEquipPos_limit			= 8;
@@ -1452,8 +1469,15 @@ enum EStarEquipPos
 //坐骑鲲装备位置定义
 enum EMountKunEquipPos
 {
-	option allow_alias = true;
 	EMountKunEquipPos_start			= 59;
 	EMountKunEquipPos_first			= 0;
 	EMountKunEquipPos_limit			= 5;
+}
+
+//奇门八卦
+enum EMoFaEquipPos
+{
+	EMoFaEquipPos_start			= 101;	//
+	EMoFaEquipPos_first			= 0;
+	EMoFaEquipPos_limit		= 10;
 }

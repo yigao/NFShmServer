@@ -540,6 +540,7 @@ enum ERetCode {
   RET_PACKAGE_USE_ITEM_MAP_LIMIT = 451,
   RET_PACKAGE_PET_SPACE_NOT_ENOUGH = 452,
   RET_PACKAGE_GODEVIL_SPACE_NOT_ENOUGH = 453,
+  RET_PACKAGE_RUNE_SPACE_NOT_ENOUGH = 454,
   RET_GROW_PART_ENTRY_LEVEL_FULL = 500,
   RET_GROW_PART_NOT_ACTIVE = 501,
   RET_GROW_PART_EXPIRE = 502,
@@ -996,6 +997,7 @@ enum ERetCode {
   RET_PAY_REQ_ODER_INVALID_PRODUCT = 3806,
   RET_PAY_REQ_ODER_PRODUCT_LST_LEN = 3807,
   RET_PAY_REQ_ODER_PRICE_ERR = 3808,
+  RET_PAY_REQ_ODER_PRODUCT_TYPE_LIMIT = 3809,
   RET_PAY_WEB_ORDER_RETCODE = 3850,
   RET_PAY_WEB_PAY_RETCODE = 3851,
   RET_SJ_NOT_DECOMPOSE = 3900,
@@ -1105,6 +1107,10 @@ enum ERetCode {
   RET_FEST_DIG_EGG_TASK_NOT_EXIST = 4508,
   RET_FEST_DIG_EGG_TASK_NOT_FETCH = 4509,
   RET_FEST_REWARD_NOT_EXIST = 4510,
+  RET_FEST_LACK_RECHARGE_NOT_FETCH = 4511,
+  RET_FEST_HAS_PRE_GEAR_REWARD = 4512,
+  RET_FEST_OPEN_DAY_LIMIT = 4513,
+  RTE_FEST_FUNC_UNLOCK_LIMIT = 4514,
   RET_MARKET_IS_FOLLOW = 4520,
   RET_MARKET_FOLLOW_LIMIT = 4521,
   RET_MARKET_DONWED = 4522,
@@ -1187,11 +1193,23 @@ enum ERetCode {
   RET_TURN_STAR_ACTIVE_BF = 5311,
   RET_HUNLING_LACK = 5320,
   RET_SOUL_STEP_MAX = 5321,
-  RET_SOUL_POOL_BLESS_MAX = 5322
+  RET_SOUL_POOL_BLESS_MAX = 5322,
+  RET_RUNE_CORE_CAN_CORE_DRESS = 5500,
+  RET_RUNE_NOC_NO_DRESS_CORE = 5501,
+  RET_RUNE_NO_DRESS_RUNE = 5502,
+  RET_RUNE_LV_MAX = 5503,
+  RET_RUNE_STEP_MAX = 5504,
+  RET_RUNE_QUENCHING_GIRD_LACK = 5505,
+  RET_RUNE_QUENCHING_MAX = 5506,
+  RET_RUNE_WORD_STAR_MAX = 5507,
+  RET_RUNE_FENGYIN_ERROR = 5508,
+  RET_RUNE_ACTIVE_JJ_ERROR = 5509,
+  RET_RUNE_SORING_MAX = 5510,
+  RET_RUNE_SORING_QUAILTY_LACK = 5511
 };
 bool ERetCode_IsValid(int value);
 const ERetCode ERetCode_MIN = RET_SUCCESS;
-const ERetCode ERetCode_MAX = RET_SOUL_POOL_BLESS_MAX;
+const ERetCode ERetCode_MAX = RET_RUNE_SORING_QUAILTY_LACK;
 const int ERetCode_ARRAYSIZE = ERetCode_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* ERetCode_descriptor();
@@ -1802,6 +1820,26 @@ inline bool EMountKunEquipPos_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<EMountKunEquipPos>(
     EMountKunEquipPos_descriptor(), name, value);
 }
+enum EMoFaEquipPos {
+  EMoFaEquipPos_start = 101,
+  EMoFaEquipPos_first = 0,
+  EMoFaEquipPos_limit = 10
+};
+bool EMoFaEquipPos_IsValid(int value);
+const EMoFaEquipPos EMoFaEquipPos_MIN = EMoFaEquipPos_first;
+const EMoFaEquipPos EMoFaEquipPos_MAX = EMoFaEquipPos_start;
+const int EMoFaEquipPos_ARRAYSIZE = EMoFaEquipPos_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* EMoFaEquipPos_descriptor();
+inline const ::std::string& EMoFaEquipPos_Name(EMoFaEquipPos value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    EMoFaEquipPos_descriptor(), value);
+}
+inline bool EMoFaEquipPos_Parse(
+    const ::std::string& name, EMoFaEquipPos* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<EMoFaEquipPos>(
+    EMoFaEquipPos_descriptor(), name, value);
+}
 // ===================================================================
 
 
@@ -1978,6 +2016,10 @@ inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::EStarEquipPos>() {
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::EMountKunEquipPos>() {
   return ::proto_ff::EMountKunEquipPos_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::EMoFaEquipPos>() {
+  return ::proto_ff::EMoFaEquipPos_descriptor();
 }
 
 }  // namespace google

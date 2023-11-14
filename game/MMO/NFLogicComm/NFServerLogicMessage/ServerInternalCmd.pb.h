@@ -302,6 +302,10 @@ enum ServerInternalCmd {
   GVB_RoomReq = 1160,
   GVB_RoomRsp = 1161,
   GVB_RoomCloseReq = 1166,
+  GVB_RoomSetEntryMapReq = 1167,
+  GVB_RoomKickPlayer = 1168,
+  GVB_RoomUniqueIdReq = 1169,
+  GVB_RoomUniqueIdRsp = 1170,
   LOGIC_TO_CENTER_RANKDATA = 1180,
   LOGIC_TO_CENTER_UPDATERANK = 1181,
   LOGIC_TO_SOCIAL_RANK_UPDATE_REQ = 1182,
@@ -425,6 +429,9 @@ enum ServerInternalCmd {
   NOTIFY_DUP_TEAM_DIS_REQ = 1511,
   LC_NOTIFY_YAOTA_FIRST_PASS_REQ = 1512,
   CL_YAOTA_RECV_REQ = 1513,
+  NGPD_BattleReq = 1530,
+  NGPD_BattleRsp = 1531,
+  NGPD_BattleSaveReq = 1532,
   SERVER_INTER_MAX_CMD = 5000
 };
 bool ServerInternalCmd_IsValid(int value);

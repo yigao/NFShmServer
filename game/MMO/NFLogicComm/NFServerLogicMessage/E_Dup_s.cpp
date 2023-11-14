@@ -529,6 +529,7 @@ int E_DupSweepmonsternum_s::CreateInit() {
 	m_maxLevel = (int32_t)0;
 	m_killNumber = (int32_t)0;
 	m_monstervaluetype = (int32_t)0;
+	m_monstervalueParam = (int32_t)0;
 	return 0;
 }
 
@@ -543,6 +544,7 @@ void E_DupSweepmonsternum_s::write_to_pbmsg(::proto_ff::E_DupSweepmonsternum & m
 	msg.set_m_maxlevel((int32_t)m_maxLevel);
 	msg.set_m_killnumber((int32_t)m_killNumber);
 	msg.set_m_monstervaluetype((int32_t)m_monstervaluetype);
+	msg.set_m_monstervalueparam((int32_t)m_monstervalueParam);
 }
 
 void E_DupSweepmonsternum_s::read_from_pbmsg(const ::proto_ff::E_DupSweepmonsternum & msg) {
@@ -552,6 +554,7 @@ void E_DupSweepmonsternum_s::read_from_pbmsg(const ::proto_ff::E_DupSweepmonster
 	m_maxLevel = msg.m_maxlevel();
 	m_killNumber = msg.m_killnumber();
 	m_monstervaluetype = msg.m_monstervaluetype();
+	m_monstervalueParam = msg.m_monstervalueparam();
 }
 
 Sheet_DupSweepmonsternum_s::Sheet_DupSweepmonsternum_s() {

@@ -48,8 +48,7 @@
 #define DEFINE_SHEET_PETSUIT_E_PETSUIT_LIST_MAX_NUM 32
 #define DEFINE_E_PETCONST_M_MATERIAL_MAX_NUM 3
 #define DEFINE_SHEET_PETCONST_E_PETCONST_LIST_MAX_NUM 2
-#define DEFINE_E_PETTOP_M_ATTRIBUTE_MAX_NUM 8
-#define DEFINE_E_PETTOP_M_STARATT_MAX_NUM 8
+#define DEFINE_E_PETTOP_M_ATTRIBUTE_MAX_NUM 16
 #define DEFINE_SHEET_PETTOP_E_PETTOP_LIST_MAX_NUM 256
 #define DEFINE_SHEET_PETTOPITEM_E_PETTOPITEM_LIST_MAX_NUM 32
 #define DEFINE_E_PETPRIVILEGE_M_PRIVILEGE_MAX_NUM 4
@@ -658,7 +657,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//装备id
-		int32_t m_name;//妖魂名称
+		NFShmString<64> m_name;//妖魂名称
 		int32_t m_affix;//词缀类型
 		int32_t m_position;//妖魂部位
 		int32_t m_quality;//妖魂品质
@@ -981,21 +980,6 @@ namespace proto_ff_s {
 	};
 	typedef struct E_PetTopAttributeDesc_s E_PetTopAttributeDesc_t;
 
-	struct E_PetTopStarattDesc_s : public NFDescStoreSeqOP {
-		E_PetTopStarattDesc_s();
-		virtual ~E_PetTopStarattDesc_s(){}
-		int CreateInit();
-		int ResumeInit();
-		int32_t m_value;//值
-		int32_t m_type;//ID
-
-		virtual void write_to_pbmsg(::proto_ff::E_PetTopStarattDesc & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::E_PetTopStarattDesc & msg);
-		static ::proto_ff::E_PetTopStarattDesc* new_pbmsg(){ return new ::proto_ff::E_PetTopStarattDesc(); }
-		static ::proto_ff::E_PetTopStarattDesc make_pbmsg(){ return ::proto_ff::E_PetTopStarattDesc(); }
-	};
-	typedef struct E_PetTopStarattDesc_s E_PetTopStarattDesc_t;
-
 	struct E_PetTop_s : public NFDescStoreSeqOP {
 		E_PetTop_s();
 		virtual ~E_PetTop_s(){}
@@ -1003,7 +987,6 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_topType;//突破类型
 		NFShmVector<struct E_PetTopAttributeDesc_s, DEFINE_E_PETTOP_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
-		NFShmVector<struct E_PetTopStarattDesc_s, DEFINE_E_PETTOP_M_STARATT_MAX_NUM> m_starAtt;//星级属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetTop & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PetTop & msg);

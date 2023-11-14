@@ -1322,7 +1322,6 @@ E_PetWraiths_s::E_PetWraiths_s() {
 
 int E_PetWraiths_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_name = (int32_t)0;
 	m_affix = (int32_t)0;
 	m_position = (int32_t)0;
 	m_quality = (int32_t)0;
@@ -1338,7 +1337,7 @@ int E_PetWraiths_s::ResumeInit() {
 
 void E_PetWraiths_s::write_to_pbmsg(::proto_ff::E_PetWraiths & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_name((int32_t)m_name);
+	msg.set_m_name(m_name.data());
 	msg.set_m_affix((int32_t)m_affix);
 	msg.set_m_position((int32_t)m_position);
 	msg.set_m_quality((int32_t)m_quality);
@@ -2043,34 +2042,6 @@ void E_PetTopAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_PetTopAttribut
 	m_type = msg.m_type();
 }
 
-E_PetTopStarattDesc_s::E_PetTopStarattDesc_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int E_PetTopStarattDesc_s::CreateInit() {
-	m_value = (int32_t)0;
-	m_type = (int32_t)0;
-	return 0;
-}
-
-int E_PetTopStarattDesc_s::ResumeInit() {
-	return 0;
-}
-
-void E_PetTopStarattDesc_s::write_to_pbmsg(::proto_ff::E_PetTopStarattDesc & msg) const {
-	msg.set_m_value((int32_t)m_value);
-	msg.set_m_type((int32_t)m_type);
-}
-
-void E_PetTopStarattDesc_s::read_from_pbmsg(const ::proto_ff::E_PetTopStarattDesc & msg) {
-	m_value = msg.m_value();
-	m_type = msg.m_type();
-}
-
 E_PetTop_s::E_PetTop_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -2094,10 +2065,6 @@ void E_PetTop_s::write_to_pbmsg(::proto_ff::E_PetTop & msg) const {
 		::proto_ff::E_PetTopAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
 	}
-	for(int32_t i = 0; i < (int32_t)m_starAtt.size(); ++i) {
-		::proto_ff::E_PetTopStarattDesc* temp_m_staratt = msg.add_m_staratt();
-		m_starAtt[i].write_to_pbmsg(*temp_m_staratt);
-	}
 }
 
 void E_PetTop_s::read_from_pbmsg(const ::proto_ff::E_PetTop & msg) {
@@ -2106,11 +2073,6 @@ void E_PetTop_s::read_from_pbmsg(const ::proto_ff::E_PetTop & msg) {
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_PetTopAttributeDesc & temp_m_attribute = msg.m_attribute(i);
 		m_attribute[i].read_from_pbmsg(temp_m_attribute);
-	}
-	m_starAtt.resize((int)msg.m_staratt_size() > (int)m_starAtt.max_size() ? m_starAtt.max_size() : msg.m_staratt_size());
-	for(int32_t i = 0; i < (int32_t)m_starAtt.size(); ++i) {
-		const ::proto_ff::E_PetTopStarattDesc & temp_m_staratt = msg.m_staratt(i);
-		m_starAtt[i].read_from_pbmsg(temp_m_staratt);
 	}
 }
 

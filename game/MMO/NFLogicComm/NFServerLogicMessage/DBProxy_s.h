@@ -126,6 +126,9 @@
 #define DEFINE_DAYTOTALRECHARGEDBPROTO_FETCH_LST_MAX_NUM 1
 #define DEFINE_TOTALRECHARGEDBPROTO_FETCH_LST_MAX_NUM 1
 #define DEFINE_LOGINREWARDDBPROTO_FETCH_MAX_NUM 1
+#define DEFINE_CONTIRECHARGEDBPROTO_DAY_FETCH_MAX_NUM 1
+#define DEFINE_CONTIRECHARGEDBPROTO_GEAR_FETCH_MAX_NUM 1
+#define DEFINE_LIMITSALEDBPROTO_SHOP_MAX_NUM 1
 #define DEFINE_FESTDBDATA_INFO_MAX_NUM 1
 #define DEFINE_FESTDBDATA_CLOSE_MAX_NUM 1
 #define DEFINE_SHADOWDBPROTO_FRAG_MAX_NUM 1
@@ -134,6 +137,8 @@
 #define DEFINE_ROLEDBTURNDATA_HELPER_MAX_NUM 1
 #define DEFINE_ROLEDBTURNDATA_TASKS_MAX_NUM 1
 #define DEFINE_SOULDBDATA_TASKS_MAX_NUM 1
+#define DEFINE_MOFADBDATA_DATA_MAX_NUM 1
+#define DEFINE_RUNEDBDATA_ENTRYS_MAX_NUM 1
 #define DEFINE_ROLEREDDBDATA_SEND_LST_MAX_NUM 1
 #define DEFINE_ROLEREDDBDATA_WAIT_LST_MAX_NUM 1
 #define DEFINE_ROLEREDDBDATA_TRIGGER_LST_MAX_NUM 1
@@ -1936,6 +1941,38 @@ namespace proto_ff_s {
 	};
 	typedef struct LoginRewardDBProto_s LoginRewardDBProto_t;
 
+	struct ContiRechargeDBProto_s : public NFDescStoreSeqOP {
+		ContiRechargeDBProto_s();
+		virtual ~ContiRechargeDBProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint32_t recharge;//
+		int32_t supplement;//
+		NFShmVector<struct DayFetchInfo_s, DEFINE_CONTIRECHARGEDBPROTO_DAY_FETCH_MAX_NUM> day_fetch;//
+		NFShmVector<struct GearFetchInfo_s, DEFINE_CONTIRECHARGEDBPROTO_GEAR_FETCH_MAX_NUM> gear_fetch;//
+
+		virtual void write_to_pbmsg(::proto_ff::ContiRechargeDBProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::ContiRechargeDBProto & msg);
+		static ::proto_ff::ContiRechargeDBProto* new_pbmsg(){ return new ::proto_ff::ContiRechargeDBProto(); }
+		static ::proto_ff::ContiRechargeDBProto make_pbmsg(){ return ::proto_ff::ContiRechargeDBProto(); }
+	};
+	typedef struct ContiRechargeDBProto_s ContiRechargeDBProto_t;
+
+	struct LimitSaleDBProto_s : public NFDescStoreSeqOP {
+		LimitSaleDBProto_s();
+		virtual ~LimitSaleDBProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct ShopProto_s, DEFINE_LIMITSALEDBPROTO_SHOP_MAX_NUM> shop;//
+		uint64_t fresh_time;//
+
+		virtual void write_to_pbmsg(::proto_ff::LimitSaleDBProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::LimitSaleDBProto & msg);
+		static ::proto_ff::LimitSaleDBProto* new_pbmsg(){ return new ::proto_ff::LimitSaleDBProto(); }
+		static ::proto_ff::LimitSaleDBProto make_pbmsg(){ return ::proto_ff::LimitSaleDBProto(); }
+	};
+	typedef struct LimitSaleDBProto_s LimitSaleDBProto_t;
+
 	struct FestDetailDBProto_s : public NFDescStoreSeqOP {
 		FestDetailDBProto_s();
 		virtual ~FestDetailDBProto_s(){}
@@ -1964,6 +2001,8 @@ namespace proto_ff_s {
 		struct DayTotalRechargeDBProto_s day_total_recharge;//
 		struct TotalRechargeDBProto_s total_recharge;//
 		struct LoginRewardDBProto_s login;//
+		struct ContiRechargeDBProto_s conti_recharge;//
+		struct LimitSaleDBProto_s limit_sale;//
 
 		virtual void write_to_pbmsg(::proto_ff::FestDetailDBProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::FestDetailDBProto & msg);
@@ -2091,6 +2130,34 @@ namespace proto_ff_s {
 	};
 	typedef struct SoulDBData_s SoulDBData_t;
 
+	struct MoFaDBData_s : public NFDescStoreSeqOP {
+		MoFaDBData_s();
+		virtual ~MoFaDBData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct MoFaEquipInfo_s, DEFINE_MOFADBDATA_DATA_MAX_NUM> data;//
+
+		virtual void write_to_pbmsg(::proto_ff::MoFaDBData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::MoFaDBData & msg);
+		static ::proto_ff::MoFaDBData* new_pbmsg(){ return new ::proto_ff::MoFaDBData(); }
+		static ::proto_ff::MoFaDBData make_pbmsg(){ return ::proto_ff::MoFaDBData(); }
+	};
+	typedef struct MoFaDBData_s MoFaDBData_t;
+
+	struct RuneDBData_s : public NFDescStoreSeqOP {
+		RuneDBData_s();
+		virtual ~RuneDBData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct RuneEntry_s, DEFINE_RUNEDBDATA_ENTRYS_MAX_NUM> entrys;//
+
+		virtual void write_to_pbmsg(::proto_ff::RuneDBData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::RuneDBData & msg);
+		static ::proto_ff::RuneDBData* new_pbmsg(){ return new ::proto_ff::RuneDBData(); }
+		static ::proto_ff::RuneDBData make_pbmsg(){ return ::proto_ff::RuneDBData(); }
+	};
+	typedef struct RuneDBData_s RuneDBData_t;
+
 	struct RoleDBData_s : public NFDescStoreSeqOP {
 		RoleDBData_s();
 		virtual ~RoleDBData_s(){}
@@ -2148,6 +2215,8 @@ namespace proto_ff_s {
 		struct RoleDBTurnData_s turn;//
 		struct GMADbData_s gma_datas;//
 		struct SoulDBData_s soul;//
+		struct MoFaDBData_s mofa;//
+		struct RuneDBData_s rune;//
 
 		virtual void write_to_pbmsg(::proto_ff::RoleDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::RoleDBData & msg);
@@ -2294,6 +2363,7 @@ namespace proto_ff_s {
 		NFShmVector<struct BestEQEquipInfo_s, DEFINE_ROLEMIRRORDATA_BEAST_EQUIPS_MAX_NUM> beast_equips;//
 		NFShmVector<struct BestEQSlotInfo_s, DEFINE_ROLEMIRRORDATA_BEAST_SLOTS_MAX_NUM> beast_slots;//
 		int32_t campid;//
+		int32_t relive;//
 
 		virtual void write_to_pbmsg(::proto_ff::RoleMirrorData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::RoleMirrorData & msg);

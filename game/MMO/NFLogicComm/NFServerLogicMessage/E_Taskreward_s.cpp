@@ -39,6 +39,7 @@ E_TaskrewardTaskrewardItemDesc_s::E_TaskrewardTaskrewardItemDesc_s() {
 }
 
 int E_TaskrewardTaskrewardItemDesc_s::CreateInit() {
+	m_box = (int32_t)0;
 	m_prof = (int32_t)0;
 	m_bind = (int32_t)0;
 	m_val = (int32_t)0;
@@ -51,6 +52,7 @@ int E_TaskrewardTaskrewardItemDesc_s::ResumeInit() {
 }
 
 void E_TaskrewardTaskrewardItemDesc_s::write_to_pbmsg(::proto_ff::E_TaskrewardTaskrewardItemDesc & msg) const {
+	msg.set_m_box((int32_t)m_box);
 	msg.set_m_prof((int32_t)m_prof);
 	msg.set_m_bind((int32_t)m_bind);
 	msg.set_m_val((int32_t)m_val);
@@ -58,6 +60,7 @@ void E_TaskrewardTaskrewardItemDesc_s::write_to_pbmsg(::proto_ff::E_TaskrewardTa
 }
 
 void E_TaskrewardTaskrewardItemDesc_s::read_from_pbmsg(const ::proto_ff::E_TaskrewardTaskrewardItemDesc & msg) {
+	m_box = msg.m_box();
 	m_prof = msg.m_prof();
 	m_bind = msg.m_bind();
 	m_val = msg.m_val();

@@ -61,107 +61,6 @@ void Sheet_BossRareitem_s::read_from_pbmsg(const ::proto_ff::Sheet_BossRareitem 
 	}
 }
 
-E_BossBoss_s::E_BossBoss_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int E_BossBoss_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_bossType = (int32_t)0;
-	m_monsterID = (int32_t)0;
-	m_classOrder = (int32_t)0;
-	m_sceneOrder = (int32_t)0;
-	m_duplicateID = (int32_t)0;
-	m_peaceMask = (int32_t)0;
-	m_pointID = (int32_t)0;
-	m_flashNum = (int32_t)0;
-	m_group_type = (int32_t)0;
-	m_ishide = (int32_t)0;
-	m_triggerPro = (int32_t)0;
-	m_flashTime = (int32_t)0;
-	m_retrieveGiftID = (int32_t)0;
-	m_noTimes = (int32_t)0;
-	m_assistPrestige = (int32_t)0;
-	return 0;
-}
-
-int E_BossBoss_s::ResumeInit() {
-	return 0;
-}
-
-void E_BossBoss_s::write_to_pbmsg(::proto_ff::E_BossBoss & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_bosstype((int32_t)m_bossType);
-	msg.set_m_monsterid((int32_t)m_monsterID);
-	msg.set_m_classorder((int32_t)m_classOrder);
-	msg.set_m_sceneorder((int32_t)m_sceneOrder);
-	msg.set_m_duplicateid((int32_t)m_duplicateID);
-	msg.set_m_peacemask((int32_t)m_peaceMask);
-	msg.set_m_pointid((int32_t)m_pointID);
-	msg.set_m_flashnum((int32_t)m_flashNum);
-	msg.set_m_group_type((int32_t)m_group_type);
-	msg.set_m_ishide((int32_t)m_ishide);
-	msg.set_m_triggerpro((int32_t)m_triggerPro);
-	msg.set_m_flashtime((int32_t)m_flashTime);
-	msg.set_m_retrievegiftid((int32_t)m_retrieveGiftID);
-	msg.set_m_notimes((int32_t)m_noTimes);
-	msg.set_m_assistprestige((int32_t)m_assistPrestige);
-}
-
-void E_BossBoss_s::read_from_pbmsg(const ::proto_ff::E_BossBoss & msg) {
-	m_id = msg.m_id();
-	m_bossType = msg.m_bosstype();
-	m_monsterID = msg.m_monsterid();
-	m_classOrder = msg.m_classorder();
-	m_sceneOrder = msg.m_sceneorder();
-	m_duplicateID = msg.m_duplicateid();
-	m_peaceMask = msg.m_peacemask();
-	m_pointID = msg.m_pointid();
-	m_flashNum = msg.m_flashnum();
-	m_group_type = msg.m_group_type();
-	m_ishide = msg.m_ishide();
-	m_triggerPro = msg.m_triggerpro();
-	m_flashTime = msg.m_flashtime();
-	m_retrieveGiftID = msg.m_retrievegiftid();
-	m_noTimes = msg.m_notimes();
-	m_assistPrestige = msg.m_assistprestige();
-}
-
-Sheet_BossBoss_s::Sheet_BossBoss_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int Sheet_BossBoss_s::CreateInit() {
-	return 0;
-}
-
-int Sheet_BossBoss_s::ResumeInit() {
-	return 0;
-}
-
-void Sheet_BossBoss_s::write_to_pbmsg(::proto_ff::Sheet_BossBoss & msg) const {
-	for(int32_t i = 0; i < (int32_t)E_BossBoss_List.size(); ++i) {
-		::proto_ff::E_BossBoss* temp_e_bossboss_list = msg.add_e_bossboss_list();
-		E_BossBoss_List[i].write_to_pbmsg(*temp_e_bossboss_list);
-	}
-}
-
-void Sheet_BossBoss_s::read_from_pbmsg(const ::proto_ff::Sheet_BossBoss & msg) {
-	E_BossBoss_List.resize((int)msg.e_bossboss_list_size() > (int)E_BossBoss_List.max_size() ? E_BossBoss_List.max_size() : msg.e_bossboss_list_size());
-	for(int32_t i = 0; i < (int32_t)E_BossBoss_List.size(); ++i) {
-		const ::proto_ff::E_BossBoss & temp_e_bossboss_list = msg.e_bossboss_list(i);
-		E_BossBoss_List[i].read_from_pbmsg(temp_e_bossboss_list);
-	}
-}
-
 E_BossBosstypeGroupDesc_s::E_BossBosstypeGroupDesc_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -293,6 +192,107 @@ void Sheet_BossBosstype_s::read_from_pbmsg(const ::proto_ff::Sheet_BossBosstype 
 	for(int32_t i = 0; i < (int32_t)E_BossBosstype_List.size(); ++i) {
 		const ::proto_ff::E_BossBosstype & temp_e_bossbosstype_list = msg.e_bossbosstype_list(i);
 		E_BossBosstype_List[i].read_from_pbmsg(temp_e_bossbosstype_list);
+	}
+}
+
+E_BossBoss_s::E_BossBoss_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_BossBoss_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_bossType = (int32_t)0;
+	m_monsterID = (int32_t)0;
+	m_classOrder = (int32_t)0;
+	m_sceneOrder = (int32_t)0;
+	m_duplicateID = (int32_t)0;
+	m_peaceMask = (int32_t)0;
+	m_pointID = (int32_t)0;
+	m_flashNum = (int32_t)0;
+	m_group_type = (int32_t)0;
+	m_ishide = (int32_t)0;
+	m_triggerPro = (int32_t)0;
+	m_flashTime = (int32_t)0;
+	m_retrieveGiftID = (int32_t)0;
+	m_noTimes = (int32_t)0;
+	m_assistPrestige = (int32_t)0;
+	return 0;
+}
+
+int E_BossBoss_s::ResumeInit() {
+	return 0;
+}
+
+void E_BossBoss_s::write_to_pbmsg(::proto_ff::E_BossBoss & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_bosstype((int32_t)m_bossType);
+	msg.set_m_monsterid((int32_t)m_monsterID);
+	msg.set_m_classorder((int32_t)m_classOrder);
+	msg.set_m_sceneorder((int32_t)m_sceneOrder);
+	msg.set_m_duplicateid((int32_t)m_duplicateID);
+	msg.set_m_peacemask((int32_t)m_peaceMask);
+	msg.set_m_pointid((int32_t)m_pointID);
+	msg.set_m_flashnum((int32_t)m_flashNum);
+	msg.set_m_group_type((int32_t)m_group_type);
+	msg.set_m_ishide((int32_t)m_ishide);
+	msg.set_m_triggerpro((int32_t)m_triggerPro);
+	msg.set_m_flashtime((int32_t)m_flashTime);
+	msg.set_m_retrievegiftid((int32_t)m_retrieveGiftID);
+	msg.set_m_notimes((int32_t)m_noTimes);
+	msg.set_m_assistprestige((int32_t)m_assistPrestige);
+}
+
+void E_BossBoss_s::read_from_pbmsg(const ::proto_ff::E_BossBoss & msg) {
+	m_id = msg.m_id();
+	m_bossType = msg.m_bosstype();
+	m_monsterID = msg.m_monsterid();
+	m_classOrder = msg.m_classorder();
+	m_sceneOrder = msg.m_sceneorder();
+	m_duplicateID = msg.m_duplicateid();
+	m_peaceMask = msg.m_peacemask();
+	m_pointID = msg.m_pointid();
+	m_flashNum = msg.m_flashnum();
+	m_group_type = msg.m_group_type();
+	m_ishide = msg.m_ishide();
+	m_triggerPro = msg.m_triggerpro();
+	m_flashTime = msg.m_flashtime();
+	m_retrieveGiftID = msg.m_retrievegiftid();
+	m_noTimes = msg.m_notimes();
+	m_assistPrestige = msg.m_assistprestige();
+}
+
+Sheet_BossBoss_s::Sheet_BossBoss_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_BossBoss_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_BossBoss_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_BossBoss_s::write_to_pbmsg(::proto_ff::Sheet_BossBoss & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_BossBoss_List.size(); ++i) {
+		::proto_ff::E_BossBoss* temp_e_bossboss_list = msg.add_e_bossboss_list();
+		E_BossBoss_List[i].write_to_pbmsg(*temp_e_bossboss_list);
+	}
+}
+
+void Sheet_BossBoss_s::read_from_pbmsg(const ::proto_ff::Sheet_BossBoss & msg) {
+	E_BossBoss_List.resize((int)msg.e_bossboss_list_size() > (int)E_BossBoss_List.max_size() ? E_BossBoss_List.max_size() : msg.e_bossboss_list_size());
+	for(int32_t i = 0; i < (int32_t)E_BossBoss_List.size(); ++i) {
+		const ::proto_ff::E_BossBoss & temp_e_bossboss_list = msg.e_bossboss_list(i);
+		E_BossBoss_List[i].read_from_pbmsg(temp_e_bossboss_list);
 	}
 }
 

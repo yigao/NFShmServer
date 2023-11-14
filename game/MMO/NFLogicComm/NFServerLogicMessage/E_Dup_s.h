@@ -258,6 +258,7 @@ namespace proto_ff_s {
 		int32_t m_maxLevel;//玩家等极上限
 		int32_t m_killNumber;//杀怪标准数量
 		int32_t m_monstervaluetype;//怪物数值类型
+		int32_t m_monstervalueParam;//怪物数值类型
 
 		virtual void write_to_pbmsg(::proto_ff::E_DupSweepmonsternum & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_DupSweepmonsternum & msg);

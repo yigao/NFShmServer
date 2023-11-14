@@ -189,36 +189,45 @@ class E_TaskrewardTaskrewardItemDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_prof = 1;
+  // optional int32 m_box = 1;
+  inline bool has_m_box() const;
+  inline void clear_m_box();
+  static const int kMBoxFieldNumber = 1;
+  inline ::google::protobuf::int32 m_box() const;
+  inline void set_m_box(::google::protobuf::int32 value);
+
+  // optional int32 m_prof = 2;
   inline bool has_m_prof() const;
   inline void clear_m_prof();
-  static const int kMProfFieldNumber = 1;
+  static const int kMProfFieldNumber = 2;
   inline ::google::protobuf::int32 m_prof() const;
   inline void set_m_prof(::google::protobuf::int32 value);
 
-  // optional int32 m_bind = 2;
+  // optional int32 m_bind = 3;
   inline bool has_m_bind() const;
   inline void clear_m_bind();
-  static const int kMBindFieldNumber = 2;
+  static const int kMBindFieldNumber = 3;
   inline ::google::protobuf::int32 m_bind() const;
   inline void set_m_bind(::google::protobuf::int32 value);
 
-  // optional int32 m_val = 3;
+  // optional int32 m_val = 4;
   inline bool has_m_val() const;
   inline void clear_m_val();
-  static const int kMValFieldNumber = 3;
+  static const int kMValFieldNumber = 4;
   inline ::google::protobuf::int32 m_val() const;
   inline void set_m_val(::google::protobuf::int32 value);
 
-  // optional int64 m_id = 4;
+  // optional int64 m_id = 5;
   inline bool has_m_id() const;
   inline void clear_m_id();
-  static const int kMIdFieldNumber = 4;
+  static const int kMIdFieldNumber = 5;
   inline ::google::protobuf::int64 m_id() const;
   inline void set_m_id(::google::protobuf::int64 value);
 
   // @@protoc_insertion_point(class_scope:proto_ff.E_TaskrewardTaskrewardItemDesc)
  private:
+  inline void set_has_m_box();
+  inline void clear_has_m_box();
   inline void set_has_m_prof();
   inline void clear_has_m_prof();
   inline void set_has_m_bind();
@@ -230,13 +239,14 @@ class E_TaskrewardTaskrewardItemDesc : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
+  ::google::protobuf::int32 m_box_;
   ::google::protobuf::int32 m_prof_;
   ::google::protobuf::int32 m_bind_;
-  ::google::protobuf::int64 m_id_;
   ::google::protobuf::int32 m_val_;
+  ::google::protobuf::int64 m_id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fTaskreward_2eproto();
   friend void protobuf_AssignDesc_E_5fTaskreward_2eproto();
@@ -710,15 +720,37 @@ inline void E_TaskrewardTaskrewardAttrDesc::set_m_id(::google::protobuf::int64 v
 
 // E_TaskrewardTaskrewardItemDesc
 
-// optional int32 m_prof = 1;
-inline bool E_TaskrewardTaskrewardItemDesc::has_m_prof() const {
+// optional int32 m_box = 1;
+inline bool E_TaskrewardTaskrewardItemDesc::has_m_box() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void E_TaskrewardTaskrewardItemDesc::set_has_m_prof() {
+inline void E_TaskrewardTaskrewardItemDesc::set_has_m_box() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void E_TaskrewardTaskrewardItemDesc::clear_has_m_prof() {
+inline void E_TaskrewardTaskrewardItemDesc::clear_has_m_box() {
   _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_TaskrewardTaskrewardItemDesc::clear_m_box() {
+  m_box_ = 0;
+  clear_has_m_box();
+}
+inline ::google::protobuf::int32 E_TaskrewardTaskrewardItemDesc::m_box() const {
+  return m_box_;
+}
+inline void E_TaskrewardTaskrewardItemDesc::set_m_box(::google::protobuf::int32 value) {
+  set_has_m_box();
+  m_box_ = value;
+}
+
+// optional int32 m_prof = 2;
+inline bool E_TaskrewardTaskrewardItemDesc::has_m_prof() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_TaskrewardTaskrewardItemDesc::set_has_m_prof() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_TaskrewardTaskrewardItemDesc::clear_has_m_prof() {
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void E_TaskrewardTaskrewardItemDesc::clear_m_prof() {
   m_prof_ = 0;
@@ -732,15 +764,15 @@ inline void E_TaskrewardTaskrewardItemDesc::set_m_prof(::google::protobuf::int32
   m_prof_ = value;
 }
 
-// optional int32 m_bind = 2;
+// optional int32 m_bind = 3;
 inline bool E_TaskrewardTaskrewardItemDesc::has_m_bind() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void E_TaskrewardTaskrewardItemDesc::set_has_m_bind() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void E_TaskrewardTaskrewardItemDesc::clear_has_m_bind() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void E_TaskrewardTaskrewardItemDesc::clear_m_bind() {
   m_bind_ = 0;
@@ -754,15 +786,15 @@ inline void E_TaskrewardTaskrewardItemDesc::set_m_bind(::google::protobuf::int32
   m_bind_ = value;
 }
 
-// optional int32 m_val = 3;
+// optional int32 m_val = 4;
 inline bool E_TaskrewardTaskrewardItemDesc::has_m_val() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void E_TaskrewardTaskrewardItemDesc::set_has_m_val() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void E_TaskrewardTaskrewardItemDesc::clear_has_m_val() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void E_TaskrewardTaskrewardItemDesc::clear_m_val() {
   m_val_ = 0;
@@ -776,15 +808,15 @@ inline void E_TaskrewardTaskrewardItemDesc::set_m_val(::google::protobuf::int32 
   m_val_ = value;
 }
 
-// optional int64 m_id = 4;
+// optional int64 m_id = 5;
 inline bool E_TaskrewardTaskrewardItemDesc::has_m_id() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void E_TaskrewardTaskrewardItemDesc::set_has_m_id() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void E_TaskrewardTaskrewardItemDesc::clear_has_m_id() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void E_TaskrewardTaskrewardItemDesc::clear_m_id() {
   m_id_ = GOOGLE_LONGLONG(0);

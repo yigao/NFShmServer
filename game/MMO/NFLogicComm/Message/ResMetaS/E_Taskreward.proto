@@ -11,10 +11,11 @@ message E_TaskrewardTaskrewardAttrDesc
 
 message E_TaskrewardTaskrewardItemDesc
 {
-	optional int32 m_prof = 1[(yd_fieldoptions.field_cname) = "职业"];
-	optional int32 m_bind = 2[(yd_fieldoptions.field_cname) = "绑定"];
-	optional int32 m_val = 3[(yd_fieldoptions.field_cname) = "数量"];
-	optional int64 m_id = 4[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_box = 1[(yd_fieldoptions.field_cname) = "掉落"];
+	optional int32 m_prof = 2[(yd_fieldoptions.field_cname) = "职业"];
+	optional int32 m_bind = 3[(yd_fieldoptions.field_cname) = "绑定"];
+	optional int32 m_val = 4[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 m_id = 5[(yd_fieldoptions.field_cname) = "id"];
 }
 
 message E_TaskrewardTaskreward

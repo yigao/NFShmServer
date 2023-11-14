@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Facade_s.h"
 
-#define MAX_FACADE_SOUL_NUM 4
+#define MAX_FACADE_SOUL_NUM 8
 
 class FacadeSoulDesc : public NFIDescTemplate<FacadeSoulDesc, proto_ff_s::E_FacadeSoul_s, EOT_CONST_FACADE_SOUL_DESC_ID, MAX_FACADE_SOUL_NUM>
 {

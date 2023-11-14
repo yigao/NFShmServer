@@ -267,6 +267,7 @@ enum EAttrGroup
 	EAttrGroup_Star = 25;			//不灭星辰
 	EAttrGroup_Turn = 26;			//神体装备
 	EAttrGroup_Soul = 27;			//战魂
+	EAttrGroup_Rune = 28;			//符文
 }
 
 enum GrowType
@@ -507,7 +508,7 @@ enum ECreatureAttr
 	A_ST_EVOLVE_ADD				= 186;	//神体装备装备部位的进化基础属性加成
 	A_ST_SPEC_ADD				= 187;	//神体装备装备部位的特殊属性加成
 	A_PET_GROW_BASE_ADD			= 188;	//宠物专属基础加成
-
+	A_RUNE_BASE_ADD				= 189;	//符文本部位基础加成
 	A_FIGHT_END = 200;			//战斗属性结束ID
 	
 	A_GOLD = 201;				//金币
@@ -557,6 +558,7 @@ enum ECreatureAttr
 	A_GOD_META_EXP			= 244;//神元经验
 	A_GOD_META_EXP_ADD 		= 245;//神元经验加成
 	A_HUN_LING				= 246; //魂灵
+	A_FUWEN_MONEY			= 247; //符文精粹
 	//常规属性结束ID
 	A_COMMON_END = 400;			//常规属性结束ID
 }
@@ -587,6 +589,65 @@ message BlueStarAttr
 	optional int32  lv_part = 3;	//每个间隔所加属性值 
 }
 
+//宠物信息
+message PetInfo
+{
+	optional int32 instId = 1;			 //实体id
+	optional int64 cfgid = 2;			 //配置ID
+	optional int32 lv = 3;				 //宠物等级
+	optional int32 steplv = 4;			 //阶级
+	optional int32 starlv = 5;			 //星级
+	optional int32 activeSkillLv = 6;	 //主动技能等级
+	repeated int32 exclusiveSkillLvVec = 7; //专属技能等级
+	repeated int32 passiveSkillLvVec = 8;	 //被动技能等级
+	optional float initgrow = 9;		 //初始资质
+	optional int32 slot = 10;			 //上阵的槽位 1-5
+	optional int32 lvexp = 11;			 //宠物升级经验
+}
+//宠物槽位信息
+message PetHatchInfo
+{
+	optional int32 slot = 1; 	//0-4
+	optional int32 unlock = 2;  //0:未解锁，1已解锁
+	optional int64 eggid = 3;	//蛋的物品id
+	optional int64 time = 4;	//孵化时间
+}
+//宠物专属养成
+message PetGrow
+{
+	optional int32 cfgid = 1;  	   //宠物配置id
+	optional int32 stronglv = 2;   //强化等級 (默认0级)
+	optional int32 starlv = 3; 	   //升星等级 (默认0星)
+	optional int32 starindex = 4; //星级默认选中索引(1) starValue 表 advance_Type 数组下标。
+}
+//宠物妖魂装备
+message PetYaoHunSlot
+{
+	optional int32		   slot_pos = 1; //槽位，对应装备的位置(1-4)
+	optional int32 		   lv = 2; 		 //等级(等級属性)
+	optional int32 		   exp = 3;		 //等级经验值
+	optional int32 		   step = 4;	 //多少阶(主要用升級中进阶用,step和lv配合读表)
+	optional ItemProtoInfo equip = 5;	 //装备数据 突破属性条数就是突破等级
+}
+//妖魂信息
+message PetYaoHunEntry
+{
+	optional int32 fight_pos = 1; 		//出站位置1-5(对应出站宠物槽位)
+	optional int32 is_unlock = 2;		//是否解锁 1：解锁
+	repeated PetYaoHunSlot infos = 3; 	//4件装备
+	repeated int32 suitids = 4;			//已激活的套装ids
+}
+//妖魂模块数据
+message PetYaoHunModule
+{
+	repeated PetYaoHunEntry entrys = 1;		//宠物妖魂（5个妖魂全发)
+	optional int32 	lianyao_tq_flag =2; 	//炼妖特权标记 0:沒有购买特权 1：已购买特权
+	optional int32  yaolu_lv = 3;			//妖炉等级
+	optional int32  yaolu_exp = 4;			//妖炉经验
+	optional int32 	yaoqi = 5;				//妖气值
+}
+
+
 message TurnAttr
 {
 	repeated int32  com_pos = 1;	//激活的普通属性位置 
@@ -606,8 +667,8 @@ message ItemProtoInfo
 	repeated BlueStarAttr	blue						= 8;		//蓝星属性((仙品属性 不带★)
 	repeated Attr 			god							= 9;		//仙尊属性(神兽装备黄星属性 带★)
 	optional uint64			expireTime					= 10;		//过期时间
-	optional int32 			strong_lv 					= 11;		//强化等级(给 天神神饰装备 神兽装备 不灭星辰用  坐骑化鲲装备用)(神魔装备)
-	optional int32 			strong_wear_quality 		= 12; 		//强化阶级(给 天神神饰装备 神兽装备 不灭星辰用  坐骑化鲲装备用)(神魔装备)
+	optional int32 			strong_lv 					= 11;		//强化等级(给 天神神饰装备 神兽装备 不灭星辰用  坐骑化鲲装备用)(神魔装备)(符文等级)
+	optional int32 			strong_wear_quality 		= 12; 		//强化阶级(给 天神神饰装备 神兽装备 不灭星辰用  坐骑化鲲装备用)(神魔装备)(符文阶级)
 	optional int32 			strong_exp 					= 13; 		//强化等级经验(神兽装备 不灭星辰用 坐骑化鲲装备当做突破的经验)
 	optional int32 			spec_lv 					= 14;		//真炼等级
 	optional int32			strong_wear_quality_exp		= 15;		//强化阶级经验(给龙魂 不灭星辰用 坐骑化鲲装备当做突破星星的数目)(神魔装备)
@@ -620,7 +681,7 @@ message ItemProtoInfo
 	optional bytes			make_name					= 22;		//装备打造者名字(神魔装备)
 	optional int32			savvy						= 23;		//神品悟性(神魔装备)
 	repeated ComPair64		skill						= 24;		//装备技能(神魔装备) skllid - level
-	optional int32 			evolve_lv					= 25;		//进化等级(神体装备)
+	optional int32 			evolve_lv					= 25;		//进化等级(神体装备,符文飞升等级)
 	optional int32 			awaken_lv					= 26;		//觉醒等级(坐骑化鲲装备里的突破)
 	optional TurnAttr		turn_attr					= 27;		//记录神体激活属性的位置
 	optional int64 			item_chg_count				= 28;		//道具数量变更
@@ -708,63 +769,7 @@ message MultItemSimpleProto
 	repeated ItemSimpleProto info = 1; //奖励物品
 }
 
-//宠物信息
-message PetInfo
-{
-	optional int32 instId = 1;			 //实体id
-	optional int64 cfgid = 2;			 //配置ID
-	optional int32 lv = 3;				 //宠物等级
-	optional int32 steplv = 4;			 //阶级
-	optional int32 starlv = 5;			 //星级
-	optional int32 activeSkillLv = 6;	 //主动技能等级
-	repeated int32 exclusiveSkillLvVec = 7; //专属技能等级
-	repeated int32 passiveSkillLvVec = 8;	 //被动技能等级
-	optional float initgrow = 9;		 //初始资质
-	optional int32 slot = 10;			 //上阵的槽位 1-5
-	optional int32 lvexp = 11;			 //宠物升级经验
-}
-//宠物槽位信息
-message PetHatchInfo
-{
-	optional int32 slot = 1; 	//0-4
-	optional int32 unlock = 2;  //0:未解锁，1已解锁
-	optional int64 eggid = 3;	//蛋的物品id
-	optional int64 time = 4;	//孵化时间
-}
-//宠物专属养成
-message PetGrow
-{
-	optional int32 cfgid = 1;  	   //宠物配置id
-	optional int32 stronglv = 2;   //强化等級 (默认0级)
-	optional int32 starlv = 3; 	   //升星等级 (默认0星)
-	optional int32 starindex = 4; //星级默认选中索引(1) starValue 表 advance_Type 数组下标。
-}
-//宠物妖魂装备
-message PetYaoHunSlot
-{
-	optional int32		   slot_pos = 1; //槽位，对应装备的位置(1-4)
-	optional int32 		   lv = 2; 		 //等级(等級属性)
-	optional int32 		   exp = 3;		 //等级经验值
-	optional int32 		   step = 4;	 //多少阶(主要用升級中进阶用,step和lv配合读表)
-	optional ItemProtoInfo equip = 5;	 //装备数据 突破属性条数就是突破等级
-}
-//妖魂信息
-message PetYaoHunEntry
-{
-	optional int32 fight_pos = 1; 		//出站位置1-5(对应出站宠物槽位)
-	optional int32 is_unlock = 2;		//是否解锁 1：解锁
-	repeated PetYaoHunSlot infos = 3; 	//4件装备
-	repeated int32 suitids = 4;			//已激活的套装ids
-}
-//妖魂模块数据
-message PetYaoHunModule
-{
-	repeated PetYaoHunEntry entrys = 1;		//宠物妖魂（5个妖魂全发)
-	optional int32 	lianyao_tq_flag =2; 	//炼妖特权标记 0:沒有购买特权 1：已购买特权
-	optional int32  yaolu_lv = 3;			//妖炉等级
-	optional int32  yaolu_exp = 4;			//妖炉经验
-	optional int32 	yaoqi = 5;				//妖气值
-}
+
 /////////////////////////////Mail/////////////////////////////////////////////////
 
 //邮件参数
@@ -3054,3 +3059,47 @@ message SoulPool
 	optional int32 poolBlessLv = 1;
 	optional int32 poolPgLv = 2;
 }
+
+
+
+//奇门八卦
+//穿戴的装备信息 (本身的装备+槽位信息)
+message MoFaEquipProtoInfo
+{
+	optional ItemProtoInfo equip = 1;
+	optional uint32 pos = 2;
+}
+
+//穿戴的装备信息 (本身的装备+槽位信息)
+message MoFaEquipInfo
+{
+	optional int32		   pos = 1;
+	repeated MoFaEquipProtoInfo equip = 2;
+	optional EquipSlotInfo slot = 3;
+	optional uint32				status = 4; //0:未解锁 1:已经解锁
+	optional bool is_zufu = 5; //是否祝福过
+}
+//===========符文========
+message RuneWordInfo //符文之语信息
+{
+	optional int32 word_pos= 1; //符文之语信息
+	optional int32 fengyin_flag = 2; //是否封印
+	optional int32 word_item = 3;	 //符文之语物品
+	optional int32 word_star = 4; 	//星级 （0星开始,对应技能等级1级) 技能等级=星级+1
+}
+
+message RuneSlot
+{
+	optional int32 slot_pos = 1; 		// 1-6
+	optional ItemProtoInfo rune = 2; 	// 符文信息，包括符文等级，符文阶级
+	repeated RuneWordInfo words = 3;	// 符文之语信息
+}
+
+message RuneEntry
+{
+	optional int32 equip_pos = 1; 		//装备位置 8,9,10
+	repeated RuneSlot slots = 2;		//该装备镶嵌的符文 1-6
+	optional int32	 bd_id = 3; 	//激活的被动id ,沒有为0， 
+	optional int32  jueji_id = 4; //激活的绝技技能id(手动激活，如果换符文导致绝技失效id =0)
+}
+//===========符文========

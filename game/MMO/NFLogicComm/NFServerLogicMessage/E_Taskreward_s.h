@@ -36,6 +36,7 @@ namespace proto_ff_s {
 		virtual ~E_TaskrewardTaskrewardItemDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
+		int32_t m_box;//掉落
 		int32_t m_prof;//职业
 		int32_t m_bind;//绑定
 		int32_t m_val;//数量

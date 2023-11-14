@@ -4251,6 +4251,27 @@ class PetLianYaoRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 yaohun_add() const;
   inline void set_yaohun_add(::google::protobuf::int32 value);
 
+  // optional int32 fin_exp = 6;
+  inline bool has_fin_exp() const;
+  inline void clear_fin_exp();
+  static const int kFinExpFieldNumber = 6;
+  inline ::google::protobuf::int32 fin_exp() const;
+  inline void set_fin_exp(::google::protobuf::int32 value);
+
+  // optional int32 fin_lv = 7;
+  inline bool has_fin_lv() const;
+  inline void clear_fin_lv();
+  static const int kFinLvFieldNumber = 7;
+  inline ::google::protobuf::int32 fin_lv() const;
+  inline void set_fin_lv(::google::protobuf::int32 value);
+
+  // optional int32 last_lv = 8;
+  inline bool has_last_lv() const;
+  inline void clear_last_lv();
+  static const int kLastLvFieldNumber = 8;
+  inline ::google::protobuf::int32 last_lv() const;
+  inline void set_last_lv(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.PetLianYaoRsp)
  private:
   inline void set_has_ret();
@@ -4261,6 +4282,12 @@ class PetLianYaoRsp : public ::google::protobuf::Message {
   inline void clear_has_yaolu_exp_flag();
   inline void set_has_yaohun_add();
   inline void clear_has_yaohun_add();
+  inline void set_has_fin_exp();
+  inline void clear_has_fin_exp();
+  inline void set_has_fin_lv();
+  inline void clear_has_fin_lv();
+  inline void set_has_last_lv();
+  inline void clear_has_last_lv();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -4269,9 +4296,12 @@ class PetLianYaoRsp : public ::google::protobuf::Message {
   ::google::protobuf::int32 yaolu_add_exp_;
   ::google::protobuf::int32 yaolu_exp_flag_;
   ::google::protobuf::int32 yaohun_add_;
+  ::google::protobuf::int32 fin_exp_;
+  ::google::protobuf::int32 fin_lv_;
+  ::google::protobuf::int32 last_lv_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
 
   friend void  protobuf_AddDesc_Pet_2eproto();
   friend void protobuf_AssignDesc_Pet_2eproto();
@@ -7902,6 +7932,72 @@ inline ::google::protobuf::int32 PetLianYaoRsp::yaohun_add() const {
 inline void PetLianYaoRsp::set_yaohun_add(::google::protobuf::int32 value) {
   set_has_yaohun_add();
   yaohun_add_ = value;
+}
+
+// optional int32 fin_exp = 6;
+inline bool PetLianYaoRsp::has_fin_exp() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void PetLianYaoRsp::set_has_fin_exp() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void PetLianYaoRsp::clear_has_fin_exp() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void PetLianYaoRsp::clear_fin_exp() {
+  fin_exp_ = 0;
+  clear_has_fin_exp();
+}
+inline ::google::protobuf::int32 PetLianYaoRsp::fin_exp() const {
+  return fin_exp_;
+}
+inline void PetLianYaoRsp::set_fin_exp(::google::protobuf::int32 value) {
+  set_has_fin_exp();
+  fin_exp_ = value;
+}
+
+// optional int32 fin_lv = 7;
+inline bool PetLianYaoRsp::has_fin_lv() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void PetLianYaoRsp::set_has_fin_lv() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void PetLianYaoRsp::clear_has_fin_lv() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void PetLianYaoRsp::clear_fin_lv() {
+  fin_lv_ = 0;
+  clear_has_fin_lv();
+}
+inline ::google::protobuf::int32 PetLianYaoRsp::fin_lv() const {
+  return fin_lv_;
+}
+inline void PetLianYaoRsp::set_fin_lv(::google::protobuf::int32 value) {
+  set_has_fin_lv();
+  fin_lv_ = value;
+}
+
+// optional int32 last_lv = 8;
+inline bool PetLianYaoRsp::has_last_lv() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void PetLianYaoRsp::set_has_last_lv() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void PetLianYaoRsp::clear_has_last_lv() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void PetLianYaoRsp::clear_last_lv() {
+  last_lv_ = 0;
+  clear_has_last_lv();
+}
+inline ::google::protobuf::int32 PetLianYaoRsp::last_lv() const {
+  return last_lv_;
+}
+inline void PetLianYaoRsp::set_last_lv(::google::protobuf::int32 value) {
+  set_has_last_lv();
+  last_lv_ = value;
 }
 
 // -------------------------------------------------------------------

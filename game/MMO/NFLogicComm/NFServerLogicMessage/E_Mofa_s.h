@@ -11,18 +11,18 @@
 #define DEFINE_E_MOFASETUP_M_ZF_MAX_NUM 3
 #define DEFINE_SHEET_MOFASETUP_E_MOFASETUP_LIST_MAX_NUM 16
 #define DEFINE_E_MOFAYUANSU_M_ATTRIBUTE_MAX_NUM 2
-#define DEFINE_E_MOFAYUANSU_M_AWAKEN_MAX_NUM 6
+#define DEFINE_E_MOFAYUANSU_M_AWAKEN_MAX_NUM 10
 #define DEFINE_SHEET_MOFAYUANSU_E_MOFAYUANSU_LIST_MAX_NUM 64
 #define DEFINE_SHEET_MOFADECOMPOSE_E_MOFADECOMPOSE_LIST_MAX_NUM 8
 #define DEFINE_SHEET_MOFALVEXP_E_MOFALVEXP_LIST_MAX_NUM 128
 #define DEFINE_E_MOFALVATT_M_ATT_MAX_NUM 100
 #define DEFINE_SHEET_MOFALVATT_E_MOFALVATT_LIST_MAX_NUM 128
-#define DEFINE_E_MOFAZYATT_M_ZY_MAX_NUM 2
+#define DEFINE_E_MOFAZYATT_M_ZY_MAX_NUM 3
 #define DEFINE_SHEET_MOFAZYATT_E_MOFAZYATT_LIST_MAX_NUM 32
 #define DEFINE_E_MOFAZYJXATT_M_ZYJX_MAX_NUM 3
-#define DEFINE_SHEET_MOFAZYJXATT_E_MOFAZYJXATT_LIST_MAX_NUM 64
+#define DEFINE_SHEET_MOFAZYJXATT_E_MOFAZYJXATT_LIST_MAX_NUM 128
 #define DEFINE_E_MOFAZYJXZFATT_M_ZYJXZF_MAX_NUM 3
-#define DEFINE_SHEET_MOFAZYJXZFATT_E_MOFAZYJXZFATT_LIST_MAX_NUM 64
+#define DEFINE_SHEET_MOFAZYJXZFATT_E_MOFAZYJXZFATT_LIST_MAX_NUM 128
 #define DEFINE_SHEET_MOFAEXCHANGE_E_MOFAEXCHANGE_LIST_MAX_NUM 32
 #define DEFINE_SHEET_MOFANAME_E_MOFANAME_LIST_MAX_NUM 8
 
@@ -49,7 +49,6 @@ namespace proto_ff_s {
 		virtual ~E_MofaSetup_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_ID;//排序
 		int32_t m_PositionID;//部位id
 		int32_t m_Unlock;//解锁道具
 		int32_t m_ZyAtt;//阵眼属性组
@@ -101,7 +100,7 @@ namespace proto_ff_s {
 		virtual ~E_MofaYuansuAwakenDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_lvAddratio;//升级属性加成百分比
+		int32_t m_lvAddratio;//升级属性加成
 		int32_t m_num;//材料数量
 
 		virtual void write_to_pbmsg(::proto_ff::E_MofaYuansuAwakenDesc & msg) const;
@@ -116,7 +115,7 @@ namespace proto_ff_s {
 		virtual ~E_MofaYuansu_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_ItemID;//道具ID
+		int32_t m_EquipID;//装备ID
 		int32_t m_AttriType;//物品类型排序
 		int32_t m_mosaic;//可镶嵌部位
 		int32_t m_LvItem;//升级道具
@@ -152,7 +151,6 @@ namespace proto_ff_s {
 		virtual ~E_MofaDecompose_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_Id;//id
 		int32_t m_DpQua;//分解品质
 		int32_t m_DpItem;//分解返还道具
 		int32_t m_DpEss;//分解精华
@@ -379,8 +377,7 @@ namespace proto_ff_s {
 		virtual ~E_MofaExchange_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_ItemID;//道具ID
-		int32_t m_quality;//品质
+		int32_t m_EquipID;//装备ID
 		int32_t m_EcItem;//兑换道具
 		int32_t m_EcNum;//兑换道具数量
 

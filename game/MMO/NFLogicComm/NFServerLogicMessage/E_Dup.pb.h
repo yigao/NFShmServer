@@ -1787,6 +1787,13 @@ class E_DupSweepmonsternum : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_monstervaluetype() const;
   inline void set_m_monstervaluetype(::google::protobuf::int32 value);
 
+  // optional int32 m_monstervalueParam = 7;
+  inline bool has_m_monstervalueparam() const;
+  inline void clear_m_monstervalueparam();
+  static const int kMMonstervalueParamFieldNumber = 7;
+  inline ::google::protobuf::int32 m_monstervalueparam() const;
+  inline void set_m_monstervalueparam(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.E_DupSweepmonsternum)
  private:
   inline void set_has_m_id();
@@ -1801,6 +1808,8 @@ class E_DupSweepmonsternum : public ::google::protobuf::Message {
   inline void clear_has_m_killnumber();
   inline void set_has_m_monstervaluetype();
   inline void clear_has_m_monstervaluetype();
+  inline void set_has_m_monstervalueparam();
+  inline void clear_has_m_monstervalueparam();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -1810,9 +1819,10 @@ class E_DupSweepmonsternum : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_maxlevel_;
   ::google::protobuf::int32 m_killnumber_;
   ::google::protobuf::int32 m_monstervaluetype_;
+  ::google::protobuf::int32 m_monstervalueparam_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fDup_2eproto();
   friend void protobuf_AssignDesc_E_5fDup_2eproto();
@@ -5014,6 +5024,28 @@ inline ::google::protobuf::int32 E_DupSweepmonsternum::m_monstervaluetype() cons
 inline void E_DupSweepmonsternum::set_m_monstervaluetype(::google::protobuf::int32 value) {
   set_has_m_monstervaluetype();
   m_monstervaluetype_ = value;
+}
+
+// optional int32 m_monstervalueParam = 7;
+inline bool E_DupSweepmonsternum::has_m_monstervalueparam() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void E_DupSweepmonsternum::set_has_m_monstervalueparam() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void E_DupSweepmonsternum::clear_has_m_monstervalueparam() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void E_DupSweepmonsternum::clear_m_monstervalueparam() {
+  m_monstervalueparam_ = 0;
+  clear_has_m_monstervalueparam();
+}
+inline ::google::protobuf::int32 E_DupSweepmonsternum::m_monstervalueparam() const {
+  return m_monstervalueparam_;
+}
+inline void E_DupSweepmonsternum::set_m_monstervalueparam(::google::protobuf::int32 value) {
+  set_has_m_monstervalueparam();
+  m_monstervalueparam_ = value;
 }
 
 // -------------------------------------------------------------------

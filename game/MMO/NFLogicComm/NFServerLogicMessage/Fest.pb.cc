@@ -92,6 +92,21 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* FestTotalRechargeProto_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   FestTotalRechargeProto_reflection_ = NULL;
+const ::google::protobuf::Descriptor* FestContiTotalRewardProto_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  FestContiTotalRewardProto_reflection_ = NULL;
+const ::google::protobuf::Descriptor* FestContiDayRewardProto_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  FestContiDayRewardProto_reflection_ = NULL;
+const ::google::protobuf::Descriptor* FestContiRechargeProto_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  FestContiRechargeProto_reflection_ = NULL;
+const ::google::protobuf::Descriptor* FestLimitShopProto_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  FestLimitShopProto_reflection_ = NULL;
+const ::google::protobuf::Descriptor* FestLimitSaleProto_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  FestLimitSaleProto_reflection_ = NULL;
 const ::google::protobuf::Descriptor* FestDetailProto_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   FestDetailProto_reflection_ = NULL;
@@ -554,6 +569,42 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Fest_TotalRechargeNotify_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Fest_TotalRechargeNotify_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Fest_ContiRechargeTotalFetchReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Fest_ContiRechargeTotalFetchReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Fest_ContiRechargeTotalFetchRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Fest_ContiRechargeTotalFetchRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Fest_ContiRechargeDayFetchReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Fest_ContiRechargeDayFetchReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Fest_ContiRechargeDayFetchRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Fest_ContiRechargeDayFetchRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Fest_ContiRechargeSuppleReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Fest_ContiRechargeSuppleReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Fest_ContiRechargeSuppleRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Fest_ContiRechargeSuppleRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Fest_ContiRechargeUpdateRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Fest_ContiRechargeUpdateRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Fest_LimitSaleBuyReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Fest_LimitSaleBuyReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Fest_LimitSaleBuyRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Fest_LimitSaleBuyRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Fest_LimitSaleFetchReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Fest_LimitSaleFetchReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Fest_LimitSaleFetchRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Fest_LimitSaleFetchRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Fest_LimitSaleUpdateRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Fest_LimitSaleUpdateRsp_reflection_ = NULL;
 
 }  // namespace
 
@@ -954,8 +1005,91 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestTotalRechargeProto));
-  FestDetailProto_descriptor_ = file->message_type(24);
-  static const int FestDetailProto_offsets_[20] = {
+  FestContiTotalRewardProto_descriptor_ = file->message_type(24);
+  static const int FestContiTotalRewardProto_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestContiTotalRewardProto, gear_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestContiTotalRewardProto, fetch_day_),
+  };
+  FestContiTotalRewardProto_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      FestContiTotalRewardProto_descriptor_,
+      FestContiTotalRewardProto::default_instance_,
+      FestContiTotalRewardProto_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestContiTotalRewardProto, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestContiTotalRewardProto, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(FestContiTotalRewardProto));
+  FestContiDayRewardProto_descriptor_ = file->message_type(25);
+  static const int FestContiDayRewardProto_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestContiDayRewardProto, day_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestContiDayRewardProto, fetch_gear_),
+  };
+  FestContiDayRewardProto_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      FestContiDayRewardProto_descriptor_,
+      FestContiDayRewardProto::default_instance_,
+      FestContiDayRewardProto_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestContiDayRewardProto, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestContiDayRewardProto, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(FestContiDayRewardProto));
+  FestContiRechargeProto_descriptor_ = file->message_type(26);
+  static const int FestContiRechargeProto_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestContiRechargeProto, total_recharge_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestContiRechargeProto, supplement_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestContiRechargeProto, day_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestContiRechargeProto, total_),
+  };
+  FestContiRechargeProto_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      FestContiRechargeProto_descriptor_,
+      FestContiRechargeProto::default_instance_,
+      FestContiRechargeProto_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestContiRechargeProto, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestContiRechargeProto, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(FestContiRechargeProto));
+  FestLimitShopProto_descriptor_ = file->message_type(27);
+  static const int FestLimitShopProto_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestLimitShopProto, type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestLimitShopProto, total_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestLimitShopProto, fetch_total_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestLimitShopProto, buy_),
+  };
+  FestLimitShopProto_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      FestLimitShopProto_descriptor_,
+      FestLimitShopProto::default_instance_,
+      FestLimitShopProto_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestLimitShopProto, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestLimitShopProto, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(FestLimitShopProto));
+  FestLimitSaleProto_descriptor_ = file->message_type(28);
+  static const int FestLimitSaleProto_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestLimitSaleProto, sale_),
+  };
+  FestLimitSaleProto_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      FestLimitSaleProto_descriptor_,
+      FestLimitSaleProto::default_instance_,
+      FestLimitSaleProto_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestLimitSaleProto, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestLimitSaleProto, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(FestLimitSaleProto));
+  FestDetailProto_descriptor_ = file->message_type(29);
+  static const int FestDetailProto_offsets_[22] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDetailProto, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDetailProto, shop_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDetailProto, daily_total_recharge_),
@@ -976,6 +1110,8 @@ void protobuf_AssignDesc_Fest_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDetailProto, day_total_recharge_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDetailProto, total_recharge_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDetailProto, login_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDetailProto, limit_sale_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDetailProto, conti_recharge_),
   };
   FestDetailProto_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -988,7 +1124,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDetailProto));
-  Fest_SimpleListRsp_descriptor_ = file->message_type(25);
+  Fest_SimpleListRsp_descriptor_ = file->message_type(30);
   static const int Fest_SimpleListRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_SimpleListRsp, simple_),
   };
@@ -1003,7 +1139,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_SimpleListRsp));
-  Fest_SimpleInfoNotify_descriptor_ = file->message_type(26);
+  Fest_SimpleInfoNotify_descriptor_ = file->message_type(31);
   static const int Fest_SimpleInfoNotify_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_SimpleInfoNotify, simple_),
   };
@@ -1018,7 +1154,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_SimpleInfoNotify));
-  Fest_DetailReq_descriptor_ = file->message_type(27);
+  Fest_DetailReq_descriptor_ = file->message_type(32);
   static const int Fest_DetailReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DetailReq, fest_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DetailReq, template_id_),
@@ -1034,7 +1170,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_DetailReq));
-  Fest_DetailRsp_descriptor_ = file->message_type(28);
+  Fest_DetailRsp_descriptor_ = file->message_type(33);
   static const int Fest_DetailRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DetailRsp, detail_),
   };
@@ -1049,7 +1185,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_DetailRsp));
-  Fest_DetailUpdateRsp_descriptor_ = file->message_type(29);
+  Fest_DetailUpdateRsp_descriptor_ = file->message_type(34);
   static const int Fest_DetailUpdateRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DetailUpdateRsp, detail_),
   };
@@ -1064,7 +1200,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_DetailUpdateRsp));
-  Fest_RedPointInfoRsp_descriptor_ = file->message_type(30);
+  Fest_RedPointInfoRsp_descriptor_ = file->message_type(35);
   static const int Fest_RedPointInfoRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_RedPointInfoRsp, redpoint_),
   };
@@ -1079,7 +1215,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_RedPointInfoRsp));
-  Fest_RedPointInfoNotify_descriptor_ = file->message_type(31);
+  Fest_RedPointInfoNotify_descriptor_ = file->message_type(36);
   static const int Fest_RedPointInfoNotify_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_RedPointInfoNotify, redpoint_),
   };
@@ -1094,7 +1230,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_RedPointInfoNotify));
-  Fest_ShopBuyReq_descriptor_ = file->message_type(32);
+  Fest_ShopBuyReq_descriptor_ = file->message_type(37);
   static const int Fest_ShopBuyReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ShopBuyReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ShopBuyReq, id_),
@@ -1110,7 +1246,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_ShopBuyReq));
-  Fest_ShopBuyRsp_descriptor_ = file->message_type(33);
+  Fest_ShopBuyRsp_descriptor_ = file->message_type(38);
   static const int Fest_ShopBuyRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ShopBuyRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ShopBuyRsp, template_id_),
@@ -1128,7 +1264,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_ShopBuyRsp));
-  Fest_GetDailyRechargeRewardReq_descriptor_ = file->message_type(34);
+  Fest_GetDailyRechargeRewardReq_descriptor_ = file->message_type(39);
   static const int Fest_GetDailyRechargeRewardReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_GetDailyRechargeRewardReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_GetDailyRechargeRewardReq, id_),
@@ -1144,7 +1280,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_GetDailyRechargeRewardReq));
-  Fest_DailyRechargeStatusNotify_descriptor_ = file->message_type(35);
+  Fest_DailyRechargeStatusNotify_descriptor_ = file->message_type(40);
   static const int Fest_DailyRechargeStatusNotify_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DailyRechargeStatusNotify, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DailyRechargeStatusNotify, template_id_),
@@ -1162,7 +1298,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_DailyRechargeStatusNotify));
-  FestRTurnableRechargeTurnableReq_descriptor_ = file->message_type(36);
+  FestRTurnableRechargeTurnableReq_descriptor_ = file->message_type(41);
   static const int FestRTurnableRechargeTurnableReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestRTurnableRechargeTurnableReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestRTurnableRechargeTurnableReq, id_),
@@ -1178,7 +1314,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestRTurnableRechargeTurnableReq));
-  FestRTurnableRechargeTurnableRsp_descriptor_ = file->message_type(37);
+  FestRTurnableRechargeTurnableRsp_descriptor_ = file->message_type(42);
   static const int FestRTurnableRechargeTurnableRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestRTurnableRechargeTurnableRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestRTurnableRechargeTurnableRsp, template_id_),
@@ -1196,7 +1332,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestRTurnableRechargeTurnableRsp));
-  Fest_SignReq_descriptor_ = file->message_type(38);
+  Fest_SignReq_descriptor_ = file->message_type(43);
   static const int Fest_SignReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_SignReq, template_id_),
   };
@@ -1211,7 +1347,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_SignReq));
-  Fest_SignRsp_descriptor_ = file->message_type(39);
+  Fest_SignRsp_descriptor_ = file->message_type(44);
   static const int Fest_SignRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_SignRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_SignRsp, template_id_),
@@ -1227,7 +1363,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_SignRsp));
-  Fest_GoldStoreUpateBuyRsp_descriptor_ = file->message_type(40);
+  Fest_GoldStoreUpateBuyRsp_descriptor_ = file->message_type(45);
   static const int Fest_GoldStoreUpateBuyRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_GoldStoreUpateBuyRsp, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_GoldStoreUpateBuyRsp, id_),
@@ -1244,7 +1380,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_GoldStoreUpateBuyRsp));
-  Fest_DigEggReq_descriptor_ = file->message_type(41);
+  Fest_DigEggReq_descriptor_ = file->message_type(46);
   static const int Fest_DigEggReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DigEggReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DigEggReq, pos_),
@@ -1260,7 +1396,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_DigEggReq));
-  Fest_DigEggRsp_descriptor_ = file->message_type(42);
+  Fest_DigEggRsp_descriptor_ = file->message_type(47);
   static const int Fest_DigEggRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DigEggRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DigEggRsp, template_id_),
@@ -1278,7 +1414,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_DigEggRsp));
-  Fest_DigEggRestReq_descriptor_ = file->message_type(43);
+  Fest_DigEggRestReq_descriptor_ = file->message_type(48);
   static const int Fest_DigEggRestReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DigEggRestReq, template_id_),
   };
@@ -1293,7 +1429,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_DigEggRestReq));
-  Fest_DigEggRestRsp_descriptor_ = file->message_type(44);
+  Fest_DigEggRestRsp_descriptor_ = file->message_type(49);
   static const int Fest_DigEggRestRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DigEggRestRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DigEggRestRsp, template_id_),
@@ -1310,7 +1446,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_DigEggRestRsp));
-  Fest_DigEggLogReq_descriptor_ = file->message_type(45);
+  Fest_DigEggLogReq_descriptor_ = file->message_type(50);
   static const int Fest_DigEggLogReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DigEggLogReq, template_id_),
   };
@@ -1325,7 +1461,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_DigEggLogReq));
-  Fest_DigEggLogRsp_descriptor_ = file->message_type(46);
+  Fest_DigEggLogRsp_descriptor_ = file->message_type(51);
   static const int Fest_DigEggLogRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DigEggLogRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DigEggLogRsp, template_id_),
@@ -1342,7 +1478,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_DigEggLogRsp));
-  Fest_DigEggTaskFetchReq_descriptor_ = file->message_type(47);
+  Fest_DigEggTaskFetchReq_descriptor_ = file->message_type(52);
   static const int Fest_DigEggTaskFetchReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DigEggTaskFetchReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DigEggTaskFetchReq, id_),
@@ -1358,7 +1494,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_DigEggTaskFetchReq));
-  Fest_DigEggTaskFetchRsp_descriptor_ = file->message_type(48);
+  Fest_DigEggTaskFetchRsp_descriptor_ = file->message_type(53);
   static const int Fest_DigEggTaskFetchRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DigEggTaskFetchRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DigEggTaskFetchRsp, template_id_),
@@ -1374,7 +1510,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_DigEggTaskFetchRsp));
-  Fest_DigEggTaskUpdateRsp_descriptor_ = file->message_type(49);
+  Fest_DigEggTaskUpdateRsp_descriptor_ = file->message_type(54);
   static const int Fest_DigEggTaskUpdateRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DigEggTaskUpdateRsp, task_),
   };
@@ -1389,7 +1525,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_DigEggTaskUpdateRsp));
-  Fest_RTuranbleLogReq_descriptor_ = file->message_type(50);
+  Fest_RTuranbleLogReq_descriptor_ = file->message_type(55);
   static const int Fest_RTuranbleLogReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_RTuranbleLogReq, template_id_),
   };
@@ -1404,7 +1540,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_RTuranbleLogReq));
-  Fest_RTuranbleLogRsp_descriptor_ = file->message_type(51);
+  Fest_RTuranbleLogRsp_descriptor_ = file->message_type(56);
   static const int Fest_RTuranbleLogRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_RTuranbleLogRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_RTuranbleLogRsp, template_id_),
@@ -1421,7 +1557,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_RTuranbleLogRsp));
-  TurntableTurnTableReq_descriptor_ = file->message_type(52);
+  TurntableTurnTableReq_descriptor_ = file->message_type(57);
   static const int TurntableTurnTableReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TurntableTurnTableReq, template_id_),
   };
@@ -1436,7 +1572,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(TurntableTurnTableReq));
-  TurntableTurnTableRsp_descriptor_ = file->message_type(53);
+  TurntableTurnTableRsp_descriptor_ = file->message_type(58);
   static const int TurntableTurnTableRsp_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TurntableTurnTableRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TurntableTurnTableRsp, template_id_),
@@ -1455,7 +1591,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(TurntableTurnTableRsp));
-  TurntableRewardReq_descriptor_ = file->message_type(54);
+  TurntableRewardReq_descriptor_ = file->message_type(59);
   static const int TurntableRewardReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TurntableRewardReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TurntableRewardReq, id_),
@@ -1471,7 +1607,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(TurntableRewardReq));
-  TurntableRewardRsp_descriptor_ = file->message_type(55);
+  TurntableRewardRsp_descriptor_ = file->message_type(60);
   static const int TurntableRewardRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TurntableRewardRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TurntableRewardRsp, template_id_),
@@ -1487,7 +1623,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(TurntableRewardRsp));
-  TurntableStatusChange_descriptor_ = file->message_type(56);
+  TurntableStatusChange_descriptor_ = file->message_type(61);
   static const int TurntableStatusChange_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TurntableStatusChange, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TurntableStatusChange, task_),
@@ -1504,7 +1640,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(TurntableStatusChange));
-  FestDonateGetServerNumReq_descriptor_ = file->message_type(57);
+  FestDonateGetServerNumReq_descriptor_ = file->message_type(62);
   static const int FestDonateGetServerNumReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDonateGetServerNumReq, template_id_),
   };
@@ -1519,7 +1655,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDonateGetServerNumReq));
-  FestDonateGetServerNumRsp_descriptor_ = file->message_type(58);
+  FestDonateGetServerNumRsp_descriptor_ = file->message_type(63);
   static const int FestDonateGetServerNumRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDonateGetServerNumRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDonateGetServerNumRsp, template_id_),
@@ -1536,7 +1672,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDonateGetServerNumRsp));
-  FestDonateDonateReq_descriptor_ = file->message_type(59);
+  FestDonateDonateReq_descriptor_ = file->message_type(64);
   static const int FestDonateDonateReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDonateDonateReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDonateDonateReq, type_),
@@ -1552,7 +1688,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDonateDonateReq));
-  FestDonateDonateRsp_descriptor_ = file->message_type(60);
+  FestDonateDonateRsp_descriptor_ = file->message_type(65);
   static const int FestDonateDonateRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDonateDonateRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDonateDonateRsp, template_id_),
@@ -1569,7 +1705,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDonateDonateRsp));
-  FestDonateGetSingleRewardReq_descriptor_ = file->message_type(61);
+  FestDonateGetSingleRewardReq_descriptor_ = file->message_type(66);
   static const int FestDonateGetSingleRewardReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDonateGetSingleRewardReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDonateGetSingleRewardReq, id_),
@@ -1585,7 +1721,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDonateGetSingleRewardReq));
-  FestDonateGetSingleRewardRsp_descriptor_ = file->message_type(62);
+  FestDonateGetSingleRewardRsp_descriptor_ = file->message_type(67);
   static const int FestDonateGetSingleRewardRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDonateGetSingleRewardRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDonateGetSingleRewardRsp, template_id_),
@@ -1602,7 +1738,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDonateGetSingleRewardRsp));
-  FestDonateGetServerRewardReq_descriptor_ = file->message_type(63);
+  FestDonateGetServerRewardReq_descriptor_ = file->message_type(68);
   static const int FestDonateGetServerRewardReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDonateGetServerRewardReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDonateGetServerRewardReq, id_),
@@ -1618,7 +1754,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDonateGetServerRewardReq));
-  FestDonateGetServerRewardRsp_descriptor_ = file->message_type(64);
+  FestDonateGetServerRewardRsp_descriptor_ = file->message_type(69);
   static const int FestDonateGetServerRewardRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDonateGetServerRewardRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDonateGetServerRewardRsp, template_id_),
@@ -1635,7 +1771,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDonateGetServerRewardRsp));
-  FestDonateGetTaskRewardReq_descriptor_ = file->message_type(65);
+  FestDonateGetTaskRewardReq_descriptor_ = file->message_type(70);
   static const int FestDonateGetTaskRewardReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDonateGetTaskRewardReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDonateGetTaskRewardReq, id_),
@@ -1651,7 +1787,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDonateGetTaskRewardReq));
-  FestDonateGetTaskRewardRsp_descriptor_ = file->message_type(66);
+  FestDonateGetTaskRewardRsp_descriptor_ = file->message_type(71);
   static const int FestDonateGetTaskRewardRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDonateGetTaskRewardRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDonateGetTaskRewardRsp, template_id_),
@@ -1668,7 +1804,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDonateGetTaskRewardRsp));
-  FestDonateTaskTtatusChange_descriptor_ = file->message_type(67);
+  FestDonateTaskTtatusChange_descriptor_ = file->message_type(72);
   static const int FestDonateTaskTtatusChange_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDonateTaskTtatusChange, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDonateTaskTtatusChange, data_),
@@ -1684,7 +1820,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDonateTaskTtatusChange));
-  FestOnlineGetRewardReq_descriptor_ = file->message_type(68);
+  FestOnlineGetRewardReq_descriptor_ = file->message_type(73);
   static const int FestOnlineGetRewardReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestOnlineGetRewardReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestOnlineGetRewardReq, id_),
@@ -1700,7 +1836,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestOnlineGetRewardReq));
-  FestOnlineGetRewardRsp_descriptor_ = file->message_type(69);
+  FestOnlineGetRewardRsp_descriptor_ = file->message_type(74);
   static const int FestOnlineGetRewardRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestOnlineGetRewardRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestOnlineGetRewardRsp, template_id_),
@@ -1717,7 +1853,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestOnlineGetRewardRsp));
-  FestCollectWorldExchargeReq_descriptor_ = file->message_type(70);
+  FestCollectWorldExchargeReq_descriptor_ = file->message_type(75);
   static const int FestCollectWorldExchargeReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestCollectWorldExchargeReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestCollectWorldExchargeReq, id_),
@@ -1733,7 +1869,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestCollectWorldExchargeReq));
-  FestCollectWorldExchargeRsp_descriptor_ = file->message_type(71);
+  FestCollectWorldExchargeRsp_descriptor_ = file->message_type(76);
   static const int FestCollectWorldExchargeRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestCollectWorldExchargeRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestCollectWorldExchargeRsp, template_id_),
@@ -1750,7 +1886,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestCollectWorldExchargeRsp));
-  FestDrawPizeChouJiangReq_descriptor_ = file->message_type(72);
+  FestDrawPizeChouJiangReq_descriptor_ = file->message_type(77);
   static const int FestDrawPizeChouJiangReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDrawPizeChouJiangReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDrawPizeChouJiangReq, type_),
@@ -1766,7 +1902,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDrawPizeChouJiangReq));
-  FestDrawPizeChouJiangRsp_descriptor_ = file->message_type(73);
+  FestDrawPizeChouJiangRsp_descriptor_ = file->message_type(78);
   static const int FestDrawPizeChouJiangRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDrawPizeChouJiangRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDrawPizeChouJiangRsp, template_id_),
@@ -1784,7 +1920,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDrawPizeChouJiangRsp));
-  FestDrawPizeGetRewardReq_descriptor_ = file->message_type(74);
+  FestDrawPizeGetRewardReq_descriptor_ = file->message_type(79);
   static const int FestDrawPizeGetRewardReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDrawPizeGetRewardReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDrawPizeGetRewardReq, id_),
@@ -1800,7 +1936,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDrawPizeGetRewardReq));
-  FestDrawPizeGetRewardRsp_descriptor_ = file->message_type(75);
+  FestDrawPizeGetRewardRsp_descriptor_ = file->message_type(80);
   static const int FestDrawPizeGetRewardRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDrawPizeGetRewardRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDrawPizeGetRewardRsp, template_id_),
@@ -1817,7 +1953,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDrawPizeGetRewardRsp));
-  FestDrawPizeLogReq_descriptor_ = file->message_type(76);
+  FestDrawPizeLogReq_descriptor_ = file->message_type(81);
   static const int FestDrawPizeLogReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDrawPizeLogReq, template_id_),
   };
@@ -1832,7 +1968,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDrawPizeLogReq));
-  FestDrawPizeLogRsp_descriptor_ = file->message_type(77);
+  FestDrawPizeLogRsp_descriptor_ = file->message_type(82);
   static const int FestDrawPizeLogRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDrawPizeLogRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDrawPizeLogRsp, template_id_),
@@ -1849,7 +1985,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDrawPizeLogRsp));
-  FestDrawPizeGetServerNumReq_descriptor_ = file->message_type(78);
+  FestDrawPizeGetServerNumReq_descriptor_ = file->message_type(83);
   static const int FestDrawPizeGetServerNumReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDrawPizeGetServerNumReq, template_id_),
   };
@@ -1864,7 +2000,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDrawPizeGetServerNumReq));
-  FestDrawPizeGetServerNumRsp_descriptor_ = file->message_type(79);
+  FestDrawPizeGetServerNumRsp_descriptor_ = file->message_type(84);
   static const int FestDrawPizeGetServerNumRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDrawPizeGetServerNumRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDrawPizeGetServerNumRsp, template_id_),
@@ -1881,7 +2017,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDrawPizeGetServerNumRsp));
-  FestServerRankGetRewardReq_descriptor_ = file->message_type(80);
+  FestServerRankGetRewardReq_descriptor_ = file->message_type(85);
   static const int FestServerRankGetRewardReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankGetRewardReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankGetRewardReq, rank_id_),
@@ -1898,7 +2034,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestServerRankGetRewardReq));
-  FestServerRankGetRewardRsp_descriptor_ = file->message_type(81);
+  FestServerRankGetRewardRsp_descriptor_ = file->message_type(86);
   static const int FestServerRankGetRewardRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankGetRewardRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankGetRewardRsp, template_id_),
@@ -1916,7 +2052,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestServerRankGetRewardRsp));
-  FestServerRankRewardStatusChange_descriptor_ = file->message_type(82);
+  FestServerRankRewardStatusChange_descriptor_ = file->message_type(87);
   static const int FestServerRankRewardStatusChange_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankRewardStatusChange, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankRewardStatusChange, rank_id_),
@@ -1933,7 +2069,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestServerRankRewardStatusChange));
-  FestServerRankGetMyRankReq_descriptor_ = file->message_type(83);
+  FestServerRankGetMyRankReq_descriptor_ = file->message_type(88);
   static const int FestServerRankGetMyRankReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankGetMyRankReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankGetMyRankReq, rank_id_),
@@ -1949,7 +2085,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestServerRankGetMyRankReq));
-  FestServerRankGetMyRankRsp_descriptor_ = file->message_type(84);
+  FestServerRankGetMyRankRsp_descriptor_ = file->message_type(89);
   static const int FestServerRankGetMyRankRsp_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankGetMyRankRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankGetMyRankRsp, template_id_),
@@ -1968,7 +2104,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestServerRankGetMyRankRsp));
-  FestServerRankGetAllRankReq_descriptor_ = file->message_type(85);
+  FestServerRankGetAllRankReq_descriptor_ = file->message_type(90);
   static const int FestServerRankGetAllRankReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankGetAllRankReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankGetAllRankReq, rank_id_),
@@ -1986,7 +2122,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestServerRankGetAllRankReq));
-  FestServerRankGetAllRankRsp_descriptor_ = file->message_type(86);
+  FestServerRankGetAllRankRsp_descriptor_ = file->message_type(91);
   static const int FestServerRankGetAllRankRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankGetAllRankRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankGetAllRankRsp, template_id_),
@@ -2004,7 +2140,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestServerRankGetAllRankRsp));
-  FestServerRankBuyGiftReq_descriptor_ = file->message_type(87);
+  FestServerRankBuyGiftReq_descriptor_ = file->message_type(92);
   static const int FestServerRankBuyGiftReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankBuyGiftReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankBuyGiftReq, rank_id_),
@@ -2020,7 +2156,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestServerRankBuyGiftReq));
-  FestServerRankBuyGiftRsp_descriptor_ = file->message_type(88);
+  FestServerRankBuyGiftRsp_descriptor_ = file->message_type(93);
   static const int FestServerRankBuyGiftRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankBuyGiftRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankBuyGiftRsp, template_id_),
@@ -2038,7 +2174,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestServerRankBuyGiftRsp));
-  FestServerRankGetRedPointRewardReq_descriptor_ = file->message_type(89);
+  FestServerRankGetRedPointRewardReq_descriptor_ = file->message_type(94);
   static const int FestServerRankGetRedPointRewardReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankGetRedPointRewardReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankGetRedPointRewardReq, rank_id_),
@@ -2054,7 +2190,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestServerRankGetRedPointRewardReq));
-  FestServerRankGetRedPointRewardRsp_descriptor_ = file->message_type(90);
+  FestServerRankGetRedPointRewardRsp_descriptor_ = file->message_type(95);
   static const int FestServerRankGetRedPointRewardRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankGetRedPointRewardRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankGetRedPointRewardRsp, template_id_),
@@ -2072,7 +2208,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestServerRankGetRedPointRewardRsp));
-  FestServerRankStatusChange_descriptor_ = file->message_type(91);
+  FestServerRankStatusChange_descriptor_ = file->message_type(96);
   static const int FestServerRankStatusChange_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankStatusChange, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestServerRankStatusChange, rank_),
@@ -2088,7 +2224,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestServerRankStatusChange));
-  FestCandleFetchReq_descriptor_ = file->message_type(92);
+  FestCandleFetchReq_descriptor_ = file->message_type(97);
   static const int FestCandleFetchReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestCandleFetchReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestCandleFetchReq, id_),
@@ -2104,7 +2240,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestCandleFetchReq));
-  FestCandleFetchRsp_descriptor_ = file->message_type(93);
+  FestCandleFetchRsp_descriptor_ = file->message_type(98);
   static const int FestCandleFetchRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestCandleFetchRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestCandleFetchRsp, template_id_),
@@ -2120,7 +2256,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestCandleFetchRsp));
-  FestCandleFetchLstRsp_descriptor_ = file->message_type(94);
+  FestCandleFetchLstRsp_descriptor_ = file->message_type(99);
   static const int FestCandleFetchLstRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestCandleFetchLstRsp, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestCandleFetchLstRsp, id_lst_),
@@ -2136,7 +2272,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestCandleFetchLstRsp));
-  FestCandleRankReq_descriptor_ = file->message_type(95);
+  FestCandleRankReq_descriptor_ = file->message_type(100);
   static const int FestCandleRankReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestCandleRankReq, template_id_),
   };
@@ -2151,7 +2287,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestCandleRankReq));
-  FestCandleRankRsp_descriptor_ = file->message_type(96);
+  FestCandleRankRsp_descriptor_ = file->message_type(101);
   static const int FestCandleRankRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestCandleRankRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestCandleRankRsp, template_id_),
@@ -2169,7 +2305,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestCandleRankRsp));
-  Fest_L2C_DigEgg_OpRsp_descriptor_ = file->message_type(97);
+  Fest_L2C_DigEgg_OpRsp_descriptor_ = file->message_type(102);
   static const int Fest_L2C_DigEgg_OpRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_L2C_DigEgg_OpRsp, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_L2C_DigEgg_OpRsp, id_),
@@ -2187,7 +2323,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_L2C_DigEgg_OpRsp));
-  Fest_L2C_LogReq_descriptor_ = file->message_type(98);
+  Fest_L2C_LogReq_descriptor_ = file->message_type(103);
   static const int Fest_L2C_LogReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_L2C_LogReq, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_L2C_LogReq, template_id_),
@@ -2203,7 +2339,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_L2C_LogReq));
-  Fest_L2C_RTurnable_OpRsp_descriptor_ = file->message_type(99);
+  Fest_L2C_RTurnable_OpRsp_descriptor_ = file->message_type(104);
   static const int Fest_L2C_RTurnable_OpRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_L2C_RTurnable_OpRsp, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_L2C_RTurnable_OpRsp, log_),
@@ -2219,7 +2355,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_L2C_RTurnable_OpRsp));
-  Fest_L2C_RTurnable_LogReq_descriptor_ = file->message_type(100);
+  Fest_L2C_RTurnable_LogReq_descriptor_ = file->message_type(105);
   static const int Fest_L2C_RTurnable_LogReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_L2C_RTurnable_LogReq, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_L2C_RTurnable_LogReq, template_id_),
@@ -2235,7 +2371,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_L2C_RTurnable_LogReq));
-  Fest_L2C_DonateOperate_Notify_descriptor_ = file->message_type(101);
+  Fest_L2C_DonateOperate_Notify_descriptor_ = file->message_type(106);
   static const int Fest_L2C_DonateOperate_Notify_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_L2C_DonateOperate_Notify, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_L2C_DonateOperate_Notify, template_id_),
@@ -2252,7 +2388,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_L2C_DonateOperate_Notify));
-  Fest_C2L_DonateGetServerRewardReq_descriptor_ = file->message_type(102);
+  Fest_C2L_DonateGetServerRewardReq_descriptor_ = file->message_type(107);
   static const int Fest_C2L_DonateGetServerRewardReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_C2L_DonateGetServerRewardReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_C2L_DonateGetServerRewardReq, id_),
@@ -2270,7 +2406,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_C2L_DonateGetServerRewardReq));
-  Fest_L2C_DrawPizeLogReq_descriptor_ = file->message_type(103);
+  Fest_L2C_DrawPizeLogReq_descriptor_ = file->message_type(108);
   static const int Fest_L2C_DrawPizeLogReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_L2C_DrawPizeLogReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_L2C_DrawPizeLogReq, log_),
@@ -2287,7 +2423,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_L2C_DrawPizeLogReq));
-  Fest_L2C_DrawPizeChouJiangGetServerNumReq_descriptor_ = file->message_type(104);
+  Fest_L2C_DrawPizeChouJiangGetServerNumReq_descriptor_ = file->message_type(109);
   static const int Fest_L2C_DrawPizeChouJiangGetServerNumReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_L2C_DrawPizeChouJiangGetServerNumReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_L2C_DrawPizeChouJiangGetServerNumReq, type_),
@@ -2304,7 +2440,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_L2C_DrawPizeChouJiangGetServerNumReq));
-  Fest_C2L_DrawPizeChouJiangGetServerNumRsp_descriptor_ = file->message_type(105);
+  Fest_C2L_DrawPizeChouJiangGetServerNumRsp_descriptor_ = file->message_type(110);
   static const int Fest_C2L_DrawPizeChouJiangGetServerNumRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_C2L_DrawPizeChouJiangGetServerNumRsp, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_C2L_DrawPizeChouJiangGetServerNumRsp, type_),
@@ -2322,7 +2458,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_C2L_DrawPizeChouJiangGetServerNumRsp));
-  Fest_C2L_ServerRankSyncReq_descriptor_ = file->message_type(106);
+  Fest_C2L_ServerRankSyncReq_descriptor_ = file->message_type(111);
   static const int Fest_C2L_ServerRankSyncReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_C2L_ServerRankSyncReq, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_C2L_ServerRankSyncReq, template_id_),
@@ -2340,7 +2476,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_C2L_ServerRankSyncReq));
-  Fest_C2L_ServerRankSyncRsp_descriptor_ = file->message_type(107);
+  Fest_C2L_ServerRankSyncRsp_descriptor_ = file->message_type(112);
   static const int Fest_C2L_ServerRankSyncRsp_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_C2L_ServerRankSyncRsp, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_C2L_ServerRankSyncRsp, template_id_),
@@ -2361,7 +2497,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_C2L_ServerRankSyncRsp));
-  Fest_S2C_CandleRankReward_descriptor_ = file->message_type(108);
+  Fest_S2C_CandleRankReward_descriptor_ = file->message_type(113);
   static const int Fest_S2C_CandleRankReward_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_S2C_CandleRankReward, cidrank_),
   };
@@ -2376,7 +2512,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_S2C_CandleRankReward));
-  Fest_L2S_CandleAddHarm_descriptor_ = file->message_type(109);
+  Fest_L2S_CandleAddHarm_descriptor_ = file->message_type(114);
   static const int Fest_L2S_CandleAddHarm_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_L2S_CandleAddHarm, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_L2S_CandleAddHarm, name_),
@@ -2395,7 +2531,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_L2S_CandleAddHarm));
-  Fest_S2L_CandleTotalHarmRsp_descriptor_ = file->message_type(110);
+  Fest_S2L_CandleTotalHarmRsp_descriptor_ = file->message_type(115);
   static const int Fest_S2L_CandleTotalHarmRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_S2L_CandleTotalHarmRsp, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_S2L_CandleTotalHarmRsp, total_harm_),
@@ -2411,7 +2547,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_S2L_CandleTotalHarmRsp));
-  Fest_L2S_CandleRankReq_descriptor_ = file->message_type(111);
+  Fest_L2S_CandleRankReq_descriptor_ = file->message_type(116);
   static const int Fest_L2S_CandleRankReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_L2S_CandleRankReq, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_L2S_CandleRankReq, harm_),
@@ -2428,7 +2564,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_L2S_CandleRankReq));
-  Fest_BossFirstOptReq_descriptor_ = file->message_type(112);
+  Fest_BossFirstOptReq_descriptor_ = file->message_type(117);
   static const int Fest_BossFirstOptReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_BossFirstOptReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_BossFirstOptReq, id_),
@@ -2445,7 +2581,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_BossFirstOptReq));
-  Fest_BossFirstOptRsp_descriptor_ = file->message_type(113);
+  Fest_BossFirstOptRsp_descriptor_ = file->message_type(118);
   static const int Fest_BossFirstOptRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_BossFirstOptRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_BossFirstOptRsp, template_id_),
@@ -2463,7 +2599,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_BossFirstOptRsp));
-  Fest_BossInfoReq_descriptor_ = file->message_type(114);
+  Fest_BossInfoReq_descriptor_ = file->message_type(119);
   static const int Fest_BossInfoReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_BossInfoReq, template_id_),
   };
@@ -2478,7 +2614,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_BossInfoReq));
-  FestBossInfo_descriptor_ = file->message_type(115);
+  FestBossInfo_descriptor_ = file->message_type(120);
   static const int FestBossInfo_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestBossInfo, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestBossInfo, refresh_time_),
@@ -2499,7 +2635,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestBossInfo));
-  Fest_BossInfoRsp_descriptor_ = file->message_type(116);
+  Fest_BossInfoRsp_descriptor_ = file->message_type(121);
   static const int Fest_BossInfoRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_BossInfoRsp, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_BossInfoRsp, infos_),
@@ -2515,7 +2651,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_BossInfoRsp));
-  Fest_BFGlobalDBKill_descriptor_ = file->message_type(117);
+  Fest_BFGlobalDBKill_descriptor_ = file->message_type(122);
   static const int Fest_BFGlobalDBKill_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_BFGlobalDBKill, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_BFGlobalDBKill, kill_cid_),
@@ -2533,7 +2669,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_BFGlobalDBKill));
-  Fest_BFGlobalDBEntry_descriptor_ = file->message_type(118);
+  Fest_BFGlobalDBEntry_descriptor_ = file->message_type(123);
   static const int Fest_BFGlobalDBEntry_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_BFGlobalDBEntry, tmpid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_BFGlobalDBEntry, infos_),
@@ -2549,7 +2685,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_BFGlobalDBEntry));
-  Fest_BFGlobalDB_descriptor_ = file->message_type(119);
+  Fest_BFGlobalDB_descriptor_ = file->message_type(124);
   static const int Fest_BFGlobalDB_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_BFGlobalDB, entrys_),
   };
@@ -2564,7 +2700,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_BFGlobalDB));
-  L2CFest_BossKFSimpleReq_descriptor_ = file->message_type(120);
+  L2CFest_BossKFSimpleReq_descriptor_ = file->message_type(125);
   static const int L2CFest_BossKFSimpleReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CFest_BossKFSimpleReq, roleid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CFest_BossKFSimpleReq, template_id_),
@@ -2582,7 +2718,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(L2CFest_BossKFSimpleReq));
-  C2LFest_BossKFNotify_descriptor_ = file->message_type(121);
+  C2LFest_BossKFNotify_descriptor_ = file->message_type(126);
   static const int C2LFest_BossKFNotify_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LFest_BossKFNotify, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LFest_BossKFNotify, id_),
@@ -2601,7 +2737,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2LFest_BossKFNotify));
-  C2LFest_BossInfoReq_descriptor_ = file->message_type(122);
+  C2LFest_BossInfoReq_descriptor_ = file->message_type(127);
   static const int C2LFest_BossInfoReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LFest_BossInfoReq, roleid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LFest_BossInfoReq, template_id_),
@@ -2618,7 +2754,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2LFest_BossInfoReq));
-  C2LFest_BossFirstOptReq_descriptor_ = file->message_type(123);
+  C2LFest_BossFirstOptReq_descriptor_ = file->message_type(128);
   static const int C2LFest_BossFirstOptReq_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LFest_BossFirstOptReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LFest_BossFirstOptReq, id_),
@@ -2637,7 +2773,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2LFest_BossFirstOptReq));
-  C2LFest_HuiMengXiYou_GetRewardReq_descriptor_ = file->message_type(124);
+  C2LFest_HuiMengXiYou_GetRewardReq_descriptor_ = file->message_type(129);
   static const int C2LFest_HuiMengXiYou_GetRewardReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LFest_HuiMengXiYou_GetRewardReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LFest_HuiMengXiYou_GetRewardReq, id_),
@@ -2653,7 +2789,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2LFest_HuiMengXiYou_GetRewardReq));
-  L2CFest_HuiMengXiYou_GetRewardRsp_descriptor_ = file->message_type(125);
+  L2CFest_HuiMengXiYou_GetRewardRsp_descriptor_ = file->message_type(130);
   static const int L2CFest_HuiMengXiYou_GetRewardRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CFest_HuiMengXiYou_GetRewardRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CFest_HuiMengXiYou_GetRewardRsp, template_id_),
@@ -2670,7 +2806,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(L2CFest_HuiMengXiYou_GetRewardRsp));
-  NotifyFest_HuiMengXiYouRewardStatusChange_descriptor_ = file->message_type(126);
+  NotifyFest_HuiMengXiYouRewardStatusChange_descriptor_ = file->message_type(131);
   static const int NotifyFest_HuiMengXiYouRewardStatusChange_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyFest_HuiMengXiYouRewardStatusChange, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyFest_HuiMengXiYouRewardStatusChange, reward_),
@@ -2687,7 +2823,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyFest_HuiMengXiYouRewardStatusChange));
-  XiYouGameInfo_descriptor_ = file->message_type(127);
+  XiYouGameInfo_descriptor_ = file->message_type(132);
   static const int XiYouGameInfo_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiYouGameInfo, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiYouGameInfo, status_),
@@ -2703,7 +2839,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiYouGameInfo));
-  NotiftFest_HuiMengXiYouStart_descriptor_ = file->message_type(128);
+  NotiftFest_HuiMengXiYouStart_descriptor_ = file->message_type(133);
   static const int NotiftFest_HuiMengXiYouStart_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotiftFest_HuiMengXiYouStart, play_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotiftFest_HuiMengXiYouStart, info_),
@@ -2721,7 +2857,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotiftFest_HuiMengXiYouStart));
-  NotiftFest_LogicHuiMengXiYouStart_descriptor_ = file->message_type(129);
+  NotiftFest_LogicHuiMengXiYouStart_descriptor_ = file->message_type(134);
   static const int NotiftFest_LogicHuiMengXiYouStart_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotiftFest_LogicHuiMengXiYouStart, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotiftFest_LogicHuiMengXiYouStart, start_),
@@ -2737,7 +2873,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotiftFest_LogicHuiMengXiYouStart));
-  NotifyFest_HuiMengXiYouSceneChange_descriptor_ = file->message_type(130);
+  NotifyFest_HuiMengXiYouSceneChange_descriptor_ = file->message_type(135);
   static const int NotifyFest_HuiMengXiYouSceneChange_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyFest_HuiMengXiYouSceneChange, play_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyFest_HuiMengXiYouSceneChange, info_),
@@ -2755,7 +2891,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyFest_HuiMengXiYouSceneChange));
-  NotiftFest_HuiMengXiYouGameStart_descriptor_ = file->message_type(131);
+  NotiftFest_HuiMengXiYouGameStart_descriptor_ = file->message_type(136);
   static const int NotiftFest_HuiMengXiYouGameStart_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotiftFest_HuiMengXiYouGameStart, play_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotiftFest_HuiMengXiYouGameStart, info_),
@@ -2773,7 +2909,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotiftFest_HuiMengXiYouGameStart));
-  NotiftFest_HuiMengXiYouEnd_descriptor_ = file->message_type(132);
+  NotiftFest_HuiMengXiYouEnd_descriptor_ = file->message_type(137);
   static const int NotiftFest_HuiMengXiYouEnd_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotiftFest_HuiMengXiYouEnd, play_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotiftFest_HuiMengXiYouEnd, points_),
@@ -2789,7 +2925,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotiftFest_HuiMengXiYouEnd));
-  NotiftFest_HuiMengXiYouGameInfo_descriptor_ = file->message_type(133);
+  NotiftFest_HuiMengXiYouGameInfo_descriptor_ = file->message_type(138);
   static const int NotiftFest_HuiMengXiYouGameInfo_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotiftFest_HuiMengXiYouGameInfo, play_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotiftFest_HuiMengXiYouGameInfo, game_id_),
@@ -2811,7 +2947,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotiftFest_HuiMengXiYouGameInfo));
-  NotifyFest_HuiMengXiYouGameEnd_descriptor_ = file->message_type(134);
+  NotifyFest_HuiMengXiYouGameEnd_descriptor_ = file->message_type(139);
   static const int NotifyFest_HuiMengXiYouGameEnd_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyFest_HuiMengXiYouGameEnd, play_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyFest_HuiMengXiYouGameEnd, game_id_),
@@ -2830,7 +2966,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyFest_HuiMengXiYouGameEnd));
-  NotifyFest_HuiMengXiYouEnterReq_descriptor_ = file->message_type(135);
+  NotifyFest_HuiMengXiYouEnterReq_descriptor_ = file->message_type(140);
   static const int NotifyFest_HuiMengXiYouEnterReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyFest_HuiMengXiYouEnterReq, template_id_),
   };
@@ -2845,7 +2981,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyFest_HuiMengXiYouEnterReq));
-  NotifyFest_HuiMengXiYouEnterRsp_descriptor_ = file->message_type(136);
+  NotifyFest_HuiMengXiYouEnterRsp_descriptor_ = file->message_type(141);
   static const int NotifyFest_HuiMengXiYouEnterRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyFest_HuiMengXiYouEnterRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyFest_HuiMengXiYouEnterRsp, template_id_),
@@ -2861,7 +2997,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyFest_HuiMengXiYouEnterRsp));
-  NotifyFest_HuiMengXiYouEnterGameReq_descriptor_ = file->message_type(137);
+  NotifyFest_HuiMengXiYouEnterGameReq_descriptor_ = file->message_type(142);
   static const int NotifyFest_HuiMengXiYouEnterGameReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyFest_HuiMengXiYouEnterGameReq, template_id_),
   };
@@ -2876,7 +3012,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyFest_HuiMengXiYouEnterGameReq));
-  NotifyFest_HuiMengXiYouEnterGameRsp_descriptor_ = file->message_type(138);
+  NotifyFest_HuiMengXiYouEnterGameRsp_descriptor_ = file->message_type(143);
   static const int NotifyFest_HuiMengXiYouEnterGameRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyFest_HuiMengXiYouEnterGameRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyFest_HuiMengXiYouEnterGameRsp, template_id_),
@@ -2892,7 +3028,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyFest_HuiMengXiYouEnterGameRsp));
-  C2LFest_HuiMengXiYouGiveCaiJiReq_descriptor_ = file->message_type(139);
+  C2LFest_HuiMengXiYouGiveCaiJiReq_descriptor_ = file->message_type(144);
   static const int C2LFest_HuiMengXiYouGiveCaiJiReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LFest_HuiMengXiYouGiveCaiJiReq, template_id_),
   };
@@ -2907,7 +3043,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2LFest_HuiMengXiYouGiveCaiJiReq));
-  L2CFest_HuiMengXiYouGiveCaiJiRsp_descriptor_ = file->message_type(140);
+  L2CFest_HuiMengXiYouGiveCaiJiRsp_descriptor_ = file->message_type(145);
   static const int L2CFest_HuiMengXiYouGiveCaiJiRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CFest_HuiMengXiYouGiveCaiJiRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CFest_HuiMengXiYouGiveCaiJiRsp, template_id_),
@@ -2923,7 +3059,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(L2CFest_HuiMengXiYouGiveCaiJiRsp));
-  XiYouCaiJiCollectInfo_descriptor_ = file->message_type(141);
+  XiYouCaiJiCollectInfo_descriptor_ = file->message_type(146);
   static const int XiYouCaiJiCollectInfo_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiYouCaiJiCollectInfo, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiYouCaiJiCollectInfo, pos_),
@@ -2939,7 +3075,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiYouCaiJiCollectInfo));
-  NotifyFest_HuiMengXiYouCollect_descriptor_ = file->message_type(142);
+  NotifyFest_HuiMengXiYouCollect_descriptor_ = file->message_type(147);
   static const int NotifyFest_HuiMengXiYouCollect_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyFest_HuiMengXiYouCollect, collects_),
   };
@@ -2954,7 +3090,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyFest_HuiMengXiYouCollect));
-  XiYouCaiJiCollectMonsterInfo_descriptor_ = file->message_type(143);
+  XiYouCaiJiCollectMonsterInfo_descriptor_ = file->message_type(148);
   static const int XiYouCaiJiCollectMonsterInfo_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiYouCaiJiCollectMonsterInfo, monster_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiYouCaiJiCollectMonsterInfo, num_),
@@ -2971,7 +3107,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiYouCaiJiCollectMonsterInfo));
-  NotifyFest_HuiMengXiYouCollectSuccess_descriptor_ = file->message_type(144);
+  NotifyFest_HuiMengXiYouCollectSuccess_descriptor_ = file->message_type(149);
   static const int NotifyFest_HuiMengXiYouCollectSuccess_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyFest_HuiMengXiYouCollectSuccess, monster_info_),
   };
@@ -2986,7 +3122,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyFest_HuiMengXiYouCollectSuccess));
-  NotifyFest_HuiMengXiYou_RoubaoziNotify_descriptor_ = file->message_type(145);
+  NotifyFest_HuiMengXiYou_RoubaoziNotify_descriptor_ = file->message_type(150);
   static const int NotifyFest_HuiMengXiYou_RoubaoziNotify_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyFest_HuiMengXiYou_RoubaoziNotify, cur_fresh_wave_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyFest_HuiMengXiYou_RoubaoziNotify, all_fresh_wave_),
@@ -3005,7 +3141,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyFest_HuiMengXiYou_RoubaoziNotify));
-  FMarryRankInfo_descriptor_ = file->message_type(146);
+  FMarryRankInfo_descriptor_ = file->message_type(151);
   static const int FMarryRankInfo_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryRankInfo, rank_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryRankInfo, roles_),
@@ -3022,7 +3158,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FMarryRankInfo));
-  FMarryExpressRankInfo_descriptor_ = file->message_type(147);
+  FMarryExpressRankInfo_descriptor_ = file->message_type(152);
   static const int FMarryExpressRankInfo_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryExpressRankInfo, rank_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryExpressRankInfo, cid_),
@@ -3040,7 +3176,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FMarryExpressRankInfo));
-  FMarryRankReq_descriptor_ = file->message_type(148);
+  FMarryRankReq_descriptor_ = file->message_type(153);
   static const int FMarryRankReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryRankReq, template_id_),
   };
@@ -3055,7 +3191,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FMarryRankReq));
-  FMarryRankRsp_descriptor_ = file->message_type(149);
+  FMarryRankRsp_descriptor_ = file->message_type(154);
   static const int FMarryRankRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryRankRsp, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryRankRsp, entrys_),
@@ -3072,7 +3208,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FMarryRankRsp));
-  FMarryExpressReq_descriptor_ = file->message_type(150);
+  FMarryExpressReq_descriptor_ = file->message_type(155);
   static const int FMarryExpressReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryExpressReq, template_id_),
   };
@@ -3087,7 +3223,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FMarryExpressReq));
-  FMarryExpressRsp_descriptor_ = file->message_type(151);
+  FMarryExpressRsp_descriptor_ = file->message_type(156);
   static const int FMarryExpressRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryExpressRsp, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryExpressRsp, sends_),
@@ -3105,7 +3241,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FMarryExpressRsp));
-  FMarryRoleReq_descriptor_ = file->message_type(152);
+  FMarryRoleReq_descriptor_ = file->message_type(157);
   static const int FMarryRoleReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryRoleReq, template_id_),
   };
@@ -3120,7 +3256,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FMarryRoleReq));
-  FMarryRoleRsp_descriptor_ = file->message_type(153);
+  FMarryRoleRsp_descriptor_ = file->message_type(158);
   static const int FMarryRoleRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryRoleRsp, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryRoleRsp, tasks_),
@@ -3137,7 +3273,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FMarryRoleRsp));
-  FMarryRoleRecvReq_descriptor_ = file->message_type(154);
+  FMarryRoleRecvReq_descriptor_ = file->message_type(159);
   static const int FMarryRoleRecvReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryRoleRecvReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryRoleRecvReq, type_),
@@ -3154,7 +3290,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FMarryRoleRecvReq));
-  FMarryRoleRecvRsp_descriptor_ = file->message_type(155);
+  FMarryRoleRecvRsp_descriptor_ = file->message_type(160);
   static const int FMarryRoleRecvRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryRoleRecvRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryRoleRecvRsp, template_id_),
@@ -3172,7 +3308,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FMarryRoleRecvRsp));
-  FMarryRecord_descriptor_ = file->message_type(156);
+  FMarryRecord_descriptor_ = file->message_type(161);
   static const int FMarryRecord_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryRecord, marry_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryRecord, val_),
@@ -3189,7 +3325,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FMarryRecord));
-  FMarryExpress_descriptor_ = file->message_type(157);
+  FMarryExpress_descriptor_ = file->message_type(162);
   static const int FMarryExpress_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryExpress, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryExpress, time_),
@@ -3206,7 +3342,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FMarryExpress));
-  FMarryDBEntry_descriptor_ = file->message_type(158);
+  FMarryDBEntry_descriptor_ = file->message_type(163);
   static const int FMarryDBEntry_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryDBEntry, tmpid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryDBEntry, groupid_),
@@ -3225,7 +3361,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FMarryDBEntry));
-  FMarryDB_descriptor_ = file->message_type(159);
+  FMarryDB_descriptor_ = file->message_type(164);
   static const int FMarryDB_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMarryDB, entrys_),
   };
@@ -3240,7 +3376,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FMarryDB));
-  Fest_XiYouGlobalDBInfo_descriptor_ = file->message_type(160);
+  Fest_XiYouGlobalDBInfo_descriptor_ = file->message_type(165);
   static const int Fest_XiYouGlobalDBInfo_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_XiYouGlobalDBInfo, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_XiYouGlobalDBInfo, status_),
@@ -3257,7 +3393,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_XiYouGlobalDBInfo));
-  C2LFMarrySynScoreReq_descriptor_ = file->message_type(161);
+  C2LFMarrySynScoreReq_descriptor_ = file->message_type(166);
   static const int C2LFMarrySynScoreReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LFMarrySynScoreReq, tmpid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(C2LFMarrySynScoreReq, marry_id_),
@@ -3274,7 +3410,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2LFMarrySynScoreReq));
-  L2CFMarrySynScoreRsp_descriptor_ = file->message_type(162);
+  L2CFMarrySynScoreRsp_descriptor_ = file->message_type(167);
   static const int L2CFMarrySynScoreRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CFMarrySynScoreRsp, tmpid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(L2CFMarrySynScoreRsp, marry_id_),
@@ -3292,7 +3428,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(L2CFMarrySynScoreRsp));
-  Fest_XiYouGlobalDBEntry_descriptor_ = file->message_type(163);
+  Fest_XiYouGlobalDBEntry_descriptor_ = file->message_type(168);
   static const int Fest_XiYouGlobalDBEntry_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_XiYouGlobalDBEntry, tmpid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_XiYouGlobalDBEntry, info_),
@@ -3311,7 +3447,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_XiYouGlobalDBEntry));
-  Fest_XiYouGlobalDB_descriptor_ = file->message_type(164);
+  Fest_XiYouGlobalDB_descriptor_ = file->message_type(169);
   static const int Fest_XiYouGlobalDB_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_XiYouGlobalDB, entrys_),
   };
@@ -3326,7 +3462,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_XiYouGlobalDB));
-  Fest_XiYouSyncNotify_descriptor_ = file->message_type(165);
+  Fest_XiYouSyncNotify_descriptor_ = file->message_type(170);
   static const int Fest_XiYouSyncNotify_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_XiYouSyncNotify, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_XiYouSyncNotify, cur_state_id_),
@@ -3344,7 +3480,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_XiYouSyncNotify));
-  Fest_XiYouSyncLogic_descriptor_ = file->message_type(166);
+  Fest_XiYouSyncLogic_descriptor_ = file->message_type(171);
   static const int Fest_XiYouSyncLogic_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_XiYouSyncLogic, cur_state_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_XiYouSyncLogic, zid_),
@@ -3361,7 +3497,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_XiYouSyncLogic));
-  Fest_XiYouSyncFinish_descriptor_ = file->message_type(167);
+  Fest_XiYouSyncFinish_descriptor_ = file->message_type(172);
   static const int Fest_XiYouSyncFinish_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_XiYouSyncFinish, game_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_XiYouSyncFinish, ready_id_),
@@ -3377,7 +3513,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_XiYouSyncFinish));
-  Fest_XiYouSyncForceClose_descriptor_ = file->message_type(168);
+  Fest_XiYouSyncForceClose_descriptor_ = file->message_type(173);
   static const int Fest_XiYouSyncForceClose_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_XiYouSyncForceClose, ready_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_XiYouSyncForceClose, cur_state_),
@@ -3393,7 +3529,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_XiYouSyncForceClose));
-  Fest_DayTotalRechargeFetchReq_descriptor_ = file->message_type(169);
+  Fest_DayTotalRechargeFetchReq_descriptor_ = file->message_type(174);
   static const int Fest_DayTotalRechargeFetchReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DayTotalRechargeFetchReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DayTotalRechargeFetchReq, id_),
@@ -3409,7 +3545,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_DayTotalRechargeFetchReq));
-  Fest_DayTotalRechargeFetchRsp_descriptor_ = file->message_type(170);
+  Fest_DayTotalRechargeFetchRsp_descriptor_ = file->message_type(175);
   static const int Fest_DayTotalRechargeFetchRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DayTotalRechargeFetchRsp, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DayTotalRechargeFetchRsp, ret_),
@@ -3425,7 +3561,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_DayTotalRechargeFetchRsp));
-  Fest_DayTotalRechargeNotify_descriptor_ = file->message_type(171);
+  Fest_DayTotalRechargeNotify_descriptor_ = file->message_type(176);
   static const int Fest_DayTotalRechargeNotify_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DayTotalRechargeNotify, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_DayTotalRechargeNotify, recharge_),
@@ -3442,7 +3578,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_DayTotalRechargeNotify));
-  Fest_LoginRewardFetchReq_descriptor_ = file->message_type(172);
+  Fest_LoginRewardFetchReq_descriptor_ = file->message_type(177);
   static const int Fest_LoginRewardFetchReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LoginRewardFetchReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LoginRewardFetchReq, day_),
@@ -3458,7 +3594,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_LoginRewardFetchReq));
-  Fest_LoginRewardFetchRsp_descriptor_ = file->message_type(173);
+  Fest_LoginRewardFetchRsp_descriptor_ = file->message_type(178);
   static const int Fest_LoginRewardFetchRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LoginRewardFetchRsp, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LoginRewardFetchRsp, ret_),
@@ -3474,7 +3610,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_LoginRewardFetchRsp));
-  Fest_LoginRewardNotify_descriptor_ = file->message_type(174);
+  Fest_LoginRewardNotify_descriptor_ = file->message_type(179);
   static const int Fest_LoginRewardNotify_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LoginRewardNotify, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LoginRewardNotify, fetch_),
@@ -3490,7 +3626,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_LoginRewardNotify));
-  Fest_TotalRechargeFetchReq_descriptor_ = file->message_type(175);
+  Fest_TotalRechargeFetchReq_descriptor_ = file->message_type(180);
   static const int Fest_TotalRechargeFetchReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_TotalRechargeFetchReq, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_TotalRechargeFetchReq, id_),
@@ -3506,7 +3642,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_TotalRechargeFetchReq));
-  Fest_TotalRechargeFetchRsp_descriptor_ = file->message_type(176);
+  Fest_TotalRechargeFetchRsp_descriptor_ = file->message_type(181);
   static const int Fest_TotalRechargeFetchRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_TotalRechargeFetchRsp, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_TotalRechargeFetchRsp, ret_),
@@ -3522,7 +3658,7 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_TotalRechargeFetchRsp));
-  Fest_TotalRechargeNotify_descriptor_ = file->message_type(177);
+  Fest_TotalRechargeNotify_descriptor_ = file->message_type(182);
   static const int Fest_TotalRechargeNotify_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_TotalRechargeNotify, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_TotalRechargeNotify, fetch_lst_),
@@ -3539,6 +3675,206 @@ void protobuf_AssignDesc_Fest_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Fest_TotalRechargeNotify));
+  Fest_ContiRechargeTotalFetchReq_descriptor_ = file->message_type(183);
+  static const int Fest_ContiRechargeTotalFetchReq_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeTotalFetchReq, template_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeTotalFetchReq, gear_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeTotalFetchReq, total_day_),
+  };
+  Fest_ContiRechargeTotalFetchReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Fest_ContiRechargeTotalFetchReq_descriptor_,
+      Fest_ContiRechargeTotalFetchReq::default_instance_,
+      Fest_ContiRechargeTotalFetchReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeTotalFetchReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeTotalFetchReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Fest_ContiRechargeTotalFetchReq));
+  Fest_ContiRechargeTotalFetchRsp_descriptor_ = file->message_type(184);
+  static const int Fest_ContiRechargeTotalFetchRsp_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeTotalFetchRsp, template_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeTotalFetchRsp, ret_),
+  };
+  Fest_ContiRechargeTotalFetchRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Fest_ContiRechargeTotalFetchRsp_descriptor_,
+      Fest_ContiRechargeTotalFetchRsp::default_instance_,
+      Fest_ContiRechargeTotalFetchRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeTotalFetchRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeTotalFetchRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Fest_ContiRechargeTotalFetchRsp));
+  Fest_ContiRechargeDayFetchReq_descriptor_ = file->message_type(185);
+  static const int Fest_ContiRechargeDayFetchReq_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeDayFetchReq, template_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeDayFetchReq, day_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeDayFetchReq, gear_),
+  };
+  Fest_ContiRechargeDayFetchReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Fest_ContiRechargeDayFetchReq_descriptor_,
+      Fest_ContiRechargeDayFetchReq::default_instance_,
+      Fest_ContiRechargeDayFetchReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeDayFetchReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeDayFetchReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Fest_ContiRechargeDayFetchReq));
+  Fest_ContiRechargeDayFetchRsp_descriptor_ = file->message_type(186);
+  static const int Fest_ContiRechargeDayFetchRsp_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeDayFetchRsp, template_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeDayFetchRsp, ret_),
+  };
+  Fest_ContiRechargeDayFetchRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Fest_ContiRechargeDayFetchRsp_descriptor_,
+      Fest_ContiRechargeDayFetchRsp::default_instance_,
+      Fest_ContiRechargeDayFetchRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeDayFetchRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeDayFetchRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Fest_ContiRechargeDayFetchRsp));
+  Fest_ContiRechargeSuppleReq_descriptor_ = file->message_type(187);
+  static const int Fest_ContiRechargeSuppleReq_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeSuppleReq, template_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeSuppleReq, supplement_),
+  };
+  Fest_ContiRechargeSuppleReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Fest_ContiRechargeSuppleReq_descriptor_,
+      Fest_ContiRechargeSuppleReq::default_instance_,
+      Fest_ContiRechargeSuppleReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeSuppleReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeSuppleReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Fest_ContiRechargeSuppleReq));
+  Fest_ContiRechargeSuppleRsp_descriptor_ = file->message_type(188);
+  static const int Fest_ContiRechargeSuppleRsp_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeSuppleRsp, template_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeSuppleRsp, ret_),
+  };
+  Fest_ContiRechargeSuppleRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Fest_ContiRechargeSuppleRsp_descriptor_,
+      Fest_ContiRechargeSuppleRsp::default_instance_,
+      Fest_ContiRechargeSuppleRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeSuppleRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeSuppleRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Fest_ContiRechargeSuppleRsp));
+  Fest_ContiRechargeUpdateRsp_descriptor_ = file->message_type(189);
+  static const int Fest_ContiRechargeUpdateRsp_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeUpdateRsp, template_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeUpdateRsp, total_recharge_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeUpdateRsp, supplement_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeUpdateRsp, day_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeUpdateRsp, total_),
+  };
+  Fest_ContiRechargeUpdateRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Fest_ContiRechargeUpdateRsp_descriptor_,
+      Fest_ContiRechargeUpdateRsp::default_instance_,
+      Fest_ContiRechargeUpdateRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeUpdateRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_ContiRechargeUpdateRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Fest_ContiRechargeUpdateRsp));
+  Fest_LimitSaleBuyReq_descriptor_ = file->message_type(190);
+  static const int Fest_LimitSaleBuyReq_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleBuyReq, template_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleBuyReq, id_),
+  };
+  Fest_LimitSaleBuyReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Fest_LimitSaleBuyReq_descriptor_,
+      Fest_LimitSaleBuyReq::default_instance_,
+      Fest_LimitSaleBuyReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleBuyReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleBuyReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Fest_LimitSaleBuyReq));
+  Fest_LimitSaleBuyRsp_descriptor_ = file->message_type(191);
+  static const int Fest_LimitSaleBuyRsp_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleBuyRsp, template_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleBuyRsp, ret_),
+  };
+  Fest_LimitSaleBuyRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Fest_LimitSaleBuyRsp_descriptor_,
+      Fest_LimitSaleBuyRsp::default_instance_,
+      Fest_LimitSaleBuyRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleBuyRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleBuyRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Fest_LimitSaleBuyRsp));
+  Fest_LimitSaleFetchReq_descriptor_ = file->message_type(192);
+  static const int Fest_LimitSaleFetchReq_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleFetchReq, template_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleFetchReq, val_),
+  };
+  Fest_LimitSaleFetchReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Fest_LimitSaleFetchReq_descriptor_,
+      Fest_LimitSaleFetchReq::default_instance_,
+      Fest_LimitSaleFetchReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleFetchReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleFetchReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Fest_LimitSaleFetchReq));
+  Fest_LimitSaleFetchRsp_descriptor_ = file->message_type(193);
+  static const int Fest_LimitSaleFetchRsp_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleFetchRsp, template_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleFetchRsp, ret_),
+  };
+  Fest_LimitSaleFetchRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Fest_LimitSaleFetchRsp_descriptor_,
+      Fest_LimitSaleFetchRsp::default_instance_,
+      Fest_LimitSaleFetchRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleFetchRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleFetchRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Fest_LimitSaleFetchRsp));
+  Fest_LimitSaleUpdateRsp_descriptor_ = file->message_type(194);
+  static const int Fest_LimitSaleUpdateRsp_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleUpdateRsp, template_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleUpdateRsp, type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleUpdateRsp, total_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleUpdateRsp, fetch_total_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleUpdateRsp, buy_),
+  };
+  Fest_LimitSaleUpdateRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Fest_LimitSaleUpdateRsp_descriptor_,
+      Fest_LimitSaleUpdateRsp::default_instance_,
+      Fest_LimitSaleUpdateRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleUpdateRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Fest_LimitSaleUpdateRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Fest_LimitSaleUpdateRsp));
 }
 
 namespace {
@@ -3599,6 +3935,16 @@ void protobuf_RegisterTypes(const ::std::string&) {
     FestLoginProto_descriptor_, &FestLoginProto::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     FestTotalRechargeProto_descriptor_, &FestTotalRechargeProto::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    FestContiTotalRewardProto_descriptor_, &FestContiTotalRewardProto::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    FestContiDayRewardProto_descriptor_, &FestContiDayRewardProto::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    FestContiRechargeProto_descriptor_, &FestContiRechargeProto::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    FestLimitShopProto_descriptor_, &FestLimitShopProto::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    FestLimitSaleProto_descriptor_, &FestLimitSaleProto::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     FestDetailProto_descriptor_, &FestDetailProto::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -3907,6 +4253,30 @@ void protobuf_RegisterTypes(const ::std::string&) {
     Fest_TotalRechargeFetchRsp_descriptor_, &Fest_TotalRechargeFetchRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Fest_TotalRechargeNotify_descriptor_, &Fest_TotalRechargeNotify::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Fest_ContiRechargeTotalFetchReq_descriptor_, &Fest_ContiRechargeTotalFetchReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Fest_ContiRechargeTotalFetchRsp_descriptor_, &Fest_ContiRechargeTotalFetchRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Fest_ContiRechargeDayFetchReq_descriptor_, &Fest_ContiRechargeDayFetchReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Fest_ContiRechargeDayFetchRsp_descriptor_, &Fest_ContiRechargeDayFetchRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Fest_ContiRechargeSuppleReq_descriptor_, &Fest_ContiRechargeSuppleReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Fest_ContiRechargeSuppleRsp_descriptor_, &Fest_ContiRechargeSuppleRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Fest_ContiRechargeUpdateRsp_descriptor_, &Fest_ContiRechargeUpdateRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Fest_LimitSaleBuyReq_descriptor_, &Fest_LimitSaleBuyReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Fest_LimitSaleBuyRsp_descriptor_, &Fest_LimitSaleBuyRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Fest_LimitSaleFetchReq_descriptor_, &Fest_LimitSaleFetchReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Fest_LimitSaleFetchRsp_descriptor_, &Fest_LimitSaleFetchRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Fest_LimitSaleUpdateRsp_descriptor_, &Fest_LimitSaleUpdateRsp::default_instance());
 }
 
 }  // namespace
@@ -3960,6 +4330,16 @@ void protobuf_ShutdownFile_Fest_2eproto() {
   delete FestLoginProto_reflection_;
   delete FestTotalRechargeProto::default_instance_;
   delete FestTotalRechargeProto_reflection_;
+  delete FestContiTotalRewardProto::default_instance_;
+  delete FestContiTotalRewardProto_reflection_;
+  delete FestContiDayRewardProto::default_instance_;
+  delete FestContiDayRewardProto_reflection_;
+  delete FestContiRechargeProto::default_instance_;
+  delete FestContiRechargeProto_reflection_;
+  delete FestLimitShopProto::default_instance_;
+  delete FestLimitShopProto_reflection_;
+  delete FestLimitSaleProto::default_instance_;
+  delete FestLimitSaleProto_reflection_;
   delete FestDetailProto::default_instance_;
   delete FestDetailProto_reflection_;
   delete Fest_SimpleListRsp::default_instance_;
@@ -4268,6 +4648,30 @@ void protobuf_ShutdownFile_Fest_2eproto() {
   delete Fest_TotalRechargeFetchRsp_reflection_;
   delete Fest_TotalRechargeNotify::default_instance_;
   delete Fest_TotalRechargeNotify_reflection_;
+  delete Fest_ContiRechargeTotalFetchReq::default_instance_;
+  delete Fest_ContiRechargeTotalFetchReq_reflection_;
+  delete Fest_ContiRechargeTotalFetchRsp::default_instance_;
+  delete Fest_ContiRechargeTotalFetchRsp_reflection_;
+  delete Fest_ContiRechargeDayFetchReq::default_instance_;
+  delete Fest_ContiRechargeDayFetchReq_reflection_;
+  delete Fest_ContiRechargeDayFetchRsp::default_instance_;
+  delete Fest_ContiRechargeDayFetchRsp_reflection_;
+  delete Fest_ContiRechargeSuppleReq::default_instance_;
+  delete Fest_ContiRechargeSuppleReq_reflection_;
+  delete Fest_ContiRechargeSuppleRsp::default_instance_;
+  delete Fest_ContiRechargeSuppleRsp_reflection_;
+  delete Fest_ContiRechargeUpdateRsp::default_instance_;
+  delete Fest_ContiRechargeUpdateRsp_reflection_;
+  delete Fest_LimitSaleBuyReq::default_instance_;
+  delete Fest_LimitSaleBuyReq_reflection_;
+  delete Fest_LimitSaleBuyRsp::default_instance_;
+  delete Fest_LimitSaleBuyRsp_reflection_;
+  delete Fest_LimitSaleFetchReq::default_instance_;
+  delete Fest_LimitSaleFetchReq_reflection_;
+  delete Fest_LimitSaleFetchRsp::default_instance_;
+  delete Fest_LimitSaleFetchRsp_reflection_;
+  delete Fest_LimitSaleUpdateRsp::default_instance_;
+  delete Fest_LimitSaleUpdateRsp_reflection_;
 }
 
 void protobuf_AddDesc_Fest_2eproto() {
@@ -4327,354 +4731,394 @@ void protobuf_AddDesc_Fest_2eproto() {
     "\003(\005\022\020\n\010recharge\030\002 \001(\r\"2\n\016FestLoginProto\022"
     " \n\005fetch\030\001 \003(\0132\021.proto_ff.ComPair\"C\n\026Fes"
     "tTotalRechargeProto\022\021\n\tfetch_lst\030\001 \003(\005\022\026"
-    "\n\016total_recharge\030\002 \001(\r\"\341\007\n\017FestDetailPro"
-    "to\022\023\n\013template_id\030\001 \001(\005\022+\n\004shop\030\002 \001(\0132\035."
-    "proto_ff.FestShopDetailProto\022I\n\024daily_to"
-    "tal_recharge\030\003 \001(\0132+.proto_ff.FestDailyT"
-    "otalRechargeDetailProto\022+\n\004sign\030\004 \001(\0132\035."
-    "proto_ff.FestSignDetailProto\0220\n\ngold_sto"
-    "re\030\005 \001(\0132\034.proto_ff.FestGoldStoreProto\022*"
-    "\n\007dig_egg\030\006 \001(\0132\031.proto_ff.FestDigEggPro"
-    "to\022@\n\022rturnable_recharge\030\007 \001(\0132$.proto_f"
-    "f.FestRTurnableRechargeProto\022.\n\tturntabl"
-    "e\030\010 \001(\0132\033.proto_ff.FestTurnableProto\022)\n\006"
-    "donate\030\t \001(\0132\031.proto_ff.FestDonateProto\022"
-    ")\n\006online\030\n \001(\0132\031.proto_ff.FestOnlinePro"
-    "to\0224\n\014collect_word\030\013 \001(\0132\036.proto_ff.Fest"
-    "CollectWordProto\022*\n\tdraw_pize\030\014 \001(\0132\027.pr"
-    "oto_ff.DrawPizeProto\022+\n\004boss\030\r \001(\0132\035.pro"
-    "to_ff.FestBossDetailProto\022-\n\013server_rank"
-    "\030\016 \001(\0132\030.proto_ff.FestRankDBData\0227\n\017hui_"
-    "meng_xi_you\030\017 \001(\0132\036.proto_ff.FestHuiMeng"
-    "XiYouData\022(\n\005marry\030\020 \001(\0132\031.proto_ff.Fest"
-    "MarryDetail\022)\n\006candle\030\021 \001(\0132\031.proto_ff.F"
-    "estCandleProto\022\?\n\022day_total_recharge\030\022 \001"
-    "(\0132#.proto_ff.FestDayTotalRechargeProto\022"
-    "8\n\016total_recharge\030\023 \001(\0132 .proto_ff.FestT"
-    "otalRechargeProto\022\'\n\005login\030\024 \001(\0132\030.proto"
-    "_ff.FestLoginProto\"C\n\022Fest_SimpleListRsp"
-    "\022-\n\006simple\030\001 \001(\0132\035.proto_ff.FestSimpleLi"
-    "stProto\"F\n\025Fest_SimpleInfoNotify\022-\n\006simp"
-    "le\030\001 \001(\0132\035.proto_ff.FestSimpleListProto\""
-    "6\n\016Fest_DetailReq\022\017\n\007fest_id\030\001 \001(\005\022\023\n\013te"
-    "mplate_id\030\002 \001(\005\";\n\016Fest_DetailRsp\022)\n\006det"
-    "ail\030\001 \003(\0132\031.proto_ff.FestDetailProto\"A\n\024"
-    "Fest_DetailUpdateRsp\022)\n\006detail\030\001 \003(\0132\031.p"
-    "roto_ff.FestDetailProto\"I\n\024Fest_RedPoint"
-    "InfoRsp\0221\n\010redpoint\030\001 \001(\0132\037.proto_ff.Fes"
-    "tRedPointListProto\"L\n\027Fest_RedPointInfoN"
-    "otify\0221\n\010redpoint\030\001 \001(\0132\037.proto_ff.FestR"
-    "edPointListProto\"2\n\017Fest_ShopBuyReq\022\023\n\013t"
-    "emplate_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"L\n\017Fest_Sho"
-    "pBuyRsp\022\013\n\003ret\030\001 \002(\005\022\023\n\013template_id\030\002 \001("
-    "\005\022\n\n\002id\030\003 \001(\005\022\013\n\003num\030\004 \001(\005\"A\n\036Fest_GetDa"
-    "ilyRechargeRewardReq\022\023\n\013template_id\030\001 \001("
-    "\005\022\n\n\002id\030\002 \001(\005\"\222\001\n\036Fest_DailyRechargeStat"
-    "usNotify\022\013\n\003ret\030\001 \002(\005\022\023\n\013template_id\030\002 \001"
-    "(\005\022\026\n\016total_recharge\030\003 \001(\005\0226\n\004data\030\004 \003(\013"
-    "2(.proto_ff.FestDailyTotalRechargeOnePro"
-    "to\"C\n FestRTurnableRechargeTurnableReq\022\023"
-    "\n\013template_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"\220\001\n Fest"
-    "RTurnableRechargeTurnableRsp\022\013\n\003ret\030\001 \002("
-    "\005\022\023\n\013template_id\030\002 \001(\005\022\023\n\013turnable_id\030\003 "
-    "\001(\005\0225\n\004data\030\004 \003(\0132\'.proto_ff.FestRTurnab"
-    "leRechargeOneProto\"#\n\014Fest_SignReq\022\023\n\013te"
-    "mplate_id\030\001 \001(\005\"0\n\014Fest_SignRsp\022\013\n\003ret\030\001"
-    " \002(\005\022\023\n\013template_id\030\002 \002(\005\"I\n\031Fest_GoldSt"
-    "oreUpateBuyRsp\022\023\n\013template_id\030\001 \001(\005\022\n\n\002i"
-    "d\030\002 \001(\005\022\013\n\003num\030\003 \001(\005\"2\n\016Fest_DigEggReq\022\023"
-    "\n\013template_id\030\001 \001(\005\022\013\n\003pos\030\002 \001(\r\"K\n\016Fest"
-    "_DigEggRsp\022\013\n\003ret\030\001 \002(\005\022\023\n\013template_id\030\002"
-    " \002(\005\022\n\n\002id\030\003 \001(\005\022\013\n\003pos\030\004 \001(\r\")\n\022Fest_Di"
-    "gEggRestReq\022\023\n\013template_id\030\001 \001(\005\"D\n\022Fest"
-    "_DigEggRestRsp\022\013\n\003ret\030\001 \002(\005\022\023\n\013template_"
-    "id\030\002 \002(\005\022\014\n\004free\030\003 \001(\005\"(\n\021Fest_DigEggLog"
-    "Req\022\023\n\013template_id\030\001 \001(\005\"`\n\021Fest_DigEggL"
-    "ogRsp\022\013\n\003ret\030\001 \002(\005\022\023\n\013template_id\030\002 \002(\005\022"
-    ")\n\003log\030\003 \003(\0132\034.proto_ff.FestDigEggLogPro"
-    "to\":\n\027Fest_DigEggTaskFetchReq\022\023\n\013templat"
-    "e_id\030\001 \002(\005\022\n\n\002id\030\002 \002(\005\";\n\027Fest_DigEggTas"
-    "kFetchRsp\022\013\n\003ret\030\001 \002(\005\022\023\n\013template_id\030\002 "
-    "\002(\005\"G\n\030Fest_DigEggTaskUpdateRsp\022+\n\004task\030"
-    "\001 \003(\0132\035.proto_ff.FestDigEggTaskProto\"+\n\024"
-    "Fest_RTuranbleLogReq\022\023\n\013template_id\030\001 \001("
-    "\005\"d\n\024Fest_RTuranbleLogRsp\022\013\n\003ret\030\001 \002(\005\022\023"
-    "\n\013template_id\030\002 \002(\005\022*\n\003log\030\003 \003(\0132\035.proto"
-    "_ff.RTurnableLogDBProto\",\n\025TurntableTurn"
-    "TableReq\022\023\n\013template_id\030\001 \001(\005\"y\n\025Turntab"
-    "leTurnTableRsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013template_"
-    "id\030\002 \001(\005\022\020\n\010left_num\030\003 \001(\005\022\024\n\014turntable_"
-    "id\030\004 \001(\005\022\026\n\016chou_jiang_ids\030\005 \003(\005\"5\n\022Turn"
-    "tableRewardReq\022\023\n\013template_id\030\001 \001(\005\022\n\n\002i"
-    "d\030\002 \001(\005\"6\n\022TurntableRewardRsp\022\013\n\003ret\030\001 \001"
-    "(\005\022\023\n\013template_id\030\002 \001(\005\"m\n\025TurntableStat"
-    "usChange\022\023\n\013template_id\030\001 \001(\005\022-\n\004task\030\002 "
-    "\003(\0132\037.proto_ff.FestTurnableTaskProto\022\020\n\010"
-    "left_num\030\003 \001(\r\"0\n\031FestDonateGetServerNum"
-    "Req\022\023\n\013template_id\030\001 \001(\005\"Q\n\031FestDonateGe"
-    "tServerNumRsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013template_i"
-    "d\030\002 \001(\005\022\022\n\nserver_num\030\003 \001(\r\"8\n\023FestDonat"
-    "eDonateReq\022\023\n\013template_id\030\001 \001(\005\022\014\n\004type\030"
-    "\002 \001(\005\"K\n\023FestDonateDonateRsp\022\013\n\003ret\030\001 \001("
-    "\005\022\023\n\013template_id\030\002 \001(\005\022\022\n\nsingle_num\030\003 \001"
-    "(\r\"\?\n\034FestDonateGetSingleRewardReq\022\023\n\013te"
-    "mplate_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"o\n\034FestDonat"
-    "eGetSingleRewardRsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013temp"
-    "late_id\030\002 \001(\005\022-\n\004data\030\003 \001(\0132\037.proto_ff.F"
-    "estDonateSingleProto\"\?\n\034FestDonateGetSer"
-    "verRewardReq\022\023\n\013template_id\030\001 \001(\005\022\n\n\002id\030"
-    "\002 \001(\005\"o\n\034FestDonateGetServerRewardRsp\022\013\n"
-    "\003ret\030\001 \001(\005\022\023\n\013template_id\030\002 \001(\005\022-\n\004data\030"
-    "\003 \001(\0132\037.proto_ff.FestDonateServerProto\"="
-    "\n\032FestDonateGetTaskRewardReq\022\023\n\013template"
-    "_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"k\n\032FestDonateGetTa"
-    "skRewardRsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013template_id\030"
-    "\002 \001(\005\022+\n\004data\030\003 \001(\0132\035.proto_ff.FestDonat"
-    "eTaskProto\"^\n\032FestDonateTaskTtatusChange"
-    "\022\023\n\013template_id\030\001 \001(\005\022+\n\004data\030\002 \003(\0132\035.pr"
-    "oto_ff.FestDonateTaskProto\"9\n\026FestOnline"
-    "GetRewardReq\022\023\n\013template_id\030\001 \001(\005\022\n\n\002id\030"
-    "\002 \001(\005\"f\n\026FestOnlineGetRewardRsp\022\013\n\003ret\030\001"
-    " \001(\005\022\023\n\013template_id\030\002 \001(\005\022*\n\004data\030\003 \001(\0132"
-    "\034.proto_ff.FestOnlineOneProto\">\n\033FestCol"
-    "lectWorldExchargeReq\022\023\n\013template_id\030\001 \001("
-    "\005\022\n\n\002id\030\002 \001(\005\"p\n\033FestCollectWorldExcharg"
-    "eRsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013template_id\030\002 \001(\005\022/"
-    "\n\004data\030\003 \001(\0132!.proto_ff.FestCollectWordO"
-    "neProto\"=\n\030FestDrawPizeChouJiangReq\022\023\n\013t"
-    "emplate_id\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\"i\n\030FestDr"
-    "awPizeChouJiangRsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013templ"
-    "ate_id\030\002 \001(\005\022\024\n\014choujiang_id\030\003 \003(\005\022\025\n\rch"
-    "oujiang_num\030\005 \001(\r\";\n\030FestDrawPizeGetRewa"
-    "rdReq\022\023\n\013template_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"g"
-    "\n\030FestDrawPizeGetRewardRsp\022\013\n\003ret\030\001 \001(\005\022"
-    "\023\n\013template_id\030\002 \001(\005\022)\n\004data\030\003 \001(\0132\033.pro"
-    "to_ff.DrawPizeTaskProto\")\n\022FestDrawPizeL"
-    "ogReq\022\023\n\013template_id\030\001 \001(\005\"a\n\022FestDrawPi"
-    "zeLogRsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013template_id\030\002 \001"
-    "(\005\022)\n\003log\030\003 \003(\0132\034.proto_ff.DrawPizeLogDB"
-    "Proto\"2\n\033FestDrawPizeGetServerNumReq\022\023\n\013"
-    "template_id\030\001 \001(\005\"S\n\033FestDrawPizeGetServ"
-    "erNumRsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013template_id\030\002 \001"
-    "(\005\022\022\n\nserver_num\030\003 \001(\r\"U\n\032FestServerRank"
-    "GetRewardReq\022\023\n\013template_id\030\001 \001(\005\022\017\n\007ran"
-    "k_id\030\002 \001(\005\022\021\n\treward_id\030\003 \001(\005\"{\n\032FestSer"
-    "verRankGetRewardRsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013temp"
-    "late_id\030\002 \001(\005\022\017\n\007rank_id\030\003 \001(\005\022*\n\004data\030\004"
-    " \001(\0132\034.proto_ff.FestRankRewardData\"t\n Fe"
-    "stServerRankRewardStatusChange\022\023\n\013templa"
-    "te_id\030\001 \001(\005\022\017\n\007rank_id\030\002 \001(\005\022*\n\004data\030\003 \003"
-    "(\0132\034.proto_ff.FestRankRewardData\"B\n\032Fest"
-    "ServerRankGetMyRankReq\022\023\n\013template_id\030\001 "
-    "\001(\005\022\017\n\007rank_id\030\002 \001(\005\"o\n\032FestServerRankGe"
-    "tMyRankRsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013template_id\030\002"
-    " \001(\005\022\017\n\007rank_id\030\003 \001(\005\022\017\n\007my_rank\030\004 \001(\005\022\r"
-    "\n\005param\030\005 \001(\004\"c\n\033FestServerRankGetAllRan"
-    "kReq\022\023\n\013template_id\030\001 \001(\005\022\017\n\007rank_id\030\002 \001"
-    "(\005\022\013\n\003cid\030\003 \001(\004\022\021\n\trank_type\030\004 \001(\r\"z\n\033Fe"
-    "stServerRankGetAllRankRsp\022\013\n\003ret\030\001 \001(\005\022\023"
-    "\n\013template_id\030\002 \001(\005\022\017\n\007rank_id\030\003 \001(\005\022(\n\010"
-    "rankList\030\004 \003(\0132\026.proto_ff.RankNodeData\"@"
-    "\n\030FestServerRankBuyGiftReq\022\023\n\013template_i"
-    "d\030\001 \001(\005\022\017\n\007rank_id\030\002 \001(\005\"b\n\030FestServerRa"
-    "nkBuyGiftRsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013template_id"
-    "\030\002 \001(\005\022\017\n\007rank_id\030\003 \001(\005\022\023\n\013gift_status\030\004"
-    " \001(\r\"J\n\"FestServerRankGetRedPointRewardR"
-    "eq\022\023\n\013template_id\030\001 \001(\005\022\017\n\007rank_id\030\002 \001(\005"
-    "\"q\n\"FestServerRankGetRedPointRewardRsp\022\013"
-    "\n\003ret\030\001 \001(\005\022\023\n\013template_id\030\002 \001(\005\022\017\n\007rank"
-    "_id\030\003 \001(\005\022\030\n\020red_point_status\030\004 \001(\r\"W\n\032F"
-    "estServerRankStatusChange\022\023\n\013template_id"
-    "\030\001 \001(\005\022$\n\004rank\030\002 \003(\0132\026.proto_ff.FestRank"
-    "Data\"5\n\022FestCandleFetchReq\022\023\n\013template_i"
-    "d\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"6\n\022FestCandleFetchRs"
-    "p\022\013\n\003ret\030\001 \001(\005\022\023\n\013template_id\030\002 \001(\005\"<\n\025F"
-    "estCandleFetchLstRsp\022\023\n\013template_id\030\001 \001("
-    "\005\022\016\n\006id_lst\030\002 \003(\005\"(\n\021FestCandleRankReq\022\023"
-    "\n\013template_id\030\001 \001(\005\"n\n\021FestCandleRankRsp"
-    "\022\013\n\003ret\030\001 \001(\005\022\023\n\013template_id\030\002 \001(\005\022)\n\004ra"
-    "nk\030\003 \003(\0132\033.proto_ff.FestCandRankProto\022\014\n"
-    "\004harm\030\004 \001(\004\"S\n\025Fest_L2C_DigEgg_OpRsp\022\014\n\004"
-    "name\030\001 \001(\014\022\n\n\002id\030\002 \001(\005\022\023\n\013template_id\030\003 "
-    "\001(\005\022\013\n\003cid\030\004 \001(\004\"3\n\017Fest_L2C_LogReq\022\013\n\003c"
-    "id\030\001 \001(\004\022\023\n\013template_id\030\002 \001(\005\"[\n\030Fest_L2"
-    "C_RTurnable_OpRsp\022\023\n\013template_id\030\001 \001(\005\022*"
-    "\n\003log\030\002 \001(\0132\035.proto_ff.RTurnableLogDBPro"
-    "to\"=\n\031Fest_L2C_RTurnable_LogReq\022\013\n\003cid\030\001"
-    " \001(\004\022\023\n\013template_id\030\002 \001(\005\"U\n\035Fest_L2C_Do"
-    "nateOperate_Notify\022\013\n\003cid\030\001 \001(\004\022\023\n\013templ"
-    "ate_id\030\002 \001(\005\022\022\n\nsingle_num\030\003 \001(\r\"e\n!Fest"
-    "_C2L_DonateGetServerRewardReq\022\023\n\013templat"
-    "e_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\022\022\n\nserver_num\030\003 \001"
-    "(\r\022\013\n\003cid\030\004 \001(\004\"p\n\027Fest_L2C_DrawPizeLogR"
-    "eq\022\023\n\013template_id\030\001 \001(\005\022)\n\003log\030\002 \003(\0132\034.p"
-    "roto_ff.DrawPizeLogDBProto\022\025\n\rchoujiang_"
-    "num\030\003 \001(\005\"[\n)Fest_L2C_DrawPizeChouJiangG"
-    "etServerNumReq\022\023\n\013template_id\030\001 \001(\005\022\014\n\004t"
-    "ype\030\002 \001(\005\022\013\n\003cid\030\003 \001(\004\"o\n)Fest_C2L_DrawP"
-    "izeChouJiangGetServerNumRsp\022\023\n\013template_"
-    "id\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\022\022\n\nserver_num\030\003 \001"
-    "(\r\022\013\n\003cid\030\004 \001(\004\"b\n\032Fest_C2L_ServerRankSy"
-    "ncReq\022\013\n\003cid\030\001 \001(\004\022\023\n\013template_id\030\002 \001(\005\022"
-    "\017\n\007rank_id\030\003 \001(\005\022\021\n\trank_type\030\004 \001(\005\"\222\001\n\032"
-    "Fest_C2L_ServerRankSyncRsp\022\013\n\003cid\030\001 \001(\004\022"
-    "\023\n\013template_id\030\002 \001(\005\022\017\n\007rank_id\030\003 \001(\005\022\021\n"
-    "\trank_type\030\004 \001(\005\022\017\n\007my_rank\030\005 \001(\005\022\r\n\005par"
-    "am\030\006 \001(\004\022\016\n\006finish\030\007 \001(\010\"A\n\031Fest_S2C_Can"
-    "dleRankReward\022$\n\007cidrank\030\001 \003(\0132\023.proto_f"
-    "f.ComPair64\"_\n\026Fest_L2S_CandleAddHarm\022\013\n"
-    "\003cid\030\001 \001(\004\022\014\n\004name\030\002 \001(\014\022\014\n\004harm\030\003 \001(\003\022\013"
-    "\n\003zid\030\004 \001(\r\022\017\n\007logicid\030\005 \001(\r\">\n\033Fest_S2L"
-    "_CandleTotalHarmRsp\022\013\n\003cid\030\001 \001(\004\022\022\n\ntota"
-    "l_harm\030\002 \001(\003\"@\n\026Fest_L2S_CandleRankReq\022\013"
-    "\n\003cid\030\001 \001(\004\022\014\n\004harm\030\002 \001(\003\022\013\n\003zid\030\003 \001(\r\"E"
-    "\n\024Fest_BossFirstOptReq\022\023\n\013template_id\030\001 "
-    "\001(\005\022\n\n\002id\030\002 \001(\005\022\014\n\004type\030\003 \001(\005\"R\n\024Fest_Bo"
-    "ssFirstOptRsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013template_i"
-    "d\030\002 \001(\005\022\n\n\002id\030\003 \001(\005\022\014\n\004type\030\004 \001(\005\"\'\n\020Fes"
-    "t_BossInfoReq\022\023\n\013template_id\030\001 \001(\005\"\242\001\n\014F"
-    "estBossInfo\022\n\n\002id\030\001 \001(\005\022\024\n\014refresh_time\030"
-    "\002 \001(\004\022\020\n\010kill_cid\030\003 \001(\004\022\021\n\tkill_name\030\004 \001"
-    "(\014\022\021\n\tkill_time\030\005 \001(\004\022\016\n\006teamid\030\006 \001(\r\022(\n"
-    "\004head\030\007 \001(\0132\032.proto_ff.RoleHeadPicProto\""
-    "N\n\020Fest_BossInfoRsp\022\023\n\013template_id\030\001 \001(\005"
-    "\022%\n\005infos\030\002 \003(\0132\026.proto_ff.FestBossInfo\""
-    "V\n\023Fest_BFGlobalDBKill\022\n\n\002id\030\001 \001(\005\022\020\n\010ki"
-    "ll_cid\030\002 \001(\004\022\021\n\tkill_time\030\003 \001(\004\022\016\n\006teami"
-    "d\030\004 \001(\r\"S\n\024Fest_BFGlobalDBEntry\022\r\n\005tmpId"
-    "\030\001 \001(\005\022,\n\005infos\030\002 \003(\0132\035.proto_ff.Fest_BF"
-    "GlobalDBKill\"A\n\017Fest_BFGlobalDB\022.\n\006entry"
-    "s\030\001 \003(\0132\036.proto_ff.Fest_BFGlobalDBEntry\""
-    "~\n\027L2CFest_BossKFSimpleReq\022\016\n\006roleid\030\001 \001"
-    "(\004\022\023\n\013template_id\030\002 \001(\005\022(\n\005proto\030\003 \001(\0132\031"
-    ".proto_ff.FestSimpleProto\022\024\n\014recv_red_id"
-    "s\030\004 \003(\005\"d\n\024C2LFest_BossKFNotify\022\023\n\013templ"
-    "ate_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\022\016\n\006roleid\030\003 \001(\004"
-    "\022\016\n\006teamid\030\004 \001(\005\022\013\n\003zid\030\005 \001(\005\"a\n\023C2LFest"
-    "_BossInfoReq\022\016\n\006roleId\030\001 \001(\004\022\023\n\013template"
-    "_id\030\002 \001(\005\022%\n\005infos\030\003 \003(\0132\026.proto_ff.Fest"
-    "BossInfo\"f\n\027C2LFest_BossFirstOptReq\022\023\n\013t"
-    "emplate_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\022\014\n\004type\030\003 \001"
-    "(\005\022\016\n\006roleid\030\004 \001(\004\022\014\n\004flag\030\005 \001(\005\"D\n!C2LF"
-    "est_HuiMengXiYou_GetRewardReq\022\023\n\013templat"
-    "e_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"|\n!L2CFest_HuiMen"
-    "gXiYou_GetRewardRsp\022\020\n\010ret_code\030\001 \001(\005\022\023\n"
-    "\013template_id\030\002 \001(\005\0220\n\006reward\030\003 \001(\0132 .pro"
-    "to_ff.FestHuiMengXiYouReward\"\206\001\n)NotifyF"
-    "est_HuiMengXiYouRewardStatusChange\022\023\n\013te"
-    "mplate_id\030\001 \001(\005\0220\n\006reward\030\002 \003(\0132 .proto_"
-    "ff.FestHuiMengXiYouReward\022\022\n\ncur_points\030"
-    "\003 \001(\005\"+\n\rXiYouGameInfo\022\n\n\002id\030\001 \001(\005\022\016\n\006st"
-    "atus\030\002 \001(\005\"|\n\034NotiftFest_HuiMengXiYouSta"
-    "rt\022\017\n\007play_id\030\001 \001(\005\022%\n\004info\030\002 \003(\0132\027.prot"
-    "o_ff.XiYouGameInfo\022\021\n\tcur_state\030\003 \001(\005\022\021\n"
-    "\tleft_time\030\004 \001(\005\"g\n!NotiftFest_LogicHuiM"
-    "engXiYouStart\022\013\n\003cid\030\001 \003(\004\0225\n\005start\030\002 \001("
-    "\0132&.proto_ff.NotiftFest_HuiMengXiYouStar"
-    "t\"\202\001\n\"NotifyFest_HuiMengXiYouSceneChange"
-    "\022\017\n\007play_id\030\001 \001(\005\022%\n\004info\030\002 \003(\0132\027.proto_"
-    "ff.XiYouGameInfo\022\021\n\tcur_state\030\003 \001(\005\022\021\n\tl"
-    "eft_time\030\004 \001(\005\"\200\001\n NotiftFest_HuiMengXiY"
-    "ouGameStart\022\017\n\007play_id\030\001 \001(\005\022%\n\004info\030\002 \003"
+    "\n\016total_recharge\030\002 \001(\r\"<\n\031FestContiTotal"
+    "RewardProto\022\014\n\004gear\030\001 \001(\005\022\021\n\tfetch_day\030\002"
+    " \003(\005\":\n\027FestContiDayRewardProto\022\013\n\003day\030\001"
+    " \001(\005\022\022\n\nfetch_gear\030\002 \003(\005\"\250\001\n\026FestContiRe"
+    "chargeProto\022\026\n\016total_recharge\030\001 \001(\r\022\022\n\ns"
+    "upplement\030\002 \001(\005\022.\n\003day\030\003 \003(\0132!.proto_ff."
+    "FestContiDayRewardProto\0222\n\005total\030\004 \003(\0132#"
+    ".proto_ff.FestContiTotalRewardProto\"f\n\022F"
+    "estLimitShopProto\022\014\n\004type\030\001 \001(\005\022\r\n\005total"
+    "\030\002 \001(\r\022\023\n\013fetch_total\030\003 \003(\005\022\036\n\003buy\030\004 \003(\013"
+    "2\021.proto_ff.ComPair\"@\n\022FestLimitSaleProt"
+    "o\022*\n\004sale\030\001 \003(\0132\034.proto_ff.FestLimitShop"
+    "Proto\"\315\010\n\017FestDetailProto\022\023\n\013template_id"
+    "\030\001 \001(\005\022+\n\004shop\030\002 \001(\0132\035.proto_ff.FestShop"
+    "DetailProto\022I\n\024daily_total_recharge\030\003 \001("
+    "\0132+.proto_ff.FestDailyTotalRechargeDetai"
+    "lProto\022+\n\004sign\030\004 \001(\0132\035.proto_ff.FestSign"
+    "DetailProto\0220\n\ngold_store\030\005 \001(\0132\034.proto_"
+    "ff.FestGoldStoreProto\022*\n\007dig_egg\030\006 \001(\0132\031"
+    ".proto_ff.FestDigEggProto\022@\n\022rturnable_r"
+    "echarge\030\007 \001(\0132$.proto_ff.FestRTurnableRe"
+    "chargeProto\022.\n\tturntable\030\010 \001(\0132\033.proto_f"
+    "f.FestTurnableProto\022)\n\006donate\030\t \001(\0132\031.pr"
+    "oto_ff.FestDonateProto\022)\n\006online\030\n \001(\0132\031"
+    ".proto_ff.FestOnlineProto\0224\n\014collect_wor"
+    "d\030\013 \001(\0132\036.proto_ff.FestCollectWordProto\022"
+    "*\n\tdraw_pize\030\014 \001(\0132\027.proto_ff.DrawPizePr"
+    "oto\022+\n\004boss\030\r \001(\0132\035.proto_ff.FestBossDet"
+    "ailProto\022-\n\013server_rank\030\016 \001(\0132\030.proto_ff"
+    ".FestRankDBData\0227\n\017hui_meng_xi_you\030\017 \001(\013"
+    "2\036.proto_ff.FestHuiMengXiYouData\022(\n\005marr"
+    "y\030\020 \001(\0132\031.proto_ff.FestMarryDetail\022)\n\006ca"
+    "ndle\030\021 \001(\0132\031.proto_ff.FestCandleProto\022\?\n"
+    "\022day_total_recharge\030\022 \001(\0132#.proto_ff.Fes"
+    "tDayTotalRechargeProto\0228\n\016total_recharge"
+    "\030\023 \001(\0132 .proto_ff.FestTotalRechargeProto"
+    "\022\'\n\005login\030\024 \001(\0132\030.proto_ff.FestLoginProt"
+    "o\0220\n\nlimit_sale\030\025 \001(\0132\034.proto_ff.FestLim"
+    "itSaleProto\0228\n\016conti_recharge\030\026 \001(\0132 .pr"
+    "oto_ff.FestContiRechargeProto\"C\n\022Fest_Si"
+    "mpleListRsp\022-\n\006simple\030\001 \001(\0132\035.proto_ff.F"
+    "estSimpleListProto\"F\n\025Fest_SimpleInfoNot"
+    "ify\022-\n\006simple\030\001 \001(\0132\035.proto_ff.FestSimpl"
+    "eListProto\"6\n\016Fest_DetailReq\022\017\n\007fest_id\030"
+    "\001 \001(\005\022\023\n\013template_id\030\002 \001(\005\";\n\016Fest_Detai"
+    "lRsp\022)\n\006detail\030\001 \003(\0132\031.proto_ff.FestDeta"
+    "ilProto\"A\n\024Fest_DetailUpdateRsp\022)\n\006detai"
+    "l\030\001 \003(\0132\031.proto_ff.FestDetailProto\"I\n\024Fe"
+    "st_RedPointInfoRsp\0221\n\010redpoint\030\001 \001(\0132\037.p"
+    "roto_ff.FestRedPointListProto\"L\n\027Fest_Re"
+    "dPointInfoNotify\0221\n\010redpoint\030\001 \001(\0132\037.pro"
+    "to_ff.FestRedPointListProto\"2\n\017Fest_Shop"
+    "BuyReq\022\023\n\013template_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\""
+    "L\n\017Fest_ShopBuyRsp\022\013\n\003ret\030\001 \002(\005\022\023\n\013templ"
+    "ate_id\030\002 \001(\005\022\n\n\002id\030\003 \001(\005\022\013\n\003num\030\004 \001(\005\"A\n"
+    "\036Fest_GetDailyRechargeRewardReq\022\023\n\013templ"
+    "ate_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"\222\001\n\036Fest_DailyR"
+    "echargeStatusNotify\022\013\n\003ret\030\001 \002(\005\022\023\n\013temp"
+    "late_id\030\002 \001(\005\022\026\n\016total_recharge\030\003 \001(\005\0226\n"
+    "\004data\030\004 \003(\0132(.proto_ff.FestDailyTotalRec"
+    "hargeOneProto\"C\n FestRTurnableRechargeTu"
+    "rnableReq\022\023\n\013template_id\030\001 \001(\005\022\n\n\002id\030\002 \001"
+    "(\005\"\220\001\n FestRTurnableRechargeTurnableRsp\022"
+    "\013\n\003ret\030\001 \002(\005\022\023\n\013template_id\030\002 \001(\005\022\023\n\013tur"
+    "nable_id\030\003 \001(\005\0225\n\004data\030\004 \003(\0132\'.proto_ff."
+    "FestRTurnableRechargeOneProto\"#\n\014Fest_Si"
+    "gnReq\022\023\n\013template_id\030\001 \001(\005\"0\n\014Fest_SignR"
+    "sp\022\013\n\003ret\030\001 \002(\005\022\023\n\013template_id\030\002 \002(\005\"I\n\031"
+    "Fest_GoldStoreUpateBuyRsp\022\023\n\013template_id"
+    "\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\022\013\n\003num\030\003 \001(\005\"2\n\016Fest_"
+    "DigEggReq\022\023\n\013template_id\030\001 \001(\005\022\013\n\003pos\030\002 "
+    "\001(\r\"K\n\016Fest_DigEggRsp\022\013\n\003ret\030\001 \002(\005\022\023\n\013te"
+    "mplate_id\030\002 \002(\005\022\n\n\002id\030\003 \001(\005\022\013\n\003pos\030\004 \001(\r"
+    "\")\n\022Fest_DigEggRestReq\022\023\n\013template_id\030\001 "
+    "\001(\005\"D\n\022Fest_DigEggRestRsp\022\013\n\003ret\030\001 \002(\005\022\023"
+    "\n\013template_id\030\002 \002(\005\022\014\n\004free\030\003 \001(\005\"(\n\021Fes"
+    "t_DigEggLogReq\022\023\n\013template_id\030\001 \001(\005\"`\n\021F"
+    "est_DigEggLogRsp\022\013\n\003ret\030\001 \002(\005\022\023\n\013templat"
+    "e_id\030\002 \002(\005\022)\n\003log\030\003 \003(\0132\034.proto_ff.FestD"
+    "igEggLogProto\":\n\027Fest_DigEggTaskFetchReq"
+    "\022\023\n\013template_id\030\001 \002(\005\022\n\n\002id\030\002 \002(\005\";\n\027Fes"
+    "t_DigEggTaskFetchRsp\022\013\n\003ret\030\001 \002(\005\022\023\n\013tem"
+    "plate_id\030\002 \002(\005\"G\n\030Fest_DigEggTaskUpdateR"
+    "sp\022+\n\004task\030\001 \003(\0132\035.proto_ff.FestDigEggTa"
+    "skProto\"+\n\024Fest_RTuranbleLogReq\022\023\n\013templ"
+    "ate_id\030\001 \001(\005\"d\n\024Fest_RTuranbleLogRsp\022\013\n\003"
+    "ret\030\001 \002(\005\022\023\n\013template_id\030\002 \002(\005\022*\n\003log\030\003 "
+    "\003(\0132\035.proto_ff.RTurnableLogDBProto\",\n\025Tu"
+    "rntableTurnTableReq\022\023\n\013template_id\030\001 \001(\005"
+    "\"y\n\025TurntableTurnTableRsp\022\013\n\003ret\030\001 \001(\005\022\023"
+    "\n\013template_id\030\002 \001(\005\022\020\n\010left_num\030\003 \001(\005\022\024\n"
+    "\014turntable_id\030\004 \001(\005\022\026\n\016chou_jiang_ids\030\005 "
+    "\003(\005\"5\n\022TurntableRewardReq\022\023\n\013template_id"
+    "\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"6\n\022TurntableRewardRsp"
+    "\022\013\n\003ret\030\001 \001(\005\022\023\n\013template_id\030\002 \001(\005\"m\n\025Tu"
+    "rntableStatusChange\022\023\n\013template_id\030\001 \001(\005"
+    "\022-\n\004task\030\002 \003(\0132\037.proto_ff.FestTurnableTa"
+    "skProto\022\020\n\010left_num\030\003 \001(\r\"0\n\031FestDonateG"
+    "etServerNumReq\022\023\n\013template_id\030\001 \001(\005\"Q\n\031F"
+    "estDonateGetServerNumRsp\022\013\n\003ret\030\001 \001(\005\022\023\n"
+    "\013template_id\030\002 \001(\005\022\022\n\nserver_num\030\003 \001(\r\"8"
+    "\n\023FestDonateDonateReq\022\023\n\013template_id\030\001 \001"
+    "(\005\022\014\n\004type\030\002 \001(\005\"K\n\023FestDonateDonateRsp\022"
+    "\013\n\003ret\030\001 \001(\005\022\023\n\013template_id\030\002 \001(\005\022\022\n\nsin"
+    "gle_num\030\003 \001(\r\"\?\n\034FestDonateGetSingleRewa"
+    "rdReq\022\023\n\013template_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"o"
+    "\n\034FestDonateGetSingleRewardRsp\022\013\n\003ret\030\001 "
+    "\001(\005\022\023\n\013template_id\030\002 \001(\005\022-\n\004data\030\003 \001(\0132\037"
+    ".proto_ff.FestDonateSingleProto\"\?\n\034FestD"
+    "onateGetServerRewardReq\022\023\n\013template_id\030\001"
+    " \001(\005\022\n\n\002id\030\002 \001(\005\"o\n\034FestDonateGetServerR"
+    "ewardRsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013template_id\030\002 \001"
+    "(\005\022-\n\004data\030\003 \001(\0132\037.proto_ff.FestDonateSe"
+    "rverProto\"=\n\032FestDonateGetTaskRewardReq\022"
+    "\023\n\013template_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"k\n\032Fest"
+    "DonateGetTaskRewardRsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013t"
+    "emplate_id\030\002 \001(\005\022+\n\004data\030\003 \001(\0132\035.proto_f"
+    "f.FestDonateTaskProto\"^\n\032FestDonateTaskT"
+    "tatusChange\022\023\n\013template_id\030\001 \001(\005\022+\n\004data"
+    "\030\002 \003(\0132\035.proto_ff.FestDonateTaskProto\"9\n"
+    "\026FestOnlineGetRewardReq\022\023\n\013template_id\030\001"
+    " \001(\005\022\n\n\002id\030\002 \001(\005\"f\n\026FestOnlineGetRewardR"
+    "sp\022\013\n\003ret\030\001 \001(\005\022\023\n\013template_id\030\002 \001(\005\022*\n\004"
+    "data\030\003 \001(\0132\034.proto_ff.FestOnlineOneProto"
+    "\">\n\033FestCollectWorldExchargeReq\022\023\n\013templ"
+    "ate_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"p\n\033FestCollectW"
+    "orldExchargeRsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013template"
+    "_id\030\002 \001(\005\022/\n\004data\030\003 \001(\0132!.proto_ff.FestC"
+    "ollectWordOneProto\"=\n\030FestDrawPizeChouJi"
+    "angReq\022\023\n\013template_id\030\001 \001(\005\022\014\n\004type\030\002 \001("
+    "\005\"i\n\030FestDrawPizeChouJiangRsp\022\013\n\003ret\030\001 \001"
+    "(\005\022\023\n\013template_id\030\002 \001(\005\022\024\n\014choujiang_id\030"
+    "\003 \003(\005\022\025\n\rchoujiang_num\030\005 \001(\r\";\n\030FestDraw"
+    "PizeGetRewardReq\022\023\n\013template_id\030\001 \001(\005\022\n\n"
+    "\002id\030\002 \001(\005\"g\n\030FestDrawPizeGetRewardRsp\022\013\n"
+    "\003ret\030\001 \001(\005\022\023\n\013template_id\030\002 \001(\005\022)\n\004data\030"
+    "\003 \001(\0132\033.proto_ff.DrawPizeTaskProto\")\n\022Fe"
+    "stDrawPizeLogReq\022\023\n\013template_id\030\001 \001(\005\"a\n"
+    "\022FestDrawPizeLogRsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013temp"
+    "late_id\030\002 \001(\005\022)\n\003log\030\003 \003(\0132\034.proto_ff.Dr"
+    "awPizeLogDBProto\"2\n\033FestDrawPizeGetServe"
+    "rNumReq\022\023\n\013template_id\030\001 \001(\005\"S\n\033FestDraw"
+    "PizeGetServerNumRsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013temp"
+    "late_id\030\002 \001(\005\022\022\n\nserver_num\030\003 \001(\r\"U\n\032Fes"
+    "tServerRankGetRewardReq\022\023\n\013template_id\030\001"
+    " \001(\005\022\017\n\007rank_id\030\002 \001(\005\022\021\n\treward_id\030\003 \001(\005"
+    "\"{\n\032FestServerRankGetRewardRsp\022\013\n\003ret\030\001 "
+    "\001(\005\022\023\n\013template_id\030\002 \001(\005\022\017\n\007rank_id\030\003 \001("
+    "\005\022*\n\004data\030\004 \001(\0132\034.proto_ff.FestRankRewar"
+    "dData\"t\n FestServerRankRewardStatusChang"
+    "e\022\023\n\013template_id\030\001 \001(\005\022\017\n\007rank_id\030\002 \001(\005\022"
+    "*\n\004data\030\003 \003(\0132\034.proto_ff.FestRankRewardD"
+    "ata\"B\n\032FestServerRankGetMyRankReq\022\023\n\013tem"
+    "plate_id\030\001 \001(\005\022\017\n\007rank_id\030\002 \001(\005\"o\n\032FestS"
+    "erverRankGetMyRankRsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013te"
+    "mplate_id\030\002 \001(\005\022\017\n\007rank_id\030\003 \001(\005\022\017\n\007my_r"
+    "ank\030\004 \001(\005\022\r\n\005param\030\005 \001(\004\"c\n\033FestServerRa"
+    "nkGetAllRankReq\022\023\n\013template_id\030\001 \001(\005\022\017\n\007"
+    "rank_id\030\002 \001(\005\022\013\n\003cid\030\003 \001(\004\022\021\n\trank_type\030"
+    "\004 \001(\r\"z\n\033FestServerRankGetAllRankRsp\022\013\n\003"
+    "ret\030\001 \001(\005\022\023\n\013template_id\030\002 \001(\005\022\017\n\007rank_i"
+    "d\030\003 \001(\005\022(\n\010rankList\030\004 \003(\0132\026.proto_ff.Ran"
+    "kNodeData\"@\n\030FestServerRankBuyGiftReq\022\023\n"
+    "\013template_id\030\001 \001(\005\022\017\n\007rank_id\030\002 \001(\005\"b\n\030F"
+    "estServerRankBuyGiftRsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013"
+    "template_id\030\002 \001(\005\022\017\n\007rank_id\030\003 \001(\005\022\023\n\013gi"
+    "ft_status\030\004 \001(\r\"J\n\"FestServerRankGetRedP"
+    "ointRewardReq\022\023\n\013template_id\030\001 \001(\005\022\017\n\007ra"
+    "nk_id\030\002 \001(\005\"q\n\"FestServerRankGetRedPoint"
+    "RewardRsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013template_id\030\002 "
+    "\001(\005\022\017\n\007rank_id\030\003 \001(\005\022\030\n\020red_point_status"
+    "\030\004 \001(\r\"W\n\032FestServerRankStatusChange\022\023\n\013"
+    "template_id\030\001 \001(\005\022$\n\004rank\030\002 \003(\0132\026.proto_"
+    "ff.FestRankData\"5\n\022FestCandleFetchReq\022\023\n"
+    "\013template_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"6\n\022FestCa"
+    "ndleFetchRsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013template_id"
+    "\030\002 \001(\005\"<\n\025FestCandleFetchLstRsp\022\023\n\013templ"
+    "ate_id\030\001 \001(\005\022\016\n\006id_lst\030\002 \003(\005\"(\n\021FestCand"
+    "leRankReq\022\023\n\013template_id\030\001 \001(\005\"n\n\021FestCa"
+    "ndleRankRsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013template_id\030"
+    "\002 \001(\005\022)\n\004rank\030\003 \003(\0132\033.proto_ff.FestCandR"
+    "ankProto\022\014\n\004harm\030\004 \001(\004\"S\n\025Fest_L2C_DigEg"
+    "g_OpRsp\022\014\n\004name\030\001 \001(\014\022\n\n\002id\030\002 \001(\005\022\023\n\013tem"
+    "plate_id\030\003 \001(\005\022\013\n\003cid\030\004 \001(\004\"3\n\017Fest_L2C_"
+    "LogReq\022\013\n\003cid\030\001 \001(\004\022\023\n\013template_id\030\002 \001(\005"
+    "\"[\n\030Fest_L2C_RTurnable_OpRsp\022\023\n\013template"
+    "_id\030\001 \001(\005\022*\n\003log\030\002 \001(\0132\035.proto_ff.RTurna"
+    "bleLogDBProto\"=\n\031Fest_L2C_RTurnable_LogR"
+    "eq\022\013\n\003cid\030\001 \001(\004\022\023\n\013template_id\030\002 \001(\005\"U\n\035"
+    "Fest_L2C_DonateOperate_Notify\022\013\n\003cid\030\001 \001"
+    "(\004\022\023\n\013template_id\030\002 \001(\005\022\022\n\nsingle_num\030\003 "
+    "\001(\r\"e\n!Fest_C2L_DonateGetServerRewardReq"
+    "\022\023\n\013template_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\022\022\n\nser"
+    "ver_num\030\003 \001(\r\022\013\n\003cid\030\004 \001(\004\"p\n\027Fest_L2C_D"
+    "rawPizeLogReq\022\023\n\013template_id\030\001 \001(\005\022)\n\003lo"
+    "g\030\002 \003(\0132\034.proto_ff.DrawPizeLogDBProto\022\025\n"
+    "\rchoujiang_num\030\003 \001(\005\"[\n)Fest_L2C_DrawPiz"
+    "eChouJiangGetServerNumReq\022\023\n\013template_id"
+    "\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\022\013\n\003cid\030\003 \001(\004\"o\n)Fes"
+    "t_C2L_DrawPizeChouJiangGetServerNumRsp\022\023"
+    "\n\013template_id\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\022\022\n\nser"
+    "ver_num\030\003 \001(\r\022\013\n\003cid\030\004 \001(\004\"b\n\032Fest_C2L_S"
+    "erverRankSyncReq\022\013\n\003cid\030\001 \001(\004\022\023\n\013templat"
+    "e_id\030\002 \001(\005\022\017\n\007rank_id\030\003 \001(\005\022\021\n\trank_type"
+    "\030\004 \001(\005\"\222\001\n\032Fest_C2L_ServerRankSyncRsp\022\013\n"
+    "\003cid\030\001 \001(\004\022\023\n\013template_id\030\002 \001(\005\022\017\n\007rank_"
+    "id\030\003 \001(\005\022\021\n\trank_type\030\004 \001(\005\022\017\n\007my_rank\030\005"
+    " \001(\005\022\r\n\005param\030\006 \001(\004\022\016\n\006finish\030\007 \001(\010\"A\n\031F"
+    "est_S2C_CandleRankReward\022$\n\007cidrank\030\001 \003("
+    "\0132\023.proto_ff.ComPair64\"_\n\026Fest_L2S_Candl"
+    "eAddHarm\022\013\n\003cid\030\001 \001(\004\022\014\n\004name\030\002 \001(\014\022\014\n\004h"
+    "arm\030\003 \001(\003\022\013\n\003zid\030\004 \001(\r\022\017\n\007logicid\030\005 \001(\r\""
+    ">\n\033Fest_S2L_CandleTotalHarmRsp\022\013\n\003cid\030\001 "
+    "\001(\004\022\022\n\ntotal_harm\030\002 \001(\003\"@\n\026Fest_L2S_Cand"
+    "leRankReq\022\013\n\003cid\030\001 \001(\004\022\014\n\004harm\030\002 \001(\003\022\013\n\003"
+    "zid\030\003 \001(\r\"E\n\024Fest_BossFirstOptReq\022\023\n\013tem"
+    "plate_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\022\014\n\004type\030\003 \001(\005"
+    "\"R\n\024Fest_BossFirstOptRsp\022\013\n\003ret\030\001 \001(\005\022\023\n"
+    "\013template_id\030\002 \001(\005\022\n\n\002id\030\003 \001(\005\022\014\n\004type\030\004"
+    " \001(\005\"\'\n\020Fest_BossInfoReq\022\023\n\013template_id\030"
+    "\001 \001(\005\"\242\001\n\014FestBossInfo\022\n\n\002id\030\001 \001(\005\022\024\n\014re"
+    "fresh_time\030\002 \001(\004\022\020\n\010kill_cid\030\003 \001(\004\022\021\n\tki"
+    "ll_name\030\004 \001(\014\022\021\n\tkill_time\030\005 \001(\004\022\016\n\006team"
+    "id\030\006 \001(\r\022(\n\004head\030\007 \001(\0132\032.proto_ff.RoleHe"
+    "adPicProto\"N\n\020Fest_BossInfoRsp\022\023\n\013templa"
+    "te_id\030\001 \001(\005\022%\n\005infos\030\002 \003(\0132\026.proto_ff.Fe"
+    "stBossInfo\"V\n\023Fest_BFGlobalDBKill\022\n\n\002id\030"
+    "\001 \001(\005\022\020\n\010kill_cid\030\002 \001(\004\022\021\n\tkill_time\030\003 \001"
+    "(\004\022\016\n\006teamid\030\004 \001(\r\"S\n\024Fest_BFGlobalDBEnt"
+    "ry\022\r\n\005tmpId\030\001 \001(\005\022,\n\005infos\030\002 \003(\0132\035.proto"
+    "_ff.Fest_BFGlobalDBKill\"A\n\017Fest_BFGlobal"
+    "DB\022.\n\006entrys\030\001 \003(\0132\036.proto_ff.Fest_BFGlo"
+    "balDBEntry\"~\n\027L2CFest_BossKFSimpleReq\022\016\n"
+    "\006roleid\030\001 \001(\004\022\023\n\013template_id\030\002 \001(\005\022(\n\005pr"
+    "oto\030\003 \001(\0132\031.proto_ff.FestSimpleProto\022\024\n\014"
+    "recv_red_ids\030\004 \003(\005\"d\n\024C2LFest_BossKFNoti"
+    "fy\022\023\n\013template_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\022\016\n\006r"
+    "oleid\030\003 \001(\004\022\016\n\006teamid\030\004 \001(\005\022\013\n\003zid\030\005 \001(\005"
+    "\"a\n\023C2LFest_BossInfoReq\022\016\n\006roleId\030\001 \001(\004\022"
+    "\023\n\013template_id\030\002 \001(\005\022%\n\005infos\030\003 \003(\0132\026.pr"
+    "oto_ff.FestBossInfo\"f\n\027C2LFest_BossFirst"
+    "OptReq\022\023\n\013template_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\022"
+    "\014\n\004type\030\003 \001(\005\022\016\n\006roleid\030\004 \001(\004\022\014\n\004flag\030\005 "
+    "\001(\005\"D\n!C2LFest_HuiMengXiYou_GetRewardReq"
+    "\022\023\n\013template_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"|\n!L2C"
+    "Fest_HuiMengXiYou_GetRewardRsp\022\020\n\010ret_co"
+    "de\030\001 \001(\005\022\023\n\013template_id\030\002 \001(\005\0220\n\006reward\030"
+    "\003 \001(\0132 .proto_ff.FestHuiMengXiYouReward\""
+    "\206\001\n)NotifyFest_HuiMengXiYouRewardStatusC"
+    "hange\022\023\n\013template_id\030\001 \001(\005\0220\n\006reward\030\002 \003"
+    "(\0132 .proto_ff.FestHuiMengXiYouReward\022\022\n\n"
+    "cur_points\030\003 \001(\005\"+\n\rXiYouGameInfo\022\n\n\002id\030"
+    "\001 \001(\005\022\016\n\006status\030\002 \001(\005\"|\n\034NotiftFest_HuiM"
+    "engXiYouStart\022\017\n\007play_id\030\001 \001(\005\022%\n\004info\030\002"
+    " \003(\0132\027.proto_ff.XiYouGameInfo\022\021\n\tcur_sta"
+    "te\030\003 \001(\005\022\021\n\tleft_time\030\004 \001(\005\"g\n!NotiftFes"
+    "t_LogicHuiMengXiYouStart\022\013\n\003cid\030\001 \003(\004\0225\n"
+    "\005start\030\002 \001(\0132&.proto_ff.NotiftFest_HuiMe"
+    "ngXiYouStart\"\202\001\n\"NotifyFest_HuiMengXiYou"
+    "SceneChange\022\017\n\007play_id\030\001 \001(\005\022%\n\004info\030\002 \003"
     "(\0132\027.proto_ff.XiYouGameInfo\022\021\n\tcur_state"
-    "\030\003 \001(\005\022\021\n\tleft_time\030\004 \001(\005\"=\n\032NotiftFest_"
-    "HuiMengXiYouEnd\022\017\n\007play_id\030\001 \001(\005\022\016\n\006poin"
-    "ts\030\002 \001(\005\"\305\001\n\037NotiftFest_HuiMengXiYouGame"
-    "Info\022\017\n\007play_id\030\001 \001(\005\022\017\n\007game_id\030\002 \001(\005\022\025"
-    "\n\rtask_schedule\030\003 \001(\005\022\022\n\ncur_points\030\004 \001("
-    "\005\022\024\n\014points_level\030\005 \001(\005\022\025\n\rmy_cur_points"
-    "\030\006 \001(\005\022\025\n\rmy_all_points\030\007 \001(\005\022\021\n\tleft_ti"
-    "me\030\010 \001(\005\"\222\001\n\036NotifyFest_HuiMengXiYouGame"
-    "End\022\017\n\007play_id\030\001 \001(\005\022\017\n\007game_id\030\002 \001(\005\022\024\n"
-    "\014points_level\030\005 \001(\005\022\025\n\rmy_cur_points\030\006 \001"
-    "(\005\022!\n\006reward\030\007 \003(\0132\021.proto_ff.ComItem\"6\n"
-    "\037NotifyFest_HuiMengXiYouEnterReq\022\023\n\013temp"
-    "late_id\030\001 \001(\005\"H\n\037NotifyFest_HuiMengXiYou"
-    "EnterRsp\022\020\n\010ret_code\030\001 \001(\005\022\023\n\013template_i"
-    "d\030\002 \001(\005\":\n#NotifyFest_HuiMengXiYouEnterG"
-    "ameReq\022\023\n\013template_id\030\001 \001(\005\"L\n#NotifyFes"
-    "t_HuiMengXiYouEnterGameRsp\022\020\n\010ret_code\030\001"
-    " \001(\005\022\023\n\013template_id\030\002 \001(\005\"7\n C2LFest_Hui"
-    "MengXiYouGiveCaiJiReq\022\023\n\013template_id\030\001 \001"
-    "(\005\"I\n L2CFest_HuiMengXiYouGiveCaiJiRsp\022\020"
-    "\n\010ret_code\030\001 \001(\005\022\023\n\013template_id\030\002 \001(\005\"F\n"
-    "\025XiYouCaiJiCollectInfo\022\013\n\003cid\030\001 \001(\004\022 \n\003p"
-    "os\030\005 \001(\0132\023.proto_ff.Vector3PB\"S\n\036NotifyF"
-    "est_HuiMengXiYouCollect\0221\n\010collects\030\001 \003("
-    "\0132\037.proto_ff.XiYouCaiJiCollectInfo\"P\n\034Xi"
-    "YouCaiJiCollectMonsterInfo\022\022\n\nmonster_id"
-    "\030\001 \001(\r\022\013\n\003num\030\002 \001(\r\022\017\n\007item_id\030\003 \001(\r\"e\n%"
-    "NotifyFest_HuiMengXiYouCollectSuccess\022<\n"
-    "\014monster_info\030\001 \003(\0132&.proto_ff.XiYouCaiJ"
-    "iCollectMonsterInfo\"\243\001\n&NotifyFest_HuiMe"
-    "ngXiYou_RoubaoziNotify\022\026\n\016cur_fresh_wave"
-    "\030\001 \001(\r\022\026\n\016all_fresh_wave\030\002 \001(\r\022\017\n\007npc_ci"
-    "d\030\003 \001(\004\022$\n\007npc_pos\030\004 \001(\0132\023.proto_ff.Vect"
-    "or3PB\022\022\n\nnpc_status\030\005 \001(\r\"Z\n\016FMarryRankI"
-    "nfo\022\014\n\004rank\030\001 \001(\005\022+\n\005roles\030\002 \003(\0132\034.proto"
-    "_ff.RolePlayerMiniInfo\022\r\n\005score\030\003 \001(\005\"O\n"
-    "\025FMarryExpressRankInfo\022\014\n\004rank\030\001 \001(\005\022\013\n\003"
-    "cid\030\002 \001(\004\022\014\n\004name\030\003 \001(\014\022\r\n\005score\030\004 \001(\005\"$"
-    "\n\rFMarryRankReq\022\023\n\013template_id\030\001 \001(\005\"t\n\r"
-    "FMarryRankRsp\022\023\n\013template_id\030\001 \001(\005\022(\n\006en"
-    "trys\030\002 \003(\0132\030.proto_ff.FMarryRankInfo\022$\n\002"
-    "my\030\003 \001(\0132\030.proto_ff.FMarryRankInfo\"\'\n\020FM"
-    "arryExpressReq\022\023\n\013template_id\030\001 \001(\005\"\253\001\n\020"
-    "FMarryExpressRsp\022\023\n\013template_id\030\001 \001(\005\022.\n"
-    "\005sends\030\002 \003(\0132\037.proto_ff.FMarryExpressRan"
-    "kInfo\022.\n\005recvs\030\003 \003(\0132\037.proto_ff.FMarryEx"
-    "pressRankInfo\022\"\n\004logs\030\004 \003(\0132\024.proto_ff.E"
-    "xpressLog\"$\n\rFMarryRoleReq\022\023\n\013template_i"
-    "d\030\001 \001(\005\"^\n\rFMarryRoleRsp\022\023\n\013template_id\030"
-    "\001 \001(\005\022#\n\005tasks\030\002 \003(\0132\024.proto_ff.FMarryTa"
-    "sk\022\023\n\013process_ids\030\003 \003(\005\"B\n\021FMarryRoleRec"
-    "vReq\022\023\n\013template_id\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\022"
-    "\n\n\002id\030\003 \001(\005\"O\n\021FMarryRoleRecvRsp\022\013\n\003ret\030"
-    "\001 \001(\005\022\023\n\013template_id\030\002 \001(\005\022\014\n\004type\030\003 \001(\005"
-    "\022\n\n\002id\030\004 \001(\005\";\n\014FMarryRecord\022\020\n\010marry_id"
-    "\030\001 \001(\005\022\013\n\003val\030\002 \001(\005\022\014\n\004time\030\003 \001(\004\"7\n\rFMa"
-    "rryExpress\022\013\n\003cid\030\001 \001(\004\022\014\n\004time\030\002 \001(\004\022\013\n"
-    "\003val\030\003 \001(\005\"\250\001\n\rFMarryDBEntry\022\r\n\005tmpId\030\001 "
-    "\001(\005\022\017\n\007groupId\030\002 \001(\005\022\'\n\007records\030\003 \003(\0132\026."
-    "proto_ff.FMarryRecord\022&\n\005sends\030\004 \003(\0132\027.p"
-    "roto_ff.FMarryExpress\022&\n\005recvs\030\005 \003(\0132\027.p"
-    "roto_ff.FMarryExpress\"3\n\010FMarryDB\022\'\n\006ent"
-    "rys\030\001 \003(\0132\027.proto_ff.FMarryDBEntry\"C\n\026Fe"
-    "st_XiYouGlobalDBInfo\022\n\n\002id\030\001 \001(\005\022\016\n\006stat"
-    "us\030\002 \001(\005\022\r\n\005state\030\003 \001(\005\"D\n\024C2LFMarrySynS"
-    "coreReq\022\r\n\005tmpId\030\001 \001(\005\022\020\n\010marry_id\030\002 \001(\005"
-    "\022\013\n\003cid\030\003 \001(\004\"S\n\024L2CFMarrySynScoreRsp\022\r\n"
-    "\005tmpId\030\001 \001(\005\022\020\n\010marry_id\030\002 \001(\005\022\013\n\003cid\030\003 "
-    "\001(\004\022\r\n\005score\030\004 \001(\005\"\206\001\n\027Fest_XiYouGlobalD"
-    "BEntry\022\r\n\005tmpId\030\001 \001(\005\022.\n\004info\030\002 \003(\0132 .pr"
-    "oto_ff.Fest_XiYouGlobalDBInfo\022\r\n\005state\030\003"
-    " \001(\005\022\014\n\004open\030\004 \001(\010\022\017\n\007readyId\030\005 \001(\005\"G\n\022F"
-    "est_XiYouGlobalDB\0221\n\006entrys\030\001 \003(\0132!.prot"
-    "o_ff.Fest_XiYouGlobalDBEntry\"s\n\024Fest_XiY"
-    "ouSyncNotify\022\023\n\013template_id\030\001 \001(\005\022\024\n\014cur"
-    "_state_id\030\002 \001(\005\022\030\n\020cur_state_status\030\003 \001("
-    "\005\022\026\n\016cur_state_time\030\004 \001(\005\"G\n\023Fest_XiYouS"
-    "yncLogic\022\021\n\tcur_state\030\001 \001(\005\022\013\n\003zid\030\002 \001(\005"
-    "\022\020\n\010logic_id\030\003 \001(\005\"9\n\024Fest_XiYouSyncFini"
-    "sh\022\017\n\007game_id\030\001 \001(\005\022\020\n\010ready_id\030\002 \001(\005\"\?\n"
-    "\030Fest_XiYouSyncForceClose\022\020\n\010ready_id\030\001 "
-    "\001(\005\022\021\n\tcur_state\030\002 \001(\005\"@\n\035Fest_DayTotalR"
-    "echargeFetchReq\022\023\n\013template_id\030\001 \001(\005\022\n\n\002"
-    "id\030\002 \001(\005\"A\n\035Fest_DayTotalRechargeFetchRs"
-    "p\022\023\n\013template_id\030\001 \001(\005\022\013\n\003ret\030\002 \001(\005\"W\n\033F"
-    "est_DayTotalRechargeNotify\022\023\n\013template_i"
-    "d\030\001 \001(\005\022\020\n\010recharge\030\002 \001(\r\022\021\n\tfetch_lst\030\003"
-    " \003(\005\"<\n\030Fest_LoginRewardFetchReq\022\023\n\013temp"
-    "late_id\030\001 \001(\005\022\013\n\003day\030\002 \001(\005\"<\n\030Fest_Login"
-    "RewardFetchRsp\022\023\n\013template_id\030\001 \001(\005\022\013\n\003r"
-    "et\030\002 \001(\005\"O\n\026Fest_LoginRewardNotify\022\023\n\013te"
-    "mplate_id\030\001 \001(\005\022 \n\005fetch\030\002 \003(\0132\021.proto_f"
-    "f.ComPair\"=\n\032Fest_TotalRechargeFetchReq\022"
-    "\023\n\013template_id\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\">\n\032Fest"
-    "_TotalRechargeFetchRsp\022\023\n\013template_id\030\001 "
-    "\001(\005\022\013\n\003ret\030\002 \001(\005\"Z\n\030Fest_TotalRechargeNo"
-    "tify\022\023\n\013template_id\030\001 \001(\005\022\021\n\tfetch_lst\030\002"
-    " \003(\005\022\026\n\016total_recharge\030\003 \001(\r", 15828);
+    "\030\003 \001(\005\022\021\n\tleft_time\030\004 \001(\005\"\200\001\n NotiftFest"
+    "_HuiMengXiYouGameStart\022\017\n\007play_id\030\001 \001(\005\022"
+    "%\n\004info\030\002 \003(\0132\027.proto_ff.XiYouGameInfo\022\021"
+    "\n\tcur_state\030\003 \001(\005\022\021\n\tleft_time\030\004 \001(\005\"=\n\032"
+    "NotiftFest_HuiMengXiYouEnd\022\017\n\007play_id\030\001 "
+    "\001(\005\022\016\n\006points\030\002 \001(\005\"\305\001\n\037NotiftFest_HuiMe"
+    "ngXiYouGameInfo\022\017\n\007play_id\030\001 \001(\005\022\017\n\007game"
+    "_id\030\002 \001(\005\022\025\n\rtask_schedule\030\003 \001(\005\022\022\n\ncur_"
+    "points\030\004 \001(\005\022\024\n\014points_level\030\005 \001(\005\022\025\n\rmy"
+    "_cur_points\030\006 \001(\005\022\025\n\rmy_all_points\030\007 \001(\005"
+    "\022\021\n\tleft_time\030\010 \001(\005\"\222\001\n\036NotifyFest_HuiMe"
+    "ngXiYouGameEnd\022\017\n\007play_id\030\001 \001(\005\022\017\n\007game_"
+    "id\030\002 \001(\005\022\024\n\014points_level\030\005 \001(\005\022\025\n\rmy_cur"
+    "_points\030\006 \001(\005\022!\n\006reward\030\007 \003(\0132\021.proto_ff"
+    ".ComItem\"6\n\037NotifyFest_HuiMengXiYouEnter"
+    "Req\022\023\n\013template_id\030\001 \001(\005\"H\n\037NotifyFest_H"
+    "uiMengXiYouEnterRsp\022\020\n\010ret_code\030\001 \001(\005\022\023\n"
+    "\013template_id\030\002 \001(\005\":\n#NotifyFest_HuiMeng"
+    "XiYouEnterGameReq\022\023\n\013template_id\030\001 \001(\005\"L"
+    "\n#NotifyFest_HuiMengXiYouEnterGameRsp\022\020\n"
+    "\010ret_code\030\001 \001(\005\022\023\n\013template_id\030\002 \001(\005\"7\n "
+    "C2LFest_HuiMengXiYouGiveCaiJiReq\022\023\n\013temp"
+    "late_id\030\001 \001(\005\"I\n L2CFest_HuiMengXiYouGiv"
+    "eCaiJiRsp\022\020\n\010ret_code\030\001 \001(\005\022\023\n\013template_"
+    "id\030\002 \001(\005\"F\n\025XiYouCaiJiCollectInfo\022\013\n\003cid"
+    "\030\001 \001(\004\022 \n\003pos\030\005 \001(\0132\023.proto_ff.Vector3PB"
+    "\"S\n\036NotifyFest_HuiMengXiYouCollect\0221\n\010co"
+    "llects\030\001 \003(\0132\037.proto_ff.XiYouCaiJiCollec"
+    "tInfo\"P\n\034XiYouCaiJiCollectMonsterInfo\022\022\n"
+    "\nmonster_id\030\001 \001(\r\022\013\n\003num\030\002 \001(\r\022\017\n\007item_i"
+    "d\030\003 \001(\r\"e\n%NotifyFest_HuiMengXiYouCollec"
+    "tSuccess\022<\n\014monster_info\030\001 \003(\0132&.proto_f"
+    "f.XiYouCaiJiCollectMonsterInfo\"\243\001\n&Notif"
+    "yFest_HuiMengXiYou_RoubaoziNotify\022\026\n\016cur"
+    "_fresh_wave\030\001 \001(\r\022\026\n\016all_fresh_wave\030\002 \001("
+    "\r\022\017\n\007npc_cid\030\003 \001(\004\022$\n\007npc_pos\030\004 \001(\0132\023.pr"
+    "oto_ff.Vector3PB\022\022\n\nnpc_status\030\005 \001(\r\"Z\n\016"
+    "FMarryRankInfo\022\014\n\004rank\030\001 \001(\005\022+\n\005roles\030\002 "
+    "\003(\0132\034.proto_ff.RolePlayerMiniInfo\022\r\n\005sco"
+    "re\030\003 \001(\005\"O\n\025FMarryExpressRankInfo\022\014\n\004ran"
+    "k\030\001 \001(\005\022\013\n\003cid\030\002 \001(\004\022\014\n\004name\030\003 \001(\014\022\r\n\005sc"
+    "ore\030\004 \001(\005\"$\n\rFMarryRankReq\022\023\n\013template_i"
+    "d\030\001 \001(\005\"t\n\rFMarryRankRsp\022\023\n\013template_id\030"
+    "\001 \001(\005\022(\n\006entrys\030\002 \003(\0132\030.proto_ff.FMarryR"
+    "ankInfo\022$\n\002my\030\003 \001(\0132\030.proto_ff.FMarryRan"
+    "kInfo\"\'\n\020FMarryExpressReq\022\023\n\013template_id"
+    "\030\001 \001(\005\"\253\001\n\020FMarryExpressRsp\022\023\n\013template_"
+    "id\030\001 \001(\005\022.\n\005sends\030\002 \003(\0132\037.proto_ff.FMarr"
+    "yExpressRankInfo\022.\n\005recvs\030\003 \003(\0132\037.proto_"
+    "ff.FMarryExpressRankInfo\022\"\n\004logs\030\004 \003(\0132\024"
+    ".proto_ff.ExpressLog\"$\n\rFMarryRoleReq\022\023\n"
+    "\013template_id\030\001 \001(\005\"^\n\rFMarryRoleRsp\022\023\n\013t"
+    "emplate_id\030\001 \001(\005\022#\n\005tasks\030\002 \003(\0132\024.proto_"
+    "ff.FMarryTask\022\023\n\013process_ids\030\003 \003(\005\"B\n\021FM"
+    "arryRoleRecvReq\022\023\n\013template_id\030\001 \001(\005\022\014\n\004"
+    "type\030\002 \001(\005\022\n\n\002id\030\003 \001(\005\"O\n\021FMarryRoleRecv"
+    "Rsp\022\013\n\003ret\030\001 \001(\005\022\023\n\013template_id\030\002 \001(\005\022\014\n"
+    "\004type\030\003 \001(\005\022\n\n\002id\030\004 \001(\005\";\n\014FMarryRecord\022"
+    "\020\n\010marry_id\030\001 \001(\005\022\013\n\003val\030\002 \001(\005\022\014\n\004time\030\003"
+    " \001(\004\"7\n\rFMarryExpress\022\013\n\003cid\030\001 \001(\004\022\014\n\004ti"
+    "me\030\002 \001(\004\022\013\n\003val\030\003 \001(\005\"\250\001\n\rFMarryDBEntry\022"
+    "\r\n\005tmpId\030\001 \001(\005\022\017\n\007groupId\030\002 \001(\005\022\'\n\007recor"
+    "ds\030\003 \003(\0132\026.proto_ff.FMarryRecord\022&\n\005send"
+    "s\030\004 \003(\0132\027.proto_ff.FMarryExpress\022&\n\005recv"
+    "s\030\005 \003(\0132\027.proto_ff.FMarryExpress\"3\n\010FMar"
+    "ryDB\022\'\n\006entrys\030\001 \003(\0132\027.proto_ff.FMarryDB"
+    "Entry\"C\n\026Fest_XiYouGlobalDBInfo\022\n\n\002id\030\001 "
+    "\001(\005\022\016\n\006status\030\002 \001(\005\022\r\n\005state\030\003 \001(\005\"D\n\024C2"
+    "LFMarrySynScoreReq\022\r\n\005tmpId\030\001 \001(\005\022\020\n\010mar"
+    "ry_id\030\002 \001(\005\022\013\n\003cid\030\003 \001(\004\"S\n\024L2CFMarrySyn"
+    "ScoreRsp\022\r\n\005tmpId\030\001 \001(\005\022\020\n\010marry_id\030\002 \001("
+    "\005\022\013\n\003cid\030\003 \001(\004\022\r\n\005score\030\004 \001(\005\"\206\001\n\027Fest_X"
+    "iYouGlobalDBEntry\022\r\n\005tmpId\030\001 \001(\005\022.\n\004info"
+    "\030\002 \003(\0132 .proto_ff.Fest_XiYouGlobalDBInfo"
+    "\022\r\n\005state\030\003 \001(\005\022\014\n\004open\030\004 \001(\010\022\017\n\007readyId"
+    "\030\005 \001(\005\"G\n\022Fest_XiYouGlobalDB\0221\n\006entrys\030\001"
+    " \003(\0132!.proto_ff.Fest_XiYouGlobalDBEntry\""
+    "s\n\024Fest_XiYouSyncNotify\022\023\n\013template_id\030\001"
+    " \001(\005\022\024\n\014cur_state_id\030\002 \001(\005\022\030\n\020cur_state_"
+    "status\030\003 \001(\005\022\026\n\016cur_state_time\030\004 \001(\005\"G\n\023"
+    "Fest_XiYouSyncLogic\022\021\n\tcur_state\030\001 \001(\005\022\013"
+    "\n\003zid\030\002 \001(\005\022\020\n\010logic_id\030\003 \001(\005\"9\n\024Fest_Xi"
+    "YouSyncFinish\022\017\n\007game_id\030\001 \001(\005\022\020\n\010ready_"
+    "id\030\002 \001(\005\"\?\n\030Fest_XiYouSyncForceClose\022\020\n\010"
+    "ready_id\030\001 \001(\005\022\021\n\tcur_state\030\002 \001(\005\"@\n\035Fes"
+    "t_DayTotalRechargeFetchReq\022\023\n\013template_i"
+    "d\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"A\n\035Fest_DayTotalRech"
+    "argeFetchRsp\022\023\n\013template_id\030\001 \001(\005\022\013\n\003ret"
+    "\030\002 \001(\005\"W\n\033Fest_DayTotalRechargeNotify\022\023\n"
+    "\013template_id\030\001 \001(\005\022\020\n\010recharge\030\002 \001(\r\022\021\n\t"
+    "fetch_lst\030\003 \003(\005\"<\n\030Fest_LoginRewardFetch"
+    "Req\022\023\n\013template_id\030\001 \001(\005\022\013\n\003day\030\002 \001(\005\"<\n"
+    "\030Fest_LoginRewardFetchRsp\022\023\n\013template_id"
+    "\030\001 \001(\005\022\013\n\003ret\030\002 \001(\005\"O\n\026Fest_LoginRewardN"
+    "otify\022\023\n\013template_id\030\001 \001(\005\022 \n\005fetch\030\002 \003("
+    "\0132\021.proto_ff.ComPair\"=\n\032Fest_TotalRechar"
+    "geFetchReq\022\023\n\013template_id\030\001 \001(\005\022\n\n\002id\030\002 "
+    "\001(\005\">\n\032Fest_TotalRechargeFetchRsp\022\023\n\013tem"
+    "plate_id\030\001 \001(\005\022\013\n\003ret\030\002 \001(\005\"Z\n\030Fest_Tota"
+    "lRechargeNotify\022\023\n\013template_id\030\001 \001(\005\022\021\n\t"
+    "fetch_lst\030\002 \003(\005\022\026\n\016total_recharge\030\003 \001(\r\""
+    "W\n\037Fest_ContiRechargeTotalFetchReq\022\023\n\013te"
+    "mplate_id\030\001 \001(\005\022\014\n\004gear\030\002 \001(\005\022\021\n\ttotal_d"
+    "ay\030\003 \001(\005\"C\n\037Fest_ContiRechargeTotalFetch"
+    "Rsp\022\023\n\013template_id\030\001 \001(\005\022\013\n\003ret\030\002 \001(\005\"O\n"
+    "\035Fest_ContiRechargeDayFetchReq\022\023\n\013templa"
+    "te_id\030\001 \001(\005\022\013\n\003day\030\002 \001(\005\022\014\n\004gear\030\003 \001(\005\"A"
+    "\n\035Fest_ContiRechargeDayFetchRsp\022\023\n\013templ"
+    "ate_id\030\001 \001(\005\022\013\n\003ret\030\002 \001(\005\"F\n\033Fest_ContiR"
+    "echargeSuppleReq\022\023\n\013template_id\030\001 \001(\005\022\022\n"
+    "\nsupplement\030\002 \001(\005\"\?\n\033Fest_ContiRechargeS"
+    "uppleRsp\022\023\n\013template_id\030\001 \001(\005\022\013\n\003ret\030\002 \001"
+    "(\005\"\302\001\n\033Fest_ContiRechargeUpdateRsp\022\023\n\013te"
+    "mplate_id\030\001 \001(\005\022\026\n\016total_recharge\030\002 \001(\r\022"
+    "\022\n\nsupplement\030\003 \001(\005\022.\n\003day\030\004 \003(\0132!.proto"
+    "_ff.FestContiDayRewardProto\0222\n\005total\030\005 \003"
+    "(\0132#.proto_ff.FestContiTotalRewardProto\""
+    "7\n\024Fest_LimitSaleBuyReq\022\023\n\013template_id\030\001"
+    " \001(\005\022\n\n\002id\030\002 \001(\005\"8\n\024Fest_LimitSaleBuyRsp"
+    "\022\023\n\013template_id\030\001 \001(\005\022\013\n\003ret\030\002 \001(\005\":\n\026Fe"
+    "st_LimitSaleFetchReq\022\023\n\013template_id\030\001 \001("
+    "\005\022\013\n\003val\030\002 \001(\005\":\n\026Fest_LimitSaleFetchRsp"
+    "\022\023\n\013template_id\030\001 \001(\005\022\013\n\003ret\030\002 \001(\005\"\200\001\n\027F"
+    "est_LimitSaleUpdateRsp\022\023\n\013template_id\030\001 "
+    "\001(\005\022\014\n\004type\030\002 \001(\005\022\r\n\005total\030\003 \001(\r\022\023\n\013fetc"
+    "h_total\030\004 \003(\005\022\036\n\003buy\030\005 \003(\0132\021.proto_ff.Co"
+    "mPair", 17405);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Fest.proto", &protobuf_RegisterTypes);
   FestSimpleProto::default_instance_ = new FestSimpleProto();
@@ -4701,6 +5145,11 @@ void protobuf_AddDesc_Fest_2eproto() {
   FestDayTotalRechargeProto::default_instance_ = new FestDayTotalRechargeProto();
   FestLoginProto::default_instance_ = new FestLoginProto();
   FestTotalRechargeProto::default_instance_ = new FestTotalRechargeProto();
+  FestContiTotalRewardProto::default_instance_ = new FestContiTotalRewardProto();
+  FestContiDayRewardProto::default_instance_ = new FestContiDayRewardProto();
+  FestContiRechargeProto::default_instance_ = new FestContiRechargeProto();
+  FestLimitShopProto::default_instance_ = new FestLimitShopProto();
+  FestLimitSaleProto::default_instance_ = new FestLimitSaleProto();
   FestDetailProto::default_instance_ = new FestDetailProto();
   Fest_SimpleListRsp::default_instance_ = new Fest_SimpleListRsp();
   Fest_SimpleInfoNotify::default_instance_ = new Fest_SimpleInfoNotify();
@@ -4855,6 +5304,18 @@ void protobuf_AddDesc_Fest_2eproto() {
   Fest_TotalRechargeFetchReq::default_instance_ = new Fest_TotalRechargeFetchReq();
   Fest_TotalRechargeFetchRsp::default_instance_ = new Fest_TotalRechargeFetchRsp();
   Fest_TotalRechargeNotify::default_instance_ = new Fest_TotalRechargeNotify();
+  Fest_ContiRechargeTotalFetchReq::default_instance_ = new Fest_ContiRechargeTotalFetchReq();
+  Fest_ContiRechargeTotalFetchRsp::default_instance_ = new Fest_ContiRechargeTotalFetchRsp();
+  Fest_ContiRechargeDayFetchReq::default_instance_ = new Fest_ContiRechargeDayFetchReq();
+  Fest_ContiRechargeDayFetchRsp::default_instance_ = new Fest_ContiRechargeDayFetchRsp();
+  Fest_ContiRechargeSuppleReq::default_instance_ = new Fest_ContiRechargeSuppleReq();
+  Fest_ContiRechargeSuppleRsp::default_instance_ = new Fest_ContiRechargeSuppleRsp();
+  Fest_ContiRechargeUpdateRsp::default_instance_ = new Fest_ContiRechargeUpdateRsp();
+  Fest_LimitSaleBuyReq::default_instance_ = new Fest_LimitSaleBuyReq();
+  Fest_LimitSaleBuyRsp::default_instance_ = new Fest_LimitSaleBuyRsp();
+  Fest_LimitSaleFetchReq::default_instance_ = new Fest_LimitSaleFetchReq();
+  Fest_LimitSaleFetchRsp::default_instance_ = new Fest_LimitSaleFetchRsp();
+  Fest_LimitSaleUpdateRsp::default_instance_ = new Fest_LimitSaleUpdateRsp();
   FestSimpleProto::default_instance_->InitAsDefaultInstance();
   FestSimpleListProto::default_instance_->InitAsDefaultInstance();
   FestRedPointProto::default_instance_->InitAsDefaultInstance();
@@ -4879,6 +5340,11 @@ void protobuf_AddDesc_Fest_2eproto() {
   FestDayTotalRechargeProto::default_instance_->InitAsDefaultInstance();
   FestLoginProto::default_instance_->InitAsDefaultInstance();
   FestTotalRechargeProto::default_instance_->InitAsDefaultInstance();
+  FestContiTotalRewardProto::default_instance_->InitAsDefaultInstance();
+  FestContiDayRewardProto::default_instance_->InitAsDefaultInstance();
+  FestContiRechargeProto::default_instance_->InitAsDefaultInstance();
+  FestLimitShopProto::default_instance_->InitAsDefaultInstance();
+  FestLimitSaleProto::default_instance_->InitAsDefaultInstance();
   FestDetailProto::default_instance_->InitAsDefaultInstance();
   Fest_SimpleListRsp::default_instance_->InitAsDefaultInstance();
   Fest_SimpleInfoNotify::default_instance_->InitAsDefaultInstance();
@@ -5033,6 +5499,18 @@ void protobuf_AddDesc_Fest_2eproto() {
   Fest_TotalRechargeFetchReq::default_instance_->InitAsDefaultInstance();
   Fest_TotalRechargeFetchRsp::default_instance_->InitAsDefaultInstance();
   Fest_TotalRechargeNotify::default_instance_->InitAsDefaultInstance();
+  Fest_ContiRechargeTotalFetchReq::default_instance_->InitAsDefaultInstance();
+  Fest_ContiRechargeTotalFetchRsp::default_instance_->InitAsDefaultInstance();
+  Fest_ContiRechargeDayFetchReq::default_instance_->InitAsDefaultInstance();
+  Fest_ContiRechargeDayFetchRsp::default_instance_->InitAsDefaultInstance();
+  Fest_ContiRechargeSuppleReq::default_instance_->InitAsDefaultInstance();
+  Fest_ContiRechargeSuppleRsp::default_instance_->InitAsDefaultInstance();
+  Fest_ContiRechargeUpdateRsp::default_instance_->InitAsDefaultInstance();
+  Fest_LimitSaleBuyReq::default_instance_->InitAsDefaultInstance();
+  Fest_LimitSaleBuyRsp::default_instance_->InitAsDefaultInstance();
+  Fest_LimitSaleFetchReq::default_instance_->InitAsDefaultInstance();
+  Fest_LimitSaleFetchRsp::default_instance_->InitAsDefaultInstance();
+  Fest_LimitSaleUpdateRsp::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Fest_2eproto);
 }
 
@@ -11283,6 +11761,1385 @@ void FestTotalRechargeProto::Swap(FestTotalRechargeProto* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int FestContiTotalRewardProto::kGearFieldNumber;
+const int FestContiTotalRewardProto::kFetchDayFieldNumber;
+#endif  // !_MSC_VER
+
+FestContiTotalRewardProto::FestContiTotalRewardProto()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void FestContiTotalRewardProto::InitAsDefaultInstance() {
+}
+
+FestContiTotalRewardProto::FestContiTotalRewardProto(const FestContiTotalRewardProto& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void FestContiTotalRewardProto::SharedCtor() {
+  _cached_size_ = 0;
+  gear_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+FestContiTotalRewardProto::~FestContiTotalRewardProto() {
+  SharedDtor();
+}
+
+void FestContiTotalRewardProto::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void FestContiTotalRewardProto::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* FestContiTotalRewardProto::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return FestContiTotalRewardProto_descriptor_;
+}
+
+const FestContiTotalRewardProto& FestContiTotalRewardProto::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Fest_2eproto();
+  return *default_instance_;
+}
+
+FestContiTotalRewardProto* FestContiTotalRewardProto::default_instance_ = NULL;
+
+FestContiTotalRewardProto* FestContiTotalRewardProto::New() const {
+  return new FestContiTotalRewardProto;
+}
+
+void FestContiTotalRewardProto::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    gear_ = 0;
+  }
+  fetch_day_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool FestContiTotalRewardProto::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 gear = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &gear_)));
+          set_has_gear();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_fetch_day;
+        break;
+      }
+
+      // repeated int32 fetch_day = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_fetch_day:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 16, input, this->mutable_fetch_day())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_fetch_day())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_fetch_day;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void FestContiTotalRewardProto::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 gear = 1;
+  if (has_gear()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->gear(), output);
+  }
+
+  // repeated int32 fetch_day = 2;
+  for (int i = 0; i < this->fetch_day_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      2, this->fetch_day(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* FestContiTotalRewardProto::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 gear = 1;
+  if (has_gear()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->gear(), target);
+  }
+
+  // repeated int32 fetch_day = 2;
+  for (int i = 0; i < this->fetch_day_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32ToArray(2, this->fetch_day(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int FestContiTotalRewardProto::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 gear = 1;
+    if (has_gear()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->gear());
+    }
+
+  }
+  // repeated int32 fetch_day = 2;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->fetch_day_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->fetch_day(i));
+    }
+    total_size += 1 * this->fetch_day_size() + data_size;
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void FestContiTotalRewardProto::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const FestContiTotalRewardProto* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const FestContiTotalRewardProto*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void FestContiTotalRewardProto::MergeFrom(const FestContiTotalRewardProto& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  fetch_day_.MergeFrom(from.fetch_day_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_gear()) {
+      set_gear(from.gear());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void FestContiTotalRewardProto::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void FestContiTotalRewardProto::CopyFrom(const FestContiTotalRewardProto& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool FestContiTotalRewardProto::IsInitialized() const {
+
+  return true;
+}
+
+void FestContiTotalRewardProto::Swap(FestContiTotalRewardProto* other) {
+  if (other != this) {
+    std::swap(gear_, other->gear_);
+    fetch_day_.Swap(&other->fetch_day_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata FestContiTotalRewardProto::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = FestContiTotalRewardProto_descriptor_;
+  metadata.reflection = FestContiTotalRewardProto_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int FestContiDayRewardProto::kDayFieldNumber;
+const int FestContiDayRewardProto::kFetchGearFieldNumber;
+#endif  // !_MSC_VER
+
+FestContiDayRewardProto::FestContiDayRewardProto()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void FestContiDayRewardProto::InitAsDefaultInstance() {
+}
+
+FestContiDayRewardProto::FestContiDayRewardProto(const FestContiDayRewardProto& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void FestContiDayRewardProto::SharedCtor() {
+  _cached_size_ = 0;
+  day_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+FestContiDayRewardProto::~FestContiDayRewardProto() {
+  SharedDtor();
+}
+
+void FestContiDayRewardProto::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void FestContiDayRewardProto::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* FestContiDayRewardProto::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return FestContiDayRewardProto_descriptor_;
+}
+
+const FestContiDayRewardProto& FestContiDayRewardProto::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Fest_2eproto();
+  return *default_instance_;
+}
+
+FestContiDayRewardProto* FestContiDayRewardProto::default_instance_ = NULL;
+
+FestContiDayRewardProto* FestContiDayRewardProto::New() const {
+  return new FestContiDayRewardProto;
+}
+
+void FestContiDayRewardProto::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    day_ = 0;
+  }
+  fetch_gear_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool FestContiDayRewardProto::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 day = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &day_)));
+          set_has_day();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_fetch_gear;
+        break;
+      }
+
+      // repeated int32 fetch_gear = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_fetch_gear:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 16, input, this->mutable_fetch_gear())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_fetch_gear())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_fetch_gear;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void FestContiDayRewardProto::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 day = 1;
+  if (has_day()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->day(), output);
+  }
+
+  // repeated int32 fetch_gear = 2;
+  for (int i = 0; i < this->fetch_gear_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      2, this->fetch_gear(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* FestContiDayRewardProto::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 day = 1;
+  if (has_day()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->day(), target);
+  }
+
+  // repeated int32 fetch_gear = 2;
+  for (int i = 0; i < this->fetch_gear_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32ToArray(2, this->fetch_gear(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int FestContiDayRewardProto::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 day = 1;
+    if (has_day()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->day());
+    }
+
+  }
+  // repeated int32 fetch_gear = 2;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->fetch_gear_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->fetch_gear(i));
+    }
+    total_size += 1 * this->fetch_gear_size() + data_size;
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void FestContiDayRewardProto::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const FestContiDayRewardProto* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const FestContiDayRewardProto*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void FestContiDayRewardProto::MergeFrom(const FestContiDayRewardProto& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  fetch_gear_.MergeFrom(from.fetch_gear_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_day()) {
+      set_day(from.day());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void FestContiDayRewardProto::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void FestContiDayRewardProto::CopyFrom(const FestContiDayRewardProto& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool FestContiDayRewardProto::IsInitialized() const {
+
+  return true;
+}
+
+void FestContiDayRewardProto::Swap(FestContiDayRewardProto* other) {
+  if (other != this) {
+    std::swap(day_, other->day_);
+    fetch_gear_.Swap(&other->fetch_gear_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata FestContiDayRewardProto::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = FestContiDayRewardProto_descriptor_;
+  metadata.reflection = FestContiDayRewardProto_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int FestContiRechargeProto::kTotalRechargeFieldNumber;
+const int FestContiRechargeProto::kSupplementFieldNumber;
+const int FestContiRechargeProto::kDayFieldNumber;
+const int FestContiRechargeProto::kTotalFieldNumber;
+#endif  // !_MSC_VER
+
+FestContiRechargeProto::FestContiRechargeProto()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void FestContiRechargeProto::InitAsDefaultInstance() {
+}
+
+FestContiRechargeProto::FestContiRechargeProto(const FestContiRechargeProto& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void FestContiRechargeProto::SharedCtor() {
+  _cached_size_ = 0;
+  total_recharge_ = 0u;
+  supplement_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+FestContiRechargeProto::~FestContiRechargeProto() {
+  SharedDtor();
+}
+
+void FestContiRechargeProto::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void FestContiRechargeProto::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* FestContiRechargeProto::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return FestContiRechargeProto_descriptor_;
+}
+
+const FestContiRechargeProto& FestContiRechargeProto::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Fest_2eproto();
+  return *default_instance_;
+}
+
+FestContiRechargeProto* FestContiRechargeProto::default_instance_ = NULL;
+
+FestContiRechargeProto* FestContiRechargeProto::New() const {
+  return new FestContiRechargeProto;
+}
+
+void FestContiRechargeProto::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    total_recharge_ = 0u;
+    supplement_ = 0;
+  }
+  day_.Clear();
+  total_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool FestContiRechargeProto::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint32 total_recharge = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &total_recharge_)));
+          set_has_total_recharge();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_supplement;
+        break;
+      }
+
+      // optional int32 supplement = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_supplement:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &supplement_)));
+          set_has_supplement();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_day;
+        break;
+      }
+
+      // repeated .proto_ff.FestContiDayRewardProto day = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_day:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_day()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_day;
+        if (input->ExpectTag(34)) goto parse_total;
+        break;
+      }
+
+      // repeated .proto_ff.FestContiTotalRewardProto total = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_total:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_total()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_total;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void FestContiRechargeProto::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint32 total_recharge = 1;
+  if (has_total_recharge()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->total_recharge(), output);
+  }
+
+  // optional int32 supplement = 2;
+  if (has_supplement()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->supplement(), output);
+  }
+
+  // repeated .proto_ff.FestContiDayRewardProto day = 3;
+  for (int i = 0; i < this->day_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->day(i), output);
+  }
+
+  // repeated .proto_ff.FestContiTotalRewardProto total = 4;
+  for (int i = 0; i < this->total_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, this->total(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* FestContiRechargeProto::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint32 total_recharge = 1;
+  if (has_total_recharge()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->total_recharge(), target);
+  }
+
+  // optional int32 supplement = 2;
+  if (has_supplement()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->supplement(), target);
+  }
+
+  // repeated .proto_ff.FestContiDayRewardProto day = 3;
+  for (int i = 0; i < this->day_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->day(i), target);
+  }
+
+  // repeated .proto_ff.FestContiTotalRewardProto total = 4;
+  for (int i = 0; i < this->total_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        4, this->total(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int FestContiRechargeProto::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint32 total_recharge = 1;
+    if (has_total_recharge()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->total_recharge());
+    }
+
+    // optional int32 supplement = 2;
+    if (has_supplement()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->supplement());
+    }
+
+  }
+  // repeated .proto_ff.FestContiDayRewardProto day = 3;
+  total_size += 1 * this->day_size();
+  for (int i = 0; i < this->day_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->day(i));
+  }
+
+  // repeated .proto_ff.FestContiTotalRewardProto total = 4;
+  total_size += 1 * this->total_size();
+  for (int i = 0; i < this->total_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->total(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void FestContiRechargeProto::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const FestContiRechargeProto* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const FestContiRechargeProto*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void FestContiRechargeProto::MergeFrom(const FestContiRechargeProto& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  day_.MergeFrom(from.day_);
+  total_.MergeFrom(from.total_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_total_recharge()) {
+      set_total_recharge(from.total_recharge());
+    }
+    if (from.has_supplement()) {
+      set_supplement(from.supplement());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void FestContiRechargeProto::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void FestContiRechargeProto::CopyFrom(const FestContiRechargeProto& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool FestContiRechargeProto::IsInitialized() const {
+
+  return true;
+}
+
+void FestContiRechargeProto::Swap(FestContiRechargeProto* other) {
+  if (other != this) {
+    std::swap(total_recharge_, other->total_recharge_);
+    std::swap(supplement_, other->supplement_);
+    day_.Swap(&other->day_);
+    total_.Swap(&other->total_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata FestContiRechargeProto::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = FestContiRechargeProto_descriptor_;
+  metadata.reflection = FestContiRechargeProto_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int FestLimitShopProto::kTypeFieldNumber;
+const int FestLimitShopProto::kTotalFieldNumber;
+const int FestLimitShopProto::kFetchTotalFieldNumber;
+const int FestLimitShopProto::kBuyFieldNumber;
+#endif  // !_MSC_VER
+
+FestLimitShopProto::FestLimitShopProto()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void FestLimitShopProto::InitAsDefaultInstance() {
+}
+
+FestLimitShopProto::FestLimitShopProto(const FestLimitShopProto& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void FestLimitShopProto::SharedCtor() {
+  _cached_size_ = 0;
+  type_ = 0;
+  total_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+FestLimitShopProto::~FestLimitShopProto() {
+  SharedDtor();
+}
+
+void FestLimitShopProto::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void FestLimitShopProto::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* FestLimitShopProto::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return FestLimitShopProto_descriptor_;
+}
+
+const FestLimitShopProto& FestLimitShopProto::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Fest_2eproto();
+  return *default_instance_;
+}
+
+FestLimitShopProto* FestLimitShopProto::default_instance_ = NULL;
+
+FestLimitShopProto* FestLimitShopProto::New() const {
+  return new FestLimitShopProto;
+}
+
+void FestLimitShopProto::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    type_ = 0;
+    total_ = 0u;
+  }
+  fetch_total_.Clear();
+  buy_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool FestLimitShopProto::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 type = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &type_)));
+          set_has_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_total;
+        break;
+      }
+
+      // optional uint32 total = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_total:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &total_)));
+          set_has_total();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_fetch_total;
+        break;
+      }
+
+      // repeated int32 fetch_total = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_fetch_total:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 24, input, this->mutable_fetch_total())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_fetch_total())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_fetch_total;
+        if (input->ExpectTag(34)) goto parse_buy;
+        break;
+      }
+
+      // repeated .proto_ff.ComPair buy = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_buy:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_buy()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_buy;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void FestLimitShopProto::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 type = 1;
+  if (has_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->type(), output);
+  }
+
+  // optional uint32 total = 2;
+  if (has_total()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->total(), output);
+  }
+
+  // repeated int32 fetch_total = 3;
+  for (int i = 0; i < this->fetch_total_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      3, this->fetch_total(i), output);
+  }
+
+  // repeated .proto_ff.ComPair buy = 4;
+  for (int i = 0; i < this->buy_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, this->buy(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* FestLimitShopProto::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 type = 1;
+  if (has_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->type(), target);
+  }
+
+  // optional uint32 total = 2;
+  if (has_total()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->total(), target);
+  }
+
+  // repeated int32 fetch_total = 3;
+  for (int i = 0; i < this->fetch_total_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32ToArray(3, this->fetch_total(i), target);
+  }
+
+  // repeated .proto_ff.ComPair buy = 4;
+  for (int i = 0; i < this->buy_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        4, this->buy(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int FestLimitShopProto::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 type = 1;
+    if (has_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->type());
+    }
+
+    // optional uint32 total = 2;
+    if (has_total()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->total());
+    }
+
+  }
+  // repeated int32 fetch_total = 3;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->fetch_total_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->fetch_total(i));
+    }
+    total_size += 1 * this->fetch_total_size() + data_size;
+  }
+
+  // repeated .proto_ff.ComPair buy = 4;
+  total_size += 1 * this->buy_size();
+  for (int i = 0; i < this->buy_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->buy(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void FestLimitShopProto::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const FestLimitShopProto* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const FestLimitShopProto*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void FestLimitShopProto::MergeFrom(const FestLimitShopProto& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  fetch_total_.MergeFrom(from.fetch_total_);
+  buy_.MergeFrom(from.buy_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_type()) {
+      set_type(from.type());
+    }
+    if (from.has_total()) {
+      set_total(from.total());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void FestLimitShopProto::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void FestLimitShopProto::CopyFrom(const FestLimitShopProto& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool FestLimitShopProto::IsInitialized() const {
+
+  return true;
+}
+
+void FestLimitShopProto::Swap(FestLimitShopProto* other) {
+  if (other != this) {
+    std::swap(type_, other->type_);
+    std::swap(total_, other->total_);
+    fetch_total_.Swap(&other->fetch_total_);
+    buy_.Swap(&other->buy_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata FestLimitShopProto::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = FestLimitShopProto_descriptor_;
+  metadata.reflection = FestLimitShopProto_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int FestLimitSaleProto::kSaleFieldNumber;
+#endif  // !_MSC_VER
+
+FestLimitSaleProto::FestLimitSaleProto()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void FestLimitSaleProto::InitAsDefaultInstance() {
+}
+
+FestLimitSaleProto::FestLimitSaleProto(const FestLimitSaleProto& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void FestLimitSaleProto::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+FestLimitSaleProto::~FestLimitSaleProto() {
+  SharedDtor();
+}
+
+void FestLimitSaleProto::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void FestLimitSaleProto::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* FestLimitSaleProto::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return FestLimitSaleProto_descriptor_;
+}
+
+const FestLimitSaleProto& FestLimitSaleProto::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Fest_2eproto();
+  return *default_instance_;
+}
+
+FestLimitSaleProto* FestLimitSaleProto::default_instance_ = NULL;
+
+FestLimitSaleProto* FestLimitSaleProto::New() const {
+  return new FestLimitSaleProto;
+}
+
+void FestLimitSaleProto::Clear() {
+  sale_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool FestLimitSaleProto::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.FestLimitShopProto sale = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_sale:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_sale()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_sale;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void FestLimitSaleProto::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.FestLimitShopProto sale = 1;
+  for (int i = 0; i < this->sale_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->sale(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* FestLimitSaleProto::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.FestLimitShopProto sale = 1;
+  for (int i = 0; i < this->sale_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->sale(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int FestLimitSaleProto::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.FestLimitShopProto sale = 1;
+  total_size += 1 * this->sale_size();
+  for (int i = 0; i < this->sale_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->sale(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void FestLimitSaleProto::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const FestLimitSaleProto* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const FestLimitSaleProto*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void FestLimitSaleProto::MergeFrom(const FestLimitSaleProto& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  sale_.MergeFrom(from.sale_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void FestLimitSaleProto::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void FestLimitSaleProto::CopyFrom(const FestLimitSaleProto& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool FestLimitSaleProto::IsInitialized() const {
+
+  return true;
+}
+
+void FestLimitSaleProto::Swap(FestLimitSaleProto* other) {
+  if (other != this) {
+    sale_.Swap(&other->sale_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata FestLimitSaleProto::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = FestLimitSaleProto_descriptor_;
+  metadata.reflection = FestLimitSaleProto_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int FestDetailProto::kTemplateIdFieldNumber;
 const int FestDetailProto::kShopFieldNumber;
 const int FestDetailProto::kDailyTotalRechargeFieldNumber;
@@ -11303,6 +13160,8 @@ const int FestDetailProto::kCandleFieldNumber;
 const int FestDetailProto::kDayTotalRechargeFieldNumber;
 const int FestDetailProto::kTotalRechargeFieldNumber;
 const int FestDetailProto::kLoginFieldNumber;
+const int FestDetailProto::kLimitSaleFieldNumber;
+const int FestDetailProto::kContiRechargeFieldNumber;
 #endif  // !_MSC_VER
 
 FestDetailProto::FestDetailProto()
@@ -11330,6 +13189,8 @@ void FestDetailProto::InitAsDefaultInstance() {
   day_total_recharge_ = const_cast< ::proto_ff::FestDayTotalRechargeProto*>(&::proto_ff::FestDayTotalRechargeProto::default_instance());
   total_recharge_ = const_cast< ::proto_ff::FestTotalRechargeProto*>(&::proto_ff::FestTotalRechargeProto::default_instance());
   login_ = const_cast< ::proto_ff::FestLoginProto*>(&::proto_ff::FestLoginProto::default_instance());
+  limit_sale_ = const_cast< ::proto_ff::FestLimitSaleProto*>(&::proto_ff::FestLimitSaleProto::default_instance());
+  conti_recharge_ = const_cast< ::proto_ff::FestContiRechargeProto*>(&::proto_ff::FestContiRechargeProto::default_instance());
 }
 
 FestDetailProto::FestDetailProto(const FestDetailProto& from)
@@ -11360,6 +13221,8 @@ void FestDetailProto::SharedCtor() {
   day_total_recharge_ = NULL;
   total_recharge_ = NULL;
   login_ = NULL;
+  limit_sale_ = NULL;
+  conti_recharge_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -11388,6 +13251,8 @@ void FestDetailProto::SharedDtor() {
     delete day_total_recharge_;
     delete total_recharge_;
     delete login_;
+    delete limit_sale_;
+    delete conti_recharge_;
   }
 }
 
@@ -11475,6 +13340,12 @@ void FestDetailProto::Clear() {
     }
     if (has_login()) {
       if (login_ != NULL) login_->::proto_ff::FestLoginProto::Clear();
+    }
+    if (has_limit_sale()) {
+      if (limit_sale_ != NULL) limit_sale_->::proto_ff::FestLimitSaleProto::Clear();
+    }
+    if (has_conti_recharge()) {
+      if (conti_recharge_ != NULL) conti_recharge_->::proto_ff::FestContiRechargeProto::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -11764,6 +13635,34 @@ bool FestDetailProto::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(170)) goto parse_limit_sale;
+        break;
+      }
+
+      // optional .proto_ff.FestLimitSaleProto limit_sale = 21;
+      case 21: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_limit_sale:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_limit_sale()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(178)) goto parse_conti_recharge;
+        break;
+      }
+
+      // optional .proto_ff.FestContiRechargeProto conti_recharge = 22;
+      case 22: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_conti_recharge:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_conti_recharge()));
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -11903,6 +13802,18 @@ void FestDetailProto::SerializeWithCachedSizes(
   if (has_login()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       20, this->login(), output);
+  }
+
+  // optional .proto_ff.FestLimitSaleProto limit_sale = 21;
+  if (has_limit_sale()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      21, this->limit_sale(), output);
+  }
+
+  // optional .proto_ff.FestContiRechargeProto conti_recharge = 22;
+  if (has_conti_recharge()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      22, this->conti_recharge(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -12049,6 +13960,20 @@ void FestDetailProto::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         20, this->login(), target);
+  }
+
+  // optional .proto_ff.FestLimitSaleProto limit_sale = 21;
+  if (has_limit_sale()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        21, this->limit_sale(), target);
+  }
+
+  // optional .proto_ff.FestContiRechargeProto conti_recharge = 22;
+  if (has_conti_recharge()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        22, this->conti_recharge(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -12206,6 +14131,20 @@ int FestDetailProto::ByteSize() const {
           this->login());
     }
 
+    // optional .proto_ff.FestLimitSaleProto limit_sale = 21;
+    if (has_limit_sale()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->limit_sale());
+    }
+
+    // optional .proto_ff.FestContiRechargeProto conti_recharge = 22;
+    if (has_conti_recharge()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->conti_recharge());
+    }
+
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -12297,6 +14236,12 @@ void FestDetailProto::MergeFrom(const FestDetailProto& from) {
     if (from.has_login()) {
       mutable_login()->::proto_ff::FestLoginProto::MergeFrom(from.login());
     }
+    if (from.has_limit_sale()) {
+      mutable_limit_sale()->::proto_ff::FestLimitSaleProto::MergeFrom(from.limit_sale());
+    }
+    if (from.has_conti_recharge()) {
+      mutable_conti_recharge()->::proto_ff::FestContiRechargeProto::MergeFrom(from.conti_recharge());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -12340,6 +14285,8 @@ void FestDetailProto::Swap(FestDetailProto* other) {
     std::swap(day_total_recharge_, other->day_total_recharge_);
     std::swap(total_recharge_, other->total_recharge_);
     std::swap(login_, other->login_);
+    std::swap(limit_sale_, other->limit_sale_);
+    std::swap(conti_recharge_, other->conti_recharge_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -54589,6 +56536,3310 @@ void Fest_TotalRechargeNotify::Swap(Fest_TotalRechargeNotify* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Fest_TotalRechargeNotify_descriptor_;
   metadata.reflection = Fest_TotalRechargeNotify_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Fest_ContiRechargeTotalFetchReq::kTemplateIdFieldNumber;
+const int Fest_ContiRechargeTotalFetchReq::kGearFieldNumber;
+const int Fest_ContiRechargeTotalFetchReq::kTotalDayFieldNumber;
+#endif  // !_MSC_VER
+
+Fest_ContiRechargeTotalFetchReq::Fest_ContiRechargeTotalFetchReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Fest_ContiRechargeTotalFetchReq::InitAsDefaultInstance() {
+}
+
+Fest_ContiRechargeTotalFetchReq::Fest_ContiRechargeTotalFetchReq(const Fest_ContiRechargeTotalFetchReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Fest_ContiRechargeTotalFetchReq::SharedCtor() {
+  _cached_size_ = 0;
+  template_id_ = 0;
+  gear_ = 0;
+  total_day_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Fest_ContiRechargeTotalFetchReq::~Fest_ContiRechargeTotalFetchReq() {
+  SharedDtor();
+}
+
+void Fest_ContiRechargeTotalFetchReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Fest_ContiRechargeTotalFetchReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Fest_ContiRechargeTotalFetchReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Fest_ContiRechargeTotalFetchReq_descriptor_;
+}
+
+const Fest_ContiRechargeTotalFetchReq& Fest_ContiRechargeTotalFetchReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Fest_2eproto();
+  return *default_instance_;
+}
+
+Fest_ContiRechargeTotalFetchReq* Fest_ContiRechargeTotalFetchReq::default_instance_ = NULL;
+
+Fest_ContiRechargeTotalFetchReq* Fest_ContiRechargeTotalFetchReq::New() const {
+  return new Fest_ContiRechargeTotalFetchReq;
+}
+
+void Fest_ContiRechargeTotalFetchReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    template_id_ = 0;
+    gear_ = 0;
+    total_day_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Fest_ContiRechargeTotalFetchReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 template_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &template_id_)));
+          set_has_template_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_gear;
+        break;
+      }
+
+      // optional int32 gear = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_gear:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &gear_)));
+          set_has_gear();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_total_day;
+        break;
+      }
+
+      // optional int32 total_day = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_total_day:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &total_day_)));
+          set_has_total_day();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Fest_ContiRechargeTotalFetchReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->template_id(), output);
+  }
+
+  // optional int32 gear = 2;
+  if (has_gear()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->gear(), output);
+  }
+
+  // optional int32 total_day = 3;
+  if (has_total_day()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->total_day(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Fest_ContiRechargeTotalFetchReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->template_id(), target);
+  }
+
+  // optional int32 gear = 2;
+  if (has_gear()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->gear(), target);
+  }
+
+  // optional int32 total_day = 3;
+  if (has_total_day()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->total_day(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Fest_ContiRechargeTotalFetchReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 template_id = 1;
+    if (has_template_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->template_id());
+    }
+
+    // optional int32 gear = 2;
+    if (has_gear()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->gear());
+    }
+
+    // optional int32 total_day = 3;
+    if (has_total_day()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->total_day());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Fest_ContiRechargeTotalFetchReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Fest_ContiRechargeTotalFetchReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Fest_ContiRechargeTotalFetchReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Fest_ContiRechargeTotalFetchReq::MergeFrom(const Fest_ContiRechargeTotalFetchReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_template_id()) {
+      set_template_id(from.template_id());
+    }
+    if (from.has_gear()) {
+      set_gear(from.gear());
+    }
+    if (from.has_total_day()) {
+      set_total_day(from.total_day());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Fest_ContiRechargeTotalFetchReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Fest_ContiRechargeTotalFetchReq::CopyFrom(const Fest_ContiRechargeTotalFetchReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Fest_ContiRechargeTotalFetchReq::IsInitialized() const {
+
+  return true;
+}
+
+void Fest_ContiRechargeTotalFetchReq::Swap(Fest_ContiRechargeTotalFetchReq* other) {
+  if (other != this) {
+    std::swap(template_id_, other->template_id_);
+    std::swap(gear_, other->gear_);
+    std::swap(total_day_, other->total_day_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Fest_ContiRechargeTotalFetchReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Fest_ContiRechargeTotalFetchReq_descriptor_;
+  metadata.reflection = Fest_ContiRechargeTotalFetchReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Fest_ContiRechargeTotalFetchRsp::kTemplateIdFieldNumber;
+const int Fest_ContiRechargeTotalFetchRsp::kRetFieldNumber;
+#endif  // !_MSC_VER
+
+Fest_ContiRechargeTotalFetchRsp::Fest_ContiRechargeTotalFetchRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Fest_ContiRechargeTotalFetchRsp::InitAsDefaultInstance() {
+}
+
+Fest_ContiRechargeTotalFetchRsp::Fest_ContiRechargeTotalFetchRsp(const Fest_ContiRechargeTotalFetchRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Fest_ContiRechargeTotalFetchRsp::SharedCtor() {
+  _cached_size_ = 0;
+  template_id_ = 0;
+  ret_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Fest_ContiRechargeTotalFetchRsp::~Fest_ContiRechargeTotalFetchRsp() {
+  SharedDtor();
+}
+
+void Fest_ContiRechargeTotalFetchRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Fest_ContiRechargeTotalFetchRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Fest_ContiRechargeTotalFetchRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Fest_ContiRechargeTotalFetchRsp_descriptor_;
+}
+
+const Fest_ContiRechargeTotalFetchRsp& Fest_ContiRechargeTotalFetchRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Fest_2eproto();
+  return *default_instance_;
+}
+
+Fest_ContiRechargeTotalFetchRsp* Fest_ContiRechargeTotalFetchRsp::default_instance_ = NULL;
+
+Fest_ContiRechargeTotalFetchRsp* Fest_ContiRechargeTotalFetchRsp::New() const {
+  return new Fest_ContiRechargeTotalFetchRsp;
+}
+
+void Fest_ContiRechargeTotalFetchRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    template_id_ = 0;
+    ret_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Fest_ContiRechargeTotalFetchRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 template_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &template_id_)));
+          set_has_template_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_ret;
+        break;
+      }
+
+      // optional int32 ret = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_ret:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_)));
+          set_has_ret();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Fest_ContiRechargeTotalFetchRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->template_id(), output);
+  }
+
+  // optional int32 ret = 2;
+  if (has_ret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->ret(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Fest_ContiRechargeTotalFetchRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->template_id(), target);
+  }
+
+  // optional int32 ret = 2;
+  if (has_ret()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->ret(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Fest_ContiRechargeTotalFetchRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 template_id = 1;
+    if (has_template_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->template_id());
+    }
+
+    // optional int32 ret = 2;
+    if (has_ret()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Fest_ContiRechargeTotalFetchRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Fest_ContiRechargeTotalFetchRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Fest_ContiRechargeTotalFetchRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Fest_ContiRechargeTotalFetchRsp::MergeFrom(const Fest_ContiRechargeTotalFetchRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_template_id()) {
+      set_template_id(from.template_id());
+    }
+    if (from.has_ret()) {
+      set_ret(from.ret());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Fest_ContiRechargeTotalFetchRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Fest_ContiRechargeTotalFetchRsp::CopyFrom(const Fest_ContiRechargeTotalFetchRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Fest_ContiRechargeTotalFetchRsp::IsInitialized() const {
+
+  return true;
+}
+
+void Fest_ContiRechargeTotalFetchRsp::Swap(Fest_ContiRechargeTotalFetchRsp* other) {
+  if (other != this) {
+    std::swap(template_id_, other->template_id_);
+    std::swap(ret_, other->ret_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Fest_ContiRechargeTotalFetchRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Fest_ContiRechargeTotalFetchRsp_descriptor_;
+  metadata.reflection = Fest_ContiRechargeTotalFetchRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Fest_ContiRechargeDayFetchReq::kTemplateIdFieldNumber;
+const int Fest_ContiRechargeDayFetchReq::kDayFieldNumber;
+const int Fest_ContiRechargeDayFetchReq::kGearFieldNumber;
+#endif  // !_MSC_VER
+
+Fest_ContiRechargeDayFetchReq::Fest_ContiRechargeDayFetchReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Fest_ContiRechargeDayFetchReq::InitAsDefaultInstance() {
+}
+
+Fest_ContiRechargeDayFetchReq::Fest_ContiRechargeDayFetchReq(const Fest_ContiRechargeDayFetchReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Fest_ContiRechargeDayFetchReq::SharedCtor() {
+  _cached_size_ = 0;
+  template_id_ = 0;
+  day_ = 0;
+  gear_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Fest_ContiRechargeDayFetchReq::~Fest_ContiRechargeDayFetchReq() {
+  SharedDtor();
+}
+
+void Fest_ContiRechargeDayFetchReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Fest_ContiRechargeDayFetchReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Fest_ContiRechargeDayFetchReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Fest_ContiRechargeDayFetchReq_descriptor_;
+}
+
+const Fest_ContiRechargeDayFetchReq& Fest_ContiRechargeDayFetchReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Fest_2eproto();
+  return *default_instance_;
+}
+
+Fest_ContiRechargeDayFetchReq* Fest_ContiRechargeDayFetchReq::default_instance_ = NULL;
+
+Fest_ContiRechargeDayFetchReq* Fest_ContiRechargeDayFetchReq::New() const {
+  return new Fest_ContiRechargeDayFetchReq;
+}
+
+void Fest_ContiRechargeDayFetchReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    template_id_ = 0;
+    day_ = 0;
+    gear_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Fest_ContiRechargeDayFetchReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 template_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &template_id_)));
+          set_has_template_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_day;
+        break;
+      }
+
+      // optional int32 day = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_day:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &day_)));
+          set_has_day();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_gear;
+        break;
+      }
+
+      // optional int32 gear = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_gear:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &gear_)));
+          set_has_gear();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Fest_ContiRechargeDayFetchReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->template_id(), output);
+  }
+
+  // optional int32 day = 2;
+  if (has_day()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->day(), output);
+  }
+
+  // optional int32 gear = 3;
+  if (has_gear()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->gear(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Fest_ContiRechargeDayFetchReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->template_id(), target);
+  }
+
+  // optional int32 day = 2;
+  if (has_day()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->day(), target);
+  }
+
+  // optional int32 gear = 3;
+  if (has_gear()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->gear(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Fest_ContiRechargeDayFetchReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 template_id = 1;
+    if (has_template_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->template_id());
+    }
+
+    // optional int32 day = 2;
+    if (has_day()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->day());
+    }
+
+    // optional int32 gear = 3;
+    if (has_gear()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->gear());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Fest_ContiRechargeDayFetchReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Fest_ContiRechargeDayFetchReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Fest_ContiRechargeDayFetchReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Fest_ContiRechargeDayFetchReq::MergeFrom(const Fest_ContiRechargeDayFetchReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_template_id()) {
+      set_template_id(from.template_id());
+    }
+    if (from.has_day()) {
+      set_day(from.day());
+    }
+    if (from.has_gear()) {
+      set_gear(from.gear());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Fest_ContiRechargeDayFetchReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Fest_ContiRechargeDayFetchReq::CopyFrom(const Fest_ContiRechargeDayFetchReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Fest_ContiRechargeDayFetchReq::IsInitialized() const {
+
+  return true;
+}
+
+void Fest_ContiRechargeDayFetchReq::Swap(Fest_ContiRechargeDayFetchReq* other) {
+  if (other != this) {
+    std::swap(template_id_, other->template_id_);
+    std::swap(day_, other->day_);
+    std::swap(gear_, other->gear_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Fest_ContiRechargeDayFetchReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Fest_ContiRechargeDayFetchReq_descriptor_;
+  metadata.reflection = Fest_ContiRechargeDayFetchReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Fest_ContiRechargeDayFetchRsp::kTemplateIdFieldNumber;
+const int Fest_ContiRechargeDayFetchRsp::kRetFieldNumber;
+#endif  // !_MSC_VER
+
+Fest_ContiRechargeDayFetchRsp::Fest_ContiRechargeDayFetchRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Fest_ContiRechargeDayFetchRsp::InitAsDefaultInstance() {
+}
+
+Fest_ContiRechargeDayFetchRsp::Fest_ContiRechargeDayFetchRsp(const Fest_ContiRechargeDayFetchRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Fest_ContiRechargeDayFetchRsp::SharedCtor() {
+  _cached_size_ = 0;
+  template_id_ = 0;
+  ret_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Fest_ContiRechargeDayFetchRsp::~Fest_ContiRechargeDayFetchRsp() {
+  SharedDtor();
+}
+
+void Fest_ContiRechargeDayFetchRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Fest_ContiRechargeDayFetchRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Fest_ContiRechargeDayFetchRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Fest_ContiRechargeDayFetchRsp_descriptor_;
+}
+
+const Fest_ContiRechargeDayFetchRsp& Fest_ContiRechargeDayFetchRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Fest_2eproto();
+  return *default_instance_;
+}
+
+Fest_ContiRechargeDayFetchRsp* Fest_ContiRechargeDayFetchRsp::default_instance_ = NULL;
+
+Fest_ContiRechargeDayFetchRsp* Fest_ContiRechargeDayFetchRsp::New() const {
+  return new Fest_ContiRechargeDayFetchRsp;
+}
+
+void Fest_ContiRechargeDayFetchRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    template_id_ = 0;
+    ret_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Fest_ContiRechargeDayFetchRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 template_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &template_id_)));
+          set_has_template_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_ret;
+        break;
+      }
+
+      // optional int32 ret = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_ret:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_)));
+          set_has_ret();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Fest_ContiRechargeDayFetchRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->template_id(), output);
+  }
+
+  // optional int32 ret = 2;
+  if (has_ret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->ret(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Fest_ContiRechargeDayFetchRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->template_id(), target);
+  }
+
+  // optional int32 ret = 2;
+  if (has_ret()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->ret(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Fest_ContiRechargeDayFetchRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 template_id = 1;
+    if (has_template_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->template_id());
+    }
+
+    // optional int32 ret = 2;
+    if (has_ret()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Fest_ContiRechargeDayFetchRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Fest_ContiRechargeDayFetchRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Fest_ContiRechargeDayFetchRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Fest_ContiRechargeDayFetchRsp::MergeFrom(const Fest_ContiRechargeDayFetchRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_template_id()) {
+      set_template_id(from.template_id());
+    }
+    if (from.has_ret()) {
+      set_ret(from.ret());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Fest_ContiRechargeDayFetchRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Fest_ContiRechargeDayFetchRsp::CopyFrom(const Fest_ContiRechargeDayFetchRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Fest_ContiRechargeDayFetchRsp::IsInitialized() const {
+
+  return true;
+}
+
+void Fest_ContiRechargeDayFetchRsp::Swap(Fest_ContiRechargeDayFetchRsp* other) {
+  if (other != this) {
+    std::swap(template_id_, other->template_id_);
+    std::swap(ret_, other->ret_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Fest_ContiRechargeDayFetchRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Fest_ContiRechargeDayFetchRsp_descriptor_;
+  metadata.reflection = Fest_ContiRechargeDayFetchRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Fest_ContiRechargeSuppleReq::kTemplateIdFieldNumber;
+const int Fest_ContiRechargeSuppleReq::kSupplementFieldNumber;
+#endif  // !_MSC_VER
+
+Fest_ContiRechargeSuppleReq::Fest_ContiRechargeSuppleReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Fest_ContiRechargeSuppleReq::InitAsDefaultInstance() {
+}
+
+Fest_ContiRechargeSuppleReq::Fest_ContiRechargeSuppleReq(const Fest_ContiRechargeSuppleReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Fest_ContiRechargeSuppleReq::SharedCtor() {
+  _cached_size_ = 0;
+  template_id_ = 0;
+  supplement_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Fest_ContiRechargeSuppleReq::~Fest_ContiRechargeSuppleReq() {
+  SharedDtor();
+}
+
+void Fest_ContiRechargeSuppleReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Fest_ContiRechargeSuppleReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Fest_ContiRechargeSuppleReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Fest_ContiRechargeSuppleReq_descriptor_;
+}
+
+const Fest_ContiRechargeSuppleReq& Fest_ContiRechargeSuppleReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Fest_2eproto();
+  return *default_instance_;
+}
+
+Fest_ContiRechargeSuppleReq* Fest_ContiRechargeSuppleReq::default_instance_ = NULL;
+
+Fest_ContiRechargeSuppleReq* Fest_ContiRechargeSuppleReq::New() const {
+  return new Fest_ContiRechargeSuppleReq;
+}
+
+void Fest_ContiRechargeSuppleReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    template_id_ = 0;
+    supplement_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Fest_ContiRechargeSuppleReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 template_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &template_id_)));
+          set_has_template_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_supplement;
+        break;
+      }
+
+      // optional int32 supplement = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_supplement:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &supplement_)));
+          set_has_supplement();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Fest_ContiRechargeSuppleReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->template_id(), output);
+  }
+
+  // optional int32 supplement = 2;
+  if (has_supplement()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->supplement(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Fest_ContiRechargeSuppleReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->template_id(), target);
+  }
+
+  // optional int32 supplement = 2;
+  if (has_supplement()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->supplement(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Fest_ContiRechargeSuppleReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 template_id = 1;
+    if (has_template_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->template_id());
+    }
+
+    // optional int32 supplement = 2;
+    if (has_supplement()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->supplement());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Fest_ContiRechargeSuppleReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Fest_ContiRechargeSuppleReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Fest_ContiRechargeSuppleReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Fest_ContiRechargeSuppleReq::MergeFrom(const Fest_ContiRechargeSuppleReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_template_id()) {
+      set_template_id(from.template_id());
+    }
+    if (from.has_supplement()) {
+      set_supplement(from.supplement());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Fest_ContiRechargeSuppleReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Fest_ContiRechargeSuppleReq::CopyFrom(const Fest_ContiRechargeSuppleReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Fest_ContiRechargeSuppleReq::IsInitialized() const {
+
+  return true;
+}
+
+void Fest_ContiRechargeSuppleReq::Swap(Fest_ContiRechargeSuppleReq* other) {
+  if (other != this) {
+    std::swap(template_id_, other->template_id_);
+    std::swap(supplement_, other->supplement_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Fest_ContiRechargeSuppleReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Fest_ContiRechargeSuppleReq_descriptor_;
+  metadata.reflection = Fest_ContiRechargeSuppleReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Fest_ContiRechargeSuppleRsp::kTemplateIdFieldNumber;
+const int Fest_ContiRechargeSuppleRsp::kRetFieldNumber;
+#endif  // !_MSC_VER
+
+Fest_ContiRechargeSuppleRsp::Fest_ContiRechargeSuppleRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Fest_ContiRechargeSuppleRsp::InitAsDefaultInstance() {
+}
+
+Fest_ContiRechargeSuppleRsp::Fest_ContiRechargeSuppleRsp(const Fest_ContiRechargeSuppleRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Fest_ContiRechargeSuppleRsp::SharedCtor() {
+  _cached_size_ = 0;
+  template_id_ = 0;
+  ret_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Fest_ContiRechargeSuppleRsp::~Fest_ContiRechargeSuppleRsp() {
+  SharedDtor();
+}
+
+void Fest_ContiRechargeSuppleRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Fest_ContiRechargeSuppleRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Fest_ContiRechargeSuppleRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Fest_ContiRechargeSuppleRsp_descriptor_;
+}
+
+const Fest_ContiRechargeSuppleRsp& Fest_ContiRechargeSuppleRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Fest_2eproto();
+  return *default_instance_;
+}
+
+Fest_ContiRechargeSuppleRsp* Fest_ContiRechargeSuppleRsp::default_instance_ = NULL;
+
+Fest_ContiRechargeSuppleRsp* Fest_ContiRechargeSuppleRsp::New() const {
+  return new Fest_ContiRechargeSuppleRsp;
+}
+
+void Fest_ContiRechargeSuppleRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    template_id_ = 0;
+    ret_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Fest_ContiRechargeSuppleRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 template_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &template_id_)));
+          set_has_template_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_ret;
+        break;
+      }
+
+      // optional int32 ret = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_ret:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_)));
+          set_has_ret();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Fest_ContiRechargeSuppleRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->template_id(), output);
+  }
+
+  // optional int32 ret = 2;
+  if (has_ret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->ret(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Fest_ContiRechargeSuppleRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->template_id(), target);
+  }
+
+  // optional int32 ret = 2;
+  if (has_ret()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->ret(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Fest_ContiRechargeSuppleRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 template_id = 1;
+    if (has_template_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->template_id());
+    }
+
+    // optional int32 ret = 2;
+    if (has_ret()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Fest_ContiRechargeSuppleRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Fest_ContiRechargeSuppleRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Fest_ContiRechargeSuppleRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Fest_ContiRechargeSuppleRsp::MergeFrom(const Fest_ContiRechargeSuppleRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_template_id()) {
+      set_template_id(from.template_id());
+    }
+    if (from.has_ret()) {
+      set_ret(from.ret());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Fest_ContiRechargeSuppleRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Fest_ContiRechargeSuppleRsp::CopyFrom(const Fest_ContiRechargeSuppleRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Fest_ContiRechargeSuppleRsp::IsInitialized() const {
+
+  return true;
+}
+
+void Fest_ContiRechargeSuppleRsp::Swap(Fest_ContiRechargeSuppleRsp* other) {
+  if (other != this) {
+    std::swap(template_id_, other->template_id_);
+    std::swap(ret_, other->ret_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Fest_ContiRechargeSuppleRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Fest_ContiRechargeSuppleRsp_descriptor_;
+  metadata.reflection = Fest_ContiRechargeSuppleRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Fest_ContiRechargeUpdateRsp::kTemplateIdFieldNumber;
+const int Fest_ContiRechargeUpdateRsp::kTotalRechargeFieldNumber;
+const int Fest_ContiRechargeUpdateRsp::kSupplementFieldNumber;
+const int Fest_ContiRechargeUpdateRsp::kDayFieldNumber;
+const int Fest_ContiRechargeUpdateRsp::kTotalFieldNumber;
+#endif  // !_MSC_VER
+
+Fest_ContiRechargeUpdateRsp::Fest_ContiRechargeUpdateRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Fest_ContiRechargeUpdateRsp::InitAsDefaultInstance() {
+}
+
+Fest_ContiRechargeUpdateRsp::Fest_ContiRechargeUpdateRsp(const Fest_ContiRechargeUpdateRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Fest_ContiRechargeUpdateRsp::SharedCtor() {
+  _cached_size_ = 0;
+  template_id_ = 0;
+  total_recharge_ = 0u;
+  supplement_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Fest_ContiRechargeUpdateRsp::~Fest_ContiRechargeUpdateRsp() {
+  SharedDtor();
+}
+
+void Fest_ContiRechargeUpdateRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Fest_ContiRechargeUpdateRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Fest_ContiRechargeUpdateRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Fest_ContiRechargeUpdateRsp_descriptor_;
+}
+
+const Fest_ContiRechargeUpdateRsp& Fest_ContiRechargeUpdateRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Fest_2eproto();
+  return *default_instance_;
+}
+
+Fest_ContiRechargeUpdateRsp* Fest_ContiRechargeUpdateRsp::default_instance_ = NULL;
+
+Fest_ContiRechargeUpdateRsp* Fest_ContiRechargeUpdateRsp::New() const {
+  return new Fest_ContiRechargeUpdateRsp;
+}
+
+void Fest_ContiRechargeUpdateRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    template_id_ = 0;
+    total_recharge_ = 0u;
+    supplement_ = 0;
+  }
+  day_.Clear();
+  total_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Fest_ContiRechargeUpdateRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 template_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &template_id_)));
+          set_has_template_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_total_recharge;
+        break;
+      }
+
+      // optional uint32 total_recharge = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_total_recharge:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &total_recharge_)));
+          set_has_total_recharge();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_supplement;
+        break;
+      }
+
+      // optional int32 supplement = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_supplement:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &supplement_)));
+          set_has_supplement();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_day;
+        break;
+      }
+
+      // repeated .proto_ff.FestContiDayRewardProto day = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_day:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_day()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_day;
+        if (input->ExpectTag(42)) goto parse_total;
+        break;
+      }
+
+      // repeated .proto_ff.FestContiTotalRewardProto total = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_total:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_total()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_total;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Fest_ContiRechargeUpdateRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->template_id(), output);
+  }
+
+  // optional uint32 total_recharge = 2;
+  if (has_total_recharge()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->total_recharge(), output);
+  }
+
+  // optional int32 supplement = 3;
+  if (has_supplement()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->supplement(), output);
+  }
+
+  // repeated .proto_ff.FestContiDayRewardProto day = 4;
+  for (int i = 0; i < this->day_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, this->day(i), output);
+  }
+
+  // repeated .proto_ff.FestContiTotalRewardProto total = 5;
+  for (int i = 0; i < this->total_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, this->total(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Fest_ContiRechargeUpdateRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->template_id(), target);
+  }
+
+  // optional uint32 total_recharge = 2;
+  if (has_total_recharge()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->total_recharge(), target);
+  }
+
+  // optional int32 supplement = 3;
+  if (has_supplement()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->supplement(), target);
+  }
+
+  // repeated .proto_ff.FestContiDayRewardProto day = 4;
+  for (int i = 0; i < this->day_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        4, this->day(i), target);
+  }
+
+  // repeated .proto_ff.FestContiTotalRewardProto total = 5;
+  for (int i = 0; i < this->total_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        5, this->total(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Fest_ContiRechargeUpdateRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 template_id = 1;
+    if (has_template_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->template_id());
+    }
+
+    // optional uint32 total_recharge = 2;
+    if (has_total_recharge()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->total_recharge());
+    }
+
+    // optional int32 supplement = 3;
+    if (has_supplement()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->supplement());
+    }
+
+  }
+  // repeated .proto_ff.FestContiDayRewardProto day = 4;
+  total_size += 1 * this->day_size();
+  for (int i = 0; i < this->day_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->day(i));
+  }
+
+  // repeated .proto_ff.FestContiTotalRewardProto total = 5;
+  total_size += 1 * this->total_size();
+  for (int i = 0; i < this->total_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->total(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Fest_ContiRechargeUpdateRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Fest_ContiRechargeUpdateRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Fest_ContiRechargeUpdateRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Fest_ContiRechargeUpdateRsp::MergeFrom(const Fest_ContiRechargeUpdateRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  day_.MergeFrom(from.day_);
+  total_.MergeFrom(from.total_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_template_id()) {
+      set_template_id(from.template_id());
+    }
+    if (from.has_total_recharge()) {
+      set_total_recharge(from.total_recharge());
+    }
+    if (from.has_supplement()) {
+      set_supplement(from.supplement());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Fest_ContiRechargeUpdateRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Fest_ContiRechargeUpdateRsp::CopyFrom(const Fest_ContiRechargeUpdateRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Fest_ContiRechargeUpdateRsp::IsInitialized() const {
+
+  return true;
+}
+
+void Fest_ContiRechargeUpdateRsp::Swap(Fest_ContiRechargeUpdateRsp* other) {
+  if (other != this) {
+    std::swap(template_id_, other->template_id_);
+    std::swap(total_recharge_, other->total_recharge_);
+    std::swap(supplement_, other->supplement_);
+    day_.Swap(&other->day_);
+    total_.Swap(&other->total_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Fest_ContiRechargeUpdateRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Fest_ContiRechargeUpdateRsp_descriptor_;
+  metadata.reflection = Fest_ContiRechargeUpdateRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Fest_LimitSaleBuyReq::kTemplateIdFieldNumber;
+const int Fest_LimitSaleBuyReq::kIdFieldNumber;
+#endif  // !_MSC_VER
+
+Fest_LimitSaleBuyReq::Fest_LimitSaleBuyReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Fest_LimitSaleBuyReq::InitAsDefaultInstance() {
+}
+
+Fest_LimitSaleBuyReq::Fest_LimitSaleBuyReq(const Fest_LimitSaleBuyReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Fest_LimitSaleBuyReq::SharedCtor() {
+  _cached_size_ = 0;
+  template_id_ = 0;
+  id_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Fest_LimitSaleBuyReq::~Fest_LimitSaleBuyReq() {
+  SharedDtor();
+}
+
+void Fest_LimitSaleBuyReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Fest_LimitSaleBuyReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Fest_LimitSaleBuyReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Fest_LimitSaleBuyReq_descriptor_;
+}
+
+const Fest_LimitSaleBuyReq& Fest_LimitSaleBuyReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Fest_2eproto();
+  return *default_instance_;
+}
+
+Fest_LimitSaleBuyReq* Fest_LimitSaleBuyReq::default_instance_ = NULL;
+
+Fest_LimitSaleBuyReq* Fest_LimitSaleBuyReq::New() const {
+  return new Fest_LimitSaleBuyReq;
+}
+
+void Fest_LimitSaleBuyReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    template_id_ = 0;
+    id_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Fest_LimitSaleBuyReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 template_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &template_id_)));
+          set_has_template_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_id;
+        break;
+      }
+
+      // optional int32 id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &id_)));
+          set_has_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Fest_LimitSaleBuyReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->template_id(), output);
+  }
+
+  // optional int32 id = 2;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Fest_LimitSaleBuyReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->template_id(), target);
+  }
+
+  // optional int32 id = 2;
+  if (has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Fest_LimitSaleBuyReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 template_id = 1;
+    if (has_template_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->template_id());
+    }
+
+    // optional int32 id = 2;
+    if (has_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Fest_LimitSaleBuyReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Fest_LimitSaleBuyReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Fest_LimitSaleBuyReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Fest_LimitSaleBuyReq::MergeFrom(const Fest_LimitSaleBuyReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_template_id()) {
+      set_template_id(from.template_id());
+    }
+    if (from.has_id()) {
+      set_id(from.id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Fest_LimitSaleBuyReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Fest_LimitSaleBuyReq::CopyFrom(const Fest_LimitSaleBuyReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Fest_LimitSaleBuyReq::IsInitialized() const {
+
+  return true;
+}
+
+void Fest_LimitSaleBuyReq::Swap(Fest_LimitSaleBuyReq* other) {
+  if (other != this) {
+    std::swap(template_id_, other->template_id_);
+    std::swap(id_, other->id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Fest_LimitSaleBuyReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Fest_LimitSaleBuyReq_descriptor_;
+  metadata.reflection = Fest_LimitSaleBuyReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Fest_LimitSaleBuyRsp::kTemplateIdFieldNumber;
+const int Fest_LimitSaleBuyRsp::kRetFieldNumber;
+#endif  // !_MSC_VER
+
+Fest_LimitSaleBuyRsp::Fest_LimitSaleBuyRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Fest_LimitSaleBuyRsp::InitAsDefaultInstance() {
+}
+
+Fest_LimitSaleBuyRsp::Fest_LimitSaleBuyRsp(const Fest_LimitSaleBuyRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Fest_LimitSaleBuyRsp::SharedCtor() {
+  _cached_size_ = 0;
+  template_id_ = 0;
+  ret_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Fest_LimitSaleBuyRsp::~Fest_LimitSaleBuyRsp() {
+  SharedDtor();
+}
+
+void Fest_LimitSaleBuyRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Fest_LimitSaleBuyRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Fest_LimitSaleBuyRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Fest_LimitSaleBuyRsp_descriptor_;
+}
+
+const Fest_LimitSaleBuyRsp& Fest_LimitSaleBuyRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Fest_2eproto();
+  return *default_instance_;
+}
+
+Fest_LimitSaleBuyRsp* Fest_LimitSaleBuyRsp::default_instance_ = NULL;
+
+Fest_LimitSaleBuyRsp* Fest_LimitSaleBuyRsp::New() const {
+  return new Fest_LimitSaleBuyRsp;
+}
+
+void Fest_LimitSaleBuyRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    template_id_ = 0;
+    ret_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Fest_LimitSaleBuyRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 template_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &template_id_)));
+          set_has_template_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_ret;
+        break;
+      }
+
+      // optional int32 ret = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_ret:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_)));
+          set_has_ret();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Fest_LimitSaleBuyRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->template_id(), output);
+  }
+
+  // optional int32 ret = 2;
+  if (has_ret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->ret(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Fest_LimitSaleBuyRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->template_id(), target);
+  }
+
+  // optional int32 ret = 2;
+  if (has_ret()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->ret(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Fest_LimitSaleBuyRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 template_id = 1;
+    if (has_template_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->template_id());
+    }
+
+    // optional int32 ret = 2;
+    if (has_ret()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Fest_LimitSaleBuyRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Fest_LimitSaleBuyRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Fest_LimitSaleBuyRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Fest_LimitSaleBuyRsp::MergeFrom(const Fest_LimitSaleBuyRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_template_id()) {
+      set_template_id(from.template_id());
+    }
+    if (from.has_ret()) {
+      set_ret(from.ret());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Fest_LimitSaleBuyRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Fest_LimitSaleBuyRsp::CopyFrom(const Fest_LimitSaleBuyRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Fest_LimitSaleBuyRsp::IsInitialized() const {
+
+  return true;
+}
+
+void Fest_LimitSaleBuyRsp::Swap(Fest_LimitSaleBuyRsp* other) {
+  if (other != this) {
+    std::swap(template_id_, other->template_id_);
+    std::swap(ret_, other->ret_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Fest_LimitSaleBuyRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Fest_LimitSaleBuyRsp_descriptor_;
+  metadata.reflection = Fest_LimitSaleBuyRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Fest_LimitSaleFetchReq::kTemplateIdFieldNumber;
+const int Fest_LimitSaleFetchReq::kValFieldNumber;
+#endif  // !_MSC_VER
+
+Fest_LimitSaleFetchReq::Fest_LimitSaleFetchReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Fest_LimitSaleFetchReq::InitAsDefaultInstance() {
+}
+
+Fest_LimitSaleFetchReq::Fest_LimitSaleFetchReq(const Fest_LimitSaleFetchReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Fest_LimitSaleFetchReq::SharedCtor() {
+  _cached_size_ = 0;
+  template_id_ = 0;
+  val_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Fest_LimitSaleFetchReq::~Fest_LimitSaleFetchReq() {
+  SharedDtor();
+}
+
+void Fest_LimitSaleFetchReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Fest_LimitSaleFetchReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Fest_LimitSaleFetchReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Fest_LimitSaleFetchReq_descriptor_;
+}
+
+const Fest_LimitSaleFetchReq& Fest_LimitSaleFetchReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Fest_2eproto();
+  return *default_instance_;
+}
+
+Fest_LimitSaleFetchReq* Fest_LimitSaleFetchReq::default_instance_ = NULL;
+
+Fest_LimitSaleFetchReq* Fest_LimitSaleFetchReq::New() const {
+  return new Fest_LimitSaleFetchReq;
+}
+
+void Fest_LimitSaleFetchReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    template_id_ = 0;
+    val_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Fest_LimitSaleFetchReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 template_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &template_id_)));
+          set_has_template_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_val;
+        break;
+      }
+
+      // optional int32 val = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_val:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &val_)));
+          set_has_val();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Fest_LimitSaleFetchReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->template_id(), output);
+  }
+
+  // optional int32 val = 2;
+  if (has_val()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->val(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Fest_LimitSaleFetchReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->template_id(), target);
+  }
+
+  // optional int32 val = 2;
+  if (has_val()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->val(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Fest_LimitSaleFetchReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 template_id = 1;
+    if (has_template_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->template_id());
+    }
+
+    // optional int32 val = 2;
+    if (has_val()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->val());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Fest_LimitSaleFetchReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Fest_LimitSaleFetchReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Fest_LimitSaleFetchReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Fest_LimitSaleFetchReq::MergeFrom(const Fest_LimitSaleFetchReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_template_id()) {
+      set_template_id(from.template_id());
+    }
+    if (from.has_val()) {
+      set_val(from.val());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Fest_LimitSaleFetchReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Fest_LimitSaleFetchReq::CopyFrom(const Fest_LimitSaleFetchReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Fest_LimitSaleFetchReq::IsInitialized() const {
+
+  return true;
+}
+
+void Fest_LimitSaleFetchReq::Swap(Fest_LimitSaleFetchReq* other) {
+  if (other != this) {
+    std::swap(template_id_, other->template_id_);
+    std::swap(val_, other->val_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Fest_LimitSaleFetchReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Fest_LimitSaleFetchReq_descriptor_;
+  metadata.reflection = Fest_LimitSaleFetchReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Fest_LimitSaleFetchRsp::kTemplateIdFieldNumber;
+const int Fest_LimitSaleFetchRsp::kRetFieldNumber;
+#endif  // !_MSC_VER
+
+Fest_LimitSaleFetchRsp::Fest_LimitSaleFetchRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Fest_LimitSaleFetchRsp::InitAsDefaultInstance() {
+}
+
+Fest_LimitSaleFetchRsp::Fest_LimitSaleFetchRsp(const Fest_LimitSaleFetchRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Fest_LimitSaleFetchRsp::SharedCtor() {
+  _cached_size_ = 0;
+  template_id_ = 0;
+  ret_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Fest_LimitSaleFetchRsp::~Fest_LimitSaleFetchRsp() {
+  SharedDtor();
+}
+
+void Fest_LimitSaleFetchRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Fest_LimitSaleFetchRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Fest_LimitSaleFetchRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Fest_LimitSaleFetchRsp_descriptor_;
+}
+
+const Fest_LimitSaleFetchRsp& Fest_LimitSaleFetchRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Fest_2eproto();
+  return *default_instance_;
+}
+
+Fest_LimitSaleFetchRsp* Fest_LimitSaleFetchRsp::default_instance_ = NULL;
+
+Fest_LimitSaleFetchRsp* Fest_LimitSaleFetchRsp::New() const {
+  return new Fest_LimitSaleFetchRsp;
+}
+
+void Fest_LimitSaleFetchRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    template_id_ = 0;
+    ret_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Fest_LimitSaleFetchRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 template_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &template_id_)));
+          set_has_template_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_ret;
+        break;
+      }
+
+      // optional int32 ret = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_ret:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_)));
+          set_has_ret();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Fest_LimitSaleFetchRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->template_id(), output);
+  }
+
+  // optional int32 ret = 2;
+  if (has_ret()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->ret(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Fest_LimitSaleFetchRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->template_id(), target);
+  }
+
+  // optional int32 ret = 2;
+  if (has_ret()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->ret(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Fest_LimitSaleFetchRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 template_id = 1;
+    if (has_template_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->template_id());
+    }
+
+    // optional int32 ret = 2;
+    if (has_ret()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Fest_LimitSaleFetchRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Fest_LimitSaleFetchRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Fest_LimitSaleFetchRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Fest_LimitSaleFetchRsp::MergeFrom(const Fest_LimitSaleFetchRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_template_id()) {
+      set_template_id(from.template_id());
+    }
+    if (from.has_ret()) {
+      set_ret(from.ret());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Fest_LimitSaleFetchRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Fest_LimitSaleFetchRsp::CopyFrom(const Fest_LimitSaleFetchRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Fest_LimitSaleFetchRsp::IsInitialized() const {
+
+  return true;
+}
+
+void Fest_LimitSaleFetchRsp::Swap(Fest_LimitSaleFetchRsp* other) {
+  if (other != this) {
+    std::swap(template_id_, other->template_id_);
+    std::swap(ret_, other->ret_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Fest_LimitSaleFetchRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Fest_LimitSaleFetchRsp_descriptor_;
+  metadata.reflection = Fest_LimitSaleFetchRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Fest_LimitSaleUpdateRsp::kTemplateIdFieldNumber;
+const int Fest_LimitSaleUpdateRsp::kTypeFieldNumber;
+const int Fest_LimitSaleUpdateRsp::kTotalFieldNumber;
+const int Fest_LimitSaleUpdateRsp::kFetchTotalFieldNumber;
+const int Fest_LimitSaleUpdateRsp::kBuyFieldNumber;
+#endif  // !_MSC_VER
+
+Fest_LimitSaleUpdateRsp::Fest_LimitSaleUpdateRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Fest_LimitSaleUpdateRsp::InitAsDefaultInstance() {
+}
+
+Fest_LimitSaleUpdateRsp::Fest_LimitSaleUpdateRsp(const Fest_LimitSaleUpdateRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Fest_LimitSaleUpdateRsp::SharedCtor() {
+  _cached_size_ = 0;
+  template_id_ = 0;
+  type_ = 0;
+  total_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Fest_LimitSaleUpdateRsp::~Fest_LimitSaleUpdateRsp() {
+  SharedDtor();
+}
+
+void Fest_LimitSaleUpdateRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Fest_LimitSaleUpdateRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Fest_LimitSaleUpdateRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Fest_LimitSaleUpdateRsp_descriptor_;
+}
+
+const Fest_LimitSaleUpdateRsp& Fest_LimitSaleUpdateRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Fest_2eproto();
+  return *default_instance_;
+}
+
+Fest_LimitSaleUpdateRsp* Fest_LimitSaleUpdateRsp::default_instance_ = NULL;
+
+Fest_LimitSaleUpdateRsp* Fest_LimitSaleUpdateRsp::New() const {
+  return new Fest_LimitSaleUpdateRsp;
+}
+
+void Fest_LimitSaleUpdateRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    template_id_ = 0;
+    type_ = 0;
+    total_ = 0u;
+  }
+  fetch_total_.Clear();
+  buy_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Fest_LimitSaleUpdateRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 template_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &template_id_)));
+          set_has_template_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_type;
+        break;
+      }
+
+      // optional int32 type = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_type:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &type_)));
+          set_has_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_total;
+        break;
+      }
+
+      // optional uint32 total = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_total:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &total_)));
+          set_has_total();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_fetch_total;
+        break;
+      }
+
+      // repeated int32 fetch_total = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_fetch_total:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 32, input, this->mutable_fetch_total())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_fetch_total())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_fetch_total;
+        if (input->ExpectTag(42)) goto parse_buy;
+        break;
+      }
+
+      // repeated .proto_ff.ComPair buy = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_buy:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_buy()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_buy;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Fest_LimitSaleUpdateRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->template_id(), output);
+  }
+
+  // optional int32 type = 2;
+  if (has_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->type(), output);
+  }
+
+  // optional uint32 total = 3;
+  if (has_total()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->total(), output);
+  }
+
+  // repeated int32 fetch_total = 4;
+  for (int i = 0; i < this->fetch_total_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      4, this->fetch_total(i), output);
+  }
+
+  // repeated .proto_ff.ComPair buy = 5;
+  for (int i = 0; i < this->buy_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, this->buy(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Fest_LimitSaleUpdateRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 template_id = 1;
+  if (has_template_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->template_id(), target);
+  }
+
+  // optional int32 type = 2;
+  if (has_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->type(), target);
+  }
+
+  // optional uint32 total = 3;
+  if (has_total()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->total(), target);
+  }
+
+  // repeated int32 fetch_total = 4;
+  for (int i = 0; i < this->fetch_total_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32ToArray(4, this->fetch_total(i), target);
+  }
+
+  // repeated .proto_ff.ComPair buy = 5;
+  for (int i = 0; i < this->buy_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        5, this->buy(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Fest_LimitSaleUpdateRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 template_id = 1;
+    if (has_template_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->template_id());
+    }
+
+    // optional int32 type = 2;
+    if (has_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->type());
+    }
+
+    // optional uint32 total = 3;
+    if (has_total()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->total());
+    }
+
+  }
+  // repeated int32 fetch_total = 4;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->fetch_total_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->fetch_total(i));
+    }
+    total_size += 1 * this->fetch_total_size() + data_size;
+  }
+
+  // repeated .proto_ff.ComPair buy = 5;
+  total_size += 1 * this->buy_size();
+  for (int i = 0; i < this->buy_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->buy(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Fest_LimitSaleUpdateRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Fest_LimitSaleUpdateRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Fest_LimitSaleUpdateRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Fest_LimitSaleUpdateRsp::MergeFrom(const Fest_LimitSaleUpdateRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  fetch_total_.MergeFrom(from.fetch_total_);
+  buy_.MergeFrom(from.buy_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_template_id()) {
+      set_template_id(from.template_id());
+    }
+    if (from.has_type()) {
+      set_type(from.type());
+    }
+    if (from.has_total()) {
+      set_total(from.total());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Fest_LimitSaleUpdateRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Fest_LimitSaleUpdateRsp::CopyFrom(const Fest_LimitSaleUpdateRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Fest_LimitSaleUpdateRsp::IsInitialized() const {
+
+  return true;
+}
+
+void Fest_LimitSaleUpdateRsp::Swap(Fest_LimitSaleUpdateRsp* other) {
+  if (other != this) {
+    std::swap(template_id_, other->template_id_);
+    std::swap(type_, other->type_);
+    std::swap(total_, other->total_);
+    fetch_total_.Swap(&other->fetch_total_);
+    buy_.Swap(&other->buy_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Fest_LimitSaleUpdateRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Fest_LimitSaleUpdateRsp_descriptor_;
+  metadata.reflection = Fest_LimitSaleUpdateRsp_reflection_;
   return metadata;
 }
 

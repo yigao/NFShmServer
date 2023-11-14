@@ -27,7 +27,7 @@ namespace proto_ff_s {
 		NFShmString<64> m_name;//任务名
 		NFShmString<64> m_rececond;//接取条件
 		NFShmString<64> m_receadd;//过程
-		NFShmString<256> m_comcond;//完成条件
+		NFShmString<64> m_comcond;//完成条件
 		int32_t m_nexttask;//后续任务
 		NFShmString<64> m_tracker;//任务追踪
 		NFShmString<64> m_subtype;//提交方式

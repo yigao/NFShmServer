@@ -914,6 +914,41 @@ message LoginRewardDBProto
 {
 	repeated ComPair fetch = 1;			//登录天数对应的领取状态
 }
+
+//连续累充
+message ContiRechargeDBProto
+{
+	//第一天到最后一天，每天领取的奖励
+	message DayFetchInfo
+	{
+		optional int32 day = 1;			//第几天
+		repeated int32 gear_lst = 2;	//已领取的挡位
+	}
+	//每个挡位，累计领取天数的奖励
+	message GearFetchInfo
+	{
+		optional int32 gear = 1;		//挡位
+		repeated int32 day_lst = 2;		//已领取的累计天数列表
+	}
+	optional uint32 recharge = 1;			 //活动时间内累计充值金额
+	optional int32 supplement = 2;			 //是否补领
+	repeated DayFetchInfo day_fetch = 3;	 //每天已领取的奖励
+	repeated GearFetchInfo gear_fetch = 4;	 //已领取的挡位奖励
+}
+//限时秒杀
+message LimitSaleDBProto
+{
+	message ShopProto
+	{
+		optional int32 type = 1;	//商店类型
+		optional uint32 total = 2;	//累计消费
+		repeated int32 fetch = 3;	//已领取累计消费奖励的 消费金额
+		repeated ComPair buy = 4;	//已购买的商品数量 muban_RebateStore_mall表ID - 已购买的数量
+	}
+	repeated ShopProto shop = 1;	//商店信息
+	optional uint64 fresh_time = 2;	//最近一次刷新时间
+}
+
 //节日活动详细数据
 message FestDetailDBProto
 {
@@ -940,6 +975,9 @@ message FestDetailDBProto
 	optional DayTotalRechargeDBProto day_total_recharge = 21;			//每日累充
 	optional TotalRechargeDBProto total_recharge = 22;					//累计充值
 	optional LoginRewardDBProto login = 23;								//登录奖励
+	optional ContiRechargeDBProto conti_recharge = 24;					//连续累充
+	optional LimitSaleDBProto limit_sale = 25;							//限时秒杀
+
 }
 
 //节日活动
@@ -1002,6 +1040,17 @@ message SoulDBData
 	repeated ComPair tasks = 3;    //任务 key:id value: //0:未达成，1可领取，2 已领取
 }
 
+//奇门八卦
+message MoFaDBData
+{
+	repeated MoFaEquipInfo data = 1;
+}
+
+message RuneDBData
+{
+	repeated RuneEntry entrys = 1;
+}
+
 message RoleDBData
 {
 	required uint64                 cid					= 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY];	// role cid
@@ -1059,6 +1108,8 @@ message RoleDBData
 
 	optional GMADbData 				gma_datas			= 51;//神元区域
 	optional SoulDBData				soul				= 52; //战魂
+	optional MoFaDBData       		mofa        		= 53; //奇门八卦
+	optional RuneDBData				rune				= 54; //符文
 }
 
 //待发送红包信息
@@ -1151,6 +1202,7 @@ message RoleMirrorData
 	repeated BestEQEquipInfo beast_equips		= 9;//所有的神机装备
 	repeated BestEQSlotInfo	 beast_slots		= 10;//神机装备槽位
 	optional int32 campid						= 11;//机器人阵营id
+	optional int32 relive						= 12;//自动复活类型，0-不自动复活  1-附近复活点复活，2-原地复活
 }
 
 

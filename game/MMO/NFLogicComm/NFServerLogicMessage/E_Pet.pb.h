@@ -90,7 +90,6 @@ class E_PetConstMaterialDesc;
 class E_PetConst;
 class Sheet_PetConst;
 class E_PetTopAttributeDesc;
-class E_PetTopStarattDesc;
 class E_PetTop;
 class Sheet_PetTop;
 class E_PetTopitem;
@@ -4146,12 +4145,17 @@ class E_PetWraiths : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_name = 2;
+  // optional string m_name = 2;
   inline bool has_m_name() const;
   inline void clear_m_name();
   static const int kMNameFieldNumber = 2;
-  inline ::google::protobuf::int32 m_name() const;
-  inline void set_m_name(::google::protobuf::int32 value);
+  inline const ::std::string& m_name() const;
+  inline void set_m_name(const ::std::string& value);
+  inline void set_m_name(const char* value);
+  inline void set_m_name(const char* value, size_t size);
+  inline ::std::string* mutable_m_name();
+  inline ::std::string* release_m_name();
+  inline void set_allocated_m_name(::std::string* m_name);
 
   // optional int32 m_affix = 3;
   inline bool has_m_affix() const;
@@ -4240,16 +4244,16 @@ class E_PetWraiths : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
+  ::std::string* m_name_;
   ::google::protobuf::int32 m_id_;
-  ::google::protobuf::int32 m_name_;
   ::google::protobuf::int32 m_affix_;
   ::google::protobuf::int32 m_position_;
   ::google::protobuf::int32 m_quality_;
   ::google::protobuf::int32 m_star_;
   ::google::protobuf::int32 m_propertylv_;
-  ::google::protobuf::int32 m_propertytop_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PetWraithsAttributeDesc > m_attribute_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PetWraithsAttributebctDesc > m_attributebct_;
+  ::google::protobuf::int32 m_propertytop_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(10 + 31) / 32];
@@ -6257,98 +6261,6 @@ class E_PetTopAttributeDesc : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class E_PetTopStarattDesc : public ::google::protobuf::Message {
- public:
-  E_PetTopStarattDesc();
-  virtual ~E_PetTopStarattDesc();
-
-  E_PetTopStarattDesc(const E_PetTopStarattDesc& from);
-
-  inline E_PetTopStarattDesc& operator=(const E_PetTopStarattDesc& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const E_PetTopStarattDesc& default_instance();
-
-  void Swap(E_PetTopStarattDesc* other);
-
-  // implements Message ----------------------------------------------
-
-  E_PetTopStarattDesc* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const E_PetTopStarattDesc& from);
-  void MergeFrom(const E_PetTopStarattDesc& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional int32 m_value = 1;
-  inline bool has_m_value() const;
-  inline void clear_m_value();
-  static const int kMValueFieldNumber = 1;
-  inline ::google::protobuf::int32 m_value() const;
-  inline void set_m_value(::google::protobuf::int32 value);
-
-  // optional int32 m_type = 2;
-  inline bool has_m_type() const;
-  inline void clear_m_type();
-  static const int kMTypeFieldNumber = 2;
-  inline ::google::protobuf::int32 m_type() const;
-  inline void set_m_type(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.E_PetTopStarattDesc)
- private:
-  inline void set_has_m_value();
-  inline void clear_has_m_value();
-  inline void set_has_m_type();
-  inline void clear_has_m_type();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::int32 m_value_;
-  ::google::protobuf::int32 m_type_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
-
-  friend void  protobuf_AddDesc_E_5fPet_2eproto();
-  friend void protobuf_AssignDesc_E_5fPet_2eproto();
-  friend void protobuf_ShutdownFile_E_5fPet_2eproto();
-
-  void InitAsDefaultInstance();
-  static E_PetTopStarattDesc* default_instance_;
-};
-// -------------------------------------------------------------------
-
 class E_PetTop : public ::google::protobuf::Message {
  public:
   E_PetTop();
@@ -6422,18 +6334,6 @@ class E_PetTop : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PetTopAttributeDesc >*
       mutable_m_attribute();
 
-  // repeated .proto_ff.E_PetTopStarattDesc m_starAtt = 3;
-  inline int m_staratt_size() const;
-  inline void clear_m_staratt();
-  static const int kMStarAttFieldNumber = 3;
-  inline const ::proto_ff::E_PetTopStarattDesc& m_staratt(int index) const;
-  inline ::proto_ff::E_PetTopStarattDesc* mutable_m_staratt(int index);
-  inline ::proto_ff::E_PetTopStarattDesc* add_m_staratt();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PetTopStarattDesc >&
-      m_staratt() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PetTopStarattDesc >*
-      mutable_m_staratt();
-
   // @@protoc_insertion_point(class_scope:proto_ff.E_PetTop)
  private:
   inline void set_has_m_toptype();
@@ -6442,11 +6342,10 @@ class E_PetTop : public ::google::protobuf::Message {
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PetTopAttributeDesc > m_attribute_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PetTopStarattDesc > m_staratt_;
   ::google::protobuf::int32 m_toptype_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fPet_2eproto();
   friend void protobuf_AssignDesc_E_5fPet_2eproto();
@@ -10556,7 +10455,7 @@ inline void E_PetWraiths::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_name = 2;
+// optional string m_name = 2;
 inline bool E_PetWraiths::has_m_name() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -10567,15 +10466,63 @@ inline void E_PetWraiths::clear_has_m_name() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void E_PetWraiths::clear_m_name() {
-  m_name_ = 0;
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    m_name_->clear();
+  }
   clear_has_m_name();
 }
-inline ::google::protobuf::int32 E_PetWraiths::m_name() const {
+inline const ::std::string& E_PetWraiths::m_name() const {
+  return *m_name_;
+}
+inline void E_PetWraiths::set_m_name(const ::std::string& value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
+  }
+  m_name_->assign(value);
+}
+inline void E_PetWraiths::set_m_name(const char* value) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
+  }
+  m_name_->assign(value);
+}
+inline void E_PetWraiths::set_m_name(const char* value, size_t size) {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
+  }
+  m_name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_PetWraiths::mutable_m_name() {
+  set_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    m_name_ = new ::std::string;
+  }
   return m_name_;
 }
-inline void E_PetWraiths::set_m_name(::google::protobuf::int32 value) {
-  set_has_m_name();
-  m_name_ = value;
+inline ::std::string* E_PetWraiths::release_m_name() {
+  clear_has_m_name();
+  if (m_name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_name_;
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_PetWraiths::set_allocated_m_name(::std::string* m_name) {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_name_;
+  }
+  if (m_name) {
+    set_has_m_name();
+    m_name_ = m_name;
+  } else {
+    clear_has_m_name();
+    m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
 }
 
 // optional int32 m_affix = 3;
@@ -12172,54 +12119,6 @@ inline void E_PetTopAttributeDesc::set_m_type(::google::protobuf::int32 value) {
 
 // -------------------------------------------------------------------
 
-// E_PetTopStarattDesc
-
-// optional int32 m_value = 1;
-inline bool E_PetTopStarattDesc::has_m_value() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void E_PetTopStarattDesc::set_has_m_value() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void E_PetTopStarattDesc::clear_has_m_value() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void E_PetTopStarattDesc::clear_m_value() {
-  m_value_ = 0;
-  clear_has_m_value();
-}
-inline ::google::protobuf::int32 E_PetTopStarattDesc::m_value() const {
-  return m_value_;
-}
-inline void E_PetTopStarattDesc::set_m_value(::google::protobuf::int32 value) {
-  set_has_m_value();
-  m_value_ = value;
-}
-
-// optional int32 m_type = 2;
-inline bool E_PetTopStarattDesc::has_m_type() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void E_PetTopStarattDesc::set_has_m_type() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void E_PetTopStarattDesc::clear_has_m_type() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void E_PetTopStarattDesc::clear_m_type() {
-  m_type_ = 0;
-  clear_has_m_type();
-}
-inline ::google::protobuf::int32 E_PetTopStarattDesc::m_type() const {
-  return m_type_;
-}
-inline void E_PetTopStarattDesc::set_m_type(::google::protobuf::int32 value) {
-  set_has_m_type();
-  m_type_ = value;
-}
-
-// -------------------------------------------------------------------
-
 // E_PetTop
 
 // optional int32 m_topType = 1;
@@ -12267,31 +12166,6 @@ E_PetTop::m_attribute() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PetTopAttributeDesc >*
 E_PetTop::mutable_m_attribute() {
   return &m_attribute_;
-}
-
-// repeated .proto_ff.E_PetTopStarattDesc m_starAtt = 3;
-inline int E_PetTop::m_staratt_size() const {
-  return m_staratt_.size();
-}
-inline void E_PetTop::clear_m_staratt() {
-  m_staratt_.Clear();
-}
-inline const ::proto_ff::E_PetTopStarattDesc& E_PetTop::m_staratt(int index) const {
-  return m_staratt_.Get(index);
-}
-inline ::proto_ff::E_PetTopStarattDesc* E_PetTop::mutable_m_staratt(int index) {
-  return m_staratt_.Mutable(index);
-}
-inline ::proto_ff::E_PetTopStarattDesc* E_PetTop::add_m_staratt() {
-  return m_staratt_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PetTopStarattDesc >&
-E_PetTop::m_staratt() const {
-  return m_staratt_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PetTopStarattDesc >*
-E_PetTop::mutable_m_staratt() {
-  return &m_staratt_;
 }
 
 // -------------------------------------------------------------------

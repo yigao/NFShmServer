@@ -188,9 +188,6 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* E_PetTopAttributeDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   E_PetTopAttributeDesc_reflection_ = NULL;
-const ::google::protobuf::Descriptor* E_PetTopStarattDesc_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  E_PetTopStarattDesc_reflection_ = NULL;
 const ::google::protobuf::Descriptor* E_PetTop_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   E_PetTop_reflection_ = NULL;
@@ -1201,27 +1198,10 @@ void protobuf_AssignDesc_E_5fPet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_PetTopAttributeDesc));
-  E_PetTopStarattDesc_descriptor_ = file->message_type(56);
-  static const int E_PetTopStarattDesc_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PetTopStarattDesc, m_value_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PetTopStarattDesc, m_type_),
-  };
-  E_PetTopStarattDesc_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      E_PetTopStarattDesc_descriptor_,
-      E_PetTopStarattDesc::default_instance_,
-      E_PetTopStarattDesc_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PetTopStarattDesc, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PetTopStarattDesc, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(E_PetTopStarattDesc));
-  E_PetTop_descriptor_ = file->message_type(57);
-  static const int E_PetTop_offsets_[3] = {
+  E_PetTop_descriptor_ = file->message_type(56);
+  static const int E_PetTop_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PetTop, m_toptype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PetTop, m_attribute_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PetTop, m_staratt_),
   };
   E_PetTop_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -1234,7 +1214,7 @@ void protobuf_AssignDesc_E_5fPet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_PetTop));
-  Sheet_PetTop_descriptor_ = file->message_type(58);
+  Sheet_PetTop_descriptor_ = file->message_type(57);
   static const int Sheet_PetTop_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_PetTop, e_pettop_list_),
   };
@@ -1249,7 +1229,7 @@ void protobuf_AssignDesc_E_5fPet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_PetTop));
-  E_PetTopitem_descriptor_ = file->message_type(59);
+  E_PetTopitem_descriptor_ = file->message_type(58);
   static const int E_PetTopitem_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PetTopitem, m_lv_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PetTopitem, m_item_),
@@ -1266,7 +1246,7 @@ void protobuf_AssignDesc_E_5fPet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_PetTopitem));
-  Sheet_PetTopitem_descriptor_ = file->message_type(60);
+  Sheet_PetTopitem_descriptor_ = file->message_type(59);
   static const int Sheet_PetTopitem_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_PetTopitem, e_pettopitem_list_),
   };
@@ -1281,7 +1261,7 @@ void protobuf_AssignDesc_E_5fPet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_PetTopitem));
-  E_PetPrivilegePrivilegeDesc_descriptor_ = file->message_type(61);
+  E_PetPrivilegePrivilegeDesc_descriptor_ = file->message_type(60);
   static const int E_PetPrivilegePrivilegeDesc_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PetPrivilegePrivilegeDesc, m_value_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PetPrivilegePrivilegeDesc, m_att_),
@@ -1297,7 +1277,7 @@ void protobuf_AssignDesc_E_5fPet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_PetPrivilegePrivilegeDesc));
-  E_PetPrivilege_descriptor_ = file->message_type(62);
+  E_PetPrivilege_descriptor_ = file->message_type(61);
   static const int E_PetPrivilege_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PetPrivilege, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_PetPrivilege, m_activate_),
@@ -1316,7 +1296,7 @@ void protobuf_AssignDesc_E_5fPet_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_PetPrivilege));
-  Sheet_PetPrivilege_descriptor_ = file->message_type(63);
+  Sheet_PetPrivilege_descriptor_ = file->message_type(62);
   static const int Sheet_PetPrivilege_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_PetPrivilege, e_petprivilege_list_),
   };
@@ -1456,8 +1436,6 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     E_PetTopAttributeDesc_descriptor_, &E_PetTopAttributeDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    E_PetTopStarattDesc_descriptor_, &E_PetTopStarattDesc::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     E_PetTop_descriptor_, &E_PetTop::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_PetTop_descriptor_, &Sheet_PetTop::default_instance());
@@ -1588,8 +1566,6 @@ void protobuf_ShutdownFile_E_5fPet_2eproto() {
   delete Sheet_PetConst_reflection_;
   delete E_PetTopAttributeDesc::default_instance_;
   delete E_PetTopAttributeDesc_reflection_;
-  delete E_PetTopStarattDesc::default_instance_;
-  delete E_PetTopStarattDesc_reflection_;
   delete E_PetTop::default_instance_;
   delete E_PetTop_reflection_;
   delete Sheet_PetTop::default_instance_;
@@ -1765,109 +1741,105 @@ void protobuf_AddDesc_E_5fPet_2eproto() {
     "sc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\026\n\006m_type\030\002"
     " \001(\005B\006\302\377\024\002ID\"P\n\034E_PetWraithsAttributebct"
     "Desc\022\027\n\006m_type\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\027\n\007m_value"
-    "\030\002 \001(\005B\006\302\377\024\002ID\"\315\003\n\014E_PetWraiths\022\032\n\004m_id\030"
-    "\001 \001(\005B\014\302\377\024\010\350\243\205\345\244\207id\022 \n\006m_name\030\002 \001(\005B\020\302\377\024"
-    "\014\345\246\226\351\255\202\345\220\215\347\247\260\022!\n\007m_affix\030\003 \001(\005B\020\302\377\024\014\350\257\215\347"
-    "\274\200\347\261\273\345\236\213\022$\n\nm_position\030\004 \001(\005B\020\302\377\024\014\345\246\226\351\255\202"
-    "\351\203\250\344\275\215\022#\n\tm_quality\030\005 \001(\005B\020\302\377\024\014\345\246\226\351\255\202\345\223\201"
-    "\350\264\250\022 \n\006m_star\030\006 \001(\005B\020\302\377\024\014\345\246\226\351\255\202\346\230\237\347\272\247\022&\n"
-    "\014m_propertyLv\030\007 \001(\005B\020\302\377\024\014\345\215\207\347\272\247\347\261\273\345\236\213\022\'\n"
-    "\rm_propertyTop\030\010 \001(\005B\020\302\377\024\014\347\252\201\347\240\264\347\261\273\345\236\213\022H"
-    "\n\013m_attribute\030\t \003(\0132#.proto_ff.E_PetWrai"
-    "thsAttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\003\022T\n\016m_at"
-    "tributeBct\030\n \003(\0132&.proto_ff.E_PetWraiths"
-    "AttributebctDescB\024\302\377\024\014\351\242\235\345\244\226\345\261\236\346\200\247\210\301\024\002\"L"
-    "\n\020Sheet_PetWraiths\0228\n\021E_PetWraiths_List\030"
-    "\001 \003(\0132\026.proto_ff.E_PetWraithsB\005\210\301\024\200\002\"O\n\033"
-    "E_PetWraithslvAttributeDesc\022\030\n\007m_value\030\001"
-    " \001(\005B\007\302\377\024\003\345\200\274\022\026\n\006m_type\030\002 \001(\005B\006\302\377\024\002ID\"\320\002"
-    "\n\016E_PetWraithslv\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022!"
-    "\n\007m_value\030\002 \001(\005B\020\302\377\024\014\345\261\236\346\200\247\347\261\273\345\236\213\022%\n\013m_a"
-    "dvanceLv\030\003 \001(\005B\020\302\377\024\014\350\277\233\351\230\266\347\255\211\347\272\247\022\030\n\004m_lv"
-    "\030\004 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022\'\n\rm_wraithsItem\030\005 \001("
-    "\005B\020\302\377\024\014\351\201\223\345\205\267\346\266\210\350\200\227\022&\n\014m_wraithsMun\030\006 \001("
-    "\005B\020\302\377\024\014\346\266\210\350\200\227\346\225\260\351\207\217\022\'\n\007m_lvExp\030\007 \001(\005B\026\302\377"
-    "\024\022\345\215\207\347\272\247\346\211\200\351\234\200\347\273\217\351\252\214\022J\n\013m_attribute\030\010 \003("
-    "\0132%.proto_ff.E_PetWraithslvAttributeDesc"
-    "B\016\302\377\024\006\345\261\236\346\200\247\210\301\024\006\"R\n\022Sheet_PetWraithslv\022<"
-    "\n\023E_PetWraithslv_List\030\001 \003(\0132\030.proto_ff.E"
-    "_PetWraithslvB\005\210\301\024\200\002\"\226\001\n\022E_PetSmeltItemD"
-    "esc\022\"\n\010m_maxNum\030\001 \001(\005B\020\302\377\024\014\346\234\200\345\244\247\346\225\260\351\207\217\022"
-    "\"\n\010m_minNum\030\002 \001(\005B\020\302\377\024\014\346\234\200\345\260\217\346\225\260\351\207\217\022\036\n\nm"
-    "_rarerand\030\003 \001(\005B\n\302\377\024\006\346\246\202\347\216\207\022\030\n\004m_id\030\004 \001("
-    "\005B\n\302\377\024\006\351\201\223\345\205\267\"\226\002\n\nE_PetSmelt\022\024\n\004m_id\030\001 \001"
-    "(\005B\006\302\377\024\002id\022\035\n\tm_quality\030\002 \001(\005B\n\302\377\024\006\345\223\201\350\264"
-    "\250\022\032\n\006m_star\030\003 \001(\005B\n\302\377\024\006\346\230\237\347\272\247\022%\n\010m_putMu"
-    "n\030\004 \001(\005B\023\302\377\024\017\346\224\276\345\205\245\345\246\226\351\255\202\346\225\260\022$\n\nm_smeltE"
-    "xp\030\005 \001(\005B\020\302\377\024\014\350\216\267\345\276\227\347\273\217\351\252\214\022,\n\014m_monsterN"
-    "um\030\006 \001(\005B\026\302\377\024\022\345\246\226\346\260\224\350\216\267\345\276\227\346\225\260\351\207\217\022<\n\006m_it"
-    "em\030\007 \003(\0132\034.proto_ff.E_PetSmeltItemDescB\016"
-    "\302\377\024\006\350\216\267\345\276\227\210\301\024\003\"E\n\016Sheet_PetSmelt\0223\n\017E_Pe"
-    "tSmelt_List\030\001 \003(\0132\024.proto_ff.E_PetSmeltB"
-    "\004\210\301\024@\"\235\001\n\025E_PetRefineconversion\022\"\n\010m_ite"
-    "mid\030\001 \001(\005B\020\302\377\024\014\345\205\221\346\215\242\351\201\223\345\205\267\022\030\n\007m_group\030\002"
-    " \001(\005B\007\302\377\024\003\347\273\204\022\037\n\005m_num\030\003 \001(\005B\020\302\377\024\014\345\205\221\346\215\242"
-    "\346\225\260\351\207\217\022%\n\013m_condition\030\004 \001(\005B\020\302\377\024\014\345\205\221\346\215\242\346"
-    "\235\241\344\273\266\"f\n\031Sheet_PetRefineconversion\022I\n\032E_"
-    "PetRefineconversion_List\030\001 \003(\0132\037.proto_f"
-    "f.E_PetRefineconversionB\004\210\301\024 \"J\n\023E_PetSt"
-    "oveStoveDesc\022\026\n\005m_num\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\033\n\007"
-    "m_value\030\002 \001(\005B\n\302\377\024\006\345\261\236\346\200\247\"\354\001\n\nE_PetStove"
-    "\022\030\n\004m_lv\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022%\n\005m_exp\030\002 \001("
-    "\005B\026\302\377\024\022\345\215\207\347\272\247\346\211\200\351\234\200\347\273\217\351\252\214\022/\n\tm_quality\030\003"
-    " \001(\005B\034\302\377\024\030\347\202\274\345\246\226\345\274\200\346\224\276\344\270\212\351\231\220\345\223\201\350\264\250\022,\n\006m_"
-    "star\030\004 \001(\005B\034\302\377\024\030\347\202\274\345\246\226\345\274\200\346\224\276\344\270\212\351\231\220\346\230\237\346\225\260"
-    "\022>\n\007m_stove\030\005 \003(\0132\035.proto_ff.E_PetStoveS"
-    "toveDescB\016\302\377\024\006\345\246\226\347\202\211\210\301\024\004\"F\n\016Sheet_PetSto"
-    "ve\0224\n\017E_PetStove_List\030\001 \003(\0132\024.proto_ff.E"
-    "_PetStoveB\005\210\301\024\200\004\"H\n\026E_PetSuitAttributeDe"
-    "sc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\024\n\006m_type\030\002"
-    " \001(\005B\004\302\377\024\000\"\330\002\n\tE_PetSuit\022\024\n\004m_id\030\001 \001(\005B\006"
-    "\302\377\024\002id\022#\n\tm_quality\030\002 \001(\005B\020\302\377\024\014\345\246\226\351\255\202\345\223\201"
-    "\350\264\250\022 \n\006m_star\030\003 \001(\005B\020\302\377\024\014\345\246\226\351\255\202\346\230\237\347\272\247\022*\n"
-    "\020m_wraithsQuality\030\004 \001(\005B\020\302\377\024\014\345\246\226\351\255\202\351\234\200\346\261"
-    "\202\022!\n\007m_piece\030\005 \001(\005B\020\302\377\024\014\345\245\227\350\243\205\344\273\266\346\225\260\022)\n\017"
-    "m_resonanceType\030\006 \001(\005B\020\302\377\024\014\345\205\261\351\270\243\345\261\236\346\200\247\022"
-    "-\n\020m_resonanceValue\030\007 \001(\005B\023\302\377\024\017\345\205\261\351\270\243\345\261\236"
-    "\346\200\247\345\200\274\022E\n\013m_Attribute\030\010 \003(\0132 .proto_ff.E"
-    "_PetSuitAttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\005\"B\n"
-    "\rSheet_PetSuit\0221\n\016E_PetSuit_List\030\001 \003(\0132\023"
-    ".proto_ff.E_PetSuitB\004\210\301\024 \"R\n\026E_PetConstM"
-    "aterialDesc\022\034\n\005m_exp\030\001 \001(\005B\r\302\377\024\t\347\273\217\351\252\214\345\200"
-    "\274\022\032\n\006m_item\030\002 \001(\005B\n\302\377\024\006\351\201\223\345\205\267\"\343\001\n\nE_PetC"
-    "onst\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022 \n\006m_open\030\002 \001"
-    "(\005B\020\302\377\024\014\345\274\200\345\220\257\346\235\241\344\273\266\022 \n\006m_solt\030\003 \001(\005B\020\302\377"
-    "\024\014\346\247\275\344\275\215\350\247\243\351\224\201\022\032\n\006m_item\030\004 \001(\005B\n\302\377\024\006\346\266\210\350"
-    "\200\227\022\031\n\005m_num\030\005 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022D\n\nm_mater"
-    "ial\030\006 \003(\0132 .proto_ff.E_PetConstMaterialD"
-    "escB\016\302\377\024\006\345\215\207\347\272\247\210\301\024\003\"E\n\016Sheet_PetConst\0223\n"
-    "\017E_PetConst_List\030\001 \003(\0132\024.proto_ff.E_PetC"
-    "onstB\004\210\301\024\002\"I\n\025E_PetTopAttributeDesc\022\030\n\007m"
-    "_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\026\n\006m_type\030\002 \001(\005B\006\302"
-    "\377\024\002ID\"G\n\023E_PetTopStarattDesc\022\030\n\007m_value\030"
-    "\001 \001(\005B\007\302\377\024\003\345\200\274\022\026\n\006m_type\030\002 \001(\005B\006\302\377\024\002ID\"\275"
-    "\001\n\010E_PetTop\022#\n\tm_topType\030\001 \001(\005B\020\302\377\024\014\347\252\201\347"
-    "\240\264\347\261\273\345\236\213\022D\n\013m_attribute\030\002 \003(\0132\037.proto_ff"
-    ".E_PetTopAttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\010\022F"
-    "\n\tm_starAtt\030\003 \003(\0132\035.proto_ff.E_PetTopSta"
-    "rattDescB\024\302\377\024\014\346\230\237\347\272\247\345\261\236\346\200\247\210\301\024\010\"@\n\014Sheet_"
-    "PetTop\0220\n\rE_PetTop_List\030\001 \003(\0132\022.proto_ff"
-    ".E_PetTopB\005\210\301\024\200\002\"q\n\014E_PetTopitem\022\036\n\004m_lv"
-    "\030\001 \001(\005B\020\302\377\024\014\347\252\201\347\240\264\347\255\211\347\272\247\022 \n\006m_item\030\002 \001(\005"
-    "B\020\302\377\024\014\347\252\201\347\240\264\346\266\210\350\200\227\022\037\n\005m_num\030\003 \001(\005B\020\302\377\024\014\346"
-    "\266\210\350\200\227\346\225\260\351\207\217\"K\n\020Sheet_PetTopitem\0227\n\021E_Pet"
-    "Topitem_List\030\001 \003(\0132\026.proto_ff.E_PetTopit"
-    "emB\004\210\301\024 \"N\n\033E_PetPrivilegePrivilegeDesc\022"
-    "\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\025\n\005m_att\030\002 \001(\005"
-    "B\006\302\377\024\002ID\"\365\001\n\016E_PetPrivilege\022\024\n\004m_id\030\001 \001("
-    "\005B\006\302\377\024\002id\022(\n\nm_activate\030\002 \001(\tB\024\302\377\024\014\346\277\200\346\264"
-    "\273\346\235\241\344\273\266\220\301\024@\022&\n\014m_doubleItem\030\003 \001(\005B\020\302\377\024\014\351"
-    "\201\223\345\205\267\347\277\273\345\200\215\022)\n\017m_experienceExp\030\004 \001(\005B\020\302\377"
-    "\024\014\347\273\217\351\252\214\345\212\240\346\210\220\022P\n\013m_privilege\030\005 \003(\0132%.pr"
-    "oto_ff.E_PetPrivilegePrivilegeDescB\024\302\377\024\014"
-    "\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\004\"Q\n\022Sheet_PetPrivilege\022;"
-    "\n\023E_PetPrivilege_List\030\001 \003(\0132\030.proto_ff.E"
-    "_PetPrivilegeB\004\210\301\024\002", 10139);
+    "\030\002 \001(\005B\006\302\377\024\002ID\"\321\003\n\014E_PetWraiths\022\032\n\004m_id\030"
+    "\001 \001(\005B\014\302\377\024\010\350\243\205\345\244\207id\022$\n\006m_name\030\002 \001(\tB\024\302\377\024"
+    "\014\345\246\226\351\255\202\345\220\215\347\247\260\220\301\024@\022!\n\007m_affix\030\003 \001(\005B\020\302\377\024\014"
+    "\350\257\215\347\274\200\347\261\273\345\236\213\022$\n\nm_position\030\004 \001(\005B\020\302\377\024\014\345\246"
+    "\226\351\255\202\351\203\250\344\275\215\022#\n\tm_quality\030\005 \001(\005B\020\302\377\024\014\345\246\226\351\255"
+    "\202\345\223\201\350\264\250\022 \n\006m_star\030\006 \001(\005B\020\302\377\024\014\345\246\226\351\255\202\346\230\237\347\272"
+    "\247\022&\n\014m_propertyLv\030\007 \001(\005B\020\302\377\024\014\345\215\207\347\272\247\347\261\273\345\236"
+    "\213\022\'\n\rm_propertyTop\030\010 \001(\005B\020\302\377\024\014\347\252\201\347\240\264\347\261\273\345"
+    "\236\213\022H\n\013m_attribute\030\t \003(\0132#.proto_ff.E_Pet"
+    "WraithsAttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\003\022T\n\016"
+    "m_attributeBct\030\n \003(\0132&.proto_ff.E_PetWra"
+    "ithsAttributebctDescB\024\302\377\024\014\351\242\235\345\244\226\345\261\236\346\200\247\210\301"
+    "\024\002\"L\n\020Sheet_PetWraiths\0228\n\021E_PetWraiths_L"
+    "ist\030\001 \003(\0132\026.proto_ff.E_PetWraithsB\005\210\301\024\200\002"
+    "\"O\n\033E_PetWraithslvAttributeDesc\022\030\n\007m_val"
+    "ue\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\026\n\006m_type\030\002 \001(\005B\006\302\377\024\002I"
+    "D\"\320\002\n\016E_PetWraithslv\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002"
+    "id\022!\n\007m_value\030\002 \001(\005B\020\302\377\024\014\345\261\236\346\200\247\347\261\273\345\236\213\022%\n"
+    "\013m_advanceLv\030\003 \001(\005B\020\302\377\024\014\350\277\233\351\230\266\347\255\211\347\272\247\022\030\n\004"
+    "m_lv\030\004 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022\'\n\rm_wraithsItem\030"
+    "\005 \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346\266\210\350\200\227\022&\n\014m_wraithsMun\030"
+    "\006 \001(\005B\020\302\377\024\014\346\266\210\350\200\227\346\225\260\351\207\217\022\'\n\007m_lvExp\030\007 \001(\005"
+    "B\026\302\377\024\022\345\215\207\347\272\247\346\211\200\351\234\200\347\273\217\351\252\214\022J\n\013m_attribute\030"
+    "\010 \003(\0132%.proto_ff.E_PetWraithslvAttribute"
+    "DescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\006\"R\n\022Sheet_PetWraiths"
+    "lv\022<\n\023E_PetWraithslv_List\030\001 \003(\0132\030.proto_"
+    "ff.E_PetWraithslvB\005\210\301\024\200\002\"\226\001\n\022E_PetSmeltI"
+    "temDesc\022\"\n\010m_maxNum\030\001 \001(\005B\020\302\377\024\014\346\234\200\345\244\247\346\225\260"
+    "\351\207\217\022\"\n\010m_minNum\030\002 \001(\005B\020\302\377\024\014\346\234\200\345\260\217\346\225\260\351\207\217\022"
+    "\036\n\nm_rarerand\030\003 \001(\005B\n\302\377\024\006\346\246\202\347\216\207\022\030\n\004m_id\030"
+    "\004 \001(\005B\n\302\377\024\006\351\201\223\345\205\267\"\226\002\n\nE_PetSmelt\022\024\n\004m_id"
+    "\030\001 \001(\005B\006\302\377\024\002id\022\035\n\tm_quality\030\002 \001(\005B\n\302\377\024\006\345"
+    "\223\201\350\264\250\022\032\n\006m_star\030\003 \001(\005B\n\302\377\024\006\346\230\237\347\272\247\022%\n\010m_p"
+    "utMun\030\004 \001(\005B\023\302\377\024\017\346\224\276\345\205\245\345\246\226\351\255\202\346\225\260\022$\n\nm_sm"
+    "eltExp\030\005 \001(\005B\020\302\377\024\014\350\216\267\345\276\227\347\273\217\351\252\214\022,\n\014m_mons"
+    "terNum\030\006 \001(\005B\026\302\377\024\022\345\246\226\346\260\224\350\216\267\345\276\227\346\225\260\351\207\217\022<\n\006"
+    "m_item\030\007 \003(\0132\034.proto_ff.E_PetSmeltItemDe"
+    "scB\016\302\377\024\006\350\216\267\345\276\227\210\301\024\003\"E\n\016Sheet_PetSmelt\0223\n\017"
+    "E_PetSmelt_List\030\001 \003(\0132\024.proto_ff.E_PetSm"
+    "eltB\004\210\301\024@\"\235\001\n\025E_PetRefineconversion\022\"\n\010m"
+    "_itemid\030\001 \001(\005B\020\302\377\024\014\345\205\221\346\215\242\351\201\223\345\205\267\022\030\n\007m_gro"
+    "up\030\002 \001(\005B\007\302\377\024\003\347\273\204\022\037\n\005m_num\030\003 \001(\005B\020\302\377\024\014\345\205"
+    "\221\346\215\242\346\225\260\351\207\217\022%\n\013m_condition\030\004 \001(\005B\020\302\377\024\014\345\205\221"
+    "\346\215\242\346\235\241\344\273\266\"f\n\031Sheet_PetRefineconversion\022I"
+    "\n\032E_PetRefineconversion_List\030\001 \003(\0132\037.pro"
+    "to_ff.E_PetRefineconversionB\004\210\301\024 \"J\n\023E_P"
+    "etStoveStoveDesc\022\026\n\005m_num\030\001 \001(\005B\007\302\377\024\003\345\200\274"
+    "\022\033\n\007m_value\030\002 \001(\005B\n\302\377\024\006\345\261\236\346\200\247\"\354\001\n\nE_PetS"
+    "tove\022\030\n\004m_lv\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022%\n\005m_exp\030"
+    "\002 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\346\211\200\351\234\200\347\273\217\351\252\214\022/\n\tm_quali"
+    "ty\030\003 \001(\005B\034\302\377\024\030\347\202\274\345\246\226\345\274\200\346\224\276\344\270\212\351\231\220\345\223\201\350\264\250\022,"
+    "\n\006m_star\030\004 \001(\005B\034\302\377\024\030\347\202\274\345\246\226\345\274\200\346\224\276\344\270\212\351\231\220\346\230"
+    "\237\346\225\260\022>\n\007m_stove\030\005 \003(\0132\035.proto_ff.E_PetSt"
+    "oveStoveDescB\016\302\377\024\006\345\246\226\347\202\211\210\301\024\004\"F\n\016Sheet_Pe"
+    "tStove\0224\n\017E_PetStove_List\030\001 \003(\0132\024.proto_"
+    "ff.E_PetStoveB\005\210\301\024\200\004\"H\n\026E_PetSuitAttribu"
+    "teDesc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\024\n\006m_ty"
+    "pe\030\002 \001(\005B\004\302\377\024\000\"\330\002\n\tE_PetSuit\022\024\n\004m_id\030\001 \001"
+    "(\005B\006\302\377\024\002id\022#\n\tm_quality\030\002 \001(\005B\020\302\377\024\014\345\246\226\351\255"
+    "\202\345\223\201\350\264\250\022 \n\006m_star\030\003 \001(\005B\020\302\377\024\014\345\246\226\351\255\202\346\230\237\347\272"
+    "\247\022*\n\020m_wraithsQuality\030\004 \001(\005B\020\302\377\024\014\345\246\226\351\255\202\351"
+    "\234\200\346\261\202\022!\n\007m_piece\030\005 \001(\005B\020\302\377\024\014\345\245\227\350\243\205\344\273\266\346\225\260"
+    "\022)\n\017m_resonanceType\030\006 \001(\005B\020\302\377\024\014\345\205\261\351\270\243\345\261\236"
+    "\346\200\247\022-\n\020m_resonanceValue\030\007 \001(\005B\023\302\377\024\017\345\205\261\351\270"
+    "\243\345\261\236\346\200\247\345\200\274\022E\n\013m_Attribute\030\010 \003(\0132 .proto_"
+    "ff.E_PetSuitAttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024"
+    "\005\"B\n\rSheet_PetSuit\0221\n\016E_PetSuit_List\030\001 \003"
+    "(\0132\023.proto_ff.E_PetSuitB\004\210\301\024 \"R\n\026E_PetCo"
+    "nstMaterialDesc\022\034\n\005m_exp\030\001 \001(\005B\r\302\377\024\t\347\273\217\351"
+    "\252\214\345\200\274\022\032\n\006m_item\030\002 \001(\005B\n\302\377\024\006\351\201\223\345\205\267\"\343\001\n\nE_"
+    "PetConst\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022 \n\006m_open"
+    "\030\002 \001(\005B\020\302\377\024\014\345\274\200\345\220\257\346\235\241\344\273\266\022 \n\006m_solt\030\003 \001(\005"
+    "B\020\302\377\024\014\346\247\275\344\275\215\350\247\243\351\224\201\022\032\n\006m_item\030\004 \001(\005B\n\302\377\024\006"
+    "\346\266\210\350\200\227\022\031\n\005m_num\030\005 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022D\n\nm_m"
+    "aterial\030\006 \003(\0132 .proto_ff.E_PetConstMater"
+    "ialDescB\016\302\377\024\006\345\215\207\347\272\247\210\301\024\003\"E\n\016Sheet_PetCons"
+    "t\0223\n\017E_PetConst_List\030\001 \003(\0132\024.proto_ff.E_"
+    "PetConstB\004\210\301\024\002\"I\n\025E_PetTopAttributeDesc\022"
+    "\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\026\n\006m_type\030\002 \001("
+    "\005B\006\302\377\024\002ID\"u\n\010E_PetTop\022#\n\tm_topType\030\001 \001(\005"
+    "B\020\302\377\024\014\347\252\201\347\240\264\347\261\273\345\236\213\022D\n\013m_attribute\030\002 \003(\0132"
+    "\037.proto_ff.E_PetTopAttributeDescB\016\302\377\024\006\345\261"
+    "\236\346\200\247\210\301\024\020\"@\n\014Sheet_PetTop\0220\n\rE_PetTop_Lis"
+    "t\030\001 \003(\0132\022.proto_ff.E_PetTopB\005\210\301\024\200\002\"q\n\014E_"
+    "PetTopitem\022\036\n\004m_lv\030\001 \001(\005B\020\302\377\024\014\347\252\201\347\240\264\347\255\211\347"
+    "\272\247\022 \n\006m_item\030\002 \001(\005B\020\302\377\024\014\347\252\201\347\240\264\346\266\210\350\200\227\022\037\n\005"
+    "m_num\030\003 \001(\005B\020\302\377\024\014\346\266\210\350\200\227\346\225\260\351\207\217\"K\n\020Sheet_P"
+    "etTopitem\0227\n\021E_PetTopitem_List\030\001 \003(\0132\026.p"
+    "roto_ff.E_PetTopitemB\004\210\301\024 \"N\n\033E_PetPrivi"
+    "legePrivilegeDesc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003"
+    "\345\200\274\022\025\n\005m_att\030\002 \001(\005B\006\302\377\024\002ID\"\365\001\n\016E_PetPriv"
+    "ilege\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022(\n\nm_activat"
+    "e\030\002 \001(\tB\024\302\377\024\014\346\277\200\346\264\273\346\235\241\344\273\266\220\301\024@\022&\n\014m_doubl"
+    "eItem\030\003 \001(\005B\020\302\377\024\014\351\201\223\345\205\267\347\277\273\345\200\215\022)\n\017m_exper"
+    "ienceExp\030\004 \001(\005B\020\302\377\024\014\347\273\217\351\252\214\345\212\240\346\210\220\022P\n\013m_pr"
+    "ivilege\030\005 \003(\0132%.proto_ff.E_PetPrivilegeP"
+    "rivilegeDescB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\004\"Q\n\022Sh"
+    "eet_PetPrivilege\022;\n\023E_PetPrivilege_List\030"
+    "\001 \003(\0132\030.proto_ff.E_PetPrivilegeB\004\210\301\024\002", 9997);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Pet.proto", &protobuf_RegisterTypes);
   E_PetDisplayMaterialDesc::default_instance_ = new E_PetDisplayMaterialDesc();
@@ -1926,7 +1898,6 @@ void protobuf_AddDesc_E_5fPet_2eproto() {
   E_PetConst::default_instance_ = new E_PetConst();
   Sheet_PetConst::default_instance_ = new Sheet_PetConst();
   E_PetTopAttributeDesc::default_instance_ = new E_PetTopAttributeDesc();
-  E_PetTopStarattDesc::default_instance_ = new E_PetTopStarattDesc();
   E_PetTop::default_instance_ = new E_PetTop();
   Sheet_PetTop::default_instance_ = new Sheet_PetTop();
   E_PetTopitem::default_instance_ = new E_PetTopitem();
@@ -1990,7 +1961,6 @@ void protobuf_AddDesc_E_5fPet_2eproto() {
   E_PetConst::default_instance_->InitAsDefaultInstance();
   Sheet_PetConst::default_instance_->InitAsDefaultInstance();
   E_PetTopAttributeDesc::default_instance_->InitAsDefaultInstance();
-  E_PetTopStarattDesc::default_instance_->InitAsDefaultInstance();
   E_PetTop::default_instance_->InitAsDefaultInstance();
   Sheet_PetTop::default_instance_->InitAsDefaultInstance();
   E_PetTopitem::default_instance_->InitAsDefaultInstance();
@@ -13280,7 +13250,7 @@ E_PetWraiths::E_PetWraiths(const E_PetWraiths& from)
 void E_PetWraiths::SharedCtor() {
   _cached_size_ = 0;
   m_id_ = 0;
-  m_name_ = 0;
+  m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_affix_ = 0;
   m_position_ = 0;
   m_quality_ = 0;
@@ -13295,6 +13265,9 @@ E_PetWraiths::~E_PetWraiths() {
 }
 
 void E_PetWraiths::SharedDtor() {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_name_;
+  }
   if (this != default_instance_) {
   }
 }
@@ -13323,7 +13296,11 @@ E_PetWraiths* E_PetWraiths::New() const {
 void E_PetWraiths::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     m_id_ = 0;
-    m_name_ = 0;
+    if (has_m_name()) {
+      if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+        m_name_->clear();
+      }
+    }
     m_affix_ = 0;
     m_position_ = 0;
     m_quality_ = 0;
@@ -13354,19 +13331,20 @@ bool E_PetWraiths::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_name;
+        if (input->ExpectTag(18)) goto parse_m_name;
         break;
       }
 
-      // optional int32 m_name = 2;
+      // optional string m_name = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_name:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_name_)));
-          set_has_m_name();
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_name().data(), this->m_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -13523,9 +13501,13 @@ void E_PetWraiths::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_name = 2;
+  // optional string m_name = 2;
   if (has_m_name()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_name(), output);
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_name().data(), this->m_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->m_name(), output);
   }
 
   // optional int32 m_affix = 3;
@@ -13583,9 +13565,14 @@ void E_PetWraiths::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_name = 2;
+  // optional string m_name = 2;
   if (has_m_name()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_name(), target);
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_name().data(), this->m_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->m_name(), target);
   }
 
   // optional int32 m_affix = 3;
@@ -13650,10 +13637,10 @@ int E_PetWraiths::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_name = 2;
+    // optional string m_name = 2;
     if (has_m_name()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
+        ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_name());
     }
 
@@ -19336,257 +19323,8 @@ void E_PetTopAttributeDesc::Swap(E_PetTopAttributeDesc* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_PetTopStarattDesc::kMValueFieldNumber;
-const int E_PetTopStarattDesc::kMTypeFieldNumber;
-#endif  // !_MSC_VER
-
-E_PetTopStarattDesc::E_PetTopStarattDesc()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void E_PetTopStarattDesc::InitAsDefaultInstance() {
-}
-
-E_PetTopStarattDesc::E_PetTopStarattDesc(const E_PetTopStarattDesc& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void E_PetTopStarattDesc::SharedCtor() {
-  _cached_size_ = 0;
-  m_value_ = 0;
-  m_type_ = 0;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-E_PetTopStarattDesc::~E_PetTopStarattDesc() {
-  SharedDtor();
-}
-
-void E_PetTopStarattDesc::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void E_PetTopStarattDesc::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* E_PetTopStarattDesc::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return E_PetTopStarattDesc_descriptor_;
-}
-
-const E_PetTopStarattDesc& E_PetTopStarattDesc::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_E_5fPet_2eproto();
-  return *default_instance_;
-}
-
-E_PetTopStarattDesc* E_PetTopStarattDesc::default_instance_ = NULL;
-
-E_PetTopStarattDesc* E_PetTopStarattDesc::New() const {
-  return new E_PetTopStarattDesc;
-}
-
-void E_PetTopStarattDesc::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    m_value_ = 0;
-    m_type_ = 0;
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool E_PetTopStarattDesc::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_value = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_value_)));
-          set_has_m_value();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_m_type;
-        break;
-      }
-
-      // optional int32 m_type = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_type:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_type_)));
-          set_has_m_type();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void E_PetTopStarattDesc::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_value = 1;
-  if (has_m_value()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
-  }
-
-  // optional int32 m_type = 2;
-  if (has_m_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* E_PetTopStarattDesc::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // optional int32 m_value = 1;
-  if (has_m_value()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
-  }
-
-  // optional int32 m_type = 2;
-  if (has_m_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int E_PetTopStarattDesc::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_value = 1;
-    if (has_m_value()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_value());
-    }
-
-    // optional int32 m_type = 2;
-    if (has_m_type()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_type());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void E_PetTopStarattDesc::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const E_PetTopStarattDesc* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const E_PetTopStarattDesc*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void E_PetTopStarattDesc::MergeFrom(const E_PetTopStarattDesc& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_m_value()) {
-      set_m_value(from.m_value());
-    }
-    if (from.has_m_type()) {
-      set_m_type(from.m_type());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void E_PetTopStarattDesc::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void E_PetTopStarattDesc::CopyFrom(const E_PetTopStarattDesc& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool E_PetTopStarattDesc::IsInitialized() const {
-
-  return true;
-}
-
-void E_PetTopStarattDesc::Swap(E_PetTopStarattDesc* other) {
-  if (other != this) {
-    std::swap(m_value_, other->m_value_);
-    std::swap(m_type_, other->m_type_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata E_PetTopStarattDesc::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = E_PetTopStarattDesc_descriptor_;
-  metadata.reflection = E_PetTopStarattDesc_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
 const int E_PetTop::kMTopTypeFieldNumber;
 const int E_PetTop::kMAttributeFieldNumber;
-const int E_PetTop::kMStarAttFieldNumber;
 #endif  // !_MSC_VER
 
 E_PetTop::E_PetTop()
@@ -19644,7 +19382,6 @@ void E_PetTop::Clear() {
     m_toptype_ = 0;
   }
   m_attribute_.Clear();
-  m_staratt_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -19681,21 +19418,6 @@ bool E_PetTop::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(18)) goto parse_m_attribute;
-        if (input->ExpectTag(26)) goto parse_m_starAtt;
-        break;
-      }
-
-      // repeated .proto_ff.E_PetTopStarattDesc m_starAtt = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_starAtt:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_m_staratt()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(26)) goto parse_m_starAtt;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -19729,12 +19451,6 @@ void E_PetTop::SerializeWithCachedSizes(
       2, this->m_attribute(i), output);
   }
 
-  // repeated .proto_ff.E_PetTopStarattDesc m_starAtt = 3;
-  for (int i = 0; i < this->m_staratt_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, this->m_staratt(i), output);
-  }
-
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -19753,13 +19469,6 @@ void E_PetTop::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         2, this->m_attribute(i), target);
-  }
-
-  // repeated .proto_ff.E_PetTopStarattDesc m_starAtt = 3;
-  for (int i = 0; i < this->m_staratt_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        3, this->m_staratt(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -19789,14 +19498,6 @@ int E_PetTop::ByteSize() const {
         this->m_attribute(i));
   }
 
-  // repeated .proto_ff.E_PetTopStarattDesc m_starAtt = 3;
-  total_size += 1 * this->m_staratt_size();
-  for (int i = 0; i < this->m_staratt_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->m_staratt(i));
-  }
-
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -19823,7 +19524,6 @@ void E_PetTop::MergeFrom(const ::google::protobuf::Message& from) {
 void E_PetTop::MergeFrom(const E_PetTop& from) {
   GOOGLE_CHECK_NE(&from, this);
   m_attribute_.MergeFrom(from.m_attribute_);
-  m_staratt_.MergeFrom(from.m_staratt_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_m_toptype()) {
       set_m_toptype(from.m_toptype());
@@ -19853,7 +19553,6 @@ void E_PetTop::Swap(E_PetTop* other) {
   if (other != this) {
     std::swap(m_toptype_, other->m_toptype_);
     m_attribute_.Swap(&other->m_attribute_);
-    m_staratt_.Swap(&other->m_staratt_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
