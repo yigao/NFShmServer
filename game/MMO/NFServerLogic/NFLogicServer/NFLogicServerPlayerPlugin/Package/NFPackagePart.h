@@ -275,7 +275,24 @@ private:
 private:
     NFBagPage<NFEquip, proto_ff::EPackageType_Common, COMMON_PACKAGE_INIT_GRID_NUM, COMMON_PACKAGE_MAX_GRID_NUM> m_commonBag;
     NFBagPage<NFEquip, proto_ff::EPackageType_Storage, STORAGE_PACKAGE_INIT_GRID_NUM, STORAGE_PACKAGE_MAX_GRID_NUM> m_storeageBag;
+    NFBagPage<NFItem, proto_ff::EPackageType_MountEgg, MOUNT_PACKAGE_INIT_GRID_NUM, MOUNT_PACKAGE_MAX_GRID_NUM> m_mountEggBag;
+    NFBagPage<NFItem, proto_ff::EPackageType_PetEgg, EGG_BAG_SIZE, EGG_BAG_SIZE> m_petEggBag;
     NFBagPage<NFDeityEquip, proto_ff::EPackageType_DeityEquip, DEITY_EQUP_PACKAGE_INIT_GRID_NUM, DEITY_EQUIP_PACKAGE_MAX_GRID_NUM> m_deityBag;
+    NFBagPage<NFItem, proto_ff::EPackageType_HandBook, HANDBOOK_PACKAGE_INIT_GRID_NUM, HANDBOOK_PACKAGE_MAX_GRID_NUM> m_handBookBag;
+    NFBagPage<NFBeastEquip, proto_ff::EPackageType_BeastEquip, BEAST_EQUP_PACKAGE_INIT_GRID_NUM, BEAST_EQUIP_PACKAGE_MAX_GRID_NUM> m_beastEquipBag;
+    NFBagPage<NFLongHunEquip, proto_ff::EPackageType_Longhun, LONG_HUN_PACKAGE_INIT_GRID_NUM, LONG_HUN_PACKAGE_MAX_GRID_NUM> m_longHunEquipBag;
+    NFBagPage<NFEquip, proto_ff::EPackageType_FindTreasure, COMMON_PACKAGE_INIT_GRID_NUM, COMMON_PACKAGE_MAX_GRID_NUM> m_findTreasureBag;
+    NFBagPage<NFEquip, proto_ff::EPackageType_BigDragon, COMMON_PACKAGE_INIT_GRID_NUM, COMMON_PACKAGE_MAX_GRID_NUM> m_bigDragonBag;
+    NFBagPage<NFShengjiEquip, proto_ff::EPackageType_shenji_aq, COMMON_PACKAGE_INIT_GRID_NUM, COMMON_PACKAGE_MAX_GRID_NUM> m_shengjiAqBag;
+    NFBagPage<NFShengjiEquip, proto_ff::EPackageType_shenji_lj, COMMON_PACKAGE_INIT_GRID_NUM, COMMON_PACKAGE_MAX_GRID_NUM> m_shengjiLjBag;
+    NFBagPage<NFGodEvilEquip, proto_ff::EPackageType_GodEvil, COMMON_PACKAGE_INIT_GRID_NUM, COMMON_PACKAGE_MAX_GRID_NUM> m_godEvilBag;
+    NFBagPage<NFStarEquip, proto_ff::EPackageType_star, STAR_HUN_PACKAGE_MAX_GRID_NUM, STAR_HUN_PACKAGE_MAX_GRID_NUM> m_starBag;
+    NFBagPage<NFTurnEquip, proto_ff::EPackageType_turn, TURN_PACKAGE_MAX_GRID_NUM, TURN_PACKAGE_MAX_GRID_NUM> m_turnBag;
+    NFBagPage<NFMountKunEquip, proto_ff::EPackageType_MountKun, MOUNT_KUN_PACKAGE_MAX_GRID_NUM, MOUNT_KUN_PACKAGE_MAX_GRID_NUM> m_mountKunBag;
+    NFBagPage<NFYaoHunEquip, proto_ff::EPackageType_YaoHun, COM_BAG_SIZE, COM_BAG_SIZE> m_yaoKunBag;
+    NFBagPage<NFMoFaEquip, proto_ff::EPackageType_MoFa, COM_BAG_SIZE, COM_BAG_SIZE> m_moFaBag;
+    NFBagPage<NFEquip, proto_ff::EPackageType_hungu, COM_BAG_SIZE, COM_BAG_SIZE> m_hunguBag;
+    NFBagPage<NFEquip, proto_ff::EPackageType_rune, COM_BAG_SIZE, COM_BAG_SIZE> m_runeBag;
     
     uint32_t m_nLastErrorCode;
     SET_UINT16 m_setIdxRecord;                        //记录每次加物品 数量有增加的格子索引，在每次加物品之前先清空

@@ -74,12 +74,12 @@ int NFFunctionUnlockPart::UnInit()
     return NFPart::UnInit();
 }
 
-int NFFunctionUnlockPart::LoadFromDB(const proto_ff::RoleDBData &data)
+int NFFunctionUnlockPart::LoadFromDB(const proto_ff::RoleDBData &dbData)
 {
-    if (data.has_unlockinfo())
+    if (dbData.has_unlockinfo())
     {
         //功能解锁数据
-        const proto_ff::FunctionUnlockInfo &unlockInfo = data.unlockinfo();
+        const proto_ff::FunctionUnlockInfo &unlockInfo = dbData.unlockinfo();
         for (int i = 0; i < unlockInfo.data_size(); ++i)
         {
             auto &data = unlockInfo.data(i);
@@ -185,22 +185,18 @@ int NFFunctionUnlockPart::OnHandleGetReward(uint32_t msgId, NFDataPackage &packe
     }
     
     bool ret = false;
-    auto pPreviewMap = FunctionunlockPreviewDesc().GetResDescPtr();
-    for (auto prev_iter = pPreviewMap->begin(); prev_iter != pPreviewMap->end(); prev_iter++)
+    auto pPreviewCfg = FunctionunlockPreviewDesc::Instance()->GetDescByFunctionid(msgReq.function_id());
+    if (pPreviewCfg)
     {
-        if ((uint64_t) prev_iter->second.m_functionId == msgReq.function_id())
+        NFPackagePart *pPackage = dynamic_cast<NFPackagePart *>(m_pMaster->GetPart(PART_PACKAGE));
+        if (pPackage)
         {
-            NFPackagePart *pPackage = dynamic_cast<NFPackagePart *>(m_pMaster->GetPart(PART_PACKAGE));
-            if (pPackage)
-            {
-                SCommonSource sourceParam;
-                sourceParam.src = S_FunctionUnlock;
-                LIST_ITEM lstItem;
-                SItem item(prev_iter->second.m_rewardItem, prev_iter->second.m_rewardNum, EBindState::EBindState_no);
-                lstItem.push_back(item);
-                ret = pPackage->AddItem(lstItem, sourceParam, true, true);
-            }
-            break;
+            SCommonSource sourceParam;
+            sourceParam.src = S_FunctionUnlock;
+            LIST_ITEM lstItem;
+            SItem item(pPreviewCfg->m_rewardItem, pPreviewCfg->m_rewardNum, EBindState::EBindState_no);
+            lstItem.push_back(item);
+            ret = pPackage->AddItem(lstItem, sourceParam, true, true);
         }
     }
     
@@ -371,7 +367,7 @@ void NFFunctionUnlockPart::checkUnlock(uint32_t nType, int64_t nValue)
     }
 }
 
-void NFFunctionUnlockPart::sendFunctionUnlockInfo(VEC_UINT64 *pList)
+void NFFunctionUnlockPart::sendFunctionUnlockInfo(const VEC_UINT64 *pList)
 {
     proto_ff::FunctionUnlockInfoRsp infoRsp;
     infoRsp.set_retcode(proto_ff::RET_SUCCESS);

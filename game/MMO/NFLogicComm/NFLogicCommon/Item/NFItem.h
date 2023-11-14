@@ -427,6 +427,46 @@ struct YaoHunExt
     }
 };
 
+//EPackageType_MoFa = 18; //奇门八卦
+struct MoFaExt
+{
+    MoFaExt()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+    
+    int CreateInit()
+    {
+        m_stronglv = 1;
+        m_awaken_lv = 0;
+        m_awaken_exp = 0;
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+    
+    void Clear()
+    {
+        m_stronglv = 1;
+        m_awaken_lv = 0;
+        m_awaken_exp = 0;
+    }
+    
+    uint32_t m_stronglv; //强化等级
+    uint32_t m_awaken_lv;   //突破等级
+    uint32_t m_awaken_exp;   //突破经验
+};
+
 class NFItem
 {
 public:
@@ -1073,6 +1113,58 @@ public:
     NFYaoHunEquip& operator=(const NFYaoHunEquip& item);
     
     YaoHunExt m_yaoHun;               //EPackageType_YaoHun = 17;	//妖魂装备
+};
+
+class NFMoFaEquip : public NFEquip
+{
+public:
+    NFMoFaEquip()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+    
+    NFMoFaEquip(const NFMoFaEquip& item)
+    {
+        CopyFrom(item);
+    }
+    
+    int CreateInit()
+    {
+        return 0;
+    }
+    
+    int ResumeInit()
+    {
+        return 0;
+    }
+    
+    virtual void Clear()
+    {
+        NFItem::Clear();
+        m_mofa.Clear();
+    }
+    
+    virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
+    virtual void UnInit();
+    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
+    virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
+    virtual void CopyFrom(const NFItem &item);
+    virtual void CopyFrom(const NFEquip &equip);
+    void CopyFrom(const NFMoFaEquip &equip);
+    NFMoFaEquip& operator=(const NFItem& item);
+    NFMoFaEquip& operator=(const NFEquip& item);
+    NFMoFaEquip& operator=(const NFMoFaEquip& item);
+    
+    MoFaExt m_mofa;
 };
 
 //背包物品

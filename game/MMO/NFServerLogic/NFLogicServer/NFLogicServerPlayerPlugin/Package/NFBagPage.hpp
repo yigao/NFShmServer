@@ -15,7 +15,7 @@ template<class ItemType, int nPackageType, int InitGridNum, int MaxGridNum>
 class NFBagPage : public NFPackageBag
 {
     static_assert(InitGridNum <= MaxGridNum, "InitGridNum > MaxGridNum");
-    static_assert(!(std::is_base_of<ItemType, NFItem>::value || std::is_same<ItemType, NFItem>::value), "ItemType is not base of NFItemBase");
+    //static_assert(std::is_base_of<ItemType, NFItem>::value, "ItemType is not base of NFItem");
     typedef NFShmVector<ItemType, MaxGridNum> BAG_VEC_PACKAGE_ITEM;
 public:
     NFBagPage()

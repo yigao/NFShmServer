@@ -268,7 +268,10 @@ enum EPackageType {
   EPackageType_turn = 15,
   EPackageType_MountKun = 16,
   EPackageType_YaoHun = 17,
-  EPackageType_Limit = 18
+  EPackageType_MoFa = 18,
+  EPackageType_hungu = 19,
+  EPackageType_rune = 20,
+  EPackageType_Limit = 21
 };
 bool EPackageType_IsValid(int value);
 const EPackageType EPackageType_MIN = EPackageType_None;

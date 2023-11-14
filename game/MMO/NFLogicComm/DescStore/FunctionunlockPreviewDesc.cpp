@@ -77,6 +77,14 @@ int FunctionunlockPreviewDesc::Load(NFResDB *pDB)
 		pDesc->read_from_pbmsg(desc);
 		CHECK_EXPR_ASSERT(GetDesc(desc.m_functionid()) == pDesc, -1, "GetDesc != pDesc, id:{}", desc.m_functionid());
 	}
+	m_FunctionidIndexMap.clear();
+	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
+	{
+		auto pDesc = &iter->second;
+		CHECK_EXPR_ASSERT(m_FunctionidIndexMap.find(pDesc->m_functionId) == m_FunctionidIndexMap.end(), -1, "unique index:functionId repeat key:{}", pDesc->m_functionId);
+		auto key_iter = m_FunctionidIndexMap.emplace_hint(pDesc->m_functionId, iter->first);
+		CHECK_EXPR_ASSERT(key_iter != m_FunctionidIndexMap.end(), -1, "m_FunctionidIndexMap.emplace_hint Failed pDesc->m_functionId:{}, space not enough", pDesc->m_functionId);
+	}
 
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_functionunlockpreview_list_size());
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
@@ -86,5 +94,15 @@ int FunctionunlockPreviewDesc::Load(NFResDB *pDB)
 int FunctionunlockPreviewDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
+}
+
+const proto_ff_s::E_FunctionunlockPreview_s* FunctionunlockPreviewDesc::GetDescByFunctionid(int64_t Functionid) const
+{
+	auto iter = m_FunctionidIndexMap.find(Functionid);
+	if(iter != m_FunctionidIndexMap.end())
+	{
+		return GetDesc(iter->second);
+	}
+	return nullptr;
 }
 

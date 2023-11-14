@@ -159,7 +159,7 @@ private:
     //检查解锁
     void checkUnlock(uint32_t nType, int64_t nValue);
     //发送数据到客户端
-    void sendFunctionUnlockInfo(VEC_UINT64 *pList);
+    void sendFunctionUnlockInfo(const VEC_UINT64 *pList);
     //移除解锁功能
     void DelUnlock(uint64_t unlockid);
     //添加解锁功能

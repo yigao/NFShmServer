@@ -40,6 +40,25 @@ int NFPackagePart::ResumeInit()
 int NFPackagePart::Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::RoleDBData &dbData)
 {
     m_commonBag.Init(this, pMaster);
+    m_storeageBag.Init(this, pMaster);
+    m_mountEggBag.Init(this, pMaster);
+    m_petEggBag.Init(this, pMaster);
+    m_deityBag.Init(this, pMaster);
+    m_handBookBag.Init(this, pMaster);
+    m_beastEquipBag.Init(this, pMaster);
+    m_longHunEquipBag.Init(this, pMaster);
+    m_findTreasureBag.Init(this, pMaster);
+    m_bigDragonBag.Init(this, pMaster);
+    m_shengjiAqBag.Init(this, pMaster);
+    m_shengjiLjBag.Init(this, pMaster);
+    m_godEvilBag.Init(this, pMaster);
+    m_starBag.Init(this, pMaster);
+    m_turnBag.Init(this, pMaster);
+    m_mountKunBag.Init(this, pMaster);
+    m_yaoKunBag.Init(this, pMaster);
+    m_moFaBag.Init(this, pMaster);
+    m_hunguBag.Init(this, pMaster);
+    m_runeBag.Init(this, pMaster);
     return NFPart::Init(pMaster, partType, dbData);
 }
 
@@ -52,12 +71,12 @@ int NFPackagePart::LoadFromDB(const proto_ff::RoleDBData &dbData)
 {
     if (dbData.has_bag())
     {
-        const proto_ff::RoleDBBagData& data = dbData.bag();
+        const proto_ff::RoleDBBagData &data = dbData.bag();
         for (int i = 0; i < data.bags_size(); i++)
         {
-            const proto_ff::RoleDBUnitBagData& unitBag = data.bags(i);
-            const proto_ff::BagDBSimpleData& unitBagSimple = unitBag.simple();
-            NFPackageBag* pBag = GetPackageByType( unitBagSimple.package_type());
+            const proto_ff::RoleDBUnitBagData &unitBag = data.bags(i);
+            const proto_ff::BagDBSimpleData &unitBagSimple = unitBag.simple();
+            NFPackageBag *pBag = GetPackageByType(unitBagSimple.package_type());
             if (pBag)
             {
                 pBag->LoadFromDB(&unitBag);
@@ -74,17 +93,18 @@ int NFPackagePart::InitConfig(const proto_ff::RoleDBData &data)
 
 int NFPackagePart::SaveDB(proto_ff::RoleDBData &dbData)
 {
-    proto_ff::RoleDBBagData* pItemPackageData = dbData.mutable_bag();
+    proto_ff::RoleDBBagData *pItemPackageData = dbData.mutable_bag();
     if (pItemPackageData == nullptr)
+    {
         return false;
-    
+    }
     
     for (int nPackageType = proto_ff::EPackageType_Common; nPackageType < proto_ff::EPackageType_Limit; nPackageType++)
     {
-        NFPackageBag* pBag = GetPackageByType(nPackageType);
+        NFPackageBag *pBag = GetPackageByType(nPackageType);
         if (pBag)
         {
-            proto_ff::RoleDBUnitBagData* pBagDB = pItemPackageData->add_bags();
+            proto_ff::RoleDBUnitBagData *pBagDB = pItemPackageData->add_bags();
             if (pBagDB)
             {
                 pBag->Save(*pBagDB);
@@ -184,7 +204,7 @@ uint32_t NFPackagePart::GetPackageNotSpaceErrorCode(uint32_t nPackageType)
 
 int64_t NFPackagePart::GetItemNum(uint64_t nItemID, int64_t &nUnBindNum, int64_t &nBindNum)
 {
-    NFPackageBag* pBag = GetItemPackageBag(nItemID);
+    NFPackageBag *pBag = GetItemPackageBag(nItemID);
     if (pBag)
     {
         return pBag->GetItemNum(nItemID, nUnBindNum, nBindNum);
@@ -209,13 +229,17 @@ bool NFPackagePart::HasItem(LIST_ITEM &lstItem)
         }
     }
     
-    for (auto it = itemGroups.begin(); it != itemGroups.end();it++)
+    for (auto it = itemGroups.begin(); it != itemGroups.end(); it++)
     {
-        NFPackageBag* pBag = GetPackageByType(it->first);
+        NFPackageBag *pBag = GetPackageByType(it->first);
         if (pBag == nullptr)
+        {
             return false;
+        }
         if (!pBag->HasItem(it->second))
+        {
             return false;
+        }
     }
     
     return true;
@@ -223,7 +247,7 @@ bool NFPackagePart::HasItem(LIST_ITEM &lstItem)
 
 bool NFPackagePart::RemoveItem(uint64_t nItemID, int64_t nNum, SCommonSource &sourceParam, int8_t byBind)
 {
-    NFPackageBag* pBag = GetItemPackageBag(nItemID);
+    NFPackageBag *pBag = GetItemPackageBag(nItemID);
     if (pBag)
     {
         return pBag->RemoveItem(nItemID, nNum, sourceParam, byBind);
@@ -234,8 +258,9 @@ bool NFPackagePart::RemoveItem(uint64_t nItemID, int64_t nNum, SCommonSource &so
 bool NFPackagePart::RemoveItem(LIST_ITEM &lstItem, SCommonSource &sourceParam)
 {
     if (!HasItem(lstItem))
+    {
         return false;
-    
+    }
     
     map<uint32_t, LIST_ITEM> itemGroups;
     
@@ -250,11 +275,15 @@ bool NFPackagePart::RemoveItem(LIST_ITEM &lstItem, SCommonSource &sourceParam)
     
     for (auto it = itemGroups.begin(); it != itemGroups.end(); it++)
     {
-        NFPackageBag* pBag = GetPackageByType(it->first);
+        NFPackageBag *pBag = GetPackageByType(it->first);
         if (pBag == nullptr)
+        {
             return false;
-        if (!pBag->RemoveItem(it->second,sourceParam))
+        }
+        if (!pBag->RemoveItem(it->second, sourceParam))
+        {
             return false;
+        }
     }
     
     return true;
@@ -262,7 +291,7 @@ bool NFPackagePart::RemoveItem(LIST_ITEM &lstItem, SCommonSource &sourceParam)
 
 bool NFPackagePart::RemoveItem(uint32_t nPackageType, LIST_ITEM &lstItem, SCommonSource &sourceParam)
 {
-    NFPackageBag* pBag = GetPackageByType(nPackageType);
+    NFPackageBag *pBag = GetPackageByType(nPackageType);
     if (pBag)
     {
         return pBag->RemoveItem(lstItem, sourceParam);
@@ -272,17 +301,17 @@ bool NFPackagePart::RemoveItem(uint32_t nPackageType, LIST_ITEM &lstItem, SCommo
 
 bool NFPackagePart::RemoveItemByIndex(uint32_t nPackageType, uint16_t nIndex, int64_t nNum, SCommonSource &sourceParam)
 {
-    NFPackageBag* pBag = GetPackageByType(nPackageType);
+    NFPackageBag *pBag = GetPackageByType(nPackageType);
     if (pBag)
     {
-        return pBag->RemoveItemByIndex(nIndex, nNum,sourceParam);
+        return pBag->RemoveItemByIndex(nIndex, nNum, sourceParam);
     }
     return false;
 }
 
 bool NFPackagePart::RemoveItem(uint32_t nPackageType, MAP_UINT16_INT64 &mapIndexItem, SCommonSource &sourceParam)
 {
-    NFPackageBag* pBag = GetPackageByType(nPackageType);
+    NFPackageBag *pBag = GetPackageByType(nPackageType);
     if (pBag)
     {
         return pBag->RemoveItem(mapIndexItem, sourceParam);
@@ -306,9 +335,11 @@ bool NFPackagePart::CanAddItem(LIST_ITEM &lstItem)
     
     for (auto it = itemGroups.begin(); it != itemGroups.end(); it++)
     {
-        NFPackageBag* pBag = GetPackageByType(it->first);
+        NFPackageBag *pBag = GetPackageByType(it->first);
         if (pBag == nullptr)
+        {
             return false;
+        }
         if (!pBag->CanAddItem(it->second))
         {
             nPackageType = pBag->GetPackageType();
@@ -336,9 +367,11 @@ bool NFPackagePart::CanAddItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx)
     
     for (auto it = itemGroups.begin(); it != itemGroups.end(); it++)
     {
-        NFPackageBag* pBag = GetPackageByType(it->first);
+        NFPackageBag *pBag = GetPackageByType(it->first);
         if (pBag == nullptr)
+        {
             return false;
+        }
         if (!pBag->CanAddItem(it->second))
         {
             nPackageType = pBag->GetPackageType();
@@ -352,7 +385,7 @@ bool NFPackagePart::CanAddItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx)
 
 bool NFPackagePart::AddItem(uint64_t nItemID, int64_t nNum, SCommonSource &sourceParam, int8_t byBind)
 {
-    NFPackageBag* pBag = GetItemPackageBag(nItemID);
+    NFPackageBag *pBag = GetItemPackageBag(nItemID);
     if (pBag)
     {
         bool bRet = pBag->AddItem(nItemID, nNum, sourceParam, byBind);
@@ -385,11 +418,15 @@ bool NFPackagePart::AddItem(LIST_ITEM &lstItem, SCommonSource &sourceParam, bool
     
     for (auto it = itemGroups.begin(); it != itemGroups.end(); it++)
     {
-        NFPackageBag* pBag = GetPackageByType(it->first);
+        NFPackageBag *pBag = GetPackageByType(it->first);
         if (pBag == nullptr)
+        {
             return false;
-        if (!pBag->AddItem(it->second,sourceParam,update,tip))
+        }
+        if (!pBag->AddItem(it->second, sourceParam, update, tip))
+        {
             return false;
+        }
     }
     
     return true;
@@ -411,7 +448,9 @@ bool NFPackagePart::AddItem(VEC_ITEM_PROTO &vecProtoItems, SCommonSource &source
     }
     
     if (!CanAddItem(vecProtoEx))
+    {
         return false;
+    }
     
     return AddItem(vecProtoEx, sourceParam, update);
 }
@@ -419,7 +458,9 @@ bool NFPackagePart::AddItem(VEC_ITEM_PROTO &vecProtoItems, SCommonSource &source
 bool NFPackagePart::AddItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx, SCommonSource &sourceParam, bool update, bool tip)
 {
     if (!CanAddItem(vecProtoItemsEx))
+    {
         return false;
+    }
     
     map<uint32_t, VEC_ITEM_PROTO_EX> itemGroups;
     
@@ -434,11 +475,15 @@ bool NFPackagePart::AddItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx, SCommonSource &s
     
     for (auto it = itemGroups.begin(); it != itemGroups.end(); it++)
     {
-        NFPackageBag* pBag = GetPackageByType(it->first);
+        NFPackageBag *pBag = GetPackageByType(it->first);
         if (pBag == nullptr)
+        {
             return false;
-        if (!pBag->AddItem(it->second,sourceParam,update,tip))
+        }
+        if (!pBag->AddItem(it->second, sourceParam, update, tip))
+        {
             return false;
+        }
     }
     
     return true;
@@ -447,7 +492,9 @@ bool NFPackagePart::AddItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx, SCommonSource &s
 bool NFPackagePart::AddItemEx(VEC_ITEM_PROTO_EX &vecProtoItemsEx, SCommonSource &sourceParam)
 {
     if (!CanAddItem(vecProtoItemsEx))
+    {
         return false;
+    }
     
     map<uint32_t, VEC_ITEM_PROTO_EX> itemGroups;
     
@@ -462,11 +509,15 @@ bool NFPackagePart::AddItemEx(VEC_ITEM_PROTO_EX &vecProtoItemsEx, SCommonSource 
     
     for (auto it = itemGroups.begin(); it != itemGroups.end(); it++)
     {
-        NFPackageBag* pBag = GetPackageByType(it->first);
+        NFPackageBag *pBag = GetPackageByType(it->first);
         if (pBag == nullptr)
+        {
             return false;
+        }
         if (!pBag->AddItemEx(it->second, sourceParam))
+        {
             return false;
+        }
     }
     
     return true;
@@ -475,7 +526,9 @@ bool NFPackagePart::AddItemEx(VEC_ITEM_PROTO_EX &vecProtoItemsEx, SCommonSource 
 bool NFPackagePart::AddItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx, VEC_ITEM_PROTO_EX &vecProtoItemsOut, SCommonSource &sourceParam, bool update, bool tip)
 {
     if (!CanAddItem(vecProtoItemsEx))
+    {
         return false;
+    }
     
     map<uint32_t, VEC_ITEM_PROTO_EX> itemGroups;
     
@@ -490,11 +543,15 @@ bool NFPackagePart::AddItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx, VEC_ITEM_PROTO_E
     
     for (auto it = itemGroups.begin(); it != itemGroups.end(); it++)
     {
-        NFPackageBag* pBag = GetPackageByType(it->first);
+        NFPackageBag *pBag = GetPackageByType(it->first);
         if (pBag == nullptr)
+        {
             return false;
-        if (!pBag->AddItem(it->second,vecProtoItemsOut, sourceParam,update,tip))
+        }
+        if (!pBag->AddItem(it->second, vecProtoItemsOut, sourceParam, update, tip))
+        {
             return false;
+        }
     }
     
     return true;
@@ -504,7 +561,7 @@ bool NFPackagePart::ClearPackage()
 {
     for (int i = proto_ff::EPackageType_Common; i < proto_ff::EPackageType_Limit; i++)
     {
-        NFPackageBag* pBag = GetPackageByType(i);
+        NFPackageBag *pBag = GetPackageByType(i);
         if (pBag)
         {
             pBag->ClearPackage();
@@ -516,7 +573,7 @@ bool NFPackagePart::ClearPackage()
 
 int32_t NFPackagePart::Expand(int32_t &nNum)
 {
-    NFPackageBag* pBag = GetPackageByType(proto_ff::EPackageType_Common);
+    NFPackageBag *pBag = GetPackageByType(proto_ff::EPackageType_Common);
     if (pBag)
     {
         pBag->Expand(nNum);
@@ -526,7 +583,7 @@ int32_t NFPackagePart::Expand(int32_t &nNum)
 
 int32_t NFPackagePart::ExpandStorage(int32_t &nNum)
 {
-    NFPackageBag* pBag = GetPackageByType(proto_ff::EPackageType_Storage);
+    NFPackageBag *pBag = GetPackageByType(proto_ff::EPackageType_Storage);
     if (pBag)
     {
         pBag->Expand(nNum);
@@ -546,7 +603,7 @@ NFItem *NFPackagePart::GetItem(uint32_t packageType, uint16_t nIndex)
 
 NFItem *NFPackagePart::GetPackageItemByIndex(uint32_t nPackageType, uint32_t nIndex)
 {
-    NFPackageBag* pBag = GetPackageByType(nPackageType);
+    NFPackageBag *pBag = GetPackageByType(nPackageType);
     if (pBag)
     {
         return pBag->GetItemByIndex(nIndex);
@@ -556,7 +613,7 @@ NFItem *NFPackagePart::GetPackageItemByIndex(uint32_t nPackageType, uint32_t nIn
 
 NFItem *NFPackagePart::GetFirstItemById(uint32_t nPackageType, uint64_t item_id)
 {
-    NFPackageBag* pBag = GetPackageByType(nPackageType);
+    NFPackageBag *pBag = GetPackageByType(nPackageType);
     if (pBag)
     {
         return pBag->GetFirstItemById(item_id);
@@ -566,7 +623,7 @@ NFItem *NFPackagePart::GetFirstItemById(uint32_t nPackageType, uint64_t item_id)
 
 bool NFPackagePart::RemoveAllByType(int32_t itemSubType, SCommonSource &sourceParam)
 {
-    NFPackageBag* pBag = GetPackageByType(proto_ff::EPackageType_Common);
+    NFPackageBag *pBag = GetPackageByType(proto_ff::EPackageType_Common);
     if (pBag)
     {
         return pBag->RemoveAllByType(itemSubType, sourceParam);
@@ -576,10 +633,10 @@ bool NFPackagePart::RemoveAllByType(int32_t itemSubType, SCommonSource &sourcePa
 
 bool NFPackagePart::RemoveAllByType(uint32_t nPackageType, int32_t itemSubType, SCommonSource &sourceParam)
 {
-    NFPackageBag* pBag = GetPackageByType(nPackageType);
+    NFPackageBag *pBag = GetPackageByType(nPackageType);
     if (pBag)
     {
-        return	pBag->RemoveAllByType(itemSubType, sourceParam);
+        return pBag->RemoveAllByType(itemSubType, sourceParam);
     }
     return false;
 }
@@ -591,7 +648,7 @@ int32_t NFPackagePart::UseItem(NFItem *pItem, int64_t &nNum, proto_ff::UseItemAr
     {
         return proto_ff::RET_FAIL;
     }
-    else if ((int64_t)pItem->GetNum() < nNum)
+    else if ((int64_t) pItem->GetNum() < nNum)
     {
         //数量不够 RET_PACKAGE_ITEM_NUM_LACK
         return proto_ff::RET_PACKAGE_ITEM_NUM_LACK;
@@ -655,7 +712,7 @@ int32_t NFPackagePart::UseItem(uint16_t nIndex, int64_t &nNum, proto_ff::UseItem
 
 void NFPackagePart::AllOpenGrid(uint32_t nPackageType)
 {
-    NFPackageBag* pBag = GetPackageByType(nPackageType);
+    NFPackageBag *pBag = GetPackageByType(nPackageType);
     if (pBag)
     {
         pBag->AllOpenGrid();
@@ -664,17 +721,17 @@ void NFPackagePart::AllOpenGrid(uint32_t nPackageType)
 
 bool NFPackagePart::GetEmptyGrid(uint32_t nPackageType, VEC_UINT16 &vecGrid)
 {
-    NFPackageBag* pBag = GetPackageByType(nPackageType);
+    NFPackageBag *pBag = GetPackageByType(nPackageType);
     if (pBag)
     {
-        return pBag->GetEmptyGrid(vecGrid)>0;
+        return pBag->GetEmptyGrid(vecGrid) > 0;
     }
     return false;
 }
 
 int32_t NFPackagePart::GetEmptyGrid(uint32_t nPackageType)
 {
-    NFPackageBag* pBag = GetPackageByType(nPackageType);
+    NFPackageBag *pBag = GetPackageByType(nPackageType);
     if (pBag)
     {
         return pBag->GetEmptyGrid();
@@ -684,7 +741,7 @@ int32_t NFPackagePart::GetEmptyGrid(uint32_t nPackageType)
 
 uint16_t NFPackagePart::SetItemByIndex(uint32_t nPackageType, uint16_t nIndex, const NFItem &item)
 {
-    NFPackageBag* pBag = GetPackageByType(nPackageType);
+    NFPackageBag *pBag = GetPackageByType(nPackageType);
     if (pBag)
     {
         return pBag->SetItemByIndex(nIndex, item);
@@ -692,9 +749,9 @@ uint16_t NFPackagePart::SetItemByIndex(uint32_t nPackageType, uint16_t nIndex, c
     return 0;
 }
 
-uint16_t NFPackagePart::SetItemByIndex(uint32_t nPackageType, uint16_t nIndex, const NFItem* pItem)
+uint16_t NFPackagePart::SetItemByIndex(uint32_t nPackageType, uint16_t nIndex, const NFItem *pItem)
 {
-    NFPackageBag* pBag = GetPackageByType(nPackageType);
+    NFPackageBag *pBag = GetPackageByType(nPackageType);
     if (pBag)
     {
         return pBag->SetItemByIndex(nIndex, pItem);
@@ -704,7 +761,7 @@ uint16_t NFPackagePart::SetItemByIndex(uint32_t nPackageType, uint16_t nIndex, c
 
 void NFPackagePart::ItemSortByPackageType(uint32_t nPackageType)
 {
-    NFPackageBag* pBag = GetPackageByType(nPackageType);
+    NFPackageBag *pBag = GetPackageByType(nPackageType);
     if (pBag)
     {
         pBag->SortItem();
@@ -716,7 +773,7 @@ void NFPackagePart::SendUpdatePackageByIndex(uint32_t nPackageType, NFItem *pIte
     proto_ff::NotifyPackageUpdate update_ret;
     AddPackageUpdateInfo(pItem, update_ret, bDel);
     //更新背包
-    NFPackageBag* pBag = GetPackageByType(nPackageType);
+    NFPackageBag *pBag = GetPackageByType(nPackageType);
     if (pBag)
     {
         pBag->UpdatePackageInfo(update_ret);
@@ -739,7 +796,7 @@ bool NFPackagePart::AddPackageUpdateInfo(NFItem *pItem, proto_ff::NotifyPackageU
 
 void NFPackagePart::UpdatePackage(uint32_t nPackageType, proto_ff::NotifyPackageUpdate &ret)
 {
-    NFPackageBag* pBag = GetPackageByType(nPackageType);
+    NFPackageBag *pBag = GetPackageByType(nPackageType);
     if (pBag)
     {
         pBag->UpdatePackageInfo(ret);
@@ -748,7 +805,7 @@ void NFPackagePart::UpdatePackage(uint32_t nPackageType, proto_ff::NotifyPackage
 
 NFItem *NFPackagePart::GetItemByPackageType(int8_t byPackageType, uint16_t nIndex)
 {
-    NFPackageBag* pBag = GetPackageByType(byPackageType);
+    NFPackageBag *pBag = GetPackageByType(byPackageType);
     if (pBag)
     {
         return pBag->GetItemByIndex(nIndex);
@@ -757,9 +814,9 @@ NFItem *NFPackagePart::GetItemByPackageType(int8_t byPackageType, uint16_t nInde
     return nullptr;
 }
 
-uint16_t NFPackagePart::SetItemByPackageType(int8_t byPackageType, uint16_t nIndex, const NFItem& item)
+uint16_t NFPackagePart::SetItemByPackageType(int8_t byPackageType, uint16_t nIndex, const NFItem &item)
 {
-    NFPackageBag* pBag = GetPackageByType(byPackageType);
+    NFPackageBag *pBag = GetPackageByType(byPackageType);
     if (pBag)
     {
         return pBag->SetItemByIndex(nIndex, item);
@@ -769,7 +826,7 @@ uint16_t NFPackagePart::SetItemByPackageType(int8_t byPackageType, uint16_t nInd
 
 bool NFPackagePart::ValidIndexByPackageType(uint16_t nIndex, int8_t byPackageType)
 {
-    NFPackageBag* pBag = GetPackageByType(byPackageType);
+    NFPackageBag *pBag = GetPackageByType(byPackageType);
     if (pBag)
     {
         return pBag->ValidIndex(nIndex);
@@ -883,6 +940,7 @@ uint32_t NFPackagePart::GetItemPackageType(uint64_t nItemID)
             nPackageType = proto_ff::EPackageType_HandBook;
             break;
         default:
+            nPackageType = proto_ff::EPackageType_Common;
             break;
     }
     
@@ -891,7 +949,7 @@ uint32_t NFPackagePart::GetItemPackageType(uint64_t nItemID)
 
 NFPackageBag *NFPackagePart::GetPackageByType(uint32_t nPackageType)
 {
-    if (!IsValidPackage(nPackageType)) return nullptr;
+    if (!IsValidPackage(nPackageType)) { return nullptr; }
     switch (nPackageType)
     {
         case proto_ff::EPackageType_Common:
@@ -900,6 +958,40 @@ NFPackageBag *NFPackagePart::GetPackageByType(uint32_t nPackageType)
             return &m_storeageBag;
         case proto_ff::EPackageType_DeityEquip:
             return &m_deityBag;
+        case proto_ff::EPackageType_MountEgg:
+            return &m_mountEggBag;
+        case proto_ff::EPackageType_PetEgg:
+            return &m_petEggBag;
+        case proto_ff::EPackageType_HandBook:
+            return &m_handBookBag;
+        case proto_ff::EPackageType_BeastEquip:
+            return &m_beastEquipBag;
+        case proto_ff::EPackageType_Longhun:
+            return &m_longHunEquipBag;
+        case proto_ff::EPackageType_FindTreasure:
+            return &m_findTreasureBag;
+        case proto_ff::EPackageType_BigDragon:
+            return &m_bigDragonBag;
+        case proto_ff::EPackageType_shenji_aq:
+            return &m_shengjiAqBag;
+        case proto_ff::EPackageType_shenji_lj:
+            return &m_shengjiLjBag;
+        case proto_ff::EPackageType_GodEvil:
+            return &m_godEvilBag;
+        case proto_ff::EPackageType_star:
+            return &m_starBag;
+        case proto_ff::EPackageType_turn:
+            return &m_turnBag;
+        case proto_ff::EPackageType_MountKun:
+            return &m_mountKunBag;
+        case proto_ff::EPackageType_YaoHun:
+            return &m_yaoKunBag;
+        case proto_ff::EPackageType_MoFa:
+            return &m_moFaBag;
+        case proto_ff::EPackageType_hungu:
+            return &m_hunguBag;
+        case proto_ff::EPackageType_rune:
+            return &m_runeBag;
         default:
             return &m_commonBag;
     }
@@ -912,12 +1004,13 @@ int NFPackagePart::PackageInfo(uint32_t msgId, NFDataPackage &packet)
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
     
     int32_t nPackageType = req.package_type();
-    NFPackageBag* pBag = GetPackageByType(nPackageType);
+    NFPackageBag *pBag = GetPackageByType(nPackageType);
     if (pBag)
     {
         pBag->SendPackageInfoToClient();
     }
-    else {
+    else
+    {
         NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "nPackageType:{} not exist", nPackageType);
     }
     return 0;
@@ -929,7 +1022,7 @@ int NFPackagePart::ItemSort(uint32_t msgId, NFDataPackage &packet)
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
     
     uint32_t nPackageType = req.package_type();
-    NFPackageBag* pBag = GetPackageByType(nPackageType);
+    NFPackageBag *pBag = GetPackageByType(nPackageType);
     if (pBag)
     {
         pBag->SortItem();
@@ -948,7 +1041,7 @@ int NFPackagePart::ItemSell(uint32_t msgId, NFDataPackage &packet)
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
     
     uint32_t nPackageType = req.package_type();
-    NFPackageBag* pBag = GetPackageByType(nPackageType);
+    NFPackageBag *pBag = GetPackageByType(nPackageType);
     if (pBag)
     {
         if (nPackageType == proto_ff::EPackageType_turn)
@@ -969,15 +1062,15 @@ int NFPackagePart::ItemUse(uint32_t msgId, NFDataPackage &packet)
     proto_ff::PackageUseReq req;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
     
-    uint16_t nIndex = (uint16_t)req.index();
+    uint16_t nIndex = (uint16_t) req.index();
     int64_t nNum = 1;
     if (req.has_num())
     {
-        nNum = (int64_t)req.num();
+        nNum = (int64_t) req.num();
     }
     
     proto_ff::UseItemArgProto protoArg;
-    int32_t isize = (int32_t)req.item_lst_size();
+    int32_t isize = (int32_t) req.item_lst_size();
     for (int32_t i = 0; i < isize; ++i)
     {
         protoArg.add_item_lst(req.item_lst(i));
@@ -1016,11 +1109,11 @@ int NFPackagePart::ExpandReq(uint32_t msgId, NFDataPackage &packet)
         CHECK_BREAK_VALUE(pReplaceCfg, ret, proto_ff::RET_CONFIG_ERROR);
         uint32_t itemId = pCfg->m_constantdata;
         CHECK_BREAK_VALUE(packageType == proto_ff::EPackageType_Common || packageType == proto_ff::EPackageType_Storage, ret, proto_ff::RET_PARMAR_ERROR);
-        NFPackageBag* pBag = GetPackageByType(packageType);
+        NFPackageBag *pBag = GetPackageByType(packageType);
         CHECK_BREAK_VALUE(pBag, ret, proto_ff::RET_FAIL);
-        uint16_t nLefNum = pBag->GetMaxGridNum()- pBag->GetOpenGrid();
+        uint16_t nLefNum = pBag->GetMaxGridNum() - pBag->GetOpenGrid();
         CHECK_BREAK_VALUE(nLefNum >= expand_grid, ret, proto_ff::RET_PARMAR_ERROR);
-        NFMallPart* pMallPart = dynamic_cast<NFMallPart*>(m_pMaster->GetPart(PART_MALL));
+        NFMallPart *pMallPart = dynamic_cast<NFMallPart *>(m_pMaster->GetPart(PART_MALL));
         CHECK_BREAK_VALUE(pMallPart, ret, proto_ff::RET_FAIL);
         int64_t ubd = 0;
         int64_t bd = 0;
@@ -1034,12 +1127,12 @@ int NFPackagePart::ExpandReq(uint32_t msgId, NFDataPackage &packet)
         }
         int32_t cost_expand_grid = expand_grid - costMallNum;
         SCommonSource s;
-        if(cost_expand_grid >0)
-            CHECK_BREAK_VALUE(RemoveItem(itemId, cost_expand_grid, s), ret, proto_ff::RET_PACKAGE_ITEM_NUM_LACK);
+        if (cost_expand_grid > 0) CHECK_BREAK_VALUE(RemoveItem(itemId, cost_expand_grid, s), ret, proto_ff::RET_PACKAGE_ITEM_NUM_LACK);
         pBag->Expand(expand_grid);
         pBag->SendPackageInfoToClient();
         
-    } while (false);
+    }
+    while (false);
     
     rsp.set_ret(ret);
     

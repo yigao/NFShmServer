@@ -302,7 +302,6 @@ struct DyMissionInfo
         minLev = 0;
         maxLev = 0;
         canAccept = 0;
-        setComplete.clear();
         totalRate = 0;
         return 0;
     }
@@ -352,8 +351,22 @@ struct InterItemPair
     {
         return 0;
     }
-
-    void operator=(const InterItemPair &item)
+    
+    InterItemPair(const InterItemPair &item)
+    {
+        CopyFrom(item);
+    }
+    
+    InterItemPair& operator=(const InterItemPair &item)
+    {
+        if (this != &item)
+        {
+            CopyFrom(item);
+        }
+        return *this;
+    }
+    
+    void CopyFrom(const InterItemPair &item)
     {
         itemType = item.itemType;
         itemId = item.itemId;

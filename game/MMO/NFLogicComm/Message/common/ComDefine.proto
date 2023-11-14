@@ -119,7 +119,10 @@ enum EPackageType
 	EPackageType_turn = 15;		//转生装备
 	EPackageType_MountKun = 16;		//坐化鲲装备
 	EPackageType_YaoHun = 17;	//妖魂装备
-	EPackageType_Limit = 18;
+	EPackageType_MoFa = 18; //奇门八卦
+	EPackageType_hungu = 19;    //魂骨
+	EPackageType_rune = 20;		//符文背包
+	EPackageType_Limit = 21;
 };
 
 //品质

@@ -65,6 +65,22 @@
       "CodeNext": 125
     },
     {
+      "FileName": "NFMissionDefine.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027MissionInfo\u0027 constructor contains potentially uninitialized members. Inspect the following: missionId, kind, progressLev, backTaskId.",
+      "CodePrev": 0,
+      "CodeCurrent": 457269,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFMissionDefine.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027DyMissionTrack\u0027 constructor contains potentially uninitialized members. Inspect the following: kind, acceptNum, lastFresh.",
+      "CodePrev": 0,
+      "CodeCurrent": 3256733,
+      "CodeNext": 123
+    },
+    {
       "FileName": "NFItem.cpp",
       "ErrorCode": "V522",
       "Message": "There might be dereferencing of a potential null pointer \u0027pEquip\u0027.",
@@ -431,6 +447,14 @@
       "CodePrev": 0,
       "CodeCurrent": 406825311,
       "CodeNext": 44977273
+    },
+    {
+      "FileName": "NFMissionDefine.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027BountyParam\u0027 constructor contains potentially uninitialized members. Inspect the following: ten_status, twenty_status.",
+      "CodePrev": 123,
+      "CodeCurrent": 394565,
+      "CodeNext": 123
     },
     {
       "FileName": "NFDeityPart.cpp",
@@ -1017,6 +1041,14 @@
       "CodeNext": 123
     },
     {
+      "FileName": "NFMissionDefine.h",
+      "ErrorCode": "V1003",
+      "Message": "The macro \u0027MISSION_COND_TYPE_TO_EVENT\u0027 is a dangerous expression. The parameter \u0027type\u0027 must be surrounded by parentheses.",
+      "CodePrev": 251013858,
+      "CodeCurrent": 544919182,
+      "CodeNext": 432465921
+    },
+    {
       "FileName": "NFFacadePart.cpp",
       "ErrorCode": "V2001",
       "Message": "Consider using the extended version of the AddItem function here: AddItemEx.",
@@ -1087,6 +1119,14 @@
       "CodePrev": 5816,
       "CodeCurrent": 14853,
       "CodeNext": 123
+    },
+    {
+      "FileName": "NFFunctionUnlockPart.cpp",
+      "ErrorCode": "V2001",
+      "Message": "Consider using the extended version of the AddItem function here: AddItemEx.",
+      "CodePrev": 574506517,
+      "CodeCurrent": 406456015,
+      "CodeNext": 125
     },
     {
       "FileName": "NFShmList.h",
@@ -1230,6 +1270,14 @@
       "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
       "CodePrev": 83331181,
       "CodeCurrent": 96389049,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFMissionDefine.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027AcceptInfo\u0027 constructor contains potentially uninitialized members. Inspect the following: profession, minLevel.",
+      "CodePrev": -73431724,
+      "CodeCurrent": 200501,
       "CodeNext": 123
     },
     {
@@ -1462,6 +1510,14 @@
       "Message": "The \u0027NFShmVectorBase\u0027 constructor contains potentially uninitialized members. Inspect the following: m_size, m_mem.",
       "CodePrev": 5816,
       "CodeCurrent": 1278583077,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFMissionDefine.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027SParaseAcceptParam\u0027 constructor contains potentially uninitialized members. Inspect the following: kind, missionId.",
+      "CodePrev": 183726690,
+      "CodeCurrent": 55507397,
       "CodeNext": 123
     },
     {
@@ -2761,6 +2817,22 @@
       "CodeNext": 88263
     },
     {
+      "FileName": "NFMissionDefine.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027ItemInfo\u0027 constructor contains potentially uninitialized members. Inspect the following: itemId, currentValue, finalValue, completedFlag, type, parma_, parma_, ....",
+      "CodePrev": 0,
+      "CodeCurrent": 49909,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFMissionDefine.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027ItemInfo\u0027 constructor contains potentially uninitialized members. Inspect the following: itemId, currentValue, finalValue, completedFlag, type, parma_, parma_, ....",
+      "CodePrev": 0,
+      "CodeCurrent": 348739201,
+      "CodeNext": 123
+    },
+    {
       "FileName": "DBProxy.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
@@ -3073,6 +3145,14 @@
       "CodeNext": 123
     },
     {
+      "FileName": "NFMissionDefine.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027InterItemPair\u0027 constructor contains potentially uninitialized members. Inspect the following: itemType, itemId, itemCount, parma_, parma_, parma_, ....",
+      "CodePrev": 0,
+      "CodeCurrent": 1761577,
+      "CodeNext": 123
+    },
+    {
       "FileName": "NFPoint2.h",
       "ErrorCode": "V550",
       "Message": "Instantiation of NFPoint_ \u003c float \u003e: An odd precise comparison: Value.y !\u003d _. It\u0027s probably better to use a comparison with defined precision: fabs(A - B) \u003e Epsilon.",
@@ -3153,6 +3233,14 @@
       "CodeNext": 123
     },
     {
+      "FileName": "NFMissionDefine.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027SParseFinishParam\u0027 constructor contains potentially uninitialized members. Inspect the following: missionId, dupId, traceId.",
+      "CodePrev": 45893602,
+      "CodeCurrent": 27424965,
+      "CodeNext": 123
+    },
+    {
       "FileName": "NFCommonApi.h",
       "ErrorCode": "V1051",
       "Message": "Consider checking for misprints. It\u0027s possible that the \u0027iOldIndex\u0027 should be checked here.",
@@ -3209,6 +3297,14 @@
       "CodeNext": 123
     },
     {
+      "FileName": "NFMissionDefine.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027MissionDrop\u0027 constructor contains potentially uninitialized members. Inspect the following: dropId, boxId, progressLv.",
+      "CodePrev": 0,
+      "CodeCurrent": 457313,
+      "CodeNext": 123
+    },
+    {
       "FileName": "NFItem.h",
       "ErrorCode": "V1077",
       "Message": "The \u0027DeityEquipExt\u0027 constructor contains potentially uninitialized members. Inspect the following: m_stronglv, m_strongWearQuality.",
@@ -3231,6 +3327,14 @@
       "CodePrev": 123,
       "CodeCurrent": -1775380886,
       "CodeNext": 113099
+    },
+    {
+      "FileName": "NFMissionDefine.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027DyConditionInfo\u0027 constructor contains potentially uninitialized members. Inspect the following: condId, rate.",
+      "CodePrev": 571733,
+      "CodeCurrent": 6382645,
+      "CodeNext": 123
     },
     {
       "FileName": "",
@@ -3505,6 +3609,14 @@
       "CodeNext": 123
     },
     {
+      "FileName": "NFMissionDefine.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027DyMissionInfo\u0027 constructor contains potentially uninitialized members. Inspect the following: missionId, kind, minLev, maxLev, canAccept, totalRate, ....",
+      "CodePrev": 18292565,
+      "CodeCurrent": 1628725,
+      "CodeNext": 123
+    },
+    {
       "FileName": "NFCommonApi.h",
       "ErrorCode": "V576",
       "Message": "Incorrect format. Consider checking the third actual argument of the \u0027sscanf\u0027 function. A pointer to the unsigned int type is expected.",
@@ -3686,6 +3798,22 @@
       "Message": "The \u0027FantasyDeityData\u0027 constructor contains potentially uninitialized members. Inspect the following: m_id, m_level, m_star, m_exp.",
       "CodePrev": 5816,
       "CodeCurrent": 13517709,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFMissionPart.h",
+      "ErrorCode": "V1003",
+      "Message": "The macro \u0027PLAYER_TRACK_MISSION_MAX_MISSION_COUNT\u0027 is a dangerous expression. The expression must be surrounded by parentheses.",
+      "CodePrev": 0,
+      "CodeCurrent": 255262619,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "NFFunctionUnlockPart.cpp",
+      "ErrorCode": "V2009",
+      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
+      "CodePrev": 0,
+      "CodeCurrent": -1749247814,
       "CodeNext": 123
     },
     {
@@ -4303,6 +4431,14 @@
       "CodePrev": 123,
       "CodeCurrent": -1775385126,
       "CodeNext": 113099
+    },
+    {
+      "FileName": "NFMissionDefine.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027TaskComplex\u0027 constructor contains potentially uninitialized members. Inspect the following: type, id, value, time, bind, profession, ....",
+      "CodePrev": 0,
+      "CodeCurrent": 473009,
+      "CodeNext": 123
     },
     {
       "FileName": "NFIMessageModule.h",
@@ -5183,6 +5319,14 @@
       "CodePrev": 123,
       "CodeCurrent": 977882193,
       "CodeNext": 1634207317
+    },
+    {
+      "FileName": "NFMissionDefine.h",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027MissionTrack\u0027 constructor contains potentially uninitialized members. Inspect the following: status, acceptMissionTime, missionId, dynamicId, missionType, textId, ....",
+      "CodePrev": 0,
+      "CodeCurrent": 913821,
+      "CodeNext": 123
     },
     {
       "FileName": "NFDeityPart.cpp",

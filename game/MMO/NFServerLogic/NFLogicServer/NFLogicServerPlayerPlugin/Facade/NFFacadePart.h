@@ -352,7 +352,7 @@ public:
     void calcFragmentAttr(MAP_INT32_INT64 &outAttr);
     void calcFragmentAttr(int64_t fragmentId, int32_t nTimes, MAP_INT32_INT64 &outAttr);
     void calcSoulAttr(int64_t soulId, int32_t level, MAP_INT32_INT64 &outAttr);
-    void calcAttr(MAP_INT32_INT64 allAttr);
+    void calcAttr(MAP_INT32_INT64& allAttr);
     void MergeAttr(const MAP_INT32_INT64 &src, MAP_INT32_INT64 &dst);
     void PrintAttr(const MAP_INT32_INT64 &attr);
     void OnCalc();
@@ -402,6 +402,8 @@ public:
      * @return
      */
     virtual int UnInit();
+    
+    virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage);
 public:
     /**
      * @brief 从数据库中加载数据

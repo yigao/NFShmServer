@@ -596,7 +596,7 @@ void FacadeInfo::calcSoulAttr(int64_t soulId, int32_t level, MAP_INT32_INT64 &ou
     }
 }
 
-void FacadeInfo::calcAttr(MAP_INT32_INT64 allAttr)
+void FacadeInfo::calcAttr(MAP_INT32_INT64& allAttr)
 {
     MAP_INT32_INT64 partAttr;
     
@@ -758,12 +758,47 @@ int NFFacadePart::Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::Rol
     {
         m_facadeInfo[i].Init(this, dbData);
     }
+    
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_FUNCTIONUNLOCK, CREATURE_PLAYER, m_pMaster->Cid(), "FacadePart::Init");
     return 0;
 }
 
 int NFFacadePart::UnInit()
 {
     return NFPart::UnInit();
+}
+
+int NFFacadePart::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage)
+{
+    switch (nEventID)
+    {
+        case EVENT_FUNCTIONUNLOCK:
+        {
+            const proto_ff::FunctionUnlockEvent *pEvent = dynamic_cast<const proto_ff::FunctionUnlockEvent *>(pMessage);
+            CHECK_NULL(pEvent);
+            
+            if (pEvent->functionid() == proto_ff::FunctionUnlock_ID_TYPE_WING)
+            {
+                ActiveDefaultFacade(proto_ff::FACADE_WING_TYPE);
+            }
+            else if (pEvent->functionid() == proto_ff::FunctionUnlock_ID_TYPE_TREASURE)
+            {
+                ActiveDefaultFacade(proto_ff::FACADE_TREASURE_TYPE);
+            }
+            else if (pEvent->functionid() == proto_ff::FunctionUnlock_ID_TYPE_ARTIFACT)
+            {
+                ActiveDefaultFacade(proto_ff::FACADE_ARTIFACT_TYPE);
+            }
+            else if (pEvent->functionid() == proto_ff::FunctionUnlock_ID_TYPE_PARTNER)
+            {
+                ActiveDefaultFacade(proto_ff::FACADE_PARTNER_TYPE);
+            }
+            break;
+        }
+        default:
+            break;
+    }
+    return 0;
 }
 
 int NFFacadePart::LoadFromDB(const proto_ff::RoleDBData &data)
