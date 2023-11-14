@@ -237,3 +237,10 @@ message PartnerAdvance
 {
   optional uint32 nLevel = 1;
 };
+
+//天机普
+//EVENT_GOD_RELICS_FINISH,            //天机普任务完成
+message GodRelicsFinish
+{
+  optional int64 id = 1;
+};

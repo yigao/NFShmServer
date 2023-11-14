@@ -993,7 +993,7 @@ NFPackageBag *NFPackagePart::GetPackageByType(uint32_t nPackageType)
         case proto_ff::EPackageType_rune:
             return &m_runeBag;
         default:
-            return &m_commonBag;
+            break;
     }
     return nullptr;
 }

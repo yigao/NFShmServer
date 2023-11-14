@@ -1009,15 +1009,6 @@ struct RelationGiveEvent
     int32_t num = 0;
 };
 
-//天机普
-//EVENT_GOD_RELICS_FINISH,            //天机普任务完成
-struct GodRelicsFinish
-{
-    int64_t id = 0;
-};
-
-
-
 //完成神机装备前置任务
 struct MarryCmptTaskEvent
 {

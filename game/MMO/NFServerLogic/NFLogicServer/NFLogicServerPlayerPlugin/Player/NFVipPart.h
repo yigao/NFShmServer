@@ -29,4 +29,5 @@ public:
     int ResumeInit();
 public:
     void DoAttrChange(uint32_t ANum, int64_t nValue, int64_t attrValue, SCommonSource* pSource) {}
+    int32_t PrivilegeVal(int32_t privilegeType)	{ return 0; }							//获得通用整数参数总和
 };

@@ -15,7 +15,8 @@
 #include "Player/NFPlayerMgr.h"
 #include "Player/NFPlayer.h"
 #include "Part/NFPartModule.h"
-#include "Player/NFAchievementPart.h"
+#include "Achievement/NFAchievementPart.h"
+#include "Achievement/NFGodRelicsPart.h"
 #include "Player/NFAncientPart.h"
 #include "Player/NFAssistPart.h"
 #include "Player/NFBestEQPart.h"
@@ -168,6 +169,7 @@ bool NFMMOLogicPlayerPlugin::InitShmObjectRegister()
     REGISTER_SHM_OBJ(NFArmorPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFPvpPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFSoulPart, maxOnlinePlayerNum);
+    REGISTER_SHM_OBJ(NFGodRelicsPart, maxOnlinePlayerNum);
     ////////////////////////////part////////////////////////////
 
     REGISTER_SHM_OBJ(NFTransPlayerBase, 1);

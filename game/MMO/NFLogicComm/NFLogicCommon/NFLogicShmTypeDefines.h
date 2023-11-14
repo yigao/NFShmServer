@@ -63,6 +63,7 @@ enum PartType
     PART_GMA,				//神元区域
     PART_TURN,				//神体
     PART_SOUL,				//战魂
+    PART_GODRELIS,          //天神遗物
     PART_MAX,
 };
 

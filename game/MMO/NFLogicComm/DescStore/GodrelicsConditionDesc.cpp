@@ -77,6 +77,16 @@ int GodrelicsConditionDesc::Load(NFResDB *pDB)
 		pDesc->read_from_pbmsg(desc);
 		CHECK_EXPR_ASSERT(GetDesc(desc.m_id()) == pDesc, -1, "GetDesc != pDesc, id:{}", desc.m_id());
 	}
+	m_GroupIndexMap.clear();
+	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
+	{
+		auto pDesc = &iter->second;
+		if(m_GroupIndexMap.size() >= m_GroupIndexMap.max_size())
+		{
+			CHECK_EXPR_ASSERT(m_GroupIndexMap.find(pDesc->m_group) != m_GroupIndexMap.end(), -1, "index:group key:{}, space not enough", pDesc->m_group);
+		}
+		m_GroupIndexMap[pDesc->m_group].push_back(iter->first);
+	}
 
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_godrelicscondition_list_size());
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
@@ -86,5 +96,21 @@ int GodrelicsConditionDesc::Load(NFResDB *pDB)
 int GodrelicsConditionDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
+}
+
+std::vector<const proto_ff_s::E_GodrelicsCondition_s*> GodrelicsConditionDesc::GetDescByGroup(int64_t Group) const
+{
+	std::vector<const proto_ff_s::E_GodrelicsCondition_s*> m_vec;
+	auto iter = m_GroupIndexMap.find(Group);
+	if(iter != m_GroupIndexMap.end())
+	{
+		for(int i = 0; i < (int)iter->second.size(); i++)
+		{
+			auto pDesc = GetDesc(iter->second[i]);
+			CHECK_EXPR_CONTINUE(pDesc, "key:{} GetDesc error:{}", Group, iter->second[i]);
+			m_vec.push_back(pDesc);
+		}
+	}
+	return m_vec;
 }
 

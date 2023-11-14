@@ -116,6 +116,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* PartnerAdvance_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   PartnerAdvance_reflection_ = NULL;
+const ::google::protobuf::Descriptor* GodRelicsFinish_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  GodRelicsFinish_reflection_ = NULL;
 
 }  // namespace
 
@@ -666,6 +669,21 @@ void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PartnerAdvance));
+  GodRelicsFinish_descriptor_ = file->message_type(32);
+  static const int GodRelicsFinish_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GodRelicsFinish, id_),
+  };
+  GodRelicsFinish_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      GodRelicsFinish_descriptor_,
+      GodRelicsFinish::default_instance_,
+      GodRelicsFinish_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GodRelicsFinish, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GodRelicsFinish, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(GodRelicsFinish));
 }
 
 namespace {
@@ -742,6 +760,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     OccupationAdvance_descriptor_, &OccupationAdvance::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     PartnerAdvance_descriptor_, &PartnerAdvance::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    GodRelicsFinish_descriptor_, &GodRelicsFinish::default_instance());
 }
 
 }  // namespace
@@ -811,6 +831,8 @@ void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto() {
   delete OccupationAdvance_reflection_;
   delete PartnerAdvance::default_instance_;
   delete PartnerAdvance_reflection_;
+  delete GodRelicsFinish::default_instance_;
+  delete GodRelicsFinish_reflection_;
 }
 
 void protobuf_AddDesc_proto_5fsvr_5fevent_2eproto() {
@@ -876,7 +898,8 @@ void protobuf_AddDesc_proto_5fsvr_5fevent_2eproto() {
     "\016\n\006nLevel\030\001 \001(\r\"!\n\017ArtifactAdvance\022\016\n\006nL"
     "evel\030\001 \001(\r\"\036\n\014MountAdvance\022\016\n\006nLevel\030\001 \001"
     "(\r\"#\n\021OccupationAdvance\022\016\n\006nGrade\030\001 \001(\r\""
-    " \n\016PartnerAdvance\022\016\n\006nLevel\030\001 \001(\r", 2193);
+    " \n\016PartnerAdvance\022\016\n\006nLevel\030\001 \001(\r\"\035\n\017God"
+    "RelicsFinish\022\n\n\002id\030\001 \001(\003", 2224);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_svr_event.proto", &protobuf_RegisterTypes);
   FunctionUnlockEvent::default_instance_ = new FunctionUnlockEvent();
@@ -911,6 +934,7 @@ void protobuf_AddDesc_proto_5fsvr_5fevent_2eproto() {
   MountAdvance::default_instance_ = new MountAdvance();
   OccupationAdvance::default_instance_ = new OccupationAdvance();
   PartnerAdvance::default_instance_ = new PartnerAdvance();
+  GodRelicsFinish::default_instance_ = new GodRelicsFinish();
   FunctionUnlockEvent::default_instance_->InitAsDefaultInstance();
   PlayerLeveUpEvent::default_instance_->InitAsDefaultInstance();
   ItemUseEvent::default_instance_->InitAsDefaultInstance();
@@ -943,6 +967,7 @@ void protobuf_AddDesc_proto_5fsvr_5fevent_2eproto() {
   MountAdvance::default_instance_->InitAsDefaultInstance();
   OccupationAdvance::default_instance_->InitAsDefaultInstance();
   PartnerAdvance::default_instance_->InitAsDefaultInstance();
+  GodRelicsFinish::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto);
 }
 
@@ -10034,6 +10059,214 @@ void PartnerAdvance::Swap(PartnerAdvance* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = PartnerAdvance_descriptor_;
   metadata.reflection = PartnerAdvance_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int GodRelicsFinish::kIdFieldNumber;
+#endif  // !_MSC_VER
+
+GodRelicsFinish::GodRelicsFinish()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void GodRelicsFinish::InitAsDefaultInstance() {
+}
+
+GodRelicsFinish::GodRelicsFinish(const GodRelicsFinish& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void GodRelicsFinish::SharedCtor() {
+  _cached_size_ = 0;
+  id_ = GOOGLE_LONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+GodRelicsFinish::~GodRelicsFinish() {
+  SharedDtor();
+}
+
+void GodRelicsFinish::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void GodRelicsFinish::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* GodRelicsFinish::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return GodRelicsFinish_descriptor_;
+}
+
+const GodRelicsFinish& GodRelicsFinish::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  return *default_instance_;
+}
+
+GodRelicsFinish* GodRelicsFinish::default_instance_ = NULL;
+
+GodRelicsFinish* GodRelicsFinish::New() const {
+  return new GodRelicsFinish;
+}
+
+void GodRelicsFinish::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    id_ = GOOGLE_LONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool GodRelicsFinish::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int64 id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &id_)));
+          set_has_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void GodRelicsFinish::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int64 id = 1;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* GodRelicsFinish::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int64 id = 1;
+  if (has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int GodRelicsFinish::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int64 id = 1;
+    if (has_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void GodRelicsFinish::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const GodRelicsFinish* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const GodRelicsFinish*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void GodRelicsFinish::MergeFrom(const GodRelicsFinish& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_id()) {
+      set_id(from.id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void GodRelicsFinish::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GodRelicsFinish::CopyFrom(const GodRelicsFinish& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GodRelicsFinish::IsInitialized() const {
+
+  return true;
+}
+
+void GodRelicsFinish::Swap(GodRelicsFinish* other) {
+  if (other != this) {
+    std::swap(id_, other->id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata GodRelicsFinish::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = GodRelicsFinish_descriptor_;
+  metadata.reflection = GodRelicsFinish_reflection_;
   return metadata;
 }
 
