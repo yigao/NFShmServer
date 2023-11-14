@@ -126,8 +126,12 @@
 #define DEFINE_DAYTOTALRECHARGEDBPROTO_FETCH_LST_MAX_NUM 1
 #define DEFINE_TOTALRECHARGEDBPROTO_FETCH_LST_MAX_NUM 1
 #define DEFINE_LOGINREWARDDBPROTO_FETCH_MAX_NUM 1
+#define DEFINE_DAYFETCHINFO_GEAR_LST_MAX_NUM 1
+#define DEFINE_GEARFETCHINFO_DAY_LST_MAX_NUM 1
 #define DEFINE_CONTIRECHARGEDBPROTO_DAY_FETCH_MAX_NUM 1
 #define DEFINE_CONTIRECHARGEDBPROTO_GEAR_FETCH_MAX_NUM 1
+#define DEFINE_SHOPPROTO_FETCH_MAX_NUM 1
+#define DEFINE_SHOPPROTO_BUY_MAX_NUM 1
 #define DEFINE_LIMITSALEDBPROTO_SHOP_MAX_NUM 1
 #define DEFINE_FESTDBDATA_INFO_MAX_NUM 1
 #define DEFINE_FESTDBDATA_CLOSE_MAX_NUM 1
@@ -1941,6 +1945,36 @@ namespace proto_ff_s {
 	};
 	typedef struct LoginRewardDBProto_s LoginRewardDBProto_t;
 
+	struct DayFetchInfo_s : public NFDescStoreSeqOP {
+		DayFetchInfo_s();
+		virtual ~DayFetchInfo_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t day;//
+		NFShmVector<int32_t, DEFINE_DAYFETCHINFO_GEAR_LST_MAX_NUM> gear_lst;//
+
+		virtual void write_to_pbmsg(::proto_ff::DayFetchInfo & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::DayFetchInfo & msg);
+		static ::proto_ff::DayFetchInfo* new_pbmsg(){ return new ::proto_ff::DayFetchInfo(); }
+		static ::proto_ff::DayFetchInfo make_pbmsg(){ return ::proto_ff::DayFetchInfo(); }
+	};
+	typedef struct DayFetchInfo_s DayFetchInfo_t;
+
+	struct GearFetchInfo_s : public NFDescStoreSeqOP {
+		GearFetchInfo_s();
+		virtual ~GearFetchInfo_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t gear;//
+		NFShmVector<int32_t, DEFINE_GEARFETCHINFO_DAY_LST_MAX_NUM> day_lst;//
+
+		virtual void write_to_pbmsg(::proto_ff::GearFetchInfo & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::GearFetchInfo & msg);
+		static ::proto_ff::GearFetchInfo* new_pbmsg(){ return new ::proto_ff::GearFetchInfo(); }
+		static ::proto_ff::GearFetchInfo make_pbmsg(){ return ::proto_ff::GearFetchInfo(); }
+	};
+	typedef struct GearFetchInfo_s GearFetchInfo_t;
+
 	struct ContiRechargeDBProto_s : public NFDescStoreSeqOP {
 		ContiRechargeDBProto_s();
 		virtual ~ContiRechargeDBProto_s(){}
@@ -1957,6 +1991,23 @@ namespace proto_ff_s {
 		static ::proto_ff::ContiRechargeDBProto make_pbmsg(){ return ::proto_ff::ContiRechargeDBProto(); }
 	};
 	typedef struct ContiRechargeDBProto_s ContiRechargeDBProto_t;
+
+	struct ShopProto_s : public NFDescStoreSeqOP {
+		ShopProto_s();
+		virtual ~ShopProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t type;//
+		uint32_t total;//
+		NFShmVector<int32_t, DEFINE_SHOPPROTO_FETCH_MAX_NUM> fetch;//
+		NFShmVector<struct ComPair_s, DEFINE_SHOPPROTO_BUY_MAX_NUM> buy;//
+
+		virtual void write_to_pbmsg(::proto_ff::ShopProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::ShopProto & msg);
+		static ::proto_ff::ShopProto* new_pbmsg(){ return new ::proto_ff::ShopProto(); }
+		static ::proto_ff::ShopProto make_pbmsg(){ return ::proto_ff::ShopProto(); }
+	};
+	typedef struct ShopProto_s ShopProto_t;
 
 	struct LimitSaleDBProto_s : public NFDescStoreSeqOP {
 		LimitSaleDBProto_s();

@@ -120,7 +120,7 @@ bool NFItemMgr::SetItemProtoInfo(NFItem *pItem, proto_ff::ItemProtoInfo *protoIt
     CHECK_EXPR(pItem, false, "");
     CHECK_EXPR(protoItemInfo, false, "");
     
-    pItem->ToItemProto(*protoItemInfo);
+    pItem->WriteToPB(*protoItemInfo);
     if (0 == nNum)
     {
         protoItemInfo->set_item_num(0);
@@ -511,7 +511,7 @@ bool NFItemMgr::CreateItem(const VEC_ITEM_PROTO_EX &vecProtoItemsEx, VEC_PACKAGE
             continue;
         }
         
-        if (!pItemObj->FromItemProto(protoItem))
+        if (!pItemObj->ReadFromPB(protoItem))
         {
             FreeItemObj(pItemObj);
             continue;

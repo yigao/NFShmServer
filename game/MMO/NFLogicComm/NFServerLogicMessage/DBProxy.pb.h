@@ -137,11 +137,11 @@ class FMarryRoleDB;
 class DayTotalRechargeDBProto;
 class TotalRechargeDBProto;
 class LoginRewardDBProto;
+class DayFetchInfo;
+class GearFetchInfo;
 class ContiRechargeDBProto;
-class ContiRechargeDBProto_DayFetchInfo;
-class ContiRechargeDBProto_GearFetchInfo;
+class ShopProto;
 class LimitSaleDBProto;
-class LimitSaleDBProto_ShopProto;
 class FestDetailDBProto;
 class FestDBData;
 class ShadowDBProto;
@@ -12306,14 +12306,14 @@ class LoginRewardDBProto : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class ContiRechargeDBProto_DayFetchInfo : public ::google::protobuf::Message {
+class DayFetchInfo : public ::google::protobuf::Message {
  public:
-  ContiRechargeDBProto_DayFetchInfo();
-  virtual ~ContiRechargeDBProto_DayFetchInfo();
+  DayFetchInfo();
+  virtual ~DayFetchInfo();
 
-  ContiRechargeDBProto_DayFetchInfo(const ContiRechargeDBProto_DayFetchInfo& from);
+  DayFetchInfo(const DayFetchInfo& from);
 
-  inline ContiRechargeDBProto_DayFetchInfo& operator=(const ContiRechargeDBProto_DayFetchInfo& from) {
+  inline DayFetchInfo& operator=(const DayFetchInfo& from) {
     CopyFrom(from);
     return *this;
   }
@@ -12327,17 +12327,17 @@ class ContiRechargeDBProto_DayFetchInfo : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const ContiRechargeDBProto_DayFetchInfo& default_instance();
+  static const DayFetchInfo& default_instance();
 
-  void Swap(ContiRechargeDBProto_DayFetchInfo* other);
+  void Swap(DayFetchInfo* other);
 
   // implements Message ----------------------------------------------
 
-  ContiRechargeDBProto_DayFetchInfo* New() const;
+  DayFetchInfo* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const ContiRechargeDBProto_DayFetchInfo& from);
-  void MergeFrom(const ContiRechargeDBProto_DayFetchInfo& from);
+  void CopyFrom(const DayFetchInfo& from);
+  void MergeFrom(const DayFetchInfo& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -12379,7 +12379,7 @@ class ContiRechargeDBProto_DayFetchInfo : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_gear_lst();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.ContiRechargeDBProto.DayFetchInfo)
+  // @@protoc_insertion_point(class_scope:proto_ff.DayFetchInfo)
  private:
   inline void set_has_day();
   inline void clear_has_day();
@@ -12397,18 +12397,18 @@ class ContiRechargeDBProto_DayFetchInfo : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_DBProxy_2eproto();
 
   void InitAsDefaultInstance();
-  static ContiRechargeDBProto_DayFetchInfo* default_instance_;
+  static DayFetchInfo* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class ContiRechargeDBProto_GearFetchInfo : public ::google::protobuf::Message {
+class GearFetchInfo : public ::google::protobuf::Message {
  public:
-  ContiRechargeDBProto_GearFetchInfo();
-  virtual ~ContiRechargeDBProto_GearFetchInfo();
+  GearFetchInfo();
+  virtual ~GearFetchInfo();
 
-  ContiRechargeDBProto_GearFetchInfo(const ContiRechargeDBProto_GearFetchInfo& from);
+  GearFetchInfo(const GearFetchInfo& from);
 
-  inline ContiRechargeDBProto_GearFetchInfo& operator=(const ContiRechargeDBProto_GearFetchInfo& from) {
+  inline GearFetchInfo& operator=(const GearFetchInfo& from) {
     CopyFrom(from);
     return *this;
   }
@@ -12422,17 +12422,17 @@ class ContiRechargeDBProto_GearFetchInfo : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const ContiRechargeDBProto_GearFetchInfo& default_instance();
+  static const GearFetchInfo& default_instance();
 
-  void Swap(ContiRechargeDBProto_GearFetchInfo* other);
+  void Swap(GearFetchInfo* other);
 
   // implements Message ----------------------------------------------
 
-  ContiRechargeDBProto_GearFetchInfo* New() const;
+  GearFetchInfo* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const ContiRechargeDBProto_GearFetchInfo& from);
-  void MergeFrom(const ContiRechargeDBProto_GearFetchInfo& from);
+  void CopyFrom(const GearFetchInfo& from);
+  void MergeFrom(const GearFetchInfo& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -12474,7 +12474,7 @@ class ContiRechargeDBProto_GearFetchInfo : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_day_lst();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.ContiRechargeDBProto.GearFetchInfo)
+  // @@protoc_insertion_point(class_scope:proto_ff.GearFetchInfo)
  private:
   inline void set_has_gear();
   inline void clear_has_gear();
@@ -12492,7 +12492,7 @@ class ContiRechargeDBProto_GearFetchInfo : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_DBProxy_2eproto();
 
   void InitAsDefaultInstance();
-  static ContiRechargeDBProto_GearFetchInfo* default_instance_;
+  static GearFetchInfo* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -12548,9 +12548,6 @@ class ContiRechargeDBProto : public ::google::protobuf::Message {
 
   // nested types ----------------------------------------------------
 
-  typedef ContiRechargeDBProto_DayFetchInfo DayFetchInfo;
-  typedef ContiRechargeDBProto_GearFetchInfo GearFetchInfo;
-
   // accessors -------------------------------------------------------
 
   // optional uint32 recharge = 1;
@@ -12567,28 +12564,28 @@ class ContiRechargeDBProto : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 supplement() const;
   inline void set_supplement(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.ContiRechargeDBProto.DayFetchInfo day_fetch = 3;
+  // repeated .proto_ff.DayFetchInfo day_fetch = 3;
   inline int day_fetch_size() const;
   inline void clear_day_fetch();
   static const int kDayFetchFieldNumber = 3;
-  inline const ::proto_ff::ContiRechargeDBProto_DayFetchInfo& day_fetch(int index) const;
-  inline ::proto_ff::ContiRechargeDBProto_DayFetchInfo* mutable_day_fetch(int index);
-  inline ::proto_ff::ContiRechargeDBProto_DayFetchInfo* add_day_fetch();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ContiRechargeDBProto_DayFetchInfo >&
+  inline const ::proto_ff::DayFetchInfo& day_fetch(int index) const;
+  inline ::proto_ff::DayFetchInfo* mutable_day_fetch(int index);
+  inline ::proto_ff::DayFetchInfo* add_day_fetch();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::DayFetchInfo >&
       day_fetch() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ContiRechargeDBProto_DayFetchInfo >*
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::DayFetchInfo >*
       mutable_day_fetch();
 
-  // repeated .proto_ff.ContiRechargeDBProto.GearFetchInfo gear_fetch = 4;
+  // repeated .proto_ff.GearFetchInfo gear_fetch = 4;
   inline int gear_fetch_size() const;
   inline void clear_gear_fetch();
   static const int kGearFetchFieldNumber = 4;
-  inline const ::proto_ff::ContiRechargeDBProto_GearFetchInfo& gear_fetch(int index) const;
-  inline ::proto_ff::ContiRechargeDBProto_GearFetchInfo* mutable_gear_fetch(int index);
-  inline ::proto_ff::ContiRechargeDBProto_GearFetchInfo* add_gear_fetch();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ContiRechargeDBProto_GearFetchInfo >&
+  inline const ::proto_ff::GearFetchInfo& gear_fetch(int index) const;
+  inline ::proto_ff::GearFetchInfo* mutable_gear_fetch(int index);
+  inline ::proto_ff::GearFetchInfo* add_gear_fetch();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::GearFetchInfo >&
       gear_fetch() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ContiRechargeDBProto_GearFetchInfo >*
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::GearFetchInfo >*
       mutable_gear_fetch();
 
   // @@protoc_insertion_point(class_scope:proto_ff.ContiRechargeDBProto)
@@ -12602,8 +12599,8 @@ class ContiRechargeDBProto : public ::google::protobuf::Message {
 
   ::google::protobuf::uint32 recharge_;
   ::google::protobuf::int32 supplement_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::ContiRechargeDBProto_DayFetchInfo > day_fetch_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::ContiRechargeDBProto_GearFetchInfo > gear_fetch_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::DayFetchInfo > day_fetch_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::GearFetchInfo > gear_fetch_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
@@ -12617,14 +12614,14 @@ class ContiRechargeDBProto : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class LimitSaleDBProto_ShopProto : public ::google::protobuf::Message {
+class ShopProto : public ::google::protobuf::Message {
  public:
-  LimitSaleDBProto_ShopProto();
-  virtual ~LimitSaleDBProto_ShopProto();
+  ShopProto();
+  virtual ~ShopProto();
 
-  LimitSaleDBProto_ShopProto(const LimitSaleDBProto_ShopProto& from);
+  ShopProto(const ShopProto& from);
 
-  inline LimitSaleDBProto_ShopProto& operator=(const LimitSaleDBProto_ShopProto& from) {
+  inline ShopProto& operator=(const ShopProto& from) {
     CopyFrom(from);
     return *this;
   }
@@ -12638,17 +12635,17 @@ class LimitSaleDBProto_ShopProto : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const LimitSaleDBProto_ShopProto& default_instance();
+  static const ShopProto& default_instance();
 
-  void Swap(LimitSaleDBProto_ShopProto* other);
+  void Swap(ShopProto* other);
 
   // implements Message ----------------------------------------------
 
-  LimitSaleDBProto_ShopProto* New() const;
+  ShopProto* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const LimitSaleDBProto_ShopProto& from);
-  void MergeFrom(const LimitSaleDBProto_ShopProto& from);
+  void CopyFrom(const ShopProto& from);
+  void MergeFrom(const ShopProto& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -12709,7 +12706,7 @@ class LimitSaleDBProto_ShopProto : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
       mutable_buy();
 
-  // @@protoc_insertion_point(class_scope:proto_ff.LimitSaleDBProto.ShopProto)
+  // @@protoc_insertion_point(class_scope:proto_ff.ShopProto)
  private:
   inline void set_has_type();
   inline void clear_has_type();
@@ -12731,7 +12728,7 @@ class LimitSaleDBProto_ShopProto : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_DBProxy_2eproto();
 
   void InitAsDefaultInstance();
-  static LimitSaleDBProto_ShopProto* default_instance_;
+  static ShopProto* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -12787,20 +12784,18 @@ class LimitSaleDBProto : public ::google::protobuf::Message {
 
   // nested types ----------------------------------------------------
 
-  typedef LimitSaleDBProto_ShopProto ShopProto;
-
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.LimitSaleDBProto.ShopProto shop = 1;
+  // repeated .proto_ff.ShopProto shop = 1;
   inline int shop_size() const;
   inline void clear_shop();
   static const int kShopFieldNumber = 1;
-  inline const ::proto_ff::LimitSaleDBProto_ShopProto& shop(int index) const;
-  inline ::proto_ff::LimitSaleDBProto_ShopProto* mutable_shop(int index);
-  inline ::proto_ff::LimitSaleDBProto_ShopProto* add_shop();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::LimitSaleDBProto_ShopProto >&
+  inline const ::proto_ff::ShopProto& shop(int index) const;
+  inline ::proto_ff::ShopProto* mutable_shop(int index);
+  inline ::proto_ff::ShopProto* add_shop();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ShopProto >&
       shop() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::LimitSaleDBProto_ShopProto >*
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ShopProto >*
       mutable_shop();
 
   // optional uint64 fresh_time = 2;
@@ -12817,7 +12812,7 @@ class LimitSaleDBProto : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::LimitSaleDBProto_ShopProto > shop_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ShopProto > shop_;
   ::google::protobuf::uint64 fresh_time_;
 
   mutable int _cached_size_;
@@ -39405,103 +39400,103 @@ LoginRewardDBProto::mutable_fetch() {
 
 // -------------------------------------------------------------------
 
-// ContiRechargeDBProto_DayFetchInfo
+// DayFetchInfo
 
 // optional int32 day = 1;
-inline bool ContiRechargeDBProto_DayFetchInfo::has_day() const {
+inline bool DayFetchInfo::has_day() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void ContiRechargeDBProto_DayFetchInfo::set_has_day() {
+inline void DayFetchInfo::set_has_day() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void ContiRechargeDBProto_DayFetchInfo::clear_has_day() {
+inline void DayFetchInfo::clear_has_day() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void ContiRechargeDBProto_DayFetchInfo::clear_day() {
+inline void DayFetchInfo::clear_day() {
   day_ = 0;
   clear_has_day();
 }
-inline ::google::protobuf::int32 ContiRechargeDBProto_DayFetchInfo::day() const {
+inline ::google::protobuf::int32 DayFetchInfo::day() const {
   return day_;
 }
-inline void ContiRechargeDBProto_DayFetchInfo::set_day(::google::protobuf::int32 value) {
+inline void DayFetchInfo::set_day(::google::protobuf::int32 value) {
   set_has_day();
   day_ = value;
 }
 
 // repeated int32 gear_lst = 2;
-inline int ContiRechargeDBProto_DayFetchInfo::gear_lst_size() const {
+inline int DayFetchInfo::gear_lst_size() const {
   return gear_lst_.size();
 }
-inline void ContiRechargeDBProto_DayFetchInfo::clear_gear_lst() {
+inline void DayFetchInfo::clear_gear_lst() {
   gear_lst_.Clear();
 }
-inline ::google::protobuf::int32 ContiRechargeDBProto_DayFetchInfo::gear_lst(int index) const {
+inline ::google::protobuf::int32 DayFetchInfo::gear_lst(int index) const {
   return gear_lst_.Get(index);
 }
-inline void ContiRechargeDBProto_DayFetchInfo::set_gear_lst(int index, ::google::protobuf::int32 value) {
+inline void DayFetchInfo::set_gear_lst(int index, ::google::protobuf::int32 value) {
   gear_lst_.Set(index, value);
 }
-inline void ContiRechargeDBProto_DayFetchInfo::add_gear_lst(::google::protobuf::int32 value) {
+inline void DayFetchInfo::add_gear_lst(::google::protobuf::int32 value) {
   gear_lst_.Add(value);
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-ContiRechargeDBProto_DayFetchInfo::gear_lst() const {
+DayFetchInfo::gear_lst() const {
   return gear_lst_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-ContiRechargeDBProto_DayFetchInfo::mutable_gear_lst() {
+DayFetchInfo::mutable_gear_lst() {
   return &gear_lst_;
 }
 
 // -------------------------------------------------------------------
 
-// ContiRechargeDBProto_GearFetchInfo
+// GearFetchInfo
 
 // optional int32 gear = 1;
-inline bool ContiRechargeDBProto_GearFetchInfo::has_gear() const {
+inline bool GearFetchInfo::has_gear() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void ContiRechargeDBProto_GearFetchInfo::set_has_gear() {
+inline void GearFetchInfo::set_has_gear() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void ContiRechargeDBProto_GearFetchInfo::clear_has_gear() {
+inline void GearFetchInfo::clear_has_gear() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void ContiRechargeDBProto_GearFetchInfo::clear_gear() {
+inline void GearFetchInfo::clear_gear() {
   gear_ = 0;
   clear_has_gear();
 }
-inline ::google::protobuf::int32 ContiRechargeDBProto_GearFetchInfo::gear() const {
+inline ::google::protobuf::int32 GearFetchInfo::gear() const {
   return gear_;
 }
-inline void ContiRechargeDBProto_GearFetchInfo::set_gear(::google::protobuf::int32 value) {
+inline void GearFetchInfo::set_gear(::google::protobuf::int32 value) {
   set_has_gear();
   gear_ = value;
 }
 
 // repeated int32 day_lst = 2;
-inline int ContiRechargeDBProto_GearFetchInfo::day_lst_size() const {
+inline int GearFetchInfo::day_lst_size() const {
   return day_lst_.size();
 }
-inline void ContiRechargeDBProto_GearFetchInfo::clear_day_lst() {
+inline void GearFetchInfo::clear_day_lst() {
   day_lst_.Clear();
 }
-inline ::google::protobuf::int32 ContiRechargeDBProto_GearFetchInfo::day_lst(int index) const {
+inline ::google::protobuf::int32 GearFetchInfo::day_lst(int index) const {
   return day_lst_.Get(index);
 }
-inline void ContiRechargeDBProto_GearFetchInfo::set_day_lst(int index, ::google::protobuf::int32 value) {
+inline void GearFetchInfo::set_day_lst(int index, ::google::protobuf::int32 value) {
   day_lst_.Set(index, value);
 }
-inline void ContiRechargeDBProto_GearFetchInfo::add_day_lst(::google::protobuf::int32 value) {
+inline void GearFetchInfo::add_day_lst(::google::protobuf::int32 value) {
   day_lst_.Add(value);
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-ContiRechargeDBProto_GearFetchInfo::day_lst() const {
+GearFetchInfo::day_lst() const {
   return day_lst_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-ContiRechargeDBProto_GearFetchInfo::mutable_day_lst() {
+GearFetchInfo::mutable_day_lst() {
   return &day_lst_;
 }
 
@@ -39553,151 +39548,151 @@ inline void ContiRechargeDBProto::set_supplement(::google::protobuf::int32 value
   supplement_ = value;
 }
 
-// repeated .proto_ff.ContiRechargeDBProto.DayFetchInfo day_fetch = 3;
+// repeated .proto_ff.DayFetchInfo day_fetch = 3;
 inline int ContiRechargeDBProto::day_fetch_size() const {
   return day_fetch_.size();
 }
 inline void ContiRechargeDBProto::clear_day_fetch() {
   day_fetch_.Clear();
 }
-inline const ::proto_ff::ContiRechargeDBProto_DayFetchInfo& ContiRechargeDBProto::day_fetch(int index) const {
+inline const ::proto_ff::DayFetchInfo& ContiRechargeDBProto::day_fetch(int index) const {
   return day_fetch_.Get(index);
 }
-inline ::proto_ff::ContiRechargeDBProto_DayFetchInfo* ContiRechargeDBProto::mutable_day_fetch(int index) {
+inline ::proto_ff::DayFetchInfo* ContiRechargeDBProto::mutable_day_fetch(int index) {
   return day_fetch_.Mutable(index);
 }
-inline ::proto_ff::ContiRechargeDBProto_DayFetchInfo* ContiRechargeDBProto::add_day_fetch() {
+inline ::proto_ff::DayFetchInfo* ContiRechargeDBProto::add_day_fetch() {
   return day_fetch_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ContiRechargeDBProto_DayFetchInfo >&
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::DayFetchInfo >&
 ContiRechargeDBProto::day_fetch() const {
   return day_fetch_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ContiRechargeDBProto_DayFetchInfo >*
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::DayFetchInfo >*
 ContiRechargeDBProto::mutable_day_fetch() {
   return &day_fetch_;
 }
 
-// repeated .proto_ff.ContiRechargeDBProto.GearFetchInfo gear_fetch = 4;
+// repeated .proto_ff.GearFetchInfo gear_fetch = 4;
 inline int ContiRechargeDBProto::gear_fetch_size() const {
   return gear_fetch_.size();
 }
 inline void ContiRechargeDBProto::clear_gear_fetch() {
   gear_fetch_.Clear();
 }
-inline const ::proto_ff::ContiRechargeDBProto_GearFetchInfo& ContiRechargeDBProto::gear_fetch(int index) const {
+inline const ::proto_ff::GearFetchInfo& ContiRechargeDBProto::gear_fetch(int index) const {
   return gear_fetch_.Get(index);
 }
-inline ::proto_ff::ContiRechargeDBProto_GearFetchInfo* ContiRechargeDBProto::mutable_gear_fetch(int index) {
+inline ::proto_ff::GearFetchInfo* ContiRechargeDBProto::mutable_gear_fetch(int index) {
   return gear_fetch_.Mutable(index);
 }
-inline ::proto_ff::ContiRechargeDBProto_GearFetchInfo* ContiRechargeDBProto::add_gear_fetch() {
+inline ::proto_ff::GearFetchInfo* ContiRechargeDBProto::add_gear_fetch() {
   return gear_fetch_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ContiRechargeDBProto_GearFetchInfo >&
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::GearFetchInfo >&
 ContiRechargeDBProto::gear_fetch() const {
   return gear_fetch_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ContiRechargeDBProto_GearFetchInfo >*
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::GearFetchInfo >*
 ContiRechargeDBProto::mutable_gear_fetch() {
   return &gear_fetch_;
 }
 
 // -------------------------------------------------------------------
 
-// LimitSaleDBProto_ShopProto
+// ShopProto
 
 // optional int32 type = 1;
-inline bool LimitSaleDBProto_ShopProto::has_type() const {
+inline bool ShopProto::has_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void LimitSaleDBProto_ShopProto::set_has_type() {
+inline void ShopProto::set_has_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void LimitSaleDBProto_ShopProto::clear_has_type() {
+inline void ShopProto::clear_has_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void LimitSaleDBProto_ShopProto::clear_type() {
+inline void ShopProto::clear_type() {
   type_ = 0;
   clear_has_type();
 }
-inline ::google::protobuf::int32 LimitSaleDBProto_ShopProto::type() const {
+inline ::google::protobuf::int32 ShopProto::type() const {
   return type_;
 }
-inline void LimitSaleDBProto_ShopProto::set_type(::google::protobuf::int32 value) {
+inline void ShopProto::set_type(::google::protobuf::int32 value) {
   set_has_type();
   type_ = value;
 }
 
 // optional uint32 total = 2;
-inline bool LimitSaleDBProto_ShopProto::has_total() const {
+inline bool ShopProto::has_total() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void LimitSaleDBProto_ShopProto::set_has_total() {
+inline void ShopProto::set_has_total() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void LimitSaleDBProto_ShopProto::clear_has_total() {
+inline void ShopProto::clear_has_total() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void LimitSaleDBProto_ShopProto::clear_total() {
+inline void ShopProto::clear_total() {
   total_ = 0u;
   clear_has_total();
 }
-inline ::google::protobuf::uint32 LimitSaleDBProto_ShopProto::total() const {
+inline ::google::protobuf::uint32 ShopProto::total() const {
   return total_;
 }
-inline void LimitSaleDBProto_ShopProto::set_total(::google::protobuf::uint32 value) {
+inline void ShopProto::set_total(::google::protobuf::uint32 value) {
   set_has_total();
   total_ = value;
 }
 
 // repeated int32 fetch = 3;
-inline int LimitSaleDBProto_ShopProto::fetch_size() const {
+inline int ShopProto::fetch_size() const {
   return fetch_.size();
 }
-inline void LimitSaleDBProto_ShopProto::clear_fetch() {
+inline void ShopProto::clear_fetch() {
   fetch_.Clear();
 }
-inline ::google::protobuf::int32 LimitSaleDBProto_ShopProto::fetch(int index) const {
+inline ::google::protobuf::int32 ShopProto::fetch(int index) const {
   return fetch_.Get(index);
 }
-inline void LimitSaleDBProto_ShopProto::set_fetch(int index, ::google::protobuf::int32 value) {
+inline void ShopProto::set_fetch(int index, ::google::protobuf::int32 value) {
   fetch_.Set(index, value);
 }
-inline void LimitSaleDBProto_ShopProto::add_fetch(::google::protobuf::int32 value) {
+inline void ShopProto::add_fetch(::google::protobuf::int32 value) {
   fetch_.Add(value);
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-LimitSaleDBProto_ShopProto::fetch() const {
+ShopProto::fetch() const {
   return fetch_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-LimitSaleDBProto_ShopProto::mutable_fetch() {
+ShopProto::mutable_fetch() {
   return &fetch_;
 }
 
 // repeated .proto_ff.ComPair buy = 4;
-inline int LimitSaleDBProto_ShopProto::buy_size() const {
+inline int ShopProto::buy_size() const {
   return buy_.size();
 }
-inline void LimitSaleDBProto_ShopProto::clear_buy() {
+inline void ShopProto::clear_buy() {
   buy_.Clear();
 }
-inline const ::proto_ff::ComPair& LimitSaleDBProto_ShopProto::buy(int index) const {
+inline const ::proto_ff::ComPair& ShopProto::buy(int index) const {
   return buy_.Get(index);
 }
-inline ::proto_ff::ComPair* LimitSaleDBProto_ShopProto::mutable_buy(int index) {
+inline ::proto_ff::ComPair* ShopProto::mutable_buy(int index) {
   return buy_.Mutable(index);
 }
-inline ::proto_ff::ComPair* LimitSaleDBProto_ShopProto::add_buy() {
+inline ::proto_ff::ComPair* ShopProto::add_buy() {
   return buy_.Add();
 }
 inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
-LimitSaleDBProto_ShopProto::buy() const {
+ShopProto::buy() const {
   return buy_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
-LimitSaleDBProto_ShopProto::mutable_buy() {
+ShopProto::mutable_buy() {
   return &buy_;
 }
 
@@ -39705,27 +39700,27 @@ LimitSaleDBProto_ShopProto::mutable_buy() {
 
 // LimitSaleDBProto
 
-// repeated .proto_ff.LimitSaleDBProto.ShopProto shop = 1;
+// repeated .proto_ff.ShopProto shop = 1;
 inline int LimitSaleDBProto::shop_size() const {
   return shop_.size();
 }
 inline void LimitSaleDBProto::clear_shop() {
   shop_.Clear();
 }
-inline const ::proto_ff::LimitSaleDBProto_ShopProto& LimitSaleDBProto::shop(int index) const {
+inline const ::proto_ff::ShopProto& LimitSaleDBProto::shop(int index) const {
   return shop_.Get(index);
 }
-inline ::proto_ff::LimitSaleDBProto_ShopProto* LimitSaleDBProto::mutable_shop(int index) {
+inline ::proto_ff::ShopProto* LimitSaleDBProto::mutable_shop(int index) {
   return shop_.Mutable(index);
 }
-inline ::proto_ff::LimitSaleDBProto_ShopProto* LimitSaleDBProto::add_shop() {
+inline ::proto_ff::ShopProto* LimitSaleDBProto::add_shop() {
   return shop_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::LimitSaleDBProto_ShopProto >&
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ShopProto >&
 LimitSaleDBProto::shop() const {
   return shop_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::LimitSaleDBProto_ShopProto >*
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ShopProto >*
 LimitSaleDBProto::mutable_shop() {
   return &shop_;
 }

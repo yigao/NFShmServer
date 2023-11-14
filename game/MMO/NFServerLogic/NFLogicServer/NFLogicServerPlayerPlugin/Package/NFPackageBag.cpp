@@ -95,7 +95,7 @@ int NFPackageBag::LoadFromDB(const proto_ff::RoleDBUnitBagData *pUnitBagData)
             NFItem *pItem = NFItemMgr::MakeItemObj(protoItem.item_id());
             if (nullptr != pItem)
             {
-                if (!pItem->FromItemProto(protoItem))
+                if (!pItem->ReadFromPB(protoItem))
                 {
                     NFLogErrorFmt(NF_LOG_SYSTEMLOG, 0, "[logic] PackagePart::Init, SetItemProto failed....cid:%lu,index:%d, item_id:%lu,num:%ld,bind:%d..", m_pMaster->Cid(), protoItem.index(), protoItem.item_id(), protoItem.item_num(), protoItem.bind());
                     NFItemMgr::FreeItemObj(pItem);

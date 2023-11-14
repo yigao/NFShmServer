@@ -4160,6 +4160,70 @@ void LoginRewardDBProto_s::read_from_pbmsg(const ::proto_ff::LoginRewardDBProto 
 	}
 }
 
+DayFetchInfo_s::DayFetchInfo_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int DayFetchInfo_s::CreateInit() {
+	day = (int32_t)0;
+	return 0;
+}
+
+int DayFetchInfo_s::ResumeInit() {
+	return 0;
+}
+
+void DayFetchInfo_s::write_to_pbmsg(::proto_ff::DayFetchInfo & msg) const {
+	msg.set_day((int32_t)day);
+	for(int32_t i = 0; i < (int32_t)gear_lst.size(); ++i) {
+		msg.add_gear_lst((int32_t)gear_lst[i]);
+	}
+}
+
+void DayFetchInfo_s::read_from_pbmsg(const ::proto_ff::DayFetchInfo & msg) {
+	day = msg.day();
+	gear_lst.resize((int)msg.gear_lst_size() > (int)gear_lst.max_size() ? gear_lst.max_size() : msg.gear_lst_size());
+	for(int32_t i = 0; i < (int32_t)gear_lst.size(); ++i) {
+		gear_lst[i] = msg.gear_lst(i);
+	}
+}
+
+GearFetchInfo_s::GearFetchInfo_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int GearFetchInfo_s::CreateInit() {
+	gear = (int32_t)0;
+	return 0;
+}
+
+int GearFetchInfo_s::ResumeInit() {
+	return 0;
+}
+
+void GearFetchInfo_s::write_to_pbmsg(::proto_ff::GearFetchInfo & msg) const {
+	msg.set_gear((int32_t)gear);
+	for(int32_t i = 0; i < (int32_t)day_lst.size(); ++i) {
+		msg.add_day_lst((int32_t)day_lst[i]);
+	}
+}
+
+void GearFetchInfo_s::read_from_pbmsg(const ::proto_ff::GearFetchInfo & msg) {
+	gear = msg.gear();
+	day_lst.resize((int)msg.day_lst_size() > (int)day_lst.max_size() ? day_lst.max_size() : msg.day_lst_size());
+	for(int32_t i = 0; i < (int32_t)day_lst.size(); ++i) {
+		day_lst[i] = msg.day_lst(i);
+	}
+}
+
 ContiRechargeDBProto_s::ContiRechargeDBProto_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -4203,6 +4267,50 @@ void ContiRechargeDBProto_s::read_from_pbmsg(const ::proto_ff::ContiRechargeDBPr
 	for(int32_t i = 0; i < (int32_t)gear_fetch.size(); ++i) {
 		const ::proto_ff::GearFetchInfo & temp_gear_fetch = msg.gear_fetch(i);
 		gear_fetch[i].read_from_pbmsg(temp_gear_fetch);
+	}
+}
+
+ShopProto_s::ShopProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int ShopProto_s::CreateInit() {
+	type = (int32_t)0;
+	total = (uint32_t)0;
+	return 0;
+}
+
+int ShopProto_s::ResumeInit() {
+	return 0;
+}
+
+void ShopProto_s::write_to_pbmsg(::proto_ff::ShopProto & msg) const {
+	msg.set_type((int32_t)type);
+	msg.set_total((uint32_t)total);
+	for(int32_t i = 0; i < (int32_t)fetch.size(); ++i) {
+		msg.add_fetch((int32_t)fetch[i]);
+	}
+	for(int32_t i = 0; i < (int32_t)buy.size(); ++i) {
+		::proto_ff::ComPair* temp_buy = msg.add_buy();
+		buy[i].write_to_pbmsg(*temp_buy);
+	}
+}
+
+void ShopProto_s::read_from_pbmsg(const ::proto_ff::ShopProto & msg) {
+	type = msg.type();
+	total = msg.total();
+	fetch.resize((int)msg.fetch_size() > (int)fetch.max_size() ? fetch.max_size() : msg.fetch_size());
+	for(int32_t i = 0; i < (int32_t)fetch.size(); ++i) {
+		fetch[i] = msg.fetch(i);
+	}
+	buy.resize((int)msg.buy_size() > (int)buy.max_size() ? buy.max_size() : msg.buy_size());
+	for(int32_t i = 0; i < (int32_t)buy.size(); ++i) {
+		const ::proto_ff::ComPair & temp_buy = msg.buy(i);
+		buy[i].read_from_pbmsg(temp_buy);
 	}
 }
 

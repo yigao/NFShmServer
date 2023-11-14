@@ -64,6 +64,8 @@ enum PartType
     PART_TURN,				//神体
     PART_SOUL,				//战魂
     PART_GODRELIS,          //天神遗物
+    PART_MOFA,              //奇门八卦
+    PART_RUNE,				//符文
     PART_MAX,
 };
 

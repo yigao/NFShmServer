@@ -320,21 +320,21 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* LoginRewardDBProto_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   LoginRewardDBProto_reflection_ = NULL;
+const ::google::protobuf::Descriptor* DayFetchInfo_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  DayFetchInfo_reflection_ = NULL;
+const ::google::protobuf::Descriptor* GearFetchInfo_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  GearFetchInfo_reflection_ = NULL;
 const ::google::protobuf::Descriptor* ContiRechargeDBProto_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   ContiRechargeDBProto_reflection_ = NULL;
-const ::google::protobuf::Descriptor* ContiRechargeDBProto_DayFetchInfo_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* ShopProto_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  ContiRechargeDBProto_DayFetchInfo_reflection_ = NULL;
-const ::google::protobuf::Descriptor* ContiRechargeDBProto_GearFetchInfo_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  ContiRechargeDBProto_GearFetchInfo_reflection_ = NULL;
+  ShopProto_reflection_ = NULL;
 const ::google::protobuf::Descriptor* LimitSaleDBProto_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   LimitSaleDBProto_reflection_ = NULL;
-const ::google::protobuf::Descriptor* LimitSaleDBProto_ShopProto_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  LimitSaleDBProto_ShopProto_reflection_ = NULL;
 const ::google::protobuf::Descriptor* FestDetailDBProto_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   FestDetailDBProto_reflection_ = NULL;
@@ -2592,7 +2592,39 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LoginRewardDBProto));
-  ContiRechargeDBProto_descriptor_ = file->message_type(100);
+  DayFetchInfo_descriptor_ = file->message_type(100);
+  static const int DayFetchInfo_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DayFetchInfo, day_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DayFetchInfo, gear_lst_),
+  };
+  DayFetchInfo_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      DayFetchInfo_descriptor_,
+      DayFetchInfo::default_instance_,
+      DayFetchInfo_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DayFetchInfo, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DayFetchInfo, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(DayFetchInfo));
+  GearFetchInfo_descriptor_ = file->message_type(101);
+  static const int GearFetchInfo_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GearFetchInfo, gear_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GearFetchInfo, day_lst_),
+  };
+  GearFetchInfo_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      GearFetchInfo_descriptor_,
+      GearFetchInfo::default_instance_,
+      GearFetchInfo_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GearFetchInfo, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GearFetchInfo, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(GearFetchInfo));
+  ContiRechargeDBProto_descriptor_ = file->message_type(102);
   static const int ContiRechargeDBProto_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContiRechargeDBProto, recharge_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContiRechargeDBProto, supplement_),
@@ -2610,39 +2642,25 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ContiRechargeDBProto));
-  ContiRechargeDBProto_DayFetchInfo_descriptor_ = ContiRechargeDBProto_descriptor_->nested_type(0);
-  static const int ContiRechargeDBProto_DayFetchInfo_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContiRechargeDBProto_DayFetchInfo, day_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContiRechargeDBProto_DayFetchInfo, gear_lst_),
+  ShopProto_descriptor_ = file->message_type(103);
+  static const int ShopProto_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ShopProto, type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ShopProto, total_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ShopProto, fetch_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ShopProto, buy_),
   };
-  ContiRechargeDBProto_DayFetchInfo_reflection_ =
+  ShopProto_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      ContiRechargeDBProto_DayFetchInfo_descriptor_,
-      ContiRechargeDBProto_DayFetchInfo::default_instance_,
-      ContiRechargeDBProto_DayFetchInfo_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContiRechargeDBProto_DayFetchInfo, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContiRechargeDBProto_DayFetchInfo, _unknown_fields_),
+      ShopProto_descriptor_,
+      ShopProto::default_instance_,
+      ShopProto_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ShopProto, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ShopProto, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(ContiRechargeDBProto_DayFetchInfo));
-  ContiRechargeDBProto_GearFetchInfo_descriptor_ = ContiRechargeDBProto_descriptor_->nested_type(1);
-  static const int ContiRechargeDBProto_GearFetchInfo_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContiRechargeDBProto_GearFetchInfo, gear_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContiRechargeDBProto_GearFetchInfo, day_lst_),
-  };
-  ContiRechargeDBProto_GearFetchInfo_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      ContiRechargeDBProto_GearFetchInfo_descriptor_,
-      ContiRechargeDBProto_GearFetchInfo::default_instance_,
-      ContiRechargeDBProto_GearFetchInfo_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContiRechargeDBProto_GearFetchInfo, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ContiRechargeDBProto_GearFetchInfo, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(ContiRechargeDBProto_GearFetchInfo));
-  LimitSaleDBProto_descriptor_ = file->message_type(101);
+      sizeof(ShopProto));
+  LimitSaleDBProto_descriptor_ = file->message_type(104);
   static const int LimitSaleDBProto_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LimitSaleDBProto, shop_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LimitSaleDBProto, fresh_time_),
@@ -2658,25 +2676,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LimitSaleDBProto));
-  LimitSaleDBProto_ShopProto_descriptor_ = LimitSaleDBProto_descriptor_->nested_type(0);
-  static const int LimitSaleDBProto_ShopProto_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LimitSaleDBProto_ShopProto, type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LimitSaleDBProto_ShopProto, total_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LimitSaleDBProto_ShopProto, fetch_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LimitSaleDBProto_ShopProto, buy_),
-  };
-  LimitSaleDBProto_ShopProto_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      LimitSaleDBProto_ShopProto_descriptor_,
-      LimitSaleDBProto_ShopProto::default_instance_,
-      LimitSaleDBProto_ShopProto_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LimitSaleDBProto_ShopProto, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LimitSaleDBProto_ShopProto, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(LimitSaleDBProto_ShopProto));
-  FestDetailDBProto_descriptor_ = file->message_type(102);
+  FestDetailDBProto_descriptor_ = file->message_type(105);
   static const int FestDetailDBProto_offsets_[25] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDetailDBProto, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDetailDBProto, period_),
@@ -2715,7 +2715,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDetailDBProto));
-  FestDBData_descriptor_ = file->message_type(103);
+  FestDBData_descriptor_ = file->message_type(106);
   static const int FestDBData_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDBData, info_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDBData, close_),
@@ -2731,7 +2731,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDBData));
-  ShadowDBProto_descriptor_ = file->message_type(104);
+  ShadowDBProto_descriptor_ = file->message_type(107);
   static const int ShadowDBProto_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ShadowDBProto, lev_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ShadowDBProto, exp_),
@@ -2751,7 +2751,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ShadowDBProto));
-  HaloDBProto_descriptor_ = file->message_type(105);
+  HaloDBProto_descriptor_ = file->message_type(108);
   static const int HaloDBProto_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HaloDBProto, info_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HaloDBProto, curid_),
@@ -2768,7 +2768,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(HaloDBProto));
-  DragonDBData_descriptor_ = file->message_type(106);
+  DragonDBData_descriptor_ = file->message_type(109);
   static const int DragonDBData_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DragonDBData, shadow_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DragonDBData, halo_),
@@ -2784,7 +2784,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DragonDBData));
-  RoleDBTurnData_descriptor_ = file->message_type(107);
+  RoleDBTurnData_descriptor_ = file->message_type(110);
   static const int RoleDBTurnData_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBTurnData, entrys_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBTurnData, simple_),
@@ -2803,7 +2803,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleDBTurnData));
-  GMADbData_descriptor_ = file->message_type(108);
+  GMADbData_descriptor_ = file->message_type(111);
   static const int GMADbData_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GMADbData, remaintime_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GMADbData, freetimeremain_),
@@ -2824,7 +2824,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GMADbData));
-  SoulDBData_descriptor_ = file->message_type(109);
+  SoulDBData_descriptor_ = file->message_type(112);
   static const int SoulDBData_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SoulDBData, entry_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SoulDBData, pool_),
@@ -2841,7 +2841,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SoulDBData));
-  MoFaDBData_descriptor_ = file->message_type(110);
+  MoFaDBData_descriptor_ = file->message_type(113);
   static const int MoFaDBData_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MoFaDBData, data_),
   };
@@ -2856,7 +2856,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MoFaDBData));
-  RuneDBData_descriptor_ = file->message_type(111);
+  RuneDBData_descriptor_ = file->message_type(114);
   static const int RuneDBData_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RuneDBData, entrys_),
   };
@@ -2871,7 +2871,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RuneDBData));
-  RoleDBData_descriptor_ = file->message_type(112);
+  RoleDBData_descriptor_ = file->message_type(115);
   static const int RoleDBData_offsets_[54] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBData, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBData, zid_),
@@ -2939,7 +2939,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleDBData));
-  RedWaitDBProto_descriptor_ = file->message_type(113);
+  RedWaitDBProto_descriptor_ = file->message_type(116);
   static const int RedWaitDBProto_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RedWaitDBProto, idx_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RedWaitDBProto, cfgid_),
@@ -2956,7 +2956,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RedWaitDBProto));
-  RedTriggerDBProto_descriptor_ = file->message_type(114);
+  RedTriggerDBProto_descriptor_ = file->message_type(117);
   static const int RedTriggerDBProto_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RedTriggerDBProto, cfgid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RedTriggerDBProto, count_),
@@ -2972,7 +2972,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RedTriggerDBProto));
-  RoleRedDBData_descriptor_ = file->message_type(115);
+  RoleRedDBData_descriptor_ = file->message_type(118);
   static const int RoleRedDBData_offsets_[10] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleRedDBData, bdia_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleRedDBData, magic_),
@@ -2996,7 +2996,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleRedDBData));
-  RedFetchDBProto_descriptor_ = file->message_type(116);
+  RedFetchDBProto_descriptor_ = file->message_type(119);
   static const int RedFetchDBProto_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RedFetchDBProto, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RedFetchDBProto, val_),
@@ -3013,7 +3013,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RedFetchDBProto));
-  RedFetchListDBProto_descriptor_ = file->message_type(117);
+  RedFetchListDBProto_descriptor_ = file->message_type(120);
   static const int RedFetchListDBProto_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RedFetchListDBProto, info_),
   };
@@ -3028,7 +3028,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RedFetchListDBProto));
-  RedSendDBProto_descriptor_ = file->message_type(118);
+  RedSendDBProto_descriptor_ = file->message_type(121);
   static const int RedSendDBProto_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RedSendDBProto, idx_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RedSendDBProto, cfgid_),
@@ -3049,7 +3049,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RedSendDBProto));
-  RedDBData_descriptor_ = file->message_type(119);
+  RedDBData_descriptor_ = file->message_type(122);
   static const int RedDBData_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RedDBData, wait_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RedDBData, trigger_lst_),
@@ -3068,7 +3068,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RedDBData));
-  RoleMirrorData_descriptor_ = file->message_type(120);
+  RoleMirrorData_descriptor_ = file->message_type(123);
   static const int RoleMirrorData_offsets_[12] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleMirrorData, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleMirrorData, type_),
@@ -3095,7 +3095,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleMirrorData));
   RoleMirrorData_Type_descriptor_ = RoleMirrorData_descriptor_->enum_type(0);
-  FactionMemDBProto_descriptor_ = file->message_type(121);
+  FactionMemDBProto_descriptor_ = file->message_type(124);
   static const int FactionMemDBProto_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionMemDBProto, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionMemDBProto, duty_),
@@ -3113,7 +3113,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionMemDBProto));
-  FactionMultMemDBProto_descriptor_ = file->message_type(122);
+  FactionMultMemDBProto_descriptor_ = file->message_type(125);
   static const int FactionMultMemDBProto_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionMultMemDBProto, mem_lst_),
   };
@@ -3128,7 +3128,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionMultMemDBProto));
-  FactionApplyDBProto_descriptor_ = file->message_type(123);
+  FactionApplyDBProto_descriptor_ = file->message_type(126);
   static const int FactionApplyDBProto_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionApplyDBProto, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionApplyDBProto, time_),
@@ -3144,7 +3144,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionApplyDBProto));
-  FactionMultApplyDBProto_descriptor_ = file->message_type(124);
+  FactionMultApplyDBProto_descriptor_ = file->message_type(127);
   static const int FactionMultApplyDBProto_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionMultApplyDBProto, apply_lst_),
   };
@@ -3159,7 +3159,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionMultApplyDBProto));
-  FactionRecordDBProto_descriptor_ = file->message_type(125);
+  FactionRecordDBProto_descriptor_ = file->message_type(128);
   static const int FactionRecordDBProto_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionRecordDBProto, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionRecordDBProto, time_),
@@ -3177,7 +3177,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionRecordDBProto));
-  FactionMutRecordDBProto_descriptor_ = file->message_type(126);
+  FactionMutRecordDBProto_descriptor_ = file->message_type(129);
   static const int FactionMutRecordDBProto_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionMutRecordDBProto, record_lst_),
   };
@@ -3192,7 +3192,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionMutRecordDBProto));
-  FactionDBBase_descriptor_ = file->message_type(127);
+  FactionDBBase_descriptor_ = file->message_type(130);
   static const int FactionDBBase_offsets_[18] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionDBBase, faction_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionDBBase, name_),
@@ -3224,7 +3224,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionDBBase));
-  FactionBeastHarmDBProto_descriptor_ = file->message_type(128);
+  FactionBeastHarmDBProto_descriptor_ = file->message_type(131);
   static const int FactionBeastHarmDBProto_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionBeastHarmDBProto, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionBeastHarmDBProto, harm_),
@@ -3240,7 +3240,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionBeastHarmDBProto));
-  FactionBeastDBData_descriptor_ = file->message_type(129);
+  FactionBeastDBData_descriptor_ = file->message_type(132);
   static const int FactionBeastDBData_offsets_[10] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionBeastDBData, harm_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionBeastDBData, star_),
@@ -3264,7 +3264,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionBeastDBData));
-  FactionGuardHarmDBProto_descriptor_ = file->message_type(130);
+  FactionGuardHarmDBProto_descriptor_ = file->message_type(133);
   static const int FactionGuardHarmDBProto_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionGuardHarmDBProto, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionGuardHarmDBProto, name_),
@@ -3281,7 +3281,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionGuardHarmDBProto));
-  FactionGuardDBData_descriptor_ = file->message_type(131);
+  FactionGuardDBData_descriptor_ = file->message_type(134);
   static const int FactionGuardDBData_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionGuardDBData, harm_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionGuardDBData, old_harm_),
@@ -3298,7 +3298,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionGuardDBData));
-  FactionMoyu_descriptor_ = file->message_type(132);
+  FactionMoyu_descriptor_ = file->message_type(135);
   static const int FactionMoyu_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionMoyu, week_harm_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionMoyu, last_week_harm_),
@@ -3320,7 +3320,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionMoyu));
-  FactionDBData_descriptor_ = file->message_type(133);
+  FactionDBData_descriptor_ = file->message_type(136);
   static const int FactionDBData_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionDBData, beast_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionDBData, guard_),
@@ -3337,7 +3337,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionDBData));
-  FactionAllDBData_descriptor_ = file->message_type(134);
+  FactionAllDBData_descriptor_ = file->message_type(137);
   static const int FactionAllDBData_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionAllDBData, faction_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionAllDBData, base_),
@@ -3354,7 +3354,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionAllDBData));
-  FactionDBMoyuRankEntry_descriptor_ = file->message_type(135);
+  FactionDBMoyuRankEntry_descriptor_ = file->message_type(138);
   static const int FactionDBMoyuRankEntry_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionDBMoyuRankEntry, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionDBMoyuRankEntry, name_),
@@ -3373,7 +3373,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionDBMoyuRankEntry));
-  FactionDBMoyuRank_descriptor_ = file->message_type(136);
+  FactionDBMoyuRank_descriptor_ = file->message_type(139);
   static const int FactionDBMoyuRank_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionDBMoyuRank, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionDBMoyuRank, group_),
@@ -3391,7 +3391,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionDBMoyuRank));
-  FactionDBMoyuRankDB_descriptor_ = file->message_type(137);
+  FactionDBMoyuRankDB_descriptor_ = file->message_type(140);
   static const int FactionDBMoyuRankDB_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionDBMoyuRankDB, infos_),
   };
@@ -3406,7 +3406,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionDBMoyuRankDB));
-  RoleListDBReq_descriptor_ = file->message_type(138);
+  RoleListDBReq_descriptor_ = file->message_type(141);
   static const int RoleListDBReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleListDBReq, reqid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleListDBReq, uid_),
@@ -3424,7 +3424,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleListDBReq));
-  RoleListDBRsp_descriptor_ = file->message_type(139);
+  RoleListDBRsp_descriptor_ = file->message_type(142);
   static const int RoleListDBRsp_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleListDBRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleListDBRsp, reqid_),
@@ -3444,7 +3444,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleListDBRsp));
-  CreateRoleDBReq_descriptor_ = file->message_type(140);
+  CreateRoleDBReq_descriptor_ = file->message_type(143);
   static const int CreateRoleDBReq_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateRoleDBReq, reqid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateRoleDBReq, zid_),
@@ -3466,7 +3466,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CreateRoleDBReq));
-  CreateRoleDBRsp_descriptor_ = file->message_type(141);
+  CreateRoleDBRsp_descriptor_ = file->message_type(144);
   static const int CreateRoleDBRsp_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateRoleDBRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateRoleDBRsp, reqid_),
@@ -3487,7 +3487,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CreateRoleDBRsp));
-  RoleInfoDBReq_descriptor_ = file->message_type(142);
+  RoleInfoDBReq_descriptor_ = file->message_type(145);
   static const int RoleInfoDBReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleInfoDBReq, reqid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleInfoDBReq, cid_),
@@ -3504,7 +3504,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleInfoDBReq));
-  RoleInfoDBRsp_descriptor_ = file->message_type(143);
+  RoleInfoDBRsp_descriptor_ = file->message_type(146);
   static const int RoleInfoDBRsp_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleInfoDBRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleInfoDBRsp, reqid_),
@@ -3523,7 +3523,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleInfoDBRsp));
-  RoleInfoUpdateDBReq_descriptor_ = file->message_type(144);
+  RoleInfoUpdateDBReq_descriptor_ = file->message_type(147);
   static const int RoleInfoUpdateDBReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleInfoUpdateDBReq, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleInfoUpdateDBReq, uid_),
@@ -3540,7 +3540,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleInfoUpdateDBReq));
-  RoleChgNameDBReq_descriptor_ = file->message_type(145);
+  RoleChgNameDBReq_descriptor_ = file->message_type(148);
   static const int RoleChgNameDBReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleChgNameDBReq, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleChgNameDBReq, name_),
@@ -3556,7 +3556,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleChgNameDBReq));
-  RoleChgNameDBRsp_descriptor_ = file->message_type(146);
+  RoleChgNameDBRsp_descriptor_ = file->message_type(149);
   static const int RoleChgNameDBRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleChgNameDBRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleChgNameDBRsp, cid_),
@@ -3573,7 +3573,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleChgNameDBRsp));
-  RoleSimpleListDBReq_descriptor_ = file->message_type(147);
+  RoleSimpleListDBReq_descriptor_ = file->message_type(150);
   static const int RoleSimpleListDBReq_offsets_[1] = {
   };
   RoleSimpleListDBReq_reflection_ =
@@ -3587,7 +3587,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleSimpleListDBReq));
-  RoleSimpleListDBRsp_descriptor_ = file->message_type(148);
+  RoleSimpleListDBRsp_descriptor_ = file->message_type(151);
   static const int RoleSimpleListDBRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleSimpleListDBRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleSimpleListDBRsp, info_),
@@ -3604,7 +3604,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleSimpleListDBRsp));
-  CreatureTransLogicDBReq_descriptor_ = file->message_type(149);
+  CreatureTransLogicDBReq_descriptor_ = file->message_type(152);
   static const int CreatureTransLogicDBReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureTransLogicDBReq, trans_data_),
   };
@@ -3619,7 +3619,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CreatureTransLogicDBReq));
-  CreatureTransLogicDBRsp_descriptor_ = file->message_type(150);
+  CreatureTransLogicDBRsp_descriptor_ = file->message_type(153);
   static const int CreatureTransLogicDBRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureTransLogicDBRsp, retcode_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureTransLogicDBRsp, cid_),
@@ -3635,7 +3635,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CreatureTransLogicDBRsp));
-  NewMailDBInfo_descriptor_ = file->message_type(151);
+  NewMailDBInfo_descriptor_ = file->message_type(154);
   static const int NewMailDBInfo_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NewMailDBInfo, data_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NewMailDBInfo, result_),
@@ -3651,7 +3651,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NewMailDBInfo));
-  MailDBOperateInfo_descriptor_ = file->message_type(152);
+  MailDBOperateInfo_descriptor_ = file->message_type(155);
   static const int MailDBOperateInfo_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MailDBOperateInfo, mid_lst_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MailDBOperateInfo, result_),
@@ -3667,7 +3667,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MailDBOperateInfo));
-  SaveMailDBReq_descriptor_ = file->message_type(153);
+  SaveMailDBReq_descriptor_ = file->message_type(156);
   static const int SaveMailDBReq_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SaveMailDBReq, charid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SaveMailDBReq, info_),
@@ -3687,7 +3687,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SaveMailDBReq));
-  SaveMailDBRsp_descriptor_ = file->message_type(154);
+  SaveMailDBRsp_descriptor_ = file->message_type(157);
   static const int SaveMailDBRsp_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SaveMailDBRsp, charid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SaveMailDBRsp, info_),
@@ -3707,7 +3707,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SaveMailDBRsp));
-  CharacterMailDBRequest_descriptor_ = file->message_type(155);
+  CharacterMailDBRequest_descriptor_ = file->message_type(158);
   static const int CharacterMailDBRequest_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CharacterMailDBRequest, charid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CharacterMailDBRequest, zone_mail_flag_),
@@ -3725,7 +3725,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CharacterMailDBRequest));
-  CharacterMailDBResponse_descriptor_ = file->message_type(156);
+  CharacterMailDBResponse_descriptor_ = file->message_type(159);
   static const int CharacterMailDBResponse_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CharacterMailDBResponse, charid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CharacterMailDBResponse, info_),
@@ -3744,7 +3744,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CharacterMailDBResponse));
-  MaxMailIDRequest_descriptor_ = file->message_type(157);
+  MaxMailIDRequest_descriptor_ = file->message_type(160);
   static const int MaxMailIDRequest_offsets_[1] = {
   };
   MaxMailIDRequest_reflection_ =
@@ -3758,7 +3758,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MaxMailIDRequest));
-  MaxMailIDResponse_descriptor_ = file->message_type(158);
+  MaxMailIDResponse_descriptor_ = file->message_type(161);
   static const int MaxMailIDResponse_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MaxMailIDResponse, maxzonemailid_),
   };
@@ -3773,7 +3773,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MaxMailIDResponse));
-  DeleteCharacterMail_descriptor_ = file->message_type(159);
+  DeleteCharacterMail_descriptor_ = file->message_type(162);
   static const int DeleteCharacterMail_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeleteCharacterMail, charid_),
   };
@@ -3788,7 +3788,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeleteCharacterMail));
-  ZoneMailSaveRsp_descriptor_ = file->message_type(160);
+  ZoneMailSaveRsp_descriptor_ = file->message_type(163);
   static const int ZoneMailSaveRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZoneMailSaveRsp, mailid_),
   };
@@ -3803,7 +3803,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ZoneMailSaveRsp));
-  ZoneMailTransCharacterMailReq_descriptor_ = file->message_type(161);
+  ZoneMailTransCharacterMailReq_descriptor_ = file->message_type(164);
   static const int ZoneMailTransCharacterMailReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZoneMailTransCharacterMailReq, mailid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZoneMailTransCharacterMailReq, cid_),
@@ -3820,7 +3820,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ZoneMailTransCharacterMailReq));
-  ZoneMailTransCharacterMailRsp_descriptor_ = file->message_type(162);
+  ZoneMailTransCharacterMailRsp_descriptor_ = file->message_type(165);
   static const int ZoneMailTransCharacterMailRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZoneMailTransCharacterMailRsp, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZoneMailTransCharacterMailRsp, data_),
@@ -3837,7 +3837,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ZoneMailTransCharacterMailRsp));
-  WebMailDBDataReq_descriptor_ = file->message_type(163);
+  WebMailDBDataReq_descriptor_ = file->message_type(166);
   static const int WebMailDBDataReq_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WebMailDBDataReq, op_type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WebMailDBDataReq, cid_),
@@ -3857,7 +3857,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(WebMailDBDataReq));
-  WebMailDBDataRsp_descriptor_ = file->message_type(164);
+  WebMailDBDataRsp_descriptor_ = file->message_type(167);
   static const int WebMailDBDataRsp_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WebMailDBDataRsp, op_type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WebMailDBDataRsp, cid_),
@@ -3878,7 +3878,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(WebMailDBDataRsp));
-  FriendDBInfo_descriptor_ = file->message_type(165);
+  FriendDBInfo_descriptor_ = file->message_type(168);
   static const int FriendDBInfo_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FriendDBInfo, charid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FriendDBInfo, data_),
@@ -3894,7 +3894,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FriendDBInfo));
-  FriendDBRequest_descriptor_ = file->message_type(166);
+  FriendDBRequest_descriptor_ = file->message_type(169);
   static const int FriendDBRequest_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FriendDBRequest, charid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FriendDBRequest, dstid_lst_),
@@ -3913,7 +3913,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FriendDBRequest));
-  FriendDBResponse_descriptor_ = file->message_type(167);
+  FriendDBResponse_descriptor_ = file->message_type(170);
   static const int FriendDBResponse_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FriendDBResponse, retcode_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FriendDBResponse, charid_),
@@ -3934,7 +3934,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FriendDBResponse));
-  AllFriendDBRequest_descriptor_ = file->message_type(168);
+  AllFriendDBRequest_descriptor_ = file->message_type(171);
   static const int AllFriendDBRequest_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AllFriendDBRequest, offset_),
   };
@@ -3949,7 +3949,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(AllFriendDBRequest));
-  AllFriendDBResponse_descriptor_ = file->message_type(169);
+  AllFriendDBResponse_descriptor_ = file->message_type(172);
   static const int AllFriendDBResponse_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AllFriendDBResponse, retcode_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AllFriendDBResponse, offset_),
@@ -3966,7 +3966,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(AllFriendDBResponse));
-  SaveFriendDBRequest_descriptor_ = file->message_type(170);
+  SaveFriendDBRequest_descriptor_ = file->message_type(173);
   static const int SaveFriendDBRequest_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SaveFriendDBRequest, info_),
   };
@@ -3981,7 +3981,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SaveFriendDBRequest));
-  DelteFriendDBRequest_descriptor_ = file->message_type(171);
+  DelteFriendDBRequest_descriptor_ = file->message_type(174);
   static const int DelteFriendDBRequest_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DelteFriendDBRequest, charid_),
   };
@@ -3996,7 +3996,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DelteFriendDBRequest));
-  GlobalDBRequst_descriptor_ = file->message_type(172);
+  GlobalDBRequst_descriptor_ = file->message_type(175);
   static const int GlobalDBRequst_offsets_[1] = {
   };
   GlobalDBRequst_reflection_ =
@@ -4010,7 +4010,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GlobalDBRequst));
-  GlobalDBEntry_descriptor_ = file->message_type(173);
+  GlobalDBEntry_descriptor_ = file->message_type(176);
   static const int GlobalDBEntry_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GlobalDBEntry, type_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GlobalDBEntry, data_),
@@ -4026,7 +4026,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GlobalDBEntry));
-  GlobalDBResponse_descriptor_ = file->message_type(174);
+  GlobalDBResponse_descriptor_ = file->message_type(177);
   static const int GlobalDBResponse_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GlobalDBResponse, entry_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GlobalDBResponse, isfinish_),
@@ -4042,7 +4042,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GlobalDBResponse));
-  GlobalDBSetRequest_descriptor_ = file->message_type(175);
+  GlobalDBSetRequest_descriptor_ = file->message_type(178);
   static const int GlobalDBSetRequest_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GlobalDBSetRequest, type_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GlobalDBSetRequest, data_),
@@ -4058,7 +4058,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GlobalDBSetRequest));
-  GlobalDBSetResponse_descriptor_ = file->message_type(176);
+  GlobalDBSetResponse_descriptor_ = file->message_type(179);
   static const int GlobalDBSetResponse_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GlobalDBSetResponse, retcode_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GlobalDBSetResponse, type_id_),
@@ -4074,7 +4074,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GlobalDBSetResponse));
-  GlobalComData_descriptor_ = file->message_type(177);
+  GlobalComData_descriptor_ = file->message_type(180);
   static const int GlobalComData_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GlobalComData, towerdupreward_),
   };
@@ -4089,7 +4089,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GlobalComData));
-  GlobalYaotaDupDBEntry_descriptor_ = file->message_type(178);
+  GlobalYaotaDupDBEntry_descriptor_ = file->message_type(181);
   static const int GlobalYaotaDupDBEntry_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GlobalYaotaDupDBEntry, dupid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GlobalYaotaDupDBEntry, info_),
@@ -4106,7 +4106,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GlobalYaotaDupDBEntry));
-  GlobalYaotaDupDBData_descriptor_ = file->message_type(179);
+  GlobalYaotaDupDBData_descriptor_ = file->message_type(182);
   static const int GlobalYaotaDupDBData_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GlobalYaotaDupDBData, entrys_),
   };
@@ -4121,7 +4121,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GlobalYaotaDupDBData));
-  ActDBProto_descriptor_ = file->message_type(180);
+  ActDBProto_descriptor_ = file->message_type(183);
   static const int ActDBProto_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ActDBProto, actid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ActDBProto, zid_),
@@ -4138,7 +4138,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ActDBProto));
-  ActDBReq_descriptor_ = file->message_type(181);
+  ActDBReq_descriptor_ = file->message_type(184);
   static const int ActDBReq_offsets_[1] = {
   };
   ActDBReq_reflection_ =
@@ -4152,7 +4152,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ActDBReq));
-  ActDBRsp_descriptor_ = file->message_type(182);
+  ActDBRsp_descriptor_ = file->message_type(185);
   static const int ActDBRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ActDBRsp, lst_),
   };
@@ -4167,7 +4167,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ActDBRsp));
-  ActSaveDBReq_descriptor_ = file->message_type(183);
+  ActSaveDBReq_descriptor_ = file->message_type(186);
   static const int ActSaveDBReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ActSaveDBReq, lst_),
   };
@@ -4182,7 +4182,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ActSaveDBReq));
-  AllArenaDBRequest_descriptor_ = file->message_type(184);
+  AllArenaDBRequest_descriptor_ = file->message_type(187);
   static const int AllArenaDBRequest_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AllArenaDBRequest, offset_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AllArenaDBRequest, retnum_),
@@ -4198,7 +4198,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(AllArenaDBRequest));
-  ArenaDBInfo_descriptor_ = file->message_type(185);
+  ArenaDBInfo_descriptor_ = file->message_type(188);
   static const int ArenaDBInfo_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ArenaDBInfo, charid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ArenaDBInfo, rankid_),
@@ -4214,7 +4214,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ArenaDBInfo));
-  ArenaMoreDBInfo_descriptor_ = file->message_type(186);
+  ArenaMoreDBInfo_descriptor_ = file->message_type(189);
   static const int ArenaMoreDBInfo_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ArenaMoreDBInfo, info_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ArenaMoreDBInfo, day_),
@@ -4232,7 +4232,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ArenaMoreDBInfo));
-  AllArenaDBResponse_descriptor_ = file->message_type(187);
+  AllArenaDBResponse_descriptor_ = file->message_type(190);
   static const int AllArenaDBResponse_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AllArenaDBResponse, retcode_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AllArenaDBResponse, offset_),
@@ -4249,7 +4249,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(AllArenaDBResponse));
-  SaveArenaDBRequest_descriptor_ = file->message_type(188);
+  SaveArenaDBRequest_descriptor_ = file->message_type(191);
   static const int SaveArenaDBRequest_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SaveArenaDBRequest, info_),
   };
@@ -4264,7 +4264,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SaveArenaDBRequest));
-  DeleteArenaDBRequest_descriptor_ = file->message_type(189);
+  DeleteArenaDBRequest_descriptor_ = file->message_type(192);
   static const int DeleteArenaDBRequest_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeleteArenaDBRequest, charid_),
   };
@@ -4279,7 +4279,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeleteArenaDBRequest));
-  RoleMirrorDBReq_descriptor_ = file->message_type(190);
+  RoleMirrorDBReq_descriptor_ = file->message_type(193);
   static const int RoleMirrorDBReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleMirrorDBReq, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleMirrorDBReq, int_param_),
@@ -4297,7 +4297,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleMirrorDBReq));
-  RoleMirrorDBRsp_descriptor_ = file->message_type(191);
+  RoleMirrorDBRsp_descriptor_ = file->message_type(194);
   static const int RoleMirrorDBRsp_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleMirrorDBRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleMirrorDBRsp, cid_),
@@ -4317,7 +4317,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleMirrorDBRsp));
-  FactionDataDBReq_descriptor_ = file->message_type(192);
+  FactionDataDBReq_descriptor_ = file->message_type(195);
   static const int FactionDataDBReq_offsets_[1] = {
   };
   FactionDataDBReq_reflection_ =
@@ -4331,7 +4331,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionDataDBReq));
-  FactionDataDBRsp_descriptor_ = file->message_type(193);
+  FactionDataDBRsp_descriptor_ = file->message_type(196);
   static const int FactionDataDBRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionDataDBRsp, data_lst_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionDataDBRsp, finish_),
@@ -4347,7 +4347,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionDataDBRsp));
-  FactionSaveDBReq_descriptor_ = file->message_type(194);
+  FactionSaveDBReq_descriptor_ = file->message_type(197);
   static const int FactionSaveDBReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionSaveDBReq, data_),
   };
@@ -4362,7 +4362,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionSaveDBReq));
-  FactionDelDBReq_descriptor_ = file->message_type(195);
+  FactionDelDBReq_descriptor_ = file->message_type(198);
   static const int FactionDelDBReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionDelDBReq, faction_id_),
   };
@@ -4377,7 +4377,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionDelDBReq));
-  FactionRedDBReq_descriptor_ = file->message_type(196);
+  FactionRedDBReq_descriptor_ = file->message_type(199);
   static const int FactionRedDBReq_offsets_[1] = {
   };
   FactionRedDBReq_reflection_ =
@@ -4391,7 +4391,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionRedDBReq));
-  FactionRedDBRsp_descriptor_ = file->message_type(197);
+  FactionRedDBRsp_descriptor_ = file->message_type(200);
   static const int FactionRedDBRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionRedDBRsp, data_lst_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionRedDBRsp, finish_),
@@ -4407,7 +4407,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionRedDBRsp));
-  FactionRedSaveDBReq_descriptor_ = file->message_type(198);
+  FactionRedSaveDBReq_descriptor_ = file->message_type(201);
   static const int FactionRedSaveDBReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionRedSaveDBReq, faction_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionRedSaveDBReq, data0_),
@@ -4425,7 +4425,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionRedSaveDBReq));
-  FactionRedDelDBReq_descriptor_ = file->message_type(199);
+  FactionRedDelDBReq_descriptor_ = file->message_type(202);
   static const int FactionRedDelDBReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionRedDelDBReq, faction_id_),
   };
@@ -4440,7 +4440,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionRedDelDBReq));
-  RoleRedDBReq_descriptor_ = file->message_type(200);
+  RoleRedDBReq_descriptor_ = file->message_type(203);
   static const int RoleRedDBReq_offsets_[1] = {
   };
   RoleRedDBReq_reflection_ =
@@ -4454,7 +4454,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleRedDBReq));
-  RoleRedDBRsp_descriptor_ = file->message_type(201);
+  RoleRedDBRsp_descriptor_ = file->message_type(204);
   static const int RoleRedDBRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleRedDBRsp, data_lst_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleRedDBRsp, finish_),
@@ -4470,7 +4470,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleRedDBRsp));
-  ComLoadDBReq_descriptor_ = file->message_type(202);
+  ComLoadDBReq_descriptor_ = file->message_type(205);
   static const int ComLoadDBReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComLoadDBReq, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComLoadDBReq, table_name_),
@@ -4487,7 +4487,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ComLoadDBReq));
-  ComLoadDBRsp_descriptor_ = file->message_type(203);
+  ComLoadDBRsp_descriptor_ = file->message_type(206);
   static const int ComLoadDBRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComLoadDBRsp, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComLoadDBRsp, data_),
@@ -4503,7 +4503,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ComLoadDBRsp));
-  ComLoadAllDBReq_descriptor_ = file->message_type(204);
+  ComLoadAllDBReq_descriptor_ = file->message_type(207);
   static const int ComLoadAllDBReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComLoadAllDBReq, table_name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComLoadAllDBReq, cmd_),
@@ -4519,7 +4519,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ComLoadAllDBReq));
-  ComDBProto_descriptor_ = file->message_type(205);
+  ComDBProto_descriptor_ = file->message_type(208);
   static const int ComDBProto_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComDBProto, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComDBProto, data_),
@@ -4535,7 +4535,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ComDBProto));
-  ComLoadAllDBRsp_descriptor_ = file->message_type(206);
+  ComLoadAllDBRsp_descriptor_ = file->message_type(209);
   static const int ComLoadAllDBRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComLoadAllDBRsp, data_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComLoadAllDBRsp, is_finish_),
@@ -4551,7 +4551,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ComLoadAllDBRsp));
-  ComSaveDBReq_descriptor_ = file->message_type(207);
+  ComSaveDBReq_descriptor_ = file->message_type(210);
   static const int ComSaveDBReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComSaveDBReq, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComSaveDBReq, data_),
@@ -4568,7 +4568,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ComSaveDBReq));
-  ComDelDBReq_descriptor_ = file->message_type(208);
+  ComDelDBReq_descriptor_ = file->message_type(211);
   static const int ComDelDBReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComDelDBReq, table_name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ComDelDBReq, id_lst_),
@@ -4584,7 +4584,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ComDelDBReq));
-  MarryApply_descriptor_ = file->message_type(209);
+  MarryApply_descriptor_ = file->message_type(212);
   static const int MarryApply_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarryApply, apply_dst_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarryApply, time_),
@@ -4601,7 +4601,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MarryApply));
-  MarrySimpleInfo_descriptor_ = file->message_type(210);
+  MarrySimpleInfo_descriptor_ = file->message_type(213);
   static const int MarrySimpleInfo_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarrySimpleInfo, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarrySimpleInfo, dst_id_),
@@ -4621,7 +4621,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MarrySimpleInfo));
-  MarryDBLoadReq_descriptor_ = file->message_type(211);
+  MarryDBLoadReq_descriptor_ = file->message_type(214);
   static const int MarryDBLoadReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarryDBLoadReq, offset_),
   };
@@ -4636,7 +4636,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MarryDBLoadReq));
-  MarryDBLoadRsp_descriptor_ = file->message_type(212);
+  MarryDBLoadRsp_descriptor_ = file->message_type(215);
   static const int MarryDBLoadRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarryDBLoadRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarryDBLoadRsp, offset_),
@@ -4653,7 +4653,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MarryDBLoadRsp));
-  MarryDBSaveReq_descriptor_ = file->message_type(213);
+  MarryDBSaveReq_descriptor_ = file->message_type(216);
   static const int MarryDBSaveReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarryDBSaveReq, info_),
   };
@@ -4668,7 +4668,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MarryDBSaveReq));
-  AnswerRankDBProto_descriptor_ = file->message_type(214);
+  AnswerRankDBProto_descriptor_ = file->message_type(217);
   static const int AnswerRankDBProto_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AnswerRankDBProto, factionid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AnswerRankDBProto, name_),
@@ -4686,7 +4686,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(AnswerRankDBProto));
-  AnswerDBData_descriptor_ = file->message_type(215);
+  AnswerDBData_descriptor_ = file->message_type(218);
   static const int AnswerDBData_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AnswerDBData, rank_),
   };
@@ -4701,7 +4701,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(AnswerDBData));
-  GuardRankDBProto_descriptor_ = file->message_type(216);
+  GuardRankDBProto_descriptor_ = file->message_type(219);
   static const int GuardRankDBProto_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GuardRankDBProto, factionid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GuardRankDBProto, name_),
@@ -4720,7 +4720,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GuardRankDBProto));
-  GuardDBData_descriptor_ = file->message_type(217);
+  GuardDBData_descriptor_ = file->message_type(220);
   static const int GuardDBData_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GuardDBData, old_rank_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GuardDBData, cur_rank_),
@@ -4736,7 +4736,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GuardDBData));
-  Rank1v1DBProto_descriptor_ = file->message_type(218);
+  Rank1v1DBProto_descriptor_ = file->message_type(221);
   static const int Rank1v1DBProto_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Rank1v1DBProto, rank_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Rank1v1DBProto, cid_),
@@ -4759,7 +4759,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Rank1v1DBProto));
-  Act1v1DBData_descriptor_ = file->message_type(219);
+  Act1v1DBData_descriptor_ = file->message_type(222);
   static const int Act1v1DBData_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Act1v1DBData, rank_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Act1v1DBData, reset_time_),
@@ -4776,7 +4776,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Act1v1DBData));
-  RaceFactionDBProto_descriptor_ = file->message_type(220);
+  RaceFactionDBProto_descriptor_ = file->message_type(223);
   static const int RaceFactionDBProto_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RaceFactionDBProto, faction_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RaceFactionDBProto, name_),
@@ -4794,7 +4794,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RaceFactionDBProto));
-  RaceMatchDBProto_descriptor_ = file->message_type(221);
+  RaceMatchDBProto_descriptor_ = file->message_type(224);
   static const int RaceMatchDBProto_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RaceMatchDBProto, faction_id1_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RaceMatchDBProto, faction_id2_),
@@ -4811,7 +4811,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RaceMatchDBProto));
-  RaceDBProto_descriptor_ = file->message_type(222);
+  RaceDBProto_descriptor_ = file->message_type(225);
   static const int RaceDBProto_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RaceDBProto, race_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RaceDBProto, info_lst_),
@@ -4827,7 +4827,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RaceDBProto));
-  WarRankDBProto_descriptor_ = file->message_type(223);
+  WarRankDBProto_descriptor_ = file->message_type(226);
   static const int WarRankDBProto_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WarRankDBProto, faction_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WarRankDBProto, name_),
@@ -4845,7 +4845,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(WarRankDBProto));
-  FactionWarDBData_descriptor_ = file->message_type(224);
+  FactionWarDBData_descriptor_ = file->message_type(227);
   static const int FactionWarDBData_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionWarDBData, race_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FactionWarDBData, rank_),
@@ -4865,7 +4865,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FactionWarDBData));
-  DigEggLogDBProto_descriptor_ = file->message_type(225);
+  DigEggLogDBProto_descriptor_ = file->message_type(228);
   static const int DigEggLogDBProto_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DigEggLogDBProto, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DigEggLogDBProto, id_),
@@ -4882,7 +4882,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DigEggLogDBProto));
-  FestDigEggLogDBProto_descriptor_ = file->message_type(226);
+  FestDigEggLogDBProto_descriptor_ = file->message_type(229);
   static const int FestDigEggLogDBProto_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDigEggLogDBProto, template_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDigEggLogDBProto, info_),
@@ -4898,7 +4898,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDigEggLogDBProto));
-  FestDigEggLogDBData_descriptor_ = file->message_type(227);
+  FestDigEggLogDBData_descriptor_ = file->message_type(230);
   static const int FestDigEggLogDBData_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDigEggLogDBData, log_),
   };
@@ -4913,7 +4913,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDigEggLogDBData));
-  FestRTurnableLogDBData_descriptor_ = file->message_type(228);
+  FestRTurnableLogDBData_descriptor_ = file->message_type(231);
   static const int FestRTurnableLogDBData_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestRTurnableLogDBData, log_),
   };
@@ -4928,7 +4928,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestRTurnableLogDBData));
-  FestDonateDBData_descriptor_ = file->message_type(229);
+  FestDonateDBData_descriptor_ = file->message_type(232);
   static const int FestDonateDBData_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDonateDBData, data_),
   };
@@ -4943,7 +4943,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDonateDBData));
-  FestDrawPizeLogDBData_descriptor_ = file->message_type(230);
+  FestDrawPizeLogDBData_descriptor_ = file->message_type(233);
   static const int FestDrawPizeLogDBData_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FestDrawPizeLogDBData, log_),
   };
@@ -4958,7 +4958,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FestDrawPizeLogDBData));
-  GoodsDB_descriptor_ = file->message_type(231);
+  GoodsDB_descriptor_ = file->message_type(234);
   static const int GoodsDB_offsets_[20] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GoodsDB, order_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GoodsDB, market_type_),
@@ -4992,7 +4992,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GoodsDB));
-  LoadGoodsReq_descriptor_ = file->message_type(232);
+  LoadGoodsReq_descriptor_ = file->message_type(235);
   static const int LoadGoodsReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoadGoodsReq, start_time_),
   };
@@ -5007,7 +5007,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LoadGoodsReq));
-  MarketDBLoadRsp_descriptor_ = file->message_type(233);
+  MarketDBLoadRsp_descriptor_ = file->message_type(236);
   static const int MarketDBLoadRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDBLoadRsp, infos_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDBLoadRsp, is_finish_),
@@ -5023,7 +5023,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MarketDBLoadRsp));
-  MarketSaveReq_descriptor_ = file->message_type(234);
+  MarketSaveReq_descriptor_ = file->message_type(237);
   static const int MarketSaveReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketSaveReq, info_),
   };
@@ -5038,7 +5038,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MarketSaveReq));
-  MarketDelReq_descriptor_ = file->message_type(235);
+  MarketDelReq_descriptor_ = file->message_type(238);
   static const int MarketDelReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarketDelReq, order_id_),
   };
@@ -5053,7 +5053,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MarketDelReq));
-  CandleHarmDBProto_descriptor_ = file->message_type(236);
+  CandleHarmDBProto_descriptor_ = file->message_type(239);
   static const int CandleHarmDBProto_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CandleHarmDBProto, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CandleHarmDBProto, name_),
@@ -5072,7 +5072,7 @@ void protobuf_AssignDesc_DBProxy_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CandleHarmDBProto));
-  CandleDBData_descriptor_ = file->message_type(237);
+  CandleDBData_descriptor_ = file->message_type(240);
   static const int CandleDBData_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CandleDBData, index_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CandleDBData, ham_),
@@ -5302,15 +5302,15 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     LoginRewardDBProto_descriptor_, &LoginRewardDBProto::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    DayFetchInfo_descriptor_, &DayFetchInfo::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    GearFetchInfo_descriptor_, &GearFetchInfo::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     ContiRechargeDBProto_descriptor_, &ContiRechargeDBProto::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    ContiRechargeDBProto_DayFetchInfo_descriptor_, &ContiRechargeDBProto_DayFetchInfo::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    ContiRechargeDBProto_GearFetchInfo_descriptor_, &ContiRechargeDBProto_GearFetchInfo::default_instance());
+    ShopProto_descriptor_, &ShopProto::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     LimitSaleDBProto_descriptor_, &LimitSaleDBProto::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    LimitSaleDBProto_ShopProto_descriptor_, &LimitSaleDBProto_ShopProto::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     FestDetailDBProto_descriptor_, &FestDetailDBProto::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -5788,16 +5788,16 @@ void protobuf_ShutdownFile_DBProxy_2eproto() {
   delete TotalRechargeDBProto_reflection_;
   delete LoginRewardDBProto::default_instance_;
   delete LoginRewardDBProto_reflection_;
+  delete DayFetchInfo::default_instance_;
+  delete DayFetchInfo_reflection_;
+  delete GearFetchInfo::default_instance_;
+  delete GearFetchInfo_reflection_;
   delete ContiRechargeDBProto::default_instance_;
   delete ContiRechargeDBProto_reflection_;
-  delete ContiRechargeDBProto_DayFetchInfo::default_instance_;
-  delete ContiRechargeDBProto_DayFetchInfo_reflection_;
-  delete ContiRechargeDBProto_GearFetchInfo::default_instance_;
-  delete ContiRechargeDBProto_GearFetchInfo_reflection_;
+  delete ShopProto::default_instance_;
+  delete ShopProto_reflection_;
   delete LimitSaleDBProto::default_instance_;
   delete LimitSaleDBProto_reflection_;
-  delete LimitSaleDBProto_ShopProto::default_instance_;
-  delete LimitSaleDBProto_ShopProto_reflection_;
   delete FestDetailDBProto::default_instance_;
   delete FestDetailDBProto_reflection_;
   delete FestDBData::default_instance_;
@@ -6399,409 +6399,408 @@ void protobuf_AddDesc_DBProxy_2eproto() {
     "\001(\004\";\n\024TotalRechargeDBProto\022\021\n\tfetch_lst"
     "\030\001 \003(\005\022\020\n\010recharge\030\002 \001(\r\"6\n\022LoginRewardD"
     "BProto\022 \n\005fetch\030\001 \003(\0132\021.proto_ff.ComPair"
-    "\"\235\002\n\024ContiRechargeDBProto\022\020\n\010recharge\030\001 "
-    "\001(\r\022\022\n\nsupplement\030\002 \001(\005\022>\n\tday_fetch\030\003 \003"
-    "(\0132+.proto_ff.ContiRechargeDBProto.DayFe"
-    "tchInfo\022@\n\ngear_fetch\030\004 \003(\0132,.proto_ff.C"
-    "ontiRechargeDBProto.GearFetchInfo\032-\n\014Day"
-    "FetchInfo\022\013\n\003day\030\001 \001(\005\022\020\n\010gear_lst\030\002 \003(\005"
-    "\032.\n\rGearFetchInfo\022\014\n\004gear\030\001 \001(\005\022\017\n\007day_l"
-    "st\030\002 \003(\005\"\263\001\n\020LimitSaleDBProto\0222\n\004shop\030\001 "
-    "\003(\0132$.proto_ff.LimitSaleDBProto.ShopProt"
-    "o\022\022\n\nfresh_time\030\002 \001(\004\032W\n\tShopProto\022\014\n\004ty"
-    "pe\030\001 \001(\005\022\r\n\005total\030\002 \001(\r\022\r\n\005fetch\030\003 \003(\005\022\036"
-    "\n\003buy\030\004 \003(\0132\021.proto_ff.ComPair\"\235\t\n\021FestD"
-    "etailDBProto\022\023\n\013template_id\030\001 \002(\005\022\016\n\006per"
-    "iod\030\002 \002(\005\022\021\n\tbegintime\030\003 \002(\004\022\'\n\004shop\030\004 \001"
-    "(\0132\031.proto_ff.FestShopDBProto\022E\n\024daily_t"
-    "otal_recharge\030\005 \001(\0132\'.proto_ff.FestDaily"
-    "TotalRechargeDBProto\022\'\n\004sign\030\006 \001(\0132\031.pro"
-    "to_ff.FestSignDBProto\0222\n\ngold_store\030\007 \001("
-    "\0132\036.proto_ff.FestGoldStoreDBProto\022,\n\007dig"
-    "_egg\030\010 \001(\0132\033.proto_ff.FestDigEggDBProto\022"
-    "B\n\022rturnable_recharge\030\t \001(\0132&.proto_ff.F"
-    "estRTurnableRechargeDBProto\0220\n\tturntable"
-    "\030\n \001(\0132\035.proto_ff.FestTurnableDBProto\022+\n"
-    "\006donate\030\013 \001(\0132\033.proto_ff.FestDonateDBPro"
-    "to\022+\n\006online\030\014 \001(\0132\033.proto_ff.FestOnline"
-    "DBProto\0226\n\014collect_word\030\r \001(\0132 .proto_ff"
-    ".FestCollectWordDBProto\022*\n\tdraw_pize\030\016 \001"
-    "(\0132\027.proto_ff.DrawPizeProto\022-\n\013server_ra"
-    "nk\030\017 \001(\0132\030.proto_ff.FestRankDBData\022\'\n\004bo"
-    "ss\030\020 \001(\0132\031.proto_ff.FestBossFirstDB\0227\n\017h"
-    "ui_meng_xi_you\030\021 \001(\0132\036.proto_ff.FestHuiM"
-    "engXiYouData\0220\n\tbt_dragon\030\022 \001(\0132\035.proto_"
-    "ff.FestBtDragonDBProto\022+\n\006candle\030\023 \001(\0132\033"
-    ".proto_ff.FestCandleDBProto\022%\n\005marry\030\024 \001"
-    "(\0132\026.proto_ff.FMarryRoleDB\022=\n\022day_total_"
-    "recharge\030\025 \001(\0132!.proto_ff.DayTotalRechar"
-    "geDBProto\0226\n\016total_recharge\030\026 \001(\0132\036.prot"
-    "o_ff.TotalRechargeDBProto\022+\n\005login\030\027 \001(\013"
-    "2\034.proto_ff.LoginRewardDBProto\0226\n\016conti_"
-    "recharge\030\030 \001(\0132\036.proto_ff.ContiRechargeD"
-    "BProto\022.\n\nlimit_sale\030\031 \001(\0132\032.proto_ff.Li"
-    "mitSaleDBProto\"F\n\nFestDBData\022)\n\004info\030\001 \003"
-    "(\0132\033.proto_ff.FestDetailDBProto\022\r\n\005close"
-    "\030\002 \003(\005\"x\n\rShadowDBProto\022\013\n\003lev\030\001 \001(\005\022\013\n\003"
-    "exp\030\002 \001(\005\022\014\n\004star\030\003 \001(\005\022\r\n\005lucky\030\004 \001(\005\022\037"
-    "\n\004frag\030\005 \003(\0132\021.proto_ff.ComPair\022\017\n\007curst"
-    "ar\030\006 \001(\005\"N\n\013HaloDBProto\022\037\n\004info\030\001 \003(\0132\021."
-    "proto_ff.ComPair\022\r\n\005curid\030\002 \001(\005\022\017\n\007curst"
-    "ar\030\003 \001(\005\"\\\n\014DragonDBData\022\'\n\006shadow\030\001 \001(\013"
-    "2\027.proto_ff.ShadowDBProto\022#\n\004halo\030\002 \001(\0132"
-    "\025.proto_ff.HaloDBProto\"\272\001\n\016RoleDBTurnDat"
-    "a\022#\n\006entrys\030\001 \003(\0132\023.proto_ff.TurnEntry\022$"
-    "\n\006simple\030\002 \001(\0132\024.proto_ff.TurnSimple\022$\n\006"
-    "helper\030\003 \003(\0132\024.proto_ff.TurnHelper\022\024\n\014re"
-    "fresh_time\030\004 \001(\004\022!\n\005tasks\030\005 \003(\0132\022.proto_"
-    "ff.TurnTask\"\237\001\n\tGMADbData\022\022\n\nremainTime\030"
-    "\001 \001(\r\022\026\n\016freeTimeRemain\030\002 \001(\r\022\020\n\010freeTim"
-    "e\030\003 \001(\r\022\021\n\tprivilege\030\004 \001(\r\022\030\n\020recvFreeTi"
-    "mePrev\030\005 \001(\004\022\020\n\010expTotal\030\006 \001(\003\022\025\n\rexpAcc"
-    "umulate\030\007 \001(\003\"t\n\nSoulDBData\022\"\n\005entry\030\001 \001"
-    "(\0132\023.proto_ff.SoulEntry\022 \n\004pool\030\002 \001(\0132\022."
-    "proto_ff.SoulPool\022 \n\005tasks\030\003 \003(\0132\021.proto"
-    "_ff.ComPair\"3\n\nMoFaDBData\022%\n\004data\030\001 \003(\0132"
-    "\027.proto_ff.MoFaEquipInfo\"1\n\nRuneDBData\022#"
-    "\n\006entrys\030\001 \003(\0132\023.proto_ff.RuneEntry\"\317\020\n\n"
-    "RoleDBData\022\021\n\003cid\030\001 \002(\004B\004\300\202\024\002\022\021\n\003zid\030\002 \002"
-    "(\rB\004\300\202\024\003\022\021\n\003uid\030\003 \001(\rB\004\300\202\024\003\022&\n\004base\030\004 \001("
-    "\0132\030.proto_ff.RoleDBBaseData\022$\n\003bag\030\005 \001(\013"
-    "2\027.proto_ff.RoleDBBagData\022(\n\005equip\030\006 \001(\013"
-    "2\031.proto_ff.RoleDBEquipData\022+\n\004task\030\007 \001("
-    "\0132\035.proto_ff.CharacterDBTaskData\0220\n\nunlo"
-    "ckinfo\030\010 \001(\0132\034.proto_ff.FunctionUnlockIn"
-    "fo\022\"\n\004grow\030\t \001(\0132\024.proto_ff.GrowDBData\022\""
-    "\n\004mini\030\n \001(\0132\024.proto_ff.MiniDBData\022&\n\006fa"
-    "cade\030\013 \001(\0132\026.proto_ff.FacadeDBData\022$\n\005sk"
-    "ill\030\014 \001(\0132\025.proto_ff.SkillDBData\0223\n\rmini"
-    "_activity\030\r \001(\0132\034.proto_ff.MiniActivityD"
-    "BData\022 \n\003dup\030\016 \001(\0132\023.proto_ff.DupDBData\022"
-    "\"\n\004buff\030\017 \001(\0132\024.proto_ff.BuffDBData\022\"\n\004b"
-    "oss\030\020 \001(\0132\024.proto_ff.BossDBData\022 \n\003vip\030\021"
-    " \001(\0132\023.proto_ff.VipDBData\022\"\n\004attr\030\022 \001(\0132"
-    "\024.proto_ff.AttrDBData\022&\n\005mount\030\023 \001(\0132\027.p"
-    "roto_ff.MountDataInfo\022&\n\005deity\030\024 \001(\0132\027.p"
-    "roto_ff.DeityDataInfo\022 \n\003pet\030\025 \001(\0132\023.pro"
-    "to_ff.PetDBData\022\"\n\004mall\030\026 \001(\0132\024.proto_ff"
-    ".MallDBData\022$\n\006convoy\030\027 \001(\0132\024.proto_ff.C"
-    "onvoyData\022$\n\005armor\030\030 \001(\0132\025.proto_ff.Armo"
-    "rDBData\022&\n\006assist\030\031 \001(\0132\026.proto_ff.Assis"
-    "tDBData\022$\n\005title\030\032 \001(\0132\025.proto_ff.TitleD"
-    "BData\022(\n\007godevil\030\033 \001(\0132\027.proto_ff.GodEvi"
-    "lDBData\0223\n\noccupatoin\030\034 \001(\0132\037.proto_ff.O"
-    "ccupationMissionData\022 \n\003pay\030\035 \001(\0132\023.prot"
-    "o_ff.PayDBData\0221\n\014role_faction\030\036 \001(\0132\033.p"
-    "roto_ff.RoleFactionDBData\022.\n\nbest_equip\030"
-    "\037 \001(\0132\032.proto_ff.RoleBestEQDBData\022.\n\013ach"
-    "ievement\030  \001(\0132\031.proto_ff.AchievementDat"
-    "a\022(\n\007ancient\030! \001(\0132\027.proto_ff.AncientDBD"
-    "ata\022$\n\003pvp\030\" \001(\0132\027.proto_ff.RolePvpDBDat"
-    "a\022,\n\006ptdata\030# \001(\0132\034.proto_ff.PracticeTru"
-    "eDBData\022-\n\nrole_marry\030$ \001(\0132\031.proto_ff.R"
-    "oleMarryDBData\0221\n\014encylopeddia\030% \001(\0132\033.p"
-    "roto_ff.EncylopediaDBData\022%\n\tgvb_pdata\030&"
-    " \001(\0132\022.proto_ff.GVBPData\022\"\n\007psdatas\030\' \001("
-    "\0132\021.proto_ff.PSDatas\022-\n\013dragon_soul\030( \001("
-    "\0132\030.proto_ff.DragonSoulData\022(\n\007welfare\030)"
-    " \001(\0132\027.proto_ff.WelfarePBData\0223\n\rdaily_w"
-    "elfare\030* \001(\0132\034.proto_ff.DailyWelfarePBDa"
-    "ta\022&\n\006charge\030+ \001(\0132\026.proto_ff.ChargeDBDa"
-    "ta\022\"\n\004gift\030, \001(\0132\024.proto_ff.GiftDBData\0223"
-    "\n\rfind_treature\030- \001(\0132\034.proto_ff.FindTre"
-    "atureDBData\022\"\n\004fest\030. \001(\0132\024.proto_ff.Fes"
-    "tDBData\022&\n\006dragon\030/ \001(\0132\026.proto_ff.Drago"
-    "nDBData\022 \n\004star\0300 \001(\0132\022.proto_ff.StarDat"
-    "a\022\016\n\006change\0301 \001(\005\022&\n\004turn\0302 \001(\0132\030.proto_"
-    "ff.RoleDBTurnData\022&\n\tgma_datas\0303 \001(\0132\023.p"
-    "roto_ff.GMADbData\022\"\n\004soul\0304 \001(\0132\024.proto_"
-    "ff.SoulDBData\022\"\n\004mofa\0305 \001(\0132\024.proto_ff.M"
-    "oFaDBData\022\"\n\004rune\0306 \001(\0132\024.proto_ff.RuneD"
-    "BData\":\n\016RedWaitDBProto\022\013\n\003idx\030\001 \001(\r\022\r\n\005"
-    "cfgid\030\002 \001(\005\022\014\n\004time\030\003 \001(\004\"1\n\021RedTriggerD"
-    "BProto\022\r\n\005cfgid\030\001 \001(\005\022\r\n\005count\030\002 \001(\005\"\365\001\n"
-    "\rRoleRedDBData\022\014\n\004bdia\030\001 \001(\r\022\r\n\005magic\030\002 "
-    "\001(\r\022\020\n\010todaynum\030\003 \001(\r\022\022\n\ntodaymagic\030\004 \001("
-    "\r\022\021\n\ttodaybdia\030\005 \001(\r\022\021\n\tfreshtime\030\006 \001(\004\022"
-    "\020\n\010send_lst\030\007 \003(\005\022*\n\010wait_lst\030\010 \003(\0132\030.pr"
-    "oto_ff.RedWaitDBProto\022\013\n\003cid\030\t \001(\004\0220\n\013tr"
-    "igger_lst\030\n \003(\0132\033.proto_ff.RedTriggerDBP"
-    "roto\"9\n\017RedFetchDBProto\022\013\n\003cid\030\001 \001(\004\022\013\n\003"
-    "val\030\002 \001(\r\022\014\n\004time\030\003 \001(\004\">\n\023RedFetchListD"
-    "BProto\022\'\n\004info\030\001 \003(\0132\031.proto_ff.RedFetch"
-    "DBProto\"\232\001\n\016RedSendDBProto\022\013\n\003idx\030\001 \001(\r\022"
-    "\r\n\005cfgid\030\002 \001(\005\022\016\n\006sender\030\003 \001(\004\022\020\n\010sendti"
-    "me\030\004 \001(\004\022\014\n\004word\030\005 \001(\014\022\016\n\006finish\030\006 \001(\005\022,"
-    "\n\005fetch\030\007 \001(\0132\035.proto_ff.RedFetchListDBP"
-    "roto\"\264\001\n\tRedDBData\022&\n\004wait\030\001 \003(\0132\030.proto"
-    "_ff.RedWaitDBProto\0220\n\013trigger_lst\030\002 \003(\0132"
-    "\033.proto_ff.RedTriggerDBProto\022\021\n\tfreshtim"
-    "e\030\003 \001(\004\022&\n\004send\030\004 \003(\0132\030.proto_ff.RedSend"
-    "DBProto\022\022\n\nfaction_id\030\005 \001(\r\"\236\003\n\016RoleMirr"
-    "orData\022\013\n\003cid\030\001 \001(\004\022\014\n\004type\030\002 \001(\005\022\016\n\006tea"
-    "mid\030\003 \001(\r\022\013\n\003zid\030\004 \001(\r\022\"\n\004attr\030\005 \001(\0132\024.p"
-    "roto_ff.AttrDBData\022$\n\005skill\030\006 \001(\0132\025.prot"
-    "o_ff.SkillDBData\022&\n\004base\030\007 \001(\0132\030.proto_f"
-    "f.RoleDBBaseData\022(\n\005equip\030\010 \001(\0132\031.proto_"
-    "ff.RoleDBEquipData\022/\n\014beast_equips\030\t \003(\013"
-    "2\031.proto_ff.BestEQEquipInfo\022-\n\013beast_slo"
-    "ts\030\n \003(\0132\030.proto_ff.BestEQSlotInfo\022\016\n\006ca"
-    "mpid\030\013 \001(\005\022\016\n\006relive\030\014 \001(\005\"8\n\004Type\022\010\n\004Ro"
-    "le\020\001\022\t\n\005Rebot\020\002\022\014\n\010TeamRole\020\003\022\r\n\tTeamReb"
-    "ot\020\004\"W\n\021FactionMemDBProto\022\013\n\003cid\030\001 \001(\004\022\014"
-    "\n\004duty\030\002 \001(\005\022\021\n\tjoin_time\030\003 \001(\004\022\024\n\014total"
-    "_contri\030\004 \001(\r\"E\n\025FactionMultMemDBProto\022,"
-    "\n\007mem_lst\030\001 \003(\0132\033.proto_ff.FactionMemDBP"
-    "roto\"0\n\023FactionApplyDBProto\022\013\n\003cid\030\001 \001(\004"
-    "\022\014\n\004time\030\002 \001(\004\"K\n\027FactionMultApplyDBProt"
-    "o\0220\n\tapply_lst\030\001 \003(\0132\035.proto_ff.FactionA"
-    "pplyDBProto\"M\n\024FactionRecordDBProto\022\013\n\003c"
-    "id\030\001 \001(\004\022\014\n\004time\030\002 \001(\004\022\n\n\002op\030\003 \001(\005\022\016\n\006pa"
-    "ram1\030\004 \001(\003\"M\n\027FactionMutRecordDBProto\0222\n"
-    "\nrecord_lst\030\001 \003(\0132\036.proto_ff.FactionReco"
-    "rdDBProto\"\265\003\n\rFactionDBBase\022\022\n\nfaction_i"
-    "d\030\001 \001(\r\022\014\n\004name\030\002 \001(\014\022\021\n\tleader_id\030\003 \001(\004"
-    "\022\r\n\005fight\030\004 \001(\004\022\016\n\006notice\030\005 \001(\014\022\030\n\020last_"
-    "notice_time\030\006 \001(\004\022\r\n\005level\030\007 \001(\r\022\013\n\003exp\030"
-    "\010 \001(\004\022\023\n\013create_time\030\t \001(\004\022\020\n\010proxy_id\030\n"
-    " \001(\004\022\022\n\nproxy_time\030\013 \001(\004\022\r\n\005grade\030\014 \001(\005\022"
-    "/\n\006member\030\r \001(\0132\037.proto_ff.FactionMultMe"
-    "mDBProto\0220\n\005apply\030\016 \001(\0132!.proto_ff.Facti"
-    "onMultApplyDBProto\0221\n\006record\030\017 \001(\0132!.pro"
-    "to_ff.FactionMutRecordDBProto\022\022\n\napply_t"
-    "ype\030\020 \001(\005\022\021\n\tapply_lev\030\021 \001(\005\022\023\n\013apply_fi"
-    "ght\030\022 \001(\004\"4\n\027FactionBeastHarmDBProto\022\013\n\003"
-    "cid\030\001 \001(\004\022\014\n\004harm\030\002 \001(\003\"\350\001\n\022FactionBeast"
-    "DBData\022/\n\004harm\030\001 \003(\0132!.proto_ff.FactionB"
-    "eastHarmDBProto\022\014\n\004star\030\002 \001(\r\022\017\n\007is_open"
-    "\030\003 \001(\005\022\017\n\007tribute\030\004 \001(\r\022\023\n\013today_count\030\005"
-    " \001(\r\022\023\n\013today_fresh\030\006 \001(\004\022\022\n\nweek_count\030"
-    "\007 \001(\r\022\022\n\nweek_fresh\030\010 \001(\004\022\r\n\005level\030\t \001(\005"
-    "\022\020\n\010opentime\030\n \001(\004\"B\n\027FactionGuardHarmDB"
-    "Proto\022\013\n\003cid\030\001 \001(\004\022\014\n\004name\030\002 \001(\014\022\014\n\004harm"
-    "\030\003 \001(\003\"\215\001\n\022FactionGuardDBData\022/\n\004harm\030\001 "
-    "\003(\0132!.proto_ff.FactionGuardHarmDBProto\0223"
-    "\n\010old_harm\030\002 \003(\0132!.proto_ff.FactionGuard"
-    "HarmDBProto\022\021\n\tcan_enter\030\003 \001(\010\"\250\001\n\013Facti"
-    "onMoyu\022\021\n\tweek_harm\030\001 \001(\004\022\026\n\016last_week_h"
-    "arm\030\002 \001(\004\022\021\n\tcur_layer\030\003 \001(\005\022\016\n\006cur_hp\030\004"
-    " \001(\004\022\016\n\006max_hp\030\005 \001(\004\022\021\n\tharm_time\030\006 \001(\004\022"
-    "\024\n\014refresh_time\030\007 \001(\004\022\022\n\npass_layer\030\010 \001("
-    "\005\"\216\001\n\rFactionDBData\022+\n\005beast\030\001 \001(\0132\034.pro"
-    "to_ff.FactionBeastDBData\022+\n\005guard\030\002 \001(\0132"
-    "\034.proto_ff.FactionGuardDBData\022#\n\004moyu\030\003 "
-    "\001(\0132\025.proto_ff.FactionMoyu\"t\n\020FactionAll"
-    "DBData\022\022\n\nfaction_id\030\001 \001(\r\022%\n\004base\030\002 \001(\013"
-    "2\027.proto_ff.FactionDBBase\022%\n\004data\030\003 \001(\0132"
-    "\027.proto_ff.FactionDBData\"`\n\026FactionDBMoy"
-    "uRankEntry\022\n\n\002id\030\001 \001(\004\022\014\n\004name\030\002 \001(\014\022\013\n\003"
-    "zid\030\003 \001(\005\022\014\n\004harm\030\004 \001(\004\022\021\n\tharm_time\030\005 \001"
-    "(\004\"n\n\021FactionDBMoyuRank\022\014\n\004type\030\001 \001(\005\022\r\n"
-    "\005group\030\002 \001(\005\022.\n\004rank\030\003 \003(\0132 .proto_ff.Fa"
-    "ctionDBMoyuRankEntry\022\014\n\004time\030\004 \001(\004\"A\n\023Fa"
-    "ctionDBMoyuRankDB\022*\n\005infos\030\001 \003(\0132\033.proto"
-    "_ff.FactionDBMoyuRank\"M\n\rRoleListDBReq\022\r"
-    "\n\005reqid\030\001 \002(\004\022\013\n\003uid\030\002 \002(\r\022\016\n\006gateid\030\003 \002"
-    "(\r\022\020\n\010born_zid\030\004 \002(\r\"\205\001\n\rRoleListDBRsp\022\013"
-    "\n\003ret\030\001 \002(\005\022\r\n\005reqid\030\002 \002(\004\022\013\n\003uid\030\003 \002(\r\022"
-    "\016\n\006gateid\030\004 \002(\r\022+\n\010role_lst\030\005 \003(\0132\031.prot"
-    "o_ff.RoleListDBProto\022\016\n\006regnum\030\006 \001(\r\"\246\001\n"
-    "\017CreateRoleDBReq\022\r\n\005reqid\030\001 \002(\004\022\013\n\003zid\030\002"
-    " \002(\r\022\016\n\006gateid\030\003 \002(\r\022\"\n\004data\030\004 \002(\0132\024.pro"
-    "to_ff.RoleDBData\022\013\n\003uid\030\005 \001(\r\022\022\n\nchannel"
-    "_id\030\006 \001(\r\022\020\n\010zone_mid\030\007 \001(\r\022\020\n\010born_zid\030"
-    "\010 \001(\r\"\260\001\n\017CreateRoleDBRsp\022\013\n\003ret\030\001 \002(\005\022\r"
-    "\n\005reqid\030\002 \002(\004\022\013\n\003uid\030\003 \002(\r\022\016\n\006gateid\030\004 \002"
-    "(\r\022\'\n\004info\030\005 \001(\0132\031.proto_ff.RoleListDBPr"
-    "oto\022\020\n\010born_zid\030\006 \001(\r\022)\n\006simple\030\007 \001(\0132\031."
-    "proto_ff.CenterRoleProto\";\n\rRoleInfoDBRe"
-    "q\022\r\n\005reqid\030\001 \002(\004\022\013\n\003cid\030\002 \002(\004\022\016\n\006change\030"
-    "\003 \001(\005\"l\n\rRoleInfoDBRsp\022\013\n\003ret\030\001 \002(\005\022\r\n\005r"
-    "eqid\030\002 \002(\004\022\013\n\003cid\030\003 \002(\004\022\016\n\006change\030\004 \001(\005\022"
-    "\"\n\004info\030\005 \001(\0132\024.proto_ff.RoleDBData\"S\n\023R"
-    "oleInfoUpdateDBReq\022\013\n\003cid\030\001 \002(\004\022\013\n\003uid\030\002"
-    " \002(\r\022\"\n\004info\030\003 \001(\0132\024.proto_ff.RoleDBData"
-    "\"-\n\020RoleChgNameDBReq\022\013\n\003cid\030\001 \002(\004\022\014\n\004nam"
-    "e\030\002 \002(\014\":\n\020RoleChgNameDBRsp\022\013\n\003ret\030\001 \002(\005"
-    "\022\013\n\003cid\030\002 \002(\004\022\014\n\004name\030\003 \002(\014\"\025\n\023RoleSimpl"
-    "eListDBReq\"`\n\023RoleSimpleListDBRsp\022\013\n\003ret"
-    "\030\001 \002(\005\022\'\n\004info\030\002 \003(\0132\031.proto_ff.CenterRo"
-    "leProto\022\023\n\013finish_flag\030\003 \001(\005\"-\n\027Creature"
-    "TransLogicDBReq\022\022\n\ntrans_data\030\001 \001(\014\"7\n\027C"
-    "reatureTransLogicDBRsp\022\017\n\007retcode\030\001 \002(\005\022"
-    "\013\n\003cid\030\002 \001(\004\"A\n\rNewMailDBInfo\022 \n\004data\030\001 "
-    "\003(\0132\022.proto_ff.MailInfo\022\016\n\006result\030\002 \001(\005\""
-    "4\n\021MailDBOperateInfo\022\017\n\007mid_lst\030\001 \003(\r\022\016\n"
-    "\006result\030\002 \001(\005\"\327\001\n\rSaveMailDBReq\022\016\n\006chari"
-    "d\030\001 \002(\004\022%\n\004info\030\002 \001(\0132\027.proto_ff.NewMail"
-    "DBInfo\022(\n\003del\030\003 \001(\0132\033.proto_ff.MailDBOpe"
-    "rateInfo\022*\n\005fetch\030\004 \001(\0132\033.proto_ff.MailD"
-    "BOperateInfo\022)\n\004read\030\005 \001(\0132\033.proto_ff.Ma"
-    "ilDBOperateInfo\022\016\n\006notify\030\006 \001(\005\"\327\001\n\rSave"
-    "MailDBRsp\022\016\n\006charid\030\001 \002(\004\022%\n\004info\030\002 \001(\0132"
-    "\027.proto_ff.NewMailDBInfo\022(\n\003del\030\003 \001(\0132\033."
-    "proto_ff.MailDBOperateInfo\022*\n\005fetch\030\004 \001("
-    "\0132\033.proto_ff.MailDBOperateInfo\022)\n\004read\030\005"
-    " \001(\0132\033.proto_ff.MailDBOperateInfo\022\016\n\006not"
-    "ify\030\006 \001(\005\"_\n\026CharacterMailDBRequest\022\016\n\006c"
-    "harID\030\001 \001(\004\022\026\n\016zone_mail_flag\030\002 \001(\r\022\016\n\006o"
-    "ffset\030\003 \001(\005\022\r\n\005reqid\030\004 \001(\r\"~\n\027CharacterM"
-    "ailDBResponse\022\016\n\006charID\030\001 \001(\004\022 \n\004info\030\002 "
-    "\003(\0132\022.proto_ff.MailInfo\022\022\n\nzoneMailId\030\003 "
-    "\001(\r\022\016\n\006offset\030\004 \001(\005\022\r\n\005reqid\030\005 \001(\r\"\022\n\020Ma"
-    "xMailIDRequest\"*\n\021MaxMailIDResponse\022\025\n\rm"
-    "axZoneMailId\030\001 \002(\r\"%\n\023DeleteCharacterMai"
-    "l\022\016\n\006charID\030\001 \002(\004\"!\n\017ZoneMailSaveRsp\022\016\n\006"
-    "mailId\030\001 \002(\r\"P\n\035ZoneMailTransCharacterMa"
-    "ilReq\022\016\n\006mailId\030\001 \002(\r\022\013\n\003cid\030\002 \002(\004\022\022\n\ncr"
-    "eatetime\030\003 \002(\004\"g\n\035ZoneMailTransCharacter"
-    "MailRsp\022\013\n\003cid\030\001 \002(\004\022 \n\004data\030\002 \003(\0132\022.pro"
-    "to_ff.MailInfo\022\027\n\017max_zone_mailid\030\003 \002(\r\""
-    "p\n\020WebMailDBDataReq\022\017\n\007op_type\030\001 \001(\005\022\013\n\003"
-    "cid\030\002 \001(\004\022\016\n\006pernum\030\003 \001(\r\022\017\n\007curpage\030\004 \001"
-    "(\r\022\016\n\006id_lst\030\005 \003(\r\022\r\n\005webId\030\006 \002(\014\"\242\001\n\020We"
-    "bMailDBDataRsp\022\017\n\007op_type\030\001 \001(\005\022\013\n\003cid\030\002"
-    " \001(\004\022\017\n\007curpage\030\003 \001(\r\022\022\n\ntotalcount\030\004 \001("
-    "\r\022\016\n\006id_lst\030\005 \003(\r\022,\n\010info_lst\030\006 \003(\0132\032.pr"
-    "oto_ff.WebMailDataProto\022\r\n\005webId\030\007 \002(\014\"F"
-    "\n\014FriendDBInfo\022\016\n\006charID\030\001 \001(\004\022&\n\004data\030\002"
-    " \001(\0132\030.proto_ff.RelationDBInfo\"m\n\017Friend"
-    "DBRequest\022\016\n\006charid\030\001 \001(\004\022\021\n\tdstid_lst\030\002"
-    " \003(\004\022\024\n\014operate_type\030\003 \001(\r\022\014\n\004data\030\004 \001(\014"
-    "\022\023\n\013query_times\030\005 \001(\r\"\250\001\n\020FriendDBRespon"
-    "se\022\017\n\007retcode\030\001 \001(\005\022\016\n\006charid\030\002 \001(\004\022\024\n\014o"
-    "perate_type\030\003 \001(\r\022(\n\010info_lst\030\004 \003(\0132\026.pr"
-    "oto_ff.FriendDBInfo\022\020\n\010last_lst\030\005 \003(\004\022\014\n"
-    "\004data\030\006 \001(\014\022\023\n\013query_times\030\007 \001(\r\"$\n\022AllF"
-    "riendDBRequest\022\016\n\006offset\030\001 \002(\005\"\\\n\023AllFri"
-    "endDBResponse\022\017\n\007retcode\030\001 \002(\005\022\016\n\006offset"
-    "\030\002 \002(\005\022$\n\004info\030\003 \003(\0132\026.proto_ff.FriendDB"
-    "Info\";\n\023SaveFriendDBRequest\022$\n\004info\030\001 \003("
-    "\0132\026.proto_ff.FriendDBInfo\"&\n\024DelteFriend"
-    "DBRequest\022\016\n\006charId\030\001 \001(\004\"\020\n\016GlobalDBReq"
-    "ust\".\n\rGlobalDBEntry\022\017\n\007type_id\030\001 \001(\005\022\014\n"
-    "\004data\030\002 \001(\014\"L\n\020GlobalDBResponse\022&\n\005entry"
-    "\030\001 \003(\0132\027.proto_ff.GlobalDBEntry\022\020\n\010isfin"
-    "ish\030\002 \001(\005\"3\n\022GlobalDBSetRequest\022\017\n\007type_"
-    "id\030\001 \002(\005\022\014\n\004data\030\002 \001(\014\"7\n\023GlobalDBSetRes"
-    "ponse\022\017\n\007retcode\030\001 \002(\005\022\017\n\007type_id\030\002 \002(\005\""
-    "C\n\rGlobalComData\0222\n\016towerDupReward\030\001 \003(\013"
-    "2\032.proto_ff.DupTowerDBRecord\"`\n\025GlobalYa"
-    "otaDupDBEntry\022\r\n\005dupid\030\001 \001(\005\022*\n\004info\030\002 \003"
-    "(\0132\034.proto_ff.RolePlayerMiniInfo\022\014\n\004time"
-    "\030\003 \001(\004\"G\n\024GlobalYaotaDupDBData\022/\n\006entrys"
-    "\030\003 \003(\0132\037.proto_ff.GlobalYaotaDupDBEntry\""
-    "<\n\nActDBProto\022\r\n\005actid\030\001 \001(\004\022\013\n\003zid\030\002 \001("
-    "\r\022\022\n\nfinishtime\030\003 \001(\004\"\n\n\010ActDBReq\"-\n\010Act"
-    "DBRsp\022!\n\003lst\030\001 \003(\0132\024.proto_ff.ActDBProto"
-    "\"1\n\014ActSaveDBReq\022!\n\003lst\030\001 \003(\0132\024.proto_ff"
-    ".ActDBProto\"3\n\021AllArenaDBRequest\022\016\n\006offs"
-    "et\030\001 \002(\005\022\016\n\006retnum\030\002 \002(\005\"-\n\013ArenaDBInfo\022"
-    "\016\n\006charID\030\001 \001(\004\022\016\n\006rankId\030\002 \001(\r\"i\n\017Arena"
-    "MoreDBInfo\022#\n\004info\030\001 \003(\0132\025.proto_ff.Aren"
-    "aDBInfo\022\013\n\003day\030\002 \001(\r\022\022\n\ngiveReward\030\003 \001(\r"
-    "\022\020\n\010max_rank\030\004 \001(\r\"Z\n\022AllArenaDBResponse"
-    "\022\017\n\007retcode\030\001 \002(\005\022\016\n\006offset\030\002 \002(\005\022#\n\004inf"
-    "o\030\003 \003(\0132\025.proto_ff.ArenaDBInfo\"9\n\022SaveAr"
-    "enaDBRequest\022#\n\004info\030\001 \003(\0132\025.proto_ff.Ar"
-    "enaDBInfo\"&\n\024DeleteArenaDBRequest\022\016\n\006cha"
-    "rId\030\001 \001(\004\"U\n\017RoleMirrorDBReq\022\013\n\003cid\030\001 \002("
-    "\004\022\021\n\tint_param\030\002 \002(\003\022\021\n\tstr_param\030\003 \002(\014\022"
-    "\017\n\007reqtype\030\004 \002(\r\"\212\001\n\017RoleMirrorDBRsp\022\013\n\003"
-    "ret\030\001 \002(\005\022\013\n\003cid\030\002 \002(\004\022\021\n\tint_param\030\003 \002("
-    "\003\022\021\n\tstr_param\030\004 \002(\014\022\017\n\007reqtype\030\005 \002(\r\022&\n"
-    "\004data\030\006 \001(\0132\030.proto_ff.RoleMirrorData\"\022\n"
-    "\020FactionDataDBReq\"P\n\020FactionDataDBRsp\022,\n"
-    "\010data_lst\030\001 \003(\0132\032.proto_ff.FactionAllDBD"
-    "ata\022\016\n\006finish\030\002 \001(\005\"<\n\020FactionSaveDBReq\022"
-    "(\n\004data\030\001 \001(\0132\032.proto_ff.FactionAllDBDat"
-    "a\"%\n\017FactionDelDBReq\022\022\n\nfaction_id\030\001 \001(\r"
-    "\"\021\n\017FactionRedDBReq\"H\n\017FactionRedDBRsp\022%"
-    "\n\010data_lst\030\001 \003(\0132\023.proto_ff.RedDBData\022\016\n"
-    "\006finish\030\002 \001(\005\"\225\001\n\023FactionRedSaveDBReq\022\022\n"
-    "\nfaction_id\030\001 \002(\r\022\"\n\005data0\030\002 \002(\0132\023.proto"
-    "_ff.RedDBData\022\"\n\005data1\030\003 \002(\0132\023.proto_ff."
-    "RedDBData\022\"\n\005data2\030\004 \002(\0132\023.proto_ff.RedD"
-    "BData\"(\n\022FactionRedDelDBReq\022\022\n\nfaction_i"
-    "d\030\001 \002(\r\"\016\n\014RoleRedDBReq\"I\n\014RoleRedDBRsp\022"
-    ")\n\010data_lst\030\001 \003(\0132\027.proto_ff.RoleRedDBDa"
-    "ta\022\016\n\006finish\030\002 \001(\005\";\n\014ComLoadDBReq\022\n\n\002id"
-    "\030\001 \002(\004\022\022\n\ntable_name\030\002 \002(\014\022\013\n\003cmd\030\003 \002(\r\""
-    "(\n\014ComLoadDBRsp\022\n\n\002id\030\001 \002(\004\022\014\n\004data\030\002 \002("
-    "\014\"2\n\017ComLoadAllDBReq\022\022\n\ntable_name\030\001 \002(\014"
-    "\022\013\n\003cmd\030\002 \002(\r\"&\n\nComDBProto\022\n\n\002id\030\001 \002(\004\022"
-    "\014\n\004data\030\002 \002(\014\"H\n\017ComLoadAllDBRsp\022\"\n\004data"
-    "\030\001 \003(\0132\024.proto_ff.ComDBProto\022\021\n\tis_finis"
-    "h\030\002 \002(\005\"<\n\014ComSaveDBReq\022\n\n\002id\030\001 \002(\004\022\014\n\004d"
-    "ata\030\002 \002(\014\022\022\n\ntable_name\030\003 \002(\014\"1\n\013ComDelD"
-    "BReq\022\022\n\ntable_name\030\001 \002(\014\022\016\n\006id_lst\030\002 \003(\004"
-    "\">\n\nMarryApply\022\024\n\014apply_dst_id\030\001 \001(\004\022\014\n\004"
-    "time\030\002 \001(\004\022\014\n\004gear\030\003 \001(\005\"\232\001\n\017MarrySimple"
-    "Info\022\014\n\004m_id\030\001 \001(\004\022\016\n\006dst_id\030\002 \001(\004\022\020\n\010ma"
-    "rry_id\030\003 \001(\r\022#\n\005brief\030\004 \001(\0132\024.proto_ff.M"
-    "arryBrief\022#\n\005apply\030\005 \001(\0132\024.proto_ff.Marr"
-    "yApply\022\r\n\005state\030\006 \001(\005\" \n\016MarryDBLoadReq\022"
-    "\016\n\006offset\030\001 \001(\005\"X\n\016MarryDBLoadRsp\022\013\n\003ret"
-    "\030\001 \001(\005\022\016\n\006offset\030\002 \001(\005\022)\n\006simple\030\003 \003(\0132\031"
-    ".proto_ff.MarrySimpleInfo\"9\n\016MarryDBSave"
-    "Req\022\'\n\004info\030\001 \001(\0132\031.proto_ff.MarrySimple"
-    "Info\"P\n\021AnswerRankDBProto\022\021\n\tfactionid\030\001"
-    " \001(\r\022\014\n\004name\030\002 \001(\014\022\r\n\005count\030\003 \001(\r\022\013\n\003zid"
-    "\030\004 \001(\r\"9\n\014AnswerDBData\022)\n\004rank\030\001 \003(\0132\033.p"
-    "roto_ff.AnswerRankDBProto\"]\n\020GuardRankDB"
+    "\"-\n\014DayFetchInfo\022\013\n\003day\030\001 \001(\005\022\020\n\010gear_ls"
+    "t\030\002 \003(\005\".\n\rGearFetchInfo\022\014\n\004gear\030\001 \001(\005\022\017"
+    "\n\007day_lst\030\002 \003(\005\"\224\001\n\024ContiRechargeDBProto"
+    "\022\020\n\010recharge\030\001 \001(\r\022\022\n\nsupplement\030\002 \001(\005\022)"
+    "\n\tday_fetch\030\003 \003(\0132\026.proto_ff.DayFetchInf"
+    "o\022+\n\ngear_fetch\030\004 \003(\0132\027.proto_ff.GearFet"
+    "chInfo\"W\n\tShopProto\022\014\n\004type\030\001 \001(\005\022\r\n\005tot"
+    "al\030\002 \001(\r\022\r\n\005fetch\030\003 \003(\005\022\036\n\003buy\030\004 \003(\0132\021.p"
+    "roto_ff.ComPair\"I\n\020LimitSaleDBProto\022!\n\004s"
+    "hop\030\001 \003(\0132\023.proto_ff.ShopProto\022\022\n\nfresh_"
+    "time\030\002 \001(\004\"\235\t\n\021FestDetailDBProto\022\023\n\013temp"
+    "late_id\030\001 \002(\005\022\016\n\006period\030\002 \002(\005\022\021\n\tbeginti"
+    "me\030\003 \002(\004\022\'\n\004shop\030\004 \001(\0132\031.proto_ff.FestSh"
+    "opDBProto\022E\n\024daily_total_recharge\030\005 \001(\0132"
+    "\'.proto_ff.FestDailyTotalRechargeDBProto"
+    "\022\'\n\004sign\030\006 \001(\0132\031.proto_ff.FestSignDBProt"
+    "o\0222\n\ngold_store\030\007 \001(\0132\036.proto_ff.FestGol"
+    "dStoreDBProto\022,\n\007dig_egg\030\010 \001(\0132\033.proto_f"
+    "f.FestDigEggDBProto\022B\n\022rturnable_recharg"
+    "e\030\t \001(\0132&.proto_ff.FestRTurnableRecharge"
+    "DBProto\0220\n\tturntable\030\n \001(\0132\035.proto_ff.Fe"
+    "stTurnableDBProto\022+\n\006donate\030\013 \001(\0132\033.prot"
+    "o_ff.FestDonateDBProto\022+\n\006online\030\014 \001(\0132\033"
+    ".proto_ff.FestOnlineDBProto\0226\n\014collect_w"
+    "ord\030\r \001(\0132 .proto_ff.FestCollectWordDBPr"
+    "oto\022*\n\tdraw_pize\030\016 \001(\0132\027.proto_ff.DrawPi"
+    "zeProto\022-\n\013server_rank\030\017 \001(\0132\030.proto_ff."
+    "FestRankDBData\022\'\n\004boss\030\020 \001(\0132\031.proto_ff."
+    "FestBossFirstDB\0227\n\017hui_meng_xi_you\030\021 \001(\013"
+    "2\036.proto_ff.FestHuiMengXiYouData\0220\n\tbt_d"
+    "ragon\030\022 \001(\0132\035.proto_ff.FestBtDragonDBPro"
+    "to\022+\n\006candle\030\023 \001(\0132\033.proto_ff.FestCandle"
+    "DBProto\022%\n\005marry\030\024 \001(\0132\026.proto_ff.FMarry"
+    "RoleDB\022=\n\022day_total_recharge\030\025 \001(\0132!.pro"
+    "to_ff.DayTotalRechargeDBProto\0226\n\016total_r"
+    "echarge\030\026 \001(\0132\036.proto_ff.TotalRechargeDB"
+    "Proto\022+\n\005login\030\027 \001(\0132\034.proto_ff.LoginRew"
+    "ardDBProto\0226\n\016conti_recharge\030\030 \001(\0132\036.pro"
+    "to_ff.ContiRechargeDBProto\022.\n\nlimit_sale"
+    "\030\031 \001(\0132\032.proto_ff.LimitSaleDBProto\"F\n\nFe"
+    "stDBData\022)\n\004info\030\001 \003(\0132\033.proto_ff.FestDe"
+    "tailDBProto\022\r\n\005close\030\002 \003(\005\"x\n\rShadowDBPr"
+    "oto\022\013\n\003lev\030\001 \001(\005\022\013\n\003exp\030\002 \001(\005\022\014\n\004star\030\003 "
+    "\001(\005\022\r\n\005lucky\030\004 \001(\005\022\037\n\004frag\030\005 \003(\0132\021.proto"
+    "_ff.ComPair\022\017\n\007curstar\030\006 \001(\005\"N\n\013HaloDBPr"
+    "oto\022\037\n\004info\030\001 \003(\0132\021.proto_ff.ComPair\022\r\n\005"
+    "curid\030\002 \001(\005\022\017\n\007curstar\030\003 \001(\005\"\\\n\014DragonDB"
+    "Data\022\'\n\006shadow\030\001 \001(\0132\027.proto_ff.ShadowDB"
+    "Proto\022#\n\004halo\030\002 \001(\0132\025.proto_ff.HaloDBPro"
+    "to\"\272\001\n\016RoleDBTurnData\022#\n\006entrys\030\001 \003(\0132\023."
+    "proto_ff.TurnEntry\022$\n\006simple\030\002 \001(\0132\024.pro"
+    "to_ff.TurnSimple\022$\n\006helper\030\003 \003(\0132\024.proto"
+    "_ff.TurnHelper\022\024\n\014refresh_time\030\004 \001(\004\022!\n\005"
+    "tasks\030\005 \003(\0132\022.proto_ff.TurnTask\"\237\001\n\tGMAD"
+    "bData\022\022\n\nremainTime\030\001 \001(\r\022\026\n\016freeTimeRem"
+    "ain\030\002 \001(\r\022\020\n\010freeTime\030\003 \001(\r\022\021\n\tprivilege"
+    "\030\004 \001(\r\022\030\n\020recvFreeTimePrev\030\005 \001(\004\022\020\n\010expT"
+    "otal\030\006 \001(\003\022\025\n\rexpAccumulate\030\007 \001(\003\"t\n\nSou"
+    "lDBData\022\"\n\005entry\030\001 \001(\0132\023.proto_ff.SoulEn"
+    "try\022 \n\004pool\030\002 \001(\0132\022.proto_ff.SoulPool\022 \n"
+    "\005tasks\030\003 \003(\0132\021.proto_ff.ComPair\"3\n\nMoFaD"
+    "BData\022%\n\004data\030\001 \003(\0132\027.proto_ff.MoFaEquip"
+    "Info\"1\n\nRuneDBData\022#\n\006entrys\030\001 \003(\0132\023.pro"
+    "to_ff.RuneEntry\"\317\020\n\nRoleDBData\022\021\n\003cid\030\001 "
+    "\002(\004B\004\300\202\024\002\022\021\n\003zid\030\002 \002(\rB\004\300\202\024\003\022\021\n\003uid\030\003 \001("
+    "\rB\004\300\202\024\003\022&\n\004base\030\004 \001(\0132\030.proto_ff.RoleDBB"
+    "aseData\022$\n\003bag\030\005 \001(\0132\027.proto_ff.RoleDBBa"
+    "gData\022(\n\005equip\030\006 \001(\0132\031.proto_ff.RoleDBEq"
+    "uipData\022+\n\004task\030\007 \001(\0132\035.proto_ff.Charact"
+    "erDBTaskData\0220\n\nunlockinfo\030\010 \001(\0132\034.proto"
+    "_ff.FunctionUnlockInfo\022\"\n\004grow\030\t \001(\0132\024.p"
+    "roto_ff.GrowDBData\022\"\n\004mini\030\n \001(\0132\024.proto"
+    "_ff.MiniDBData\022&\n\006facade\030\013 \001(\0132\026.proto_f"
+    "f.FacadeDBData\022$\n\005skill\030\014 \001(\0132\025.proto_ff"
+    ".SkillDBData\0223\n\rmini_activity\030\r \001(\0132\034.pr"
+    "oto_ff.MiniActivityDBData\022 \n\003dup\030\016 \001(\0132\023"
+    ".proto_ff.DupDBData\022\"\n\004buff\030\017 \001(\0132\024.prot"
+    "o_ff.BuffDBData\022\"\n\004boss\030\020 \001(\0132\024.proto_ff"
+    ".BossDBData\022 \n\003vip\030\021 \001(\0132\023.proto_ff.VipD"
+    "BData\022\"\n\004attr\030\022 \001(\0132\024.proto_ff.AttrDBDat"
+    "a\022&\n\005mount\030\023 \001(\0132\027.proto_ff.MountDataInf"
+    "o\022&\n\005deity\030\024 \001(\0132\027.proto_ff.DeityDataInf"
+    "o\022 \n\003pet\030\025 \001(\0132\023.proto_ff.PetDBData\022\"\n\004m"
+    "all\030\026 \001(\0132\024.proto_ff.MallDBData\022$\n\006convo"
+    "y\030\027 \001(\0132\024.proto_ff.ConvoyData\022$\n\005armor\030\030"
+    " \001(\0132\025.proto_ff.ArmorDBData\022&\n\006assist\030\031 "
+    "\001(\0132\026.proto_ff.AssistDBData\022$\n\005title\030\032 \001"
+    "(\0132\025.proto_ff.TitleDBData\022(\n\007godevil\030\033 \001"
+    "(\0132\027.proto_ff.GodEvilDBData\0223\n\noccupatoi"
+    "n\030\034 \001(\0132\037.proto_ff.OccupationMissionData"
+    "\022 \n\003pay\030\035 \001(\0132\023.proto_ff.PayDBData\0221\n\014ro"
+    "le_faction\030\036 \001(\0132\033.proto_ff.RoleFactionD"
+    "BData\022.\n\nbest_equip\030\037 \001(\0132\032.proto_ff.Rol"
+    "eBestEQDBData\022.\n\013achievement\030  \001(\0132\031.pro"
+    "to_ff.AchievementData\022(\n\007ancient\030! \001(\0132\027"
+    ".proto_ff.AncientDBData\022$\n\003pvp\030\" \001(\0132\027.p"
+    "roto_ff.RolePvpDBData\022,\n\006ptdata\030# \001(\0132\034."
+    "proto_ff.PracticeTrueDBData\022-\n\nrole_marr"
+    "y\030$ \001(\0132\031.proto_ff.RoleMarryDBData\0221\n\014en"
+    "cylopeddia\030% \001(\0132\033.proto_ff.EncylopediaD"
+    "BData\022%\n\tgvb_pdata\030& \001(\0132\022.proto_ff.GVBP"
+    "Data\022\"\n\007psdatas\030\' \001(\0132\021.proto_ff.PSDatas"
+    "\022-\n\013dragon_soul\030( \001(\0132\030.proto_ff.DragonS"
+    "oulData\022(\n\007welfare\030) \001(\0132\027.proto_ff.Welf"
+    "arePBData\0223\n\rdaily_welfare\030* \001(\0132\034.proto"
+    "_ff.DailyWelfarePBData\022&\n\006charge\030+ \001(\0132\026"
+    ".proto_ff.ChargeDBData\022\"\n\004gift\030, \001(\0132\024.p"
+    "roto_ff.GiftDBData\0223\n\rfind_treature\030- \001("
+    "\0132\034.proto_ff.FindTreatureDBData\022\"\n\004fest\030"
+    ". \001(\0132\024.proto_ff.FestDBData\022&\n\006dragon\030/ "
+    "\001(\0132\026.proto_ff.DragonDBData\022 \n\004star\0300 \001("
+    "\0132\022.proto_ff.StarData\022\016\n\006change\0301 \001(\005\022&\n"
+    "\004turn\0302 \001(\0132\030.proto_ff.RoleDBTurnData\022&\n"
+    "\tgma_datas\0303 \001(\0132\023.proto_ff.GMADbData\022\"\n"
+    "\004soul\0304 \001(\0132\024.proto_ff.SoulDBData\022\"\n\004mof"
+    "a\0305 \001(\0132\024.proto_ff.MoFaDBData\022\"\n\004rune\0306 "
+    "\001(\0132\024.proto_ff.RuneDBData\":\n\016RedWaitDBPr"
+    "oto\022\013\n\003idx\030\001 \001(\r\022\r\n\005cfgid\030\002 \001(\005\022\014\n\004time\030"
+    "\003 \001(\004\"1\n\021RedTriggerDBProto\022\r\n\005cfgid\030\001 \001("
+    "\005\022\r\n\005count\030\002 \001(\005\"\365\001\n\rRoleRedDBData\022\014\n\004bd"
+    "ia\030\001 \001(\r\022\r\n\005magic\030\002 \001(\r\022\020\n\010todaynum\030\003 \001("
+    "\r\022\022\n\ntodaymagic\030\004 \001(\r\022\021\n\ttodaybdia\030\005 \001(\r"
+    "\022\021\n\tfreshtime\030\006 \001(\004\022\020\n\010send_lst\030\007 \003(\005\022*\n"
+    "\010wait_lst\030\010 \003(\0132\030.proto_ff.RedWaitDBProt"
+    "o\022\013\n\003cid\030\t \001(\004\0220\n\013trigger_lst\030\n \003(\0132\033.pr"
+    "oto_ff.RedTriggerDBProto\"9\n\017RedFetchDBPr"
+    "oto\022\013\n\003cid\030\001 \001(\004\022\013\n\003val\030\002 \001(\r\022\014\n\004time\030\003 "
+    "\001(\004\">\n\023RedFetchListDBProto\022\'\n\004info\030\001 \003(\013"
+    "2\031.proto_ff.RedFetchDBProto\"\232\001\n\016RedSendD"
+    "BProto\022\013\n\003idx\030\001 \001(\r\022\r\n\005cfgid\030\002 \001(\005\022\016\n\006se"
+    "nder\030\003 \001(\004\022\020\n\010sendtime\030\004 \001(\004\022\014\n\004word\030\005 \001"
+    "(\014\022\016\n\006finish\030\006 \001(\005\022,\n\005fetch\030\007 \001(\0132\035.prot"
+    "o_ff.RedFetchListDBProto\"\264\001\n\tRedDBData\022&"
+    "\n\004wait\030\001 \003(\0132\030.proto_ff.RedWaitDBProto\0220"
+    "\n\013trigger_lst\030\002 \003(\0132\033.proto_ff.RedTrigge"
+    "rDBProto\022\021\n\tfreshtime\030\003 \001(\004\022&\n\004send\030\004 \003("
+    "\0132\030.proto_ff.RedSendDBProto\022\022\n\nfaction_i"
+    "d\030\005 \001(\r\"\236\003\n\016RoleMirrorData\022\013\n\003cid\030\001 \001(\004\022"
+    "\014\n\004type\030\002 \001(\005\022\016\n\006teamid\030\003 \001(\r\022\013\n\003zid\030\004 \001"
+    "(\r\022\"\n\004attr\030\005 \001(\0132\024.proto_ff.AttrDBData\022$"
+    "\n\005skill\030\006 \001(\0132\025.proto_ff.SkillDBData\022&\n\004"
+    "base\030\007 \001(\0132\030.proto_ff.RoleDBBaseData\022(\n\005"
+    "equip\030\010 \001(\0132\031.proto_ff.RoleDBEquipData\022/"
+    "\n\014beast_equips\030\t \003(\0132\031.proto_ff.BestEQEq"
+    "uipInfo\022-\n\013beast_slots\030\n \003(\0132\030.proto_ff."
+    "BestEQSlotInfo\022\016\n\006campid\030\013 \001(\005\022\016\n\006relive"
+    "\030\014 \001(\005\"8\n\004Type\022\010\n\004Role\020\001\022\t\n\005Rebot\020\002\022\014\n\010T"
+    "eamRole\020\003\022\r\n\tTeamRebot\020\004\"W\n\021FactionMemDB"
+    "Proto\022\013\n\003cid\030\001 \001(\004\022\014\n\004duty\030\002 \001(\005\022\021\n\tjoin"
+    "_time\030\003 \001(\004\022\024\n\014total_contri\030\004 \001(\r\"E\n\025Fac"
+    "tionMultMemDBProto\022,\n\007mem_lst\030\001 \003(\0132\033.pr"
+    "oto_ff.FactionMemDBProto\"0\n\023FactionApply"
+    "DBProto\022\013\n\003cid\030\001 \001(\004\022\014\n\004time\030\002 \001(\004\"K\n\027Fa"
+    "ctionMultApplyDBProto\0220\n\tapply_lst\030\001 \003(\013"
+    "2\035.proto_ff.FactionApplyDBProto\"M\n\024Facti"
+    "onRecordDBProto\022\013\n\003cid\030\001 \001(\004\022\014\n\004time\030\002 \001"
+    "(\004\022\n\n\002op\030\003 \001(\005\022\016\n\006param1\030\004 \001(\003\"M\n\027Factio"
+    "nMutRecordDBProto\0222\n\nrecord_lst\030\001 \003(\0132\036."
+    "proto_ff.FactionRecordDBProto\"\265\003\n\rFactio"
+    "nDBBase\022\022\n\nfaction_id\030\001 \001(\r\022\014\n\004name\030\002 \001("
+    "\014\022\021\n\tleader_id\030\003 \001(\004\022\r\n\005fight\030\004 \001(\004\022\016\n\006n"
+    "otice\030\005 \001(\014\022\030\n\020last_notice_time\030\006 \001(\004\022\r\n"
+    "\005level\030\007 \001(\r\022\013\n\003exp\030\010 \001(\004\022\023\n\013create_time"
+    "\030\t \001(\004\022\020\n\010proxy_id\030\n \001(\004\022\022\n\nproxy_time\030\013"
+    " \001(\004\022\r\n\005grade\030\014 \001(\005\022/\n\006member\030\r \001(\0132\037.pr"
+    "oto_ff.FactionMultMemDBProto\0220\n\005apply\030\016 "
+    "\001(\0132!.proto_ff.FactionMultApplyDBProto\0221"
+    "\n\006record\030\017 \001(\0132!.proto_ff.FactionMutReco"
+    "rdDBProto\022\022\n\napply_type\030\020 \001(\005\022\021\n\tapply_l"
+    "ev\030\021 \001(\005\022\023\n\013apply_fight\030\022 \001(\004\"4\n\027Faction"
+    "BeastHarmDBProto\022\013\n\003cid\030\001 \001(\004\022\014\n\004harm\030\002 "
+    "\001(\003\"\350\001\n\022FactionBeastDBData\022/\n\004harm\030\001 \003(\013"
+    "2!.proto_ff.FactionBeastHarmDBProto\022\014\n\004s"
+    "tar\030\002 \001(\r\022\017\n\007is_open\030\003 \001(\005\022\017\n\007tribute\030\004 "
+    "\001(\r\022\023\n\013today_count\030\005 \001(\r\022\023\n\013today_fresh\030"
+    "\006 \001(\004\022\022\n\nweek_count\030\007 \001(\r\022\022\n\nweek_fresh\030"
+    "\010 \001(\004\022\r\n\005level\030\t \001(\005\022\020\n\010opentime\030\n \001(\004\"B"
+    "\n\027FactionGuardHarmDBProto\022\013\n\003cid\030\001 \001(\004\022\014"
+    "\n\004name\030\002 \001(\014\022\014\n\004harm\030\003 \001(\003\"\215\001\n\022FactionGu"
+    "ardDBData\022/\n\004harm\030\001 \003(\0132!.proto_ff.Facti"
+    "onGuardHarmDBProto\0223\n\010old_harm\030\002 \003(\0132!.p"
+    "roto_ff.FactionGuardHarmDBProto\022\021\n\tcan_e"
+    "nter\030\003 \001(\010\"\250\001\n\013FactionMoyu\022\021\n\tweek_harm\030"
+    "\001 \001(\004\022\026\n\016last_week_harm\030\002 \001(\004\022\021\n\tcur_lay"
+    "er\030\003 \001(\005\022\016\n\006cur_hp\030\004 \001(\004\022\016\n\006max_hp\030\005 \001(\004"
+    "\022\021\n\tharm_time\030\006 \001(\004\022\024\n\014refresh_time\030\007 \001("
+    "\004\022\022\n\npass_layer\030\010 \001(\005\"\216\001\n\rFactionDBData\022"
+    "+\n\005beast\030\001 \001(\0132\034.proto_ff.FactionBeastDB"
+    "Data\022+\n\005guard\030\002 \001(\0132\034.proto_ff.FactionGu"
+    "ardDBData\022#\n\004moyu\030\003 \001(\0132\025.proto_ff.Facti"
+    "onMoyu\"t\n\020FactionAllDBData\022\022\n\nfaction_id"
+    "\030\001 \001(\r\022%\n\004base\030\002 \001(\0132\027.proto_ff.FactionD"
+    "BBase\022%\n\004data\030\003 \001(\0132\027.proto_ff.FactionDB"
+    "Data\"`\n\026FactionDBMoyuRankEntry\022\n\n\002id\030\001 \001"
+    "(\004\022\014\n\004name\030\002 \001(\014\022\013\n\003zid\030\003 \001(\005\022\014\n\004harm\030\004 "
+    "\001(\004\022\021\n\tharm_time\030\005 \001(\004\"n\n\021FactionDBMoyuR"
+    "ank\022\014\n\004type\030\001 \001(\005\022\r\n\005group\030\002 \001(\005\022.\n\004rank"
+    "\030\003 \003(\0132 .proto_ff.FactionDBMoyuRankEntry"
+    "\022\014\n\004time\030\004 \001(\004\"A\n\023FactionDBMoyuRankDB\022*\n"
+    "\005infos\030\001 \003(\0132\033.proto_ff.FactionDBMoyuRan"
+    "k\"M\n\rRoleListDBReq\022\r\n\005reqid\030\001 \002(\004\022\013\n\003uid"
+    "\030\002 \002(\r\022\016\n\006gateid\030\003 \002(\r\022\020\n\010born_zid\030\004 \002(\r"
+    "\"\205\001\n\rRoleListDBRsp\022\013\n\003ret\030\001 \002(\005\022\r\n\005reqid"
+    "\030\002 \002(\004\022\013\n\003uid\030\003 \002(\r\022\016\n\006gateid\030\004 \002(\r\022+\n\010r"
+    "ole_lst\030\005 \003(\0132\031.proto_ff.RoleListDBProto"
+    "\022\016\n\006regnum\030\006 \001(\r\"\246\001\n\017CreateRoleDBReq\022\r\n\005"
+    "reqid\030\001 \002(\004\022\013\n\003zid\030\002 \002(\r\022\016\n\006gateid\030\003 \002(\r"
+    "\022\"\n\004data\030\004 \002(\0132\024.proto_ff.RoleDBData\022\013\n\003"
+    "uid\030\005 \001(\r\022\022\n\nchannel_id\030\006 \001(\r\022\020\n\010zone_mi"
+    "d\030\007 \001(\r\022\020\n\010born_zid\030\010 \001(\r\"\260\001\n\017CreateRole"
+    "DBRsp\022\013\n\003ret\030\001 \002(\005\022\r\n\005reqid\030\002 \002(\004\022\013\n\003uid"
+    "\030\003 \002(\r\022\016\n\006gateid\030\004 \002(\r\022\'\n\004info\030\005 \001(\0132\031.p"
+    "roto_ff.RoleListDBProto\022\020\n\010born_zid\030\006 \001("
+    "\r\022)\n\006simple\030\007 \001(\0132\031.proto_ff.CenterRoleP"
+    "roto\";\n\rRoleInfoDBReq\022\r\n\005reqid\030\001 \002(\004\022\013\n\003"
+    "cid\030\002 \002(\004\022\016\n\006change\030\003 \001(\005\"l\n\rRoleInfoDBR"
+    "sp\022\013\n\003ret\030\001 \002(\005\022\r\n\005reqid\030\002 \002(\004\022\013\n\003cid\030\003 "
+    "\002(\004\022\016\n\006change\030\004 \001(\005\022\"\n\004info\030\005 \001(\0132\024.prot"
+    "o_ff.RoleDBData\"S\n\023RoleInfoUpdateDBReq\022\013"
+    "\n\003cid\030\001 \002(\004\022\013\n\003uid\030\002 \002(\r\022\"\n\004info\030\003 \001(\0132\024"
+    ".proto_ff.RoleDBData\"-\n\020RoleChgNameDBReq"
+    "\022\013\n\003cid\030\001 \002(\004\022\014\n\004name\030\002 \002(\014\":\n\020RoleChgNa"
+    "meDBRsp\022\013\n\003ret\030\001 \002(\005\022\013\n\003cid\030\002 \002(\004\022\014\n\004nam"
+    "e\030\003 \002(\014\"\025\n\023RoleSimpleListDBReq\"`\n\023RoleSi"
+    "mpleListDBRsp\022\013\n\003ret\030\001 \002(\005\022\'\n\004info\030\002 \003(\013"
+    "2\031.proto_ff.CenterRoleProto\022\023\n\013finish_fl"
+    "ag\030\003 \001(\005\"-\n\027CreatureTransLogicDBReq\022\022\n\nt"
+    "rans_data\030\001 \001(\014\"7\n\027CreatureTransLogicDBR"
+    "sp\022\017\n\007retcode\030\001 \002(\005\022\013\n\003cid\030\002 \001(\004\"A\n\rNewM"
+    "ailDBInfo\022 \n\004data\030\001 \003(\0132\022.proto_ff.MailI"
+    "nfo\022\016\n\006result\030\002 \001(\005\"4\n\021MailDBOperateInfo"
+    "\022\017\n\007mid_lst\030\001 \003(\r\022\016\n\006result\030\002 \001(\005\"\327\001\n\rSa"
+    "veMailDBReq\022\016\n\006charid\030\001 \002(\004\022%\n\004info\030\002 \001("
+    "\0132\027.proto_ff.NewMailDBInfo\022(\n\003del\030\003 \001(\0132"
+    "\033.proto_ff.MailDBOperateInfo\022*\n\005fetch\030\004 "
+    "\001(\0132\033.proto_ff.MailDBOperateInfo\022)\n\004read"
+    "\030\005 \001(\0132\033.proto_ff.MailDBOperateInfo\022\016\n\006n"
+    "otify\030\006 \001(\005\"\327\001\n\rSaveMailDBRsp\022\016\n\006charid\030"
+    "\001 \002(\004\022%\n\004info\030\002 \001(\0132\027.proto_ff.NewMailDB"
+    "Info\022(\n\003del\030\003 \001(\0132\033.proto_ff.MailDBOpera"
+    "teInfo\022*\n\005fetch\030\004 \001(\0132\033.proto_ff.MailDBO"
+    "perateInfo\022)\n\004read\030\005 \001(\0132\033.proto_ff.Mail"
+    "DBOperateInfo\022\016\n\006notify\030\006 \001(\005\"_\n\026Charact"
+    "erMailDBRequest\022\016\n\006charID\030\001 \001(\004\022\026\n\016zone_"
+    "mail_flag\030\002 \001(\r\022\016\n\006offset\030\003 \001(\005\022\r\n\005reqid"
+    "\030\004 \001(\r\"~\n\027CharacterMailDBResponse\022\016\n\006cha"
+    "rID\030\001 \001(\004\022 \n\004info\030\002 \003(\0132\022.proto_ff.MailI"
+    "nfo\022\022\n\nzoneMailId\030\003 \001(\r\022\016\n\006offset\030\004 \001(\005\022"
+    "\r\n\005reqid\030\005 \001(\r\"\022\n\020MaxMailIDRequest\"*\n\021Ma"
+    "xMailIDResponse\022\025\n\rmaxZoneMailId\030\001 \002(\r\"%"
+    "\n\023DeleteCharacterMail\022\016\n\006charID\030\001 \002(\004\"!\n"
+    "\017ZoneMailSaveRsp\022\016\n\006mailId\030\001 \002(\r\"P\n\035Zone"
+    "MailTransCharacterMailReq\022\016\n\006mailId\030\001 \002("
+    "\r\022\013\n\003cid\030\002 \002(\004\022\022\n\ncreatetime\030\003 \002(\004\"g\n\035Zo"
+    "neMailTransCharacterMailRsp\022\013\n\003cid\030\001 \002(\004"
+    "\022 \n\004data\030\002 \003(\0132\022.proto_ff.MailInfo\022\027\n\017ma"
+    "x_zone_mailid\030\003 \002(\r\"p\n\020WebMailDBDataReq\022"
+    "\017\n\007op_type\030\001 \001(\005\022\013\n\003cid\030\002 \001(\004\022\016\n\006pernum\030"
+    "\003 \001(\r\022\017\n\007curpage\030\004 \001(\r\022\016\n\006id_lst\030\005 \003(\r\022\r"
+    "\n\005webId\030\006 \002(\014\"\242\001\n\020WebMailDBDataRsp\022\017\n\007op"
+    "_type\030\001 \001(\005\022\013\n\003cid\030\002 \001(\004\022\017\n\007curpage\030\003 \001("
+    "\r\022\022\n\ntotalcount\030\004 \001(\r\022\016\n\006id_lst\030\005 \003(\r\022,\n"
+    "\010info_lst\030\006 \003(\0132\032.proto_ff.WebMailDataPr"
+    "oto\022\r\n\005webId\030\007 \002(\014\"F\n\014FriendDBInfo\022\016\n\006ch"
+    "arID\030\001 \001(\004\022&\n\004data\030\002 \001(\0132\030.proto_ff.Rela"
+    "tionDBInfo\"m\n\017FriendDBRequest\022\016\n\006charid\030"
+    "\001 \001(\004\022\021\n\tdstid_lst\030\002 \003(\004\022\024\n\014operate_type"
+    "\030\003 \001(\r\022\014\n\004data\030\004 \001(\014\022\023\n\013query_times\030\005 \001("
+    "\r\"\250\001\n\020FriendDBResponse\022\017\n\007retcode\030\001 \001(\005\022"
+    "\016\n\006charid\030\002 \001(\004\022\024\n\014operate_type\030\003 \001(\r\022(\n"
+    "\010info_lst\030\004 \003(\0132\026.proto_ff.FriendDBInfo\022"
+    "\020\n\010last_lst\030\005 \003(\004\022\014\n\004data\030\006 \001(\014\022\023\n\013query"
+    "_times\030\007 \001(\r\"$\n\022AllFriendDBRequest\022\016\n\006of"
+    "fset\030\001 \002(\005\"\\\n\023AllFriendDBResponse\022\017\n\007ret"
+    "code\030\001 \002(\005\022\016\n\006offset\030\002 \002(\005\022$\n\004info\030\003 \003(\013"
+    "2\026.proto_ff.FriendDBInfo\";\n\023SaveFriendDB"
+    "Request\022$\n\004info\030\001 \003(\0132\026.proto_ff.FriendD"
+    "BInfo\"&\n\024DelteFriendDBRequest\022\016\n\006charId\030"
+    "\001 \001(\004\"\020\n\016GlobalDBRequst\".\n\rGlobalDBEntry"
+    "\022\017\n\007type_id\030\001 \001(\005\022\014\n\004data\030\002 \001(\014\"L\n\020Globa"
+    "lDBResponse\022&\n\005entry\030\001 \003(\0132\027.proto_ff.Gl"
+    "obalDBEntry\022\020\n\010isfinish\030\002 \001(\005\"3\n\022GlobalD"
+    "BSetRequest\022\017\n\007type_id\030\001 \002(\005\022\014\n\004data\030\002 \001"
+    "(\014\"7\n\023GlobalDBSetResponse\022\017\n\007retcode\030\001 \002"
+    "(\005\022\017\n\007type_id\030\002 \002(\005\"C\n\rGlobalComData\0222\n\016"
+    "towerDupReward\030\001 \003(\0132\032.proto_ff.DupTower"
+    "DBRecord\"`\n\025GlobalYaotaDupDBEntry\022\r\n\005dup"
+    "id\030\001 \001(\005\022*\n\004info\030\002 \003(\0132\034.proto_ff.RolePl"
+    "ayerMiniInfo\022\014\n\004time\030\003 \001(\004\"G\n\024GlobalYaot"
+    "aDupDBData\022/\n\006entrys\030\003 \003(\0132\037.proto_ff.Gl"
+    "obalYaotaDupDBEntry\"<\n\nActDBProto\022\r\n\005act"
+    "id\030\001 \001(\004\022\013\n\003zid\030\002 \001(\r\022\022\n\nfinishtime\030\003 \001("
+    "\004\"\n\n\010ActDBReq\"-\n\010ActDBRsp\022!\n\003lst\030\001 \003(\0132\024"
+    ".proto_ff.ActDBProto\"1\n\014ActSaveDBReq\022!\n\003"
+    "lst\030\001 \003(\0132\024.proto_ff.ActDBProto\"3\n\021AllAr"
+    "enaDBRequest\022\016\n\006offset\030\001 \002(\005\022\016\n\006retnum\030\002"
+    " \002(\005\"-\n\013ArenaDBInfo\022\016\n\006charID\030\001 \001(\004\022\016\n\006r"
+    "ankId\030\002 \001(\r\"i\n\017ArenaMoreDBInfo\022#\n\004info\030\001"
+    " \003(\0132\025.proto_ff.ArenaDBInfo\022\013\n\003day\030\002 \001(\r"
+    "\022\022\n\ngiveReward\030\003 \001(\r\022\020\n\010max_rank\030\004 \001(\r\"Z"
+    "\n\022AllArenaDBResponse\022\017\n\007retcode\030\001 \002(\005\022\016\n"
+    "\006offset\030\002 \002(\005\022#\n\004info\030\003 \003(\0132\025.proto_ff.A"
+    "renaDBInfo\"9\n\022SaveArenaDBRequest\022#\n\004info"
+    "\030\001 \003(\0132\025.proto_ff.ArenaDBInfo\"&\n\024DeleteA"
+    "renaDBRequest\022\016\n\006charId\030\001 \001(\004\"U\n\017RoleMir"
+    "rorDBReq\022\013\n\003cid\030\001 \002(\004\022\021\n\tint_param\030\002 \002(\003"
+    "\022\021\n\tstr_param\030\003 \002(\014\022\017\n\007reqtype\030\004 \002(\r\"\212\001\n"
+    "\017RoleMirrorDBRsp\022\013\n\003ret\030\001 \002(\005\022\013\n\003cid\030\002 \002"
+    "(\004\022\021\n\tint_param\030\003 \002(\003\022\021\n\tstr_param\030\004 \002(\014"
+    "\022\017\n\007reqtype\030\005 \002(\r\022&\n\004data\030\006 \001(\0132\030.proto_"
+    "ff.RoleMirrorData\"\022\n\020FactionDataDBReq\"P\n"
+    "\020FactionDataDBRsp\022,\n\010data_lst\030\001 \003(\0132\032.pr"
+    "oto_ff.FactionAllDBData\022\016\n\006finish\030\002 \001(\005\""
+    "<\n\020FactionSaveDBReq\022(\n\004data\030\001 \001(\0132\032.prot"
+    "o_ff.FactionAllDBData\"%\n\017FactionDelDBReq"
+    "\022\022\n\nfaction_id\030\001 \001(\r\"\021\n\017FactionRedDBReq\""
+    "H\n\017FactionRedDBRsp\022%\n\010data_lst\030\001 \003(\0132\023.p"
+    "roto_ff.RedDBData\022\016\n\006finish\030\002 \001(\005\"\225\001\n\023Fa"
+    "ctionRedSaveDBReq\022\022\n\nfaction_id\030\001 \002(\r\022\"\n"
+    "\005data0\030\002 \002(\0132\023.proto_ff.RedDBData\022\"\n\005dat"
+    "a1\030\003 \002(\0132\023.proto_ff.RedDBData\022\"\n\005data2\030\004"
+    " \002(\0132\023.proto_ff.RedDBData\"(\n\022FactionRedD"
+    "elDBReq\022\022\n\nfaction_id\030\001 \002(\r\"\016\n\014RoleRedDB"
+    "Req\"I\n\014RoleRedDBRsp\022)\n\010data_lst\030\001 \003(\0132\027."
+    "proto_ff.RoleRedDBData\022\016\n\006finish\030\002 \001(\005\";"
+    "\n\014ComLoadDBReq\022\n\n\002id\030\001 \002(\004\022\022\n\ntable_name"
+    "\030\002 \002(\014\022\013\n\003cmd\030\003 \002(\r\"(\n\014ComLoadDBRsp\022\n\n\002i"
+    "d\030\001 \002(\004\022\014\n\004data\030\002 \002(\014\"2\n\017ComLoadAllDBReq"
+    "\022\022\n\ntable_name\030\001 \002(\014\022\013\n\003cmd\030\002 \002(\r\"&\n\nCom"
+    "DBProto\022\n\n\002id\030\001 \002(\004\022\014\n\004data\030\002 \002(\014\"H\n\017Com"
+    "LoadAllDBRsp\022\"\n\004data\030\001 \003(\0132\024.proto_ff.Co"
+    "mDBProto\022\021\n\tis_finish\030\002 \002(\005\"<\n\014ComSaveDB"
+    "Req\022\n\n\002id\030\001 \002(\004\022\014\n\004data\030\002 \002(\014\022\022\n\ntable_n"
+    "ame\030\003 \002(\014\"1\n\013ComDelDBReq\022\022\n\ntable_name\030\001"
+    " \002(\014\022\016\n\006id_lst\030\002 \003(\004\">\n\nMarryApply\022\024\n\014ap"
+    "ply_dst_id\030\001 \001(\004\022\014\n\004time\030\002 \001(\004\022\014\n\004gear\030\003"
+    " \001(\005\"\232\001\n\017MarrySimpleInfo\022\014\n\004m_id\030\001 \001(\004\022\016"
+    "\n\006dst_id\030\002 \001(\004\022\020\n\010marry_id\030\003 \001(\r\022#\n\005brie"
+    "f\030\004 \001(\0132\024.proto_ff.MarryBrief\022#\n\005apply\030\005"
+    " \001(\0132\024.proto_ff.MarryApply\022\r\n\005state\030\006 \001("
+    "\005\" \n\016MarryDBLoadReq\022\016\n\006offset\030\001 \001(\005\"X\n\016M"
+    "arryDBLoadRsp\022\013\n\003ret\030\001 \001(\005\022\016\n\006offset\030\002 \001"
+    "(\005\022)\n\006simple\030\003 \003(\0132\031.proto_ff.MarrySimpl"
+    "eInfo\"9\n\016MarryDBSaveReq\022\'\n\004info\030\001 \001(\0132\031."
+    "proto_ff.MarrySimpleInfo\"P\n\021AnswerRankDB"
     "Proto\022\021\n\tfactionid\030\001 \001(\r\022\014\n\004name\030\002 \001(\014\022\r"
-    "\n\005count\030\003 \001(\r\022\014\n\004time\030\004 \001(\004\022\013\n\003zid\030\005 \001(\r"
-    "\"i\n\013GuardDBData\022,\n\010old_rank\030\001 \003(\0132\032.prot"
-    "o_ff.GuardRankDBProto\022,\n\010cur_rank\030\002 \003(\0132"
-    "\032.proto_ff.GuardRankDBProto\"\223\001\n\016Rank1v1D"
-    "BProto\022\014\n\004rank\030\001 \001(\005\022\013\n\003cid\030\002 \001(\004\022\014\n\004nam"
-    "e\030\003 \001(\014\022\014\n\004prof\030\004 \001(\005\022\r\n\005fight\030\005 \001(\004\022\013\n\003"
-    "zid\030\006 \001(\r\022\r\n\005score\030\007 \001(\005\022\014\n\004time\030\010 \001(\004\022\021"
-    "\n\tmatch_num\030\t \001(\005\"W\n\014Act1v1DBData\022&\n\004ran"
-    "k\030\001 \003(\0132\030.proto_ff.Rank1v1DBProto\022\022\n\nres"
-    "et_time\030\002 \001(\004\022\013\n\003num\030\003 \001(\005\"R\n\022RaceFactio"
-    "nDBProto\022\022\n\nfaction_id\030\001 \001(\r\022\014\n\004name\030\002 \001"
-    "(\014\022\r\n\005fight\030\003 \001(\004\022\013\n\003zid\030\004 \001(\r\"P\n\020RaceMa"
-    "tchDBProto\022\023\n\013faction_id1\030\001 \001(\r\022\023\n\013facti"
-    "on_id2\030\002 \001(\r\022\022\n\nfaction_id\030\003 \001(\r\"K\n\013Race"
-    "DBProto\022\014\n\004race\030\001 \001(\005\022.\n\010info_lst\030\002 \003(\0132"
-    "\034.proto_ff.RaceFactionDBProto\"M\n\016WarRank"
-    "DBProto\022\022\n\nfaction_id\030\001 \001(\r\022\014\n\004name\030\002 \001("
-    "\014\022\013\n\003zid\030\003 \001(\r\022\014\n\004rank\030\004 \001(\005\"\243\001\n\020Faction"
-    "WarDBData\022#\n\004race\030\001 \003(\0132\025.proto_ff.RaceD"
-    "BProto\022&\n\004rank\030\002 \003(\0132\030.proto_ff.WarRankD"
-    "BProto\022\016\n\006win_id\030\003 \001(\r\022\020\n\010win_name\030\004 \001(\014"
-    "\022\017\n\007win_num\030\005 \001(\005\022\017\n\007win_zid\030\006 \001(\r\"9\n\020Di"
-    "gEggLogDBProto\022\014\n\004name\030\001 \001(\014\022\n\n\002id\030\002 \001(\005"
-    "\022\013\n\003cid\030\003 \001(\004\"U\n\024FestDigEggLogDBProto\022\023\n"
-    "\013template_id\030\001 \001(\005\022(\n\004info\030\002 \003(\0132\032.proto"
-    "_ff.DigEggLogDBProto\"B\n\023FestDigEggLogDBD"
-    "ata\022+\n\003log\030\001 \003(\0132\036.proto_ff.FestDigEggLo"
-    "gDBProto\"H\n\026FestRTurnableLogDBData\022.\n\003lo"
-    "g\030\001 \003(\0132!.proto_ff.FestRTurnableLogDBPro"
-    "to\"\?\n\020FestDonateDBData\022+\n\004data\030\001 \003(\0132\035.p"
-    "roto_ff.DonateServerDBProto\"F\n\025FestDrawP"
-    "izeLogDBData\022-\n\003log\030\001 \003(\0132 .proto_ff.Fes"
-    "tDrawPizeLogDBProto\"\226\003\n\007GoodsDB\022\020\n\010order"
-    "_id\030\001 \001(\004\022\023\n\013market_type\030\002 \001(\005\022\024\n\014market"
-    "_owner\030\003 \001(\004\022\017\n\007role_id\030\004 \001(\004\022\022\n\nstart_t"
-    "ime\030\005 \001(\004\022\020\n\010end_time\030\006 \001(\004\022\016\n\006vie_id\030\007 "
-    "\001(\004\022\r\n\005state\030\010 \001(\005\022\020\n\010isdelete\030\t \001(\005\022\021\n\t"
-    "cmpt_time\030\n \001(\004\022\021\n\tcur_price\030\013 \001(\005\022\022\n\ncm"
-    "pt_price\030\014 \001(\005\022\020\n\010buyer_id\030\r \001(\004\022\020\n\010vie_"
-    "time\030\016 \001(\004\022*\n\titem_data\030\017 \001(\0132\027.proto_ff"
-    ".ItemProtoInfo\022\022\n\nitem_price\030\020 \001(\005\022\021\n\tta"
-    "ke_list\030\021 \001(\014\022\020\n\010vie_list\030\022 \001(\014\022\022\n\nready"
-    "_time\030\023 \001(\004\022\017\n\007is_take\030\024 \001(\005\"\"\n\014LoadGood"
-    "sReq\022\022\n\nstart_time\030\001 \001(\003\"F\n\017MarketDBLoad"
-    "Rsp\022 \n\005infos\030\001 \003(\0132\021.proto_ff.GoodsDB\022\021\n"
-    "\tis_finish\030\002 \001(\005\"0\n\rMarketSaveReq\022\037\n\004inf"
-    "o\030\001 \001(\0132\021.proto_ff.GoodsDB\" \n\014MarketDelR"
-    "eq\022\020\n\010order_id\030\001 \001(\004\"W\n\021CandleHarmDBProt"
-    "o\022\013\n\003cid\030\001 \001(\004\022\014\n\004name\030\002 \001(\014\022\014\n\004harm\030\003 \001"
-    "(\004\022\013\n\003zid\030\004 \001(\r\022\014\n\004rank\030\005 \001(\005\"U\n\014CandleD"
-    "BData\022\r\n\005index\030\001 \001(\005\022(\n\003ham\030\002 \003(\0132\033.prot"
-    "o_ff.CandleHarmDBProto\022\014\n\004time\030\003 \001(\004", 28796);
+    "\n\005count\030\003 \001(\r\022\013\n\003zid\030\004 \001(\r\"9\n\014AnswerDBDa"
+    "ta\022)\n\004rank\030\001 \003(\0132\033.proto_ff.AnswerRankDB"
+    "Proto\"]\n\020GuardRankDBProto\022\021\n\tfactionid\030\001"
+    " \001(\r\022\014\n\004name\030\002 \001(\014\022\r\n\005count\030\003 \001(\r\022\014\n\004tim"
+    "e\030\004 \001(\004\022\013\n\003zid\030\005 \001(\r\"i\n\013GuardDBData\022,\n\010o"
+    "ld_rank\030\001 \003(\0132\032.proto_ff.GuardRankDBProt"
+    "o\022,\n\010cur_rank\030\002 \003(\0132\032.proto_ff.GuardRank"
+    "DBProto\"\223\001\n\016Rank1v1DBProto\022\014\n\004rank\030\001 \001(\005"
+    "\022\013\n\003cid\030\002 \001(\004\022\014\n\004name\030\003 \001(\014\022\014\n\004prof\030\004 \001("
+    "\005\022\r\n\005fight\030\005 \001(\004\022\013\n\003zid\030\006 \001(\r\022\r\n\005score\030\007"
+    " \001(\005\022\014\n\004time\030\010 \001(\004\022\021\n\tmatch_num\030\t \001(\005\"W\n"
+    "\014Act1v1DBData\022&\n\004rank\030\001 \003(\0132\030.proto_ff.R"
+    "ank1v1DBProto\022\022\n\nreset_time\030\002 \001(\004\022\013\n\003num"
+    "\030\003 \001(\005\"R\n\022RaceFactionDBProto\022\022\n\nfaction_"
+    "id\030\001 \001(\r\022\014\n\004name\030\002 \001(\014\022\r\n\005fight\030\003 \001(\004\022\013\n"
+    "\003zid\030\004 \001(\r\"P\n\020RaceMatchDBProto\022\023\n\013factio"
+    "n_id1\030\001 \001(\r\022\023\n\013faction_id2\030\002 \001(\r\022\022\n\nfact"
+    "ion_id\030\003 \001(\r\"K\n\013RaceDBProto\022\014\n\004race\030\001 \001("
+    "\005\022.\n\010info_lst\030\002 \003(\0132\034.proto_ff.RaceFacti"
+    "onDBProto\"M\n\016WarRankDBProto\022\022\n\nfaction_i"
+    "d\030\001 \001(\r\022\014\n\004name\030\002 \001(\014\022\013\n\003zid\030\003 \001(\r\022\014\n\004ra"
+    "nk\030\004 \001(\005\"\243\001\n\020FactionWarDBData\022#\n\004race\030\001 "
+    "\003(\0132\025.proto_ff.RaceDBProto\022&\n\004rank\030\002 \003(\013"
+    "2\030.proto_ff.WarRankDBProto\022\016\n\006win_id\030\003 \001"
+    "(\r\022\020\n\010win_name\030\004 \001(\014\022\017\n\007win_num\030\005 \001(\005\022\017\n"
+    "\007win_zid\030\006 \001(\r\"9\n\020DigEggLogDBProto\022\014\n\004na"
+    "me\030\001 \001(\014\022\n\n\002id\030\002 \001(\005\022\013\n\003cid\030\003 \001(\004\"U\n\024Fes"
+    "tDigEggLogDBProto\022\023\n\013template_id\030\001 \001(\005\022("
+    "\n\004info\030\002 \003(\0132\032.proto_ff.DigEggLogDBProto"
+    "\"B\n\023FestDigEggLogDBData\022+\n\003log\030\001 \003(\0132\036.p"
+    "roto_ff.FestDigEggLogDBProto\"H\n\026FestRTur"
+    "nableLogDBData\022.\n\003log\030\001 \003(\0132!.proto_ff.F"
+    "estRTurnableLogDBProto\"\?\n\020FestDonateDBDa"
+    "ta\022+\n\004data\030\001 \003(\0132\035.proto_ff.DonateServer"
+    "DBProto\"F\n\025FestDrawPizeLogDBData\022-\n\003log\030"
+    "\001 \003(\0132 .proto_ff.FestDrawPizeLogDBProto\""
+    "\226\003\n\007GoodsDB\022\020\n\010order_id\030\001 \001(\004\022\023\n\013market_"
+    "type\030\002 \001(\005\022\024\n\014market_owner\030\003 \001(\004\022\017\n\007role"
+    "_id\030\004 \001(\004\022\022\n\nstart_time\030\005 \001(\004\022\020\n\010end_tim"
+    "e\030\006 \001(\004\022\016\n\006vie_id\030\007 \001(\004\022\r\n\005state\030\010 \001(\005\022\020"
+    "\n\010isdelete\030\t \001(\005\022\021\n\tcmpt_time\030\n \001(\004\022\021\n\tc"
+    "ur_price\030\013 \001(\005\022\022\n\ncmpt_price\030\014 \001(\005\022\020\n\010bu"
+    "yer_id\030\r \001(\004\022\020\n\010vie_time\030\016 \001(\004\022*\n\titem_d"
+    "ata\030\017 \001(\0132\027.proto_ff.ItemProtoInfo\022\022\n\nit"
+    "em_price\030\020 \001(\005\022\021\n\ttake_list\030\021 \001(\014\022\020\n\010vie"
+    "_list\030\022 \001(\014\022\022\n\nready_time\030\023 \001(\004\022\017\n\007is_ta"
+    "ke\030\024 \001(\005\"\"\n\014LoadGoodsReq\022\022\n\nstart_time\030\001"
+    " \001(\003\"F\n\017MarketDBLoadRsp\022 \n\005infos\030\001 \003(\0132\021"
+    ".proto_ff.GoodsDB\022\021\n\tis_finish\030\002 \001(\005\"0\n\r"
+    "MarketSaveReq\022\037\n\004info\030\001 \001(\0132\021.proto_ff.G"
+    "oodsDB\" \n\014MarketDelReq\022\020\n\010order_id\030\001 \001(\004"
+    "\"W\n\021CandleHarmDBProto\022\013\n\003cid\030\001 \001(\004\022\014\n\004na"
+    "me\030\002 \001(\014\022\014\n\004harm\030\003 \001(\004\022\013\n\003zid\030\004 \001(\r\022\014\n\004r"
+    "ank\030\005 \001(\005\"U\n\014CandleDBData\022\r\n\005index\030\001 \001(\005"
+    "\022(\n\003ham\030\002 \003(\0132\033.proto_ff.CandleHarmDBPro"
+    "to\022\014\n\004time\030\003 \001(\004", 28736);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "DBProxy.proto", &protobuf_RegisterTypes);
   RoleReliveProto::default_instance_ = new RoleReliveProto();
@@ -6904,11 +6903,11 @@ void protobuf_AddDesc_DBProxy_2eproto() {
   DayTotalRechargeDBProto::default_instance_ = new DayTotalRechargeDBProto();
   TotalRechargeDBProto::default_instance_ = new TotalRechargeDBProto();
   LoginRewardDBProto::default_instance_ = new LoginRewardDBProto();
+  DayFetchInfo::default_instance_ = new DayFetchInfo();
+  GearFetchInfo::default_instance_ = new GearFetchInfo();
   ContiRechargeDBProto::default_instance_ = new ContiRechargeDBProto();
-  ContiRechargeDBProto_DayFetchInfo::default_instance_ = new ContiRechargeDBProto_DayFetchInfo();
-  ContiRechargeDBProto_GearFetchInfo::default_instance_ = new ContiRechargeDBProto_GearFetchInfo();
+  ShopProto::default_instance_ = new ShopProto();
   LimitSaleDBProto::default_instance_ = new LimitSaleDBProto();
-  LimitSaleDBProto_ShopProto::default_instance_ = new LimitSaleDBProto_ShopProto();
   FestDetailDBProto::default_instance_ = new FestDetailDBProto();
   FestDBData::default_instance_ = new FestDBData();
   ShadowDBProto::default_instance_ = new ShadowDBProto();
@@ -7145,11 +7144,11 @@ void protobuf_AddDesc_DBProxy_2eproto() {
   DayTotalRechargeDBProto::default_instance_->InitAsDefaultInstance();
   TotalRechargeDBProto::default_instance_->InitAsDefaultInstance();
   LoginRewardDBProto::default_instance_->InitAsDefaultInstance();
+  DayFetchInfo::default_instance_->InitAsDefaultInstance();
+  GearFetchInfo::default_instance_->InitAsDefaultInstance();
   ContiRechargeDBProto::default_instance_->InitAsDefaultInstance();
-  ContiRechargeDBProto_DayFetchInfo::default_instance_->InitAsDefaultInstance();
-  ContiRechargeDBProto_GearFetchInfo::default_instance_->InitAsDefaultInstance();
+  ShopProto::default_instance_->InitAsDefaultInstance();
   LimitSaleDBProto::default_instance_->InitAsDefaultInstance();
-  LimitSaleDBProto_ShopProto::default_instance_->InitAsDefaultInstance();
   FestDetailDBProto::default_instance_->InitAsDefaultInstance();
   FestDBData::default_instance_->InitAsDefaultInstance();
   ShadowDBProto::default_instance_->InitAsDefaultInstance();
@@ -42024,61 +42023,61 @@ void LoginRewardDBProto::Swap(LoginRewardDBProto* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int ContiRechargeDBProto_DayFetchInfo::kDayFieldNumber;
-const int ContiRechargeDBProto_DayFetchInfo::kGearLstFieldNumber;
+const int DayFetchInfo::kDayFieldNumber;
+const int DayFetchInfo::kGearLstFieldNumber;
 #endif  // !_MSC_VER
 
-ContiRechargeDBProto_DayFetchInfo::ContiRechargeDBProto_DayFetchInfo()
+DayFetchInfo::DayFetchInfo()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void ContiRechargeDBProto_DayFetchInfo::InitAsDefaultInstance() {
+void DayFetchInfo::InitAsDefaultInstance() {
 }
 
-ContiRechargeDBProto_DayFetchInfo::ContiRechargeDBProto_DayFetchInfo(const ContiRechargeDBProto_DayFetchInfo& from)
+DayFetchInfo::DayFetchInfo(const DayFetchInfo& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void ContiRechargeDBProto_DayFetchInfo::SharedCtor() {
+void DayFetchInfo::SharedCtor() {
   _cached_size_ = 0;
   day_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-ContiRechargeDBProto_DayFetchInfo::~ContiRechargeDBProto_DayFetchInfo() {
+DayFetchInfo::~DayFetchInfo() {
   SharedDtor();
 }
 
-void ContiRechargeDBProto_DayFetchInfo::SharedDtor() {
+void DayFetchInfo::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void ContiRechargeDBProto_DayFetchInfo::SetCachedSize(int size) const {
+void DayFetchInfo::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* ContiRechargeDBProto_DayFetchInfo::descriptor() {
+const ::google::protobuf::Descriptor* DayFetchInfo::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return ContiRechargeDBProto_DayFetchInfo_descriptor_;
+  return DayFetchInfo_descriptor_;
 }
 
-const ContiRechargeDBProto_DayFetchInfo& ContiRechargeDBProto_DayFetchInfo::default_instance() {
+const DayFetchInfo& DayFetchInfo::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_DBProxy_2eproto();
   return *default_instance_;
 }
 
-ContiRechargeDBProto_DayFetchInfo* ContiRechargeDBProto_DayFetchInfo::default_instance_ = NULL;
+DayFetchInfo* DayFetchInfo::default_instance_ = NULL;
 
-ContiRechargeDBProto_DayFetchInfo* ContiRechargeDBProto_DayFetchInfo::New() const {
-  return new ContiRechargeDBProto_DayFetchInfo;
+DayFetchInfo* DayFetchInfo::New() const {
+  return new DayFetchInfo;
 }
 
-void ContiRechargeDBProto_DayFetchInfo::Clear() {
+void DayFetchInfo::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     day_ = 0;
   }
@@ -42087,7 +42086,7 @@ void ContiRechargeDBProto_DayFetchInfo::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool ContiRechargeDBProto_DayFetchInfo::MergePartialFromCodedStream(
+bool DayFetchInfo::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -42146,7 +42145,7 @@ bool ContiRechargeDBProto_DayFetchInfo::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void ContiRechargeDBProto_DayFetchInfo::SerializeWithCachedSizes(
+void DayFetchInfo::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional int32 day = 1;
   if (has_day()) {
@@ -42165,7 +42164,7 @@ void ContiRechargeDBProto_DayFetchInfo::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* ContiRechargeDBProto_DayFetchInfo::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* DayFetchInfo::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // optional int32 day = 1;
   if (has_day()) {
@@ -42185,7 +42184,7 @@ void ContiRechargeDBProto_DayFetchInfo::SerializeWithCachedSizes(
   return target;
 }
 
-int ContiRechargeDBProto_DayFetchInfo::ByteSize() const {
+int DayFetchInfo::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -42218,10 +42217,10 @@ int ContiRechargeDBProto_DayFetchInfo::ByteSize() const {
   return total_size;
 }
 
-void ContiRechargeDBProto_DayFetchInfo::MergeFrom(const ::google::protobuf::Message& from) {
+void DayFetchInfo::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const ContiRechargeDBProto_DayFetchInfo* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const ContiRechargeDBProto_DayFetchInfo*>(
+  const DayFetchInfo* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const DayFetchInfo*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -42230,7 +42229,7 @@ void ContiRechargeDBProto_DayFetchInfo::MergeFrom(const ::google::protobuf::Mess
   }
 }
 
-void ContiRechargeDBProto_DayFetchInfo::MergeFrom(const ContiRechargeDBProto_DayFetchInfo& from) {
+void DayFetchInfo::MergeFrom(const DayFetchInfo& from) {
   GOOGLE_CHECK_NE(&from, this);
   gear_lst_.MergeFrom(from.gear_lst_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -42241,24 +42240,24 @@ void ContiRechargeDBProto_DayFetchInfo::MergeFrom(const ContiRechargeDBProto_Day
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void ContiRechargeDBProto_DayFetchInfo::CopyFrom(const ::google::protobuf::Message& from) {
+void DayFetchInfo::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void ContiRechargeDBProto_DayFetchInfo::CopyFrom(const ContiRechargeDBProto_DayFetchInfo& from) {
+void DayFetchInfo::CopyFrom(const DayFetchInfo& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool ContiRechargeDBProto_DayFetchInfo::IsInitialized() const {
+bool DayFetchInfo::IsInitialized() const {
 
   return true;
 }
 
-void ContiRechargeDBProto_DayFetchInfo::Swap(ContiRechargeDBProto_DayFetchInfo* other) {
+void DayFetchInfo::Swap(DayFetchInfo* other) {
   if (other != this) {
     std::swap(day_, other->day_);
     gear_lst_.Swap(&other->gear_lst_);
@@ -42268,73 +42267,73 @@ void ContiRechargeDBProto_DayFetchInfo::Swap(ContiRechargeDBProto_DayFetchInfo* 
   }
 }
 
-::google::protobuf::Metadata ContiRechargeDBProto_DayFetchInfo::GetMetadata() const {
+::google::protobuf::Metadata DayFetchInfo::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = ContiRechargeDBProto_DayFetchInfo_descriptor_;
-  metadata.reflection = ContiRechargeDBProto_DayFetchInfo_reflection_;
+  metadata.descriptor = DayFetchInfo_descriptor_;
+  metadata.reflection = DayFetchInfo_reflection_;
   return metadata;
 }
 
 
-// -------------------------------------------------------------------
+// ===================================================================
 
 #ifndef _MSC_VER
-const int ContiRechargeDBProto_GearFetchInfo::kGearFieldNumber;
-const int ContiRechargeDBProto_GearFetchInfo::kDayLstFieldNumber;
+const int GearFetchInfo::kGearFieldNumber;
+const int GearFetchInfo::kDayLstFieldNumber;
 #endif  // !_MSC_VER
 
-ContiRechargeDBProto_GearFetchInfo::ContiRechargeDBProto_GearFetchInfo()
+GearFetchInfo::GearFetchInfo()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void ContiRechargeDBProto_GearFetchInfo::InitAsDefaultInstance() {
+void GearFetchInfo::InitAsDefaultInstance() {
 }
 
-ContiRechargeDBProto_GearFetchInfo::ContiRechargeDBProto_GearFetchInfo(const ContiRechargeDBProto_GearFetchInfo& from)
+GearFetchInfo::GearFetchInfo(const GearFetchInfo& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void ContiRechargeDBProto_GearFetchInfo::SharedCtor() {
+void GearFetchInfo::SharedCtor() {
   _cached_size_ = 0;
   gear_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-ContiRechargeDBProto_GearFetchInfo::~ContiRechargeDBProto_GearFetchInfo() {
+GearFetchInfo::~GearFetchInfo() {
   SharedDtor();
 }
 
-void ContiRechargeDBProto_GearFetchInfo::SharedDtor() {
+void GearFetchInfo::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void ContiRechargeDBProto_GearFetchInfo::SetCachedSize(int size) const {
+void GearFetchInfo::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* ContiRechargeDBProto_GearFetchInfo::descriptor() {
+const ::google::protobuf::Descriptor* GearFetchInfo::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return ContiRechargeDBProto_GearFetchInfo_descriptor_;
+  return GearFetchInfo_descriptor_;
 }
 
-const ContiRechargeDBProto_GearFetchInfo& ContiRechargeDBProto_GearFetchInfo::default_instance() {
+const GearFetchInfo& GearFetchInfo::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_DBProxy_2eproto();
   return *default_instance_;
 }
 
-ContiRechargeDBProto_GearFetchInfo* ContiRechargeDBProto_GearFetchInfo::default_instance_ = NULL;
+GearFetchInfo* GearFetchInfo::default_instance_ = NULL;
 
-ContiRechargeDBProto_GearFetchInfo* ContiRechargeDBProto_GearFetchInfo::New() const {
-  return new ContiRechargeDBProto_GearFetchInfo;
+GearFetchInfo* GearFetchInfo::New() const {
+  return new GearFetchInfo;
 }
 
-void ContiRechargeDBProto_GearFetchInfo::Clear() {
+void GearFetchInfo::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     gear_ = 0;
   }
@@ -42343,7 +42342,7 @@ void ContiRechargeDBProto_GearFetchInfo::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool ContiRechargeDBProto_GearFetchInfo::MergePartialFromCodedStream(
+bool GearFetchInfo::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -42402,7 +42401,7 @@ bool ContiRechargeDBProto_GearFetchInfo::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void ContiRechargeDBProto_GearFetchInfo::SerializeWithCachedSizes(
+void GearFetchInfo::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional int32 gear = 1;
   if (has_gear()) {
@@ -42421,7 +42420,7 @@ void ContiRechargeDBProto_GearFetchInfo::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* ContiRechargeDBProto_GearFetchInfo::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* GearFetchInfo::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // optional int32 gear = 1;
   if (has_gear()) {
@@ -42441,7 +42440,7 @@ void ContiRechargeDBProto_GearFetchInfo::SerializeWithCachedSizes(
   return target;
 }
 
-int ContiRechargeDBProto_GearFetchInfo::ByteSize() const {
+int GearFetchInfo::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -42474,10 +42473,10 @@ int ContiRechargeDBProto_GearFetchInfo::ByteSize() const {
   return total_size;
 }
 
-void ContiRechargeDBProto_GearFetchInfo::MergeFrom(const ::google::protobuf::Message& from) {
+void GearFetchInfo::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const ContiRechargeDBProto_GearFetchInfo* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const ContiRechargeDBProto_GearFetchInfo*>(
+  const GearFetchInfo* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const GearFetchInfo*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -42486,7 +42485,7 @@ void ContiRechargeDBProto_GearFetchInfo::MergeFrom(const ::google::protobuf::Mes
   }
 }
 
-void ContiRechargeDBProto_GearFetchInfo::MergeFrom(const ContiRechargeDBProto_GearFetchInfo& from) {
+void GearFetchInfo::MergeFrom(const GearFetchInfo& from) {
   GOOGLE_CHECK_NE(&from, this);
   day_lst_.MergeFrom(from.day_lst_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -42497,24 +42496,24 @@ void ContiRechargeDBProto_GearFetchInfo::MergeFrom(const ContiRechargeDBProto_Ge
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void ContiRechargeDBProto_GearFetchInfo::CopyFrom(const ::google::protobuf::Message& from) {
+void GearFetchInfo::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void ContiRechargeDBProto_GearFetchInfo::CopyFrom(const ContiRechargeDBProto_GearFetchInfo& from) {
+void GearFetchInfo::CopyFrom(const GearFetchInfo& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool ContiRechargeDBProto_GearFetchInfo::IsInitialized() const {
+bool GearFetchInfo::IsInitialized() const {
 
   return true;
 }
 
-void ContiRechargeDBProto_GearFetchInfo::Swap(ContiRechargeDBProto_GearFetchInfo* other) {
+void GearFetchInfo::Swap(GearFetchInfo* other) {
   if (other != this) {
     std::swap(gear_, other->gear_);
     day_lst_.Swap(&other->day_lst_);
@@ -42524,16 +42523,16 @@ void ContiRechargeDBProto_GearFetchInfo::Swap(ContiRechargeDBProto_GearFetchInfo
   }
 }
 
-::google::protobuf::Metadata ContiRechargeDBProto_GearFetchInfo::GetMetadata() const {
+::google::protobuf::Metadata GearFetchInfo::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = ContiRechargeDBProto_GearFetchInfo_descriptor_;
-  metadata.reflection = ContiRechargeDBProto_GearFetchInfo_reflection_;
+  metadata.descriptor = GearFetchInfo_descriptor_;
+  metadata.reflection = GearFetchInfo_reflection_;
   return metadata;
 }
 
 
-// -------------------------------------------------------------------
+// ===================================================================
 
 #ifndef _MSC_VER
 const int ContiRechargeDBProto::kRechargeFieldNumber;
@@ -42641,7 +42640,7 @@ bool ContiRechargeDBProto::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .proto_ff.ContiRechargeDBProto.DayFetchInfo day_fetch = 3;
+      // repeated .proto_ff.DayFetchInfo day_fetch = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -42656,7 +42655,7 @@ bool ContiRechargeDBProto::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .proto_ff.ContiRechargeDBProto.GearFetchInfo gear_fetch = 4;
+      // repeated .proto_ff.GearFetchInfo gear_fetch = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -42699,13 +42698,13 @@ void ContiRechargeDBProto::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->supplement(), output);
   }
 
-  // repeated .proto_ff.ContiRechargeDBProto.DayFetchInfo day_fetch = 3;
+  // repeated .proto_ff.DayFetchInfo day_fetch = 3;
   for (int i = 0; i < this->day_fetch_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, this->day_fetch(i), output);
   }
 
-  // repeated .proto_ff.ContiRechargeDBProto.GearFetchInfo gear_fetch = 4;
+  // repeated .proto_ff.GearFetchInfo gear_fetch = 4;
   for (int i = 0; i < this->gear_fetch_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, this->gear_fetch(i), output);
@@ -42729,14 +42728,14 @@ void ContiRechargeDBProto::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->supplement(), target);
   }
 
-  // repeated .proto_ff.ContiRechargeDBProto.DayFetchInfo day_fetch = 3;
+  // repeated .proto_ff.DayFetchInfo day_fetch = 3;
   for (int i = 0; i < this->day_fetch_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         3, this->day_fetch(i), target);
   }
 
-  // repeated .proto_ff.ContiRechargeDBProto.GearFetchInfo gear_fetch = 4;
+  // repeated .proto_ff.GearFetchInfo gear_fetch = 4;
   for (int i = 0; i < this->gear_fetch_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -42769,7 +42768,7 @@ int ContiRechargeDBProto::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.ContiRechargeDBProto.DayFetchInfo day_fetch = 3;
+  // repeated .proto_ff.DayFetchInfo day_fetch = 3;
   total_size += 1 * this->day_fetch_size();
   for (int i = 0; i < this->day_fetch_size(); i++) {
     total_size +=
@@ -42777,7 +42776,7 @@ int ContiRechargeDBProto::ByteSize() const {
         this->day_fetch(i));
   }
 
-  // repeated .proto_ff.ContiRechargeDBProto.GearFetchInfo gear_fetch = 4;
+  // repeated .proto_ff.GearFetchInfo gear_fetch = 4;
   total_size += 1 * this->gear_fetch_size();
   for (int i = 0; i < this->gear_fetch_size(); i++) {
     total_size +=
@@ -42864,64 +42863,64 @@ void ContiRechargeDBProto::Swap(ContiRechargeDBProto* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int LimitSaleDBProto_ShopProto::kTypeFieldNumber;
-const int LimitSaleDBProto_ShopProto::kTotalFieldNumber;
-const int LimitSaleDBProto_ShopProto::kFetchFieldNumber;
-const int LimitSaleDBProto_ShopProto::kBuyFieldNumber;
+const int ShopProto::kTypeFieldNumber;
+const int ShopProto::kTotalFieldNumber;
+const int ShopProto::kFetchFieldNumber;
+const int ShopProto::kBuyFieldNumber;
 #endif  // !_MSC_VER
 
-LimitSaleDBProto_ShopProto::LimitSaleDBProto_ShopProto()
+ShopProto::ShopProto()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void LimitSaleDBProto_ShopProto::InitAsDefaultInstance() {
+void ShopProto::InitAsDefaultInstance() {
 }
 
-LimitSaleDBProto_ShopProto::LimitSaleDBProto_ShopProto(const LimitSaleDBProto_ShopProto& from)
+ShopProto::ShopProto(const ShopProto& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void LimitSaleDBProto_ShopProto::SharedCtor() {
+void ShopProto::SharedCtor() {
   _cached_size_ = 0;
   type_ = 0;
   total_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-LimitSaleDBProto_ShopProto::~LimitSaleDBProto_ShopProto() {
+ShopProto::~ShopProto() {
   SharedDtor();
 }
 
-void LimitSaleDBProto_ShopProto::SharedDtor() {
+void ShopProto::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void LimitSaleDBProto_ShopProto::SetCachedSize(int size) const {
+void ShopProto::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* LimitSaleDBProto_ShopProto::descriptor() {
+const ::google::protobuf::Descriptor* ShopProto::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return LimitSaleDBProto_ShopProto_descriptor_;
+  return ShopProto_descriptor_;
 }
 
-const LimitSaleDBProto_ShopProto& LimitSaleDBProto_ShopProto::default_instance() {
+const ShopProto& ShopProto::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_DBProxy_2eproto();
   return *default_instance_;
 }
 
-LimitSaleDBProto_ShopProto* LimitSaleDBProto_ShopProto::default_instance_ = NULL;
+ShopProto* ShopProto::default_instance_ = NULL;
 
-LimitSaleDBProto_ShopProto* LimitSaleDBProto_ShopProto::New() const {
-  return new LimitSaleDBProto_ShopProto;
+ShopProto* ShopProto::New() const {
+  return new ShopProto;
 }
 
-void LimitSaleDBProto_ShopProto::Clear() {
+void ShopProto::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     type_ = 0;
     total_ = 0u;
@@ -42932,7 +42931,7 @@ void LimitSaleDBProto_ShopProto::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool LimitSaleDBProto_ShopProto::MergePartialFromCodedStream(
+bool ShopProto::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -43022,7 +43021,7 @@ bool LimitSaleDBProto_ShopProto::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void LimitSaleDBProto_ShopProto::SerializeWithCachedSizes(
+void ShopProto::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional int32 type = 1;
   if (has_type()) {
@@ -43052,7 +43051,7 @@ void LimitSaleDBProto_ShopProto::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* LimitSaleDBProto_ShopProto::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* ShopProto::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // optional int32 type = 1;
   if (has_type()) {
@@ -43084,7 +43083,7 @@ void LimitSaleDBProto_ShopProto::SerializeWithCachedSizes(
   return target;
 }
 
-int LimitSaleDBProto_ShopProto::ByteSize() const {
+int ShopProto::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -43132,10 +43131,10 @@ int LimitSaleDBProto_ShopProto::ByteSize() const {
   return total_size;
 }
 
-void LimitSaleDBProto_ShopProto::MergeFrom(const ::google::protobuf::Message& from) {
+void ShopProto::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const LimitSaleDBProto_ShopProto* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const LimitSaleDBProto_ShopProto*>(
+  const ShopProto* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const ShopProto*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -43144,7 +43143,7 @@ void LimitSaleDBProto_ShopProto::MergeFrom(const ::google::protobuf::Message& fr
   }
 }
 
-void LimitSaleDBProto_ShopProto::MergeFrom(const LimitSaleDBProto_ShopProto& from) {
+void ShopProto::MergeFrom(const ShopProto& from) {
   GOOGLE_CHECK_NE(&from, this);
   fetch_.MergeFrom(from.fetch_);
   buy_.MergeFrom(from.buy_);
@@ -43159,24 +43158,24 @@ void LimitSaleDBProto_ShopProto::MergeFrom(const LimitSaleDBProto_ShopProto& fro
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void LimitSaleDBProto_ShopProto::CopyFrom(const ::google::protobuf::Message& from) {
+void ShopProto::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void LimitSaleDBProto_ShopProto::CopyFrom(const LimitSaleDBProto_ShopProto& from) {
+void ShopProto::CopyFrom(const ShopProto& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool LimitSaleDBProto_ShopProto::IsInitialized() const {
+bool ShopProto::IsInitialized() const {
 
   return true;
 }
 
-void LimitSaleDBProto_ShopProto::Swap(LimitSaleDBProto_ShopProto* other) {
+void ShopProto::Swap(ShopProto* other) {
   if (other != this) {
     std::swap(type_, other->type_);
     std::swap(total_, other->total_);
@@ -43188,16 +43187,16 @@ void LimitSaleDBProto_ShopProto::Swap(LimitSaleDBProto_ShopProto* other) {
   }
 }
 
-::google::protobuf::Metadata LimitSaleDBProto_ShopProto::GetMetadata() const {
+::google::protobuf::Metadata ShopProto::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = LimitSaleDBProto_ShopProto_descriptor_;
-  metadata.reflection = LimitSaleDBProto_ShopProto_reflection_;
+  metadata.descriptor = ShopProto_descriptor_;
+  metadata.reflection = ShopProto_reflection_;
   return metadata;
 }
 
 
-// -------------------------------------------------------------------
+// ===================================================================
 
 #ifndef _MSC_VER
 const int LimitSaleDBProto::kShopFieldNumber;
@@ -43269,7 +43268,7 @@ bool LimitSaleDBProto::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.LimitSaleDBProto.ShopProto shop = 1;
+      // repeated .proto_ff.ShopProto shop = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
@@ -43318,7 +43317,7 @@ bool LimitSaleDBProto::MergePartialFromCodedStream(
 
 void LimitSaleDBProto::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.LimitSaleDBProto.ShopProto shop = 1;
+  // repeated .proto_ff.ShopProto shop = 1;
   for (int i = 0; i < this->shop_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->shop(i), output);
@@ -43337,7 +43336,7 @@ void LimitSaleDBProto::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* LimitSaleDBProto::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.LimitSaleDBProto.ShopProto shop = 1;
+  // repeated .proto_ff.ShopProto shop = 1;
   for (int i = 0; i < this->shop_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -43368,7 +43367,7 @@ int LimitSaleDBProto::ByteSize() const {
     }
 
   }
-  // repeated .proto_ff.LimitSaleDBProto.ShopProto shop = 1;
+  // repeated .proto_ff.ShopProto shop = 1;
   total_size += 1 * this->shop_size();
   for (int i = 0; i < this->shop_size(); i++) {
     total_size +=

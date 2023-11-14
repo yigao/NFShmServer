@@ -77,6 +77,21 @@ int MofaZyjxzfattDesc::Load(NFResDB *pDB)
 		pDesc->read_from_pbmsg(desc);
 		CHECK_EXPR_ASSERT(GetDesc(desc.m_id()) == pDesc, -1, "GetDesc != pDesc, id:{}", desc.m_id());
 	}
+	m_AttidJxlvComIndexMap.clear();
+	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
+	{
+		auto pDesc = &iter->second;
+		{
+			MofaZyjxzfattAttidJxlv data;
+			data.m_AttID = pDesc->m_AttID;
+			data.m_JxLv = pDesc->m_JxLv;
+			if(m_AttidJxlvComIndexMap.size() >= m_AttidJxlvComIndexMap.max_size())
+			{
+				CHECK_EXPR_ASSERT(m_AttidJxlvComIndexMap.find(data) != m_AttidJxlvComIndexMap.end(), -1, "space not enough");
+			}
+			m_AttidJxlvComIndexMap[data] = iter->first;
+		}
+	}
 
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_mofazyjxzfatt_list_size());
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
@@ -86,5 +101,20 @@ int MofaZyjxzfattDesc::Load(NFResDB *pDB)
 int MofaZyjxzfattDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
+}
+
+const proto_ff_s::E_MofaZyjxzfatt_s* MofaZyjxzfattDesc::GetDescByAttidJxlv(int64_t Attid, int64_t Jxlv)
+{
+	MofaZyjxzfattAttidJxlv data;
+	data.m_AttID = Attid;
+	data.m_JxLv = Jxlv;
+	auto iter = m_AttidJxlvComIndexMap.find(data);
+	if(iter != m_AttidJxlvComIndexMap.end())
+	{
+		auto pDesc = GetDesc(iter->second);
+		CHECK_EXPR(pDesc, nullptr, "GetDesc failed:{}", iter->second);
+		return pDesc;
+	}
+	return nullptr;
 }
 

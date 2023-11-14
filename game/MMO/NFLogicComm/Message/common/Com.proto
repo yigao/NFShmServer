@@ -9,7 +9,7 @@ import "ComDefine.proto";
 
 
 // 空消息
-message EmptyMessage 
+message EmptyMessage
 {}
 
 //通用键值对结构
@@ -87,9 +87,9 @@ message RoleHeadPicProto
 message RoleListDBProto
 {
 	required uint64 cid 			= 1;
-    required bytes name            = 2;   		// 名字
-    required uint32 prof            = 3;   		// 职业
-    required uint32 level           = 4;   		// 等级
+	required bytes name            = 2;   		// 名字
+	required uint32 prof            = 3;   		// 职业
+	required uint32 level           = 4;   		// 等级
 	required uint64 fight			= 5;		// 战力
 	optional uint64 createtime		= 6;		// 角色创建时间
 	optional RoleFacadeProto facade = 7;		// 外观
@@ -105,9 +105,9 @@ message RoleListDBProto
 message LoginRoleProto
 {
 	required uint64 cid 			= 1;
-    required bytes name            = 2;   		// 名字
-    required uint32 prof            = 3;   		// 职业
-    required uint32 level           = 4;   		// 等级
+	required bytes name            = 2;   		// 名字
+	required uint32 prof            = 3;   		// 职业
+	required uint32 level           = 4;   		// 等级
 	optional uint64 fight			= 5;   		// 战斗力
 	optional uint64 createtime		= 6;		// 角色创建时间
 	optional RoleFacadeProto facade = 7;		// 角色外观
@@ -188,7 +188,7 @@ message CenterRoleProto
 {
 	optional uint64 cid = 1;
 	optional uint32 uid = 2;
-	optional bytes name = 3;		
+	optional bytes name = 3;
 	optional uint32 level = 4;
 	optional uint64 fight = 5;
 	optional uint64 lastlogout = 6;
@@ -208,7 +208,7 @@ message SocialRoleProto
 {
 	optional uint64 cid = 1;
 	optional uint32 uid = 2;
-	optional bytes name = 3;		
+	optional bytes name = 3;
 	optional uint32 prof = 4;
 	optional uint32 level = 5;
 	optional uint64 fight = 6;
@@ -229,8 +229,8 @@ message SocialRoleProto
 //生物状态
 enum ECState
 {
-	state_init   = 0;  		//初始化状态 
-	state_normal = 1;  		//正常	 
+	state_init   = 0;  		//初始化状态
+	state_normal = 1;  		//正常
 	state_dead   = 2;   	//死亡
 	state_seat   = 3;		//打坐
 	state_fight  = 4;		//战斗状态
@@ -268,6 +268,7 @@ enum EAttrGroup
 	EAttrGroup_Turn = 26;			//神体装备
 	EAttrGroup_Soul = 27;			//战魂
 	EAttrGroup_Rune = 28;			//符文
+	EAttrGroup_MoFa = 29; 	//奇门八卦
 }
 
 enum GrowType
@@ -305,7 +306,7 @@ enum ECreatureAttr
 	// 4、属性组的属性ID从 401 开始
 	//    每个属性组对应的起始属性ID： 常规属性结束ID(A_COMMON_END) + （等级属性组枚举 - 1） * A_FIGHT_END + 1
 	//    每个属性组对应的结束属性ID： 每个属性组对应的起始属性 + A_FIGHT_END
-										
+
 	A_NONE = 0;
 	A_MAX_HP = 1;					//最大生命
 	A_ATK = 2;						//攻击
@@ -323,7 +324,7 @@ enum ECreatureAttr
 	A_GOD_BODY = 14;				//神体
 	A_MORTAL_RATE = 15;				//凡免几率
 	A_MORTAL_RESIST = 16;			//凡免抗性
-	
+
 	A_FAIRY_RATE = 17;				//仙免几率
 	A_FAIRY_RESIST = 18;			//仙免抗性
 
@@ -408,14 +409,14 @@ enum ECreatureAttr
 	A_DEF_ADD = 87;					//防御加成
 	A_ARMOR_ADD = 88;				//破甲加成
 
-	A_FIVE_DAM_ADD = 89;			//五行伤害加成	
+	A_FIVE_DAM_ADD = 89;			//五行伤害加成
 	A_FIVE_ARMOR_ADD = 90;			//五行护甲加成
 
 	A_DROP = 91;					//极品掉落
 	A_EXP_ADD = 92;					//经验加成
 	A_GOLD_DROP = 93;				//金币掉落
 	A_SKY_ADD = 94;					//天道加成
-	
+
 	A_COM_SHIELD = 95;				//常规护盾
 	A_SPEED_ADD = 96;				//移动速度加成
 
@@ -423,7 +424,7 @@ enum ECreatureAttr
 	A_WING_SOUL_SHIELD = 98;		//翅膀器魂护盾
 
 	A_CAPE_SOUL	= 99;				//披风器魂伤害
-	A_SWORD_SOUL_SHIELD = 100;		//剑灵器魂护盾 
+	A_SWORD_SOUL_SHIELD = 100;		//剑灵器魂护盾
 
 	A_MAG_WEAPON_SOUL_REDU = 101;	//法宝器魂伤害减免
 	A_MAG_WEAPON_SOUL_ADD = 102;	//法宝器魂伤害加成
@@ -433,7 +434,7 @@ enum ECreatureAttr
 
 	A_SEAT_EXP_ADD = 105;			//离线打坐经验加成
 	A_YAO_KANG = 107;				//妖抗
-	
+
 	A_BASE_END = 130;				//基础属性的结束ID
 
 	// 130 以上是特殊属性，每个属性ID 对应的可能是 1-130 中的多个属性，跟具体的功能有关
@@ -459,7 +460,7 @@ enum ECreatureAttr
 	A_SWORD_ALL_ADD				= 146;	//剑灵总属性(等级属性+碎片属性)加成
 	A_GOD_ALL_ADD				= 147;	//天神总属性(等级属性+碎片属性)加成
 	A_MOUNT_ALL_ADD				= 148;	//坐骑总属性(等级属性+碎片属性)加成
-	
+
 	A_GODS_POS_BASE_ADD			= 149;	//神灵部位 基础属性加成
 
 	A_SHADOWN_ALL_ADD			= 150;	//影龙总属性加成(幻世烛龙)
@@ -510,7 +511,7 @@ enum ECreatureAttr
 	A_PET_GROW_BASE_ADD			= 188;	//宠物专属基础加成
 	A_RUNE_BASE_ADD				= 189;	//符文本部位基础加成
 	A_FIGHT_END = 200;			//战斗属性结束ID
-	
+
 	A_GOLD = 201;				//金币
 	A_MAGIC = 202;				//魔晶
 	A_DIA = 203;				//钻石
@@ -585,72 +586,15 @@ message Attr
 message BlueStarAttr
 {
 	optional uint32 id =1; 			//属性索引id
-	optional int64 value =2;		//属性值 
-	optional int32  lv_part = 3;	//每个间隔所加属性值 
+	optional int64 value =2;		//属性值
+	optional int32  lv_part = 3;	//每个间隔所加属性值
 }
 
-//宠物信息
-message PetInfo
-{
-	optional int32 instId = 1;			 //实体id
-	optional int64 cfgid = 2;			 //配置ID
-	optional int32 lv = 3;				 //宠物等级
-	optional int32 steplv = 4;			 //阶级
-	optional int32 starlv = 5;			 //星级
-	optional int32 activeSkillLv = 6;	 //主动技能等级
-	repeated int32 exclusiveSkillLvVec = 7; //专属技能等级
-	repeated int32 passiveSkillLvVec = 8;	 //被动技能等级
-	optional float initgrow = 9;		 //初始资质
-	optional int32 slot = 10;			 //上阵的槽位 1-5
-	optional int32 lvexp = 11;			 //宠物升级经验
-}
-//宠物槽位信息
-message PetHatchInfo
-{
-	optional int32 slot = 1; 	//0-4
-	optional int32 unlock = 2;  //0:未解锁，1已解锁
-	optional int64 eggid = 3;	//蛋的物品id
-	optional int64 time = 4;	//孵化时间
-}
-//宠物专属养成
-message PetGrow
-{
-	optional int32 cfgid = 1;  	   //宠物配置id
-	optional int32 stronglv = 2;   //强化等級 (默认0级)
-	optional int32 starlv = 3; 	   //升星等级 (默认0星)
-	optional int32 starindex = 4; //星级默认选中索引(1) starValue 表 advance_Type 数组下标。
-}
-//宠物妖魂装备
-message PetYaoHunSlot
-{
-	optional int32		   slot_pos = 1; //槽位，对应装备的位置(1-4)
-	optional int32 		   lv = 2; 		 //等级(等級属性)
-	optional int32 		   exp = 3;		 //等级经验值
-	optional int32 		   step = 4;	 //多少阶(主要用升級中进阶用,step和lv配合读表)
-	optional ItemProtoInfo equip = 5;	 //装备数据 突破属性条数就是突破等级
-}
-//妖魂信息
-message PetYaoHunEntry
-{
-	optional int32 fight_pos = 1; 		//出站位置1-5(对应出站宠物槽位)
-	optional int32 is_unlock = 2;		//是否解锁 1：解锁
-	repeated PetYaoHunSlot infos = 3; 	//4件装备
-	repeated int32 suitids = 4;			//已激活的套装ids
-}
-//妖魂模块数据
-message PetYaoHunModule
-{
-	repeated PetYaoHunEntry entrys = 1;		//宠物妖魂（5个妖魂全发)
-	optional int32 	lianyao_tq_flag =2; 	//炼妖特权标记 0:沒有购买特权 1：已购买特权
-	optional int32  yaolu_lv = 3;			//妖炉等级
-	optional int32  yaolu_exp = 4;			//妖炉经验
-	optional int32 	yaoqi = 5;				//妖气值
-}
 
 
 message TurnAttr
 {
-	repeated int32  com_pos = 1;	//激活的普通属性位置 
+	repeated int32  com_pos = 1;	//激活的普通属性位置
 	repeated int32 	star_pos = 2;	//激活的星级属性位置
 }
 
@@ -710,10 +654,10 @@ message WashSlotInfo
 message RefineSlotInfo
 {
 	optional int32 refine_lv = 1;			 //精炼等级
-	repeated ComPair unlocks = 2;			 //精炼已解锁条数 key:槽位 value：加成值 
+	repeated ComPair unlocks = 2;			 //精炼已解锁条数 key:槽位 value：加成值
 	optional int32 gm_lv = 3;				 //共鸣等级
 	repeated int32 lock_pos = 4;			 //锁定的槽位
-	
+
 }
 //印记槽位镶嵌的印记
 message SealSlotInfo
@@ -770,6 +714,63 @@ message MultItemSimpleProto
 }
 
 
+//宠物信息
+message PetInfo
+{
+	optional int32 instId = 1;			 //实体id
+	optional int64 cfgid = 2;			 //配置ID
+	optional int32 lv = 3;				 //宠物等级
+	optional int32 steplv = 4;			 //阶级
+	optional int32 starlv = 5;			 //星级
+	optional int32 activeSkillLv = 6;	 //主动技能等级
+	repeated int32 exclusiveSkillLvVec = 7; //专属技能等级
+	repeated int32 passiveSkillLvVec = 8;	 //被动技能等级
+	optional float initgrow = 9;		 //初始资质
+	optional int32 slot = 10;			 //上阵的槽位 1-5
+	optional int32 lvexp = 11;			 //宠物升级经验
+}
+//宠物槽位信息
+message PetHatchInfo
+{
+	optional int32 slot = 1; 	//0-4
+	optional int32 unlock = 2;  //0:未解锁，1已解锁
+	optional int64 eggid = 3;	//蛋的物品id
+	optional int64 time = 4;	//孵化时间
+}
+//宠物专属养成
+message PetGrow
+{
+	optional int32 cfgid = 1;  	   //宠物配置id
+	optional int32 stronglv = 2;   //强化等級 (默认0级)
+	optional int32 starlv = 3; 	   //升星等级 (默认0星)
+	optional int32 starindex = 4; //星级默认选中索引(1) starValue 表 advance_Type 数组下标。
+}
+//宠物妖魂装备
+message PetYaoHunSlot
+{
+	optional int32		   slot_pos = 1; //槽位，对应装备的位置(1-4)
+	optional int32 		   lv = 2; 		 //等级(等級属性)
+	optional int32 		   exp = 3;		 //等级经验值
+	optional int32 		   step = 4;	 //多少阶(主要用升級中进阶用,step和lv配合读表)
+	optional ItemProtoInfo equip = 5;	 //装备数据 突破属性条数就是突破等级
+}
+//妖魂信息
+message PetYaoHunEntry
+{
+	optional int32 fight_pos = 1; 		//出站位置1-5(对应出站宠物槽位)
+	optional int32 is_unlock = 2;		//是否解锁 1：解锁
+	repeated PetYaoHunSlot infos = 3; 	//4件装备
+	repeated int32 suitids = 4;			//已激活的套装ids
+}
+//妖魂模块数据
+message PetYaoHunModule
+{
+	repeated PetYaoHunEntry entrys = 1;		//宠物妖魂（5个妖魂全发)
+	optional int32 	lianyao_tq_flag =2; 	//炼妖特权标记 0:沒有购买特权 1：已购买特权
+	optional int32  yaolu_lv = 3;			//妖炉等级
+	optional int32  yaolu_exp = 4;			//妖炉经验
+	optional int32 	yaoqi = 5;				//妖气值
+}
 /////////////////////////////Mail/////////////////////////////////////////////////
 
 //邮件参数
@@ -859,7 +860,7 @@ message UseItemArgProto
 //广播外观 NOTIFY_FACADE_CAST_RSP
 message NotifyRoleFacadeCastRsp
 {
-	required uint64 roleid = 1;	
+	required uint64 roleid = 1;
 	optional RoleFacadeProto facade = 2;
 }
 
@@ -961,7 +962,7 @@ message RelationDBInfo
 
 
 //数字表现类型枚举
-enum DigPerforType 
+enum DigPerforType
 {
 	addhp = 1;				//加血
 	reducehp = 2;			//减血
@@ -1009,9 +1010,9 @@ message BuffProto
 	optional int32 is_effect = 7;			//是否生效 0-否，1-是
 	//效果相关的参数,不同的效果类型表示不同的意义
 	//29-增加技能伤害目标数  param1: 增加的伤害目标数量
-	optional int64 param1 = 8;	
+	optional int64 param1 = 8;
 }
-	
+
 
 //Buff 列表信息
 message BuffListProto
@@ -1072,7 +1073,7 @@ message GodEvilProto
 	optional int32 vessel_lev = 5;			//神魔鼎特权等级
 	optional int32 mirror_lev = 6;			//轮回镜权等级
 	required int64 extra_exp = 7;			//额外存储额神魔之息
-	repeated ItemProtoInfo equip = 8;		//神魔特权装备 
+	repeated ItemProtoInfo equip = 8;		//神魔特权装备
 }
 
 //充值相关的信息
@@ -1873,23 +1874,23 @@ message AchievementData
 
 //角色修真数据
 message PTGBEventItem{
-  required uint64 id=1;
-  required uint64 num=2;
+	required uint64 id=1;
+	required uint64 num=2;
 }
 message PTGBEventLog{
-  required uint64 evtId=1;//事件id
-  required uint64 time=2;//事件触发的时间
-  required uint64 energyAdd=3;//事件修为爆增
-  repeated PTGBEventItem items=4;//事件获得的道具
+	required uint64 evtId=1;//事件id
+	required uint64 time=2;//事件触发的时间
+	required uint64 energyAdd=3;//事件修为爆增
+	repeated PTGBEventItem items=4;//事件获得的道具
 }
 message PTFuncMagic{//功法
-  required bool actived=1;//是否被激活
-  required uint32 lvl=2;//等级
-  required uint32 stage=3;//进阶等级
+	required bool actived=1;//是否被激活
+	required uint32 lvl=2;//等级
+	required uint32 stage=3;//进阶等级
 }
 message PTlg{//灵根
-  required uint32 lvl=1;//等级
-  required uint32 points=2;//奇葩的点数
+	required uint32 lvl=1;//等级
+	required uint32 points=2;//奇葩的点数
 }
 message PTlgPotion{//灵根丹药
 	required uint32 id=1;//道具id
@@ -1905,36 +1906,36 @@ message PTPurchaseRecord{//修真购买记录
 }
 message PracticeTrueDBData
 {
-  optional uint32 level =1;//仙界等级
-  optional uint32 djRateAdd=2;//渡劫额外加成功率，需要购买(仅修真特权购买记录)
-  optional uint32 djFailInvigoration=3;//渡劫失败后的鼓舞值
-  optional uint64 gbEnergy=4;//神魂/肉身总修为
-  optional uint32 gbEventRate=5;//神魂事件概率
-  optional uint32 gbEnergyCritRate=6;//事件获得修为暴占概率(万分比)
-  optional uint32 gbLevel=7;//神魂等级
-  optional uint32 gbArea=8;//神魂所在区域
-  repeated PTGBEventLog gbEventsLog=9;//神魂所在区域事件日志
-  repeated PTGBEventItem gbEventItems=10;//神魂所在区域通过奇遇获得的奖励
-  optional uint64 gbXLRemainTime=11;//神魂修练剩余时间
-  optional uint32 ebLevel=12;//淬炼等级
-  optional uint32 ebLvlUpRate=13;//淬炼升级成功的概率
-  repeated PTFuncMagic gfList=14;//功法列表
-  optional uint32 ebFlyRateAdd=15;//淬炼飞升成功率提升
-  optional uint32 ebFlyFailInvigoration=16;//飞升失败后鼓舞值
-  repeated PTlg lgList=17;
-  repeated PTlgPotion lgPotions=18;//灵根丹药
-  repeated PTjm jmList=19;
-  optional uint32 jmLvlUpRateAdd=20;//经脉升级成攻率提升
-  optional uint32 jmStageUpRateAdd=21;//经脉冲破成攻率提升
-  optional uint32 jmStageUpFailInvigoration=22;//经脉冲破失败后的鼓舞值
-  optional uint32 jmMergeLvl=23;//经脉合具等级
-  repeated PTPurchaseRecord purchasedList=24;//修真特权购买记录
-  optional uint32 gbXLForever=25;//是否永久修炼
-  optional uint32 gbXWPAdd=26;//修炼修为增益万分比（如购买获得
-  optional uint32 gbXLEventGetItemRate=27;//修炼事件中获得道具的概率
-  optional uint32 gbXLEventXWPAdd=28;//修炼事件中获得修为爆占(万分比
-  optional uint32 ebFlyFailInvigorationAdd=29;//飞升失败后占加多少鼓舞值
-  repeated PTPurchaseRecord gfBookPurchasedList=30;//修真功法购买记录
+	optional uint32 level =1;//仙界等级
+	optional uint32 djRateAdd=2;//渡劫额外加成功率，需要购买(仅修真特权购买记录)
+	optional uint32 djFailInvigoration=3;//渡劫失败后的鼓舞值
+	optional uint64 gbEnergy=4;//神魂/肉身总修为
+	optional uint32 gbEventRate=5;//神魂事件概率
+	optional uint32 gbEnergyCritRate=6;//事件获得修为暴占概率(万分比)
+	optional uint32 gbLevel=7;//神魂等级
+	optional uint32 gbArea=8;//神魂所在区域
+	repeated PTGBEventLog gbEventsLog=9;//神魂所在区域事件日志
+	repeated PTGBEventItem gbEventItems=10;//神魂所在区域通过奇遇获得的奖励
+	optional uint64 gbXLRemainTime=11;//神魂修练剩余时间
+	optional uint32 ebLevel=12;//淬炼等级
+	optional uint32 ebLvlUpRate=13;//淬炼升级成功的概率
+	repeated PTFuncMagic gfList=14;//功法列表
+	optional uint32 ebFlyRateAdd=15;//淬炼飞升成功率提升
+	optional uint32 ebFlyFailInvigoration=16;//飞升失败后鼓舞值
+	repeated PTlg lgList=17;
+	repeated PTlgPotion lgPotions=18;//灵根丹药
+	repeated PTjm jmList=19;
+	optional uint32 jmLvlUpRateAdd=20;//经脉升级成攻率提升
+	optional uint32 jmStageUpRateAdd=21;//经脉冲破成攻率提升
+	optional uint32 jmStageUpFailInvigoration=22;//经脉冲破失败后的鼓舞值
+	optional uint32 jmMergeLvl=23;//经脉合具等级
+	repeated PTPurchaseRecord purchasedList=24;//修真特权购买记录
+	optional uint32 gbXLForever=25;//是否永久修炼
+	optional uint32 gbXWPAdd=26;//修炼修为增益万分比（如购买获得
+	optional uint32 gbXLEventGetItemRate=27;//修炼事件中获得道具的概率
+	optional uint32 gbXLEventXWPAdd=28;//修炼事件中获得修为爆占(万分比
+	optional uint32 ebFlyFailInvigorationAdd=29;//飞升失败后占加多少鼓舞值
+	repeated PTPurchaseRecord gfBookPurchasedList=30;//修真功法购买记录
 }
 
 //上古神灵
@@ -1946,7 +1947,7 @@ message AncientSlotInfo
 	optional int32 step_value = 3;  //阶级进度条 满10000
 	optional int32 bless = 4;		//0:没有幸运，1幸运
 	repeated int32 attr_index = 5; 	//激活的属性索引 1开始
-	
+
 }
 //神灵信息
 message AncientInfo
@@ -1961,9 +1962,9 @@ message AncientInfo
 //仙娃
 message MarryChild
 {
-	optional int32 id = 1; 		 		
-	optional int32 lv = 2; 
-	optional int32 exp = 3;					
+	optional int32 id = 1;
+	optional int32 lv = 2;
+	optional int32 exp = 3;
 	optional int32 star = 4;
 }
 
@@ -2192,7 +2193,7 @@ message MergeReq
 	repeated int32 index_list = 3;
 	optional int32 num = 4;
 	optional int32 target_pos = 5;
-	
+
 }
 //合成返回 MERGE_RSP
 message MergeRsp
@@ -2219,7 +2220,7 @@ message PSDPurchaseRecord{
 message PSDShop
 {
 	required uint32 shopId=1;//个人商店id
-    required uint32 freeRefreshCount=2;//剩余免费刷新次数
+	required uint32 freeRefreshCount=2;//剩余免费刷新次数
 	required uint64 openTime=3;//商店开启时的时间(秒UTC
 	repeated PSDGoods saleList=4;//正在出售的商品列表
 	repeated PSDPurchaseRecord purchasedList=5;//购买记录
@@ -2401,21 +2402,21 @@ message WelfareWeekEndRewardPBData
 /////////////////////////////祈福///////////////////////////////////////
 enum WelfarePrayConst
 {
-		PRAY_CONST_FREE_CD_TIME = 1;
-		PRAY_CONST_GOLD_BUY_PRICE = 2;
-		PRAY_COSNT_GOLD_BUY_GET_ITEM_BASE = 3;
-		PRAY_CONST_EXP_BUY_PRICE = 4;
-		PRAY_CONST_EXP_BUY_ADDITION = 5;
-		PRAY_CONST_EXP_BUY_PRICE_ADDTION = 6;
-		PRAY_CONST_GOLD_CAN_BUY_NUM = 7;
-		PRAY_CONST_EXP_CAN_BUY_NUM = 8;
-		PRAY_CONST_CAN_SAVE_MONEY = 9;
-		PRAY_CONST_CAN_NOT_SAVE_MONEY = 10;
-		PRAY_CONST_MAX_SAVE_MONEY = 11;
-		PRAY_CONST_ONCE_SAVE_MONEY_NUM = 12;
-		PRAY_CONST_SAVE_MONEY_RATE = 13;
-		PRAY_CONST_GOLD_BUY_ADDITION = 14;
-		PRAY_CONST_GOLD_BUY_PRICE_ADDTION = 15;
+	PRAY_CONST_FREE_CD_TIME = 1;
+	PRAY_CONST_GOLD_BUY_PRICE = 2;
+	PRAY_COSNT_GOLD_BUY_GET_ITEM_BASE = 3;
+	PRAY_CONST_EXP_BUY_PRICE = 4;
+	PRAY_CONST_EXP_BUY_ADDITION = 5;
+	PRAY_CONST_EXP_BUY_PRICE_ADDTION = 6;
+	PRAY_CONST_GOLD_CAN_BUY_NUM = 7;
+	PRAY_CONST_EXP_CAN_BUY_NUM = 8;
+	PRAY_CONST_CAN_SAVE_MONEY = 9;
+	PRAY_CONST_CAN_NOT_SAVE_MONEY = 10;
+	PRAY_CONST_MAX_SAVE_MONEY = 11;
+	PRAY_CONST_ONCE_SAVE_MONEY_NUM = 12;
+	PRAY_CONST_SAVE_MONEY_RATE = 13;
+	PRAY_CONST_GOLD_BUY_ADDITION = 14;
+	PRAY_CONST_GOLD_BUY_PRICE_ADDTION = 15;
 }
 
 message WelfareQiFuData

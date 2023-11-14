@@ -13,11 +13,6 @@
 #define DEFINE_ROLEFACADEPROTO_GROWFACADE_MAX_NUM 1
 #define DEFINE_MARRYBRIEF_GEARS_MAX_NUM 1
 #define DEFINE_MARRYBRIEF_RECVED_GEARS_MAX_NUM 1
-#define DEFINE_PETINFO_EXCLUSIVESKILLLVVEC_MAX_NUM 1
-#define DEFINE_PETINFO_PASSIVESKILLLVVEC_MAX_NUM 1
-#define DEFINE_PETYAOHUNENTRY_INFOS_MAX_NUM 1
-#define DEFINE_PETYAOHUNENTRY_SUITIDS_MAX_NUM 1
-#define DEFINE_PETYAOHUNMODULE_ENTRYS_MAX_NUM 1
 #define DEFINE_TURNATTR_COM_POS_MAX_NUM 1
 #define DEFINE_TURNATTR_STAR_POS_MAX_NUM 1
 #define DEFINE_ITEMPROTOINFO_BASE_MAX_NUM 1
@@ -36,6 +31,11 @@
 #define DEFINE_EQUIPSLOTINFO_SEAL_SLOTS_MAX_NUM 1
 #define DEFINE_EQUIPSLOTINFO_ACTIVE_SEAL_IDS_MAX_NUM 1
 #define DEFINE_MULTITEMSIMPLEPROTO_INFO_MAX_NUM 1
+#define DEFINE_PETINFO_EXCLUSIVESKILLLVVEC_MAX_NUM 1
+#define DEFINE_PETINFO_PASSIVESKILLLVVEC_MAX_NUM 1
+#define DEFINE_PETYAOHUNENTRY_INFOS_MAX_NUM 1
+#define DEFINE_PETYAOHUNENTRY_SUITIDS_MAX_NUM 1
+#define DEFINE_PETYAOHUNMODULE_ENTRYS_MAX_NUM 1
 #define DEFINE_MAILPARAMPROTO_STR_PARAM_MAX_NUM 1
 #define DEFINE_MAILPARAMPROTO_INT_PARAM_MAX_NUM 1
 #define DEFINE_MAILATTACHMENTLIST_ITEMINFO_MAX_NUM 1
@@ -622,117 +622,6 @@ namespace proto_ff_s {
 	};
 	typedef struct BlueStarAttr_s BlueStarAttr_t;
 
-	struct PetInfo_s : public NFDescStoreSeqOP {
-		PetInfo_s();
-		virtual ~PetInfo_s(){}
-		int CreateInit();
-		int ResumeInit();
-		int32_t instId;//
-		int64_t cfgid;//
-		int32_t lv;//
-		int32_t steplv;//
-		int32_t starlv;//
-		int32_t activeSkillLv;//
-		NFShmVector<int32_t, DEFINE_PETINFO_EXCLUSIVESKILLLVVEC_MAX_NUM> exclusiveSkillLvVec;//
-		NFShmVector<int32_t, DEFINE_PETINFO_PASSIVESKILLLVVEC_MAX_NUM> passiveSkillLvVec;//
-		float initgrow;//
-		int32_t slot;//
-		int32_t lvexp;//
-
-		virtual void write_to_pbmsg(::proto_ff::PetInfo & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::PetInfo & msg);
-		static ::proto_ff::PetInfo* new_pbmsg(){ return new ::proto_ff::PetInfo(); }
-		static ::proto_ff::PetInfo make_pbmsg(){ return ::proto_ff::PetInfo(); }
-	};
-	typedef struct PetInfo_s PetInfo_t;
-
-	struct PetHatchInfo_s : public NFDescStoreSeqOP {
-		PetHatchInfo_s();
-		virtual ~PetHatchInfo_s(){}
-		int CreateInit();
-		int ResumeInit();
-		int32_t slot;//
-		int32_t unlock;//
-		int64_t eggid;//
-		int64_t time;//
-
-		virtual void write_to_pbmsg(::proto_ff::PetHatchInfo & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::PetHatchInfo & msg);
-		static ::proto_ff::PetHatchInfo* new_pbmsg(){ return new ::proto_ff::PetHatchInfo(); }
-		static ::proto_ff::PetHatchInfo make_pbmsg(){ return ::proto_ff::PetHatchInfo(); }
-	};
-	typedef struct PetHatchInfo_s PetHatchInfo_t;
-
-	struct PetGrow_s : public NFDescStoreSeqOP {
-		PetGrow_s();
-		virtual ~PetGrow_s(){}
-		int CreateInit();
-		int ResumeInit();
-		int32_t cfgid;//
-		int32_t stronglv;//
-		int32_t starlv;//
-		int32_t starindex;//
-
-		virtual void write_to_pbmsg(::proto_ff::PetGrow & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::PetGrow & msg);
-		static ::proto_ff::PetGrow* new_pbmsg(){ return new ::proto_ff::PetGrow(); }
-		static ::proto_ff::PetGrow make_pbmsg(){ return ::proto_ff::PetGrow(); }
-	};
-	typedef struct PetGrow_s PetGrow_t;
-
-	struct PetYaoHunSlot_s : public NFDescStoreSeqOP {
-		PetYaoHunSlot_s();
-		virtual ~PetYaoHunSlot_s(){}
-		int CreateInit();
-		int ResumeInit();
-		int32_t slot_pos;//
-		int32_t lv;//
-		int32_t exp;//
-		int32_t step;//
-		struct ItemProtoInfo_s equip;//
-
-		virtual void write_to_pbmsg(::proto_ff::PetYaoHunSlot & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::PetYaoHunSlot & msg);
-		static ::proto_ff::PetYaoHunSlot* new_pbmsg(){ return new ::proto_ff::PetYaoHunSlot(); }
-		static ::proto_ff::PetYaoHunSlot make_pbmsg(){ return ::proto_ff::PetYaoHunSlot(); }
-	};
-	typedef struct PetYaoHunSlot_s PetYaoHunSlot_t;
-
-	struct PetYaoHunEntry_s : public NFDescStoreSeqOP {
-		PetYaoHunEntry_s();
-		virtual ~PetYaoHunEntry_s(){}
-		int CreateInit();
-		int ResumeInit();
-		int32_t fight_pos;//
-		int32_t is_unlock;//
-		NFShmVector<struct PetYaoHunSlot_s, DEFINE_PETYAOHUNENTRY_INFOS_MAX_NUM> infos;//
-		NFShmVector<int32_t, DEFINE_PETYAOHUNENTRY_SUITIDS_MAX_NUM> suitids;//
-
-		virtual void write_to_pbmsg(::proto_ff::PetYaoHunEntry & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::PetYaoHunEntry & msg);
-		static ::proto_ff::PetYaoHunEntry* new_pbmsg(){ return new ::proto_ff::PetYaoHunEntry(); }
-		static ::proto_ff::PetYaoHunEntry make_pbmsg(){ return ::proto_ff::PetYaoHunEntry(); }
-	};
-	typedef struct PetYaoHunEntry_s PetYaoHunEntry_t;
-
-	struct PetYaoHunModule_s : public NFDescStoreSeqOP {
-		PetYaoHunModule_s();
-		virtual ~PetYaoHunModule_s(){}
-		int CreateInit();
-		int ResumeInit();
-		NFShmVector<struct PetYaoHunEntry_s, DEFINE_PETYAOHUNMODULE_ENTRYS_MAX_NUM> entrys;//
-		int32_t lianyao_tq_flag;//
-		int32_t yaolu_lv;//
-		int32_t yaolu_exp;//
-		int32_t yaoqi;//
-
-		virtual void write_to_pbmsg(::proto_ff::PetYaoHunModule & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::PetYaoHunModule & msg);
-		static ::proto_ff::PetYaoHunModule* new_pbmsg(){ return new ::proto_ff::PetYaoHunModule(); }
-		static ::proto_ff::PetYaoHunModule make_pbmsg(){ return ::proto_ff::PetYaoHunModule(); }
-	};
-	typedef struct PetYaoHunModule_s PetYaoHunModule_t;
-
 	struct TurnAttr_s : public NFDescStoreSeqOP {
 		TurnAttr_s();
 		virtual ~TurnAttr_s(){}
@@ -945,6 +834,117 @@ namespace proto_ff_s {
 		static ::proto_ff::MultItemSimpleProto make_pbmsg(){ return ::proto_ff::MultItemSimpleProto(); }
 	};
 	typedef struct MultItemSimpleProto_s MultItemSimpleProto_t;
+
+	struct PetInfo_s : public NFDescStoreSeqOP {
+		PetInfo_s();
+		virtual ~PetInfo_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t instId;//
+		int64_t cfgid;//
+		int32_t lv;//
+		int32_t steplv;//
+		int32_t starlv;//
+		int32_t activeSkillLv;//
+		NFShmVector<int32_t, DEFINE_PETINFO_EXCLUSIVESKILLLVVEC_MAX_NUM> exclusiveSkillLvVec;//
+		NFShmVector<int32_t, DEFINE_PETINFO_PASSIVESKILLLVVEC_MAX_NUM> passiveSkillLvVec;//
+		float initgrow;//
+		int32_t slot;//
+		int32_t lvexp;//
+
+		virtual void write_to_pbmsg(::proto_ff::PetInfo & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::PetInfo & msg);
+		static ::proto_ff::PetInfo* new_pbmsg(){ return new ::proto_ff::PetInfo(); }
+		static ::proto_ff::PetInfo make_pbmsg(){ return ::proto_ff::PetInfo(); }
+	};
+	typedef struct PetInfo_s PetInfo_t;
+
+	struct PetHatchInfo_s : public NFDescStoreSeqOP {
+		PetHatchInfo_s();
+		virtual ~PetHatchInfo_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t slot;//
+		int32_t unlock;//
+		int64_t eggid;//
+		int64_t time;//
+
+		virtual void write_to_pbmsg(::proto_ff::PetHatchInfo & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::PetHatchInfo & msg);
+		static ::proto_ff::PetHatchInfo* new_pbmsg(){ return new ::proto_ff::PetHatchInfo(); }
+		static ::proto_ff::PetHatchInfo make_pbmsg(){ return ::proto_ff::PetHatchInfo(); }
+	};
+	typedef struct PetHatchInfo_s PetHatchInfo_t;
+
+	struct PetGrow_s : public NFDescStoreSeqOP {
+		PetGrow_s();
+		virtual ~PetGrow_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t cfgid;//
+		int32_t stronglv;//
+		int32_t starlv;//
+		int32_t starindex;//
+
+		virtual void write_to_pbmsg(::proto_ff::PetGrow & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::PetGrow & msg);
+		static ::proto_ff::PetGrow* new_pbmsg(){ return new ::proto_ff::PetGrow(); }
+		static ::proto_ff::PetGrow make_pbmsg(){ return ::proto_ff::PetGrow(); }
+	};
+	typedef struct PetGrow_s PetGrow_t;
+
+	struct PetYaoHunSlot_s : public NFDescStoreSeqOP {
+		PetYaoHunSlot_s();
+		virtual ~PetYaoHunSlot_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t slot_pos;//
+		int32_t lv;//
+		int32_t exp;//
+		int32_t step;//
+		struct ItemProtoInfo_s equip;//
+
+		virtual void write_to_pbmsg(::proto_ff::PetYaoHunSlot & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::PetYaoHunSlot & msg);
+		static ::proto_ff::PetYaoHunSlot* new_pbmsg(){ return new ::proto_ff::PetYaoHunSlot(); }
+		static ::proto_ff::PetYaoHunSlot make_pbmsg(){ return ::proto_ff::PetYaoHunSlot(); }
+	};
+	typedef struct PetYaoHunSlot_s PetYaoHunSlot_t;
+
+	struct PetYaoHunEntry_s : public NFDescStoreSeqOP {
+		PetYaoHunEntry_s();
+		virtual ~PetYaoHunEntry_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t fight_pos;//
+		int32_t is_unlock;//
+		NFShmVector<struct PetYaoHunSlot_s, DEFINE_PETYAOHUNENTRY_INFOS_MAX_NUM> infos;//
+		NFShmVector<int32_t, DEFINE_PETYAOHUNENTRY_SUITIDS_MAX_NUM> suitids;//
+
+		virtual void write_to_pbmsg(::proto_ff::PetYaoHunEntry & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::PetYaoHunEntry & msg);
+		static ::proto_ff::PetYaoHunEntry* new_pbmsg(){ return new ::proto_ff::PetYaoHunEntry(); }
+		static ::proto_ff::PetYaoHunEntry make_pbmsg(){ return ::proto_ff::PetYaoHunEntry(); }
+	};
+	typedef struct PetYaoHunEntry_s PetYaoHunEntry_t;
+
+	struct PetYaoHunModule_s : public NFDescStoreSeqOP {
+		PetYaoHunModule_s();
+		virtual ~PetYaoHunModule_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct PetYaoHunEntry_s, DEFINE_PETYAOHUNMODULE_ENTRYS_MAX_NUM> entrys;//
+		int32_t lianyao_tq_flag;//
+		int32_t yaolu_lv;//
+		int32_t yaolu_exp;//
+		int32_t yaoqi;//
+
+		virtual void write_to_pbmsg(::proto_ff::PetYaoHunModule & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::PetYaoHunModule & msg);
+		static ::proto_ff::PetYaoHunModule* new_pbmsg(){ return new ::proto_ff::PetYaoHunModule(); }
+		static ::proto_ff::PetYaoHunModule make_pbmsg(){ return ::proto_ff::PetYaoHunModule(); }
+	};
+	typedef struct PetYaoHunModule_s PetYaoHunModule_t;
 
 	struct MailParamProto_s : public NFDescStoreSeqOP {
 		MailParamProto_s();

@@ -149,7 +149,7 @@ void NFItem::UnInit()
     m_nExpiredTime = 0;
 }
 
-bool NFItem::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
+bool NFItem::ReadFromPB(const proto_ff::ItemProtoInfo &protoItem)
 {
     m_nIndex = protoItem.index();
     m_nItemID = protoItem.item_id();
@@ -160,7 +160,7 @@ bool NFItem::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
     return true;
 }
 
-bool NFItem::ToItemProto(proto_ff::ItemProtoInfo &protoItem)
+bool NFItem::WriteToPB(proto_ff::ItemProtoInfo &protoItem)
 {
     protoItem.set_index(m_nIndex);
     protoItem.set_item_id(m_nItemID);
@@ -260,9 +260,9 @@ void NFEquip::UnInit()
     NFItem::UnInit();
 }
 
-bool NFEquip::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
+bool NFEquip::ReadFromPB(const proto_ff::ItemProtoInfo &protoItem)
 {
-    NFItem::FromItemProto(protoItem);
+    NFItem::ReadFromPB(protoItem);
     
     auto pEquipCfg = GetEquipCfg();
     if (pEquipCfg)
@@ -273,7 +273,7 @@ bool NFEquip::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
         ))
         {
             auto pEquipAttrCfg = GetEquipAttributeCfg();
-            CHECK_EXPR(pEquipAttrCfg, false, "[logic] CEquip::FromItemProto itemId:{} attrId:{} find", m_nItemID, pEquipCfg->m_attributeID);
+            CHECK_EXPR(pEquipAttrCfg, false, "[logic] CEquip::ReadFromPB itemId:{} attrId:{} find", m_nItemID, pEquipCfg->m_attributeID);
         }
         
         m_baseAttrPercent = protoItem.base_attr_percent();
@@ -284,9 +284,9 @@ bool NFEquip::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
     return true;
 }
 
-bool NFEquip::ToItemProto(proto_ff::ItemProtoInfo &protoItem)
+bool NFEquip::WriteToPB(proto_ff::ItemProtoInfo &protoItem)
 {
-    NFItem::ToItemProto(protoItem);
+    NFItem::WriteToPB(protoItem);
     
     auto pEquipCfg = GetEquipCfg();
     if (pEquipCfg)
@@ -613,17 +613,17 @@ void NFDeityEquip::UnInit()
     NFItem::UnInit();
 }
 
-bool NFDeityEquip::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
+bool NFDeityEquip::ReadFromPB(const proto_ff::ItemProtoInfo &protoItem)
 {
-    CHECK_EXPR(NFItem::FromItemProto(protoItem), false, "");
+    CHECK_EXPR(NFItem::ReadFromPB(protoItem), false, "");
     m_deityEquip.m_stronglv = protoItem.strong_lv();
     m_deityEquip.m_strongWearQuality = protoItem.strong_wear_quality();
     return true;
 }
 
-bool NFDeityEquip::ToItemProto(proto_ff::ItemProtoInfo &protoItem)
+bool NFDeityEquip::WriteToPB(proto_ff::ItemProtoInfo &protoItem)
 {
-    NFItem::ToItemProto(protoItem);
+    NFItem::WriteToPB(protoItem);
     protoItem.set_strong_lv(m_deityEquip.m_stronglv);
     protoItem.set_strong_wear_quality(m_deityEquip.m_strongWearQuality);
     return true;
@@ -804,9 +804,9 @@ void NFBeastEquip::UnInit()
     NFItem::UnInit();
 }
 
-bool NFBeastEquip::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
+bool NFBeastEquip::ReadFromPB(const proto_ff::ItemProtoInfo &protoItem)
 {
-    CHECK_EXPR(NFItem::FromItemProto(protoItem), false, "");
+    CHECK_EXPR(NFItem::ReadFromPB(protoItem), false, "");
     m_beastEquip.m_stronglv = protoItem.strong_lv();
     m_beastEquip.m_strongWearQuality = protoItem.strong_wear_quality();
     m_beastEquip.m_strongExp = protoItem.strong_exp();
@@ -821,9 +821,9 @@ bool NFBeastEquip::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
     return true;
 }
 
-bool NFBeastEquip::ToItemProto(proto_ff::ItemProtoInfo &protoItem)
+bool NFBeastEquip::WriteToPB(proto_ff::ItemProtoInfo &protoItem)
 {
-    NFItem::ToItemProto(protoItem);
+    NFItem::WriteToPB(protoItem);
     protoItem.set_strong_lv(m_beastEquip.m_stronglv);
     protoItem.set_strong_wear_quality(m_beastEquip.m_strongWearQuality);
     protoItem.set_strong_exp(m_beastEquip.m_strongExp);
@@ -888,9 +888,9 @@ void NFLongHunEquip::UnInit()
     NFItem::UnInit();
 }
 
-bool NFLongHunEquip::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
+bool NFLongHunEquip::ReadFromPB(const proto_ff::ItemProtoInfo &protoItem)
 {
-    NFItem::FromItemProto(protoItem);
+    NFItem::ReadFromPB(protoItem);
     m_longHun.m_stronglv = protoItem.strong_lv();
     m_longHun.m_strongWearQuality = protoItem.strong_wear_quality();
     m_longHun.m_strongWearQualityExp = protoItem.strong_wear_quality_exp();
@@ -899,9 +899,9 @@ bool NFLongHunEquip::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
     return true;
 }
 
-bool NFLongHunEquip::ToItemProto(proto_ff::ItemProtoInfo &protoItem)
+bool NFLongHunEquip::WriteToPB(proto_ff::ItemProtoInfo &protoItem)
 {
-    NFItem::ToItemProto(protoItem);
+    NFItem::WriteToPB(protoItem);
     protoItem.set_strong_lv(m_longHun.m_stronglv);
     protoItem.set_strong_wear_quality(m_longHun.m_strongWearQuality);
     protoItem.set_strong_wear_quality_exp(m_longHun.m_strongWearQualityExp);
@@ -946,17 +946,17 @@ void NFShengjiEquip::UnInit()
     NFItem::UnInit();
 }
 
-bool NFShengjiEquip::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
+bool NFShengjiEquip::ReadFromPB(const proto_ff::ItemProtoInfo &protoItem)
 {
-    NFItem::FromItemProto(protoItem);
+    NFItem::ReadFromPB(protoItem);
     m_shengji.m_makeid = protoItem.makeid();
     m_shengji.m_state = protoItem.state();
     return true;
 }
 
-bool NFShengjiEquip::ToItemProto(proto_ff::ItemProtoInfo &protoItem)
+bool NFShengjiEquip::WriteToPB(proto_ff::ItemProtoInfo &protoItem)
 {
-    NFItem::ToItemProto(protoItem);
+    NFItem::WriteToPB(protoItem);
     protoItem.set_makeid(m_shengji.m_makeid);
     protoItem.set_state(m_shengji.m_state);
     return true;
@@ -995,9 +995,9 @@ void NFGodEvilEquip::UnInit()
     NFItem::UnInit();
 }
 
-bool NFGodEvilEquip::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
+bool NFGodEvilEquip::ReadFromPB(const proto_ff::ItemProtoInfo &protoItem)
 {
-    NFItem::FromItemProto(protoItem);
+    NFItem::ReadFromPB(protoItem);
     m_godEvil.m_stronglv = protoItem.strong_lv();
     m_godEvil.m_strongExp = protoItem.strong_exp();
     m_godEvil.m_strongWearQualityExp = protoItem.strong_wear_quality_exp();
@@ -1006,9 +1006,9 @@ bool NFGodEvilEquip::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
     return true;
 }
 
-bool NFGodEvilEquip::ToItemProto(proto_ff::ItemProtoInfo &protoItem)
+bool NFGodEvilEquip::WriteToPB(proto_ff::ItemProtoInfo &protoItem)
 {
-    NFItem::ToItemProto(protoItem);
+    NFItem::WriteToPB(protoItem);
     protoItem.set_strong_lv(m_godEvil.m_stronglv);
     protoItem.set_strong_exp(m_godEvil.m_strongExp);
     protoItem.set_strong_wear_quality_exp(m_godEvil.m_strongWearQualityExp);
@@ -1052,9 +1052,9 @@ void NFStarEquip::UnInit()
     NFItem::UnInit();
 }
 
-bool NFStarEquip::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
+bool NFStarEquip::ReadFromPB(const proto_ff::ItemProtoInfo &protoItem)
 {
-    NFItem::FromItemProto(protoItem);
+    NFItem::ReadFromPB(protoItem);
     m_star.m_stronglv = protoItem.strong_lv();
     m_star.m_strongWearQuality = protoItem.strong_wear_quality();
     m_star.m_strongExp = protoItem.strong_exp();
@@ -1062,9 +1062,9 @@ bool NFStarEquip::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
     return true;
 }
 
-bool NFStarEquip::ToItemProto(proto_ff::ItemProtoInfo &protoItem)
+bool NFStarEquip::WriteToPB(proto_ff::ItemProtoInfo &protoItem)
 {
-    NFItem::ToItemProto(protoItem);
+    NFItem::WriteToPB(protoItem);
     protoItem.set_strong_lv(m_star.m_stronglv);
     protoItem.set_strong_wear_quality(m_star.m_strongWearQuality);
     protoItem.set_strong_exp(m_star.m_strongExp);
@@ -1107,9 +1107,9 @@ void NFMountKunEquip::UnInit()
     NFItem::UnInit();
 }
 
-bool NFMountKunEquip::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
+bool NFMountKunEquip::ReadFromPB(const proto_ff::ItemProtoInfo &protoItem)
 {
-    NFEquip::FromItemProto(protoItem);
+    NFEquip::ReadFromPB(protoItem);
     m_mountKun.m_stronglv = protoItem.strong_lv();
     m_mountKun.m_strongWearQuality = protoItem.strong_wear_quality();
     m_mountKun.m_awaken_lv = protoItem.awaken_lv();
@@ -1118,9 +1118,9 @@ bool NFMountKunEquip::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
     return true;
 }
 
-bool NFMountKunEquip::ToItemProto(proto_ff::ItemProtoInfo &protoItem)
+bool NFMountKunEquip::WriteToPB(proto_ff::ItemProtoInfo &protoItem)
 {
-    NFEquip::ToItemProto(protoItem);
+    NFEquip::WriteToPB(protoItem);
     protoItem.set_strong_lv(m_mountKun.m_stronglv);
     protoItem.set_strong_wear_quality(m_mountKun.m_strongWearQuality);
     protoItem.set_awaken_lv(m_mountKun.m_awaken_lv);
@@ -1159,14 +1159,14 @@ void NFTurnEquip::UnInit()
     NFEquip::UnInit();
 }
 
-bool NFTurnEquip::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
+bool NFTurnEquip::ReadFromPB(const proto_ff::ItemProtoInfo &protoItem)
 {
-    return NFEquip::FromItemProto(protoItem);
+    return NFEquip::ReadFromPB(protoItem);
 }
 
-bool NFTurnEquip::ToItemProto(proto_ff::ItemProtoInfo &protoItem)
+bool NFTurnEquip::WriteToPB(proto_ff::ItemProtoInfo &protoItem)
 {
-    return NFEquip::ToItemProto(protoItem);
+    return NFEquip::WriteToPB(protoItem);
 }
 
 bool NFTurnEquip::SaveDB(proto_ff::ItemProtoInfo &protoItem)
@@ -1193,14 +1193,14 @@ void NFYaoHunEquip::UnInit()
     NFItem::UnInit();
 }
 
-bool NFYaoHunEquip::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
+bool NFYaoHunEquip::ReadFromPB(const proto_ff::ItemProtoInfo &protoItem)
 {
-    return NFItem::FromItemProto(protoItem);
+    return NFItem::ReadFromPB(protoItem);
 }
 
-bool NFYaoHunEquip::ToItemProto(proto_ff::ItemProtoInfo &protoItem)
+bool NFYaoHunEquip::WriteToPB(proto_ff::ItemProtoInfo &protoItem)
 {
-    return NFItem::ToItemProto(protoItem);
+    return NFItem::WriteToPB(protoItem);
 }
 
 bool NFYaoHunEquip::SaveDB(proto_ff::ItemProtoInfo &protoItem)
@@ -1607,18 +1607,18 @@ void NFMoFaEquip::UnInit()
     NFEquip::UnInit();
 }
 
-bool NFMoFaEquip::FromItemProto(const proto_ff::ItemProtoInfo &protoItem)
+bool NFMoFaEquip::ReadFromPB(const proto_ff::ItemProtoInfo &protoItem)
 {
-    NFEquip::FromItemProto(protoItem);
+    NFEquip::ReadFromPB(protoItem);
     m_mofa.m_stronglv = protoItem.strong_lv();
     m_mofa.m_awaken_lv = protoItem.awaken_lv();
     m_mofa.m_awaken_exp = protoItem.strong_exp();
     return true;
 }
 
-bool NFMoFaEquip::ToItemProto(proto_ff::ItemProtoInfo &protoItem)
+bool NFMoFaEquip::WriteToPB(proto_ff::ItemProtoInfo &protoItem)
 {
-    NFEquip::ToItemProto(protoItem);
+    NFEquip::WriteToPB(protoItem);
     protoItem.set_strong_lv(m_mofa.m_stronglv);
     protoItem.set_awaken_lv(m_mofa.m_awaken_lv);
     protoItem.set_strong_exp(m_mofa.m_awaken_exp);

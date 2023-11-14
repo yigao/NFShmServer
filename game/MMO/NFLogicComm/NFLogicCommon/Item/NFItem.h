@@ -560,8 +560,8 @@ public:
 public:
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
-    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
-    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ReadFromPB(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool WriteToPB(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
     virtual void CopyFrom(const NFItem &item);
@@ -626,8 +626,8 @@ protected:
 public:
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
-    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
-    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ReadFromPB(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool WriteToPB(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
     virtual void CopyFrom(const NFItem &item);
@@ -683,8 +683,8 @@ public:
     
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
-    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
-    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ReadFromPB(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool WriteToPB(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
     virtual void CopyFrom(const NFItem &item);
@@ -735,8 +735,8 @@ public:
     
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
-    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
-    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ReadFromPB(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool WriteToPB(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
     virtual void CopyFrom(const NFItem &item);
@@ -787,8 +787,8 @@ public:
     
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
-    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
-    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ReadFromPB(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool WriteToPB(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
     virtual void CopyFrom(const NFItem &item);
@@ -841,8 +841,8 @@ public:
     
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
-    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
-    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ReadFromPB(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool WriteToPB(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
     virtual void CopyFrom(const NFItem &item);
@@ -893,8 +893,8 @@ public:
     
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
-    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
-    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ReadFromPB(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool WriteToPB(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
     virtual void CopyFrom(const NFItem &item);
@@ -945,8 +945,8 @@ public:
     
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
-    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
-    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ReadFromPB(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool WriteToPB(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
     virtual void CopyFrom(const NFItem &item);
@@ -997,8 +997,8 @@ public:
     
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
-    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
-    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ReadFromPB(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool WriteToPB(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
     virtual void CopyFrom(const NFItem &item);
@@ -1049,8 +1049,8 @@ public:
     
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
-    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
-    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ReadFromPB(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool WriteToPB(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
     virtual void CopyFrom(const NFItem &item);
@@ -1101,8 +1101,8 @@ public:
     
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
-    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
-    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ReadFromPB(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool WriteToPB(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
     virtual void CopyFrom(const NFItem &item);
@@ -1153,8 +1153,8 @@ public:
     
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
     virtual void UnInit();
-    virtual bool FromItemProto(const proto_ff::ItemProtoInfo &protoItem);
-    virtual bool ToItemProto(proto_ff::ItemProtoInfo &protoItem);
+    virtual bool ReadFromPB(const proto_ff::ItemProtoInfo &protoItem);
+    virtual bool WriteToPB(proto_ff::ItemProtoInfo &protoItem);
     virtual bool SaveDB(proto_ff::ItemProtoInfo &protoItem);
     virtual void GetAllAttr(MAP_INT32_INT32 &attrs, int32_t level);
     virtual void CopyFrom(const NFItem &item);

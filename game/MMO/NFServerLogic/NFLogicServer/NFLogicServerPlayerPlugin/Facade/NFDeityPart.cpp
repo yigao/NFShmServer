@@ -1702,13 +1702,16 @@ int NFDeityPart::OnHandleDeityEquipDressReq(uint32_t msgId, NFDataPackage &packe
     NFPackagePart *pPackagePart = dynamic_cast<NFPackagePart *>(m_pMaster->GetPart(PART_PACKAGE));
     CHECK_NULL(pPackagePart);
     
-    NFDeityEquip* pEquip = dynamic_cast<NFDeityEquip*>(pPackagePart->GetPackageItemByIndex(proto_ff::EPackageType_DeityEquip, bag_pos));
-    if (!pEquip || !pEquip->GetEquipCfg())
+    NFDeityEquip* pPackageEquip = dynamic_cast<NFDeityEquip*>(pPackagePart->GetPackageItemByIndex(proto_ff::EPackageType_DeityEquip, bag_pos));
+    if (!pPackageEquip)
     {
         rsp.set_ret_code(proto_ff::RET_EQUIP_NOT_EXIST);
         m_pMaster->SendMsgToClient(proto_ff::CLIENT_DEITY_EQUIP_DRESS_RSP, rsp);
         return 0;
     }
+    
+    NFDeityEquip tempEquip = *pPackageEquip;
+    NFDeityEquip* pEquip = &tempEquip;
     
     auto pEquipCfg = pEquip->GetEquipCfg();
     CHECK_NULL(pEquipCfg);
@@ -1770,9 +1773,9 @@ int NFDeityPart::OnHandleDeityEquipDressReq(uint32_t msgId, NFDataPackage &packe
     }
     
     pPackagePart->UpdatePackage(proto_ff::EPackageType_DeityEquip, bagNotify);
-    pDressEquipInfo->m_equip = *pEquip;
     pEquip->SetIndex(slotPos);
     pEquip->SetBind(NFItemMgr::BindStateByWay(pEquip->GetItemID(), pEquip->GetBind()));
+    pDressEquipInfo->m_equip = *pEquip;
     
     calcEquipScore(*pFantasyData, slotPos);
     SetNeedSave(true);

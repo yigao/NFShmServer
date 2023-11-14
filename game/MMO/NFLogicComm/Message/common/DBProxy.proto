@@ -915,36 +915,39 @@ message LoginRewardDBProto
 	repeated ComPair fetch = 1;			//登录天数对应的领取状态
 }
 
+//第一天到最后一天，每天领取的奖励
+message DayFetchInfo
+{
+	optional int32 day = 1;			//第几天
+	repeated int32 gear_lst = 2;	//已领取的挡位
+}
+//每个挡位，累计领取天数的奖励
+message GearFetchInfo
+{
+	optional int32 gear = 1;		//挡位
+	repeated int32 day_lst = 2;		//已领取的累计天数列表
+}
+
 //连续累充
 message ContiRechargeDBProto
 {
-	//第一天到最后一天，每天领取的奖励
-	message DayFetchInfo
-	{
-		optional int32 day = 1;			//第几天
-		repeated int32 gear_lst = 2;	//已领取的挡位
-	}
-	//每个挡位，累计领取天数的奖励
-	message GearFetchInfo
-	{
-		optional int32 gear = 1;		//挡位
-		repeated int32 day_lst = 2;		//已领取的累计天数列表
-	}
 	optional uint32 recharge = 1;			 //活动时间内累计充值金额
 	optional int32 supplement = 2;			 //是否补领
 	repeated DayFetchInfo day_fetch = 3;	 //每天已领取的奖励
 	repeated GearFetchInfo gear_fetch = 4;	 //已领取的挡位奖励
 }
+
+message ShopProto
+{
+	optional int32 type = 1;	//商店类型
+	optional uint32 total = 2;	//累计消费
+	repeated int32 fetch = 3;	//已领取累计消费奖励的 消费金额
+	repeated ComPair buy = 4;	//已购买的商品数量 muban_RebateStore_mall表ID - 已购买的数量
+}
+
 //限时秒杀
 message LimitSaleDBProto
 {
-	message ShopProto
-	{
-		optional int32 type = 1;	//商店类型
-		optional uint32 total = 2;	//累计消费
-		repeated int32 fetch = 3;	//已领取累计消费奖励的 消费金额
-		repeated ComPair buy = 4;	//已购买的商品数量 muban_RebateStore_mall表ID - 已购买的数量
-	}
 	repeated ShopProto shop = 1;	//商店信息
 	optional uint64 fresh_time = 2;	//最近一次刷新时间
 }

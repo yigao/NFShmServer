@@ -99,8 +99,8 @@ public:
         CHECK_EXPR(ret, false, "item_id:%lu slot ReadFomPB failed", protoItem.item_id());
         if (protoItem.item_id() > 0)
         {
-            ret = m_equip.FromItemProto(protoItem);
-            CHECK_EXPR(ret, false, "item_id:%lu FromItemProto failed", protoItem.item_id());
+            ret = m_equip.ReadFromPB(protoItem);
+            CHECK_EXPR(ret, false, "item_id:%lu ReadFromPB failed", protoItem.item_id());
         }
         
         return true;

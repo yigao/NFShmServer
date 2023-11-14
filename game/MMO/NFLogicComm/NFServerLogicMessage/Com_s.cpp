@@ -900,262 +900,6 @@ void BlueStarAttr_s::read_from_pbmsg(const ::proto_ff::BlueStarAttr & msg) {
 	lv_part = msg.lv_part();
 }
 
-PetInfo_s::PetInfo_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int PetInfo_s::CreateInit() {
-	instId = (int32_t)0;
-	cfgid = (int64_t)0;
-	lv = (int32_t)0;
-	steplv = (int32_t)0;
-	starlv = (int32_t)0;
-	activeSkillLv = (int32_t)0;
-	initgrow = (float)0;
-	slot = (int32_t)0;
-	lvexp = (int32_t)0;
-	return 0;
-}
-
-int PetInfo_s::ResumeInit() {
-	return 0;
-}
-
-void PetInfo_s::write_to_pbmsg(::proto_ff::PetInfo & msg) const {
-	msg.set_instid((int32_t)instId);
-	msg.set_cfgid((int64_t)cfgid);
-	msg.set_lv((int32_t)lv);
-	msg.set_steplv((int32_t)steplv);
-	msg.set_starlv((int32_t)starlv);
-	msg.set_activeskilllv((int32_t)activeSkillLv);
-	for(int32_t i = 0; i < (int32_t)exclusiveSkillLvVec.size(); ++i) {
-		msg.add_exclusiveskilllvvec((int32_t)exclusiveSkillLvVec[i]);
-	}
-	for(int32_t i = 0; i < (int32_t)passiveSkillLvVec.size(); ++i) {
-		msg.add_passiveskilllvvec((int32_t)passiveSkillLvVec[i]);
-	}
-	msg.set_initgrow((float)initgrow);
-	msg.set_slot((int32_t)slot);
-	msg.set_lvexp((int32_t)lvexp);
-}
-
-void PetInfo_s::read_from_pbmsg(const ::proto_ff::PetInfo & msg) {
-	instId = msg.instid();
-	cfgid = msg.cfgid();
-	lv = msg.lv();
-	steplv = msg.steplv();
-	starlv = msg.starlv();
-	activeSkillLv = msg.activeskilllv();
-	exclusiveSkillLvVec.resize((int)msg.exclusiveskilllvvec_size() > (int)exclusiveSkillLvVec.max_size() ? exclusiveSkillLvVec.max_size() : msg.exclusiveskilllvvec_size());
-	for(int32_t i = 0; i < (int32_t)exclusiveSkillLvVec.size(); ++i) {
-		exclusiveSkillLvVec[i] = msg.exclusiveskilllvvec(i);
-	}
-	passiveSkillLvVec.resize((int)msg.passiveskilllvvec_size() > (int)passiveSkillLvVec.max_size() ? passiveSkillLvVec.max_size() : msg.passiveskilllvvec_size());
-	for(int32_t i = 0; i < (int32_t)passiveSkillLvVec.size(); ++i) {
-		passiveSkillLvVec[i] = msg.passiveskilllvvec(i);
-	}
-	initgrow = msg.initgrow();
-	slot = msg.slot();
-	lvexp = msg.lvexp();
-}
-
-PetHatchInfo_s::PetHatchInfo_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int PetHatchInfo_s::CreateInit() {
-	slot = (int32_t)0;
-	unlock = (int32_t)0;
-	eggid = (int64_t)0;
-	time = (int64_t)0;
-	return 0;
-}
-
-int PetHatchInfo_s::ResumeInit() {
-	return 0;
-}
-
-void PetHatchInfo_s::write_to_pbmsg(::proto_ff::PetHatchInfo & msg) const {
-	msg.set_slot((int32_t)slot);
-	msg.set_unlock((int32_t)unlock);
-	msg.set_eggid((int64_t)eggid);
-	msg.set_time((int64_t)time);
-}
-
-void PetHatchInfo_s::read_from_pbmsg(const ::proto_ff::PetHatchInfo & msg) {
-	slot = msg.slot();
-	unlock = msg.unlock();
-	eggid = msg.eggid();
-	time = msg.time();
-}
-
-PetGrow_s::PetGrow_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int PetGrow_s::CreateInit() {
-	cfgid = (int32_t)0;
-	stronglv = (int32_t)0;
-	starlv = (int32_t)0;
-	starindex = (int32_t)0;
-	return 0;
-}
-
-int PetGrow_s::ResumeInit() {
-	return 0;
-}
-
-void PetGrow_s::write_to_pbmsg(::proto_ff::PetGrow & msg) const {
-	msg.set_cfgid((int32_t)cfgid);
-	msg.set_stronglv((int32_t)stronglv);
-	msg.set_starlv((int32_t)starlv);
-	msg.set_starindex((int32_t)starindex);
-}
-
-void PetGrow_s::read_from_pbmsg(const ::proto_ff::PetGrow & msg) {
-	cfgid = msg.cfgid();
-	stronglv = msg.stronglv();
-	starlv = msg.starlv();
-	starindex = msg.starindex();
-}
-
-PetYaoHunSlot_s::PetYaoHunSlot_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int PetYaoHunSlot_s::CreateInit() {
-	slot_pos = (int32_t)0;
-	lv = (int32_t)0;
-	exp = (int32_t)0;
-	step = (int32_t)0;
-	return 0;
-}
-
-int PetYaoHunSlot_s::ResumeInit() {
-	return 0;
-}
-
-void PetYaoHunSlot_s::write_to_pbmsg(::proto_ff::PetYaoHunSlot & msg) const {
-	msg.set_slot_pos((int32_t)slot_pos);
-	msg.set_lv((int32_t)lv);
-	msg.set_exp((int32_t)exp);
-	msg.set_step((int32_t)step);
-	::proto_ff::ItemProtoInfo* temp_equip = msg.mutable_equip();
-	equip.write_to_pbmsg(*temp_equip);
-}
-
-void PetYaoHunSlot_s::read_from_pbmsg(const ::proto_ff::PetYaoHunSlot & msg) {
-	slot_pos = msg.slot_pos();
-	lv = msg.lv();
-	exp = msg.exp();
-	step = msg.step();
-	const ::proto_ff::ItemProtoInfo & temp_equip = msg.equip();
-	equip.read_from_pbmsg(temp_equip);
-}
-
-PetYaoHunEntry_s::PetYaoHunEntry_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int PetYaoHunEntry_s::CreateInit() {
-	fight_pos = (int32_t)0;
-	is_unlock = (int32_t)0;
-	return 0;
-}
-
-int PetYaoHunEntry_s::ResumeInit() {
-	return 0;
-}
-
-void PetYaoHunEntry_s::write_to_pbmsg(::proto_ff::PetYaoHunEntry & msg) const {
-	msg.set_fight_pos((int32_t)fight_pos);
-	msg.set_is_unlock((int32_t)is_unlock);
-	for(int32_t i = 0; i < (int32_t)infos.size(); ++i) {
-		::proto_ff::PetYaoHunSlot* temp_infos = msg.add_infos();
-		infos[i].write_to_pbmsg(*temp_infos);
-	}
-	for(int32_t i = 0; i < (int32_t)suitids.size(); ++i) {
-		msg.add_suitids((int32_t)suitids[i]);
-	}
-}
-
-void PetYaoHunEntry_s::read_from_pbmsg(const ::proto_ff::PetYaoHunEntry & msg) {
-	fight_pos = msg.fight_pos();
-	is_unlock = msg.is_unlock();
-	infos.resize((int)msg.infos_size() > (int)infos.max_size() ? infos.max_size() : msg.infos_size());
-	for(int32_t i = 0; i < (int32_t)infos.size(); ++i) {
-		const ::proto_ff::PetYaoHunSlot & temp_infos = msg.infos(i);
-		infos[i].read_from_pbmsg(temp_infos);
-	}
-	suitids.resize((int)msg.suitids_size() > (int)suitids.max_size() ? suitids.max_size() : msg.suitids_size());
-	for(int32_t i = 0; i < (int32_t)suitids.size(); ++i) {
-		suitids[i] = msg.suitids(i);
-	}
-}
-
-PetYaoHunModule_s::PetYaoHunModule_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int PetYaoHunModule_s::CreateInit() {
-	lianyao_tq_flag = (int32_t)0;
-	yaolu_lv = (int32_t)0;
-	yaolu_exp = (int32_t)0;
-	yaoqi = (int32_t)0;
-	return 0;
-}
-
-int PetYaoHunModule_s::ResumeInit() {
-	return 0;
-}
-
-void PetYaoHunModule_s::write_to_pbmsg(::proto_ff::PetYaoHunModule & msg) const {
-	for(int32_t i = 0; i < (int32_t)entrys.size(); ++i) {
-		::proto_ff::PetYaoHunEntry* temp_entrys = msg.add_entrys();
-		entrys[i].write_to_pbmsg(*temp_entrys);
-	}
-	msg.set_lianyao_tq_flag((int32_t)lianyao_tq_flag);
-	msg.set_yaolu_lv((int32_t)yaolu_lv);
-	msg.set_yaolu_exp((int32_t)yaolu_exp);
-	msg.set_yaoqi((int32_t)yaoqi);
-}
-
-void PetYaoHunModule_s::read_from_pbmsg(const ::proto_ff::PetYaoHunModule & msg) {
-	entrys.resize((int)msg.entrys_size() > (int)entrys.max_size() ? entrys.max_size() : msg.entrys_size());
-	for(int32_t i = 0; i < (int32_t)entrys.size(); ++i) {
-		const ::proto_ff::PetYaoHunEntry & temp_entrys = msg.entrys(i);
-		entrys[i].read_from_pbmsg(temp_entrys);
-	}
-	lianyao_tq_flag = msg.lianyao_tq_flag();
-	yaolu_lv = msg.yaolu_lv();
-	yaolu_exp = msg.yaolu_exp();
-	yaoqi = msg.yaoqi();
-}
-
 TurnAttr_s::TurnAttr_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -1703,6 +1447,262 @@ void MultItemSimpleProto_s::read_from_pbmsg(const ::proto_ff::MultItemSimpleProt
 		const ::proto_ff::ItemSimpleProto & temp_info = msg.info(i);
 		info[i].read_from_pbmsg(temp_info);
 	}
+}
+
+PetInfo_s::PetInfo_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int PetInfo_s::CreateInit() {
+	instId = (int32_t)0;
+	cfgid = (int64_t)0;
+	lv = (int32_t)0;
+	steplv = (int32_t)0;
+	starlv = (int32_t)0;
+	activeSkillLv = (int32_t)0;
+	initgrow = (float)0;
+	slot = (int32_t)0;
+	lvexp = (int32_t)0;
+	return 0;
+}
+
+int PetInfo_s::ResumeInit() {
+	return 0;
+}
+
+void PetInfo_s::write_to_pbmsg(::proto_ff::PetInfo & msg) const {
+	msg.set_instid((int32_t)instId);
+	msg.set_cfgid((int64_t)cfgid);
+	msg.set_lv((int32_t)lv);
+	msg.set_steplv((int32_t)steplv);
+	msg.set_starlv((int32_t)starlv);
+	msg.set_activeskilllv((int32_t)activeSkillLv);
+	for(int32_t i = 0; i < (int32_t)exclusiveSkillLvVec.size(); ++i) {
+		msg.add_exclusiveskilllvvec((int32_t)exclusiveSkillLvVec[i]);
+	}
+	for(int32_t i = 0; i < (int32_t)passiveSkillLvVec.size(); ++i) {
+		msg.add_passiveskilllvvec((int32_t)passiveSkillLvVec[i]);
+	}
+	msg.set_initgrow((float)initgrow);
+	msg.set_slot((int32_t)slot);
+	msg.set_lvexp((int32_t)lvexp);
+}
+
+void PetInfo_s::read_from_pbmsg(const ::proto_ff::PetInfo & msg) {
+	instId = msg.instid();
+	cfgid = msg.cfgid();
+	lv = msg.lv();
+	steplv = msg.steplv();
+	starlv = msg.starlv();
+	activeSkillLv = msg.activeskilllv();
+	exclusiveSkillLvVec.resize((int)msg.exclusiveskilllvvec_size() > (int)exclusiveSkillLvVec.max_size() ? exclusiveSkillLvVec.max_size() : msg.exclusiveskilllvvec_size());
+	for(int32_t i = 0; i < (int32_t)exclusiveSkillLvVec.size(); ++i) {
+		exclusiveSkillLvVec[i] = msg.exclusiveskilllvvec(i);
+	}
+	passiveSkillLvVec.resize((int)msg.passiveskilllvvec_size() > (int)passiveSkillLvVec.max_size() ? passiveSkillLvVec.max_size() : msg.passiveskilllvvec_size());
+	for(int32_t i = 0; i < (int32_t)passiveSkillLvVec.size(); ++i) {
+		passiveSkillLvVec[i] = msg.passiveskilllvvec(i);
+	}
+	initgrow = msg.initgrow();
+	slot = msg.slot();
+	lvexp = msg.lvexp();
+}
+
+PetHatchInfo_s::PetHatchInfo_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int PetHatchInfo_s::CreateInit() {
+	slot = (int32_t)0;
+	unlock = (int32_t)0;
+	eggid = (int64_t)0;
+	time = (int64_t)0;
+	return 0;
+}
+
+int PetHatchInfo_s::ResumeInit() {
+	return 0;
+}
+
+void PetHatchInfo_s::write_to_pbmsg(::proto_ff::PetHatchInfo & msg) const {
+	msg.set_slot((int32_t)slot);
+	msg.set_unlock((int32_t)unlock);
+	msg.set_eggid((int64_t)eggid);
+	msg.set_time((int64_t)time);
+}
+
+void PetHatchInfo_s::read_from_pbmsg(const ::proto_ff::PetHatchInfo & msg) {
+	slot = msg.slot();
+	unlock = msg.unlock();
+	eggid = msg.eggid();
+	time = msg.time();
+}
+
+PetGrow_s::PetGrow_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int PetGrow_s::CreateInit() {
+	cfgid = (int32_t)0;
+	stronglv = (int32_t)0;
+	starlv = (int32_t)0;
+	starindex = (int32_t)0;
+	return 0;
+}
+
+int PetGrow_s::ResumeInit() {
+	return 0;
+}
+
+void PetGrow_s::write_to_pbmsg(::proto_ff::PetGrow & msg) const {
+	msg.set_cfgid((int32_t)cfgid);
+	msg.set_stronglv((int32_t)stronglv);
+	msg.set_starlv((int32_t)starlv);
+	msg.set_starindex((int32_t)starindex);
+}
+
+void PetGrow_s::read_from_pbmsg(const ::proto_ff::PetGrow & msg) {
+	cfgid = msg.cfgid();
+	stronglv = msg.stronglv();
+	starlv = msg.starlv();
+	starindex = msg.starindex();
+}
+
+PetYaoHunSlot_s::PetYaoHunSlot_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int PetYaoHunSlot_s::CreateInit() {
+	slot_pos = (int32_t)0;
+	lv = (int32_t)0;
+	exp = (int32_t)0;
+	step = (int32_t)0;
+	return 0;
+}
+
+int PetYaoHunSlot_s::ResumeInit() {
+	return 0;
+}
+
+void PetYaoHunSlot_s::write_to_pbmsg(::proto_ff::PetYaoHunSlot & msg) const {
+	msg.set_slot_pos((int32_t)slot_pos);
+	msg.set_lv((int32_t)lv);
+	msg.set_exp((int32_t)exp);
+	msg.set_step((int32_t)step);
+	::proto_ff::ItemProtoInfo* temp_equip = msg.mutable_equip();
+	equip.write_to_pbmsg(*temp_equip);
+}
+
+void PetYaoHunSlot_s::read_from_pbmsg(const ::proto_ff::PetYaoHunSlot & msg) {
+	slot_pos = msg.slot_pos();
+	lv = msg.lv();
+	exp = msg.exp();
+	step = msg.step();
+	const ::proto_ff::ItemProtoInfo & temp_equip = msg.equip();
+	equip.read_from_pbmsg(temp_equip);
+}
+
+PetYaoHunEntry_s::PetYaoHunEntry_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int PetYaoHunEntry_s::CreateInit() {
+	fight_pos = (int32_t)0;
+	is_unlock = (int32_t)0;
+	return 0;
+}
+
+int PetYaoHunEntry_s::ResumeInit() {
+	return 0;
+}
+
+void PetYaoHunEntry_s::write_to_pbmsg(::proto_ff::PetYaoHunEntry & msg) const {
+	msg.set_fight_pos((int32_t)fight_pos);
+	msg.set_is_unlock((int32_t)is_unlock);
+	for(int32_t i = 0; i < (int32_t)infos.size(); ++i) {
+		::proto_ff::PetYaoHunSlot* temp_infos = msg.add_infos();
+		infos[i].write_to_pbmsg(*temp_infos);
+	}
+	for(int32_t i = 0; i < (int32_t)suitids.size(); ++i) {
+		msg.add_suitids((int32_t)suitids[i]);
+	}
+}
+
+void PetYaoHunEntry_s::read_from_pbmsg(const ::proto_ff::PetYaoHunEntry & msg) {
+	fight_pos = msg.fight_pos();
+	is_unlock = msg.is_unlock();
+	infos.resize((int)msg.infos_size() > (int)infos.max_size() ? infos.max_size() : msg.infos_size());
+	for(int32_t i = 0; i < (int32_t)infos.size(); ++i) {
+		const ::proto_ff::PetYaoHunSlot & temp_infos = msg.infos(i);
+		infos[i].read_from_pbmsg(temp_infos);
+	}
+	suitids.resize((int)msg.suitids_size() > (int)suitids.max_size() ? suitids.max_size() : msg.suitids_size());
+	for(int32_t i = 0; i < (int32_t)suitids.size(); ++i) {
+		suitids[i] = msg.suitids(i);
+	}
+}
+
+PetYaoHunModule_s::PetYaoHunModule_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int PetYaoHunModule_s::CreateInit() {
+	lianyao_tq_flag = (int32_t)0;
+	yaolu_lv = (int32_t)0;
+	yaolu_exp = (int32_t)0;
+	yaoqi = (int32_t)0;
+	return 0;
+}
+
+int PetYaoHunModule_s::ResumeInit() {
+	return 0;
+}
+
+void PetYaoHunModule_s::write_to_pbmsg(::proto_ff::PetYaoHunModule & msg) const {
+	for(int32_t i = 0; i < (int32_t)entrys.size(); ++i) {
+		::proto_ff::PetYaoHunEntry* temp_entrys = msg.add_entrys();
+		entrys[i].write_to_pbmsg(*temp_entrys);
+	}
+	msg.set_lianyao_tq_flag((int32_t)lianyao_tq_flag);
+	msg.set_yaolu_lv((int32_t)yaolu_lv);
+	msg.set_yaolu_exp((int32_t)yaolu_exp);
+	msg.set_yaoqi((int32_t)yaoqi);
+}
+
+void PetYaoHunModule_s::read_from_pbmsg(const ::proto_ff::PetYaoHunModule & msg) {
+	entrys.resize((int)msg.entrys_size() > (int)entrys.max_size() ? entrys.max_size() : msg.entrys_size());
+	for(int32_t i = 0; i < (int32_t)entrys.size(); ++i) {
+		const ::proto_ff::PetYaoHunEntry & temp_entrys = msg.entrys(i);
+		entrys[i].read_from_pbmsg(temp_entrys);
+	}
+	lianyao_tq_flag = msg.lianyao_tq_flag();
+	yaolu_lv = msg.yaolu_lv();
+	yaolu_exp = msg.yaolu_exp();
+	yaoqi = msg.yaoqi();
 }
 
 MailParamProto_s::MailParamProto_s() {
