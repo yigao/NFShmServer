@@ -244,3 +244,9 @@ message GodRelicsFinish
 {
   optional int64 id = 1;
 };
+
+//世界聊天次数
+message ChatWorldEvent
+{
+
+};

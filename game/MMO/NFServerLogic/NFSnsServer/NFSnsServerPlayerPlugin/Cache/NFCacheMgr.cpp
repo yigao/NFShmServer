@@ -226,33 +226,3 @@ int NFCacheMgr::DeletePlayerDetail(NFPlayerDetail *pRoleDetail)
     return 0;
 }
 
-NFPlayerOnline *NFCacheMgr::GetPlayerOnline(uint64_t player)
-{
-    return NFPlayerOnline::GetObjByHashKey(m_pObjPluginManager, player);
-}
-
-NFPlayerOnline *NFCacheMgr::CreatePlayerOnline(uint64_t cid)
-{
-    NFPlayerOnline *pPlayerOnline = GetPlayerOnline(cid);
-    CHECK_EXPR(pPlayerOnline == NULL, NULL, "Create Role Online Failed, data exist, cid:{}", cid);
-
-    pPlayerOnline = NFPlayerOnline::CreateObjByHashKey(m_pObjPluginManager, cid);
-    CHECK_EXPR(pPlayerOnline, NULL, "Create Role Online Obj Failed, cid:{}", cid);
-
-    pPlayerOnline->SetCid(cid);
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "AddTrans Role Online Success, cid:{} globalId:{}", cid,
-              pPlayerOnline->GetGlobalId());
-    return pPlayerOnline;
-}
-
-int NFCacheMgr::DeletePlayerOnline(NFPlayerOnline *pRoleOnline)
-{
-    CHECK_NULL(pRoleOnline);
-
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Detail Info, cid:{}, gloablId:{}", pRoleOnline->GetCid(), pRoleOnline->GetGlobalId());
-
-    pRoleOnline->UnInit();
-    NFPlayerOnline::DestroyObj(m_pObjPluginManager, pRoleOnline);
-
-    return 0;
-}

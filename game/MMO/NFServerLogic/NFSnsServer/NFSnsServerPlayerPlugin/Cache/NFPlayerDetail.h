@@ -9,7 +9,6 @@
 
 #pragma once
 
-
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
@@ -27,6 +26,7 @@
 
 class NFSnsPart;
 class NFPlayerSimple;
+
 class NFPlayerDetail : public NFShmObjTemplate<NFPlayerDetail, EOT_SNS_ROLE_DETAIL_ID, NFShmObj>, public NFSeqOP
 {
 public:
@@ -43,6 +43,14 @@ public:
 
     void SetCid(uint64_t cid);
 
+    uint32_t GetUid() const;
+
+    void SetUid(uint32_t uid);
+
+    uint32_t GetZid() const;
+
+    void SetZid(uint32_t zid);
+
 public:
     bool IsInited() const;
 
@@ -50,9 +58,11 @@ public:
 
 public:
     bool CanDelete();
+
 public:
     //must be virtual
     virtual int OnTimer(int timeId, int callcount);
+
 public:
     /**
      * @brief
@@ -60,14 +70,43 @@ public:
      * @param bCreatePlayer
      * @return
      */
-    virtual int Init(const proto_ff::RoleDBSnsDetail &data);
+    virtual int Init(const proto_ff::RoleDBSnsDetail& data);
 
     /**
      * @brief
      * @return
      */
     virtual int UnInit();
+
 public:
+    uint32_t GetLogicId() const;
+
+    void SetLogicId(uint32_t logicId);
+
+    uint32_t GetGameId() const;
+
+    void SetGameId(uint32_t gameId);
+
+    uint32_t GetProxyId() const;
+
+    void SetProxyId(uint32_t proxyId);
+
+    bool IsOnline() const;
+
+    void SetIsOnline(bool isOnline);
+
+public:
+    int SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message& xData);
+
+    int SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message& xData);
+    int SendTransToLogicServer(uint32_t msgId, const google::protobuf::Message& xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
+
+    int SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message& xData);
+    int SendTransToWorldServer(uint32_t msgId, const google::protobuf::Message& xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
+
+    int SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Message& xData);
+    int SendTransToGameServer(uint32_t msgId, const google::protobuf::Message& xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
+
 public:
     /**
      * @brief save db
@@ -111,19 +150,20 @@ public:
      * @brief
      */
     void ClearAllSeq();
+
 public:
     /**
      * @brief 在协程里获取远程服务器的rpc服务, 这个程序必须在协程里调用，需要先创建协程
      * @return 如果你在player或part的函数里，请优先调用这个函数，而不是调用FindModule<NFIMessageModule>()->GetRpcService系统函数， 因为玩家的生命周期是不确定的
      */
-    template<size_t msgId, typename RequestType, typename ResponeType>
-    int GetRpcService(NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType &request, ResponeType &respone)
+    template<size_t msgId, typename RequestType, typename ResponeType> int GetRpcService(NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType& request, ResponeType& respone)
     {
         FindModule<NFICoroutineModule>()->AddUserCo(m_cid);
         int iRet = FindModule<NFIMessageModule>()->GetRpcService<msgId>(NF_ST_SNS_SERVER, dstServerType, dstBusId, request, respone, m_cid);
         FindModule<NFICoroutineModule>()->DelUserCo(m_cid);
         return iRet;
     }
+
 public:
     /**
      * @brief 创建Part
@@ -132,7 +172,7 @@ public:
      * @param bCreatePlayer
      * @return
      */
-    NFSnsPart *CreatePart(uint32_t partType, const ::proto_ff::RoleDBSnsDetail &data);
+    NFSnsPart* CreatePart(uint32_t partType, const ::proto_ff::RoleDBSnsDetail& data);
 
     /**
      * @brief 创建Part
@@ -146,18 +186,19 @@ public:
      * @param pPart
      * @return
      */
-    int RecylePart(NFSnsPart *pPart);
+    int RecylePart(NFSnsPart* pPart);
 
     //获取对应部件指针
-    virtual NFSnsPart *GetPart(uint32_t partType);
+    virtual NFSnsPart* GetPart(uint32_t partType);
 
-    template<typename PART>
-    PART *GetPart(uint32_t partType)
+    template<typename PART> PART* GetPart(uint32_t partType)
     {
         return dynamic_cast<PART *>(GetPart(partType));
     }
+
 public:
     NFPlayerSimple* GetRoleSimple() const;
+
 public:
     /**
      * @brief
@@ -184,8 +225,8 @@ public:
      * @return
      */
     virtual int Update();
-public:
 
+public:
     /**
      * @brief 登陆入口
      * @return
@@ -231,6 +272,7 @@ public:
      * @return
      */
     virtual int MonthZeroUpdate();
+
 private:
     /**
      * @brief
@@ -241,6 +283,37 @@ private:
      * @brief
      */
     uint64_t m_cid;
+
+    /**
+     * \brief
+     */
+    uint32_t m_uid;
+
+    /**
+     * \brief
+     */
+    uint32_t m_zid;
+
+    /**
+     * @brief
+     */
+    uint32_t m_proxyId;
+
+    /**
+     * @brief
+     */
+    uint32_t m_logicId;
+
+    /**
+     * @brief
+     */
+    uint32_t m_gameId;
+
+    /**
+     * @brief
+     */
+    bool m_isOnline;
+
 private:
     /**
      * @brief 存db的时间
@@ -251,6 +324,7 @@ private:
      * @brief
      */
     int m_saveDBTimer;
+
 private:
     NFShmVector<NFShmPtr<NFSnsPart>, SNS_PART_MAX> m_pPart;
 };

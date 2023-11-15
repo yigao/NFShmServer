@@ -619,10 +619,24 @@ class RoleDBSnsDetail : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 cid() const;
   inline void set_cid(::google::protobuf::uint64 value);
 
-  // optional .proto_ff.MyFriendInfo friend_info = 2;
+  // optional uint32 zid = 2;
+  inline bool has_zid() const;
+  inline void clear_zid();
+  static const int kZidFieldNumber = 2;
+  inline ::google::protobuf::uint32 zid() const;
+  inline void set_zid(::google::protobuf::uint32 value);
+
+  // optional uint32 uid = 3;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 3;
+  inline ::google::protobuf::uint32 uid() const;
+  inline void set_uid(::google::protobuf::uint32 value);
+
+  // optional .proto_ff.MyFriendInfo friend_info = 4;
   inline bool has_friend_info() const;
   inline void clear_friend_info();
-  static const int kFriendInfoFieldNumber = 2;
+  static const int kFriendInfoFieldNumber = 4;
   inline const ::proto_ff::MyFriendInfo& friend_info() const;
   inline ::proto_ff::MyFriendInfo* mutable_friend_info();
   inline ::proto_ff::MyFriendInfo* release_friend_info();
@@ -632,16 +646,22 @@ class RoleDBSnsDetail : public ::google::protobuf::Message {
  private:
   inline void set_has_cid();
   inline void clear_has_cid();
+  inline void set_has_zid();
+  inline void clear_has_zid();
+  inline void set_has_uid();
+  inline void clear_has_uid();
   inline void set_has_friend_info();
   inline void clear_has_friend_info();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint32 zid_;
+  ::google::protobuf::uint32 uid_;
   ::proto_ff::MyFriendInfo* friend_info_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
 
   friend void  protobuf_AddDesc_DBProxy2_2eproto();
   friend void protobuf_AssignDesc_DBProxy2_2eproto();
@@ -1591,15 +1611,59 @@ inline void RoleDBSnsDetail::set_cid(::google::protobuf::uint64 value) {
   cid_ = value;
 }
 
-// optional .proto_ff.MyFriendInfo friend_info = 2;
-inline bool RoleDBSnsDetail::has_friend_info() const {
+// optional uint32 zid = 2;
+inline bool RoleDBSnsDetail::has_zid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void RoleDBSnsDetail::set_has_friend_info() {
+inline void RoleDBSnsDetail::set_has_zid() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void RoleDBSnsDetail::clear_has_friend_info() {
+inline void RoleDBSnsDetail::clear_has_zid() {
   _has_bits_[0] &= ~0x00000002u;
+}
+inline void RoleDBSnsDetail::clear_zid() {
+  zid_ = 0u;
+  clear_has_zid();
+}
+inline ::google::protobuf::uint32 RoleDBSnsDetail::zid() const {
+  return zid_;
+}
+inline void RoleDBSnsDetail::set_zid(::google::protobuf::uint32 value) {
+  set_has_zid();
+  zid_ = value;
+}
+
+// optional uint32 uid = 3;
+inline bool RoleDBSnsDetail::has_uid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void RoleDBSnsDetail::set_has_uid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void RoleDBSnsDetail::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void RoleDBSnsDetail::clear_uid() {
+  uid_ = 0u;
+  clear_has_uid();
+}
+inline ::google::protobuf::uint32 RoleDBSnsDetail::uid() const {
+  return uid_;
+}
+inline void RoleDBSnsDetail::set_uid(::google::protobuf::uint32 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// optional .proto_ff.MyFriendInfo friend_info = 4;
+inline bool RoleDBSnsDetail::has_friend_info() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void RoleDBSnsDetail::set_has_friend_info() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void RoleDBSnsDetail::clear_has_friend_info() {
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void RoleDBSnsDetail::clear_friend_info() {
   if (friend_info_ != NULL) friend_info_->::proto_ff::MyFriendInfo::Clear();

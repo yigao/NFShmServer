@@ -15,7 +15,6 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFPlayerSimple.h"
 #include "NFPlayerDetail.h"
-#include "NFPlayerOnline.h"
 
 class NFCacheMgr : public NFShmObjTemplate<NFCacheMgr, EOT_SNS_CACHE_MGR_ID, NFShmObj>
 {
@@ -27,27 +26,6 @@ public:
     int CreateInit();
 
     int ResumeInit();
-public:
-    /**
-     * @brief
-     * @param player
-     * @return
-     */
-    NFPlayerOnline *GetPlayerOnline(uint64_t player);
-
-    /**
-     * @brief
-     * @param cid
-     * @return
-     */
-    NFPlayerOnline *CreatePlayerOnline(uint64_t cid);
-
-    /**
-     * @brief
-     * @param pRoleSimple
-     * @return
-     */
-    int DeletePlayerOnline(NFPlayerOnline *pRoleSimple);
 public:
     /**
      * @brief

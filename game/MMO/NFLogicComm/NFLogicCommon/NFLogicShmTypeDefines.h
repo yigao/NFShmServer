@@ -80,6 +80,7 @@ enum SnsPartType
 {
     SNS_PART_NONE = 0,
     SNS_PART_RELATION,
+	SNS_PART_CHAT,
     SNS_PART_MAX,
 };
 
@@ -97,14 +98,13 @@ typedef enum
 	////////////////////////////sns server/////////////////////////////
     EOT_SNS_ROLE_SIMPLE_ID,
     EOT_SNS_ROLE_DETAIL_ID,
-    EOT_PLAYER_ONLINE_ID,
     EOT_SNS_CACHE_MGR_ID,
     EOT_SNS_LOAD_CACHE_MGR_ID,
+	EOT_NFSnsChatMgr_ID,
     ////////////////////////////sns trans server/////////////////////////////
     EOT_SNS_TRANS_CACHE_BASE_ID,
     EOT_SNS_TRANS_GET_ROLE_SIMPLE_ID,
     EOT_SNS_TRANS_GET_ROLE_DETAIL_ID,
-    EOT_SNS_TRANS_SAVE_PLAYER_SIMPLE,
     EOT_SNS_TRANS_SAVE_PLAYER_DETAIL,
     ////////////////////////////sns part server/////////////////////////////
     EOT_SNS_PART_ID,
@@ -122,6 +122,8 @@ typedef enum
 	////////////////////////////logic server/////////////////////////////
     EOT_LOGIC_PLAYER_MGR_ID,
     EOT_LOGIC_PLAYER_ID,
+	EOT_NFChatMgr_ID,
+	EOT_NFClanMgr_ID,
 	////////////////////////////login server/////////////////////////////
     EOT_ACCOUNTLOGIN_HASHTABLE_ID,
 	////////////////////////////login server/////////////////////////////

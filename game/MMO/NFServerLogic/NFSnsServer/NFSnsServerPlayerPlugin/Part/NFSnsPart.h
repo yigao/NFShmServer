@@ -207,7 +207,7 @@ public:
 
 public:
     NFPlayerSimple *GetPlayerSimple();
-    NFPlayerOnline *GetPlayerOnline();
+    NFPlayerDetail* GetMaster();
 protected:
     NFShmPtr<NFPlayerDetail> m_pMaster;
     uint64_t m_playerId;

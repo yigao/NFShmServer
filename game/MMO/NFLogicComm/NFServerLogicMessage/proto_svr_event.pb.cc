@@ -119,6 +119,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* GodRelicsFinish_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   GodRelicsFinish_reflection_ = NULL;
+const ::google::protobuf::Descriptor* ChatWorldEvent_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  ChatWorldEvent_reflection_ = NULL;
 
 }  // namespace
 
@@ -684,6 +687,20 @@ void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GodRelicsFinish));
+  ChatWorldEvent_descriptor_ = file->message_type(33);
+  static const int ChatWorldEvent_offsets_[1] = {
+  };
+  ChatWorldEvent_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      ChatWorldEvent_descriptor_,
+      ChatWorldEvent::default_instance_,
+      ChatWorldEvent_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ChatWorldEvent, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ChatWorldEvent, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(ChatWorldEvent));
 }
 
 namespace {
@@ -762,6 +779,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     PartnerAdvance_descriptor_, &PartnerAdvance::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     GodRelicsFinish_descriptor_, &GodRelicsFinish::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    ChatWorldEvent_descriptor_, &ChatWorldEvent::default_instance());
 }
 
 }  // namespace
@@ -833,6 +852,8 @@ void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto() {
   delete PartnerAdvance_reflection_;
   delete GodRelicsFinish::default_instance_;
   delete GodRelicsFinish_reflection_;
+  delete ChatWorldEvent::default_instance_;
+  delete ChatWorldEvent_reflection_;
 }
 
 void protobuf_AddDesc_proto_5fsvr_5fevent_2eproto() {
@@ -899,7 +920,8 @@ void protobuf_AddDesc_proto_5fsvr_5fevent_2eproto() {
     "evel\030\001 \001(\r\"\036\n\014MountAdvance\022\016\n\006nLevel\030\001 \001"
     "(\r\"#\n\021OccupationAdvance\022\016\n\006nGrade\030\001 \001(\r\""
     " \n\016PartnerAdvance\022\016\n\006nLevel\030\001 \001(\r\"\035\n\017God"
-    "RelicsFinish\022\n\n\002id\030\001 \001(\003", 2224);
+    "RelicsFinish\022\n\n\002id\030\001 \001(\003\"\020\n\016ChatWorldEve"
+    "nt", 2242);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_svr_event.proto", &protobuf_RegisterTypes);
   FunctionUnlockEvent::default_instance_ = new FunctionUnlockEvent();
@@ -935,6 +957,7 @@ void protobuf_AddDesc_proto_5fsvr_5fevent_2eproto() {
   OccupationAdvance::default_instance_ = new OccupationAdvance();
   PartnerAdvance::default_instance_ = new PartnerAdvance();
   GodRelicsFinish::default_instance_ = new GodRelicsFinish();
+  ChatWorldEvent::default_instance_ = new ChatWorldEvent();
   FunctionUnlockEvent::default_instance_->InitAsDefaultInstance();
   PlayerLeveUpEvent::default_instance_->InitAsDefaultInstance();
   ItemUseEvent::default_instance_->InitAsDefaultInstance();
@@ -968,6 +991,7 @@ void protobuf_AddDesc_proto_5fsvr_5fevent_2eproto() {
   OccupationAdvance::default_instance_->InitAsDefaultInstance();
   PartnerAdvance::default_instance_->InitAsDefaultInstance();
   GodRelicsFinish::default_instance_->InitAsDefaultInstance();
+  ChatWorldEvent::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto);
 }
 
@@ -10267,6 +10291,162 @@ void GodRelicsFinish::Swap(GodRelicsFinish* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = GodRelicsFinish_descriptor_;
   metadata.reflection = GodRelicsFinish_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+#endif  // !_MSC_VER
+
+ChatWorldEvent::ChatWorldEvent()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void ChatWorldEvent::InitAsDefaultInstance() {
+}
+
+ChatWorldEvent::ChatWorldEvent(const ChatWorldEvent& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void ChatWorldEvent::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+ChatWorldEvent::~ChatWorldEvent() {
+  SharedDtor();
+}
+
+void ChatWorldEvent::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void ChatWorldEvent::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* ChatWorldEvent::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return ChatWorldEvent_descriptor_;
+}
+
+const ChatWorldEvent& ChatWorldEvent::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  return *default_instance_;
+}
+
+ChatWorldEvent* ChatWorldEvent::default_instance_ = NULL;
+
+ChatWorldEvent* ChatWorldEvent::New() const {
+  return new ChatWorldEvent;
+}
+
+void ChatWorldEvent::Clear() {
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool ChatWorldEvent::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+      return true;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, mutable_unknown_fields()));
+  }
+  return true;
+#undef DO_
+}
+
+void ChatWorldEvent::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* ChatWorldEvent::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int ChatWorldEvent::ByteSize() const {
+  int total_size = 0;
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void ChatWorldEvent::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const ChatWorldEvent* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const ChatWorldEvent*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void ChatWorldEvent::MergeFrom(const ChatWorldEvent& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void ChatWorldEvent::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ChatWorldEvent::CopyFrom(const ChatWorldEvent& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ChatWorldEvent::IsInitialized() const {
+
+  return true;
+}
+
+void ChatWorldEvent::Swap(ChatWorldEvent* other) {
+  if (other != this) {
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata ChatWorldEvent::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = ChatWorldEvent_descriptor_;
+  metadata.reflection = ChatWorldEvent_reflection_;
   return metadata;
 }
 

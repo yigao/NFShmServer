@@ -22,7 +22,7 @@
 #include "Player/NFBestEQPart.h"
 #include "Player/NFBossPart.h"
 #include "Skill/NFBuffPart.h"
-#include "Player/NFChatPart.h"
+#include "Chat/NFChatPart.h"
 #include "Player/NFCollectPart.h"
 #include "Player/NFConvoyPart.h"
 #include "Facade/NFDeityPart.h"

@@ -308,9 +308,7 @@ struct ChgSceneEvent
     bool enterFalg = false;		//是否是进入场景
 };
 
-//世界聊天次数
-struct ChatWorldEvent
-{};
+
 
 struct DressEquipChangeEvent
 {

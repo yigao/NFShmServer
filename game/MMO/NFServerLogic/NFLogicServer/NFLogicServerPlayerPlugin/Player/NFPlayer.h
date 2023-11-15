@@ -421,7 +421,11 @@ public:
     int SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData);
     
     int SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Message &xData);
-    
+
+    int SendMsgToCenterServer(uint32_t nMsgId, const google::protobuf::Message &xData);
+
+    int SendMsgToCrossCenterServer(uint32_t nMsgId, const google::protobuf::Message &xData);
+
     /**
      * @brief 在协程里获取远程服务器的rpc服务, 这个程序必须在协程里调用，需要先创建协程
      * @return 如果你在player或part的函数里，请优先调用这个函数，而不是调用FindModule<NFIMessageModule>()->GetRpcService系统函数， 因为玩家的生命周期是不确定的

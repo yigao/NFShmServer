@@ -11,7 +11,6 @@
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFLogicCommon/NFLogicCommon.h"
-#include "Trans/NFSnsTransSaveSimpleDB.h"
 #include "Trans/NFSnsTransSaveDetailDB.h"
 #include "NFComm/NFCore/NFRandom.hpp"
 #include "NFCacheMgr.h"
@@ -35,8 +34,10 @@ NFPlayerSimple::~NFPlayerSimple()
 int NFPlayerSimple::CreateInit()
 {
     m_isInited = false;
-    m_lastSavingDBTime = 0;
-    m_saveDBTimer = INVALID_ID;
+    m_proxyId = 0;
+    m_gameId = 0;
+    m_logicId = 0;
+    m_isOnline = false;
     return 0;
 }
 
@@ -57,10 +58,6 @@ int NFPlayerSimple::ResumeInit()
 
 int NFPlayerSimple::OnTimer(int timeId, int callcount)
 {
-    if (timeId == m_saveDBTimer)
-    {
-        SaveToDB();
-    }
     return 0;
 }
 
@@ -74,12 +71,32 @@ void NFPlayerSimple::SetCid(uint64_t cid)
     m_data.cid = cid;
 }
 
-const proto_ff_s::RoleDBSnsSimple_s &NFPlayerSimple::GetBaseData() const
+uint64_t NFPlayerSimple::Cid() const
+{
+    return GetCid();
+}
+
+uint64_t NFPlayerSimple::GetUid() const
+{
+    return m_data.uid;
+}
+
+uint32_t NFPlayerSimple::GetZid() const
+{
+    return m_data.zid;
+}
+
+std::string NFPlayerSimple::GetName() const
+{
+    return m_data.base.name.data();
+}
+
+const proto_ff_s::RoleDBSnsSimple_s& NFPlayerSimple::GetBaseData() const
 {
     return m_data;
 }
 
-void NFPlayerSimple::SetBaseData(const proto_ff_s::RoleDBSnsSimple_s &baseData)
+void NFPlayerSimple::SetBaseData(const proto_ff_s::RoleDBSnsSimple_s& baseData)
 {
     m_data = baseData;
 }
@@ -109,10 +126,9 @@ int NFPlayerSimple::OnReconnect()
     return 0;
 }
 
-
 bool NFPlayerSimple::CanDelete()
 {
-    if (NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerOnline(GetCid()))
+    if (m_isOnline)
     {
         return false;
     }
@@ -124,17 +140,12 @@ bool NFPlayerSimple::CanDelete()
     return true;
 }
 
-int NFPlayerSimple::Init(const proto_ff::RoleDBSnsSimple &dbData)
+int NFPlayerSimple::Init(const proto_ff::RoleDBSnsSimple& dbData)
 {
     m_isInited = true;
     LoadFromDB(dbData);
     InitConfig(dbData);
 
-    /**
-     * @brief
-     */
-    uint32_t startMS = NFRandInt(1000, LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME * 1000);
-    m_saveDBTimer = SetTimer(LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME * 1000, 0, 0, 0, 0, startMS);
     return 0;
 }
 
@@ -143,59 +154,96 @@ int NFPlayerSimple::UnInit()
     return 0;
 }
 
-int NFPlayerSimple::SaveToDB(bool bForce)
-{
-    if (IsUrgentNeedSave())
-    {
-        if (bForce || NFTime::Now().UnixSec() - m_lastSavingDBTime >= LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME)
-        {
-            SendTransToDB();
-        }
-    }
-    return 0;
-}
-
-int NFPlayerSimple::SendTransToDB()
-{
-/*    NFSnsTransSaveSimpleDB* pSave = (NFSnsTransSaveSimpleDB*) FindModule<NFISharedMemModule>()->CreateTrans(EOT_SNS_TRANS_SAVE_PLAYER_SIMPLE);
-    CHECK_EXPR(pSave, -1, "Create Trans:NFSnsTransSaveSimpleDB Failed! ");
-
-    int iRet = pSave->SaveDB(this);
-    if (iRet != 0)
-    {
-        pSave->SetFinished(iRet);
-    }
-
-    return iRet;*/
-    m_lastSavingDBTime = 0;
-    ClearUrgent();
-    return 0;
-}
-
-int NFPlayerSimple::OnSaveDB(bool success, uint32_t seq)
-{
-    m_lastSavingDBTime = 0;
-    if (success && seq == GetCurSeq())
-    {
-        ClearUrgent();
-    }
-    return 0;
-}
-
-int NFPlayerSimple::LoadFromDB(const proto_ff::RoleDBSnsSimple &dbData)
+int NFPlayerSimple::LoadFromDB(const proto_ff::RoleDBSnsSimple& dbData)
 {
     m_data.read_from_pbmsg(dbData);
     return 0;
 }
 
-int NFPlayerSimple::SaveDB(proto_ff::RoleDBSnsSimple &dbData)
+int NFPlayerSimple::InitConfig(const proto_ff::RoleDBSnsSimple& dbData)
 {
-    m_data.write_to_pbmsg(dbData);
+    m_data.read_from_pbmsg(dbData);
     return 0;
 }
 
-int NFPlayerSimple::InitConfig(const proto_ff::RoleDBSnsSimple &dbData)
+uint32_t NFPlayerSimple::GetProxyId() const
 {
-    m_data.read_from_pbmsg(dbData);
+    return m_proxyId;
+}
+
+void NFPlayerSimple::SetProxyId(uint32_t proxyId)
+{
+    m_proxyId = proxyId;
+}
+
+uint32_t NFPlayerSimple::GetLogicId() const
+{
+    return m_logicId;
+}
+
+void NFPlayerSimple::SetLogicId(uint32_t logicId)
+{
+    m_logicId = logicId;
+}
+
+uint32_t NFPlayerSimple::GetGameId() const
+{
+    return m_gameId;
+}
+
+void NFPlayerSimple::SetGameId(uint32_t gameId)
+{
+    m_gameId = gameId;
+}
+
+bool NFPlayerSimple::IsOnline() const
+{
+    return m_isOnline;
+}
+
+void NFPlayerSimple::SetIsOnline(bool isOnline)
+{
+    m_isOnline = isOnline;
+}
+
+int NFPlayerSimple::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message& xData)
+{
+    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_SNS_SERVER, m_proxyId, NF_MODULE_CLIENT, nMsgId, xData, GetUid(), 0);
+    return 0;
+}
+
+int NFPlayerSimple::SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message& xData)
+{
+    FindModule<NFIServerMessageModule>()->SendMsgToLogicServer(NF_ST_SNS_SERVER, m_logicId, nMsgId, xData, Cid());
+    return 0;
+}
+
+int NFPlayerSimple::SendTransToLogicServer(uint32_t nMsgId, const google::protobuf::Message& xData, uint32_t req_trans_id, uint32_t rsp_trans_id)
+{
+    FindModule<NFIServerMessageModule>()->SendTransToLogicServer(NF_ST_SNS_SERVER, m_logicId, nMsgId, xData, req_trans_id, rsp_trans_id);
+    return 0;
+}
+
+int NFPlayerSimple::SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message& xData)
+{
+    FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_SNS_SERVER, nMsgId, xData, Cid());
+    return 0;
+}
+
+int NFPlayerSimple::SendTransToWorldServer(uint32_t nMsgId, const google::protobuf::Message& xData, uint32_t req_trans_id, uint32_t rsp_trans_id)
+{
+    FindModule<NFIServerMessageModule>()->SendTransToWorldServer(NF_ST_SNS_SERVER, nMsgId, xData, req_trans_id, rsp_trans_id);
+    return 0;
+}
+
+int NFPlayerSimple::SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Message& xData)
+{
+    FindModule<NFIServerMessageModule>()->SendMsgToGameServer(NF_ST_SNS_SERVER, m_gameId, nMsgId, xData, Cid());
+    return 0;
+}
+
+int NFPlayerSimple::SendTransToGameServer(uint32_t nMsgId, const google::protobuf::Message& xData, uint32_t req_trans_id, uint32_t rsp_trans_id)
+{
+    FindModule<NFIServerMessageModule>()->SendTransToGameServer(NF_ST_SNS_SERVER, m_gameId, nMsgId, xData, req_trans_id, rsp_trans_id);
     return 0;
 }

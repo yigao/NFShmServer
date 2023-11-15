@@ -123,22 +123,6 @@ int NFCSnsPlayerModule::OnRpcServiceLogin(proto_ff::LTSLoginReq& request, proto_
     respone.set_ret(proto_ff::RET_SUCCESS);
 
     uint64_t cid = request.cid();
-    NFPlayerOnline* pPlayerOnline = NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerOnline(cid);
-    if (pPlayerOnline == NULL)
-    {
-        pPlayerOnline = NFCacheMgr::Instance(m_pObjPluginManager)->CreatePlayerOnline(cid);
-        if (pPlayerOnline == NULL)
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, cid, "CreatePlayerOnline Failed, cid:{}", cid);
-            respone.set_ret(proto_ff::RET_FAIL);
-            return 0;
-        }
-    }
-
-    pPlayerOnline->SetProxyId(request.proxy_id());
-    pPlayerOnline->SetLogicId(request.logic_id());
-    pPlayerOnline->SetGameId(request.game_id());
-    pPlayerOnline->SetIsOnline(true);
 
     NFPlayerSimple* pPlayerSimple = NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerSimpleByRpc(cid);
     if (pPlayerSimple == NULL)
@@ -148,6 +132,11 @@ int NFCSnsPlayerModule::OnRpcServiceLogin(proto_ff::LTSLoginReq& request, proto_
         return 0;
     }
 
+    pPlayerSimple->SetProxyId(request.proxy_id());
+    pPlayerSimple->SetLogicId(request.logic_id());
+    pPlayerSimple->SetGameId(request.game_id());
+    pPlayerSimple->SetIsOnline(true);
+
     NFPlayerDetail* pPlayerDetail = NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerDetailByRpc(cid);
     if (pPlayerDetail == NULL)
     {
@@ -156,15 +145,15 @@ int NFCSnsPlayerModule::OnRpcServiceLogin(proto_ff::LTSLoginReq& request, proto_
         return 0;
     }
 
-    int iRet = pPlayerOnline->OnLogin();
-    if (iRet != 0)
-    {
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "pPlayerOnline:{} OnLogin:{} Failed", cid, GetErrorStr(iRet));
-        respone.set_ret(proto_ff::RET_FAIL);
-        return 0;
-    }
+    pPlayerDetail->SetUid(request.uid());
+    pPlayerDetail->SetZid(request.zid());
+    pPlayerDetail->SetProxyId(request.proxy_id());
+    pPlayerDetail->SetLogicId(request.logic_id());
+    pPlayerDetail->SetGameId(request.game_id());
+    pPlayerDetail->SetIsOnline(true);
+    pPlayerDetail->MarkDirty();
 
-    iRet = pPlayerSimple->OnLogin();
+    int iRet = pPlayerSimple->OnLogin();
     if (iRet != 0)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "pPlayerSimple:{} OnLogin:{} Failed", cid, GetErrorStr(iRet));

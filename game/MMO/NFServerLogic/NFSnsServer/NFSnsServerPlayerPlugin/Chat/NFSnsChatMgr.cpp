@@ -1,15 +1,15 @@
 // -------------------------------------------------------------------------
-//    @FileName         :    NFChatPart.cpp
+//    @FileName         :    NFSnsChatMgr.cpp
 //    @Author           :    gaoyi
-//    @Date             :    23-10-20
+//    @Date             :    23-11-15
 //    @Email			:    445267987@qq.com
-//    @Module           :    NFChatPart
+//    @Module           :    NFSnsChatMgr
 //
 // -------------------------------------------------------------------------
 
-#include "NFChatPart.h"
+#include "NFSnsChatMgr.h"
 
-NFChatPart::NFChatPart()
+NFSnsChatMgr::NFSnsChatMgr()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {
@@ -21,16 +21,22 @@ NFChatPart::NFChatPart()
     }
 }
 
-NFChatPart::~NFChatPart()
+NFSnsChatMgr::~NFSnsChatMgr()
 {
 }
 
-int NFChatPart::CreateInit()
+int NFSnsChatMgr::CreateInit()
+{
+    m_virForbidFlag = false;
+    return 0;
+}
+
+int NFSnsChatMgr::ResumeInit()
 {
     return 0;
 }
 
-int NFChatPart::ResumeInit()
+bool NFSnsChatMgr::IsVirForbid(uint64_t cid)
 {
-    return 0;
+    return m_setVirForbidCid.find(cid) != m_setVirForbidCid.end();
 }

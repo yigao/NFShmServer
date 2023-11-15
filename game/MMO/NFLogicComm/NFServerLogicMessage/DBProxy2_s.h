@@ -98,6 +98,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t cid;//
+		uint32_t zid;//
+		uint32_t uid;//
 		struct MyFriendInfo_s friend_info;//
 
 		virtual void write_to_pbmsg(::proto_ff::RoleDBSnsDetail & msg) const;

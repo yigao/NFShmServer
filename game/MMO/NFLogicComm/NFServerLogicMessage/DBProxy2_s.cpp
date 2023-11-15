@@ -170,6 +170,8 @@ RoleDBSnsDetail_s::RoleDBSnsDetail_s() {
 
 int RoleDBSnsDetail_s::CreateInit() {
 	cid = (uint64_t)0;
+	zid = (uint32_t)0;
+	uid = (uint32_t)0;
 	return 0;
 }
 
@@ -179,12 +181,16 @@ int RoleDBSnsDetail_s::ResumeInit() {
 
 void RoleDBSnsDetail_s::write_to_pbmsg(::proto_ff::RoleDBSnsDetail & msg) const {
 	msg.set_cid((uint64_t)cid);
+	msg.set_zid((uint32_t)zid);
+	msg.set_uid((uint32_t)uid);
 	::proto_ff::MyFriendInfo* temp_friend_info = msg.mutable_friend_info();
 	friend_info.write_to_pbmsg(*temp_friend_info);
 }
 
 void RoleDBSnsDetail_s::read_from_pbmsg(const ::proto_ff::RoleDBSnsDetail & msg) {
 	cid = msg.cid();
+	zid = msg.zid();
+	uid = msg.uid();
 	const ::proto_ff::MyFriendInfo & temp_friend_info = msg.friend_info();
 	friend_info.read_from_pbmsg(temp_friend_info);
 }

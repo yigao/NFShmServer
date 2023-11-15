@@ -59,52 +59,52 @@ public:
     virtual int InitConfig(const proto_ff::RoleDBSnsDetail &data) { return 0; }
     
     /**
-     * @brief ´æ´¢DB²¿¼þÈë¿Ú
+     * @brief ï¿½æ´¢DBï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      * @param proto
      * @return
      */
     virtual int SaveDB(proto_ff::RoleDBSnsDetail &dbData);
     
     /**
-     * @brief µÇÂ½Èë¿Ú
+     * @brief ï¿½ï¿½Â½ï¿½ï¿½ï¿½
      * @return
      */
     virtual int OnLogin() { return 0; }
     
     /**
-     * @brief µÇ³öÈë¿Ú
+     * @brief ï¿½Ç³ï¿½ï¿½ï¿½ï¿½
      * @return
      */
     virtual int OnLogout() { return 0; }
     
     /**
-     * @brief µôÏßÈë¿Ú
+     * @brief ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      * @return
      */
     virtual int OnDisconnect() { return 0; }
     
     /**
-     * @brief ÖØÁ¬Èë¿Ú
+     * @brief ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      * @return
      */
     virtual int OnReconnect() { return 0; }
 
 public:
-    ////////////////////////////////// Ã¿ÈÕÁãµã Ã¿ÖÜÒ»Áãµã Ë¢ÐÂ½Ó¿Ú ///////////////////////////////////
+    ////////////////////////////////// Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¿ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ Ë¢ï¿½Â½Ó¿ï¿½ ///////////////////////////////////
     /**
-     * @brief Ã¿ÈÕÁãµã Ë¢ÐÂ½Ó¿Ú
+     * @brief Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ Ë¢ï¿½Â½Ó¿ï¿½
      * @return
      */
     virtual int DailyZeroUpdate() { return 0; }
     
     /**
-     * @brief Ã¿ÈÕÁãµã Ë¢ÐÂ½Ó¿Ú
+     * @brief Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ Ë¢ï¿½Â½Ó¿ï¿½
      * @return
      */
     virtual int WeekZeroUpdate() { return 0; }
     
     /**
-     * @brief Ã¿ÔÂË¢ÐÂ½Ó¿Ú
+     * @brief Ã¿ï¿½ï¿½Ë¢ï¿½Â½Ó¿ï¿½
      * @return
      */
     virtual int MonthZeroUpdate() { return 0; }
@@ -117,13 +117,13 @@ public:
 
 public:
     /**
-     * @brief ×¢²áÒª´¦ÀíµÄÏûÏ¢
+     * @brief ×¢ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
      * @return
      */
     virtual int RegisterMessage();
 public:
     /**
-     * @brief ´¦Àí¿Í»§¶ËÏûÏ¢
+     * @brief ï¿½ï¿½ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
      * @param unLinkId
      * @param packet
      * @return
@@ -131,13 +131,13 @@ public:
     virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief ´¦ÀíÀ´×Ô·þÎñÆ÷µÄÐÅÏ¢
+     * @brief ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
      * @param unLinkId
      * @param packet
      * @return
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
 public:
-    //¿Í»§¶ËºÃÓÑÊý¾ÝÇëÇó
+    //ï¿½Í»ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     int OnRelationInfoReq(uint32_t msgId, NFDataPackage &packet);
 };

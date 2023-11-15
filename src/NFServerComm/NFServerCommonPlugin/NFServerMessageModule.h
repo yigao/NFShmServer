@@ -64,6 +64,26 @@ public:
     virtual int SendTransToWorldServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t req_trans_id = 0,
                                        uint32_t rsp_trans_id = 0) override;
 
+    ///////////////////////////other server send msg to center server/////////////////////////////
+    virtual int SendMsgToCenterServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1 = 0,
+                                     uint64_t nParam2 = 0) override;
+
+    virtual int
+    SendMsgToCenterServer(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1 = 0,
+                         uint64_t nParam2 = 0) override;
+
+    virtual int SendTransToCenterServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t req_trans_id = 0,
+                                       uint32_t rsp_trans_id = 0) override;
+
+    virtual int SendMsgToCrossCenterServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1 = 0,
+                                     uint64_t nParam2 = 0) override;
+
+    virtual int
+    SendMsgToCrossCenterServer(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1 = 0,
+                         uint64_t nParam2 = 0) override;
+
+    virtual int SendTransToCrossCenterServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t req_trans_id = 0,
+                                       uint32_t rsp_trans_id = 0) override;
     ///////////////////////////other server send msg to game msg/////////////////////////////
     virtual int
     SendMsgToGameServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1 = 0,

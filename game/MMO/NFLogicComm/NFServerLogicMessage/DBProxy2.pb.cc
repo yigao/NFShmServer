@@ -126,8 +126,10 @@ void protobuf_AssignDesc_DBProxy2_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MyFriendInfo));
   RoleDBSnsDetail_descriptor_ = file->message_type(4);
-  static const int RoleDBSnsDetail_offsets_[2] = {
+  static const int RoleDBSnsDetail_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBSnsDetail, cid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBSnsDetail, zid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBSnsDetail, uid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBSnsDetail, friend_info_),
   };
   RoleDBSnsDetail_reflection_ =
@@ -252,14 +254,15 @@ void protobuf_AddDesc_DBProxy2_2eproto() {
     "(\n\031GetRegisterNum_RoleDBData\022\013\n\003num\030\001 \001("
     "\r\"`\n\017RoleDBSnsSimple\022\013\n\003cid\030\001 \001(\004\022\013\n\003zid"
     "\030\002 \001(\r\022\013\n\003uid\030\003 \001(\r\022&\n\004base\030\004 \001(\0132\030.prot"
-    "o_ff.RoleDBBaseData\"\016\n\014MyFriendInfo\"Q\n\017R"
-    "oleDBSnsDetail\022\021\n\003cid\030\001 \001(\004B\004\300\202\024\002\022+\n\013fri"
-    "end_info\030\002 \001(\0132\026.proto_ff.MyFriendInfo\"\207"
-    "\001\n\022RoleEnterSceneData\022\013\n\003cid\030\001 \001(\004\022\013\n\003zi"
-    "d\030\002 \001(\r\022\013\n\003uid\030\003 \001(\r\022&\n\004base\030\n \001(\0132\030.pro"
-    "to_ff.RoleDBBaseData\022\"\n\004attr\030\013 \001(\0132\024.pro"
-    "to_ff.AttrDBData\"8\n\nRoleDBName\022*\n\004name\030\001"
-    " \001(\014B\034\300\202\024\002\220\301\024 \310\202\024 \272\304\023\014\350\247\222\350\211\262\345\220\215\345\255\227", 1074);
+    "o_ff.RoleDBBaseData\"\016\n\014MyFriendInfo\"w\n\017R"
+    "oleDBSnsDetail\022\021\n\003cid\030\001 \001(\004B\004\300\202\024\002\022\021\n\003zid"
+    "\030\002 \001(\rB\004\300\202\024\003\022\021\n\003uid\030\003 \001(\rB\004\300\202\024\003\022+\n\013frien"
+    "d_info\030\004 \001(\0132\026.proto_ff.MyFriendInfo\"\207\001\n"
+    "\022RoleEnterSceneData\022\013\n\003cid\030\001 \001(\004\022\013\n\003zid\030"
+    "\002 \001(\r\022\013\n\003uid\030\003 \001(\r\022&\n\004base\030\n \001(\0132\030.proto"
+    "_ff.RoleDBBaseData\022\"\n\004attr\030\013 \001(\0132\024.proto"
+    "_ff.AttrDBData\"8\n\nRoleDBName\022*\n\004name\030\001 \001"
+    "(\014B\034\300\202\024\002\220\301\024 \310\202\024 \272\304\023\014\350\247\222\350\211\262\345\220\215\345\255\227", 1112);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "DBProxy2.proto", &protobuf_RegisterTypes);
   dbServerMgr::default_instance_ = new dbServerMgr();
@@ -1788,6 +1791,8 @@ void MyFriendInfo::Swap(MyFriendInfo* other) {
 
 #ifndef _MSC_VER
 const int RoleDBSnsDetail::kCidFieldNumber;
+const int RoleDBSnsDetail::kZidFieldNumber;
+const int RoleDBSnsDetail::kUidFieldNumber;
 const int RoleDBSnsDetail::kFriendInfoFieldNumber;
 #endif  // !_MSC_VER
 
@@ -1809,6 +1814,8 @@ RoleDBSnsDetail::RoleDBSnsDetail(const RoleDBSnsDetail& from)
 void RoleDBSnsDetail::SharedCtor() {
   _cached_size_ = 0;
   cid_ = GOOGLE_ULONGLONG(0);
+  zid_ = 0u;
+  uid_ = 0u;
   friend_info_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -1847,6 +1854,8 @@ RoleDBSnsDetail* RoleDBSnsDetail::New() const {
 void RoleDBSnsDetail::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     cid_ = GOOGLE_ULONGLONG(0);
+    zid_ = 0u;
+    uid_ = 0u;
     if (has_friend_info()) {
       if (friend_info_ != NULL) friend_info_->::proto_ff::MyFriendInfo::Clear();
     }
@@ -1872,12 +1881,44 @@ bool RoleDBSnsDetail::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_friend_info;
+        if (input->ExpectTag(16)) goto parse_zid;
         break;
       }
 
-      // optional .proto_ff.MyFriendInfo friend_info = 2;
+      // optional uint32 zid = 2;
       case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_zid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &zid_)));
+          set_has_zid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_uid;
+        break;
+      }
+
+      // optional uint32 uid = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_uid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &uid_)));
+          set_has_uid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_friend_info;
+        break;
+      }
+
+      // optional .proto_ff.MyFriendInfo friend_info = 4;
+      case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_friend_info:
@@ -1913,10 +1954,20 @@ void RoleDBSnsDetail::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->cid(), output);
   }
 
-  // optional .proto_ff.MyFriendInfo friend_info = 2;
+  // optional uint32 zid = 2;
+  if (has_zid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->zid(), output);
+  }
+
+  // optional uint32 uid = 3;
+  if (has_uid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->uid(), output);
+  }
+
+  // optional .proto_ff.MyFriendInfo friend_info = 4;
   if (has_friend_info()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->friend_info(), output);
+      4, this->friend_info(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1932,11 +1983,21 @@ void RoleDBSnsDetail::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->cid(), target);
   }
 
-  // optional .proto_ff.MyFriendInfo friend_info = 2;
+  // optional uint32 zid = 2;
+  if (has_zid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->zid(), target);
+  }
+
+  // optional uint32 uid = 3;
+  if (has_uid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->uid(), target);
+  }
+
+  // optional .proto_ff.MyFriendInfo friend_info = 4;
   if (has_friend_info()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->friend_info(), target);
+        4, this->friend_info(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1957,7 +2018,21 @@ int RoleDBSnsDetail::ByteSize() const {
           this->cid());
     }
 
-    // optional .proto_ff.MyFriendInfo friend_info = 2;
+    // optional uint32 zid = 2;
+    if (has_zid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->zid());
+    }
+
+    // optional uint32 uid = 3;
+    if (has_uid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->uid());
+    }
+
+    // optional .proto_ff.MyFriendInfo friend_info = 4;
     if (has_friend_info()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -1994,6 +2069,12 @@ void RoleDBSnsDetail::MergeFrom(const RoleDBSnsDetail& from) {
     if (from.has_cid()) {
       set_cid(from.cid());
     }
+    if (from.has_zid()) {
+      set_zid(from.zid());
+    }
+    if (from.has_uid()) {
+      set_uid(from.uid());
+    }
     if (from.has_friend_info()) {
       mutable_friend_info()->::proto_ff::MyFriendInfo::MergeFrom(from.friend_info());
     }
@@ -2021,6 +2102,8 @@ bool RoleDBSnsDetail::IsInitialized() const {
 void RoleDBSnsDetail::Swap(RoleDBSnsDetail* other) {
   if (other != this) {
     std::swap(cid_, other->cid_);
+    std::swap(zid_, other->zid_);
+    std::swap(uid_, other->uid_);
     std::swap(friend_info_, other->friend_info_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
