@@ -138,7 +138,7 @@ bool NFItemMgr::SetItemProtoInfo(NFItem *pItem, proto_ff::ItemProtoInfo *protoIt
     }
     else
     {
-        //Ä¬ÈÏÎªÐ¡ÓÚ0£¬ÕâÊ±ºòÈ¡´«ÈëÎïÆ·²ÎÊýpItemµÄÊýÁ¿
+        //é»˜è®¤ä¸ºå°äºŽ0ï¼Œè¿™æ—¶å€™å–ä¼ å…¥ç‰©å“å‚æ•°pItemçš„æ•°é‡
         protoItemInfo->set_item_num(pItem->GetNum());
     }
     
@@ -147,7 +147,7 @@ bool NFItemMgr::SetItemProtoInfo(NFItem *pItem, proto_ff::ItemProtoInfo *protoIt
 
 int8_t NFItemMgr::BindStateByWay(uint64_t nItemId, int8_t byBind, int8_t bindWay)
 {
-    //·Ç°ó¶¨×´Ì¬²ÅÐèÒªÄ¬ÈÏ°ó¶¨¹æÔò´¦Àí
+    //éžç»‘å®šçŠ¶æ€æ‰éœ€è¦é»˜è®¤ç»‘å®šè§„åˆ™å¤„ç†
     if ((int8_t) EBindState::EBindState_bind == byBind)
     {
         return byBind;
@@ -159,10 +159,10 @@ int8_t NFItemMgr::BindStateByWay(uint64_t nItemId, int8_t byBind, int8_t bindWay
         auto pEquipCfg = EquipEquipDesc::Instance()->GetDesc(nItemId);
         if (nullptr == pEquipCfg)
         {
-            //ÎïÆ·²»´æÔÚµÄÊ±ºò·µ»Ø ´«ÈëµÄ°ó¶¨×´Ì¬
+            //ç‰©å“ä¸å­˜åœ¨çš„æ—¶å€™è¿”å›ž ä¼ å…¥çš„ç»‘å®šçŠ¶æ€
             return byBind;
         }
-        //ÐèÒª¸ù¾Ý»ñµÃÍ¾¾¶ È·¶¨°ó¶¨×´Ì¬£¬ÔÝÊ±Ê¹ÓÃÅäÖÃ±íÖÐµÄÄ¬ÈÏ°ó¶¨×Ö¶Î
+        //éœ€è¦æ ¹æ®èŽ·å¾—é€”å¾„ ç¡®å®šç»‘å®šçŠ¶æ€ï¼Œæš‚æ—¶ä½¿ç”¨é…ç½®è¡¨ä¸­çš„é»˜è®¤ç»‘å®šå­—æ®µ
         return BindStateByWay(pEquipCfg, byBind, bindWay);
     }
     //
@@ -222,7 +222,7 @@ int64_t NFItemMgr::ItemMaxPile(const proto_ff_s::E_ItemItem_s *pItemCfg)
     {
         if (IsVirItem(pItemCfg->m_id))
         {
-            //ÐéÄâÎïÆ·,¶ÔµþÊýÊÇint64_t ÀàÐÍÉÏÏÞ
+            //è™šæ‹Ÿç‰©å“,å¯¹å æ•°æ˜¯int64_t ç±»åž‹ä¸Šé™
             maxPile = INT64_MAX;
         }
         else
@@ -238,7 +238,7 @@ int64_t NFItemMgr::ItemMaxPile(const proto_ff_s::E_EquipEquip_s *pEquipCfg)
     int64_t maxPile = 1;
     if (nullptr != pEquipCfg)
     {
-        maxPile = 1;//×°±¸Ä¬ÈÏÎª1
+        maxPile = 1;//è£…å¤‡é»˜è®¤ä¸º1
     }
     return maxPile;
 }
@@ -269,8 +269,8 @@ bool NFItemMgr::ValidInitAttrType(int8_t initAttrType)
 bool NFItemMgr::CanTrade(uint64_t itemId, int8_t byInBind)
 {
     /*
-    °ó¶¨µÄ ²»¿É½»Ò×
-    Î´°ó¶¨µÄ  ¿É½»Ò×
+    ç»‘å®šçš„ ä¸å¯äº¤æ˜“
+    æœªç»‘å®šçš„  å¯äº¤æ˜“
     */
     return ((int8_t) EBindState::EBindState_no == byInBind);
 }
@@ -372,7 +372,7 @@ bool NFItemMgr::CheckItem(const VEC_ITEM_PROTO_EX &vecProtoItems)
                 return false;
             }
             
-            if (proto.item_num() != 1)//×°±¸µÄÊýÁ¿±ØÐëÎª1
+            if (proto.item_num() != 1)//è£…å¤‡çš„æ•°é‡å¿…é¡»ä¸º1
             {
                 return false;
             }
@@ -401,7 +401,7 @@ NFItem *NFItemMgr::MakeItemObj(uint64_t nItemId)
     auto pEquipCfg = EquipEquipDesc::Instance()->GetDesc(nItemId);
     if (pEquipCfg)
     {
-        //Éñ»ú×°±¸´¦Àí
+        //ç¥žæœºè£…å¤‡å¤„ç†
         if (pEquipCfg->m_type == proto_ff::EPackageType_shenji_aq || pEquipCfg->m_type == proto_ff::EPackageType_shenji_lj)
         {
             pItem = new NFShengjiEquip();
@@ -426,7 +426,7 @@ NFItem *NFItemMgr::MakeItemObj(uint64_t nItemId)
         {
             pItem = new NFStarEquip();
         }
-        //ÉñÄ§×°±¸
+        //ç¥žé­”è£…å¤‡
         else if (pEquipCfg->m_type == proto_ff::EPackageType_GodEvil)
         {
             pItem = new NFGodEvilEquip();

@@ -55,10 +55,10 @@ public:
         return true;
     }
 public:
-    int8_t m_slot_pos; //槽位
+    int8_t m_slot_pos; //妲戒綅
 };
 
-//穿戴的装备信息及该槽位的信息
+//绌挎埓鐨勮澶囦俊鎭強璇ユЫ浣嶇殑淇℃伅
 template<class ItemType, class SlotType>
 class NFEquipInfo
 {
@@ -124,7 +124,7 @@ public:
     SlotType m_slot;
 };
 
-//已穿戴的装备
+//宸茬┛鎴寸殑瑁呭
 template<class ItemType, class SlotType, int slotNum, int startPos>
 class NFDressEquipInfo
 {

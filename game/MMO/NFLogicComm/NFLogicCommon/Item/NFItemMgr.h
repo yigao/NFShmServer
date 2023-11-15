@@ -21,69 +21,69 @@
 class NFItemMgr
 {
 public:
-    //Éú³ÉĞÂÎïÆ·¶ÔÏó
+    //ç”Ÿæˆæ–°ç‰©å“å¯¹è±¡
     static NFItem *MakeItemObj(uint64_t nItemId);
-    //ÊÍ·ÅÎïÆ·¶ÔÏó
+    //é‡Šæ”¾ç‰©å“å¯¹è±¡
     static bool FreeItemObj(NFItem *pItemObj);
 public:
-    //´´½¨ÎïÆ·
+    //åˆ›å»ºç‰©å“
     static bool CreateItem(const LIST_ITEM &lstItem, VEC_ITEM_PROTO_EX &vecProtoEx, SItemCond &itemCond, bool bMerge = true);
-    //´´½¨ÎïÆ·(±³°üÓÃµÄ£¬ÆäËûµØ·½²»ÒªÓÃ)
+    //åˆ›å»ºç‰©å“(èƒŒåŒ…ç”¨çš„ï¼Œå…¶ä»–åœ°æ–¹ä¸è¦ç”¨)
     static bool CreateItem(const VEC_ITEM_PROTO &vecProtoItems, VEC_PACKAGE_ITEM &vecItems);
-    //´´½¨ÎïÆ·(±³°üÓÃµÄ£¬ÆäËûµØ·½²»ÒªÓÃ)
+    //åˆ›å»ºç‰©å“(èƒŒåŒ…ç”¨çš„ï¼Œå…¶ä»–åœ°æ–¹ä¸è¦ç”¨)
     static bool CreateItem(const VEC_ITEM_PROTO_EX &vecProtoItemsEx, VEC_PACKAGE_ITEM &vecItems);
 public:
-    ///////////////////////////////// ×ÊÔ´Àà ĞéÄâÎïÆ· ½Ó¿Ú /////////////////////////////////////////
-    //ÊÇ·ñÊÇ×ÊÔ´Àà ĞéÄâÎïÆ·
+    ///////////////////////////////// èµ„æºç±» è™šæ‹Ÿç‰©å“ æ¥å£ /////////////////////////////////////////
+    //æ˜¯å¦æ˜¯èµ„æºç±» è™šæ‹Ÿç‰©å“
     static bool IsVirItem(uint64_t itemId);
-    //ÊÇ·ñÊÇ×ÊÔ´Àà ĞéÄâÎïÆ·, Èç¹ûÊÇ£¬Ôò attrId »áÉèÖÃÎª ĞéÄâÎïÆ·¶ÔÓ¦µÄÊôĞÔID
+    //æ˜¯å¦æ˜¯èµ„æºç±» è™šæ‹Ÿç‰©å“, å¦‚æœæ˜¯ï¼Œåˆ™ attrId ä¼šè®¾ç½®ä¸º è™šæ‹Ÿç‰©å“å¯¹åº”çš„å±æ€§ID
     static bool IsVirItem(uint64_t itemId, uint32_t &attrId);
-    //¹ıÂË³öĞéÄâÎïÆ·µÄÊôĞÔ
+    //è¿‡æ»¤å‡ºè™šæ‹Ÿç‰©å“çš„å±æ€§
     static void FilterVirItem(const LIST_ITEM &lstItem, LIST_ITEM &lstOutItem, MAP_UINT32_INT64 &mapAttr);
-    //¹ıÂË³öĞéÄâÎïÆ·µÄÊôĞÔ
+    //è¿‡æ»¤å‡ºè™šæ‹Ÿç‰©å“çš„å±æ€§
     static void FilterVirItem(const LIST_ITEM &lstItem, LIST_ITEM &lstOutItem);
-    //¹ıÂË³öĞéÄâÎïÆ·µÄÊôĞÔ
+    //è¿‡æ»¤å‡ºè™šæ‹Ÿç‰©å“çš„å±æ€§
     static void FilterVirItem(const VEC_ITEM_PROTO_EX &vecProtoItemsEx, VEC_ITEM_PROTO_EX &vecOutProtoItemsEx, MAP_UINT32_INT64 &mapAttr);
-    //¹ıÂË³öĞéÄâÎïÆ·µÄÊôĞÔ
+    //è¿‡æ»¤å‡ºè™šæ‹Ÿç‰©å“çš„å±æ€§
     static void FilterVirItem(const VEC_ITEM_PROTO_EX &vecProtoItemsEx, VEC_ITEM_PROTO_EX &vecOutProtoItemsEx);
     static bool IsDynExpItem(uint64_t itemId);
 public:
     /////////////////////////////////////////////////////////////////////////////////////
-    //ÉèÖÃÎïÆ·protobufĞÅÏ¢
+    //è®¾ç½®ç‰©å“protobufä¿¡æ¯
     static bool SetItemProtoInfo(NFItem *pItem, proto_ff::ItemProtoInfo *protoItem, int64_t nNum = -1);
-    //ÎïÆ·µÄ°ó¶¨×´Ì¬-¸ù¾İ»ñµÃÍ¾¾¶ bindWay: EItemBindWay Ã¶¾ÙÀàĞÍ
+    //ç‰©å“çš„ç»‘å®šçŠ¶æ€-æ ¹æ®è·å¾—é€”å¾„ bindWay: EItemBindWay æšä¸¾ç±»å‹
     static int8_t BindStateByWay(uint64_t nItemId, int8_t byBind, int8_t bindWay = EItemBindWay_UnBind);
     static int8_t BindStateByWay(const proto_ff_s::E_ItemItem_s*pItemCfg, int8_t byBind, int8_t bindWay = EItemBindWay_UnBind);
     static int8_t BindStateByWay(const proto_ff_s::E_EquipEquip_s*pEquipCfg, int8_t byBind, int8_t bindWay = EItemBindWay_UnBind);
-    //»ñÈ¡ÎïÆ·¶ÑµşÊı
+    //è·å–ç‰©å“å †å æ•°
     static bool ItemMaxPile(uint64_t itemId, int64_t& maxPile);
     static int64_t ItemMaxPile(const proto_ff_s::E_ItemItem_s *pItemCfg);
     static int64_t ItemMaxPile(const proto_ff_s::E_EquipEquip_s *pEquipCfg);
-    //ÊÇ·ñÓĞĞ§µÄ°ó¶¨Í¾¾¶
+    //æ˜¯å¦æœ‰æ•ˆçš„ç»‘å®šé€”å¾„
     static bool ValidBindWay(int8_t bindWay);
-    //ÊÇ·ñÓĞĞ§µÄ½ûÖ¹ÀàĞÍ
+    //æ˜¯å¦æœ‰æ•ˆçš„ç¦æ­¢ç±»å‹
     static bool ValidForbidType(int8_t forbidType);
-    //ÊÇ·ñÓĞĞ§µÄÎïÆ·ÊôĞÔ³õÊ¼»¯ÀàĞÍ
+    //æ˜¯å¦æœ‰æ•ˆçš„ç‰©å“å±æ€§åˆå§‹åŒ–ç±»å‹
     static bool ValidInitAttrType(int8_t initAttrType);
-    //ÎïÆ·ÊÇ·ñÄÜ½»Ò×
+    //ç‰©å“æ˜¯å¦èƒ½äº¤æ˜“
     static bool CanTrade(uint64_t itemId,int8_t byInBind);
-    //ÎïÆ·ÄÜ·ñ³öÊÛ
+    //ç‰©å“èƒ½å¦å‡ºå”®
     static bool CanSell(uint64_t itemId,int8_t byInBind);
-    //ÊÇ·ñÊÇÈÎÎñÎïÆ·
+    //æ˜¯å¦æ˜¯ä»»åŠ¡ç‰©å“
     static bool IsTaskItem(uint64_t itemId);
-    //ºÏ²¢ÎïÆ·
+    //åˆå¹¶ç‰©å“
     static void MergeItem(const LIST_ITEM &lstItem, LIST_ITEM &lstOutItem);
-    //¼ÆËãÎïÆ·ĞèÒªµÄ¸ñ×ÓÊıÁ¿-Ö»ÊÇ³õÂÔ¹ÀËã³öÀ´£¬¿É¶ÑµşµÄÊıÁ¿ÊÇÒ»¸ö´ó¸ÅµÄÖµ, ²»¿É¶ÑµşµÄÎïÆ·Õ¼ÓÃµÄ¸ñ×ÓÊıÁ¿ÊÇ¿ÉÒÔ¼ÆËã³öÀ´µÄ
+    //è®¡ç®—ç‰©å“éœ€è¦çš„æ ¼å­æ•°é‡-åªæ˜¯åˆç•¥ä¼°ç®—å‡ºæ¥ï¼Œå¯å †å çš„æ•°é‡æ˜¯ä¸€ä¸ªå¤§æ¦‚çš„å€¼, ä¸å¯å †å çš„ç‰©å“å ç”¨çš„æ ¼å­æ•°é‡æ˜¯å¯ä»¥è®¡ç®—å‡ºæ¥çš„
     static uint32_t CalcGridNeed(const LIST_ITEM &lstItem, const VEC_ITEM_PROTO_EX &vecProtoEx,uint32_t &nNoPileNeed, uint32_t &nPileNeed);
-    //»ñµÃÎïÆ·ÀàĞÍ£¬°ó¶¨ÀàĞÍ£¬×î´ó¶ÑµşÊıÄ¿
+    //è·å¾—ç‰©å“ç±»å‹ï¼Œç»‘å®šç±»å‹ï¼Œæœ€å¤§å †å æ•°ç›®
     static bool GetItemData(uint32_t itemId, uint8_t bindType, uint8_t& outItemType, uint8_t& outBindType, int64_t& maxPile);
 public:
-    ////////////////////////////////// ¼ÆËãÕ½Á¦  /////////////////////////////////
+    ////////////////////////////////// è®¡ç®—æˆ˜åŠ›  /////////////////////////////////
     static uint64_t GetItemFight(NFItem *pItem, int32_t level);
 public:
-    //´´½¨ÎïÆ·
+    //åˆ›å»ºç‰©å“
     static bool CreateItem(const LIST_ITEM &lstItem, VEC_PACKAGE_ITEM &vecItems, const SItemCond &itemCond, bool bMerge = true);
-    //Ğ£ÑéÎïÆ·
+    //æ ¡éªŒç‰©å“
     static bool CheckItem(const VEC_ITEM_PROTO_EX &vecProtoItems);
 public:
     static int32_t GetEquipType(int64_t itemId);

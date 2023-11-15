@@ -12,47 +12,47 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFGameCommon/NFComTypeDefine.h"
 
-//ÅÅÐÐ°ñ×î´óÈÝÁ¿
+//æŽ’è¡Œæ¦œæœ€å¤§å®¹é‡
 #define RANK_MAX_SIZE 100
-//ÅÅÐÐ°ñÊµ¼ÊÅÅÃûÈÝÁ¿
+//æŽ’è¡Œæ¦œå®žé™…æŽ’åå®¹é‡
 #define RANK_REAL_SIZE 150
-//ÊÀ½çµÈ¼¶È¡ÅÅÐÐ°ñÇ°¼¸ÃûÆ½¾ùÖµ
+//ä¸–ç•Œç­‰çº§å–æŽ’è¡Œæ¦œå‰å‡ åå¹³å‡å€¼
 #define RANK_WORLDLEVEL_RANK 5
 
 enum enRankType
 {
-    RANK_TYPE_POWER = 1,	//Õ½¶·Á¦
-    RANK_TYPE_LEVEL = 2,	//µÈ¼¶
-    RANK_TYPE_GUILD = 3,	//°ïÅÉ
-    RANK_TYPE_EQUIP = 4,    //×°±¸
-    RANK_TYPE_XIUZHEN = 5,    //ÐÞÕæ°ñ
-    RANK_TYPE_FANGREN_XIUZHEN = 6,    //·²ÈËÐÞÕæ°ñ
-    RANK_TYPE_BATTLE_PASS_XIANCE = 7, //¸£ÔµÏÉ²á
-    RANK_TYPE_BATTLE_PASS_BAODING = 8, //¾ÙÊÀ±¦¶¦
-    RANK_TYPE_PET_FIGHT = 11, //³èÎïÕ½Á¦
-    RANK_TYPE_MOUNT_FIGHT = 12, //×øÆï½×Êý
-    RANK_TYPE_YUANMAO_SUM = 13, //Ôª±¦ÀÛ¼Æ»ñÈ¡
-    RANK_TYPE_WING_FIGHT = 14, //ÓðÒíµÈ¼¶
-    RANK_BAOSHI_LEVEL = 15, //±¦Ê¯×ÜµÈ¼¶
+    RANK_TYPE_POWER = 1,	//æˆ˜æ–—åŠ›
+    RANK_TYPE_LEVEL = 2,	//ç­‰çº§
+    RANK_TYPE_GUILD = 3,	//å¸®æ´¾
+    RANK_TYPE_EQUIP = 4,    //è£…å¤‡
+    RANK_TYPE_XIUZHEN = 5,    //ä¿®çœŸæ¦œ
+    RANK_TYPE_FANGREN_XIUZHEN = 6,    //å‡¡äººä¿®çœŸæ¦œ
+    RANK_TYPE_BATTLE_PASS_XIANCE = 7, //ç¦ç¼˜ä»™å†Œ
+    RANK_TYPE_BATTLE_PASS_BAODING = 8, //ä¸¾ä¸–å®é¼Ž
+    RANK_TYPE_PET_FIGHT = 11, //å® ç‰©æˆ˜åŠ›
+    RANK_TYPE_MOUNT_FIGHT = 12, //åéª‘é˜¶æ•°
+    RANK_TYPE_YUANMAO_SUM = 13, //å…ƒå®ç´¯è®¡èŽ·å–
+    RANK_TYPE_WING_FIGHT = 14, //ç¾½ç¿¼ç­‰çº§
+    RANK_BAOSHI_LEVEL = 15, //å®çŸ³æ€»ç­‰çº§
 };
 
 
-//ÅÅÐÐ°ñÍæ¼ÒÏÔÊ¾ÄÚÈÝ
+//æŽ’è¡Œæ¦œçŽ©å®¶æ˜¾ç¤ºå†…å®¹
 enum enRankPlayerParam
 {
-    RANK_PLAYER_PARAM_RANK = 1,				//1ÅÅÃû
-    RANK_PLAYER_PARAM_PT_STAGE= 2,	//2Íæ¼ÒÐÞÕæ¾³½ç
-    RANK_PLAYER_PARAM_NAME = 3,				//3Íæ¼ÒÃû³Æ
-    RANK_PLAYER_PARAM_JOB = 4,				//4Íæ¼ÒÖ°Òµ
-    RANK_PLAYER_PARAM_POWER = 5,			//5Õ½¶·Á¦
-    RANK_PLAYER_PARAM_LEVEL = 6,			//6µÈ¼¶
-    RANK_PLAYER_PARAM_GUILD_RANK = 7,		//7°ïÅÉÅÅÃû
-    RANK_PLAYER_PARAM_GUILD_NAME = 8,		//8°ïÅÉÃû³Æ
-    RANK_PLAYER_PARAM_GUILD_LEVEL = 9,		//9°ïÅÉµÈ¼¶
-    RANK_PLAYER_PARAM_GUILD_POWER = 10,		//10°ïÅÉÕ½Á¦
-    RANK_PLAYER_PARAM_EQUIP_SCORE = 11,		//11×°±¸ÆÀ·Ö
-    RANK_PLAYER_PARAM_RANK_PT_STAGE = 12,		//12Íæ¼ÒÐÞÕæ¾³½ç
-    RANK_PLAYER_PARAM_FANGREN_LAYER = 13,	//13·²ÈËÐÞÕæÍ¨¹ý²ãÊý
+    RANK_PLAYER_PARAM_RANK = 1,				//1æŽ’å
+    RANK_PLAYER_PARAM_PT_STAGE= 2,	//2çŽ©å®¶ä¿®çœŸå¢ƒç•Œ
+    RANK_PLAYER_PARAM_NAME = 3,				//3çŽ©å®¶åç§°
+    RANK_PLAYER_PARAM_JOB = 4,				//4çŽ©å®¶èŒä¸š
+    RANK_PLAYER_PARAM_POWER = 5,			//5æˆ˜æ–—åŠ›
+    RANK_PLAYER_PARAM_LEVEL = 6,			//6ç­‰çº§
+    RANK_PLAYER_PARAM_GUILD_RANK = 7,		//7å¸®æ´¾æŽ’å
+    RANK_PLAYER_PARAM_GUILD_NAME = 8,		//8å¸®æ´¾åç§°
+    RANK_PLAYER_PARAM_GUILD_LEVEL = 9,		//9å¸®æ´¾ç­‰çº§
+    RANK_PLAYER_PARAM_GUILD_POWER = 10,		//10å¸®æ´¾æˆ˜åŠ›
+    RANK_PLAYER_PARAM_EQUIP_SCORE = 11,		//11è£…å¤‡è¯„åˆ†
+    RANK_PLAYER_PARAM_RANK_PT_STAGE = 12,		//12çŽ©å®¶ä¿®çœŸå¢ƒç•Œ
+    RANK_PLAYER_PARAM_FANGREN_LAYER = 13,	//13å‡¡äººä¿®çœŸé€šè¿‡å±‚æ•°
 };
 
 
@@ -86,4 +86,4 @@ struct RankNode
     }
 };
 
-typedef std::multimap<uint64_t, RankNode, greater<uint64_t> > mapRankNode; //½µÐòÅÅÁÐ
+typedef std::multimap<uint64_t, RankNode, greater<uint64_t> > mapRankNode; //é™åºæŽ’åˆ—

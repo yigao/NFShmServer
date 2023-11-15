@@ -29,20 +29,20 @@
 
 enum RandAttrType
 {
-    RandAttrType_rand = 0,    //???
-    RandAttrType_min = 1,    //??��?
-    RandAttrType_max = 2    //????
+    RandAttrType_rand = 0,    //随机
+    RandAttrType_min = 1,    //最小值
+    RandAttrType_max = 2    //最大值
 };
 
-//????????
+//蓝星属性
 struct stBlueAttr
 {
-    uint32_t id = 0;    //????????id
-    int64_t value = 0;    //?????
-    int32_t lv_part = 0; //????��????????????????
+    uint32_t id = 0;    //属性索引id
+    int64_t value = 0;    //属性值
+    int32_t lv_part = 0; //等级段，每几级加成多少属性
 };
 
-//???????
+//星级属性
 struct stStarAttr
 {
     uint32_t id = 0;
@@ -55,7 +55,7 @@ using MAP_BLUE_ATTR = std::map<uint32_t, stBlueAttr>;
 
 typedef NFShmHashMap<int32_t, int32_t, DEFINE_E_EQUIPATTRIBUTE_M_ATTRIBUTE_MAX_NUM> MiscAttrMap;
 
-//EPackageType_DeityEquip = 5;	//????
+//EPackageType_DeityEquip = 5;	//天神
 struct DeityEquipExt
 {
     DeityEquipExt()
@@ -88,11 +88,11 @@ struct DeityEquipExt
         m_strongWearQuality = 0;
     }
     
-    uint32_t m_stronglv; //??????
-    uint32_t m_strongWearQuality; //??????
+    uint32_t m_stronglv; //强化等级
+    uint32_t m_strongWearQuality; //强化阶级
 };
 
-//EPackageType_BeastEquip = 7;	//???????????
+//EPackageType_BeastEquip = 7;	//神兽装备背包
 struct BeastEquipExt
 {
     BeastEquipExt()
@@ -129,14 +129,14 @@ struct BeastEquipExt
         m_godAttr.clear();
     }
     
-    uint32_t m_stronglv; //??????
-    uint64_t m_strongExp; //??????????
-    uint32_t m_strongWearQuality; //??????
-    NFShmHashMap<uint32_t, uint32_t, DEFINE_E_ENCYCLOPEDIAEQUIPEXPVALUE_M_BEASTSTAR_MAX_NUM> m_blueAttr; //???????????????
-    NFShmHashMap<uint32_t, uint32_t, DEFINE_E_ENCYCLOPEDIAEQUIPEXPVALUE_M_GOLDSTAR_MAX_NUM> m_godAttr; //??????????????? ????
+    uint32_t m_stronglv; //强化等级
+    uint64_t m_strongExp; //强化等级经验
+    uint32_t m_strongWearQuality; //强化阶级
+    NFShmHashMap<uint32_t, uint32_t, DEFINE_E_ENCYCLOPEDIAEQUIPEXPVALUE_M_BEASTSTAR_MAX_NUM> m_blueAttr; //神兽装备蓝星属性
+    NFShmHashMap<uint32_t, uint32_t, DEFINE_E_ENCYCLOPEDIAEQUIPEXPVALUE_M_GOLDSTAR_MAX_NUM> m_godAttr; //神兽装备黄星属性 带★
 };
 
-//EPackageType_Longhun = 8;		//????
+//EPackageType_Longhun = 8;		//龙魂
 struct LongHunExt
 {
     LongHunExt()
@@ -176,16 +176,16 @@ struct LongHunExt
         m_flyAttr.clear();
     }
     
-    uint32_t m_stronglv; //??????
-    uint64_t m_strongExp; //??????????
-    uint32_t m_strongWearQuality; //??????
-    uint64_t m_strongWearQualityExp; //??????????
-    uint32_t m_awaken_lv;   //??????
-    NFShmHashSet<uint32_t, DEFINE_E_DRAGONSOULFLY_M_FLYATT_MAX_NUM> m_flyAttr; //?????????????ID
+    uint32_t m_stronglv; //强化等级
+    uint64_t m_strongExp; //强化等级经验
+    uint32_t m_strongWearQuality; //强化阶级
+    uint64_t m_strongWearQualityExp; //强化阶级经验
+    uint32_t m_awaken_lv;   //觉醒等级
+    NFShmHashSet<uint32_t, DEFINE_E_DRAGONSOULFLY_M_FLYATT_MAX_NUM> m_flyAttr; //龙魂飞升属性组ID
 };
 
-//EPackageType_shenji_aq = 11;	//??????????
-//EPackageType_shenji_lj = 12;	//?????????
+//EPackageType_shenji_aq = 11;	//神机装备暗器
+//EPackageType_shenji_lj = 12;	//神机装备灵甲
 struct ShengjiExt
 {
     ShengjiExt()
@@ -218,11 +218,11 @@ struct ShengjiExt
         m_state = 0;
     }
     
-    uint32_t m_makeid;//????ID??????????
-    uint32_t m_state;//????????0??��??? 1??? 2???
+    uint32_t m_makeid;//打造ID。神机装备用
+    uint32_t m_state;//神机装备用0：未装备 1统御 2装备
 };
 
-//EPackageType_GodEvil = 13;		//???????
+//EPackageType_GodEvil = 13;		//神魔背包
 struct GodEvilExt
 {
     GodEvilExt()
@@ -266,19 +266,19 @@ struct GodEvilExt
         m_skillMap.clear();
     }
     
-    uint32_t m_stronglv; //??????
-    uint64_t m_strongExp; //??????????
-    int32_t m_speclv;   //??????? ?????specAttr??lv??��?
-    int32_t m_savvy;        //???????(??????)
-    uint64_t m_strongWearQualityExp; //??????????
-    uint64_t m_make_time;            //??????????(??????)
-    NFCommonStr m_make_name;        //?????????????(??????
-    NFShmHashSet<uint32_t, 10> m_goldStar; //???? ????ID?��?
-    NFShmHashSet<uint32_t, 10> m_silverStar; //???? ????ID?��?(??????)
-    NFShmHashMap<uint32_t, uint32_t, 10> m_skillMap; //?????????????? skillid - level
+    uint32_t m_stronglv; //强化等级
+    uint64_t m_strongExp; //强化等级经验
+    int32_t m_speclv;   //真炼等级 装备表specAttr表lv字段。
+    int32_t m_savvy;        //神品悟性(神魔装备)
+    uint64_t m_strongWearQualityExp; //强化阶级经验
+    uint64_t m_make_time;            //装备打造时间(神魔装备)
+    NFCommonStr m_make_name;        //装备打造者名字(神魔装备
+    NFShmHashSet<uint32_t, 10> m_goldStar; //金星 属性ID列表
+    NFShmHashSet<uint32_t, 10> m_silverStar; //银星 属性ID列表(神魔装备)
+    NFShmHashMap<uint32_t, uint32_t, 10> m_skillMap; //神魔装备被动技能 skillid - level
 };
 
-//EPackageType_star = 14;		//???????
+//EPackageType_star = 14;		//不灭星辰
 struct StarExt
 {
     StarExt()
@@ -315,13 +315,13 @@ struct StarExt
         m_strongWearQualityExp = 0;
     }
     
-    uint32_t m_stronglv; //??????
-    uint64_t m_strongExp; //??????????
-    uint32_t m_strongWearQuality; //??????
-    uint64_t m_strongWearQualityExp; //??????????
+    uint32_t m_stronglv; //强化等级
+    uint64_t m_strongExp; //强化等级经验
+    uint32_t m_strongWearQuality; //强化阶级
+    uint64_t m_strongWearQualityExp; //强化阶级经验
 };
 
-//EPackageType_turn = 15;		//??????
+//EPackageType_turn = 15;		//转生装备
 struct TurnExt
 {
     TurnExt()
@@ -351,7 +351,7 @@ struct TurnExt
     }
 };
 
-//EPackageType_MountKun = 16;		//?????????
+//EPackageType_MountKun = 16;		//坐化鲲装备
 struct MountKunExt
 {
     MountKunExt()
@@ -390,14 +390,14 @@ struct MountKunExt
         m_awaken_star = 0;
     }
     
-    uint32_t m_stronglv; //??????
-    uint32_t m_strongWearQuality; //??????
-    uint32_t m_awaken_lv;   //?????
-    uint32_t m_awaken_exp;   //??????
-    uint64_t m_awaken_star; //???????
+    uint32_t m_stronglv; //强化等级
+    uint32_t m_strongWearQuality; //强化阶级
+    uint32_t m_awaken_lv;   //突破等级
+    uint32_t m_awaken_exp;   //突破经验
+    uint64_t m_awaken_star; //突破星星
 };
 
-//EPackageType_YaoHun = 17;	//???????
+//EPackageType_YaoHun = 17;	//妖魂装备
 struct YaoHunExt
 {
     YaoHunExt()
@@ -427,7 +427,7 @@ struct YaoHunExt
     }
 };
 
-//EPackageType_MoFa = 18; //???????
+//EPackageType_MoFa = 18; //奇门八卦
 struct MoFaExt
 {
     MoFaExt()
@@ -462,9 +462,9 @@ struct MoFaExt
         m_awaken_exp = 0;
     }
     
-    uint32_t m_stronglv; //??????
-    uint32_t m_awaken_lv;   //?????
-    uint32_t m_awaken_exp;   //??????
+    uint32_t m_stronglv; //强化等级
+    uint32_t m_awaken_lv;   //突破等级
+    uint32_t m_awaken_exp;   //突破经验
 };
 
 class NFItem
@@ -489,13 +489,13 @@ public:
     
     int CreateInit()
     {
-        m_nIndex = 0;              //????
-        m_nItemID = 0;             //???ID
-        m_nNum = 0;                //???????
-        m_byBind = 0;                //????
-        m_byType = 0;               //????
-        m_nLevel = 0;              //??? ???(??????????????????)
-        m_nExpiredTime = 0;        //???????,0,????????
+        m_nIndex = 0;              //索引
+        m_nItemID = 0;             //物品ID
+        m_nNum = 0;                //物品数量
+        m_byBind = 0;                //绑定状态
+        m_byType = 0;               //类型
+        m_nLevel = 0;              //等级 预留(装备里，这个等级是玩家等级)
+        m_nExpiredTime = 0;        //过期时间,0,永不过期
         return 0;
     }
     
@@ -517,13 +517,13 @@ public:
     
     virtual void Clear()
     {
-        m_nIndex = 0;              //????
-        m_nItemID = 0;             //???ID
-        m_nNum = 0;                //???????
-        m_byBind = 0;                //????
-        m_byType = 0;               //????
-        m_nLevel = 0;              //??? ???(??????????????????)
-        m_nExpiredTime = 0;        //???????,0,????????
+        m_nIndex = 0;              //索引
+        m_nItemID = 0;             //物品ID
+        m_nNum = 0;                //物品数量
+        m_byBind = 0;                //绑定状态
+        m_byType = 0;               //类型
+        m_nLevel = 0;              //等级 预留(装备里，这个等级是玩家等级)
+        m_nExpiredTime = 0;        //过期时间,0,永不过期
     }
 
 public:
@@ -574,17 +574,17 @@ public:
     const proto_ff_s::E_EquipEquip_s *GetEquipCfg() const;
     const proto_ff_s::E_ItemItem_s *GetItemCfg() const;
     const proto_ff_s::E_EquipAttribute_s *GetEquipAttributeCfg() const;
-    bool IsProf(int32_t profId) const;                        //????????????
+    bool IsProf(int32_t profId) const;                        //是否属于某个职业
 private:
 protected:
-    uint16_t m_nIndex;              //????
-    uint64_t m_nItemID;             //???ID
-    uint32_t m_nNum;                //???????
-    int8_t m_byBind;                //????
-    uint8_t m_byType;               //????
-    uint32_t m_nLevel;              //??? ???(??????????????????)
-    uint64_t m_nExpiredTime;        //???????,0,????????
-    //?????????????????????
+    uint16_t m_nIndex;              //索引
+    uint64_t m_nItemID;             //物品ID
+    uint32_t m_nNum;                //物品数量
+    int8_t m_byBind;                //绑定状态
+    uint8_t m_byType;               //类型
+    uint32_t m_nLevel;              //等级 预留(装备里，这个等级是玩家等级)
+    uint64_t m_nExpiredTime;        //过期时间,0,永不过期
+    //道具也有评分，放在基类里
 };
 
 class NFEquip : public NFItem
@@ -599,10 +599,10 @@ public:
     
     NFEquip(const NFEquip& equip):NFItem(equip)
     {
-        m_baseAttrPercent = equip.m_baseAttrPercent;     //????????
-        //??????? = ???????(????) + ????????(??????)
-        m_starAttrPercent = equip.m_starAttrPercent;     //???????
-        m_godAttrPercent = equip.m_godAttrPercent;      //???????? (???????????????)
+        m_baseAttrPercent = equip.m_baseAttrPercent;     //基础属性
+        //仙品属性 = 星级属性(带★) + 蓝星属性(不带★)
+        m_starAttrPercent = equip.m_starAttrPercent;     //星级属性
+        m_godAttrPercent = equip.m_godAttrPercent;      //仙尊属性 (神兽装备黄星属性)
     }
     
     virtual void Clear()
@@ -619,9 +619,9 @@ public:
     virtual MAP_BLUE_ATTR GetBlueAttr();
     virtual MAP_INT32_INT32 GetGodAttr();
 protected:
-    bool genBaseAttr(const SItemCond &itemCond);                //???????????
-    bool genGodPinAttr(const SItemCond &itemCond);            //???????????(?????? ????????????????)
-    bool genGodZunAttr(const SItemCond &itemCond);            //????????????
+    bool genBaseAttr(const SItemCond &itemCond);                //生成基础属性
+    bool genGodPinAttr(const SItemCond &itemCond);            //生成仙品属性(两部分 星级属性和蓝星属性)
+    bool genGodZunAttr(const SItemCond &itemCond);            //生成仙尊属性
     void GenBaseScore();
 public:
     virtual bool Init(uint16_t nIndex, uint64_t nItemID, const SItemCond &itemCond, uint64_t nNum = 1, int8_t byBind = (uint8_t) EBindState::EBindState_no);
@@ -639,10 +639,10 @@ public:
     
     virtual uint64_t GetItemFight(int32_t level);
 protected:
-    uint32_t m_baseAttrPercent;     //????????
-    //??????? = ???????(????) + ????????(??????)
-    uint32_t m_starAttrPercent;     //???????
-    uint32_t m_godAttrPercent;      //???????? (???????????????)
+    uint32_t m_baseAttrPercent;     //基础属性
+    //仙品属性 = 星级属性(带★) + 蓝星属性(不带★)
+    uint32_t m_starAttrPercent;     //星级属性
+    uint32_t m_godAttrPercent;      //仙尊属性 (神兽装备黄星属性)
 };
 
 class NFDeityEquip : public NFEquip
@@ -694,7 +694,7 @@ public:
     NFDeityEquip& operator=(const NFEquip& item);
     NFDeityEquip& operator=(const NFDeityEquip& item);
     
-    DeityEquipExt m_deityEquip;       //EPackageType_DeityEquip = 5;	//????????
+    DeityEquipExt m_deityEquip;       //EPackageType_DeityEquip = 5;	//天神神饰
 };
 
 class NFBeastEquip : public NFEquip
@@ -746,7 +746,7 @@ public:
     NFBeastEquip& operator=(const NFEquip& item);
     NFBeastEquip& operator=(const NFBeastEquip& item);
     
-    BeastEquipExt m_beastEquip;       //EPackageType_BeastEquip = 7;	//???????????
+    BeastEquipExt m_beastEquip;       //EPackageType_BeastEquip = 7;	//神兽装备背包
 };
 
 class NFLongHunEquip : public NFEquip
@@ -798,11 +798,11 @@ public:
     NFLongHunEquip& operator=(const NFEquip& item);
     NFLongHunEquip& operator=(const NFLongHunEquip& item);
     
-    LongHunExt m_longHun;             //EPackageType_Longhun = 8;		//????
+    LongHunExt m_longHun;             //EPackageType_Longhun = 8;		//龙魂
 };
 
-//EPackageType_shenji_aq = 11;	//??????????
-//EPackageType_shenji_lj = 12;	//?????????
+//EPackageType_shenji_aq = 11;	//神机装备暗器
+//EPackageType_shenji_lj = 12;	//神机装备灵甲
 class NFShengjiEquip : public NFEquip
 {
 public:
@@ -904,7 +904,7 @@ public:
     NFGodEvilEquip& operator=(const NFEquip& item);
     NFGodEvilEquip& operator=(const NFGodEvilEquip& item);
     
-    GodEvilExt m_godEvil;             //EPackageType_GodEvil = 13;		//???????
+    GodEvilExt m_godEvil;             //EPackageType_GodEvil = 13;		//神魔背包
 };
 
 class NFStarEquip : public NFEquip
@@ -956,7 +956,7 @@ public:
     NFStarEquip& operator=(const NFEquip& item);
     NFStarEquip& operator=(const NFStarEquip& item);
     
-    StarExt m_star;                   //EPackageType_star = 14;		//???????
+    StarExt m_star;                   //EPackageType_star = 14;		//不灭星辰
 };
 
 class NFMountKunEquip : public NFEquip
@@ -1008,7 +1008,7 @@ public:
     NFMountKunEquip& operator=(const NFEquip& item);
     NFMountKunEquip& operator=(const NFMountKunEquip& item);
     
-    MountKunExt m_mountKun;           //EPackageType_MountKun = 16;		//?????????
+    MountKunExt m_mountKun;           //EPackageType_MountKun = 16;		//坐化鲲装备
 };
 
 class NFTurnEquip : public NFEquip
@@ -1060,7 +1060,7 @@ public:
     NFTurnEquip& operator=(const NFEquip& item);
     NFTurnEquip& operator=(const NFTurnEquip& item);
     
-    TurnExt m_turn;                   //EPackageType_turn = 15;		//??????
+    TurnExt m_turn;                   //EPackageType_turn = 15;		//转生装备
 };
 
 class NFYaoHunEquip : public NFEquip
@@ -1112,7 +1112,7 @@ public:
     NFYaoHunEquip& operator=(const NFEquip& item);
     NFYaoHunEquip& operator=(const NFYaoHunEquip& item);
     
-    YaoHunExt m_yaoHun;               //EPackageType_YaoHun = 17;	//???????
+    YaoHunExt m_yaoHun;               //EPackageType_YaoHun = 17;	//妖魂装备
 };
 
 class NFMoFaEquip : public NFEquip
@@ -1167,10 +1167,10 @@ public:
     MoFaExt m_mofa;
 };
 
-//???????
+//背包物品
 typedef vector<NFItem *> VEC_PACKAGE_ITEM;
 
-//proto???
+//proto物品
 typedef vector<proto_ff::ItemProtoInfo *> VEC_ITEM_PROTO;
 typedef vector<proto_ff::ItemProtoInfo> VEC_ITEM_PROTO_EX;
 typedef map<uint16_t, proto_ff::ItemProtoInfo> MAP_ITEM_PROTO_EX;

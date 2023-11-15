@@ -9,201 +9,201 @@
 
 #pragma once
 
-//±³°ü×î´ó¶ÑµşÊı
+//èƒŒåŒ…æœ€å¤§å †å æ•°
 //#define PACKAGE_MAX_PILE_NUM 99
-//±³°üÀ¸³õÊ¼¸ñ×ÓÊı
+//èƒŒåŒ…æ åˆå§‹æ ¼å­æ•°
 #define COMMON_PACKAGE_INIT_GRID_NUM 100
-//±³°üÀ¸×î´ó¸ñ×ÓÊı(²»ÒªËæ±ã¸Ä¶¯)
+//èƒŒåŒ…æ æœ€å¤§æ ¼å­æ•°(ä¸è¦éšä¾¿æ”¹åŠ¨)
 #define COMMON_PACKAGE_MAX_GRID_NUM 400
-//²Ö¿â³õÊ¼¸ñ×ÓÊı
+//ä»“åº“åˆå§‹æ ¼å­æ•°
 #define STORAGE_PACKAGE_INIT_GRID_NUM 100
-//³èÎï³õÊ¼¸ñ×ÓÊı
+//å® ç‰©åˆå§‹æ ¼å­æ•°
 #define MOUNT_PACKAGE_INIT_GRID_NUM 100
-//²Ö¿â×î´ó¸ñ×ÓÊı
+//ä»“åº“æœ€å¤§æ ¼å­æ•°
 #define STORAGE_PACKAGE_MAX_GRID_NUM 400
-//³èÎï×î´ó¸ñ×ÓÊı
+//å® ç‰©æœ€å¤§æ ¼å­æ•°
 #define MOUNT_PACKAGE_MAX_GRID_NUM 100
-//ÉñÊÎ×î´ó¸ñ×ÓÊı
+//ç¥é¥°æœ€å¤§æ ¼å­æ•°
 #define DEITY_EQUP_PACKAGE_INIT_GRID_NUM 100
-//ÉñÊÎ×î´ó¸ñ×ÓÊı
+//ç¥é¥°æœ€å¤§æ ¼å­æ•°
 #define DEITY_EQUIP_PACKAGE_MAX_GRID_NUM 200
-//²Ø¾­¸óÍ¼¼ø×î´ó¸ñ×ÓÊı
+//è—ç»é˜å›¾é‰´æœ€å¤§æ ¼å­æ•°
 #define HANDBOOK_PACKAGE_INIT_GRID_NUM 300
-//²Ø¾­¸óÍ¼¼ø×î´ó¸ñ×ÓÊı
+//è—ç»é˜å›¾é‰´æœ€å¤§æ ¼å­æ•°
 #define HANDBOOK_PACKAGE_MAX_GRID_NUM 300
-//ÉñÊŞ×î´ó¸ñ×ÓÊı
+//ç¥å…½æœ€å¤§æ ¼å­æ•°
 #define BEAST_EQUP_PACKAGE_INIT_GRID_NUM 100
-//ÉñÊŞ×î´ó¸ñ×ÓÊı
+//ç¥å…½æœ€å¤§æ ¼å­æ•°
 #define BEAST_EQUIP_PACKAGE_MAX_GRID_NUM 100
-//Áú»ê×î´ó¸ñ×ÓÊı
+//é¾™é­‚æœ€å¤§æ ¼å­æ•°
 #define LONG_HUN_PACKAGE_INIT_GRID_NUM 100
-//Áú»ê×î´ó¸ñ×ÓÊı
+//é¾™é­‚æœ€å¤§æ ¼å­æ•°
 #define LONG_HUN_PACKAGE_MAX_GRID_NUM 100
-//²»ÃğĞÇ³½4×î´ó¸ñ×ÓÊı
+//ä¸ç­æ˜Ÿè¾°4æœ€å¤§æ ¼å­æ•°
 #define STAR_HUN_PACKAGE_MAX_GRID_NUM 100
-//ÆäËüÀàĞÍ±³°ü³õÊ¼¸ñ×ÓÊıÁ¿
+//å…¶å®ƒç±»å‹èƒŒåŒ…åˆå§‹æ ¼å­æ•°é‡
 #define OTHER_PACKAGE_INIT_GRID_NUM 300
-//ÆäËüÀàĞÍ±³°ü¸ñ×Ó×î´óÊıÁ¿
+//å…¶å®ƒç±»å‹èƒŒåŒ…æ ¼å­æœ€å¤§æ•°é‡
 #define OTHER_PACKAGE_MAX_GRID_NUM 300
-//Éñ¸ñ±³°ü¸ñ×Ó×î´óÊıÁ¿
+//ç¥æ ¼èƒŒåŒ…æ ¼å­æœ€å¤§æ•°é‡
 #define SOUL_PACKAGE_MAX_GRID_NUM 500
-//ÎÆÕÂ±³°ü¸ñ×Ó×î´óÊıÁ¿
+//çº¹ç« èƒŒåŒ…æ ¼å­æœ€å¤§æ•°é‡
 #define STAR_PACKAGE_MAX_GRID_NUM 500
-//ÁìÓò±³°ü¸ñ×Ó×î´óÊıÁ¿
+//é¢†åŸŸèƒŒåŒ…æ ¼å­æœ€å¤§æ•°é‡
 #define FAIMATERI_PACKAGE_MAX_GRID_NUM 500
-//Ã¿´ÎÀ©Õ¹¸ñ×ÓÊı
+//æ¯æ¬¡æ‰©å±•æ ¼å­æ•°
 #define PACKAGE_EXPAND_GRID_NUM 5
-//´òÔìÕßÃû×Ö³¤¶È
+//æ‰“é€ è€…åå­—é•¿åº¦
 #define MAX_EQUIP_MAKER_NAME_LEN 35
-//×°±¸ÏâÇ¶¿××î´óÊıÁ¿
+//è£…å¤‡é•¶åµŒå­”æœ€å¤§æ•°é‡
 #define MAX_EQUIP_HOLE_NUM 6
-//×°±¸ºÏ³ÉÊ± ¼ÇÂ¼ÏûºÄ×°±¸µÄ×î´óÊıÁ¿
+//è£…å¤‡åˆæˆæ—¶ è®°å½•æ¶ˆè€—è£…å¤‡çš„æœ€å¤§æ•°é‡
 #define MAX_COMPOSE_COST_EQUIP_NUM 5
-//Ò»´Î±£´æ±³°üÎïÆ·Êı
+//ä¸€æ¬¡ä¿å­˜èƒŒåŒ…ç‰©å“æ•°
 #define UNIT_SAVE_BAG_ITEM_SIZE  200
-//ÉñÌå×°±¸×î´ó800¸ö
+//ç¥ä½“è£…å¤‡æœ€å¤§800ä¸ª
 #define TURN_PACKAGE_MAX_GRID_NUM 800
-//×î´ó±¦Ê¯²ÛÎ»Êı
+//æœ€å¤§å®çŸ³æ§½ä½æ•°
 #define MAX_STONE_SLOT 5
-//Ï´Á·×î´ó²ÛÎ»Êı
+//æ´—ç»ƒæœ€å¤§æ§½ä½æ•°
 #define MAX_WASH_SLOT 4
 
-//Í¨ÓÃ±³°ü´óĞ¡
+//é€šç”¨èƒŒåŒ…å¤§å°
 #define COM_BAG_SIZE 200
-//µ°±³°ü´óĞ¡
+//è›‹èƒŒåŒ…å¤§å°
 #define EGG_BAG_SIZE 100
 
-//×øÆï»¯öï
+//åéª‘åŒ–é²²
 #define MOUNT_KUN_PACKAGE_MAX_GRID_NUM 800
 
 enum EBindState
 {
-    EBindState_no = 0,		//Î´°ó¶¨
-    EBindState_bind = 1,	//°ó¶¨
-    EBindState_all = 2,		//ËùÓĞ£¨°üÀ¨°ó¶¨£¬Î´°ó¶¨£¬Ö»ÊÇÎªÁË±³°üÄÇ±ß²éÕÒ½Ó¿Ú²ÎÊıÓÃµÄ£©
+    EBindState_no = 0,		//æœªç»‘å®š
+    EBindState_bind = 1,	//ç»‘å®š
+    EBindState_all = 2,		//æ‰€æœ‰ï¼ˆåŒ…æ‹¬ç»‘å®šï¼Œæœªç»‘å®šï¼Œåªæ˜¯ä¸ºäº†èƒŒåŒ…é‚£è¾¹æŸ¥æ‰¾æ¥å£å‚æ•°ç”¨çš„ï¼‰
 };
 
-//¶Ñµş×´Ì¬
+//å †å çŠ¶æ€
 enum class EStackState
 {
-    EStackState_no = 0,		//²»¿É¶Ñµş
-    EStackState_yes = 1,	//¿É¶Ñµş
+    EStackState_no = 0,		//ä¸å¯å †å 
+    EStackState_yes = 1,	//å¯å †å 
 };
-//cdÀàĞÍ
+//cdç±»å‹
 enum class ECdType
 {
     ECdType_none,
-    ECdType_nocd = 1,			//Ã»ÓĞÀäÈ´
-    ECdType_independent = 2,	//¶ÀÁ¢ÀäÈ´
-    ECdType_common = 3,			//¹«¹²ÀäÈ´
+    ECdType_nocd = 1,			//æ²¡æœ‰å†·å´
+    ECdType_independent = 2,	//ç‹¬ç«‹å†·å´
+    ECdType_common = 3,			//å…¬å…±å†·å´
     ECdType_limit,
 };
 
-//ÎïÆ·ÊÇ·ñ¿ÉÊ¹ÓÃµÄÀàĞÍ
+//ç‰©å“æ˜¯å¦å¯ä½¿ç”¨çš„ç±»å‹
 enum class EItemCanUseType
 {
-    EItemCanUseType_NoUse = 0,	//²»ÄÜÊ¹ÓÃ
-    EItemCanUseType_CanUse = 1,	//¿ÉÊ¹ÓÃ
-    EItemCanUseType_SysUse = 2, //ÏµÍ³Ê¹ÓÃ
+    EItemCanUseType_NoUse = 0,	//ä¸èƒ½ä½¿ç”¨
+    EItemCanUseType_CanUse = 1,	//å¯ä½¿ç”¨
+    EItemCanUseType_SysUse = 2, //ç³»ç»Ÿä½¿ç”¨
 };
 
-//×°±¸°ó¶¨ÀàĞÍ
+//è£…å¤‡ç»‘å®šç±»å‹
 enum class EEquipBindType
 {
     EEquipBindType_none = 0,
-    EEquipBindType_get = 1,			//»ñÈ¡°ó¶¨
-    EEquipBindType_dress = 2,		//´©´÷°ó¶¨
+    EEquipBindType_get = 1,			//è·å–ç»‘å®š
+    EEquipBindType_dress = 2,		//ç©¿æˆ´ç»‘å®š
     EEquipBindType_limit,
 };
 
 
-//×°±¸ÀàĞÍ
+//è£…å¤‡ç±»å‹
 enum EEquipFromType
 {
     EEquipFromType_None = 0,
-    EEquipFromType_Bag = 1,			//±³°ü×°±¸
-    EEquipFromType_Dress = 2,		//´©´÷×°±¸
+    EEquipFromType_Bag = 1,			//èƒŒåŒ…è£…å¤‡
+    EEquipFromType_Dress = 2,		//ç©¿æˆ´è£…å¤‡
 };
 
 
-//Ê±×°ÀàĞÍ
+//æ—¶è£…ç±»å‹
 enum EEquipFashionType
 {
     EEquipFashionType_None = 0,
-    EEquipFashionType_Weapon = 1,			//Ê±×°ÎäÆ÷
-    EEquipFashionType_Clothes = 2,			//Ê±×°ÒÂ·ş
+    EEquipFashionType_Weapon = 1,			//æ—¶è£…æ­¦å™¨
+    EEquipFashionType_Clothes = 2,			//æ—¶è£…è¡£æœ
     EEquipFashionType_Limit,
 };
 
-//ÎïÆ·°ó¶¨Í¾¾¶£¨ÊÊÓÃÓÚÎïÆ·ºÍ×°±¸£©
+//ç‰©å“ç»‘å®šé€”å¾„ï¼ˆé€‚ç”¨äºç‰©å“å’Œè£…å¤‡ï¼‰
 enum EItemBindWay
 {
     EItemBindWay_None = -1,
-    EItemBindWay_UnBind = 0,	//·Ç°ó¶¨
-    EItemBindWay_Get = 1,		//»ñÈ¡°ó¶¨£¨»ñÈ¡Ö®Ç°·Ç°ó¶¨£©
-    EItemBindWay_Bind = 2,		//ÓÀ¾Ã°ó¶¨
-    EItemBindWay_Dress = 3,		//´©´÷°ó¶¨£¨»ñÈ¡Ö®Ç°·Ç°ó¶¨£©
+    EItemBindWay_UnBind = 0,	//éç»‘å®š
+    EItemBindWay_Get = 1,		//è·å–ç»‘å®šï¼ˆè·å–ä¹‹å‰éç»‘å®šï¼‰
+    EItemBindWay_Bind = 2,		//æ°¸ä¹…ç»‘å®š
+    EItemBindWay_Dress = 3,		//ç©¿æˆ´ç»‘å®šï¼ˆè·å–ä¹‹å‰éç»‘å®šï¼‰
     EItemBindWay_Limit,
 };
 
-//ÎïÆ·½ûÖ¹ÀàĞÍ
+//ç‰©å“ç¦æ­¢ç±»å‹
 enum EItemForbidType
 {
     EItemForbidType_None = -1,
-    EItemForbidType_Follow = 0, //¸úËæ°ó¶¨¹æÔò
-    EItemForbidType_Forbid = 1,	//½ûÖ¹
+    EItemForbidType_Follow = 0, //è·Ÿéšç»‘å®šè§„åˆ™
+    EItemForbidType_Forbid = 1,	//ç¦æ­¢
     EItemForbidType_Limit,
 };
 
-//ÎïÆ·Ê¹ÓÃÖ®ºó¹ã²¥ÌØĞ§£¬ÌØĞ§ÀàĞÍ
+//ç‰©å“ä½¿ç”¨ä¹‹åå¹¿æ’­ç‰¹æ•ˆï¼Œç‰¹æ•ˆç±»å‹
 enum EItemUseEffectType
 {
-    EItemUseEffectType_Server = 1,	//È«·ş
-    EItemUseEffectType_Scene = 2,	//³¡¾°
+    EItemUseEffectType_Server = 1,	//å…¨æœ
+    EItemUseEffectType_Scene = 2,	//åœºæ™¯
 };
 
 
-/*ÎïÆ·¹¦ÄÜÀàĞÍ¶ÔÓ¦µÄ²ÎÊı
-0£¬ÎŞ¹¦ÄÜ
-1£¬Ê¹ÓÃĞŞ¸ÄÊôĞÔ¡¢»õ±ÒÊıÖµ£¨¼ÓÊôĞÔÉÏÏŞµÄÎïÆ·¡¢½ğ±Ò´ü¡¢¾ü¹¦Ñ«ÕÂ£©
-30£¬ÄÚ¹Ò¿¨
-38, ĞéÄâÎïÆ·
+/*ç‰©å“åŠŸèƒ½ç±»å‹å¯¹åº”çš„å‚æ•°
+0ï¼Œæ— åŠŸèƒ½
+1ï¼Œä½¿ç”¨ä¿®æ”¹å±æ€§ã€è´§å¸æ•°å€¼ï¼ˆåŠ å±æ€§ä¸Šé™çš„ç‰©å“ã€é‡‘å¸è¢‹ã€å†›åŠŸå‹‹ç« ï¼‰
+30ï¼Œå†…æŒ‚å¡
+38, è™šæ‹Ÿç‰©å“
 */
-//ÎïÆ·¹¦ÄÜÀàĞÍ
+//ç‰©å“åŠŸèƒ½ç±»å‹
 enum EItemFuncType
 {
     EItemFuncType_None					= -1,
-    EItemFuncType_NoFunc				= 0,			//0£¬ÎŞ¹¦ÄÜ
-    EItemFuncType_ModifyAttr			= 1,			//1£¬Ê¹ÓÃĞŞ¸ÄÊôĞÔ¡¢»õ±ÒÊıÖµ£¨ÑªÆ¿¡¢¼ÓÊôĞÔÉÏÏŞµÄÎïÆ·¡¢½ğ±Ò´ü¡¢¾ü¹¦Ñ«ÕÂ£©
-    EItemFuncType_AddDupGroupNum		= 2,			//2£¬Ìí¼Ó¸±±¾´ÎÊı
-    EItemFuncType_AddBossNum			= 3,			//2£¬Ìí¼ÓBoss´ÎÊı(boss¸±±¾²»ÒªÌî)
-    EItemFuncType_Stone					= 6,			//6, ±¦Ê¯
-    EItemFuncType_AddAttrForever		= 7,			//7,Ê¹ÓÃÎïÆ·Ôö¼ÓÊôĞÔ
-    EItemFuncType_Box					= 9,			//9£¬°üÎïÆ·£¨¿ÉÒÔ¿ª³öÆäËûÎïÆ·µÄÎïÆ·£©
-    EItemFuncType_SelectBox				= 10,			//10£¬×ÔÑ¡±¦Ïä
-    EItemFuncType_Fashion				= 21,			//21£¬Ê¹ÓÃÊ±×°
-    EItemFuncType_HangCard				= 30,			//30£¬ÄÚ¹Ò¿¨,functionType=30 ÓĞĞ§Ê±¼ä£¨ÌîĞ´Ğ¡Ê±£¬ÓÀ¾ÃÌîĞ´-1£©
-    EItemFuncType_addSkill				= 35,			//35,Ìí¼Ó¼¼ÄÜ
-    EItemFuncType_Virtual				= 38,			//38,ĞéÄâÎïÆ·(×ÊÔ´)
-    EItemFuncType_dynExp				= 39,			//39,¶¯Ì¬¾­ÑéÀà
-    EItemFuncType_AddDyMission          = 52,           //34, Ìí¼ÓÒ»¸ö¶¯Ì¬ÈÎÎñ
-    EItemFuncType_ActiveVip				= 54,			//¼¤»îvip
-    EItemFuncType_AddVipExp				= 55,			//Ìí¼Óvip¾­Ñé¿¨
-    EItemFuncType_AddHuaKun				= 56,           //56,Ê¹ÓÃÎïÆ·£¬»ñµÃöï
-    EItemFuncType_AddRoleExp			= 57,			//57Ìí¼Ó¹Ì¶¨¾­Ñé
-    EItemFuncType_AddRoleRaceExp		= 58,			//58Ìí¼Ó°Ù·Ö±È¾­Ñé
+    EItemFuncType_NoFunc				= 0,			//0ï¼Œæ— åŠŸèƒ½
+    EItemFuncType_ModifyAttr			= 1,			//1ï¼Œä½¿ç”¨ä¿®æ”¹å±æ€§ã€è´§å¸æ•°å€¼ï¼ˆè¡€ç“¶ã€åŠ å±æ€§ä¸Šé™çš„ç‰©å“ã€é‡‘å¸è¢‹ã€å†›åŠŸå‹‹ç« ï¼‰
+    EItemFuncType_AddDupGroupNum		= 2,			//2ï¼Œæ·»åŠ å‰¯æœ¬æ¬¡æ•°
+    EItemFuncType_AddBossNum			= 3,			//2ï¼Œæ·»åŠ Bossæ¬¡æ•°(bosså‰¯æœ¬ä¸è¦å¡«)
+    EItemFuncType_Stone					= 6,			//6, å®çŸ³
+    EItemFuncType_AddAttrForever		= 7,			//7,ä½¿ç”¨ç‰©å“å¢åŠ å±æ€§
+    EItemFuncType_Box					= 9,			//9ï¼ŒåŒ…ç‰©å“ï¼ˆå¯ä»¥å¼€å‡ºå…¶ä»–ç‰©å“çš„ç‰©å“ï¼‰
+    EItemFuncType_SelectBox				= 10,			//10ï¼Œè‡ªé€‰å®ç®±
+    EItemFuncType_Fashion				= 21,			//21ï¼Œä½¿ç”¨æ—¶è£…
+    EItemFuncType_HangCard				= 30,			//30ï¼Œå†…æŒ‚å¡,functionType=30 æœ‰æ•ˆæ—¶é—´ï¼ˆå¡«å†™å°æ—¶ï¼Œæ°¸ä¹…å¡«å†™-1ï¼‰
+    EItemFuncType_addSkill				= 35,			//35,æ·»åŠ æŠ€èƒ½
+    EItemFuncType_Virtual				= 38,			//38,è™šæ‹Ÿç‰©å“(èµ„æº)
+    EItemFuncType_dynExp				= 39,			//39,åŠ¨æ€ç»éªŒç±»
+    EItemFuncType_AddDyMission          = 52,           //34, æ·»åŠ ä¸€ä¸ªåŠ¨æ€ä»»åŠ¡
+    EItemFuncType_ActiveVip				= 54,			//æ¿€æ´»vip
+    EItemFuncType_AddVipExp				= 55,			//æ·»åŠ vipç»éªŒå¡
+    EItemFuncType_AddHuaKun				= 56,           //56,ä½¿ç”¨ç‰©å“ï¼Œè·å¾—é²²
+    EItemFuncType_AddRoleExp			= 57,			//57æ·»åŠ å›ºå®šç»éªŒ
+    EItemFuncType_AddRoleRaceExp		= 58,			//58æ·»åŠ ç™¾åˆ†æ¯”ç»éªŒ
     EItemFuncType_Limit,
 };
 
 
 /*
-ÓĞÌØÊâÊ¹ÓÃÒªÇóµÄÎïÆ·
-ÌØÊâÒªÇóÀàĞÍ£¬ÀàĞÍÖµ
-1£¬Ö¸¶¨³¡¾°
-2£¬Ö¸¶¨ÇøÓò
-3£¬Ö¸¶¨Ä¿±ê
+æœ‰ç‰¹æ®Šä½¿ç”¨è¦æ±‚çš„ç‰©å“
+ç‰¹æ®Šè¦æ±‚ç±»å‹ï¼Œç±»å‹å€¼
+1ï¼ŒæŒ‡å®šåœºæ™¯
+2ï¼ŒæŒ‡å®šåŒºåŸŸ
+3ï¼ŒæŒ‡å®šç›®æ ‡
 */
-//ÎïÆ·ÆäËû²ÎÊıÀàĞÍ
+//ç‰©å“å…¶ä»–å‚æ•°ç±»å‹
 enum class EItemOtherParamType
 {
     EItemOtherParamType_None,
@@ -215,163 +215,163 @@ enum class EItemOtherParamType
 };
 
 
-//ÎïÆ·×÷ÓÃÄ¿±ê 1£¬×ÔÉí½ÇÉ«£»2£¬ÎŞÄ¿±ê£»3£¬ÆäËûÍæ¼Ò½ÇÉ«£»4£¬¹ÖÎï£»5£¬NPC£»6£¬ÈÎÒâÄ¿±ê
+//ç‰©å“ä½œç”¨ç›®æ ‡ 1ï¼Œè‡ªèº«è§’è‰²ï¼›2ï¼Œæ— ç›®æ ‡ï¼›3ï¼Œå…¶ä»–ç©å®¶è§’è‰²ï¼›4ï¼Œæ€ªç‰©ï¼›5ï¼ŒNPCï¼›6ï¼Œä»»æ„ç›®æ ‡
 enum class EItemTarge
 {
-    EItemTarge_SelfPlayer = 1,			//1£¬×ÔÉí½ÇÉ«
-    EItemTarge_NoTarge = 2,				//2£¬ÎŞÄ¿±ê
-    EItemTarge_OtherPlayer = 3,			//3£¬ÆäËûÍæ¼Ò½ÇÉ«
-    EItemTarge_Monster = 4,				//4£¬¹ÖÎï
-    EItemTarge_Npc = 5,					//5£¬NPC
-    EItemTarge_RandTarget = 6,			//6£¬ÈÎÒâÄ¿±ê
+    EItemTarge_SelfPlayer = 1,			//1ï¼Œè‡ªèº«è§’è‰²
+    EItemTarge_NoTarge = 2,				//2ï¼Œæ— ç›®æ ‡
+    EItemTarge_OtherPlayer = 3,			//3ï¼Œå…¶ä»–ç©å®¶è§’è‰²
+    EItemTarge_Monster = 4,				//4ï¼Œæ€ªç‰©
+    EItemTarge_Npc = 5,					//5ï¼ŒNPC
+    EItemTarge_RandTarget = 6,			//6ï¼Œä»»æ„ç›®æ ‡
 };
 
 
-//×÷ÓÃÄ¿±êºÍ×ÔÉí¹ØÏµ 1£¬²»ÏŞ£»2£¬µĞ¶Ô£»3£¬ÓÑºÃ
+//ä½œç”¨ç›®æ ‡å’Œè‡ªèº«å…³ç³» 1ï¼Œä¸é™ï¼›2ï¼Œæ•Œå¯¹ï¼›3ï¼Œå‹å¥½
 enum class EItemRelation
 {
-    EItemRelation_NoLimit = 1,		//1£¬²»ÏŞ
-    EItemRelation_Enemy = 2,		//2£¬µĞ¶Ô
-    EItemRelation_Friend = 3,		//3£¬ÓÑºÃ
+    EItemRelation_NoLimit = 1,		//1ï¼Œä¸é™
+    EItemRelation_Enemy = 2,		//2ï¼Œæ•Œå¯¹
+    EItemRelation_Friend = 3,		//3ï¼Œå‹å¥½
 };
 
 
 enum EEquipType
 {
-    EEquipType_none = 0,		//ÎŞ
-    EEquipType_nomal = 1,		//ÆÕÍ¨×°±¸
-    EEquipType_xq = 2,			//ÏÉÆ÷
-    EEquipType_deity = 3,       //ÌìÉñ
+    EEquipType_none = 0,		//æ— 
+    EEquipType_nomal = 1,		//æ™®é€šè£…å¤‡
+    EEquipType_xq = 2,			//ä»™å™¨
+    EEquipType_deity = 3,       //å¤©ç¥
     EEquipType_max = 4,
 };
 
 enum EEquipTotalType
 {
-    EEquipTotalType_normal_strong = 1,	//ÆÕÍ¨×°±¸Ç¿»¯×ÜµÈ¼¶
-    EEquipTotalType_xq_strong = 2,		//ÏÉÆø×°±¸Ç¿»¯×ÜµÈ¼¶
-    EEquipTotalType_stone = 3,			//±¦Ê¯ÏâÇ¶×ÜµÈ¼¶
-    EEquipTotalType_star = 4,			//×°±¸×ÜĞÇ¼¶
+    EEquipTotalType_normal_strong = 1,	//æ™®é€šè£…å¤‡å¼ºåŒ–æ€»ç­‰çº§
+    EEquipTotalType_xq_strong = 2,		//ä»™æ°”è£…å¤‡å¼ºåŒ–æ€»ç­‰çº§
+    EEquipTotalType_stone = 3,			//å®çŸ³é•¶åµŒæ€»ç­‰çº§
+    EEquipTotalType_star = 4,			//è£…å¤‡æ€»æ˜Ÿçº§
 };
 
 /*
-	¾³½ç²ÄÁÏ£¨subType=1£©
-	×ªÖ°²ÄÁÏ£¨subType=2£©
-	ÔİÊ±Î´·ÖÅäÀàĞÍ£¨subType=3£©
-	±¦Ê¯¾«Á¶Àà£¨subType=4£©
-	ÄĞÌ××°Ê¯Àà£¨subType=5£©
-	Å®Ì××°Ê¯Àà£¨subType=6£©
-	¸ß¼¶Ì××°Ê¯£¨subType=7£©
-	ÏÉÆ÷Ì××°Ê¯£¨subType=8£©
-	Ï´Á¶Àà£¨subType=9£©
-	¾õĞÑÀà£¨subType=10£©
-	¸½Ä§Àà£¨subType=11£©
-	»ï°é½ø½×Àà£¨subType=12£©
-	»ï°éÁéµ¤Àà£¨subType=13£©
-	·¨±¦½ø½×Àà£¨subType=14£©
-	»ï°é·¨ÁéÀà£¨subType=15£©
-	ÉñÆ÷½ø½×Àà£¨subType=16£©
-	ÉñÆ÷Æ÷ÁéÀà£¨subType=17£©
-	³á°ò½ø½×Àà£¨subType=18£©
-	³á°òÓğÁéÀà£¨subType=19£©
-	½äÖ¸Ñø³É²ÄÁÏ£¨subType=20£©
-	±¦±¦Ñø³É²ÄÁÏ£¨subType=21£©
-	Ê±×°ÎäÆ÷£¬·ÖÖ°Òµ£¨subType=22£©
-	Ê±×°ÒÂ·ş£¬·ÖÄĞÅ®£¨subType=23£©
-	Éñ±ø£¬·ÖÖ°Òµ£¨subType=24£©
-	»ï°é»Ã»¯ÍâĞÎ£¨subType=25£©
-	×øÆïÍâĞÎ£¨subType=26£©
-	·¨±¦»Ã»¯ÍâĞÎ£¨subType=27£©
-	³á°òÍâĞÎ£¨subType=28£©
-	±¦±¦»Ã»¯ÍâĞÎ£¨subType=29£©
-	ÏÉÕóÀ©Õ¹¿¨£¨subType=30£©
-	Ğ¡òùòğ¡¢Ğ¡·ïÏÉ£¨subType=31£©
-	¾­Ñé¿¨£¨subType=32£©
-	É¨µ´È¯£¨subType=33£©
-	¾­Ñéµ¤£¨subType=34£©
-	¾­Ñé¼Ó³ÉµÀ¾ß£¨subType=35£©
-	»î¶¯¶Ò»»µÀ¾ß£¨subType=36£©
-	BossÍ¼¼ø£¨subType=37£©
-	ÏÉÕóÍ¼¼ø£¨subType=38£©
-	¹¥»÷±¦Ê¯ÀàĞÍ£¨subType=39£©
-	ÉúÃü±¦Ê¯ÀàĞÍ£¨subType=40£©
-	ÊıÖµÀà£¨subType=99£©
+	å¢ƒç•Œææ–™ï¼ˆsubType=1ï¼‰
+	è½¬èŒææ–™ï¼ˆsubType=2ï¼‰
+	æš‚æ—¶æœªåˆ†é…ç±»å‹ï¼ˆsubType=3ï¼‰
+	å®çŸ³ç²¾ç‚¼ç±»ï¼ˆsubType=4ï¼‰
+	ç”·å¥—è£…çŸ³ç±»ï¼ˆsubType=5ï¼‰
+	å¥³å¥—è£…çŸ³ç±»ï¼ˆsubType=6ï¼‰
+	é«˜çº§å¥—è£…çŸ³ï¼ˆsubType=7ï¼‰
+	ä»™å™¨å¥—è£…çŸ³ï¼ˆsubType=8ï¼‰
+	æ´—ç‚¼ç±»ï¼ˆsubType=9ï¼‰
+	è§‰é†’ç±»ï¼ˆsubType=10ï¼‰
+	é™„é­”ç±»ï¼ˆsubType=11ï¼‰
+	ä¼™ä¼´è¿›é˜¶ç±»ï¼ˆsubType=12ï¼‰
+	ä¼™ä¼´çµä¸¹ç±»ï¼ˆsubType=13ï¼‰
+	æ³•å®è¿›é˜¶ç±»ï¼ˆsubType=14ï¼‰
+	ä¼™ä¼´æ³•çµç±»ï¼ˆsubType=15ï¼‰
+	ç¥å™¨è¿›é˜¶ç±»ï¼ˆsubType=16ï¼‰
+	ç¥å™¨å™¨çµç±»ï¼ˆsubType=17ï¼‰
+	ç¿…è†€è¿›é˜¶ç±»ï¼ˆsubType=18ï¼‰
+	ç¿…è†€ç¾½çµç±»ï¼ˆsubType=19ï¼‰
+	æˆ’æŒ‡å…»æˆææ–™ï¼ˆsubType=20ï¼‰
+	å®å®å…»æˆææ–™ï¼ˆsubType=21ï¼‰
+	æ—¶è£…æ­¦å™¨ï¼Œåˆ†èŒä¸šï¼ˆsubType=22ï¼‰
+	æ—¶è£…è¡£æœï¼Œåˆ†ç”·å¥³ï¼ˆsubType=23ï¼‰
+	ç¥å…µï¼Œåˆ†èŒä¸šï¼ˆsubType=24ï¼‰
+	ä¼™ä¼´å¹»åŒ–å¤–å½¢ï¼ˆsubType=25ï¼‰
+	åéª‘å¤–å½¢ï¼ˆsubType=26ï¼‰
+	æ³•å®å¹»åŒ–å¤–å½¢ï¼ˆsubType=27ï¼‰
+	ç¿…è†€å¤–å½¢ï¼ˆsubType=28ï¼‰
+	å®å®å¹»åŒ–å¤–å½¢ï¼ˆsubType=29ï¼‰
+	ä»™é˜µæ‰©å±•å¡ï¼ˆsubType=30ï¼‰
+	å°è™è ã€å°å‡¤ä»™ï¼ˆsubType=31ï¼‰
+	ç»éªŒå¡ï¼ˆsubType=32ï¼‰
+	æ‰«è¡åˆ¸ï¼ˆsubType=33ï¼‰
+	ç»éªŒä¸¹ï¼ˆsubType=34ï¼‰
+	ç»éªŒåŠ æˆé“å…·ï¼ˆsubType=35ï¼‰
+	æ´»åŠ¨å…‘æ¢é“å…·ï¼ˆsubType=36ï¼‰
+	Bosså›¾é‰´ï¼ˆsubType=37ï¼‰
+	ä»™é˜µå›¾é‰´ï¼ˆsubType=38ï¼‰
+	æ”»å‡»å®çŸ³ç±»å‹ï¼ˆsubType=39ï¼‰
+	ç”Ÿå‘½å®çŸ³ç±»å‹ï¼ˆsubType=40ï¼‰
+	æ•°å€¼ç±»ï¼ˆsubType=99ï¼‰
 */
-//ÎïÆ·×ÓÀàĞÍ
+//ç‰©å“å­ç±»å‹
 enum class EItemSubType
 {
     EItemSubType_none,
-    EItemSubType_RealmMaterial		= 1,	//¾³½ç²ÄÁÏ
-    EItemSubType_TransferMaterial	= 2,	//×ªÖ°²ÄÁÏ
-    EItemSubType_StoneRefine		= 4,	//±¦Ê¯¾«Á¶Àà
-    EItemSubType_ManSuitStone		= 5,	//ÄĞÌ××°Ê¯
-    EItemSubType_FemaleSuitStone	= 6,	//Å®Ì××°Ê¯
-    EItemSubType_AdvSuitStone		= 7,	//¸ß¼¶Ì××°Ê¯
-    EItemSubType_FaiSuitStone		= 8,	//ÏÉÆ÷Ì××°Ê¯
-    EItemSubType_Wash				= 9,	//Ï´Á·Àà
-    EItemSubType_Wake				= 10,	//¾õĞÑÀà
-    EItemSubType_Enchant			= 11,	//¸½Ä§Àà
-    EItemSubType_PartnerAdv			= 12,	//»ï°é½ø½×
-    EItemSubType_PartnerPil			= 13,	//»ï°éÁéµ¤
-    EItemSubType_MagWeaponAdv		= 14,	//·¨±¦½ø½×Àà
-    EItemSubType_PartnerSpirit		= 15,	//»ï°é·¨Áé
-    EItemSubType_ArtifactAdv		= 16,	//ÉñÆ÷½ø½×
-    EItemSubType_ArtifactSpirit		= 17,	//ÉñÆ÷Æ÷Áé
-    EItemSubType_WingAdv			= 18,	//³á°ò½ø½×Àà
-    EItemSubType_WingSpirit			= 19,	//³á°òÓğÁéÀà
-    EItemSubType_RingMaterial		= 20,	//½äÖ¸Ñø³É²ÄÁÏ
-    EItemSubType_BabyMaterial		= 21,	//±¦±¦Ñø³É²ÄÁÏ
+    EItemSubType_RealmMaterial		= 1,	//å¢ƒç•Œææ–™
+    EItemSubType_TransferMaterial	= 2,	//è½¬èŒææ–™
+    EItemSubType_StoneRefine		= 4,	//å®çŸ³ç²¾ç‚¼ç±»
+    EItemSubType_ManSuitStone		= 5,	//ç”·å¥—è£…çŸ³
+    EItemSubType_FemaleSuitStone	= 6,	//å¥³å¥—è£…çŸ³
+    EItemSubType_AdvSuitStone		= 7,	//é«˜çº§å¥—è£…çŸ³
+    EItemSubType_FaiSuitStone		= 8,	//ä»™å™¨å¥—è£…çŸ³
+    EItemSubType_Wash				= 9,	//æ´—ç»ƒç±»
+    EItemSubType_Wake				= 10,	//è§‰é†’ç±»
+    EItemSubType_Enchant			= 11,	//é™„é­”ç±»
+    EItemSubType_PartnerAdv			= 12,	//ä¼™ä¼´è¿›é˜¶
+    EItemSubType_PartnerPil			= 13,	//ä¼™ä¼´çµä¸¹
+    EItemSubType_MagWeaponAdv		= 14,	//æ³•å®è¿›é˜¶ç±»
+    EItemSubType_PartnerSpirit		= 15,	//ä¼™ä¼´æ³•çµ
+    EItemSubType_ArtifactAdv		= 16,	//ç¥å™¨è¿›é˜¶
+    EItemSubType_ArtifactSpirit		= 17,	//ç¥å™¨å™¨çµ
+    EItemSubType_WingAdv			= 18,	//ç¿…è†€è¿›é˜¶ç±»
+    EItemSubType_WingSpirit			= 19,	//ç¿…è†€ç¾½çµç±»
+    EItemSubType_RingMaterial		= 20,	//æˆ’æŒ‡å…»æˆææ–™
+    EItemSubType_BabyMaterial		= 21,	//å®å®å…»æˆææ–™
     
-    EItemSubType_FashWeaponProf		= 22,	//Ê±×°ÎäÆ÷£¬·ÖÖ°Òµ
-    EItemSubType_FashWeaponSex		= 23,	//Ê±×°ÎäÆ÷£¬·ÖĞÔ±ğ
-    EItemSubType_MagArms			= 24,	//Éñ±ø£¬·ÖÖ°Òµ
-    EItemSubType_PartnerFatastic	= 25,	//»ï°é»Ã»¯
+    EItemSubType_FashWeaponProf		= 22,	//æ—¶è£…æ­¦å™¨ï¼Œåˆ†èŒä¸š
+    EItemSubType_FashWeaponSex		= 23,	//æ—¶è£…æ­¦å™¨ï¼Œåˆ†æ€§åˆ«
+    EItemSubType_MagArms			= 24,	//ç¥å…µï¼Œåˆ†èŒä¸š
+    EItemSubType_PartnerFatastic	= 25,	//ä¼™ä¼´å¹»åŒ–
     
-    EItemSubType_HorseFace			= 26,	//×øÆïÍâĞÎ
-    EItemSubType_MagWeaponFace		= 27,	//·¨±¦»Ã»¯ÍâĞÎ
-    EItemSubType_WingFace			= 28,	//³á°òÍâĞÎ
-    EItemSubType_BabyFace			= 29,	//±¦±¦»Ã»¯ÍâĞÎ
+    EItemSubType_HorseFace			= 26,	//åéª‘å¤–å½¢
+    EItemSubType_MagWeaponFace		= 27,	//æ³•å®å¹»åŒ–å¤–å½¢
+    EItemSubType_WingFace			= 28,	//ç¿…è†€å¤–å½¢
+    EItemSubType_BabyFace			= 29,	//å®å®å¹»åŒ–å¤–å½¢
     
-    EItemSubType_FaiExpandCard		= 30,	//ÏÉÕóÀ©Õ¹¿¨
+    EItemSubType_FaiExpandCard		= 30,	//ä»™é˜µæ‰©å±•å¡
     
-    EItemSubType_SmallBat			= 31,	//Ğ¡òùòğ
-    EItemSubType_ExpCard			= 32,	//¾­Ñé¿¨
-    EItemSubType_SweepTicket		= 33,	//É¨µ´È¯
-    EItemSubType_ExpPil				= 34,	//¾­Ñéµ¤
-    EItemSubType_AddExpItem			= 35,	//¾­Ñé¼Ó³ÉµÀ¾ß
-    EItemSubType_ActExchange		= 36,	//»î¶¯¶Ò»»µÀ¾ß
-    EItemSubType_BossBook			= 37,	//BOSSÍ¼¼ø
-    EItemSubType_FaiBook			= 38,	//ÏÉÕóÍ¼¼ø
-    EItemSubType_AtkStone			= 39,	//¹¥»÷±¦Ê¯
-    EItemSubType_HpStone			= 40,	//ÉúÃü±¦Ê¯
-    EItemSubType_Blue_FieldCylstal  = 53,	//ÁìÓòÀ¶Ë®¾§
-    EItemSubType_Green_FieldCylstal  = 54,	//ÁìÓòÂÌË®¾§
+    EItemSubType_SmallBat			= 31,	//å°è™è 
+    EItemSubType_ExpCard			= 32,	//ç»éªŒå¡
+    EItemSubType_SweepTicket		= 33,	//æ‰«è¡åˆ¸
+    EItemSubType_ExpPil				= 34,	//ç»éªŒä¸¹
+    EItemSubType_AddExpItem			= 35,	//ç»éªŒåŠ æˆé“å…·
+    EItemSubType_ActExchange		= 36,	//æ´»åŠ¨å…‘æ¢é“å…·
+    EItemSubType_BossBook			= 37,	//BOSSå›¾é‰´
+    EItemSubType_FaiBook			= 38,	//ä»™é˜µå›¾é‰´
+    EItemSubType_AtkStone			= 39,	//æ”»å‡»å®çŸ³
+    EItemSubType_HpStone			= 40,	//ç”Ÿå‘½å®çŸ³
+    EItemSubType_Blue_FieldCylstal  = 53,	//é¢†åŸŸè“æ°´æ™¶
+    EItemSubType_Green_FieldCylstal  = 54,	//é¢†åŸŸç»¿æ°´æ™¶
     
     EItemSubType_limit,
 };
 
-//ºÏ³ÉÖĞ»õ±ÒÀàĞÍ
+//åˆæˆä¸­è´§å¸ç±»å‹
 enum EComposeCurrency
 {
-    EComposeCurrency_gold = 1,			//½ğ±Ò
-    EComposeCurrency_small_spirit = 2,	//Ğ¡ÁéÆÇ»õ±Ò
-    EComposeCurrency_big_spirit = 3,	//´óÁéÆÇ»õ±Ò
-    EComposeCurrency_star = 4,			//ÃüĞÇ»õ±Ò
-    EComposeCurrency_binddia = 5,		//°ó×ê
-    EComposeCurrency_dia = 6,			//×êÊ¯
-    EComposeCurrency_holydia = 11,		//Éñ×ê»õ±Ò
+    EComposeCurrency_gold = 1,			//é‡‘å¸
+    EComposeCurrency_small_spirit = 2,	//å°çµé­„è´§å¸
+    EComposeCurrency_big_spirit = 3,	//å¤§çµé­„è´§å¸
+    EComposeCurrency_star = 4,			//å‘½æ˜Ÿè´§å¸
+    EComposeCurrency_binddia = 5,		//ç»‘é’»
+    EComposeCurrency_dia = 6,			//é’»çŸ³
+    EComposeCurrency_holydia = 11,		//ç¥é’»è´§å¸
 };
 
 
 struct SItem
 {
     uint64_t nItemID;
-    int64_t nNum;			//ÎïÆ·ÊıÁ¿£¬ÕâÀïÓÃ int64_t ÀàĞÍÖ÷ÒªÎªÁË¼æÈİ ĞéÄâÎïÆ·µÄÊıÁ¿(½ğ±Ò£¬×êÊ¯µÈ)
+    int64_t nNum;			//ç‰©å“æ•°é‡ï¼Œè¿™é‡Œç”¨ int64_t ç±»å‹ä¸»è¦ä¸ºäº†å…¼å®¹ è™šæ‹Ÿç‰©å“çš„æ•°é‡(é‡‘å¸ï¼Œé’»çŸ³ç­‰)
     int8_t byBind;
     SItem() :nItemID(0), nNum(0), byBind((int8_t)EBindState::EBindState_no){}
     SItem(uint64_t itemId, int64_t num, int8_t bind = (int8_t)EBindState::EBindState_no) :nItemID(itemId), nNum(num), byBind(bind) {}
 };
 
-//ÎïÆ·ÁĞ±í
+//ç‰©å“åˆ—è¡¨
 using LIST_ITEM = list<SItem>;
 //itemid - SItem
 using MAP_UINT64_ITEM = unordered_map<uint64_t, SItem>;
@@ -381,29 +381,29 @@ using MAP_UINT32_MAP_UINT64_ITEM = unordered_map<uint32_t, MAP_UINT64_ITEM > ;
 enum EItemOpetateType
 {
     EItemOpetateType_None = 1,
-    EItemOpetateType_Add,			//Ôö¼Ó
-    EItemOpetateType_Del,			//¼õÉÙ
-    EItemOpetateType_Use,			//Ê¹ÓÃ
+    EItemOpetateType_Add,			//å¢åŠ 
+    EItemOpetateType_Del,			//å‡å°‘
+    EItemOpetateType_Use,			//ä½¿ç”¨
 };
 
-//ÎïÆ·³õÊ¼»¯ÊôĞÔÀàĞÍ
+//ç‰©å“åˆå§‹åŒ–å±æ€§ç±»å‹
 enum class EInitAttrType
 {
     None = 0,
-    Common = 1, //Í¨ÓÃµÄÊôĞÔ³õÊ¼»¯
+    Common = 1, //é€šç”¨çš„å±æ€§åˆå§‹åŒ–
     Limit,
 };
 
-//Éú³ÉÎïÆ·Ìõ¼ş
+//ç”Ÿæˆç‰©å“æ¡ä»¶
 struct SItemCond
 {
-    EInitAttrType inittype = EInitAttrType::Common;			//ÎïÆ·³õÊ¼»¯ÊôĞÔÀàĞÍ
-    int32_t level = 1;										//µÈ¼¶(Íæ¼ÒµÈ¼¶)
-    int32_t prof = 0;										//Ö°Òµ
+    EInitAttrType inittype = EInitAttrType::Common;			//ç‰©å“åˆå§‹åŒ–å±æ€§ç±»å‹
+    int32_t level = 1;										//ç­‰çº§(ç©å®¶ç­‰çº§)
+    int32_t prof = 0;										//èŒä¸š
     //
-    string makeName;										//´òÔìÕßÃû×Ö(ÉñÄ§×°±¸³õÊ¼»¯)
-    uint64_t makeTime = 0;									//´òÔìÊ±¼ä(ÉñÄ§×°±¸³õÊ¼»¯)
+    string makeName;										//æ‰“é€ è€…åå­—(ç¥é­”è£…å¤‡åˆå§‹åŒ–)
+    uint64_t makeTime = 0;									//æ‰“é€ æ—¶é—´(ç¥é­”è£…å¤‡åˆå§‹åŒ–)
     
-    //ÓĞÆäËûÌõ¼ş¿ÉÒÔÍùºóÃæÔö¼Ó
+    //æœ‰å…¶ä»–æ¡ä»¶å¯ä»¥å¾€åé¢å¢åŠ 
 };
 
