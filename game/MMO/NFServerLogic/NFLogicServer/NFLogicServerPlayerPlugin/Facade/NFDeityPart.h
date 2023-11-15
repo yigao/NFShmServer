@@ -267,7 +267,7 @@ public:
         return true;
     }
     
-    void calcDressAttr(NFPlayer *pMaster, MAP_INT32_INT64 &outAttr)                        //¼ÆËãÉíÉÏ´©´÷µÄÊôĞÔ
+    void calcDressAttr(NFPlayer *pMaster, MAP_INT32_INT64 &outAttr)                        //è®¡ç®—èº«ä¸Šç©¿æˆ´çš„å±æ€§
     {
         int32_t lv = pMaster->GetAttr(proto_ff::A_LEVEL);
         MAP_INT32_INT32 partAttr;
@@ -284,7 +284,7 @@ public:
         }
     }
     
-    void calcStrongAttr(MAP_INT32_INT64 &outAttr)                        //¼ÆËãÇ¿»¯ÊôĞÔ¼Ó³É
+    void calcStrongAttr(MAP_INT32_INT64 &outAttr)                        //è®¡ç®—å¼ºåŒ–å±æ€§åŠ æˆ
     {
         for (int i = 0; i < (int) m_equips.m_equips.size(); i++)
         {
@@ -307,7 +307,7 @@ public:
         }
     }
     
-    void calcSuitAttr(MAP_INT32_INT64 &outAttr)                        //¼ÆËãÇ¿»¯ÊôĞÔ¼Ó³É
+    void calcSuitAttr(MAP_INT32_INT64 &outAttr)                        //è®¡ç®—å¼ºåŒ–å±æ€§åŠ æˆ
     {
         for (auto iter = m_equipSuit.begin(); iter != m_equipSuit.end(); iter++)
         {
@@ -361,22 +361,22 @@ public:
         double nFightTotal = 0;
         MAP_INT32_INT64 allAttr;
         
-        //¼ÆËãÉíÉÏµÄ×°±¸ÊôĞÔ
+        //è®¡ç®—èº«ä¸Šçš„è£…å¤‡å±æ€§
         MAP_INT32_INT64 advnceAttr;
         calcAdvanceAttr(advnceAttr);
         MergeAttr(advnceAttr, allAttr);
         
-        //¼ÆËãÉíÉÏµÄ×°±¸ÊôĞÔ
+        //è®¡ç®—èº«ä¸Šçš„è£…å¤‡å±æ€§
         MAP_INT32_INT64 dressAttr;
         calcDressAttr(pMaster, dressAttr);
         MergeAttr(dressAttr, allAttr);
         
-        //¼ÆËãÇ¿»¯¼Ó³É
+        //è®¡ç®—å¼ºåŒ–åŠ æˆ
         MAP_INT32_INT64 strongAttr;
         calcStrongAttr(strongAttr);
         MergeAttr(strongAttr, allAttr);
         
-        //¼ÆËãsuit¼Ó³É
+        //è®¡ç®—suitåŠ æˆ
         MAP_INT32_INT64 suitAttr;
         calcSuitAttr(suitAttr);
         MergeAttr(suitAttr, allAttr);
@@ -405,9 +405,9 @@ public:
     uint32_t m_level;
     uint64_t m_exp;
     uint32_t m_star;
-    NFShmHashMap<uint64_t, uint32_t, FANTASY_DEITY_MAX_SKILL_NUM> m_mapSkill;        //¼¼ÄÜÊı¾İ
+    NFShmHashMap<uint64_t, uint32_t, FANTASY_DEITY_MAX_SKILL_NUM> m_mapSkill;        //æŠ€èƒ½æ•°æ®
 public:
-    NFDressEquipInfo<NFDeityEquip, NFDeityEquipSlot, proto_ff::EDeityEquipPos_limit, proto_ff::EDeityEquipPos_start> m_equips;                                    //ÒÑ´©´÷µÄ×°±¸
+    NFDressEquipInfo<NFDeityEquip, NFDeityEquipSlot, proto_ff::EDeityEquipPos_limit, proto_ff::EDeityEquipPos_start> m_equips;                                    //å·²ç©¿æˆ´çš„è£…å¤‡
     NFShmHashMap<uint64_t, uint32_t, MAX_AVATAR_EQUIPSUIT_NUM> m_equipSuit;
 };
 
@@ -423,9 +423,9 @@ public:
     int ResumeInit();
 public:
 public:
-    //******************partµ÷ÓÃ½Ó¿Ú******************
+    //******************partè°ƒç”¨æ¥å£******************
     /**
-     * @brief ³õÊ¼»¯part
+     * @brief åˆå§‹åŒ–part
      * @param pMaster
      * @param partType
      * @param dbData
@@ -435,7 +435,7 @@ public:
     virtual int Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::RoleDBData &dbData);
     
     /**
-     * @brief ÊÍ·Åpart×ÊÔ´
+     * @brief é‡Šæ”¾partèµ„æº
      * @return
      */
     virtual int UnInit();
@@ -443,27 +443,27 @@ public:
     virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage);
 public:
     /**
-     * @brief ´ÓÊı¾İ¿âÖĞ¼ÓÔØÊı¾İ
+     * @brief ä»æ•°æ®åº“ä¸­åŠ è½½æ•°æ®
      * @param data
      * @return
      */
     virtual int LoadFromDB(const proto_ff::RoleDBData &data);
     
     /**
-     * @brief ´ÓÅäÖÃÖĞ³õÊ¼»¯Êı¾İ
+     * @brief ä»é…ç½®ä¸­åˆå§‹åŒ–æ•°æ®
      * @return
      */
     virtual int InitConfig(const proto_ff::RoleDBData &data);
     
     /**
-     * @brief ´æ´¢DB²¿¼şÈë¿Ú
+     * @brief å­˜å‚¨DBéƒ¨ä»¶å…¥å£
      * @param proto
      * @return
      */
     virtual int SaveDB(proto_ff::RoleDBData &dbData);
     
     /**
-     * @brief µÇÂ½Èë¿Ú
+     * @brief ç™»é™†å…¥å£
      * @return
      */
     virtual int OnLogin() { return 0; }
@@ -471,44 +471,44 @@ public:
     virtual int OnLogin(proto_ff::PlayerInfoRsp &playerInfo) { return 0; }
     
     /**
-     * @brief µÇ³öÈë¿Ú
+     * @brief ç™»å‡ºå…¥å£
      * @return
      */
     virtual int OnLogout() { return 0; }
     
     /**
-     * @brief µôÏßÈë¿Ú
+     * @brief æ‰çº¿å…¥å£
      * @return
      */
     virtual int OnDisconnect() { return 0; }
     
     /**
-     * @brief ÖØÁ¬Èë¿Ú
+     * @brief é‡è¿å…¥å£
      * @return
      */
     virtual int OnReconnect() { return 0; }
     
-    ////////////////////////////////// Ã¿ÈÕÁãµã Ã¿ÖÜÒ»Áãµã Ë¢ĞÂ½Ó¿Ú ///////////////////////////////////
+    ////////////////////////////////// æ¯æ—¥é›¶ç‚¹ æ¯å‘¨ä¸€é›¶ç‚¹ åˆ·æ–°æ¥å£ ///////////////////////////////////
     /**
-     * @brief Ã¿ÈÕÁãµã Ë¢ĞÂ½Ó¿Ú
+     * @brief æ¯æ—¥é›¶ç‚¹ åˆ·æ–°æ¥å£
      * @return
      */
     virtual int DailyZeroUpdate();
     
     /**
-     * @brief Ã¿ÈÕÁãµã Ë¢ĞÂ½Ó¿Ú
+     * @brief æ¯æ—¥é›¶ç‚¹ åˆ·æ–°æ¥å£
      * @return
      */
     virtual int WeekZeroUpdate() { return 0; }
     
     /**
-     * @brief Ã¿ÔÂË¢ĞÂ½Ó¿Ú
+     * @brief æ¯æœˆåˆ·æ–°æ¥å£
      * @return
      */
     virtual int MonthZeroUpdate() { return 0; };
     
     /**
-     * ÉèÖÃÍâ¹ÛĞÅÏ¢
+     * è®¾ç½®å¤–è§‚ä¿¡æ¯
      * @param outproto
      */
     virtual int FillFacadeProto(proto_ff::RoleFacadeProto &outproto);
@@ -520,13 +520,13 @@ public:
 
 public:
     /**
-     * @brief ×¢²áÒª´¦ÀíµÄÏûÏ¢
+     * @brief æ³¨å†Œè¦å¤„ç†çš„æ¶ˆæ¯
      * @return
      */
     virtual int RegisterMessage();
 public:
     /**
-     * @brief ´¦Àí¿Í»§¶ËÏûÏ¢
+     * @brief å¤„ç†å®¢æˆ·ç«¯æ¶ˆæ¯
      * @param unLinkId
      * @param packet
      * @return
@@ -534,7 +534,7 @@ public:
     virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief ´¦ÀíÀ´×Ô·şÎñÆ÷µÄĞÅÏ¢
+     * @brief å¤„ç†æ¥è‡ªæœåŠ¡å™¨çš„ä¿¡æ¯
      * @param unLinkId
      * @param packet
      * @return
@@ -563,8 +563,8 @@ public:
     void calcDeityAttr(MAP_INT32_INT64& outAttr);
     void MergeAttr(const MAP_INT32_INT64& src, MAP_INT32_INT64& dst);
     void PrintAttr(const MAP_INT32_INT64& attr);
-    void calcFantasyAttr(MAP_INT32_INT64& outAttr);						//¼ÆËãÉíÉÏ´©´÷µÄÊôĞÔ
-    bool IsSpecAttr(int32_t spec_attrid);          //ÊÇ·ñÊÇÌØÊâÊôĞÔID
+    void calcFantasyAttr(MAP_INT32_INT64& outAttr);						//è®¡ç®—èº«ä¸Šç©¿æˆ´çš„å±æ€§
+    bool IsSpecAttr(int32_t spec_attrid);          //æ˜¯å¦æ˜¯ç‰¹æ®Šå±æ€§ID
     int32_t GetComAttrBySpec(int32_t spec_attrid);
 public:
     int32_t CalNeedItemNum(int32_t type, uint32_t lev, int32_t addExp);
@@ -572,21 +572,21 @@ public:
     int64_t GetCurEnterWarDeity();
 public:
     /**
-     * ÌìÉñĞÅÏ¢
+     * å¤©ç¥ä¿¡æ¯
      * @param data
      * @param len
      */
     int OnHandleDeityInfoReq(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * ÌìÉñÉı¼¶ÇëÇó
+     * å¤©ç¥å‡çº§è¯·æ±‚
      * @param data
      * @param len
      */
     int OnHandleDeityLevelUpReq(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * ÌìÉñ³öÕ½
+     * å¤©ç¥å‡ºæˆ˜
      * @param data
      * @param len
      */
@@ -594,28 +594,28 @@ public:
     int DeityFantasyBattle(uint32_t fantasyId, uint32_t battleSlot);
     
     /**
-     * ÌìÉñÍËÕ½
+     * å¤©ç¥é€€æˆ˜
      * @param data
      * @param len
      */
     int OnHandleDeityFantasyQuitBattleReq(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * ÌìÉñÉñÁ¦Ê¹ÓÃ
+     * å¤©ç¥ç¥åŠ›ä½¿ç”¨
      * @param data
      * @param len
      */
     int OnHandleDeityFragmentUseReq(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * ÌìÉñ»Ã»¯ĞÅÏ¢
+     * å¤©ç¥å¹»åŒ–ä¿¡æ¯
      * @param data
      * @param len
      */
     int OnHandleDeityFantasyInfoReq(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * ÌìÉñ»Ã»¯¼¤»î
+     * å¤©ç¥å¹»åŒ–æ¿€æ´»
      * @param data
      * @param len
      */
@@ -623,94 +623,94 @@ public:
     int ActiveDeityFantasy(uint32_t fantasyId);
     
     /**
-     * ÌìÉñ»Ã»¯Éı¼¶
+     * å¤©ç¥å¹»åŒ–å‡çº§
      * @param data
      * @param len
      */
     int OnHandleDeityFantasyLevelUpReq(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * ÌìÉñ»Ã»¯ÉıĞÇ
+     * å¤©ç¥å¹»åŒ–å‡æ˜Ÿ
      * @param data
      * @param len
      */
     int OnHandleDeityFantasyStarupReq(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * ¿Í»§¶ËÖ÷¶¯½âËøÌìÉñÕ½¶·²ÛÎ»
+     * å®¢æˆ·ç«¯ä¸»åŠ¨è§£é”å¤©ç¥æˆ˜æ–—æ§½ä½
      * @param data
      * @param len
      */
     int OnHandleDeityUnlockBattleSlotReq(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * ÌìÉñ²ÎÕ½
+     * å¤©ç¥å‚æˆ˜
      * @param data
      * @param len
      */
     int OnHandleDeityFantasyEnterWarReq(uint32_t msgId, NFDataPackage &packet);
     
-    //ÌìÉñ³öÕ½³É¹¦
+    //å¤©ç¥å‡ºæˆ˜æˆåŠŸ
     int OnDeityWarSuccess(int64_t deityId);
     
     /**
-     * ÌìÉñ»Ã»¯ĞÅÏ¢
+     * å¤©ç¥å¹»åŒ–ä¿¡æ¯
      * @param data
      * @param len
      */
     int OnHandleDeityShowFantasyListReq(uint32_t msgId, NFDataPackage &packet);
 public:
     /**
-     * ÌìÉñ×°±¸´©´÷ÇëÇó
+     * å¤©ç¥è£…å¤‡ç©¿æˆ´è¯·æ±‚
      * @param data
      * @param len
      */
     int OnHandleDeityEquipDressReq(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * ÌìÉñ×°±¸Ğ¶ÏÂÇëÇó
+     * å¤©ç¥è£…å¤‡å¸ä¸‹è¯·æ±‚
      * @param data
      * @param len
      */
     int OnHandleDeityEquipUndressReq(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * ÌìÉñ×°±¸Ç¿»¯
+     * å¤©ç¥è£…å¤‡å¼ºåŒ–
      * @param data
      * @param len
      */
     int OnHandleDeityEquipStrongReq(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * ÌìÉñ×°±¸Ç¿»¯½ø½×
+     * å¤©ç¥è£…å¤‡å¼ºåŒ–è¿›é˜¶
      * @param data
      * @param len
      */
     int OnHandleDeityEquipStrongLvReq(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * ÌìÉñ×°±¸Ì××°¼¤»î
+     * å¤©ç¥è£…å¤‡å¥—è£…æ¿€æ´»
      * @param data
      * @param len
      */
     int OnHandleDeityEquipSuitActive(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * ÌìÉñ×°±¸·Ö½â
+     * å¤©ç¥è£…å¤‡åˆ†è§£
      * @param data
      * @param len
      */
     int OnHandleDeityEquipDecomposeReq(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * ÌìÉñ×°±¸²ğ½â
+     * å¤©ç¥è£…å¤‡æ‹†è§£
      * @param data
      * @param len
      */
     int OnHandleEquipDisassmbleReq(uint32_t msgId, NFDataPackage &packet);
 public:
     /**
-     * ¼¤»îÌìÉñ£¬²¢²ÎÕ½
+     * æ¿€æ´»å¤©ç¥ï¼Œå¹¶å‚æˆ˜
      * @param deityId
      */
     int ActiveFantasyAndEnterBattle(uint32_t deityId, uint32_t battleSlot);
@@ -727,9 +727,9 @@ private:
     int64_t m_nDeityID;//
     int32_t m_nDeityLev;			//
     int64_t m_nDeityExp;
-    NFShmHashMap<uint64_t, uint32_t, MAX_DEITY_FRAGMENT_NUM> m_mapFragment;		//Êı¾İ
-    NFShmHashMap<uint64_t, uint32_t, MAX_DEITY_SKILL_NUM> m_mapSkill;		//¼¼ÄÜÊı¾İ
+    NFShmHashMap<uint64_t, uint32_t, MAX_DEITY_FRAGMENT_NUM> m_mapFragment;		//æ•°æ®
+    NFShmHashMap<uint64_t, uint32_t, MAX_DEITY_SKILL_NUM> m_mapSkill;		//æŠ€èƒ½æ•°æ®
 private:
     NFShmHashMap<uint32_t, DeityBattleSlot, MAX_AVATAR_BATTLESLOT_NUM> m_battleDeityList;
-    NFShmHashMap<int64_t, FantasyDeityData, MAX_AVATAR_CHANGE_NUM> m_mapFantasyDeity;	//µ±Ç°ÓµÓĞµÄ»Ã»¯
+    NFShmHashMap<int64_t, FantasyDeityData, MAX_AVATAR_CHANGE_NUM> m_mapFantasyDeity;	//å½“å‰æ‹¥æœ‰çš„å¹»åŒ–
 };

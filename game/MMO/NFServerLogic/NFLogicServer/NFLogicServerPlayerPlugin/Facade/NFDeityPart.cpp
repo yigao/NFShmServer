@@ -584,7 +584,7 @@ int64_t NFDeityPart::GetFightValue()
     MergeAttr(partAttr, allAttr);
     partAttr.clear();
     
-    //¼ÆËãÉíÉÏµÄ×°±¸ÊôÐÔ
+    //è®¡ç®—èº«ä¸Šçš„è£…å¤‡å±žæ€§
     MAP_INT32_INT64 advnceAttr;
     calcFantasyAttr(advnceAttr);
     MergeAttr(advnceAttr, allAttr);
@@ -627,7 +627,7 @@ void NFDeityPart::calcAttr(bool sync)
     MergeAttr(partAttr, allAttr);
     partAttr.clear();
     
-    //¼ÆËãÉíÉÏµÄ×°±¸ÊôÐÔ
+    //è®¡ç®—èº«ä¸Šçš„è£…å¤‡å±žæ€§
     MAP_INT32_INT64 advnceAttr;
     calcFantasyAttr(advnceAttr);
     MergeAttr(advnceAttr, allAttr);
@@ -648,8 +648,8 @@ void NFDeityPart::calcAttr(bool sync)
 void NFDeityPart::calcDeityAttr(MAP_INT32_INT64 &outAttr)
 {
     MAP_INT32_FLOAT floatAttr;
-    MAP_INT32_FLOAT mapattr;  // ÊôÐÔID-ÊôÐÔÖµ
-    MAP_INT32_FLOAT mapattradd;  //ÌØÊâÊôÐÔ¼Ó³É ÊôÐÔID-¼Ó³É°Ù·Ö±È
+    MAP_INT32_FLOAT mapattr;  // å±žæ€§ID-å±žæ€§å€¼
+    MAP_INT32_FLOAT mapattradd;  //ç‰¹æ®Šå±žæ€§åŠ æˆ å±žæ€§ID-åŠ æˆç™¾åˆ†æ¯”
     ProcessAdvanceAttr(floatAttr);
     AddFragmentAttr(floatAttr);
     for (auto iter = floatAttr.begin(); iter != floatAttr.end(); iter++)
@@ -663,7 +663,7 @@ void NFDeityPart::calcDeityAttr(MAP_INT32_INT64 &outAttr)
         }
     }
     
-    //ÌØÊâÊôÐÔ ¼Ó³ÉµÄÊôÐÔÖµ
+    //ç‰¹æ®Šå±žæ€§ åŠ æˆçš„å±žæ€§å€¼
     for (auto &iterspec : mapattradd)
     {
         uint32_t attrid = GetComAttrBySpec(iterspec.first);
@@ -674,7 +674,7 @@ void NFDeityPart::calcDeityAttr(MAP_INT32_INT64 &outAttr)
         }
     }
     
-    //Ëã³öÃ¿¸öÄ£¿é¼Ó³ÉÊôÐÔ£¬ÏòÏÂÈ¡Õû
+    //ç®—å‡ºæ¯ä¸ªæ¨¡å—åŠ æˆå±žæ€§ï¼Œå‘ä¸‹å–æ•´
     for (auto &e: floatAttr)
     {
         outAttr[e.first] = (int32_t) floor(e.second);
@@ -823,14 +823,14 @@ int NFDeityPart::OnHandleDeityLevelUpReq(uint32_t msgId, NFDataPackage &packet)
         int64_t bindNum = 0;
         int64_t unBindNum = 0;
         uint32_t itemNum = pPackagePart->GetItemNum(materialId, bindNum, unBindNum);
-        //×î´ó¿ÉÊ¹ÓÃÊýÁ¿£¨Éý¼¶µ½Âú¼¶£©
+        //æœ€å¤§å¯ä½¿ç”¨æ•°é‡ï¼ˆå‡çº§åˆ°æ»¡çº§ï¼‰
         uint32_t needMax = CalNeedItemNum(pDeityCfg->m_UpLvType, m_nDeityLev, cfg.m_exp);
         if (0 == needMax)
         {
             break;
         }
         
-        uint32_t useItemNum = itemNum > needMax ? needMax : itemNum; //Êµ¼ÊÊ¹ÓÃÊýÁ¿
+        uint32_t useItemNum = itemNum > needMax ? needMax : itemNum; //å®žé™…ä½¿ç”¨æ•°é‡
         
         if (useItemNum > 0)
         {
@@ -1313,14 +1313,14 @@ int NFDeityPart::OnHandleDeityFantasyLevelUpReq(uint32_t msgId, NFDataPackage &p
         int64_t bindNum = 0;
         int64_t unBindNum = 0;
         uint32_t itemNum = pPackagePart->GetItemNum(materialId, bindNum, unBindNum);
-        //×î´ó¿ÉÊ¹ÓÃÊýÁ¿£¨Éý¼¶µ½Âú¼¶£©
+        //æœ€å¤§å¯ä½¿ç”¨æ•°é‡ï¼ˆå‡çº§åˆ°æ»¡çº§ï¼‰
         uint32_t needMax = CalFantasyLevelNeedItemNum(pFantasyInfo->m_UpLvType, pFantasyData->m_level, cfg.m_exp);
         if (0 == needMax)
         {
             break;
         }
         
-        uint32_t useItemNum = itemNum > needMax ? needMax : itemNum; //Êµ¼ÊÊ¹ÓÃÊýÁ¿
+        uint32_t useItemNum = itemNum > needMax ? needMax : itemNum; //å®žé™…ä½¿ç”¨æ•°é‡
         
         if (useItemNum > 0)
         {
@@ -1749,7 +1749,7 @@ int NFDeityPart::OnHandleDeityEquipDressReq(uint32_t msgId, NFDataPackage &packe
     auto pDressEquipInfo = pFantasyData->m_equips.GetEquip(slotPos);
     CHECK_NULL(pDressEquipInfo);
     
-    //ÒÑ´©´÷µÄ×°±¸
+    //å·²ç©¿æˆ´çš„è£…å¤‡
     proto_ff::NotifyPackageUpdate bagNotify;
     NFDeityEquip *pSlotEquip = &pDressEquipInfo->m_equip;
     if (pSlotEquip->GetItemID() > 0)
@@ -1760,16 +1760,16 @@ int NFDeityPart::OnHandleDeityEquipDressReq(uint32_t msgId, NFDataPackage &packe
         pSlotEquip->m_deityEquip.m_strongWearQuality = pEquip->m_deityEquip.m_strongWearQuality;
         pEquip->m_deityEquip.m_stronglv = oldStrongLv;
         pEquip->m_deityEquip.m_strongWearQuality = oldStrongWearQualiy;
-        //ÕâÀï°ÑÉíÉÏµÄ×°±¸ÉèÖÃµ½±³°üÖÐÈ¥ÁË
+        //è¿™é‡ŒæŠŠèº«ä¸Šçš„è£…å¤‡è®¾ç½®åˆ°èƒŒåŒ…ä¸­åŽ»äº†
         pSlotEquip->SetIndex(bag_pos);
         pPackagePart->SetItemByIndex(proto_ff::EPackageType_DeityEquip, bag_pos, *pSlotEquip);
-        //Í¨Öª¿Í»§¶Ë¸üÐÂ
+        //é€šçŸ¥å®¢æˆ·ç«¯æ›´æ–°
         pPackagePart->AddPackageUpdateInfo(pSlotEquip, bagNotify, 0);
     }
     else
     {
-        pPackagePart->AddPackageUpdateInfo(pEquip, bagNotify, true); //É¾³ý±³°ü×°±¸£¬Í¨Öª¿Í»§¶Ë
-        pPackagePart->SetItemByIndex(proto_ff::EPackageType_DeityEquip, bag_pos, nullptr); //ÉèÖÃ±³°üË÷ÒýÎª¿Õ
+        pPackagePart->AddPackageUpdateInfo(pEquip, bagNotify, true); //åˆ é™¤èƒŒåŒ…è£…å¤‡ï¼Œé€šçŸ¥å®¢æˆ·ç«¯
+        pPackagePart->SetItemByIndex(proto_ff::EPackageType_DeityEquip, bag_pos, nullptr); //è®¾ç½®èƒŒåŒ…ç´¢å¼•ä¸ºç©º
     }
     
     pPackagePart->UpdatePackage(proto_ff::EPackageType_DeityEquip, bagNotify);
@@ -2379,7 +2379,7 @@ int NFDeityPart::OnHandleEquipDisassmbleReq(uint32_t msgId, NFDataPackage &packe
     
     pEquip->m_deityEquip.m_stronglv = 0;
     pEquip->m_deityEquip.m_strongWearQuality = pEquipCfg->m_wearQuality;
-    //ÒÑ´©´÷µÄ×°±¸
+    //å·²ç©¿æˆ´çš„è£…å¤‡
     proto_ff::NotifyPackageUpdate bagNotify;
     pPackagePart->AddPackageUpdateInfo(pEquip, bagNotify, 0);
     pPackagePart->UpdatePackage(proto_ff::EPackageType_DeityEquip, bagNotify);
