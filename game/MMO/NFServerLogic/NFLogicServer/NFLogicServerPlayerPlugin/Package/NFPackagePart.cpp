@@ -650,7 +650,7 @@ int32_t NFPackagePart::UseItem(NFItem *pItem, int64_t &nNum, proto_ff::UseItemAr
     }
     else if ((int64_t) pItem->GetNum() < nNum)
     {
-        //ÊıÁ¿²»¹» RET_PACKAGE_ITEM_NUM_LACK
+        //æ•°é‡ä¸å¤Ÿ RET_PACKAGE_ITEM_NUM_LACK
         return proto_ff::RET_PACKAGE_ITEM_NUM_LACK;
     }
     else
@@ -658,16 +658,16 @@ int32_t NFPackagePart::UseItem(NFItem *pItem, int64_t &nNum, proto_ff::UseItemAr
         auto pItemCfg = ItemItemDesc::Instance()->GetDesc(pItem->GetItemID());
         if (nullptr == pItemCfg)
         {
-            //ÎïÆ·²»´æÔÚ
+            //ç‰©å“ä¸å­˜åœ¨
             return proto_ff::RET_PACKAGE_ITEM_NOT_EXITS;
         }
         else
         {
-            //¾ßÌåÎïÆ·µÄÊ¹ÓÃÂß¼­£¬ºóÃæÌí¼Ó
+            //å…·ä½“ç‰©å“çš„ä½¿ç”¨é€»è¾‘ï¼Œåé¢æ·»åŠ 
 /*            nRetCode = g_GetItemUseMgr()->UseItem(pItem, nNum, m_pMaster, protoArg);
             if (proto_ff::RET_SUCCESS == nRetCode || proto_ff::RET_PACKAGE_USE_ITEM_NOT_REMOVE == nRetCode)
             {
-                //Ê¹ÓÃÎïÆ·ÊÂ¼ş
+                //ä½¿ç”¨ç‰©å“äº‹ä»¶
                 ItemUseEvent useEvent;
                 useEvent.itemId = pItemCfg->id;
                 useEvent.num = nNum;
@@ -689,7 +689,7 @@ int32_t NFPackagePart::UseItem(uint16_t nIndex, int64_t &nNum, proto_ff::UseItem
     auto pItemCfg = ItemItemDesc::Instance()->GetDesc(pItem->GetItemID());
     if (nullptr == pItemCfg)
     {
-        //ÎïÆ·²»´æÔÚ
+        //ç‰©å“ä¸å­˜åœ¨
         return proto_ff::RET_PACKAGE_ITEM_NOT_EXITS;
     }
     
@@ -698,7 +698,7 @@ int32_t NFPackagePart::UseItem(uint16_t nIndex, int64_t &nNum, proto_ff::UseItem
     {
         return ret;
     }
-    //¼õÎïÆ·
+    //å‡ç‰©å“
     if (ret != proto_ff::RET_PACKAGE_USE_ITEM_NOT_REMOVE)
     {
         SCommonSource sourceParam;
@@ -772,7 +772,7 @@ void NFPackagePart::SendUpdatePackageByIndex(uint32_t nPackageType, NFItem *pIte
 {
     proto_ff::NotifyPackageUpdate update_ret;
     AddPackageUpdateInfo(pItem, update_ret, bDel);
-    //¸üĞÂ±³°ü
+    //æ›´æ–°èƒŒåŒ…
     NFPackageBag *pBag = GetPackageByType(nPackageType);
     if (pBag)
     {

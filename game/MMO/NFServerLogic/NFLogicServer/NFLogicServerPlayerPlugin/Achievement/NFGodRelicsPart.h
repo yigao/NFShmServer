@@ -19,7 +19,7 @@
 
 struct stGodRelicsTaskGroupEntry;
 
-//Ìì»úÆ×ÈÎÎñ
+//å¤©æœºè°±ä»»åŠ¡
 struct stGodRelicsTaskEntry
 {
     int64_t task_cfg_id;
@@ -76,11 +76,11 @@ struct stGodRelicsTaskEntry
     }
 };
 
-//Ìì»úÆ×ÈÎÎñ×é×éÊı¾İ
+//å¤©æœºè°±ä»»åŠ¡ç»„ç»„æ•°æ®
 struct stGodRelicsTaskGroupEntry
 {
     int64_t group_cfg_id;
-    int32_t normal_reward_state; //0 Î´½âËø //1 Î´Íê³É //2 Íê³É //ÁìÈ¡½±Àø
+    int32_t normal_reward_state; //0 æœªè§£é” //1 æœªå®Œæˆ //2 å®Œæˆ //é¢†å–å¥–åŠ±
     uint64_t create_time;
     NFShmHashMap<int64_t, stGodRelicsTaskEntry, MAX_INDEX_GODRELICS_CONDITION_GROUP_NUM> task_map;
     
@@ -200,9 +200,9 @@ public:
     int CreateInit();
     int ResumeInit();
 public:
-    //******************partµ÷ÓÃ½Ó¿Ú******************
+    //******************partè°ƒç”¨æ¥å£******************
     /**
-     * @brief ³õÊ¼»¯part
+     * @brief åˆå§‹åŒ–part
      * @param pMaster
      * @param partType
      * @param dbData
@@ -212,77 +212,77 @@ public:
     virtual int Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::RoleDBData &dbData);
     
     /**
-     * @brief ÊÍ·Åpart×ÊÔ´
+     * @brief é‡Šæ”¾partèµ„æº
      * @return
      */
     virtual int UnInit();
 public:
     /**
-     * @brief ´ÓÊı¾İ¿âÖĞ¼ÓÔØÊı¾İ
+     * @brief ä»æ•°æ®åº“ä¸­åŠ è½½æ•°æ®
      * @param data
      * @return
      */
     virtual int LoadFromDB(const proto_ff::RoleDBData& data);
     
     /**
-     * @brief ´ÓÅäÖÃÖĞ³õÊ¼»¯Êı¾İ
+     * @brief ä»é…ç½®ä¸­åˆå§‹åŒ–æ•°æ®
      * @return
      */
     virtual int InitConfig(const proto_ff::RoleDBData& data);
     
     /**
-     * @brief ´æ´¢DB²¿¼şÈë¿Ú
+     * @brief å­˜å‚¨DBéƒ¨ä»¶å…¥å£
      * @param proto
      * @return
      */
     virtual int SaveDB(proto_ff::RoleDBData &dbData);
     
     /**
-     * @brief µÇÂ½Èë¿Ú
+     * @brief ç™»é™†å…¥å£
      * @return
      */
     virtual int OnLogin() { return 0; }
     virtual int OnLogin(proto_ff::PlayerInfoRsp& playerInfo) { return 0; }
     
     /**
-     * @brief µÇ³öÈë¿Ú
+     * @brief ç™»å‡ºå…¥å£
      * @return
      */
     virtual int OnLogout() { return 0; }
     
     /**
-     * @brief µôÏßÈë¿Ú
+     * @brief æ‰çº¿å…¥å£
      * @return
      */
     virtual int OnDisconnect() { return 0; }
     
     /**
-     * @brief ÖØÁ¬Èë¿Ú
+     * @brief é‡è¿å…¥å£
      * @return
      */
     virtual int OnReconnect() { return 0; }
     
-    ////////////////////////////////// Ã¿ÈÕÁãµã Ã¿ÖÜÒ»Áãµã Ë¢ĞÂ½Ó¿Ú ///////////////////////////////////
+    ////////////////////////////////// æ¯æ—¥é›¶ç‚¹ æ¯å‘¨ä¸€é›¶ç‚¹ åˆ·æ–°æ¥å£ ///////////////////////////////////
     /**
-     * @brief Ã¿ÈÕÁãµã Ë¢ĞÂ½Ó¿Ú
+     * @brief æ¯æ—¥é›¶ç‚¹ åˆ·æ–°æ¥å£
      * @return
      */
     virtual int DailyZeroUpdate() { return 0; }
     
     /**
-     * @brief Ã¿ÈÕÁãµã Ë¢ĞÂ½Ó¿Ú
+     * @brief æ¯æ—¥é›¶ç‚¹ åˆ·æ–°æ¥å£
      * @return
      */
     virtual int WeekZeroUpdate() { return 0; }
     
     /**
-     * @brief Ã¿ÔÂË¢ĞÂ½Ó¿Ú
+     * @brief æ¯æœˆåˆ·æ–°æ¥å£
      * @return
      */
     virtual int MonthZeroUpdate() { return 0; };
     
     /**
-     * ÉèÖÃÍâ¹ÛĞÅÏ¢
+     * è®¾ç½®å¤–è§‚ä¿¡æ¯
      * @param outproto
      */
     virtual int FillFacadeProto(proto_ff::RoleFacadeProto& outproto) { return 0; }
@@ -294,13 +294,13 @@ public:
 
 public:
     /**
-     * @brief ×¢²áÒª´¦ÀíµÄÏûÏ¢
+     * @brief æ³¨å†Œè¦å¤„ç†çš„æ¶ˆæ¯
      * @return
      */
     virtual int RegisterMessage();
 public:
     /**
-     * @brief ´¦Àí¿Í»§¶ËÏûÏ¢
+     * @brief å¤„ç†å®¢æˆ·ç«¯æ¶ˆæ¯
      * @param unLinkId
      * @param packet
      * @return
@@ -308,7 +308,7 @@ public:
     virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief ´¦ÀíÀ´×Ô·şÎñÆ÷µÄĞÅÏ¢
+     * @brief å¤„ç†æ¥è‡ªæœåŠ¡å™¨çš„ä¿¡æ¯
      * @param unLinkId
      * @param packet
      * @return
@@ -316,7 +316,7 @@ public:
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
 public:
     /**
-     * @brief »ñµÃÌì»úÆ×»î¶¯Êı¾İ
+     * @brief è·å¾—å¤©æœºè°±æ´»åŠ¨æ•°æ®
      * @param msgId
      * @param packet
      * @return
@@ -324,7 +324,7 @@ public:
     int OnHandleGetGodRelicsInfo(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief ÁìÈ¡Ğ¡ÈÎÎñ½±Àø
+     * @brief é¢†å–å°ä»»åŠ¡å¥–åŠ±
      * @param msgId
      * @param packet
      * @return
@@ -332,7 +332,7 @@ public:
     int OnHandleGetGodRelicsTaskReward(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief ÁìÈ¡ÈÎÎñ×é½±Àø£¬ÒÔ¼°Í¨ÖªĞÂµÄÈÎÎñ×é
+     * @brief é¢†å–ä»»åŠ¡ç»„å¥–åŠ±ï¼Œä»¥åŠé€šçŸ¥æ–°çš„ä»»åŠ¡ç»„
      * @param msgId
      * @param packet
      * @return

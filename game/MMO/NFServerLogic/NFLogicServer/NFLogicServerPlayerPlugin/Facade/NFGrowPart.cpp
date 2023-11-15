@@ -215,10 +215,10 @@ int NFGrowPart::HanlderLvUpReq(uint32_t msgId, NFDataPackage &packet)
     uint64_t curTime = NFTime::Now().UnixSec();
     GrowPartEntry *pPartEntry = pPart->GetPartEntry(id);
     if (pPartEntry) {
-        if (pPartEntry->time > 0 && curTime > pPartEntry->time) //ÒÑ¹ıÆÚµÄ
+        if (pPartEntry->time > 0 && curTime > pPartEntry->time) //å·²è¿‡æœŸçš„
         {
             OnActivePartEntry(id);
-        } else //Ã»¹ıÆÚ £¬Éı¼¶
+        } else //æ²¡è¿‡æœŸ ï¼Œå‡çº§
         {
             OnLvupPartEntry(id);
         }
@@ -267,7 +267,7 @@ int NFGrowPart::HanlderDressReq(uint32_t msgId, NFDataPackage &packet)
             return 0;
         }
     } else if (proto_ff::GrowType_weapon == type) {
-        //Ğ¶µô 	GrowType_ARTIFACT_TYPE = 16;	//ÉñÆ÷ÏµÍ³
+        //å¸æ‰ 	GrowType_ARTIFACT_TYPE = 16;	//ç¥å™¨ç³»ç»Ÿ
         NFFacadePart *pFacadePart = dynamic_cast<NFFacadePart *>(m_pMaster->GetPart(PART_FACADE));
         if (pFacadePart) {
             pFacadePart->OnUnDress(proto_ff::FACADE_ARTIFACT_TYPE);
@@ -280,13 +280,13 @@ int NFGrowPart::HanlderDressReq(uint32_t msgId, NFDataPackage &packet)
     m_pMaster->SendMsgToClient(proto_ff::CLIENT_GROW_FACADE_DRESS_RSP, rsp);
     SendGrowPartData(type);
     
-    //Ñø³É²¿¼ş´©´÷ÊÂ¼ş
+    //å…»æˆéƒ¨ä»¶ç©¿æˆ´äº‹ä»¶
     proto_ff::GrowPartDressEvent event;
     event.set_id(id);
     event.set_type(type);
     event.set_curlv(pPartEntry->lv);
     FireExecute(NF_ST_LOGIC_SERVER, EVENT_GROW_PART_DRESS, CREATURE_PLAYER, m_pMaster->Cid(), event);
-    //Í¬²½Íâ¹Û
+    //åŒæ­¥å¤–è§‚
     m_pMaster->SyncFacade();
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -325,7 +325,7 @@ int NFGrowPart::OnActivePartEntry(int64_t id)
     sourceParam.param1 = id;
     sourceParam.param2 = type;
     
-    //·¢ËÍ¼¤»îÊÂ¼ş
+    //å‘é€æ¿€æ´»äº‹ä»¶
     LIST_ITEM lstItem;
     SItem item;
     item.nItemID = pGrowCfg->activationItem;
@@ -355,10 +355,10 @@ int NFGrowPart::OnActivePartEntry(int64_t id)
     m_pMaster->SendMsgToClient(proto_ff::CLIENT_GROW_LVUP_RSP, rsp);
     SendGrowPartData(type);
     
-    //¼ÆËãÊôĞÔ
+    //è®¡ç®—å±æ€§
     calcAttr(true);
     
-    //Ñø³É²¿¼ş¼¤»îÊÂ¼ş
+    //å…»æˆéƒ¨ä»¶æ¿€æ´»äº‹ä»¶
     proto_ff::GrowPartActiveEvent event;
     event.set_id(id);
     event.set_type(type);
@@ -407,7 +407,7 @@ int NFGrowPart::OnLvupPartEntry(int64_t id)
     sourceParam.param1 = id;
     sourceParam.param2 = type;
     
-    //·¢ËÍ¼¤»îÊÂ¼ş
+    //å‘é€æ¿€æ´»äº‹ä»¶
     LIST_ITEM lstItem;
     SItem item;
     item.nItemID = pGrowCfg->startItem;
@@ -429,10 +429,10 @@ int NFGrowPart::OnLvupPartEntry(int64_t id)
     m_pMaster->SendMsgToClient(proto_ff::CLIENT_GROW_LVUP_RSP, rsp);
     SendGrowPartData(type);
     
-    //¼ÆËãÊôĞÔ
+    //è®¡ç®—å±æ€§
     calcAttr(true);
     
-    //Ñø³É²¿¼şÉı¼¶ÊÂ¼ş
+    //å…»æˆéƒ¨ä»¶å‡çº§äº‹ä»¶
     proto_ff::GrowPartLvUpEvent event;
     event.set_id(id);
     event.set_type(type);
@@ -515,7 +515,7 @@ void NFGrowPart::calcAttr(int32_t type, MAP_INT32_INT64 &outAttr)
     GrowPartData *pPart = getPart(type);
     CHECK_EXPR_NOT_RET(pPart, " GrowPart::calcAttr type:{} is null", type);
     uint64_t curTime = NFTime::Now().UnixSec();
-    // ÕâÀïÓĞ°Ù·Ö±È,°ÑËùÓĞĞ¡Êı¶¼¼ÓÆğÀ´£¬·ÀÖ¹¶ªÊ§¾«¶È
+    // è¿™é‡Œæœ‰ç™¾åˆ†æ¯”,æŠŠæ‰€æœ‰å°æ•°éƒ½åŠ èµ·æ¥ï¼Œé˜²æ­¢ä¸¢å¤±ç²¾åº¦
     MAP_INT32_FLOAT floatAttr;
     for (auto &e : pPart->entryMap) {
         int64_t id = e.second.id;
@@ -531,7 +531,7 @@ void NFGrowPart::calcAttr(int32_t type, MAP_INT32_INT64 &outAttr)
                 floatAttr[attrId] += value + ((pGrowCfg->starBar * lv) / F_TEN_THOUSAND) * value;
             }
         }
-        //¼Ó³É¼¤»îÊôĞÔ
+        //åŠ æˆæ¿€æ´»å±æ€§
         for (auto &te : pGrowCfg->activeAttrMap) {
             int32_t attrId = te.first;
             int32_t value = te.second;
@@ -540,7 +540,7 @@ void NFGrowPart::calcAttr(int32_t type, MAP_INT32_INT64 &outAttr)
         
     }
     
-    //Ëã³öÃ¿¸öÄ£¿é¼Ó³ÉÊôĞÔ£¬ÏòÏÂÈ¡Õû
+    //ç®—å‡ºæ¯ä¸ªæ¨¡å—åŠ æˆå±æ€§ï¼Œå‘ä¸‹å–æ•´
     for (auto &e : floatAttr) {
         outAttr[e.first] = (int32_t) floor(e.second);
     }
@@ -597,7 +597,7 @@ int NFGrowPart::UnDress(uint64_t id, int32_t code)
     m_pMaster->SendMsgToClient(proto_ff::CLIENT_GROW_FACADE_UNDRESS_RSP, rsp);
     SendGrowPartData(type);
     NFLogDebug(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),"GrowPart::UnDress oldid:{} code:{}", oldid, code);
-    //Í¬²½Íâ¹Û
+    //åŒæ­¥å¤–è§‚
     m_pMaster->SyncFacade();
     return 0;
 }
@@ -616,7 +616,7 @@ bool NFGrowPart::UnDressHalo(bool sync_facade)
     SetNeedSave(true);
     //
     SendGrowPartData(proto_ff::GrowType_halo);
-    //Í¬²½Íâ¹Û
+    //åŒæ­¥å¤–è§‚
     if(sync_facade) m_pMaster->SyncFacade();
     return true;
 }
@@ -635,7 +635,7 @@ bool NFGrowPart::UnDress(int32_t type, bool sync_facade)
     SetNeedSave(true);
     //
     SendGrowPartData(type);
-    //Í¬²½Íâ¹Û
+    //åŒæ­¥å¤–è§‚
     if (sync_facade) m_pMaster->SyncFacade();
     return true;
 }

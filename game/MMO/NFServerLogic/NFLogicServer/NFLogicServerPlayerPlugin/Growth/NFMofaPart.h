@@ -82,7 +82,7 @@ public:
 };
 
 /**
- * @brief ÕóÑÛ
+ * @brief é˜µçœ¼
  */
 class MoFaEquipSlot
 {
@@ -516,7 +516,7 @@ public:
 };
 
 /**
- * @brief ÆæÃÅ°ËØÔ
+ * @brief å¥‡é—¨å…«å¦
  */
 class NFMofaPart : public NFShmObjTemplate<NFMofaPart, EOT_LOGIC_PART_ID + PART_MOFA, NFPart>
 {
@@ -529,9 +529,9 @@ public:
     int ResumeInit();
 public:
 public:
-    //******************partµ÷ÓÃ½Ó¿Ú******************
+    //******************partè°ƒç”¨æ¥å£******************
     /**
-     * @brief ³õÊ¼»¯part
+     * @brief åˆå§‹åŒ–part
      * @param pMaster
      * @param partType
      * @param dbData
@@ -541,33 +541,33 @@ public:
     virtual int Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::RoleDBData &dbData);
     
     /**
-     * @brief ÊÍ·Åpart×ÊÔ´
+     * @brief é‡Šæ”¾partèµ„æº
      * @return
      */
     virtual int UnInit();
 public:
     /**
-     * @brief ´ÓÊı¾İ¿âÖĞ¼ÓÔØÊı¾İ
+     * @brief ä»æ•°æ®åº“ä¸­åŠ è½½æ•°æ®
      * @param data
      * @return
      */
     virtual int LoadFromDB(const proto_ff::RoleDBData &data);
     
     /**
-     * @brief ´ÓÅäÖÃÖĞ³õÊ¼»¯Êı¾İ
+     * @brief ä»é…ç½®ä¸­åˆå§‹åŒ–æ•°æ®
      * @return
      */
     virtual int InitConfig(const proto_ff::RoleDBData &data);
     
     /**
-     * @brief ´æ´¢DB²¿¼şÈë¿Ú
+     * @brief å­˜å‚¨DBéƒ¨ä»¶å…¥å£
      * @param proto
      * @return
      */
     virtual int SaveDB(proto_ff::RoleDBData &dbData);
     
     /**
-     * @brief µÇÂ½Èë¿Ú
+     * @brief ç™»é™†å…¥å£
      * @return
      */
     virtual int OnLogin() { return 0; }
@@ -575,44 +575,44 @@ public:
     virtual int OnLogin(proto_ff::PlayerInfoRsp &playerInfo) { return 0; }
     
     /**
-     * @brief µÇ³öÈë¿Ú
+     * @brief ç™»å‡ºå…¥å£
      * @return
      */
     virtual int OnLogout() { return 0; }
     
     /**
-     * @brief µôÏßÈë¿Ú
+     * @brief æ‰çº¿å…¥å£
      * @return
      */
     virtual int OnDisconnect() { return 0; }
     
     /**
-     * @brief ÖØÁ¬Èë¿Ú
+     * @brief é‡è¿å…¥å£
      * @return
      */
     virtual int OnReconnect() { return 0; }
     
-    ////////////////////////////////// Ã¿ÈÕÁãµã Ã¿ÖÜÒ»Áãµã Ë¢ĞÂ½Ó¿Ú ///////////////////////////////////
+    ////////////////////////////////// æ¯æ—¥é›¶ç‚¹ æ¯å‘¨ä¸€é›¶ç‚¹ åˆ·æ–°æ¥å£ ///////////////////////////////////
     /**
-     * @brief Ã¿ÈÕÁãµã Ë¢ĞÂ½Ó¿Ú
+     * @brief æ¯æ—¥é›¶ç‚¹ åˆ·æ–°æ¥å£
      * @return
      */
     virtual int DailyZeroUpdate() { return 0; }
     
     /**
-     * @brief Ã¿ÈÕÁãµã Ë¢ĞÂ½Ó¿Ú
+     * @brief æ¯æ—¥é›¶ç‚¹ åˆ·æ–°æ¥å£
      * @return
      */
     virtual int WeekZeroUpdate() { return 0; }
     
     /**
-     * @brief Ã¿ÔÂË¢ĞÂ½Ó¿Ú
+     * @brief æ¯æœˆåˆ·æ–°æ¥å£
      * @return
      */
     virtual int MonthZeroUpdate() { return 0; };
     
     /**
-     * ÉèÖÃÍâ¹ÛĞÅÏ¢
+     * è®¾ç½®å¤–è§‚ä¿¡æ¯
      * @param outproto
      */
     virtual int FillFacadeProto(proto_ff::RoleFacadeProto &outproto) { return 0; }
@@ -625,13 +625,13 @@ public:
 
 public:
     /**
-     * @brief ×¢²áÒª´¦ÀíµÄÏûÏ¢
+     * @brief æ³¨å†Œè¦å¤„ç†çš„æ¶ˆæ¯
      * @return
      */
     virtual int RegisterMessage();
 public:
     /**
-     * @brief ´¦Àí¿Í»§¶ËÏûÏ¢
+     * @brief å¤„ç†å®¢æˆ·ç«¯æ¶ˆæ¯
      * @param unLinkId
      * @param packet
      * @return
@@ -639,32 +639,32 @@ public:
     virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief ´¦ÀíÀ´×Ô·şÎñÆ÷µÄĞÅÏ¢
+     * @brief å¤„ç†æ¥è‡ªæœåŠ¡å™¨çš„ä¿¡æ¯
      * @param unLinkId
      * @param packet
      * @return
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
 public:
-    //ÆæÃÅ°ËØÔ»ñÈ¡ĞÅÏ¢
+    //å¥‡é—¨å…«å¦è·å–ä¿¡æ¯
     int OnHandleGetInfoReq(uint32_t msgId, NFDataPackage &packet);
-    //´øÉÏ×°±¸
+    //å¸¦ä¸Šè£…å¤‡
     int OnHandleDressReq(uint32_t msgId, NFDataPackage &packet);
-    //Ğ¶ÔØ×°±¸
+    //å¸è½½è£…å¤‡
     int OnHandleUnDressReq(uint32_t msgId, NFDataPackage &packet);
-    //ÕóÑÛ×£¸£
+    //é˜µçœ¼ç¥ç¦
     int OnHandleSlotZuFuReq(uint32_t msgId, NFDataPackage &packet);
-    //ÕóÑÛ¾õĞÑ
+    //é˜µçœ¼è§‰é†’
     int OnHandleSlotWakeReq(uint32_t msgId, NFDataPackage &packet);
-    //×°±¸Éı¼¶
+    //è£…å¤‡å‡çº§
     int OnHandleEquipLvReq(uint32_t msgId, NFDataPackage &packet);
-    //×°±¸¾õĞÑ
+    //è£…å¤‡è§‰é†’
     int OnHandleEquipWakeReq(uint32_t msgId, NFDataPackage &packet);
-    //×°±¸Ò»¼ü·Ö½â
+    //è£…å¤‡ä¸€é”®åˆ†è§£
     int OnHandleDecomposeReq(uint32_t msgId, NFDataPackage &packet);
-    //¶Ò»»
+    //å…‘æ¢
     int OnHandleExchangeReq(uint32_t msgId, NFDataPackage &packet);
-    //ÆæÃÅ°ËØÔ
+    //å¥‡é—¨å…«å¦
     int OnHandleSlotUnlockReq(uint32_t msgId, NFDataPackage &packet);
 public:
     void calcAttr(bool sync);

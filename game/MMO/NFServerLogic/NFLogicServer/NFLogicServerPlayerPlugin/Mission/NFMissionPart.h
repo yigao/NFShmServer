@@ -42,9 +42,9 @@ public:
     int ResumeInit();
 public:
 public:
-    //******************partµ÷ÓÃ½Ó¿Ú******************
+    //******************partè°ƒç”¨æ¥å£******************
     /**
-     * @brief ³õÊ¼»¯part
+     * @brief åˆå§‹åŒ–part
      * @param pMaster
      * @param partType
      * @param dbData
@@ -54,77 +54,77 @@ public:
     virtual int Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::RoleDBData &dbData);
     
     /**
-     * @brief ÊÍ·Åpart×ÊÔ´
+     * @brief é‡Šæ”¾partèµ„æº
      * @return
      */
     virtual int UnInit();
 public:
     /**
-     * @brief ´ÓÊı¾İ¿âÖĞ¼ÓÔØÊı¾İ
+     * @brief ä»æ•°æ®åº“ä¸­åŠ è½½æ•°æ®
      * @param data
      * @return
      */
     virtual int LoadFromDB(const proto_ff::RoleDBData& data);
     
     /**
-     * @brief ´ÓÅäÖÃÖĞ³õÊ¼»¯Êı¾İ
+     * @brief ä»é…ç½®ä¸­åˆå§‹åŒ–æ•°æ®
      * @return
      */
     virtual int InitConfig(const proto_ff::RoleDBData& data) { return 0; }
     
     /**
-     * @brief ´æ´¢DB²¿¼şÈë¿Ú
+     * @brief å­˜å‚¨DBéƒ¨ä»¶å…¥å£
      * @param proto
      * @return
      */
     virtual int SaveDB(proto_ff::RoleDBData &dbData);
     
     /**
-     * @brief µÇÂ½Èë¿Ú
+     * @brief ç™»é™†å…¥å£
      * @return
      */
     virtual int OnLogin();
     virtual int OnLogin(proto_ff::PlayerInfoRsp& playerInfo) { return 0; }
     
     /**
-     * @brief µÇ³öÈë¿Ú
+     * @brief ç™»å‡ºå…¥å£
      * @return
      */
     virtual int OnLogout() { return 0; }
     
     /**
-     * @brief µôÏßÈë¿Ú
+     * @brief æ‰çº¿å…¥å£
      * @return
      */
     virtual int OnDisconnect() { return 0; }
     
     /**
-     * @brief ÖØÁ¬Èë¿Ú
+     * @brief é‡è¿å…¥å£
      * @return
      */
     virtual int OnReconnect() { return 0; }
     
-    ////////////////////////////////// Ã¿ÈÕÁãµã Ã¿ÖÜÒ»Áãµã Ë¢ĞÂ½Ó¿Ú ///////////////////////////////////
+    ////////////////////////////////// æ¯æ—¥é›¶ç‚¹ æ¯å‘¨ä¸€é›¶ç‚¹ åˆ·æ–°æ¥å£ ///////////////////////////////////
     /**
-     * @brief Ã¿ÈÕÁãµã Ë¢ĞÂ½Ó¿Ú
+     * @brief æ¯æ—¥é›¶ç‚¹ åˆ·æ–°æ¥å£
      * @return
      */
     virtual int DailyZeroUpdate() { return 0; }
     
     /**
-     * @brief Ã¿ÈÕÁãµã Ë¢ĞÂ½Ó¿Ú
+     * @brief æ¯æ—¥é›¶ç‚¹ åˆ·æ–°æ¥å£
      * @return
      */
     virtual int WeekZeroUpdate() { return 0; }
     
     /**
-     * @brief Ã¿ÔÂË¢ĞÂ½Ó¿Ú
+     * @brief æ¯æœˆåˆ·æ–°æ¥å£
      * @return
      */
     virtual int MonthZeroUpdate() { return 0; };
     
     /**
-     * ÉèÖÃÍâ¹ÛĞÅÏ¢
+     * è®¾ç½®å¤–è§‚ä¿¡æ¯
      * @param outproto
      */
     virtual int FillFacadeProto(proto_ff::RoleFacadeProto& outproto) { return 0; }
@@ -136,13 +136,13 @@ public:
 
 public:
     /**
-     * @brief ×¢²áÒª´¦ÀíµÄÏûÏ¢
+     * @brief æ³¨å†Œè¦å¤„ç†çš„æ¶ˆæ¯
      * @return
      */
     virtual int RegisterMessage();
 public:
     /**
-     * @brief ´¦Àí¿Í»§¶ËÏûÏ¢
+     * @brief å¤„ç†å®¢æˆ·ç«¯æ¶ˆæ¯
      * @param unLinkId
      * @param packet
      * @return
@@ -150,7 +150,7 @@ public:
     virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief ´¦ÀíÀ´×Ô·şÎñÆ÷µÄĞÅÏ¢
+     * @brief å¤„ç†æ¥è‡ªæœåŠ¡å™¨çš„ä¿¡æ¯
      * @param unLinkId
      * @param packet
      * @return
@@ -158,63 +158,63 @@ public:
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
 public:
     /**
-     * @brief ¼ì²éÖ÷ÏßÈÎÎñ
+     * @brief æ£€æŸ¥ä¸»çº¿ä»»åŠ¡
      * @param notify
      */
     void CheckTrunkMission(bool notify = true);
 
-public: //ÏûÏ¢»Øµ÷½Ó¿Ú
+public: //æ¶ˆæ¯å›è°ƒæ¥å£
     /**
-     * @brief NPC½ÓÈ¡ÈÎÎñ
+     * @brief NPCæ¥å–ä»»åŠ¡
      * @param msgId
      * @param packet
      */
     int HandleNpcAcceptMission(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief Ìá½»ÈÎÎñ
+     * @brief æäº¤ä»»åŠ¡
      * @param msgId
      * @param packet
      */
     int HandleSubmitMission(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief NPC¶Ô»°,Ñ°ÈË½Ó¿Ú
+     * @brief NPCå¯¹è¯,å¯»äººæ¥å£
      * @param msgId
      * @param packet
      */
     int HandleTalkWithNpc(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief Ìá½»ÈÎÎñÎïÆ·
+     * @brief æäº¤ä»»åŠ¡ç‰©å“
      * @param msgId
      * @param packet
      */
     int HandleSubmitMissionGoods(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief Ò»¼üÍê³ÉÈÎÎñ
+     * @brief ä¸€é”®å®Œæˆä»»åŠ¡
      * @param msgId
      * @param packet
      */
     int HandleOnekeyFinishMission(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief Á¢¼´Íê³É
+     * @brief ç«‹å³å®Œæˆ
      * @param msgId
      * @param packet
      */
     int HandleOnceFinishMission(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief ÁìÈ¡ÌØÊâ½±Àø
+     * @brief é¢†å–ç‰¹æ®Šå¥–åŠ±
      * @param msgId
      * @param packet
      */
     int HandleMissionRecvSpecialReward(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief ÍÆËÍÈÎÎñÁĞ±íĞÅÏ¢
+     * @brief æ¨é€ä»»åŠ¡åˆ—è¡¨ä¿¡æ¯
      * @param msgId
      * @param packet
      */
@@ -223,14 +223,14 @@ public: //ÏûÏ¢»Øµ÷½Ó¿Ú
     void SendMissionInfo();
 public:
     /**
-     * @brief ½ÓÈ¡ÈÎÎñ
+     * @brief æ¥å–ä»»åŠ¡
      * @param missionId
      * @param notify
      * @return
      */
     int32_t OnAccept(uint64_t missionId, bool notify);
     
-    /** ½ÓÈ¡ÈÎÎñ
+    /** æ¥å–ä»»åŠ¡
      * @brief
      * @param missionId
      * @param kind
@@ -238,14 +238,14 @@ public:
     void OnAcceptType(uint64_t missionId, uint32_t kind);
     
     /**
-     * @brief »ñÈ¡¿É½ÓÈÎÎñÁĞ±í(Ö÷Ö§Ïß)
+     * @brief è·å–å¯æ¥ä»»åŠ¡åˆ—è¡¨(ä¸»æ”¯çº¿)
      * @param missionId
      * @return
      */
     int32_t CanAccept(uint64_t missionId);
     
     /**
-     * @brief ÊÇ·ñÆ¥Åä½ÓÈ¡ÈÎÎñµÄÌõ¼ş
+     * @brief æ˜¯å¦åŒ¹é…æ¥å–ä»»åŠ¡çš„æ¡ä»¶
      * @param cond
      * @param param
      * @return
@@ -254,7 +254,7 @@ public:
 
 public:
     /**
-     * @brief ½ÓÈ¡¶¯Ì¬ÈÎÎñ
+     * @brief æ¥å–åŠ¨æ€ä»»åŠ¡
      * @param missionId
      * @param notify
      * @return
@@ -262,14 +262,14 @@ public:
     int32_t OnAcceptDy(uint64_t missionId, bool notify);
     
     /**
-     * @brief ½ÓÈ¡ÈÎÎñ(¶¯Ì¬ÈÎÎñ)
+     * @brief æ¥å–ä»»åŠ¡(åŠ¨æ€ä»»åŠ¡)
      * @param dymissionId
      * @param missionType
      */
     void OnAcceptDyType(uint64_t dymissionId, int32_t missionType);
     
     /**
-     * @brief ÊÇ·ñÄÜ½ÓÈ¡¶¯Ì¬ÈÎÎñ dyCfgId:¶¯Ì¬ÈÎÎñµÄÅäÖÃID
+     * @brief æ˜¯å¦èƒ½æ¥å–åŠ¨æ€ä»»åŠ¡ dyCfgId:åŠ¨æ€ä»»åŠ¡çš„é…ç½®ID
      * @param dyCfgId
      * @return
      */
@@ -283,16 +283,16 @@ public:
     int32_t CanAcceptDy(const DyMissionInfo *pDyMissionInfo);
     
     /**
-     * @brief Ìí¼Ó¶¯Ì¬ÈÎÎñ½ÓÈ¡´ÎÊı
+     * @brief æ·»åŠ åŠ¨æ€ä»»åŠ¡æ¥å–æ¬¡æ•°
      * @param missionType
      * @param count
      */
     void OnAddAcceptDyCount(int32_t missionType, uint32_t count);
 
 public:
-    /////////////////////////////////////////ÆÕÍ¨ÈÎÎñ½Ó¿Ú/////////////////////////////////////////////
+    /////////////////////////////////////////æ™®é€šä»»åŠ¡æ¥å£/////////////////////////////////////////////
     /**
-     * @brief Í¨¹ıÈÎÎñÀàĞÍ½ÓÈ¡ÈÎÎñ
+     * @brief é€šè¿‡ä»»åŠ¡ç±»å‹æ¥å–ä»»åŠ¡
      * @param missionType
      * @param notify
      * @return
@@ -300,14 +300,14 @@ public:
     int32_t AcceptMissionByType(int32_t missionType, bool notify);
     
     /**
-     * @brief ÄÜ·ñÍ¨¹ıÈÎÎñÀàĞÍ½ÓÈ¡ÈÎÎñ
+     * @brief èƒ½å¦é€šè¿‡ä»»åŠ¡ç±»å‹æ¥å–ä»»åŠ¡
      * @param missionType
      * @return
      */
     int32_t CanAcceptMissionByType(int32_t missionType);
     
     /**
-     * @brief Í¨¹ıÈÎÎñÀàĞÍÇå³ıÈÎÎñ,·µ»ØÇå³ıµÄÈÎÎñÊıÁ¿ notify£ºÊÇ·ñĞèÒªÍ¨Öª¿Í»§¶ËÉ¾³ıÈÎÎñ
+     * @brief é€šè¿‡ä»»åŠ¡ç±»å‹æ¸…é™¤ä»»åŠ¡,è¿”å›æ¸…é™¤çš„ä»»åŠ¡æ•°é‡ notifyï¼šæ˜¯å¦éœ€è¦é€šçŸ¥å®¢æˆ·ç«¯åˆ é™¤ä»»åŠ¡
      * @param missionType
      * @param notify
      * @return
@@ -317,7 +317,7 @@ public:
 
 public:
     /**
-     * @brief »ñÈ¡ÈÎÎñ×î´ó»·Êı
+     * @brief è·å–ä»»åŠ¡æœ€å¤§ç¯æ•°
      * @param missionType
      * @param level
      * @return
@@ -325,28 +325,28 @@ public:
     int32_t DyMaxCount(int32_t missionType, int32_t level);
     
     /**
-     * @brief ¸ù¾İÈÎÎñÀàĞÍ»ñÈ¡¶¯Ì¬ÈÎÎñÒÑ¾­½ÓÈ¡´ÎÊı
+     * @brief æ ¹æ®ä»»åŠ¡ç±»å‹è·å–åŠ¨æ€ä»»åŠ¡å·²ç»æ¥å–æ¬¡æ•°
      * @param missionType
      * @return
      */
     uint32_t GetDyMissionAceeptCnt(int32_t missionType);
     
     /**
-     * @brief Íê³ÉÈÎÎñ(¶¯Ì¬ÈÎÎñ)
+     * @brief å®Œæˆä»»åŠ¡(åŠ¨æ€ä»»åŠ¡)
      * @param dymissionId
      * @param dymissionType
      */
     void OnFinishDy(uint64_t dymissionId, uint32_t dymissionType);
     
     /**
-     * @brief ¸ù¾İÈÎÎñÀàĞÍ»ñÈ¡¶¯Ì¬ÈÎÎñ¼ÇÂ¼ĞÅÏ¢
+     * @brief æ ¹æ®ä»»åŠ¡ç±»å‹è·å–åŠ¨æ€ä»»åŠ¡è®°å½•ä¿¡æ¯
      * @param missionType
      * @return
      */
     DyMissionTrack *GetDyMissionTrack(int32_t missionType);
     
     /**
-     * @brief ¶¯Ì¬ÈÎÎñ½±Àø
+     * @brief åŠ¨æ€ä»»åŠ¡å¥–åŠ±
      * @param missionType
      * @param missionId
      * @param missionReward
@@ -355,39 +355,39 @@ public:
     int32_t OnAddDyMissionReward(int32_t missionType, uint64_t missionId, SMissionReward &missionReward);
     
     /**
-     * @brief ¸üĞÂ¶¯Ì¬ÈÎÎñ½ÓÈ¡´ÎÊı
+     * @brief æ›´æ–°åŠ¨æ€ä»»åŠ¡æ¥å–æ¬¡æ•°
      * @param setMissionType
      */
     void NotifyDyAcceptCount(SET_UINT32 &setMissionType);
     
     /**
-     * @brief ÊÇ·ñÊÇÓĞĞ§µÄ¶¯Ì¬ÈÎÎñID
+     * @brief æ˜¯å¦æ˜¯æœ‰æ•ˆçš„åŠ¨æ€ä»»åŠ¡ID
      * @param dyMissionId
      * @return
      */
     bool ValidDyMissionId(uint64_t dyMissionId);
     
     /**
-     * @brief ·ÖÅäÒ»¸ö¶¯Ì¬ÈÎÎñID
+     * @brief åˆ†é…ä¸€ä¸ªåŠ¨æ€ä»»åŠ¡ID
      * @return
      */
     uint64_t AllocNewDyMisssionId();
     
     /**
-     * @brief »ØÊÕÒ»¸ö¶¯Ì¬ÈÎÎñID
+     * @brief å›æ”¶ä¸€ä¸ªåŠ¨æ€ä»»åŠ¡ID
      * @param dyMissionId
      */
     void FreeDyMissionId(uint64_t dyMissionId);
     
     /**
-     * @brief ¸ù¾İÈÎÎñÀàĞÍËæ»úÒ»¸öÈÎÎñID
+     * @brief æ ¹æ®ä»»åŠ¡ç±»å‹éšæœºä¸€ä¸ªä»»åŠ¡ID
      * @param missionType
      * @return
      */
     uint64_t DyRandMissionId(int32_t missionType);
 
 public:
-    /** ×î½üÌá½»ÁĞ±íÀïÃæÊÇ·ñÓĞÖ¸¶¨ÀàĞÍµÄÈÎÎñ
+    /** æœ€è¿‘æäº¤åˆ—è¡¨é‡Œé¢æ˜¯å¦æœ‰æŒ‡å®šç±»å‹çš„ä»»åŠ¡
      * @brief
      * @param missionType
      * @return
@@ -395,21 +395,21 @@ public:
     bool HaveRecentSubmit(int32_t missionType);
     
     /**
-     * @brief  ¸ù¾İÈÎÎñÀàĞÍ»ñÈ¡µ±Ç°ÈÎÎñÁĞ±íÖĞ´æÔÚµÄÊıÁ¿
+     * @brief  æ ¹æ®ä»»åŠ¡ç±»å‹è·å–å½“å‰ä»»åŠ¡åˆ—è¡¨ä¸­å­˜åœ¨çš„æ•°é‡
      * @param missionType
      * @return
      */
     int32_t MissionNumByType(int32_t missionType);
     
     /**
-     * @brief ¸ÃÈÎÎñÊÇ·ñÒÑ¾­½ÓÊÕ¹ıÁË
+     * @brief è¯¥ä»»åŠ¡æ˜¯å¦å·²ç»æ¥æ”¶è¿‡äº†
      * @param missionId
      * @return
      */
     bool HaveAccept(const uint64_t &missionId);
     
     /**
-     * @brief ÊÇ·ñÒÑ¾­Ìá½»¹ıµÄÈÎÎñ
+     * @brief æ˜¯å¦å·²ç»æäº¤è¿‡çš„ä»»åŠ¡
      * @param missionId
      * @return
      */
@@ -419,13 +419,13 @@ public:
     int32_t OnExtractCond(MissionInfo *pMissionInfo, MissionTrack *pMissionTrack);
     
     /**
-     * @brief Ìõ¼şÔ¤ÅĞ¶Ï(ÓĞĞ©Ìõ¼ş½ÓÈ¡ÈÎÎñÊ±¾ÍÒÑ¾­Íê³ÉÁË)
+     * @brief æ¡ä»¶é¢„åˆ¤æ–­(æœ‰äº›æ¡ä»¶æ¥å–ä»»åŠ¡æ—¶å°±å·²ç»å®Œæˆäº†)
      * @param cond
      */
     void OnPreUpdateProgress(ItemInfo &cond);
     
     /**
-     * @brief ¸üĞÂÌõ¼ş½ø¶È
+     * @brief æ›´æ–°æ¡ä»¶è¿›åº¦
      * @param data
      * @param cond
      * @param notify
@@ -433,7 +433,7 @@ public:
     void OnUpdateCondProcess(const ExecuteData &data, ItemInfo &cond, bool &notify);
     
     /**
-     * @brief ÌáÈ¡¶¯Ì¬ÈÎÎñÌõ¼ş
+     * @brief æå–åŠ¨æ€ä»»åŠ¡æ¡ä»¶
      * @param pMissionInfo
      * @param pMissionTrack
      * @param preUpdate
@@ -442,7 +442,7 @@ public:
     int32_t OnExtractDyCond(const DyMissionInfo *pMissionInfo, MissionTrack *pMissionTrack, bool preUpdate = true);
     
     /**
-     * @brief Éú³ÉÈÎÎñÌõ¼ş
+     * @brief ç”Ÿæˆä»»åŠ¡æ¡ä»¶
      * @param pDyMissionInfo
      * @param pDyConditionInfo
      * @param cond
@@ -452,7 +452,7 @@ public:
     int32_t OnGeneralCond(const DyMissionInfo *pDyMissionInfo, const DyConditionInfo *pDyConditionInfo, ItemInfo &cond, uint64_t &textId);
     
     /**
-     * @brief ÌáÈ¡¶¯Ì¬ÈÎÎñÊôĞÔ½±Àø
+     * @brief æå–åŠ¨æ€ä»»åŠ¡å±æ€§å¥–åŠ±
      * @param pNewMissinTrack
      * @return
      */
@@ -460,14 +460,14 @@ public:
 
 public:
     /**
-     * @brief Ôö¼Ó·¢ÈÎÎñÊ±µÄÎïÆ·½±Àø
+     * @brief å¢åŠ å‘ä»»åŠ¡æ—¶çš„ç‰©å“å¥–åŠ±
      * @param pMissionTrack
      * @return
      */
     int32_t AddReward(uint64_t missionId, int32_t kind, TASK_REWARD &reward, float ration = 1);
     
     /**
-     * @brief ÊÇ·ñÄÜÔö¼ÓÈÎÎñ½±Àø
+     * @brief æ˜¯å¦èƒ½å¢åŠ ä»»åŠ¡å¥–åŠ±
      * @param pPlayer
      * @param reward
      * @param param
@@ -478,14 +478,14 @@ public:
 
 public:
     /**
-     * @brief ÒÆ³ıÈÎÎñ
+     * @brief ç§»é™¤ä»»åŠ¡
      * @param pMissionInfo
      * @return
      */
     int32_t RemoveMission(MissionInfo *pMissionInfo);
     
     /**
-     * @brief ÒÆ³ıÈÎÎñ
+     * @brief ç§»é™¤ä»»åŠ¡
      * @param pMissinTrack
      * @param pMissionInfo
      * @return
@@ -493,7 +493,7 @@ public:
     int32_t RemoveMission(MissionTrack *pMissinTrack, MissionInfo *pMissionInfo);
     
     /**
-     * @brief ÒÆ³ı¶¯Ì¬ÈÎÎñ
+     * @brief ç§»é™¤åŠ¨æ€ä»»åŠ¡
      * @param dymissionId
      * @param notify
      * @return
@@ -502,7 +502,7 @@ public:
 
 public:
     /**
-     * @brief ¸üĞÂ½ø¶È
+     * @brief æ›´æ–°è¿›åº¦
      * @param missionId
      * @param data
      * @return
@@ -510,19 +510,19 @@ public:
     int32_t OnUpdateProgress(uint64_t missionId, const ExecuteData &data);
     
     /**
-     * @brief ¸üĞÂÈÎÎñ½ø¶È
+     * @brief æ›´æ–°ä»»åŠ¡è¿›åº¦
      * @param missionId
      */
     void UpdateMissionProgress(uint64_t missionId);
     
-    /** É¾³ıÈÎÎñ
+    /** åˆ é™¤ä»»åŠ¡
      * @brief
      * @param dymissionId
      */
     void NotifyDelMission(uint64_t dymissionId);
     
     /**
-     * @brief ÒÆ³ıÈÎÎñÎïÆ·
+     * @brief ç§»é™¤ä»»åŠ¡ç‰©å“
      * @param pMissionTrack
      * @return
      */
@@ -530,7 +530,7 @@ public:
 
 public:
     /**
-     * @brief Ìí¼ÓÈÎÎñµôÂä
+     * @brief æ·»åŠ ä»»åŠ¡æ‰è½
      * @param pMissionTrack
      * @param progressLev
      * @return
@@ -538,7 +538,7 @@ public:
     int32_t OnAddMissionDrop(MissionTrack *pMissionTrack, int32_t progressLev);
     
     /**
-     * @brief Ìí¼ÓÈÎÎñµôÂä
+     * @brief æ·»åŠ ä»»åŠ¡æ‰è½
      * @param dymissionId
      * @param monsId
      * @param dropId
@@ -549,7 +549,7 @@ public:
     bool AddMissionDrop(uint64_t dymissionId, uint64_t monsId, uint64_t dropId, uint64_t boxId, int32_t progressLev);
     
     /**
-     * @brief É¾³ıÈÎÎñµôÂä
+     * @brief åˆ é™¤ä»»åŠ¡æ‰è½
      * @param dymissionId
      * @param monsId
      * @return
@@ -557,14 +557,14 @@ public:
     bool DelMissionDrop(uint64_t dymissionId, uint64_t monsId);
     
     /**
-     * @brief »ñÈ¡ÈÎÎñµôÂä
+     * @brief è·å–ä»»åŠ¡æ‰è½
      * @param monsterId
      * @return
      */
     MissionDropMap *GetMissionDrop(uint64_t monsterId);
     
     /**
-     * @brief ÒÆ³ıÈÎÎñµôÂä
+     * @brief ç§»é™¤ä»»åŠ¡æ‰è½
      * @param pMissionTrack
      * @return
      */
@@ -572,13 +572,13 @@ public:
 
 public:
     /**
-     * @brief ÒÆ³ıÈÎÎñÖĞ¼äÎïÆ·
+     * @brief ç§»é™¤ä»»åŠ¡ä¸­é—´ç‰©å“
      * @param pMissionTrack
      */
     int RemoveReward(MissionTrack *pMissionTrack);
     
     /**
-     * @brief ÒÆ³ı½ÓÈ¡ÈÎÎñÊ±·¢·ÅµÄÎïÆ·
+     * @brief ç§»é™¤æ¥å–ä»»åŠ¡æ—¶å‘æ”¾çš„ç‰©å“
      * @param pPlayer
      * @param missionId
      * @param reward
@@ -586,9 +586,9 @@ public:
      */
     int RemoveReward(uint64_t missionId, TASK_REWARD &reward);
 
-public://ÈÎÎñÊÂ¼ş´¦Àí½Ó¿Ú
+public://ä»»åŠ¡äº‹ä»¶å¤„ç†æ¥å£
     /**
-     * @brief ×¢²á¼àÌıÊÂ¼ş£¬½ÓÈÎÎñ³É¹¦ºó×¢²á
+     * @brief æ³¨å†Œç›‘å¬äº‹ä»¶ï¼Œæ¥ä»»åŠ¡æˆåŠŸåæ³¨å†Œ
      * @param eventType
      * @param missionId
      * @param progressLev
@@ -596,13 +596,13 @@ public://ÈÎÎñÊÂ¼ş´¦Àí½Ó¿Ú
     void RegisterEvent(uint32_t eventType, uint64_t missionId, int32_t progressLev);
     
     /**
-     * @brief ÒÆ³ıÕâ¸öÈÎÎñ×¢²áµÄËùÓĞÊÂ¼ş
+     * @brief ç§»é™¤è¿™ä¸ªä»»åŠ¡æ³¨å†Œçš„æ‰€æœ‰äº‹ä»¶
      * @param missionId
      */
     void RemoveEvent(uint64_t missionId);
     
     /**
-     * @brief ·¢ËÍÈÎÎñÊÂ¼ş£¬×èÈû
+     * @brief å‘é€ä»»åŠ¡äº‹ä»¶ï¼Œé˜»å¡
      * @param eventType
      * @param data
      * @param dynamicId
@@ -611,7 +611,7 @@ public://ÈÎÎñÊÂ¼ş´¦Àí½Ó¿Ú
 
 public:
     /**
-     * @brief Ìá½»ÈÎÎñ
+     * @brief æäº¤ä»»åŠ¡
      * @param pPlayer
      * @param missionId
      * @param selidx
@@ -620,7 +620,7 @@ public:
     int32_t OnSubmit(uint64_t missionId, uint32_t selidx);
     
     /**
-     * @brief Ìá½»ÈÎÎñ
+     * @brief æäº¤ä»»åŠ¡
      * @param missionId
      * @param premissionId
      * @param kind
@@ -628,7 +628,7 @@ public:
     void OnSubmit(uint64_t missionId, uint64_t premissionId, uint32_t kind);
     
     /**
-     * @brief ¼ì²é½ÓÈ¡Ìõ¼şÖĞÇ°ÖÃÈÎÎñÍê³ÉÖ®ºóµÄ¿É½ÓÈÎÎñ
+     * @brief æ£€æŸ¥æ¥å–æ¡ä»¶ä¸­å‰ç½®ä»»åŠ¡å®Œæˆä¹‹åçš„å¯æ¥ä»»åŠ¡
      * @param missionId
      * @param notify
      */
@@ -636,7 +636,7 @@ public:
 
 public:
     /**
-     * @brief Ìá½»¶¯Ì¬ÈÎÎñ
+     * @brief æäº¤åŠ¨æ€ä»»åŠ¡
      * @param dymissionId
      * @return
      */
@@ -644,25 +644,25 @@ public:
     
     
     /**
-     * @brief Ìá½»ÈÎÎñ(¶¯Ì¬ÈÎÎñ)
+     * @brief æäº¤ä»»åŠ¡(åŠ¨æ€ä»»åŠ¡)
      * @param dymissionId
      * @param missionType
      */
     void OnSubmitDy(uint64_t dymissionId, int32_t missionType);
 public:
     /**
-     * @brief Íê³ÉÅµÁÖÃ°ÏÕ
+     * @brief å®Œæˆè¯ºæ—å†’é™©
      * @param count
      */
     void OnFinishLoopMission(int32_t count);
 private:
-    PlayerTrackMissionMap _playerTrackMissionMap;    //µ±Ç°ÈÎÎñÁĞ±í
-    NFShmHashMap<int32_t, NFShmHashSet<uint64_t, 100>, NF_MISSION_TYPE_MAX_COUNT> _mapRecentSubmit;        //×î½üÌá½»µÄÈÎÎñ
-    NFShmHashSet<uint64_t, NF_MISSION_TYPE_MAX_MISSION_COUNT> _setAlreadySubmit;        //ÒÑ¾­Ìá½»µÄÈÎÎñ
-    //¶¯Ì¬ÈÎÎñ
-    PlayerDyMissionTrackMap _mapDyMissionTrack;        //¶¯Ì¬ÈÎÎñÊı¾İ
-    MissionAllDropMap _mapMissionAllDrop;        //ÈÎÎñµôÂä
+    PlayerTrackMissionMap _playerTrackMissionMap;    //å½“å‰ä»»åŠ¡åˆ—è¡¨
+    NFShmHashMap<int32_t, NFShmHashSet<uint64_t, 100>, NF_MISSION_TYPE_MAX_COUNT> _mapRecentSubmit;        //æœ€è¿‘æäº¤çš„ä»»åŠ¡
+    NFShmHashSet<uint64_t, NF_MISSION_TYPE_MAX_MISSION_COUNT> _setAlreadySubmit;        //å·²ç»æäº¤çš„ä»»åŠ¡
+    //åŠ¨æ€ä»»åŠ¡
+    PlayerDyMissionTrackMap _mapDyMissionTrack;        //åŠ¨æ€ä»»åŠ¡æ•°æ®
+    MissionAllDropMap _mapMissionAllDrop;        //ä»»åŠ¡æ‰è½
     //
-    EventTabal _eventTabal;            //ÈÎÎñÊÂ¼ş±í
-    NFShmVector<bool, MISSION_MAX_DYNAMIC_ALLOC + 1> _aryDyIdAlloc; //¶¯Ì¬ÈÎÎñID·ÖÅä
+    EventTabal _eventTabal;            //ä»»åŠ¡äº‹ä»¶è¡¨
+    NFShmVector<bool, MISSION_MAX_DYNAMIC_ALLOC + 1> _aryDyIdAlloc; //åŠ¨æ€ä»»åŠ¡IDåˆ†é…
 };

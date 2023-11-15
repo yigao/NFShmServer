@@ -21,7 +21,7 @@
 
 class NFGrowPart : public NFShmObjTemplate<NFGrowPart, EOT_LOGIC_PART_ID + PART_GROW, NFPart> {
 public:
-    //²¿¼şÔªËØ
+    //éƒ¨ä»¶å…ƒç´ 
     struct GrowPartEntry {
         GrowPartEntry()
         {
@@ -47,12 +47,12 @@ public:
         
         int64_t id;
         int32_t lv;
-        uint64_t time; //ÓĞĞ§Ê±¼ä
+        uint64_t time; //æœ‰æ•ˆæ—¶é—´
     };
     
     typedef NFShmHashMap<int64_t, GrowPartEntry, 10> GrowPartEntryMap;
     
-    //Ñø³É²¿¼ş
+    //å…»æˆéƒ¨ä»¶
     struct GrowPartData {
         GrowPartData()
         {
@@ -96,9 +96,9 @@ public:
     
     virtual int OnTimer(int timeId, int callcount);
 public:
-    //******************partµ÷ÓÃ½Ó¿Ú******************
+    //******************partè°ƒç”¨æ¥å£******************
     /**
-     * @brief ³õÊ¼»¯part
+     * @brief åˆå§‹åŒ–part
      * @param pMaster
      * @param partType
      * @param dbData
@@ -108,34 +108,34 @@ public:
     virtual int Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::RoleDBData &dbData);
     
     /**
-     * @brief ÊÍ·Åpart×ÊÔ´
+     * @brief é‡Šæ”¾partèµ„æº
      * @return
      */
     virtual int UnInit();
 
 public:
     /**
-     * @brief ´ÓÊı¾İ¿âÖĞ¼ÓÔØÊı¾İ
+     * @brief ä»æ•°æ®åº“ä¸­åŠ è½½æ•°æ®
      * @param data
      * @return
      */
     virtual int LoadFromDB(const proto_ff::RoleDBData &data);
     
     /**
-     * @brief ´ÓÅäÖÃÖĞ³õÊ¼»¯Êı¾İ
+     * @brief ä»é…ç½®ä¸­åˆå§‹åŒ–æ•°æ®
      * @return
      */
     virtual int InitConfig(const proto_ff::RoleDBData &data);
     
     /**
-     * @brief ´æ´¢DB²¿¼şÈë¿Ú
+     * @brief å­˜å‚¨DBéƒ¨ä»¶å…¥å£
      * @param proto
      * @return
      */
     virtual int SaveDB(proto_ff::RoleDBData &dbData);
     
     /**
-     * @brief µÇÂ½Èë¿Ú
+     * @brief ç™»é™†å…¥å£
      * @return
      */
     virtual int OnLogin();
@@ -143,49 +143,49 @@ public:
     virtual int OnLogin(proto_ff::PlayerInfoRsp &playerInfo) { return 0; }
     
     /**
-     * @brief µÇ³öÈë¿Ú
+     * @brief ç™»å‡ºå…¥å£
      * @return
      */
     virtual int OnLogout() { return 0; }
     
     /**
-     * @brief µôÏßÈë¿Ú
+     * @brief æ‰çº¿å…¥å£
      * @return
      */
     virtual int OnDisconnect() { return 0; }
     
     /**
-     * @brief ÖØÁ¬Èë¿Ú
+     * @brief é‡è¿å…¥å£
      * @return
      */
     virtual int OnReconnect() { return 0; }
     
-    ////////////////////////////////// Ã¿ÈÕÁãµã Ã¿ÖÜÒ»Áãµã Ë¢ĞÂ½Ó¿Ú ///////////////////////////////////
+    ////////////////////////////////// æ¯æ—¥é›¶ç‚¹ æ¯å‘¨ä¸€é›¶ç‚¹ åˆ·æ–°æ¥å£ ///////////////////////////////////
     /**
-     * @brief Ã¿ÈÕÁãµã Ë¢ĞÂ½Ó¿Ú
+     * @brief æ¯æ—¥é›¶ç‚¹ åˆ·æ–°æ¥å£
      * @return
      */
     virtual int DailyZeroUpdate() { return 0; }
     
     /**
-     * @brief Ã¿ÈÕÁãµã Ë¢ĞÂ½Ó¿Ú
+     * @brief æ¯æ—¥é›¶ç‚¹ åˆ·æ–°æ¥å£
      * @return
      */
     virtual int WeekZeroUpdate() { return 0; }
     
     /**
-     * @brief Ã¿ÔÂË¢ĞÂ½Ó¿Ú
+     * @brief æ¯æœˆåˆ·æ–°æ¥å£
      * @return
      */
     virtual int MonthZeroUpdate() { return 0; };
     
     /**
-     * ÉèÖÃÍâ¹ÛĞÅÏ¢
+     * è®¾ç½®å¤–è§‚ä¿¡æ¯
      * @param outproto
      */
     virtual int FillFacadeProto(proto_ff::RoleFacadeProto &outproto);
     
-    //Ìî³äÍ·ÏñÊı¾İ
+    //å¡«å……å¤´åƒæ•°æ®
     void FillHeadProto(proto_ff::RoleHeadPicProto &proto);
 
 public:
@@ -196,14 +196,14 @@ public:
 
 public:
     /**
-     * @brief ×¢²áÒª´¦ÀíµÄÏûÏ¢
+     * @brief æ³¨å†Œè¦å¤„ç†çš„æ¶ˆæ¯
      * @return
      */
     virtual int RegisterMessage();
 
 public:
     /**
-     * @brief ´¦Àí¿Í»§¶ËÏûÏ¢
+     * @brief å¤„ç†å®¢æˆ·ç«¯æ¶ˆæ¯
      * @param unLinkId
      * @param packet
      * @return
@@ -211,7 +211,7 @@ public:
     virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief ´¦ÀíÀ´×Ô·şÎñÆ÷µÄĞÅÏ¢
+     * @brief å¤„ç†æ¥è‡ªæœåŠ¡å™¨çš„ä¿¡æ¯
      * @param unLinkId
      * @param packet
      * @return
@@ -219,27 +219,27 @@ public:
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
 
 public:
-    int HanlderLvUpReq(uint32_t msgId, NFDataPackage &packet);        //Éı¼¶
-    int HanlderDressReq(uint32_t msgId, NFDataPackage &packet);        //´©´÷
-    int HanlderUnDressReq(uint32_t msgId, NFDataPackage &packet);        //Ğ¶ÔØ
+    int HanlderLvUpReq(uint32_t msgId, NFDataPackage &packet);        //å‡çº§
+    int HanlderDressReq(uint32_t msgId, NFDataPackage &packet);        //ç©¿æˆ´
+    int HanlderUnDressReq(uint32_t msgId, NFDataPackage &packet);        //å¸è½½
 public:
     int UnDress(uint64_t id, int32_t code = 0);
-    int OnActivePartEntry(int64_t id);                            //´¦Àí¼¤»î
-    int OnLvupPartEntry(int64_t id);                            //´¦ÀíÉı¼¶
-    bool UnDressHalo(bool sync_facade);							//Ğ¶ÔØ¹â»·
-    bool UnDress(int32_t type,bool sync_facade);							//Ğ¶ÔØ¹â»·
+    int OnActivePartEntry(int64_t id);                            //å¤„ç†æ¿€æ´»
+    int OnLvupPartEntry(int64_t id);                            //å¤„ç†å‡çº§
+    bool UnDressHalo(bool sync_facade);							//å¸è½½å…‰ç¯
+    bool UnDress(int32_t type,bool sync_facade);							//å¸è½½å…‰ç¯
 public:
     int FillProto(const GrowPartData &part, proto_ff::GrowSubInfo &proto);
     
     GrowPartData *getPart(int32_t type);
 
 public:
-    int SendAllGrowData();                                        //·¢ËÍÈ«²¿Êı¾İ
-    int SendGrowPartData(int32_t type);                        //·¢ËÍÄ³¸ö²¿¼şÊı¾İ
+    int SendAllGrowData();                                        //å‘é€å…¨éƒ¨æ•°æ®
+    int SendGrowPartData(int32_t type);                        //å‘é€æŸä¸ªéƒ¨ä»¶æ•°æ®
 public:
     void calcAttr(bool sync);
     
-    void calcAttr(int32_t type, MAP_INT32_INT64 &outAttr);        //¼ÆËãÑø³É²¿¼şÊôĞÔ
+    void calcAttr(int32_t type, MAP_INT32_INT64 &outAttr);        //è®¡ç®—å…»æˆéƒ¨ä»¶å±æ€§
     void MergeAttr(MAP_INT32_INT64 &src, MAP_INT32_INT64 &dst);
     
     void PrintAttr(int32_t type, MAP_INT32_INT64 &attr);
@@ -248,6 +248,6 @@ private:
     void initParts();
 
 protected:
-    GrowPartMap m_partsMap;                    //ËùÓĞÑø³ÉµÄ²¿¼ş
+    GrowPartMap m_partsMap;                    //æ‰€æœ‰å…»æˆçš„éƒ¨ä»¶
     int m_timerId;
 };

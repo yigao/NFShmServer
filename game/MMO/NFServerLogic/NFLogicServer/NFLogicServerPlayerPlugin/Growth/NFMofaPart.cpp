@@ -117,52 +117,52 @@ int NFMofaPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
 {
     switch (msgId)
     {
-        case proto_ff::CL_MOFA_GET_INFO_REQ://ÆæÃÅ°ËØÔ»ñÈ¡ÐÅÏ¢
+        case proto_ff::CL_MOFA_GET_INFO_REQ://å¥‡é—¨å…«å¦èŽ·å–ä¿¡æ¯
         {
             OnHandleGetInfoReq(msgId, packet);
             break;
         }
-        case proto_ff::CL_MOFA_DRESS_REQ://´øÉÏ×°±¸
+        case proto_ff::CL_MOFA_DRESS_REQ://å¸¦ä¸Šè£…å¤‡
         {
             OnHandleDressReq(msgId, packet);
             break;
         }
-        case proto_ff::CL_MOFA_UNDRESS_REQ://Ð¶ÔØ×°±¸
+        case proto_ff::CL_MOFA_UNDRESS_REQ://å¸è½½è£…å¤‡
         {
             OnHandleUnDressReq(msgId, packet);
             break;
         }
-        case proto_ff::CL_MOFA_SLOT_ZUFU_REQ://ÕóÑÛ×£¸£
+        case proto_ff::CL_MOFA_SLOT_ZUFU_REQ://é˜µçœ¼ç¥ç¦
         {
             OnHandleSlotZuFuReq(msgId, packet);
             break;
         }
-        case proto_ff::CL_MOFA_SLOT_WAKE_REQ://ÕóÑÛ¾õÐÑ
+        case proto_ff::CL_MOFA_SLOT_WAKE_REQ://é˜µçœ¼è§‰é†’
         {
             OnHandleSlotWakeReq(msgId, packet);
             break;
         }
-        case proto_ff::CL_MOFA_EQUIP_LV_REQ://×°±¸Éý¼¶
+        case proto_ff::CL_MOFA_EQUIP_LV_REQ://è£…å¤‡å‡çº§
         {
             OnHandleEquipLvReq(msgId, packet);
             break;
         }
-        case proto_ff::CL_MOFA_EQUIP_WAKE_REQ://×°±¸¾õÐÑ
+        case proto_ff::CL_MOFA_EQUIP_WAKE_REQ://è£…å¤‡è§‰é†’
         {
             OnHandleEquipWakeReq(msgId, packet);
             break;
         }
-        case proto_ff::CL_MOFA_EQUIP_DECOMPOSE_REQ://×°±¸Ò»¼ü·Ö½â
+        case proto_ff::CL_MOFA_EQUIP_DECOMPOSE_REQ://è£…å¤‡ä¸€é”®åˆ†è§£
         {
             OnHandleDecomposeReq(msgId, packet);
             break;
         }
-        case proto_ff::CL_MOFA_EXCHANGE_REQ://¶Ò»»
+        case proto_ff::CL_MOFA_EXCHANGE_REQ://å…‘æ¢
         {
             OnHandleExchangeReq(msgId, packet);
             break;
         }
-        case proto_ff::CL_MOFA_SLOT_UNLOCK_REQ://ÆæÃÅ°ËØÔ
+        case proto_ff::CL_MOFA_SLOT_UNLOCK_REQ://å¥‡é—¨å…«å¦
         {
             OnHandleSlotUnlockReq(msgId, packet);
             break;
@@ -300,22 +300,22 @@ int NFMofaPart::OnHandleDressReq(uint32_t msgId, NFDataPackage &packet)
     
     NFMoFaEquip tempEquip = *pPackageEquip;
     
-    //ÒÑ´©´÷µÄ×°±¸
+    //å·²ç©¿æˆ´çš„è£…å¤‡
     proto_ff::NotifyPackageUpdate bagNotify;
     NFMoFaEquip *pSlotEquip = pSlot->GetEquip(equip_pos);
     if (pSlotEquip)
     {
         pSlotEquip->SetIndex(bag_pos);
         pPackagePart->SetItemByIndex(proto_ff::EPackageType_MoFa, bag_pos, pSlotEquip);
-        //Í¨Öª¿Í»§¶Ë¸üÐÂ
+        //é€šçŸ¥å®¢æˆ·ç«¯æ›´æ–°
         pPackagePart->AddPackageUpdateInfo(pSlotEquip, bagNotify, 0);
         
         pSlot->m_slot.m_awaken_lv = 0;
     }
     else
     {
-        pPackagePart->AddPackageUpdateInfo(&tempEquip, bagNotify, true); //É¾³ý±³°ü×°±¸£¬Í¨Öª¿Í»§¶Ë
-        pPackagePart->SetItemByIndex(proto_ff::EPackageType_MoFa, bag_pos, nullptr); //ÉèÖÃ±³°üË÷ÒýÎª¿Õ
+        pPackagePart->AddPackageUpdateInfo(&tempEquip, bagNotify, true); //åˆ é™¤èƒŒåŒ…è£…å¤‡ï¼Œé€šçŸ¥å®¢æˆ·ç«¯
+        pPackagePart->SetItemByIndex(proto_ff::EPackageType_MoFa, bag_pos, nullptr); //è®¾ç½®èƒŒåŒ…ç´¢å¼•ä¸ºç©º
     }
     
     pPackagePart->UpdatePackage(proto_ff::EPackageType_MoFa, bagNotify);

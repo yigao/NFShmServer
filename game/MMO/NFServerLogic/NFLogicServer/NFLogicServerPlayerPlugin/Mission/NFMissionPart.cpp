@@ -86,7 +86,7 @@ int NFMissionPart::LoadFromDB(const proto_ff::RoleDBData &dbData)
     {
         const proto_ff::CharacterDBTaskData &missionDBData = dbData.task();
         
-        //ÒÑ½ÓÈÎÎñÁĞ±í
+        //å·²æ¥ä»»åŠ¡åˆ—è¡¨
         uint32_t nAccept = missionDBData.missiontrack_size();
         for (uint32_t i = 0; i < nAccept; ++i)
         {
@@ -104,14 +104,14 @@ int NFMissionPart::LoadFromDB(const proto_ff::RoleDBData &dbData)
                     continue;
                 }
                 uint64_t dynamicId = pMissionTrack->dynamicId;
-                //ÈÎÎñ½ø¶ÈµÈ¼¶
+                //ä»»åŠ¡è¿›åº¦ç­‰çº§
                 int32_t progressLev = 1;
                 MissionInfo *pMissionInfo = TaskDescEx::Instance()->GetMissionCfgInfo(pMissionTrack->missionId);
                 if (nullptr != pMissionInfo)
                 {
                     progressLev = pMissionInfo->progressLev;
                 }
-                //¼ì²éÏÂÈÎÎñ½ø¶ÈÊÇ·ñÒÑ¾­Íê³É,ÍâÍø³öÏÖ¹ıÈÎÎñ½ø¶ÈÍê³ÉÁËµ«ÊÇ×´Ì¬Ã»ÓĞÖÃÎªÍê³É×´Ì¬
+                //æ£€æŸ¥ä¸‹ä»»åŠ¡è¿›åº¦æ˜¯å¦å·²ç»å®Œæˆ,å¤–ç½‘å‡ºç°è¿‡ä»»åŠ¡è¿›åº¦å®Œæˆäº†ä½†æ˜¯çŠ¶æ€æ²¡æœ‰ç½®ä¸ºå®ŒæˆçŠ¶æ€
                 bool completeFlag = true;
                 
                 for (auto iterChk = pMissionTrack->items.begin(); iterChk != pMissionTrack->items.end(); ++iterChk)
@@ -131,21 +131,21 @@ int NFMissionPart::LoadFromDB(const proto_ff::RoleDBData &dbData)
                         completeFlag = false;
                     }
                 }
-                //Ã»ÓĞÍê³ÉµÄÈÎÎñ²ÅĞèÒª×¢²áÊÂ¼şÒÔ¼°Ìí¼ÓÈÎÎñµôÂä
+                //æ²¡æœ‰å®Œæˆçš„ä»»åŠ¡æ‰éœ€è¦æ³¨å†Œäº‹ä»¶ä»¥åŠæ·»åŠ ä»»åŠ¡æ‰è½
                 if (!completeFlag)
                 {
-                    //×¢²áÊÂ¼ş
+                    //æ³¨å†Œäº‹ä»¶
                     for (auto iter = pMissionTrack->items.begin(); iter != pMissionTrack->items.end(); ++iter)
                     {
                         ItemInfo &itemInfo = (*iter);
                         if (!itemInfo.completedFlag)
                         {
-                            //¶ÔÒÑ½ÓÈÎÎñ×¢²áÊÂ¼ş
+                            //å¯¹å·²æ¥ä»»åŠ¡æ³¨å†Œäº‹ä»¶
                             int32_t relevent = MISSION_COND_TYPE_TO_EVENT(itemInfo.type);
                             RegisterEvent(relevent, dynamicId, progressLev);
                         }
                     }
-                    //ÈÎÎñµôÂä
+                    //ä»»åŠ¡æ‰è½
                     OnAddMissionDrop(pMissionTrack, progressLev);
                 }
                 else
@@ -163,7 +163,7 @@ int NFMissionPart::LoadFromDB(const proto_ff::RoleDBData &dbData)
             }
         }
         
-        //ÒÑ¾­Ìá½»µÄÈÎÎñÁĞ±í
+        //å·²ç»æäº¤çš„ä»»åŠ¡åˆ—è¡¨
         for (uint32_t j = 0; j < (uint32_t) missionDBData.already_submit_size(); ++j)
         {
             if (_setAlreadySubmit.size() >= _setAlreadySubmit.max_size())
@@ -176,7 +176,7 @@ int NFMissionPart::LoadFromDB(const proto_ff::RoleDBData &dbData)
             _setAlreadySubmit.insert(missionDBData.already_submit(j));
         }
         
-        //¶¯Ì¬ÈÎÎñ´ÎÊıĞÅÏ¢
+        //åŠ¨æ€ä»»åŠ¡æ¬¡æ•°ä¿¡æ¯
         uint32_t nDyCnt = missionDBData.dyinfo_size();
         for (uint32_t n = 0; n < nDyCnt; ++n)
         {
@@ -194,7 +194,7 @@ int NFMissionPart::LoadFromDB(const proto_ff::RoleDBData &dbData)
             track.bountyParam.twenty_status = dyInfo.bounty_param().twenty_state();
         }
         
-        //×î½üÌá½»µÄÈÎÎñÁĞ±í
+        //æœ€è¿‘æäº¤çš„ä»»åŠ¡åˆ—è¡¨
         uint32_t nRecentSubmit = missionDBData.recent_submit_size();
         for (uint32_t m = 0; m < nRecentSubmit; ++m)
         {
@@ -228,7 +228,7 @@ int NFMissionPart::SaveDB(proto_ff::RoleDBData &dbData)
     proto_ff::CharacterDBTaskData *pTaskData = dbData.mutable_task();
     pTaskData->Clear();
     
-    //¶¯Ì¬ÈÎÎñÊı¾İ
+    //åŠ¨æ€ä»»åŠ¡æ•°æ®
     for (auto iterDy = _mapDyMissionTrack.begin(); iterDy != _mapDyMissionTrack.end(); ++iterDy)
     {
         DyMissionTrack &info = iterDy->second;
@@ -243,7 +243,7 @@ int NFMissionPart::SaveDB(proto_ff::RoleDBData &dbData)
             pBounty->set_twenty_state(info.bountyParam.twenty_status);
         }
     }
-    //ÒÑ½ÓÈÎÎñÁĞ±í
+    //å·²æ¥ä»»åŠ¡åˆ—è¡¨
     for (PlayerTrackMissionMap::iterator it = _playerTrackMissionMap.begin(); it != _playerTrackMissionMap.end(); ++it)
     {
         auto pSingleMissionTrack = pTaskData->mutable_missiontrack()->Add();
@@ -253,13 +253,13 @@ int NFMissionPart::SaveDB(proto_ff::RoleDBData &dbData)
         }
     }
     
-    //ÒÑ¾­Ìá½»ÈÎÎñ
+    //å·²ç»æäº¤ä»»åŠ¡
     for (auto iterAlready = _setAlreadySubmit.begin(); iterAlready != _setAlreadySubmit.end(); ++iterAlready)
     {
         pTaskData->add_already_submit((*iterAlready));
     }
     
-    //×î½üÌá½»µÄÈÎÎñ
+    //æœ€è¿‘æäº¤çš„ä»»åŠ¡
     for (auto iterRecent = _mapRecentSubmit.begin(); iterRecent != _mapRecentSubmit.end(); ++iterRecent)
     {
         auto &setMission = iterRecent->second;
@@ -288,46 +288,46 @@ int NFMissionPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
 {
     switch (msgId)
     {
-        case proto_ff::CLIENT_TO_LOGIC_QUERY_MiSSIONLIST: //ÈÎÎñÁĞ±í
+        case proto_ff::CLIENT_TO_LOGIC_QUERY_MiSSIONLIST: //ä»»åŠ¡åˆ—è¡¨
         {
             SendMissionList(msgId, packet);
             break;
         }
-        case proto_ff::CLIENT_TO_LOGIC_NPC_ACCEPTMISSION: //NPC½ÓÈ¡ÈÎÎñ
+        case proto_ff::CLIENT_TO_LOGIC_NPC_ACCEPTMISSION: //NPCæ¥å–ä»»åŠ¡
         {
             HandleNpcAcceptMission(msgId, packet);
             break;
         }
-        case proto_ff::CLIENT_TO_LOGIC_ABANDONMISSION: //·ÅÆúÈÎÎñ
+        case proto_ff::CLIENT_TO_LOGIC_ABANDONMISSION: //æ”¾å¼ƒä»»åŠ¡
         {
             break;
         }
-        case proto_ff::CLIENT_TO_LOGIC_SUBMITMISSION: //Ìá½»ÈÎÎñ
+        case proto_ff::CLIENT_TO_LOGIC_SUBMITMISSION: //æäº¤ä»»åŠ¡
         {
             HandleSubmitMission(msgId, packet);
             break;
         }
-        case proto_ff::CLIENT_TO_LOGIC_TALKWITHNPC: //NPC¶Ô»°
+        case proto_ff::CLIENT_TO_LOGIC_TALKWITHNPC: //NPCå¯¹è¯
         {
             HandleTalkWithNpc(msgId, packet);
             break;
         }
-        case proto_ff::CLIENT_TO_LOGIC_SUBMITMISSIONGOODS: //Ìá½»ÎïÆ·
+        case proto_ff::CLIENT_TO_LOGIC_SUBMITMISSIONGOODS: //æäº¤ç‰©å“
         {
             HandleSubmitMissionGoods(msgId, packet);
             break;
         }
-        case proto_ff::CLIENT_TO_LOGIC_MISSION_ONEKEY_FINISH: //Ò»¼üÍê³ÉÅµÁÖÃ°ÏÕ
+        case proto_ff::CLIENT_TO_LOGIC_MISSION_ONEKEY_FINISH: //ä¸€é”®å®Œæˆè¯ºæ—å†’é™©
         {
             HandleOnekeyFinishMission(msgId, packet);
             break;
         }
-        case proto_ff::CLIENT_TO_LOGIC_MISSION_ONCE_FINISH: //Á¢¼´Íê³É
+        case proto_ff::CLIENT_TO_LOGIC_MISSION_ONCE_FINISH: //ç«‹å³å®Œæˆ
         {
             HandleOnceFinishMission(msgId, packet);
             break;
         }
-        case proto_ff::CLIENT_TO_LOGIC_MISSION_RECV_SPECIAL_REWARD://ÁìÈ¡ÌØÊâ½±Àø
+        case proto_ff::CLIENT_TO_LOGIC_MISSION_RECV_SPECIAL_REWARD://é¢†å–ç‰¹æ®Šå¥–åŠ±
         {
             HandleMissionRecvSpecialReward(msgId, packet);
             break;
@@ -348,8 +348,8 @@ void NFMissionPart::CheckTrunkMission(bool notify)
     if ((_mapRecentSubmit.size() <= 0 && _playerTrackMissionMap.size() <= 0) ||
         ((!HaveRecentSubmit(MISSION_TYPE_ID_TRUNK)) && (MissionNumByType(MISSION_TYPE_ID_TRUNK) <= 0)))
     {
-        //×î½üÌá½»ÈÎÎñÁĞ±íÎª¿Õ,²¢ÇÒÒÑ½ÓÈ¡ÈÎÎñÁĞ±íÒ²Îª¿Õ
-        //×î½üÌá½»ÈÎÎñÁĞ±í²»Îª¿Õ£¬²¢ÇÒ×î½üÌá½»ÈÎÎñÁĞ±íÖĞÃ»ÓĞÖ÷ÏßÈÎÎñ£¬²¢ÇÒÒÑ½ÓÈ¡ÈÎÎñÁĞ±íÒ²Îª¿ÕÖĞÒ²Ã»ÓĞÖ÷ÏßÈÎÎñ
+        //æœ€è¿‘æäº¤ä»»åŠ¡åˆ—è¡¨ä¸ºç©º,å¹¶ä¸”å·²æ¥å–ä»»åŠ¡åˆ—è¡¨ä¹Ÿä¸ºç©º
+        //æœ€è¿‘æäº¤ä»»åŠ¡åˆ—è¡¨ä¸ä¸ºç©ºï¼Œå¹¶ä¸”æœ€è¿‘æäº¤ä»»åŠ¡åˆ—è¡¨ä¸­æ²¡æœ‰ä¸»çº¿ä»»åŠ¡ï¼Œå¹¶ä¸”å·²æ¥å–ä»»åŠ¡åˆ—è¡¨ä¹Ÿä¸ºç©ºä¸­ä¹Ÿæ²¡æœ‰ä¸»çº¿ä»»åŠ¡
         
         auto &mapFirst = TaskDescEx::Instance()->GetFirstMission();
         for (auto iterFirt = mapFirst.begin(); iterFirt != mapFirst.end(); ++iterFirt)
@@ -522,7 +522,7 @@ int NFMissionPart::HandleSubmitMission(uint32_t msgId, NFDataPackage &packet)
         }
     }
     
-    if (proto_ff::RET_MISSION_NOT_EXIST != ret && proto_ff::RET_SUCCESS != ret) //ÕâÀï×öÌØÊâ´¦Àí£¬³É¹¦ºÍÈÎÎñ²»´æÔÚµÄÊ±ºò²»·µ»Ø¸øÇ°¶Ë£¬Ö»ÓĞÆäËû´íÎóµÄÊ±ºò²Å·µ»Ø¸øÇ°¶Ë
+    if (proto_ff::RET_MISSION_NOT_EXIST != ret && proto_ff::RET_SUCCESS != ret) //è¿™é‡Œåšç‰¹æ®Šå¤„ç†ï¼ŒæˆåŠŸå’Œä»»åŠ¡ä¸å­˜åœ¨çš„æ—¶å€™ä¸è¿”å›ç»™å‰ç«¯ï¼Œåªæœ‰å…¶ä»–é”™è¯¯çš„æ—¶å€™æ‰è¿”å›ç»™å‰ç«¯
     {
         rsp.set_dynamicid(dymissionId);
         rsp.set_ret(ret);
@@ -550,7 +550,7 @@ int NFMissionPart::HandleTalkWithNpc(uint32_t msgId, NFDataPackage &packet)
         return -1;
     }
     
-    //Ö»ÓĞ¶Ô»°ºÍµ½´ïÄ³ÇøÓò¿ÉÒÔÍ¨¹ı¸ÃĞ­Òé½øĞĞÌá½»
+    //åªæœ‰å¯¹è¯å’Œåˆ°è¾¾æŸåŒºåŸŸå¯ä»¥é€šè¿‡è¯¥åè®®è¿›è¡Œæäº¤
     if (type != MISSION_FINISH_TYPE_KILL_MONS_AREA
         && type != MISSION_FINISH_TYPE_TAKL
         && type != MISSION_FINISH_TYPE_AREA
@@ -563,12 +563,12 @@ int NFMissionPart::HandleTalkWithNpc(uint32_t msgId, NFDataPackage &packet)
     
     if (MISSION_FINISH_TYPE_KILL_MONS_AREA == type)
     {
-        //ÈÎÎñÇøÓòË¢¹Ö
+        //ä»»åŠ¡åŒºåŸŸåˆ·æ€ª
         //OnAreaFreshMonster(dymissionId);
         return 0;
     }
     
-    //NPC½»Ì¸,µ½´ïÇøÓò£¬ÇøÓòÊ¹ÓÃĞĞÎª°´Å¥¡¢Íê³ÉĞÂÊÖÒıµ¼²½Öè
+    //NPCäº¤è°ˆ,åˆ°è¾¾åŒºåŸŸï¼ŒåŒºåŸŸä½¿ç”¨è¡Œä¸ºæŒ‰é’®ã€å®Œæˆæ–°æ‰‹å¼•å¯¼æ­¥éª¤
     uint32_t eventType = MISSION_COND_TYPE_TO_EVENT(type);
     ExecuteData executeData(eventType, itemId, 1);
     OnEvent(eventType, executeData);
@@ -612,7 +612,7 @@ void NFMissionPart::SendMissionInfo()
 {
     proto_ff::GCQueryMissionListRsp rsp;
     
-    //ÒÑ½ÓÈÎÎñÁĞ±í
+    //å·²æ¥ä»»åŠ¡åˆ—è¡¨
     for (auto missionIte = _playerTrackMissionMap.begin(); missionIte != _playerTrackMissionMap.end(); ++missionIte)
     {
         proto_ff::CMissionTrack *missionTrack = rsp.add_acceptedlist();
@@ -622,7 +622,7 @@ void NFMissionPart::SendMissionInfo()
         }
     }
     
-    //¶¯Ì¬ÈÎÎñÖÜÆÚÄÚÒÑ¾­½ÓÈ¡µÄ´ÎÊı
+    //åŠ¨æ€ä»»åŠ¡å‘¨æœŸå†…å·²ç»æ¥å–çš„æ¬¡æ•°
     proto_ff::DyMissionCntAllProto *pAllProto = rsp.mutable_dy_count();
     if (nullptr != pAllProto)
     {
@@ -652,7 +652,7 @@ void NFMissionPart::SendMissionInfo()
 
 int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
 {
-    //½ÓÈ¡ÈÎÎñ
+    //æ¥å–ä»»åŠ¡
     MissionInfo *pMissionInfo = TaskDescEx::Instance()->GetMissionCfgInfo(missionId);
     if (nullptr == pMissionInfo)
     {
@@ -672,7 +672,7 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
         return proto_ff::RET_FAIL;
     }
     
-    //Ìí¼Óµ½¿É½ÓÁĞ±íÖĞÀ´
+    //æ·»åŠ åˆ°å¯æ¥åˆ—è¡¨ä¸­æ¥
     MissionTrack *pMissionTrack = &_playerTrackMissionMap[missionId];
     if (nullptr == pMissionTrack)
     {
@@ -680,13 +680,13 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
         return proto_ff::RET_FAIL;
     }
     
-    //Ìî³äÍê³ÉÌõ¼şĞÅÏ¢ ¶àÈÎÎñÌõ¼ş
+    //å¡«å……å®Œæˆæ¡ä»¶ä¿¡æ¯ å¤šä»»åŠ¡æ¡ä»¶
     
-    //½ÓÈ¡ÈÎÎñ»ñÈ¡ÖĞ¼äµÀ¾ß
+    //æ¥å–ä»»åŠ¡è·å–ä¸­é—´é“å…·
     AddReward(pMissionInfo->missionId, pMissionInfo->kind, pMissionInfo->receAdd);
-    //Ìî³äÈÎÎñÊı¾İĞÅÏ¢
+    //å¡«å……ä»»åŠ¡æ•°æ®ä¿¡æ¯
     pMissionTrack->missionId = missionId;
-    pMissionTrack->dynamicId = missionId; //Ö÷Ö§ÏßÈÎÎñ¶¯Ì¬ÈÎÎñIDºÍÅäÖÃIDÒ»Ñù
+    pMissionTrack->dynamicId = missionId; //ä¸»æ”¯çº¿ä»»åŠ¡åŠ¨æ€ä»»åŠ¡IDå’Œé…ç½®IDä¸€æ ·
     pMissionTrack->missionType = pMissionInfo->kind;
     pMissionTrack->acceptMissionTime = NFTime::Now().UnixSec();
     pMissionTrack->status = MISSION_E_ACCEPTED;
@@ -698,20 +698,20 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
     
     MarkDirty();
     
-    //Í¨Öª½ÓÈ¡×´Ì¬
+    //é€šçŸ¥æ¥å–çŠ¶æ€
     if (notify)
     {
         UpdateMissionProgress(missionId);
     }
     
-    //½ÓÈ¡ÈÎÎñÊÂ¼ş
+    //æ¥å–ä»»åŠ¡äº‹ä»¶
     proto_ff::AcceptTaskEvent acceptEvent;
     acceptEvent.set_cid(m_pMaster->Cid());
     acceptEvent.set_taskid(missionId);
     acceptEvent.set_tasktype(pMissionInfo->kind);
     FireExecute(NF_ST_LOGIC_SERVER, EVENT_ACCEPT_TASK, CREATURE_PLAYER, m_pMaster->Cid(), acceptEvent);
     
-    //ÅĞ¶ÏÈÎÎñÊÇ·ñÍê³É
+    //åˆ¤æ–­ä»»åŠ¡æ˜¯å¦å®Œæˆ
     bool isCompletedFlag = true;
     for (uint32_t i = 0; i < pMissionTrack->items.size(); i++)
     {
@@ -722,17 +722,17 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
         }
     }
     
-    //Èç¹ûÒÑ¾­Íê³É
+    //å¦‚æœå·²ç»å®Œæˆ
     if (isCompletedFlag)
     {
-        //Èç¹û¿ÉÒÔÍê³É
+        //å¦‚æœå¯ä»¥å®Œæˆ
         pMissionTrack->status = MISSION_E_COMPLETION;
     }
-    else //Ã»ÓĞÍê³ÉµÄÌõ¼ş²Å»á×¢²áÊÂ¼ş
+    else //æ²¡æœ‰å®Œæˆçš„æ¡ä»¶æ‰ä¼šæ³¨å†Œäº‹ä»¶
     {
-        //Ìí¼ÓÈÎÎñµôÂä´¦Àí
+        //æ·»åŠ ä»»åŠ¡æ‰è½å¤„ç†
         OnAddMissionDrop(pMissionTrack, pMissionInfo->progressLev);
-        //×¢²áÊÂ¼ş
+        //æ³¨å†Œäº‹ä»¶
         for (uint32_t i = 0; i < pMissionTrack->items.size(); i++)
         {
             if (!pMissionTrack->items[i].completedFlag)
@@ -743,7 +743,7 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
         }
     }
     
-    //Èç¹ûÈÎÎñÒÑ½ÓÈ¡¾ÍÍê³ÉĞèÒª ÔÙ´ÎÍ¨Öª¿Í»§¶Ë
+    //å¦‚æœä»»åŠ¡å·²æ¥å–å°±å®Œæˆéœ€è¦ å†æ¬¡é€šçŸ¥å®¢æˆ·ç«¯
     if (isCompletedFlag && notify)
     {
         UpdateMissionProgress(missionId);
@@ -751,7 +751,7 @@ int32_t NFMissionPart::OnAccept(uint64_t missionId, bool notify)
     
     OnAcceptType(missionId, pMissionInfo->kind);
     
-    //ÈÕÖ¾
+    //æ—¥å¿—
     
     return proto_ff::RET_SUCCESS;
 }
@@ -769,19 +769,19 @@ int32_t NFMissionPart::CanAccept(uint64_t missionId)
         return proto_ff::RET_MISSION_NOT_EXIST;
     }
     
-    //ÊÇ·ñ½ÓÈ¡¹ı¸ÃÈÎÎñ
+    //æ˜¯å¦æ¥å–è¿‡è¯¥ä»»åŠ¡
     if (HaveAccept(pMissionInfo->missionId))
     {
         return proto_ff::RET_MISSION_HAVE_ACCEPT;
     }
     
-    //ÊÇ·ñÒÑ¾­Ìá½»
+    //æ˜¯å¦å·²ç»æäº¤
     if (HaveSubmited(pMissionInfo->missionId))
     {
         return proto_ff::RET_MISSION_ALREADY_SUBMIT;
     }
     
-    //Ö÷ÏßÈÎÎñÑéÖ¤ÏÂÊÇ·ñÒÑ¾­½ÓÈ¡¹ıÖ÷ÏßÈÎÎñ
+    //ä¸»çº¿ä»»åŠ¡éªŒè¯ä¸‹æ˜¯å¦å·²ç»æ¥å–è¿‡ä¸»çº¿ä»»åŠ¡
     if (MISSION_TYPE_ID_TRUNK == pMissionInfo->kind)
     {
         if (MissionNumByType(MISSION_TYPE_ID_TRUNK) > 0)
@@ -805,7 +805,7 @@ int32_t NFMissionPart::CanMatchAcceptCond(MissionInfo *pMissionInfo)
 {
     CHECK_EXPR(pMissionInfo, proto_ff::RET_FAIL, "pMissionInfo == NULL");
     const AcceptInfo &cond = pMissionInfo->accept;
-    //Ç°ÖÃÕÂ½ÚÅĞ¶Ï£¨»ò¹ØÏµ£©
+    //å‰ç½®ç« èŠ‚åˆ¤æ–­ï¼ˆæˆ–å…³ç³»ï¼‰
     if (cond.setPreOrMission.size() > 0)
     {
         bool haveSubmit = false;
@@ -824,19 +824,19 @@ int32_t NFMissionPart::CanMatchAcceptCond(MissionInfo *pMissionInfo)
         }
     }
     
-    //µÈ¼¶
+    //ç­‰çº§
     if (cond.minLevel > 0 && m_pMaster->GetAttr(proto_ff::A_LEVEL) < cond.minLevel)
     {
         return proto_ff::RET_MISSION_LEVEL_ERROR;
     }
     
-    //Ö°Òµ
+    //èŒä¸š
     if (cond.profession > 0 && m_pMaster->GetAttr(proto_ff::A_PROF) != cond.profession)
     {
         return proto_ff::RET_MISSION_PROFESSION_LIMIT;
     }
     
-    //Ç°ÖÃÕÂ½ÚÅĞ¶Ï£¨Óë¹ØÏµ£©
+    //å‰ç½®ç« èŠ‚åˆ¤æ–­ï¼ˆä¸å…³ç³»ï¼‰
     if (cond.setPreAndMission.size() > 0)
     {
         bool haveSubmit = true;
@@ -865,7 +865,7 @@ int32_t NFMissionPart::OnAcceptDy(uint64_t missionId, bool notify)
         return ret;
     }
     
-    //½ÓÈ¡ÈÎÎñ
+    //æ¥å–ä»»åŠ¡
     const DyMissionInfo *pMissionInfo = TaskDescEx::Instance()->GetDyMissionCfgInfo(missionId);
     if (nullptr == pMissionInfo)
     {
@@ -874,7 +874,7 @@ int32_t NFMissionPart::OnAcceptDy(uint64_t missionId, bool notify)
         return proto_ff::RET_MISSION_NOT_EXIST;
     }
     
-    //Éú³É¶¯Ì¬ÈÎÎñID
+    //ç”ŸæˆåŠ¨æ€ä»»åŠ¡ID
     uint64_t dymissionId = AllocNewDyMisssionId();
     if (!ValidDyMissionId(dymissionId))
     {
@@ -902,13 +902,13 @@ int32_t NFMissionPart::OnAcceptDy(uint64_t missionId, bool notify)
         return proto_ff::RET_FAIL;
     }
     
-    //Ìî³äÈÎÎñÊı¾İĞÅÏ¢
+    //å¡«å……ä»»åŠ¡æ•°æ®ä¿¡æ¯
     pMissionTrack->missionId = missionId;
     pMissionTrack->dynamicId = dymissionId;
     pMissionTrack->acceptMissionTime = NFTime::Now().UnixSec();
     pMissionTrack->missionType = pMissionInfo->kind;
     pMissionTrack->status = MISSION_E_ACCEPTED;
-    //Ìî³äÍê³ÉÌõ¼şĞÅÏ¢ ¶àÈÎÎñÌõ¼ş
+    //å¡«å……å®Œæˆæ¡ä»¶ä¿¡æ¯ å¤šä»»åŠ¡æ¡ä»¶
     if (proto_ff::RET_SUCCESS != OnExtractDyCond(pMissionInfo, pMissionTrack))
     {
         NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] OnAcceptDyType OnExtractCond failed...cid:{},missionid:{},dymissionId:{}",
@@ -918,26 +918,26 @@ int32_t NFMissionPart::OnAcceptDy(uint64_t missionId, bool notify)
     
     MarkDirty();
     
-    //ÌáÈ¡ÊôĞÔ½±Àø
+    //æå–å±æ€§å¥–åŠ±
     OnExtractDyAttrReward(pMissionTrack);
     //
-    //½ÓÈ¡ÈÎÎñ,ĞèÒª·Åµ½¸üĞÂÈÎÎñ½ø¶ÈÇ°Ãæ£¬¸úÇ°¶Ë´¦ÀíÏà¹Ø
+    //æ¥å–ä»»åŠ¡,éœ€è¦æ”¾åˆ°æ›´æ–°ä»»åŠ¡è¿›åº¦å‰é¢ï¼Œè·Ÿå‰ç«¯å¤„ç†ç›¸å…³
     OnAcceptDyType(dymissionId, pMissionInfo->kind);
-    //Èç¹ûÒªÍ¨Öª¿Í»§¶Ë
+    //å¦‚æœè¦é€šçŸ¥å®¢æˆ·ç«¯
     if (notify)
     {
         UpdateMissionProgress(dymissionId);
     }
     
-    //½ÓÈ¡ÈÎÎñÊÂ¼ş
-    //½ÓÈ¡ÈÎÎñÊÂ¼ş
+    //æ¥å–ä»»åŠ¡äº‹ä»¶
+    //æ¥å–ä»»åŠ¡äº‹ä»¶
     proto_ff::AcceptTaskEvent acceptEvent;
     acceptEvent.set_cid(m_pMaster->Cid());
     acceptEvent.set_taskid(missionId);
     acceptEvent.set_tasktype(pMissionInfo->kind);
     FireExecute(NF_ST_LOGIC_SERVER, EVENT_ACCEPT_TASK, CREATURE_PLAYER, m_pMaster->Cid(), acceptEvent);
     
-    //ÅĞ¶ÏÈÎÎñÊÇ·ñÍê³É
+    //åˆ¤æ–­ä»»åŠ¡æ˜¯å¦å®Œæˆ
     bool isCompletedFlag = true;
     for (uint32_t i = 0; i < pMissionTrack->items.size(); i++)
     {
@@ -948,17 +948,17 @@ int32_t NFMissionPart::OnAcceptDy(uint64_t missionId, bool notify)
         }
     }
     
-    //Èç¹ûÒÑ¾­Íê³É
+    //å¦‚æœå·²ç»å®Œæˆ
     if (isCompletedFlag)
     {
-        //Èç¹û¿ÉÒÔÍê³É
+        //å¦‚æœå¯ä»¥å®Œæˆ
         pMissionTrack->status = MISSION_E_COMPLETION;
     }
-    else //Ã»ÓĞÍê³ÉµÄÌõ¼ş²Å»á×¢²áÊÂ¼ş
+    else //æ²¡æœ‰å®Œæˆçš„æ¡ä»¶æ‰ä¼šæ³¨å†Œäº‹ä»¶
     {
-        //Ìí¼ÓÈÎÎñµôÂä´¦Àí
+        //æ·»åŠ ä»»åŠ¡æ‰è½å¤„ç†
         OnAddMissionDrop(pMissionTrack, 1);
-        //×¢²áÊÂ¼ş
+        //æ³¨å†Œäº‹ä»¶
         for (uint32_t i = 0; i < pMissionTrack->items.size(); i++)
         {
             if (!pMissionTrack->items[i].completedFlag)
@@ -968,7 +968,7 @@ int32_t NFMissionPart::OnAcceptDy(uint64_t missionId, bool notify)
             }
         }
     }
-    //Èç¹û½ÓÈ¡¾ÍÍê³É£¬ĞèÒªÔÙ´ÎÍ¨Öª¿Í»§¶Ë
+    //å¦‚æœæ¥å–å°±å®Œæˆï¼Œéœ€è¦å†æ¬¡é€šçŸ¥å®¢æˆ·ç«¯
     if (isCompletedFlag && notify)
     {
         UpdateMissionProgress(dymissionId);
@@ -976,7 +976,7 @@ int32_t NFMissionPart::OnAcceptDy(uint64_t missionId, bool notify)
     //
     if (isCompletedFlag)
     {
-        //Íê³ÉÈÎÎñ
+        //å®Œæˆä»»åŠ¡
         OnFinishDy(dymissionId, pMissionInfo->kind);
     }
     
@@ -1027,7 +1027,7 @@ int32_t NFMissionPart::CanAcceptDy(const DyMissionInfo *pDyMissionInfo)
 
 void NFMissionPart::OnAddAcceptDyCount(int32_t missionType, uint32_t count)
 {
-    //¸üĞÂ¶¯Ì¬ÈÎÎñ¼ÆÊı
+    //æ›´æ–°åŠ¨æ€ä»»åŠ¡è®¡æ•°
     DyMissionTrack *pDyTrack = GetDyMissionTrack(missionType);
     if (nullptr == pDyTrack)
     {
@@ -1159,7 +1159,7 @@ int32_t NFMissionPart::ClearMissionByType(int32_t missionType, bool notify)
         int32_t ret = RemoveDyMission(dymissionId, notify);
         if (proto_ff::RET_SUCCESS != ret)
         {
-            //ÕâÀï±ØĞë´òÓ¡ÈÕÖ¾£¬Èç¹ûÒÆ³ıÊ§°Ü£¬ºÜ¿ÉÄÜµ¼ÖÂÏÂÃæË¢ĞÂÕóÓªÈÎÎñ·ÖÅäµÄ¶¯Ì¬IDÓĞÖØ¸´µÄ
+            //è¿™é‡Œå¿…é¡»æ‰“å°æ—¥å¿—ï¼Œå¦‚æœç§»é™¤å¤±è´¥ï¼Œå¾ˆå¯èƒ½å¯¼è‡´ä¸‹é¢åˆ·æ–°é˜µè¥ä»»åŠ¡åˆ†é…çš„åŠ¨æ€IDæœ‰é‡å¤çš„
             NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
                        "MissionPart::ClearMissionByType...RemoveDyMission failed....cid:%lu,missionType:{}, missionId:{}, dymissionid:{},ret:{} ",
                        m_pMaster->Cid(),
@@ -1325,7 +1325,7 @@ int32_t NFMissionPart::OnAddDyMissionReward(int32_t missionType, uint64_t missio
                 }
             }*/
         }
-        else if (MISSION_AWARD_ATTR == rewardType) //ÊôĞÔ½±Àø
+        else if (MISSION_AWARD_ATTR == rewardType) //å±æ€§å¥–åŠ±
         {
             m_pMaster->AddAttr(reward[i].id, reward[i].value, &sourceParam, true);
             missionReward.mapAttr[reward[i].id] += reward[i].value;
@@ -1421,7 +1421,7 @@ uint64_t NFMissionPart::DyRandMissionId(int32_t missionType)
     }
     
     uint32_t level = m_pMaster->GetAttr(proto_ff::A_LEVEL);
-    //»ñÈ¡Âú×ãÌõ¼şµÄÈÎÎñID
+    //è·å–æ»¡è¶³æ¡ä»¶çš„ä»»åŠ¡ID
     VEC_UINT64 vecMission;
     vecMission.clear();
     for (auto iterSet = pMissionLst->begin(); iterSet != pMissionLst->end(); ++iterSet)
@@ -1491,11 +1491,11 @@ int32_t NFMissionPart::OnExtractCond(MissionInfo *pMissionInfo, MissionTrack *pM
     for (auto iter = execute.items.begin(); iter != execute.items.end(); ++iter)
     {
         const InterItemPair &inter = (*iter);
-        //×éºÏÌõ¼ş
+        //ç»„åˆæ¡ä»¶
         ItemInfo condItem(inter.itemId, 0, inter.itemCount, false, inter.itemType, inter.parma1, inter.parma2, inter.parma3);
-        //Ìõ¼şÔ¤¸üĞÂ
+        //æ¡ä»¶é¢„æ›´æ–°
         OnPreUpdateProgress(condItem);
-        //Ìí¼Óµ½Ìõ¼şÁĞ±íÖĞ
+        //æ·»åŠ åˆ°æ¡ä»¶åˆ—è¡¨ä¸­
         if (pMissionTrack->items.size() >= pMissionTrack->items.max_size())
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "pMissionTrack->items Space Not Enough");
@@ -1516,9 +1516,9 @@ void NFMissionPart::OnPreUpdateProgress(ItemInfo &cond)
     
     int64_t count = 0;
     int32_t event = MISSION_COND_TYPE_TO_EVENT(cond.type);
-    if (M_EVENT_COLL_COLLECT_ITEM == event) //ÊÕ¼¯ÎïÆ·
+    if (M_EVENT_COLL_COLLECT_ITEM == event) //æ”¶é›†ç‰©å“
     {
-        //ÊÕ¼¯ÎïÆ·		¸ñÊ½£º3 = ÎïÆ·id = ËùĞèÎïÆ·ÊıÄ¿ = ¹ÖÎïid = µôÂä°üid = ÇøÓòid
+        //æ”¶é›†ç‰©å“		æ ¼å¼ï¼š3 = ç‰©å“id = æ‰€éœ€ç‰©å“æ•°ç›® = æ€ªç‰©id = æ‰è½åŒ…id = åŒºåŸŸid
         NFPackagePart *pPackage = dynamic_cast<NFPackagePart *>(m_pMaster->GetPart(PART_PACKAGE));
         if (nullptr != pPackage)
         {
@@ -1530,19 +1530,19 @@ void NFMissionPart::OnPreUpdateProgress(ItemInfo &cond)
     else if (M_EVENT_EMBLEM_INLAY == event)
     {
     }
-    else if (M_EVENT_LADDER == event) //ÎÆÕÂ±¦¿â²ãÊı(ÌìÌİ¸±±¾)
+    else if (M_EVENT_LADDER == event) //çº¹ç« å®åº“å±‚æ•°(å¤©æ¢¯å‰¯æœ¬)
     {
     }
     else if (M_EVENT_SLOT_STREN == event)
     {
     }
-    else if (M_EVENT_INBUFF == event) //´¦ÓÚÄ³ÖÖBUFF
+    else if (M_EVENT_INBUFF == event) //å¤„äºæŸç§BUFF
     {
     }
-    else if (M_EVENT_LEVEL == event) //µÈ¼¶´ïµ½¶àÉÙ¼¶
+    else if (M_EVENT_LEVEL == event) //ç­‰çº§è¾¾åˆ°å¤šå°‘çº§
     {
-        //Éıµ½Ö¸¶¨µÈ¼¶	¸ñÊ½: 14=ËùĞèµÈ¼¶ÊıÖµ=Ä¿±êÖµ=0=0=0
-        //Éı¼¶µ½xx¼¶ ,Ç°¶ËÏÔÊ¾ 0/1,
+        //å‡åˆ°æŒ‡å®šç­‰çº§	æ ¼å¼: 14=æ‰€éœ€ç­‰çº§æ•°å€¼=ç›®æ ‡å€¼=0=0=0
+        //å‡çº§åˆ°xxçº§ ,å‰ç«¯æ˜¾ç¤º 0/1,
         if ((uint64_t) m_pMaster->GetAttr(proto_ff::A_LEVEL) >= cond.itemId)
         {
             count = cond.itemId;
@@ -1590,7 +1590,7 @@ void NFMissionPart::OnUpdateCondProcess(const ExecuteData &data, ItemInfo &cond,
     {
         return;
     }
-    if (MISSION_FINISH_TYPE_SUBMIT_SPEC_EQUIP == cond.type) //Ìá½»Ö¸¶¨Æ·½×ºÍÆ·ÖÊµÄ×°±¸ÌØÊâ´¦ÀíÏÂ
+    if (MISSION_FINISH_TYPE_SUBMIT_SPEC_EQUIP == cond.type) //æäº¤æŒ‡å®šå“é˜¶å’Œå“è´¨çš„è£…å¤‡ç‰¹æ®Šå¤„ç†ä¸‹
     {
     }
     else if (M_EVENT_INFINITE_HUNT == relevent)
@@ -1622,15 +1622,15 @@ void NFMissionPart::OnUpdateCondProcess(const ExecuteData &data, ItemInfo &cond,
     
     //
     if (M_EVENT_LEVEL == relevent
-        || M_EVENT_TREASURE_LEV == relevent            //±¦¾ßµÈ¼¶
-        || M_EVENT_PARTNER_RANKLEV == relevent        //ÆõÁéµÈ½×
-        || M_EVENT_WING_LEV == relevent                //³á°òµÈ¼¶
+        || M_EVENT_TREASURE_LEV == relevent            //å®å…·ç­‰çº§
+        || M_EVENT_PARTNER_RANKLEV == relevent        //å¥‘çµç­‰é˜¶
+        || M_EVENT_WING_LEV == relevent                //ç¿…è†€ç­‰çº§
         )
     {
-        //Éı¼¶µ½xx¼¶ ,Ç°¶ËÏÔÊ¾ 0/1,
-        //±¦¾ßµÈ¼¶ Ç°¶ËÏÔÊ¾ 0/1,	¸ñÊ½ 11501=Ö¸¶¨±¦¾ßµÈ¼¶=1=linkid=0=0
-        //ÆõÁéµÈ½× Ç°¶ËÏÔÊ¾ 0/1,	¸ñÊ½ 11601=Ö¸¶¨ÆõÁéµÈ½×=1=linkid=0=0
-        //³á°òµÈ¼¶ Ç°¶ËÏÔÊ¾ 0/1,	¸ñÊ½ 11701=Ö¸¶¨³á°òµÈ¼¶=1=linkid=0=0
+        //å‡çº§åˆ°xxçº§ ,å‰ç«¯æ˜¾ç¤º 0/1,
+        //å®å…·ç­‰çº§ å‰ç«¯æ˜¾ç¤º 0/1,	æ ¼å¼ 11501=æŒ‡å®šå®å…·ç­‰çº§=1=linkid=0=0
+        //å¥‘çµç­‰é˜¶ å‰ç«¯æ˜¾ç¤º 0/1,	æ ¼å¼ 11601=æŒ‡å®šå¥‘çµç­‰é˜¶=1=linkid=0=0
+        //ç¿…è†€ç­‰çº§ å‰ç«¯æ˜¾ç¤º 0/1,	æ ¼å¼ 11701=æŒ‡å®šç¿…è†€ç­‰çº§=1=linkid=0=0
         if (data.id >= cond.itemId)
         {
             cond.currentValue = cond.finalValue;
@@ -1643,9 +1643,9 @@ void NFMissionPart::OnUpdateCondProcess(const ExecuteData &data, ItemInfo &cond,
         || M_EVENT_APTITUDE == relevent
         )
     {
-        //µ¥´Î»ñµÃÎŞÏŞá÷ÁÔ¾­Ñé Ç°¶ËÏÔÊ¾ 0/1
-        //ÎÆÕÂ±¦¿â²ãÊı(ÌìÌİ) Ç°¶ËÏÔÊ¾ 0/1
-        //×ªÖ°×ÊÖÊµÈ¼¶ Ç°¶ËÏÔÊ¾ 0/1
+        //å•æ¬¡è·å¾—æ— é™ç‹©çŒç»éªŒ å‰ç«¯æ˜¾ç¤º 0/1
+        //çº¹ç« å®åº“å±‚æ•°(å¤©æ¢¯) å‰ç«¯æ˜¾ç¤º 0/1
+        //è½¬èŒèµ„è´¨ç­‰çº§ å‰ç«¯æ˜¾ç¤º 0/1
         if (data.id >= cond.itemId)
         {
             cond.currentValue = cond.finalValue;
@@ -1655,7 +1655,7 @@ void NFMissionPart::OnUpdateCondProcess(const ExecuteData &data, ItemInfo &cond,
     }
     else if (M_EVENT_SLOT_STREN == relevent)
     {
-        //×°±¸²ÛÎ»Ç¿»¯µÈ¼¶	¸ñÊ½ 11301=0=×°±¸²ÛÎ»ÊıÁ¿=µÈ¼¶=ui±àºÅ=0
+        //è£…å¤‡æ§½ä½å¼ºåŒ–ç­‰çº§	æ ¼å¼ 11301=0=è£…å¤‡æ§½ä½æ•°é‡=ç­‰çº§=uiç¼–å·=0
         if (MISSION_FINISH_TYPE_SLOT_STREN == cond.type)
         {
 /*            if (nullptr != pPlayer)
@@ -1680,7 +1680,7 @@ void NFMissionPart::OnUpdateCondProcess(const ExecuteData &data, ItemInfo &cond,
     }
     else
     {
-        //Ìá½»ÎïÆ·µÄÌõ¼ş£¬ÎïÆ·¿Û³ıÀ´Ô´±ØĞëÊÇ´ÓÈÎÎñÕâ±ß¿Û³ıµÄ
+        //æäº¤ç‰©å“çš„æ¡ä»¶ï¼Œç‰©å“æ‰£é™¤æ¥æºå¿…é¡»æ˜¯ä»ä»»åŠ¡è¿™è¾¹æ‰£é™¤çš„
         if (MISSION_FINISH_TYPE_SUBMIT_ITEM == cond.type || MISSION_FINISH_TYPE_SUBMIT_EQUIP == cond.type ||
             MISSION_FINISH_TYPE_SUBMIT_SPEC_EQUIP == cond.type)
         {
@@ -1689,12 +1689,12 @@ void NFMissionPart::OnUpdateCondProcess(const ExecuteData &data, ItemInfo &cond,
                 return;
             }
             
-            if (MISSION_FINISH_TYPE_SUBMIT_SPEC_EQUIP == cond.type) //Ìá½»Ö¸¶¨Æ·ÖÊµÄ×°±¸Ê±£¬ĞèÒªÑéÖ¤
+            if (MISSION_FINISH_TYPE_SUBMIT_SPEC_EQUIP == cond.type) //æäº¤æŒ‡å®šå“è´¨çš„è£…å¤‡æ—¶ï¼Œéœ€è¦éªŒè¯
             {
                 auto *pEquipCfg = EquipEquipDesc::Instance()->GetDesc(data.id);
                 if (nullptr != pEquipCfg && pEquipCfg->m_quality >= (int32_t) cond.parma1 && pEquipCfg->m_wearQuality >= (int32_t) cond.itemId)
                 {
-                    //Æ·½×´óÓÚµÈÓÚÌõ¼şÅäÖÃÖµ£¬Æ·ÖÊ´óÓÚµÈÓÚÌõ¼şÅäÖÃÖµ
+                    //å“é˜¶å¤§äºç­‰äºæ¡ä»¶é…ç½®å€¼ï¼Œå“è´¨å¤§äºç­‰äºæ¡ä»¶é…ç½®å€¼
                 }
                 else
                 {
@@ -1704,7 +1704,7 @@ void NFMissionPart::OnUpdateCondProcess(const ExecuteData &data, ItemInfo &cond,
         }
         else if (MISSION_FINISH_TYPE_KILL_MONS_WILD_BOSS == cond.type)
         {
-            //Ò°ÍâBOSSĞèÒªÅĞ¶ÏÀ´Ô´
+            //é‡å¤–BOSSéœ€è¦åˆ¤æ–­æ¥æº
 /*            if ((int32_t)EMonsCreateType::MapBoss != data.source)
             {
                 return;
@@ -1712,7 +1712,7 @@ void NFMissionPart::OnUpdateCondProcess(const ExecuteData &data, ItemInfo &cond,
         }
         else if (MISSION_FINISH_TYPE_KILL_MONS_BARREN_BOSS == cond.type)
         {
-            //ÉîÔ¨BOSSĞèÒªÅĞ¶ÏÀ´Ô´
+            //æ·±æ¸ŠBOSSéœ€è¦åˆ¤æ–­æ¥æº
 /*			if (EMonsCreateType_BarrenBoss != data.source)
 			{
 				return;
@@ -1743,7 +1743,7 @@ int32_t NFMissionPart::OnExtractDyCond(const DyMissionInfo *pDyMissionInfo, Miss
     CHECK_EXPR(pDyMissionInfo, proto_ff::RET_FAIL, "pDyMissionInfo == NULL");
     CHECK_EXPR(pMissionTrack, proto_ff::RET_FAIL, "pMissionTrack == NULL");
     
-    //³éÈ¡Ò»¸ö¶¯Ì¬Ìõ¼şID
+    //æŠ½å–ä¸€ä¸ªåŠ¨æ€æ¡ä»¶ID
     if (pDyMissionInfo->setComplete.size() < 1)
     {
         NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] OnExtractDyCond pDyMissionInfo->setComplete.size() < 1  missionid:{} ",
@@ -1771,7 +1771,7 @@ int32_t NFMissionPart::OnExtractDyCond(const DyMissionInfo *pDyMissionInfo, Miss
         return proto_ff::RET_FAIL;
     }
     
-    //¶¯Ì¬Éú³ÉÈÎÎñÌõ¼ş
+    //åŠ¨æ€ç”Ÿæˆä»»åŠ¡æ¡ä»¶
     ItemInfo condItem;
     uint64_t textId;
     int32_t ret = OnGeneralCond(pDyMissionInfo, pDyConditionInfo, condItem, textId);
@@ -1782,11 +1782,11 @@ int32_t NFMissionPart::OnExtractDyCond(const DyMissionInfo *pDyMissionInfo, Miss
     
     if (preUpdate)
     {
-        //Ìõ¼şÔ¤¸üĞÂ
+        //æ¡ä»¶é¢„æ›´æ–°
         OnPreUpdateProgress(condItem);
     }
     
-    //Ìí¼Óµ½Ìõ¼şÁĞ±íÖĞ
+    //æ·»åŠ åˆ°æ¡ä»¶åˆ—è¡¨ä¸­
     pMissionTrack->items.push_back(condItem);
     pMissionTrack->textId = textId;
     
@@ -1798,7 +1798,7 @@ int32_t NFMissionPart::OnGeneralCond(const DyMissionInfo *pDyMissionInfo, const 
     CHECK_EXPR(pDyMissionInfo, proto_ff::RET_FAIL, "pDyMissionInfo == NULL");
     CHECK_EXPR(pDyConditionInfo, proto_ff::RET_FAIL, "pDyConditionInfo == NULL");
     
-    //Ìõ¼ş¸³Öµ
+    //æ¡ä»¶èµ‹å€¼
     cond.type = pDyConditionInfo->cond.itemType;
     cond.itemId = pDyConditionInfo->cond.itemId;
     cond.finalValue = pDyConditionInfo->cond.itemCount;
@@ -1806,7 +1806,7 @@ int32_t NFMissionPart::OnGeneralCond(const DyMissionInfo *pDyMissionInfo, const 
     cond.parma2 = pDyConditionInfo->cond.parma2;
     cond.parma3 = pDyConditionInfo->cond.parma3;
     
-    //Ëæ»útextid
+    //éšæœºtextid
     textId = TaskDescEx::Instance()->GetDyTextId(pDyMissionInfo->kind, cond.type);
     if (textId <= 0)
     {
@@ -1859,7 +1859,7 @@ int32_t NFMissionPart::AddReward(uint64_t missionId, int32_t kind, TASK_REWARD &
                 }
             }*/
         }
-        else if (MISSION_AWARD_ATTR == rewardType) //ÊôĞÔ½±Àø
+        else if (MISSION_AWARD_ATTR == rewardType) //å±æ€§å¥–åŠ±
         {
             int64_t value = ceil(reward[i].value * ration);
             //
@@ -1873,12 +1873,12 @@ int32_t NFMissionPart::AddReward(uint64_t missionId, int32_t kind, TASK_REWARD &
         }
     }
     
-    //Ìí¼ÓÎïÆ·
+    //æ·»åŠ ç‰©å“
     if (addItems.size() > 0)
     {
         NFPackagePart *pPackage = dynamic_cast<NFPackagePart *>(m_pMaster->GetPart(PART_PACKAGE));
         NF_ASSERT(pPackage);
-        //ÉÏÃæÅĞ¶Ï¹ı±³°ü£¬ÕâÀïÖ±½ÓÌí¼ÓÎïÆ·
+        //ä¸Šé¢åˆ¤æ–­è¿‡èƒŒåŒ…ï¼Œè¿™é‡Œç›´æ¥æ·»åŠ ç‰©å“
         pPackage->AddItem(addItems, sourceParam);
     }
     
@@ -1899,7 +1899,7 @@ bool NFMissionPart::CanAddReward(uint64_t missionId, int32_t kind, TASK_REWARD &
             continue;
         }
         
-        if (MISSION_AWARD_GOODS == rewardType || MISSION_AWARD_EQUIP == rewardType) //×°±¸µÀ¾ß½±Àø
+        if (MISSION_AWARD_GOODS == rewardType || MISSION_AWARD_EQUIP == rewardType) //è£…å¤‡é“å…·å¥–åŠ±
         {
             SItem item;
             item.nItemID = reward[i].id;
@@ -1961,18 +1961,18 @@ int32_t NFMissionPart::RemoveMission(MissionTrack *pMissinTrack, MissionInfo *pM
     CHECK_EXPR(pMissinTrack, proto_ff::RET_FAIL, "pMissinTrack == NULL");
     CHECK_EXPR(pMissionInfo, proto_ff::RET_FAIL, "pMissionInfo == NULL");
     
-    //ÒÆ³ıÈÎÎñµôÂä
+    //ç§»é™¤ä»»åŠ¡æ‰è½
     OnDelMissionDrop(pMissinTrack);
-    //ÒÆ³ıÖĞ¼äÎïÆ·
+    //ç§»é™¤ä¸­é—´ç‰©å“
     RemoveReward(pMissinTrack);
-    //ÒÆ³ıÈÎÎñÊı¾İ
+    //ç§»é™¤ä»»åŠ¡æ•°æ®
     _playerTrackMissionMap.erase(pMissinTrack->dynamicId);
     
-    //ÒÆ³ı½ÓÈ¡ÈÎÎñÊ±·¢·ÅµÄÎïÆ·
+    //ç§»é™¤æ¥å–ä»»åŠ¡æ—¶å‘æ”¾çš„ç‰©å“
     RemoveReward(pMissionInfo->missionId, pMissionInfo->receAdd);
-    //ÒÆ³ıÈÎÎñÊÂ¼ş¼àÌı
+    //ç§»é™¤ä»»åŠ¡äº‹ä»¶ç›‘å¬
     RemoveEvent(pMissionInfo->missionId);
-    //Í¨ÖªÉ¾³ıÈÎÎñ
+    //é€šçŸ¥åˆ é™¤ä»»åŠ¡
     NotifyDelMission(pMissionInfo->missionId);
     //
     MarkDirty();
@@ -2006,23 +2006,23 @@ int32_t NFMissionPart::RemoveDyMission(uint64_t dymissionId, bool notify)
         return proto_ff::RET_FAIL;
     }
     
-    //ÒÆ³ıÈÎÎñµôÂä
+    //ç§»é™¤ä»»åŠ¡æ‰è½
     OnDelMissionDrop(&iter->second);
     
-    //ÒÆ³ıÈÎÎñÎïÆ·
+    //ç§»é™¤ä»»åŠ¡ç‰©å“
     OnDelMissionItem(&iter->second);
     
-    //ÒÆ³ıÈÎÎñÊı¾İ
+    //ç§»é™¤ä»»åŠ¡æ•°æ®
     _playerTrackMissionMap.erase(iter);
     MarkDirty();
     
-    //»ØÊÕ¶¯Ì¬ÈÎÎñID,Èç¹ûÊÇÕóÓªÈÎÎñ»òÕßÉÍ½ğÈÎÎñ£¬¶¯Ì¬IDÓÉÕóÓªºÍÉÍ½ğ¿É½ÓÁĞ±íÄÇÀï»ØÊÕ
+    //å›æ”¶åŠ¨æ€ä»»åŠ¡ID,å¦‚æœæ˜¯é˜µè¥ä»»åŠ¡æˆ–è€…èµé‡‘ä»»åŠ¡ï¼ŒåŠ¨æ€IDç”±é˜µè¥å’Œèµé‡‘å¯æ¥åˆ—è¡¨é‚£é‡Œå›æ”¶
     FreeDyMissionId(dymissionId);
     
-    //ÒÆ³ıÈÎÎñÊÂ¼ş¼àÌı
+    //ç§»é™¤ä»»åŠ¡äº‹ä»¶ç›‘å¬
     RemoveEvent(dymissionId);
     
-    //Í¨ÖªÉ¾³ıÈÎÎñ
+    //é€šçŸ¥åˆ é™¤ä»»åŠ¡
     if (notify)
     {
         NotifyDelMission(dymissionId);
@@ -2033,7 +2033,7 @@ int32_t NFMissionPart::RemoveDyMission(uint64_t dymissionId, bool notify)
 
 int32_t NFMissionPart::OnUpdateProgress(uint64_t missionId, const ExecuteData &data)
 {
-    //ÏÈ²éÕÒÒÑ½ÓÁĞ±íÖĞÊÇ·ñÓĞ¸ÃÈÎÎñ
+    //å…ˆæŸ¥æ‰¾å·²æ¥åˆ—è¡¨ä¸­æ˜¯å¦æœ‰è¯¥ä»»åŠ¡
     auto iter = _playerTrackMissionMap.find(missionId);
     if (iter == _playerTrackMissionMap.end())
     {
@@ -2048,7 +2048,7 @@ int32_t NFMissionPart::OnUpdateProgress(uint64_t missionId, const ExecuteData &d
     SET_UINT64 setAreaMonsDy;
     setAreaMonsDy.clear();
     bool notify = false;
-    //ÈÎÎñÖ´ĞĞµ¥Ôª¿ªÊ¼Ö´ĞĞ ¶àÍê³ÉÌõ¼ş
+    //ä»»åŠ¡æ‰§è¡Œå•å…ƒå¼€å§‹æ‰§è¡Œ å¤šå®Œæˆæ¡ä»¶
     for (uint32_t i = 0; i < iter->second.items.size(); i++)
     {
         ItemInfo &cond = iter->second.items[i];
@@ -2064,7 +2064,7 @@ int32_t NFMissionPart::OnUpdateProgress(uint64_t missionId, const ExecuteData &d
         }
     }
     
-    //ÅĞ¶ÏÈÎÎñÊÇ·ñÍê³É
+    //åˆ¤æ–­ä»»åŠ¡æ˜¯å¦å®Œæˆ
     bool isCompletedFlag = true;
     for (uint32_t i = 0; i < iter->second.items.size(); i++)
     {
@@ -2075,10 +2075,10 @@ int32_t NFMissionPart::OnUpdateProgress(uint64_t missionId, const ExecuteData &d
         }
     }
     
-    //Èç¹ûÍê³ÉÁË
+    //å¦‚æœå®Œæˆäº†
     if (isCompletedFlag)
     {
-        //ÈÎÎñÒÑ¾­Íê³É
+        //ä»»åŠ¡å·²ç»å®Œæˆ
         iter->second.status = MISSION_E_COMPLETION;
         //
         MissionInfo *pMissionInfo = TaskDescEx::Instance()->GetMissionCfgInfo(iter->second.missionId);
@@ -2090,7 +2090,7 @@ int32_t NFMissionPart::OnUpdateProgress(uint64_t missionId, const ExecuteData &d
             auto pDyMissionInfo = TaskDescEx::Instance()->GetDyMissionCfgInfo(iter->second.missionId);
             if (pDyMissionInfo)
             {
-                //Íê³ÉÈÎÎñ(¶¯Ì¬ÈÎÎñ)
+                //å®Œæˆä»»åŠ¡(åŠ¨æ€ä»»åŠ¡)
                 OnFinishDy(iter->second.dynamicId, pDyMissionInfo->kind);
             }
         }
@@ -2173,8 +2173,8 @@ int32_t NFMissionPart::OnAddMissionDrop(MissionTrack *pMissionTrack, int32_t pro
             || MISSION_FINISH_TYPE_COLLECT_ITEM == cond.type
             )
         {
-            //ÊÕ¼¯ÎïÆ·		¸ñÊ½ 301=ÎïÆ·id=ÎïÆ·ÊıÁ¿=ÉúÎïID=±¦Ïäid=×·×ÙÇøÓòID£¨±³°üÖĞÓĞ×ã¹»ÊıÁ¿£¬¼´Íê³ÉÈÎÎñ£©
-            //´ò¹ÖÊÕ¼¯		¸ñÊ½ 302=ÎïÆ·id=ÎïÆ·ÊıÁ¿=ÉúÎïID=±¦Ïäid=×·×ÙÂ·¾¶id
+            //æ”¶é›†ç‰©å“		æ ¼å¼ 301=ç‰©å“id=ç‰©å“æ•°é‡=ç”Ÿç‰©ID=å®ç®±id=è¿½è¸ªåŒºåŸŸIDï¼ˆèƒŒåŒ…ä¸­æœ‰è¶³å¤Ÿæ•°é‡ï¼Œå³å®Œæˆä»»åŠ¡ï¼‰
+            //æ‰“æ€ªæ”¶é›†		æ ¼å¼ 302=ç‰©å“id=ç‰©å“æ•°é‡=ç”Ÿç‰©ID=å®ç®±id=è¿½è¸ªè·¯å¾„id
             if (!AddMissionDrop(dymissionId, cond.parma1, 0, cond.parma2, progressLev))
             {
                 NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
@@ -2270,7 +2270,7 @@ int32_t NFMissionPart::OnDelMissionDrop(MissionTrack *pMissionTrack)
         ItemInfo &cond = (*iter);
         if (MISSION_FINISH_TYPE_COLLECT_KILL_MONS == cond.type)
         {
-            //´ò¹ÖÊÕ¼¯		¸ñÊ½ 302=ÎïÆ·id=ÎïÆ·ÊıÁ¿=ÉúÎïID=±¦Ïäid=×·×ÙÂ·¾¶id
+            //æ‰“æ€ªæ”¶é›†		æ ¼å¼ 302=ç‰©å“id=ç‰©å“æ•°é‡=ç”Ÿç‰©ID=å®ç®±id=è¿½è¸ªè·¯å¾„id
             if (!DelMissionDrop(dymissionId, cond.parma1))
             {
                 NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
@@ -2320,14 +2320,14 @@ int NFMissionPart::RemoveReward(uint64_t missionId, TASK_REWARD &reward)
     for (uint32_t i = 0; i < reward.size(); ++i)
     {
         uint32_t rewardType = reward[i].type;
-        if (rewardType == MISSION_AWARD_GOODS || rewardType == MISSION_AWARD_EQUIP) //µÀ¾ß
+        if (rewardType == MISSION_AWARD_GOODS || rewardType == MISSION_AWARD_EQUIP) //é“å…·
         {
             if (nullptr != pPackage)
             {
                 pPackage->RemoveItem(reward[i].id, reward[i].value, sourceParam, reward[i].bind);
             }
         }
-        else if (rewardType == MISSION_AWARD_ATTR) //ÊôĞÔ
+        else if (rewardType == MISSION_AWARD_ATTR) //å±æ€§
         {
             int32_t id = reward[i].id;
             int64_t costValue = -reward[i].value;
@@ -2450,7 +2450,7 @@ int32_t NFMissionPart::OnSubmit(uint64_t missionId, uint32_t selidx)
         return proto_ff::RET_MISSION_NOT_EXIST;
     }
     
-    //²éÕÒÌá½»µÄÈÎÎñÊÇ·ñÔÚÒÑ½ÓÁĞ±íÖĞ´æÔÚ
+    //æŸ¥æ‰¾æäº¤çš„ä»»åŠ¡æ˜¯å¦åœ¨å·²æ¥åˆ—è¡¨ä¸­å­˜åœ¨
     auto iter = _playerTrackMissionMap.find(missionId);
     if (_playerTrackMissionMap.end() == iter)
     {
@@ -2463,24 +2463,24 @@ int32_t NFMissionPart::OnSubmit(uint64_t missionId, uint32_t selidx)
         return proto_ff::RET_FAIL;
     }
     
-    //ÅĞ¶ÏÈÎÎñÊÇ·ñÍê³É
+    //åˆ¤æ–­ä»»åŠ¡æ˜¯å¦å®Œæˆ
     if (MISSION_E_COMPLETION != pSubmitMissionTrack->status)
     {
         return proto_ff::RET_MISSION_STATE_NOT_MATCH;
     }
     
     uint64_t subdynamicId = pSubmitMissionTrack->dynamicId;
-    //¹Ì¶¨½±Àø·ÅºóÃæ£¬¿ÉÄÜ¸øÓè½±ÀøÖ®ºó»á´¥·¢Ë¢ĞÂ¿É½ÓÁĞ±í
+    //å›ºå®šå¥–åŠ±æ”¾åé¢ï¼Œå¯èƒ½ç»™äºˆå¥–åŠ±ä¹‹åä¼šè§¦å‘åˆ·æ–°å¯æ¥åˆ—è¡¨
     
     LIST_ITEM lstOutItem;
     lstOutItem.clear();
     if (!CanAddReward(pMissionInfo->missionId, pMissionInfo->kind, pMissionInfo->subAward, lstOutItem))
     {
-        //±³°ü¿Õ¼ä²»×ã
+        //èƒŒåŒ…ç©ºé—´ä¸è¶³
         return proto_ff::RET_PACKAGE_COMMON_SPACE_NOT_ENOUGH;
     }
     
-    //ÒÆ³ıÈÎÎñ
+    //ç§»é™¤ä»»åŠ¡
     int32_t ret = RemoveMission(pSubmitMissionTrack, pMissionInfo);
     if (proto_ff::RET_SUCCESS != ret)
     {
@@ -2494,13 +2494,13 @@ int32_t NFMissionPart::OnSubmit(uint64_t missionId, uint32_t selidx)
     int32_t retReward = AddReward(pMissionInfo->missionId, pMissionInfo->kind, pMissionInfo->subAward);
     if (proto_ff::RET_SUCCESS != retReward)
     {
-        //Õı³£ÊÇ²»»áµ½ÕâÀï£¬´òÓ¡ÈÕÖ¾·½±ãºóÃæ¶¨Î»ÎÊÌâ
+        //æ­£å¸¸æ˜¯ä¸ä¼šåˆ°è¿™é‡Œï¼Œæ‰“å°æ—¥å¿—æ–¹ä¾¿åé¢å®šä½é—®é¢˜
         NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(),
                    "MissionManager::OnSubmit...AddReward failed..cid:{},dynamic:{},missionid:{},backmission:{},retReward:{}", m_pMaster->Cid(),
                    subdynamicId, pMissionInfo->missionId, pMissionInfo->backTaskId, retReward);
     }
     
-    //Ìá½»ÈÎÎñ
+    //æäº¤ä»»åŠ¡
     uint64_t premissionid = 0;
     if (pMissionInfo->setPreTask.size() > 0)
     {
@@ -2509,7 +2509,7 @@ int32_t NFMissionPart::OnSubmit(uint64_t missionId, uint32_t selidx)
     
     OnSubmit(missionId, premissionid, pMissionInfo->kind);
     
-    //Íê³ÉÈÎÎñ´¥·¢ÊÂ¼ş
+    //å®Œæˆä»»åŠ¡è§¦å‘äº‹ä»¶
     uint32_t missionType = pMissionInfo->kind;
     proto_ff::FinishTaskEvent taskEvent;
     taskEvent.set_taskid(missionId);
@@ -2526,7 +2526,7 @@ int32_t NFMissionPart::OnSubmit(uint64_t missionId, uint32_t selidx)
         const MissionInfo *pBackMissionInfo = TaskDescEx::Instance()->GetMissionCfgInfo(pMissionInfo->backTaskId);
         if (nullptr != pBackMissionInfo)
         {
-            //Èç¹ûÓĞºóÖÃÈÎÎñ×Ô¶¯½ÓÈ¡
+            //å¦‚æœæœ‰åç½®ä»»åŠ¡è‡ªåŠ¨æ¥å–
             int32_t retaccept = OnAccept(pMissionInfo->backTaskId, true);
             if (proto_ff::RET_SUCCESS != retaccept)
             {
@@ -2634,14 +2634,14 @@ int32_t NFMissionPart::OnSubmitDy(uint64_t dymissionId)
     NFPackagePart *pPackage = dynamic_cast<NFPackagePart *>(m_pMaster->GetPart(PART_PACKAGE));
     CHECK_EXPR(pPackage, proto_ff::RET_FAIL, "pPackage == NULL");
     
-    //²éÕÒÌá½»µÄÈÎÎñÊÇ·ñÔÚÒÑ½ÓÁĞ±íÖĞ´æÔÚ
+    //æŸ¥æ‰¾æäº¤çš„ä»»åŠ¡æ˜¯å¦åœ¨å·²æ¥åˆ—è¡¨ä¸­å­˜åœ¨
     auto iter = _playerTrackMissionMap.find(dymissionId);
     if (_playerTrackMissionMap.end() == iter)
     {
         return proto_ff::RET_MISSION_NOT_EXIST;
     }
     
-    //ÅĞ¶ÏÈÎÎñÊÇ·ñÍê³É
+    //åˆ¤æ–­ä»»åŠ¡æ˜¯å¦å®Œæˆ
     if (MISSION_E_COMPLETION != iter->second.status)
     {
         return proto_ff::RET_MISSION_STATE_NOT_MATCH;
@@ -2650,7 +2650,7 @@ int32_t NFMissionPart::OnSubmitDy(uint64_t dymissionId)
     uint64_t missionId = iter->second.missionId;
     uint32_t missionType = iter->second.missionType;
     
-    //ÒÆ³ıÈÎÎñ
+    //ç§»é™¤ä»»åŠ¡
     int32_t ret = RemoveDyMission(dymissionId, true);
     if (proto_ff::RET_SUCCESS != ret)
     {
@@ -2659,19 +2659,19 @@ int32_t NFMissionPart::OnSubmitDy(uint64_t dymissionId)
     
     if (missionType != MISSION_TYPE_ID_BOUNTY)
     {
-        //ÈÎÎñ½±Àø
+        //ä»»åŠ¡å¥–åŠ±
         SMissionReward missionReward;
         OnAddDyMissionReward(missionType, missionId, missionReward);
     }
     
-    //Íê³ÉÈÎÎñ´¥·¢ÊÂ¼ş
+    //å®Œæˆä»»åŠ¡è§¦å‘äº‹ä»¶
     proto_ff::FinishTaskEvent taskEvent;
     taskEvent.set_taskid(missionId);
     taskEvent.set_tasktype(missionType);
     taskEvent.set_cid(m_pMaster->Cid());
     FireExecute(NF_ST_LOGIC_SERVER, EVENT_FINISH_TASK, CREATURE_PLAYER, m_pMaster->Cid(), taskEvent);
     
-    //ÈÎÎñÌá½»´¦Àí,Òª·Åµ½½±ÀøºóÃæ£¬½±ÀøÖĞÈç¹ûÓĞ¾­Ñé»áÓĞÉı¼¶µÄÇé¿ö
+    //ä»»åŠ¡æäº¤å¤„ç†,è¦æ”¾åˆ°å¥–åŠ±åé¢ï¼Œå¥–åŠ±ä¸­å¦‚æœæœ‰ç»éªŒä¼šæœ‰å‡çº§çš„æƒ…å†µ
     OnSubmitDy(dymissionId, missionType);
     
     return proto_ff::RET_SUCCESS;

@@ -30,13 +30,13 @@ NFPackageBag::~NFPackageBag()
 
 int NFPackageBag::CreateInit()
 {
-    m_nLastSortTime = 0;                        //ÉÏ´ÎÕûÀíµÄÊ±¼ä
-    m_nExpandNum = 0;                            //À©Õ¹¸ñ×ÓÊı
-    m_nOpenGrid = 0;                            //±³°ü¿ªÆô¸ñ×ÓÊı
+    m_nLastSortTime = 0;                        //ä¸Šæ¬¡æ•´ç†çš„æ—¶é—´
+    m_nExpandNum = 0;                            //æ‰©å±•æ ¼å­æ•°
+    m_nOpenGrid = 0;                            //èƒŒåŒ…å¼€å¯æ ¼å­æ•°
     m_nPackageType = 0;
     
-    m_initGrid = 0;                                //³õÊ¼»¯¸ñ×Ó´óĞ¡
-    m_maxGrid = 0;                                //×î´ó¸ñ×Ó´óĞ¡
+    m_initGrid = 0;                                //åˆå§‹åŒ–æ ¼å­å¤§å°
+    m_maxGrid = 0;                                //æœ€å¤§æ ¼å­å¤§å°
     m_pMaster = NULL;
     return 0;
 }
@@ -228,16 +228,16 @@ bool NFPackageBag::HasBagItem(const LIST_ITEM &lstItem, ORDER_MAP_UINT16_INT64 &
 {
     mapGridReduceNum.clear();
     
-    MAP_UINT64_INT64 mapHasUnBind;        //·Ç°ó¶¨ÎïÆ·
-    MAP_UINT64_INT64 mapHasBind;        //°ó¶¨ÎïÆ·
+    MAP_UINT64_INT64 mapHasUnBind;        //éç»‘å®šç‰©å“
+    MAP_UINT64_INT64 mapHasBind;        //ç»‘å®šç‰©å“
     mapHasUnBind.clear();
     mapHasBind.clear();
     
     
-    //¼ÇÂ¼ÎïÆ·¶ÔÓ¦µÄ¿É¶Ñµş¸ñ×Óµ±Ç°ÓĞµÄ°ó¶¨ÊıÁ¿
+    //è®°å½•ç‰©å“å¯¹åº”çš„å¯å †å æ ¼å­å½“å‰æœ‰çš„ç»‘å®šæ•°é‡
     ORDER_MAP_UINT64_ORDER_MAP_UINT16_INT64 mapItemBindGridHas;
     mapItemBindGridHas.clear();
-    //¼ÇÂ¼ÎïÆ·¶ÔÓ¦µÄ¿É¶Ñµş¸ñ×Óµ±Ç°ÓĞµÄ·Ç°ó¶¨ÊıÁ¿
+    //è®°å½•ç‰©å“å¯¹åº”çš„å¯å †å æ ¼å­å½“å‰æœ‰çš„éç»‘å®šæ•°é‡
     ORDER_MAP_UINT64_ORDER_MAP_UINT16_INT64 mapItemUnbindGridHas;
     mapItemUnbindGridHas.clear();
     
@@ -271,10 +271,10 @@ bool NFPackageBag::HasBagItem(const LIST_ITEM &lstItem, ORDER_MAP_UINT16_INT64 &
         {
             if (mapHasUnBind[item.nItemID] < item.nNum)
             {
-                //ÊıÁ¿²»¹»
+                //æ•°é‡ä¸å¤Ÿ
                 return false;
             }
-            //×ÜÊıÁ¿ºÍ·Ç°ó¶¨ÊıÁ¿±ä»¯
+            //æ€»æ•°é‡å’Œéç»‘å®šæ•°é‡å˜åŒ–
             mapHasUnBind[item.nItemID] -= item.nNum;
             //
             int64_t reduceNum = item.nNum;
@@ -325,10 +325,10 @@ bool NFPackageBag::HasBagItem(const LIST_ITEM &lstItem, ORDER_MAP_UINT16_INT64 &
         {
             if (mapHasBind[item.nItemID] < item.nNum)
             {
-                //ÊıÁ¿²»¹»
+                //æ•°é‡ä¸å¤Ÿ
                 return false;
             }
-            //×ÜÊıÁ¿ºÍ°ó¶¨ÊıÁ¿±ä»¯
+            //æ€»æ•°é‡å’Œç»‘å®šæ•°é‡å˜åŒ–
             mapHasBind[item.nItemID] -= item.nNum;
             
             int64_t reduceNum = item.nNum;
@@ -378,7 +378,7 @@ bool NFPackageBag::HasBagItem(const LIST_ITEM &lstItem, ORDER_MAP_UINT16_INT64 &
         else
         {
             int64_t nTempNum = item.nNum;
-            //ÏÈ¿Û³ı°ó¶¨£¬ºó·Ç°ó¶¨
+            //å…ˆæ‰£é™¤ç»‘å®šï¼Œåéç»‘å®š
             if (mapHasBind[item.nItemID] > 0)
             {
                 int64_t reduceNum = 0;
@@ -509,7 +509,7 @@ bool NFPackageBag::HasBagItem(const LIST_ITEM &lstItem, ORDER_MAP_UINT16_INT64 &
             }
             if (nTempNum > 0)
             {
-                //»¹ÓĞÊ£ÓàµÄ£¬//ÊıÁ¿²»¹»
+                //è¿˜æœ‰å‰©ä½™çš„ï¼Œ//æ•°é‡ä¸å¤Ÿ
                 return false;
             }
         }
@@ -570,10 +570,10 @@ bool NFPackageBag::RemoveItem(LIST_ITEM &lstItem, SCommonSource &sourceParam)
     {
         return false;
     }
-    //ÒòÎªÉÏÃæÅĞ¶Ï¹ı£¬ÕâÀïÖ±½Ó¿Û³ıÊôĞÔ
+    //å› ä¸ºä¸Šé¢åˆ¤æ–­è¿‡ï¼Œè¿™é‡Œç›´æ¥æ‰£é™¤å±æ€§
     m_pMaster->AddVirAttr(mapAttr, true, &sourceParam, true);
     
-    //ÒòÎªÉÏÃæÅĞ¶Ï¹ı£¬ËùÒÔÕâÀïÖ±½ÓÒÆ³ıÎïÆ·
+    //å› ä¸ºä¸Šé¢åˆ¤æ–­è¿‡ï¼Œæ‰€ä»¥è¿™é‡Œç›´æ¥ç§»é™¤ç‰©å“
     MAP_UINT64_INT64 mapItemNum;
     mapItemNum.clear();
     RemovePackageItem(mapGridReduceNum, mapItemNum);
@@ -582,7 +582,7 @@ bool NFPackageBag::RemoveItem(LIST_ITEM &lstItem, SCommonSource &sourceParam)
     //
     OnRemoveItemEvent(mapItemNum, sourceParam);
     
-    //ÎïÆ·Á÷Ë®ÈÕÖ¾
+    //ç‰©å“æµæ°´æ—¥å¿—
     ItemLog(mapItemNum, sourceParam);
     
     return true;
@@ -612,7 +612,7 @@ bool NFPackageBag::RemoveItem(MAP_UINT16_INT64 &mapIndexItem, SCommonSource &sou
     //
     OnRemoveItemEvent(mapItemNum, sourceParam);
     
-    //ÎïÆ·Á÷Ë®ÈÕÖ¾
+    //ç‰©å“æµæ°´æ—¥å¿—
     ItemLog(mapItemNum, sourceParam);
     return true;
 }
@@ -711,34 +711,34 @@ bool NFPackageBag::CanPackageAddItem(MAP_LABEL_LIST_ITEM_EX &mapInLabelItem, MAP
 
 bool NFPackageBag::CanBagAddItem(MAP_LABEL_LIST_ITEM_EX &mapInLabelItem, MAP_LABEL_VEC_ITEM_PROTO_EX &mapInLabelVecItemProtoEx, MAP_UINT16_INT64 &mapOutGridAddNum, NFPackageBag::MAP_INDEX_ITEM_PROTO_EX &mapOutNewIdxItemProtoEx)
 {
-    //Ã¿¸ö±êÇ©Ò³Ê£Óà¸ñ×ÓÊı
+    //æ¯ä¸ªæ ‡ç­¾é¡µå‰©ä½™æ ¼å­æ•°
     MAP_INT8_VEC_UINT16 mapLabelVecGrid;
     mapLabelVecGrid.clear();
-    //out ²ÎÊıÏÈclear
+    //out å‚æ•°å…ˆclear
     mapOutNewIdxItemProtoEx.clear();
     mapOutGridAddNum.clear();
-    //Í³¼ÆÃ¿¸ö±êÇ©Ò³¿É¶ÑµşÎïÆ·µÄÊıÁ¿£¨°ó¶¨£¬·Ç°ó¶¨£¬×ÜÊıÁ¿£©
+    //ç»Ÿè®¡æ¯ä¸ªæ ‡ç­¾é¡µå¯å †å ç‰©å“çš„æ•°é‡ï¼ˆç»‘å®šï¼Œéç»‘å®šï¼Œæ€»æ•°é‡ï¼‰
     MAP_INT8_MAP_UINT64_INT64 mapLabelUnbindItem;
     MAP_INT8_MAP_UINT64_INT64 mapLabelBindItem;
-    //¿É¶ÑµşµÄÎïÆ·£¬°Ñ¿É¶ÑµşµÄ¸ñ×Ó·ÅÂúÖ®ºó£¬»¹ĞèÒªĞÂµÄ¸ñ×Ó
+    //å¯å †å çš„ç‰©å“ï¼ŒæŠŠå¯å †å çš„æ ¼å­æ”¾æ»¡ä¹‹åï¼Œè¿˜éœ€è¦æ–°çš„æ ¼å­
     MAP_INDEX_ITEM mapIndexItem;
     mapIndexItem.clear();
     
     
-    //¼ÇÂ¼ÎïÆ·¶ÔÓ¦µÄ¿É¶Ñµş¸ñ×Óµ±Ç°ÓĞµÄ°ó¶¨ÊıÁ¿
+    //è®°å½•ç‰©å“å¯¹åº”çš„å¯å †å æ ¼å­å½“å‰æœ‰çš„ç»‘å®šæ•°é‡
     ORDER_MAP_UINT64_ORDER_MAP_UINT16_INT64 mapItemBindGridHas;
     mapItemBindGridHas.clear();
-    //¼ÇÂ¼ÎïÆ·¶ÔÓ¦µÄ¿É¶Ñµş¸ñ×Óµ±Ç°ÓĞµÄ·Ç°ó¶¨ÊıÁ¿
+    //è®°å½•ç‰©å“å¯¹åº”çš„å¯å †å æ ¼å­å½“å‰æœ‰çš„éç»‘å®šæ•°é‡
     ORDER_MAP_UINT64_ORDER_MAP_UINT16_INT64 mapItemUnbindGridHas;
     mapItemUnbindGridHas.clear();
     
-    //±êÇ©Ò³¿É¶ÑµşÎïÆ·´¦Àí
+    //æ ‡ç­¾é¡µå¯å †å ç‰©å“å¤„ç†
     MAP_LABEL_LIST_ITEM_EX::iterator iterLabel = mapInLabelItem.begin();
     for (; iterLabel != mapInLabelItem.end(); ++iterLabel)
     {
         int8_t byLabel = iterLabel->first;
         LIST_ITEM_EX &lstInItemEx = iterLabel->second;
-        //label ÎïÆ·ÊıÁ¿£¨°ó¶¨£©
+        //label ç‰©å“æ•°é‡ï¼ˆç»‘å®šï¼‰
         MAP_UINT64_INT64 *pLabelBindItem = nullptr;
         MAP_INT8_MAP_UINT64_INT64::iterator iterLabelB = mapLabelBindItem.find(byLabel);
         if (iterLabelB == mapLabelBindItem.end())
@@ -751,7 +751,7 @@ bool NFPackageBag::CanBagAddItem(MAP_LABEL_LIST_ITEM_EX &mapInLabelItem, MAP_LAB
         {
             pLabelBindItem = &iterLabelB->second;
         }
-        //label ÎïÆ·ÊıÁ¿£¨·Ç°ó¶¨£©
+        //label ç‰©å“æ•°é‡ï¼ˆéç»‘å®šï¼‰
         MAP_UINT64_INT64 *pLabelUnbindItem = nullptr;
         MAP_INT8_MAP_UINT64_INT64::iterator iterLabelC = mapLabelUnbindItem.find(byLabel);
         if (iterLabelC == mapLabelUnbindItem.end())
@@ -764,7 +764,7 @@ bool NFPackageBag::CanBagAddItem(MAP_LABEL_LIST_ITEM_EX &mapInLabelItem, MAP_LAB
         {
             pLabelUnbindItem = &iterLabelC->second;
         }
-        //±êÇ©Ò³Ê£Óà¸ñ×ÓÊı
+        //æ ‡ç­¾é¡µå‰©ä½™æ ¼å­æ•°
         VEC_UINT16 *pLabelNewGrid = nullptr;
         MAP_INT8_VEC_UINT16::iterator iterLabelGrid = mapLabelVecGrid.find(byLabel);
         if (iterLabelGrid == mapLabelVecGrid.end())
@@ -785,7 +785,7 @@ bool NFPackageBag::CanBagAddItem(MAP_LABEL_LIST_ITEM_EX &mapInLabelItem, MAP_LAB
         MAP_UINT64_INT64 &mapBind = *pLabelBindItem;
         VEC_UINT16 &vecEmptyGrid = *pLabelNewGrid;
         
-        //Í³¼ÆÃ¿¸ö±êÇ©Ò³Ê£Óà¿Éµş¼ÓµÄÎïÆ·ÊıÁ¿
+        //ç»Ÿè®¡æ¯ä¸ªæ ‡ç­¾é¡µå‰©ä½™å¯å åŠ çš„ç‰©å“æ•°é‡
         LIST_ITEM_EX::iterator iterInItem = lstInItemEx.begin();
         for (; iterInItem != lstInItemEx.end(); ++iterInItem)
         {
@@ -811,7 +811,7 @@ bool NFPackageBag::CanBagAddItem(MAP_LABEL_LIST_ITEM_EX &mapInLabelItem, MAP_LAB
                 mapItemUnbindGridHas[item.nItemID] = mapUnbindGridHas;
             }
             
-            //Ôö¼ÓµÄÊıÁ¿ÊÇ·ñÄÜ·Åµ½ ¿É¶ÑµşµÄÎïÆ·¸ñ×ÓÖĞ
+            //å¢åŠ çš„æ•°é‡æ˜¯å¦èƒ½æ”¾åˆ° å¯å †å çš„ç‰©å“æ ¼å­ä¸­
             int64_t nLeft = 0;
             int64_t addNum = 0;
             if ((int8_t) EBindState::EBindState_no == item.byBind)
@@ -875,7 +875,7 @@ bool NFPackageBag::CanBagAddItem(MAP_LABEL_LIST_ITEM_EX &mapInLabelItem, MAP_LAB
                     
                     if (addNum > 0)
                     {
-                        //Õı³£²»»á×ßµ½ÕâÀï£¬×öÒ»´Î´òÓ¡£¬±ãÓÚÒÔºó¶¨Î»
+                        //æ­£å¸¸ä¸ä¼šèµ°åˆ°è¿™é‡Œï¼Œåšä¸€æ¬¡æ‰“å°ï¼Œä¾¿äºä»¥åå®šä½
                         NFLogErrorFmt(NF_LOG_SYSTEMLOG, 0, "[logic] PackagePart::CanPackageAddItem..unbind....addNum > 0...addNum:%ld ", addNum);
                     }
                 }
@@ -941,14 +941,14 @@ bool NFPackageBag::CanBagAddItem(MAP_LABEL_LIST_ITEM_EX &mapInLabelItem, MAP_LAB
                     }
                     if (addNum > 0)
                     {
-                        //Õı³£²»»á×ßµ½ÕâÀï£¬×öÒ»´Î´òÓ¡£¬±ãÓÚÒÔºó¶¨Î»
+                        //æ­£å¸¸ä¸ä¼šèµ°åˆ°è¿™é‡Œï¼Œåšä¸€æ¬¡æ‰“å°ï¼Œä¾¿äºä»¥åå®šä½
                         NFLogErrorFmt(NF_LOG_SYSTEMLOG, 0, "[logic] PackagePart::CanPackageAddItem..bind....addNum > 0...addNum:%ld ", addNum);
                     }
                 }
                 
             }
             
-            if (nLeft > 0) //¿É¶ÑµşµÄ¸ñ×Ó·ÅÍêÖ®ºóÊ£ÏÂµÄÊıÁ¿
+            if (nLeft > 0) //å¯å †å çš„æ ¼å­æ”¾å®Œä¹‹åå‰©ä¸‹çš„æ•°é‡
             {
                 int64_t stackLimit = item.stackNum;
                 MAP_INDEX_ITEM::iterator iterMap = mapIndexItem.begin();
@@ -975,13 +975,13 @@ bool NFPackageBag::CanBagAddItem(MAP_LABEL_LIST_ITEM_EX &mapInLabelItem, MAP_LAB
                     }
                 } // end of for (; iterMap != mapIndexItem.end(); ++iter)
                 
-                if (nLeft > 0) //ĞèÒª¶îÍâ·ÖÅä¸ñ×Ó
+                if (nLeft > 0) //éœ€è¦é¢å¤–åˆ†é…æ ¼å­
                 {
-                    int64_t nCount = 0;  //ĞèÒªµÄ¸ñ×ÓÊı
-                    int64_t nNumEx = 0;  //ÎïÆ·¶îÍâÊ£ÓàÊıÁ¿
+                    int64_t nCount = 0;  //éœ€è¦çš„æ ¼å­æ•°
+                    int64_t nNumEx = 0;  //ç‰©å“é¢å¤–å‰©ä½™æ•°é‡
                     nCount = nLeft / stackLimit;
                     nNumEx = nLeft % stackLimit;
-                    //Êµ¼ÊĞèÒª¸ñ×ÓÊı
+                    //å®é™…éœ€è¦æ ¼å­æ•°
                     int64_t nRealCount = nCount;
                     if (nNumEx > 0)
                     {
@@ -989,7 +989,7 @@ bool NFPackageBag::CanBagAddItem(MAP_LABEL_LIST_ITEM_EX &mapInLabelItem, MAP_LAB
                     }
                     if ((int64_t) vecEmptyGrid.size() < nRealCount)
                     {
-                        //¸ñ×Ó²»¹»
+                        //æ ¼å­ä¸å¤Ÿ
                         return false;
                     }
                     for (int64_t i = 0; i < nCount; ++i)
@@ -1006,7 +1006,7 @@ bool NFPackageBag::CanBagAddItem(MAP_LABEL_LIST_ITEM_EX &mapInLabelItem, MAP_LAB
                     }
                     if (nNumEx > 0)
                     {
-                        //Ö»ÓĞ¿É¶ÑµşµÄ²Å»á×ßµ½ÕâÀï
+                        //åªæœ‰å¯å †å çš„æ‰ä¼šèµ°åˆ°è¿™é‡Œ
                         VEC_UINT16::iterator iterVec = vecEmptyGrid.begin();
                         uint16_t idx = (*iterVec);
                         SItem newitem;
@@ -1023,13 +1023,13 @@ bool NFPackageBag::CanBagAddItem(MAP_LABEL_LIST_ITEM_EX &mapInLabelItem, MAP_LAB
         
     } // end of for (; iterLabel != mapInLabelItem.end(); ++iterLabel)
     
-    //±êÇ©Ò³²»¿É¶ÑµşÎïÆ·´¦Àí
+    //æ ‡ç­¾é¡µä¸å¯å †å ç‰©å“å¤„ç†
     MAP_LABEL_VEC_ITEM_PROTO_EX::iterator iterNoPile = mapInLabelVecItemProtoEx.begin();
     for (; iterNoPile != mapInLabelVecItemProtoEx.end(); ++iterNoPile)
     {
         int8_t byLabel = iterNoPile->first;
         VEC_ITEM_PROTO_EX &vecNoPileProtoEx = iterNoPile->second;
-        //±êÇ©Ò³Ê£Óà¸ñ×ÓÊı
+        //æ ‡ç­¾é¡µå‰©ä½™æ ¼å­æ•°
         VEC_UINT16 *pLabelNewGrid = nullptr;
         MAP_INT8_VEC_UINT16::iterator iterLabelGrid = mapLabelVecGrid.find(byLabel);
         if (iterLabelGrid == mapLabelVecGrid.end())
@@ -1050,7 +1050,7 @@ bool NFPackageBag::CanBagAddItem(MAP_LABEL_LIST_ITEM_EX &mapInLabelItem, MAP_LAB
         VEC_UINT16 &vecEmptyGrid = *pLabelNewGrid;
         if (vecEmptyGrid.size() < vecNoPileProtoEx.size())
         {
-            return false; //¸ñ×Ó²»¹»
+            return false; //æ ¼å­ä¸å¤Ÿ
         }
         VEC_ITEM_PROTO_EX::iterator iterNewProto = vecNoPileProtoEx.begin();
         for (; iterNewProto != vecNoPileProtoEx.end(); ++iterNewProto)
@@ -1088,7 +1088,7 @@ bool NFPackageBag::CanBagAddItem(MAP_LABEL_LIST_ITEM_EX &mapInLabelItem, MAP_LAB
         {
             return false;
         }
-        //ÉèÖÃË÷Òı
+        //è®¾ç½®ç´¢å¼•
         VEC_ITEM_PROTO_EX::iterator iterProto = vecNewProtoEx.begin();
         for (; iterProto != vecNewProtoEx.end(); ++iterProto)
         {
@@ -1143,9 +1143,9 @@ bool NFPackageBag::AddItem(LIST_ITEM &lstItem, SCommonSource &sourceParam, bool 
     {
         return false;
     }
-    //ÏÈÇå¿ÕË÷Òı¼ÇÂ¼
+    //å…ˆæ¸…ç©ºç´¢å¼•è®°å½•
     ClearIdxRecord();
-    //ÒÑ¾­ÅĞ¶Ï¹ıÁË£¬ÕâÀïÖ±½ÓÌí¼ÓÎïÆ·
+    //å·²ç»åˆ¤æ–­è¿‡äº†ï¼Œè¿™é‡Œç›´æ¥æ·»åŠ ç‰©å“
     VEC_ITEM_PROTO_EX vecTipProtoEx;
     vecTipProtoEx.clear();
     if (tip)
@@ -1159,13 +1159,13 @@ bool NFPackageBag::AddItem(LIST_ITEM &lstItem, SCommonSource &sourceParam, bool 
         }
     }
     AddPackageItem(mapOutGridAddNum, mapOutNewIdxItemProtoEx, vecTipProtoEx, update);
-    //Ìí¼ÓÊôĞÔ
+    //æ·»åŠ å±æ€§
     m_pMaster->AddVirAttr(mapAttr, false, &sourceParam, true);
     //
     SetPackageSaveFlag(true);
-    //Ôö¼ÓÎïÆ·£¬´¥·¢ÊÂ¼ş
+    //å¢åŠ ç‰©å“ï¼Œè§¦å‘äº‹ä»¶
     OnAddItemEvent(mapOutGridAddNum, mapOutNewIdxItemProtoEx, sourceParam);
-    //ÎïÆ·Á÷Ë®ÈÕÖ¾
+    //ç‰©å“æµæ°´æ—¥å¿—
     ItemLog(mapOutGridAddNum, mapOutNewIdxItemProtoEx, sourceParam);
     return true;
 }
@@ -1219,9 +1219,9 @@ bool NFPackageBag::AddItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx, SCommonSource &so
     {
         return false;
     }
-    //Çå¿Õ
+    //æ¸…ç©º
     ClearIdxRecord();
-    //Ç°ÃæÒÑ¾­ÅĞ¶Ï¹ı£¬Ö±½ÓÔö¼Ó
+    //å‰é¢å·²ç»åˆ¤æ–­è¿‡ï¼Œç›´æ¥å¢åŠ 
     VEC_ITEM_PROTO_EX vecTipProtoEx;
     vecTipProtoEx.clear();
     if (tip)
@@ -1229,13 +1229,13 @@ bool NFPackageBag::AddItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx, SCommonSource &so
         vecTipProtoEx = vecOutProtoItemEx;
     }
     AddPackageItem(mapGridAddNum, mapIndexProtoEx, vecTipProtoEx, update);
-    //Ìí¼ÓÊôĞÔ
+    //æ·»åŠ å±æ€§
     m_pMaster->AddVirAttr(mapAttr, false, &sourceParam, true);
     //
     SetPackageSaveFlag(true);
-    //Ôö¼ÓÎïÆ·£¬´¥·¢ÊÂ¼ş
+    //å¢åŠ ç‰©å“ï¼Œè§¦å‘äº‹ä»¶
     OnAddItemEvent(mapGridAddNum, mapIndexProtoEx, sourceParam);
-    //ÎïÆ·Á÷Ë®ÈÕÖ¾
+    //ç‰©å“æµæ°´æ—¥å¿—
     ItemLog(mapGridAddNum, mapIndexProtoEx, sourceParam);
     return true;
 }
@@ -1272,17 +1272,17 @@ bool NFPackageBag::AddItemEx(VEC_ITEM_PROTO_EX &vecProtoItemsEx, SCommonSource &
     {
         return false;
     }
-    //Çå¿Õ
+    //æ¸…ç©º
     ClearIdxRecord();
-    //Ç°ÃæÒÑ¾­ÅĞ¶Ï¹ı£¬Ö±½ÓÔö¼Ó
+    //å‰é¢å·²ç»åˆ¤æ–­è¿‡ï¼Œç›´æ¥å¢åŠ 
     AddPackageItem(mapGridAddNum, mapIndexProtoEx, vecOutProtoItemEx, true);
-    //Ìí¼ÓÊôĞÔ
+    //æ·»åŠ å±æ€§
     m_pMaster->AddVirAttr(mapAttr, false, &sourceParam, true);
     //
     SetPackageSaveFlag(true);
-    //Ôö¼ÓÎïÆ·£¬´¥·¢ÊÂ¼ş
+    //å¢åŠ ç‰©å“ï¼Œè§¦å‘äº‹ä»¶
     OnAddItemEvent(mapGridAddNum, mapIndexProtoEx, sourceParam);
-    //ÎïÆ·Á÷Ë®ÈÕÖ¾
+    //ç‰©å“æµæ°´æ—¥å¿—
     ItemLog(mapGridAddNum, mapIndexProtoEx, sourceParam);
     return true;
 }
@@ -1317,9 +1317,9 @@ bool NFPackageBag::AddItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx, VEC_ITEM_PROTO_EX
     {
         return false;
     }
-    //Çå¿Õ
+    //æ¸…ç©º
     ClearIdxRecord();
-    //Ç°ÃæÒÑ¾­ÅĞ¶Ï¹ı£¬Ö±½ÓÔö¼Ó
+    //å‰é¢å·²ç»åˆ¤æ–­è¿‡ï¼Œç›´æ¥å¢åŠ 
     VEC_ITEM_PROTO_EX vecTipProtoEx;
     vecTipProtoEx.clear();
     if (tip)
@@ -1327,15 +1327,15 @@ bool NFPackageBag::AddItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx, VEC_ITEM_PROTO_EX
         vecTipProtoEx = vecOutProtoItemsEx;
     }
     AddPackageItem(mapGridAddNum, mapIndexProtoEx, vecOutProtoItemsEx, update);
-    //Ìí¼ÓÊôĞÔ
+    //æ·»åŠ å±æ€§
     m_pMaster->AddVirAttr(mapAttr, false, &sourceParam, true);
     //
     SetPackageSaveFlag(true);
-    //Ôö¼ÓÎïÆ·£¬´¥·¢ÊÂ¼ş
+    //å¢åŠ ç‰©å“ï¼Œè§¦å‘äº‹ä»¶
     OnAddItemEvent(mapGridAddNum, mapIndexProtoEx, sourceParam);
-    //Ìî³ä´«³ö²ÎÊı
+    //å¡«å……ä¼ å‡ºå‚æ•°
     OnAddItemParam(mapGridAddNum, mapIndexProtoEx, vecProtoItemsOut);
-    //ÎïÆ·Á÷Ë®ÈÕÖ¾
+    //ç‰©å“æµæ°´æ—¥å¿—
     ItemLog(mapGridAddNum, mapIndexProtoEx, sourceParam);
     return true;
 }
@@ -1395,7 +1395,7 @@ bool NFPackageBag::AddPackageItem(MAP_UINT16_INT64 &mapOutGridAddNum, NFPackageB
             ++iterItem;
         }
         
-        //»ØÊÕÊ§°ÜµÄÎïÆ·
+        //å›æ”¶å¤±è´¥çš„ç‰©å“
         VEC_PACKAGE_ITEM::iterator iterDel = vecItems.begin();
         for (; iterDel != vecItems.end(); ++iterDel)
         {
@@ -1426,7 +1426,7 @@ bool NFPackageBag::AddPackageItem(MAP_UINT16_INT64 &mapOutGridAddNum, NFPackageB
     {
         if (vecProtoTipItemsEx.size() > 0 && (m_nPackageType != proto_ff::EPackageType_FindTreasure && m_nPackageType != proto_ff::EPackageType_BigDragon))
         {
-            //Ê¹ÓÃÁíÍâµÄ»ñµÃÎïÆ·ÌáÊ¾
+            //ä½¿ç”¨å¦å¤–çš„è·å¾—ç‰©å“æç¤º
             proto_ff::MutItemTipProto *protoMutTip = protoUpdateRet.mutable_item_tip();
             if (nullptr != protoMutTip)
             {
@@ -1444,7 +1444,7 @@ bool NFPackageBag::AddPackageItem(MAP_UINT16_INT64 &mapOutGridAddNum, NFPackageB
             }
         }
         
-        //¸üĞÂ±³°ü
+        //æ›´æ–°èƒŒåŒ…
         UpdatePackageInfo(protoUpdateRet);
         
     }
@@ -1454,7 +1454,7 @@ bool NFPackageBag::AddPackageItem(MAP_UINT16_INT64 &mapOutGridAddNum, NFPackageB
 
 void NFPackageBag::OnAddItemEvent(MAP_UINT16_INT64 &mapOutGridAddNum, NFPackageBag::MAP_INDEX_ITEM_PROTO_EX &mapOutNewIdxItemProtoEx, SCommonSource &sourceParam)
 {
-    //Ôö¼ÓÎïÆ·£¬´¥·¢ÊÂ¼ş
+    //å¢åŠ ç‰©å“ï¼Œè§¦å‘äº‹ä»¶
     VEC_ITEM_PROTO_EX vCollectItems;
     
     MAP_UINT16_INT64::iterator iterAdd = mapOutGridAddNum.begin();
@@ -1477,7 +1477,7 @@ void NFPackageBag::OnAddItemEvent(MAP_UINT16_INT64 &mapOutGridAddNum, NFPackageB
         AddCollectItem(proto, vCollectItems);
     }
     
-    //¼ÆËãµÀ¾ßÊıÁ¿±ä»¯µÄÊıÁ¿
+    //è®¡ç®—é“å…·æ•°é‡å˜åŒ–çš„æ•°é‡
     iterAdd = mapOutGridAddNum.begin();
     for (; iterAdd != mapOutGridAddNum.end(); ++iterAdd)
     {
@@ -1539,7 +1539,7 @@ bool NFPackageBag::ClearPackage()
             mapGridReduceNum[i] = pItem->GetNum();
         }
     }
-    //ÒÆ³ıÎïÆ·
+    //ç§»é™¤ç‰©å“
     MAP_UINT64_INT64 mapItemNum;
     return RemoveBagItem(mapGridReduceNum, mapItemNum);
 }
@@ -1584,7 +1584,7 @@ int64_t NFPackageBag::GetItemLeftPile(uint64_t nItemID, int64_t &nUnBindNum, int
             NFLogErrorFmt(NF_LOG_SYSTEMLOG, 0, "[logic] GetItemLeftPile...can not find item cfg ...nItemID[%lu] ", nItemID);
             return 0;
         }
-        //×°±¸ÊÇ²»ÔÊĞíÓĞµş¼ÓµÄ£¬ËùÒÔÕâÀïÖ±½Ó·µ»Ø
+        //è£…å¤‡æ˜¯ä¸å…è®¸æœ‰å åŠ çš„ï¼Œæ‰€ä»¥è¿™é‡Œç›´æ¥è¿”å›
         return 0;
     }
     else
@@ -1753,7 +1753,7 @@ bool NFPackageBag::UpdatePackageExpand()
 
 void NFPackageBag::OnRemoveItemEvent(MAP_UINT64_INT64 &mapItemNum, SCommonSource &sourceParam)
 {
-    //ÒÆ³ıÎïÆ· ÈÎÎñÊÂ¼ş
+    //ç§»é™¤ç‰©å“ ä»»åŠ¡äº‹ä»¶
     VEC_ITEM_PROTO_EX vCollectItems;
     MAP_UINT64_INT64::iterator iterRemove = mapItemNum.begin();
     for (; iterRemove != mapItemNum.end(); ++iterRemove)
@@ -1783,7 +1783,7 @@ void NFPackageBag::AddCollectItem(proto_ff::ItemProtoInfo &itemProto, VEC_ITEM_P
             return;
         }
     }
-    //Ã»ÓĞÏàÍ¬µÄ ²åÈë
+    //æ²¡æœ‰ç›¸åŒçš„ æ’å…¥
     vCollectItems.push_back(itemProto);
 }
 
@@ -1839,12 +1839,12 @@ void NFPackageBag::ProcessItem(const LIST_ITEM &lstItem, LIST_ITEM &outLstItem, 
         const SItem &ref = e;
         uint32_t attrId = 0;
         CHECK_CONTINUE(ref.nItemID > 0 && ref.nNum > 0);
-        //1:ĞéÄâÎïÆ·
+        //1:è™šæ‹Ÿç‰©å“
         if (NFItemMgr::IsVirItem(ref.nItemID, attrId))
         {
             mapAttr[attrId] += ref.nNum;
         }
-            //2:¶¯Ì¬¾­ÑéÀà
+            //2:åŠ¨æ€ç»éªŒç±»
         else if (NFItemMgr::IsDynExpItem(ref.nItemID))
         {
             mapAttr[proto_ff::A_EXP] += calcDynExp(ItemDescEx::Instance()->GetDynExpType(ref.nItemID), ref.nNum);
@@ -1855,9 +1855,9 @@ void NFPackageBag::ProcessItem(const LIST_ITEM &lstItem, LIST_ITEM &outLstItem, 
             do
             {
                 CHECK_BREAK(addFlag);
-                //Ìæ»»
+                //æ›¿æ¢
                 auto pItemCfg = ItemItemDesc::Instance()->GetDesc(ref.nItemID);
-                if (ItemDescEx::Instance()->IsTianShenActiveNum(pItemCfg)) //ÌìÉñ¼¤»îÎïÆ·
+                if (ItemDescEx::Instance()->IsTianShenActiveNum(pItemCfg)) //å¤©ç¥æ¿€æ´»ç‰©å“
                 {
                     int32_t tianshenId = ItemDescEx::Instance()->GetTianShenId(ref.nItemID);
                     uint64_t replaceItemId = 0;
@@ -1898,11 +1898,11 @@ void NFPackageBag::ProcessItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx, VEC_ITEM_PROT
         uint64_t itemId = ref.item_id();
         int32_t itemNum = ref.item_num();
         CHECK_CONTINUE(itemId > 0 && itemNum > 0);
-        //1:ĞéÄâÎïÆ·
+        //1:è™šæ‹Ÿç‰©å“
         if (NFItemMgr::IsVirItem(itemId, attrId))
         {
             mapAttr[attrId] += ref.item_num();
-        }//2:¶¯Ì¬¾­ÑéÀà
+        }//2:åŠ¨æ€ç»éªŒç±»
         else if (NFItemMgr::IsDynExpItem(itemId))
         {
             mapAttr[proto_ff::A_EXP] += calcDynExp(ItemDescEx::Instance()->GetDynExpType(itemId), itemNum);
@@ -1913,9 +1913,9 @@ void NFPackageBag::ProcessItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx, VEC_ITEM_PROT
             do
             {
                 CHECK_BREAK(addFlag);
-                //Ìæ»»
+                //æ›¿æ¢
                 auto pItemCfg = ItemItemDesc::Instance()->GetDesc(itemId);
-                if (ItemDescEx::Instance()->IsTianShenActiveNum(pItemCfg)) //ÌìÉñ¼¤»îÎïÆ·
+                if (ItemDescEx::Instance()->IsTianShenActiveNum(pItemCfg)) //å¤©ç¥æ¿€æ´»ç‰©å“
                 {
                     int32_t tianshenId = ItemDescEx::Instance()->GetTianShenId(itemId);
                     uint64_t replaceItemId = 0;
@@ -1965,7 +1965,7 @@ void NFPackageBag::MergeItemList(LIST_ITEM &inlstItem, VEC_ITEM_PROTO_EX &vecinP
     mapOutLabelItem.clear();
     mapOutLabelVecItemProtoEx.clear();
     //
-    MAP_LABEL_LIST_ITEM_EX mapLabelNoPileItemEx;//²»¿É¶ÑµşÎïÆ·
+    MAP_LABEL_LIST_ITEM_EX mapLabelNoPileItemEx;//ä¸å¯å †å ç‰©å“
     mapLabelNoPileItemEx.clear();
     LIST_ITEM::iterator iter = inlstItem.begin();
     for (; iter != inlstItem.end(); ++iter)
@@ -2026,7 +2026,7 @@ void NFPackageBag::MergeItemList(LIST_ITEM &inlstItem, VEC_ITEM_PROTO_EX &vecinP
             pLstLabelItem = &iterLabelItem->second;
         }
         
-        if (proto_ff::EItemType_Equip == byType || 1 == maxPile) //×°±¸»òÕß ²»¿É¶ÑµşÎïÆ·
+        if (proto_ff::EItemType_Equip == byType || 1 == maxPile) //è£…å¤‡æˆ–è€… ä¸å¯å †å ç‰©å“
         {
             LIST_ITEM_EX *pLstLabelNoPileItem = nullptr;
             MAP_LABEL_LIST_ITEM_EX::iterator iterLabelNoPile = mapLabelNoPileItemEx.find(byLabel);
@@ -2056,7 +2056,7 @@ void NFPackageBag::MergeItemList(LIST_ITEM &inlstItem, VEC_ITEM_PROTO_EX &vecinP
             continue;
         }
         
-        //·Ç×°±¸²¢ÇÒ¿É¶ÑµşÎïÆ·
+        //éè£…å¤‡å¹¶ä¸”å¯å †å ç‰©å“
         bool bFlag = false;
         LIST_ITEM_EX::iterator iterout = pLstLabelItem->begin();
         for (; iterout != pLstLabelItem->end(); ++iterout)
@@ -2077,7 +2077,7 @@ void NFPackageBag::MergeItemList(LIST_ITEM &inlstItem, VEC_ITEM_PROTO_EX &vecinP
             itemEx.byBind = byBind;
             itemEx.stackNum = maxPile;
             itemEx.byType = byType;
-            //ÕâÀïĞ£ÑéÏÂ¶ÑµşÊı
+            //è¿™é‡Œæ ¡éªŒä¸‹å †å æ•°
             pLstLabelItem->push_back(itemEx);
             //int32_t isize = pLstLabelItem->size();
             //if (isize > 0)
@@ -2087,7 +2087,7 @@ void NFPackageBag::MergeItemList(LIST_ITEM &inlstItem, VEC_ITEM_PROTO_EX &vecinP
         }
     } // end of for (; iter != inlstItem.end(); ++iter)
     
-    //´¦Àí²»¿É¶ÑµşÎïÆ·
+    //å¤„ç†ä¸å¯å †å ç‰©å“
     MAP_LABEL_LIST_ITEM_EX::iterator iterNoPile = mapLabelNoPileItemEx.begin();
     for (; iterNoPile != mapLabelNoPileItemEx.end(); ++iterNoPile)
     {
@@ -2162,8 +2162,8 @@ void NFPackageBag::MergeItemList(LIST_ITEM &inlstItem, VEC_ITEM_PROTO_EX &vecinP
         }
         
         /*
-        ÕâÀïĞèÒª´¦ÀíÏÂ Íæ¼Ò¿ÉÒÔ¸Ä±äÊôĞÔµÄÎïÆ·£¬±ÈÈç ËùÓĞµÄ×°±¸,Ñª°ü£¬ĞÇ»ê´«ËÍÎïÆ·£¬²Ø±¦Í¼£¬ÅÜÉÌÉÌÈ¯µÈ
-        ´ËÀàÎïÆ·±ØĞëÊÇ²»¿É¶ÑµşÎïÆ·
+        è¿™é‡Œéœ€è¦å¤„ç†ä¸‹ ç©å®¶å¯ä»¥æ”¹å˜å±æ€§çš„ç‰©å“ï¼Œæ¯”å¦‚ æ‰€æœ‰çš„è£…å¤‡,è¡€åŒ…ï¼Œæ˜Ÿé­‚ä¼ é€ç‰©å“ï¼Œè—å®å›¾ï¼Œè·‘å•†å•†åˆ¸ç­‰
+        æ­¤ç±»ç‰©å“å¿…é¡»æ˜¯ä¸å¯å †å ç‰©å“
         */
         if (proto_ff::EItemType_Equip == byType || 1 == maxPile)
         {
@@ -2221,7 +2221,7 @@ void NFPackageBag::MergeItemList(LIST_ITEM &inlstItem, VEC_ITEM_PROTO_EX &vecinP
                 item.byBind = byBind;
                 item.stackNum = maxPile;
                 item.byType = byType;
-                //ÕâÀïĞ£ÑéÏÂ¶ÑµşÊı
+                //è¿™é‡Œæ ¡éªŒä¸‹å †å æ•°
                 pLstLabelItem->push_back(item);
             }
         } // end of if (1 == maxPile)

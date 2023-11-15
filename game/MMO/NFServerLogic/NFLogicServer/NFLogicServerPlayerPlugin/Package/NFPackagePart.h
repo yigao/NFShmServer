@@ -28,9 +28,9 @@ public:
     
     int ResumeInit();
 public:
-    //******************partµ÷ÓÃ½Ó¿Ú******************
+    //******************partè°ƒç”¨æ¥å£******************
     /**
-     * @brief ³õÊ¼»¯part
+     * @brief åˆå§‹åŒ–part
      * @param pMaster
      * @param partType
      * @param dbData
@@ -40,77 +40,77 @@ public:
     virtual int Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::RoleDBData &dbData);
     
     /**
-     * @brief ÊÍ·Åpart×ÊÔ´
+     * @brief é‡Šæ”¾partèµ„æº
      * @return
      */
     virtual int UnInit();
 public:
     /**
-     * @brief ´ÓÊı¾İ¿âÖĞ¼ÓÔØÊı¾İ
+     * @brief ä»æ•°æ®åº“ä¸­åŠ è½½æ•°æ®
      * @param data
      * @return
      */
     virtual int LoadFromDB(const proto_ff::RoleDBData &data);
     
     /**
-     * @brief ´ÓÅäÖÃÖĞ³õÊ¼»¯Êı¾İ
+     * @brief ä»é…ç½®ä¸­åˆå§‹åŒ–æ•°æ®
      * @return
      */
     virtual int InitConfig(const proto_ff::RoleDBData &data);
     
     /**
-     * @brief ´æ´¢DB²¿¼şÈë¿Ú
+     * @brief å­˜å‚¨DBéƒ¨ä»¶å…¥å£
      * @param proto
      * @return
      */
     virtual int SaveDB(proto_ff::RoleDBData &dbData);
     
     /**
-     * @brief µÇÂ½Èë¿Ú
+     * @brief ç™»é™†å…¥å£
      * @return
      */
     virtual int OnLogin();
     virtual int OnLogin(proto_ff::PlayerInfoRsp &playerInfo);
     
     /**
-     * @brief µÇ³öÈë¿Ú
+     * @brief ç™»å‡ºå…¥å£
      * @return
      */
     virtual int OnLogout() { return 0; }
     
     /**
-     * @brief µôÏßÈë¿Ú
+     * @brief æ‰çº¿å…¥å£
      * @return
      */
     virtual int OnDisconnect() { return 0; }
     
     /**
-     * @brief ÖØÁ¬Èë¿Ú
+     * @brief é‡è¿å…¥å£
      * @return
      */
     virtual int OnReconnect() { return 0; }
     
-    ////////////////////////////////// Ã¿ÈÕÁãµã Ã¿ÖÜÒ»Áãµã Ë¢ĞÂ½Ó¿Ú ///////////////////////////////////
+    ////////////////////////////////// æ¯æ—¥é›¶ç‚¹ æ¯å‘¨ä¸€é›¶ç‚¹ åˆ·æ–°æ¥å£ ///////////////////////////////////
     /**
-     * @brief Ã¿ÈÕÁãµã Ë¢ĞÂ½Ó¿Ú
+     * @brief æ¯æ—¥é›¶ç‚¹ åˆ·æ–°æ¥å£
      * @return
      */
     virtual int DailyZeroUpdate() { return 0; }
     
     /**
-     * @brief Ã¿ÈÕÁãµã Ë¢ĞÂ½Ó¿Ú
+     * @brief æ¯æ—¥é›¶ç‚¹ åˆ·æ–°æ¥å£
      * @return
      */
     virtual int WeekZeroUpdate() { return 0; }
     
     /**
-     * @brief Ã¿ÔÂË¢ĞÂ½Ó¿Ú
+     * @brief æ¯æœˆåˆ·æ–°æ¥å£
      * @return
      */
     virtual int MonthZeroUpdate() { return 0; };
     
     /**
-     * ÉèÖÃÍâ¹ÛĞÅÏ¢
+     * è®¾ç½®å¤–è§‚ä¿¡æ¯
      * @param outproto
      */
     virtual int FillFacadeProto(proto_ff::RoleFacadeProto &outproto) { return 0; }
@@ -123,13 +123,13 @@ public:
 
 public:
     /**
-     * @brief ×¢²áÒª´¦ÀíµÄÏûÏ¢
+     * @brief æ³¨å†Œè¦å¤„ç†çš„æ¶ˆæ¯
      * @return
      */
     virtual int RegisterMessage();
 public:
     /**
-     * @brief ´¦Àí¿Í»§¶ËÏûÏ¢
+     * @brief å¤„ç†å®¢æˆ·ç«¯æ¶ˆæ¯
      * @param unLinkId
      * @param packet
      * @return
@@ -137,7 +137,7 @@ public:
     virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief ´¦ÀíÀ´×Ô·şÎñÆ÷µÄĞÅÏ¢
+     * @brief å¤„ç†æ¥è‡ªæœåŠ¡å™¨çš„ä¿¡æ¯
      * @param unLinkId
      * @param packet
      * @return
@@ -145,119 +145,119 @@ public:
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
 public:
 private:
-    ////////////////////////////////////  Íæ¼Ò±³°üÂß¼­  //////////////////////////////////////
-    //ĞÅÏ¢
+    ////////////////////////////////////  ç©å®¶èƒŒåŒ…é€»è¾‘  //////////////////////////////////////
+    //ä¿¡æ¯
     int PackageInfo(uint32_t msgId, NFDataPackage &packet);
-    //ÕûÀí
+    //æ•´ç†
     int ItemSort(uint32_t msgId, NFDataPackage &packet);
-    //³öÊÛ
+    //å‡ºå”®
     int ItemSell(uint32_t msgId, NFDataPackage &packet);
-    //Ê¹ÓÃ
+    //ä½¿ç”¨
     int ItemUse(uint32_t msgId, NFDataPackage &packet);
-    //À©Õ¹
+    //æ‰©å±•
     int ExpandReq(uint32_t msgId, NFDataPackage &packet);
 public:
     virtual uint32_t GetLastErrorCode();
     virtual uint32_t GetPackageNotSpaceErrorCode(uint32_t nPackageType);
     
     ///////////////////////////////// IPackage   /////////////////////////////////////////
-    //»ñÈ¡Ö¸¶¨ÎïÆ·ÊıÁ¿
+    //è·å–æŒ‡å®šç‰©å“æ•°é‡
     virtual int64_t GetItemNum(uint64_t nItemID, int64_t &nUnBindNum, int64_t &nBindNum);
-    //ÊÇ·ñ´æÔÚÎïÆ·
+    //æ˜¯å¦å­˜åœ¨ç‰©å“
     virtual bool HasItem(LIST_ITEM &lstItem);
-    //ÒÆ³ıÎïÆ·
+    //ç§»é™¤ç‰©å“
     virtual bool RemoveItem(uint64_t nItemID, int64_t nNum, SCommonSource &sourceParam, int8_t byBind = (int8_t) EBindState::EBindState_all);
-    //ÒÆ³ıÎïÆ· sourceParam : ÎïÆ·ÒÆ³ıÀ´Ô´£¨ÔİÊ±Ã»ÓĞ£©
+    //ç§»é™¤ç‰©å“ sourceParam : ç‰©å“ç§»é™¤æ¥æºï¼ˆæš‚æ—¶æ²¡æœ‰ï¼‰
     virtual bool RemoveItem(LIST_ITEM &lstItem, SCommonSource &sourceParam);
-    //ÒÆ³ıÎïÆ·
+    //ç§»é™¤ç‰©å“
     virtual bool RemoveItem(uint32_t nPackageType, LIST_ITEM &lstItem, SCommonSource &sourceParam);
-    //ÒÆ³ıÎïÆ· index,num sourceParam : ÎïÆ·ÒÆ³ıÀ´Ô´£¨ÔİÊ±Ã»ÓĞ£©
+    //ç§»é™¤ç‰©å“ index,num sourceParam : ç‰©å“ç§»é™¤æ¥æºï¼ˆæš‚æ—¶æ²¡æœ‰ï¼‰
     virtual bool RemoveItemByIndex(uint32_t nPackageType, uint16_t nIndex, int64_t nNum, SCommonSource &sourceParam);
-    //ÒÆ³ıÎïÆ· index-num nGetType : ÎïÆ·ÒÆ³ıÀ´Ô´£¨ÔİÊ±Ã»ÓĞ£©
+    //ç§»é™¤ç‰©å“ index-num nGetType : ç‰©å“ç§»é™¤æ¥æºï¼ˆæš‚æ—¶æ²¡æœ‰ï¼‰
     virtual bool RemoveItem(uint32_t nPackageType, MAP_UINT16_INT64 &mapIndexItem, SCommonSource &sourceParam);
     
-    //ÊÇ·ñÄÜÌí¼ÓÎïÆ·
+    //æ˜¯å¦èƒ½æ·»åŠ ç‰©å“
     virtual bool CanAddItem(LIST_ITEM &lstItem);
-    //ÄÜ·ñÌí¼ÓÎïÆ·
+    //èƒ½å¦æ·»åŠ ç‰©å“
     virtual bool CanAddItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx);
-    //Ìí¼ÓÎïÆ·
+    //æ·»åŠ ç‰©å“
     virtual bool AddItem(uint64_t nItemID, int64_t nNum, SCommonSource &sourceParam, int8_t byBind = (int8_t) EBindState::EBindState_no);
-    //Ìí¼ÓÎïÆ· sourceParam : ÎïÆ·À´Ô´£¨ÔİÊ±Ã»ÓĞ£©
+    //æ·»åŠ ç‰©å“ sourceParam : ç‰©å“æ¥æºï¼ˆæš‚æ—¶æ²¡æœ‰ï¼‰
     virtual bool AddItem(LIST_ITEM &lstItem, SCommonSource &sourceParam, bool update = true, bool tip = true);
     
-    //Ìí¼ÓÎïÆ· sourceParam : ÎïÆ·À´Ô´£¨ÔİÊ±Ã»ÓĞ£©
+    //æ·»åŠ ç‰©å“ sourceParam : ç‰©å“æ¥æºï¼ˆæš‚æ—¶æ²¡æœ‰ï¼‰
     virtual bool AddItem(VEC_ITEM_PROTO &vecProtoItems, SCommonSource &sourceParam, bool update = true, bool tip = true);
-    //Ìí¼ÓÎïÆ· sourceParam : ÎïÆ·À´Ô´£¨ÔİÊ±Ã»ÓĞ£©
+    //æ·»åŠ ç‰©å“ sourceParam : ç‰©å“æ¥æºï¼ˆæš‚æ—¶æ²¡æœ‰ï¼‰
     virtual bool AddItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx, SCommonSource &sourceParam, bool update = true, bool tip = true);
-    //Ìí¼ÓÎïÆ· sourceParam : ÎïÆ·À´Ô´£¨ÔİÊ±Ã»ÓĞ£©,Õâ¸ö½Ó¿ÚÊÇÍ¨¹ı´«½øÀ´µÄÎïÆ·Ë³ĞòÌí¼ÓÇ°¶ËÎïÆ·tipÌáÊ¾
+    //æ·»åŠ ç‰©å“ sourceParam : ç‰©å“æ¥æºï¼ˆæš‚æ—¶æ²¡æœ‰ï¼‰,è¿™ä¸ªæ¥å£æ˜¯é€šè¿‡ä¼ è¿›æ¥çš„ç‰©å“é¡ºåºæ·»åŠ å‰ç«¯ç‰©å“tipæç¤º
     virtual bool AddItemEx(VEC_ITEM_PROTO_EX &vecProtoItemsEx, SCommonSource &sourceParam);
-    //Ìí¼ÓÎïÆ· sourceParam : ÎïÆ·À´Ô´£¨ÔİÊ±Ã»ÓĞ£© vecProtoItemsOut:´«³ö²ÎÊı£¬Íâ²¿ĞèÒªµÄÎïÆ·Êı¾İ
+    //æ·»åŠ ç‰©å“ sourceParam : ç‰©å“æ¥æºï¼ˆæš‚æ—¶æ²¡æœ‰ï¼‰ vecProtoItemsOut:ä¼ å‡ºå‚æ•°ï¼Œå¤–éƒ¨éœ€è¦çš„ç‰©å“æ•°æ®
     virtual bool AddItem(VEC_ITEM_PROTO_EX &vecProtoItemsEx, VEC_ITEM_PROTO_EX &vecProtoItemsOut, SCommonSource &sourceParam, bool update = true, bool tip = true);
-    //Çå¿Õ±³°üËùÓĞÎïÆ·
+    //æ¸…ç©ºèƒŒåŒ…æ‰€æœ‰ç‰©å“
     virtual bool ClearPackage();
     
-    //À©Õ¹±³°ü
+    //æ‰©å±•èƒŒåŒ…
     virtual int32_t Expand(int32_t &nNum);
-    //À©Õ¹²Ö¿â
+    //æ‰©å±•ä»“åº“
     virtual int32_t ExpandStorage(int32_t &nNum);
     
-    //»ñÈ¡Ë÷ÒıÎ»ÖÃÎïÆ·
+    //è·å–ç´¢å¼•ä½ç½®ç‰©å“
     virtual NFItem *GetItem(uint16_t nIndex);
     virtual NFItem *GetItem(uint32_t packageType, uint16_t nIndex);
     virtual NFItem *GetPackageItemByIndex(uint32_t nPackageType, uint32_t nIndex);
-    // 	//»ñÈ¡µÚÒ»¸öÖ¸¶¨IDµÄÎïÆ·
+    // 	//è·å–ç¬¬ä¸€ä¸ªæŒ‡å®šIDçš„ç‰©å“
     virtual NFItem *GetFirstItemById(uint32_t nPackageType, uint64_t item_id);
-    //ÒÆ³ıËùÓĞÖ¸¶¨ÀàĞÍµÄÎïÆ·£¨¸ù¾İ tem.xlsx ±íÖĞ subType ×Ö¶Î ÒÆ³ıÎïÆ·£©
+    //ç§»é™¤æ‰€æœ‰æŒ‡å®šç±»å‹çš„ç‰©å“ï¼ˆæ ¹æ® tem.xlsx è¡¨ä¸­ subType å­—æ®µ ç§»é™¤ç‰©å“ï¼‰
     virtual bool RemoveAllByType(int32_t itemSubType, SCommonSource &sourceParam);
     virtual bool RemoveAllByType(uint32_t nPackageType, int32_t itemSubType, SCommonSource &sourceParam);
-    //Ê¹ÓÃÎïÆ· ¸ú±³°üÎŞ¹ØµÄÊ¹ÓÃÎïÆ·½Ó¿Ú nNum:Ê¹ÓÃµÄÊıÁ¿,protoArg:Ê¹ÓÃÎïÆ·ĞèÒªµÄ²ÎÊı
+    //ä½¿ç”¨ç‰©å“ è·ŸèƒŒåŒ…æ— å…³çš„ä½¿ç”¨ç‰©å“æ¥å£ nNum:ä½¿ç”¨çš„æ•°é‡,protoArg:ä½¿ç”¨ç‰©å“éœ€è¦çš„å‚æ•°
     virtual int32_t UseItem(NFItem *pItem, int64_t &nNum, proto_ff::UseItemArgProto &protoArg);
-    //Ê¹ÓÃÎïÆ· nIndex:ÎïÆ·ËùÔÚ±³°üË÷Òı,nNum:Ê¹ÓÃµÄÊıÁ¿,protoArg:Ê¹ÓÃÎïÆ·ĞèÒªµÄ²ÎÊı
+    //ä½¿ç”¨ç‰©å“ nIndex:ç‰©å“æ‰€åœ¨èƒŒåŒ…ç´¢å¼•,nNum:ä½¿ç”¨çš„æ•°é‡,protoArg:ä½¿ç”¨ç‰©å“éœ€è¦çš„å‚æ•°
     virtual int32_t UseItem(uint16_t nIndex, int64_t &nNum, proto_ff::UseItemArgProto &protoArg);
-    //²Ö¿â»ò±³°üÈİÁ¿È«²¿¿ªÆô
+    //ä»“åº“æˆ–èƒŒåŒ…å®¹é‡å…¨éƒ¨å¼€å¯
     virtual void AllOpenGrid(uint32_t nPackageType);
     
-    //»ñÈ¡±êÇ©Ò³¿Õ¸ñ×ÓË÷ÒıÁĞ±í nNum:Îª0±íÊ¾±êÇ©Ò³ËùÓĞµÄ¿Õ¸ñ×Ó£¬´óÓÚ0Ê± Ö»·µ»Ø nNum ¸ö¿Õ¸ñ×Ó
+    //è·å–æ ‡ç­¾é¡µç©ºæ ¼å­ç´¢å¼•åˆ—è¡¨ nNum:ä¸º0è¡¨ç¤ºæ ‡ç­¾é¡µæ‰€æœ‰çš„ç©ºæ ¼å­ï¼Œå¤§äº0æ—¶ åªè¿”å› nNum ä¸ªç©ºæ ¼å­
     bool GetEmptyGrid(uint32_t nPackageType, VEC_UINT16 &vecGrid);
     int32_t GetEmptyGrid(uint32_t nPackageType);
-    //ÉèÖÃÎïÆ·
+    //è®¾ç½®ç‰©å“
     uint16_t SetItemByIndex(uint32_t nPackageType, uint16_t nIndex, const NFItem& item);
     uint16_t SetItemByIndex(uint32_t nPackageType, uint16_t nIndex, const NFItem* pItem);
-    //ÕûÀí
+    //æ•´ç†
     void ItemSortByPackageType(uint32_t nPackageType);
-    //¸üĞÂ±³°üÎïÆ·
+    //æ›´æ–°èƒŒåŒ…ç‰©å“
     void SendUpdatePackageByIndex(uint32_t nPackageType, NFItem *pItem, bool bDel);
     
-    //Ìí¼Ó±³°ü¸üĞÂĞÅÏ¢
+    //æ·»åŠ èƒŒåŒ…æ›´æ–°ä¿¡æ¯
     bool AddPackageUpdateInfo(NFItem *pItem, proto_ff::NotifyPackageUpdate &ret, bool bDel = false);
     void UpdatePackage(uint32_t nPackageType, proto_ff::NotifyPackageUpdate &ret);
 
 
 private:
     
-    //Í¨¹ı°ü¹üÀàĞÍ»ñÈ¡ÎïÆ· byPackageType:°ü¹üÀàĞÍ Ïê¼û EPackageTypeÃ¶¾Ù, nIndex:¶ÔÓ¦°ü¹üÀàĞÍ¸ñ×ÓË÷Òı
+    //é€šè¿‡åŒ…è£¹ç±»å‹è·å–ç‰©å“ byPackageType:åŒ…è£¹ç±»å‹ è¯¦è§ EPackageTypeæšä¸¾, nIndex:å¯¹åº”åŒ…è£¹ç±»å‹æ ¼å­ç´¢å¼•
     NFItem *GetItemByPackageType(int8_t byPackageType, uint16_t nIndex);
-    // Í¨¹ı°ü¹üÀàĞÍÉèÖÃÎïÆ· :°ü¹üÀàĞÍ Ïê¼û EPackageTypeÃ¶¾Ù , nIndex:¶ÔÓ¦°ü¹üÀàĞÍ¸ñ×ÓË÷Òı
+    // é€šè¿‡åŒ…è£¹ç±»å‹è®¾ç½®ç‰©å“ :åŒ…è£¹ç±»å‹ è¯¦è§ EPackageTypeæšä¸¾ , nIndex:å¯¹åº”åŒ…è£¹ç±»å‹æ ¼å­ç´¢å¼•
     uint16_t SetItemByPackageType(int8_t byPackageType, uint16_t nIndex, const NFItem& item);
     
-    //Í¨¹ı°ü¹üÀàĞÍÅĞ¶ÏÊÇ·ñÊÇÓĞĞ§µÄË÷Òı
+    //é€šè¿‡åŒ…è£¹ç±»å‹åˆ¤æ–­æ˜¯å¦æ˜¯æœ‰æ•ˆçš„ç´¢å¼•
     bool ValidIndexByPackageType(uint16_t nIndex, int8_t byPackageType);
-    //ÊÇ·ñÊÇÓĞĞ§µÄ°ü¹üÀàĞÍ
+    //æ˜¯å¦æ˜¯æœ‰æ•ˆçš„åŒ…è£¹ç±»å‹
     bool ValidPackageType(int8_t byPackageType);
     
-    //µÚÒ»´ÎµÇÂ½
+    //ç¬¬ä¸€æ¬¡ç™»é™†
     void FirstLogin();
-    ////////////////////////////////  ²Ö¿â½Ó¿Ú //////////////////////////////////////////
-    //²Ö¿â²Ù×÷£¨ÒÆÈë£¬ÒÆ³ö£©
+    ////////////////////////////////  ä»“åº“æ¥å£ //////////////////////////////////////////
+    //ä»“åº“æ“ä½œï¼ˆç§»å…¥ï¼Œç§»å‡ºï¼‰
     void StorageOperate(const char *data, uint32_t len);
 
 private:
-    //ÉèÖÃ¸üĞÂĞÅÏ¢
+    //è®¾ç½®æ›´æ–°ä¿¡æ¯
     bool SetUpdateItemInfo(NFItem *pItem, proto_ff::ItemProtoInfo *protoItemInfo, bool bDel = false);
     
-    //Çå¿ÕË÷Òı¼ÇÂ¼
+    //æ¸…ç©ºç´¢å¼•è®°å½•
     void ClearIdxRecord();
-    //get Ë÷Òı¼ÇÂ¼
+    //get ç´¢å¼•è®°å½•
     SET_UINT16 &GetIdxRecord();
 
 public:
@@ -266,7 +266,7 @@ public:
     NFPackageBag* GetPackageByType(uint32_t nPackageType);
 private:
     
-    //ÉèÖÃ±³°üÊı¾İ±£´æ±ê¼Ç
+    //è®¾ç½®èƒŒåŒ…æ•°æ®ä¿å­˜æ ‡è®°
     void SetPackageSaveFlag(bool saveFlag);
     bool IsValidPackage(uint32_t nPackageType);
     NFPackageBag *GetPackageByItemID(uint64_t nItemID);
@@ -295,5 +295,5 @@ private:
     NFBagPage<NFEquip, proto_ff::EPackageType_rune, COM_BAG_SIZE, COM_BAG_SIZE> m_runeBag;
     
     uint32_t m_nLastErrorCode;
-    SET_UINT16 m_setIdxRecord;                        //¼ÇÂ¼Ã¿´Î¼ÓÎïÆ· ÊıÁ¿ÓĞÔö¼ÓµÄ¸ñ×ÓË÷Òı£¬ÔÚÃ¿´Î¼ÓÎïÆ·Ö®Ç°ÏÈÇå¿Õ
+    SET_UINT16 m_setIdxRecord;                        //è®°å½•æ¯æ¬¡åŠ ç‰©å“ æ•°é‡æœ‰å¢åŠ çš„æ ¼å­ç´¢å¼•ï¼Œåœ¨æ¯æ¬¡åŠ ç‰©å“ä¹‹å‰å…ˆæ¸…ç©º
 };
