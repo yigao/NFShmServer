@@ -9,6 +9,7 @@
 
 #pragma once
 
+#include <Chat.pb.h>
 #include <Part/NFSnsPart.h>
 
 #include "NFComm/NFCore/NFPlatform.h"
@@ -16,6 +17,22 @@
 #include "NFComm/NFShmCore/NFShmObjTemplate.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
+
+//离线消息
+struct OffLinePrivateMsg
+{
+    proto_ff::ChatContentInfo chatContent; //聊天内容
+    CharIDType fromPlayerID;               //发送者ID
+    uint64_t sendTime;                     //发送时间
+
+    OffLinePrivateMsg() : fromPlayerID(0),
+                          sendTime(0)
+    {
+        chatContent.Clear();
+    }
+};
+
+typedef std::list<OffLinePrivateMsg> PrivateMsgList;
 
 class NFSnsChatPart : public NFShmObjTemplate<NFSnsChatPart, EOT_SNS_PART_ID + SNS_PART_CHAT, NFSnsPart>
 {
@@ -147,4 +164,40 @@ public:
      * \return
      */
     int OnHandleChatReq(uint32_t msgId, NFDataPackage& packet);
+
+    /**
+     * \brief 逻辑服通知世界服转发传闻或广播
+     * \param msgId 
+     * \param packet 
+     * \return 
+     */
+    int OnHandleSysChatMsgNotify(uint32_t msgId, NFDataPackage& packet);
+
+    /**
+     * \brief 跨服聊天消息
+     * \param msgId
+     * \param packet 
+     * \return 
+     */
+    int OnHandleCrossChat(uint32_t msgId, NFDataPackage& packet);
+public:
+    /**
+     * \brief 请求离线消息
+     * \param msgId
+     * \param packet
+     * \return
+     */
+    int OnHandleAskOfflineMsgReq(uint32_t msgId, NFDataPackage& packet);
+
+    /**
+     * \brief 分段请求聊天离线数据
+     * \param msgId
+     * \param packet
+     * \return
+     */
+    int OnHandleIntrvalAskOfflineMsgReq(uint32_t msgId, NFDataPackage& packet);
+public:
+    int AddOfflineMsg(uint64_t sendCid, const proto_ff::ChatContentInfo& chatContent);
+private:
+    PrivateMsgList m_msgList;
 };

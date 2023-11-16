@@ -91,6 +91,29 @@ std::string NFPlayerSimple::GetName() const
     return m_data.base.name.data();
 }
 
+proto_ff::RoleFacadeProto NFPlayerSimple::FacadeToPB() const
+{
+    proto_ff::RoleFacadeProto proto;
+    m_data.base.facade.write_to_pbmsg(proto);
+    return proto;
+}
+
+void NFPlayerSimple::FillPlayerProto(proto_ff::RolePlayerMiniInfo* proto) const
+{
+    proto->set_playerid(GetCid());
+    proto->set_playername(GetName());
+    proto->set_zid(GetZid());
+    proto->set_level(Level());
+    proto->set_prof(Prof());
+    proto->set_viplevel(VipLevel());
+    proto->mutable_facade()->CopyFrom(FacadeToPB());
+    proto->set_online(IsOnline());
+    //proto->set_marry(g_GetMarryMgr()->IsMarry(m_cid) ? 1 : 0);
+    //proto->set_clan3_id(g_GetCClanMgr()->GetClan3Id(m_cid));
+    //proto->set_clan5_id(g_GetCClanMgr()->GetClan5Id(m_cid));
+    proto->set_fightpower(Fight());
+}
+
 const proto_ff_s::RoleDBSnsSimple_s& NFPlayerSimple::GetBaseData() const
 {
     return m_data;
@@ -194,11 +217,6 @@ uint32_t NFPlayerSimple::GetGameId() const
 void NFPlayerSimple::SetGameId(uint32_t gameId)
 {
     m_gameId = gameId;
-}
-
-bool NFPlayerSimple::IsOnline() const
-{
-    return m_isOnline;
 }
 
 void NFPlayerSimple::SetIsOnline(bool isOnline)

@@ -8,6 +8,9 @@
 // -------------------------------------------------------------------------
 
 #include "NFCacheMgr.h"
+
+#include <NFServerComm/NFServerCommon/NFIServerMessageModule.h>
+
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "LoadCache/NFLoadCacheMgr.h"
 #include "NFComm/NFCore/NFTime.h"
@@ -59,6 +62,11 @@ int NFCacheMgr::ReleaseSimpleCount(int num)
 NFPlayerSimple *NFCacheMgr::GetPlayerSimple(uint64_t cid)
 {
     return NFPlayerSimple::GetObjByHashKey(m_pObjPluginManager, cid);
+}
+
+NFPlayerSimple* NFCacheMgr::GetPlayerSimpleByName(const std::string& name)
+{
+    return nullptr;
 }
 
 NFPlayerSimple *NFCacheMgr::CreatePlayerSimple(uint64_t cid)
@@ -170,6 +178,40 @@ NFPlayerDetail* NFCacheMgr::QueryPlayerDetailByRpc(uint64_t cid, uint64_t query_
     pDetail = NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerDetailInfoByRpc(query_id, NFTime::Now().UnixSec());
     FindModule<NFICoroutineModule>()->DelUserCo(cid);
     return pDetail;
+}
+
+int NFCacheMgr::SendMsgToClient(uint64_t cid, uint32_t msgId, const google::protobuf::Message& xData)
+{
+    auto pSimple = GetPlayerSimple(cid);
+    CHECK_EXPR(pSimple, -1, "cid:{} not exist", cid);
+    pSimple->SendMsgToClient(msgId, xData);
+    return 0;
+}
+
+int NFCacheMgr::SendMsgToClient(const SET_UINT64& cidList, uint32_t msgId, const google::protobuf::Message& xData)
+{
+    std::unordered_map<uint32_t, std::unordered_set<uint64_t>> proxyIdMap;
+    for(auto iter = cidList.begin(); iter != cidList.end(); iter++)
+    {
+        uint64_t cid = *iter;
+        auto pSimple = GetPlayerSimple(cid);
+        if (pSimple && pSimple->GetProxyId() > 0)
+        {
+            proxyIdMap[pSimple->GetProxyId()].insert(cid);
+        }
+    }
+
+    for(auto iter = proxyIdMap.begin(); iter != proxyIdMap.end(); iter++)
+    {
+        FindModule<NFIServerMessageModule>()->SendRedirectMsgToProxyServer(NF_ST_SNS_SERVER, iter->first, iter->second, msgId, xData);
+    }
+    return 0;
+}
+
+int NFCacheMgr::SendMsgToAllClient(uint32_t msgId, const google::protobuf::Message& xData)
+{
+    FindModule<NFIServerMessageModule>()->SendRedirectMsgToAllProxyServer(NF_ST_SNS_SERVER, msgId, xData);
+    return 0;
 }
 
 int NFCacheMgr::ReleaseDetailCount(int num)

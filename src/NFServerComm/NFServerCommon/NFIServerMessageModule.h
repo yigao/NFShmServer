@@ -67,6 +67,12 @@ public:
     virtual int SendRedirectMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nDstId, const std::unordered_set<uint64_t> &ids, uint32_t nMsgId,
                                              const google::protobuf::Message &xData) = 0;
 
+    virtual int SendRedirectMsgToAllProxyServer(NF_SERVER_TYPES eType, const std::unordered_set<uint64_t> &ids, uint32_t nMsgId,
+                                         const google::protobuf::Message &xData) = 0;
+
+    virtual int SendRedirectMsgToAllProxyServer(NF_SERVER_TYPES eType, uint32_t nMsgId,
+                                     const google::protobuf::Message &xData) = 0;
+
     virtual int
     SendMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t nParam1 = 0,
                          uint64_t nParam2 = 0) = 0;

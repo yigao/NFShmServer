@@ -8,6 +8,14 @@
 // -------------------------------------------------------------------------
 
 #include "NFMMOSnsPlayerPlugin.h"
+
+#include <Chat/NFSnsChatMgr.h>
+#include <Chat/NFSnsChatPart.h>
+#include <Clan/NFSnsClanMgr.h>
+#include <Faction/NFFactionMgr.h>
+#include <Relation/NFSnsRelationMgr.h>
+#include <Team/NFSnsTeamMgr.h>
+
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFSnsPlayerModule.h"
@@ -69,11 +77,17 @@ bool NFMMOSnsPlayerPlugin::InitShmObjectRegister()
     uint32_t maxOnlinePlayerNum = pConfig->MaxOnlinePlayerNum*1.2;
     REGISTER_SINGLETON_SHM_OBJ(NFCacheMgr);//
     REGISTER_SINGLETON_SHM_OBJ(NFLoadCacheMgr);//
+    REGISTER_SINGLETON_SHM_OBJ(NFSnsFactionMgr);//
+    REGISTER_SINGLETON_SHM_OBJ(NFSnsChatMgr);//
+    REGISTER_SINGLETON_SHM_OBJ(NFSnsClanMgr);//
+    REGISTER_SINGLETON_SHM_OBJ(NFSnsTeamMgr);//
+    REGISTER_SINGLETON_SHM_OBJ(NFSnsRelationMgr);//
 
     REGISTER_SHM_OBJ_WITH_HASH(NFPlayerSimple, maxOnlinePlayerNum*2);//
     REGISTER_SHM_OBJ_WITH_HASH(NFPlayerDetail, maxOnlinePlayerNum);//
     REGISTER_SHM_OBJ(NFSnsPart,1);
     REGISTER_SHM_OBJ(NFSnsRelationPart,maxOnlinePlayerNum);
+    REGISTER_SHM_OBJ(NFSnsChatPart,maxOnlinePlayerNum);
 
 
     REGISTER_SHM_OBJ(NFTransCacheBase,1);

@@ -59,6 +59,11 @@ uint64_t NFPlayerDetail::GetCid() const
     return m_cid;
 }
 
+uint64_t NFPlayerDetail::Cid() const
+{
+    return m_cid;
+}
+
 void NFPlayerDetail::SetCid(uint64_t cid)
 {
     m_cid = cid;

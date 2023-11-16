@@ -8,6 +8,10 @@
 // -------------------------------------------------------------------------
 
 #include "NFGodRelicsPart.h"
+
+#include <Chat/NFChatMgr.h>
+#include <NFLogicCommon/NFChatDefine.h>
+
 #include "MiniActivity.pb.h"
 #include "NFLogicCommon/NFEventDefine.h"
 #include "NFLogicCommon/NFPackageDefine.h"
@@ -396,6 +400,13 @@ int NFGodRelicsPart::OnHandleGetGodRelecsGroupTaskReward(uint32_t msgId, NFDataP
                 pFunctionPart->UnlockSendAdd(pGroupInfo->m_functionId);
             }
         }
+
+        SystemChatMsgData msg;
+        msg.text.push_back(m_pMaster->GetName());
+        msg.params.push_back(srcGroupId);
+        msg.params.push_back(pGroupInfo->m_skillID);
+        msg.params.push_back(m_pMaster->GetAttr(proto_ff::A_FIGHT));
+        NFChatMgr::Instance(m_pObjPluginManager)->SendG2WBroadcast(BT_ACTIVE_GODRELICS, msg, 0, m_pMaster->GetZid());
     }
     
     proto_ff::GodRelicsFinish event;

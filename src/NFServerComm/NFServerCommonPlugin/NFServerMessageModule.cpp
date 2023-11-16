@@ -85,6 +85,55 @@ int NFServerMessageModule::SendRedirectMsgToProxyServer(NF_SERVER_TYPES eType, u
     return 0;
 }
 
+int NFServerMessageModule::SendRedirectMsgToAllProxyServer(NF_SERVER_TYPES eType, const std::unordered_set<uint64_t>& ids, uint32_t nMsgId,
+                                                           const google::protobuf::Message& xData)
+{
+    CHECK_EXPR(ids.size() > 0, 0, "ids empty");
+
+    proto_ff::Proto_SvrPkg svrPkg;
+    svrPkg.set_msg_id(nMsgId);
+    svrPkg.set_msg_data(xData.SerializeAsString());
+
+    for (auto iter = ids.begin(); iter != ids.end(); iter++)
+    {
+        svrPkg.mutable_redirect_info()->add_id(*iter);
+    }
+
+    std::vector<NF_SHARE_PTR<NFServerData>> vecServer = FindModule<NFIMessageModule>()->GetAllServer(eType, NF_ST_PROXY_SERVER);
+    for (int i = 0; i < (int)vecServer.size(); i++)
+    {
+        auto pServerData = vecServer[i];
+        if (pServerData)
+        {
+            SendMsgToProxyServer(eType, pServerData->mServerInfo.bus_id(), proto_ff::NF_SERVER_REDIRECT_MSG_TO_PROXY_SERVER_CMD, svrPkg);
+        }
+    }
+
+    return 0;
+}
+
+int NFServerMessageModule::SendRedirectMsgToAllProxyServer(NF_SERVER_TYPES eType, uint32_t nMsgId,
+                                                           const google::protobuf::Message& xData)
+{
+    proto_ff::Proto_SvrPkg svrPkg;
+    svrPkg.set_msg_id(nMsgId);
+    svrPkg.set_msg_data(xData.SerializeAsString());
+
+    svrPkg.mutable_redirect_info()->set_all(true);
+
+    std::vector<NF_SHARE_PTR<NFServerData>> vecServer = FindModule<NFIMessageModule>()->GetAllServer(eType, NF_ST_PROXY_SERVER);
+    for (int i = 0; i < (int)vecServer.size(); i++)
+    {
+        auto pServerData = vecServer[i];
+        if (pServerData)
+        {
+            SendMsgToProxyServer(eType, pServerData->mServerInfo.bus_id(), proto_ff::NF_SERVER_REDIRECT_MSG_TO_PROXY_SERVER_CMD, svrPkg);
+        }
+    }
+
+    return 0;
+}
+
 int NFServerMessageModule::SendMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const google::protobuf::Message& xData,
                                                 uint64_t nParam1, uint64_t nParam2)
 {

@@ -1193,15 +1193,25 @@ class Proto_RedirectInfo : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
       mutable_id();
 
+  // optional bool all = 2;
+  inline bool has_all() const;
+  inline void clear_all();
+  static const int kAllFieldNumber = 2;
+  inline bool all() const;
+  inline void set_all(bool value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.Proto_RedirectInfo)
  private:
+  inline void set_has_all();
+  inline void clear_has_all();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::RepeatedField< ::google::protobuf::uint64 > id_;
+  bool all_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fkernel_2eproto();
   friend void protobuf_AssignDesc_proto_5fkernel_2eproto();
@@ -3982,6 +3992,28 @@ Proto_RedirectInfo::id() const {
 inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
 Proto_RedirectInfo::mutable_id() {
   return &id_;
+}
+
+// optional bool all = 2;
+inline bool Proto_RedirectInfo::has_all() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Proto_RedirectInfo::set_has_all() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Proto_RedirectInfo::clear_has_all() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Proto_RedirectInfo::clear_all() {
+  all_ = false;
+  clear_has_all();
+}
+inline bool Proto_RedirectInfo::all() const {
+  return all_;
+}
+inline void Proto_RedirectInfo::set_all(bool value) {
+  set_has_all();
+  all_ = value;
 }
 
 // -------------------------------------------------------------------

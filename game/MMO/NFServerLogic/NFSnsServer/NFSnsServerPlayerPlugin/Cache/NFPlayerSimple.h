@@ -46,6 +46,48 @@ public:
     uint32_t GetZid() const;
 
     std::string GetName() const;
+
+    //获取职业ID
+    uint32_t Prof() const { return m_data.base.facade.prof; }
+    //获取等级
+    uint32_t Level() const { return m_data.base.level; }
+    //设置等级
+    void Level(uint32_t level) { m_data.base.level = level; }
+    int64_t GetCurHp() { return m_data.base.hp; }
+    void SetCurHp(int64_t hp) { m_data.base.hp = hp; }
+    int64_t GetMaxHp() { return m_data.base.hp; }
+    void SetMaxHp(int64_t maxhp) { m_data.base.hp = maxhp; }
+    //获取战力
+    uint64_t Fight() const { return m_data.base.fight; }
+    //设置战力
+    void Fight(uint64_t fight) { m_data.base.fight = fight; }
+    //获取外观
+    const proto_ff_s::RoleFacadeProto_s& Facade() const { return m_data.base.facade; }
+    proto_ff::RoleFacadeProto FacadeToPB() const;
+    //设置外观
+    void Facade(const proto_ff_s::RoleFacadeProto_s& facade) { m_data.base.facade = facade; };
+    //获取VIP等级
+    uint32_t VipLevel() const { return m_data.base.vip_level; }
+    //设置VIP等级
+    void VipLevel(uint32_t viplevel) { m_data.base.vip_level = viplevel; }
+    //获取地图ID
+    uint64_t MapId() const { return m_data.base.enter_map_id; }
+    //设置地图ID
+    void MapId(uint64_t mapid) { m_data.base.enter_map_id = mapid; }
+    //获取场景ID
+    uint64_t SceneId() const { return m_data.base.enter_scene_id; }
+    //设置场景ID
+    void SceneId(uint64_t sceneid) { m_data.base.enter_scene_id = sceneid; }
+    //是否在线
+    bool IsOnline() const { return m_isOnline; }
+    //设置是否在线
+    void IsOnline(bool isonline) { m_isOnline = isonline; }
+    //填充玩家数据
+    void FillPlayerProto(proto_ff::RolePlayerMiniInfo* proto) const;
+    //获取修真
+    uint32_t PtStage() const { return m_data.base.pt_stage; }
+    //设置VIP等级
+    void PtStage(uint32_t ptStage) { m_data.base.pt_stage = ptStage; }
 public:
     const proto_ff_s::RoleDBSnsSimple_s& GetBaseData() const;
 
@@ -146,8 +188,6 @@ public:
     uint32_t GetProxyId() const;
 
     void SetProxyId(uint32_t proxyId);
-
-    bool IsOnline() const;
 
     void SetIsOnline(bool isOnline);
 

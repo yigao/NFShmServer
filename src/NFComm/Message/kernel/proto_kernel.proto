@@ -154,6 +154,7 @@ message Proto_RpcInfo
 message Proto_RedirectInfo
 {
   repeated uint64 id = 1;
+  optional bool all = 2;
 }
 
 message Proto_SvrPkg

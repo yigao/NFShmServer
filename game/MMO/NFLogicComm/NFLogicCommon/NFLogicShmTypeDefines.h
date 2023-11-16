@@ -101,6 +101,10 @@ typedef enum
     EOT_SNS_CACHE_MGR_ID,
     EOT_SNS_LOAD_CACHE_MGR_ID,
 	EOT_NFSnsChatMgr_ID,
+	EOT_NFFSnsactionMgr_ID,
+	EOT_NFSnsClanMgr_ID,
+	EOT_NFSnsTeamMgr_ID,
+	EOT_NFSnsRelationMgr_ID,
     ////////////////////////////sns trans server/////////////////////////////
     EOT_SNS_TRANS_CACHE_BASE_ID,
     EOT_SNS_TRANS_GET_ROLE_SIMPLE_ID,
@@ -148,11 +152,10 @@ typedef enum
     EOT_GAME_SCENE_MGR_ID,
     EOT_GAME_CREATURE_MGR_ID,
     EOT_GAME_NFBattlePlayer_ID,
-    ////////////////////////////sns part server/////////////////////////////
+    ////////////////////////////game part server/////////////////////////////
     EOT_NFBattlePart_ID,
     EOT_NFBattlePart_MAX_ID = EOT_NFBattlePart_ID+BATTLE_PART_MAX,
-    ////////////////////////////sns server/////////////////////////////
-
+    ////////////////////////////game server/////////////////////////////
     ////////////////////////////center server/////////////////////////////
     EOT_NFMapAddrMgr_ID,
     ////////////////////////////center server/////////////////////////////

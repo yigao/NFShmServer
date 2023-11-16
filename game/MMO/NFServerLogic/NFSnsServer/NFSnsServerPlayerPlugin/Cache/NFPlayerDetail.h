@@ -41,6 +41,8 @@ public:
 public:
     uint64_t GetCid() const;
 
+    uint64_t Cid() const;
+
     void SetCid(uint64_t cid);
 
     uint32_t GetUid() const;

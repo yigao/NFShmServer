@@ -8,6 +8,10 @@
 // -------------------------------------------------------------------------
 
 #include "NFMMOLogicPlayerPlugin.h"
+
+#include <Growth/NFMofaPart.h>
+#include <Growth/NFRunePart.h>
+
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFConfigDefine.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
@@ -170,6 +174,8 @@ bool NFMMOLogicPlayerPlugin::InitShmObjectRegister()
     REGISTER_SHM_OBJ(NFPvpPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFSoulPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFGodRelicsPart, maxOnlinePlayerNum);
+    REGISTER_SHM_OBJ(NFMofaPart, maxOnlinePlayerNum);
+    REGISTER_SHM_OBJ(NFRunePart, maxOnlinePlayerNum);
     ////////////////////////////part////////////////////////////
 
     REGISTER_SHM_OBJ(NFTransPlayerBase, 1);

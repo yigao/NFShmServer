@@ -491,24 +491,49 @@ int NFCProxyPlayerModule::OnHandleRedirectMsg(uint64_t unLinkId, NFDataPackage &
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
     const ::proto_ff::Proto_RedirectInfo &redirectInfo = xMsg.redirect_info();
-    for (int i = 0; i < (int) redirectInfo.id_size(); i++)
+    if (redirectInfo.all() == false)
     {
-        uint64_t playerId = redirectInfo.id(i);
-        NF_SHARE_PTR<NFProxyAccount> pPlayerInfo = mAccountMap.GetElement(playerId);
-        if (pPlayerInfo)
+        for (int i = 0; i < (int) redirectInfo.id_size(); i++)
         {
-            NF_SHARE_PTR<NFProxySession> pLinkInfo = mSessionMap.GetElement(pPlayerInfo->GetLinkId());
-            if (pLinkInfo == NULL)
+            uint64_t playerId = redirectInfo.id(i);
+            NF_SHARE_PTR<NFProxyAccount> pPlayerInfo = mAccountMap.GetElement(playerId);
+            if (pPlayerInfo)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, unLinkId, "can't find player linkId, player disconnect:{}", unLinkId);
-                return -1;
-            }
+                NF_SHARE_PTR<NFProxySession> pLinkInfo = mSessionMap.GetElement(pPlayerInfo->GetLinkId());
+                if (pLinkInfo == NULL)
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, unLinkId, "can't find player linkId, player disconnect:{}", unLinkId);
+                    return -1;
+                }
 
-            FindModule<NFIMessageModule>()->Send(pPlayerInfo->GetLinkId(), (uint32_t) xMsg.msg_id(), xMsg.msg_data());
+                FindModule<NFIMessageModule>()->Send(pPlayerInfo->GetLinkId(), (uint32_t) xMsg.msg_id(), xMsg.msg_data());
+            }
+            else
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "can't find player:{} info, other server msg:{} not handle", playerId, packet.ToString());
+            }
         }
-        else
+    }
+    else
+    {
+        for(auto iter = mAccountMap.Begin(); iter != mAccountMap.End(); iter++)
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "can't find player:{} info, other server msg:{} not handle", playerId, packet.ToString());
+            NF_SHARE_PTR<NFProxyAccount> pPlayerInfo = iter->second;
+            if (pPlayerInfo)
+            {
+                NF_SHARE_PTR<NFProxySession> pLinkInfo = mSessionMap.GetElement(pPlayerInfo->GetLinkId());
+                if (pLinkInfo == NULL)
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, unLinkId, "can't find player linkId, player disconnect:{}", unLinkId);
+                    return -1;
+                }
+
+                FindModule<NFIMessageModule>()->Send(pPlayerInfo->GetLinkId(), (uint32_t) xMsg.msg_id(), xMsg.msg_data());
+            }
+            else
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "can't find player:{} info, other server msg:{} not handle", iter->first, packet.ToString());
+            }
         }
     }
 

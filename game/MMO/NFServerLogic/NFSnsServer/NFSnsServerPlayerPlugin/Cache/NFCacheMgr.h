@@ -9,6 +9,8 @@
 
 #pragma once
 
+#include <NFGameCommon/NFComTypeDefine.h>
+
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
@@ -26,6 +28,7 @@ public:
     int CreateInit();
 
     int ResumeInit();
+
 public:
     /**
      * @brief
@@ -39,21 +42,28 @@ public:
      * @param roleId
      * @return
      */
-    NFPlayerSimple *GetPlayerSimple(uint64_t player);
+    NFPlayerSimple* GetPlayerSimple(uint64_t player);
+
+    /**
+     * \brief
+     * \param name
+     * \return
+     */
+    NFPlayerSimple* GetPlayerSimpleByName(const std::string& name);
 
     /**
      * @brief
      * @param cid
      * @return
      */
-    NFPlayerSimple *CreatePlayerSimple(uint64_t cid);
+    NFPlayerSimple* CreatePlayerSimple(uint64_t cid);
 
     /**
      * @brief
      * @param pRoleSimple
      * @return
      */
-    int DeletePlayerSimple(NFPlayerSimple *pRoleSimple);
+    int DeletePlayerSimple(NFPlayerSimple* pRoleSimple);
 
     /**
      * @brief 获取角色数据，如果找不到,通过trans异步去数据库拉取数据
@@ -75,6 +85,7 @@ public:
      * @return
      */
     NFPlayerSimple* QueryPlayerSimpleByRpc(uint64_t cid, uint64_t query_id);
+
 public:
     /**
      * @brief
@@ -88,21 +99,21 @@ public:
      * @param roleId
      * @return
      */
-    NFPlayerDetail *GetPlayerDetail(uint64_t roleId);
+    NFPlayerDetail* GetPlayerDetail(uint64_t roleId);
 
     /**
      * @brief
      * @param cid
      * @return
      */
-    NFPlayerDetail *CreatePlayerDetail(uint64_t cid);
+    NFPlayerDetail* CreatePlayerDetail(uint64_t cid);
 
     /**
      * @brief
      * @param pRoleDetail
      * @return
      */
-    int DeletePlayerDetail(NFPlayerDetail *pRoleDetail);
+    int DeletePlayerDetail(NFPlayerDetail* pRoleDetail);
 
     /**
      * @brief
@@ -118,6 +129,12 @@ public:
      * @return
      */
     NFPlayerDetail* QueryPlayerDetailByRpc(uint64_t cid, uint64_t query_id);
+
 public:
-    std::pair<NFPlayerSimple*, NFPlayerDetail*> QueryPlayerByRpc(uint64_t cid, uint64_t query_id);
+    int SendMsgToClient(uint64_t cid, uint32_t msgId, const google::protobuf::Message& xData);
+    int SendMsgToClient(const SET_UINT64& cidList, uint32_t msgId, const google::protobuf::Message& xData);
+    int SendMsgToAllClient(uint32_t msgId, const google::protobuf::Message& xData);
+
+public:
+    std::pair<NFPlayerSimple *, NFPlayerDetail *> QueryPlayerByRpc(uint64_t cid, uint64_t query_id);
 };
