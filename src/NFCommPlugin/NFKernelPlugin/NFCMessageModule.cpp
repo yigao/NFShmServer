@@ -1206,6 +1206,12 @@ NF_SHARE_PTR<NFServerData> NFCMessageModule::GetFirstServerByServerType(NF_SERVE
     return mServerLinkData[eSendType].GetFirstServerByServerType(serverTypes);
 }
 
+NF_SHARE_PTR<NFServerData> NFCMessageModule::GetFirstServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, bool crossServer)
+{
+    CHECK_EXPR(eSendType < mServerLinkData.size(), NULL, "eType error:{}", (int) eSendType);
+    return mServerLinkData[eSendType].GetFirstServerByServerType(serverTypes, crossServer);
+}
+
 NF_SHARE_PTR<NFServerData>
 NFCMessageModule::GetRandomServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes)
 {

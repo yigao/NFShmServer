@@ -69,8 +69,7 @@ void ProcessParameter(int argc, char* argv[])
     {
         NFCmdLine::NFParser cmdParser;
 
-        cmdParser.Add("AllMoreServer", 0, "more server, must use different loaded server");
-        cmdParser.Add<std::string>("Server", 0, "Server Name", false, "AllServer");
+        cmdParser.Add<std::string>("Server", 0, "Server Name", false, "xxAllServer or AllMoreServer(more server, must use different loaded server)");
         cmdParser.Add<std::string>("ID", 0, "Server ID", false, "1.1.1.1");
         cmdParser.Add<std::string>("Config", 0, "Config Path", false, "../../Config");
         cmdParser.Add<std::string>("Path", 0, "Config Path", false, "../../Config");
@@ -93,7 +92,7 @@ void ProcessParameter(int argc, char* argv[])
         cmdParser.ParseCheck(argc, argv);
 
         std::string strAppName = cmdParser.Get<std::string>("Server");
-        if (cmdParser.Exist("AllMoreServer") && strAppName == "AllServer")
+        if (strAppName == "AllMoreServer")
         {
             NFGlobalSystem::Instance()->SetMoreServer(true);
             std::string strBusName = cmdParser.Get<std::string>("ID");
@@ -171,7 +170,7 @@ void ProcessParameter(NFIPluginManager* pPluginManager, const std::vector<std::s
         std::string strAppName = cmdParser.Get<std::string>("Server");
         pPluginManager->SetAppName(strAppName);
 
-        if (strAppName == ALL_SERVER || strAppName == "TestServer" || strAppName == "RobotServer")
+        if (strAppName.find(ALL_SERVER) != std::string::npos)
         {
             pPluginManager->SetLoadAllServer(true);
         }

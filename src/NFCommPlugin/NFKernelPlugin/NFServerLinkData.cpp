@@ -164,6 +164,20 @@ NF_SHARE_PTR<NFServerData> ServerLinkData::GetFirstServerByServerType(NF_SERVER_
     return NULL;
 }
 
+NF_SHARE_PTR<NFServerData> ServerLinkData::GetFirstServerByServerType(NF_SERVER_TYPES serverTypes, bool crossServer)
+{
+    auto& serverList = mServerList[serverTypes];
+    for(int i = 0; i < (int)serverList.size(); i++)
+    {
+        if (serverList[i] && serverList[i]->mServerInfo.is_cross_server() == crossServer)
+        {
+            return serverList[i];
+        }
+    }
+
+    return NULL;
+}
+
 NF_SHARE_PTR<NFServerData> ServerLinkData::GetRandomServerByServerType(NF_SERVER_TYPES serverTypes)
 {
     if (mServerListMap[serverTypes].Count() == 1)

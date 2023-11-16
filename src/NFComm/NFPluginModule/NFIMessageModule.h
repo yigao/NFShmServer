@@ -729,6 +729,9 @@ public:
     GetFirstServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes) = 0;
 
     virtual NF_SHARE_PTR<NFServerData>
+    GetFirstServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, bool crossServer) = 0;
+
+    virtual NF_SHARE_PTR<NFServerData>
     GetRandomServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes) = 0;
 
     virtual NF_SHARE_PTR<NFServerData>

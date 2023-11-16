@@ -26,6 +26,7 @@ NFCLogicPlayerModule::~NFCLogicPlayerModule()
 bool NFCLogicPlayerModule::Awake()
 {
     FindModule<NFILogicServerModule>()->SetCheckStoreServer(true);
+    FindModule<NFILogicServerModule>()->SetCheckCenterServer(true);
     ////////////proxy msg////player login,disconnect,reconnet/////////////////////
 
     //////////player enter game////////////////////////////////////

@@ -189,7 +189,7 @@ bool NFCConfigModule::LoadServerConfig()
 
     if (m_pObjPluginManager->IsLoadAllServer())
     {
-        NFPluginConfig *pAllServer = GetPluginConfig(ALL_SERVER);
+        NFPluginConfig *pAllServer = GetPluginConfig(m_pObjPluginManager->GetAppName());
         if (pAllServer)
         {
             for (int i = 0; i < (int) pAllServer->ServerList.size(); i++)
@@ -339,7 +339,7 @@ bool NFCConfigModule::LoadServerConfig()
     //check all server
     if (m_pObjPluginManager->IsLoadAllServer())
     {
-        NFPluginConfig *pAllServer = GetPluginConfig(ALL_SERVER);
+        NFPluginConfig *pAllServer = GetPluginConfig(m_pObjPluginManager->GetAppName());
         if (pAllServer)
         {
             bool flag = true;
@@ -350,6 +350,13 @@ bool NFCConfigModule::LoadServerConfig()
                 {
                     flag = false;
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "the server:{},{} match error, can't find the config", serverInfo.Server, serverInfo.ID);
+                }
+                else
+                {
+                    if (m_appConfig == NULL)
+                    {
+                        m_appConfig = mServerConfig[serverInfo.ServerType];
+                    }
                 }
             }
             CHECK_EXPR_ASSERT(flag, false, "all server config error..........");

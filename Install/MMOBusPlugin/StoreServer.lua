@@ -73,4 +73,36 @@ StoreServer = {
              MasterPort = NF_MASTER_PORT,
         },
    };
+
+  CrossStoreServer_7_1 = {
+       ServerName = "CrossStoreServer_7_1",
+       ServerType = NF_ST_STORE_SERVER,
+       ServerId = NF_ST_WORLD_ID.."."..NF_ST_CROSS_ZONE_ID.."."..NF_ST_STORE_SERVER..".1",			--对每一个服务器来说都是唯一的， 应用程序需要通过这个ServerId才能知道需要加载的配置是他
+       LinkMode = NF_LINK_MODE,
+       BusLength = NF_COMMON_BUS_LENGTH,     --20M共享内存
+       IdleSleepUS = 1000,
+       MaxConnectNum = NF_INTER_MAX_CONNECT,
+       NetThreadNum = 1,
+       WorkThreadNum = 8,
+       MaxOnlinePlayerNum = NF_MAX_ONLINE_PLAYER_COUNT,
+       ServerIp = NF_INTER_CROSS_SERVER_IP,
+       ServerPort = NF_INTER_CROSS_SERVER_PORT+NF_ST_STORE_SERVER*10+1,
+       HandleMsgNumPerFrame = NF_TRANS_SERVER_HANDLE_MSG_COUNT,
+       CrossServer = true,
+       LoadProtoDs = "Sql/StoreServer.proto.ds",
+       MysqlConfig = {
+            MysqlIp = NF_MYSQL_IP,
+            MysqlPort = NF_MYSQL_PORT,
+            MysqlDbName = NF_MYSQL_CROSS_DB_NAME,
+            MysqlUser = NF_MYSQL_USER,
+            MysqlPassword = NF_MYSQL_PASSWORD,
+            TBConfList = {
+            },
+       },
+       RouteConfig = {
+            RouteAgent = NF_CROSS_ROUTE_AGENT_ID1,
+            MasterIp = NF_MASTER_IP,
+            MasterPort = NF_MASTER_PORT,
+       },
+  };
 };

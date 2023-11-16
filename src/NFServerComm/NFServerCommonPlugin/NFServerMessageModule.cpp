@@ -137,13 +137,17 @@ int NFServerMessageModule::SendMsgToCenterServer(NF_SERVER_TYPES eType, uint32_t
 int NFServerMessageModule::SendMsgToCenterServer(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgId, const google::protobuf::Message& xData,
                                                  uint64_t nParam1, uint64_t nParam2)
 {
-    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_CENTER_SERVER, 0, 0, nModuleId, nMsgId, xData, nParam1, nParam2);
+    auto pServerData = FindModule<NFIMessageModule>()->GetFirstServerByServerType(eType, NF_ST_CENTER_SERVER, false);
+    CHECK_NULL(pServerData);
+    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_CENTER_SERVER, 0, pServerData->mServerInfo.bus_id(), nModuleId, nMsgId, xData, nParam1, nParam2);
 }
 
 int NFServerMessageModule::SendTransToCenterServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message& xData, uint32_t req_trans_id,
                                                    uint32_t rsp_trans_id)
 {
-    return FindModule<NFIMessageModule>()->SendTrans(eType, NF_ST_CENTER_SERVER, 0, 0, nMsgId, xData, req_trans_id, rsp_trans_id);
+    auto pServerData = FindModule<NFIMessageModule>()->GetFirstServerByServerType(eType, NF_ST_CENTER_SERVER, false);
+    CHECK_NULL(pServerData);
+    return FindModule<NFIMessageModule>()->SendTrans(eType, NF_ST_CENTER_SERVER, 0, pServerData->mServerInfo.bus_id(), nMsgId, xData, req_trans_id, rsp_trans_id);
 }
 
 int NFServerMessageModule::SendMsgToCrossCenterServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message& xData, uint64_t nParam1,
@@ -155,13 +159,17 @@ int NFServerMessageModule::SendMsgToCrossCenterServer(NF_SERVER_TYPES eType, uin
 int NFServerMessageModule::SendMsgToCrossCenterServer(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgId, const google::protobuf::Message& xData,
                                                       uint64_t nParam1, uint64_t nParam2)
 {
-    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_CENTER_SERVER, 0, 0, nModuleId, nMsgId, xData, nParam1, nParam2);
+    auto pServerData = FindModule<NFIMessageModule>()->GetFirstServerByServerType(eType, NF_ST_CENTER_SERVER, true);
+    CHECK_NULL(pServerData);
+    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_CENTER_SERVER, 0, pServerData->mServerInfo.bus_id(), nModuleId, nMsgId, xData, nParam1, nParam2);
 }
 
 int NFServerMessageModule::SendTransToCrossCenterServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message& xData, uint32_t req_trans_id,
                                                         uint32_t rsp_trans_id)
 {
-    return FindModule<NFIMessageModule>()->SendTrans(eType, NF_ST_CENTER_SERVER, 0, 0, nMsgId, xData, req_trans_id, rsp_trans_id);
+    auto pServerData = FindModule<NFIMessageModule>()->GetFirstServerByServerType(eType, NF_ST_CENTER_SERVER, true);
+    CHECK_NULL(pServerData);
+    return FindModule<NFIMessageModule>()->SendTrans(eType, NF_ST_CENTER_SERVER, 0, pServerData->mServerInfo.bus_id(), nMsgId, xData, req_trans_id, rsp_trans_id);
 }
 
 int NFServerMessageModule::SendMsgToSnsServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const google::protobuf::Message& xData, uint64_t nParam1,

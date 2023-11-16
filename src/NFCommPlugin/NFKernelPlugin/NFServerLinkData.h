@@ -258,6 +258,8 @@ struct ServerLinkData {
 
     NF_SHARE_PTR<NFServerData> GetFirstServerByServerType(NF_SERVER_TYPES serverTypes);
 
+    NF_SHARE_PTR<NFServerData> GetFirstServerByServerType(NF_SERVER_TYPES serverTypes, bool crossServer);
+
     NF_SHARE_PTR<NFServerData> GetRandomServerByServerType(NF_SERVER_TYPES serverTypes);
 
     NF_SHARE_PTR<NFServerData> GetSuitServerByServerType(NF_SERVER_TYPES serverTypes, uint64_t value);

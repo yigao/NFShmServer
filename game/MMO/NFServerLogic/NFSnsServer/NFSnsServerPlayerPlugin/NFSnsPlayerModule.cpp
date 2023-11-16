@@ -23,6 +23,7 @@ NFCSnsPlayerModule::~NFCSnsPlayerModule()
 bool NFCSnsPlayerModule::Awake()
 {
     FindModule<NFISnsServerModule>()->SetCheckStoreServer(true);
+    FindModule<NFISnsServerModule>()->SetCheckCenterServer(true);
     ////////////proxy msg////player login,disconnect,reconnet/////////////////////
 
     ///////////world msg//////////////////////////////////////////////////////////
