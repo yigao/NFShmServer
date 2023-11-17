@@ -10,6 +10,7 @@
 #pragma once
 
 #include <NFGameCommon/NFComTypeDefine.h>
+#include <ObService/NFObService.h>
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
@@ -17,7 +18,7 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 
-class NFSnsFactionMgr : public NFShmObjTemplate<NFSnsFactionMgr, EOT_NFFSnsactionMgr_ID, NFShmObj>
+class NFSnsFactionMgr : public NFShmObjTemplate<NFSnsFactionMgr, EOT_SNS_SERVICE_ID+SNS_OB_SERVICE_FACTION, NFObService>
 {
 public:
     NFSnsFactionMgr();

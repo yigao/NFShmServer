@@ -165,21 +165,6 @@ public:
      */
     int OnHandleChatReq(uint32_t msgId, NFDataPackage& packet);
 
-    /**
-     * \brief 逻辑服通知世界服转发传闻或广播
-     * \param msgId 
-     * \param packet 
-     * \return 
-     */
-    int OnHandleSysChatMsgNotify(uint32_t msgId, NFDataPackage& packet);
-
-    /**
-     * \brief 跨服聊天消息
-     * \param msgId
-     * \param packet 
-     * \return 
-     */
-    int OnHandleCrossChat(uint32_t msgId, NFDataPackage& packet);
 public:
     /**
      * \brief 请求离线消息

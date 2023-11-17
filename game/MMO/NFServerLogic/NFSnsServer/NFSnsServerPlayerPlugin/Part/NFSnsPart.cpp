@@ -31,7 +31,6 @@ NFSnsPart::~NFSnsPart()
 
 int NFSnsPart::CreateInit()
 {
-    m_playerId = 0;
     return 0;
 }
 
@@ -44,7 +43,6 @@ int NFSnsPart::Init(NFPlayerDetail *pMaster, uint32_t partType, const proto_ff::
 {
     CHECK_EXPR(pMaster, -1, "pMaster == NULL");
     m_pMaster = pMaster;
-    m_playerId = pMaster->GetCid();
     m_partType = partType;
 
     LoadFromDB(data);
@@ -59,13 +57,13 @@ int NFSnsPart::UnInit()
 
 int NFSnsPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "client part package not handle:{}", packet.ToString());
+    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "client part package not handle:{}", packet.ToString());
     return 0;
 }
 
 int NFSnsPart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "server part package not handle:{}", packet.ToString());
+    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "server part package not handle:{}", packet.ToString());
     return 0;
 }
 
@@ -101,7 +99,7 @@ int NFSnsPart::SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Mes
 
 NFPlayerSimple *NFSnsPart::GetPlayerSimple()
 {
-    return NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerSimple(m_playerId);
+    return NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerSimple(m_pMaster->Cid());
 }
 
 NFPlayerDetail* NFSnsPart::GetMaster()

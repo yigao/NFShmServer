@@ -14,6 +14,7 @@
 #include <NFGameCommon/NFComTypeDefine.h>
 #include <NFLogicCommon/NFCharactorDefine.h>
 #include <NFLogicCommon/NFChatDefine.h>
+#include <ObService/NFObService.h>
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
@@ -23,7 +24,7 @@
 
 #define MAX_VIRFORBID_PLAYER_NUM 20000
 
-class NFSnsChatMgr : public NFShmObjTemplate<NFSnsChatMgr, EOT_NFSnsChatMgr_ID, NFShmObj>
+class NFSnsChatMgr : public NFShmObjTemplate<NFSnsChatMgr, EOT_SNS_SERVICE_ID+SNS_OB_SERVICE_CHAT, NFObService>
 {
 public:
     NFSnsChatMgr();
@@ -72,7 +73,45 @@ public:
     int SendOfflineMsgByRpc(CharIDType srcID, CharIDType dstID, const proto_ff::ChatContentInfo& chatContent);
     //运营后台跑马灯
     bool ChatBackEndRumor(const std::string& content, uint32_t loopCount);
+public:
+    /**
+     * @brief 注册要处理的消息
+     * @return
+     */
+    virtual int RegisterMessage();
 
+public:
+    /**
+     * @brief 处理客户端消息
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage& packet);
+
+    /**
+     * @brief 处理来自服务器的信息
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage& packet);
+public:
+    /**
+     * \brief 逻辑服通知世界服转发传闻或广播
+     * \param msgId
+     * \param packet
+     * \return
+     */
+    int OnHandleSysChatMsgNotify(uint32_t msgId, NFDataPackage& packet);
+
+    /**
+     * \brief 跨服聊天消息
+     * \param msgId
+     * \param packet
+     * \return
+     */
+    int OnHandleCrossChat(uint32_t msgId, NFDataPackage& packet);
 private:
     bool m_virForbidFlag;                                               //web端是否有返回虚拟禁言列表
     NFShmHashSet<uint64_t, MAX_VIRFORBID_PLAYER_NUM> m_setVirForbidCid; //虚拟禁言的cid列表

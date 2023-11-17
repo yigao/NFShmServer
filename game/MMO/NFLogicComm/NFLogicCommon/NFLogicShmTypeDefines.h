@@ -84,6 +84,17 @@ enum SnsPartType
     SNS_PART_MAX,
 };
 
+enum SnsObServiceType
+{
+	SNS_OB_SERVICE_NONE = 0,
+	SNS_OB_SERVICE_RELATION,
+	SNS_OB_SERVICE_TEAM,
+	SNS_OB_SERVICE_CHAT,
+	SNS_OB_SERVICE_CLAN,
+	SNS_OB_SERVICE_FACTION,
+	SNS_OB_SERVICE_MAX,
+};
+
 typedef enum
 {
 	EOT_SF_BEGIN_ID = EOT_SERVER_FRAME_BEGIN_ID,
@@ -100,11 +111,6 @@ typedef enum
     EOT_SNS_ROLE_DETAIL_ID,
     EOT_SNS_CACHE_MGR_ID,
     EOT_SNS_LOAD_CACHE_MGR_ID,
-	EOT_NFSnsChatMgr_ID,
-	EOT_NFFSnsactionMgr_ID,
-	EOT_NFSnsClanMgr_ID,
-	EOT_NFSnsTeamMgr_ID,
-	EOT_NFSnsRelationMgr_ID,
     ////////////////////////////sns trans server/////////////////////////////
     EOT_SNS_TRANS_CACHE_BASE_ID,
     EOT_SNS_TRANS_GET_ROLE_SIMPLE_ID,
@@ -112,7 +118,10 @@ typedef enum
     EOT_SNS_TRANS_SAVE_PLAYER_DETAIL,
     ////////////////////////////sns part server/////////////////////////////
     EOT_SNS_PART_ID,
-    EOT_SNS_MAX_ID = EOT_SNS_PART_ID+SNS_PART_MAX,
+    EOT_SNS_PART_MAX_ID = EOT_SNS_PART_ID+SNS_PART_MAX,
+	////////////////////////////sns part server/////////////////////////////
+	EOT_SNS_SERVICE_ID,
+	EOT_SNS_SERVICE_MAX_ID = EOT_SNS_SERVICE_ID+SNS_OB_SERVICE_MAX,
 	////////////////////////////sns server/////////////////////////////
 
 	////////////////////////////logic server/////////////////////////////

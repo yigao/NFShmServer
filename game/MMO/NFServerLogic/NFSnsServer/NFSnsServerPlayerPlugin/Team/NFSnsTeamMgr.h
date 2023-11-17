@@ -9,6 +9,7 @@
 
 #pragma once
 
+#include <ObService/NFObService.h>
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
@@ -16,7 +17,7 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 
-class NFSnsTeamMgr : public NFShmObjTemplate<NFSnsTeamMgr, EOT_NFSnsTeamMgr_ID, NFShmObj>
+class NFSnsTeamMgr : public NFShmObjTemplate<NFSnsTeamMgr, EOT_SNS_SERVICE_ID+SNS_OB_SERVICE_TEAM, NFObService>
 {
 public:
     NFSnsTeamMgr();

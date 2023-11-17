@@ -13,6 +13,7 @@
 #include <Chat/NFSnsChatPart.h>
 #include <Clan/NFSnsClanMgr.h>
 #include <Faction/NFFactionMgr.h>
+#include <ObService/NFObServiceModule.h>
 #include <Relation/NFSnsRelationMgr.h>
 #include <Team/NFSnsTeamMgr.h>
 
@@ -61,12 +62,15 @@ void NFMMOSnsPlayerPlugin::Install()
 {
 	REGISTER_MODULE(m_pObjPluginManager, NFCSnsPlayerModule, NFCSnsPlayerModule);
     REGISTER_MODULE(m_pObjPluginManager, NFSnsPartModule, NFSnsPartModule);
+    REGISTER_MODULE(m_pObjPluginManager, NFObServiceModule, NFObServiceModule);
+
 }
 
 void NFMMOSnsPlayerPlugin::Uninstall()
 {
 	UNREGISTER_MODULE(m_pObjPluginManager, NFCSnsPlayerModule, NFCSnsPlayerModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFSnsPartModule, NFSnsPartModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFObServiceModule, NFObServiceModule);
 }
 
 bool NFMMOSnsPlayerPlugin::InitShmObjectRegister()

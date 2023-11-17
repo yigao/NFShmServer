@@ -210,6 +210,5 @@ public:
     NFPlayerDetail* GetMaster();
 protected:
     NFShmPtr<NFPlayerDetail> m_pMaster;
-    uint64_t m_playerId;
     uint32_t m_partType;
 };

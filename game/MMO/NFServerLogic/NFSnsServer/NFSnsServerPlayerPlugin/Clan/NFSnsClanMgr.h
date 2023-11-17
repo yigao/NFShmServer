@@ -10,6 +10,7 @@
 #pragma once
 
 #include <NFGameCommon/NFComTypeDefine.h>
+#include <ObService/NFObService.h>
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
@@ -39,7 +40,7 @@ struct stClanInfo
     uint64_t		fight = 0;					//团队战力
 };
 
-class NFSnsClanMgr : public NFShmObjTemplate<NFSnsClanMgr, EOT_NFSnsClanMgr_ID, NFShmObj>
+class NFSnsClanMgr : public NFShmObjTemplate<NFSnsClanMgr, EOT_SNS_SERVICE_ID+SNS_OB_SERVICE_CLAN, NFObService>
 {
 public:
     NFSnsClanMgr();

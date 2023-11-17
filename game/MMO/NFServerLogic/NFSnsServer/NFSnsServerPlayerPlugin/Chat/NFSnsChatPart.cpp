@@ -110,16 +110,6 @@ int NFSnsChatPart::OnHandleServerMessage(uint32_t msgId, NFDataPackage& packet)
             OnHandleChatReq(msgId, packet);
             break;
         }
-        case proto_ff::CENTER_SERVER_PROTOCOL_GWSYSCHATMSGNOTIFY:
-        {
-            OnHandleSysChatMsgNotify(msgId, packet);
-            break;
-        }
-        case proto_ff::SERVER_TO_SERVER_CROSS_CHAT:
-        {
-            OnHandleCrossChat(msgId, packet);
-            break;
-        }
         default:
             break;
     }
@@ -377,37 +367,3 @@ int NFSnsChatPart::OnHandleIntrvalAskOfflineMsgReq(uint32_t msgId, NFDataPackage
     return 0;
 }
 
-/**
- * \brief 逻辑服通知世界服转发传闻或广播
- * \param msgId
- * \param packet
- * \return
- */
-int NFSnsChatPart::OnHandleSysChatMsgNotify(uint32_t msgId, NFDataPackage& packet)
-{
-    proto_ff::GWSysChatMsgNotify notifyMsg;
-    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, notifyMsg);
-
-    return 0;
-}
-
-/**
- * \brief 跨服聊天消息
- * \param msgId
- * \param packet
- * \return
- */
-int NFSnsChatPart::OnHandleCrossChat(uint32_t msgId, NFDataPackage& packet)
-{
-    proto_ff::CWAskOfflineMsgReq askOfflineMsgReq;
-    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, askOfflineMsgReq);
-
-    proto_ff::WCAskOfflineMsgRsp askOfflineMsgRsp;
-
-    //离线私人聊天消息
-    askOfflineMsgRsp.set_msgsize(m_msgList.size());
-
-    SendMsgToClient(proto_ff::CENTER_TO_CLIENT_ASK_OFFLINE_MSG_RSP, askOfflineMsgRsp);
-
-    return 0;
-}

@@ -228,3 +228,133 @@ bool NFSnsChatMgr::ChatBackEndRumor(const std::string& content, uint32_t loopCou
 {
     return true;
 }
+
+int NFSnsChatMgr::RegisterMessage()
+{
+    RegisterServerMessage(proto_ff::CENTER_SERVER_PROTOCOL_GWSYSCHATMSGNOTIFY);
+    RegisterServerMessage(proto_ff::SERVER_TO_SERVER_CROSS_CHAT);
+    return 0;
+}
+
+int NFSnsChatMgr::OnHandleClientMessage(uint32_t msgId, NFDataPackage& packet)
+{
+    return 0;
+}
+
+int NFSnsChatMgr::OnHandleServerMessage(uint32_t msgId, NFDataPackage& packet)
+{
+    switch (msgId)
+    {
+        case proto_ff::CENTER_SERVER_PROTOCOL_GWSYSCHATMSGNOTIFY:
+        {
+            OnHandleSysChatMsgNotify(msgId, packet);
+            break;
+        }
+        case proto_ff::SERVER_TO_SERVER_CROSS_CHAT:
+        {
+            OnHandleCrossChat(msgId, packet);
+            break;
+        }
+        default:
+            break;
+    }
+    return 0;
+}
+
+/**
+ * \brief 逻辑服通知世界服转发传闻或广播
+ * \param msgId
+ * \param packet
+ * \return
+ */
+int NFSnsChatMgr::OnHandleSysChatMsgNotify(uint32_t msgId, NFDataPackage& packet)
+{
+    proto_ff::GWSysChatMsgNotify notifyMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, notifyMsg);
+
+    if (!proto_ff::CHAT_CHANNEL_IsValid(notifyMsg.channel()))
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "CHAT_CHANNEL_IsValid..channelID:{}",notifyMsg.channel());
+        return 0;
+    }
+
+    proto_ff::GCSystemChatMsgNotify msg;
+    msg.set_channel(notifyMsg.channel());
+    msg.set_msgtype(notifyMsg.msgtype());
+    msg.mutable_players()->CopyFrom(notifyMsg.players());
+    msg.mutable_text()->CopyFrom(notifyMsg.text());
+    msg.mutable_parmas()->CopyFrom(notifyMsg.parmas());
+    msg.mutable_items()->CopyFrom(notifyMsg.items());
+
+    switch (notifyMsg.channel())
+    {
+        case proto_ff::CHAT_CHANNEL_TEAM:
+        {
+            //g_GetTeamMgr()->BroadcastTeam(notifyMsg.extraid(), EMODULE_ID_CHAT, LOGIC_TO_CLIENT_SYSTEM_CHAT_MSG_NOTIFY, &msg, false, false);
+            break;
+        }
+        case proto_ff::CHAT_CHANNEL_GUILD:
+        {
+            SendUnionMsg(proto_ff::LOGIC_TO_CLIENT_SYSTEM_CHAT_MSG_NOTIFY, notifyMsg.extraid(), msg);
+            break;
+        }
+        default:
+        {
+            SendWorldMsg(proto_ff::LOGIC_TO_CLIENT_SYSTEM_CHAT_MSG_NOTIFY, msg);
+        }
+        break;
+    }
+
+    return 0;
+}
+
+int NFSnsChatMgr::OnHandleCrossChat(uint32_t msgId, NFDataPackage& packet)
+{
+    proto_ff::TransChatCrossServerProto chatMsgReq;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, chatMsgReq);
+
+    proto_ff::GCChatMsgRsp chatMsgRsp;
+    proto_ff::CHAT_CHANNEL channelID = chatMsgReq.channel();
+    if (!proto_ff::CHAT_CHANNEL_IsValid(channelID))
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "[center] OnCrossServerChatReq..CHAT_CHANNEL_IsValid..channelID:{}", channelID);
+        return false;
+    }
+    chatMsgRsp.set_channel(channelID);
+    chatMsgRsp.mutable_fromplayerinfo()->CopyFrom(*chatMsgReq.mutable_fromplayerinfo());
+    chatMsgRsp.mutable_chatcontent()->CopyFrom(*chatMsgReq.mutable_chatcontent());
+
+    //聊天内容
+    string strcontent;
+    uint64_t cid = 0;
+    if (chatMsgReq.has_chatcontent())
+    {
+        strcontent = chatMsgReq.chatcontent().describes();
+    }
+    if (chatMsgReq.has_fromplayerinfo())
+    {
+        cid = chatMsgReq.fromplayerinfo().playerid();
+    }
+
+    switch (channelID)
+    {
+        case proto_ff::CHAT_CHANNEL_ENLIST:
+        case proto_ff::CHAT_CHANNEL_CROSS:
+        {
+            SendWorldMsg(proto_ff::LOGIC_TO_CLIENT_CHAT_MSG_RSP, chatMsgRsp);
+            break;
+        }
+        case proto_ff::CHAT_CHANNEL_TEAM:
+        {
+            for (int i = 0; i < (int)chatMsgReq.toplayers_size(); i++)
+            {
+                SendW2C(proto_ff::LOGIC_TO_CLIENT_CHAT_MSG_RSP, chatMsgReq.toplayers(i), chatMsgRsp);
+            }
+            break;
+        }
+        default:
+            break;
+    }
+
+    return 0;
+}
