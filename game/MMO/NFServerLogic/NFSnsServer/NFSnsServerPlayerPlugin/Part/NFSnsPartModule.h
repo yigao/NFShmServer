@@ -9,12 +9,13 @@
 
 #pragma once
 
+#include <NFComm/NFPluginModule/NFIDynServiceModule.h>
 
 #include "NFComm/NFPluginModule/NFServerDefine.h"
 #include "NFComm/NFPluginModule/NFIDynamicModule.h"
 
 
-class NFSnsPartModule : public NFIDynamicModule
+class NFSnsPartModule : public NFIDysServiceModule
 {
 public:
     NFSnsPartModule(NFIPluginManager *p);
@@ -54,21 +55,4 @@ public:
      * @return
      */
     virtual int OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message& request, google::protobuf::Message& respone, uint64_t param1, uint64_t param2) override;
-public:
-    virtual int RegisterClientPartMsg(uint32_t nMsgID, uint32_t partType, bool createCo);
-    virtual int RegisterServerPartMsg(uint32_t nMsgID, uint32_t partType, bool createCo);
-
-    template<size_t msgId, typename BaseType, typename RequestType, typename ResponeType>
-    int AddPartRpcService(BaseType* pBase, int (BaseType::*handleRecieve)(RequestType& request, ResponeType& respone), uint32_t partType, bool createCo = false)
-    {
-        CHECK_EXPR_ASSERT(msgId < m_rpcMsgToPartMap.size(), -1, "");
-        AddRpcService<msgId, RequestType, ResponeType>(NF_ST_SNS_SERVER, createCo);
-        m_rpcMsgToPartMap[msgId].first = partType;
-        m_rpcMsgToPartMap[msgId].second = new NFCDynamicRpcService<BaseType, RequestType, ResponeType>(m_pObjPluginManager, pBase, handleRecieve);
-        return 0;
-    }
-private:
-    std::vector<uint32_t> m_clientMsgToPartMap;
-    std::vector<uint32_t> m_serverMsgToPartMap;
-    std::vector<std::pair<uint32_t, NFIDynamicRpcService*>> m_rpcMsgToPartMap;
 };

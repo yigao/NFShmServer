@@ -84,7 +84,7 @@ NFPlayerSimple *NFCacheMgr::CreatePlayerSimple(uint64_t cid)
     CHECK_EXPR(pRoleSimple, NULL, "Create Role Simple Obj Failed, cid:{}", cid);
 
     pRoleSimple->SetCid(cid);
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "AddTrans Role Simple Success, cid:{} globalId:{}", cid,
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Add Role Simple Success, cid:{} globalId:{}", cid,
               pRoleSimple->GetGlobalId());
     return pRoleSimple;
 }

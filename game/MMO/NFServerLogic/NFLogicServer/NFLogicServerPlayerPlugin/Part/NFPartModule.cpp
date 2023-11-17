@@ -14,11 +14,9 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFPart.h"
 
-NFPartModule::NFPartModule(NFIPluginManager *p) : NFIDynamicModule(p)
+NFPartModule::NFPartModule(NFIPluginManager *p) : NFIDysServiceModule(p)
 {
-    m_clientMsgToPartMap.resize(NF_NET_MAX_MSG_ID);
-    m_serverMsgToPartMap.resize(NF_NET_MAX_MSG_ID);
-    m_rpcMsgToPartMap.resize(NF_NET_MAX_MSG_ID);
+
 }
 
 NFPartModule::~NFPartModule()
@@ -68,16 +66,16 @@ int NFPartModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet, u
     NFPlayer *pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->GetPlayer(playerId);
     if (pPlayer)
     {
-        if (msgId < m_clientMsgToPartMap.size() && m_clientMsgToPartMap[msgId]  != 0)
+        if (msgId < m_clientMsgToServiceMap.size() && m_clientMsgToServiceMap[msgId]  != 0)
         {
-            NFPart* pPart = pPlayer->GetPart(m_clientMsgToPartMap[msgId]);
+            NFPart* pPart = pPlayer->GetPart(m_clientMsgToServiceMap[msgId]);
             if (pPart)
             {
                 return pPart->OnHandleClientMessage(msgId, packet);
             }
         }
         else {
-            NFLogError(NF_LOG_SYSTEMLOG, playerId, "msgId:{} can't handle, drop the msg", msgId, m_clientMsgToPartMap[msgId]);
+            NFLogError(NF_LOG_SYSTEMLOG, playerId, "msgId:{} can't handle, drop the msg", msgId, m_clientMsgToServiceMap[msgId]);
         }
     }
     else {
@@ -103,47 +101,21 @@ int NFPartModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, u
     NFPlayer *pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->GetPlayer(playerId);
     if (pPlayer)
     {
-        if (msgId < m_serverMsgToPartMap.size() && m_serverMsgToPartMap[msgId]  != 0)
+        if (msgId < m_serverMsgToServiceMap.size() && m_serverMsgToServiceMap[msgId]  != 0)
         {
-            NFPart* pPart = pPlayer->GetPart(m_serverMsgToPartMap[msgId]);
+            NFPart* pPart = pPlayer->GetPart(m_serverMsgToServiceMap[msgId]);
             if (pPart)
             {
                 return pPart->OnHandleServerMessage(msgId, packet);
             }
             else {
-                NFLogError(NF_LOG_SYSTEMLOG, playerId, "can't find part, msgId:{} partId:{}, drop the msg", msgId, m_serverMsgToPartMap[msgId]);
+                NFLogError(NF_LOG_SYSTEMLOG, playerId, "can't find part, msgId:{} partId:{}, drop the msg", msgId, m_serverMsgToServiceMap[msgId]);
             }
         }
         else {
             NFLogError(NF_LOG_SYSTEMLOG, playerId, "msgId:{} can't handle, drop the msg", msgId);
         }
     }
-    return 0;
-}
-
-int NFPartModule::RegisterClientPartMsg(uint32_t nMsgID, uint32_t partType, bool createCo)
-{
-    CHECK_EXPR_ASSERT(nMsgID < m_clientMsgToPartMap.size(), -1, "");
-    RegisterClientMessage(NF_ST_LOGIC_SERVER, nMsgID, createCo);
-    if (m_clientMsgToPartMap[nMsgID] != 0)
-    {
-        NFLogWarning(NF_LOG_SYSTEMLOG, 0, "RegisterClientMsg nMsgId:{} has be registtered by part:{}, can't be registerd by part:{}", nMsgID, m_clientMsgToPartMap[nMsgID], partType);
-        return 0;
-    }
-    m_clientMsgToPartMap[nMsgID] = partType;
-    return 0;
-}
-
-int NFPartModule::RegisterServerPartMsg(uint32_t nMsgID, uint32_t partType, bool createCo)
-{
-    CHECK_EXPR_ASSERT(nMsgID < m_serverMsgToPartMap.size(), -1, "");
-    RegisterServerMessage(NF_ST_LOGIC_SERVER, nMsgID, createCo);
-    if (m_serverMsgToPartMap[nMsgID] != 0)
-    {
-        NFLogWarning(NF_LOG_SYSTEMLOG, 0, "RegisterServerPartMsg nMsgId:{} has be registtered by part:{}, can't be registerd by part:{}", nMsgID, m_serverMsgToPartMap[nMsgID], partType);
-        return 0;
-    }
-    m_serverMsgToPartMap[nMsgID] = partType;
     return 0;
 }
 
@@ -165,15 +137,15 @@ int NFPartModule::OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message& 
     NFPlayer *pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->GetPlayer(playerId);
     if (pPlayer)
     {
-        if (msgId < m_rpcMsgToPartMap.size() && m_rpcMsgToPartMap[msgId].first  != 0)
+        if (msgId < m_rpcMsgToServiceMap.size() && m_rpcMsgToServiceMap[msgId].first  != 0)
         {
-            NFPart* pPart = pPlayer->GetPart(m_rpcMsgToPartMap[msgId].first);
-            if (pPart && m_rpcMsgToPartMap[msgId].second)
+            NFPart* pPart = pPlayer->GetPart(m_rpcMsgToServiceMap[msgId].first);
+            if (pPart && m_rpcMsgToServiceMap[msgId].second)
             {
-                return m_rpcMsgToPartMap[msgId].second->run(pPart, request, respone);
+                return m_rpcMsgToServiceMap[msgId].second->run(pPart, request, respone);
             }
             else {
-                NFLogError(NF_LOG_SYSTEMLOG, playerId, "can't find part, msgId:{} partId:{}, drop the msg", msgId, m_rpcMsgToPartMap[msgId].first);
+                NFLogError(NF_LOG_SYSTEMLOG, playerId, "can't find part, msgId:{} partId:{}, drop the msg", msgId, m_rpcMsgToServiceMap[msgId].first);
             }
         }
         else {

@@ -71,12 +71,12 @@ int NFSnsPart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
 
 int NFSnsPart::RegisterClientMessage(uint32_t nMsgID, bool createCo)
 {
-    return FindModule<NFSnsPartModule>()->RegisterClientPartMsg(nMsgID, m_partType, createCo);
+    return FindModule<NFSnsPartModule>()->RegisterClientMessage(NF_ST_SNS_SERVER, nMsgID, m_partType, createCo);
 }
 
 int NFSnsPart::RegisterServerMessage(uint32_t nMsgID, bool createCo)
 {
-    return FindModule<NFSnsPartModule>()->RegisterServerPartMsg(nMsgID, m_partType, createCo);
+    return FindModule<NFSnsPartModule>()->RegisterServerMessage(NF_ST_SNS_SERVER, nMsgID, m_partType, createCo);
 }
 
 int NFSnsPart::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData)

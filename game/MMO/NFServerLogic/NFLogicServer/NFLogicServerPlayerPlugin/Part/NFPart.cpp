@@ -59,12 +59,12 @@ int NFPart::UnInit()
 
 int NFPart::RegisterClientMessage(uint32_t nMsgID, bool createCo)
 {
-    return FindModule<NFPartModule>()->RegisterClientPartMsg(nMsgID, m_partType, createCo);
+    return FindModule<NFPartModule>()->RegisterClientMessage(NF_ST_LOGIC_SERVER, nMsgID, m_partType, createCo);
 }
 
 int NFPart::RegisterServerMessage(uint32_t nMsgID, bool createCo)
 {
-    return FindModule<NFPartModule>()->RegisterServerPartMsg(nMsgID, m_partType, createCo);
+    return FindModule<NFPartModule>()->RegisterServerMessage(NF_ST_LOGIC_SERVER, nMsgID, m_partType, createCo);
 }
 
 int NFPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)

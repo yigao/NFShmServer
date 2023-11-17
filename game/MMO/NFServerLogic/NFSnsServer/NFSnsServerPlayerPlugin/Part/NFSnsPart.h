@@ -185,7 +185,7 @@ public:
     template<size_t msgId, typename BaseType, typename RequestType, typename ResponeType>
     int AddRpcService(BaseType *pBase, int (BaseType::*handleRecieve)(RequestType &request, ResponeType &respone), bool createCo = false)
     {
-        return FindModule<NFSnsPartModule>()->AddPartRpcService<msgId, BaseType, RequestType, ResponeType>(pBase, handleRecieve, m_partType, createCo);
+        return FindModule<NFSnsPartModule>()->AddServiceRpc<msgId, BaseType, RequestType, ResponeType>(pBase, handleRecieve, m_partType, createCo);
     }
     
     /**
