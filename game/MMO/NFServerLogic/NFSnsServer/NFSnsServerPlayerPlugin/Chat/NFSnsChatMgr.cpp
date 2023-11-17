@@ -169,7 +169,7 @@ bool NFSnsChatMgr::SendW2C(uint32_t cmd, CharIDType playerId, const google::prot
     return true;
 }
 
-bool NFSnsChatMgr::SendW2C(uint32_t cmd, SET_UINT64& playerIdList, const google::protobuf::Message& xData)
+bool NFSnsChatMgr::SendW2C(uint32_t cmd, const SET_UINT64& playerIdList, const google::protobuf::Message& xData)
 {
     NFCacheMgr::Instance(m_pObjPluginManager)->SendMsgToClient(playerIdList, cmd, xData);
     return true;

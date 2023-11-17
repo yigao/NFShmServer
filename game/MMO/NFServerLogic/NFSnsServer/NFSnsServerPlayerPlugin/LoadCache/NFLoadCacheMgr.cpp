@@ -220,7 +220,10 @@ int NFLoadCacheMgr::HandleGetRoleSimpleRpcFinished(int iRunLogicRetCode, uint64_
                 if (pTransBase)
                 {
                     NFTransCacheBase *pTransRoleBase = dynamic_cast<NFTransCacheBase *>(pTransBase);
-                    pTransRoleBase->HandleGetRoleSimpleRes(iRunLogicRetCode, roleId);
+                    if (pTransRoleBase)
+                    {
+                        pTransRoleBase->HandleGetRoleSimpleRes(iRunLogicRetCode, roleId);
+                    }
                 }
             }
         }
@@ -270,7 +273,10 @@ int NFLoadCacheMgr::HandleGetRoleSimpleTransFinished(int iRunLogicRetCode, uint6
                 if (pTransBase)
                 {
                     NFTransCacheBase *pTransRoleBase = dynamic_cast<NFTransCacheBase *>(pTransBase);
-                    pTransRoleBase->HandleGetRoleSimpleRes(iRunLogicRetCode, roleId);
+                    if (pTransRoleBase)
+                    {
+                        pTransRoleBase->HandleGetRoleSimpleRes(iRunLogicRetCode, roleId);
+                    }
                 }
             }
         }
@@ -658,8 +664,9 @@ int NFLoadCacheMgr::HandleGetRoleDetailTransFinished(int iRunLogicRetCode, uint6
     auto pLoadingData_iter = m_playerDetailLoadingMap.find(roleId);
     if (pLoadingData_iter != m_playerDetailLoadingMap.end())
     {
+        auto& loadData = pLoadingData_iter->second;
         // 判断时间，是确保返回的时候，transid没有失效，而且transid对应的obj也是对的
-        for (auto iter = pLoadingData_iter->second.m_transInfo.begin(); iter != pLoadingData_iter->second.m_transInfo.end(); iter++)
+        for (auto iter = loadData.m_transInfo.begin(); iter != loadData.m_transInfo.end(); iter++)
         {
             if (iter->first > 0 && (timeNow - iter->second) < TRANS_ACTIVE_TIMEOUT)
             {
@@ -667,12 +674,15 @@ int NFLoadCacheMgr::HandleGetRoleDetailTransFinished(int iRunLogicRetCode, uint6
                 if (pTransBase)
                 {
                     NFTransCacheBase *pTransRoleBase = dynamic_cast<NFTransCacheBase *>(pTransBase);
-                    pTransRoleBase->HandleGetRoleDetailRes(iRunLogicRetCode, roleId);
+                    if (pTransRoleBase)
+                    {
+                        pTransRoleBase->HandleGetRoleDetailRes(iRunLogicRetCode, roleId);
+                    }
                 }
             }
         }
 
-        for (auto iter = pLoadingData_iter->second.m_rpcInfo.begin(); iter != pLoadingData_iter->second.m_rpcInfo.end(); iter++)
+        for (auto iter = loadData.m_rpcInfo.begin(); iter != loadData.m_rpcInfo.end(); iter++)
         {
             if (iter->first > 0)
             {
@@ -706,8 +716,9 @@ int NFLoadCacheMgr::HandleGetRoleDetailRpcFinished(int iRunLogicRetCode, uint64_
     auto pLoadingData_iter = m_playerDetailLoadingMap.find(roleId);
     if (pLoadingData_iter != m_playerDetailLoadingMap.end())
     {
+        auto& loadData = pLoadingData_iter->second;
         // 判断时间，是确保返回的时候，transid没有失效，而且transid对应的obj也是对的
-        for (auto iter = pLoadingData_iter->second.m_transInfo.begin(); iter != pLoadingData_iter->second.m_transInfo.end(); iter++)
+        for (auto iter = loadData.m_transInfo.begin(); iter != loadData.m_transInfo.end(); iter++)
         {
             if (iter->first > 0 && (timeNow - iter->second) < TRANS_ACTIVE_TIMEOUT)
             {
@@ -715,12 +726,15 @@ int NFLoadCacheMgr::HandleGetRoleDetailRpcFinished(int iRunLogicRetCode, uint64_
                 if (pTransBase)
                 {
                     NFTransCacheBase *pTransRoleBase = dynamic_cast<NFTransCacheBase *>(pTransBase);
-                    pTransRoleBase->HandleGetRoleDetailRes(iRunLogicRetCode, roleId);
+                    if (pTransRoleBase)
+                    {
+                        pTransRoleBase->HandleGetRoleDetailRes(iRunLogicRetCode, roleId);
+                    }
                 }
             }
         }
 
-        for (auto iter = pLoadingData_iter->second.m_rpcInfo.begin(); iter != pLoadingData_iter->second.m_rpcInfo.end(); iter++)
+        for (auto iter = loadData.m_rpcInfo.begin(); iter != loadData.m_rpcInfo.end(); iter++)
         {
             if (iter->first > 0)
             {

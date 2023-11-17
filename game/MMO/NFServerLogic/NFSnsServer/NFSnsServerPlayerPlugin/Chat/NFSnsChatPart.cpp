@@ -206,7 +206,7 @@ int NFSnsChatPart::OnHandleChatReq(uint32_t msgId, NFDataPackage& packet)
             const stClanInfo* pInfo = NFSnsClanMgr::Instance(m_pObjPluginManager)->GetClan3Info(charID);
             if (pInfo)
             {
-                NFSnsChatMgr::Instance(m_pObjPluginManager)->SendW2C(proto_ff::LOGIC_TO_CLIENT_CHAT_MSG_RSP, const_cast<stClanInfo *>(pInfo)->members, chatMsgRsp);
+                NFSnsChatMgr::Instance(m_pObjPluginManager)->SendW2C(proto_ff::LOGIC_TO_CLIENT_CHAT_MSG_RSP, pInfo->members, chatMsgRsp);
             }
         }
         break;
@@ -215,7 +215,7 @@ int NFSnsChatPart::OnHandleChatReq(uint32_t msgId, NFDataPackage& packet)
             const stClanInfo* pInfo = NFSnsClanMgr::Instance(m_pObjPluginManager)->GetClan5Info(charID);
             if (pInfo)
             {
-                NFSnsChatMgr::Instance(m_pObjPluginManager)->SendW2C(proto_ff::LOGIC_TO_CLIENT_CHAT_MSG_RSP, const_cast<stClanInfo *>(pInfo)->members, chatMsgRsp);
+                NFSnsChatMgr::Instance(m_pObjPluginManager)->SendW2C(proto_ff::LOGIC_TO_CLIENT_CHAT_MSG_RSP, pInfo->members, chatMsgRsp);
             }
         }
         break;

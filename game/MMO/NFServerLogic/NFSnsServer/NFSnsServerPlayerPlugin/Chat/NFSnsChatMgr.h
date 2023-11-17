@@ -54,7 +54,7 @@ public:
     //发送给某个客户端
     bool SendW2C(uint32_t cmd, CharIDType playerId, const google::protobuf::Message& xData);
     //发送给某组客户端
-    bool SendW2C(uint32_t cmd, SET_UINT64& playerIdList, const google::protobuf::Message& xData);
+    bool SendW2C(uint32_t cmd, const SET_UINT64& playerIdList, const google::protobuf::Message& xData);
     //广播给同阵营
     bool SendCampMsg(uint32_t cmd, int8_t campID, const google::protobuf::Message& xData);
     //广播给招募频道

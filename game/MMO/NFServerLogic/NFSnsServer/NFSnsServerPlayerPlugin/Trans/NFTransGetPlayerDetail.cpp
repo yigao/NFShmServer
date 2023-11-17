@@ -46,8 +46,8 @@ int NFTransGetPlayerDetail::QueryRole(uint64_t playerId) {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     m_cid = playerId;
 
-    auto pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerDetail(m_cid);
-    if (pRoleDetail)
+    auto pRoleDetailByCid = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerDetail(m_cid);
+    if (pRoleDetailByCid)
     {
         SetFinished(0);
         return 0;

@@ -93,4 +93,5 @@ int NFObServiceModule::OnHandleRpcMessage(uint32_t msgId, google::protobuf::Mess
             NFLogError(NF_LOG_SYSTEMLOG, 0, "can't find service, msgId:{} serviceId:{}, drop the msg", msgId, m_rpcMsgToServiceMap[msgId].first);
         }
     }
+    return 0;
 }

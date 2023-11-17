@@ -46,6 +46,7 @@ int NFPlayerDetail::CreateInit()
     m_gameId = 0;
     m_logicId = 0;
     m_isOnline = false;
+    m_isInited = false;
     return 0;
 }
 
@@ -131,9 +132,9 @@ int NFPlayerDetail::Init(const proto_ff::RoleDBSnsDetail& data)
         if (nullptr == m_pPart[i])
         {
             NFLogError(NF_LOG_SYSTEMLOG, m_cid, "Player Init, Create Part Failed, roleId:{} part:{}", m_cid, i);
-            for (int i = 0; i < (int)vec.size(); i++)
+            for (int j = 0; j < (int)vec.size(); j++)
             {
-                FindModule<NFISharedMemModule>()->DestroyObj(vec[i]);
+                FindModule<NFISharedMemModule>()->DestroyObj(vec[j]);
             }
             return proto_ff::RET_FAIL;
         }

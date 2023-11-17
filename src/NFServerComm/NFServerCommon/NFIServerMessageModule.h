@@ -1074,11 +1074,12 @@ public:
         proto_ff::Proto_SvrPkg svrPkg;
         svrPkg.set_msg_id(proto_ff::NF_STORESVR_C2S_EXECUTE_MORE);
         svrPkg.set_msg_data(sel.SerializeAsString());
-        svrPkg.mutable_rpc_info()->set_req_rpc_id(FindModule<NFICoroutineModule>()->CurrentTaskId());
-        svrPkg.mutable_rpc_info()->set_req_rpc_hash(NFHash::hash<std::string>()(sel.GetTypeName()));
-        svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(NFHash::hash<std::string>()(selRes.GetTypeName()));
-        svrPkg.mutable_rpc_info()->set_req_server_type(eType);
-        svrPkg.mutable_rpc_info()->set_req_bus_id(pConfig->BusId);
+        auto pRpcInfo = svrPkg.mutable_rpc_info();
+        pRpcInfo->set_req_rpc_id(FindModule<NFICoroutineModule>()->CurrentTaskId());
+        pRpcInfo->set_req_rpc_hash(NFHash::hash<std::string>()(sel.GetTypeName()));
+        pRpcInfo->set_rsp_rpc_hash(NFHash::hash<std::string>()(selRes.GetTypeName()));
+        pRpcInfo->set_req_server_type(eType);
+        pRpcInfo->set_req_bus_id(pConfig->BusId);
 
         FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, pConfig->BusId, dstBusId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD,
                                                         svrPkg);
