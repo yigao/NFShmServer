@@ -84,6 +84,14 @@
       "FileName": "NFItem.cpp",
       "ErrorCode": "V522",
       "Message": "There might be dereferencing of a potential null pointer \u0027pEquip\u0027.",
+      "CodePrev": -1863422504,
+      "CodeCurrent": 12727505,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "NFItem.cpp",
+      "ErrorCode": "V522",
+      "Message": "There might be dereferencing of a potential null pointer \u0027pEquip\u0027.",
       "CodePrev": 17968453,
       "CodeCurrent": 12727505,
       "CodeNext": 125
@@ -108,7 +116,31 @@
       "FileName": "NFItem.cpp",
       "ErrorCode": "V522",
       "Message": "There might be dereferencing of a potential null pointer \u0027pEquip\u0027.",
+      "CodePrev": -2117810340,
+      "CodeCurrent": 12727505,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "NFItem.cpp",
+      "ErrorCode": "V522",
+      "Message": "There might be dereferencing of a potential null pointer \u0027pEquip\u0027.",
       "CodePrev": -1468319629,
+      "CodeCurrent": 12727505,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "NFItem.cpp",
+      "ErrorCode": "V522",
+      "Message": "There might be dereferencing of a potential null pointer \u0027pEquip\u0027.",
+      "CodePrev": 1628581189,
+      "CodeCurrent": 12727505,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "NFItem.cpp",
+      "ErrorCode": "V522",
+      "Message": "There might be dereferencing of a potential null pointer \u0027pEquip\u0027.",
+      "CodePrev": -1057346283,
       "CodeCurrent": 12727505,
       "CodeNext": 125
     },
@@ -124,7 +156,7 @@
       "FileName": "NFItem.cpp",
       "ErrorCode": "V522",
       "Message": "There might be dereferencing of a potential null pointer \u0027pEquip\u0027.",
-      "CodePrev": -1863422504,
+      "CodePrev": -932218793,
       "CodeCurrent": 12727505,
       "CodeNext": 125
     },
@@ -132,7 +164,7 @@
       "FileName": "NFItem.cpp",
       "ErrorCode": "V522",
       "Message": "There might be dereferencing of a potential null pointer \u0027pEquip\u0027.",
-      "CodePrev": -932218793,
+      "CodePrev": 744473831,
       "CodeCurrent": 12727505,
       "CodeNext": 125
     },
@@ -156,46 +188,6 @@
       "FileName": "NFItem.cpp",
       "ErrorCode": "V522",
       "Message": "There might be dereferencing of a potential null pointer \u0027pEquip\u0027.",
-      "CodePrev": 409958434,
-      "CodeCurrent": 12727505,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "NFItem.cpp",
-      "ErrorCode": "V522",
-      "Message": "There might be dereferencing of a potential null pointer \u0027pEquip\u0027.",
-      "CodePrev": 820931891,
-      "CodeCurrent": 12727505,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "NFItem.cpp",
-      "ErrorCode": "V522",
-      "Message": "There might be dereferencing of a potential null pointer \u0027pEquip\u0027.",
-      "CodePrev": -2117810340,
-      "CodeCurrent": 12727505,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "NFItem.cpp",
-      "ErrorCode": "V522",
-      "Message": "There might be dereferencing of a potential null pointer \u0027pEquip\u0027.",
-      "CodePrev": -1057346283,
-      "CodeCurrent": 12727505,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "NFItem.cpp",
-      "ErrorCode": "V522",
-      "Message": "There might be dereferencing of a potential null pointer \u0027pEquip\u0027.",
-      "CodePrev": -1324978900,
-      "CodeCurrent": 12727505,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "NFItem.cpp",
-      "ErrorCode": "V522",
-      "Message": "There might be dereferencing of a potential null pointer \u0027pEquip\u0027.",
       "CodePrev": -660899795,
       "CodeCurrent": 12727505,
       "CodeNext": 125
@@ -212,7 +204,7 @@
       "FileName": "NFItem.cpp",
       "ErrorCode": "V522",
       "Message": "There might be dereferencing of a potential null pointer \u0027pEquip\u0027.",
-      "CodePrev": 1628581189,
+      "CodePrev": 820931891,
       "CodeCurrent": 12727505,
       "CodeNext": 125
     },
@@ -220,7 +212,15 @@
       "FileName": "NFItem.cpp",
       "ErrorCode": "V522",
       "Message": "There might be dereferencing of a potential null pointer \u0027pEquip\u0027.",
-      "CodePrev": 744473831,
+      "CodePrev": -1324978900,
+      "CodeCurrent": 12727505,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "NFItem.cpp",
+      "ErrorCode": "V522",
+      "Message": "There might be dereferencing of a potential null pointer \u0027pEquip\u0027.",
+      "CodePrev": 409958434,
       "CodeCurrent": 12727505,
       "CodeNext": 125
     },
@@ -284,6 +284,22 @@
       "FileName": "DBProxy2.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 71924729,
+      "CodeCurrent": 871682855,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "DBProxy2.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 4494353,
+      "CodeCurrent": 863266599,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "DBProxy2.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
       "CodePrev": 674139422,
       "CodeCurrent": 871682855,
       "CodeNext": 88263
@@ -292,8 +308,8 @@
       "FileName": "DBProxy2.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 4494353,
-      "CodeCurrent": 863266599,
+      "CodePrev": 71910417,
+      "CodeCurrent": 871048999,
       "CodeNext": 125
     },
     {
@@ -324,6 +340,14 @@
       "FileName": "DBProxy2.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1123449,
+      "CodeCurrent": 864011047,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "DBProxy2.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
       "CodePrev": 1098211224,
       "CodeCurrent": 906120999,
       "CodeNext": 88263
@@ -332,9 +356,9 @@
       "FileName": "DBProxy2.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 71924729,
-      "CodeCurrent": 871682855,
-      "CodeNext": 125
+      "CodePrev": 674140906,
+      "CodeCurrent": 871048999,
+      "CodeNext": 88263
     },
     {
       "FileName": "DBProxy2.pb.h",
@@ -351,30 +375,6 @@
       "CodePrev": 575258305,
       "CodeCurrent": 906120999,
       "CodeNext": 125
-    },
-    {
-      "FileName": "DBProxy2.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 71910417,
-      "CodeCurrent": 871048999,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "DBProxy2.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1123449,
-      "CodeCurrent": 864011047,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "DBProxy2.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 674140906,
-      "CodeCurrent": 871048999,
-      "CodeNext": 88263
     },
     {
       "FileName": "NFPoint2.h",
@@ -484,6 +484,14 @@
       "FileName": "Com.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 1300212891,
+      "CodeCurrent": 595388197,
+      "CodeNext": -1949711134
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
       "CodePrev": 1049613910,
       "CodeCurrent": -1342176280,
       "CodeNext": 0
@@ -492,8 +500,152 @@
       "FileName": "Com.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 1188874812,
+      "CodeCurrent": 595388197,
+      "CodeNext": 1942679464
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -474716209,
+      "CodeCurrent": 595388197,
+      "CodeNext": -876018788
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1905132618,
+      "CodeCurrent": -155954815,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -221498642,
+      "CodeCurrent": 595388197,
+      "CodeNext": -1127624287
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 681670573,
+      "CodeCurrent": 595388197,
+      "CodeNext": 1202310495
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1449429658,
+      "CodeCurrent": -1342176280,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -989140996,
+      "CodeCurrent": 595388197,
+      "CodeNext": -842413517
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -335026369,
+      "CodeCurrent": -2005387156,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -2025428255,
+      "CodeCurrent": 2016464599,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 223659944,
+      "CodeCurrent": -1342176280,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 1163547347,
+      "CodeCurrent": 1256828746,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 1943251407,
+      "CodeCurrent": 595388197,
+      "CodeNext": -1144445268
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 1012912492,
+      "CodeCurrent": 595388197,
+      "CodeNext": -3248545
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1210774272,
+      "CodeCurrent": 595388197,
+      "CodeNext": -1010185654
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
       "CodePrev": 1779852399,
       "CodeCurrent": -696507740,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -452215729,
+      "CodeCurrent": 595388197,
+      "CodeNext": -441857323
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1416389773,
+      "CodeCurrent": -1342176280,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 325928134,
+      "CodeCurrent": 595388197,
+      "CodeNext": -3559225
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -70574787,
+      "CodeCurrent": -2046633387,
       "CodeNext": 0
     },
     {
@@ -524,57 +676,33 @@
       "FileName": "Com.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -845787119,
-      "CodeCurrent": -1661683652,
+      "CodePrev": -2090606727,
+      "CodeCurrent": 505711121,
       "CodeNext": 0
     },
     {
       "FileName": "Com.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -68182065,
+      "CodePrev": 23693884,
       "CodeCurrent": 595388197,
-      "CodeNext": 197723579
+      "CodeNext": -204800970
     },
     {
       "FileName": "Com.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1300212891,
-      "CodeCurrent": 595388197,
-      "CodeNext": -1949711134
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1763204110,
-      "CodeCurrent": 1980835886,
+      "CodePrev": 1095628772,
+      "CodeCurrent": -2024831167,
       "CodeNext": 0
     },
     {
       "FileName": "Com.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1519286930,
+      "CodePrev": 2093859428,
       "CodeCurrent": 595388197,
-      "CodeNext": -1144067588
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1652620534,
-      "CodeCurrent": 595388197,
-      "CodeNext": -1127633716
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1163547347,
-      "CodeCurrent": 1256828746,
-      "CodeNext": 0
+      "CodeNext": -322320058
     },
     {
       "FileName": "Com.pb.h",
@@ -588,78 +716,6 @@
       "FileName": "Com.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1943251407,
-      "CodeCurrent": 595388197,
-      "CodeNext": -1144445268
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 716144503,
-      "CodeCurrent": 595388197,
-      "CodeNext": -792081866
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -221498642,
-      "CodeCurrent": 595388197,
-      "CodeNext": -1127624287
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 681670573,
-      "CodeCurrent": 595388197,
-      "CodeNext": 1202310495
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1096054740,
-      "CodeCurrent": 1788389996,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -2090606727,
-      "CodeCurrent": 505711121,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -335026369,
-      "CodeCurrent": -2005387156,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1416389773,
-      "CodeCurrent": -1342176280,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -206054449,
-      "CodeCurrent": 595388197,
-      "CodeNext": 734595005
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
       "CodePrev": 579667846,
       "CodeCurrent": 595388197,
       "CodeNext": -875971442
@@ -668,25 +724,41 @@
       "FileName": "Com.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -2025428255,
-      "CodeCurrent": 2016464599,
+      "CodePrev": -845787119,
+      "CodeCurrent": -1661683652,
       "CodeNext": 0
     },
     {
       "FileName": "Com.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -887867979,
-      "CodeCurrent": 225354908,
+      "CodePrev": 482905670,
+      "CodeCurrent": -1915628843,
       "CodeNext": 0
     },
     {
       "FileName": "Com.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1454231610,
-      "CodeCurrent": -567555497,
-      "CodeNext": 0
+      "CodePrev": -1447792591,
+      "CodeCurrent": 595388197,
+      "CodeNext": 399100666
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -68182065,
+      "CodeCurrent": 595388197,
+      "CodeNext": 197723579
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1519286930,
+      "CodeCurrent": 595388197,
+      "CodeNext": -1144067588
     },
     {
       "FileName": "Com.pb.h",
@@ -700,14 +772,6 @@
       "FileName": "Com.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -452215729,
-      "CodeCurrent": 595388197,
-      "CodeNext": -441857323
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
       "CodePrev": -2079210846,
       "CodeCurrent": 339650276,
       "CodeNext": 0
@@ -716,16 +780,56 @@
       "FileName": "Com.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1188874812,
-      "CodeCurrent": 595388197,
-      "CodeNext": 1942679464
+      "CodePrev": -1388547152,
+      "CodeCurrent": 504729290,
+      "CodeNext": 0
     },
     {
       "FileName": "Com.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1388547152,
-      "CodeCurrent": 504729290,
+      "CodePrev": 1227178833,
+      "CodeCurrent": 595388197,
+      "CodeNext": -1342917802
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 940597373,
+      "CodeCurrent": 1445856458,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -787686578,
+      "CodeCurrent": 595388197,
+      "CodeNext": -31403183
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 716144503,
+      "CodeCurrent": 595388197,
+      "CodeNext": -792081866
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1454231610,
+      "CodeCurrent": -567555497,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1763204110,
+      "CodeCurrent": 1980835886,
       "CodeNext": 0
     },
     {
@@ -748,137 +852,41 @@
       "FileName": "Com.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1095628772,
-      "CodeCurrent": -2024831167,
+      "CodePrev": 1096054740,
+      "CodeCurrent": 1788389996,
       "CodeNext": 0
     },
     {
       "FileName": "Com.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -787686578,
+      "CodePrev": -206054449,
       "CodeCurrent": 595388197,
-      "CodeNext": -31403183
+      "CodeNext": 734595005
     },
     {
       "FileName": "Com.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 482905670,
-      "CodeCurrent": -1915628843,
+      "CodePrev": -887867979,
+      "CodeCurrent": 225354908,
       "CodeNext": 0
     },
     {
       "FileName": "Com.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 2093859428,
+      "CodePrev": 1652620534,
       "CodeCurrent": 595388197,
-      "CodeNext": -322320058
+      "CodeNext": -1127633716
     },
     {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1449429658,
-      "CodeCurrent": -1342176280,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 23693884,
-      "CodeCurrent": 595388197,
-      "CodeNext": -204800970
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -989140996,
-      "CodeCurrent": 595388197,
-      "CodeNext": -842413517
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -474716209,
-      "CodeCurrent": 595388197,
-      "CodeNext": -876018788
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -70574787,
-      "CodeCurrent": -2046633387,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 223659944,
-      "CodeCurrent": -1342176280,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1012912492,
-      "CodeCurrent": 595388197,
-      "CodeNext": -3248545
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 325928134,
-      "CodeCurrent": 595388197,
-      "CodeNext": -3559225
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1210774272,
-      "CodeCurrent": 595388197,
-      "CodeNext": -1010185654
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1227178833,
-      "CodeCurrent": 595388197,
-      "CodeNext": -1342917802
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1447792591,
-      "CodeCurrent": 595388197,
-      "CodeNext": 399100666
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1905132618,
-      "CodeCurrent": -155954815,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 940597373,
-      "CodeCurrent": 1445856458,
-      "CodeNext": 0
+      "FileName": "NFDeityPart.cpp",
+      "ErrorCode": "V803",
+      "Message": "Decreased performance. In case \u0027iter\u0027 is iterator it\u0027s more effective to use prefix form of increment. Replace iterator++ with ++iterator.",
+      "CodePrev": 274028807,
+      "CodeCurrent": 1852252767,
+      "CodeNext": 123
     },
     {
       "FileName": "NFDeityPart.cpp",
@@ -889,19 +897,19 @@
       "CodeNext": 123
     },
     {
-      "FileName": "NFDeityPart.cpp",
-      "ErrorCode": "V803",
-      "Message": "Decreased performance. In case \u0027iter\u0027 is iterator it\u0027s more effective to use prefix form of increment. Replace iterator++ with ++iterator.",
+      "FileName": "NFLoadCacheData.cpp",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027NFLoadCacheData\u0027 constructor contains potentially uninitialized members. Inspect the following: m_playerId, m_bFinished.",
       "CodePrev": 0,
-      "CodeCurrent": 612763744,
+      "CodeCurrent": -1190962077,
       "CodeNext": 123
     },
     {
       "FileName": "NFDeityPart.cpp",
       "ErrorCode": "V803",
       "Message": "Decreased performance. In case \u0027iter\u0027 is iterator it\u0027s more effective to use prefix form of increment. Replace iterator++ with ++iterator.",
-      "CodePrev": 274028807,
-      "CodeCurrent": 1852252767,
+      "CodePrev": 0,
+      "CodeCurrent": 612763744,
       "CodeNext": 123
     },
     {
@@ -918,6 +926,22 @@
       "Message": "Decreased performance. In case \u0027iter\u0027 is iterator it\u0027s more effective to use prefix form of increment. Replace iterator++ with ++iterator.",
       "CodePrev": -1615826976,
       "CodeCurrent": 686292004,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFDeityPart.cpp",
+      "ErrorCode": "V803",
+      "Message": "Decreased performance. In case \u0027iter\u0027 is iterator it\u0027s more effective to use prefix form of increment. Replace iterator++ with ++iterator.",
+      "CodePrev": 123,
+      "CodeCurrent": 1852252767,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFDeityPart.cpp",
+      "ErrorCode": "V803",
+      "Message": "Decreased performance. In case \u0027iter\u0027 is iterator it\u0027s more effective to use prefix form of increment. Replace iterator++ with ++iterator.",
+      "CodePrev": 0,
+      "CodeCurrent": 163863216,
       "CodeNext": 123
     },
     {
@@ -957,22 +981,6 @@
       "ErrorCode": "V803",
       "Message": "Decreased performance. In case \u0027iter\u0027 is iterator it\u0027s more effective to use prefix form of increment. Replace iterator++ with ++iterator.",
       "CodePrev": 123,
-      "CodeCurrent": 1852252767,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFDeityPart.cpp",
-      "ErrorCode": "V803",
-      "Message": "Decreased performance. In case \u0027iter\u0027 is iterator it\u0027s more effective to use prefix form of increment. Replace iterator++ with ++iterator.",
-      "CodePrev": 0,
-      "CodeCurrent": 163863216,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFDeityPart.cpp",
-      "ErrorCode": "V803",
-      "Message": "Decreased performance. In case \u0027iter\u0027 is iterator it\u0027s more effective to use prefix form of increment. Replace iterator++ with ++iterator.",
-      "CodePrev": 123,
       "CodeCurrent": 612763744,
       "CodeNext": 123
     },
@@ -983,6 +991,14 @@
       "CodePrev": 123,
       "CodeCurrent": 489245777,
       "CodeNext": 1634207317
+    },
+    {
+      "FileName": "NFSnsChatMgr.cpp",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027NFSnsChatMgr\u0027 constructor contains potentially uninitialized members. Inspect the following: m_virForbidFlag.",
+      "CodePrev": 0,
+      "CodeCurrent": -2140831334,
+      "CodeNext": 123
     },
     {
       "FileName": "ServerInternalCmd.pb.h",
@@ -1129,6 +1145,62 @@
       "CodeNext": 125
     },
     {
+      "FileName": "NFQueryRole.cpp",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027NFQueryRole\u0027 constructor contains potentially uninitialized members. Inspect the following: m_queryedNum, m_roleId, m_queryedDetailNum.",
+      "CodePrev": 0,
+      "CodeCurrent": -431066499,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFSnsChatMgr.cpp",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 0,
+      "CodeCurrent": 517723014,
+      "CodeNext": 596476433
+    },
+    {
+      "FileName": "NFSnsChatMgr.cpp",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 517723014,
+      "CodeCurrent": 596476433,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "NFSnsChatMgr.cpp",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 0,
+      "CodeCurrent": -1702718075,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFSnsChatMgr.cpp",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1797664987,
+      "CodeCurrent": 240893622,
+      "CodeNext": 94092358
+    },
+    {
+      "FileName": "NFSnsChatMgr.cpp",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1915964729,
+      "CodeCurrent": -22638968,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFSnsChatMgr.cpp",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 125,
+      "CodeCurrent": -171722658,
+      "CodeNext": -546049915
+    },
+    {
       "FileName": "NFShmList.h",
       "ErrorCode": "V1077",
       "Message": "The \u0027NFShmListNodeBase\u0027 constructor contains potentially uninitialized members. Inspect the following: m_next, m_prev, m_self.",
@@ -1205,15 +1277,7 @@
       "ErrorCode": "V2009",
       "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
       "CodePrev": 0,
-      "CodeCurrent": -1048247700,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFMofaPart.cpp",
-      "ErrorCode": "V2009",
-      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
-      "CodePrev": 0,
-      "CodeCurrent": 1554859653,
+      "CodeCurrent": -1048276756,
       "CodeNext": 123
     },
     {
@@ -1222,6 +1286,30 @@
       "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
       "CodePrev": 0,
       "CodeCurrent": -1048145044,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFMofaPart.cpp",
+      "ErrorCode": "V2009",
+      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
+      "CodePrev": 0,
+      "CodeCurrent": -1048247700,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFMofaPart.cpp",
+      "ErrorCode": "V2009",
+      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
+      "CodePrev": 0,
+      "CodeCurrent": -303674610,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFMofaPart.cpp",
+      "ErrorCode": "V2009",
+      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
+      "CodePrev": 0,
+      "CodeCurrent": 1554859653,
       "CodeNext": 123
     },
     {
@@ -1253,14 +1341,6 @@
       "ErrorCode": "V2009",
       "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
       "CodePrev": 0,
-      "CodeCurrent": -1048276756,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFMofaPart.cpp",
-      "ErrorCode": "V2009",
-      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
-      "CodePrev": 0,
       "CodeCurrent": -1255973942,
       "CodeNext": 123
     },
@@ -1270,14 +1350,6 @@
       "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
       "CodePrev": 0,
       "CodeCurrent": -1255928886,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFMofaPart.cpp",
-      "ErrorCode": "V2009",
-      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
-      "CodePrev": 0,
-      "CodeCurrent": -303674610,
       "CodeNext": 123
     },
     {
@@ -1380,6 +1452,30 @@
       "FileName": "NFDeityPart.cpp",
       "ErrorCode": "V2005",
       "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
+      "CodePrev": -470785053,
+      "CodeCurrent": -2031550029,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFDeityPart.cpp",
+      "ErrorCode": "V2005",
+      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
+      "CodePrev": 587597,
+      "CodeCurrent": 1952464654,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFDeityPart.cpp",
+      "ErrorCode": "V2005",
+      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
+      "CodePrev": 0,
+      "CodeCurrent": 1249544273,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFDeityPart.cpp",
+      "ErrorCode": "V2005",
+      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
       "CodePrev": 123,
       "CodeCurrent": 1036544666,
       "CodeNext": 123
@@ -1396,6 +1492,78 @@
       "FileName": "NFDeityPart.cpp",
       "ErrorCode": "V2005",
       "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
+      "CodePrev": 1985748763,
+      "CodeCurrent": -618739014,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFDeityPart.cpp",
+      "ErrorCode": "V2005",
+      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
+      "CodePrev": 0,
+      "CodeCurrent": -194723132,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFDeityPart.cpp",
+      "ErrorCode": "V2005",
+      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
+      "CodePrev": -2006800933,
+      "CodeCurrent": -618739014,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFDeityPart.cpp",
+      "ErrorCode": "V2005",
+      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
+      "CodePrev": 123,
+      "CodeCurrent": -1799526813,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "NFDeityPart.cpp",
+      "ErrorCode": "V2005",
+      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
+      "CodePrev": 123,
+      "CodeCurrent": -180862565,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFDeityPart.cpp",
+      "ErrorCode": "V2005",
+      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
+      "CodePrev": 38797687,
+      "CodeCurrent": -538945531,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFDeityPart.cpp",
+      "ErrorCode": "V2005",
+      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
+      "CodePrev": 123,
+      "CodeCurrent": 744184788,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFDeityPart.cpp",
+      "ErrorCode": "V2005",
+      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
+      "CodePrev": 18391885,
+      "CodeCurrent": 1563137066,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFDeityPart.cpp",
+      "ErrorCode": "V2005",
+      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
+      "CodePrev": 0,
+      "CodeCurrent": 1215989841,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFDeityPart.cpp",
+      "ErrorCode": "V2005",
+      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
       "CodePrev": -1496607413,
       "CodeCurrent": 1714697413,
       "CodeNext": 123
@@ -1404,32 +1572,16 @@
       "FileName": "NFDeityPart.cpp",
       "ErrorCode": "V2005",
       "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
-      "CodePrev": -470785053,
-      "CodeCurrent": -2031550029,
+      "CodePrev": 0,
+      "CodeCurrent": -1127996618,
       "CodeNext": 123
     },
     {
       "FileName": "NFDeityPart.cpp",
       "ErrorCode": "V2005",
       "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
-      "CodePrev": -1496607413,
-      "CodeCurrent": -153670326,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFDeityPart.cpp",
-      "ErrorCode": "V2005",
-      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
-      "CodePrev": 587597,
-      "CodeCurrent": 1952464654,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFDeityPart.cpp",
-      "ErrorCode": "V2005",
-      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
-      "CodePrev": 123,
-      "CodeCurrent": -180862565,
+      "CodePrev": 18391885,
+      "CodeCurrent": -109026169,
       "CodeNext": 123
     },
     {
@@ -1461,24 +1613,8 @@
       "ErrorCode": "V2005",
       "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
       "CodePrev": 0,
-      "CodeCurrent": 1215989841,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFDeityPart.cpp",
-      "ErrorCode": "V2005",
-      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
-      "CodePrev": 0,
-      "CodeCurrent": -194723132,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFDeityPart.cpp",
-      "ErrorCode": "V2005",
-      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
-      "CodePrev": 38797687,
-      "CodeCurrent": -538945531,
-      "CodeNext": 123
+      "CodeCurrent": 428411358,
+      "CodeNext": 0
     },
     {
       "FileName": "NFDeityPart.cpp",
@@ -1492,30 +1628,6 @@
       "FileName": "NFDeityPart.cpp",
       "ErrorCode": "V2005",
       "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
-      "CodePrev": 1985748763,
-      "CodeCurrent": -618739014,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFDeityPart.cpp",
-      "ErrorCode": "V2005",
-      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
-      "CodePrev": 0,
-      "CodeCurrent": -1251864002,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFDeityPart.cpp",
-      "ErrorCode": "V2005",
-      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
-      "CodePrev": 0,
-      "CodeCurrent": 428411358,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "NFDeityPart.cpp",
-      "ErrorCode": "V2005",
-      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
       "CodePrev": 0,
       "CodeCurrent": 1551577079,
       "CodeNext": 123
@@ -1524,56 +1636,16 @@
       "FileName": "NFDeityPart.cpp",
       "ErrorCode": "V2005",
       "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
-      "CodePrev": 0,
-      "CodeCurrent": 1249544273,
+      "CodePrev": -1496607413,
+      "CodeCurrent": -153670326,
       "CodeNext": 123
-    },
-    {
-      "FileName": "NFDeityPart.cpp",
-      "ErrorCode": "V2005",
-      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
-      "CodePrev": -2006800933,
-      "CodeCurrent": -618739014,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFDeityPart.cpp",
-      "ErrorCode": "V2005",
-      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
-      "CodePrev": 123,
-      "CodeCurrent": -1799526813,
-      "CodeNext": 125
     },
     {
       "FileName": "NFDeityPart.cpp",
       "ErrorCode": "V2005",
       "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
       "CodePrev": 0,
-      "CodeCurrent": -1127996618,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFDeityPart.cpp",
-      "ErrorCode": "V2005",
-      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
-      "CodePrev": 18391885,
-      "CodeCurrent": -109026169,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFDeityPart.cpp",
-      "ErrorCode": "V2005",
-      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
-      "CodePrev": 18391885,
-      "CodeCurrent": 1563137066,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFDeityPart.cpp",
-      "ErrorCode": "V2005",
-      "Message": "C-style explicit type casting is utilized. Consider using: static_cast/const_cast/reinterpret_cast.",
-      "CodePrev": 123,
-      "CodeCurrent": 744184788,
+      "CodeCurrent": -1251864002,
       "CodeNext": 123
     },
     {
@@ -1612,6 +1684,22 @@
       "FileName": "ComDefine.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1184848528,
+      "CodeCurrent": 595388197,
+      "CodeNext": 1439200213
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -906529773,
+      "CodeCurrent": 595388197,
+      "CodeNext": -37106736
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
       "CodePrev": -794515690,
       "CodeCurrent": 1138095665,
       "CodeNext": 0
@@ -1636,97 +1724,33 @@
       "FileName": "ComDefine.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1751677942,
-      "CodeCurrent": 595388197,
-      "CodeNext": 1640614490
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1224371395,
-      "CodeCurrent": 595388197,
-      "CodeNext": -1077294189
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1457135815,
-      "CodeCurrent": 595388197,
-      "CodeNext": 1414122468
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -906529773,
-      "CodeCurrent": 595388197,
-      "CodeNext": -37106736
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -386364854,
-      "CodeCurrent": 497778129,
+      "CodePrev": 954804262,
+      "CodeCurrent": 343731146,
       "CodeNext": 0
     },
     {
       "FileName": "ComDefine.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1184848528,
+      "CodePrev": 1329525412,
       "CodeCurrent": 595388197,
-      "CodeNext": 1439200213
+      "CodeNext": -1807104910
     },
     {
       "FileName": "ComDefine.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1485834920,
-      "CodeCurrent": 388815979,
+      "CodePrev": 1045274289,
+      "CodeCurrent": -2029179387,
       "CodeNext": 0
     },
     {
       "FileName": "ComDefine.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -649692767,
+      "CodePrev": -1593083908,
       "CodeCurrent": 595388197,
-      "CodeNext": -1807103290
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -912383354,
-      "CodeCurrent": 595388197,
-      "CodeNext": -1446392886
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1692091564,
-      "CodeCurrent": 395730311,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1459331807,
-      "CodeCurrent": 595388197,
-      "CodeNext": 877251564
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1650117109,
-      "CodeCurrent": 384879927,
-      "CodeNext": 0
+      "CodeNext": -1446393293
     },
     {
       "FileName": "ComDefine.pb.h",
@@ -1734,174 +1758,6 @@
       "Message": "Implicit type conversion from enum type to integer type.",
       "CodePrev": 1458267100,
       "CodeCurrent": 1903494380,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1544518146,
-      "CodeCurrent": -386515532,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1451837913,
-      "CodeCurrent": 595388197,
-      "CodeNext": -1479947574
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1747139289,
-      "CodeCurrent": 595388197,
-      "CodeNext": -1312175544
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -2078139726,
-      "CodeCurrent": -2025436251,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 2136854632,
-      "CodeCurrent": 595388197,
-      "CodeNext": -188102238
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -236047235,
-      "CodeCurrent": 595388197,
-      "CodeNext": -114701774
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1467202800,
-      "CodeCurrent": 1903175404,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 256558664,
-      "CodeCurrent": -973162029,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1329890094,
-      "CodeCurrent": 595388197,
-      "CodeNext": 1154075814
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 2086699982,
-      "CodeCurrent": 489440609,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 642754598,
-      "CodeCurrent": 595388197,
-      "CodeNext": -1312178758
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1807179107,
-      "CodeCurrent": 595388197,
-      "CodeNext": -1110848980
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -753234602,
-      "CodeCurrent": 595388197,
-      "CodeNext": -68564422
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1972108582,
-      "CodeCurrent": 1895691400,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 501672683,
-      "CodeCurrent": 595388197,
-      "CodeNext": -733350961
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1953505795,
-      "CodeCurrent": 595388197,
-      "CodeNext": -2092316110
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 2049538570,
-      "CodeCurrent": 228350098,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -748909099,
-      "CodeCurrent": 595388197,
-      "CodeNext": 2076822075
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -2027595307,
-      "CodeCurrent": 595388197,
-      "CodeNext": -542520780
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1902713336,
-      "CodeCurrent": 2032246986,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -190343538,
-      "CodeCurrent": 402644775,
       "CodeNext": 0
     },
     {
@@ -1916,121 +1772,33 @@
       "FileName": "ComDefine.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1237709507,
+      "CodePrev": -536236531,
+      "CodeCurrent": 285188781,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 501672683,
       "CodeCurrent": 595388197,
-      "CodeNext": -64370098
+      "CodeNext": -733350961
     },
     {
       "FileName": "ComDefine.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 731029211,
-      "CodeCurrent": -1728394629,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1167971779,
-      "CodeCurrent": 1895007343,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1281209301,
+      "CodePrev": -1751677942,
       "CodeCurrent": 595388197,
-      "CodeNext": 877251131
+      "CodeNext": 1640614490
     },
     {
       "FileName": "ComDefine.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 2037920346,
-      "CodeCurrent": -569277660,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 97313996,
-      "CodeCurrent": 1752982606,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1466533296,
+      "CodePrev": 1329890094,
       "CodeCurrent": 595388197,
-      "CodeNext": -970339783
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1006992070,
-      "CodeCurrent": 568359707,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -3571969,
-      "CodeCurrent": 595388197,
-      "CodeNext": -607532665
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -256457493,
-      "CodeCurrent": -504162442,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 469998411,
-      "CodeCurrent": -2111952817,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -186490576,
-      "CodeCurrent": 220843442,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 954804262,
-      "CodeCurrent": 343731146,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1492290476,
-      "CodeCurrent": 386735979,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1034435806,
-      "CodeCurrent": 595388197,
-      "CodeNext": -1739994849
+      "CodeNext": 1154075814
     },
     {
       "FileName": "ComDefine.pb.h",
@@ -2044,64 +1812,16 @@
       "FileName": "ComDefine.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -366837590,
-      "CodeCurrent": 595388197,
-      "CodeNext": 768202652
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1020960800,
-      "CodeCurrent": 595388197,
-      "CodeNext": -171324913
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -638362616,
-      "CodeCurrent": 595388197,
-      "CodeNext": -599143701
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1329525412,
-      "CodeCurrent": 595388197,
-      "CodeNext": -1807104910
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -75036239,
-      "CodeCurrent": 498772881,
+      "CodePrev": -1622248139,
+      "CodeCurrent": 229418588,
       "CodeNext": 0
     },
     {
       "FileName": "ComDefine.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1665343403,
-      "CodeCurrent": 595388197,
-      "CodeNext": -1312175564
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1593083908,
-      "CodeCurrent": 595388197,
-      "CodeNext": -1446393293
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1857632200,
-      "CodeCurrent": 1484587589,
+      "CodePrev": -256457493,
+      "CodeCurrent": -504162442,
       "CodeNext": 0
     },
     {
@@ -2116,112 +1836,56 @@
       "FileName": "ComDefine.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 2135704154,
+      "CodePrev": -2027595307,
       "CodeCurrent": 595388197,
-      "CodeNext": -1865823834
+      "CodeNext": -542520780
     },
     {
       "FileName": "ComDefine.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -348649424,
-      "CodeCurrent": 1197437118,
+      "CodePrev": -190343538,
+      "CodeCurrent": 402644775,
       "CodeNext": 0
     },
     {
       "FileName": "ComDefine.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1770417365,
-      "CodeCurrent": -244351891,
+      "CodePrev": 1467202800,
+      "CodeCurrent": 1903175404,
       "CodeNext": 0
     },
     {
       "FileName": "ComDefine.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -366537414,
+      "CodePrev": 1006992070,
+      "CodeCurrent": 568359707,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1020960800,
       "CodeCurrent": 595388197,
-      "CodeNext": 1237964701
+      "CodeNext": -171324913
     },
     {
       "FileName": "ComDefine.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 121067467,
-      "CodeCurrent": -598756425,
+      "CodePrev": -75036239,
+      "CodeCurrent": 498772881,
       "CodeNext": 0
     },
     {
       "FileName": "ComDefine.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 609583087,
-      "CodeCurrent": 524603225,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1622248139,
-      "CodeCurrent": 229418588,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -536236531,
-      "CodeCurrent": 285188781,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1045274289,
-      "CodeCurrent": -2029179387,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1951646674,
-      "CodeCurrent": 595388197,
-      "CodeNext": -1471559112
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1576609817,
-      "CodeCurrent": 595388197,
-      "CodeNext": -1704456929
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -770786307,
-      "CodeCurrent": 595388197,
-      "CodeNext": -624309710
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 1947663529,
-      "CodeCurrent": -1862481253,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ComDefine.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1420613554,
-      "CodeCurrent": -249589300,
+      "CodePrev": -415643409,
+      "CodeCurrent": -153928579,
       "CodeNext": 0
     },
     {
@@ -2236,9 +1900,401 @@
       "FileName": "ComDefine.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -415643409,
-      "CodeCurrent": -153928579,
+      "CodePrev": -1492290476,
+      "CodeCurrent": 386735979,
       "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1167971779,
+      "CodeCurrent": 1895007343,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 1224371395,
+      "CodeCurrent": 595388197,
+      "CodeNext": -1077294189
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -2078139726,
+      "CodeCurrent": -2025436251,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 1237709507,
+      "CodeCurrent": 595388197,
+      "CodeNext": -64370098
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -366537414,
+      "CodeCurrent": 595388197,
+      "CodeNext": 1237964701
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 609583087,
+      "CodeCurrent": 524603225,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -753234602,
+      "CodeCurrent": 595388197,
+      "CodeNext": -68564422
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -236047235,
+      "CodeCurrent": 595388197,
+      "CodeNext": -114701774
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1650117109,
+      "CodeCurrent": 384879927,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 1807179107,
+      "CodeCurrent": 595388197,
+      "CodeNext": -1110848980
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 1034435806,
+      "CodeCurrent": 595388197,
+      "CodeNext": -1739994849
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 2086699982,
+      "CodeCurrent": 489440609,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1665343403,
+      "CodeCurrent": 595388197,
+      "CodeNext": -1312175564
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 2037920346,
+      "CodeCurrent": -569277660,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 1951646674,
+      "CodeCurrent": 595388197,
+      "CodeNext": -1471559112
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 469998411,
+      "CodeCurrent": -2111952817,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 1770417365,
+      "CodeCurrent": -244351891,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 97313996,
+      "CodeCurrent": 1752982606,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1747139289,
+      "CodeCurrent": 595388197,
+      "CodeNext": -1312175544
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1457135815,
+      "CodeCurrent": 595388197,
+      "CodeNext": 1414122468
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1544518146,
+      "CodeCurrent": -386515532,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 642754598,
+      "CodeCurrent": 595388197,
+      "CodeNext": -1312178758
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1459331807,
+      "CodeCurrent": 595388197,
+      "CodeNext": 877251564
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 731029211,
+      "CodeCurrent": -1728394629,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -770786307,
+      "CodeCurrent": 595388197,
+      "CodeNext": -624309710
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 1972108582,
+      "CodeCurrent": 1895691400,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 2049538570,
+      "CodeCurrent": 228350098,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -386364854,
+      "CodeCurrent": 497778129,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -649692767,
+      "CodeCurrent": 595388197,
+      "CodeNext": -1807103290
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1857632200,
+      "CodeCurrent": 1484587589,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 1947663529,
+      "CodeCurrent": -1862481253,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -186490576,
+      "CodeCurrent": 220843442,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -912383354,
+      "CodeCurrent": 595388197,
+      "CodeNext": -1446392886
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -3571969,
+      "CodeCurrent": 595388197,
+      "CodeNext": -607532665
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1485834920,
+      "CodeCurrent": 388815979,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 1692091564,
+      "CodeCurrent": 395730311,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 256558664,
+      "CodeCurrent": -973162029,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1466533296,
+      "CodeCurrent": 595388197,
+      "CodeNext": -970339783
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -638362616,
+      "CodeCurrent": 595388197,
+      "CodeNext": -599143701
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1902713336,
+      "CodeCurrent": 2032246986,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1420613554,
+      "CodeCurrent": -249589300,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -348649424,
+      "CodeCurrent": 1197437118,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 121067467,
+      "CodeCurrent": -598756425,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1953505795,
+      "CodeCurrent": 595388197,
+      "CodeNext": -2092316110
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -366837590,
+      "CodeCurrent": 595388197,
+      "CodeNext": 768202652
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 2135704154,
+      "CodeCurrent": 595388197,
+      "CodeNext": -1865823834
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -748909099,
+      "CodeCurrent": 595388197,
+      "CodeNext": 2076822075
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 2136854632,
+      "CodeCurrent": 595388197,
+      "CodeNext": -188102238
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 1576609817,
+      "CodeCurrent": 595388197,
+      "CodeNext": -1704456929
     },
     {
       "FileName": "ComDefine.pb.h",
@@ -2247,6 +2303,22 @@
       "CodePrev": -2011839977,
       "CodeCurrent": 142190688,
       "CodeNext": 0
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 1281209301,
+      "CodeCurrent": 595388197,
+      "CodeNext": 877251131
+    },
+    {
+      "FileName": "ComDefine.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1451837913,
+      "CodeCurrent": 595388197,
+      "CodeNext": -1479947574
     },
     {
       "FileName": "NFStringUtility.h",
@@ -2300,8 +2372,32 @@
       "FileName": "E_Item.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 287636249,
+      "CodeCurrent": 835756839,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Item.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
       "CodePrev": 613822067,
       "CodeCurrent": 1651119911,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Item.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 391321165,
+      "CodeCurrent": 1651119911,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Item.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1150519337,
+      "CodeCurrent": 972634919,
       "CodeNext": 125
     },
     {
@@ -2334,30 +2430,6 @@
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
       "CodePrev": -905205271,
       "CodeCurrent": 861218599,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Item.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1150519337,
-      "CodeCurrent": 972634919,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Item.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 287636249,
-      "CodeCurrent": 835756839,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Item.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 391321165,
-      "CodeCurrent": 1651119911,
       "CodeNext": 88263
     },
     {
@@ -2724,86 +2796,6 @@
       "FileName": "E_Encyclopedia.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 143815473,
-      "CodeCurrent": 841791271,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Encyclopedia.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 97797324,
-      "CodeCurrent": 666461991,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Encyclopedia.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1098211056,
-      "CodeCurrent": 906176295,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Encyclopedia.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 575226769,
-      "CodeCurrent": 914155303,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Encyclopedia.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1098195248,
-      "CodeCurrent": 914155303,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Encyclopedia.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 287606289,
-      "CodeCurrent": 837691175,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Encyclopedia.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1229941811,
-      "CodeCurrent": 885729058,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Encyclopedia.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -1994094447,
-      "CodeCurrent": 666461991,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Encyclopedia.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -1840739303,
-      "CodeCurrent": 2134583078,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Encyclopedia.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1564754105,
-      "CodeCurrent": 2134583078,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Encyclopedia.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
       "CodePrev": -1598389275,
       "CodeCurrent": 837691175,
       "CodeNext": 88263
@@ -2812,33 +2804,9 @@
       "FileName": "E_Encyclopedia.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1150435601,
-      "CodeCurrent": 958244647,
+      "CodePrev": 143815473,
+      "CodeCurrent": 841791271,
       "CodeNext": 125
-    },
-    {
-      "FileName": "E_Encyclopedia.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1965535144,
-      "CodeCurrent": 885729058,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Encyclopedia.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 17975825,
-      "CodeCurrent": 861218599,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Encyclopedia.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -905205271,
-      "CodeCurrent": 861218599,
-      "CodeNext": 88263
     },
     {
       "FileName": "E_Encyclopedia.pb.h",
@@ -2860,8 +2828,32 @@
       "FileName": "E_Encyclopedia.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 35951537,
-      "CodeCurrent": 858715943,
+      "CodePrev": 97797324,
+      "CodeCurrent": 666461991,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Encyclopedia.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1098211056,
+      "CodeCurrent": 906176295,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Encyclopedia.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1965535144,
+      "CodeCurrent": 885729058,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Encyclopedia.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": -1994094447,
+      "CodeCurrent": 666461991,
       "CodeNext": 125
     },
     {
@@ -2871,6 +2863,94 @@
       "CodePrev": 1348295039,
       "CodeCurrent": 841791271,
       "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Encyclopedia.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 575226769,
+      "CodeCurrent": 914155303,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Encyclopedia.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1150435601,
+      "CodeCurrent": 958244647,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Encyclopedia.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 35951537,
+      "CodeCurrent": 858715943,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Encyclopedia.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1229941811,
+      "CodeCurrent": 885729058,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Encyclopedia.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1564754105,
+      "CodeCurrent": 2134583078,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "NFObService.cpp",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027NFObService\u0027 constructor contains potentially uninitialized members. Inspect the following: m_serviceId.",
+      "CodePrev": 0,
+      "CodeCurrent": -336257115,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "E_Encyclopedia.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 17975825,
+      "CodeCurrent": 861218599,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Encyclopedia.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": -905205271,
+      "CodeCurrent": 861218599,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Encyclopedia.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1098195248,
+      "CodeCurrent": 914155303,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Encyclopedia.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 287606289,
+      "CodeCurrent": 837691175,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Encyclopedia.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": -1840739303,
+      "CodeCurrent": 2134583078,
+      "CodeNext": 125
     },
     {
       "FileName": "NFItem.h",
@@ -2892,6 +2972,22 @@
       "FileName": "DBProxy.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1348296091,
+      "CodeCurrent": 841503527,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "DBProxy.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 4494353,
+      "CodeCurrent": 863266599,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "DBProxy.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
       "CodePrev": 71908089,
       "CodeCurrent": 869552935,
       "CodeNext": 125
@@ -2900,8 +2996,24 @@
       "FileName": "DBProxy.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 4494353,
-      "CodeCurrent": 863266599,
+      "CodePrev": -905205799,
+      "CodeCurrent": 861607719,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "DBProxy.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 287597857,
+      "CodeCurrent": 832552743,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "DBProxy.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 4493929,
+      "CodeCurrent": 863460135,
       "CodeNext": 125
     },
     {
@@ -2932,8 +3044,24 @@
       "FileName": "DBProxy.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1348296091,
-      "CodeCurrent": 841503527,
+      "CodePrev": 847440597,
+      "CodeCurrent": 863460135,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "DBProxy.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 847439985,
+      "CodeCurrent": 863371047,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "DBProxy.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1348297919,
+      "CodeCurrent": 840005415,
       "CodeNext": 88263
     },
     {
@@ -2948,88 +3076,16 @@
       "FileName": "DBProxy.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 17978993,
+      "CodeCurrent": 861607719,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "DBProxy.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
       "CodePrev": 8989505,
       "CodeCurrent": 862850855,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "DBProxy.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -1598377755,
-      "CodeCurrent": 836577063,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "DBProxy.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 674146922,
-      "CodeCurrent": 869508903,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "DBProxy.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -1598360963,
-      "CodeCurrent": 832552743,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "DBProxy.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -905205799,
-      "CodeCurrent": 861607719,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "DBProxy.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 4495137,
-      "CodeCurrent": 863371047,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "DBProxy.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 287597857,
-      "CodeCurrent": 832552743,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "DBProxy.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1348297919,
-      "CodeCurrent": 840005415,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "DBProxy.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 8988409,
-      "CodeCurrent": 862507815,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "DBProxy.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1694881181,
-      "CodeCurrent": 862507815,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "DBProxy.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 143788209,
-      "CodeCurrent": 840005415,
       "CodeNext": 125
     },
     {
@@ -3052,40 +3108,8 @@
       "FileName": "DBProxy.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 847440597,
-      "CodeCurrent": 863460135,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "DBProxy.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 71906577,
-      "CodeCurrent": 869508903,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "DBProxy.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 17978993,
-      "CodeCurrent": 861607719,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "DBProxy.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 4493929,
-      "CodeCurrent": 863460135,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "DBProxy.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 847439985,
-      "CodeCurrent": 863371047,
+      "CodePrev": -1598360963,
+      "CodeCurrent": 832552743,
       "CodeNext": 88263
     },
     {
@@ -3100,8 +3124,64 @@
       "FileName": "DBProxy.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1694881181,
+      "CodeCurrent": 862507815,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "DBProxy.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 674146922,
+      "CodeCurrent": 869508903,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "DBProxy.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": -1598377755,
+      "CodeCurrent": 836577063,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "DBProxy.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 71906577,
+      "CodeCurrent": 869508903,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "DBProxy.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 4495137,
+      "CodeCurrent": 863371047,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "DBProxy.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 143788209,
+      "CodeCurrent": 840005415,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "DBProxy.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
       "CodePrev": 287629329,
       "CodeCurrent": 836577063,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "DBProxy.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 8988409,
+      "CodeCurrent": 862507815,
       "CodeNext": 125
     },
     {
@@ -3109,7 +3189,31 @@
       "ErrorCode": "V2009",
       "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
       "CodePrev": 0,
+      "CodeCurrent": 684253769,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFDeityPart.cpp",
+      "ErrorCode": "V2009",
+      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
+      "CodePrev": 0,
       "CodeCurrent": 603733263,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFDeityPart.cpp",
+      "ErrorCode": "V2009",
+      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
+      "CodePrev": 0,
+      "CodeCurrent": -1540251939,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFDeityPart.cpp",
+      "ErrorCode": "V2009",
+      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
+      "CodePrev": 0,
+      "CodeCurrent": 646935788,
       "CodeNext": 123
     },
     {
@@ -3125,7 +3229,7 @@
       "ErrorCode": "V2009",
       "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
       "CodePrev": 0,
-      "CodeCurrent": 684253769,
+      "CodeCurrent": -1540306755,
       "CodeNext": 123
     },
     {
@@ -3133,7 +3237,7 @@
       "ErrorCode": "V2009",
       "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
       "CodePrev": 0,
-      "CodeCurrent": -1540306755,
+      "CodeCurrent": 69905385,
       "CodeNext": 123
     },
     {
@@ -3150,6 +3254,14 @@
       "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
       "CodePrev": 0,
       "CodeCurrent": 269278301,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFDeityPart.cpp",
+      "ErrorCode": "V2009",
+      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
+      "CodePrev": 0,
+      "CodeCurrent": 654291180,
       "CodeNext": 123
     },
     {
@@ -3174,38 +3286,6 @@
       "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
       "CodePrev": 0,
       "CodeCurrent": 1701011461,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFDeityPart.cpp",
-      "ErrorCode": "V2009",
-      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
-      "CodePrev": 0,
-      "CodeCurrent": 654291180,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFDeityPart.cpp",
-      "ErrorCode": "V2009",
-      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
-      "CodePrev": 0,
-      "CodeCurrent": -1540251939,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFDeityPart.cpp",
-      "ErrorCode": "V2009",
-      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
-      "CodePrev": 0,
-      "CodeCurrent": 646935788,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFDeityPart.cpp",
-      "ErrorCode": "V2009",
-      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
-      "CodePrev": 0,
-      "CodeCurrent": 69905385,
       "CodeNext": 123
     },
     {
@@ -3239,6 +3319,14 @@
       "CodePrev": 123,
       "CodeCurrent": 1345587082,
       "CodeNext": 125
+    },
+    {
+      "FileName": "NFIServerMessageModule.h",
+      "ErrorCode": "V807",
+      "Message": "Decreased performance. Consider creating a pointer to avoid using the \u0027svrPkg.mutable_rpc_info()\u0027 expression repeatedly.",
+      "CodePrev": -67052012,
+      "CodeCurrent": -1135504017,
+      "CodeNext": -1452863155
     },
     {
       "FileName": "NFIDescTemplate.h",
@@ -3497,12 +3585,36 @@
       "CodeNext": 123
     },
     {
+      "FileName": "NFSnsChatPart.cpp",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 0,
+      "CodeCurrent": -171722658,
+      "CodeNext": 175744819
+    },
+    {
       "FileName": "NFDressEquip.hpp",
       "ErrorCode": "V1077",
       "Message": "The \u0027NFEquipSlotInfo\u0027 constructor contains potentially uninitialized members. Inspect the following: m_slot_pos.",
       "CodePrev": 5816,
       "CodeCurrent": 7820725,
       "CodeNext": 123
+    },
+    {
+      "FileName": "ServerInternal.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 917445054,
+      "CodeCurrent": -878904266,
+      "CodeNext": 0
+    },
+    {
+      "FileName": "ServerInternal.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -1712476359,
+      "CodeCurrent": 595388197,
+      "CodeNext": -439180682
     },
     {
       "FileName": "ServerInternal.pb.h",
@@ -3516,9 +3628,9 @@
       "FileName": "ServerInternal.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1712476359,
+      "CodePrev": -1436655089,
       "CodeCurrent": 595388197,
-      "CodeNext": -439180682
+      "CodeNext": 633934193
     },
     {
       "FileName": "ServerInternal.pb.h",
@@ -3548,6 +3660,14 @@
       "FileName": "ServerInternal.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": 2034606365,
+      "CodeCurrent": -816269615,
+      "CodeNext": 1372225
+    },
+    {
+      "FileName": "ServerInternal.pb.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
       "CodePrev": 1204555622,
       "CodeCurrent": -531055726,
       "CodeNext": 0
@@ -3572,33 +3692,9 @@
       "FileName": "ServerInternal.pb.h",
       "ErrorCode": "V2006",
       "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 917445054,
-      "CodeCurrent": -878904266,
-      "CodeNext": 0
-    },
-    {
-      "FileName": "ServerInternal.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": 2034606365,
-      "CodeCurrent": -816269615,
-      "CodeNext": 1372225
-    },
-    {
-      "FileName": "ServerInternal.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
       "CodePrev": -1097546960,
       "CodeCurrent": -816269615,
       "CodeNext": 87915361
-    },
-    {
-      "FileName": "ServerInternal.pb.h",
-      "ErrorCode": "V2006",
-      "Message": "Implicit type conversion from enum type to integer type.",
-      "CodePrev": -1436655089,
-      "CodeCurrent": 595388197,
-      "CodeNext": 633934193
     },
     {
       "FileName": "NFPoint2.h",
@@ -3705,6 +3801,14 @@
       "CodeNext": 123
     },
     {
+      "FileName": "NFTransCacheBase.cpp",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027NFTransCacheBase\u0027 constructor contains potentially uninitialized members. Inspect the following: m_bNotify, m_reqTrans, m_bGetDetail.",
+      "CodePrev": 0,
+      "CodeCurrent": 1370249204,
+      "CodeNext": 123
+    },
+    {
       "FileName": "NFDressEquip.hpp",
       "ErrorCode": "V832",
       "Message": "It\u0027s better to use \u0027\u003d default;\u0027 syntax instead of empty destructor body.",
@@ -3781,7 +3885,7 @@
       "ErrorCode": "V2009",
       "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
       "CodePrev": 0,
-      "CodeCurrent": -159115383,
+      "CodeCurrent": 1763779150,
       "CodeNext": 123
     },
     {
@@ -3797,7 +3901,31 @@
       "ErrorCode": "V2009",
       "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
       "CodePrev": 0,
-      "CodeCurrent": 1763779150,
+      "CodeCurrent": -159115383,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFFacadePart.cpp",
+      "ErrorCode": "V2009",
+      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
+      "CodePrev": 0,
+      "CodeCurrent": 1738664779,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFFacadePart.cpp",
+      "ErrorCode": "V2009",
+      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
+      "CodePrev": 0,
+      "CodeCurrent": 78801566,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFFacadePart.cpp",
+      "ErrorCode": "V2009",
+      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
+      "CodePrev": 0,
+      "CodeCurrent": -303588935,
       "CodeNext": 123
     },
     {
@@ -3813,7 +3941,47 @@
       "ErrorCode": "V2009",
       "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
       "CodePrev": 0,
+      "CodeCurrent": 899292415,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFFacadePart.cpp",
+      "ErrorCode": "V2009",
+      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
+      "CodePrev": 0,
+      "CodeCurrent": 905263871,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFFacadePart.cpp",
+      "ErrorCode": "V2009",
+      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
+      "CodePrev": 0,
+      "CodeCurrent": 1738695323,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFFacadePart.cpp",
+      "ErrorCode": "V2009",
+      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
+      "CodePrev": 0,
       "CodeCurrent": -1255917948,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFFacadePart.cpp",
+      "ErrorCode": "V2009",
+      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
+      "CodePrev": 0,
+      "CodeCurrent": 1737107563,
+      "CodeNext": 123
+    },
+    {
+      "FileName": "NFFacadePart.cpp",
+      "ErrorCode": "V2009",
+      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
+      "CodePrev": 0,
+      "CodeCurrent": 885215743,
       "CodeNext": 123
     },
     {
@@ -3849,67 +4017,11 @@
       "CodeNext": 123
     },
     {
-      "FileName": "NFFacadePart.cpp",
-      "ErrorCode": "V2009",
-      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
+      "FileName": "NFPlayerSimple.cpp",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027NFPlayerSimple\u0027 constructor contains potentially uninitialized members. Inspect the following: m_isInited, m_proxyId, m_gameId, m_logicId, m_isOnline, ....",
       "CodePrev": 0,
-      "CodeCurrent": 905263871,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFFacadePart.cpp",
-      "ErrorCode": "V2009",
-      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
-      "CodePrev": 0,
-      "CodeCurrent": 1738695323,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFFacadePart.cpp",
-      "ErrorCode": "V2009",
-      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
-      "CodePrev": 0,
-      "CodeCurrent": 899292415,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFFacadePart.cpp",
-      "ErrorCode": "V2009",
-      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
-      "CodePrev": 0,
-      "CodeCurrent": 1738664779,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFFacadePart.cpp",
-      "ErrorCode": "V2009",
-      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
-      "CodePrev": 0,
-      "CodeCurrent": 1737107563,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFFacadePart.cpp",
-      "ErrorCode": "V2009",
-      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
-      "CodePrev": 0,
-      "CodeCurrent": 885215743,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFFacadePart.cpp",
-      "ErrorCode": "V2009",
-      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
-      "CodePrev": 0,
-      "CodeCurrent": 78801566,
-      "CodeNext": 123
-    },
-    {
-      "FileName": "NFFacadePart.cpp",
-      "ErrorCode": "V2009",
-      "Message": "Consider passing the \u0027packet\u0027 argument as a reference to const.",
-      "CodePrev": 0,
-      "CodeCurrent": -303588935,
+      "CodeCurrent": 803352533,
       "CodeNext": 123
     },
     {
@@ -3927,6 +4039,14 @@
       "CodePrev": 0,
       "CodeCurrent": 255262619,
       "CodeNext": 0
+    },
+    {
+      "FileName": "NFLoadCacheMgr.cpp",
+      "ErrorCode": "V1077",
+      "Message": "The \u0027NFLoadCacheMgr\u0027 constructor contains potentially uninitialized members. Inspect the following: flag, m_refreshTimer, m_refreshRpcTimer.",
+      "CodePrev": 0,
+      "CodeCurrent": -1368019390,
+      "CodeNext": 123
     },
     {
       "FileName": "NFFunctionUnlockPart.cpp",
@@ -4007,6 +4127,14 @@
       "CodePrev": 390480,
       "CodeCurrent": 123,
       "CodeNext": 31033
+    },
+    {
+      "FileName": "NFIServerMessageModule.h",
+      "ErrorCode": "V560",
+      "Message": "A part of conditional expression is always true: iRet \u003d\u003d _.",
+      "CodePrev": -1040478228,
+      "CodeCurrent": 322744874,
+      "CodeNext": 123
     },
     {
       "FileName": "NFPackageDefine.h",
@@ -4092,6 +4220,22 @@
       "FileName": "Com.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": -2098672549,
+      "CodeCurrent": 1005692711,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1150571073,
+      "CodeCurrent": 974393127,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
       "CodePrev": 847440361,
       "CodeCurrent": 863266599,
       "CodeNext": 88263
@@ -4116,110 +4260,6 @@
       "FileName": "Com.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1123449,
-      "CodeCurrent": 864011047,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -1598417631,
-      "CodeCurrent": 830006055,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1150571073,
-      "CodeCurrent": 974393127,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1348303295,
-      "CodeCurrent": 839677735,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -1598407455,
-      "CodeCurrent": 827400999,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 674152426,
-      "CodeCurrent": 868624167,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 4494513,
-      "CodeCurrent": 863254311,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1098161324,
-      "CodeCurrent": 935426855,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1348286959,
-      "CodeCurrent": 843851559,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 143788209,
-      "CodeCurrent": 840005415,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -2098672549,
-      "CodeCurrent": 1005692711,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1348297919,
-      "CodeCurrent": 840005415,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1150694713,
-      "CodeCurrent": 992457511,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
       "CodePrev": 211859997,
       "CodeCurrent": 864011047,
       "CodeNext": 88263
@@ -4228,97 +4268,9 @@
       "FileName": "Com.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 847440637,
-      "CodeCurrent": 863466279,
+      "CodePrev": -2098538557,
+      "CodeCurrent": 971652903,
       "CodeNext": 88263
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 71900689,
-      "CodeCurrent": 868624167,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 143798961,
-      "CodeCurrent": 839677735,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 287635601,
-      "CodeCurrent": 835807015,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -1598421019,
-      "CodeCurrent": 829040423,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1348277359,
-      "CodeCurrent": 845260583,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 575289513,
-      "CodeCurrent": 935426855,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 4494361,
-      "CodeCurrent": 863265575,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 4495129,
-      "CodeCurrent": 863363879,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 4494353,
-      "CodeCurrent": 863266599,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 287641769,
-      "CodeCurrent": 824539943,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 4493881,
-      "CodeCurrent": 863466279,
-      "CodeNext": 125
     },
     {
       "FileName": "Com.pb.h",
@@ -4332,16 +4284,32 @@
       "FileName": "Com.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 287673873,
-      "CodeCurrent": 829040423,
+      "CodePrev": 674143082,
+      "CodeCurrent": 870491943,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 847440365,
+      "CodeCurrent": 863265575,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 71915281,
+      "CodeCurrent": 870491943,
       "CodeNext": 125
     },
     {
       "FileName": "Com.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 4494817,
-      "CodeCurrent": 863280935,
+      "CodePrev": 8989097,
+      "CodeCurrent": 862944039,
       "CodeNext": 125
     },
     {
@@ -4364,65 +4332,25 @@
       "FileName": "Com.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -2098718129,
-      "CodeCurrent": 992457511,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 35960953,
-      "CodeCurrent": 859509543,
+      "CodePrev": 4494817,
+      "CodeCurrent": 863280935,
       "CodeNext": 125
     },
     {
       "FileName": "Com.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 847440365,
-      "CodeCurrent": 863265575,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 306829456,
-      "CodeCurrent": 445736743,
+      "CodePrev": 143798961,
+      "CodeCurrent": 839677735,
       "CodeNext": 125
     },
     {
       "FileName": "Com.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1694880309,
-      "CodeCurrent": 862944039,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 674143082,
-      "CodeCurrent": 870491943,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 143831569,
-      "CodeCurrent": 843851559,
+      "CodePrev": 4495129,
+      "CodeCurrent": 863363879,
       "CodeNext": 125
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1098156132,
-      "CodeCurrent": 936751911,
-      "CodeNext": 88263
     },
     {
       "FileName": "Com.pb.h",
@@ -4436,48 +4364,16 @@
       "FileName": "Com.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 2246969,
-      "CodeCurrent": 863507239,
+      "CodePrev": 4494361,
+      "CodeCurrent": 863265575,
       "CodeNext": 125
     },
     {
       "FileName": "Com.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 71915281,
-      "CodeCurrent": 870491943,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -1810414372,
-      "CodeCurrent": 859509543,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -2098648589,
-      "CodeCurrent": 974393127,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -2098538557,
-      "CodeCurrent": 971652903,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "Com.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 195619939,
-      "CodeCurrent": 445736743,
+      "CodePrev": 1348297919,
+      "CodeCurrent": 840005415,
       "CodeNext": 88263
     },
     {
@@ -4492,24 +4388,144 @@
       "FileName": "Com.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 847439981,
-      "CodeCurrent": 863363879,
+      "CodePrev": 847440145,
+      "CodeCurrent": 863280935,
       "CodeNext": 88263
     },
     {
       "FileName": "Com.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1150785809,
-      "CodeCurrent": 1005692711,
+      "CodePrev": -2098718129,
+      "CodeCurrent": 992457511,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 143831569,
+      "CodeCurrent": 843851559,
       "CodeNext": 125
     },
     {
       "FileName": "Com.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 847440145,
-      "CodeCurrent": 863280935,
+      "CodePrev": -2098648589,
+      "CodeCurrent": 974393127,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 2246969,
+      "CodeCurrent": 863507239,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1348286959,
+      "CodeCurrent": 843851559,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 195619939,
+      "CodeCurrent": 445736743,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1150694713,
+      "CodeCurrent": 992457511,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 287641769,
+      "CodeCurrent": 824539943,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 575289513,
+      "CodeCurrent": 935426855,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 847440637,
+      "CodeCurrent": 863466279,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1123449,
+      "CodeCurrent": 864011047,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 306829456,
+      "CodeCurrent": 445736743,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": -1810414372,
+      "CodeCurrent": 859509543,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": -1598417631,
+      "CodeCurrent": 830006055,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": -1598421019,
+      "CodeCurrent": 829040423,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 4493881,
+      "CodeCurrent": 863466279,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1694880309,
+      "CodeCurrent": 862944039,
       "CodeNext": 88263
     },
     {
@@ -4524,9 +4540,41 @@
       "FileName": "Com.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 8989097,
-      "CodeCurrent": 862944039,
+      "CodePrev": 1348303295,
+      "CodeCurrent": 839677735,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 847439981,
+      "CodeCurrent": 863363879,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1348277359,
+      "CodeCurrent": 845260583,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 4494513,
+      "CodeCurrent": 863254311,
       "CodeNext": 125
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1098161324,
+      "CodeCurrent": 935426855,
+      "CodeNext": 88263
     },
     {
       "FileName": "Com.pb.h",
@@ -4534,6 +4582,86 @@
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
       "CodePrev": 423720445,
       "CodeCurrent": 863507239,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 35960953,
+      "CodeCurrent": 859509543,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 143788209,
+      "CodeCurrent": 840005415,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 287635601,
+      "CodeCurrent": 835807015,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 287673873,
+      "CodeCurrent": 829040423,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 4494353,
+      "CodeCurrent": 863266599,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": -1598407455,
+      "CodeCurrent": 827400999,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1098156132,
+      "CodeCurrent": 936751911,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 71900689,
+      "CodeCurrent": 868624167,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1150785809,
+      "CodeCurrent": 1005692711,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "Com.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 674152426,
+      "CodeCurrent": 868624167,
       "CodeNext": 88263
     },
     {
@@ -4623,6 +4751,14 @@
       "CodePrev": 0,
       "CodeCurrent": -1040478228,
       "CodeNext": 88199
+    },
+    {
+      "FileName": "NFIServerMessageModule.h",
+      "ErrorCode": "V547",
+      "Message": "Expression \u0027iRet \u003d\u003d _\u0027 is always true.",
+      "CodePrev": 123,
+      "CodeCurrent": 92853,
+      "CodeNext": 123
     },
     {
       "FileName": "EquipDescEx.h",
@@ -4804,9 +4940,89 @@
       "FileName": "E_Equip.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 575219345,
+      "CodeCurrent": 911107879,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
       "CodePrev": 17975825,
       "CodeCurrent": 861218599,
       "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 35953521,
+      "CodeCurrent": 858429223,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": -905205579,
+      "CodeCurrent": 861174567,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1694880857,
+      "CodeCurrent": 862525223,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 575227801,
+      "CodeCurrent": 914285351,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 391461393,
+      "CodeCurrent": 1682328359,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": -905205271,
+      "CodeCurrent": 861218599,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 613438067,
+      "CodeCurrent": 1632900903,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": -1861601443,
+      "CodeCurrent": -1234726027,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 391129165,
+      "CodeCurrent": 1632900903,
+      "CodeNext": 88263
     },
     {
       "FileName": "E_Equip.pb.h",
@@ -4828,128 +5044,32 @@
       "FileName": "E_Equip.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1348290375,
-      "CodeCurrent": 842174247,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 575219345,
-      "CodeCurrent": 911107879,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -1994109863,
-      "CodeCurrent": 668664615,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1348294619,
-      "CodeCurrent": 841093927,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1566084313,
-      "CodeCurrent": 1677149990,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1963477376,
-      "CodeCurrent": 455937826,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1150455025,
+      "CodePrev": -2098575701,
       "CodeCurrent": 964384551,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 97789608,
+      "CodeCurrent": 668664615,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": -1838558599,
+      "CodeCurrent": 1871976230,
       "CodeNext": 125
     },
     {
       "FileName": "E_Equip.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 423720209,
-      "CodeCurrent": 863567655,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1098205760,
-      "CodeCurrent": 907515687,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1694880857,
-      "CodeCurrent": 862525223,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1350864458,
-      "CodeCurrent": -1234726027,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 2246881,
-      "CodeCurrent": 863567655,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1225826403,
-      "CodeCurrent": 455937826,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 17976897,
-      "CodeCurrent": 861343527,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1098191792,
-      "CodeCurrent": 911107879,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -1838082855,
-      "CodeCurrent": 1677149990,
+      "CodePrev": 17976297,
+      "CodeCurrent": 861264679,
       "CodeNext": 125
     },
     {
@@ -4972,78 +5092,6 @@
       "FileName": "E_Equip.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 306790096,
-      "CodeCurrent": 451036967,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -905204799,
-      "CodeCurrent": 861343527,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 306992320,
-      "CodeCurrent": 408375079,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -1810410152,
-      "CodeCurrent": 858429223,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 97789608,
-      "CodeCurrent": 668664615,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 17976297,
-      "CodeCurrent": 861264679,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 17975465,
-      "CodeCurrent": 861174567,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -1838558599,
-      "CodeCurrent": 1871976230,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 575247729,
-      "CodeCurrent": 907515687,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
       "CodePrev": 782311153,
       "CodeCurrent": -1772087513,
       "CodeNext": 88263
@@ -5052,168 +5100,8 @@
       "FileName": "E_Equip.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -997583104,
-      "CodeCurrent": 1986498149,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 575227801,
-      "CodeCurrent": 914285351,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1098189020,
-      "CodeCurrent": 911543079,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 306742536,
-      "CodeCurrent": 440380199,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 391461393,
-      "CodeCurrent": 1682328359,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 143806273,
-      "CodeCurrent": 842174247,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1150445041,
-      "CodeCurrent": 957339431,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 391329233,
-      "CodeCurrent": 1648986919,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -1840981887,
-      "CodeCurrent": 2031184678,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1098195764,
-      "CodeCurrent": 914285351,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1350864466,
-      "CodeCurrent": -1234728075,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -905205271,
-      "CodeCurrent": 861218599,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -2098575701,
-      "CodeCurrent": 964384551,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -997583056,
-      "CodeCurrent": 1986500197,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 391158229,
-      "CodeCurrent": 1642434343,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -2098543417,
-      "CodeCurrent": 972634919,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 613495107,
-      "CodeCurrent": 1642434343,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
       "CodePrev": -2098580949,
       "CodeCurrent": 957339431,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 609338063,
-      "CodeCurrent": 454378805,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 613438067,
-      "CodeCurrent": 1632900903,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 195576495,
-      "CodeCurrent": 440380199,
       "CodeNext": 88263
     },
     {
@@ -5228,6 +5116,110 @@
       "FileName": "E_Equip.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": -905204799,
+      "CodeCurrent": 861343527,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": -997583056,
+      "CodeCurrent": 1986500197,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 195576495,
+      "CodeCurrent": 440380199,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 613495107,
+      "CodeCurrent": 1642434343,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1150445041,
+      "CodeCurrent": 957339431,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": -2098543417,
+      "CodeCurrent": 972634919,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1150455025,
+      "CodeCurrent": 964384551,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1150519337,
+      "CodeCurrent": 972634919,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 2246881,
+      "CodeCurrent": 863567655,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1348290375,
+      "CodeCurrent": 842174247,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 575247729,
+      "CodeCurrent": 907515687,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1225826403,
+      "CodeCurrent": 455937826,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1350864466,
+      "CodeCurrent": -1234728075,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
       "CodePrev": -1861601427,
       "CodeCurrent": -1234728075,
       "CodeNext": 125
@@ -5236,40 +5228,72 @@
       "FileName": "E_Equip.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1650219816,
-      "CodeCurrent": 1986500197,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1650219824,
-      "CodeCurrent": 1986498149,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -1861601443,
-      "CodeCurrent": -1234726027,
+      "CodePrev": 143806273,
+      "CodeCurrent": 842174247,
       "CodeNext": 125
     },
     {
       "FileName": "E_Equip.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1564633845,
-      "CodeCurrent": 2031184678,
+      "CodePrev": -1994109863,
+      "CodeCurrent": 668664615,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 391158229,
+      "CodeCurrent": 1642434343,
       "CodeNext": 88263
     },
     {
       "FileName": "E_Equip.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 8988017,
-      "CodeCurrent": 862525223,
+      "CodePrev": 195600195,
+      "CodeCurrent": 451036967,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1348294619,
+      "CodeCurrent": 841093927,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1566084313,
+      "CodeCurrent": 1677149990,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 423720209,
+      "CodeCurrent": 863567655,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 847440637,
+      "CodeCurrent": 863466279,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": -1994123575,
+      "CodeCurrent": 670452519,
       "CodeNext": 125
     },
     {
@@ -5284,25 +5308,17 @@
       "FileName": "E_Equip.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 316826378,
-      "CodeCurrent": 454378805,
+      "CodePrev": 1350864458,
+      "CodeCurrent": -1234726027,
       "CodeNext": 88263
     },
     {
       "FileName": "E_Equip.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 1150519337,
-      "CodeCurrent": 972634919,
+      "CodePrev": 8988017,
+      "CodeCurrent": 862525223,
       "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 847440637,
-      "CodeCurrent": 863466279,
-      "CodeNext": 88263
     },
     {
       "FileName": "E_Equip.pb.h",
@@ -5324,6 +5340,142 @@
       "FileName": "E_Equip.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1098195764,
+      "CodeCurrent": 914285351,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 609338063,
+      "CodeCurrent": 454378805,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": -1810410152,
+      "CodeCurrent": 858429223,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 391329233,
+      "CodeCurrent": 1648986919,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": -1838082855,
+      "CodeCurrent": 1677149990,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1963477376,
+      "CodeCurrent": 455937826,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 316826378,
+      "CodeCurrent": 454378805,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1564633845,
+      "CodeCurrent": 2031184678,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 306790096,
+      "CodeCurrent": 451036967,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 306742536,
+      "CodeCurrent": 440380199,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "NFIServerMessageModule.h",
+      "ErrorCode": "V2006",
+      "Message": "Implicit type conversion from enum type to integer type.",
+      "CodePrev": -399875803,
+      "CodeCurrent": -1032743231,
+      "CodeNext": 543681645
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 17976897,
+      "CodeCurrent": 861343527,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 306992320,
+      "CodeCurrent": 408375079,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 17975465,
+      "CodeCurrent": 861174567,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 613837131,
+      "CodeCurrent": 1648986919,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": -1840981887,
+      "CodeCurrent": 2031184678,
+      "CodeNext": 125
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1650219816,
+      "CodeCurrent": 1986500197,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
       "CodePrev": 143814265,
       "CodeCurrent": 841093927,
       "CodeNext": 125
@@ -5332,48 +5484,16 @@
       "FileName": "E_Equip.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -905205579,
-      "CodeCurrent": 861174567,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 195600195,
-      "CodeCurrent": 451036967,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 35953521,
-      "CodeCurrent": 858429223,
+      "CodePrev": 575213641,
+      "CodeCurrent": 911543079,
       "CodeNext": 125
     },
     {
       "FileName": "E_Equip.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": -1994123575,
-      "CodeCurrent": 670452519,
-      "CodeNext": 125
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 391129165,
-      "CodeCurrent": 1632900903,
-      "CodeNext": 88263
-    },
-    {
-      "FileName": "E_Equip.pb.h",
-      "ErrorCode": "V2018",
-      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 613837131,
-      "CodeCurrent": 1648986919,
+      "CodePrev": -997583104,
+      "CodeCurrent": 1986498149,
       "CodeNext": 125
     },
     {
@@ -5388,9 +5508,33 @@
       "FileName": "E_Equip.pb.h",
       "ErrorCode": "V2018",
       "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
-      "CodePrev": 575213641,
+      "CodePrev": 1650219824,
+      "CodeCurrent": 1986498149,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1098189020,
       "CodeCurrent": 911543079,
-      "CodeNext": 125
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1098191792,
+      "CodeCurrent": 911107879,
+      "CodeNext": 88263
+    },
+    {
+      "FileName": "E_Equip.pb.h",
+      "ErrorCode": "V2018",
+      "Message": "Cast should not remove \u0027const\u0027 qualifier from the type that is pointed to by a pointer.",
+      "CodePrev": 1098205760,
+      "CodeCurrent": 907515687,
+      "CodeNext": 88263
     },
     {
       "FileName": "ServerInternalCmd2.pb.h",
