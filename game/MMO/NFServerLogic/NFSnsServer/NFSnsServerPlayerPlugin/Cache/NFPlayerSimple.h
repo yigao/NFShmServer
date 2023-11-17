@@ -9,6 +9,8 @@
 
 #pragma once
 
+#include <NFLogicCommon/NFPlayerStatus.h>
+
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
@@ -19,7 +21,7 @@
 #include "DBProxy2_s.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-class NFPlayerSimple : public NFShmObjTemplate<NFPlayerSimple, EOT_SNS_ROLE_SIMPLE_ID, NFShmObj>
+class NFPlayerSimple : public NFShmObjTemplate<NFPlayerSimple, EOT_SNS_ROLE_SIMPLE_ID, NFShmObj>, public NFPlayerStatus
 {
 public:
     NFPlayerSimple();
@@ -33,7 +35,15 @@ public:
 public:
     //must be virtual
     virtual int OnTimer(int timeId, int callcount);
+public:
+    /**
+     * \brief 处理继承NFPlayerStatus 负责玩家数据的生命周期管理
+     */
+    virtual uint64_t StatusId() const { return GetCid(); }
 
+    virtual bool IsCanLogout();
+
+    bool CanDelete();
 public:
     uint64_t GetCid() const;
 
@@ -78,10 +88,6 @@ public:
     uint64_t SceneId() const { return m_data.base.enter_scene_id; }
     //设置场景ID
     void SceneId(uint64_t sceneid) { m_data.base.enter_scene_id = sceneid; }
-    //是否在线
-    bool IsOnline() const { return m_isOnline; }
-    //设置是否在线
-    void IsOnline(bool isonline) { m_isOnline = isonline; }
     //填充玩家数据
     void FillPlayerProto(proto_ff::RolePlayerMiniInfo* proto) const;
     //获取修真
@@ -189,8 +195,6 @@ public:
 
     void SetProxyId(uint32_t proxyId);
 
-    void SetIsOnline(bool isOnline);
-
 public:
     int SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message& xData);
 
@@ -203,8 +207,6 @@ public:
     int SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Message& xData);
     int SendTransToGameServer(uint32_t msgId, const google::protobuf::Message& xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
 
-public:
-    bool CanDelete();
 private:
     /**
      * @brief
@@ -228,9 +230,4 @@ private:
      * @brief
      */
     uint32_t m_gameId;
-
-    /**
-     * @brief
-     */
-    bool m_isOnline;
 };

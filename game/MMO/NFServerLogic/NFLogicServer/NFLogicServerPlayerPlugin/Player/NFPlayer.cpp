@@ -54,10 +54,6 @@ int NFPlayer::CreateInit()
     m_zid = 0;
 
     ///////////////////////////
-    m_iStatus = proto_ff::PLAYER_STATUS_NONE;
-    m_lastDiconnectTime = 0;
-    m_lastCreateTime = NFTime::Now().UnixSec();
-    m_lastLogoutTime = 0;
     m_lastSavingDBTime = 0;
     m_iTransNum = 0;
     m_saveDBTimer = INVALID_ID;
@@ -112,85 +108,61 @@ int NFPlayer::OnTimer(int timeId, int callcount)
     return 0;
 }
 
-void NFPlayer::Tick()
+bool NFPlayer::IsCanLogout()
 {
-    switch (m_iStatus)
+    if (m_iTransNum > 0 || FindModule<NFICoroutineModule>()->IsExistUserCo(m_cid))
     {
-        case proto_ff::PLAYER_STATUS_NONE:
+        if ((uint64_t)NFTime::Now().UnixSec() - m_createTime < PLAYER_MAX_DISCONNECT_RECONNECT_TIME * m_timeMulti * 3)
+            return false;
+    }
+
+    if (IsInBattle() || IsInTransSceneing())
+    {
+        if ((uint64_t)NFTime::Now().UnixSec() - m_createTime < PLAYER_MAX_DISCONNECT_RECONNECT_TIME * m_timeMulti * 3)
+            return false;
+    }
+    return true;
+}
+
+int NFPlayer::DoOnline()
+{
+    Update();
+    return 0;
+}
+
+bool NFPlayer::IsCanDead()
+{
+    if (FindModule<NFICoroutineModule>()->IsExistUserCo(m_cid))
+    {
+        return false;
+    }
+
+    if (!IsUrgentNeedSave())
+    {
+        if (m_iTransNum <= 0)
         {
-            if ((uint64_t)NFTime::Now().UnixSec() - m_lastCreateTime < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME)
-                break;
-
-            if (m_iTransNum > 0 || FindModule<NFICoroutineModule>()->IsExistUserCo(m_cid))
-            {
-                if ((uint64_t)NFTime::Now().UnixSec() - m_lastCreateTime < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME_IN_GAME)
-                    break;
-            }
-
-            if (IsInBattle())
-            {
-                if ((uint64_t)NFTime::Now().UnixSec() - m_lastCreateTime < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME_IN_GAME)
-                    break;
-            }
-
-            SetStatus(proto_ff::PLAYER_STATUS_DEAD);
-            NFLogInfo(NF_LOG_SYSTEMLOG, GetCid(), "player:{} status:PLAYER_STATUS_NONE change to PLAYER_STATUS_DEAD", GetCid());
-        }
-        break;
-        case proto_ff::PLAYER_STATUS_ONLINE:
-        {
-            Update();
-        }
-        break;
-        case proto_ff::PLAYER_STATUS_OFFLINE:
-        {
-            if ((uint64_t)NFTime::Now().UnixSec() - GetLastDisconnectTime() < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME)
-                break;
-
-            if (m_iTransNum > 0 || FindModule<NFICoroutineModule>()->IsExistUserCo(m_cid))
-            {
-                if ((uint64_t)NFTime::Now().UnixSec() - GetLastDisconnectTime() < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME_IN_GAME)
-                    break;
-            }
-
-            if (IsInBattle() || IsInTransSceneing())
-            {
-                if ((uint64_t)NFTime::Now().UnixSec() - GetLastDisconnectTime() < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME_IN_GAME)
-                    break;
-            }
-
-            SetStatus(proto_ff::PLAYER_STATUS_LOGOUT);
-            SetLastLogtouTime(NFTime::Now().UnixSec());
-            MarkDirty();
-            NFLogInfo(NF_LOG_SYSTEMLOG, GetCid(), "player:{} status:PLAYER_STATUS_OFFLINE change to PLAYER_STATUS_LOGOUT", GetCid());
-        }
-        break;
-        case proto_ff::PLAYER_STATUS_LOGOUT:
-        default:
-        {
-            if (FindModule<NFICoroutineModule>()->IsExistUserCo(m_cid))
-            {
-                break;
-            }
-
-            if (!IsUrgentNeedSave())
-            {
-                if (m_iTransNum <= 0)
-                {
-                    OnLogout();
-                }
-            }
-            else if (!IsInSaving())
-            {
-                if ((m_lastSavingDBTime + LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME < (uint64_t)NFTime::Now().UnixSec() &&
-                     m_lastSavingDBTime + 86400 > (uint64_t)NFTime::Now().UnixSec()) || m_pObjPluginManager->IsServerStopping())
-                {
-                    SendTransToDB(TRANS_SAVEROLEDETAIL_LOGOUT);
-                }
-            }
-            break;
+            return true;
         }
     }
+    else if (IsInSaving())
+    {
+        return false;
+    }
+    else
+    {
+        if ((m_lastSavingDBTime + LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME < (uint64_t)NFTime::Now().UnixSec() &&
+            m_lastSavingDBTime + 86400 > (uint64_t)NFTime::Now().UnixSec()) || m_pObjPluginManager->IsServerStopping())
+        {
+            SendTransToDB(TRANS_SAVEROLEDETAIL_LOGOUT);
+        }
+    }
+    return false;
+}
+
+int NFPlayer::DoLogout()
+{
+    OnLogout();
+    return 0;
 }
 
 int NFPlayer::Init(const proto_ff::RoleDBData& dbData)
@@ -463,18 +435,6 @@ bool NFPlayer::IsNeedSave()
     return false;
 }
 
-int NFPlayer::SaveToDB(TRANS_SAVEROLEDETAIL_REASON iReason, bool bForce)
-{
-    if (IsNeedSave())
-    {
-        if (bForce || NFTime::Now().UnixSec() - m_lastSavingDBTime >= LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME)
-        {
-            SendTransToDB(iReason);
-        }
-    }
-    return 0;
-}
-
 int NFPlayer::SendTransToDB(TRANS_SAVEROLEDETAIL_REASON iReason)
 {
     NFTransSaveDB* pSave = (NFTransSaveDB *)FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_SAVE_PLAYER);
@@ -488,16 +448,6 @@ int NFPlayer::SendTransToDB(TRANS_SAVEROLEDETAIL_REASON iReason)
     }
 
     return iRet;
-}
-
-int NFPlayer::OnSaveDB(bool success, uint32_t seq)
-{
-    m_lastSavingDBTime = 0;
-    if (success && seq == GetAllSeq())
-    {
-        ClearAllSeq();
-    }
-    return 0;
 }
 
 uint32_t NFPlayer::GetAllSeq()

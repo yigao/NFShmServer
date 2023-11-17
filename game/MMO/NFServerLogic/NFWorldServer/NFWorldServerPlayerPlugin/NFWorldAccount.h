@@ -9,6 +9,8 @@
 
 #pragma once
 
+#include <NFLogicCommon/NFPlayerStatus.h>
+
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
@@ -17,7 +19,7 @@
 #include "NFComm/NFShmStl/NFShmHashSet.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-class NFWorldAccount : public NFShmObjTemplate<NFWorldAccount, EOT_WORLD_ACCOUNT_ID, NFShmObj>
+class NFWorldAccount : public NFShmObjTemplate<NFWorldAccount, EOT_WORLD_ACCOUNT_ID, NFShmObj>, public NFPlayerStatus
 {
 public:
     NFWorldAccount();
@@ -27,10 +29,13 @@ public:
     int CreateInit();
 
     int ResumeInit();
-public:
-    int Tick();
-public:
 
+public:
+    /**
+     * \brief 处理继承NFPlayerStatus 负责玩家数据的生命周期管理
+     */
+    virtual uint64_t StatusId() const { return GetUid(); }
+public:
     uint64_t GetUid() const;
 
     void SetUid(uint64_t uid);
@@ -42,26 +47,6 @@ public:
     uint64_t GetClientId() const;
 
     void SetClientId(uint64_t clientId);
-
-    proto_ff::enPlayerStatus GetStatus() const;
-
-    void SetStatus(proto_ff::enPlayerStatus status);
-
-    uint64_t GetCreateTime() const;
-
-    void SetCreateTime(uint64_t createTime);
-
-    uint64_t GetLastDiconnectTime() const;
-
-    void SetLastDiconnectTime(uint64_t lastDiconnectTime);
-
-    uint64_t GetLastLogoutTime() const;
-
-    void SetLastLogoutTime(uint64_t lastLogoutTime);
-
-    bool IsDisconnect() const;
-
-    void SetIsDisconnect(bool isDisconnect);
 
     uint64_t GetCid() const;
 
@@ -80,6 +65,7 @@ public:
     void SetBornZid(uint32_t bornZid);
 
     uint32_t GetBornZid() const;
+
 private:
     /**
      * @brief
@@ -103,15 +89,6 @@ private:
     uint32_t m_proxyId;
     uint64_t m_clientId;
 
-private:
-    /**
-     * @brief
-     */
-    proto_ff::enPlayerStatus m_status;
-    uint64_t m_createTime;
-    uint64_t m_lastDiconnectTime;
-    uint64_t m_lastLogoutTime;
-    bool m_isDisconnect;
 private:
     uint64_t m_cid;
     NFShmHashSet<uint64_t, MAX_ROLE_NUM> m_roleSet;

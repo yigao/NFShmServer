@@ -45,7 +45,6 @@ int NFPlayerDetail::CreateInit()
     m_proxyId = 0;
     m_gameId = 0;
     m_logicId = 0;
-    m_isOnline = false;
     m_isInited = false;
     return 0;
 }
@@ -92,7 +91,7 @@ void NFPlayerDetail::SetZid(uint32_t zid)
 
 bool NFPlayerDetail::CanDelete()
 {
-    if (m_isOnline)
+    if (!IsDeadStatus())
     {
         return false;
     }
@@ -204,6 +203,36 @@ int NFPlayerDetail::OnTimer(int timeId, int callcount)
         SaveToDB();
     }
     return 0;
+}
+
+bool NFPlayerDetail::IsCanLogout()
+{
+    if (FindModule<NFICoroutineModule>()->IsExistUserCo(GetCid()))
+    {
+        return false;
+    }
+
+    return true;
+}
+
+int NFPlayerDetail::DoOnline()
+{
+    return Update();
+}
+
+bool NFPlayerDetail::IsCanDead()
+{
+    if (FindModule<NFICoroutineModule>()->IsExistUserCo(m_cid))
+    {
+        return false;
+    }
+
+    return true;
+}
+
+int NFPlayerDetail::DoLogout()
+{
+    return NFPlayerStatus::DoLogout();
 }
 
 NFSnsPart* NFPlayerDetail::GetPart(uint32_t partType)
@@ -341,19 +370,7 @@ bool NFPlayerDetail::IsNeedSave()
     return false;
 }
 
-int NFPlayerDetail::SaveToDB(bool bForce)
-{
-    if (IsNeedSave())
-    {
-        if (bForce || NFTime::Now().UnixSec() - m_lastSavingDBTime >= LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME)
-        {
-            SendTransToDB();
-        }
-    }
-    return 0;
-}
-
-int NFPlayerDetail::SendTransToDB()
+int NFPlayerDetail::SendTransToDB(TRANS_SAVEROLEDETAIL_REASON iReason)
 {
     NFSnsTransSaveDetailDB* pSave = (NFSnsTransSaveDetailDB *)FindModule<NFISharedMemModule>()->CreateTrans(EOT_SNS_TRANS_SAVE_PLAYER_DETAIL);
     CHECK_EXPR(pSave, -1, "Create Trans:NFTransSaveDB Failed! ");
@@ -365,16 +382,6 @@ int NFPlayerDetail::SendTransToDB()
     }
 
     return iRet;
-}
-
-int NFPlayerDetail::OnSaveDB(bool success, uint32_t seq)
-{
-    m_lastSavingDBTime = 0;
-    if (success && seq == GetAllSeq())
-    {
-        ClearAllSeq();
-    }
-    return 0;
 }
 
 uint32_t NFPlayerDetail::GetAllSeq()
@@ -466,16 +473,6 @@ uint32_t NFPlayerDetail::GetGameId() const
 void NFPlayerDetail::SetGameId(uint32_t gameId)
 {
     m_gameId = gameId;
-}
-
-bool NFPlayerDetail::IsOnline() const
-{
-    return m_isOnline;
-}
-
-void NFPlayerDetail::SetIsOnline(bool isOnline)
-{
-    m_isOnline = isOnline;
 }
 
 int NFPlayerDetail::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message& xData)

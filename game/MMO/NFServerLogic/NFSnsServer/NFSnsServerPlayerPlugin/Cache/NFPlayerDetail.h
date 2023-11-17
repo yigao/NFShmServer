@@ -9,6 +9,9 @@
 
 #pragma once
 
+#include <NFLogicCommon/NFISaveDB.h>
+#include <NFLogicCommon/NFPlayerStatus.h>
+
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
@@ -27,7 +30,7 @@
 class NFSnsPart;
 class NFPlayerSimple;
 
-class NFPlayerDetail : public NFShmObjTemplate<NFPlayerDetail, EOT_SNS_ROLE_DETAIL_ID, NFShmObj>, public NFSeqOP
+class NFPlayerDetail : public NFShmObjTemplate<NFPlayerDetail, EOT_SNS_ROLE_DETAIL_ID, NFShmObj>, public NFISaveDB, public NFPlayerStatus
 {
 public:
     NFPlayerDetail();
@@ -59,11 +62,23 @@ public:
     void SetIsInited(bool isInited);
 
 public:
-    bool CanDelete();
-
-public:
     //must be virtual
     virtual int OnTimer(int timeId, int callcount);
+
+public:
+    /**
+     * \brief 处理继承NFPlayerStatus 负责玩家数据的生命周期管理
+     */
+    virtual uint64_t StatusId() const { return GetCid(); }
+    virtual bool IsCanLogout();
+
+    virtual int DoOnline();
+
+    virtual bool IsCanDead();
+
+    virtual int DoLogout();
+
+    bool CanDelete();
 
 public:
     /**
@@ -93,10 +108,6 @@ public:
 
     void SetProxyId(uint32_t proxyId);
 
-    bool IsOnline() const;
-
-    void SetIsOnline(bool isOnline);
-
 public:
     int SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message& xData);
 
@@ -111,12 +122,8 @@ public:
 
 public:
     /**
-     * @brief save db
-     * @return
-     */
-    uint64_t GetLastSaveDBTime() const { return m_lastSavingDBTime; }
-    void SetLastSaveDBTime(uint64_t saveTime) { m_lastSavingDBTime = saveTime; }
-    bool IsInSaving() { return m_lastSavingDBTime > 0 && m_lastSavingDBTime + TRANS_ACTIVE_TIMEOUT + 5 >= (uint64_t)NFTime::Now().UnixSec(); }
+    * \brief 处理继承NFISaveDB
+    */
     bool IsNeedSave();
 
     /**
@@ -124,23 +131,7 @@ public:
      * @param iReason
      * @return
      */
-    int SendTransToDB();
-
-    /**
-     * @brief
-     * @param iReason
-     * @param bForce
-     * @return
-     */
-    int SaveToDB(bool bForce = false);
-
-    /**
-     * @brief
-     * @param success
-     * @param seq
-     * @return
-     */
-    int OnSaveDB(bool success, uint32_t seq);
+    int SendTransToDB(TRANS_SAVEROLEDETAIL_REASON iReason = TRANS_SAVEROLEDETAIL_NORMAL);
 
     /**
      * @brief
@@ -158,7 +149,8 @@ public:
      * @brief 在协程里获取远程服务器的rpc服务, 这个程序必须在协程里调用，需要先创建协程
      * @return 如果你在player或part的函数里，请优先调用这个函数，而不是调用FindModule<NFIMessageModule>()->GetRpcService系统函数， 因为玩家的生命周期是不确定的
      */
-    template<size_t msgId, typename RequestType, typename ResponeType> int GetRpcService(NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType& request, ResponeType& respone)
+    template<size_t msgId, typename RequestType, typename ResponeType>
+    int GetRpcService(NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType& request, ResponeType& respone)
     {
         FindModule<NFICoroutineModule>()->AddUserCo(m_cid);
         int iRet = FindModule<NFIMessageModule>()->GetRpcService<msgId>(NF_ST_SNS_SERVER, dstServerType, dstBusId, request, respone, m_cid);
@@ -193,7 +185,8 @@ public:
     //获取对应部件指针
     virtual NFSnsPart* GetPart(uint32_t partType);
 
-    template<typename PART> PART* GetPart(uint32_t partType)
+    template<typename PART>
+    PART* GetPart(uint32_t partType)
     {
         return dynamic_cast<PART *>(GetPart(partType));
     }
@@ -310,11 +303,6 @@ private:
      * @brief
      */
     uint32_t m_gameId;
-
-    /**
-     * @brief
-     */
-    bool m_isOnline;
 
 private:
     /**

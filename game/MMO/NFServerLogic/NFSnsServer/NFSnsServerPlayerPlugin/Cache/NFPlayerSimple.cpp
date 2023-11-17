@@ -37,7 +37,6 @@ int NFPlayerSimple::CreateInit()
     m_proxyId = 0;
     m_gameId = 0;
     m_logicId = 0;
-    m_isOnline = false;
     return 0;
 }
 
@@ -54,6 +53,15 @@ void NFPlayerSimple::SetIsInited(bool isInited)
 int NFPlayerSimple::ResumeInit()
 {
     return 0;
+}
+
+bool NFPlayerSimple::IsCanLogout()
+{
+    if (FindModule<NFICoroutineModule>()->IsExistUserCo(GetCid()))
+    {
+        return false;
+    }
+    return true;
 }
 
 int NFPlayerSimple::OnTimer(int timeId, int callcount)
@@ -151,7 +159,7 @@ int NFPlayerSimple::OnReconnect()
 
 bool NFPlayerSimple::CanDelete()
 {
-    if (m_isOnline)
+    if (!IsDeadStatus())
     {
         return false;
     }
@@ -217,11 +225,6 @@ uint32_t NFPlayerSimple::GetGameId() const
 void NFPlayerSimple::SetGameId(uint32_t gameId)
 {
     m_gameId = gameId;
-}
-
-void NFPlayerSimple::SetIsOnline(bool isOnline)
-{
-    m_isOnline = isOnline;
 }
 
 int NFPlayerSimple::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message& xData)
