@@ -109,7 +109,8 @@ int NFDBObjMgr::Tick()
                 if (pObj->GetLastDBOpTime() + pObj->GetSaveDis() < now)
                 {
                     int iRet = SaveToDB(pObj);
-                    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "save obj ret:{} {} {} {}", iRet, pObj->GetClassName(), pObj->GetTableID(), pObj->GetDBWrapName());
+                    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "save obj ret:{} className{} key:{}", iRet, pObj->GetClassName(), pObj->GetModeKey());
+
                     ++iSavedObjNum;
                 }
             }
@@ -156,8 +157,8 @@ int NFDBObjMgr::LoadFromDB(NFBaseDBObj *pObj)
     
     pObj->SetLastDBOpTime(NFTime::Now().UnixSec());
     pObj->SetTransID(pTrans->GetGlobalId());
-    iRet = pTrans->Load(pObj->GetTableID(), pObj->GetDBWrapName(), pObj->GetModeKey(), pMessage);
-    NFLogDebug(NF_LOG_SYSTEMLOG, 0, "Load db ob from tableid:{} tablename:{} transName:{} iRet:{}", pObj->GetTableID(), pObj->GetDBWrapName(), pTrans->GetClassName(), iRet);
+    iRet = pTrans->Load(pObj->GetModeKey(), pMessage);
+    NFLogDebug(NF_LOG_SYSTEMLOG, 0, "Load db ob from key:{} className:{} transName:{} iRet:{}", pObj->GetModeKey(), pObj->GetClassName(), pTrans->GetClassName(), iRet);
     NF_SAFE_DELETE(pMessage);
     if (iRet != 0)
     {
@@ -169,7 +170,7 @@ int NFDBObjMgr::LoadFromDB(NFBaseDBObj *pObj)
     return 0;
 }
 
-int NFDBObjMgr::OnDataLoaded(int iObjID, int32_t err_code, const std::string *msg)
+int NFDBObjMgr::OnDataLoaded(int iObjID, int32_t err_code, const google::protobuf::Message* pData)
 {
     NFLogDebug(NF_LOG_SYSTEMLOG, 0, "Date Loaded:{} err_code:{}", iObjID, GetErrorStr(err_code));
     NFBaseDBObj *pObj = GetObj(iObjID);
@@ -180,7 +181,7 @@ int NFDBObjMgr::OnDataLoaded(int iObjID, int32_t err_code, const std::string *ms
     if (err_code == 0)
     {
         pObj->SetRetryTimes(0);
-        iRet = pObj->InitWithDBData(msg);
+        iRet = pObj->InitWithDBData(pData);
     } else if ((int) err_code == proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY)
     {
         pObj->SetRetryTimes(0);
@@ -193,7 +194,7 @@ int NFDBObjMgr::OnDataLoaded(int iObjID, int32_t err_code, const std::string *ms
     
     if (iRet != 0)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "DBName:{} TableID:{} load faled! iRet:{}", pObj->GetDBWrapName(), pObj->GetTableID(), iRet);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "className:{} key:{} load faled! iRet:{}", pObj->GetClassName(), pObj->GetModeKey(), iRet);
         switch (pObj->DealWithFailed())
         {
             case EN_DW_LOG_FAIL:
@@ -210,8 +211,8 @@ int NFDBObjMgr::OnDataLoaded(int iObjID, int32_t err_code, const std::string *ms
             }
             case EN_DW_SHUTDOWN:
             {
-                NFLogFatal(NF_LOG_SYSTEMLOG, 0, "DBName:{} Load Failed", pObj->GetDBWrapName());
-                NFLogFatal(NF_LOG_SYSTEMLOG, 0, "Shutdown Server by obj init faled, tableId:{} tableName:{}", pObj->GetTableID(), pObj->GetDBWrapName());
+                NFLogFatal(NF_LOG_SYSTEMLOG, 0, "className:{} Load Failed", pObj->GetClassName());
+                NFLogFatal(NF_LOG_SYSTEMLOG, 0, "Shutdown Server by obj init faled, key:{} className:{}", pObj->GetModeKey(), pObj->GetClassName());
                 assert(0);
                 return -1;
             }
@@ -219,8 +220,8 @@ int NFDBObjMgr::OnDataLoaded(int iObjID, int32_t err_code, const std::string *ms
             {
                 if (pObj->GetRetryTimes() > MAX_FAIL_RETRY_TIMES)
                 {
-                    NFLogFatal(NF_LOG_SYSTEMLOG, 0, "DBName:{} Load Failed", pObj->GetDBWrapName());
-                    NFLogFatal(NF_LOG_SYSTEMLOG, 0, "Shutdown Server by obj init faled, tableId:{} tableName:{}", pObj->GetTableID(), pObj->GetDBWrapName());
+                    NFLogFatal(NF_LOG_SYSTEMLOG, 0, "className:{} Load Failed", pObj->GetClassName());
+                    NFLogFatal(NF_LOG_SYSTEMLOG, 0, "Shutdown Server by obj init faled, key:{} className:{}", pObj->GetModeKey(), pObj->GetClassName());
                     NF_ASSERT(false);
                     return -1;
                 }
@@ -314,14 +315,14 @@ int NFDBObjMgr::SaveToDB(NFBaseDBObj *pObj)
     pObj->SetTransID(pTrans->GetGlobalId());
     if (pObj->GetNeedInsertDB())
     {
-        iRet = pTrans->Insert(pObj->GetTableID(), pObj->GetDBWrapName(), pObj->GetModeKey(), pMessage);
+        iRet = pTrans->Insert(pObj->GetModeKey(), pMessage);
     } else
     {
-        iRet = pTrans->Save(pObj->GetTableID(), pObj->GetDBWrapName(), pObj->GetModeKey(), pMessage);
+        iRet = pTrans->Save(pObj->GetModeKey(), pMessage);
     }
     
     NF_SAFE_DELETE(pMessage);
-    CHECK_RET(iRet, "SaveToDB Failed, TableID:{} TableName:{}", pObj->GetTableID(), pObj->GetDBWrapName());
+    CHECK_RET(iRet, "SaveToDB Failed, key:{} pObj:{}", pObj->GetModeKey(), pObj->GetClassName());
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
     return 0;
 }

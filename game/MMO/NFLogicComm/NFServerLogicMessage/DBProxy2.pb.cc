@@ -41,6 +41,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* RoleDBName_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   RoleDBName_reflection_ = NULL;
+const ::google::protobuf::Descriptor* tbSnsGlobal_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  tbSnsGlobal_reflection_ = NULL;
+const ::google::protobuf::Descriptor* tbSnsTeam_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  tbSnsTeam_reflection_ = NULL;
 
 }  // namespace
 
@@ -177,6 +183,37 @@ void protobuf_AssignDesc_DBProxy2_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleDBName));
+  tbSnsGlobal_descriptor_ = file->message_type(7);
+  static const int tbSnsGlobal_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbSnsGlobal, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbSnsGlobal, data_),
+  };
+  tbSnsGlobal_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      tbSnsGlobal_descriptor_,
+      tbSnsGlobal::default_instance_,
+      tbSnsGlobal_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbSnsGlobal, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbSnsGlobal, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(tbSnsGlobal));
+  tbSnsTeam_descriptor_ = file->message_type(8);
+  static const int tbSnsTeam_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbSnsTeam, team_id_),
+  };
+  tbSnsTeam_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      tbSnsTeam_descriptor_,
+      tbSnsTeam::default_instance_,
+      tbSnsTeam_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbSnsTeam, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbSnsTeam, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(tbSnsTeam));
 }
 
 namespace {
@@ -203,6 +240,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     RoleEnterSceneData_descriptor_, &RoleEnterSceneData::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     RoleDBName_descriptor_, &RoleDBName::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    tbSnsGlobal_descriptor_, &tbSnsGlobal::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    tbSnsTeam_descriptor_, &tbSnsTeam::default_instance());
 }
 
 }  // namespace
@@ -222,6 +263,10 @@ void protobuf_ShutdownFile_DBProxy2_2eproto() {
   delete RoleEnterSceneData_reflection_;
   delete RoleDBName::default_instance_;
   delete RoleDBName_reflection_;
+  delete tbSnsGlobal::default_instance_;
+  delete tbSnsGlobal_reflection_;
+  delete tbSnsTeam::default_instance_;
+  delete tbSnsTeam_reflection_;
 }
 
 void protobuf_AddDesc_DBProxy2_2eproto() {
@@ -262,7 +307,10 @@ void protobuf_AddDesc_DBProxy2_2eproto() {
     "\002 \001(\r\022\013\n\003uid\030\003 \001(\r\022&\n\004base\030\n \001(\0132\030.proto"
     "_ff.RoleDBBaseData\022\"\n\004attr\030\013 \001(\0132\024.proto"
     "_ff.AttrDBData\"8\n\nRoleDBName\022*\n\004name\030\001 \001"
-    "(\014B\034\300\202\024\002\220\301\024 \310\202\024 \272\304\023\014\350\247\222\350\211\262\345\220\215\345\255\227", 1112);
+    "(\014B\034\300\202\024\002\220\301\024 \310\202\024 \272\304\023\014\350\247\222\350\211\262\345\220\215\345\255\227\";\n\013tbSn"
+    "sGlobal\022\026\n\002id\030\001 \001(\004B\n\300\202\024\002\272\304\023\002id\022\024\n\004data\030"
+    "\002 \001(\014B\006\310\202\024\200\200\014\"\034\n\ttbSnsTeam\022\017\n\007team_id\030\001 "
+    "\001(\004", 1203);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "DBProxy2.proto", &protobuf_RegisterTypes);
   dbServerMgr::default_instance_ = new dbServerMgr();
@@ -272,6 +320,8 @@ void protobuf_AddDesc_DBProxy2_2eproto() {
   RoleDBSnsDetail::default_instance_ = new RoleDBSnsDetail();
   RoleEnterSceneData::default_instance_ = new RoleEnterSceneData();
   RoleDBName::default_instance_ = new RoleDBName();
+  tbSnsGlobal::default_instance_ = new tbSnsGlobal();
+  tbSnsTeam::default_instance_ = new tbSnsTeam();
   dbServerMgr::default_instance_->InitAsDefaultInstance();
   GetRegisterNum_RoleDBData::default_instance_->InitAsDefaultInstance();
   RoleDBSnsSimple::default_instance_->InitAsDefaultInstance();
@@ -279,6 +329,8 @@ void protobuf_AddDesc_DBProxy2_2eproto() {
   RoleDBSnsDetail::default_instance_->InitAsDefaultInstance();
   RoleEnterSceneData::default_instance_->InitAsDefaultInstance();
   RoleDBName::default_instance_->InitAsDefaultInstance();
+  tbSnsGlobal::default_instance_->InitAsDefaultInstance();
+  tbSnsTeam::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_DBProxy2_2eproto);
 }
 
@@ -2716,6 +2768,470 @@ void RoleDBName::Swap(RoleDBName* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = RoleDBName_descriptor_;
   metadata.reflection = RoleDBName_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int tbSnsGlobal::kIdFieldNumber;
+const int tbSnsGlobal::kDataFieldNumber;
+#endif  // !_MSC_VER
+
+tbSnsGlobal::tbSnsGlobal()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void tbSnsGlobal::InitAsDefaultInstance() {
+}
+
+tbSnsGlobal::tbSnsGlobal(const tbSnsGlobal& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void tbSnsGlobal::SharedCtor() {
+  _cached_size_ = 0;
+  id_ = GOOGLE_ULONGLONG(0);
+  data_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+tbSnsGlobal::~tbSnsGlobal() {
+  SharedDtor();
+}
+
+void tbSnsGlobal::SharedDtor() {
+  if (data_ != &::google::protobuf::internal::kEmptyString) {
+    delete data_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void tbSnsGlobal::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* tbSnsGlobal::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return tbSnsGlobal_descriptor_;
+}
+
+const tbSnsGlobal& tbSnsGlobal::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_DBProxy2_2eproto();
+  return *default_instance_;
+}
+
+tbSnsGlobal* tbSnsGlobal::default_instance_ = NULL;
+
+tbSnsGlobal* tbSnsGlobal::New() const {
+  return new tbSnsGlobal;
+}
+
+void tbSnsGlobal::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    id_ = GOOGLE_ULONGLONG(0);
+    if (has_data()) {
+      if (data_ != &::google::protobuf::internal::kEmptyString) {
+        data_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool tbSnsGlobal::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &id_)));
+          set_has_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_data;
+        break;
+      }
+
+      // optional bytes data = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_data()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void tbSnsGlobal::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 id = 1;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->id(), output);
+  }
+
+  // optional bytes data = 2;
+  if (has_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytes(
+      2, this->data(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* tbSnsGlobal::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 id = 1;
+  if (has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->id(), target);
+  }
+
+  // optional bytes data = 2;
+  if (has_data()) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        2, this->data(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int tbSnsGlobal::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 id = 1;
+    if (has_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->id());
+    }
+
+    // optional bytes data = 2;
+    if (has_data()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->data());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void tbSnsGlobal::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const tbSnsGlobal* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const tbSnsGlobal*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void tbSnsGlobal::MergeFrom(const tbSnsGlobal& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_id()) {
+      set_id(from.id());
+    }
+    if (from.has_data()) {
+      set_data(from.data());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void tbSnsGlobal::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void tbSnsGlobal::CopyFrom(const tbSnsGlobal& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool tbSnsGlobal::IsInitialized() const {
+
+  return true;
+}
+
+void tbSnsGlobal::Swap(tbSnsGlobal* other) {
+  if (other != this) {
+    std::swap(id_, other->id_);
+    std::swap(data_, other->data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata tbSnsGlobal::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = tbSnsGlobal_descriptor_;
+  metadata.reflection = tbSnsGlobal_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int tbSnsTeam::kTeamIdFieldNumber;
+#endif  // !_MSC_VER
+
+tbSnsTeam::tbSnsTeam()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void tbSnsTeam::InitAsDefaultInstance() {
+}
+
+tbSnsTeam::tbSnsTeam(const tbSnsTeam& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void tbSnsTeam::SharedCtor() {
+  _cached_size_ = 0;
+  team_id_ = GOOGLE_ULONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+tbSnsTeam::~tbSnsTeam() {
+  SharedDtor();
+}
+
+void tbSnsTeam::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void tbSnsTeam::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* tbSnsTeam::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return tbSnsTeam_descriptor_;
+}
+
+const tbSnsTeam& tbSnsTeam::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_DBProxy2_2eproto();
+  return *default_instance_;
+}
+
+tbSnsTeam* tbSnsTeam::default_instance_ = NULL;
+
+tbSnsTeam* tbSnsTeam::New() const {
+  return new tbSnsTeam;
+}
+
+void tbSnsTeam::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    team_id_ = GOOGLE_ULONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool tbSnsTeam::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 team_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &team_id_)));
+          set_has_team_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void tbSnsTeam::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 team_id = 1;
+  if (has_team_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->team_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* tbSnsTeam::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 team_id = 1;
+  if (has_team_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->team_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int tbSnsTeam::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 team_id = 1;
+    if (has_team_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->team_id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void tbSnsTeam::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const tbSnsTeam* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const tbSnsTeam*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void tbSnsTeam::MergeFrom(const tbSnsTeam& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_team_id()) {
+      set_team_id(from.team_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void tbSnsTeam::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void tbSnsTeam::CopyFrom(const tbSnsTeam& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool tbSnsTeam::IsInitialized() const {
+
+  return true;
+}
+
+void tbSnsTeam::Swap(tbSnsTeam* other) {
+  if (other != this) {
+    std::swap(team_id_, other->team_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata tbSnsTeam::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = tbSnsTeam_descriptor_;
+  metadata.reflection = tbSnsTeam_reflection_;
   return metadata;
 }
 

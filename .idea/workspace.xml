@@ -71,19 +71,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="MMO facade grow equip">
-      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFISaveDB.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFISaveDB.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFPlayerStatus.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFPlayerStatus.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFPlayerDetail.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFPlayerDetail.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFPlayerDetail.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFPlayerDetail.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFPlayerSimple.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFPlayerSimple.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFPlayerSimple.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFPlayerSimple.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldAccount.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldAccount.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldAccount.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldAccount.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Sql/StoreServer.proto.ds" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Sql/StoreServer.proto.ds" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/MMOBusPlugin/StoreServer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/MMOBusPlugin/StoreServer.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/NFGrowDescEx.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/NFGrowDescEx.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/NFGrowDescEx.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/NFGrowDescEx.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/common/DBProxy2.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/common/DBProxy2.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFChatDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFChatDefine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ComDefine.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ComDefine.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ComDefine.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ComDefine.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/DBProxy2.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/DBProxy2.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/DBProxy2.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/DBProxy2.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/DBProxy2_s.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/DBProxy2_s.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/DBProxy2_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/DBProxy2_s.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFDeityPart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFDeityPart.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFFacadePart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFFacadePart.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFFacadePart.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFFacadePart.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFGrowPart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFGrowPart.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Growth/NFMofaPart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Growth/NFMofaPart.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Team/NFSnsTeamMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Team/NFSnsTeamMgr.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Team/NFSnsTeamMgr.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Team/NFSnsTeamMgr.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFBaseDBObj.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFBaseDBObj.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,74 +113,20 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/DescStoreEx/AchievementDescEx.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/DescStoreEx/ChatDescEx.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/DescStoreEx/ChatDescEx.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/DescStoreEx/ChatDescEx.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/DescStoreEx/ChatDescEx.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/DescStoreEx/ChatDescEx.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/DescStoreEx/ChatDescEx.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/DescStoreEx/ChatDescEx.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/DescStoreEx/ChatDescEx.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/DescStoreEx/ChatDescEx.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/DescStoreEx/ChatDescEx.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/Attr/NFAttrMgr.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/Item/NFItem.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/Item/NFItem.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/Item/NFItem.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/Item/NFItem.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/Item/NFItem.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/Item/NFItem.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/Item/NFItem.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/Item/NFItem.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/Item/NFItem.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/Item/NFItem.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/Item/NFItem.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFActivityDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFActivityDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFActivityDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFChatDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFChatDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFChatDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFEventDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFEventDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFEventDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFEventDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFEventDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFEventDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFLogicShmTypeDefines.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFLogicShmTypeDefines.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFLogicShmTypeDefines.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFLogicShmTypeDefines.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFLogicShmTypeDefines.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFLogicShmTypeDefines.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFPackageDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFPackageDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFPackageDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFPackageDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFPackageDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFPackageDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFRankDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFRankDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFRankDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFRankDefine.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/Com.pb.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFServerLogicMessage/DBProxy2.pb.cc" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFServerLogicMessage/DBProxy2.pb.cc" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFServerLogicMessage/DBProxy2.pb.cc" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFServerLogicMessage/DBProxy2.pb.cc" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFServerLogicMessage/DBProxy2.pb.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFServerLogicMessage/DBProxy2.pb.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerConfig_s.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFDeityPart.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFDeityPart.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFFacadePart.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFFacadePart.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFGrowPart.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFMMOLogicPlayerPlugin.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFMMOLogicPlayerPlugin.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Package/NFPackageBag.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Package/NFPackagePart.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFCacheMgr.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/NFGameCommon/NFGameCommon/NFPoint2.h" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -208,30 +162,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;CMake 应用程序.NFPluginLoader.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;ToolWindow提交.ShowToolbar&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/gaoyi/NFShmServer/src/NFComm&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C++&quot;,
-    &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "CMake 应用程序.NFPluginLoader.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "ToolWindow提交.ShowToolbar": "false",
+    "WebServerToolWindowFactoryState": "false",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/gaoyi/NFShmServer/src/NFComm",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode.C++",
+    "structure.view.defaults.are.configured": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon" />
@@ -685,7 +639,7 @@
       <workItem from="1700024480197" duration="209000" />
       <workItem from="1700024696199" duration="857000" />
       <workItem from="1700038113206" duration="30645000" />
-      <workItem from="1700120441194" duration="18639000" />
+      <workItem from="1700120441194" duration="30045000" />
     </task>
     <task id="LOCAL-00172" summary="fish">
       <created>1695432186860</created>
@@ -1030,7 +984,7 @@
       <option name="project" value="LOCAL" />
       <updated>1697881884722</updated>
     </task>
-    <option name="localTasksCounter" value="275" />
+    <option name="localTasksCounter" value="276" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

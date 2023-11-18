@@ -8,6 +8,10 @@
 // -------------------------------------------------------------------------
 
 #include "NFMofaPart.h"
+
+#include <Chat/NFChatMgr.h>
+#include <NFLogicCommon/NFChatDefine.h>
+
 #include "Mofa.pb.h"
 #include "Package/NFPackagePart.h"
 #include "DescStore/MofaLvexpDesc.h"
@@ -540,6 +544,11 @@ int NFMofaPart::OnHandleSlotWakeReq(uint32_t msgId, NFDataPackage &packet)
     calcAttr(true);
     pSlot->WriteToPB(xDataRsp.mutable_data());
     m_pMaster->SendMsgToClient(proto_ff::LC_MOFA_SLOT_WAKE_RSP, xDataRsp);
+
+    SystemChatMsgData msg;
+    msg.text.push_back(m_pMaster->GetName());
+    msg.params.push_back(xData.slot_pos());
+    NFChatMgr::Instance(m_pObjPluginManager)->SendG2WBroadcast(BT_MOFA_SLOT_STRONG_QUALITY, msg, 0, m_pMaster->GetZid());
     return 0;
 }
 

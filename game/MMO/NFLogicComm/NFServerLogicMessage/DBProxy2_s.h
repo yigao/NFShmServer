@@ -141,5 +141,34 @@ namespace proto_ff_s {
 	};
 	typedef struct RoleDBName_s RoleDBName_t;
 
+	struct tbSnsGlobal_s : public NFDescStoreSeqOP {
+		tbSnsGlobal_s();
+		virtual ~tbSnsGlobal_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t id;//
+		NFShmString<32> data;//
+
+		virtual void write_to_pbmsg(::proto_ff::tbSnsGlobal & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::tbSnsGlobal & msg);
+		static ::proto_ff::tbSnsGlobal* new_pbmsg(){ return new ::proto_ff::tbSnsGlobal(); }
+		static ::proto_ff::tbSnsGlobal make_pbmsg(){ return ::proto_ff::tbSnsGlobal(); }
+	};
+	typedef struct tbSnsGlobal_s tbSnsGlobal_t;
+
+	struct tbSnsTeam_s : public NFDescStoreSeqOP {
+		tbSnsTeam_s();
+		virtual ~tbSnsTeam_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t team_id;//
+
+		virtual void write_to_pbmsg(::proto_ff::tbSnsTeam & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::tbSnsTeam & msg);
+		static ::proto_ff::tbSnsTeam* new_pbmsg(){ return new ::proto_ff::tbSnsTeam(); }
+		static ::proto_ff::tbSnsTeam make_pbmsg(){ return ::proto_ff::tbSnsTeam(); }
+	};
+	typedef struct tbSnsTeam_s tbSnsTeam_t;
+
 }
 

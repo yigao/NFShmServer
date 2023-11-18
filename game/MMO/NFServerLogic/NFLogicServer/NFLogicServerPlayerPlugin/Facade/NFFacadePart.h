@@ -196,7 +196,7 @@ public:
             m_soulActivityInfo[dbInfo.acviity_data(i).activity_id()] = dbInfo.acviity_data(i).status();
         }
         
-        //Íùºó¼æÈİ
+        //å¾€åå…¼å®¹
         auto pCfgMap = FacadeSoulachievementDesc::Instance()->GetResDescPtr();
         if (pCfgMap)
         {
@@ -291,7 +291,7 @@ public:
         return 0;
     }
     
-    bool IsSpecAttr(int32_t spec_attrid)          //ÊÇ·ñÊÇÏµÍ³ÌØÊâÊôĞÔID
+    bool IsSpecAttr(int32_t spec_attrid)          //æ˜¯å¦æ˜¯ç³»ç»Ÿç‰¹æ®Šå±æ€§ID
     {
         switch (spec_attrid)
         {
@@ -312,7 +312,7 @@ public:
     void SaveToDB(proto_ff::FacadeDataInfo *pInfo);
 public:
     /**
-     * @brief Ìî³äÍâ¹ÛÊı¾İ
+     * @brief å¡«å……å¤–è§‚æ•°æ®
      * @param facadeProto
      */
     void GetFacade(proto_ff::RoleFacadeProto &facadeProto);
@@ -334,7 +334,7 @@ public:
     int GetFacadeFantasyQualityNum(int quality);
 public:
     /**
-     * @brief ³õÊ¼»¯×î³õµÄÊı¾İ
+     * @brief åˆå§‹åŒ–æœ€åˆçš„æ•°æ®
      */
     void ActiveDefaultFacade(bool bSync);
     const proto_ff_s::E_FacadeDisplay_s *GetDefaultFacadeDisplay();
@@ -363,15 +363,15 @@ public:
     uint32_t m_facadeType;
     int64_t m_nFacadeID;            //ID
     int32_t m_nFacadeLev;            //
-    int64_t m_nFacadeExp;            //½ø½×±¦¾ß¾­Ñé
-    bool m_bUseSoulItem;         //Æ÷»êµÀ¾ßÊÇ·ñÊ¹ÓÃ
-    FacadeSoulInfo m_soulInfo;      //Æ÷»ê
-    bool m_bUseFacade;           //ÊÇ·ñÊ¹ÓÃÍâ¹Û»Ã»¯
+    int64_t m_nFacadeExp;            //è¿›é˜¶å®å…·ç»éªŒ
+    bool m_bUseSoulItem;         //å™¨é­‚é“å…·æ˜¯å¦ä½¿ç”¨
+    FacadeSoulInfo m_soulInfo;      //å™¨é­‚
+    bool m_bUseFacade;           //æ˜¯å¦ä½¿ç”¨å¤–è§‚å¹»åŒ–
     
-    int64_t m_nEquipFantasyID;            //×°±¸µÄ±¦¾ßID: ½ø½×±¦¾ßºÍ»Ã»¯±¦¾ßÍ¬Ê±Ö»ÄÜ×°±¸Ò»¸ö
-    NFShmHashMap<int64_t, int32_t, MAX_INDEX_FACADE_CHANGE_TYPE_NUM> m_mapFantasyFacade;    //µ±Ç°ÓµÓĞµÄ»Ã»¯±¦¾ß
-    NFShmHashMap<int64_t, int32_t, DEFINE_E_FACADEDISPLAY_M_FRAGMENTID_MAX_NUM> m_mapFragment;        //·¨ÁéÊı¾İ
-    NFShmHashMap<int64_t, int32_t, MAX_FACADE_INFO_SKILL_NUM> m_mapSkill;        //¼¼ÄÜÊı¾İ
+    int64_t m_nEquipFantasyID;            //è£…å¤‡çš„å®å…·ID: è¿›é˜¶å®å…·å’Œå¹»åŒ–å®å…·åŒæ—¶åªèƒ½è£…å¤‡ä¸€ä¸ª
+    NFShmHashMap<int64_t, int32_t, MAX_INDEX_FACADE_CHANGE_TYPE_NUM> m_mapFantasyFacade;    //å½“å‰æ‹¥æœ‰çš„å¹»åŒ–å®å…·
+    NFShmHashMap<int64_t, int32_t, DEFINE_E_FACADEDISPLAY_M_FRAGMENTID_MAX_NUM> m_mapFragment;        //æ³•çµæ•°æ®
+    NFShmHashMap<int64_t, int32_t, MAX_FACADE_INFO_SKILL_NUM> m_mapSkill;        //æŠ€èƒ½æ•°æ®
 };
 
 class NFFacadePart : public NFShmObjTemplate<NFFacadePart, EOT_LOGIC_PART_ID + PART_FACADE, NFPart>
@@ -386,9 +386,9 @@ public:
     int ResumeInit();
 public:
 public:
-    //******************partµ÷ÓÃ½Ó¿Ú******************
+    //******************partè°ƒç”¨æ¥å£******************
     /**
-     * @brief ³õÊ¼»¯part
+     * @brief åˆå§‹åŒ–part
      * @param pMaster
      * @param partType
      * @param dbData
@@ -398,7 +398,7 @@ public:
     virtual int Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::RoleDBData &dbData);
     
     /**
-     * @brief ÊÍ·Åpart×ÊÔ´
+     * @brief é‡Šæ”¾partèµ„æº
      * @return
      */
     virtual int UnInit();
@@ -406,71 +406,71 @@ public:
     virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage);
 public:
     /**
-     * @brief ´ÓÊı¾İ¿âÖĞ¼ÓÔØÊı¾İ
+     * @brief ä»æ•°æ®åº“ä¸­åŠ è½½æ•°æ®
      * @param data
      * @return
      */
     virtual int LoadFromDB(const proto_ff::RoleDBData &data);
     
     /**
-     * @brief ´ÓÅäÖÃÖĞ³õÊ¼»¯Êı¾İ
+     * @brief ä»é…ç½®ä¸­åˆå§‹åŒ–æ•°æ®
      * @return
      */
     virtual int InitConfig(const proto_ff::RoleDBData &data);
     
     /**
-     * @brief ´æ´¢DB²¿¼şÈë¿Ú
+     * @brief å­˜å‚¨DBéƒ¨ä»¶å…¥å£
      * @param proto
      * @return
      */
     virtual int SaveDB(proto_ff::RoleDBData &dbData);
     
     /**
-     * @brief µÇÂ½Èë¿Ú
+     * @brief ç™»é™†å…¥å£
      * @return
      */
     virtual int OnLogin();
     virtual int OnLogin(proto_ff::PlayerInfoRsp &playerInfo);
     
     /**
-     * @brief µÇ³öÈë¿Ú
+     * @brief ç™»å‡ºå…¥å£
      * @return
      */
     virtual int OnLogout() { return 0; }
     
     /**
-     * @brief µôÏßÈë¿Ú
+     * @brief æ‰çº¿å…¥å£
      * @return
      */
     virtual int OnDisconnect() { return 0; }
     
     /**
-     * @brief ÖØÁ¬Èë¿Ú
+     * @brief é‡è¿å…¥å£
      * @return
      */
     virtual int OnReconnect() { return 0; }
     
-    ////////////////////////////////// Ã¿ÈÕÁãµã Ã¿ÖÜÒ»Áãµã Ë¢ĞÂ½Ó¿Ú ///////////////////////////////////
+    ////////////////////////////////// æ¯æ—¥é›¶ç‚¹ æ¯å‘¨ä¸€é›¶ç‚¹ åˆ·æ–°æ¥å£ ///////////////////////////////////
     /**
-     * @brief Ã¿ÈÕÁãµã Ë¢ĞÂ½Ó¿Ú
+     * @brief æ¯æ—¥é›¶ç‚¹ åˆ·æ–°æ¥å£
      * @return
      */
     virtual int DailyZeroUpdate();
     
     /**
-     * @brief Ã¿ÈÕÁãµã Ë¢ĞÂ½Ó¿Ú
+     * @brief æ¯æ—¥é›¶ç‚¹ åˆ·æ–°æ¥å£
      * @return
      */
     virtual int WeekZeroUpdate() { return 0; }
     
     /**
-     * @brief Ã¿ÔÂË¢ĞÂ½Ó¿Ú
+     * @brief æ¯æœˆåˆ·æ–°æ¥å£
      * @return
      */
     virtual int MonthZeroUpdate() { return 0; };
     
     /**
-     * ÉèÖÃÍâ¹ÛĞÅÏ¢
+     * è®¾ç½®å¤–è§‚ä¿¡æ¯
      * @param outproto
      */
     virtual int FillFacadeProto(proto_ff::RoleFacadeProto &outproto);
@@ -482,13 +482,13 @@ public:
 
 public:
     /**
-     * @brief ×¢²áÒª´¦ÀíµÄÏûÏ¢
+     * @brief æ³¨å†Œè¦å¤„ç†çš„æ¶ˆæ¯
      * @return
      */
     virtual int RegisterMessage();
 public:
     /**
-     * @brief ´¦Àí¿Í»§¶ËÏûÏ¢
+     * @brief å¤„ç†å®¢æˆ·ç«¯æ¶ˆæ¯
      * @param unLinkId
      * @param packet
      * @return
@@ -496,7 +496,7 @@ public:
     virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief ´¦ÀíÀ´×Ô·şÎñÆ÷µÄĞÅÏ¢
+     * @brief å¤„ç†æ¥è‡ªæœåŠ¡å™¨çš„ä¿¡æ¯
      * @param unLinkId
      * @param packet
      * @return
@@ -510,34 +510,34 @@ public:
     void MergeAttr(const MAP_INT32_INT64 &src, MAP_INT32_INT64 &dst);
     void PrintAttr(int32_t type, const MAP_INT32_INT64 &attr);
     FacadeInfo *GetFacadeInfo(uint32_t facadeType);
-public: //ÏûÏ¢»Øµ÷½Ó¿Ú
+public: //æ¶ˆæ¯å›è°ƒæ¥å£
     /**
-     * @brief »ñÈ¡Íâ¹Û»ù±¾ĞÅÏ¢
+     * @brief è·å–å¤–è§‚åŸºæœ¬ä¿¡æ¯
      */
     int OnHandleFacadeInfo(uint32_t msgId, NFDataPackage &packet);
     int _OnHandleFacadeInfo(uint32_t facadeType);
     
     /**
-     * @brief ´¦ÀíÉı¼¶
+     * @brief å¤„ç†å‡çº§
      */
     int OnHandleLevelUp(uint32_t msgId, NFDataPackage &packet);
     
     int OnHandleFacadeSkillLev(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief ´¦Àí´©´÷ºÍĞ¶ÔØ
+     * @brief å¤„ç†ç©¿æˆ´å’Œå¸è½½
      */
     int OnHandleDress(uint32_t msgId, NFDataPackage &packet);
     int OnDress(uint32_t facadeType);
     
     /**
-     * @brief ´¦ÀíĞ¶ÔØ
+     * @brief å¤„ç†å¸è½½
      */
     int OnHandleUnDress(uint32_t msgId, NFDataPackage &packet);
     int OnUnDress(uint32_t facadeType);
     
     /**
-     * @brief ´¦ÀíFragmentÊ¹ÓÃ
+     * @brief å¤„ç†Fragmentä½¿ç”¨
      */
     int OnHandleFragmentUse(uint32_t msgId, NFDataPackage &packet);
 public:
@@ -548,65 +548,65 @@ public:
     int _OnHandleFacadeFantasyInfo(uint32_t facadeType);
     
     /**
-     * @brief ´¦Àí»Ã»¯¼¤»î
+     * @brief å¤„ç†å¹»åŒ–æ¿€æ´»
      */
     int OnHandleFastasyActiveInfo(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief ´¦Àí»Ã»¯Éı¼¶
+     * @brief å¤„ç†å¹»åŒ–å‡çº§
      */
     int OnHandleFantasyLevelupInfo(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief ´¦Àí´©´÷ºÍĞ¶ÔØ
+     * @brief å¤„ç†ç©¿æˆ´å’Œå¸è½½
      */
     int OnHandleFantasyDress(uint32_t msgId, NFDataPackage &packet);
     int OnFantasyDress(uint32_t facadeType, uint64_t fantasyId);
     
     /**
-     * @brief ´¦ÀíĞ¶ÔØ
+     * @brief å¤„ç†å¸è½½
      */
     int OnHandleFantasyUnDress(uint32_t msgId, NFDataPackage &packet);
     int OnFantasyUnDress(uint32_t facadeType);
     
     /**
-     * @brief Æ÷»ê¹ºÂò
+     * @brief å™¨é­‚è´­ä¹°
      * @return
      */
     int OnHandleFacadeBuySoulReq(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief Æ÷»êĞÅÏ¢
+     * @brief å™¨é­‚ä¿¡æ¯
      * @return
      */
     int OnHandleFacadeSoulInfoReq(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief Æ÷»ê¼¤»î
+     * @brief å™¨é­‚æ¿€æ´»
      * @return
      */
     int OnHandleSoulActiveReq(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief Æ÷»êÉı¼¶
+     * @brief å™¨é­‚å‡çº§
      * @return
      */
     int OnHandleSoulLevelupReq(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief Æ÷»ê³É¾ÍÁìÈ¡
+     * @brief å™¨é­‚æˆå°±é¢†å–
      * @return
      */
     int OnHandleSoulActivityRecvReq(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief Æ÷»ê¼¼ÄÜÖØÖÃ
+     * @brief å™¨é­‚æŠ€èƒ½é‡ç½®
      * @return
      */
     int OnHandleSoulResetSkillReq(uint32_t msgId, NFDataPackage &packet);
 public:
     /**
-     * @brief ¼ÆËãÉı¼¶µ½Âú¼¶ĞèÒªµÄ²ÄÁÏ¸öÊı
+     * @brief è®¡ç®—å‡çº§åˆ°æ»¡çº§éœ€è¦çš„ææ–™ä¸ªæ•°
      * @param type
      * @param lev
      * @param addExp

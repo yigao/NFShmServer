@@ -1813,7 +1813,21 @@ std::string NFProtobufCommon::GetDBDataTypeFromPBDataType(uint32_t pbDataType, u
             break;
         case google::protobuf::FieldDescriptor::CPPTYPE_STRING:
         {
-            return "varchar(" + NFCommon::tostr(textMax) + ")";
+            if (textMax > 16777216)
+            {
+                return "LONGBLOB";
+            }
+            else if (textMax > 65535)
+            {
+                return "MEDIUMBLOB";
+            }
+            else if (textMax > 1025) {
+                return "blob";
+            }
+            else
+            {
+                return "varchar(" + NFCommon::tostr(textMax) + ")";
+            }
         }
             break;
         case google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE:

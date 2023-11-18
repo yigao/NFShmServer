@@ -8,6 +8,10 @@
 // -------------------------------------------------------------------------
 
 #include "NFFacadePart.h"
+
+#include <Chat/NFChatMgr.h>
+#include <NFLogicCommon/NFChatDefine.h>
+
 #include "DescStore/FacadeChangeDesc.h"
 #include "NFComm/NFCore/NFCommonApi.h"
 #include "DescStore/FacadeDisplayDesc.h"
@@ -608,8 +612,8 @@ void FacadeInfo::calcAttr(MAP_INT32_INT64& allAttr)
     MergeAttr(partAttr, allAttr);
     partAttr.clear();
     
-    MAP_INT32_FLOAT mapattr;  // ÊôÐÔID-ÊôÐÔÖµ
-    MAP_INT32_FLOAT mapattradd;  //ÌØÊâÊôÐÔ¼Ó³É ÊôÐÔID-¼Ó³É°Ù·Ö±È
+    MAP_INT32_FLOAT mapattr;  // ï¿½ï¿½ï¿½ï¿½ID-ï¿½ï¿½ï¿½ï¿½Öµ
+    MAP_INT32_FLOAT mapattradd;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼Ó³ï¿½ ï¿½ï¿½ï¿½ï¿½ID-ï¿½Ó³É°Ù·Ö±ï¿½
     for (auto it = allAttr.begin(); it != allAttr.end(); it++)
     {
         int32_t attrId = it->first;
@@ -657,7 +661,7 @@ void FacadeInfo::OnCalc()
     CHECK_EXPR(pMaster, , "");
     if (m_facadeType == proto_ff::FACADE_WING_TYPE)
     {
-        //³á°òÕ½Á¦¸Ä±äÊÂ¼þ
+        //ï¿½ï¿½ï¿½Õ½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½Â¼ï¿½
         proto_ff::WingFightChgEvent chgEvent;
         chgEvent.set_cid(pMaster->Cid());
         chgEvent.set_fight(GetFightValue());
@@ -673,7 +677,7 @@ void FacadeInfo::OnCalc()
     }
     else if (m_facadeType == proto_ff::FACADE_TREASURE_TYPE)
     {
-        //Õ½Á¦¸Ä±äÊÂ¼þ
+        //Õ½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½Â¼ï¿½
         proto_ff::TreasureFightChgEvent chgEvent;
         chgEvent.set_cid(pMaster->Cid());
         chgEvent.set_fight(GetFightValue());
@@ -684,7 +688,7 @@ void FacadeInfo::OnCalc()
     }
     else if (m_facadeType == proto_ff::FACADE_ARTIFACT_TYPE)
     {
-        //Õ½Á¦¸Ä±äÊÂ¼þ
+        //Õ½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½Â¼ï¿½
         proto_ff::ArtifactFightChgEvent chgEvent;
         chgEvent.set_cid(pMaster->Cid());
         chgEvent.set_fight(GetFightValue());
@@ -695,7 +699,7 @@ void FacadeInfo::OnCalc()
     }
     else if (m_facadeType == proto_ff::FACADE_PARTNER_TYPE)
     {
-        //Õ½Á¦¸Ä±äÊÂ¼þ
+        //Õ½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½Â¼ï¿½
         proto_ff::PartnerFightChgEvent chgEvent;
         chgEvent.set_cid(pMaster->Cid());
         chgEvent.set_fight(GetFightValue());
@@ -1072,14 +1076,14 @@ int NFFacadePart::OnHandleLevelUp(uint32_t msgId, NFDataPackage &packet)
         int64_t bindNum = 0;
         int64_t unBindNum = 0;
         uint32_t itemNum = pPackagePart->GetItemNum(materialId, bindNum, unBindNum);
-        //×î´ó¿ÉÊ¹ÓÃÊýÁ¿£¨Éý¼¶µ½Âú¼¶£©
+        //ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         uint32_t needMax = CalNeedItemNum(pFacadeCfg->m_type, pFacadeInfo->m_nFacadeLev, cfg.m_exp);
         if (0 == needMax)
         {
             break;
         }
         
-        uint32_t useItemNum = itemNum > needMax ? needMax : itemNum; //Êµ¼ÊÊ¹ÓÃÊýÁ¿
+        uint32_t useItemNum = itemNum > needMax ? needMax : itemNum; //Êµï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         
         if (useItemNum > 0)
         {
@@ -1354,7 +1358,7 @@ int NFFacadePart::OnDress(uint32_t facadeType)
         }
     }
     
-    //Í¬²½Íâ¹Û
+    //Í¬ï¿½ï¿½ï¿½ï¿½ï¿½
     m_pMaster->SyncFacade();
     return 0;
 }
@@ -1392,7 +1396,7 @@ int NFFacadePart::OnUnDress(uint32_t facadeType)
     SetNeedSave(true);
     pFacadeInfo->m_bUseFacade = false;
     
-    //Í¬²½Íâ¹Û
+    //Í¬ï¿½ï¿½ï¿½ï¿½ï¿½
     m_pMaster->SyncFacade();
     return proto_ff::RET_SUCCESS;
 }
@@ -1623,6 +1627,7 @@ int NFFacadePart::OnHandleFastasyActiveInfo(uint32_t msgId, NFDataPackage &packe
     xDataRsp.mutable_fantasy_data()->set_fantasy_lev(1);
     m_pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_FACADE_FANTASY_ACTIVE_RSP, xDataRsp);
     
+    m_pMaster->CalcFight(true);
     if (xData.facade_type() == proto_ff::FACADE_WING_TYPE)
     {
         proto_ff::WingFantasy fantasyEvent;
@@ -1630,6 +1635,12 @@ int NFFacadePart::OnHandleFastasyActiveInfo(uint32_t msgId, NFDataPackage &packe
         fantasyEvent.set_nfantasyid(xData.fantasy_id());
         fantasyEvent.set_ntotallv(pFacadeInfo->GetFantasyTotalLv());
         FireExecute(NF_ST_LOGIC_SERVER, EVENT_WING_FANTASY, CREATURE_PLAYER, m_pMaster->Cid(), fantasyEvent);
+
+        SystemChatMsgData msg;
+        msg.text.push_back(m_pMaster->GetName());
+        msg.params.push_back(xData.fantasy_id());
+        msg.params.push_back(m_pMaster->GetAttr(proto_ff::A_FIGHT));
+        NFChatMgr::Instance(m_pObjPluginManager)->SendG2WBroadcast(BT_WING_ACTIVE_FANTASY, msg, 0, m_pMaster->GetZid());
     }
     else if (xData.facade_type() == proto_ff::FACADE_TREASURE_TYPE)
     {
@@ -1638,6 +1649,12 @@ int NFFacadePart::OnHandleFastasyActiveInfo(uint32_t msgId, NFDataPackage &packe
         fantasyEvent.set_nfantasyid(xData.fantasy_id());
         fantasyEvent.set_ntotallv(pFacadeInfo->GetFantasyTotalLv());
         FireExecute(NF_ST_LOGIC_SERVER, EVENT_TREASURE_FANTASY, CREATURE_PLAYER, m_pMaster->Cid(), fantasyEvent);
+
+        SystemChatMsgData msg;
+        msg.text.push_back(m_pMaster->GetName());
+        msg.params.push_back(xData.fantasy_id());
+        msg.params.push_back(m_pMaster->GetAttr(proto_ff::A_FIGHT));
+        NFChatMgr::Instance(m_pObjPluginManager)->SendG2WBroadcast(BT_TREASURE_ACTIVE_FANTASY, msg, 0, m_pMaster->GetZid());
     }
     else if (xData.facade_type() == proto_ff::FACADE_ARTIFACT_TYPE)
     {
@@ -1646,6 +1663,12 @@ int NFFacadePart::OnHandleFastasyActiveInfo(uint32_t msgId, NFDataPackage &packe
         fantasyEvent.set_nfantasyid(xData.fantasy_id());
         fantasyEvent.set_ntotallv(pFacadeInfo->GetFantasyTotalLv());
         FireExecute(NF_ST_LOGIC_SERVER, EVENT_ARTIFACT_FANTASY, CREATURE_PLAYER, m_pMaster->Cid(), fantasyEvent);
+
+        SystemChatMsgData msg;
+        msg.text.push_back(m_pMaster->GetName());
+        msg.params.push_back(xData.fantasy_id());
+        msg.params.push_back(m_pMaster->GetAttr(proto_ff::A_FIGHT));
+        NFChatMgr::Instance(m_pObjPluginManager)->SendG2WBroadcast(BT_ARTIFACT_ACTIVE_FANTASY, msg, 0, m_pMaster->GetZid());
     }
     else if (xData.facade_type() == proto_ff::FACADE_PARTNER_TYPE)
     {
@@ -1654,6 +1677,12 @@ int NFFacadePart::OnHandleFastasyActiveInfo(uint32_t msgId, NFDataPackage &packe
         fantasyEvent.set_nfantasyid(xData.fantasy_id());
         fantasyEvent.set_ntotallv(pFacadeInfo->GetFantasyTotalLv());
         FireExecute(NF_ST_LOGIC_SERVER, EVENT_PARTNER_FANTASY, CREATURE_PLAYER, m_pMaster->Cid(), fantasyEvent);
+
+        SystemChatMsgData msg;
+        msg.text.push_back(m_pMaster->GetName());
+        msg.params.push_back(xData.fantasy_id());
+        msg.params.push_back(m_pMaster->GetAttr(proto_ff::A_FIGHT));
+        NFChatMgr::Instance(m_pObjPluginManager)->SendG2WBroadcast(BT_PARTNER_ACTIVE_FANTASY, msg, 0, m_pMaster->GetZid());
     }
     return 0;
 }
@@ -1855,7 +1884,7 @@ int NFFacadePart::OnFantasyDress(uint32_t facadeType, uint64_t fantasyId)
     xDataRsp.set_equip_fantasy_id(fantasyId);
     m_pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_FACADE_FANTASY_DRESS_RSP, xDataRsp);
     
-    //Í¬²½Íâ¹Û
+    //Í¬ï¿½ï¿½ï¿½ï¿½ï¿½
     m_pMaster->SyncFacade();
     return 0;
 }
@@ -1905,7 +1934,7 @@ int NFFacadePart::OnFantasyUnDress(uint32_t facadeType)
     
     pFacadeInfo->m_nEquipFantasyID = 0;
     SetNeedSave(true);
-    //Í¬²½Íâ¹Û
+    //Í¬ï¿½ï¿½ï¿½ï¿½ï¿½
     m_pMaster->SyncFacade();
     return proto_ff::RET_SUCCESS;
 }
@@ -2059,6 +2088,31 @@ int NFFacadePart::OnHandleSoulActiveReq(uint32_t msgId, NFDataPackage &packet)
     xDataRsp.set_ret_code(proto_ff::RET_SUCCESS);
     pFacadeInfo->m_soulInfo.WriteToProto(xDataRsp.mutable_soul_data());
     m_pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_FACADE_SOUL_ACTIVE_RSP, xDataRsp);
+
+    if (xData.facade_type() == proto_ff::FACADE_WING_TYPE)
+    {
+        SystemChatMsgData msg;
+        msg.text.push_back(m_pMaster->GetName());
+        NFChatMgr::Instance(m_pObjPluginManager)->SendG2WBroadcast(BT_WING_ACTIVE_SOUL, msg, 0, m_pMaster->GetZid());
+    }
+    else if (xData.facade_type() == proto_ff::FACADE_TREASURE_TYPE)
+    {
+        SystemChatMsgData msg;
+        msg.text.push_back(m_pMaster->GetName());
+        NFChatMgr::Instance(m_pObjPluginManager)->SendG2WBroadcast(BT_TREASURE_ACTIVE_SOUL, msg, 0, m_pMaster->GetZid());
+    }
+    else if (xData.facade_type() == proto_ff::FACADE_ARTIFACT_TYPE)
+    {
+        SystemChatMsgData msg;
+        msg.text.push_back(m_pMaster->GetName());
+        NFChatMgr::Instance(m_pObjPluginManager)->SendG2WBroadcast(BT_ARTIFACT_ACTIVE_SOUL, msg, 0, m_pMaster->GetZid());
+    }
+    else if (xData.facade_type() == proto_ff::FACADE_PARTNER_TYPE)
+    {
+        SystemChatMsgData msg;
+        msg.text.push_back(m_pMaster->GetName());
+        NFChatMgr::Instance(m_pObjPluginManager)->SendG2WBroadcast(BT_PARTNER_ACTIVE_FANTASY, msg, 0, m_pMaster->GetZid());
+    }
     return 0;
 }
 

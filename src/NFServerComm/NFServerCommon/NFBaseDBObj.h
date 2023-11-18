@@ -25,14 +25,12 @@ enum eDealWithLoadFailed
 };
 
 // db_table_id, db_table_name, save_to_db_dis_sec, failed_operation
-#define DECLARE_DB_OBJ_SETTING( table_id, db_name, save_dis, failed_op ) \
+#define DECLARE_DB_OBJ_SETTING(db_name, save_dis, failed_op ) \
 public :\
     virtual int MakeLoadData(google::protobuf::Message* data); \
     virtual int MakeSaveData(google::protobuf::Message* data); \
-    virtual int InitWithDBData(const std::string* msg); \
+    virtual int InitWithDBData(const google::protobuf::Message* pData); \
     virtual int InitWithoutDBData(); \
-    virtual proto_ff::TableID GetTableID() { return table_id; } \
-    virtual const char* GetDBWrapName() { return GET_CLASS_NAME(db_name); } \
     uint32_t GetSaveDis() { return save_dis; } \
     eDealWithLoadFailed DealWithFailed() { return failed_op; } \
     virtual google::protobuf::Message* CreateTempProtobufData() { return new proto_ff::db_name; }
@@ -50,11 +48,9 @@ public:
 public:
     virtual int MakeLoadData(google::protobuf::Message* data) { return -1; }
     virtual int MakeSaveData(google::protobuf::Message* data) { return -1; }
-    virtual int InitWithDBData(const std::string* msg) { return -1; }
+    virtual int InitWithDBData(const google::protobuf::Message* pData) { return -1; }
     virtual int InitWithoutDBData() { return -1; }
 
-    virtual uint32_t GetTableID() { return 0; }
-    virtual const char* GetDBWrapName() { return NULL; }
     virtual google::protobuf::Message* CreateTempProtobufData() { return NULL; }
     virtual uint32_t GetSaveDis() { return 900; }
     virtual eDealWithLoadFailed DealWithFailed() { return EN_DW_RETRY; }

@@ -258,4 +258,56 @@ void RoleDBName_s::read_from_pbmsg(const ::proto_ff::RoleDBName & msg) {
 	name = msg.name();
 }
 
+tbSnsGlobal_s::tbSnsGlobal_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int tbSnsGlobal_s::CreateInit() {
+	id = (uint64_t)0;
+	return 0;
+}
+
+int tbSnsGlobal_s::ResumeInit() {
+	return 0;
+}
+
+void tbSnsGlobal_s::write_to_pbmsg(::proto_ff::tbSnsGlobal & msg) const {
+	msg.set_id((uint64_t)id);
+	msg.set_data(data.data());
+}
+
+void tbSnsGlobal_s::read_from_pbmsg(const ::proto_ff::tbSnsGlobal & msg) {
+	id = msg.id();
+	data = msg.data();
+}
+
+tbSnsTeam_s::tbSnsTeam_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int tbSnsTeam_s::CreateInit() {
+	team_id = (uint64_t)0;
+	return 0;
+}
+
+int tbSnsTeam_s::ResumeInit() {
+	return 0;
+}
+
+void tbSnsTeam_s::write_to_pbmsg(::proto_ff::tbSnsTeam & msg) const {
+	msg.set_team_id((uint64_t)team_id);
+}
+
+void tbSnsTeam_s::read_from_pbmsg(const ::proto_ff::tbSnsTeam & msg) {
+	team_id = msg.team_id();
+}
+
 }

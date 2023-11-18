@@ -8,6 +8,10 @@
 // -------------------------------------------------------------------------
 
 #include "NFDeityPart.h"
+
+#include <Chat/NFChatMgr.h>
+#include <NFLogicCommon/NFChatDefine.h>
+
 #include "NFLogicCommon/NFEventDefine.h"
 #include "Skill/NFSkillPart.h"
 #include "DescStore/AvatarSkillDesc.h"
@@ -1233,6 +1237,13 @@ int NFDeityPart::ActiveDeityFantasy(uint32_t fantasyId)
     proto_ff::DeityActiveEvent event;
     event.set_id(pFantasy->m_id);
     FireExecute(NF_ST_LOGIC_SERVER, EVENT_DEITY_FANTASY_ACTIVE, CREATURE_PLAYER, m_pMaster->Cid(), event);
+
+    m_pMaster->CalcFight(true);
+    SystemChatMsgData msg;
+    msg.text.push_back(m_pMaster->GetName());
+    msg.params.push_back(fantasyId);
+    msg.params.push_back(m_pMaster->GetAttr(proto_ff::A_FIGHT));
+    NFChatMgr::Instance(m_pObjPluginManager)->SendG2WBroadcast(BT_DEITY_ACTIVE, msg, 0, m_pMaster->GetZid());
     return 0;
 }
 

@@ -79,6 +79,8 @@ bool NFMMOSnsPlayerPlugin::InitShmObjectRegister()
     NF_ASSERT(pConfig);
 
     uint32_t maxOnlinePlayerNum = pConfig->MaxOnlinePlayerNum*1.2;
+
+    REGISTER_SHM_OBJ(NFObService, 0);
     REGISTER_SINGLETON_SHM_OBJ(NFCacheMgr);//
     REGISTER_SINGLETON_SHM_OBJ(NFLoadCacheMgr);//
     REGISTER_SINGLETON_SHM_OBJ(NFSnsFactionMgr);//

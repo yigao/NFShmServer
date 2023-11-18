@@ -111,6 +111,7 @@ bool NFGrowDescEx::ProcessFashion()
         GrowInfoCfg c;
         c.id = e.m_ID;
         c.type = type;
+        c.quality = iter->second.m_quality;
         c.timeLimit = e.m_timeLimit;
         NFCommonApi::SplitStrToSetInt32(e.m_professionLimit.data(), ";", &c.profLimits);
         c.activationItem = e.m_activationItem;
@@ -152,6 +153,7 @@ bool NFGrowDescEx::ProcessDecorate()
         GrowInfoCfg c;
         c.id = e.m_ID;
         c.type = type;
+        c.quality = iter->second.m_quality;
         NFCommonApi::SplitStrToSetInt32(e.m_professionLimit.data(), ";", &c.profLimits);
         c.activationItem = e.m_activationItem;
         c.activationNum = e.m_activationNum;
@@ -192,6 +194,7 @@ bool NFGrowDescEx::ProcessFootPrint()
         GrowInfoCfg c;
         c.id = e.m_ID;
         c.type = type;
+        c.quality = iter->second.m_quality;
         NFCommonApi::SplitStrToSetInt32(e.m_professionLimit.ToString(), ";", &c.profLimits);
         c.activationItem = e.m_activationItem;
         c.activationNum = e.m_activationNum;
@@ -232,6 +235,7 @@ bool NFGrowDescEx::ProcessMeditation()
         GrowInfoCfg c;
         c.id = e.m_ID;
         c.type = type;
+        c.quality = iter->second.m_quality;
         NFCommonApi::SplitStrToSetInt32(e.m_professionLimit.ToString(), ";", &c.profLimits);
         c.activationItem = e.m_activationItem;
         c.activationNum = e.m_activationNum;
@@ -272,6 +276,7 @@ bool NFGrowDescEx::ProcessHalo()
         GrowInfoCfg c;
         c.id = e.m_ID;
         c.type = type;
+        c.quality = iter->second.m_quality;
         NFCommonApi::SplitStrToSetInt32(e.m_professionLimit.ToString(), ";", &c.profLimits);
         c.activationItem = e.m_activationItem;
         c.activationNum = e.m_activationNum;
@@ -312,6 +317,7 @@ bool NFGrowDescEx::ProcessHead()
         GrowInfoCfg c;
         c.id = e.m_ID;
         c.type = type;
+        c.quality = iter->second.m_quality;
         NFCommonApi::SplitStrToSetInt32(e.m_professionLimit.ToString(), ",", &c.profLimits);
         c.activationItem = e.m_activationItem;
         c.activationNum = e.m_activationNum;

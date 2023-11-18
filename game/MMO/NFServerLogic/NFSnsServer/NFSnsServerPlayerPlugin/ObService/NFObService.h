@@ -9,7 +9,10 @@
 
 #pragma once
 
+#include <DBProxy2.pb.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
+#include <NFServerComm/NFServerCommon/NFBaseDBObj.h>
+#include <NFServerComm/NFServerCommon/NFDBGlobalTemplate.h>
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
@@ -18,7 +21,7 @@
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFObServiceModule.h"
 
-class NFObService : public NFShmObjTemplate<NFObService, EOT_SNS_SERVICE_ID, NFShmObj>, public NFSeqOP
+class NFObService : public NFDBGlobalTemplate<NFObService, proto_ff::tbSnsGlobal, EOT_SNS_SERVICE_ID>
 {
 public:
     NFObService();
@@ -27,23 +30,6 @@ public:
 
     int CreateInit();
     int ResumeInit();
-
-public:
-    /**
-     * @brief
-     * @param pMaster
-     * @param partType
-     * @param data
-     * @param bCreatePlayer
-     * @return
-     */
-    virtual int Init(uint32_t serviceId);
-
-    /**
-     * @brief
-     * @return
-     */
-    virtual int UnInit();
 
 public:
     /**
@@ -99,15 +85,18 @@ public:
     template<size_t msgId, typename BaseType, typename RequestType, typename ResponeType>
     int AddRpcService(BaseType* pBase, int (BaseType::*handleRecieve)(RequestType& request, ResponeType& respone), bool createCo = false)
     {
-        return FindModule<NFObServiceModule>()->AddServiceRpc<msgId, BaseType, RequestType, ResponeType>(pBase, handleRecieve, m_serviceId, createCo);
+        return FindModule<NFObServiceModule>()->AddServiceRpc<msgId, BaseType, RequestType, ResponeType>(pBase, handleRecieve, GetServiceId, createCo);
     }
 
 public:
     //部件类型
-    uint32_t GetServiceId() const { return m_serviceId; }
+    virtual uint32_t GetServiceId() const { return GetClassType() - EOT_SNS_SERVICE_ID; }
 
-    void SetServiceId(uint32_t partType) { m_serviceId = partType; }
+    virtual int LoadFromDB(const std::string& dbData) { return 0; }
 
-public:
-    uint32_t m_serviceId;
+    virtual int SaveToDB(std::string& dbData) { return 0; }
+
+    virtual int InitConfig() { return 0; }
+
+    virtual int GetDbId() { return GetServiceId(); }
 };

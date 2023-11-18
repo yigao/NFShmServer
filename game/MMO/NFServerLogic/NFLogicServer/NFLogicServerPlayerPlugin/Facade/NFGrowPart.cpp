@@ -8,6 +8,10 @@
 // -------------------------------------------------------------------------
 
 #include "NFGrowPart.h"
+
+#include <Chat/NFChatMgr.h>
+#include <NFLogicCommon/NFChatDefine.h>
+
 #include "DescStoreEx/NFGrowDescEx.h"
 #include "proto_svr_event.pb.h"
 #include "NFLogicCommon/NFEventDefine.h"
@@ -364,6 +368,15 @@ int NFGrowPart::OnActivePartEntry(int64_t id)
     event.set_type(type);
     event.set_curlv(0);
     FireExecute(NF_ST_LOGIC_SERVER, EVENT_GROW_PART_ACTIVE, CREATURE_PLAYER, m_pMaster->Cid(), event);
+
+    if (pGrowCfg->quality >= proto_ff::EQuality_orange)
+    {
+        SystemChatMsgData msg;
+        msg.text.push_back(m_pMaster->GetName());
+        msg.params.push_back(id);
+        msg.params.push_back(m_pMaster->GetAttr(proto_ff::A_FIGHT));
+        NFChatMgr::Instance(m_pObjPluginManager)->SendG2WBroadcast(BT_FASHION_ACTIVE, msg, 0, m_pMaster->GetZid());
+    }
     return 0;
 }
 

@@ -29,7 +29,7 @@
 
 #define MAX_GROW_ACTIVE_ATTR_NUM 10
 
-//Ñø³ÉÅäÖÃĞÅÏ¢
+//å…»æˆé…ç½®ä¿¡æ¯
 struct GrowInfoCfg
 {
     GrowInfoCfg()
@@ -62,16 +62,17 @@ struct GrowInfoCfg
     }
     
     int64_t id;						//ID
-    int32_t type;					//ÀàĞÍ
-    NFShmHashSet<uint32_t, proto_ff::ERoleProf_MAX> profLimits;			//Ö°ÒµÏŞÖÆ
-    int64_t activationItem;		//¼¤»îµÀ¾ßID
-    int32_t activationNum;		//¼¤»îµÀ¾ßÊıÁ¿
-    int32_t startItem;			//ÉıĞÇµÀ¾ßid
-    NFShmHashMap<int32_t, int32_t, 100> lvMap;			//ÉıĞÇÏûºÄµÀ¾ßÊıÁ¿
-    int32_t starBar;			//Ã¿´ÎÉıĞÇÊôĞÔÔö¼ÓµÄ°Ù·Ö±ÈÖµ
-    NFShmHashMap<int32_t, int32_t, MAX_GROW_ACTIVE_ATTR_NUM> attrsMap;		//ÊôĞÔ¼Ó³É key->value attrid->attrvalue
-    NFShmHashMap<int32_t, int32_t, MAX_GROW_ACTIVE_ATTR_NUM> activeAttrMap;	//¼¤»î¼Ó³ÉµÄÊôĞÔ
-    int32_t timeLimit;			//ÏŞÊ±
+    int32_t type;					//ç±»å‹
+    int32_t quality;				//æ—¶è£…å“è´¨
+    NFShmHashSet<uint32_t, proto_ff::ERoleProf_MAX> profLimits;			//èŒä¸šé™åˆ¶
+    int64_t activationItem;		//æ¿€æ´»é“å…·ID
+    int32_t activationNum;		//æ¿€æ´»é“å…·æ•°é‡
+    int32_t startItem;			//å‡æ˜Ÿé“å…·id
+    NFShmHashMap<int32_t, int32_t, 100> lvMap;			//å‡æ˜Ÿæ¶ˆè€—é“å…·æ•°é‡
+    int32_t starBar;			//æ¯æ¬¡å‡æ˜Ÿå±æ€§å¢åŠ çš„ç™¾åˆ†æ¯”å€¼
+    NFShmHashMap<int32_t, int32_t, MAX_GROW_ACTIVE_ATTR_NUM> attrsMap;		//å±æ€§åŠ æˆ key->value attrid->attrvalue
+    NFShmHashMap<int32_t, int32_t, MAX_GROW_ACTIVE_ATTR_NUM> activeAttrMap;	//æ¿€æ´»åŠ æˆçš„å±æ€§
+    int32_t timeLimit;			//é™æ—¶
     bool LimitProf(int32_t prof);
     int32_t GetStarLvNum(int32_t lv);
 };
@@ -97,15 +98,15 @@ private:
     bool Process();
     bool ProcessLvMap(MAP_INT32_INT32& lvMap, const std::string& cfg);
 private:
-    bool ProcessFashion();			//´¦ÀíÊ±×°
-    bool ProcessDecorate();			//´¦ÀíÊ×ÊÎ
-    bool ProcessFootPrint();		//´¦Àí×ã¼£
-    bool ProcessMeditation();		//´¦Àí´ò×ø
-    bool ProcessHalo();				//´¦Àí¹â»·
-    bool ProcessHead();				//´¦ÀíÍ·Ïñ
+    bool ProcessFashion();			//å¤„ç†æ—¶è£…
+    bool ProcessDecorate();			//å¤„ç†é¦–é¥°
+    bool ProcessFootPrint();		//å¤„ç†è¶³è¿¹
+    bool ProcessMeditation();		//å¤„ç†æ‰“å
+    bool ProcessHalo();				//å¤„ç†å…‰ç¯
+    bool ProcessHead();				//å¤„ç†å¤´åƒ
     
-    bool addId(int64_t id, int32_t type); //¶ÔID´¦Àí
+    bool addId(int64_t id, int32_t type); //å¯¹IDå¤„ç†
 private:
     GrowTypeMap		m_typeGrowMap;
-    NFShmHashMap<int64_t, int32_t, MAX_FASHION_FASHION_NUM+MAX_HEADPORTRAIT_HEAD_NUM+MAX_DECORATE_DECORATE_NUM+MAX_FOOTPRINT_FOOTPRINT_NUM+MAX_MEDITATION_MEDITATION_NUM+MAX_HALO_HALO_NUM> m_id2typeMap;	//ËùÓĞÅäÖÃ±íID²»ÄÜÖØ¸´
+    NFShmHashMap<int64_t, int32_t, MAX_FASHION_FASHION_NUM+MAX_HEADPORTRAIT_HEAD_NUM+MAX_DECORATE_DECORATE_NUM+MAX_FOOTPRINT_FOOTPRINT_NUM+MAX_MEDITATION_MEDITATION_NUM+MAX_HALO_HALO_NUM> m_id2typeMap;	//æ‰€æœ‰é…ç½®è¡¨IDä¸èƒ½é‡å¤
 };

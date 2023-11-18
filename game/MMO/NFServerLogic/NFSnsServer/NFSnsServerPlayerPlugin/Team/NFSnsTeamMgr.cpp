@@ -29,8 +29,33 @@ int NFSnsTeamMgr::CreateInit()
 {
     return 0;
 }
-    
+
 int NFSnsTeamMgr::ResumeInit()
 {
     return 0;
 }
+
+int NFSnsTeamMgr::LoadFromDB(const std::string& dbData)
+{
+    auto teamPb = m_teamData.make_pbmsg();
+    teamPb.ParseFromString(dbData);
+    m_teamData.read_from_pbmsg(teamPb);
+    return 0;
+}
+
+int NFSnsTeamMgr::SaveToDB(std::string& dbData)
+{
+    auto teamPb = m_teamData.make_pbmsg();
+    m_teamData.write_to_pbmsg(teamPb);
+
+    dbData = teamPb.SerializeAsString();
+    return 0;
+}
+
+int NFSnsTeamMgr::InitConfig()
+{
+    m_teamData.team_id = 1;
+    MarkDirty();
+    return 0;
+}
+
