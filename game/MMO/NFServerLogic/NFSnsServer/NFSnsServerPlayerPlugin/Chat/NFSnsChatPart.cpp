@@ -75,8 +75,6 @@ int NFSnsChatPart::RegisterMessage()
     RegisterClientMessage(proto_ff::CLIENT_TO_CENTER_INTRVAL_ASK_OFFLINE_MSG_REQ, true);
 
     RegisterServerMessage(proto_ff::CENTER_SERVER_PROTOCOL_CHAT_REQ, true);
-    RegisterServerMessage(proto_ff::CENTER_SERVER_PROTOCOL_GWSYSCHATMSGNOTIFY);
-    RegisterServerMessage(proto_ff::SERVER_TO_SERVER_CROSS_CHAT);
 
     return 0;
 }

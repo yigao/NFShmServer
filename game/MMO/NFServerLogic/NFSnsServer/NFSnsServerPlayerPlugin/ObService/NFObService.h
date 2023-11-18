@@ -96,7 +96,7 @@ public:
 
     virtual int SaveToDB(std::string& dbData) { return 0; }
 
-    virtual int InitConfig() { return 0; }
+    virtual int InitConfig() { MarkDirty(); return 0; }
 
     virtual int GetDbId() { return GetServiceId(); }
 };

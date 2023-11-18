@@ -38,6 +38,8 @@ public:
 
     virtual int SaveToDB(std::string& dbData);
 
+    virtual int CheckWhenAllDataLoaded();
+
     virtual int InitConfig();
 public:
     proto_ff_s::tbSnsTeam_s m_teamData;

@@ -85,7 +85,12 @@ public:
 
     virtual int InitWithoutDBData()
     {
-        return InitConfig();
+        int iRet = InitConfig();
+        if (iRet == 0)
+        {
+            this->m_bDataInited = true;
+        }
+        return iRet;
     }
 
     virtual int LoadFromDB(const std::string& dbData) = 0;

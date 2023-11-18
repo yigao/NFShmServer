@@ -52,6 +52,11 @@ int NFSnsTeamMgr::SaveToDB(std::string& dbData)
     return 0;
 }
 
+int NFSnsTeamMgr::CheckWhenAllDataLoaded()
+{
+    return 0;
+}
+
 int NFSnsTeamMgr::InitConfig()
 {
     m_teamData.team_id = 1;

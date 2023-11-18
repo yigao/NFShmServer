@@ -148,6 +148,11 @@ int NFGrowPart::SaveDB(proto_ff::RoleDBData &dbData)
 int NFGrowPart::OnLogin()
 {
     SendAllGrowData();
+    SystemChatMsgData msg;
+    msg.text.push_back(m_pMaster->GetName());
+    msg.params.push_back(151);
+    msg.params.push_back(m_pMaster->GetAttr(proto_ff::A_FIGHT));
+    NFChatMgr::Instance(m_pObjPluginManager)->SendG2WBroadcast(BT_FASHION_ACTIVE, msg, 0, m_pMaster->GetZid());
     return 0;
 }
 

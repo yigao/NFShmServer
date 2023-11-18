@@ -8,7 +8,7 @@
 #include "E_Chat.pb.h"
 #include "E_Chat_s.h"
 
-#define DEFINE_SHEET_CHATCHAT_E_CHATCHAT_LIST_MAX_NUM 64
+#define DEFINE_SHEET_CHATCHAT_E_CHATCHAT_LIST_MAX_NUM 512
 #define DEFINE_SHEET_CHATSPECIALCHAT_E_CHATSPECIALCHAT_LIST_MAX_NUM 8
 
 
@@ -22,7 +22,7 @@ namespace proto_ff_s {
 		int64_t m_chatId;//传闻ID
 		int32_t m_chatType;//传闻类型
 		int32_t m_showTime;//活动提示显示时间
-		NFShmString<128> m_chatContent;//传闻内容
+		NFShmString<256> m_chatContent;//传闻内容
 		int32_t m_channel;//显示频道
 		int32_t m_CrossService;//是否跨服广播
 

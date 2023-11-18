@@ -27,6 +27,7 @@ NFObService::~NFObService()
 
 int NFObService::CreateInit()
 {
+    m_iServerType = NF_ST_SNS_SERVER;
     return 0;
 }
     

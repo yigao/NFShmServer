@@ -9,6 +9,8 @@
 
 #include "NFMMOLogicPlayerPlugin.h"
 
+#include <Chat/NFChatMgr.h>
+#include <Clan/NFClanMgr.h>
 #include <Growth/NFMofaPart.h>
 #include <Growth/NFRunePart.h>
 
@@ -118,6 +120,9 @@ bool NFMMOLogicPlayerPlugin::InitShmObjectRegister()
     uint32_t maxOnlinePlayerNum = pConfig->GetMaxOnlinePlayerNum() * 1.2;
 
     REGISTER_SINGLETON_SHM_OBJ(NFPlayerMgr);//
+    REGISTER_SINGLETON_SHM_OBJ(NFChatMgr);//
+    REGISTER_SINGLETON_SHM_OBJ(NFClanMgr);//
+
     REGISTER_SHM_OBJ_WITH_HASH(NFPlayer, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(RoleFightAttr, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(RoleAttr, maxOnlinePlayerNum);

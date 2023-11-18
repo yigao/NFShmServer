@@ -223,7 +223,7 @@ void NFChatMgr::SendG2WBroadcast(BROADCAST_TYPE id, SystemChatMsgData& msgData, 
     }
     else
     {
-        FindModule<NFIServerMessageModule>()->SendMsgToCenterServer(NF_ST_LOGIC_SERVER, proto_ff::CENTER_SERVER_PROTOCOL_GWSYSCHATMSGNOTIFY, notifyMsg);
+        FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::CENTER_SERVER_PROTOCOL_GWSYSCHATMSGNOTIFY, notifyMsg);
     }
 }
 
@@ -285,7 +285,7 @@ void NFChatMgr::SendG2WChannel(BROADCAST_TYPE id, SystemChatMsgData& msgData, pr
     }
     else
     {
-        FindModule<NFIServerMessageModule>()->SendMsgToCenterServer(NF_ST_LOGIC_SERVER, proto_ff::CENTER_SERVER_PROTOCOL_GWSYSCHATMSGNOTIFY, notifyMsg);
+        FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, proto_ff::CENTER_SERVER_PROTOCOL_GWSYSCHATMSGNOTIFY, notifyMsg);
     }
 }
 

@@ -8,7 +8,7 @@ message E_ChatChat
 	optional int64 m_chatId = 1[(yd_fieldoptions.field_cname) = "传闻ID"];
 	optional int32 m_chatType = 2[(yd_fieldoptions.field_cname) = "传闻类型"];
 	optional int32 m_showTime = 3[(yd_fieldoptions.field_cname) = "活动提示显示时间"];
-	optional string m_chatContent = 4[(yd_fieldoptions.field_cname) = "传闻内容", (yd_fieldoptions.field_bufsize) = 128];
+	optional string m_chatContent = 4[(yd_fieldoptions.field_cname) = "传闻内容", (yd_fieldoptions.field_bufsize) = 256];
 	optional int32 m_channel = 5[(yd_fieldoptions.field_cname) = "显示频道"];
 	optional int32 m_CrossService = 6[(yd_fieldoptions.field_cname) = "是否跨服广播"];
 }
@@ -16,7 +16,7 @@ message E_ChatChat
 
 message Sheet_ChatChat
 {
-	repeated E_ChatChat E_ChatChat_List = 1[(yd_fieldoptions.field_arysize)=64];
+	repeated E_ChatChat E_ChatChat_List = 1[(yd_fieldoptions.field_arysize)=512];
 }
 
 message E_ChatSpecialchat

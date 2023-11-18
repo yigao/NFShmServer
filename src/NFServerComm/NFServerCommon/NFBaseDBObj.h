@@ -50,6 +50,7 @@ public:
     virtual int MakeSaveData(google::protobuf::Message* data) { return -1; }
     virtual int InitWithDBData(const google::protobuf::Message* pData) { return -1; }
     virtual int InitWithoutDBData() { return -1; }
+    virtual int CheckWhenAllDataLoaded() { return 0; }
 
     virtual google::protobuf::Message* CreateTempProtobufData() { return NULL; }
     virtual uint32_t GetSaveDis() { return 900; }
@@ -70,7 +71,7 @@ public:
     NF_SERVER_TYPES GetServerType() const { return m_iServerType; }
 protected:
     bool m_bDataInited;
-private:
+protected:
     int m_iTransID;
 	uint64_t m_iLastDBOpTime;
     uint64_t m_uModKey;

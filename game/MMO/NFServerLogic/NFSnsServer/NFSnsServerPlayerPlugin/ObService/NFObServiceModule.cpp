@@ -30,15 +30,15 @@ bool NFObServiceModule::Awake()
 
     for (uint32_t i = SNS_OB_SERVICE_NONE + 1; i < SNS_OB_SERVICE_MAX; ++i)
     {
-        auto pPart = dynamic_cast<NFObService *>(FindModule<NFISharedMemModule>()->CreateObj(EOT_SNS_SERVICE_ID + i));
-        if (pPart)
+        auto pService = dynamic_cast<NFObService *>(FindModule<NFISharedMemModule>()->GetHeadObj(EOT_SNS_SERVICE_ID + i));
+        if (pService)
         {
-            pPart->RegisterMessage();
+            pService->RegisterMessage();
         }
     }
 
     RegisterAppTask(NF_ST_SNS_SERVER, APP_INIT_LOAD_GLOBAL_DATA_DB,
-                NF_FORMAT("{} {}", pConfig->ServerName, "Load Sns Global Data From Store Server"), APP_INIT_TASK_GROUP_SERVER_REGISTER);
+                NF_FORMAT("{} {}", pConfig->ServerName, "Load Sns Global Data From Store Server"), APP_INIT_TASK_GROUP_SERVER_LOAD_OBJ_FROM_DB);
 
     Subscribe(NF_ST_SNS_SERVER, proto_ff::NF_EVENT_SERVER_TASK_GROUP_FINISH, proto_ff::NF_EVENT_SERVER_TYPE, APP_INIT_TASK_GROUP_SERVER_CONNECT,
               __FUNCTION__);
@@ -81,7 +81,7 @@ int NFObServiceModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage& pack
         auto pService = dynamic_cast<NFObService *>(FindModule<NFISharedMemModule>()->GetHeadObj(EOT_SNS_SERVICE_ID + m_serverMsgToServiceMap[msgId]));
         if (pService)
         {
-            return pService->OnHandleClientMessage(msgId, packet);
+            return pService->OnHandleServerMessage(msgId, packet);
         }
         else
         {
@@ -115,8 +115,14 @@ int NFObServiceModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_
     {
         if (m_pObjPluginManager->IsFinishAppTask(NF_ST_GAME_SERVER, APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE) && m_pObjPluginManager->IsFinishAppTask(NF_ST_GAME_SERVER, APP_INIT_TASK_GROUP_SERVER_CONNECT))
         {
-            NFSnsTeamMgr::Instance(m_pObjPluginManager)->SetServerType(NF_ST_SNS_SERVER);
-            NFDBObjMgr::Instance(m_pObjPluginManager)->LoadFromDB(NFSnsTeamMgr::Instance(m_pObjPluginManager));
+            for (uint32_t i = SNS_OB_SERVICE_NONE + 1; i < SNS_OB_SERVICE_MAX; ++i)
+            {
+                auto pService = dynamic_cast<NFObService *>(FindModule<NFISharedMemModule>()->GetHeadObj(EOT_SNS_SERVICE_ID + i));
+                if (pService)
+                {
+                    NFDBObjMgr::Instance(m_pObjPluginManager)->LoadFromDB(pService);
+                }
+            }
         }
     }
     return 0;

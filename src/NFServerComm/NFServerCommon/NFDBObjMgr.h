@@ -9,6 +9,9 @@
 
 #pragma once
 
+#include <NFComm/NFShmStl/NFShmHashSet.h>
+#include <NFComm/NFShmStl/NFShmList.h>
+
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmStaticList.hpp"
 #include "NFComm/NFPluginModule/NFServerDefine.h"
@@ -36,11 +39,14 @@ public:
     int OnDataSaved(NFDBObjTrans* trans, bool success);
     int SaveToDB(NFBaseDBObj* pObj);
     int Tick();
+    int CheckWhenAllDataLoaded();
 private:
     int m_iLastSavingObjIndex;
     uint32_t m_iLastTickTime;
     int m_iTransMngObjID;
     int m_iTimer;
-    NFShmStaticList<int, 1024> m_runningObjList;
-    NFShmStaticList<int, 1024> m_failedObjList;
+    NFShmList<int, 1024> m_runningObjList;
+    NFShmList<int, 1024> m_failedObjList;
+    NFShmHashSet<int, 1024> m_loadDBList;
+    NFShmHashSet<int, 1024> m_loadDBFinishList;
 };
