@@ -11,7 +11,7 @@
 
 #include <ComDefine.pb.h>
 #include <NFLogicCommon/NFCharactorDefine.h>
-#include <ObService/NFObService.h>
+#include <ObService/NFSnsObService.h>
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
@@ -19,7 +19,7 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 
-class NFSnsRelationMgr : public NFShmObjTemplate<NFSnsRelationMgr, EOT_SNS_SERVICE_ID+SNS_OB_SERVICE_RELATION, NFObService>
+class NFSnsRelationMgr : public NFShmObjTemplate<NFSnsRelationMgr, EOT_SNS_SERVICE_ID+SNS_OB_SERVICE_RELATION, NFSnsObService>
 {
 public:
     NFSnsRelationMgr();

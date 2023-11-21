@@ -13,7 +13,7 @@
 #include <Chat/NFSnsChatPart.h>
 #include <Clan/NFSnsClanMgr.h>
 #include <Faction/NFFactionMgr.h>
-#include <ObService/NFObServiceModule.h>
+#include <ObService/NFSnsObServiceModule.h>
 #include <Relation/NFSnsRelationMgr.h>
 #include <Team/NFSnsTeamMgr.h>
 
@@ -62,7 +62,7 @@ void NFMMOSnsPlayerPlugin::Install()
 {
 	REGISTER_MODULE(m_pObjPluginManager, NFCSnsPlayerModule, NFCSnsPlayerModule);
     REGISTER_MODULE(m_pObjPluginManager, NFSnsPartModule, NFSnsPartModule);
-    REGISTER_MODULE(m_pObjPluginManager, NFObServiceModule, NFObServiceModule);
+    REGISTER_MODULE(m_pObjPluginManager, NFSnsObServiceModule, NFSnsObServiceModule);
 
 }
 
@@ -70,7 +70,7 @@ void NFMMOSnsPlayerPlugin::Uninstall()
 {
 	UNREGISTER_MODULE(m_pObjPluginManager, NFCSnsPlayerModule, NFCSnsPlayerModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFSnsPartModule, NFSnsPartModule);
-    UNREGISTER_MODULE(m_pObjPluginManager, NFObServiceModule, NFObServiceModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFSnsObServiceModule, NFSnsObServiceModule);
 }
 
 bool NFMMOSnsPlayerPlugin::InitShmObjectRegister()
@@ -80,7 +80,7 @@ bool NFMMOSnsPlayerPlugin::InitShmObjectRegister()
 
     uint32_t maxOnlinePlayerNum = pConfig->MaxOnlinePlayerNum*1.2;
 
-    REGISTER_SHM_OBJ(NFObService, 0);
+    REGISTER_SHM_OBJ(NFSnsObService, 0);
     REGISTER_SINGLETON_SHM_OBJ(NFCacheMgr);//
     REGISTER_SINGLETON_SHM_OBJ(NFLoadCacheMgr);//
     REGISTER_SINGLETON_SHM_OBJ(NFSnsFactionMgr);//

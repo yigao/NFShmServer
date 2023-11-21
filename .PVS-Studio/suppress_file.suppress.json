@@ -2905,9 +2905,9 @@
       "CodeNext": 88263
     },
     {
-      "FileName": "NFObService.cpp",
+      "FileName": "NFSnsObService.cpp",
       "ErrorCode": "V1077",
-      "Message": "The \u0027NFObService\u0027 constructor contains potentially uninitialized members. Inspect the following: m_serviceId.",
+      "Message": "The \u0027NFSnsObService\u0027 constructor contains potentially uninitialized members. Inspect the following: m_serviceId.",
       "CodePrev": 0,
       "CodeCurrent": -336257115,
       "CodeNext": 123

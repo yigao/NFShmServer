@@ -14,7 +14,7 @@
 #include <NFGameCommon/NFComTypeDefine.h>
 #include <NFLogicCommon/NFCharactorDefine.h>
 #include <NFLogicCommon/NFChatDefine.h>
-#include <ObService/NFObService.h>
+#include <ObService/NFSnsObService.h>
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
@@ -24,7 +24,7 @@
 
 #define MAX_VIRFORBID_PLAYER_NUM 20000
 
-class NFSnsChatMgr : public NFShmObjTemplate<NFSnsChatMgr, EOT_SNS_SERVICE_ID+SNS_OB_SERVICE_CHAT, NFObService>
+class NFSnsChatMgr : public NFShmObjTemplate<NFSnsChatMgr, EOT_SNS_SERVICE_ID+SNS_OB_SERVICE_CHAT, NFSnsObService>
 {
 public:
     NFSnsChatMgr();

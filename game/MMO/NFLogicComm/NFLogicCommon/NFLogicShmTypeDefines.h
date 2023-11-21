@@ -95,6 +95,14 @@ enum SnsObServiceType
 	SNS_OB_SERVICE_MAX,
 };
 
+enum LogicObServiceType
+{
+	LOGIC_OB_SERVICE_NONE = 0,
+	LOGIC_OB_SERVICE_CHAT,
+	LOGIC_OB_SERVICE_CLAN,
+	LOGIC_OB_SERVICE_MAX,
+};
+
 typedef enum
 {
 	EOT_SF_BEGIN_ID = EOT_SERVER_FRAME_BEGIN_ID,
@@ -119,7 +127,7 @@ typedef enum
     ////////////////////////////sns part server/////////////////////////////
     EOT_SNS_PART_ID,
     EOT_SNS_PART_MAX_ID = EOT_SNS_PART_ID+SNS_PART_MAX,
-	////////////////////////////sns part server/////////////////////////////
+	////////////////////////////sns service server/////////////////////////////
 	EOT_SNS_SERVICE_ID,
 	EOT_SNS_SERVICE_MAX_ID = EOT_SNS_SERVICE_ID+SNS_OB_SERVICE_MAX,
 	////////////////////////////sns server/////////////////////////////
@@ -132,11 +140,12 @@ typedef enum
     //////////////////////////logic trans////////////////////////
     EOT_TRANS_LOGIC_USER_BASE,
     EOT_TRANS_SAVE_PLAYER,
+	////////////////////////////sns service server/////////////////////////////
+	EOT_LOGIC_SERVICE_ID,
+	EOT_LOGIC_SERVICE_MAX_ID = EOT_LOGIC_SERVICE_ID+LOGIC_OB_SERVICE_MAX,
 	////////////////////////////logic server/////////////////////////////
     EOT_LOGIC_PLAYER_MGR_ID,
     EOT_LOGIC_PLAYER_ID,
-	EOT_NFChatMgr_ID,
-	EOT_NFClanMgr_ID,
 	////////////////////////////login server/////////////////////////////
     EOT_ACCOUNTLOGIN_HASHTABLE_ID,
 	////////////////////////////login server/////////////////////////////

@@ -12,7 +12,7 @@
 #include <DBProxy2_s.h>
 #include <NFServerComm/NFServerCommon/NFBaseDBObj.h>
 
-#include <ObService/NFObService.h>
+#include <ObService/NFSnsObService.h>
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
@@ -21,7 +21,7 @@
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFServerLogicMessage/DBProxy2.pb.h"
 
-class NFSnsTeamMgr : public NFShmObjTemplate<NFSnsTeamMgr, EOT_SNS_SERVICE_ID+SNS_OB_SERVICE_TEAM, NFObService>
+class NFSnsTeamMgr : public NFShmObjTemplate<NFSnsTeamMgr, EOT_SNS_SERVICE_ID+SNS_OB_SERVICE_TEAM, NFSnsObService>
 {
 public:
     NFSnsTeamMgr();

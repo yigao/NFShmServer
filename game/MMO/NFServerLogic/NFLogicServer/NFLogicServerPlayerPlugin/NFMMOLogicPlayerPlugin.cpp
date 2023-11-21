@@ -9,6 +9,7 @@
 
 #include "NFMMOLogicPlayerPlugin.h"
 
+#include "ObService/NFLogicObService.h"
 #include <Chat/NFChatMgr.h>
 #include <Clan/NFClanMgr.h>
 #include <Growth/NFMofaPart.h>
@@ -104,12 +105,15 @@ void NFMMOLogicPlayerPlugin::Install()
 {
     REGISTER_MODULE(m_pObjPluginManager, NFCLogicPlayerModule, NFCLogicPlayerModule);
     REGISTER_MODULE(m_pObjPluginManager, NFPartModule, NFPartModule);
+    REGISTER_MODULE(m_pObjPluginManager, NFLogicObServiceModule, NFLogicObServiceModule);
+    
 }
 
 void NFMMOLogicPlayerPlugin::Uninstall()
 {
     UNREGISTER_MODULE(m_pObjPluginManager, NFCLogicPlayerModule, NFCLogicPlayerModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFPartModule, NFPartModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFLogicObServiceModule, NFLogicObServiceModule);
 }
 
 bool NFMMOLogicPlayerPlugin::InitShmObjectRegister()
@@ -120,6 +124,8 @@ bool NFMMOLogicPlayerPlugin::InitShmObjectRegister()
     uint32_t maxOnlinePlayerNum = pConfig->GetMaxOnlinePlayerNum() * 1.2;
 
     REGISTER_SINGLETON_SHM_OBJ(NFPlayerMgr);//
+    REGISTER_SINGLETON_SHM_OBJ(NFPlayerMgr);//
+    REGISTER_SHM_OBJ(NFLogicObService, 0);
     REGISTER_SINGLETON_SHM_OBJ(NFChatMgr);//
     REGISTER_SINGLETON_SHM_OBJ(NFClanMgr);//
 

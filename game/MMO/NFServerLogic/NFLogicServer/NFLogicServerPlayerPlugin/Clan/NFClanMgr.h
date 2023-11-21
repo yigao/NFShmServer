@@ -14,11 +14,12 @@
 #include "NFComm/NFShmCore/NFShmObjTemplate.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
+#include "ObService/NFLogicObService.h"
 
 /**
  * \brief 战队管理器
  */
-class NFClanMgr : public NFShmObjTemplate<NFClanMgr, EOT_NFClanMgr_ID, NFShmObj>
+class NFClanMgr : public NFShmObjTemplate<NFClanMgr, EOT_LOGIC_SERVICE_ID+LOGIC_OB_SERVICE_CLAN, NFLogicObService>
 {
 public:
     NFClanMgr();

@@ -1,36 +1,36 @@
 // -------------------------------------------------------------------------
-//    @FileName         :    NFObServiceModule.cpp
+//    @FileName         :    NFSnsObServiceModule.cpp
 //    @Author           :    gaoyi
 //    @Date             :    23-11-17
 //    @Email			:    445267987@qq.com
-//    @Module           :    NFObServiceModule
+//    @Module           :    NFSnsObServiceModule
 //
 // -------------------------------------------------------------------------
 
-#include "NFObServiceModule.h"
+#include "NFSnsObServiceModule.h"
 
 #include <NFLogicCommon/NFLogicShmTypeDefines.h>
 #include <NFServerComm/NFServerCommon/NFDBObjMgr.h>
 #include <Team/NFSnsTeamMgr.h>
 
-#include "NFObService.h"
+#include "NFSnsObService.h"
 
-NFObServiceModule::NFObServiceModule(NFIPluginManager* p) : NFIDysServiceModule(p)
+NFSnsObServiceModule::NFSnsObServiceModule(NFIPluginManager* p) : NFIDysServiceModule(p)
 {
 }
 
-NFObServiceModule::~NFObServiceModule()
+NFSnsObServiceModule::~NFSnsObServiceModule()
 {
 }
 
-bool NFObServiceModule::Awake()
+bool NFSnsObServiceModule::Awake()
 {
     auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER);
     NF_ASSERT(pConfig);
 
     for (uint32_t i = SNS_OB_SERVICE_NONE + 1; i < SNS_OB_SERVICE_MAX; ++i)
     {
-        auto pService = dynamic_cast<NFObService *>(FindModule<NFISharedMemModule>()->GetHeadObj(EOT_SNS_SERVICE_ID + i));
+        auto pService = dynamic_cast<NFSnsObService *>(FindModule<NFISharedMemModule>()->GetHeadObj(EOT_SNS_SERVICE_ID + i));
         if (pService)
         {
             pService->RegisterMessage();
@@ -47,21 +47,21 @@ bool NFObServiceModule::Awake()
     return true;
 }
 
-bool NFObServiceModule::Execute()
+bool NFSnsObServiceModule::Execute()
 {
     return NFIDysServiceModule::Execute();
 }
 
-bool NFObServiceModule::OnDynamicPlugin()
+bool NFSnsObServiceModule::OnDynamicPlugin()
 {
     return NFIDysServiceModule::OnDynamicPlugin();
 }
 
-int NFObServiceModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage& packet, uint64_t param1, uint64_t param2)
+int NFSnsObServiceModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage& packet, uint64_t param1, uint64_t param2)
 {
     if (msgId < m_clientMsgToServiceMap.size() && m_clientMsgToServiceMap[msgId] != 0)
     {
-        auto pService = dynamic_cast<NFObService *>(FindModule<NFISharedMemModule>()->GetHeadObj(EOT_SNS_SERVICE_ID + m_clientMsgToServiceMap[msgId]));
+        auto pService = dynamic_cast<NFSnsObService *>(FindModule<NFISharedMemModule>()->GetHeadObj(EOT_SNS_SERVICE_ID + m_clientMsgToServiceMap[msgId]));
         if (pService)
         {
             return pService->OnHandleClientMessage(msgId, packet);
@@ -74,11 +74,11 @@ int NFObServiceModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage& pack
     return 0;
 }
 
-int NFObServiceModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage& packet, uint64_t param1, uint64_t param2)
+int NFSnsObServiceModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage& packet, uint64_t param1, uint64_t param2)
 {
     if (msgId < m_serverMsgToServiceMap.size() && m_serverMsgToServiceMap[msgId] != 0)
     {
-        auto pService = dynamic_cast<NFObService *>(FindModule<NFISharedMemModule>()->GetHeadObj(EOT_SNS_SERVICE_ID + m_serverMsgToServiceMap[msgId]));
+        auto pService = dynamic_cast<NFSnsObService *>(FindModule<NFISharedMemModule>()->GetHeadObj(EOT_SNS_SERVICE_ID + m_serverMsgToServiceMap[msgId]));
         if (pService)
         {
             return pService->OnHandleServerMessage(msgId, packet);
@@ -91,11 +91,11 @@ int NFObServiceModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage& pack
     return 0;
 }
 
-int NFObServiceModule::OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message& request, google::protobuf::Message& respone, uint64_t param1, uint64_t param2)
+int NFSnsObServiceModule::OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message& request, google::protobuf::Message& respone, uint64_t param1, uint64_t param2)
 {
     if (msgId < m_rpcMsgToServiceMap.size() && m_rpcMsgToServiceMap[msgId].first != 0)
     {
-        auto pService = dynamic_cast<NFObService *>(FindModule<NFISharedMemModule>()->GetHeadObj(EOT_SNS_SERVICE_ID + m_rpcMsgToServiceMap[msgId].first));
+        auto pService = dynamic_cast<NFSnsObService *>(FindModule<NFISharedMemModule>()->GetHeadObj(EOT_SNS_SERVICE_ID + m_rpcMsgToServiceMap[msgId].first));
         if (pService && m_rpcMsgToServiceMap[msgId].second)
         {
             return m_rpcMsgToServiceMap[msgId].second->run(pService, request, respone);
@@ -108,7 +108,7 @@ int NFObServiceModule::OnHandleRpcMessage(uint32_t msgId, google::protobuf::Mess
     return 0;
 }
 
-int NFObServiceModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage)
+int NFSnsObServiceModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage)
 {
     if (nEventID == proto_ff::NF_EVENT_SERVER_TASK_GROUP_FINISH && bySrcType == proto_ff::NF_EVENT_SERVER_TYPE &&
     (nSrcID == APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE || nSrcID == APP_INIT_TASK_GROUP_SERVER_CONNECT))
@@ -117,7 +117,7 @@ int NFObServiceModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_
         {
             for (uint32_t i = SNS_OB_SERVICE_NONE + 1; i < SNS_OB_SERVICE_MAX; ++i)
             {
-                auto pService = dynamic_cast<NFObService *>(FindModule<NFISharedMemModule>()->GetHeadObj(EOT_SNS_SERVICE_ID + i));
+                auto pService = dynamic_cast<NFSnsObService *>(FindModule<NFISharedMemModule>()->GetHeadObj(EOT_SNS_SERVICE_ID + i));
                 if (pService)
                 {
                     NFDBObjMgr::Instance(m_pObjPluginManager)->LoadFromDB(pService);

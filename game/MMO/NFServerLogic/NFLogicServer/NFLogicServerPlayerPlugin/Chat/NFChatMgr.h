@@ -17,10 +17,11 @@
 #include "NFComm/NFShmCore/NFShmObjTemplate.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
+#include "ObService/NFLogicObService.h"
 
 class NFPlayer;
 
-class NFChatMgr : public NFShmObjTemplate<NFChatMgr, EOT_NFChatMgr_ID, NFShmObj>
+class NFChatMgr : public NFShmObjTemplate<NFChatMgr, EOT_LOGIC_SERVICE_ID+LOGIC_OB_SERVICE_CLAN, NFLogicObService>
 {
 public:
     NFChatMgr();

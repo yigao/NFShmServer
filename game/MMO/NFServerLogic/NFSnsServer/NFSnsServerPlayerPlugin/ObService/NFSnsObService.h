@@ -1,9 +1,9 @@
 // -------------------------------------------------------------------------
-//    @FileName         :    NFObService.h
+//    @FileName         :    NFSnsObService.h
 //    @Author           :    gaoyi
 //    @Date             :    23-11-17
 //    @Email			:    445267987@qq.com
-//    @Module           :    NFObService
+//    @Module           :    NFSnsObService
 //
 // -------------------------------------------------------------------------
 
@@ -19,14 +19,14 @@
 #include "NFComm/NFShmCore/NFShmObjTemplate.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
-#include "NFObServiceModule.h"
+#include "NFSnsObServiceModule.h"
 
-class NFObService : public NFDBGlobalTemplate<NFObService, proto_ff::tbSnsGlobal, EOT_SNS_SERVICE_ID>
+class NFSnsObService : public NFDBGlobalTemplate<NFSnsObService, proto_ff::tbSnsGlobal, EOT_SNS_SERVICE_ID>
 {
 public:
-    NFObService();
+    NFSnsObService();
 
-    virtual ~NFObService();
+    virtual ~NFSnsObService();
 
     int CreateInit();
     int ResumeInit();
@@ -85,7 +85,7 @@ public:
     template<size_t msgId, typename BaseType, typename RequestType, typename ResponeType>
     int AddRpcService(BaseType* pBase, int (BaseType::*handleRecieve)(RequestType& request, ResponeType& respone), bool createCo = false)
     {
-        return FindModule<NFObServiceModule>()->AddServiceRpc<msgId, BaseType, RequestType, ResponeType>(pBase, handleRecieve, GetServiceId, createCo);
+        return FindModule<NFSnsObServiceModule>()->AddServiceRpc<msgId, BaseType, RequestType, ResponeType>(pBase, handleRecieve, GetServiceId, createCo);
     }
 
 public:
