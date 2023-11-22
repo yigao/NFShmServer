@@ -232,11 +232,12 @@ enum EventId
     EVENT_TURN_CMPT_TASK,                //完成并领取了转生装备前置任务
     EVENT_SOUL_CMPT_TASK,                //完成并领取了战魂前置任务
     EVENT_TURN_CHG,                     //完成转生
+    EVENT_SHENJI_FIGHT_CHG,             //神机战力改变
 
 	EVENT_BATTLE_PASS_XIAN_CE,			//福缘仙册
 	EVENT_BATTLE_PASS_PASS_BAODING,		//举世宝鼎
-    EVENT_DEITY_FIGHT_CHANGE,          //天神战力改变事件
-    EVENT_BEAST_FIGHT_CHANGE,          //神兽战力改变事件
+	EVENT_DEITY_FIGHT_CHANGE,          //天神战力改变事件
+	EVENT_BEAST_FIGHT_CHANGE,          //神兽战力改变事件
 	EVENT_ID_LIMIT = 255,				//事件ID最大值
 
 

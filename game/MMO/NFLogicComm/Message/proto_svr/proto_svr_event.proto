@@ -304,3 +304,11 @@ message MarryExpressExpEvent
 {
   optional int32 exp = 1;
 };
+
+//EVENT_SHENJI_FIGHT_CHG
+message ShenjiFightChgEvent
+{
+  optional uint32 slot = 1; //1 暗器 ：2灵甲
+  optional uint64 fight = 2;
+  optional uint32 star = 3;
+};

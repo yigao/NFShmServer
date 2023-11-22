@@ -78,6 +78,7 @@ class BattlePassBaoDing;
 class DeityFightChgEvent;
 class BeastFightChgEvent;
 class MarryExpressExpEvent;
+class ShenjiFightChgEvent;
 
 // ===================================================================
 
@@ -4282,6 +4283,108 @@ class MarryExpressExpEvent : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static MarryExpressExpEvent* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class ShenjiFightChgEvent : public ::google::protobuf::Message {
+ public:
+  ShenjiFightChgEvent();
+  virtual ~ShenjiFightChgEvent();
+
+  ShenjiFightChgEvent(const ShenjiFightChgEvent& from);
+
+  inline ShenjiFightChgEvent& operator=(const ShenjiFightChgEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ShenjiFightChgEvent& default_instance();
+
+  void Swap(ShenjiFightChgEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  ShenjiFightChgEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ShenjiFightChgEvent& from);
+  void MergeFrom(const ShenjiFightChgEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 slot = 1;
+  inline bool has_slot() const;
+  inline void clear_slot();
+  static const int kSlotFieldNumber = 1;
+  inline ::google::protobuf::uint32 slot() const;
+  inline void set_slot(::google::protobuf::uint32 value);
+
+  // optional uint64 fight = 2;
+  inline bool has_fight() const;
+  inline void clear_fight();
+  static const int kFightFieldNumber = 2;
+  inline ::google::protobuf::uint64 fight() const;
+  inline void set_fight(::google::protobuf::uint64 value);
+
+  // optional uint32 star = 3;
+  inline bool has_star() const;
+  inline void clear_star();
+  static const int kStarFieldNumber = 3;
+  inline ::google::protobuf::uint32 star() const;
+  inline void set_star(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.ShenjiFightChgEvent)
+ private:
+  inline void set_has_slot();
+  inline void clear_has_slot();
+  inline void set_has_fight();
+  inline void clear_has_fight();
+  inline void set_has_star();
+  inline void clear_has_star();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 fight_;
+  ::google::protobuf::uint32 slot_;
+  ::google::protobuf::uint32 star_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static ShenjiFightChgEvent* default_instance_;
+};
 // ===================================================================
 
 
@@ -6939,6 +7042,76 @@ inline ::google::protobuf::int32 MarryExpressExpEvent::exp() const {
 inline void MarryExpressExpEvent::set_exp(::google::protobuf::int32 value) {
   set_has_exp();
   exp_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// ShenjiFightChgEvent
+
+// optional uint32 slot = 1;
+inline bool ShenjiFightChgEvent::has_slot() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ShenjiFightChgEvent::set_has_slot() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ShenjiFightChgEvent::clear_has_slot() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ShenjiFightChgEvent::clear_slot() {
+  slot_ = 0u;
+  clear_has_slot();
+}
+inline ::google::protobuf::uint32 ShenjiFightChgEvent::slot() const {
+  return slot_;
+}
+inline void ShenjiFightChgEvent::set_slot(::google::protobuf::uint32 value) {
+  set_has_slot();
+  slot_ = value;
+}
+
+// optional uint64 fight = 2;
+inline bool ShenjiFightChgEvent::has_fight() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void ShenjiFightChgEvent::set_has_fight() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void ShenjiFightChgEvent::clear_has_fight() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void ShenjiFightChgEvent::clear_fight() {
+  fight_ = GOOGLE_ULONGLONG(0);
+  clear_has_fight();
+}
+inline ::google::protobuf::uint64 ShenjiFightChgEvent::fight() const {
+  return fight_;
+}
+inline void ShenjiFightChgEvent::set_fight(::google::protobuf::uint64 value) {
+  set_has_fight();
+  fight_ = value;
+}
+
+// optional uint32 star = 3;
+inline bool ShenjiFightChgEvent::has_star() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void ShenjiFightChgEvent::set_has_star() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void ShenjiFightChgEvent::clear_has_star() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void ShenjiFightChgEvent::clear_star() {
+  star_ = 0u;
+  clear_has_star();
+}
+inline ::google::protobuf::uint32 ShenjiFightChgEvent::star() const {
+  return star_;
+}
+inline void ShenjiFightChgEvent::set_star(::google::protobuf::uint32 value) {
+  set_has_star();
+  star_ = value;
 }
 
 

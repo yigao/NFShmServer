@@ -175,6 +175,22 @@ int NFRankPart::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrc
             }
             break;
         }
+        case EVENT_SHENJI_FIGHT_CHG:
+        {
+            const proto_ff::ShenjiFightChgEvent *pEvent = dynamic_cast<const proto_ff::ShenjiFightChgEvent *>(pMessage);
+            if (pEvent)
+            {
+                if (pEvent->slot() == 1)
+                {
+                    UpdateRank(RANK_TYPE_ANQI_FIGHT, pEvent->fight(), pEvent->star());
+                }
+                else
+                {
+                    UpdateRank(RANK_TYPE_LINGJIA_FIGHT, pEvent->fight(), pEvent->star());
+                }
+            }
+            break;
+        }
         default:
             break;
     }

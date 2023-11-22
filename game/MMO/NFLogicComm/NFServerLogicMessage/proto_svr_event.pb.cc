@@ -149,6 +149,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* MarryExpressExpEvent_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MarryExpressExpEvent_reflection_ = NULL;
+const ::google::protobuf::Descriptor* ShenjiFightChgEvent_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  ShenjiFightChgEvent_reflection_ = NULL;
 
 }  // namespace
 
@@ -871,6 +874,23 @@ void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MarryExpressExpEvent));
+  ShenjiFightChgEvent_descriptor_ = file->message_type(43);
+  static const int ShenjiFightChgEvent_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ShenjiFightChgEvent, slot_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ShenjiFightChgEvent, fight_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ShenjiFightChgEvent, star_),
+  };
+  ShenjiFightChgEvent_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      ShenjiFightChgEvent_descriptor_,
+      ShenjiFightChgEvent::default_instance_,
+      ShenjiFightChgEvent_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ShenjiFightChgEvent, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ShenjiFightChgEvent, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(ShenjiFightChgEvent));
 }
 
 namespace {
@@ -969,6 +989,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     BeastFightChgEvent_descriptor_, &BeastFightChgEvent::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     MarryExpressExpEvent_descriptor_, &MarryExpressExpEvent::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    ShenjiFightChgEvent_descriptor_, &ShenjiFightChgEvent::default_instance());
 }
 
 }  // namespace
@@ -1060,6 +1082,8 @@ void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto() {
   delete BeastFightChgEvent_reflection_;
   delete MarryExpressExpEvent::default_instance_;
   delete MarryExpressExpEvent_reflection_;
+  delete ShenjiFightChgEvent::default_instance_;
+  delete ShenjiFightChgEvent_reflection_;
 }
 
 void protobuf_AddDesc_proto_5fsvr_5fevent_2eproto() {
@@ -1139,7 +1163,8 @@ void protobuf_AddDesc_proto_5fsvr_5fevent_2eproto() {
     "(\005\022\n\n\002lv\030\002 \001(\005\"#\n\022DeityFightChgEvent\022\r\n\005"
     "fight\030\001 \001(\004\"#\n\022BeastFightChgEvent\022\r\n\005fig"
     "ht\030\001 \001(\004\"#\n\024MarryExpressExpEvent\022\013\n\003exp\030"
-    "\001 \001(\005", 2725);
+    "\001 \001(\005\"@\n\023ShenjiFightChgEvent\022\014\n\004slot\030\001 \001"
+    "(\r\022\r\n\005fight\030\002 \001(\004\022\014\n\004star\030\003 \001(\r", 2791);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_svr_event.proto", &protobuf_RegisterTypes);
   FunctionUnlockEvent::default_instance_ = new FunctionUnlockEvent();
@@ -1185,6 +1210,7 @@ void protobuf_AddDesc_proto_5fsvr_5fevent_2eproto() {
   DeityFightChgEvent::default_instance_ = new DeityFightChgEvent();
   BeastFightChgEvent::default_instance_ = new BeastFightChgEvent();
   MarryExpressExpEvent::default_instance_ = new MarryExpressExpEvent();
+  ShenjiFightChgEvent::default_instance_ = new ShenjiFightChgEvent();
   FunctionUnlockEvent::default_instance_->InitAsDefaultInstance();
   PlayerLeveUpEvent::default_instance_->InitAsDefaultInstance();
   ItemUseEvent::default_instance_->InitAsDefaultInstance();
@@ -1228,6 +1254,7 @@ void protobuf_AddDesc_proto_5fsvr_5fevent_2eproto() {
   DeityFightChgEvent::default_instance_->InitAsDefaultInstance();
   BeastFightChgEvent::default_instance_->InitAsDefaultInstance();
   MarryExpressExpEvent::default_instance_->InitAsDefaultInstance();
+  ShenjiFightChgEvent::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto);
 }
 
@@ -12875,6 +12902,294 @@ void MarryExpressExpEvent::Swap(MarryExpressExpEvent* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = MarryExpressExpEvent_descriptor_;
   metadata.reflection = MarryExpressExpEvent_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int ShenjiFightChgEvent::kSlotFieldNumber;
+const int ShenjiFightChgEvent::kFightFieldNumber;
+const int ShenjiFightChgEvent::kStarFieldNumber;
+#endif  // !_MSC_VER
+
+ShenjiFightChgEvent::ShenjiFightChgEvent()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void ShenjiFightChgEvent::InitAsDefaultInstance() {
+}
+
+ShenjiFightChgEvent::ShenjiFightChgEvent(const ShenjiFightChgEvent& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void ShenjiFightChgEvent::SharedCtor() {
+  _cached_size_ = 0;
+  slot_ = 0u;
+  fight_ = GOOGLE_ULONGLONG(0);
+  star_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+ShenjiFightChgEvent::~ShenjiFightChgEvent() {
+  SharedDtor();
+}
+
+void ShenjiFightChgEvent::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void ShenjiFightChgEvent::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* ShenjiFightChgEvent::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return ShenjiFightChgEvent_descriptor_;
+}
+
+const ShenjiFightChgEvent& ShenjiFightChgEvent::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  return *default_instance_;
+}
+
+ShenjiFightChgEvent* ShenjiFightChgEvent::default_instance_ = NULL;
+
+ShenjiFightChgEvent* ShenjiFightChgEvent::New() const {
+  return new ShenjiFightChgEvent;
+}
+
+void ShenjiFightChgEvent::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    slot_ = 0u;
+    fight_ = GOOGLE_ULONGLONG(0);
+    star_ = 0u;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool ShenjiFightChgEvent::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint32 slot = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &slot_)));
+          set_has_slot();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_fight;
+        break;
+      }
+
+      // optional uint64 fight = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_fight:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &fight_)));
+          set_has_fight();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_star;
+        break;
+      }
+
+      // optional uint32 star = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_star:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &star_)));
+          set_has_star();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void ShenjiFightChgEvent::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint32 slot = 1;
+  if (has_slot()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->slot(), output);
+  }
+
+  // optional uint64 fight = 2;
+  if (has_fight()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->fight(), output);
+  }
+
+  // optional uint32 star = 3;
+  if (has_star()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->star(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* ShenjiFightChgEvent::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint32 slot = 1;
+  if (has_slot()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->slot(), target);
+  }
+
+  // optional uint64 fight = 2;
+  if (has_fight()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->fight(), target);
+  }
+
+  // optional uint32 star = 3;
+  if (has_star()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->star(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int ShenjiFightChgEvent::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint32 slot = 1;
+    if (has_slot()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->slot());
+    }
+
+    // optional uint64 fight = 2;
+    if (has_fight()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->fight());
+    }
+
+    // optional uint32 star = 3;
+    if (has_star()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->star());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void ShenjiFightChgEvent::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const ShenjiFightChgEvent* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const ShenjiFightChgEvent*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void ShenjiFightChgEvent::MergeFrom(const ShenjiFightChgEvent& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_slot()) {
+      set_slot(from.slot());
+    }
+    if (from.has_fight()) {
+      set_fight(from.fight());
+    }
+    if (from.has_star()) {
+      set_star(from.star());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void ShenjiFightChgEvent::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ShenjiFightChgEvent::CopyFrom(const ShenjiFightChgEvent& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ShenjiFightChgEvent::IsInitialized() const {
+
+  return true;
+}
+
+void ShenjiFightChgEvent::Swap(ShenjiFightChgEvent* other) {
+  if (other != this) {
+    std::swap(slot_, other->slot_);
+    std::swap(fight_, other->fight_);
+    std::swap(star_, other->star_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata ShenjiFightChgEvent::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = ShenjiFightChgEvent_descriptor_;
+  metadata.reflection = ShenjiFightChgEvent_reflection_;
   return metadata;
 }
 
