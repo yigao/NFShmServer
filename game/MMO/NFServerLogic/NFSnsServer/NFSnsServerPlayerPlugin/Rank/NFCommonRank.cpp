@@ -10,6 +10,7 @@
 #include "NFCommonRank.h"
 
 #include <Cache/NFCacheMgr.h>
+#include <Faction/NFFactionMgr.h>
 #include <NFLogicCommon/NFRankDefine.h>
 
 NFCommonRank::NFCommonRank()
@@ -201,21 +202,6 @@ bool NFCommonRank::UpdateNode(uint64_t charID, uint64_t nValue, const std::vecto
 NFCommonRank::MapRankNode* NFCommonRank::GetNodeList()
 {
     return &m_rankData;
-}
-
-uint32_t NFCommonRank::GetRank(uint64_t cid)
-{
-    auto iter = m_cidInRank.find(cid);
-    if (iter != m_cidInRank.end())
-    {
-        //É¾³ýÅÅÐÐÊý¾Ý
-        auto rank_iter = iter->second;
-        assert(rank_iter->second.m_cid == cid);
-        uint32_t nRank = std::distance(m_rankData.begin(), rank_iter);
-        return nRank + 1;
-    }
-
-    return 0;
 }
 
 int NFCommonRank::InitRank(uint32_t rankType)

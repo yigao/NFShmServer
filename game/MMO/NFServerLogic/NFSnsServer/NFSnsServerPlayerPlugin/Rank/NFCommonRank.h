@@ -112,8 +112,6 @@ public:
     bool UpdateNode(uint64_t charID, uint64_t nValue, const std::vector<int64_t>& paramIntVec, const std::vector<string>& paramStrVec);
     //获取列表
     MapRankNode* GetNodeList();
-    //获取排名
-    uint32_t GetRank(uint64_t cid);
     //删除节点
     bool DeleteNode(uint64_t cid);
 protected:
