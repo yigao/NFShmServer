@@ -13,6 +13,7 @@
 #include <NFComm/NFShmStl/NFShmHashMap.h>
 #include <NFComm/NFShmStl/NFShmMap.h>
 #include <NFComm/NFShmStl/NFShmVector.h>
+#include <NFLogicCommon/NFLogicCommon.h>
 #include <NFServerComm/NFServerCommon/NFDBGlobalTemplate.h>
 
 #include "NFComm/NFCore/NFPlatform.h"
@@ -33,6 +34,8 @@ class RankNode
 public:
     uint64_t m_cid;
     uint64_t m_rank;
+    NFShmVector<int64_t, 1> m_paramInt;
+    NFShmVector<NFCommonStr, 1> m_paramStr;
 
     RankNode()
     {
@@ -68,6 +71,8 @@ public:
     {
         m_cid = other.m_cid;
         m_rank = other.m_rank;
+        m_paramInt = other.m_paramInt;
+        m_paramStr = other.m_paramStr;
     }
 
     RankNode& operator =(const RankNode& other)
@@ -102,17 +107,23 @@ public:
     virtual int InitConfig();
 
     virtual int GetDbId();
-
+public:
+    //更新节点
+    bool UpdateNode(uint64_t charID, uint64_t nValue, const std::vector<int64_t>& paramIntVec, const std::vector<string>& paramStrVec);
+    //获取列表
+    MapRankNode* GetNodeList();
+    //获取排名
+    uint32_t GetRank(uint64_t cid);
+    //删除节点
+    bool DeleteNode(uint64_t cid);
 protected:
     //获取最后一名的数值
     uint64_t GetLowestValue();
     //尝试添加新的玩家到排行榜，添加成功返回排名，失败返回0
-    void TryToAddNewNode(uint64_t charID, uint64_t nValue);
+    void TryToAddNewNode(uint64_t charID, uint64_t nValue, const std::vector<int64_t>& paramIntVec, const std::vector<string>& paramStrVec);
     //更新榜内玩家数据
-    void UpdateNodeData(uint64_t charID, uint64_t nValue);
+    void UpdateNodeData(uint64_t charID, uint64_t nValue, const std::vector<int64_t>& paramIntVec, const std::vector<string>& paramStrVec);
     void EraseLowestValue();
-    //删除节点
-    bool DeleteNode(uint64_t cid);
 protected:
     uint32_t m_rankType;
     MapRankNode m_rankData;

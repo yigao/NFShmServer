@@ -9,6 +9,7 @@
 
 #pragma once
 
+#include <Rank.pb.h>
 #include <NFComm/NFShmCore/NFShmPtr.h>
 #include <NFComm/NFShmStl/NFShmHashMap.h>
 #include <NFLogicCommon/NFRankDefine.h>
@@ -53,6 +54,21 @@ public:
      * @return
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage& packet);
+public:
+    //请求更新排行榜
+    int OnUpdateRankReq(uint32_t msgId, NFDataPackage& packet);
+    //请求排行榜数据
+    int OnRankInfoReq(uint32_t msgId, NFDataPackage& packet);
+public:
+    //更新排行榜数据  enRankType
+    void UpdateRankData(const proto_ff::GWUpdateRankReq& req);
+    void UpdateRankData(uint32_t nType, uint64_t charID, uint64_t nValue);
+    //发送排行榜数据给客户端
+    int SendRankData(uint32_t nType, uint64_t charID, uint64_t selfValue, uint64_t unionId);
+    //设置节点proto数据
+    bool SetRankNodeProtoByCharId(proto_ff::RankNodeData* pNode, uint32_t rankType, uint32_t rank, uint64_t charID, uint64_t value);
+    //设置节点proto数据
+    bool SetRankNodeProtoByUnionId(proto_ff::RankNodeData* pNode, uint32_t rankType, uint32_t rank, uint64_t unionID, uint64_t value);
 public:
     virtual int LoadFromDB(const std::string& dbData);
 

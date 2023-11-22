@@ -63,7 +63,7 @@ public:
     virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet);
 public:
     //发送数值到中心服更新排行榜
-    void UpdateRank(enRankType rankType, uint64_t value);
+    void UpdateRank(enRankType rankType, uint64_t value, int64_t param1 = 0);
     //获取玩家的排行榜数值
     uint64_t GetPlayerRankValue(uint32_t rankType);
 public:

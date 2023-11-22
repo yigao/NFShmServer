@@ -54,6 +54,7 @@ int NFRankPart::Init(NFPlayer* pMaster, uint32_t partType, const proto_ff::RoleD
     Subscribe(NF_ST_LOGIC_SERVER, EVENT_BATTLE_PASS_XIAN_CE, CREATURE_PLAYER, m_pMaster->Cid(), "RankPart");
     Subscribe(NF_ST_LOGIC_SERVER, EVENT_BATTLE_PASS_PASS_BAODING, CREATURE_PLAYER, m_pMaster->Cid(), "RankPart");
     Subscribe(NF_ST_LOGIC_SERVER, EVENT_BEAST_FIGHT_CHANGE, CREATURE_PLAYER, m_pMaster->Cid(), "RankPart");
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_MARRY_EXPRESS_EXP, CREATURE_PLAYER, m_pMaster->Cid(), "RankPart");
 
     return 0;
 }
@@ -165,6 +166,15 @@ int NFRankPart::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrc
             }
             break;
         }
+        case EVENT_MARRY_EXPRESS_EXP:
+        {
+            const proto_ff::MarryExpressExpEvent *pEvent = dynamic_cast<const proto_ff::MarryExpressExpEvent *>(pMessage);
+            if (pEvent)
+            {
+                UpdateRank(RANK_TYPE_BIAOBAI_VALUE, pEvent->exp());
+            }
+            break;
+        }
         default:
             break;
     }
@@ -191,12 +201,16 @@ int NFRankPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
     return 0;
 }
 
-void NFRankPart::UpdateRank(enRankType rankType, uint64_t value)
+void NFRankPart::UpdateRank(enRankType rankType, uint64_t value, int64_t param1)
 {
     proto_ff::GWUpdateRankReq req;
     req.set_ranktype(rankType);
     req.set_charid(m_pMaster->Cid());
     req.set_value(value);
+    if (param1 > 0)
+    {
+        req.add_paramint(param1);
+    }
     m_pMaster->SendMsgToSnsServer(proto_ff::LOGIC_TO_CENTER_UPDATERANK, req);
 }
 

@@ -305,16 +305,5 @@ private:
     uint32_t m_gameId;
 
 private:
-    /**
-     * @brief 存db的时间
-     */
-    uint64_t m_lastSavingDBTime;
-
-    /**
-     * @brief
-     */
-    int m_saveDBTimer;
-
-private:
     NFShmVector<NFShmPtr<NFSnsPart>, SNS_PART_MAX> m_pPart;
 };

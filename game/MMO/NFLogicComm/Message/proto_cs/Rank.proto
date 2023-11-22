@@ -31,6 +31,8 @@ message GWUpdateRankReq
   required uint32 rankType = 1;	//排行类型
   required uint64 charId = 2;     //玩家id
   required uint64 value = 3;     //排行数值
+  repeated int64	paramInt = 5;	// 整数列表
+  repeated string paramStr = 6;	// 字符列表
 }
 
 // 逻辑服更新排行榜 LOGIC_TO_SOCIAL_RANK_UPDATE_REQ

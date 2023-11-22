@@ -389,6 +389,34 @@ class GWUpdateRankReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 value() const;
   inline void set_value(::google::protobuf::uint64 value);
 
+  // repeated int64 paramInt = 5;
+  inline int paramint_size() const;
+  inline void clear_paramint();
+  static const int kParamIntFieldNumber = 5;
+  inline ::google::protobuf::int64 paramint(int index) const;
+  inline void set_paramint(int index, ::google::protobuf::int64 value);
+  inline void add_paramint(::google::protobuf::int64 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+      paramint() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+      mutable_paramint();
+
+  // repeated string paramStr = 6;
+  inline int paramstr_size() const;
+  inline void clear_paramstr();
+  static const int kParamStrFieldNumber = 6;
+  inline const ::std::string& paramstr(int index) const;
+  inline ::std::string* mutable_paramstr(int index);
+  inline void set_paramstr(int index, const ::std::string& value);
+  inline void set_paramstr(int index, const char* value);
+  inline void set_paramstr(int index, const char* value, size_t size);
+  inline ::std::string* add_paramstr();
+  inline void add_paramstr(const ::std::string& value);
+  inline void add_paramstr(const char* value);
+  inline void add_paramstr(const char* value, size_t size);
+  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& paramstr() const;
+  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_paramstr();
+
   // @@protoc_insertion_point(class_scope:proto_ff.GWUpdateRankReq)
  private:
   inline void set_has_ranktype();
@@ -402,10 +430,12 @@ class GWUpdateRankReq : public ::google::protobuf::Message {
 
   ::google::protobuf::uint64 charid_;
   ::google::protobuf::uint64 value_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > paramint_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> paramstr_;
   ::google::protobuf::uint32 ranktype_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
 
   friend void  protobuf_AddDesc_Rank_2eproto();
   friend void protobuf_AssignDesc_Rank_2eproto();
@@ -1106,6 +1136,75 @@ inline ::google::protobuf::uint64 GWUpdateRankReq::value() const {
 inline void GWUpdateRankReq::set_value(::google::protobuf::uint64 value) {
   set_has_value();
   value_ = value;
+}
+
+// repeated int64 paramInt = 5;
+inline int GWUpdateRankReq::paramint_size() const {
+  return paramint_.size();
+}
+inline void GWUpdateRankReq::clear_paramint() {
+  paramint_.Clear();
+}
+inline ::google::protobuf::int64 GWUpdateRankReq::paramint(int index) const {
+  return paramint_.Get(index);
+}
+inline void GWUpdateRankReq::set_paramint(int index, ::google::protobuf::int64 value) {
+  paramint_.Set(index, value);
+}
+inline void GWUpdateRankReq::add_paramint(::google::protobuf::int64 value) {
+  paramint_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+GWUpdateRankReq::paramint() const {
+  return paramint_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+GWUpdateRankReq::mutable_paramint() {
+  return &paramint_;
+}
+
+// repeated string paramStr = 6;
+inline int GWUpdateRankReq::paramstr_size() const {
+  return paramstr_.size();
+}
+inline void GWUpdateRankReq::clear_paramstr() {
+  paramstr_.Clear();
+}
+inline const ::std::string& GWUpdateRankReq::paramstr(int index) const {
+  return paramstr_.Get(index);
+}
+inline ::std::string* GWUpdateRankReq::mutable_paramstr(int index) {
+  return paramstr_.Mutable(index);
+}
+inline void GWUpdateRankReq::set_paramstr(int index, const ::std::string& value) {
+  paramstr_.Mutable(index)->assign(value);
+}
+inline void GWUpdateRankReq::set_paramstr(int index, const char* value) {
+  paramstr_.Mutable(index)->assign(value);
+}
+inline void GWUpdateRankReq::set_paramstr(int index, const char* value, size_t size) {
+  paramstr_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* GWUpdateRankReq::add_paramstr() {
+  return paramstr_.Add();
+}
+inline void GWUpdateRankReq::add_paramstr(const ::std::string& value) {
+  paramstr_.Add()->assign(value);
+}
+inline void GWUpdateRankReq::add_paramstr(const char* value) {
+  paramstr_.Add()->assign(value);
+}
+inline void GWUpdateRankReq::add_paramstr(const char* value, size_t size) {
+  paramstr_.Add()->assign(reinterpret_cast<const char*>(value), size);
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+GWUpdateRankReq::paramstr() const {
+  return paramstr_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+GWUpdateRankReq::mutable_paramstr() {
+  return &paramstr_;
 }
 
 // -------------------------------------------------------------------

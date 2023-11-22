@@ -102,10 +102,12 @@ void protobuf_AssignDesc_Rank_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GWRankDataReq));
   GWUpdateRankReq_descriptor_ = file->message_type(3);
-  static const int GWUpdateRankReq_offsets_[3] = {
+  static const int GWUpdateRankReq_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GWUpdateRankReq, ranktype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GWUpdateRankReq, charid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GWUpdateRankReq, value_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GWUpdateRankReq, paramint_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GWUpdateRankReq, paramstr_),
   };
   GWUpdateRankReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -256,18 +258,18 @@ void protobuf_AddDesc_Rank_2eproto() {
     "e\030\001 \002(\r\"8\n\020RankDataResponse\022$\n\004info\030\001 \001("
     "\0132\026.proto_ff.RankDataInfo\"@\n\rGWRankDataR"
     "eq\022\020\n\010rankType\030\001 \002(\r\022\016\n\006charId\030\002 \002(\004\022\r\n\005"
-    "value\030\003 \002(\004\"B\n\017GWUpdateRankReq\022\020\n\010rankTy"
-    "pe\030\001 \002(\r\022\016\n\006charId\030\002 \002(\004\022\r\n\005value\030\003 \002(\004\""
-    "s\n\017GSUpdateRankReq\022\020\n\010rankType\030\001 \001(\r\022\016\n\006"
-    "charId\030\002 \001(\004\022\013\n\003zid\030\003 \001(\005\022\r\n\005value\030\004 \001(\003"
-    "\022\020\n\010paramInt\030\005 \003(\003\022\020\n\010paramStr\030\006 \003(\t\"5\n\021"
-    "WGRankDataRequest\022\020\n\010rankType\030\001 \002(\r\022\016\n\006c"
-    "harId\030\002 \001(\003\"z\n\021GSRankDataRequest\022\020\n\010rank"
-    "Type\030\001 \002(\r\022\016\n\006charId\030\002 \001(\003\022\020\n\010charname\030\003"
-    " \001(\t\022\r\n\005value\030\004 \001(\003\022\020\n\010paramInt\030\005 \003(\003\022\020\n"
-    "\010paramStr\030\006 \003(\t\"C\n\025SocialRankOptTitleReq"
-    "\022\016\n\006charId\030\001 \001(\003\022\r\n\005title\030\002 \001(\003\022\013\n\003opt\030\003"
-    " \001(\005", 644);
+    "value\030\003 \002(\004\"f\n\017GWUpdateRankReq\022\020\n\010rankTy"
+    "pe\030\001 \002(\r\022\016\n\006charId\030\002 \002(\004\022\r\n\005value\030\003 \002(\004\022"
+    "\020\n\010paramInt\030\005 \003(\003\022\020\n\010paramStr\030\006 \003(\t\"s\n\017G"
+    "SUpdateRankReq\022\020\n\010rankType\030\001 \001(\r\022\016\n\006char"
+    "Id\030\002 \001(\004\022\013\n\003zid\030\003 \001(\005\022\r\n\005value\030\004 \001(\003\022\020\n\010"
+    "paramInt\030\005 \003(\003\022\020\n\010paramStr\030\006 \003(\t\"5\n\021WGRa"
+    "nkDataRequest\022\020\n\010rankType\030\001 \002(\r\022\016\n\006charI"
+    "d\030\002 \001(\003\"z\n\021GSRankDataRequest\022\020\n\010rankType"
+    "\030\001 \002(\r\022\016\n\006charId\030\002 \001(\003\022\020\n\010charname\030\003 \001(\t"
+    "\022\r\n\005value\030\004 \001(\003\022\020\n\010paramInt\030\005 \003(\003\022\020\n\010par"
+    "amStr\030\006 \003(\t\"C\n\025SocialRankOptTitleReq\022\016\n\006"
+    "charId\030\001 \001(\003\022\r\n\005title\030\002 \001(\003\022\013\n\003opt\030\003 \001(\005", 680);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Rank.proto", &protobuf_RegisterTypes);
   RankDataRequest::default_instance_ = new RankDataRequest();
@@ -1016,6 +1018,8 @@ void GWRankDataReq::Swap(GWRankDataReq* other) {
 const int GWUpdateRankReq::kRankTypeFieldNumber;
 const int GWUpdateRankReq::kCharIdFieldNumber;
 const int GWUpdateRankReq::kValueFieldNumber;
+const int GWUpdateRankReq::kParamIntFieldNumber;
+const int GWUpdateRankReq::kParamStrFieldNumber;
 #endif  // !_MSC_VER
 
 GWUpdateRankReq::GWUpdateRankReq()
@@ -1076,6 +1080,8 @@ void GWUpdateRankReq::Clear() {
     charid_ = GOOGLE_ULONGLONG(0);
     value_ = GOOGLE_ULONGLONG(0);
   }
+  paramint_.Clear();
+  paramstr_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -1129,6 +1135,47 @@ bool GWUpdateRankReq::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(40)) goto parse_paramInt;
+        break;
+      }
+
+      // repeated int64 paramInt = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_paramInt:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 1, 40, input, this->mutable_paramint())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, this->mutable_paramint())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_paramInt;
+        if (input->ExpectTag(50)) goto parse_paramStr;
+        break;
+      }
+
+      // repeated string paramStr = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_paramStr:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_paramstr()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->paramstr(this->paramstr_size() - 1).data(),
+            this->paramstr(this->paramstr_size() - 1).length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(50)) goto parse_paramStr;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1166,6 +1213,21 @@ void GWUpdateRankReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->value(), output);
   }
 
+  // repeated int64 paramInt = 5;
+  for (int i = 0; i < this->paramint_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(
+      5, this->paramint(i), output);
+  }
+
+  // repeated string paramStr = 6;
+  for (int i = 0; i < this->paramstr_size(); i++) {
+  ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    this->paramstr(i).data(), this->paramstr(i).length(),
+    ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      6, this->paramstr(i), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1187,6 +1249,21 @@ void GWUpdateRankReq::SerializeWithCachedSizes(
   // required uint64 value = 3;
   if (has_value()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->value(), target);
+  }
+
+  // repeated int64 paramInt = 5;
+  for (int i = 0; i < this->paramint_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt64ToArray(5, this->paramint(i), target);
+  }
+
+  // repeated string paramStr = 6;
+  for (int i = 0; i < this->paramstr_size(); i++) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->paramstr(i).data(), this->paramstr(i).length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(6, this->paramstr(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1222,6 +1299,23 @@ int GWUpdateRankReq::ByteSize() const {
     }
 
   }
+  // repeated int64 paramInt = 5;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->paramint_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int64Size(this->paramint(i));
+    }
+    total_size += 1 * this->paramint_size() + data_size;
+  }
+
+  // repeated string paramStr = 6;
+  total_size += 1 * this->paramstr_size();
+  for (int i = 0; i < this->paramstr_size(); i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->paramstr(i));
+  }
+
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -1247,6 +1341,8 @@ void GWUpdateRankReq::MergeFrom(const ::google::protobuf::Message& from) {
 
 void GWUpdateRankReq::MergeFrom(const GWUpdateRankReq& from) {
   GOOGLE_CHECK_NE(&from, this);
+  paramint_.MergeFrom(from.paramint_);
+  paramstr_.MergeFrom(from.paramstr_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_ranktype()) {
       set_ranktype(from.ranktype());
@@ -1284,6 +1380,8 @@ void GWUpdateRankReq::Swap(GWUpdateRankReq* other) {
     std::swap(ranktype_, other->ranktype_);
     std::swap(charid_, other->charid_);
     std::swap(value_, other->value_);
+    paramint_.Swap(&other->paramint_);
+    paramstr_.Swap(&other->paramstr_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

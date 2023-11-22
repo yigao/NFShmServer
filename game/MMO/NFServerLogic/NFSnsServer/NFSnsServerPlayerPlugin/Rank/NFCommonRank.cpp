@@ -9,6 +9,9 @@
 
 #include "NFCommonRank.h"
 
+#include <Cache/NFCacheMgr.h>
+#include <NFLogicCommon/NFRankDefine.h>
+
 NFCommonRank::NFCommonRank()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
@@ -47,7 +50,18 @@ int NFCommonRank::LoadFromDB(const std::string& dbData)
     for (int32_t i = 0; i < rankData.nodelist_size(); ++i)
     {
         const proto_ff::RankNodeDBData& tNode = rankData.nodelist(i);
-        TryToAddNewNode(tNode.cid(), tNode.value());
+        std::vector<int64_t> vecInt;
+        std::vector<string> vecStr;
+        for(int j = 0; j < (int)tNode.paramint_size(); j++)
+        {
+            vecInt.push_back(tNode.paramint(j));
+        }
+
+        for(int j = 0; j < (int)tNode.paramstr_size(); j++)
+        {
+            vecStr.push_back(tNode.paramstr(j));
+        }
+        TryToAddNewNode(tNode.cid(), tNode.value(), vecInt, vecStr);
     }
     return 0;
 }
@@ -58,11 +72,20 @@ int NFCommonRank::SaveToDB(std::string& dbData)
     rankData.set_ranktype(m_rankType);
     for (auto iter = m_rankData.begin(); iter != m_rankData.end(); ++iter)
     {
+        auto& data = iter->second;
         proto_ff::RankNodeDBData* pNode = rankData.add_nodelist();
         if (pNode)
         {
-            pNode->set_cid(iter->second.m_cid);
+            pNode->set_cid(data.m_cid);
             pNode->set_value(iter->first);
+            for(int i = 0; i < (int)data.m_paramInt.size(); i++)
+            {
+                pNode->add_paramint(data.m_paramInt[i]);
+            }
+            for(int i = 0; i < (int)data.m_paramStr.size(); i++)
+            {
+                pNode->add_paramstr(data.m_paramStr[i].data());
+            }
         }
     }
 
@@ -90,7 +113,7 @@ uint64_t NFCommonRank::GetLowestValue()
     return iter->first;
 }
 
-void NFCommonRank::TryToAddNewNode(uint64_t charID, uint64_t nValue)
+void NFCommonRank::TryToAddNewNode(uint64_t charID, uint64_t nValue, const std::vector<int64_t>& paramIntVec, const std::vector<string>& paramStrVec)
 {
     if (nValue > 1000000000000000) return;
     //排行榜已满 且 值比最小值还小  则不能进榜
@@ -107,6 +130,8 @@ void NFCommonRank::TryToAddNewNode(uint64_t charID, uint64_t nValue)
     }
     RankNode tNode;
     tNode.m_cid = charID;
+    tNode.m_paramInt = paramIntVec;
+    tNode.m_paramStr.insert(tNode.m_paramStr.end(), paramStrVec.begin(), paramStrVec.end());
     //保存排行榜数据
     auto insert_iter = m_rankData.insert(std::make_pair(nValue, tNode));
     //保存查询数据
@@ -114,10 +139,10 @@ void NFCommonRank::TryToAddNewNode(uint64_t charID, uint64_t nValue)
     MarkDirty();
 }
 
-void NFCommonRank::UpdateNodeData(uint64_t charID, uint64_t nValue)
+void NFCommonRank::UpdateNodeData(uint64_t charID, uint64_t nValue, const std::vector<int64_t>& paramIntVec, const std::vector<string>& paramStrVec)
 {
     DeleteNode(charID);
-    TryToAddNewNode(charID, nValue);
+    TryToAddNewNode(charID, nValue, paramIntVec, paramStrVec);
 }
 
 void NFCommonRank::EraseLowestValue()
@@ -144,6 +169,53 @@ bool NFCommonRank::DeleteNode(uint64_t cid)
     m_cidInRank.erase(cid);
     MarkDirty();
     return true;
+}
+
+bool NFCommonRank::UpdateNode(uint64_t charID, uint64_t nValue, const std::vector<int64_t>& paramIntVec, const std::vector<string>& paramStrVec)
+{
+    //1玩家离线数据
+    if (m_rankType != RANK_TYPE_GUILD)
+    {
+        auto pSimpleData = NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerSimple(charID);
+        if (nullptr == pSimpleData)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, charID, "[center] RankList::UpdateNode failed...no offlinedata...charID:{}", charID);
+            return false;
+        }
+    }
+    //2.检查是否是榜内玩家
+    auto iter = m_cidInRank.find(charID);
+    if (iter == m_cidInRank.end())
+    {
+        //榜外玩家尝试加入
+        TryToAddNewNode(charID, nValue, paramIntVec, paramStrVec);
+    }
+    else
+    {
+        //更新榜内玩家
+        UpdateNodeData(charID, nValue, paramIntVec, paramStrVec);
+    }
+    return true;
+}
+
+NFCommonRank::MapRankNode* NFCommonRank::GetNodeList()
+{
+    return &m_rankData;
+}
+
+uint32_t NFCommonRank::GetRank(uint64_t cid)
+{
+    auto iter = m_cidInRank.find(cid);
+    if (iter != m_cidInRank.end())
+    {
+        //删除排行数据
+        auto rank_iter = iter->second;
+        assert(rank_iter->second.m_cid == cid);
+        uint32_t nRank = std::distance(m_rankData.begin(), rank_iter);
+        return nRank + 1;
+    }
+
+    return 0;
 }
 
 int NFCommonRank::InitRank(uint32_t rankType)

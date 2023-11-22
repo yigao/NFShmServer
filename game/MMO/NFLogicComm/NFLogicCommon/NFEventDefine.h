@@ -199,6 +199,7 @@ enum EventId
     EVENT_MARRY_CHILD_LV,                //仙娃升级事件
     EVENT_MARRY_CHILD_GET,              //获得仙娃事件
     EVENT_MARRY_EXPRESS_LV,             //表白等级提升事件
+    EVENT_MARRY_EXPRESS_EXP,            //表白经验提升事件
     EVENT_MARRY_LOCK_LV,                //同心锁升级事件
     EVENT_MARRY_CMPT_RECV_TASK,         //完成并领取结婚前置任务
     EVENT_MARRY_CMPT,                   //完成结婚

@@ -298,3 +298,9 @@ message BeastFightChgEvent
 {
   optional uint64 fight = 1;		//战力值
 };
+
+//表白等级提升事件 EVENT_MARRY_EXPRESS_EXP
+message MarryExpressExpEvent
+{
+  optional int32 exp = 1;
+};

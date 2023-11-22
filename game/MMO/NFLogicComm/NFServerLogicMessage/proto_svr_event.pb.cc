@@ -146,6 +146,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* BeastFightChgEvent_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   BeastFightChgEvent_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MarryExpressExpEvent_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MarryExpressExpEvent_reflection_ = NULL;
 
 }  // namespace
 
@@ -853,6 +856,21 @@ void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(BeastFightChgEvent));
+  MarryExpressExpEvent_descriptor_ = file->message_type(42);
+  static const int MarryExpressExpEvent_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarryExpressExpEvent, exp_),
+  };
+  MarryExpressExpEvent_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      MarryExpressExpEvent_descriptor_,
+      MarryExpressExpEvent::default_instance_,
+      MarryExpressExpEvent_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarryExpressExpEvent, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MarryExpressExpEvent, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(MarryExpressExpEvent));
 }
 
 namespace {
@@ -949,6 +967,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     DeityFightChgEvent_descriptor_, &DeityFightChgEvent::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     BeastFightChgEvent_descriptor_, &BeastFightChgEvent::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    MarryExpressExpEvent_descriptor_, &MarryExpressExpEvent::default_instance());
 }
 
 }  // namespace
@@ -1038,6 +1058,8 @@ void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto() {
   delete DeityFightChgEvent_reflection_;
   delete BeastFightChgEvent::default_instance_;
   delete BeastFightChgEvent_reflection_;
+  delete MarryExpressExpEvent::default_instance_;
+  delete MarryExpressExpEvent_reflection_;
 }
 
 void protobuf_AddDesc_proto_5fsvr_5fevent_2eproto() {
@@ -1116,7 +1138,8 @@ void protobuf_AddDesc_proto_5fsvr_5fevent_2eproto() {
     "\005\"3\n\021BattlePassBaoDing\022\022\n\nbuy_status\030\001 \001"
     "(\005\022\n\n\002lv\030\002 \001(\005\"#\n\022DeityFightChgEvent\022\r\n\005"
     "fight\030\001 \001(\004\"#\n\022BeastFightChgEvent\022\r\n\005fig"
-    "ht\030\001 \001(\004", 2688);
+    "ht\030\001 \001(\004\"#\n\024MarryExpressExpEvent\022\013\n\003exp\030"
+    "\001 \001(\005", 2725);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_svr_event.proto", &protobuf_RegisterTypes);
   FunctionUnlockEvent::default_instance_ = new FunctionUnlockEvent();
@@ -1161,6 +1184,7 @@ void protobuf_AddDesc_proto_5fsvr_5fevent_2eproto() {
   BattlePassBaoDing::default_instance_ = new BattlePassBaoDing();
   DeityFightChgEvent::default_instance_ = new DeityFightChgEvent();
   BeastFightChgEvent::default_instance_ = new BeastFightChgEvent();
+  MarryExpressExpEvent::default_instance_ = new MarryExpressExpEvent();
   FunctionUnlockEvent::default_instance_->InitAsDefaultInstance();
   PlayerLeveUpEvent::default_instance_->InitAsDefaultInstance();
   ItemUseEvent::default_instance_->InitAsDefaultInstance();
@@ -1203,6 +1227,7 @@ void protobuf_AddDesc_proto_5fsvr_5fevent_2eproto() {
   BattlePassBaoDing::default_instance_->InitAsDefaultInstance();
   DeityFightChgEvent::default_instance_->InitAsDefaultInstance();
   BeastFightChgEvent::default_instance_->InitAsDefaultInstance();
+  MarryExpressExpEvent::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto);
 }
 
@@ -12642,6 +12667,214 @@ void BeastFightChgEvent::Swap(BeastFightChgEvent* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = BeastFightChgEvent_descriptor_;
   metadata.reflection = BeastFightChgEvent_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MarryExpressExpEvent::kExpFieldNumber;
+#endif  // !_MSC_VER
+
+MarryExpressExpEvent::MarryExpressExpEvent()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void MarryExpressExpEvent::InitAsDefaultInstance() {
+}
+
+MarryExpressExpEvent::MarryExpressExpEvent(const MarryExpressExpEvent& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void MarryExpressExpEvent::SharedCtor() {
+  _cached_size_ = 0;
+  exp_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MarryExpressExpEvent::~MarryExpressExpEvent() {
+  SharedDtor();
+}
+
+void MarryExpressExpEvent::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MarryExpressExpEvent::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MarryExpressExpEvent::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MarryExpressExpEvent_descriptor_;
+}
+
+const MarryExpressExpEvent& MarryExpressExpEvent::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  return *default_instance_;
+}
+
+MarryExpressExpEvent* MarryExpressExpEvent::default_instance_ = NULL;
+
+MarryExpressExpEvent* MarryExpressExpEvent::New() const {
+  return new MarryExpressExpEvent;
+}
+
+void MarryExpressExpEvent::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    exp_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool MarryExpressExpEvent::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 exp = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &exp_)));
+          set_has_exp();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void MarryExpressExpEvent::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 exp = 1;
+  if (has_exp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->exp(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* MarryExpressExpEvent::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 exp = 1;
+  if (has_exp()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->exp(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int MarryExpressExpEvent::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 exp = 1;
+    if (has_exp()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->exp());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MarryExpressExpEvent::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const MarryExpressExpEvent* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MarryExpressExpEvent*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MarryExpressExpEvent::MergeFrom(const MarryExpressExpEvent& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_exp()) {
+      set_exp(from.exp());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void MarryExpressExpEvent::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MarryExpressExpEvent::CopyFrom(const MarryExpressExpEvent& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MarryExpressExpEvent::IsInitialized() const {
+
+  return true;
+}
+
+void MarryExpressExpEvent::Swap(MarryExpressExpEvent* other) {
+  if (other != this) {
+    std::swap(exp_, other->exp_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata MarryExpressExpEvent::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MarryExpressExpEvent_descriptor_;
+  metadata.reflection = MarryExpressExpEvent_reflection_;
   return metadata;
 }
 
