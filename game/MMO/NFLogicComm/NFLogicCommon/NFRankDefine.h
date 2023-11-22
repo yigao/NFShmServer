@@ -33,7 +33,15 @@ enum enRankType
     RANK_TYPE_MOUNT_FIGHT = 12, //坐骑阶数
     RANK_TYPE_YUANMAO_SUM = 13, //元宝累计获取
     RANK_TYPE_WING_FIGHT = 14, //羽翼等级
-    RANK_BAOSHI_LEVEL = 15, //宝石总等级
+    RANK_TYPE_BAOSHI_LEVEL = 15, //宝石总等级
+    RANK_TYPE_MARRY_VALUE = 16, //情侣积分排行
+    RANK_TYPE_DEITY_FIGHT = 17, //天神战力
+    RANK_TYPE_BEAST_FIGHT = 18, //神兽战力
+    RANK_TYPE_BIAOBAI_VALUE = 19, //表白榜
+    RANK_TYPE_MEILI_VALUE = 20, //魅力榜
+    RANK_TYPE_ANQI_FIGHT = 21, //暗器榜
+    RANK_TYPE_LINGJIA_FIGHT = 22, //灵甲榜
+    RANK_TYPE_MAX = 22,
 };
 
 
@@ -56,34 +64,4 @@ enum enRankPlayerParam
 };
 
 
-struct RankNode
-{
-    uint64_t cid;
-    VEC_INT64 paramInt;
-    VEC_STRING paramStr;
-    RankNode()
-    {
-        clear();
-    }
-    void clear()
-    {
-        cid = 0;
-        paramInt.clear();
-        paramStr.clear();
-    }
-    RankNode & operator = (const RankNode & other)
-    {
-        if (this != &other)
-        {
-            cid = other.cid;
-            paramInt.clear();
-            paramStr.clear();
-            paramInt.assign(other.paramInt.begin(), other.paramInt.end());
-            paramStr.assign(other.paramStr.begin(), other.paramStr.end());
-            
-        }
-        return *this;
-    }
-};
 
-typedef std::multimap<uint64_t, RankNode, greater<uint64_t> > mapRankNode; //降序排列

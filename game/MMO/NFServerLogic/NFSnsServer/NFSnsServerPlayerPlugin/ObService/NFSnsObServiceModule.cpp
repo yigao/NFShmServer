@@ -11,6 +11,7 @@
 
 #include <NFLogicCommon/NFLogicShmTypeDefines.h>
 #include <NFServerComm/NFServerCommon/NFDBObjMgr.h>
+#include <Rank/NFRankMgr.h>
 #include <Team/NFSnsTeamMgr.h>
 
 #include "NFSnsObService.h"
@@ -123,6 +124,8 @@ int NFSnsObServiceModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint
                     NFDBObjMgr::Instance(m_pObjPluginManager)->LoadFromDB(pService);
                 }
             }
+
+            NFRankMgr::Instance(m_pObjPluginManager)->LoadAllRank();
         }
     }
     return 0;

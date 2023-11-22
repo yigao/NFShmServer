@@ -642,6 +642,17 @@ void NFDeityPart::calcAttr(bool sync)
     {
         m_pMaster->SetAttrGroupCache(proto_ff::EAttrGroup_DEITY, e.first, e.second);
     }
+
+    uint64_t fight = GetFightValue();
+    if (fight > 0)
+    {
+        proto_ff::DeityFightChgEvent chgEvent;
+        chgEvent.set_fight(fight);
+        if (fight > 0)
+        {
+            FireExecute(NF_ST_LOGIC_SERVER, EVENT_DEITY_FIGHT_CHANGE, CREATURE_PLAYER, m_pMaster->Cid(), chgEvent);
+        }
+    }
     
     if (sync)
     {

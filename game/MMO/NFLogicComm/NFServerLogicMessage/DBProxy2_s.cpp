@@ -310,4 +310,31 @@ void tbSnsTeam_s::read_from_pbmsg(const ::proto_ff::tbSnsTeam & msg) {
 	team_id = msg.team_id();
 }
 
+tbSnsRank_s::tbSnsRank_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int tbSnsRank_s::CreateInit() {
+	id = (uint64_t)0;
+	return 0;
+}
+
+int tbSnsRank_s::ResumeInit() {
+	return 0;
+}
+
+void tbSnsRank_s::write_to_pbmsg(::proto_ff::tbSnsRank & msg) const {
+	msg.set_id((uint64_t)id);
+	msg.set_data(data.data());
+}
+
+void tbSnsRank_s::read_from_pbmsg(const ::proto_ff::tbSnsRank & msg) {
+	id = msg.id();
+	data = msg.data();
+}
+
 }

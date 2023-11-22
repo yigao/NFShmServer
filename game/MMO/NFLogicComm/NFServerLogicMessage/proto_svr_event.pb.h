@@ -69,6 +69,14 @@ class OccupationAdvance;
 class PartnerAdvance;
 class GodRelicsFinish;
 class ChatWorldEvent;
+class EquipScoreChangeEvent;
+class StoneInlayEvent;
+class MountFightChgEvent;
+class MagicSumChangeEvent;
+class BattlePassXianCe;
+class BattlePassBaoDing;
+class DeityFightChgEvent;
+class BeastFightChgEvent;
 
 // ===================================================================
 
@@ -3455,6 +3463,742 @@ class ChatWorldEvent : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static ChatWorldEvent* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class EquipScoreChangeEvent : public ::google::protobuf::Message {
+ public:
+  EquipScoreChangeEvent();
+  virtual ~EquipScoreChangeEvent();
+
+  EquipScoreChangeEvent(const EquipScoreChangeEvent& from);
+
+  inline EquipScoreChangeEvent& operator=(const EquipScoreChangeEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EquipScoreChangeEvent& default_instance();
+
+  void Swap(EquipScoreChangeEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  EquipScoreChangeEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EquipScoreChangeEvent& from);
+  void MergeFrom(const EquipScoreChangeEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 all_score = 1;
+  inline bool has_all_score() const;
+  inline void clear_all_score();
+  static const int kAllScoreFieldNumber = 1;
+  inline ::google::protobuf::uint64 all_score() const;
+  inline void set_all_score(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.EquipScoreChangeEvent)
+ private:
+  inline void set_has_all_score();
+  inline void clear_has_all_score();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 all_score_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static EquipScoreChangeEvent* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class StoneInlayEvent : public ::google::protobuf::Message {
+ public:
+  StoneInlayEvent();
+  virtual ~StoneInlayEvent();
+
+  StoneInlayEvent(const StoneInlayEvent& from);
+
+  inline StoneInlayEvent& operator=(const StoneInlayEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const StoneInlayEvent& default_instance();
+
+  void Swap(StoneInlayEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  StoneInlayEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const StoneInlayEvent& from);
+  void MergeFrom(const StoneInlayEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 pos = 1;
+  inline bool has_pos() const;
+  inline void clear_pos();
+  static const int kPosFieldNumber = 1;
+  inline ::google::protobuf::int32 pos() const;
+  inline void set_pos(::google::protobuf::int32 value);
+
+  // optional uint64 stone_itemId = 2;
+  inline bool has_stone_itemid() const;
+  inline void clear_stone_itemid();
+  static const int kStoneItemIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 stone_itemid() const;
+  inline void set_stone_itemid(::google::protobuf::uint64 value);
+
+  // optional uint32 stone_level = 3;
+  inline bool has_stone_level() const;
+  inline void clear_stone_level();
+  static const int kStoneLevelFieldNumber = 3;
+  inline ::google::protobuf::uint32 stone_level() const;
+  inline void set_stone_level(::google::protobuf::uint32 value);
+
+  // optional uint32 total_level = 4;
+  inline bool has_total_level() const;
+  inline void clear_total_level();
+  static const int kTotalLevelFieldNumber = 4;
+  inline ::google::protobuf::uint32 total_level() const;
+  inline void set_total_level(::google::protobuf::uint32 value);
+
+  // optional uint32 ave_stone_level = 5;
+  inline bool has_ave_stone_level() const;
+  inline void clear_ave_stone_level();
+  static const int kAveStoneLevelFieldNumber = 5;
+  inline ::google::protobuf::uint32 ave_stone_level() const;
+  inline void set_ave_stone_level(::google::protobuf::uint32 value);
+
+  // optional uint32 count = 6;
+  inline bool has_count() const;
+  inline void clear_count();
+  static const int kCountFieldNumber = 6;
+  inline ::google::protobuf::uint32 count() const;
+  inline void set_count(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.StoneInlayEvent)
+ private:
+  inline void set_has_pos();
+  inline void clear_has_pos();
+  inline void set_has_stone_itemid();
+  inline void clear_has_stone_itemid();
+  inline void set_has_stone_level();
+  inline void clear_has_stone_level();
+  inline void set_has_total_level();
+  inline void clear_has_total_level();
+  inline void set_has_ave_stone_level();
+  inline void clear_has_ave_stone_level();
+  inline void set_has_count();
+  inline void clear_has_count();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 stone_itemid_;
+  ::google::protobuf::int32 pos_;
+  ::google::protobuf::uint32 stone_level_;
+  ::google::protobuf::uint32 total_level_;
+  ::google::protobuf::uint32 ave_stone_level_;
+  ::google::protobuf::uint32 count_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static StoneInlayEvent* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MountFightChgEvent : public ::google::protobuf::Message {
+ public:
+  MountFightChgEvent();
+  virtual ~MountFightChgEvent();
+
+  MountFightChgEvent(const MountFightChgEvent& from);
+
+  inline MountFightChgEvent& operator=(const MountFightChgEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MountFightChgEvent& default_instance();
+
+  void Swap(MountFightChgEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  MountFightChgEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MountFightChgEvent& from);
+  void MergeFrom(const MountFightChgEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional uint64 fight = 2;
+  inline bool has_fight() const;
+  inline void clear_fight();
+  static const int kFightFieldNumber = 2;
+  inline ::google::protobuf::uint64 fight() const;
+  inline void set_fight(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.MountFightChgEvent)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_fight();
+  inline void clear_has_fight();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 fight_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static MountFightChgEvent* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MagicSumChangeEvent : public ::google::protobuf::Message {
+ public:
+  MagicSumChangeEvent();
+  virtual ~MagicSumChangeEvent();
+
+  MagicSumChangeEvent(const MagicSumChangeEvent& from);
+
+  inline MagicSumChangeEvent& operator=(const MagicSumChangeEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MagicSumChangeEvent& default_instance();
+
+  void Swap(MagicSumChangeEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  MagicSumChangeEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MagicSumChangeEvent& from);
+  void MergeFrom(const MagicSumChangeEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 sum = 1;
+  inline bool has_sum() const;
+  inline void clear_sum();
+  static const int kSumFieldNumber = 1;
+  inline ::google::protobuf::uint64 sum() const;
+  inline void set_sum(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.MagicSumChangeEvent)
+ private:
+  inline void set_has_sum();
+  inline void clear_has_sum();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 sum_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static MagicSumChangeEvent* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class BattlePassXianCe : public ::google::protobuf::Message {
+ public:
+  BattlePassXianCe();
+  virtual ~BattlePassXianCe();
+
+  BattlePassXianCe(const BattlePassXianCe& from);
+
+  inline BattlePassXianCe& operator=(const BattlePassXianCe& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BattlePassXianCe& default_instance();
+
+  void Swap(BattlePassXianCe* other);
+
+  // implements Message ----------------------------------------------
+
+  BattlePassXianCe* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BattlePassXianCe& from);
+  void MergeFrom(const BattlePassXianCe& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 buy_status = 1;
+  inline bool has_buy_status() const;
+  inline void clear_buy_status();
+  static const int kBuyStatusFieldNumber = 1;
+  inline ::google::protobuf::int32 buy_status() const;
+  inline void set_buy_status(::google::protobuf::int32 value);
+
+  // optional int32 lv = 2;
+  inline bool has_lv() const;
+  inline void clear_lv();
+  static const int kLvFieldNumber = 2;
+  inline ::google::protobuf::int32 lv() const;
+  inline void set_lv(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.BattlePassXianCe)
+ private:
+  inline void set_has_buy_status();
+  inline void clear_has_buy_status();
+  inline void set_has_lv();
+  inline void clear_has_lv();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 buy_status_;
+  ::google::protobuf::int32 lv_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static BattlePassXianCe* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class BattlePassBaoDing : public ::google::protobuf::Message {
+ public:
+  BattlePassBaoDing();
+  virtual ~BattlePassBaoDing();
+
+  BattlePassBaoDing(const BattlePassBaoDing& from);
+
+  inline BattlePassBaoDing& operator=(const BattlePassBaoDing& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BattlePassBaoDing& default_instance();
+
+  void Swap(BattlePassBaoDing* other);
+
+  // implements Message ----------------------------------------------
+
+  BattlePassBaoDing* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BattlePassBaoDing& from);
+  void MergeFrom(const BattlePassBaoDing& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 buy_status = 1;
+  inline bool has_buy_status() const;
+  inline void clear_buy_status();
+  static const int kBuyStatusFieldNumber = 1;
+  inline ::google::protobuf::int32 buy_status() const;
+  inline void set_buy_status(::google::protobuf::int32 value);
+
+  // optional int32 lv = 2;
+  inline bool has_lv() const;
+  inline void clear_lv();
+  static const int kLvFieldNumber = 2;
+  inline ::google::protobuf::int32 lv() const;
+  inline void set_lv(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.BattlePassBaoDing)
+ private:
+  inline void set_has_buy_status();
+  inline void clear_has_buy_status();
+  inline void set_has_lv();
+  inline void clear_has_lv();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 buy_status_;
+  ::google::protobuf::int32 lv_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static BattlePassBaoDing* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DeityFightChgEvent : public ::google::protobuf::Message {
+ public:
+  DeityFightChgEvent();
+  virtual ~DeityFightChgEvent();
+
+  DeityFightChgEvent(const DeityFightChgEvent& from);
+
+  inline DeityFightChgEvent& operator=(const DeityFightChgEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DeityFightChgEvent& default_instance();
+
+  void Swap(DeityFightChgEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  DeityFightChgEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DeityFightChgEvent& from);
+  void MergeFrom(const DeityFightChgEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 fight = 1;
+  inline bool has_fight() const;
+  inline void clear_fight();
+  static const int kFightFieldNumber = 1;
+  inline ::google::protobuf::uint64 fight() const;
+  inline void set_fight(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DeityFightChgEvent)
+ private:
+  inline void set_has_fight();
+  inline void clear_has_fight();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 fight_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static DeityFightChgEvent* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class BeastFightChgEvent : public ::google::protobuf::Message {
+ public:
+  BeastFightChgEvent();
+  virtual ~BeastFightChgEvent();
+
+  BeastFightChgEvent(const BeastFightChgEvent& from);
+
+  inline BeastFightChgEvent& operator=(const BeastFightChgEvent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BeastFightChgEvent& default_instance();
+
+  void Swap(BeastFightChgEvent* other);
+
+  // implements Message ----------------------------------------------
+
+  BeastFightChgEvent* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BeastFightChgEvent& from);
+  void MergeFrom(const BeastFightChgEvent& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 fight = 1;
+  inline bool has_fight() const;
+  inline void clear_fight();
+  static const int kFightFieldNumber = 1;
+  inline ::google::protobuf::uint64 fight() const;
+  inline void set_fight(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.BeastFightChgEvent)
+ private:
+  inline void set_has_fight();
+  inline void clear_has_fight();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 fight_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fevent_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fevent_2eproto();
+
+  void InitAsDefaultInstance();
+  static BeastFightChgEvent* default_instance_;
+};
 // ===================================================================
 
 
@@ -5703,6 +6447,390 @@ inline void GodRelicsFinish::set_id(::google::protobuf::int64 value) {
 // -------------------------------------------------------------------
 
 // ChatWorldEvent
+
+// -------------------------------------------------------------------
+
+// EquipScoreChangeEvent
+
+// optional uint64 all_score = 1;
+inline bool EquipScoreChangeEvent::has_all_score() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void EquipScoreChangeEvent::set_has_all_score() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void EquipScoreChangeEvent::clear_has_all_score() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void EquipScoreChangeEvent::clear_all_score() {
+  all_score_ = GOOGLE_ULONGLONG(0);
+  clear_has_all_score();
+}
+inline ::google::protobuf::uint64 EquipScoreChangeEvent::all_score() const {
+  return all_score_;
+}
+inline void EquipScoreChangeEvent::set_all_score(::google::protobuf::uint64 value) {
+  set_has_all_score();
+  all_score_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// StoneInlayEvent
+
+// optional int32 pos = 1;
+inline bool StoneInlayEvent::has_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void StoneInlayEvent::set_has_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void StoneInlayEvent::clear_has_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void StoneInlayEvent::clear_pos() {
+  pos_ = 0;
+  clear_has_pos();
+}
+inline ::google::protobuf::int32 StoneInlayEvent::pos() const {
+  return pos_;
+}
+inline void StoneInlayEvent::set_pos(::google::protobuf::int32 value) {
+  set_has_pos();
+  pos_ = value;
+}
+
+// optional uint64 stone_itemId = 2;
+inline bool StoneInlayEvent::has_stone_itemid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void StoneInlayEvent::set_has_stone_itemid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void StoneInlayEvent::clear_has_stone_itemid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void StoneInlayEvent::clear_stone_itemid() {
+  stone_itemid_ = GOOGLE_ULONGLONG(0);
+  clear_has_stone_itemid();
+}
+inline ::google::protobuf::uint64 StoneInlayEvent::stone_itemid() const {
+  return stone_itemid_;
+}
+inline void StoneInlayEvent::set_stone_itemid(::google::protobuf::uint64 value) {
+  set_has_stone_itemid();
+  stone_itemid_ = value;
+}
+
+// optional uint32 stone_level = 3;
+inline bool StoneInlayEvent::has_stone_level() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void StoneInlayEvent::set_has_stone_level() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void StoneInlayEvent::clear_has_stone_level() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void StoneInlayEvent::clear_stone_level() {
+  stone_level_ = 0u;
+  clear_has_stone_level();
+}
+inline ::google::protobuf::uint32 StoneInlayEvent::stone_level() const {
+  return stone_level_;
+}
+inline void StoneInlayEvent::set_stone_level(::google::protobuf::uint32 value) {
+  set_has_stone_level();
+  stone_level_ = value;
+}
+
+// optional uint32 total_level = 4;
+inline bool StoneInlayEvent::has_total_level() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void StoneInlayEvent::set_has_total_level() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void StoneInlayEvent::clear_has_total_level() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void StoneInlayEvent::clear_total_level() {
+  total_level_ = 0u;
+  clear_has_total_level();
+}
+inline ::google::protobuf::uint32 StoneInlayEvent::total_level() const {
+  return total_level_;
+}
+inline void StoneInlayEvent::set_total_level(::google::protobuf::uint32 value) {
+  set_has_total_level();
+  total_level_ = value;
+}
+
+// optional uint32 ave_stone_level = 5;
+inline bool StoneInlayEvent::has_ave_stone_level() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void StoneInlayEvent::set_has_ave_stone_level() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void StoneInlayEvent::clear_has_ave_stone_level() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void StoneInlayEvent::clear_ave_stone_level() {
+  ave_stone_level_ = 0u;
+  clear_has_ave_stone_level();
+}
+inline ::google::protobuf::uint32 StoneInlayEvent::ave_stone_level() const {
+  return ave_stone_level_;
+}
+inline void StoneInlayEvent::set_ave_stone_level(::google::protobuf::uint32 value) {
+  set_has_ave_stone_level();
+  ave_stone_level_ = value;
+}
+
+// optional uint32 count = 6;
+inline bool StoneInlayEvent::has_count() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void StoneInlayEvent::set_has_count() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void StoneInlayEvent::clear_has_count() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void StoneInlayEvent::clear_count() {
+  count_ = 0u;
+  clear_has_count();
+}
+inline ::google::protobuf::uint32 StoneInlayEvent::count() const {
+  return count_;
+}
+inline void StoneInlayEvent::set_count(::google::protobuf::uint32 value) {
+  set_has_count();
+  count_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// MountFightChgEvent
+
+// optional uint64 cid = 1;
+inline bool MountFightChgEvent::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MountFightChgEvent::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MountFightChgEvent::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MountFightChgEvent::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 MountFightChgEvent::cid() const {
+  return cid_;
+}
+inline void MountFightChgEvent::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional uint64 fight = 2;
+inline bool MountFightChgEvent::has_fight() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MountFightChgEvent::set_has_fight() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MountFightChgEvent::clear_has_fight() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MountFightChgEvent::clear_fight() {
+  fight_ = GOOGLE_ULONGLONG(0);
+  clear_has_fight();
+}
+inline ::google::protobuf::uint64 MountFightChgEvent::fight() const {
+  return fight_;
+}
+inline void MountFightChgEvent::set_fight(::google::protobuf::uint64 value) {
+  set_has_fight();
+  fight_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// MagicSumChangeEvent
+
+// optional uint64 sum = 1;
+inline bool MagicSumChangeEvent::has_sum() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MagicSumChangeEvent::set_has_sum() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MagicSumChangeEvent::clear_has_sum() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MagicSumChangeEvent::clear_sum() {
+  sum_ = GOOGLE_ULONGLONG(0);
+  clear_has_sum();
+}
+inline ::google::protobuf::uint64 MagicSumChangeEvent::sum() const {
+  return sum_;
+}
+inline void MagicSumChangeEvent::set_sum(::google::protobuf::uint64 value) {
+  set_has_sum();
+  sum_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// BattlePassXianCe
+
+// optional int32 buy_status = 1;
+inline bool BattlePassXianCe::has_buy_status() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BattlePassXianCe::set_has_buy_status() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BattlePassXianCe::clear_has_buy_status() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BattlePassXianCe::clear_buy_status() {
+  buy_status_ = 0;
+  clear_has_buy_status();
+}
+inline ::google::protobuf::int32 BattlePassXianCe::buy_status() const {
+  return buy_status_;
+}
+inline void BattlePassXianCe::set_buy_status(::google::protobuf::int32 value) {
+  set_has_buy_status();
+  buy_status_ = value;
+}
+
+// optional int32 lv = 2;
+inline bool BattlePassXianCe::has_lv() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void BattlePassXianCe::set_has_lv() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void BattlePassXianCe::clear_has_lv() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void BattlePassXianCe::clear_lv() {
+  lv_ = 0;
+  clear_has_lv();
+}
+inline ::google::protobuf::int32 BattlePassXianCe::lv() const {
+  return lv_;
+}
+inline void BattlePassXianCe::set_lv(::google::protobuf::int32 value) {
+  set_has_lv();
+  lv_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// BattlePassBaoDing
+
+// optional int32 buy_status = 1;
+inline bool BattlePassBaoDing::has_buy_status() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BattlePassBaoDing::set_has_buy_status() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BattlePassBaoDing::clear_has_buy_status() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BattlePassBaoDing::clear_buy_status() {
+  buy_status_ = 0;
+  clear_has_buy_status();
+}
+inline ::google::protobuf::int32 BattlePassBaoDing::buy_status() const {
+  return buy_status_;
+}
+inline void BattlePassBaoDing::set_buy_status(::google::protobuf::int32 value) {
+  set_has_buy_status();
+  buy_status_ = value;
+}
+
+// optional int32 lv = 2;
+inline bool BattlePassBaoDing::has_lv() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void BattlePassBaoDing::set_has_lv() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void BattlePassBaoDing::clear_has_lv() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void BattlePassBaoDing::clear_lv() {
+  lv_ = 0;
+  clear_has_lv();
+}
+inline ::google::protobuf::int32 BattlePassBaoDing::lv() const {
+  return lv_;
+}
+inline void BattlePassBaoDing::set_lv(::google::protobuf::int32 value) {
+  set_has_lv();
+  lv_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// DeityFightChgEvent
+
+// optional uint64 fight = 1;
+inline bool DeityFightChgEvent::has_fight() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DeityFightChgEvent::set_has_fight() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DeityFightChgEvent::clear_has_fight() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DeityFightChgEvent::clear_fight() {
+  fight_ = GOOGLE_ULONGLONG(0);
+  clear_has_fight();
+}
+inline ::google::protobuf::uint64 DeityFightChgEvent::fight() const {
+  return fight_;
+}
+inline void DeityFightChgEvent::set_fight(::google::protobuf::uint64 value) {
+  set_has_fight();
+  fight_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// BeastFightChgEvent
+
+// optional uint64 fight = 1;
+inline bool BeastFightChgEvent::has_fight() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BeastFightChgEvent::set_has_fight() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BeastFightChgEvent::clear_has_fight() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BeastFightChgEvent::clear_fight() {
+  fight_ = GOOGLE_ULONGLONG(0);
+  clear_has_fight();
+}
+inline ::google::protobuf::uint64 BeastFightChgEvent::fight() const {
+  return fight_;
+}
+inline void BeastFightChgEvent::set_fight(::google::protobuf::uint64 value) {
+  set_has_fight();
+  fight_ = value;
+}
 
 
 // @@protoc_insertion_point(namespace_scope)

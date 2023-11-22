@@ -92,6 +92,7 @@ enum SnsObServiceType
 	SNS_OB_SERVICE_CHAT,
 	SNS_OB_SERVICE_CLAN,
 	SNS_OB_SERVICE_FACTION,
+	SNS_OB_SERVICE_RANK,
 	SNS_OB_SERVICE_MAX,
 };
 
@@ -119,6 +120,7 @@ typedef enum
     EOT_SNS_ROLE_DETAIL_ID,
     EOT_SNS_CACHE_MGR_ID,
     EOT_SNS_LOAD_CACHE_MGR_ID,
+	EOT_SNS_COMMON_RANK,
     ////////////////////////////sns trans server/////////////////////////////
     EOT_SNS_TRANS_CACHE_BASE_ID,
     EOT_SNS_TRANS_GET_ROLE_SIMPLE_ID,

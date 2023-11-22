@@ -79,6 +79,8 @@ public:
         int iRet = LoadFromDB(pGlobal->data());
         CHECK_EXPR(iRet == 0, -1, "parse failed!");
 
+        iRet = InitConfig();
+        CHECK_EXPR(iRet == 0, -1, "InitConfig failed!");
         this->m_bDataInited = true;
         return 0;
     }
@@ -86,11 +88,9 @@ public:
     virtual int InitWithoutDBData()
     {
         int iRet = InitConfig();
-        if (iRet == 0)
-        {
-            this->m_bDataInited = true;
-        }
-        return iRet;
+        CHECK_EXPR(iRet == 0, -1, "InitConfig failed!");
+        this->m_bDataInited = true;
+        return 0;
     }
 
     virtual int LoadFromDB(const std::string& dbData) = 0;

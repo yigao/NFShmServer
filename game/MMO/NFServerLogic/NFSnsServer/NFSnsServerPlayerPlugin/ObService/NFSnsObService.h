@@ -62,7 +62,7 @@ public:
      * @param createCo
      * @return
      */
-    int RegisterClientMessage(uint32_t nMsgID, bool createCo = false);
+    virtual int RegisterClientMessage(uint32_t nMsgID, bool createCo = false);
 
     /**
      * @brief
@@ -70,7 +70,7 @@ public:
      * @param createCo
      * @return
      */
-    int RegisterServerMessage(uint32_t nMsgID, bool createCo = false);
+    virtual int RegisterServerMessage(uint32_t nMsgID, bool createCo = false);
 
     /**
      * @brief 添加rpc服务， 这里的handleRecieve只是用来强绑定Request和Respone的类型，如果类型对不上，编译期间就会报错

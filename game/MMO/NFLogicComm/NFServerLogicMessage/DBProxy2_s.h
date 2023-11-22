@@ -170,5 +170,20 @@ namespace proto_ff_s {
 	};
 	typedef struct tbSnsTeam_s tbSnsTeam_t;
 
+	struct tbSnsRank_s : public NFDescStoreSeqOP {
+		tbSnsRank_s();
+		virtual ~tbSnsRank_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t id;//
+		NFShmString<32> data;//
+
+		virtual void write_to_pbmsg(::proto_ff::tbSnsRank & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::tbSnsRank & msg);
+		static ::proto_ff::tbSnsRank* new_pbmsg(){ return new ::proto_ff::tbSnsRank(); }
+		static ::proto_ff::tbSnsRank make_pbmsg(){ return ::proto_ff::tbSnsRank(); }
+	};
+	typedef struct tbSnsRank_s tbSnsRank_t;
+
 }
 

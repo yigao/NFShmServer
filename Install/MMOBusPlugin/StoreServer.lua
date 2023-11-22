@@ -32,6 +32,7 @@ StoreServer = {
                   {TableName="RoleDBName", TableCount=1, Cache = false},
                   {TableName="RoleDBSnsDetail", TableCount=1, Cache = false},
                   {TableName="tbSnsGlobal", TableCount=1, Cache = false},
+                  {TableName="tbSnsRank", TableCount=1, Cache = false},
              },
         },
         --RedisConfig = {

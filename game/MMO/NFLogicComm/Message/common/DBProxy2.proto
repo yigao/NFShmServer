@@ -75,3 +75,9 @@ message tbSnsTeam
 {
   optional uint64 team_id = 1;
 }
+
+message tbSnsRank
+{
+  optional uint64 id = 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_comment) = "id"];
+  optional bytes data = 2[(yd_fieldoptions.db_field_bufsize)=196608];
+}

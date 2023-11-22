@@ -14,6 +14,7 @@
 #include <Clan/NFSnsClanMgr.h>
 #include <Faction/NFFactionMgr.h>
 #include <ObService/NFSnsObServiceModule.h>
+#include <Rank/NFRankMgr.h>
 #include <Relation/NFSnsRelationMgr.h>
 #include <Team/NFSnsTeamMgr.h>
 
@@ -88,6 +89,8 @@ bool NFMMOSnsPlayerPlugin::InitShmObjectRegister()
     REGISTER_SINGLETON_SHM_OBJ(NFSnsClanMgr);//
     REGISTER_SINGLETON_SHM_OBJ(NFSnsTeamMgr);//
     REGISTER_SINGLETON_SHM_OBJ(NFSnsRelationMgr);//
+    REGISTER_SINGLETON_SHM_OBJ(NFRankMgr);
+    REGISTER_SHM_OBJ(NFCommonRank,RANK_TYPE_MAX);
 
     REGISTER_SHM_OBJ_WITH_HASH(NFPlayerSimple, maxOnlinePlayerNum*2);//
     REGISTER_SHM_OBJ_WITH_HASH(NFPlayerDetail, maxOnlinePlayerNum);//

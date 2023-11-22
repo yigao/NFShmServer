@@ -250,3 +250,51 @@ message ChatWorldEvent
 {
 
 };
+
+message EquipScoreChangeEvent
+{
+  optional uint64 all_score = 1;
+};
+
+message StoneInlayEvent
+{
+  optional int32 pos = 1;				//装备部位
+  optional uint64 stone_itemId = 2;		//宝石ID
+  optional uint32 stone_level = 3;		//宝石等级
+  optional uint32 total_level = 4;		//宝石总等级
+  optional uint32 ave_stone_level = 5;	//全身穿戴装备全部镶嵌满xx级以上的宝石
+  optional uint32 count = 6;				//镶嵌宝石数量
+};
+
+message MountFightChgEvent
+{
+  optional uint64 cid = 1;		//玩家cid
+  optional uint64 fight = 2;		//战力值
+};
+
+message MagicSumChangeEvent
+{
+  optional uint64 sum = 1;
+};
+
+message BattlePassXianCe
+{
+  optional int32 buy_status = 1;
+  optional int32 lv = 2;
+};
+
+message BattlePassBaoDing
+{
+  optional int32 buy_status = 1;
+  optional int32 lv = 2;
+};
+
+message DeityFightChgEvent
+{
+  optional uint64 fight = 1;		//战力值
+};
+
+message BeastFightChgEvent
+{
+  optional uint64 fight = 1;		//战力值
+};

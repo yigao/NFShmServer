@@ -21,7 +21,7 @@
 
 class NFPlayer;
 
-class NFChatMgr : public NFShmObjTemplate<NFChatMgr, EOT_LOGIC_SERVICE_ID+LOGIC_OB_SERVICE_CLAN, NFLogicObService>
+class NFChatMgr : public NFShmObjTemplate<NFChatMgr, EOT_LOGIC_SERVICE_ID+LOGIC_OB_SERVICE_CHAT, NFLogicObService>
 {
 public:
     NFChatMgr();

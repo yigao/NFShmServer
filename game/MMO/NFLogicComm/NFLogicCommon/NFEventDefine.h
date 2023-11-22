@@ -22,142 +22,136 @@ enum NF_EVENT_ID
 
 enum EventId
 {
-    EVENT_NONE = 0,
-    ///////////////////////视野事件//////////////////////////
-    EVENT_BEEN_SEE,						//被别人看见
-    EVENT_MONSTER_BEEN_FIRST_PLAYER_SEE, //怪物被第一个玩家进入视野的玩家看见
-    EVENT_MONSTER_NO_PLAYER_SEE, //没有人看见怪物
-    EVENT_SCENE_FIRST_PLAYER, //第一个进入场景的玩家
-    EVENT_SCENE_NO_PLAYER, //最后玩家离开场景
-    
-    ///////////////////////战斗事件//////////////////////////
-    EVENT_UNDER_ATTACK,					//被人攻击
-    EVENT_ATTACK_SOMEBODY,				//攻击别人
-    EVENT_USE_SKILL,					//使用技能事件
-    
-    
-    ///////////////////////技能事件//////////////////////////
-    EVENT_USE_SKILL_ATTACK,				//玩家使用技能，并且达到了人，使用一次技能，只发送一次事件
-    EVENT_BUFF_START_TYPE,				//BUFF生效条件
-    EVENT_BUFF_END_TYPE,				//BUFF结束条件
-    EVENT_BUFF_START_BUFF,				//开始一个BUFF
-    EVENT_BUFF_DODGE,					//技能闪避事件
-    EVENT_BUFF_CRIT,					//技能暴击事件
-    
-    ///////////////////////角色相关事件//////////////////////
-    EVENT_CREATURE_DEAD,				//生物死亡(发送事件参数是 killer_cid 和 kind)
+	EVENT_NONE = 0,
+	///////////////////////视野事件//////////////////////////
+	EVENT_BEEN_SEE,						//被别人看见
+	EVENT_MONSTER_BEEN_FIRST_PLAYER_SEE, //怪物被第一个玩家进入视野的玩家看见
+	EVENT_MONSTER_NO_PLAYER_SEE, //没有人看见怪物
+	EVENT_SCENE_FIRST_PLAYER, //第一个进入场景的玩家
+	EVENT_SCENE_NO_PLAYER, //最后玩家离开场景
+
+	///////////////////////战斗事件//////////////////////////
+	EVENT_UNDER_ATTACK,					//被人攻击
+	EVENT_ATTACK_SOMEBODY,				//攻击别人
+	EVENT_USE_SKILL,					//使用技能事件
+
+
+	///////////////////////技能事件//////////////////////////
+	EVENT_USE_SKILL_ATTACK,				//玩家使用技能，并且达到了人，使用一次技能，只发送一次事件
+	EVENT_BUFF_START_TYPE,				//BUFF生效条件
+	EVENT_BUFF_END_TYPE,				//BUFF结束条件
+	EVENT_BUFF_START_BUFF,				//开始一个BUFF
+	EVENT_BUFF_DODGE,					//技能闪避事件
+	EVENT_BUFF_CRIT,					//技能暴击事件
+
+	///////////////////////角色相关事件//////////////////////
+	EVENT_CREATURE_DEAD,				//生物死亡(发送事件参数是 killer_cid 和 kind)
     EVENT_DEAD,                         //生物死亡(发送事件参数是 cid 和 kind)
-    EVENT_CREATURE_REVIVE,				//生物复活
-    EVENT_LOGIN_GAME,					//登入游戏
-    EVENT_LOGOUT_GAME,					//登出游戏
-    EVENT_START_MOVE,					//开始移动
-    EVENT_END_MOVE,						//停止移动
-    EVENT_TELEPORT_MOVE,				//瞬间移动
-    EVENT_DISCONNECT,					//断开连接
-    EVENT_LEVELUP,						//升级
-    EVENT_FACADE_CHANGE,				//外观改变
-    EVENT_CALC_FIGHT_POWER,				//通知计算战斗力事件，在计算战斗力条件改变的时候，触发
-    EVENT_ADD_TITLE,					//获得称号			titileId
-    EVENT_SKILL_UP,						//升级角色技能
-    EVENT_RECHARGE,						//充值钻石			num
-    EVENT_VIP_UP,						//vip等级提升		vipLevel
+	EVENT_CREATURE_REVIVE,				//生物复活
+	EVENT_LOGIN_GAME,					//登入游戏
+	EVENT_LOGOUT_GAME,					//登出游戏
+	EVENT_START_MOVE,					//开始移动
+	EVENT_END_MOVE,						//停止移动
+	EVENT_TELEPORT_MOVE,				//瞬间移动
+	EVENT_DISCONNECT,					//断开连接
+	EVENT_LEVELUP,						//升级
+	EVENT_FACADE_CHANGE,				//外观改变
+	EVENT_CALC_FIGHT_POWER,				//通知计算战斗力事件，在计算战斗力条件改变的时候，触发
+	EVENT_ADD_TITLE,					//获得称号			titileId
+	EVENT_SKILL_UP,						//升级角色技能
+	EVENT_RECHARGE,						//充值钻石			num
+	EVENT_VIP_UP,						//vip等级提升		vipLevel
     EVENT_VIP_ACTIVE,                   //vip激活
     EVENT_VIP_TIMEOUT,                  //vip过期
-    EVENT_LEAVE_TEAM,					//离开队伍
-    EVENT_JOIN_TEAM,					//加入队伍
-    EVENT_DISMISS_TEAM,					//解散队伍
-    EVENT_RECONNECT_SUCCEED,			//重连成功
-    EVENT_PAY,                          //玩家充值
-    EVENT_INVISIBLE_STATE,				//玩家隐身
-    ////////////////////////场景相关事件//////////////////////////
-    EVENT_CREATE_SCENE,					//创建场景
-    EVENT_LEAVE_SCENE,					//离开场景
-    EVENT_ENTER_SCENE,					//进入场景
-    EVENT_TRANS_CHECK_RES,				//传送校验结果（通知源逻辑节点，跨逻辑节点传送之校验结果）
-    EVENT_TRANS_PREPARE,				//准备传送（跨逻辑节点传送 校验完了之后，准备传送）
-    EVENT_TRANS_SUCCESS,				//传送成功（跨逻辑节点传送 目标逻辑节点成功收到传送参数信息）
-    EVENT_CHANGE_SCENE,					//生物场景改变
-    EVENT_SYNC_SCENE_POS,               //场景位置同步
-    EVENT_SYNC_SCENE_STATE,             //场景状态同步事件
-    EVENT_SYNC_SCENE_FACADE,            //同步场景外观
-    EVENT_SYNC_CREATURE_ATTR,           //生物属性同步
-    EVENT_SYNC_CREATURE_BROADCAST_ATTR, //广播属性同步
-    EVENT_SYNC_SNS_ATTR,                //广播属性同步
+	EVENT_LEAVE_TEAM,					//离开队伍
+	EVENT_JOIN_TEAM,					//加入队伍
+	EVENT_DISMISS_TEAM,					//解散队伍
+	EVENT_RECONNECT_SUCCEED,			//重连成功
+	EVENT_PAY,                          //玩家充值
+	EVENT_INVISIBLE_STATE,				//玩家隐身
+	////////////////////////场景相关事件//////////////////////////
+	EVENT_CREATE_SCENE,					//创建场景
+	EVENT_LEAVE_SCENE,					//离开场景
+	EVENT_ENTER_SCENE,					//进入场景
+	EVENT_TRANS_CHECK_RES,				//传送校验结果（通知源逻辑节点，跨逻辑节点传送之校验结果）
+	EVENT_TRANS_PREPARE,				//准备传送（跨逻辑节点传送 校验完了之后，准备传送）
+	EVENT_TRANS_SUCCESS,				//传送成功（跨逻辑节点传送 目标逻辑节点成功收到传送参数信息）
+	EVENT_CHANGE_SCENE,					//生物场景改变
 
-    ////////////////////////任务事件/////////////////////////
-    EVENT_ACCEPT_TASK,					//接取任务
+	////////////////////////任务事件/////////////////////////
+	EVENT_ACCEPT_TASK,					//接取任务
     EVENT_FINISH_NOT_SUMIT_TASK,		//完成任务但是还没有提交
-    EVENT_FINISH_TASK,					//完成任务
-    //////////////////////////////////////////////////////////////////////////
-    
-    ////////////////////////副本事件///////////////////////////
-    EVENT_PASS_DUPLICATE,				//通关副本
-    EVENT_ENTER_DUPLICATE,				//进入副本
-    EVENT_INSPIRE_DUPLICATE,			//副本鼓舞
-    EVENT_SWEEP_DUPLICATE,				//扫荡副本
+	EVENT_FINISH_TASK,					//完成任务
+	//////////////////////////////////////////////////////////////////////////
+
+	////////////////////////副本事件///////////////////////////
+	EVENT_PASS_DUPLICATE,				//通关副本
+	EVENT_ENTER_DUPLICATE,				//进入副本
+	EVENT_INSPIRE_DUPLICATE,			//副本鼓舞
+	EVENT_SWEEP_DUPLICATE,				//扫荡副本
     EVENT_WAVE_DUPLICATE,               //副本怪物波次变化
-    
-    ////////////////////////物品装备事件////////////////////////
-    EVENT_EQUP_STREN,					//装备强化
-    EVENT_ITEM_CHANGE,					//物品改变
-    EVENT_ITEM_USE,						//使用物品
-    EVENT_PICK_ITEM,					//拾取事件
-    EVENT_EQUIP_REFINE,					//装备精炼
-    EVENT_STONE_INLAY,					//镶嵌宝石
-    EVENT_EQUIP_DRESS,					//装备穿戴
+
+	////////////////////////物品装备事件////////////////////////
+	EVENT_EQUP_STREN,					//装备强化
+	EVENT_ITEM_CHANGE,					//物品改变
+	EVENT_ITEM_USE,						//使用物品
+	EVENT_PICK_ITEM,					//拾取事件
+	EVENT_EQUIP_REFINE,					//装备精炼
+	EVENT_STONE_INLAY,					//镶嵌宝石
+	EVENT_EQUIP_DRESS,					//装备穿戴
     EVENT_EQUIP_DRESS_SUIT,				//装备穿戴 套装
     EVENT_EQUIP_SCORE_CHANGE,			//装备评分
-    EVENT_MATERIAL_COMPOSE,				//材料合成
-    EVENT_MATERIAL_COMPOSE_FAIL,		//材料合成失败
-    ////////////////////////好友事件//////////////////////////////
-    EVENT_ADD_FRIEND,					//添加好友事件   2019.6.27 修改
+	EVENT_MATERIAL_COMPOSE,				//材料合成
+	EVENT_MATERIAL_COMPOSE_FAIL,		//材料合成失败
+	////////////////////////好友事件//////////////////////////////
+	EVENT_ADD_FRIEND,					//添加好友事件   2019.6.27 修改
     EVENT_RELATION_GIVE,                //好友送礼
-    ////////////////////////成就事件//////////////////////////////
-    EVENT_FINISH_ACHIVEMENT,			//领取成就
-    EVENT_ADD_ACHIVEMENT_PROGRESS,      //成就进度增加
-    
-    ///////////////////////竞技场事件/////////////////////////////
-    EVENT_ARENA_LEVEL_UP,				//竞技场排名提升
-    EVENT_ARENA_RESULT,					//挑战竞技场		胜负、层数、是否连续7天位于竞技场第2的位置上(尼玛)
-    EVENT_ARENA_JOIN,					//参加竞技场事件
-    EVENT_ARENA_SCORE_CHANGE,			//积分改变
-    
-    ///////////////////////活动相关////////////////////////////////
-    EVENT_ACT_OPEN,                     //活动开启
+	////////////////////////成就事件//////////////////////////////
+	EVENT_FINISH_ACHIVEMENT,			//领取成就
+	EVENT_ADD_ACHIVEMENT_PROGRESS,      //成就进度增加
+
+	///////////////////////竞技场事件/////////////////////////////
+	EVENT_ARENA_LEVEL_UP,				//竞技场排名提升
+	EVENT_ARENA_RESULT,					//挑战竞技场		胜负、层数、是否连续7天位于竞技场第2的位置上(尼玛)
+	EVENT_ARENA_JOIN,					//参加竞技场事件
+	EVENT_ARENA_SCORE_CHANGE,			//积分改变
+
+	///////////////////////活动相关////////////////////////////////
+	EVENT_ACT_OPEN,                     //活动开启
     EVENT_ACT_CLOSE,                    //活动关闭
     EVENT_ACT_PRE_FINISH,               //活动提前完成
-    ///////////////////////聊天事件////////////////////////////////
-    EVENT_CHAT,							//聊天				channel、是否发送坐标
-    
-    ///////////////////////帮派事件////////////////////////////////
-    EVENT_GUILD_CHANGE,					//帮派改变
+	///////////////////////聊天事件////////////////////////////////
+	EVENT_CHAT,							//聊天				channel、是否发送坐标
+
+	///////////////////////帮派事件////////////////////////////////
+	EVENT_GUILD_CHANGE,					//帮派改变
     EVENT_DISMISS_GUILD,				//帮派解散
-    
-    
-    EVENT_FUNCTIONUNLOCK,				//功能解锁
-    
-    
-    EVENT_EQUIP_UNDRESS,				//装备卸装
-    
-    EVENT_GROW_PART_ACTIVE,					//养成激活事件
-    EVENT_GROW_PART_LVUP,					//养成升级事件
-    EVENT_GROW_PART_DRESS,					//穿戴外观部件
-    
+
+
+	EVENT_FUNCTIONUNLOCK,				//功能解锁
+
+
+	EVENT_EQUIP_UNDRESS,				//装备卸装
+
+	EVENT_GROW_PART_ACTIVE,					//养成激活事件
+	EVENT_GROW_PART_LVUP,					//养成升级事件
+	EVENT_GROW_PART_DRESS,					//穿戴外观部件
+
     EVENT_WING_FIGHT_CHANGE,			//翅膀战力改变事件
     EVENT_TREASURE_FIGHT_CHANGE,        //宝具战力改变事件
     EVENT_PARTNER_FIGHT_CHANGE,			//伙伴战力改变事件
     EVENT_ARTIFACT_FIGHT_CHANGE,        //神器战力改变事件
-    
+
     EVENT_WING_FANTASY,					//翅膀幻化事件
     EVENT_TREASURE_FANTASY,				//宝具幻化事件
     EVENT_ARTIFACT_FANTASY,				//神器幻化事件
     EVENT_PARTNER_FANTASY,				//幻伙伴化事件
-    
+
     EVENT_WING_ADVANCE,                 //翅膀升级事件
     EVENT_TREASURE_ADVANCE,             //宝具升级事件
     EVENT_ARTIFACT_ADVANCE,             //神器升级事件
     EVENT_PARTNER_ADVANCE,              //幻伙升级事件
-    EVENT_KILL_BOSS,					//击杀BOSS事件
+	EVENT_KILL_BOSS,					//击杀BOSS事件
     EVENT_DAILY_BACK,				    //每日找回事件
     EVENT_CONVOY_ESCORT,				//护送镖车事件
     EVENT_CONVOY_ESCORT_CMPT,			//护送镖车事件
@@ -166,10 +160,10 @@ enum EventId
     //坐骑事件
     EVENT_MOUNT_LEVELUP,				//坐骑升级
     EVENT_MOUNT_OPEN_MOUNT_EGG_SLOT,    //宠物蛋孵化槽位
-    
+
     EVENT_OCCUPATION_LEVELUP,           //转职几转完成
-    
-    
+
+
     EVENT_GET_PET,                      //获得一个宠物
     EVENT_PET_STEPLV,                   //宠物进阶升级
     EVENT_PET_LV,                       //宠物升级
@@ -182,13 +176,13 @@ enum EventId
     //助战
     EVENT_ASSIST_MONSTER_RECALC_HURT,   //可援助怪物重新计算血量
     EVENT_LOGIN_DAY,                    //登陆天数事件
-    
+
     //神魔
     EVENT_GODE_EVIL_ACTIVE,             //激活神魔系统
     EVENT_WASH_UNLOCK,                  //洗练解锁
     EVENT_WASH,                         //洗练
     EVENT_WASH_QUALITY,                 //洗练洗练属性整体修改
-    
+
     EVENT_LIGHT_SOUL,                   //点亮龙魂
     //神机装备
     EVENT_BEQ_DECOMPOSE,                //神机装备分解事件
@@ -198,7 +192,7 @@ enum EventId
     EVENT_BEQ_BREAK_LVUP,               //神机装备槽位铭刻升级事件
     EVENT_BEQ_AWAKEN_LVUP,              //神机装备觉醒升级事件
     EVENT_BEQ_CMPT_TASK,                //完成并领取了神机装备前置任务
-    
+
     //采集
     EVENT_COLLECT,                      //采集
     //结婚
@@ -212,34 +206,39 @@ enum EventId
     //天机普
     EVENT_GOD_RELICS_FINISH,            //天机普任务完成
     EVENT_GOD_RELICS_GROUP_FINISH,      //天神遗物完成
-    
+
     //天神
     EVENT_DEITY_FANTASY_ACTIVE,         //激活一个天神
     EVENT_DEITY_FANTASY_BATTLE,         //出战天神
     //战队
     EVENT_CLAN_CREATE,                  //创建战队
     EVENT_JOIN_CLAN,                    //加入团队
-    
+
     //修真
     EVENT_PT_LEVELUP,                   //仙阶升级
-    
+
     EVENT_DRAGONSOUL_DRESS,				//装备穿戴龙魂
     EVENT_DRAGONSOUL_ACTIVE_SLOT,		//激活龙魂核心孔
     EVENT_HANDBOOK_BEAST_ACTIVE,        //激活图鉴神兽
     EVENT_ANCIENT_LEVELUP,              //上古神灵
-    
+
     EVENT_MAGIC_SUM_CHANGE,             //魔晶累计
     EVENT_VERSION_ID_CHANGE,            //版本号修改
     EVENT_WELFARE_QIFU,                 //福利祈福
     EVENT_FACTION_TRANS,                //公会传功
     EVENT_WASH_PARTY,                   //瑶池
-    
+
     EVENT_TURN_CMPT_TASK,                //完成并领取了转生装备前置任务
     EVENT_SOUL_CMPT_TASK,                //完成并领取了战魂前置任务
-    
-    EVENT_ID_LIMIT = 255,				//事件ID最大值
-    
-    
+    EVENT_TURN_CHG,                     //完成转生
+
+	EVENT_BATTLE_PASS_XIAN_CE,			//福缘仙册
+	EVENT_BATTLE_PASS_PASS_BAODING,		//举世宝鼎
+    EVENT_DEITY_FIGHT_CHANGE,          //天神战力改变事件
+    EVENT_BEAST_FIGHT_CHANGE,          //神兽战力改变事件
+	EVENT_ID_LIMIT = 255,				//事件ID最大值
+
+
 };
 
 
@@ -314,10 +313,7 @@ struct DressEquipChangeEvent
 {
 };
 
-struct EquipScoreChangeEvent
-{
-    uint64_t all_score = 0;
-};
+
 
 struct DressEquipSuitEvent
 {

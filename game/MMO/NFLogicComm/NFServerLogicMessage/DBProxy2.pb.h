@@ -46,6 +46,7 @@ class RoleEnterSceneData;
 class RoleDBName;
 class tbSnsGlobal;
 class tbSnsTeam;
+class tbSnsRank;
 
 // ===================================================================
 
@@ -1063,6 +1064,103 @@ class tbSnsTeam : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static tbSnsTeam* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class tbSnsRank : public ::google::protobuf::Message {
+ public:
+  tbSnsRank();
+  virtual ~tbSnsRank();
+
+  tbSnsRank(const tbSnsRank& from);
+
+  inline tbSnsRank& operator=(const tbSnsRank& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const tbSnsRank& default_instance();
+
+  void Swap(tbSnsRank* other);
+
+  // implements Message ----------------------------------------------
+
+  tbSnsRank* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const tbSnsRank& from);
+  void MergeFrom(const tbSnsRank& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 id() const;
+  inline void set_id(::google::protobuf::uint64 value);
+
+  // optional bytes data = 2;
+  inline bool has_data() const;
+  inline void clear_data();
+  static const int kDataFieldNumber = 2;
+  inline const ::std::string& data() const;
+  inline void set_data(const ::std::string& value);
+  inline void set_data(const char* value);
+  inline void set_data(const void* value, size_t size);
+  inline ::std::string* mutable_data();
+  inline ::std::string* release_data();
+  inline void set_allocated_data(::std::string* data);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.tbSnsRank)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_data();
+  inline void clear_has_data();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 id_;
+  ::std::string* data_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProxy2_2eproto();
+  friend void protobuf_AssignDesc_DBProxy2_2eproto();
+  friend void protobuf_ShutdownFile_DBProxy2_2eproto();
+
+  void InitAsDefaultInstance();
+  static tbSnsRank* default_instance_;
 };
 // ===================================================================
 
@@ -2214,6 +2312,102 @@ inline ::google::protobuf::uint64 tbSnsTeam::team_id() const {
 inline void tbSnsTeam::set_team_id(::google::protobuf::uint64 value) {
   set_has_team_id();
   team_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// tbSnsRank
+
+// optional uint64 id = 1;
+inline bool tbSnsRank::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void tbSnsRank::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void tbSnsRank::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void tbSnsRank::clear_id() {
+  id_ = GOOGLE_ULONGLONG(0);
+  clear_has_id();
+}
+inline ::google::protobuf::uint64 tbSnsRank::id() const {
+  return id_;
+}
+inline void tbSnsRank::set_id(::google::protobuf::uint64 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// optional bytes data = 2;
+inline bool tbSnsRank::has_data() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void tbSnsRank::set_has_data() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void tbSnsRank::clear_has_data() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void tbSnsRank::clear_data() {
+  if (data_ != &::google::protobuf::internal::kEmptyString) {
+    data_->clear();
+  }
+  clear_has_data();
+}
+inline const ::std::string& tbSnsRank::data() const {
+  return *data_;
+}
+inline void tbSnsRank::set_data(const ::std::string& value) {
+  set_has_data();
+  if (data_ == &::google::protobuf::internal::kEmptyString) {
+    data_ = new ::std::string;
+  }
+  data_->assign(value);
+}
+inline void tbSnsRank::set_data(const char* value) {
+  set_has_data();
+  if (data_ == &::google::protobuf::internal::kEmptyString) {
+    data_ = new ::std::string;
+  }
+  data_->assign(value);
+}
+inline void tbSnsRank::set_data(const void* value, size_t size) {
+  set_has_data();
+  if (data_ == &::google::protobuf::internal::kEmptyString) {
+    data_ = new ::std::string;
+  }
+  data_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* tbSnsRank::mutable_data() {
+  set_has_data();
+  if (data_ == &::google::protobuf::internal::kEmptyString) {
+    data_ = new ::std::string;
+  }
+  return data_;
+}
+inline ::std::string* tbSnsRank::release_data() {
+  clear_has_data();
+  if (data_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = data_;
+    data_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void tbSnsRank::set_allocated_data(::std::string* data) {
+  if (data_ != &::google::protobuf::internal::kEmptyString) {
+    delete data_;
+  }
+  if (data) {
+    set_has_data();
+    data_ = data;
+  } else {
+    clear_has_data();
+    data_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
 }
 
 

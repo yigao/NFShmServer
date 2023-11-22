@@ -661,23 +661,16 @@ void FacadeInfo::OnCalc()
     CHECK_EXPR(pMaster, , "");
     if (m_facadeType == proto_ff::FACADE_WING_TYPE)
     {
-        //���ս���ı��¼�
         proto_ff::WingFightChgEvent chgEvent;
         chgEvent.set_cid(pMaster->Cid());
         chgEvent.set_fight(GetFightValue());
         if (chgEvent.fight() > 0)
         {
-            NFRankPart* pRankPart = dynamic_cast<NFRankPart*>(pMaster->GetPart(PART_RANK));
-            if (pRankPart)
-            {
-                pRankPart->UpdateRank(RANK_TYPE_WING_FIGHT, chgEvent.fight());
-            }
             pMaster->FireExecute(NF_ST_LOGIC_SERVER, EVENT_WING_FIGHT_CHANGE, CREATURE_PLAYER, pMaster->Cid(), chgEvent);
         }
     }
     else if (m_facadeType == proto_ff::FACADE_TREASURE_TYPE)
     {
-        //ս���ı��¼�
         proto_ff::TreasureFightChgEvent chgEvent;
         chgEvent.set_cid(pMaster->Cid());
         chgEvent.set_fight(GetFightValue());
@@ -688,7 +681,6 @@ void FacadeInfo::OnCalc()
     }
     else if (m_facadeType == proto_ff::FACADE_ARTIFACT_TYPE)
     {
-        //ս���ı��¼�
         proto_ff::ArtifactFightChgEvent chgEvent;
         chgEvent.set_cid(pMaster->Cid());
         chgEvent.set_fight(GetFightValue());
@@ -699,7 +691,6 @@ void FacadeInfo::OnCalc()
     }
     else if (m_facadeType == proto_ff::FACADE_PARTNER_TYPE)
     {
-        //ս���ı��¼�
         proto_ff::PartnerFightChgEvent chgEvent;
         chgEvent.set_cid(pMaster->Cid());
         chgEvent.set_fight(GetFightValue());

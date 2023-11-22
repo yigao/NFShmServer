@@ -8,6 +8,9 @@
 // -------------------------------------------------------------------------
 
 #include "NFCreature.h"
+
+#include <NFLogicCommon/NFEventDefine2.h>
+
 #include "Scene/NFGrid.h"
 #include "Scene/NFScene.h"
 #include "NFComm/NFCore/NFTime.h"

@@ -13,6 +13,7 @@
 #include "Map/NFMap.h"
 #include "DescStore/MapMapDesc.h"
 #include "NFLogicCommon/NFEventDefine.h"
+#include "NFLogicCommon/NFEventDefine2.h"
 #include "NFComm/NFCore/NFTime.h"
 #include "ClientServerCmd.pb.h"
 #include "NFLogicCommon/Attr/NFAttrMgr.h"
