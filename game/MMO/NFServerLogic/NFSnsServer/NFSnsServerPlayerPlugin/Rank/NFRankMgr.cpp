@@ -414,7 +414,10 @@ int NFRankMgr::LoadAllRank()
 
 NFCommonRank* NFRankMgr::CreateRankList(uint32_t nType)
 {
-    auto pRank = NFCommonRank::CreateObj(m_pObjPluginManager);
+    auto pRank = GetRankList(nType);
+    CHECK_EXPR(pRank, pRank, "nType:{} exist", nType);
+
+    pRank = NFCommonRank::CreateObj(m_pObjPluginManager);
     CHECK_EXPR(pRank, NULL, "CreateRankList Failed, nType:{}", nType);
     pRank->InitRank(nType);
     return pRank;

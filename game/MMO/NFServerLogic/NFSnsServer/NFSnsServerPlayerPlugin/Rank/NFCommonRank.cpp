@@ -45,7 +45,7 @@ int NFCommonRank::LoadFromDB(const std::string& dbData)
 {
     proto_ff::RankTypeDBData rankData;
     bool ok = rankData.ParseFromString(dbData);
-    CHECK_EXPR(ok, -1, "Parse Failed, rankType", m_rankType);
+    CHECK_EXPR(ok, -1, "Parse Failed, rankType:{}", m_rankType);
     CHECK_EXPR(rankData.ranktype() == (int)m_rankType, -1, "Parse Error, pb rank type:{} != rank type:{}", rankData.ranktype(), m_rankType);
 
     for (int32_t i = 0; i < rankData.nodelist_size(); ++i)
@@ -89,6 +89,7 @@ int NFCommonRank::SaveToDB(std::string& dbData)
             }
         }
     }
+    dbData = rankData.SerializeAsString();
 
     return 0;
 }
