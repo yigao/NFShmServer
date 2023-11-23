@@ -120,6 +120,16 @@ public:
     size_t left_size() const { return m_hashTable.left_size(); }
 
     void debug_string() { m_hashTable.debug_string(); }
+
+    iterator get_iterator(int idx)
+    {
+        return m_hashTable.get_iterator(idx);
+    }
+
+    const_iterator get_iterator(int idx) const
+    {
+        return m_hashTable.get_iterator(idx);
+    }
 public:
     std::pair<iterator, bool> insert(const value_type &__obj) { return m_hashTable.insert_unique(__obj); }
     std::pair<iterator, bool> emplace(const key_type&__key, const data_type& __data) { return m_hashTable.insert_unique(MakePair(__key, __data)); }
@@ -297,6 +307,16 @@ public:
     bool full() const { return m_hashTable.full(); }
 
     size_t left_size() const { return m_hashTable.left_size(); }
+
+    iterator get_iterator(int idx)
+    {
+        return m_hashTable.get_iterator(idx);
+    }
+
+    const_iterator get_iterator(int idx) const
+    {
+        return m_hashTable.get_iterator(idx);
+    }
 public:
     iterator insert(const value_type &__obj) { return m_hashTable.insert_equal(__obj); }
 

@@ -48,6 +48,7 @@ int MonsterMonsterDesc::Load(NFResDB *pDB)
 		return -2;
 	}
 
+	m_minId = INVALID_ID;
 	for (int i = 0; i < (int)table.e_monstermonster_list_size(); i++)
 	{
 		const proto_ff::E_MonsterMonster& desc = table.e_monstermonster_list(i);
@@ -56,6 +57,19 @@ int MonsterMonsterDesc::Load(NFResDB *pDB)
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;
 		}
+
+		if (m_minId == INVALID_ID)
+		{
+			m_minId = desc.has_m_monsterid();
+		}
+		else
+		{
+			if (desc.has_m_monsterid() < m_minId)
+			{
+				m_minId = desc.has_m_monsterid();
+			}
+		}
+
 		//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", desc.Utf8DebugString());
 		if (m_astDescMap.find(desc.m_monsterid()) != m_astDescMap.end())
 		{
@@ -76,6 +90,22 @@ int MonsterMonsterDesc::Load(NFResDB *pDB)
 		CHECK_EXPR_ASSERT(pDesc, -1, "m_astDescMap Insert Failed desc.id:{}", desc.m_monsterid());
 		pDesc->read_from_pbmsg(desc);
 		CHECK_EXPR_ASSERT(GetDesc(desc.m_monsterid()) == pDesc, -1, "GetDesc != pDesc, id:{}", desc.m_monsterid());
+	}
+
+	for(int i = 0; i < (int)m_astDescIndex.size(); i++)
+	{
+		m_astDescIndex[i] = INVALID_ID;
+	}
+
+	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
+	{
+		int64_t index = (int64_t)iter->first - (int64_t)m_minId;
+		if (index >= 0 && index < (int64_t)m_astDescIndex.size())
+		{
+			m_astDescIndex[index] = iter.m_curNode->m_self;
+			CHECK_EXPR_ASSERT(iter == m_astDescMap.get_iterator(m_astDescIndex[index]), -1, "index error");
+			CHECK_EXPR_ASSERT(GetDesc(iter->first) == &iter->second, -1, "GetDesc != iter->second, id:{}", iter->first);
+		}
 	}
 
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_monstermonster_list_size());

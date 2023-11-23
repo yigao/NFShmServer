@@ -832,6 +832,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
     desc_file += "\t\treturn -2;\n";
     desc_file += "\t}\n";
     desc_file += "\n";
+    desc_file += "\tm_minId = INVALID_ID;\n";
     desc_file +=
             "\tfor (int i = 0; i < (int)table.e_" + NFStringUtility::Lower(m_excelName) + NFStringUtility::Lower(sheet_name) + "_list_size(); i++)\n";
     desc_file += "\t{\n";
@@ -841,7 +842,19 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
     desc_file += "\t\t{\n";
     desc_file += "\t\t\tNFLogError(NF_LOG_SYSTEMLOG, 0, \"the desc no value, {}\", desc.Utf8DebugString());\n";
     desc_file += "\t\t\tcontinue;\n";
+    desc_file += "\t\t}\n\n";
+    desc_file += "\t\tif (m_minId == INVALID_ID)\n";
+    desc_file += "\t\t{\n";
+    desc_file += "\t\t\tm_minId = desc.has_" + key_en_name + "();\n";
     desc_file += "\t\t}\n";
+    desc_file += "\t\telse\n";
+    desc_file += "\t\t{\n";
+    desc_file += "\t\t\tif (desc.has_" + key_en_name + "() < m_minId)\n";
+    desc_file += "\t\t\t{\n";
+    desc_file += "\t\t\t\tm_minId = desc.has_" + key_en_name + "();\n";
+    desc_file += "\t\t\t}\n";
+    desc_file += "\t\t}\n\n";
+
     desc_file += "\t\t//NFLogTrace(NF_LOG_SYSTEMLOG, 0, \"{}\", desc.Utf8DebugString());\n";
     desc_file += "\t\tif (m_astDescMap.find(desc." + key_en_name + "()) != m_astDescMap.end())\n";
     desc_file += "\t\t{\n";
@@ -865,7 +878,23 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
     desc_file += "\t\tpDesc->read_from_pbmsg(desc);\n";
     desc_file += "\t\tCHECK_EXPR_ASSERT(GetDesc(desc." + key_en_name + "()) == pDesc, -1, \"GetDesc != pDesc, id:{}\", desc." + key_en_name + "());\n";
 
+    desc_file += "\t}\n\n";
+    desc_file += "\tfor(int i = 0; i < (int)m_astDescIndex.size(); i++)\n";
+    desc_file += "\t{\n";
+    desc_file += "\t\tm_astDescIndex[i] = INVALID_ID;\n";
+    desc_file += "\t}\n\n";
+    desc_file += "\tfor(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)\n";
+    desc_file += "\t{\n";
+    desc_file += "\t\tint64_t index = (int64_t)iter->first - (int64_t)m_minId;\n";
+    desc_file += "\t\tif (index >= 0 && index < (int64_t)m_astDescIndex.size())\n";
+    desc_file += "\t\t{\n";
+    desc_file += "\t\t\tm_astDescIndex[index] = iter.m_curNode->m_self;\n";
+    desc_file += "\t\t\tCHECK_EXPR_ASSERT(iter == m_astDescMap.get_iterator(m_astDescIndex[index]), -1, \"index error\");\n";
+    desc_file += "\t\t\tCHECK_EXPR_ASSERT(GetDesc(iter->first) == &iter->second, -1, \"GetDesc != iter->second, id:{}\", iter->first);\n";
+
+    desc_file += "\t\t}\n";
     desc_file += "\t}\n";
+
     for (auto iter = pSheet->m_indexMap.begin(); iter != pSheet->m_indexMap.end(); iter++)
     {
         ExcelSheetIndex &index = iter->second;

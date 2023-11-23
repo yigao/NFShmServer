@@ -48,6 +48,7 @@ int TeamTeamDesc::Load(NFResDB *pDB)
 		return -2;
 	}
 
+	m_minId = INVALID_ID;
 	for (int i = 0; i < (int)table.e_teamteam_list_size(); i++)
 	{
 		const proto_ff::E_TeamTeam& desc = table.e_teamteam_list(i);
@@ -56,6 +57,19 @@ int TeamTeamDesc::Load(NFResDB *pDB)
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;
 		}
+
+		if (m_minId == INVALID_ID)
+		{
+			m_minId = desc.has_m_teamobjectid();
+		}
+		else
+		{
+			if (desc.has_m_teamobjectid() < m_minId)
+			{
+				m_minId = desc.has_m_teamobjectid();
+			}
+		}
+
 		//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", desc.Utf8DebugString());
 		if (m_astDescMap.find(desc.m_teamobjectid()) != m_astDescMap.end())
 		{
@@ -76,6 +90,22 @@ int TeamTeamDesc::Load(NFResDB *pDB)
 		CHECK_EXPR_ASSERT(pDesc, -1, "m_astDescMap Insert Failed desc.id:{}", desc.m_teamobjectid());
 		pDesc->read_from_pbmsg(desc);
 		CHECK_EXPR_ASSERT(GetDesc(desc.m_teamobjectid()) == pDesc, -1, "GetDesc != pDesc, id:{}", desc.m_teamobjectid());
+	}
+
+	for(int i = 0; i < (int)m_astDescIndex.size(); i++)
+	{
+		m_astDescIndex[i] = INVALID_ID;
+	}
+
+	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
+	{
+		int64_t index = (int64_t)iter->first - (int64_t)m_minId;
+		if (index >= 0 && index < (int64_t)m_astDescIndex.size())
+		{
+			m_astDescIndex[index] = iter.m_curNode->m_self;
+			CHECK_EXPR_ASSERT(iter == m_astDescMap.get_iterator(m_astDescIndex[index]), -1, "index error");
+			CHECK_EXPR_ASSERT(GetDesc(iter->first) == &iter->second, -1, "GetDesc != iter->second, id:{}", iter->first);
+		}
 	}
 
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_teamteam_list_size());

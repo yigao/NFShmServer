@@ -41,7 +41,7 @@
 #include "Facade/NFFacadePart.h"
 #include "Facade/NFEquipPart.h"
 #include "Player/NFFactionPart.h"
-#include "Player/NFFestPart.h"
+#include "Fest/NFFestPart.h"
 #include "Player/NFFindTreasurePart.h"
 #include "Player/NFFunctionUnlockPart.h"
 #include "Player/NFGiftPart.h"

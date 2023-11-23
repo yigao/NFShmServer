@@ -33,6 +33,12 @@ public:
     
     int CreateInit()
     {
+        m_minId = INVALID_ID;
+        m_astDescIndex.resize(DescNum*2);
+        for(int i = 0; i < (int)m_astDescIndex.size(); i++)
+        {
+            m_astDescIndex[i] = INVALID_ID;
+        }
         return 0;
     }
     
@@ -49,6 +55,16 @@ public:
     
     const className_s* GetDesc(int64_t id) const
     {
+        int64_t index = id - (int64_t)m_minId;
+        if (index >= 0 && index < (int64_t)m_astDescIndex.size())
+        {
+            auto iter = m_astDescMap.get_iterator(m_astDescIndex[index]);
+            if (iter != m_astDescMap.end())
+            {
+                return &iter->second;
+            }
+        }
+
         auto iter = m_astDescMap.find(id);
         if (iter != m_astDescMap.end())
         {
@@ -149,4 +165,6 @@ public:
     }
 protected:
     NFShmHashMap<uint64_t, className_s, DescNum> m_astDescMap;
+    NFShmVector<int, DescNum*2> m_astDescIndex;
+    int64_t m_minId;
 };

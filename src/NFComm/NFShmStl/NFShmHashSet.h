@@ -109,6 +109,16 @@ public:
     size_t left_size() const { return m_hashTable.left_size(); }
 
     void debug_string() { m_hashTable.debug_string(); }
+
+    iterator get_iterator(int idx)
+    {
+        return m_hashTable.get_iterator(idx);
+    }
+
+    const_iterator get_iterator(int idx) const
+    {
+        return m_hashTable.get_iterator(idx);
+    }
 public:
     pair<iterator, bool> insert(const value_type &__obj)
     {
@@ -273,6 +283,15 @@ public:
 
     iterator end() const { return m_hashTable.end(); }
 
+    iterator get_iterator(int idx)
+    {
+        return m_hashTable.get_iterator(idx);
+    }
+
+    const_iterator get_iterator(int idx) const
+    {
+        return m_hashTable.get_iterator(idx);
+    }
 public:
     iterator insert(const value_type &__obj) { return m_hashTable.insert_equal(__obj); }
 

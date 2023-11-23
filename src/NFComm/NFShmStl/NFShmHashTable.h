@@ -319,7 +319,7 @@ public:
         return iterator(get_node(idx), this);
     }
 
-    const iterator get_iterator(int idx) const
+    const_iterator get_iterator(int idx) const
     {
         return const_iterator(get_node(idx), this);
     }

@@ -116,7 +116,7 @@ public:
         return m_hashTable.get_iterator(idx);
     }
 
-    const iterator get_iterator(int idx) const
+    const_iterator get_iterator(int idx) const
     {
         return m_hashTable.get_iterator(idx);
     }
@@ -296,7 +296,7 @@ public:
         return m_hashTable.get_iterator(idx);
     }
 
-    const iterator get_iterator(int idx) const
+    const_iterator get_iterator(int idx) const
     {
         return m_hashTable.get_iterator(idx);
     }

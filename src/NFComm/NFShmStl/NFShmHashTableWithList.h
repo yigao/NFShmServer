@@ -334,6 +334,11 @@ public:
         return iterator(get_node(idx), this);
     }
 
+    const_iterator get_iterator(int idx) const
+    {
+        return const_iterator(get_node(idx), this);
+    }
+
     int auto_erase(int num)
     {
         int count = 0;
@@ -348,11 +353,6 @@ public:
         }
 
         return count;
-    }
-
-    const iterator get_iterator(int idx) const
-    {
-        return const_iterator(get_node(idx), this);
     }
 
     void swap(NFShmHashTableWithList &__ht)
