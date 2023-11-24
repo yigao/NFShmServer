@@ -88,9 +88,9 @@ enum class ETplType
 //活动状态
 enum EFestState
 {
-    not_open = 0,	//未开启
-    open = 1,		//活动开启
-    end = 2,		//活动结束
+    fest_not_open = 0,	//未开启
+    fest_open = 1,		//活动开启
+    fest_end = 2,		//活动结束
 };
 
 
@@ -127,25 +127,6 @@ enum {
 
 enum {
     FestHuiMengXiYouState_READY = 1, //准备场景配置 配置为muban_play_game order 1
-};
-
-struct XiYouInfo
-{
-    int32_t id = 0;			//muban_play_game  id
-    uint32_t status = FestHuiMengXiYouStatus_Close;
-    
-    void Serialize(Fest_XiYouGlobalDBInfo* pProto)
-    {
-        chk_ne2(pProto);
-        pProto->set_id(id);
-        pProto->set_status(status);
-    }
-    
-    void Deserialize(const Fest_XiYouGlobalDBInfo& proto)
-    {
-        id = proto.id();
-        status = proto.status();
-    }
 };
 
 
