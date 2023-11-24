@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Festival_s.h"
 
-#define MAX_FESTIVAL_MUBAN_ZADAN_NUM 64
+#define MAX_FESTIVAL_MUBAN_ZADAN_NUM 16
 
 class FestivalMuban_zadanDesc : public NFIDescTemplate<FestivalMuban_zadanDesc, proto_ff_s::E_FestivalMuban_zadan_s, EOT_CONST_FESTIVAL_MUBAN_ZADAN_DESC_ID, MAX_FESTIVAL_MUBAN_ZADAN_NUM>
 {

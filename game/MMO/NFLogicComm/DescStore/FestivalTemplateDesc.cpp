@@ -108,6 +108,16 @@ int FestivalTemplateDesc::Load(NFResDB *pDB)
 			CHECK_EXPR_ASSERT(GetDesc(iter->first) == &iter->second, -1, "GetDesc != iter->second, id:{}", iter->first);
 		}
 	}
+	m_FestivalidIndexMap.clear();
+	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
+	{
+		auto pDesc = &iter->second;
+		if(m_FestivalidIndexMap.size() >= m_FestivalidIndexMap.max_size())
+		{
+			CHECK_EXPR_ASSERT(m_FestivalidIndexMap.find(pDesc->m_festivalId) != m_FestivalidIndexMap.end(), -1, "index:festivalId key:{}, space not enough", pDesc->m_festivalId);
+		}
+		m_FestivalidIndexMap[pDesc->m_festivalId].push_back(iter->first);
+	}
 
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_festivaltemplate_list_size());
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
@@ -123,5 +133,21 @@ int FestivalTemplateDesc::CheckWhenAllDataLoaded()
 		CHECK_EXPR_MSG_RESULT((pDesc->m_festivalId <= 0 || FestivalFestivalDesc::Instance()->GetDesc(pDesc->m_festivalId)), result, "can't find the festivalId:{} in the  excel:festival sheet:festival", pDesc->m_festivalId);
 	}
 	return result;
+}
+
+std::vector<const proto_ff_s::E_FestivalTemplate_s*> FestivalTemplateDesc::GetDescByFestivalid(int64_t Festivalid) const
+{
+	std::vector<const proto_ff_s::E_FestivalTemplate_s*> m_vec;
+	auto iter = m_FestivalidIndexMap.find(Festivalid);
+	if(iter != m_FestivalidIndexMap.end())
+	{
+		for(int i = 0; i < (int)iter->second.size(); i++)
+		{
+			auto pDesc = GetDesc(iter->second[i]);
+			CHECK_EXPR_CONTINUE(pDesc, "key:{} GetDesc error:{}", Festivalid, iter->second[i]);
+			m_vec.push_back(pDesc);
+		}
+	}
+	return m_vec;
 }
 

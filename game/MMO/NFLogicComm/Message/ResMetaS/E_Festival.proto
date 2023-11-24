@@ -24,7 +24,7 @@ message E_FestivalFestival
 
 message Sheet_FestivalFestival
 {
-	repeated E_FestivalFestival E_FestivalFestival_List = 1[(yd_fieldoptions.field_arysize)=16];
+	repeated E_FestivalFestival E_FestivalFestival_List = 1[(yd_fieldoptions.field_arysize)=8];
 }
 
 message E_FestivalTemplate
@@ -441,7 +441,7 @@ message E_FestivalMuban_zadan
 
 message Sheet_FestivalMuban_zadan
 {
-	repeated E_FestivalMuban_zadan E_FestivalMuban_zadan_List = 1[(yd_fieldoptions.field_arysize)=64];
+	repeated E_FestivalMuban_zadan E_FestivalMuban_zadan_List = 1[(yd_fieldoptions.field_arysize)=16];
 }
 
 message E_FestivalZadanconstant
