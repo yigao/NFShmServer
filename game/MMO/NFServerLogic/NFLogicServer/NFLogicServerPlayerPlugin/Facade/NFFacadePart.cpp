@@ -612,8 +612,8 @@ void FacadeInfo::calcAttr(MAP_INT32_INT64& allAttr)
     MergeAttr(partAttr, allAttr);
     partAttr.clear();
     
-    MAP_INT32_FLOAT mapattr;  // ����ID-����ֵ
-    MAP_INT32_FLOAT mapattradd;  //�������Լӳ� ����ID-�ӳɰٷֱ�
+    MAP_INT32_FLOAT mapattr;  //
+    MAP_INT32_FLOAT mapattradd;
     for (auto it = allAttr.begin(); it != allAttr.end(); it++)
     {
         int32_t attrId = it->first;
@@ -753,7 +753,7 @@ int NFFacadePart::Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::Rol
     {
         m_facadeInfo[i].Init(this, dbData);
     }
-    
+    calcAttr(false);
     Subscribe(NF_ST_LOGIC_SERVER, EVENT_FUNCTIONUNLOCK, CREATURE_PLAYER, m_pMaster->Cid(), "FacadePart::Init");
     return 0;
 }

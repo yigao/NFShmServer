@@ -17,43 +17,48 @@
 #include "NFComm/NFShmCore/NFShmStaticList.hpp"
 #include "NFComm/NFShmCore/NFShmNodeList.h"
 #include "NFGameCommon/NFPoint2.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
 #define NF_SCENE_GRID_MAX_CREATURE_NUM 20
 
 class NFCreature;
-class NFGrid
+
+class NFGrid : public NFShmObjTemplate<NFGrid, EOT_SCENE_GRID_ID, NFShmObj>
 {
 public:
     NFGrid();
-
-    NFGrid(const NFGrid& grid);
-
+    
     virtual ~NFGrid();
-
+    
     int CreateInit();
-
+    
     int ResumeInit();
 
 public:
-    int UnInit(NFIPluginManager *pPluginManager);
+    int Init(uint32_t x, uint32_t y);
+    int UnInit();
 public:
     /**
      * @brief
      * @param pCreature
      */
-    int AddCreature(NFIPluginManager *pPluginManager, NFCreature* pCreature);
-
+    int AddCreature(NFCreature *pCreature);
+    
     /**
      * @brief
      * @param pCreature
      */
-    int RemoveCreature(NFIPluginManager *pPluginManager, NFCreature* pCreature);
+    int RemoveCreature(NFCreature *pCreature);
 
 public:
     void SetGridPos(NFPoint2<uint32_t> gridPos) { m_gridPos = gridPos; }
+    
     bool IsSame(NFPoint2<uint32_t> pos) { return pos == m_gridPos; }
-    const NFPoint2<uint32_t>& GetGridPos() const { return m_gridPos; }
-    NFShmNodeObjMultiList<NFCreature>& GetCidList() { return m_cidList; }
+    
+    const NFPoint2<uint32_t> &GetGridPos() const { return m_gridPos; }
+    
+    NFShmNodeObjMultiList<NFCreature> &GetCidList() { return m_cidList; }
+
 private:
     NFShmNodeObjMultiList<NFCreature> m_cidList;
     NFPoint2<uint32_t> m_gridPos;

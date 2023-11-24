@@ -22,7 +22,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFShmObjTemplate.h"
 
-#define NF_SCENE_MAX_GRID_NUM 200
+#define NF_SCENE_MAX_GRID_NUM 600
 #define NF_SCENE_MAX_CREATURE_NUM 1000
 
 class NFMap;
@@ -199,6 +199,7 @@ public:
 
 public:
     NFGrid *GetGrid(uint32_t w, uint32_t h);
+    int GetIndex(uint32_t w, uint32_t h);
 
     virtual void GetNineGrid(const NFPoint3<float> &pos, std::vector<NFGrid *> &vecGrid);
 
@@ -217,7 +218,7 @@ private:
     uint64_t m_sceneId;
     uint32_t m_gridMaxWidth;
     uint32_t m_gridMaxHeight;
-    NFShmVector<NFShmVector<NFGrid, NF_SCENE_MAX_GRID_NUM>, NF_SCENE_MAX_GRID_NUM> m_gridList;
+    NFShmVector<int, NF_SCENE_MAX_GRID_NUM> m_gridList;
 private:
     NFShmNodeObjMultiList<NFCreature> m_creatureList;
     NFShmNodeObjMultiList<NFCreature> m_playerList;

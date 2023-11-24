@@ -29,15 +29,6 @@ NFGrid::~NFGrid()
 
 }
 
-NFGrid::NFGrid(const NFGrid& grid)
-{
-    if (this != &grid)
-    {
-        m_cidList = grid.m_cidList;
-        m_gridPos = grid.m_gridPos;
-    }
-}
-
 int NFGrid::CreateInit()
 {
     return 0;
@@ -48,29 +39,36 @@ int NFGrid::ResumeInit()
     return 0;
 }
 
-int NFGrid::AddCreature(NFIPluginManager *pPluginManager, NFCreature *pCreature)
+int NFGrid::AddCreature(NFCreature *pCreature)
 {
     CHECK_NULL(pCreature);
-    m_cidList.AddNode(pPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX, pCreature);
+    m_cidList.AddNode(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX, pCreature);
     return 0;
 }
 
-int NFGrid::RemoveCreature(NFIPluginManager *pPluginManager, NFCreature *pCreature)
+int NFGrid::RemoveCreature(NFCreature *pCreature)
 {
     CHECK_NULL(pCreature);
-    m_cidList.RemoveNode(pPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX, pCreature);
+    m_cidList.RemoveNode(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX, pCreature);
     return 0;
 }
 
-int NFGrid::UnInit(NFIPluginManager *pPluginManager)
+int NFGrid::Init(uint32_t x, uint32_t y)
 {
-    NFCreature* pCreature = m_cidList.GetHeadNodeObj(pPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX);
+    m_gridPos.x = x;
+    m_gridPos.y = y;
+    return 0;
+}
+
+int NFGrid::UnInit()
+{
+    NFCreature* pCreature = m_cidList.GetHeadNodeObj(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX);
     NFCreature* pLastCreautre = NULL;
     while(pCreature)
     {
         pLastCreautre = pCreature;
-        pCreature = m_cidList.GetNextNodeObj(pPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX, pCreature);
-        m_cidList.RemoveNode(pPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX, pLastCreautre);
+        pCreature = m_cidList.GetNextNodeObj(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX, pCreature);
+        m_cidList.RemoveNode(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX, pLastCreautre);
     }
     return 0;
 }

@@ -27,7 +27,6 @@ public:
 
     int ResumeInit();
 public:
-public:
     /**
      * @brief
      * @param pMaster
@@ -50,7 +49,7 @@ public:
      * @param data
      * @return
      */
-    virtual int LoadFromDB(const proto_ff::RoleDBSnsDetail &data);
+    virtual int LoadFromDB(const proto_ff::RoleDBSnsDetail &data) { return 0; }
     
     /**
      * @brief
@@ -59,52 +58,52 @@ public:
     virtual int InitConfig(const proto_ff::RoleDBSnsDetail &data) { return 0; }
     
     /**
-     * @brief �洢DB�������
+     * @brief 存储DB部件入口
      * @param proto
      * @return
      */
-    virtual int SaveDB(proto_ff::RoleDBSnsDetail &dbData);
+    virtual int SaveDB(proto_ff::RoleDBSnsDetail &dbData) { return 0; }
     
     /**
-     * @brief ��½���
+     * @brief 登陆入口
      * @return
      */
     virtual int OnLogin() { return 0; }
     
     /**
-     * @brief �ǳ����
+     * @brief 登出入口
      * @return
      */
     virtual int OnLogout() { return 0; }
     
     /**
-     * @brief �������
+     * @brief 掉线入口
      * @return
      */
     virtual int OnDisconnect() { return 0; }
     
     /**
-     * @brief �������
+     * @brief 重连入口
      * @return
      */
     virtual int OnReconnect() { return 0; }
 
 public:
-    ////////////////////////////////// ÿ����� ÿ��һ��� ˢ�½ӿ� ///////////////////////////////////
+    ////////////////////////////////// 每日零点 每周一零点 刷新接口 ///////////////////////////////////
     /**
-     * @brief ÿ����� ˢ�½ӿ�
+     * @brief 每日零点 刷新接口
      * @return
      */
     virtual int DailyZeroUpdate() { return 0; }
     
     /**
-     * @brief ÿ����� ˢ�½ӿ�
+     * @brief 每日零点 刷新接口
      * @return
      */
     virtual int WeekZeroUpdate() { return 0; }
     
     /**
-     * @brief ÿ��ˢ�½ӿ�
+     * @brief 每月刷新接口
      * @return
      */
     virtual int MonthZeroUpdate() { return 0; }
@@ -117,13 +116,13 @@ public:
 
 public:
     /**
-     * @brief ע��Ҫ��������Ϣ
+     * @brief 注册要处理的消息
      * @return
      */
     virtual int RegisterMessage();
 public:
     /**
-     * @brief �����ͻ�����Ϣ
+     * @brief 处理客户端消息
      * @param unLinkId
      * @param packet
      * @return
@@ -131,13 +130,12 @@ public:
     virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet);
     
     /**
-     * @brief �������Է���������Ϣ
+     * @brief 处理来自服务器的信息
      * @param unLinkId
      * @param packet
      * @return
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
 public:
-    //�ͻ��˺�����������
     int OnRelationInfoReq(uint32_t msgId, NFDataPackage &packet);
 };

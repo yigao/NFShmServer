@@ -23,8 +23,7 @@ NFScene::NFScene()
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {
         CreateInit();
-    }
-    else
+    } else
     {
         ResumeInit();
     }
@@ -42,7 +41,7 @@ int NFScene::CreateInit()
     m_gridMaxWidth = 0;
     m_gridMaxHeight = 0;
     m_mapGlobalId = -1;
-
+    
     //Subscribe(NF_EVENT_CREATE_SCENE_EVENT, 0, 0, NF_MACRO_FUNCTION);
     //SetTimer(100, INVALID_ID, 0, 0, 0, 100);
     return 0;
@@ -68,27 +67,26 @@ int NFScene::Init(uint64_t mapId, uint64_t sceneId)
     NFMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
     CHECK_EXPR(pMap, -1, "GetMap Failed, mapId:{}", mapId);
     CHECK_EXPR(pMap->GetMapCfg(), -1, "GetMap Failed, map");
-
+    
     m_gridMaxWidth = (uint32_t) (pMap->GetWidth() / GRID_LENGTH) + 1;
     m_gridMaxHeight = (uint32_t) (pMap->GetHeight() / GRID_LENGTH) + 1;
-
-    CHECK_EXPR_ASSERT(m_gridMaxWidth <= NF_SCENE_MAX_GRID_NUM, -1,
-                      "m_gridMaxWidth Failed, Not Enough Space, m_gridMaxWidth:{} > NF_SCENE_MAX_GRID_NUM:{}", m_gridMaxWidth, NF_SCENE_MAX_GRID_NUM);
-
-    CHECK_EXPR_ASSERT(m_gridMaxHeight <= NF_SCENE_MAX_GRID_NUM, -1,
-                      "m_gridMaxHeight Failed, Not Enough Space, m_gridMaxHeight:{} > NF_SCENE_MAX_GRID_NUM:{}", m_gridMaxHeight,
-                      NF_SCENE_MAX_GRID_NUM);
-
+    
+    CHECK_EXPR_ASSERT(m_gridMaxWidth * m_gridMaxHeight <= NF_SCENE_MAX_GRID_NUM, -1,
+                      "m_gridMaxWidth*m_gridMaxHeight Failed, Not Enough Space, m_gridMaxWidth:{}*m_gridMaxHeight:{} > NF_SCENE_MAX_GRID_NUM:{}", m_gridMaxWidth, m_gridMaxHeight, NF_SCENE_MAX_GRID_NUM);
+    
     m_mapId = mapId;
     m_mapGlobalId = pMap->GetGlobalId();
     m_sceneId = sceneId;
-    m_gridList.resize(m_gridMaxWidth);
-    for (uint32_t w = 0; w < (uint32_t) m_gridList.size(); w++)
+    m_gridList.resize(m_gridMaxWidth * m_gridMaxHeight);
+    for (uint32_t w = 0; w < m_gridMaxWidth; w++)
     {
-        m_gridList[w].resize(m_gridMaxHeight);
-        for (uint32_t h = 0; h < (uint32_t) m_gridList[w].size(); h++)
+        for (uint32_t h = 0; h < (uint32_t) m_gridMaxHeight; h++)
         {
-            m_gridList[w][h].SetGridPos({w, h});
+            NFGrid *pGrid = NFGrid::CreateObj(m_pObjPluginManager);
+            CHECK_EXPR(pGrid, -1, "NFGrid Space Not Enough");
+            pGrid->Init(w, h);
+            int index = GetIndex(w, h);
+            m_gridList[index] = pGrid->GetGlobalId();
         }
     }
     return 0;
@@ -96,11 +94,16 @@ int NFScene::Init(uint64_t mapId, uint64_t sceneId)
 
 int NFScene::UnInit()
 {
-    for (int w = 0; w < (int) m_gridList.size(); w++)
+    for (int w = 0; w < (int) m_gridMaxWidth; w++)
     {
-        for (int h = 0; h < (int) m_gridList[w].size(); h++)
+        for (int h = 0; h < (int) m_gridMaxHeight; h++)
         {
-            m_gridList[w][h].UnInit(m_pObjPluginManager);
+            auto pGrid = GetGrid(w, h);
+            if (pGrid)
+            {
+                pGrid->UnInit();
+                NFGrid::DestroyObj(m_pObjPluginManager, pGrid);
+            }
         }
     }
     return 0;
@@ -112,26 +115,25 @@ NFMap *NFScene::GetMap() const
     {
         return dynamic_cast<NFMap *>(FindModule<NFISharedMemModule>()->GetObjByObjId(EOT_GAME_MAP_ID, m_mapGlobalId));
     }
-
+    
     return NFMapMgr::Instance(m_pObjPluginManager)->GetMap(m_mapId);
+}
+
+int NFScene::GetIndex(uint32_t w, uint32_t h)
+{
+    return h * m_gridMaxWidth + w;
 }
 
 NFGrid *NFScene::GetGrid(uint32_t w, uint32_t h)
 {
-    if (w < (uint32_t) m_gridList.size())
-    {
-        if (h < (uint32_t) m_gridList[h].size())
-        {
-            return &m_gridList[w][h];
-        }
-    }
-
-    return NULL;
+    int index = GetIndex(w, h);
+    CHECK_EXPR(index >= 0 && index < (int) m_gridList.size(), NULL, "w:{} h:{}", w, h);
+    return NFGrid::GetObjByGlobalId(m_pObjPluginManager, m_gridList[index]);
 }
 
 bool NFScene::IsDynamic() const
 {
-    NFMap* pMap = GetMap();
+    NFMap *pMap = GetMap();
     if (pMap)
     {
         return pMap->IsDynamic();
@@ -144,10 +146,10 @@ NFGrid *NFScene::EnterScene(NFCreature *pCreature, const NFPoint3<float> &pos, S
     CHECK_EXPR(pCreature, NULL, "pCreature == NULL");
     uint32_t gridX = uint32_t(pos.x / GRID_LENGTH);
     uint32_t gridZ = uint32_t(pos.z / GRID_LENGTH);
-
+    
     CHECK_EXPR(gridX < m_gridMaxWidth, NULL, "gridX:{} m_gridMaxWidth:{}", gridX, m_gridMaxWidth);
     CHECK_EXPR(gridZ < m_gridMaxHeight, NULL, "gridX:{} m_gridMaxHeight:{}", gridX, m_gridMaxHeight);
-
+    
     if (NFSceneMgr::Instance(m_pObjPluginManager)->IsClosed(m_sceneId))
     {
         NFLogDebug(NF_LOG_SYSTEMLOG, pCreature->Cid(),
@@ -155,11 +157,14 @@ NFGrid *NFScene::EnterScene(NFCreature *pCreature, const NFPoint3<float> &pos, S
                    pCreature->Cid(), pos.x, pos.y, pos.z, m_sceneId, m_mapId, transParam.transType);
         return NULL;
     }
-
-    m_gridList[gridX][gridZ].AddCreature(m_pObjPluginManager, pCreature);
+    
+    auto pGrid = GetGrid(gridX, gridZ);
+    CHECK_EXPR(pGrid, NULL, "gridX:{} gridZ:{}", gridX, gridZ);
+    
+    pGrid->AddCreature(pCreature);
     AddCreature(pCreature);
-
-    return &m_gridList[gridX][gridZ];
+    
+    return pGrid;
 }
 
 int NFScene::AddMonster(NFCreature *pCreature)
@@ -192,8 +197,7 @@ int NFScene::AddCreature(NFCreature *pCreature)
     if (pCreature->Kind() != CREATURE_PLAYER)
     {
         return AddMonster(pCreature);
-    }
-    else
+    } else
     {
         return AddPlayer(pCreature);
     }
@@ -205,8 +209,7 @@ int NFScene::RemoveCreature(NFCreature *pCreature)
     if (pCreature->Kind() != CREATURE_PLAYER)
     {
         return RemoveMonster(pCreature);
-    }
-    else
+    } else
     {
         return RemovePlayer(pCreature);
     }
@@ -223,8 +226,7 @@ NFCreature *NFScene::GetCreature(uint64_t cid)
             {
                 return NULL;
             }
-        }
-        else
+        } else
         {
             if (!m_creatureList.IsExistNode(pCreature, NF_CREATURE_NODE_LIST_SCENE_INDEX))
             {
@@ -232,32 +234,33 @@ NFCreature *NFScene::GetCreature(uint64_t cid)
             }
         }
     }
-
+    
     return pCreature;
 }
 
 NFGrid *NFScene::MoveInScene(NFCreature *pCreature, const NFPoint3<float> &pos, bool &isSameGrid)
 {
     CHECK_EXPR(pCreature, NULL, "pCreature == NULL");
-
+    
     uint32_t gridX = uint32_t(pos.x / GRID_LENGTH);
     uint32_t gridZ = uint32_t(pos.z / GRID_LENGTH);
     CHECK_EXPR(gridX < m_gridMaxWidth, NULL, "gridX:{} m_gridMaxWidth:{}", gridX, m_gridMaxWidth);
     CHECK_EXPR(gridZ < m_gridMaxHeight, NULL, "gridX:{} m_gridMaxHeight:{}", gridX, m_gridMaxHeight);
     NFGrid *pGrid = pCreature->GetGrid();
     CHECK_EXPR(pGrid, NULL, "pCreature->GetGrid() == NULL");
-
+    
     if (pGrid->IsSame({gridX, gridZ}))
     {
         isSameGrid = true;
         return pGrid;
     }
-
-    NFGrid *pNewGrid = nullptr;
-    pNewGrid = &m_gridList[gridX][gridZ];
-    pGrid->RemoveCreature(m_pObjPluginManager, pCreature);
-    pNewGrid->AddCreature(m_pObjPluginManager, pCreature);
-
+    
+    NFGrid *pNewGrid = GetGrid(gridX, gridZ);
+    CHECK_EXPR(pNewGrid, NULL, "gridX:{} gridZ:{}", gridX, gridZ);
+    
+    pGrid->RemoveCreature(pCreature);
+    pNewGrid->AddCreature(pCreature);
+    
     isSameGrid = false;
     return pNewGrid;
 }
@@ -267,25 +270,25 @@ int NFScene::LeaveScene(NFCreature *pCreature)
     CHECK_EXPR(pCreature, proto_ff::RET_FAIL, "pCreature == NULL");
     NFGrid *pGrid = pCreature->GetGrid();
     CHECK_EXPR(pGrid, proto_ff::RET_FAIL, "pCreature->GetGrid() == NULL");
-
+    
     //先通知九宫格玩家离开
     pCreature->NoticeNineGridLeave();
-    pGrid->RemoveCreature(m_pObjPluginManager, pCreature);
-
+    pGrid->RemoveCreature(pCreature);
+    
     RemoveCreature(pCreature);
-
+    
     proto_ff::LeaveSceneEvent leaveEvent;
     leaveEvent.set_cid(pCreature->Cid());
     leaveEvent.set_sceneid(m_sceneId);
     leaveEvent.set_mapid(m_mapId);
-
+    
     FireExecute(NF_ST_GAME_SERVER, EVENT_LEAVE_SCENE, pCreature->Kind(), m_sceneId, leaveEvent);
-
+    
     proto_ff::ChgSceneEvent chgEvent;
     chgEvent.set_cid(pCreature->Cid());
     chgEvent.set_enterflag(false);
     FireExecute(NF_ST_GAME_SERVER, EVENT_CHANGE_SCENE, 0, pCreature->Cid(), chgEvent);
-
+    
     return proto_ff::RET_SUCCESS;
 }
 
@@ -312,18 +315,21 @@ void NFScene::GetNineGrid(const NFPoint3<float> &srcPos, std::vector<NFGrid *> &
             NFLogError(NF_LOG_SYSTEMLOG, m_sceneId, "g_GetSceneMgr()->GetLayerPoint(i) is null, layer:%d", i);
             return;
         }
-
+        
         for (uint32_t j = 0; j < pVecPoint2->size(); j++)
         {
             gridPos.x = uint32_t(gridX + pVecPoint2->at(j).x);
             gridPos.y = uint32_t(gridZ + pVecPoint2->at(j).y);
-
+            
             if (gridPos.x >= m_gridMaxWidth || gridPos.y >= m_gridMaxHeight)
             {
                 continue;
             }
-
-            vecGrid.push_back(&m_gridList[gridPos.x][gridPos.y]);
+            
+            auto pGrid = GetGrid(gridPos.x, gridPos.y);
+            CHECK_EXPR_CONTINUE(pGrid, "gridPos.x:{} gridPos.y:{}", gridPos.x, gridPos.y);
+            
+            vecGrid.push_back(pGrid);
         }
     }
 }
@@ -341,18 +347,21 @@ void NFScene::GetLayerGrid(uint32_t layer, const NFPoint3<float> &srcPos, std::v
             NFLogError(NF_LOG_SYSTEMLOG, m_sceneId, "g_GetSceneMgr()->GetLayerPoint(i) is null, layer:%d", i);
             return;
         }
-
+        
         for (uint32_t j = 0; j < pVecPoint2->size(); j++)
         {
             gridPos.x = uint32_t(gridX + pVecPoint2->at(j).x);
             gridPos.y = uint32_t(gridZ + pVecPoint2->at(j).y);
-
+            
             if (gridPos.x >= m_gridMaxWidth || gridPos.y >= m_gridMaxHeight)
             {
                 continue;
             }
-
-            vecGrid.push_back(&m_gridList[gridPos.x][gridPos.y]);
+            
+            auto pGrid = GetGrid(gridPos.x, gridPos.y);
+            CHECK_EXPR_CONTINUE(pGrid, "gridPos.x:{} gridPos.y:{}", gridPos.x, gridPos.y);
+            
+            vecGrid.push_back(pGrid);
         }
     }
 }
@@ -363,7 +372,7 @@ uint32_t NFScene::GetGridLayer(uint32_t gridX, uint32_t gridZ, const NFPoint3<fl
     uint32_t addGridZ = (uint32_t(srcPos.z + flength)) / GRID_LENGTH;
     uint32_t reduceGridX = (uint32_t(srcPos.x - flength)) / GRID_LENGTH;
     uint32_t reduceGridZ = (uint32_t(srcPos.z - flength)) / GRID_LENGTH;
-
+    
     uint32_t addCountX = 0;
     uint32_t reduceCountX = 0;
     uint32_t addCountZ = 0;
@@ -372,10 +381,10 @@ uint32_t NFScene::GetGridLayer(uint32_t gridX, uint32_t gridZ, const NFPoint3<fl
     while ((reduceGridX < gridX - reduceCountX)) reduceCountX++;
     while ((addGridZ > gridZ + addCountZ)) addCountZ++;
     while ((reduceGridZ < gridZ - reduceCountZ)) reduceCountZ++;
-
+    
     uint32_t max_X = addCountX > reduceCountX ? addCountX : reduceCountX;
     uint32_t max_Z = addCountZ > reduceCountZ ? addCountZ : reduceCountZ;
-
+    
     return max_X > max_Z ? max_X : max_Z;
 }
 
@@ -384,9 +393,9 @@ void NFScene::GetLayerGrid(const NFPoint3<float> &srcPos, float flength, std::ve
     uint32_t gridX = uint32_t(srcPos.x / GRID_LENGTH);
     uint32_t gridZ = uint32_t(srcPos.z / GRID_LENGTH);
     uint32_t layer = GetGridLayer(gridX, gridZ, srcPos, flength);
-
+    
     layer = layer > MAX_LAYER ? MAX_LAYER : layer;
-
+    
     GetLayerGrid(layer, srcPos, vecGrid);
 }
 
@@ -398,7 +407,7 @@ int NFScene::FindDoubleSeeLstInNineGrid(NFCreature *pSrc, std::vector<NFCreature
     for (size_t i = 0; i < vecGrid.size(); i++)
     {
         auto &gridCidlst = vecGrid[i]->GetCidList();
-
+        
         for (NFCreature *pCreature = gridCidlst.GetHeadNodeObj(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX);
              pCreature != nullptr; pCreature = gridCidlst.GetNextNodeObj(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX, pCreature))
         {
@@ -409,17 +418,17 @@ int NFScene::FindDoubleSeeLstInNineGrid(NFCreature *pSrc, std::vector<NFCreature
                 {
                     continue;
                 }
-
+                
                 if (srcCreatureKind != CREATURE_PLAYER && dstCreatureKind != CREATURE_PLAYER)
                 {
                     continue;
                 }
-
+                
                 if (pCreature->GetVisionData().chVisionUnitType == (int8_t) EVisionFlag::ALREADY)
                 {
                     continue;
                 }
-
+                
                 float dict = NFMath::NFPoint2LengthSquare(srcPos, pCreature->GetPos());
                 if (!pSrc->ViewFliter(pCreature, dict))
                 {
@@ -428,7 +437,7 @@ int NFScene::FindDoubleSeeLstInNineGrid(NFCreature *pSrc, std::vector<NFCreature
             }
         }
     }
-
+    
     return 0;
 }
 
@@ -436,14 +445,14 @@ int NFScene::FindSeeLstInNineGrid(NFCreature *pSrc, std::vector<NFCreature *> *c
 {
     std::vector<NFGrid *> vecGrid;
     GetNineGrid(srcPos, vecGrid);
-
+    
     uint32_t nMax = MAX_SEE_CREATURE_COUNT_IN_THE_VISION - pSrc->GetVisionData().m_doublePVPSeeLst.size();
     float sixteenOfSightDictSquare = MAX_CHARACTER_SINGLERANGE_SQUARE / 16;
     float fourOfSightDictSquare = MAX_CHARACTER_SINGLERANGE_SQUARE / 4;
     for (size_t i = 0; i < vecGrid.size(); i++)
     {
         auto &gridCidlst = vecGrid[i]->GetCidList();
-
+        
         for (NFCreature *pCreature = gridCidlst.GetHeadNodeObj(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX);
              pCreature != nullptr; pCreature = gridCidlst.GetNextNodeObj(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX, pCreature))
         {
@@ -454,23 +463,21 @@ int NFScene::FindSeeLstInNineGrid(NFCreature *pSrc, std::vector<NFCreature *> *c
                 {
                     continue;
                 }
-
+                
                 float dict = NFMath::NFPoint2LengthSquare(pSrc->GetPos(), pCreature->GetPos());
                 if (!pSrc->ViewFliter(pCreature, dict))
                 {
                     if (dict < sixteenOfSightDictSquare)
                     {
                         clist[NEW_SEE_VISION_LESS_HALF_OF_HALF_MAX_SIGHT_RANGE].push_back(pCreature);
-                    }
-                    else if (dict < fourOfSightDictSquare)
+                    } else if (dict < fourOfSightDictSquare)
                     {
                         clist[NEW_SEE_VISION_LESS_HALF_OF_MAX_SIGHT_RANGE].push_back(pCreature);
-                    }
-                    else
+                    } else
                     {
                         clist[NEW_SEE_VISION_THAN_HALF_OF_MAX_SIGHT_RANGE].push_back(pCreature);
                     }
-
+                    
                     if (clist[NEW_SEE_VISION_LESS_HALF_OF_HALF_MAX_SIGHT_RANGE].size() +
                         clist[NEW_SEE_VISION_LESS_HALF_OF_MAX_SIGHT_RANGE].size() +
                         clist[NEW_SEE_VISION_THAN_HALF_OF_MAX_SIGHT_RANGE].size() >= (uint32_t) nMax)
@@ -497,52 +504,52 @@ int NFScene::FindCreatureInScene(SET_Creature &setcreature, const NFPoint3<float
 int NFScene::FindCreatureInCircle(LIST_UINT64 &clist, const NFPoint3<float> &srcPos, float flength, uint32_t creatureCount /* = 0 */)
 {
     std::vector<NFGrid *> vecGrid;
-
+    
     GetLayerGrid(srcPos, flength, vecGrid);
-
+    
     for (size_t i = 0; i < vecGrid.size(); i++)
     {
         if (vecGrid[i] == NULL) continue;
-
+        
         GridCreaturesWithCircle(clist, vecGrid[i], srcPos, flength, creatureCount);
-
+        
         if (creatureCount > 0 && clist.size() >= creatureCount)
             return 0;
     }
-
+    
     return 0;
 }
 
 int NFScene::GridCreaturesWithCircle(LIST_UINT64 &clist, NFGrid *pGrid, const NFPoint3<float> &srcPos, float flength, uint32_t creatureCount)
 {
     auto &gridCidlst = pGrid->GetCidList();
-
+    
     for (NFCreature *pCreature = gridCidlst.GetHeadNodeObj(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX);
          pCreature != nullptr; pCreature = gridCidlst.GetNextNodeObj(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX, pCreature))
     {
         if (creatureCount > 0 && clist.size() >= creatureCount) return 0;
-
+        
         NFPoint3<float> dstPos = pCreature->GetPos();
-
+        
         if (NFMath::InCircle(dstPos, srcPos, flength + pCreature->GetModelRadius()))
             AddRangeLstCids(clist, srcPos, pCreature, creatureCount);
     }
-
+    
     return 0;
 }
 
 int NFScene::FindCreatureInCircle(SET_Creature &setcreature, const NFPoint3<float> &srcPos, float flength, uint32_t creatureCount)
 {
     std::vector<NFGrid *> vecGrid;
-
+    
     GetLayerGrid(srcPos, flength, vecGrid);
-
+    
     for (size_t i = 0; i < vecGrid.size(); i++)
     {
         if (vecGrid[i] == NULL) continue;
-
+        
         GridCreaturesWithCircle(setcreature, vecGrid[i], srcPos, flength, creatureCount);
-
+        
         if (creatureCount > 0 && setcreature.size() >= creatureCount)
             return 0;
     }
@@ -553,18 +560,18 @@ int NFScene::GridCreaturesWithCircle(SET_Creature &setcreature, NFGrid *pGrid, c
                                      uint32_t creatureCount /* = 0 */)
 {
     auto &gridCidlst = pGrid->GetCidList();
-
+    
     for (NFCreature *pCreature = gridCidlst.GetHeadNodeObj(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX);
          pCreature != nullptr; pCreature = gridCidlst.GetNextNodeObj(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX, pCreature))
     {
         if (creatureCount > 0 && setcreature.size() >= creatureCount) return 0;
-
+        
         NFPoint3<float> dstPos = pCreature->GetPos();
-
+        
         if (NFMath::InCircle(dstPos, srcPos, flength + pCreature->GetModelRadius()))
             AddRangeLstCids(setcreature, srcPos, pCreature, creatureCount);
     }
-
+    
     return 0;
 }
 
@@ -573,21 +580,21 @@ int NFScene::FindCreatureInSector(LIST_UINT64 &clist, const NFPoint3<float> &cen
 {
     float halfAngle = (float) (double(angle / 2) * 3.14159 / 180.0f);
     float cosa = cos(halfAngle);
-
+    
     std::vector<NFGrid *> vecGrid;
-
+    
     GetLayerGrid(center, sectorR, vecGrid);
-
+    
     for (size_t i = 0; i < vecGrid.size(); i++)
     {
         if (vecGrid[i] == NULL) continue;
-
+        
         GridCreaturesWithSector(clist, center, dir, vecGrid[i], cosa, sectorR, creatureCount);
-
+        
         if (creatureCount > 0 && clist.size() >= creatureCount)
             return 0;
     }
-
+    
     return 0;
 }
 
@@ -595,18 +602,18 @@ int NFScene::GridCreaturesWithSector(LIST_UINT64 &clist, const NFPoint3<float> &
                                      float squaredR, uint32_t creatureCount/* = 0*/)
 {
     CHECK_NULL(pGrid);
-
+    
     auto &gridCidlst = pGrid->GetCidList();
-
+    
     for (NFCreature *pCreature = gridCidlst.GetHeadNodeObj(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX);
          pCreature != nullptr; pCreature = gridCidlst.GetNextNodeObj(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX, pCreature))
     {
         if (creatureCount > 0 && clist.size() >= creatureCount) return 0;
-
+        
         if (NFMath::InSector(center, vdir, pCreature->GetPos(), cosAngle, squaredR + pCreature->GetModelRadius()))
             AddRangeLstCids(clist, center, pCreature, creatureCount);
     }
-
+    
     return 0;
 }
 
@@ -619,7 +626,7 @@ int NFScene::AddRangeLstCids(LIST_UINT64 &clist, const NFPoint3<float> &srcPos, 
         clist.push_back(pTarget->Cid());
         return 0;
     }
-
+    
     NFPoint3<float> to = pTarget->GetPos();
     float calNew = (srcPos.x - to.x) * (srcPos.x - to.x) + (srcPos.z - to.z) * (srcPos.z - to.z);
     uint64_t replacedCid = 0; //被替换的生物cid
@@ -646,7 +653,7 @@ int NFScene::AddRangeLstCids(LIST_UINT64 &clist, const NFPoint3<float> &srcPos, 
     }
     if (replacedCid > 0)
         clist.push_back(pTarget->Cid());
-
+    
     return 0;
 }
 
@@ -658,7 +665,7 @@ int NFScene::AddRangeLstCids(SET_Creature &setcreature, const NFPoint3<float> &s
         setcreature.insert(pTarget);
         return 0;
     }
-
+    
     NFPoint3<float> to = pTarget->GetPos();
     float calNew = (srcPos.x - to.x) * (srcPos.x - to.x) + (srcPos.z - to.z) * (srcPos.z - to.z);
     NFCreature *preplaced = nullptr; //被替换的生物
@@ -683,10 +690,10 @@ int NFScene::AddRangeLstCids(SET_Creature &setcreature, const NFPoint3<float> &s
             break;
         }
     }
-
+    
     if (nullptr != preplaced)
         setcreature.insert(pTarget);
-
+    
     return 0;
 }
 
@@ -703,16 +710,16 @@ int NFScene::FindCreatureInRect(LIST_UINT64 &clist, const NFPoint3<float> &cente
                                 float flength, float fwidth, uint32_t creatureCount /* = 0 */)
 {
     std::vector<NFGrid *> vecGrid;
-
+    
     uint32_t maxLength = flength > fwidth ? flength : fwidth;
     GetLayerGrid(searchpos, maxLength, vecGrid);
-
+    
     for (size_t i = 0; i < vecGrid.size(); i++)
     {
         if (vecGrid[i] == NULL) continue;
-
+        
         GridCreaturesWithRect(clist, vecGrid[i], center, dir, flength, fwidth, creatureCount);
-
+        
         if (creatureCount > 0 && clist.size() >= creatureCount)
             return 0;
     }
@@ -727,17 +734,17 @@ int NFScene::FindCreatureInRect(SET_Creature &setcreature, const NFPoint3<float>
     NFPoint3<float> dir = srcDir;
     uint32_t maxLength = flength > fwidth ? flength : fwidth;
     GetLayerGrid(srcPos, maxLength, vecGrid);
-
+    
     for (size_t i = 0; i < vecGrid.size(); i++)
     {
         if (vecGrid[i] == NULL) continue;
-
+        
         GridCreaturesWithRect(setcreature, vecGrid[i], center, dir, flength, fwidth, creatureCount);
-
+        
         if (creatureCount > 0 && setcreature.size() >= creatureCount)
             return 0;
     }
-
+    
     return 0;
 }
 
@@ -745,18 +752,18 @@ int NFScene::GridCreaturesWithRect(LIST_UINT64 &clist, NFGrid *pGrid, const NFPo
                                    float fwidth, uint32_t creatureCount/* = 0*/)
 {
     CHECK_NULL(pGrid);
-
+    
     auto &gridCidlst = pGrid->GetCidList();
-
+    
     for (NFCreature *pCreature = gridCidlst.GetHeadNodeObj(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX);
          pCreature != nullptr; pCreature = gridCidlst.GetNextNodeObj(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX, pCreature))
     {
         if (creatureCount > 0 && clist.size() >= creatureCount) return 0;
-
+        
         if (NFMath::InRect(pCreature->GetPos(), center, flength + pCreature->GetModelRadius(), fwidth + pCreature->GetModelRadius(), dir))
             AddRangeLstCids(clist, center, pCreature, creatureCount);
     }
-
+    
     return 0;
 }
 
@@ -765,12 +772,12 @@ int NFScene::GridCreaturesWithRect(SET_Creature &setcreature, NFGrid *pGrid, con
 {
     CHECK_NULL(pGrid);
     auto &gridCidlst = pGrid->GetCidList();
-
+    
     for (NFCreature *pCreature = gridCidlst.GetHeadNodeObj(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX);
          pCreature != nullptr; pCreature = gridCidlst.GetNextNodeObj(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX, pCreature))
     {
         if (creatureCount > 0 && setcreature.size() >= creatureCount) return 0;
-
+        
         if (NFMath::InRect(pCreature->GetPos(), center, flength + pCreature->GetModelRadius(), fwidth + pCreature->GetModelRadius(), dir))
             AddRangeLstCids(setcreature, center, pCreature, creatureCount);
     }
@@ -781,38 +788,38 @@ int NFScene::GridCreaturesWithRect(SET_Creature &setcreature, NFGrid *pGrid, con
 int NFScene::FindEnemyInCircle(NFCreature *psrc, SET_Creature &setcreature, float fradius, uint32_t creatureCount)
 {
     if (nullptr == psrc || fradius <= EPS) return 0;
-
+    
     NFPoint3<float> srcPos = psrc->GetPos();
-
+    
     std::vector<NFGrid *> vecGrid;
     GetLayerGrid(srcPos, fradius, vecGrid);
-
+    
     for (size_t i = 0; i < vecGrid.size(); i++)
     {
         if (vecGrid[i] == NULL) continue;
-
+        
         auto &gridCidlst = vecGrid[i]->GetCidList();
-
+        
         for (NFCreature *pCreature = gridCidlst.GetHeadNodeObj(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX);
              pCreature != nullptr; pCreature = gridCidlst.GetNextNodeObj(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX, pCreature))
         {
             if (creatureCount > 0 && setcreature.size() >= creatureCount) return 0;
-
+            
             NFPoint3<float> dstPos = pCreature->GetPos();
             //
             if (!NFMath::InCircle(dstPos, srcPos, fradius + pCreature->GetModelRadius())) continue;
-
+            
             if (!psrc->CanAddSeeNewCreature(pCreature, 1)) continue;
-
+            
             setcreature.insert(pCreature);
-
+            
             if (creatureCount > 0 && setcreature.size() >= creatureCount) return 0;
         }
-
+        
         if (creatureCount > 0 && setcreature.size() >= creatureCount)
             return 0;
     }
-
+    
     return 0;
 }
 
@@ -822,7 +829,7 @@ void NFScene::FindPointLstInRect(const NFPoint3<float> &center, VecPoint3 &vecPo
     {
         return;
     }
-
+    
     NFMap *pMap = GetMap();
     if (nullptr == pMap)
     {
@@ -832,7 +839,7 @@ void NFScene::FindPointLstInRect(const NFPoint3<float> &center, VecPoint3 &vecPo
         }
         return;
     }
-
+    
     uint32_t tempcount = 0;
     int32_t idx = 1;
     uint32_t idx_startcount = 0;
@@ -864,12 +871,12 @@ void NFScene::FindPointLstInRect(const NFPoint3<float> &center, VecPoint3 &vecPo
         float fcoef = idx * fwidth;
         float fcoefB = idx * fhigh;
         int32_t exnum = (idx - 1) * 2 + 2;
-
+        
         NFPoint3<float> posa(center.x - fcoef, center.y, center.z + fcoefB);
         NFPoint3<float> posb(center.x + fcoef, center.y, center.z + fcoefB);
         NFPoint3<float> posc(center.x + fcoef, center.y, center.z - fcoefB);
         NFPoint3<float> posd(center.x - fcoef, center.y, center.z - fcoefB);
-
+        
         //
         VecPoint3 vecTmpA;
         vecTmpA.push_back(posa);
@@ -962,7 +969,7 @@ void NFScene::FindPointLstInRect(const NFPoint3<float> &center, VecPoint3 &vecPo
                 if (++count >= pointCnt) return;
             }
         }
-
+        
     } // end of while (true)
 }
 
