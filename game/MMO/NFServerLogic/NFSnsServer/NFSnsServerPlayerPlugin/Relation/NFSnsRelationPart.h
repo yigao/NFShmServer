@@ -49,7 +49,7 @@ public:
      * @param data
      * @return
      */
-    virtual int LoadFromDB(const proto_ff::RoleDBSnsDetail &data) { return 0; }
+    virtual int LoadFromDB(const proto_ff::RoleDBSnsDetail &data);
     
     /**
      * @brief
@@ -62,7 +62,7 @@ public:
      * @param proto
      * @return
      */
-    virtual int SaveDB(proto_ff::RoleDBSnsDetail &dbData) { return 0; }
+    virtual int SaveDB(proto_ff::RoleDBSnsDetail &dbData);
     
     /**
      * @brief 登陆入口
